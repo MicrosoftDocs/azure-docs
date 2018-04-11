@@ -4,15 +4,15 @@ description: Learn how to use Azure Monitor to monitor Data Factory pipelines by
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shlo
 
 ---
@@ -28,7 +28,7 @@ Azure Monitor provides base level infrastructure metrics and logs for most servi
 
 * Save them to a **Storage Account** for auditing or manual inspection. You can specify the retention time (in days) using the diagnostic settings.
 * Stream them to **Event Hubs** for ingestion by a third-party service or custom analytics solution such as PowerBI.
-* Analyze them with **Operations Management Suite (OMS) Log Analytics**
+* Analyze them with **Log Analytics**
 
 You can use a storage account or event hub namespace that is not in the same subscription as the resource that is emitting logs. The user who configures the setting must have the appropriate role-based access control (RBAC) access to both subscriptions.
 
@@ -37,11 +37,11 @@ You can use a storage account or event hub namespace that is not in the same sub
 ### Diagnostic Settings
 Diagnostic Logs for non-compute resources are configured using diagnostic settings. Diagnostic settings for a resource control:
 
-* Where diagnostic logs are sent (Storage Account, Event Hubs, and/or OMS Log Analytics).
+* Where diagnostic logs are sent (Storage Account, Event Hubs, and/or Log Analytics).
 * Which log categories are sent.
 * How long each log category should be retained in a storage account
 * A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
-* If retention policies are set but storing logs in a storage account is disabled (for example, only Event Hubs or OMS options are selected), the retention policies have no effect.
+* If retention policies are set but storing logs in a storage account is disabled (for example, only Event Hubs or Log Analytics options are selected), the retention policies have no effect.
 * Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
 
 ### Enable diagnostic logs via REST APIs
@@ -66,7 +66,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "properties": {
         "storageAccountId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>",
         "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.EventHub/namespaces/<eventHubName>/authorizationrules/RootManageSharedAccessKey",
-        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<OMSName>",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<LogAnalyticsName>",
         "metrics": [
         ],
         "logs": [
@@ -120,7 +120,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```json
 {
-    "id": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
+    "id": "/subscriptions/<subID>/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
     "type": null,
     "name": "service",
     "location": null,
@@ -129,7 +129,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "properties": {
         "storageAccountId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.Storage/storageAccounts/<storageAccountName>",
         "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.EventHub/namespaces/<eventHubName>/authorizationrules/RootManageSharedAccessKey",
-        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.OperationalInsights/workspaces/<OMSName>",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.OperationalInsights/workspaces/<LogAnalyticsName>",
         "eventHubAuthorizationRuleId": null,
         "eventHubName": null,
         "metrics": [],
@@ -184,16 +184,16 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```json
 {
-    "id": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
+    "id": "/subscriptions/<subID>/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
     "type": null,
     "name": "service",
     "location": null,
     "kind": null,
     "tags": null,
     "properties": {
-        "storageAccountId": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourceGroups/shloprivate/providers/Microsoft.Storage/storageAccounts/azmonlogs",
-        "serviceBusRuleId": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourceGroups/shloprivate/providers/Microsoft.EventHub/namespaces/shloeventhub/authorizationrules/RootManageSharedAccessKey",
-        "workspaceId": "/subscriptions/0ee78edb-a0ad-456c-a0a2-901bf542c102/resourceGroups/ADF/providers/Microsoft.OperationalInsights/workspaces/mihaipie",
+        "storageAccountId": "/subscriptions/<subID>/resourceGroups/shloprivate/providers/Microsoft.Storage/storageAccounts/azmonlogs",
+        "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/shloprivate/providers/Microsoft.EventHub/namespaces/shloeventhub/authorizationrules/RootManageSharedAccessKey",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/ADF/providers/Microsoft.OperationalInsights/workspaces/mihaipie",
         "eventHubAuthorizationRuleId": null,
         "eventHubName": null,
         "metrics": [],
@@ -227,7 +227,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-More info here](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+[More info here](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 
 ## Schema of Logs & Events
 
@@ -378,7 +378,7 @@ More info here](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 |start| String | Start of trigger fire in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`|
 |status| String | Final status of whether trigger successfully fired (Succeeded or Failed) | `Succeeded`|
 
-### Metrics
+## Metrics
 
 Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
@@ -394,6 +394,53 @@ ADFV2 emits the following metrics
 | TriggerFailedRuns    | Failed trigger runs metrics     | Count    | Total                | Total trigger runs failed within a minute window      |
 
 To access the metrics, follow the instructions in the article - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+
+## Alerts
+
+You can raise alerts on supported metrics in Data Factory. Click
+the **Alerts** button on the Data Factory **Monitor** page.
+
+![Alerts option](media/monitor-using-azure-monitor/alerts_image1.png)
+
+This takes you to the **Alerts** page.
+
+![Alerts page](media/monitor-using-azure-monitor/alerts_image2.png)
+
+You can also log in to the Azure portal and click **Monitor -&gt; Alerts** to
+reach the **Alerts** page directly.
+
+![Alerts in the portal menu](media/monitor-using-azure-monitor/alerts_image3.png)
+
+### Create Alerts
+
+1.  Click **+ New Alert rule** to create a new alert.
+
+    ![New alert rule](media/monitor-using-azure-monitor/alerts_image4.png)
+
+2.  Define the **Alert condition**.
+
+    > [!NOTE]
+    > Make sure to select **All** in the **Filter by resource type**.
+
+    ![Alert condition, screen 1 of 3](media/monitor-using-azure-monitor/alerts_image5.png)
+
+    ![Alert condition, screen 2 of 3](media/monitor-using-azure-monitor/alerts_image6.png)
+
+    ![Alert condition, screen 3 of 3](media/monitor-using-azure-monitor/alerts_image7.png)
+
+3.  Define the **Alert details**.
+
+    ![Alert details](media/monitor-using-azure-monitor/alerts_image8.png)
+
+4.  Define the **Action group**.
+
+    ![Action group, screen 1 of 4](media/monitor-using-azure-monitor/alerts_image9.png)
+
+    ![Action group, screen 2 of 4](media/monitor-using-azure-monitor/alerts_image10.png)
+
+    ![Action group, screen 3 of 4](media/monitor-using-azure-monitor/alerts_image11.png)
+
+    ![Action group, screen 4 of 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## Next steps
 See [Monitor and manage pipelines programmatically](monitor-programmatically.md) article to learn about monitoring and managing pipelines by running . 

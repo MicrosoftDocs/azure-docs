@@ -23,6 +23,12 @@ When you’re running a web application, you want to be prepared for any issues 
  
 Although this experience is most helpful when you’re having issues with your web app within the last 24 hours, all the diagnostic graphs will be available for you to analyze at all times. Additional troubleshooting tools and links to helpful documentation and forums are located on the right-hand column.
 
+## Open App Service diagnostics
+
+To access App Service diagnostics, navigate to your App Service web app in the [Azure portal](https://portal.azure.com). 
+
+In the left navigation, click on **Diagnose and solve problems**.
+
 ![Homepage](./media/app-service-diagnostics/Homepage1.png)
 
 ## Health checkup
@@ -47,8 +53,3 @@ Whether you want more information after running a [health checkup](#health-check
 
 ![Diagnostic report](./media/app-service-diagnostics/DiagnosticReport5.png)
 
-## Open App Service diagnostics
-
-To access App Service diagnostics, navigate to your App Service web app in the [Azure portal](https://portal.azure.com). 
-
-In the left navigation, click on **Diagnose and solve problems**.

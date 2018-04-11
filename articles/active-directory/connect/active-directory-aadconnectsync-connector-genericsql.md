@@ -3,7 +3,7 @@ title: Generic SQL Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Generic SQL Connector.
 services: active-directory
 documentationcenter: ''
-author: fimguy
+author: billmath
 manager: bhu
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
-ms.author: davidste
+ms.author: billmath
 
 ---
 # Generic SQL Connector technical reference
@@ -149,7 +149,7 @@ Starting in the March 2017 update there is now an option for "*" When this optio
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
 >[!IMPORTANT]
- As of May 2017 the “*” aka **any option** has been changed to support import and export flow. If you want to use this option your multi-valued table/view should have an attribute that contains the object type.
+ As of May 2017 the “\*” aka **any option** has been changed to support import and export flow. If you want to use this option your multi-valued table/view should have an attribute that contains the object type.
 
 ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
 

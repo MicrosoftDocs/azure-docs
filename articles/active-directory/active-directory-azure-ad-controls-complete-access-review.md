@@ -1,4 +1,4 @@
----
+﻿---
 title: Complete an access review of members of a group or users' access to an application with Azure AD| Microsoft Docs
 description: Learn how to complete an access review for members of a group or users with access to an application in Azure Active Directory. 
 services: active-directory
@@ -18,7 +18,7 @@ ms.author: billmath
 # Complete an access review of members of a group or users' access to an application in Azure AD
 
 Administrators can use Azure Active Directory (Azure AD) to [create an access review](active-directory-azure-ad-controls-create-access-review.md) for group members or users assigned to an application. Azure AD automatically sends reviewers an email that prompts them to review access. If a user didn't get an email, you can send them the instructions
-in [Review your access](active-directory-azure-ad-controls-perform-access-review.md). After the access review period is over or if an administrator stops the access review, follow the steps in this article to see and apply the results.
+in [Review your access](active-directory-azure-ad-controls-perform-access-review.md). (Note that guests who are assigned as reviewers but have not accepted the invite will not receive an email from access reviews, as they must first accept an invite prior to reviewing.) After the access review period is over or if an administrator stops the access review, follow the steps in this article to see and apply the results.
 
 ## View an access review in the Azure portal
 
@@ -32,13 +32,15 @@ If the review hasn't reached the scheduled end date, an administrator can select
 
 ## Apply the changes 
 
-After an access review is finished, either because it reached the end date or an administrator stopped it manually, select **Apply**. The outcome of the review is implemented by updating the group or application. If a user's access was denied in the review, when an administrator selects this option, Azure AD removes their membership or application assignment. 
+After an access review is finished, either because it reached the end date or an administrator stopped it manually, and auto-apply wasn't configured for the review, you can select **Apply** to manually apply the changes. The outcome of the review is implemented by updating the group or application. If a user's access was denied in the review, when an administrator selects this option, Azure AD removes their membership or application assignment. 
 
-Selecting **Apply** doesn't have an effect on a group that originates in an on-premises directory or a dynamic group. If you want to change a group that originates on-premises, download the results and apply those changes to the representation of the group in that directory.
+After an access review is finished, and auto-apply was configured, then the status of the review will change from Completed through intermediate states and finally will change to state Applied. You should expect to see denied users, if any, being removed from the resource group membership or app assignment in a few minutes.
+
+A configured auto applying review, or selecting **Apply** doesn't have an effect on a group that originates in an on-premises directory or a dynamic group. If you want to change a group that originates on-premises, download the results and apply those changes to the representation of the group in that directory.
 
 ## Download the results of the review
 
-To retrieve the results of the review, select **Approvals** and then select **Download**. The resulting CSV file can be viewed in Excel or in other programs that open CSV files.
+To retrieve the results of the review, select **Approvals** and then select **Download**. The resulting CSV file can be viewed in Excel or in other programs that open UTF-8 encoded CSV files.
 
 ## Optional: Delete a review
 If you're no longer interested in the review, you can delete it. Select **Delete** to remove the review from Azure AD.

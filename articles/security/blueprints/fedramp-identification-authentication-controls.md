@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Azure Blueprint Automation - Identification and Authentication
-description: Web Applications for FedRAMP - Identification and Authentication
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Identification and Authentication
+description: FedRAMP Web Applications Automation - Identification and Authentication
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
 
 ---
@@ -48,7 +48,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Accounts created by this Azure Blueprint have unique identifiers. Built-in accounts with non-unique identifiers are disabled or removed. |
+| **Customer** | Accounts created by this blueprint have unique identifiers. Built-in accounts with non-unique identifiers are disabled or removed. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -118,7 +118,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | No shared/group accounts are enabled on resources deployed by this Azure Blueprint. |
+| **Customer** | No shared/group accounts are enabled on resources deployed by this blueprint. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -132,7 +132,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Access to resources deployed by this Azure Blueprint is protected from replay attacks by the built-in Kerberos functionality of Azure Active Directory, Active Directory, and the Windows operating system. In Kerberos authentication, the authenticator sent by the client contains additional data, such as an encrypted IP list, client timestamps, and ticket lifetime. If a packet is replayed, the timestamp is checked. If the timestamp is earlier than, or the same as a previous authenticator, the packet is rejected. |
+| **Customer** | Access to resources deployed by this blueprint is protected from replay attacks by the built-in Kerberos functionality of Azure Active Directory, Active Directory, and the Windows operating system. In Kerberos authentication, the authenticator sent by the client contains additional data, such as an encrypted IP list, client timestamps, and ticket lifetime. If a packet is replayed, the timestamp is checked. If the timestamp is earlier than, or the same as a previous authenticator, the packet is rejected. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -146,7 +146,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Access to resources deployed by this Azure Blueprint is protected from replay attacks by the built-in Kerberos functionality of Azure Active Directory, Active Directory, and the Windows operating system. In Kerberos authentication, the authenticator sent by the client contains additional data, such as an encrypted IP list, client timestamps, and ticket lifetime. If a packet is replayed, the timestamp is checked. If the timestamp is earlier than, or the same as a previous authenticator, the packet is rejected. |
+| **Customer** | Access to resources deployed by this blueprint is protected from replay attacks by the built-in Kerberos functionality of Azure Active Directory, Active Directory, and the Windows operating system. In Kerberos authentication, the authenticator sent by the client contains additional data, such as an encrypted IP list, client timestamps, and ticket lifetime. If a packet is replayed, the timestamp is checked. If the timestamp is earlier than, or the same as a previous authenticator, the packet is rejected. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -216,7 +216,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint prompts during deployment for customer-specified identifiers for individual accounts.  |
+| **Customer** | This blueprint prompts during deployment for customer-specified identifiers for individual accounts.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -258,7 +258,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements a scheduled task for Active Directory to automatically disable accounts after 35 days of inactivity. |
+| **Customer** | This blueprint implements a scheduled task for Active Directory to automatically disable accounts after 35 days of inactivity. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -300,7 +300,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | All initial authenticator content for accounts created by this Azure Blueprint meet the requirements stated in IA-5 (1) verified when specified by the customer during deployment.  |
+| **Customer** | All initial authenticator content for accounts created by this blueprint meet the requirements stated in IA-5 (1) verified when specified by the customer during deployment.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -314,7 +314,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Authenticators used by this Azure Blueprint meet requirements for strength as required by FedRAMP. |
+| **Customer** | Authenticators used by this blueprint meet requirements for strength as required by FedRAMP. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -342,7 +342,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | All authenticators for components of this Azure Blueprint have been changed from their defaults. Authenticators are customer-specified during deployment of this solution. |
+| **Customer** | All authenticators for components of this blueprint have been changed from their defaults. Authenticators are customer-specified during deployment of this solution. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -370,7 +370,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to implement password lifetime restrictions (60 days). |
+| **Customer** | This blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to implement password lifetime restrictions (60 days). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -384,7 +384,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements Key Vault to protect authenticator content from unauthorized disclosure and modification. The following authenticators are stored in Key Vault: Azure password for deploy account, virtual machine administrator password, SQL Server service account password. |
+| **Customer** | This blueprint implements Key Vault to protect authenticator content from unauthorized disclosure and modification. The following authenticators are stored in Key Vault: Azure password for deploy account, virtual machine administrator password, SQL Server service account password. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -398,7 +398,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements Key Vault to protect authenticator content from unauthorized disclosure and modification. The following authenticators are stored in Key Vault: Azure password for deploy account, virtual machine administrator password, SQL Server service account password. Key Vault encrypts keys and secrets (such as authentication keys, storage account keys, data encryption keys, and passwords) by using keys that are protected by hardware security modules (HSMs). |
+| **Customer** | This blueprint implements Key Vault to protect authenticator content from unauthorized disclosure and modification. The following authenticators are stored in Key Vault: Azure password for deploy account, virtual machine administrator password, SQL Server service account password. Key Vault encrypts keys and secrets (such as authentication keys, storage account keys, data encryption keys, and passwords) by using keys that are protected by hardware security modules (HSMs). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -412,7 +412,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | No shared/group accounts are enabled on resources deployed by this Azure Blueprint. |
+| **Customer** | No shared/group accounts are enabled on resources deployed by this blueprint. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -426,7 +426,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to enforce password complexity requirements for virtual machine local accounts and AD accounts.  |
+| **Customer** | This blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to enforce password complexity requirements for virtual machine local accounts and AD accounts.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -468,7 +468,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to enforce restrictions on passwords that enforce minimum (1 day) and maximum (60 days) lifetime restrictions for local accounts and AD accounts. |
+| **Customer** | This blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to enforce restrictions on passwords that enforce minimum (1 day) and maximum (60 days) lifetime restrictions for local accounts and AD accounts. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -482,7 +482,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to enforce restrictions on reuse conditions (24 passwords) for local accounts and AD accounts. |
+| **Customer** | This blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to enforce restrictions on reuse conditions (24 passwords) for local accounts and AD accounts. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -580,7 +580,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | User accounts deployed with this Azure Blueprint include AD and local user accounts. Both of these provide mechanisms that force compliance with established password requirements in order to create an initial password and during password changes. Azure Active Directory is the automated tool employed to determine if password authenticators are sufficiently strong to satisfy the password length, complexity, rotation, and lifetime restrictions established in IA-5 (1). Azure Active Directory ensures that password authenticator strength at creation meets these standards. Customer-specified passwords used to deploy this solution are checked to meet password strength requirements. |
+| **Customer** | User accounts deployed with this blueprint include AD and local user accounts. Both of these provide mechanisms that force compliance with established password requirements in order to create an initial password and during password changes. Azure Active Directory is the automated tool employed to determine if password authenticators are sufficiently strong to satisfy the password length, complexity, rotation, and lifetime restrictions established in IA-5 (1). Azure Active Directory ensures that password authenticator strength at creation meets these standards. Customer-specified passwords used to deploy this solution are checked to meet password strength requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -608,7 +608,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | There is no use of unencrypted static authenticators embedded in applications, access scripts, or function keys deployed by this Azure Blueprint. Any script or application that uses an authenticator makes a call to an Azure Key Vault container prior to each use. Access to Azure Key Vault containers is audited, which allows detection of violations of this prohibition if a service account is used to access a system without a corresponding call to the Azure Key Vault container. |
+| **Customer** | There is no use of unencrypted static authenticators embedded in applications, access scripts, or function keys deployed by this blueprint. Any script or application that uses an authenticator makes a call to an Azure Key Vault container prior to each use. Access to Azure Key Vault containers is audited, which allows detection of violations of this prohibition if a service account is used to access a system without a corresponding call to the Azure Key Vault container. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -650,7 +650,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | No resources deployed by this Azure Blueprint are configured to allow the use of cached authenticators. Authentication to deployed virtual machines requires that an authenticator is entered at the time of authentication. |
+| **Customer** | No resources deployed by this blueprint are configured to allow the use of cached authenticators. Authentication to deployed virtual machines requires that an authenticator is entered at the time of authentication. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -664,7 +664,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Access to resources deployed by this Azure Blueprint is through Remote Desktop and relies on Windows authentication. The default behavior of Windows authentication sessions masks passwords when input during an authentication session.  |
+| **Customer** | Access to resources deployed by this blueprint is through Remote Desktop and relies on Windows authentication. The default behavior of Windows authentication sessions masks passwords when input during an authentication session.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -678,7 +678,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Windows authentication, remote desktop, and BitLocker are employed by this Azure Blueprint. These components can be configured to rely on FIPS 140 validated cryptographic modules. |
+| **Customer** | Windows authentication, remote desktop, and BitLocker are employed by this blueprint. These components can be configured to rely on FIPS 140 validated cryptographic modules. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 

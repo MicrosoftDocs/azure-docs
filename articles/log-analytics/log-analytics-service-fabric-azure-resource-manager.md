@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 01/19/2018
 ms.author: nini
 
 ---
@@ -34,7 +34,7 @@ The Service Fabric solution uses Azure Diagnostics data from your Service Fabric
 To get started with the solution, you need to connect your Service Fabric cluster to a Log Analytics workspace. Here are three scenarios to consider:
 
 1. If you have not deployed your Service Fabric cluster, use the steps in ***Deploy a Service Fabric Cluster connected to a Log Analytics workspace*** to deploy a new cluster and have it configured to report to Log Analytics.
-2. If you need to collect performance counters from your hosts to use other OMS solutions such as Security on your Service Fabric Cluster, follow the steps in ***Deploy a Service Fabric Cluster connected to a Log Analytics workspace with VM Extension installed.***
+2. If you need to collect performance counters from your hosts to use other management solutions such as Security on your Service Fabric Cluster, follow the steps in ***Deploy a Service Fabric Cluster connected to a Log Analytics workspace with VM Extension installed.***
 3. If you have already deployed your Service Fabric cluster and want to connect it to Log Analytics, follow the steps in ***Adding an existing storage account to Log Analytics.***
 
 ## Deploy a Service Fabric Cluster connected to a Log Analytics workspace.
@@ -76,7 +76,7 @@ Following the same steps above, input the necessary parameters, and kick off a d
 To view Perf Data from your nodes:
 
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 - Launch the Log Analytics workspace from the Azure portal.
   ![Service Fabric](./media/log-analytics-service-fabric/6.png)

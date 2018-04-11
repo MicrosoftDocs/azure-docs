@@ -19,9 +19,9 @@ ms.author: genli
 ---
 # How to use PerfInsights 
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) is an automated script that collects useful diagnostic information. It also runs I/O stress loads, and provides an analysis report to help troubleshoot Windows virtual machine performance problems in Azure. This can be run on virtual machines as a standalone script, or directly from the portal by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md).
+[PerfInsights](http://aka.ms/perfinsightsdownload) is a self-help diagnostics tool that collects & analyzes the diagnostic data, and provides a report to help troubleshoot Windows virtual machine performance problems in Azure. PerfInsights can be run on virtual machines as a standalone tool, or directly from the portal by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md).
 
-If you are experiencing performance problems with virtual machines, before contacting support, run this script.
+If you are experiencing performance problems with virtual machines, before contacting support, run this tool.
 
 ## Supported troubleshooting scenarios
 
@@ -39,8 +39,6 @@ This scenario collects the disk configuration and other important information, i
 
 -   Task list for all applications that are currently running on the system
 
--   Information file created by msinfo32 for the virtual machine
-
 -   Microsoft SQL Server database configuration settings (if the VM is identified
     as a server that is running SQL Server)
 
@@ -53,7 +51,7 @@ This scenario collects the disk configuration and other important information, i
 This is a passive collection of information that shouldn't affect the system. 
 
 >[!Note]
->This scenario is automatically included in each of the following scenarios.
+>This scenario is automatically included in each of the following scenarios:
 
 ### Benchmarking
 
@@ -65,15 +63,7 @@ This scenario runs the [Diskspd](https://github.com/Microsoft/diskspd) benchmark
 
 ### Slow VM analysis 
 
-This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace by using the counters that are specified in the Generalcounters.txt file. If the VM is identified as a server that is running SQL Server, it runs a performance counter trace. It does so by using the counters that are found in the Sqlcounters.txt file, and it also includes performance diagnostics data.
-
-### Slow VM analysis and benchmarking
-
-This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace that is followed by a [Diskspd](https://github.com/Microsoft/diskspd) benchmark test. 
-
-> [!Note]
-> This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
->
+This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace by using the counters that are specified in the RuleEngineConfig.json file. If the VM is identified as a server that is running SQL Server, a performance counter trace is run. It does so by using the counters that are found in the RuleEngineConfig.json file. This scenario also includes performance diagnostics data.
 
 ### Azure Files analysis 
 
@@ -99,40 +89,40 @@ This scenario runs a special performance counter capture together with a network
 
 ### Custom slow VM analysis 
 
-When you run a custom slow VM analysis, you select traces to run in parallel. You can run them all (Performance Counter, Xperf, Network, and StorPort) if you want. After tracing is completed, the tool runs the Diskspd benchmark, if it is selected. 
+When you run a custom slow VM analysis, you select traces to run in parallel. If you want, you can run them all (Performance Counter, Xperf, Network, and StorPort).  
 
 > [!Note]
 > This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
 >
 
-## What kind of information is collected by the script?
+## What kind of information is collected by PerfInsights?
 
 Information about Windows VM, disks or storage pools configuration, performance counters, logs, and various traces are collected. It depends on the performance scenario you are using. The following table provides details:
 
 |Data collected                              |  |  | Performance scenarios |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Collect basic configuration | Benchmarking | Slow VM analysis | Slow VM analysis and benchmarking | Azure Files analysis | Custom slow VM analysis |
-| Information from event logs      | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| System information               | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Volume map                       | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Disk map                         | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Running tasks                    | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Storage reliability counters     | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Storage information              | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Fsutil output                    | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Filter driver info               | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Netstat output                   | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Network configuration            | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Firewall configuration           | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| SQL Server configuration         | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Performance diagnostics traces * | Yes                        | Yes                                | Yes                      |                                | Yes                  | Yes                  |
-| Performance counter trace **     |                            |                                    |                          |                                |                      | Yes                  |
-| SMB counter trace **             |                            |                                    |                          |                                | Yes                  |                      |
-| SQL Server counter trace **      |                            |                                    |                          |                                |                      | Yes                  |
-| Xperf trace                      |                            |                                    |                          |                                |                      | Yes                  |
-| StorPort trace                   |                            |                                    |                          |                                |                      | Yes                  |
-| Network trace                    |                            |                                    |                          |                                | Yes                  | Yes                  |
-| Diskspd benchmark trace ***      |                            | Yes                                |                          | Yes                            |                      |                      |
+|                               | Collect basic configuration | Benchmarking | Slow VM analysis | Azure Files analysis | Custom slow VM analysis |
+| Information from event logs       | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| System information                | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Volume map                        | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Disk map                          | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Running tasks                     | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Storage reliability counters      | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Storage information               | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Fsutil output                     | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Filter driver info                | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Netstat output                    | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Network configuration             | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Firewall configuration            | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| SQL Server configuration          | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Performance diagnostics traces *  | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Performance counter trace **      |                            |                                    | Yes                      |                      | Yes                  |
+| SMB counter trace **              |                            |                                    |                          | Yes                  |                      |
+| SQL Server counter trace **       |                            |                                    | Yes                      |                      | Yes                  |
+| Xperf trace                       |                            |                                    |                          |                      | Yes                  |
+| StorPort trace                    |                            |                                    |                          |                      | Yes                  |
+| Network trace                     |                            |                                    |                          | Yes                  | Yes                  |
+| Diskspd benchmark trace ***       |                            | Yes                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### Performance diagnostics trace (*)
@@ -166,122 +156,91 @@ Collects the following performance counters:
 ### Diskspd benchmark trace (***)
 Diskspd I/O workload tests (OS Disk [write] and pool drives [read/write])
 
-## Run the PerfInsights script on your VM
+## Run the PerfInsights tool on your VM
 
-### What do I have to know before I run the script? 
+### What do I have to know before I run the tool? 
 
-#### Script requirements
+#### Tool requirements
 
--  This script must be run on the VM that has the performance issue. 
+-  This tool must be run on the VM that has the performance issue. 
 
 -  The following operating systems are supported: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016; Windows 8.1 and Windows 10.
 
-#### Possible problems when you run the script on production VMs
+#### Possible problems when you run the tool on production VMs
 
--  For any benchmarking scenarios or the "Custom slow VM analysis" scenario that is configured to use Xperf or Diskspd, the script might adversely affect the performance of the VM. You should not run these scenarios in a production environment.
+-  For the benchmarking scenario or the "Custom slow VM analysis" scenario that is configured to use Xperf or Diskspd, the tool might adversely affect the performance of the VM. These scenarios should not be run in a live production environment.
 
--  For any benchmarking scenarios or the "Custom slow VM analysis" scenario that is configured to use Diskspd, ensure that no other background activity interferes with the I/O workload.
+-  For the benchmarking scenario or the "Custom slow VM analysis" scenario that is configured to use Diskspd, ensure that no other background activity interferes with the I/O workload.
 
--  By default, the script uses the temporary storage drive to collect data. If tracing stays enabled for a longer time, the amount of data that is collected might be relevant. This can reduce the availability of space on the temporary disk, and can therefore affect any application that relies on this drive.
+-  By default, the tool uses the temporary storage drive to collect data. If tracing stays enabled for a longer time, the amount of data that is collected might be relevant. This can reduce the availability of space on the temporary disk, and can therefore affect any application that relies on this drive.
 
 ### How do I run PerfInsights? 
 
-You can run PerfInsights on a virtual machine by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md). You can also run it as a standalone script. 
+You can run PerfInsights on a virtual machine by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md). You can also run it as a standalone tool. 
 
 **Install and run PerfInsights from the Azure portal**
 
 For more information about this option, see [Install Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md#install-the-extension).  
 
-**Run PerfInsights script in standalone mode**
+**Run PerfInsights in standalone mode**
 
-To run the PerfInsights script, follow these steps:
+To run the PerfInsights tool, follow these steps:
 
 
 1. Download [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
 
-2. Unblock the PerfInsights.zip file. To do this, right-click the PerfInsights.zip file, and select **Properties**. In the **General** tab, select **Unblock**, and then select **OK**. This ensures that the script runs without any additional security prompts.  
+2. Unblock the PerfInsights.zip file. To do this, right-click the PerfInsights.zip file, and select **Properties**. In the **General** tab, select **Unblock**, and then select **OK**. This ensures that the tool runs without any additional security prompts.  
 
     ![Screenshot of PerfInsights Properties, with Unblock highlighted](media/how-to-use-perfInsights/unlock-file.png)
 
-3.  Expand the compressed PerfInsights.zip file into your temporary drive (by default, this is usually the D drive). The compressed file should contain the following files and folders:
+3.  Expand the compressed PerfInsights.zip file into your temporary drive (by default, this is usually the D drive). 
 
-    ![Screenshot of files in the zip folder](media/how-to-use-perfInsights/file-folder.png)
-
-4.  Open Windows PowerShell as an administrator, and then run the PerfInsights.ps1 script.
+4.  Open Windows command prompt as an administrator, and then run PerfInsights.exe to view the available commandline parameters.
 
     ```
-    cd <the path of PerfInsights folder >
-    Powershell.exe -ExecutionPolicy UnRestricted -NoProfile -File .\\PerfInsights.ps1
+    cd <the path of PerfInsights folder>
+    PerfInsights
     ```
-
-    You might have to enter "y" to confirm that you want to change the execution policy.
-
-    In the **Notice and Consent** dialog box, you have the option to share diagnostic information with Microsoft Support. You must also consent to the license agreement to continue. Make your selections, and then select **Run Script**.
-
-    ![Screenshot of Notice and Consent dialog box](media/how-to-use-perfInsights/disclaimer.png)
-
-5.  Submit the case number, if it is available, when you run the script. Then select **OK**.
+    ![Screenshot of PerfInsights commandline ouput](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
     
-    ![Screenshot of support ID dialog box](media/how-to-use-perfInsights/enter-support-number.png)
+    The basic syntax for running PerfInsights scenarios is:
+    
+    ```
+    PerfInsights /run <ScenarioName> [AdditionalOptions]
+    ```
 
-6.  Select your temporary storage drive. The script can auto-detect the drive letter of the drive. If any problems occur in this stage, you might be prompted to select the drive (the default drive is D). Generated logs are stored here, in the log\_collection folder. After you enter or accept the drive letter, select **OK**.
+    You can use the below example to run slow VM scenario for 5 mins:
+    
+    ```
+    PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
 
-    ![Screenshot of temporary drive dialog box](media/how-to-use-perfInsights/enter-drive.png)
+    You can use the following example to run the custom scenario with Xperf and Performance counter traces for 5 mins:
+    
+    ```
+    PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
 
-7.  Select a troubleshooting scenario from the provided list.
+    You can look up all the available scenarios and options by using the **/list** command:
+    
+    ```
+    PerfInsights /list
+    ```
 
-       ![Screenshot of troubleshooting scenarios list](media/how-to-use-perfInsights/select-scenarios.png)
+    >[!Note]
+    >Before running a scenario, PerfInsights prompts the user to agree to share diagnostic information and to agree to the EULA. Use **/AcceptDisclaimerAndShareDiagnostics** option to skip these prompts. 
+    >
+    >If you have an active support ticket with Microsoft and running PerfInsights per the request of the support engineer you are working with, make sure to provide the support ticket number using the **/sr** option.
+    >
+    >By default, PerfInsights will try updating itself to the latest version if available. Use **/SkipAutoUpdate** or **/sau** parameter to skip auto update.  
+    >
+    >If the duration switch **/d** is not specified, PerfInsights will prompt you to repro the issue while running vmslow, azurefiles and custom scenarios. 
 
-You can also run PerfInsights without UI. The following command runs the "Slow VM analysis" troubleshooting scenario without UI. It prompts you to consent to the same disclaimer and EULA that are mentioned in step 4.
-
-        powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
-
-If you want PerfInsights to run in silent mode, use the
-    **-AcceptDisclaimerAndShareDiagnostics** parameter. For example, use the following command:
-
-        powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30 -AcceptDisclaimerAndShareDiagnostics"
-
-### How do I troubleshoot issues while running the script?
-
-If the script terminates abnormally, you can return to a consistent state by running the script together with the cleanup switch, as follows:
-
-    powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -Cleanup"
-
-If any problems occur during the automatic detection of the temporary drive, you might be prompted to select the drive (the default drive is D).
-
-![Screenshot of temporary drive dialog box](media/how-to-use-perfInsights/enter-drive.png)
-
-The script uninstalls the utility tools and removes temporary folders.
-
-### Troubleshoot other script issues 
-
-If any problems occur when you run the script, press Ctrl+C to interrupt the script. If you continue to experience script failure even after several attempts, run the script in debug mode by using the "-Debug" parameter option on startup.
-
-After the failure occurs, copy the full output of the PowerShell console, and send it to the Microsoft Support agent who is assisting you to help troubleshoot the problem.
-
-### How do I run the script in "Custom slow VM analysis" mode?
-
-By selecting the **Custom slow VM analysis**, you can enable several traces
-in parallel (to select multiple traces, use the Shift key):
-
-![Screenshot of list of scenarios](media/how-to-use-perfInsights/select-scenario.png)
-
-When you select the Performance Counter Trace, Xperf Trace, Network Trace, or Storport Trace scenarios, follow the instructions in the subsequent dialog boxes. Try to reproduce the slow performance issue after you start the traces.
-
-You start a trace through the following dialog box:
-
-![Screenshot of Start Performance Counter Trace dialog box](media/how-to-use-perfInsights/start-trace-message.png)
-
-To stop the traces, you have to confirm the command in a second dialog box.
-
-![Screenshot of Stopping Performance Counter Trace dialog box](media/how-to-use-perfInsights/stop-trace-message.png)
-![Screenshot of Stopping All traces dialog box](media/how-to-use-perfInsights/ok-trace-message.png)
-
-When the traces or operations are completed, a new file appears in D:\\log\_collection (or the temporary drive). The name of the file is **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip.** You can send this file to the support agent for analysis.
+When the traces or operations are completed, a new file appears in the same folder as PerfInsights. The name of the file is **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip.** You can send this file to the support agent for analysis or open the report inside the zip file to review findings and recommendations.
 
 ## Review the diagnostics report
 
-Within the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** file, you can find an HTML report that details the findings of PerfInsights. To review the report, expand the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** file, and then open the **PerfInsights Report.html** file.
+Within the **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file, you can find an HTML report that details the findings of PerfInsights. To review the report, expand the **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file, and then open the **PerfInsights Report.html** file.
 
 Select the **Findings** tab.
 
@@ -346,4 +305,4 @@ The following screenshot shows a message similar to what you might receive:
 
 Follow the instructions in the message to access the file transfer workspace. For additional security, you have to change your password on first use.
 
-After you sign in, you will find a dialog box to upload the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** file that was collected by PerfInsights.
+After you sign in, you will find a dialog box to upload the **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file that was collected by PerfInsights.

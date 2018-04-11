@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 03/30/2018
 ms.author: babanisa
 ---
 
@@ -19,34 +19,37 @@ You can use filters to route specific events to different endpoints, multicast t
 
 Currently, Event Grid supports the following regions:
 
+* Asia Southeast
+* Asia East
 * Central US
 *	East US
 *	East US 2
+* Europe West
+* Europe North
 *	West Central US
 *	West US
 *	West US 2
 
-Other regions will be added.
+This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). The following image shows how Event Grid connects sources and handlers, but it does not provide a comprehensive list of supported options.
 
-This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). The following image shows how Event Grid connects publishers and handlers, but it does not provide a comprehensive list of supported options.
+![Event Grid functional model](./media/overview/functional-model.png)
 
-![Event Grid functional model](./media/overview/event-grid-functional-model.png)
+## Event sources
 
-## Event publishers
-
-Currently, the following Azure services have built-in publisher support for event grid:
+Currently, the following Azure services support sending events to Event Grid:
 
 * Azure Subscriptions (management operations)
 * Custom Topics
 * Event Hubs
+* IoT Hub
 * Resource Groups (management operations)
+* Service Bus
 * Storage Blob
-
-Other Azure services will be added this year.
+* Storage General-purpose v2 (GPv2)
 
 ## Event handlers
 
-Currently, the following Azure services have built-in handler support for Event Grid: 
+Currently, the following Azure services support handling events from Event Grid: 
 
 * Azure Automation
 * Azure Functions
@@ -55,7 +58,7 @@ Currently, the following Azure services have built-in handler support for Event 
 * Microsoft Flow
 * WebHooks
 
-Other Azure services will be added this year.
+When using Azure Functions as the handler, use the Event Grid trigger instead of generic HTTP triggers. Event Grid automatically validates Event Grid Function triggers. With generic HTTP triggers, you must implement the [validation response](security-authentication.md#webhook-event-delivery).
 
 ## Concepts
 
@@ -108,9 +111,7 @@ Event Grid connects your app with other services. For example, create a custom t
 
 ## How much does Event Grid cost?
 
-Azure Event Grid uses a pay-per-event pricing model, so you only pay for what you use.
-
-Event Grid costs $0.60 per million operations ($0.30 during preview) and the first 100,000 operation per month are free. Operations are defined as event ingress, advanced match, delivery attempt, and management calls.  More details can be found on the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
+Azure Event Grid uses a pay-per-event pricing model, so you only pay for what you use. The first 100,000 operations per month are free. Operations are defined as event ingress, advanced match, delivery attempt, and management calls. For details, see the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## Next steps
 

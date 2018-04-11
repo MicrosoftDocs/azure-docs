@@ -1,4 +1,4 @@
-- name: Azure Migrate documentation
+- name: Azure Migrate Documentation
   href: index.yml
 - name: Overview
   items:
@@ -10,6 +10,8 @@
     href: tutorial-assessment-vmware.md
 - name: Concepts
   items:
+  - name: Collector Concepts
+    href: concepts-collector.md
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
   - name: Dependency visualization
@@ -22,8 +24,6 @@
     href: how-to-create-a-group.md
   - name: Group machines using machine dependencies
     href: how-to-create-group-machine-dependencies.md
-  - name: Group machines using VMware tagging
-    href: how-to-tag-v-center.md
   - name: Refine a group using group dependencies
     href: how-to-create-group-dependencies.md
   - name: Customize an assessment

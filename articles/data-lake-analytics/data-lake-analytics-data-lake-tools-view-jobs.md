@@ -46,7 +46,7 @@ Job View contains:
       ![Azure Data Lake Analytics job phases status](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Preparing: Upload your script to the cloud, compiling and optimizing the script using the compile service.
-    * Queued: Jobs are queued whey they are waiting for enough resources, or the jobs exceed the max concurrent jobs per account limitation. The priority setting determines the sequence of queued jobs - the lower the number, the higher the priority.
+    * Queued: Jobs are queued when they are waiting for enough resources, or the jobs exceed the max concurrent jobs per account limitation. The priority setting determines the sequence of queued jobs - the lower the number, the higher the priority.
     * Running: The job is actually running in your Data Lake Analytics account.
     * Finalizing: The job is completing (for example, finalizing the file).
       

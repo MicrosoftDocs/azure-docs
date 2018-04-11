@@ -1,7 +1,7 @@
 ---
 
-title: Azure Blueprint Automation - Three-Tier Web Applications for UK-OFFICIAL
-description: Azure Blueprint Automation& - Three-Tier Web Applications for UK-OFFICIAL
+title: Azure Security and Compliance Blueprint - UK-OFFICIAL Three-Tier Web Applications Automation
+description: Azure Security and Compliance Blueprint - UK-OFFICIAL Three-Tier Web Applications Automation
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
 
 ---
 
-# Azure Blueprint Automation: Three-Tier Web Applications for UK-OFFICIAL
+# Azure Security and Compliance Blueprint - UK-OFFICAL Three-Tier Web Applications Automation
 
 ## Overview
 
  This article provides guidance and automation scripts to deliver a Microsoft Azure three-tier web based architecture appropriate for handling many workloads classified as OFFICIAL in the United Kingdom.
 
- Using an Infrastructure as Code approach, the set of [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)  (ARM) templates deploy an environment that aligns to the UK National Cyber Security Centre (NCSC) 14 [Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) and  the Center for Internet Security (CIS) [Critical Security  Controls](https://www.cisecurity.org/critical-controls.cfm).
+ Using an Infrastructure as Code approach, the set of [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) templates deploy an environment that aligns to the UK National Cyber Security Centre (NCSC) 14 [Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) and  the Center for Internet Security (CIS) [Critical Security  Controls](https://www.cisecurity.org/critical-controls.cfm).
 
  The NCSC recommend their Cloud Security Principles be used by customers to evaluate the security properties of the service, and to help understand the division of responsibility between the customer and supplier. We've provided information against each of these principles to help you understand the split of responsibilities.
 
- This architecture and corresponding ARM templates are supported by the Microsoft whitepaper, [Azure Blueprint for the UK Government](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). This paper catalogues how Azure services align with the UK NCSC 14 Cloud Security Principles,  thereby enabling organisations to fast-track their ability to meet their compliance obligations using cloud-based services globally and in the UK on the Microsoft Azure cloud.
+ This architecture and corresponding Azure Resource Manager templates are supported by the Microsoft whitepaper, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). This paper catalogues how Azure services align with the UK NCSC 14 Cloud Security Principles,  thereby enabling organisations to fast-track their ability to meet their compliance obligations using cloud-based services globally and in the UK on the Microsoft Azure cloud.
 
  This template deploys the infrastructure for the workload. Application code and supporting business tier and data tier software must be installed and configured. Detailed deployment instructions are available [here](https://aka.ms/ukwebappblueprintrepo).
 
@@ -194,17 +194,17 @@ Storage
 
 ### Security
 
-**Management Security**: This Azure Blueprint allows administrators to connect to the management VNet and Jumpbox using RDP from a trusted source. Network traffic for the management VNet is controlled using NSGs. Access to port 3389 is restricted to traffic from a trusted IP range that can access the subnet containing the Jumpbox.
+**Management Security**: This blueprint allows administrators to connect to the management VNet and Jumpbox using RDP from a trusted source. Network traffic for the management VNet is controlled using NSGs. Access to port 3389 is restricted to traffic from a trusted IP range that can access the subnet containing the Jumpbox.
 
 Customers may also consider using an [enhanced security administrative model](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) to secure the environment when connecting to the management VNet and Jumpbox. It is suggested that for enhanced security customers use a [Privileged Access Workstation](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) and RDGateway configuration. The use of network virtual appliances and public/private DMZs will offer further security enhancements.
 
-**Securing the Network**: [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSGs) are recommended for each subnet to provide a second level of protection against inbound traffic bypassing an incorrectly configured or disabled gateway. Example - [ARM Template for deploying an NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Securing the Network**: [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSGs) are recommended for each subnet to provide a second level of protection against inbound traffic bypassing an incorrectly configured or disabled gateway. Example - [Resource Manager template for deploying an NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
 **Securing Public Endpoints**: The internet gateway exposes application services to users through the internet. Traffic accessing these services is secured using an [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), which provides a Web Application Firewall and HTTPS protocol management.
 
 **IP Ranges**: The IP ranges in the architecture are suggested ranges. Customers are advised to consider their own environment and use appropriate ranges.
 
-**Hybrid Connectivity**: The cloud based workloads are connected to the on-premises datacentre through IPSEC VPN using the Azure VPN Gateway. Customers should ensure that they are using an appropriate VPN Gateway to connect to Azure. Example - [VPN Gateway ARM Template](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Customers running large-scale, mission critical workloads with big data requirements may wish to consider a hybrid network architecture using [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) for private network connectivity to Microsoft cloud services.
+**Hybrid Connectivity**: The cloud based workloads are connected to the on-premises datacenter through IPSEC VPN using the Azure VPN Gateway. Customers should ensure that they are using an appropriate VPN Gateway to connect to Azure. Example - [VPN Gateway Resource Manager template](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Customers running large-scale, mission critical workloads with big data requirements may wish to consider a hybrid network architecture using [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) for private network connectivity to Microsoft cloud services.
 
 **Separation of Concerns**: This reference architecture separates the VNets for management operations and business operations. Separate VNets and subnets allow traffic management, including traffic ingress and egress restrictions, by using NSGs between network segments following [Microsoft cloud services and network security](https://docs.microsoft.com/azure/best-practices-network-security) best practices.
 
@@ -220,17 +220,17 @@ Customers may also consider using an [enhanced security administrative model](ht
 
 The Crown Commercial Service (an agency that works to improve commercial and procurement activity by the government) renewed the classification of Microsoft in-scope enterprise cloud services to  G-Cloud v6, covering all its offerings at the OFFICIAL level. Details of Azure and G-Cloud can be found in the [Azure UK G-Cloud security assessment summary](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
 
-This UK-OFFICIAL Azure Blueprint Solution aligns to the 14 cloud security  principles that are documented in the NCSC [Cloud Security  Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) to help ensure an environment that supports workloads classified as UK-OFFICIAL.
+This blueprint aligns to the 14 cloud security  principles that are documented in the NCSC [Cloud Security  Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) to help ensure an environment that supports workloads classified as UK-OFFICIAL.
 
 The [Customer Responsibility Matrix](https://aka.ms/blueprintuk-gcrm) (Excel Workbook) lists  all 14 cloud security principles, and the matrix denotes, for each principle (or principle subpart), whether the principle implementation is the responsibility of Microsoft, the customer, or shared between the two.
 
-The [Principle Implementation Matrix](https://aka.ms/ukwebappblueprintpim) (Excel Workbook) lists all 14 cloud security principles, and the matrix denotes, for each principle (or principle subpart) that is designated a customer responsibility in the Customer Responsibilities Matrix, 1) if the Azure Blueprint Automation implements the principle, and 2) a description of how the implementation aligns with the principle requirement(s). This content is also available [here](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
+The [Principle Implementation Matrix](https://aka.ms/ukwebappblueprintpim) (Excel Workbook) lists all 14 cloud security principles, and the matrix denotes, for each principle (or principle subpart) that is designated a customer responsibility in the Customer Responsibilities Matrix, 1) if the blueprint automation implements the principle, and 2) a description of how the implementation aligns with the principle requirement(s). This content is also available [here](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
 
 Furthermore, the Cloud Security Alliance (CSA) published the Cloud Control Matrix to support customers in the evaluation of cloud providers and to identify questions that should be  answered before moving to cloud services. In response, Microsoft Azure answered the CSA Consensus Assessment Initiative Questionnaire ([CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)), which describes how Microsoft  addresses the suggested principles.
 
 ## Deploy the Solution
 
-There are two methods that deployment users may use to deploy this Azure Blueprint solution. The first method uses a PowerShell script, whereas the second method utilises Azure Portal to deploy the reference architecture. Detailed deployment instructions are available [here](https://aka.ms/ukwebappblueprintrepo).
+There are two methods that deployment users may use to deploy this blueprint automation. The first method uses a PowerShell script, whereas the second method utilises Azure portal to deploy the reference architecture. Detailed deployment instructions are available [here](https://aka.ms/ukwebappblueprintrepo).
 
 ## Disclaimer
 

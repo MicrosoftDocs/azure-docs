@@ -3,7 +3,7 @@ title: 'Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Do
 description: Understand Synchronization Service Manager for Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 

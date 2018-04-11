@@ -3,9 +3,9 @@ title: Build your first data factory (Resource Manager template) | Microsoft Doc
 description: In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 
 ms.assetid: eb9e70b9-a13a-4a27-8256-2759496be470
 ms.service: data-factory
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/01/2017
-ms.author: spelluru
+ms.date: 01/22/2018
+ms.author: shlo
 
 robots: noindex
 ---

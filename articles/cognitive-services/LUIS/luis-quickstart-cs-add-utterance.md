@@ -8,83 +8,100 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 02/20/2018
 ms.author: v-geberr
 ---
 
 # Add utterances to a LUIS app using C# 
-Programmatically add utterances to your Language Understanding (LUIS) app and train it using the command line. For more information, refer to the technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
+Programmatically add utterances to your Language Understanding (LUIS) app and train it using the command line. For more information, see the technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
 
 ## Prerequisites
 
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/). 
-* Your LUIS **programmatic key**. You can find this key under Account Settings in [https://www.luis.ai](https://www.luis.ai).
-* Your existing LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard. The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.cs`. The code in this article does not create the intents and entities. It adds the utterances for existing intents and entities. 
+* Your LUIS **[authoring key](luis-concept-keys.md#authoring-key)**. You can find this key under Account Settings in the [LUIS](luis-reference-regions.md) website.
+* Your existing LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard. The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running this code. The code in this article does not create the intents and entities. It adds the utterances for existing intents and entities. 
 * The **version ID** within the application that receives the utterances. The default ID is "0.1"
 * Create a new file named `add-utterances.cs` project in VSCode.
 
 > [!NOTE] 
-> The complete `add-utterances.cs` file and an example `utterances.json` file are available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/csharp/).
+> The complete C# solution including an example `utterances.json` file are available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/csharp/).
 
+
+## Create the project in Visual Studio
+
+In Visual Studio, create a new **Windows Classic Desktop Console** app using the .Net Framework. 
+
+![Visual Studio project type](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
+
+## Add the System.Web dependency
+
+In the Visual Studio project, the project needs **System.Web**. In the Solution Explorer, right-click on **References** and select **Add Reference**.
+
+![Add System.web reference](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
 ## Write the C# code
-
-Create `AddUtterances` namespace and .Net dependencies. Add the following code inside the namespace.
+The **Program.cs** file should be:
 
 ```CSharp
 using System;
-using System.IO;
-using System.Net.Http;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
-namespace AddUtterances {
-    
-    class Program {
-
-        // Add code here
-
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
     }
 }
+
 ```
 
-Add the LUIS IDs and strings.
+Add the System.IO and System.Net.Http dependencies.
 
-   [!code-csharp[Add the LUIS IDs and strings](~/samples-luis/documentation-samples/authoring-api-samples/csharp/add-utterances.cs?range=12-31&dedent=8 "Add the LUIS IDs and strings")]
+   [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=1-6 "Add the dependencies")]
+
+
+Add the LUIS IDs and strings to the **Program** class.
+
+   [!code-csharp[Add the LUIS IDs and strings](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=12-30&dedent=8 "Add the LUIS IDs and strings")]
 
 Add the JsonPrettyPrint method.
 
-   [!code-csharp[Add the JsonPrettyPrint method](~/samples-luis/documentation-samples/authoring-api-samples/csharp/add-utterances.cs?range=32-93 "Add the JsonPrettyPrint method")]
+   [!code-csharp[Add the JsonPrettyPrint method](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=32-92 "Add the JsonPrettyPrint method")]
 
 Add the GET request used to create utterances or start training. 
 
-   [!code-csharp[SendGet](~/samples-luis/documentation-samples/authoring-api-samples/csharp/add-utterances.cs?range=94-104 "SendGet")]
+   [!code-csharp[SendGet](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=93-103 "SendGet")]
 
 
 Add the POST request used to create utterances or start training. 
 
-   [!code-csharp[SendPost](~/samples-luis/documentation-samples/authoring-api-samples/csharp/add-utterances.cs?range=106-117 "SendPost")]
+   [!code-csharp[SendPost](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=104-115 "SendPost")]
 
 Add the `AddUtterances` function.
 
-   [!code-csharp[AddUtterances method](~/samples-luis/documentation-samples/authoring-api-samples/csharp/add-utterances.cs?range=119-128 "AddUtterances method")]
+   [!code-csharp[AddUtterances method](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=116-125 "AddUtterances method")]
 
 
 Add the `Train` function. 
 
-   [!code-csharp[Train](~/samples-luis/documentation-samples/authoring-api-samples/csharp/add-utterances.cs?range=130-140 "Train")]
+   [!code-csharp[Train](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=126-136 "Train")]
 
 Add the `Status` function.
 
-   [!code-csharp[Status](~/samples-luis/documentation-samples/authoring-api-samples/csharp/add-utterances.cs?range=142-148 "Status")]
+   [!code-csharp[Status](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=137-143 "Status")]
 
 To manage arguments, add the main code.
 
-   [!code-csharp[Main code](~/samples-luis/documentation-samples/authoring-api-samples/csharp/add-utterances.cs?range=150-178 "Main code")]
+   [!code-csharp[Main code](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=144-172 "Main code")]
 
 ## Specify utterances to add
-Create and edit the file `utterances.json` to specify the entities you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
+Create and edit the file `utterances.json` to specify the **array of utterances** you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
 
 > [!NOTE]
 > The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.cs`. The code in this article does not create the intents and entities. It only adds the utterances for existing intents and entities.
@@ -114,8 +131,12 @@ If the entityLabels list is not empty, the `startCharIndex` and `endCharIndex` n
 ]
 ```
 
+## Mark the JSON file as content
+In the Solution Explorer, right-click the `utterances.json` and select **Properties**. In the properties windows, mark the **Build Action** of `Content`, and the **Copy to Output Directory** of `Copy Always`.  
+
+![Mark the JSON file as content](./media/luis-quickstart-cs-add-utterance/content-properties.png)
+
 ## Add an utterance from the command line
-In the Visual Studio project, add a reference to **System.Web**.
 
 Build and run the application from a command line with C# from the /bin/Debug directory. Make sure the utterances.json file is also in this directory.
 
@@ -279,3 +300,5 @@ Requested training status.
 > [Build a LUIS app programmatically](luis-tutorial-node-import-utterances-csv.md) 
 
 > [Authoring APIs](https://aka.ms/luis-authoring-api)
+
+

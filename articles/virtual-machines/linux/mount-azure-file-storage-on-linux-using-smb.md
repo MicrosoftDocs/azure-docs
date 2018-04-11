@@ -4,7 +4,7 @@ description: How to mount Azure File storage on Linux VMs using SMB with the Azu
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid:
@@ -65,7 +65,7 @@ Moving files from a VM to an SMB mount that's hosted on File storage is a great 
 
 For this detailed walkthrough, we create the prerequisites needed to first create the File storage share, and then mount it via SMB on a Linux VM.
 
-1. Create a resource group with [az group create](/cli/azure/group#create) to hold the file share.
+1. Create a resource group with [az group create](/cli/azure/group#az_group_create) to hold the file share.
 
     To create a resource group named `myResourceGroup` in the "West US" location, use the following example:
 
@@ -73,7 +73,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
     az group create --name myResourceGroup --location westus
     ```
 
-2. Create an Azure storage account with [az storage account create](/cli/azure/storage/account#create) to store the actual files.
+2. Create an Azure storage account with [az storage account create](/cli/azure/storage/account#az_storage_account_create) to store the actual files.
 
     To create a storage account named mystorageaccount by using the Standard_LRS storage SKU, use the following example:
 
@@ -88,7 +88,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
     When you create a storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you switch to the second key in the pair, you create a new key pair. New storage account keys are always created in pairs, ensuring that you always have at least one unused storage account key ready to switch to.
 
-    View the storage account keys with the [az storage account keys list](/cli/azure/storage/account/keys#list). The storage account keys for the named `mystorageaccount` are listed in the following example:
+    View the storage account keys with the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). The storage account keys for the named `mystorageaccount` are listed in the following example:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -105,7 +105,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 4. Create the File storage share.
 
-    The File storage share contains the SMB share with [az storage share create](/cli/azure/storage/share#create). The quota is always expressed in gigabytes (GB). Pass in one of the keys from the preceding `az storage account keys list` command. Create a share named mystorageshare with a 10-GB quota by using the following example:
+    The File storage share contains the SMB share with [az storage share create](/cli/azure/storage/share#az_storage_share_create). The quota is always expressed in gigabytes (GB). Pass in one of the keys from the preceding `az storage account keys list` command. Create a share named mystorageshare with a 10-GB quota by using the following example:
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -135,7 +135,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
     When you reboot the Linux VM, the mounted SMB share is unmounted during shutdown. To remount the SMB share on boot, add a line to the Linux /etc/fstab. Linux uses the fstab file to list the file systems that it needs to mount during the boot process. Adding the SMB share ensures that the File storage share is a permanently mounted file system for the Linux VM. Adding the File storage SMB share to a new VM is possible when you use cloud-init.
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## Next steps

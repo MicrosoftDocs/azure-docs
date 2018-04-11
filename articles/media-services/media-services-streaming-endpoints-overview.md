@@ -21,7 +21,7 @@ ms.author: juliako
 ---
 # Streaming endpoints overview 
 
-##Overview
+## Overview
 
 In Microsoft Azure Media Services (AMS), a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, a video on demand, or progressive download of your asset in your Media Services account. Each Azure Media Services account includes a default StreamingEndpoint. Additional StreamingEndpoints can be created under the account. There are two versions of StreamingEndpoints, 1.0 and 2.0. Starting with January 10th 2017, any newly created AMS accounts will include version 2.0 **default** StreamingEndpoint. Additional streaming endpoints that you add to this account will also be version 2.0. This change will not impact the existing accounts; existing StreamingEndpoints will be version 1.0 and can be upgraded to version 2.0. With this change there will be behavior, billing and feature changes (for more information, see the **Streaming types and versions** section documented below).
 
@@ -84,7 +84,7 @@ Dynamic packaging|Yes|Yes
 Scale|Auto scales up to the targeted throughput.|Additional streaming units
 IP filtering/G20/Custom host|Yes|Yes
 Progressive download|Yes|Yes
-Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.<br/>If you think you may have needs beyond Standard. Contact us (amsstreaming at microsoft.com) if you expect a concurrent audience size larger than 50,000 viewers.
+Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.<br/>If you think you may have needs beyond Standard. Contact us (amsstreaming@microsoft.com) if you expect a concurrent audience size larger than 50,000 viewers.
 
 
 ## Migration between types

@@ -2,8 +2,8 @@
 title: 'Quickstart: Cassandra API with Java - Azure Cosmos DB | Microsoft Docs'
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and Java 
 services: cosmos-db
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: ef611081-0195-4ad8-9b54-b313588e5754
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.author: mimig
+ms.author: sngun
 
 ---
 

@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Secure your RESTful services by using HTTP b
 description: Secure your custom REST API claims exchanges in your Azure AD B2C by using HTTP basic authentication
 services: active-directory-b2c
 documentationcenter: ''
-author: yoelhor
+author: davidmu1
 manager: mtillman
-editor: 
+editor: ''
 
-ms.assetid:
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/25/2017
-ms.author: yoelh
+ms.author: davidmu
 ---
 
 # Secure your RESTful services by using HTTP basic authentication
@@ -73,7 +70,7 @@ Add the `ClientAuthMiddleware.cs` class under the *App_Start* folder. To do so:
 
 3. Open the *App_Start\ClientAuthMiddleware.cs* file, and replace the file content with following code:
 
-    ```C#
+    ```csharp
     
     using Microsoft.Owin;
     using System;
@@ -191,7 +188,7 @@ Add an OWIN startup class named `Startup.cs` to the API. To do so:
 
 2. Open the *Startup.cs* file, and replace the file content with following code:
 
-    ```C#
+    ```csharp
     using Microsoft.Owin;
     using Owin;
     

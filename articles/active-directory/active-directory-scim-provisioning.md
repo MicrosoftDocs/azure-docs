@@ -1,5 +1,5 @@
 ---
-title: Using System for Cross-Domain Identity Management automatically provision users and groups from Azure Active Directory to applications | Microsoft Docs
+title: Automate provisioning of apps using SCIM in Azure Active Directory | Microsoft Docs
 description: Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a web service with the interface defined in the SCIM protocol specification
 services: active-directory
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 12/12/2017
 ms.author: asmalser
 
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro
+ms.custom: aaddev;it-pro;seohack1
 
 
 ---
@@ -687,7 +687,7 @@ The following illustration shows the messages that Azure Active Directory sends 
 ## Group provisioning and de-provisioning
 The following illustration shows the messages that Azure AcD sends to a SCIM service to manage the lifecycle of a group in another identity store.  Those messages differ from the messages pertaining to users in three ways: 
 
-* The schema of a group resource is identified as http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+* The schema of a group resource is identified as `http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group`.  
 * Requests to retrieve groups stipulate that the members attribute is to be excluded from any resource provided in response to the request.  
 * Requests to determine whether a reference attribute has a certain value are requests about the members attribute.  
 

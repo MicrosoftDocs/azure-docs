@@ -2,7 +2,7 @@
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **New** > **Web + Mobile** > **Notification Hub**.
+2. Select **Create a resource** > **Web + Mobile** > **Notification Hub**.
    
       ![Azure portal - create a notification hub](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       
@@ -23,6 +23,10 @@
       ![Azure portal - notification hub portal page](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-resources.png)
 
 5. Select **Access Policies** from the list. Note the two connection strings that are available to you. You need them to handle push notifications later.
+
+      >[!IMPORTANT]
+      >Do **NOT** use the DefaultFullSharedAccessSignature in your application. This is meant to be used in your back-end only.
+      >
    
       ![Azure portal - notification hub connection strings](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 

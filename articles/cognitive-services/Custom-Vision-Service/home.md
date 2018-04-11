@@ -2,14 +2,14 @@
 title: Overview of Custom Vision Service machine learning | Microsoft Docs
 description: Use this to bring the power of machine learning to your applications.
 services: cognitive-services
-author: v-royhar
-manager: juliakuz
+author: anrothMSFT
+manager: corncar
 
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.technology: custom-vision-service
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: v-royhar
+ms.author: anroth
 ---
 
 # Overview
@@ -36,6 +36,10 @@ Custom Vision Service is designed to make it easy to start building your classif
 - Released version [1.2 Training API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/f2d62aa3b93843d79e948fe87fa89554/operations/5a3044ee08fa5e06b890f11f) and [1.1 Prediction API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/57982f59b5964e36841e22dfbfe78fc1/operations/5a3044f608fa5e06b890f164). Updated APIs support model export, new Prediction operation that does not save images to "Predictions," and introduced batch operations to the Training API.
 - UX tweaks, including the ability to see which domain was used to train an iteration.
 - Updated [C# SDK and sample](https://github.com/Microsoft/Cognitive-CustomVision-Windows).
+
+## Known issues
+
+- 1/3/2018: The new "Retail - compact" domain model export to iOS (CoreML) generates a faulty model which will not run and generates a validation error. The cloud service and Android export should work. A fix is on the way. 
 
 ## Next steps
 

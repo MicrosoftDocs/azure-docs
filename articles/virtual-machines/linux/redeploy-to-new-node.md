@@ -10,7 +10,7 @@ tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: troubleshooting
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
@@ -30,9 +30,9 @@ You can redeploy a VM using one of the following options. You only need to choos
 - [Azure portal](#using-azure-portal)
 
 ## Use the Azure CLI 2.0
-Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to your Azure account using [az login](/cli/azure/#login).
+Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to your Azure account using [az login](/cli/azure/reference-index#az_login).
 
-Redeploy your VM with [az vm redeploy](/cli/azure/vm#redeploy). The following example redeploys the VM named *myVM* in the resource group named *myResourceGroup*:
+Redeploy your VM with [az vm redeploy](/cli/azure/vm#az_vm_redeploy). The following example redeploys the VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 

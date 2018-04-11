@@ -45,6 +45,8 @@ For information about publishing a Service Catalog managed application, see [Cre
 
 Vendors wishing to bill for their services can make a managed application available through the Azure marketplace. After the vendor publishes an application, it's available to users outside the organization. With this approach, managed service providers (MSPs), independent software vendors (ISVs), and system integrators (SIs) can offer their solutions to all Azure customers.
 
+For information about publishing a managed application to the Marketplace, see [Create marketplace application](publish-marketplace-app.md).
+
 ## Resource groups for managed applications
 
 Typically, the resources for a managed application reside in two resource groups. The consumer manages one resource group, and the publisher manages the other resource group. When defining the managed application, the publisher specifies the levels of access. The following image shows a scenario where the publisher requests the owner role for the managed resource group. The publisher placed a read-only lock on this resource group for the consumer.
@@ -67,4 +69,4 @@ When the consumer deletes the managed application, the managed resource group is
 
 * For an introduction to defining and deploying a managed application, see [Create and deploy an Azure managed application with Azure CLI](managed-apps-quickstart-cli.md)
 * For information about publishing an internal application, see [Create service catalog application](publish-service-catalog-app.md).
-
+* For information about publishing managed applications to the marketplace, see [Create marketplace application](publish-marketplace-app.md).

@@ -8,8 +8,7 @@
       href: endpoint-custom.md
     - name: Supported countries and markets
       href: supported-countries-markets.md
-- name: Quickstarts
-  expanded: true
+- name: API Quickstarts
   items:
     - name: Create first instance
       href: quick-start.md
@@ -20,7 +19,7 @@
     - name: Node.js
       href: call-endpoint-nodejs.md 
     - name: Python
-      href: call-endpoint-python.md  
+      href: call-endpoint-python.md
 - name: Tutorials
   items:
     - name: Build a Custom Search web page
@@ -36,13 +35,19 @@
     - name: Handle hit highlighting
       href: hit-highlighting.md
     - name: Page webpages
-      href: page-webpages.md    
+      href: page-webpages.md 
 - name: References
   items:
     - name: Bing Custom Search API Reference
       href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
     - name: Bing Search API use and display requirements
       href: use-and-display-requirements.md
+    - name: SDK
+      items:
+      - name: SDK samples overview 
+        href: sdk.md
+      - name: Custom Search SDK C# quickstart
+        href: custom-search-sdk-quickstart.md   
 - name: Resources
   items:
   - name: Azure Roadmap

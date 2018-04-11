@@ -1,16 +1,43 @@
-**To create a new CDN profile**
+---
+title: include file
+description: include file
+services: cdn
+author: dksimpson
+ms.service: cdn
+ms.topic: include
+ms.date: 04/04/2018
+ms.author: rli; v-deasim
+ms.custom: include file
+---
 
-1. In the [Azure Portal](https://portal.azure.com), in the upper left, click **New**.  In the **New** blade, select **Web + Mobile**, then **CDN**.
+## Create a new CDN profile
+
+A CDN profile is a container for CDN endpoints and specifies a pricing tier.
+
+1. In the Azure portal, in the upper left, select **Create a resource**.
+    
+    The **New** pane appears.
    
-    The new CDN profile blade appears.
+2. Select **Web + Mobile**, then **CDN**.
    
-    ![New CDN Profile](./media/cdn-create-profile/new-cdn-profile-include.png)
-2. Enter a name for your CDN profile.
-3. Select a **Location**.  This is the Azure location where your CDN profile information will be stored.  It has no impact on CDN endpoint locations.
-4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-5. Select a **Pricing tier**.  See the [CDN Overview](../articles/cdn/cdn-overview.md#azure-cdn-features) for a comparison of pricing tiers.
+    ![Select CDN resource](./media/cdn-create-profile/cdn-new-resource.png)
+
+    The **CDN profile** pane appears.
+
+    Use the settings specified in the table following the image.
    
-    ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku-include.png)
-6. Select the **Subscription** for this CDN profile.
-7. Click the **Create** button to create the new profile. 
+    ![New CDN profile](./media/cdn-create-profile/cdn-new-profile.png)
+
+    | Setting  | Value |
+    | -------- | ----- |
+    | **Name** | Enter *my-cdn-profile-123* for your profile name. This name must be globally unique; if it is already in use, you may enter a different one. |
+    | **Subscription** | Select an Azure subscription from the drop-down list.|
+    | **Resource group** | Select **Create new** and enter *my-resource-group-123* for your resource group name. This name must be globally unique; if it is already in use, you may enter a different one. | 
+    | **Resource group location** | Select **Central US** from the drop-down list. |
+    | **Pricing tier** | Select **Standard Verizon** from the drop-down list. |
+    | **Create a new CDN endpoint now** | Leave unselected. |  
+   
+3. Select **Pin to dashboard** to save the profile to your dashboard after it is created.
+    
+4. Select **Create** to create the profile. 
 

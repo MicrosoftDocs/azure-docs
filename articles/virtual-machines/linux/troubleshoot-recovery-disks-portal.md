@@ -5,12 +5,12 @@ description: Learn how to troubleshoot Linux virtual machine issues by connectin
 services: virtual-machines-linux
 documentationCenter: ''
 authors: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016

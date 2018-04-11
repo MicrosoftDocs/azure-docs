@@ -1,21 +1,14 @@
 ---
-title: 'Azure Stream Analytics on IoT Edge (preview)'
+title: Azure Stream Analytics on IoT Edge (preview)
 description: Create edge jobs in Azure Stream Analytics and deploy them to devices runnning Azure IoT Edge.
-keywords: data stream, iot, edge
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: jhubbard
-
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 11/16/2017
 ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 01/16/2017
 ---
 
 # Azure Stream Analytics on IoT Edge (preview)
@@ -55,7 +48,12 @@ The high-level steps are described in the following table. More details are give
 | 2   | **Create a storage container**   | Azure portal       | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container.     |
 | 3   | **Set up your IoT Edge environment on your device(s)**   | Device(s)      | Instructions for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Deploy ASA on your IoT Edge device(s)**   | Azure portal      |  ASA job definition is exported to the storage container created earlier.       |
-You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) to deploy your first ASA job on IoT Edge.
+You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) to deploy your first ASA job on IoT Edge. The following video should help you understand the process to run a Stream Analytics job on an IoT edge device:  
+
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
+
+
 
 #### Create an ASA Edge job
 1. From the Azure portal, create a new "Stream Analytics job". [Direct link to create a new ASA job here](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
@@ -203,7 +201,7 @@ For more information, see [Docker documentation for Windows here](https://docs.d
 * [Third-party notice for Azure Stream Analytics on IoT Edge preview](https://go.microsoft.com/fwlink/?linkid=862828).
 
 ## Get help
-For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 
 ## Next steps

@@ -4,8 +4,7 @@ description: This quickstart shows how to use the Azure Cosmos DB Graph API to c
 services: cosmos-db
 documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
-editor: ''
+manager: kfile
 
 ms.assetid: dfce0de9-a326-401c-9940-406ac0414461
 ms.service: cosmos-db
@@ -14,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/05/2018
 ms.author: lbosq
 
 ---
@@ -134,7 +133,9 @@ Now go back to the Azure portal to get your connection information and copy it i
     ]);
     ```
 
-3. Change `username` parameter in the Connection object with your database and graph name. If you used the recommended values of `sample-database` and `sample-graph`, it should look like this:
+3. If your graph database account was created on or after December 20th, 2017, change `graphs.azure.com` in the host name to `gremlin.cosmosdb.azure.com`.
+
+4. Change `username` parameter in the Connection object with your database and graph name. If you used the recommended values of `sample-database` and `sample-graph`, it should look like this:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -152,7 +153,7 @@ Now go back to the Azure portal to get your connection information and copy it i
     ]);
     ```
 
-4. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `your_primary_key` in the password parameter.
+5. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `your_primary_key` in the password parameter.
 
     The Connection object initialization should now look like this:
 
@@ -168,7 +169,7 @@ Now go back to the Azure portal to get your connection information and copy it i
     ]);
     ```
 
-5. Save the `connect.php` file.
+6. Save the `connect.php` file.
 
 ## Run the console app
 

@@ -3,7 +3,7 @@ title: Publish Remote Desktop with Azure AD App Proxy | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid:
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: kgremban
+ms.author: daveba
 ms.custom: it-pro
 ms.reviewer: harshja
 ---

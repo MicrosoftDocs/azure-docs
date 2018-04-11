@@ -3,7 +3,7 @@ title: C# Quickstart for Azure Cognitive Services, Bing News Search API | Micros
 description: Get information and code samples to help you quickly get started using the Bing News Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
-author: jerrykindall
+author: v-jerkin
 
 ms.service: cognitive-services
 ms.technology: bing-search
@@ -33,7 +33,7 @@ The [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices
 1. Replace the `accessKey` value with an access key valid for your subscription.
 1. Run the program.
 
-```c#
+```csharp
 using System;
 using System.Text;
 using System.Net;

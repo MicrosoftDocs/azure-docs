@@ -45,7 +45,6 @@ See [Best practices for performance improvements using Service Bus][Best practic
 ### What should I know before creating entities?
 The following properties of a queue and topic are immutable. Consider this limitation when you provision your entities, as these properties cannot be modified without creating a new replacement entity.
 
-* Size
 * Partitioning
 * Sessions
 * Duplicate detection

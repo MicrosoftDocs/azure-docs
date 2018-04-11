@@ -132,7 +132,7 @@ if($s)
    | WAS                     | WASPUBLIC              | WDS                |
 
 
-### Collect logs using a graphical user interface
+### <a name="bkmk_gui"></a>Collect logs using a graphical user interface
 Rather than providing the required parameters for the Get-AzureStackLog cmdlet to retrieve Azure Stack logs, you can also leverage the available open source Azure Stack tools located in the main Azure Stack tools GitHub tools repository at http://aka.ms/AzureStackTools.
 
 The **ERCS_AzureStackLogs.ps1** PowerShell script is stored in the GitHub tools repository and is updated on a regular basis. To ensure that you have the latest version available, you should download it directly from http://aka.ms/ERCS. Started from an administrative PowerShell session, the script connects to the privileged endpoint and runs Get-AzureStackLog with supplied parameters. If no parameters are supplied, the script defaults to prompting for parameters via a graphical user interface.
@@ -156,3 +156,4 @@ To learn more about the ERCS_AzureStackLogs.ps1 PowerShell script, you can watch
 
 ## Next steps
 [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md)
+

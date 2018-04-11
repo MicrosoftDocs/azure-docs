@@ -4,7 +4,7 @@ description: Learn how to use Shared Access Signatures to restrict HDInsight acc
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/25/2018
 ms.author: larryfr
 
 ---
@@ -213,7 +213,7 @@ If you have an existing Linux-based cluster, you can add the SAS to the **core-s
    > [!IMPORTANT]
    > You must restart several services before the change takes effect.
 
-6. In the Ambari web UI, select **HDFS** from the list on the left, and then select **Restart All** from the **Service Actions** drop down list on the right. When prompted, select **Turn on maintenance mode** and then select __Conform Restart All".
+6. In the Ambari web UI, select **HDFS** from the list on the left, and then select **Restart All Affected** from the **Service Actions** drop down list on the right. When prompted, select __Confirm Restart All__.
 
     Repeat this process for MapReduce2 and YARN.
 

@@ -3,8 +3,8 @@ title: Connect Azure Stack to Azure using VPN
 description: How to connect virtual networks in Azure Stack to virtual networks in Azure using VPN.
 services: azure-stack
 documentationcenter: ''
-author: ScottNapolitan
-manager: 
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
-ms.author: victorh
+ms.author: brenduns
+ms.reviewer: scottnap
 
 ---
 # Connect Azure Stack to Azure using VPN
@@ -70,7 +71,7 @@ First you create the network resources for Azure. The following instructions sho
    the virtual network.
 4. The name of the subnet is set to **GatewaySubnet** by default.
    Gateway subnets are special and must have this specific name to function properly.
-5. In the **Address range** field, verify the address is **10.100.0.0/24**.
+5. In the **Address range** field, verify the address is **10.100.1.0/24**.
 6. Select **OK** to create the gateway subnet.
 
 ### Create the virtual network gateway
@@ -93,7 +94,7 @@ First you create the network resources for Azure. The following instructions sho
 5. From the list of resources, select **Local network gateway**.
 6. In **Name**, type **Azs-GW**.
 7. In **IP address**, type the public IP address for your Azure Stack Virtual Network Gateway that is listed earlier in the network configuration table.
-8. In **Address Space**, from Azure Stack, type the **10.0.10.0/23** address space for
+8. In **Address Space**, from Azure Stack, type the **10.1.0.0/24** and **10.1.1.0/24** address space for
    **AzureVNet**.
 9. Verify that your **Subscription**, **Resource Group**, and **Location** are correct, and then select **Create**.
 
@@ -126,7 +127,7 @@ network.
    select **Select**.
 8. On the **Settings** section, you can accept the defaults. Make sure
    that the **AzureVnet** virtual network is selected, and verify that the subnet is
-   set to **10.0.20.0/24**. Select **OK**.
+   set to **10.100.0.0/24**. Select **OK**.
 9. Review the settings on the **Summary** section, and then select **OK**.
 
 ## Create the network resources in Azure Stack
@@ -198,7 +199,7 @@ A way to think about this more generically is that the local network gateway res
 4. From the list of resources, select **local network gateway**.
 5. In **Name**, type **Azure-GW**.
 6. In **IP address**, type the Public IP Address for the virtual network gateway in Azure **Azure-GW-PiP**. This address appears earlier in the network configuration table.
-7. In **Address Space**, for the address space of the Azure VNET that you created, type **10.0.20.0/23**.
+7. In **Address Space**, for the address space of the Azure VNET that you created, type **10.100.0.0/24** and **10.100.1.0/24**.
 8. Verify that your **Subscription**, **Resource Group**, and
    **location** are correct, and then select **Create**.
 
@@ -255,8 +256,8 @@ address of the virtual machine on the remote subnet, not the VIP. To do this, fi
 7. Type **ipconfig /all**.
 8. In the output, find the **IPv4 Address**, and then save the address for later use. This is
    the address that you will ping from Azure. In the example environment, the
-   address is **10.0.10.4**, but in your environment it might
-   be different. It should fall within the **10.0.10.0/24**
+   address is **10.1.0.4**, but in your environment it might
+   be different. It should fall within the **10.1.0.0/24**
    subnet that you created previously.
 9. To create a firewall rule that allows the virtual machine to respond to pings, run the following PowerShell command:
 
@@ -274,8 +275,8 @@ address of the virtual machine on the remote subnet, not the VIP. To do this, fi
 5. Sign in with the account that you configured when you created the virtual machine.
 6. Open an elevated **Windows PowerShell** window.
 7. Type **ipconfig /all**.
-8. You should see an IPv4 address that falls within **10.0.20.0/24**. In the example
-   environment, the address is **10.0.20.4**, but your address might be different.
+8. You should see an IPv4 address that falls within **10.100.0.0/24**. In the example
+   environment, the address is **10.100.0.4**, but your address might be different.
 9. To create a firewall rule that allows the virtual machine to respond to pings, run the following PowerShell command:
 
    ```powershell
@@ -286,7 +287,7 @@ address of the virtual machine on the remote subnet, not the VIP. To do this, fi
 
 10. From the virtual machine in Azure, ping the virtual machine in Azure Stack, through
    the tunnel. To do this, you ping the DIP that you recorded from Azs-VM.
-   In the example environment, this is **10.0.10.4**, but be sure to ping the address you
+   In the example environment, this is **10.1.0.4**, but be sure to ping the address you
    noted in your lab. You should see a result that looks like the following screenshot:
    
     ![Successful ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)

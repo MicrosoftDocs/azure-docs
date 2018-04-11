@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 01/26/2018
 ms.author: tomfitz
 
 ---
 # Throttling Resource Manager requests
-For each subscription and tenant, Resource Manager limits read requests to 15,000 per hour and write requests to 1,200 per hour. These limits apply to each Azure Resource Manager instance; there are multiple instances in every Azure region, and Azure Resource Manager is deployed to all Azure regions.  So, in practice, limits are effectively much higher than those listed above, as user requests are generally serviced by many different instances.
+For each subscription and tenant, Resource Manager limits read requests to 15,000 per hour and write requests to 1,200 per hour. These limits apply to each Azure Resource Manager instance. There are multiple instances in every Azure region, and Azure Resource Manager is deployed to all Azure regions.  So, in practice, limits are effectively much higher than these limits, as user requests are usually serviced by many different instances.
 
-If your application or script reaches these limits, you need to throttle your requests. This topic shows you how to determine the remaining requests you have before reaching the limit, and how to respond when you have reached the limit.
+If your application or script reaches these limits, you need to throttle your requests. This article shows you how to determine the remaining requests you have before reaching the limit, and how to respond when you have reached the limit.
 
 When you reach the limit, you receive the HTTP status code **429 Too many requests**.
 
 The number of requests is scoped to either your subscription or your tenant. If you have multiple, concurrent applications making requests in your subscription, the requests from those applications are added together to determine the number of remaining requests.
 
-Subscription scoped requests are ones the involve passing your subscription id, such as retrieving the resource groups in your subscription. Tenant scoped requests do not include your subscription id, such as retrieving valid Azure locations.
+Subscription scoped requests are ones the involve passing your subscription ID, such as retrieving the resource groups in your subscription. Tenant scoped requests do not include your subscription ID, such as retrieving valid Azure locations.
 
 ## Remaining requests
 You can determine the number of remaining requests by examining response headers. Each request includes values for the number of remaining read and write requests. The following table describes the response headers you can examine for those values:
@@ -82,7 +82,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 In **Azure CLI**, you retrieve the header value by using the more verbose option.
 
 ```azurecli
-azure group list -vv --json
+az group list --verbose --debug
 ```
 
 Which returns many values, including the following object:
