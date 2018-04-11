@@ -89,7 +89,7 @@ and any errors that happened for that step. For example:
    > All runtime details and events are encrypted within the Logic Apps service. 
    > They are decrypted only when a user requests to view that data. 
    > You can also control access to these events with 
-   > [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md).
+   > [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md).
 
 6. To get details about a specific trigger event, 
 go back to the **Overview** pane. Under **Trigger history**, 
