@@ -19,7 +19,9 @@ ms.author: larryfr
 ---
 # Tutorial: Use Apache Storm with Kafka on HDInsight
 
-In this tutorial, you learn how to create an Apache Storm topology to read and write data with Apache Kafka on HDInsight. You also learn how to persist data to the HDFS-compatible storage on the Storm cluster.
+This tutorial demonstrates how to use an Apache Storm topology to read and write data with Apache Kafka on HDInsight. This tutorial also demonstrates how to persist data to the HDFS-compatible storage on the Storm cluster.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create Kafka and Storm clusters

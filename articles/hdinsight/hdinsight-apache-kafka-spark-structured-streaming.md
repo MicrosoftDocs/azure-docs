@@ -19,9 +19,11 @@ ms.author: larryfr
 ---
 # Tutorial: Use Spark Structured Streaming with Kafka on HDInsight
 
-In this tutorial, you learn how to use Spark Structured Streaming to read and write data with Apache Kafka on Azure HDInsight.
+This tutorial demonstrates how to use Spark Structured Streaming to read and write data with Apache Kafka on Azure HDInsight.
 
 Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide](http://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create Kafka and Spark clusters

@@ -19,7 +19,7 @@
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Tutorials
   items:
-  - name: Use Kafka with Spark Structured Streaming
+  - name: Kafka and Spark
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
     maintainContext: true
   - name: Kafka and Storm
@@ -47,7 +47,7 @@
     href: apache-kafka-log-analytics-operations-management.md
   - name: Create streaming pipelines
     items:
-    - name: Structured streaming from Kafka to Azure Cosmos DB
+    - name: Spark, Kafka, and Azure Cosmos DB
       href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
       maintainContext: true
     - name: Kafka and Spark (DStream)
