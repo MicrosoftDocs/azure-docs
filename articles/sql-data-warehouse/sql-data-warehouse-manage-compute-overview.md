@@ -113,7 +113,7 @@ To check the data warehouse state, se the [PowerShell](quickstart-scale-compute-
 
 ## Permissions
 
-Scaling the data warehouse requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Pause and Resume require the [SQL DB Contributor](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor) permission, specifically Microsoft.Sql/servers/databases/action.
+Scaling the data warehouse requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Pause and Resume require the [SQL DB Contributor](../role-based-access-control/built-in-roles.md#sql-db-contributor) permission, specifically Microsoft.Sql/servers/databases/action.
 
 
 ## Next steps
