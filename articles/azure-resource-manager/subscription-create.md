@@ -17,7 +17,7 @@ ms.author: jlian
 
 # Programmatically create Azure Enterprise subscriptions (preview)
 
-As an [Azure Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) customer and Account Owner, you can create EA (MS-AZR-0017P) and EA Dev/Test (MS-AZR-0148P) subscriptions programmatically. To give another user or service principal the permission to create subscriptions billed to your account, give them [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) access to your enrollment account. 
+As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can create EA (MS-AZR-0017P) and EA Dev/Test (MS-AZR-0148P) subscriptions programmatically. To give another user or service principal the permission to create subscriptions billed to your account, give them [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) access to your enrollment account. 
 
 > [!IMPORTANT]
 > The Azure subscription(s) created via this API are governed by the agreement under which you have obtained Microsoft Azure services from Microsoft or an authorized reseller. To learn more, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
@@ -260,7 +260,7 @@ az role assignment create --role Owner --assignee-object-id 5ac84765-1c8c-4994-9
 
 Once a user becomes an RBAC Owner for your enrollment account, they can programmatically create subscriptions under it. A subscription created by a delegated user still has the original Account Owner as Service Admin, but it also has the delegated user as an Owner by default. 
 
-## Audit who created subscriptions
+## Audit who created subscriptions using activity logs
 
 To track the subscriptions created via this API, use the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs). It's currently not possible to use PowerShell, CLI, or Azure portal to track subscription creation.
 
@@ -271,3 +271,9 @@ To track the subscriptions created via this API, use the [Tenant Activity Log AP
 - There needs to be at least one EA or EA Dev/Test subscriptions under the account, which means the Account Owner has gone through manual sign-up at least once.
 - Users who aren't Account Owners, but were added to an enrollment account via RBAC, cannot create subscriptions using Account Center.
 - You cannot select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](..\active-directory\active-directory-how-subscriptions-associated-directory.md).
+
+## Next steps
+
+* To learn more about Azure Resource Manager and its APIs, see [Azure Resource Manager overview](resource-group-overview.md).
+* To learn more about managing large numbers of subscriptions using Management Groups, see [Organize your resources with Azure Management Groups](management-groups-overview.md)
+* To see a comprehensive best practice guidance for large organizations on subscription governance, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md)
