@@ -70,7 +70,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
 6. Click **Create** on the **New data factory** page.
 
    > [!IMPORTANT]
-   > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
+   > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
    >
    >
 7. After creation is complete, you see the **Data Factory** page as shown in the following image:
