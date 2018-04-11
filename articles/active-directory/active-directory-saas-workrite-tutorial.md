@@ -117,6 +117,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	a. Select **Management System** from the dashboard, then select **Company** from the left hand navigation menu. 
 
 	b. On the **Company** page, click the **Security** panel to view the SAML Single Sign-On configuration settings.
+	
+	![WorkRite SAML Settings][406]
 
 	c. Click the **Status** toggle button to enable Single Sign-On, if not already enabled.
 	
@@ -283,4 +285,5 @@ When you click the Workrite tile in the Access Panel, you should get automatical
 [403]: ./media/active-directory-saas-workrite-tutorial/management_system.png
 [404]: ./media/active-directory-saas-workrite-tutorial/users.png
 [405]: ./media/active-directory-saas-workrite-tutorial/create_user.png
+[406]: ./media/active-directory-saas-workrite-tutorial/saml.png
 
