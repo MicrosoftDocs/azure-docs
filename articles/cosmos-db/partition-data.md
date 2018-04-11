@@ -2,9 +2,8 @@
 title: Partitioning and horizontal scaling in Azure Cosmos DB | Microsoft Docs
 description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
 services: cosmos-db
-author: arramac
-manager: jhubbard
-editor: monicar
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
@@ -13,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: arramac
+ms.date: 04/10/2018
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -47,7 +46,7 @@ How does partitioning work? Each item must have a partition key and a row key, w
 
 In brief, here's how partitioning works in Azure Cosmos DB:
 
-* You provision a Azure Cosmos DB container with **T** requests per second throughput.
+* You provision an Azure Cosmos DB container with **T** requests per second throughput.
 * Behind the scenes, Azure Cosmos DB provisions partitions needed to serve **T** requests per second. If **T** is higher than the maximum throughput per partition **t**, then Azure Cosmos DB provisions **N = T/t** partitions.
 * Azure Cosmos DB allocates the key space of partition key hashes evenly across the **N** partitions. So, each partition (physical partition) hosts **1/N** partition key values (logical partitions).
 * When a physical partition **p** reaches its storage limit, Azure Cosmos DB seamlessly splits **p** into two new partitions, **p1** and **p2**. It distributes values corresponding to roughly half the keys to each of the partitions. This split operation is invisible to your application. If a physical partition reaches its storage limit and all of the data in the physical partition belongs to the same logical partition key, the split operation does not occur. This is because all the data for a single logical partition key must reside in the same physical partition and thus the physical partition cannot be split into p1 and p2. In this case a different partition key strategy should be employed.
@@ -97,8 +96,8 @@ Azure Cosmos DB is designed for predictable performance. When you create a conta
 ## Work with the Azure Cosmos DB APIs
 You can use the Azure portal or Azure CLI to create containers and scale them at any time. This section shows how to create containers and specify the throughput and partition key definition in each of the supported APIs.
 
-### Azure Cosmos DB API
-The following sample shows how to create a container (collection) by using the Azure Cosmos DB API. 
+### SQL API
+The following sample shows how to create a container (collection) by using the Azure Cosmos DB SQL API. 
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -122,6 +121,8 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
   UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 ```
+
+For more information, see [Partitioning in Azure Cosmos DB using the SQL API](sql-api-partition-data.md).
 
 ### MongoDB API
 With the MongoDB API, you can create a sharded collection through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell for the collection creation.
@@ -184,7 +185,7 @@ You can reference an edge by using the partition key and the row key.
 g.E(['USA', 'I5'])
 ```
 
-For more information, see [Gremlin support for Azure Cosmos DB](gremlin-support.md).
+For more information, see [Using a partitioned graph in Azure Cosmos DB](graph-partitioning.md).
 
 
 <a name="designing-for-partitioning"></a>

@@ -1,5 +1,5 @@
 ---
-title:  Azure Quickstart - Transfer objects to/from Azure Blob storage using PHP | Microsoft Docs 
+title: Azure Quickstart - Create a blob in object storage using PHP | Microsoft Docs 
 description: Quickly learn to transfer objects to/from Azure Blob storage using PHP
 services: storage
 author: roygara
@@ -9,7 +9,7 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: rogarana
 ---
 
@@ -37,6 +37,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
 ```
 
 This command clones the repository to your local git folder. To open the PHP sample application, look for the storage-blobs-php-quickstart folder, and open the phpqs.php file.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## Configure your storage connection string
 In the application, you must provide your storage account name and account key to create the **BlobRestProxy** instance for your application. It is recommended to store these identifiers within an environment variable on the local machine running the application. Use one of the following examples depending on your Operating System to create the environment variable. Replace the **youraccountname** and **youraccountkey** values with your account name and key.

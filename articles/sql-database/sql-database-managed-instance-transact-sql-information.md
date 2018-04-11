@@ -234,7 +234,7 @@ For more information, see [FILESTREAM](https://docs.microsoft.com/sql/relational
 ### Linked servers
  
 Linked servers in Managed Instance support limited number of targets: 
-- Supported targets: SQL Server, SQL Database, Managed Instance, and SQL Server on a virtual machine.
+- Supported targets: SQL Server and SQL Database
 - Not supported targets: files, Analysis Services, and other RDBMS.
 
 Operations

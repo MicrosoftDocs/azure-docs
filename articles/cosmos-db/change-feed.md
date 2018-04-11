@@ -4,8 +4,7 @@ description: Use Azure Cosmos DB change feed support to track changes in documen
 keywords: change feed
 services: cosmos-db
 author: rafats
-manager: jhubbard
-editor: mimig
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
@@ -157,6 +156,11 @@ This section walks through how to use the SQL SDK to work with a change feed.
             }
     }
     ```
+
+> [!NOTE]
+> Instead of `ChangeFeedOptions.PartitionKeyRangeId`, you can use `ChangeFeedOptions.PartitionKey` to specify a single partition key for which to get a change feed. For example, `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
+> 
+>
 
 If you have multiple readers, you can use **ChangeFeedOptions** to distribute read load to different threads or different clients.
 
