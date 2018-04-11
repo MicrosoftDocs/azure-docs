@@ -19,7 +19,7 @@ ms.custom: mvc, devcenter
 
 ---
 
-# Quickstart: deploy a Service Fabric application in Azure
+# Quickstart: Deploy a Service Fabric application in Azure
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy containerized applications without managing VMs, storage, or networking. 
 
 This quickstart shows how to deploy your first .NET Core application to Service Fabric Mesh. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
@@ -134,3 +134,6 @@ az group delete --resource-group <resourceGroupName>
 To learn more about Service Fabric Mesh, read the overview:
 > [!div class="nextstepaction"]
 > [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
+
+
+[azure-cli-install]: /cli/azure/install-azure-cli
