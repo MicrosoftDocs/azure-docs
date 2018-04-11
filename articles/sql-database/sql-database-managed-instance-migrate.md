@@ -17,14 +17,20 @@ ms.author: bonova
 
 In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to Azure SQL Database Managed Instance (preview). 
 
-> [!NOTE]
-> To migrate a single database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
-
 SQL Database Managed Instance is an expansion of the existing SQL Database service, providing a third deployment option alongside single databases and elastic pools.  It is designed to enable database lift-and-shift to a fully managed PaaS, without redesigning the application. SQL Database Managed Instance provides high compatibility with the on-premises SQL Server programming model and out-of-box support for the large majority of SQL Server features and accompanying tools and services.
 
 At the high level, application migration process looks like on the following diagram:
 
 ![migration process](./media/sql-database-managed-instance-migration/migration-process.png)
+
+- [Assess Managed Instance compatibility](sql-database-managed-instance-migrate.md#assess-managed-instance-compatibility)
+- [Choose app connectivity option](sql-database-managed-instance-migrate.md#choose-app-connectivity-option)
+- [Deploy to an optimally sized Managed Instance](sql-database-managed-instance-migrate.md#deploy-to-an-optimally-sized-managed-instance)
+- [Select migration method and migrate](sql-database-managed-instance-migrate.md#select-migration-method-and-migrate)
+- [Monitor applications](sql-database-managed-instance-migrate.md#monitor-applications)
+
+> [!NOTE]
+> To migrate a single database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
 
 ## Assess Managed Instance compatibility
 
@@ -65,11 +71,13 @@ Managed Instance is a fully managed service that allows you to delegate some of 
 
 Managed Instance supports the following database migration options (currently these are the only supported migration methods):
 
+- Azure Database Migration Service - migration with near-zero downtime
+- Native RESTORE from URL - uses native backups from SQL Server and requires some downtime
+- Migrate using BACPAC file - uses BACPAC file from SQL Server or SQL Database and requires some downtime
+
 ### Azure Database Migration Service
 
 The [Azure Database Migration Service (DMS)](../dms/dms-overview.md) is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure. Deployment options at Public Preview include Azure SQL Database, Managed Instance, and SQL Server in an Azure Virtual Machine. DMS is the recommended method of migration for your enterprise workloads. 
-
-![DMS](./media/sql-database-managed-instance-migration/dms.png)
 
 To learn more about this scenario and configuration steps for DMS, see [Migrate your on-premises database to Managed Instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 

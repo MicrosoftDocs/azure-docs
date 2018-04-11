@@ -15,7 +15,19 @@ manager: craigg
 ---
 # Create an Azure SQL Database Managed Instance in the Azure portal
 
-This tutorial demonstrates how to create an Azure SQL Database Managed Instance (preview) using the Azure portal in a dedicated subnet of a virtual network (VNet). It then shows you how to connect to the Managed Instance using SQL Server Management Studio on a virtual machine in the same VNet.
+This tutorial demonstrates how to create an Azure SQL Database Managed Instance (preview) using the Azure portal in a dedicated subnet of a virtual network (VNet) and then connect to the Managed Instance using SQL Server Management Studio on a virtual machine in the same VNet.
+
+> [!div class="checklist"]
+> * Whitelist your subscription
+> * Configure a virtual network (VNet)
+> * Create new route table and a route
+> * Apply the route table to the Managed Instance subnet
+> * Create a Managed Instance
+> * Create a new subnet in the VNet for a virtual machine
+> * Create a virtual machine in the new subnet in the VNet
+> * Connect to virtual machine
+> * Install SSMS and connect to the Managed Instance
+
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -118,7 +130,7 @@ The following steps show you how to create a 0.0.0.0/0 Next Hop Internet route.
 
 8. Click **OK**.
 
-## To apply the route table to the Managed Instance subnet
+## Apply the route table to the Managed Instance subnet
 
 The following steps show you how to set the new route table on the Managed Instance subnet.
 
@@ -296,6 +308,20 @@ After you connect, you can view your system and user databases in the Databases 
 
 ## Next steps
 
-- For information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
-- For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
-- For information about connecting apps, see [Connect applications](sql-database-managed-instance-connect-app.md).
+In this tutorial, you learned to create an Azure SQL Database Managed Instance (preview) using the Azure portal in a dedicated subnet of a virtual network (VNet) and then connect to the Managed Instance using SQL Server Management Studio on a virtual machine in the same VNet.  You learned how to: 
+
+> [!div class="checklist"]
+> * Whitelist your subscription
+> * Configure a virtual network (VNet)
+> * Create new route table and a route
+> * Apply the route table to the Managed Instance subnet
+> * Create a Managed Instance
+> * Create a new subnet in the VNet for a virtual machine
+> * Create a virtual machine in the new subnet in the VNet
+> * Connect to virtual machine
+> * Install SSMS and connect to the Managed Instance
+
+Advance to the next tutorial to learn how to restore a database backup to an Azure SQL Database Managed Instance.
+
+> [!div class="nextstepaction"]
+>[Restore a database backup to an Azure SQL Database Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md)

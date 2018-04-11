@@ -15,7 +15,12 @@ manager: craigg
 ---
 # Restore a database backup to an Azure SQL Database Managed Instance
 
-This tutorial demonstrates how to restore a backup of a database stored in Azure blob storage into the Managed Instance using the Wide World Importers - Standard backup file.
+This tutorial demonstrates how to restore a backup of a database stored in Azure blob storage into the Managed Instance using the Wide World Importers - Standard backup file. This method requires some downtime. For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md). For a discussion of the varous migration methods, see [SQL Server instance migration to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
+
+> [!div class="checklist"]
+> * Download the Wide World Importers - Standard backup file
+> * Create Azure storage account and upload backup file
+> * Restore the Wide World Importers database from a backup file
 
 ## Prerequisites
 
@@ -96,7 +101,7 @@ Log in to the [Azure portal](https://portal.azure.com/#create/Microsoft.SQLManag
 
     ![upload](./media/sql-database-managed-instance-tutorial/upload.png)
 
-17. Browse to your download folder and select the **AdventureWorks2016.bak** file.
+17. Browse to your download folder and select the **WideWorldIimporters-Standard.bak** file.
 
     ![upload](./media/sql-database-managed-instance-tutorial/upload-bak.png)
 
@@ -157,7 +162,14 @@ With SSMS, use the following steps to restore the Wide World Importers database 
 
 ## Next steps
 
-- For information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
-- For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
-- For information about connecting apps, see [Connect applications](sql-database-managed-instance-connect-app.md).
-- For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+In this tutorial, you learned to restore a backup of a database stored in Azure blob storage into the Managed Instance using the Wide World Importers - Standard backup file. You learned how to: 
+
+> [!div class="checklist"]
+> * Download the Wide World Importers - Standard backup file
+> * Create Azure storage account and upload backup file
+> * Restore the Wide World Importers database from a backup file
+
+Advance to the next tutorial to learn how to migrate SQL Server to Azure SQL Database Managed Instance using DMS.
+
+> [!div class="nextstepaction"]
+>[Migrate SQL Server to Azure SQL Database Managed Instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md)

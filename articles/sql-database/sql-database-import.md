@@ -29,7 +29,7 @@ To import a database using the Azure portal, open the page for the server to ass
 To monitor the progress of the import operation, open the page for the logical server containing the database being imported. Scroll down to **Operations** and then click **Import/Export** history.
 
 > [!NOTE]
-> [Azure SQL Database Managed Instance](sql-database-managed-instance.md) supported importing from a BACPAC file, but does not currently support migrating using the Azure portal.
+> [Azure SQL Database Managed Instance](sql-database-managed-instance.md) supported importing from a BACPAC file using the other methods in this article, but does not currently support migrating using the Azure portal.
 
 ### Monitor the progress of an import operation
 
