@@ -16,24 +16,24 @@ ms.custom: pim
 ---
 
 # Activate roles for Azure resources by using Privileged Identity Management
-Activating roles for Azure resources introduces a new experience. Eligible role members can schedule activation for a future date and time. They can also select a specific activation duration within the maximum (configured by administrators). For more information, see [How to activate or deactivate roles in Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-how-to-activate-role.md).
+Privileged Identity Management (PIM) introduces a new experience in activating roles for Azure resources. Eligible role members can schedule activation for a future date and time. They can also select a specific activation duration within the maximum (configured by administrators). For more information, see [How to activate or deactivate roles in Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ## Activate roles
 Browse to the **My roles** section in the left pane. Select **Activate** for the role that you want to activate.
 !["Eligible roles" tab in the "My roles" pane.](media/azure-pim-resource-rbac/rbac-roles.png)
 
-From the **Activations** menu, enter the desired start date and time to activate the role. Optionally, decrease the activation duration (the length of time that the role is active) and enter a justification if required. Then, select **Activate**.
+From the **Activations** menu, enter the start date and time to activate the role. Optionally, decrease the activation duration (the length of time that the role is active) and enter a justification if necessary. Then, select **Activate**.
 
 If the start date and time are not modified, the role is activated in seconds. In the **My roles** pane, a banner message shows that a role is queued for activation. Select the refresh button to clear this message.
 
 !["My roles" pane with a banner message and a notification about a pending approval](media/azure-pim-resource-rbac/rbac-activate-notification.png)
 
-If the activation is scheduled for a future date and time, the pending request appears on the **Pending requests** tab of the left pane. If the role activation is no longer required, the user can cancel the request by selecting the **Cancel** button.
+If the activation is scheduled for a future date and time, the pending request appears on the **Pending requests** tab of the left pane. If the role activation is no longer required, you can cancel the request by selecting the **Cancel** button.
 
 ![List of pending requests with "Cancel" buttons](media/azure-pim-resource-rbac/rbac-activate-pending.png)
 
 
-## Just enough administration
+## Apply Just Enough Administration practices
 
 Using Just Enough Administration (JEA) best practices with your resource role assignments is simple with PIM for Azure resources. Users and group members with assignments in Azure subscriptions or resource groups can activate their existing role assignment at a reduced scope. 
 

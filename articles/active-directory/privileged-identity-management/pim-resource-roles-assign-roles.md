@@ -19,7 +19,7 @@ ms.custom: pim
 
 ## Assign roles
 
-To assign a user or group to a role if you're viewing the **Roles** pane, select the role, and then select **Add user**. 
+To assign a user or group to a role when you're viewing the **Roles** pane, select the role, and then select **Add user**. 
 
 !["Roles" pane with the "Add user" button](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
 
@@ -39,7 +39,7 @@ If you're adding a user or group from the **Members** pane, you need to:
 3. Choose the appropriate assignment type from the drop-down menu: 
 
    - **Just in time**: Provides the user or group members with eligible but not persistent access to the role for a specified period or indefinitely (if configured in role settings). 
-   - **Direct**: Does not require the user or group members to activate the role assignment (known as persistent access). We recommend using direct assignment for short-term use such as on-call shifts, or time-sensitive activities, where access won’t be required when the task is complete.
+   - **Direct**: Does not require the user or group members to activate the role assignment (known as persistent access). We recommend using direct assignment for short-term use, where access won’t be required when the task is complete. Examples are on-call shifts and time-sensitive activities.
 
 4. If the assignment should be permanent (permanently eligible for a just-in-time assignment, or permanently active for a direct assignment), select the check box below the **Assignment type** box.
 
