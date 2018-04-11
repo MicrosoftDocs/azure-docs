@@ -30,12 +30,12 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Traffic filtering
+  - name: Security
     href: security-overview.md
-  - name: Service endpoints
-    href: virtual-network-service-endpoints-overview.md
   - name: Routing
     href: virtual-networks-udr-overview.md
+  - name: Service endpoints
+    href: virtual-network-service-endpoints-overview.md
   - name: Peering
     href: virtual-network-peering-overview.md
   - name: Virtual network for Azure services
