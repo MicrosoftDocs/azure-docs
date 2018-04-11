@@ -1,15 +1,15 @@
 ---
-title: 'IoT DevKit to cloud: Connect IoT DevKit AZ3166 to Azure IoT Hub | Microsoft Docs'
+title: 'IoT DevKit to cloud: Connect IoT DevKit AZ3166 to Azure IoT Suite Remote Monitoring v2  | Microsoft Docs'
 description: In this tutorial, learn how to send status of sensors on IoT DevKit AZ3166 to Remote Monitoring v2 from Azure IoT Suite for monitoring and visualization.
 services: iot-hub
 documentationcenter: ''
-author: Isabel Cabezas
+author: @isabelcabezasm
 manager: 
 tags: ''
 keywords: ''
 
-ms.service: iot-hub
-ms.devlang: arduino
+ms.service: iot-suite
+ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -18,6 +18,9 @@ ms.author: isacabe
 
 ---
 # Connect MXChip IoT DevKit AZ3166 to Azure IoT Suite for remote monitoring v2
+
+
+[!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 In this tutorial, you learn how to run a sample app on your DevKit to send sensor data to your Azure IoT Suite.
 
@@ -29,32 +32,6 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-
 
 * Have your DevKit connected to Wi-Fi
 * Prepare the development environment
-
-An active Azure subscription. If you do not have one, you can register via one of these two methods:
-
-* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/en-us/free/)
-* Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are MSDN or Visual Studio subscriber
-
-## Create an Azure IoT Suite
-
-1. Go to [Azure IoT Suite site](https://www.azureiotsuite.com/) and click **Create a new solution**.
-
-  ![Select Azure IoT Suite type](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-v2-solution-types.png)
- 
-
-2. Click in ´Select´ button of the **Remote monitoring preview** project.
-
-3. Enter a solution name, select a subscription and a region, and then click **Create solution**. The solution may take a while to be provisioned.
-
-  ![Create solution](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-create-remote-monitoring-preview-solution.png)
-
-
-4. After the provision is completed, click **Launch**. Some simulated devices are created for the solution during the provision process. Click **DEVICES** to check them out.
-
-  ![Dashboard](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-new-solution-created.png)
-
-  ![Console](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-console.png)
-
 
 
 ## Open the RemoteMonitoring sample
