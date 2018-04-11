@@ -79,7 +79,7 @@ Azure responds with a list of all enrollment accounts you have access to:
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Use the [Get-EnrollmentAccount command]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) to list all enrollment accounts you have access to.
+Use the [Get-EnrollmentAccount command](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) to list all enrollment accounts you have access to.
 
 ```azurepowershell-interactive
 Get-EnrollmentAccount
@@ -97,7 +97,7 @@ edd24053-07cd-4ed4-aa5b-326160a6680d   | MobileBackendEng@contoso.com
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Use the [az billing enrollment-account list]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) command to list all enrollment accounts you have access to.
+Use the [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) command to list all enrollment accounts you have access to.
 
 ```azurecli-interactive 
 az billing enrollment-account list
@@ -166,7 +166,7 @@ In the response, you get back a `subscriptionOperation` object for monitoring. W
 
 # [PowerShell](#tab/azure-powershell)
 
-Use the [New-AzureRmSubscription]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) along with `enrollmentAccount` name as the `EnrollmentAccountObjectId` parameter to create a new subscription.
+Use the [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) along with `enrollmentAccount` name as the `EnrollmentAccountObjectId` parameter to create a new subscription.
 
 ```azurepowershell-interactive
 New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556 -OwnerObjectId 973034ff-acb7-409c-b731-e789672c7b31,67439a9e-8519-4016-a630-f5f805eba567
@@ -180,11 +180,11 @@ New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -E
 | `OwnerSignInName`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.|
 | `OwnerApplicationId` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.| 
 
-To see a full list of all parameters, see [New-AzureRmSubscription]($PLACE_HOLDER_FOR_TECHNICAL_DOCS).
+To see a full list of all parameters, see [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview).
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az account create]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) along with `enrollmentAccount` name as the `enrollment_account_name` parameter to create a new subscription.
+Use the [az account create](/cli/azure/account) along with `enrollmentAccount` name as the `enrollment_account_name` parameter to create a new subscription.
 
 ```azurecli-interactive 
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-name "e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556" --owner-object-id "973034ff-acb7-409c-b731-e789672c7b31","67439a9e-8519-4016-a630-f5f805eba567"
@@ -198,13 +198,13 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `upn`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`.|
 | `spn` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`.| 
 
-To see a full list of all parameters, see [az account create]($PLACE_HOLDER_FOR_TECHNICAL_DOCS).
+To see a full list of all parameters, see [az account create](/cli/azure/account).
 
 ----
 
 ## Delegate access to an enrollment account using RBAC
 
-To give another user or service principal the ability to create subscriptions against a specific account, [give them an RBAC Owner or Contributor role at the scope of the enrollment account](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-manage-access-rest). The following example gives a user in the tenant with `principalId` of `5ac84765-1c8c-4994-94b2-629461bd191b` (for MobileOnboardingEng@contoso.com) a Contributor role on the enrollment account. 
+To give another user or service principal the ability to create subscriptions against a specific account, [give them an RBAC Owner or Contributor role at the scope of the enrollment account](../active-directory/role-based-access-control-manage-access-rest.md). The following example gives a user in the tenant with `principalId` of `5ac84765-1c8c-4994-94b2-629461bd191b` (for MobileOnboardingEng@contoso.com) a Contributor role on the enrollment account. 
 
 # [REST](#tab/rest)
 
@@ -239,7 +239,7 @@ When the Contributor role is successfully assigned at the enrollment account sco
 
 # [PowerShell](#tab/azure-powershell)
 
-Use the [New-AzureRmRoleAssignment](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell#grant-access) to give another user Contributor access to your enrollment account.
+Use the [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell#grant-access) to give another user Contributor access to your enrollment account.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ObjectId 5ac84765-1c8c-4994-94b2-629461bd191b -Scope /providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556
@@ -247,7 +247,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ObjectId 5ac84765-1c8
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az role assignment create](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli#assign-access) to give another user Contributor access to your enrollment account.
+Use the [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli#assign-access) to give another user Contributor access to your enrollment account.
 
 ```azurecli-interactive 
 az role assignment create --role Contributor --assignee-object-id 5ac84765-1c8c-4994-94b2-629461bd191b --scope /providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556
@@ -267,4 +267,4 @@ To track the subscriptions created via this API, use the [Tenant Activity Log AP
 - There's a limit of 50 subscriptions per account. After that, subscriptions can only be created by using Account Center.
 - There needs to be at least one EA or EA Dev/Test subscriptions under the account, which means the Account Owner has gone through manual sign-up at least once.
 - Users who aren't Account Owners, but were added to an enrollment account via RBAC, cannot create subscriptions using Account Center.
-- You cannot select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](PLACE_HOLDER.md).
+- You cannot select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](..\active-directory\active-directory-how-subscriptions-associated-directory.md).
