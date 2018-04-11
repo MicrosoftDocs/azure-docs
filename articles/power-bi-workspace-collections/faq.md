@@ -3,8 +3,8 @@ title: Power BI Workspace Collections FAQ
 description: Frequently asked questions related to Power BI Workspace Collections.
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
-manager: erikre
+author: markingmyname
+manager: kfile
 editor: ''
 tags: ''
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
+ms.author: maghan
 
 ---
 # Power BI Workspace Collections FAQ
