@@ -43,7 +43,7 @@ It is also suggested to install [Docker support for VS Code](https://marketplace
 In the tutorial [Deploy Azure Functions](tutorial-deploy-function.md), you update, build, and publish your function module images in Visual Studio (VS) Code and then visit Azure portal to deploy Azure Functions. If you want sample code to create a working Function module, follow the steps in that tutorial. This section introduces the features in Visual Studio Code that you can use to deploy and monitor your Azure Functions.
 
 ### Start a local docker registry
-You can use any Docker-compatible registry for your IoT Edge modules. Two popular Docker registry services available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). 
+You can use any Docker-compatible registry for your IoT Edge modules. Two popular Docker registry services available in the cloud are [Azure Container Registry](../container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). 
 
 When you're in the early development stage, it's easier to set up a [local Docker registry](https://docs.docker.com/registry/deploying/) for testing.
 
@@ -54,7 +54,7 @@ When you're in the early development stage, it's easier to set up a [local Docke
    docker run -d -p 5000:5000 --name registry registry:2 
    ```
 
-The registry configurations in this example are only appropriate for testing. A production-ready registry must be protected by TLS and should ideally use an access-control mechanism. We recommend [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) for IoT Edge modules in production.
+The registry configurations in this example are only appropriate for testing. A production-ready registry must be protected by TLS and should ideally use an access-control mechanism. We recommend [Azure Container Registry](../container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) for IoT Edge modules in production.
 
 ### Create a function project
 This section provides the steps to create an IoT Edge module based on .NET core 2.0 using Visual Studio Code and the Azure IoT Edge extension. 

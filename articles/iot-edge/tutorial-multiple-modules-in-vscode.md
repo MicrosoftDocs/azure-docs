@@ -18,10 +18,18 @@ ms.service: iot-edge
 You can use Visual Studio Code to develop your IoT Edge solution with multiple modules. This article walks through creating, updating, and deploying an IoT Edge solution that pipes sensor data on the simulated IoT Edge device in Visual Studio Code. 
 
 ## Prerequisites
-* Complete below tutorials
-  * [Deploy C# module](tutorial-csharp-module.md)
-  * [Deploy C# Function](tutorial-deploy-function.md)
-  * [Deploy Python module](tutorial-python-module.md)
+
+To complete all the steps in this article, have the following prerequisites in place:
+
+- [Visual Studio Code](https://code.visualstudio.com/) 
+- [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
+- [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
+- [Docker](https://docs.docker.com/engine/installation/)
+- [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd) 
+- AzureIoTEdgeModule template (`dotnet new -i Microsoft.Azure.IoT.Edge.Module`)
+- An active IoT hub with at least one IoT Edge device
+
+
 * [Docker for VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) with explorer integration for managing Images and Containers.
 
 

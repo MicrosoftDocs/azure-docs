@@ -100,16 +100,16 @@ Create an IoT Edge module based on .NET Core 2.0, by using Visual Studio Code an
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
     ```
 
-2. Create a project for the new module. The following command creates the project folder called **FilterModule**, in the current working folder:
+2. Create a project for the new module. The following command creates the project folder called **CSharpModule**, in the current working folder:
 
     ```cmd/sh
-    dotnet new aziotedgemodule -n FilterModule
+    dotnet new aziotedgemodule -n CSharpModule
     ```
  
 3. Select  **File** > **Open Folder**.
-4. Browse to the **FilterModule**  folder, and click **Select Folder** to open the project in VS Code.
+4. Browse to the **CSharpModule**  folder, and click **Select Folder** to open the project in VS Code.
 5. Edit the templates in this folder to create your IoT Edge module, or replace them with your own files. 
-6. To build the project, right-click the **FilterModule.csproj** file in Explorer, and select **Build IoT Edge module**. This process compiles the module, and exports the binary and its dependencies into a folder that is used to create a Docker image. 
+6. To build the project, right-click the **CSharpModule.csproj** file in Explorer, and select **Build IoT Edge module**. This process compiles the module, and exports the binary and its dependencies into a folder that is used to create a Docker image. 
 
     ![Screenshot of VS Code Explorer](./media/how-to-vscode-develop-csharp-module/build-module.png)
 
@@ -122,9 +122,9 @@ Create an IoT Edge module based on .NET Core 2.0, by using Visual Studio Code an
     ![Screenshot of VS Code Explorer](./media/how-to-vscode-develop-csharp-module/build-docker-image.png)
 
 4. In the **Select Folder** window, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Select **Select Folder as EXE_DIR**.
-5. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/filtermodule:latest`. If you are deploying to local registry, it should be `localhost:5000/filtermodule:latest`.
+5. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/csharpmodule:latest`. If you are deploying to local registry, it should be `localhost:5000/csharpmodule:latest`.
 6. Push the image to your Docker repository. In the command palette, select **Edge: Push IoT Edge module Docker image**.
-7. In the text box that pops up, enter the same image URL for your module, like `<your container registry address/filtermodule:latest`. 
+7. In the text box that pops up, enter the same image URL for your module, like `<your container registry address/csharpmodule:latest`. 
 8. Check the console log to make sure the image has been successfully pushed.
 
     ![Screenshot of pushing the Docker image](./media/how-to-vscode-develop-csharp-module/push-image.png)
