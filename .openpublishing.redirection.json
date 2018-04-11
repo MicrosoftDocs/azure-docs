@@ -15952,7 +15952,7 @@
         },
         {
             "source_path": "articles/cognitive-services/index.md",
-            "redirect_url": "/azure/#pivot=products&panel=cognitive",
+            "redirect_url": "/azure/#pivot=products&panel=ai",
             "redirect_document_id": false
         },
         {
