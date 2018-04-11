@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 04/11/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
@@ -47,7 +47,7 @@ The Readiness Checker tool performs the following certificate validations:
 
 ## Prerequisites
 
-Your system should meet the following prerequisites before validating PKI certificates for Azure Stack deployment:
+Your system should meet the following prerequisites before validating PKI certificates for an Azure Stack deployment:
 
 - Microsoft Azure Stack Readiness Checker
 - SSL Certificate(s) exported following the [preparation instructions](azure-stack-prepare-pki-certs.md)
