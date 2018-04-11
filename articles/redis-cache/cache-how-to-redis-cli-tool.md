@@ -25,9 +25,9 @@ The tool is available for Windows platforms by downloading the [Redis command-li
 
 If you want to run the command-line tool on another platform, download Redis Cache from [http://redis.io/download](https://redis.io/download).
 
-## Gather cache access information.
+## Gather cache access information
 
-You can gather the information needed to access the cache using three methods
+You can gather the information needed to access the cache using three methods:
 
 1. Azure CLI using [az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
 2. Azure PowerShell using [Get-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Get-AzureRmRedisCacheKey?view=azurermps-4.4.1)
