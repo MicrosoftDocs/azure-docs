@@ -34,7 +34,7 @@ Connecting to a server in Excel is supported by using Get Data in Excel 2016. Co
 2. In the Data Connection Wizard, in **Server name**, enter the server name including protocol and URI. Then, in **Logon credentials**, select **Use the following User Name and Password**, and then type the organizational user name, for example nancy@adventureworks.com, and password.
 
     > [!NOTE]
-    > If signing in with a Microsoft Account, Live ID, @gmail, etc., leave the password field blank. You will be prompted for a password        after clicking Next.
+    > If you sign in in with a Microsoft Account, Live ID, @gmail, etc., or you are required to sign in with multi-factor authenitcation, leave the password field blank. You are prompted for a password after clicking Next.
 
     ![Connect from Excel logon](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 
