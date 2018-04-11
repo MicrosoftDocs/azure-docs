@@ -45,7 +45,9 @@ By default, snapshots will be retained for seven days. This allows the restore t
 * This is a one-directional upgrade of the VM backup stack. So, all  future backups will go into this flow. Since **it is enabled at a subscription level, all VMs will go onto this flow**. All new feature additions will be based on the same stack. Ability to control this at policy level is coming in future releases. 
 * For VMs with premium disks, during the first backup, make sure that storage space equivalent to size of the VM is available in the storage account until first backup completes. 
 * Since snapshots are stored locally to boost recovery point creation and also to speed up restore, you will see storage costs corresponding to snapshots during the seven-day period.
+* Incremental snapshots are stored as page blobs. All the customers using unmanaged disks will be charged for the 7 days snapshots stored in the customer's local storage account. As per the current pricing model, there is no cost for customers on managed disks.
 * If you are doing a restore from Snapshot recovery point for a Premium VM, you will see a temporary storage location being used while the VM is being created as part of the restore. 
+* In case of premium storage accounts, the snapshots taken for instant recovery will occupy the 10TB space allocated in the premium storage account.
 
 ## How to upgrade?
 ### The Azure portal
