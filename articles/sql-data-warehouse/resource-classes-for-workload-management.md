@@ -17,9 +17,9 @@ Learn how to use resource classes to manage memory and concurrency for queries i
 ## What is workload management?
 Workload management is the ability to optimize the overall performance of all queries. A well-tuned workload runs queries and load operations efficiently regardless of whether they are compute-intensive or IO-intensive.  SQL Data Warehouse provides workload management capabilities for multi-user environments. A data warehouse is not intended for multi-tenant workloads.
 
-The performance capacity of a data warehouse is determined by the [performance level](). 
+The performance capacity of a data warehouse is determined by the [performance tier](memory-and-concurrency-limits.md#performance-tiers) and the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
 
-- To view the memory and concurrency limits for the performance levels, see [Memory and concurrency limits](memory-and-concurrency-limits.md).
+- To view the memory and concurrency limits for all the performance profiles, see [Memory and concurrency limits](memory-and-concurrency-limits.md).
 - To adjust performance capacity, you can [scale up or down](quickstart-scale-compute-portal.md).
 
 The performance capacity of a query is determined by query's resource class. This remainder of this article explains what resource classes are and how to adjust them.
