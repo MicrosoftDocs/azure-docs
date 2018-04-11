@@ -127,6 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![The Certificate download link](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_certificate.png)
 	
 6. Click **Save** button.
+
 	![Configure Single Sign-On Save button](./media/active-directory-saas-workrite-tutorial/tutorial_general_400.png)
 
 7.	This certificate will be in DER format - base64 encoded. WorkRite requires the certificate to be in PEM format. You can use the tool **OpenSSL** to convert this using the following command:
