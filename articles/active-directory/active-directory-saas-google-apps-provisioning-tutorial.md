@@ -155,9 +155,9 @@ This section guides you through the process of connecting your Azure AD to the u
 
 20. Select **Save**.
 
-This process starts the initial synchronization of any users or groups that are assigned to Google Apps in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes while the service is running. 
+This process starts the initial synchronization of any users or groups that are assigned to Google Apps in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes while the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs. These logs describe all actions that are performed by the provisioning service  on your Google Apps app.
 
-You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports. These reports describe all actions that the are performed by the provisioning service  on your Google Apps app.
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 
 ## Additional resources
 

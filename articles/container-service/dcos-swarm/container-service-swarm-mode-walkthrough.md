@@ -7,14 +7,14 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom:
 ---
 
 # Deploy Docker CE cluster
 
-In this quick start, a Docker CE cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
+In this quick start, a Docker CE cluster is deployed using the Azure CLI. A multi-container application consisting of web front-end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
 Docker CE on Azure Container Service is in preview and **should not be used for production workloads**.
 
@@ -107,7 +107,7 @@ services:
         - "6379:6379"
 
   azure-vote-front:
-    image: microsoft/azure-vote-front:redis-v1
+    image: microsoft/azure-vote-front:v1
     environment:
       REDIS: azure-vote-back
     ports:
@@ -138,7 +138,7 @@ Once the `CURRENT STATE` of each service is `Running`, the application is ready.
 
 ```bash
 ID                  NAME                            IMAGE                                 NODE                               DESIRED STATE       CURRENT STATE                ERROR               PORTS
-tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:redis-v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
+tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
 lg99i4hy68r9        azure-vote_azure-vote-back.1    redis:latest                          swarmm-agentpool0-66066781000002   Running             Running about a minute ago
 ```
 

@@ -57,7 +57,7 @@ Ability to register (create) applications | Setting this option to No prevents n
 Admins and users in the guest inviter role can invite guests | Setting this option to No prevents all users from inviting guests. See Configuring Default Permissions for Member Users. For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
 Members can invite guests | Setting this to no prevents users from inviting guests. Global Administrators, User Account Administrators, and Guest Inviters will still be able to invite guests. For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
 Restrict access to Azure AD administration portal | Setting this option to No prevents users from accessing the Azure Active Directory portal.
-Ability to read other users | For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
+Ability to read other users | This setting is available in PowerShell only. Setting this to $false prevents all non-admins from reading user infromation from the directory. This does not prevent reading user infromation in other Microsoft services like Exchange Online. This setting is meant for special circumstances, and setting this to $false is not recommended.
 
 ## Object ownership
 
@@ -75,6 +75,6 @@ When a user creates a group, they are automatically added as an owner for that g
 ## Next steps
 
 * To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
-* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
+* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Manage users](active-directory-create-users.md)

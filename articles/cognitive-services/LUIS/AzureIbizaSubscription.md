@@ -1,6 +1,6 @@
 ---
-title: Manage Azure subscription | Microsoft Docs
-description: In this article, you create a metered key for your LUIS account to provide unlimited traffic to your endpoint following a payment plan.
+title: Manage Azure endpoint subscription | Microsoft Docs
+description: In this article, you create a metered endpoint key for your LUIS account to provide unlimited traffic to your endpoint following a payment plan.
 services: cognitive-services
 author: v-geberr
 manager: Kaiqb
@@ -8,15 +8,19 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/08/2017
+ms.date: 03/21/2018
 ms.author: v-geberr
 ---
 
-# Manage Azure subscription keys
+# Manage Azure endpoint subscription keys
 
-For authoring, testing and prototype only, use the programmatic free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. When using the paid tier, LUIS scales to the number of endpoint transactions your application needs.
+For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. 
 
-## Create LUIS service
+> [!NOTE]
+> Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
+
+<a name="create-luis-service"></a>
+## Create LUIS endpoint key
 
 1. Sign in to **[Microsoft Azure](https://ms.portal.azure.com/)** 
 2. Click the green **+** sign in the upper left-hand panel and search for “LUIS” in the marketplace, then click on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
@@ -32,8 +36,8 @@ For authoring, testing and prototype only, use the programmatic free (F0) tier. 
     ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Log into your region's [luis.ai](manage-keys.md#publishing-regions) and add the new LUIS service as part of [publishing your app](PublishApp.md). 
-    > * You need to remember the name of the Azure service you created in order to select it on the region's [luis.ai](manage-keys.md#publishing-regions) publish page.  
+    > * Log into your region's [LUIS](luis-reference-regions.md) website and [add the new LUIS endpoint key](Manage-Keys.md#assign-endpoint-key). 
+    > * You need to remember the name of the Azure service you created in order to select it on the region's [LUIS](luis-reference-regions.md) publish page.  
 
 ## Change LUIS pricing tier
 
@@ -45,6 +49,7 @@ For authoring, testing and prototype only, use the programmatic free (F0) tier. 
     ![Change your LUIS payment tier](./media/luis-usage-tiers/plans.png)
 4.  When the pricing change is complete, a pop-up window verifies the new pricing tier. 
     ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
+5. Remember to [assign this endpoint key](manage-keys.md#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
 
 ## Exceed pricing tier usage
 Each tier allows endpoint requests to your LUIS account at a specific rate. If the rate of requests is higher than the allowed rate of your metered account per minute or per month, requests receive an HTTP error of "429: Too Many Requests."

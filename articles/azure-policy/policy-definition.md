@@ -62,14 +62,13 @@ All Azure Policy template samples are at [Templates for Azure Policy](json-sampl
 
 ## Mode
 
-We recommend that you set `mode` to `all` to have a policy assignment evaluate all resource groups and types. You can see an example of a policy definition that enforces tags on a resource group at [Allow custom VM image from a Resource Group](scripts/allow-custom-vm-image.md).
+The **mode** determines which resource types will be evaluated for a policy. The supported modes are:
+* `all`: evaluate resource groups and all resource types 
+* `indexed`: only evaluate resource types that support tags and location
 
-When you set it to **all**, resource groups and all resource types are evaluated for the policy. The portal uses **all** for all policies. If you use PowerShell or Azure CLI, you need to specify the `mode` parameter and set it to **all**.
+We recommend that you set **mode** to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you need to specify the **mode** parameter manually. If the policy definition does not contain a **mode** value it defaults to `indexed` for backwards compatibility.
 
-All policy definitions created using the portal use an `all` mode, however if you want to use PowerShell or Azure CLI, you need to specify the `mode` parameter and set it to `all`.
-
-If you set mode to `indexed`, the policy assignment will be evaluated only on resource types that support tags and location.
-
+`indexed` should be used when creating policies that will enforce tags or locations. This isn't required but it will prevent resources that don't support tags and locations from showing up as non-compliant in the compliance results. The one exception to this is **resource groups**. Policies that are attempting to enforce location or tags on a resource group should set **mode** to `all` and specifically target the `Microsoft.Resources/subscriptions/resourceGroup` type. For an example, see [Enforce resource group tags](scripts/enforce-tag-rg.md).
 
 ## Parameters
 
@@ -99,6 +98,8 @@ Within the metadata property you can use **strongType** to provide a multi-selec
 * `"resourceTypes"`
 * `"storageSkus"`
 * `"vmSKUs"`
+* `"existingResourceGroups"`
+* `"omsWorkspace"`
 
 In the policy rule, you reference parameters with the following syntax:
 
@@ -125,7 +126,7 @@ In the **Then** block, you define the effect that happens when the **If** condit
     <condition> | <logical operator>
   },
   "then": {
-    "effect": "deny | audit | append"
+    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
   }
 }
 ```
@@ -164,16 +165,22 @@ You can nest logical operators. The following example shows a **not** operation 
 A condition evaluates whether a **field** meets certain criteria. The supported conditions are:
 
 * `"equals": "value"`
+* `"notEquals": "value"`
 * `"like": "value"`
+* `"notLike": "value"`
 * `"match": "value"`
+* `"notMatch": "value"`
 * `"contains": "value"`
+* `"notContains": "value"`
 * `"in": ["value1","value2"]`
+* `"notIn": ["value1","value2"]`
 * `"containsKey": "keyName"`
+* `"notContainsKey": "keyName"`
 * `"exists": "bool"`
 
-When using the **like** condition, you can provide a wildcard (*) in the value.
+When using the **like** and **notLike** conditions, you can provide a wildcard (*) in the value.
 
-When using the **match** condition, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Approved VM images](scripts/allowed-custom-images.md).
+When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Approved VM images](scripts/allowed-custom-images.md).
 
 ### Fields
 Conditions are formed by using fields. A field represents properties in the resource request payload that is used to describe the state of the resource.  
@@ -181,12 +188,28 @@ Conditions are formed by using fields. A field represents properties in the reso
 The following fields are supported:
 
 * `name`
+* `fullName`
+  * Returns the full name of the resource, including any parents (e.g. "myServer/myDatabase")
 * `kind`
 * `type`
 * `location`
 * `tags`
-* `tags.*`
+* `tags.tagName`
+* `tags[tagName]`
+  * This bracket syntax supports tag names that contain periods
 * property aliases - for a list, see [Aliases](#aliases).
+
+### Alternative Accessors
+**Field** is the primary accessor used in policy rules. It directly inspects the resource that is being evaluated. However, policy supports one other accessor, **source**.
+
+```json
+"source": "action",
+"equals": "Microsoft.Compute/virtualMachines/write"
+```
+
+**Source** only supports one value, **action**. Action returns the authorization action of the request that is being evaluated. Authorization actions are exposed in the authorization section of the [Activity Log](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+
+When policy is evaluating existing resources in the background it sets **action** to a `/write` authorization action on the resource's type.
 
 ### Effect
 Policy supports the following types of effect:
@@ -211,8 +234,7 @@ For **append**, you must provide the following details:
 
 The value can be either a string or a JSON format object.
 
-With **AuditIfNotExists** and **DeployIfNotExists** you can evaluate the existence of a child resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks
-.
+With **AuditIfNotExists** and **DeployIfNotExists** you can evaluate the existence of a related resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks.
 For an example of auditing when a virtual machine extension is not deployed, see [Audit if extension does not exist](scripts/audit-ext-not-exist.md).
 
 
@@ -262,6 +284,7 @@ You use property aliases to access specific properties for a resource type. Alia
 | Microsoft.Compute/virtualMachines/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Set the vhd URI. |
 | Microsoft.Compute/virtualMachines/sku.name | Set the size of the virtual machine. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Sets the availability set id for the virtual machine. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -332,6 +355,7 @@ You use property aliases to access specific properties for a resource type. Alia
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Set whether the service encrypts the data as it is stored in the file storage service. |
 | Microsoft.Storage/storageAccounts/sku.name | Set the SKU name. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Set to allow only https traffic to storage service. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Check whether Virtual Network Service Endpoint is enabled. |
 
 ## Initiatives
 

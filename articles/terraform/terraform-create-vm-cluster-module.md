@@ -57,6 +57,7 @@ module mycompute {
     vm_os_simple = "WindowsServer"
     remote_port = "3389"
     nb_instances = 2
+    public_ip_dns = ["unique_dns_name"]
     vnet_subnet_id = "${module.network.vnet_subnets[0]}"
 }
 
@@ -70,7 +71,7 @@ output "vm_public_name" {
     value = "${module.mycompute.public_ip_dns_name}"
 }
 
-output = "vm_public_ip" {
+output "vm_public_ip" {
     value = "${module.mycompute.public_ip_address}"
 }
 

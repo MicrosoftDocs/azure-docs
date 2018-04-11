@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ms.author: sethm
 
 ---
@@ -90,7 +90,7 @@ Here's an example of an operational log JSON string:
 
 ## Next steps
 
-Visit the following links to learn more about Service Bus:
+See the following links to learn more about Service Bus:
 
 * [Introduction to Service Bus](service-bus-messaging-overview.md)
 * [Get started with Service Bus](service-bus-dotnet-get-started-with-queues.md)

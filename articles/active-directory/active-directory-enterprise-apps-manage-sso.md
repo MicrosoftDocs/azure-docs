@@ -4,7 +4,7 @@ description: Manage single sign-on settings for enterprise apps within your orga
 
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: MarkusVi
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
-ms.author: curtand
+ms.author: markvi
 ms.reviewer: asmalser
 
 
@@ -25,7 +25,7 @@ ms.reviewer: asmalser
 This article describes how to use the [Azure portal](https://portal.azure.com) to manage single sign-on settings for enterprise applications. Enterprise apps are apps that are deployed and used within your organization. This article applies particularly to apps that were added from the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## Finding your apps in the portal
-All enterprise apps that are set up for single sign-on can be viewed and managed in the Azure portal. The applications can be found in the **More Services** &gt; **Enterprise Applications** section of the portal. 
+All enterprise apps that are set up for single sign-on can be viewed and managed in the Azure portal. The applications can be found in the **All Services** &gt; **Enterprise Applications** section of the portal. 
 
 ![Enterprise Applications blade][1]
 
@@ -87,7 +87,7 @@ If supported for the application, selecting the linked SSO mode allows you to en
 
 ![Linked sign-on][5]
 
-##Feedback
+## Feedback
 
 We hope you like using the improved Azure AD experience. Please keep the feedback coming! Post your feedback and ideas for improvement in the **Admin Portal** section of our [feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  We’re excited about building cool new stuff every day, and use your guidance to shape and define what we build next.
 

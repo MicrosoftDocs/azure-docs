@@ -46,7 +46,7 @@ public static async Task Run(
 
     // sleep for one hour between cleanups
     DateTime nextCleanup = context.CurrentUtcDateTime.AddHours(1);
-    await context.CreateTimer<string>(nextCleanup);
+    await context.CreateTimer(nextCleanup, CancellationToken.None);
 
     context.ContinueAsNew(null);
 }
@@ -90,6 +90,3 @@ If an orchestrator function is in an infinite loop and needs to be stopped, use 
 
 > [!div class="nextstepaction"]
 > [Learn how to implement singleton orchestrations](durable-functions-singletons.md)
-
-> [!div class="nextstepaction"]
-> [Run a sample eternal orchestration](durable-functions-counter.md)

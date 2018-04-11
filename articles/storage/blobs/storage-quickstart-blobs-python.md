@@ -1,26 +1,26 @@
 ---
-title:  Azure Quickstart - Transfer objects to/from Azure Blob storage using Python | Microsoft Docs 
-description: Quickly learn to transfer objects to/from Azure Blob storage using Python
+title: Azure Quickstart - Create a blob in object storage using Python | Microsoft Docs
+description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Python to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage  
-author: ruthogunnnaike
+author: craigshoemaker
 manager: jeconnoc 
 
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/12/2017
-ms.author: v-ruogun
+ms.date: 04/09/2018
+ms.author: cshoe
 ---
 
-#  Transfer objects to/from Azure Blob storage using Python
+# Quickstart: Upload, download, and list blobs using Python
+
 In this quickstart, you learn how to use Python to upload, download, and list block blobs in a container in Azure Blob storage. 
 
 ## Prerequisites
 
 To complete this quickstart: 
 * Install [Python](https://www.python.org/downloads/)
-* Download and install [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python). 
+* Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,6 +36,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git
 ```
 
 This command clones the repository to your local git folder. To open the Python program, look for the storage-blobs-python-quickstart folder, and example.py file.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## Configure your storage connection string
 In the application, you must provide your storage account name and account key to create a `BlockBlobService` object. Open the `example.py` file from the Solution Explorer in your IDE. Replace the **accountname** and **accountkey** values with your account name and key. 
@@ -158,6 +160,18 @@ block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
+## Resources for developing Python applications with blobs
+
+See these additional resources for Python development with Blob storage:
+
+### Binaries and source code
+
+- View, download, and install the [Python client library source code](https://github.com/Azure/azure-storage-python) for Azure Storage on GitHub.
+
+### Client library reference and samples
+
+- See the [Python API reference](https://docs.microsoft.com/python/api/overview/azure/storage) for more information about the Python client library.
+- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) written using the Python client library.
 
 ## Next steps
  
@@ -166,5 +180,4 @@ In this quickstart, you learned how to transfer files between a local disk and A
 > [!div class="nextstepaction"]
 > [Blob Storage Operations How-To](./storage-python-how-to-use-blob-storage.md)
  
-
 For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

@@ -65,8 +65,6 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Upload zip file](../../includes/app-service-web-upload-zip.md)]
-
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
@@ -102,15 +100,18 @@ Browse to your newly created web app. Replace _&lt;app name>_ with a unique app 
 ```bash
 http://<app name>.azurewebsites.net
 ```
+
+Here is what your new web app should look like:
+
 ![Empty web app page](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-[!INCLUDE [Deploy uploaded ZIP file](../../includes/app-service-web-deploy-zip.md)]
+[!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
 ## Browse to the app
 
 Browse to the deployed application using your web browser.
 
-```bash
+```
 http://<app_name>.azurewebsites.net
 ```
 
@@ -138,13 +139,7 @@ zip -r myUpdatedAppFiles.zip .
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ``` 
 
-Upload this new ZIP file to the Cloud Shell, using the same steps in [Upload the ZIP file](#upload-the-zip-file).
-
-Then, in the Cloud Shell, deploy your uploaded ZIP file again.
-
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myUpdatedAppFiles.zip
-```
+Deploy this new ZIP file to App Service, using the same steps in [Upload the ZIP file](#upload-the-zip-file).
 
 Switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 

@@ -4,17 +4,15 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/08/2018
+ms.date: 03/27/2018
 ms.author: raynew
+ms.custom: mvc
 ---
 
 
 # About Azure Migrate
 
-The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses migration suitability and performance-based sizing, and provides cost estimations for running your on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration, to migrate the machines to Azure.
-
-> [!NOTE]
-> Azure Migrate is currently in preview and supports production workloads.
+The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses the migration suitability of on-premises machines, performance-based sizing, and provides cost estimations for running your on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) and [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview), to migrate the machines to Azure.
 
 ## Why use Azure Migrate?
 
@@ -23,36 +21,34 @@ Azure Migrate helps you to:
 - **Assess Azure readiness**: Assess whether your on-premises machines are suitable for running in Azure. 
 - **Get size recommendations**: Get size recommendations for Azure VMs based on the performance history of on-premises VMs. 
 - **Estimate monthly costs**: Get estimated costs for running on-premises machines in Azure.  
-- **Migrate with high confidence**: Visualize dependencies of on-premises machines to create groups of machines that you will assess and migrate together. You can accurately view dependencies for a specific machine, or for all machines in a group.
+- **Migrate with high confidence**: Visualize dependencies of on-premises machines to create groups of machines that you will assess and migrate together. 
 
 ## Current limitations
 
-- Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs.
-
-> [!NOTE]
-> Support for Hyper-V is in the roadmap and will be enabled soon. In the interim, we recommend you to use [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) to plan migration of Hyper-V workloads. 
-
-- You can discover up to 1000 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 400 VMs in a single assessment. If you need to discover or assess more, you can increase the number of discoveries or assessments. [Learn more](how-to-scale-assessment.md).
-- VM you want to assess must be managed by a vCenter Server, version 5.5, 6.0, or 6.5.
-- You can only create an Azure Migrate project in the West Central US region. However, this does not impact your ability to plan your migration for a different target Azure location. The location of the migration project is used only to store the metadata discovered from the on-premises environment.
+- Currently, you can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, or 6.5).
+- Support for Hyper-V is on our roadmap. In the interim, we recommend that you use [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) to plan migration of Hyper-V workloads. 
+- You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment.
+- You can only create an Azure Migrate project in West Central US or East US region. However, this does not impact your ability to plan your migration for a different target Azure location. The location of the migration project is used only to store the metadata discovered from the on-premises environment.
 - Azure Migrate only supports managed disks for migration assessment.
+
 
 ## What do I need to pay for?
 
-Azure Migrate is available at no additional charge. However, during public preview, additional charges will apply for use of dependency visualization capabilities. To support [dependency visualization](concepts-dependency-visualization.md), Azure Migrate creates a Log Analytics workspace by default. If you use dependency visualization, or use the workspace outside Azure Migrate, you're charged for the workspace usage. [Learn more](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/) about the charges. When the service becomes generally available, there will be no charge for use of dependency visualization capabilities.
+Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/).
 
 
 ## What's in an assessment?
 
-An assessment helps you identify the Azure suitability of on-premises VMs, get right-sizing recommendations and cost estimates for running the VMs in Azure. Assessments are based on the properties summarized in the table below. You can modify these properties in the Azure Migrate portal. 
+An assessment helps you identify the Azure suitability of on-premises VMs, get right-sizing recommendations and cost estimates for running the VMs in Azure. Assessments can be customized based on your needs by changing the properties of the assessment. Below are the properties that are considered while creating an assessment. 
 
 **Property** | **Details**
 --- | ---
-**Target location** | The Azure location to which you want to migrate. By default, the target location is set to West US 2. 
-**Storage redundancy** | The type of storage that the Azure VMs will use after migration. LRS is the default.
-**Pricing plans** | The assessment considers whether you're enrolled in software assurance, and can use the [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). It also considers Azure offers that should be applied, and allows you to specify subscription-specific discounts (%), that you get on top of the offer. 
-**Pricing tier** | You can specify the [pricing tier (basic/standard)](../virtual-machines/windows/sizes-general.md) of Azure VMs. This helps you to migrate to a suitable Azure VM family, based on whether you're in a production environment. By default the [standard](../virtual-machines/windows/sizes-general.md) tier is used.
-**Performance history** | By default, Azure Migrate evaluates the performance of on-premises machines using a month of history, with a 95% percentile value. You can modify this setting.
+**Target location** | The Azure location to which you want to migrate.<br/><br/>Azure Migrate currently supports 30 regions including Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China North, East Asia, East US, Germany Central, Germany Northeast, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, UK West, West Central US, West Europe, West India, West US, and West US2. By default, the target location is set to West US 2. 
+**Storage redundancy** | The type of [storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) that the Azure VMs will use after migration. Locally Redundant Storage (LRS) is the default. Note that Azure Migrate only supports managed disks-based assessments and managed disks only support LRS, hence the property currently only has the LRS option. 
+**Sizing Criterion** | The criterion to be used by Azure Migrate to right-size VMs for Azure. You can do sizing either based on *performance history* of the on-premises VMs or size the VMs *as on-premises* for Azure without considering the performance history. The default value is performance-based sizing.
+**Pricing plans** | For cost calculations, an assessment considers whether you have software assurance, and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). It also considers [Azure Offers](https://azure.microsoft.com/support/legal/offer-details/) that you might be enrolled to, and allows you to specify any subscription-specific discounts (%), that you may get on top of the offer. 
+**Pricing tier** | You can specify the [pricing tier (Basic/Standard)](../virtual-machines/windows/sizes-general.md) for the target Azure VMs. For example, if you are planning to migrate a production environment, you would like to consider the Standard tier, which provides VMs with low latency but may cost more. On the other hand, if you have a Dev-Test environment, you may want to consider the Basic tier that has VMs with higher latency and lower costs. By default the [Standard](../virtual-machines/windows/sizes-general.md) tier is used.
+**Performance history** | Applicable only if the sizing criterion is performance-based. By default, Azure Migrate evaluates the performance of on-premises machines using the performance history of the last one day, with a 95% percentile value. You can modify these values in the assessment properties. 
 **Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. The default comfort setting is 1.3x.
 
 
@@ -78,8 +74,8 @@ The table summarizes the ports needed for Azure Migrate communications.
 |Component          |To communicate with     |Port required  |Reason   |
 |-------------------|------------------------|---------------|---------|
 |Collector          |Azure Migrate service   |TCP 443        |The collector connects to the service over SSL port 443|
-|Collector          |vCenter Server          |Default 9443   | By default the collector connects to the vCenter server on port 9443. If the server listens on a different port, it should be configured as an outgoing port on the collector VM. |
-|On-premises VM     | Operations Management Suite (OMS) Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |The MMA agent uses TCP 443 to connect to Log Analytics. You only need this port if you're using the dependency visualization feature, and are installing the Microsoft Monitoring Agent (MMA). |
+|Collector          |vCenter Server          |Default 9443   | By default the collector connects to the vCenter Server on port 9443. If the server listens on a different port, it should be configured as an outgoing port on the collector VM. |
+|On-premises VM     | Log Analytics Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |The MMA agent uses TCP 443 to connect to Log Analytics. You only need this port if you're using the dependency visualization feature, and are installing the Microsoft Monitoring Agent (MMA). |
 
 
   

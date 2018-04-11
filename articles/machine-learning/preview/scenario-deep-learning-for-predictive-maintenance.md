@@ -2,13 +2,13 @@
 title: Deep learning for predictive maintenance real-world scenarios - Azure | Microsoft Docs
 description: Learn how to replicate the tutorial on deep learning for predictive maintenance with Azure Machine Learning Workbench.
 services: machine-learning
-author: FrancescaLazzeri
-ms.author: Lazzeri
+author: ehrlinger
+ms.author: jehrling
 manager: ireiter
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
+ms.custom: mvc
 ms.devlang: 
 ms.topic: article
 ms.date: 11/22/2017
@@ -16,31 +16,34 @@ ms.date: 11/22/2017
 ---
 # Deep learning for predictive maintenance real-world scenarios
 
-Deep learning is one of the most popular trends in machine learning. Deep learning is used in many fields and applications, including driverless cars, speech and image recognition, robotics, and finance. Deep learning is a set of algorithms that is inspired by the shape of the brain (biological neural networks), and machine learning. Cognitive scientists usually refer to deep learning as artificial neural networks (ANNs).
+Deep learning is one of the most popular trends in machine learning and has applications to many areas, including:
+- Driverless cars and robotics.
+- Speech and image recognition.
+- Financial forecasting.
 
-Predictive maintenance is also popular. In predictive maintenance, many different techniques are designed to help determine the condition of equipment, and to predict when maintenance should be performed. Some common uses of predictive maintenance are failure prediction, failure diagnosis (root-cause analysis), failure detection, failure type classification, and recommendation of mitigation or maintenance actions after failure.
+Also known as deep neural networks (DNN), these methods are inspired by the individual neurons that are within the brain (biological neural networks).
 
-In predictive maintenance scenarios, data is collected over time to monitor the state of equipment. The goal is to find patterns that can help predict and ultimately prevent failures. Using [Long Short Term Memory (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) networks is a deep learning method that is especially appealing in predictive maintenance. LSTM networks are good at learning from sequences. Time series data can be used to look back at longer periods of time to detect failure patterns.
+The impact of unscheduled equipment downtime can be detrimental for any business. It's critical to keep field equipment running to maximize utilization and performance and minimize costly, unscheduled downtime. Early identification of issues can help allocate limited maintenance resources in a cost-effective way and enhance quality and supply chain processes. 
 
-In this tutorial, we build an LSTM network for the data set and scenario that are described at [Predictive Maintenance](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3). We use the network to predict the remaining useful life of aircraft engines. The template uses simulated aircraft sensor values to predict when an aircraft engine will fail in the future. Using this prediction, maintenance can be planned in advance, to prevent failure.
+A predictive maintenance (PM) strategy uses machine learning methods to determine the condition of equipment to preemptively perform maintenance to avoid adverse machine performance. In PM, data is collected over time to monitor the state of the machine and then analyzed to find patterns to predict failures. [Long Short Term Memory (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) networks are attractive for this setting since they're designed to learn from sequences of data.
 
-This tutorial uses the [Keras](https://keras.io/) deep learning library, and the Microsoft Cognitive Toolkit [CNTK](https://docs.microsoft.com/cognitive-toolkit/Using-CNTK-with-Keras) as a back end.
+### Cortana Intelligence Gallery GitHub repository
 
-The public GitHub repository that has the samples for this tutorial is at [https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance).
+The Cortana Intelligence Gallery for the PM tutorial is a public GitHub repository ([https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance)) where you can report issues and make contributions.
+
 
 ## Use case overview
 
-This tutorial uses the example of simulated aircraft engine run-to-failure events to demonstrate the predictive maintenance modeling process. 
+This tutorial uses the example of simulated aircraft engine run-to-failure events to demonstrate the predictive maintenance modeling process. The scenario is described at [Predictive Maintenance](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3).
 
-The implicit assumption of the modeling data described here is that the asset has a progressing degradation pattern. The pattern is reflected in the asset's sensor measurements. By examining the asset's sensor values over time, the machine learning algorithm can learn the relationship between the sensor values, changes in sensor values, and historical failures. This relationship is used to predict failures in the future. 
+The main assumption in this setting is the engine progressively degraded over its lifetime. The degradation can be detected in engine sensor measurements. PM tries to model the relationship between the changes in these sensor values and the historical failures. The model can then predict when and engine may fail in the future based on the current state of sensor measurements.
 
-We suggest that you examine the data format and complete all three steps of the template before you replace the sample data with your own date.
+This scenario creates an LSTM network to predict the remaining useful life (RUL) of aircraft engines by using historical sensor values. The scenario uses the [Keras](https://keras.io/) library with the [Tensorflow](https://www.tensorflow.org/) deep learning framework as a compute engine. The scenario trains the LSTM with one set of engines and tests the network on an unseen engine set.
 
 ## Prerequisites
-
 - An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 - Azure Machine Learning Workbench, with a workspace created.
-- For model operationalization: Azure Machine Learning Operationalization, with a local deployment environment set up, and an [Azure Machine Learning Model Management account](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview).
+- For model operationalization: Azure Machine Learning Operationalization with a local deployment environment set up, and an [Azure Machine Learning Model Management account](model-management-overview.md).
 
 ## Create a new Workbench project
 
@@ -49,84 +52,103 @@ Create a new project by using this example as a template:
 1. Open Machine Learning Workbench.
 2. On the **Projects** page, select **+**, and then select **New Project**.
 3. In the **Create New Project** pane, enter the information for your new project.
-4. In the **Search Project Templates** search box, enter **Predictive Maintenance**, and then select the template.
+4. In the **Search Project Templates** search box, type "Predictive Maintenance" and select the **Deep Learning for Predictive Maintenance Scenario** template.
 5. Select **Create**.
 
 ## Prepare the notebook server computation target
 
-On your local computer, on the Machine Learning Workbench **File** menu, select either **Open Command Prompt** or **Open PowerShell**. In the command prompt window of the option that you choose, execute the following commands:
+To run on your local machine, from the Machine Learning Workbench **File** menu, select either **Open Command Prompt** or **Open PowerShell CLI**. The CLI interface allows you to access your Azure services by using the `az` commands. First, log in to your Azure account with the command:
 
-`az ml experiment prepare --target docker --run-configuration docker`
+```
+az login
+``` 
 
-We suggest running the notebook server on a  DS4_V2 standard [Data Science Virtual Machine (DSVM) for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu). After the DSVM is configured, run the following commands to prepare the Docker images:
+This command provides an authentication key to be used with the https:\\aka.ms\devicelogin URL. The CLI waits until the device login operation returns and provides some connection information. Next, if you have a local [Docker](https://www.docker.com/get-docker) installation, prepare the local compute environment with the command:
 
-`az ml computetarget attach remotedocker --name [connection_name] --address [VM_IP_address] --username [VM_username] --password [VM_password]`
+```
+az ml experiment prepare --target docker --run-configuration docker
+```
 
-`az ml experiment prepare --target [connection_name] --run-configuration [connection_name]`
+It's preferable to run on a [Data Science Virtual Machine (DSVM) for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) for memory and disk requirements. After the DSVM is configured, prepare the remote Docker environment with the following two commands:
 
-With the Docker images prepared, open the Jupyter notebook server. To open the Jupyter notebook server, either go to the Machine Learning Workbench **Notebooks** tab, or start a browser-based server:
-`az ml notebook start`
+```
+az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]
+```
 
-Notebooks are stored in the Code directory in the Jupyter environment. Run these notebooks sequentially as numbered, starting with Code\1_data_ingestion_and_preparation.ipynb.
+After you're connected to the remote Docker container, prepare the DSVM Docker compute environment with the command: 
 
-Select the kernel to match your [project_name]_Template [connection_name], and then select **Set Kernel**.
+```
+az ml experiment prepare --target [Connection_Name] --run-configuration [Connection_Name]
+```
+
+With the Docker compute environment prepared, open the Jupyter notebook server from the Machine Learning Workbench **Notebooks** tab, or start a browser-based server with the command: 
+
+```
+az ml notebook start
+```
+
+The example notebooks are stored in the Code directory. The notebooks are set up to run sequentially, starting on the first (Code\1_data_ingestion.ipynb) notebook. When you open each notebook, you're prompted to select the compute kernel. Choose the [Project_Name]_Template [Connection_Name] kernel to execute on the previously configured DSVM.
 
 ## Data description
 
-The template uses three data sets as inputs, in the files PM_train.txt, PM_test.txt, and PM_truth.txt.
+The template uses three data sets as inputs in the files PM_train.txt, PM_test.txt, and PM_truth.txt. 
 
--  **Train data**: The aircraft engine run-to-failure data. The train data (PM_train.txt) consists of multiple, multivariate time series, with *cycle* as the time unit. It includes 21 sensor readings for each cycle. 
+- **Train data**: The aircraft engine run-to-failure data. The train data (PM_train.txt) consists of multiple, multivariate time series with *cycle* as the time unit. It includes 21 sensor readings for each cycle. 
 
-    Each time series can be assumed to be generated from a different engine of the same type. Each engine is assumed to start with different degrees of initial wear and manufacturing variation. This information is unknown to the user. 
+    - Each time series is generated from a different engine of the same type. Each engine starts with different degrees of initial wear and some unique manufacturing variation. This information is unknown to the user. 
 
-    In this simulated data, the engine is assumed to be operating normally at the start of each time series. It starts to degrade at some point during the series of the operating cycles. The degradation progresses and grows in magnitude. 
+    - In this simulated data, the engine is assumed to be operating normally at the start of each time series. It starts to degrade at some point during the series of the operating cycles. The degradation progresses and grows in magnitude. 
 
-    When a predefined threshold is reached, the engine is considered unsafe for further operation. The last cycle in each time series can be considered the failure point of the corresponding engine.
+    - When a predefined threshold is reached, the engine is considered unsafe for further operation. The last cycle of each time series is the failure point of that engine.
 
--   **Test data**: The aircraft engine operating data, without failure events recorded. The test data (PM_test.txt) has the same data schema as the training data. The only difference is that the data does not indicate when the failure occurs (the last time period does *not* represent the failure point). It is not known how many more cycles this engine can last before it fails.
+- **Test data**: The aircraft engine operating data, without failure events recorded. The test data (PM_test.txt) has the same data schema as the training data. The only difference is that the data does not indicate when the failure occurs (the last time period does *not* represent the failure point). It is not known how many more cycles this engine can last before it fails.
 
 - **Truth data**: The information of true remaining cycles for each engine in the testing data. The ground truth data provides the number of remaining working cycles for the engines in the testing data.
 
 ## Scenario structure
 
-The content for the scenario is available in the [GitHub repository] (https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance). 
-
-In the repository, a [readme] (https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance/blob/master/README.md) file outlines the processes, from preparing the data, to building and operationalizing the model. The three Jupyter notebooks are available in the [Code] (https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance/tree/master/Code) folder in the repository. 
-
-Next, we describe the step-by-step scenario workflow.
+The scenario workflow is divided into the three steps and each step is executed in a Jupyter notebook. Each notebook produces data artifacts that are persisted locally for use in the notebooks.
 
 ### Task 1: Data ingestion and preparation
 
-The Data Ingestion Jupyter Notebook in Code/1_data_ingestion_and_preparation.ipnyb loads the three input data sets into Pandas dataframe format. Then, it prepares the data for modeling, and does some preliminary data visualization. The data is then transformed into PySpark format and stored in an Azure Blob storage container in your Azure subscription for use in the next modeling task.
+The Data Ingestion Jupyter Notebook in Code/1_data_ingestion_and_preparation.ipnyb loads the three input data sets into the Pandas DataFrame format. The notebook then prepares the data for modeling and does some preliminary data visualization. The data sets are stored locally to the compute context for use in the Model Building Jupyter Notebook.
 
 ### Task 2: Model building and evaluation
 
-The Model Building Jupyter Notebook in Code/2_model_building_and_evaluation.ipnyb reads the PySpark train and test data sets from Blob storage. Then, an LSTM network is built with the training data sets. The model performance is measured on the test set. The resulting model is serialized and stored in the local compute context for use in the operationalization task.
+The Model Building Jupyter Notebook in Code/2_model_building_and_evaluation.ipnyb reads the train and test data sets from disk and builds an LSTM network for the training data set. The model performance is measured on the test data set. The resulting model is serialized and stored in the local compute context for use in the operationalization task.
 
 ### Task 3: Operationalization
 
-The operationalization Jupyter Notebook in Code/3_operationalization.ipnyb uses the stored model to build functions and schema that are required for calling the model on an Azure-hosted web service. The notebook tests the functions, and then zips (compresses) the operationalization assets into a .zip file.
+The Operationalization Jupyter Notebook in Code/3_operationalization.ipnyb uses the stored model to build functions and schema for calling the model on an Azure-hosted web service. The notebook tests the functions and then compresses the assets into the LSTM_o16n.zip file. The file is loaded on to your Azure storage container for deployment.
 
-The zipped file contains these files:
+The LSTM_o16n.zip deployment file contains the following artifacts:
 
-- **modellstm.json**: The schema definition file for deployment. 
-- **lstmscore.py**: The **init()** and **run()** functions, which are required by the Azure web service.
-- **lstm.model**: The model definition directory.
+- **webservices_conda.yaml**: Defines the Python packages that are required to run the LSTM model on the deployment target.  
+- **service_schema.json**: Defines the data schema that's expected by the LSTM model. 	
+- **lstmscore.py**: Defines the functions that the deployment target is running to score new data.	  
+- **modellstm.json**: Defines the LSTM architecture. The lstmscore.py functions read the architecture and weights to initialize the model.
+- **modellstm.h5**: Defines the model weights.
+- **test_service.py**: A test script that calls the deployment end point with test data records. 
+- **PM_test_files.pkl**: The test_service.py script reads historical engine data from the PM_test_files.pkl file and sends the web service enough cycles for the LSTM to return a probability of engine failure.
 
-The notebook tests the functions by using the model definition before it packages the operationalization assets for deployment. Instructions for deployment are included at the end of the notebook.
-
+The notebook tests the functions by using the model definition before it packages the operationalization assets for deployment. Instructions for setting up and testing the web service are included at the end of the Code/3_operationalization.ipnyb notebook.
 
 ## Conclusion
 
-This tutorial uses a simple scenario in which only one data source (sensor values) is used to make predictions. In more advanced predictive maintenance scenarios, like the [Predictive Maintenance Modeling Guide R Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1), many data sources might be used. Other data sources might include historical maintenance records, error logs, and machine and operator features. Additional data sources might require different types of treatments to be used in deep learning networks. It's also important to tune the models for the right parameters, like for window size. 
-
-You can edit relevant parts of this scenario, and try different problem scenarios, such as the ones described in the [Predictive Maintenance Modeling Guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1), which involves multiple other data sources.
+This tutorial provides a simple scenario that uses sensor values to make predictions. More advanced predictive maintenance scenarios like the [Predictive Maintenance Modeling Guide R Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) can use many data sources, such as historical maintenance records, error logs, and machine features. Additional data sources can require different treatments to use with deep learning.
 
 
 ## References
 
-- [Predictive Maintenance Solution Template](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
-- [Predictive Maintenance Modeling Guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
-- [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
-- [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+The following references provide examples of other predictive maintenance use cases for various platforms:
 
+* [Predictive Maintenance Solution Template](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
+* [Predictive Maintenance Modeling Guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
+* [Predictive Maintenance Modeling Guide using SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
+* [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
+* [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+* [Predictive maintenance real-world scenarios](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-predictive-maintenance)
+
+## Next steps
+
+Other example scenarios are available in Machine Learning Workbench that demonstrate additional features of the product. 

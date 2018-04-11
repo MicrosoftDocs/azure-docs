@@ -366,7 +366,7 @@ With an initiative definition, you can group several policy definitions to achie
 
 5. Select **Assign**.
 
-## Resolve a non-compliant or denied resource
+## Exempt a non-compliant or denied resource using Exclusion
 
 Following the example above, after assigning the policy definition to require SQL server version 12.0, a SQL server created with a different version would get denied. In this section, you walk through resolving a denied attempt to create a SQL server of a different version by requesting an exclusion. The exclusion essentially prevents policy enforcement. An exclusion can apply to a resource group, or you can narrow the exclusion to individual resources.
 

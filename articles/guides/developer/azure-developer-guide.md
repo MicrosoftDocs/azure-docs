@@ -149,7 +149,7 @@ Azure provides several ways to use containers in your applications.
 
 	>**When to use**: When deploying a web app on Linux to a Docker image.
 
-    >**Get started**: [Use a custom Docker image for App Service on Linux](../../app-service/containers/quickstart-custom-docker-image.md).
+    >**Get started**: [Use a custom Docker image for App Service on Linux](../../app-service/containers/quickstart-docker-go.md).
 
 ### Authentication
 
@@ -299,7 +299,7 @@ given task.
 
 	>**When to use**: When you need fine-grained access management for users and groups.
 
-    >**Get started**: To learn more, see [Get started with access management in the Azure portal](../../active-directory/role-based-access-control-what-is.md).
+    >**Get started**: To learn more, see [Get started with access management in the Azure portal](../../role-based-access-control/overview.md).
 
 -   **Service principal objects**: In addition to providing access to user principals and groups, you can grant the same access to a service principal.
 

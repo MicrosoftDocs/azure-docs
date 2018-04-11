@@ -3,8 +3,8 @@ title: Manage Azure disks with the Azure CLI | Microsoft Docs
 description: Tutorial - Manage Azure disks with the Azure CLI 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -105,7 +105,7 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
+Create a VM using the [az vm create]( /cli/azure/vm#az_vm_create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
 
 ```azurecli-interactive 
 az vm create \
@@ -119,7 +119,7 @@ az vm create \
 
 ### Attach disk to existing VM
 
-To create and attach a new disk to an existing virtual machine, use the [az vm disk attach](/cli/azure/vm/disk#attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step.
+To create and attach a new disk to an existing virtual machine, use the [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step.
 
 ```azurecli-interactive 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
@@ -182,10 +182,10 @@ The output displays the UUID of the drive, `/dev/sdc1` in this case.
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Add a line similar to the following to the */etc/fstab* file. Also note that write barriers can be disabled using *barrier=0*, this configuration can improve disk performance. 
+Add a line similar to the following to the */etc/fstab* file.
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail,barrier=0   1  2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
 ```
 
 Now that the disk has been configured, close the SSH session.
@@ -204,13 +204,13 @@ Before increasing disk size, the Id or name of the disk is needed. Use the [az d
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-The VM must also be deallocated. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM.
+The VM must also be deallocated. Use the [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) command to stop and deallocate the VM.
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-Use the [az disk update](/cli/azure/vm/disk#update) command to resize the disk. This example resizes a disk named *myDataDisk* to 1 terabyte.
+Use the [az disk update](/cli/azure/vm/disk#az_vm_disk_update) command to resize the disk. This example resizes a disk named *myDataDisk* to 1 terabyte.
 
 ```azurecli-interactive 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023

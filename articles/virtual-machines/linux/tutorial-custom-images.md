@@ -4,7 +4,7 @@ description: Tutorial - Create a custom VM image using the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -95,7 +95,7 @@ az image create \
  
 ## Create VMs from the image
 
-Now that you have an image, you can create one or more new VMs from the image using [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
+Now that you have an image, you can create one or more new VMs from the image using [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
 
 ```azurecli-interactive 
 az vm create \

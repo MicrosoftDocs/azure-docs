@@ -2,24 +2,19 @@
 title: Use Go to query Azure SQL Database | Microsoft Docs
 description: Use Go to create a program that connects to an Azure SQL Database, and use Transact-SQL statements to query and modify data.
 services: sql-database
-documentationcenter: ''
 author: David-Engel
 manager: craigg
-editor: MightyPen
-
-ms.assetid: 
+ms.reviewer: MightyPen
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 04/01/2018
 ms.author: v-daveng
 ---
 # Use Go to query an Azure SQL database
 
-This quickstart demonstrates how to use [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) to connect to an Azure SQL database. Transact-SQL statements to query and modify data are also demonstrated.
+This quickstart tutorial demonstrates how to use [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) to connect to an Azure SQL database. Transact-SQL statements to query and modify data are also demonstrated.
 
 ## Prerequisites
 

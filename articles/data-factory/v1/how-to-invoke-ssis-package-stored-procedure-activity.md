@@ -4,8 +4,8 @@ description: This article describes how to invoke a SQL Server Integration Servi
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -25,10 +25,10 @@ This article describes how to invoke an SSIS package from an Azure Data Factory 
 ## Prerequisites
 
 ### Azure SQL Database 
-The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Managed Instance (Private Preview).
+The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Managed Instance (Preview).
 
 ### Create an Azure-SSIS integration runtime
-Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](../tutorial-deploy-ssis-packages-azure.md). You must create a data factory of version 2 to create an Azure-SSIS integration runtime. 
+Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](../tutorial-create-azure-ssis-runtime-portal.md). You must create a data factory of version 2 to create an Azure-SSIS integration runtime. 
 
 ## Azure portal
 In this section you use the Azure portal to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package.

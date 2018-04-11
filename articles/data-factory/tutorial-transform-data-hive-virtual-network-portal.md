@@ -4,8 +4,8 @@ description: 'This tutorial provides step-by-step instructions for transforming 
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -34,14 +34,14 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 - **Azure Storage account**. You create a hive script, and upload it to the Azure storage. The output from the Hive script is stored in this storage account. In this sample, HDInsight cluster uses this Azure Storage account as the primary storage. 
-- **Azure Virtual Network.** If you don't have an Azure virtual network, create it by following [these instructions](../virtual-network/virtual-network-get-started-vnet-subnet.md). In this sample, the HDInsight is in an Azure Virtual Network. Here is a sample configuration of Azure Virtual Network. 
+- **Azure Virtual Network.** If you don't have an Azure virtual network, create it by following [these instructions](../virtual-network/quick-create-portal.md). In this sample, the HDInsight is in an Azure Virtual Network. Here is a sample configuration of Azure Virtual Network. 
 
 	![Create virtual network](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
 - **HDInsight cluster.** Create a HDInsight cluster and join it to the virtual network you created in the previous step by following this article: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Here is a sample configuration of HDInsight in a virtual network. 
 
 	![HDInsight in a virtual network](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
-- **A virtual machine**. Create an Azure virtual machine VM and join it into the same virtual network that contains your HDInsight cluster. For details, see [How to create virtual machines](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms). 
+- **A virtual machine**. Create an Azure virtual machine VM and join it into the same virtual network that contains your HDInsight cluster. For details, see [How to create virtual machines](../virtual-network/quick-create-portal.md#create-virtual-machines). 
 
 ### Upload Hive script to your Blob Storage account
 
@@ -66,6 +66,8 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 4. Upload the **hivescript.hql** file to the **hivescripts** subfolder.
 
 ## Create a data factory
+
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Log in to the [Azure portal](https://portal.azure.com/).    
 2. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
@@ -108,7 +110,7 @@ As the Hadoop cluster is inside a virtual network, you need to install a self-ho
 2. In the **Integration Runtime Setup** window, Select **Perform data movement and dispatch activities to external computes** option, and click **Next**. 
 
    ![Select perform data movement and dispatch activities option](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png)
-3. Select **Public Network**, and click **Next**.
+3. Select **Private Network**, and click **Next**.
     
    ![Select private network](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
 4. Enter **MySelfHostedIR** for **Name**, and click **Next**. 

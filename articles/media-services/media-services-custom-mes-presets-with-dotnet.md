@@ -35,7 +35,7 @@ Save the JSON defined in the [H264 Multiple Bitrate 720p](media-services-mes-pre
 
 Open the **CustomPreset_JSON.json** file and remove first three layers from **H264Layers** so your file looks like this.
 
-	
+```json	
 	{  
 	  "Version": 1.0,  
 	  "Codecs": [  
@@ -104,7 +104,7 @@ Open the **CustomPreset_JSON.json** file and remove first three layers from **H2
 	    }  
 	  ]  
 	}  
-	
+```
 
 ## <a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 
@@ -129,7 +129,7 @@ Set up your development environment and populate the app.config file with connec
 
 #### Example   
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

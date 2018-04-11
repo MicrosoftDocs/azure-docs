@@ -37,7 +37,7 @@ To complete this tutorial:
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Identify slow server operations
-Application Insights collects performance details for the different operations in your application.  By identifying those operations with the longest duration, you can diagnose potential problems or best target your ongoing development to improve the overall performance of the application.
+Application Insights collects performance details for the different operations in your application. By identifying those operations with the longest duration, you can diagnose potential problems or best target your ongoing development to improve the overall performance of the application.
 
 1. Select **Application Insights** and then select your subscription.  
 1. To open the **Performance** panel either select **Performance** under the **Investigate** menu or click the **Server Response Time** graph.
@@ -70,7 +70,7 @@ Application Insights collects performance details for the different operations i
 
 6.  The information that you've gathered so far only confirms that there is slow performance, but it does little to get to the root cause.  The **Profiler** helps with this by showing the actual code that ran for the operation and the time required for each step. Some operations may not have a trace since the profiler runs periodically.  Over time, more operations should have traces.  To start the profiler for the operation, click **Profiler traces**.
 5.  The trace shows the individual events for each operation so you can diagnose the root cause for the duration of the overall operation.  Click one of the top examples, which have the longest duration.
-6.  Click **Show Hot Path** to highlight the specific path of events that most contribute to the total duration of the operation.  In this example, you can see that the slowest call is from *FabrikamFiberAzureStorage.GetStorageTableData* method. The part that takes most time is the *CloudTable.CreateIfNotExist* method. If this line of code is executed every time the function gets called, unnecessary network call and CPU resource will be consumed. The best way to fix your code is to put this line in some startup method that only execute for once. 
+6.  Click **Show Hot Path** to highlight the specific path of events that most contribute to the total duration of the operation.  In this example, you can see that the slowest call is from *FabrikamFiberAzureStorage.GetStorageTableData* method. The part that takes most time is the *CloudTable.CreateIfNotExist* method. If this line of code is executed every time the function gets called, unnecessary network call and CPU resource will be consumed. The best way to fix your code is to put this line in some startup method that only executes once. 
 
 	![Profiler details](media/app-insights-tutorial-performance/profiler-details.png)
 

@@ -11,9 +11,15 @@
 ## [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 ## [Errors during synchronization](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
+# Troubleshoot
+## [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+## [Health service data is not up to date](active-directory-aadconnect-health-data-freshness.md)
+
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
+## [Azure AD Connect Health Alert Catalog](active-directory-aadconnect-health-alert-catalog.md)
+## [GDPR compliance and Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
 # Related
 ## [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md)
@@ -22,5 +28,4 @@
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
-##[Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

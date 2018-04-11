@@ -32,6 +32,7 @@ All users have a single home directory that authenticates them, but they can als
 
 * You must sign in with account that has RBAC Owner access to the subscription.
 * You must sign in with an account that exists in both the current directory with which the subscription is associated and in the directory you want to add it to. To learn more about getting access to another directory, see [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
+* This feature isn't available for CSP (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P) and Microsoft Imagine (MS-AZR-0144P) subscriptions.
 
 ## To associate an existing subscription to your Azure AD directory
 
@@ -39,7 +40,7 @@ All users have a single home directory that authenticates them, but they can als
 2. Click **Change directory**.
 
     ![Screenshot showing the Change directory button](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. Review the warnings. All [Role-Based Access Control (RBAC)](role-based-access-control-configure.md) users with assigned access and all subscription admins lose access when the subscription directory changes.
+3. Review the warnings. All [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) users with assigned access and all subscription admins lose access when the subscription directory changes.
 4. Select a directory.
 
     ![Screenshot showing the change directory UI](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
@@ -57,7 +58,7 @@ Changing the subscription directory is a service-level operation. It doesn't aff
 
 * To learn more about creating a new Azure AD directory for free, see [How to get an Azure Active Directory tenant](develop/active-directory-howto-tenant.md)
 * To learn more about transferring billing ownership of an Azure subscription, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
-* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
+* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->

@@ -4,8 +4,8 @@ description: This provides a comparison of features and guidance on developing a
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: ryansoc
-manager: zakramer
+author: gsacavdm
+manager: pathuff
 
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
@@ -13,15 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 4/25/2017
-ms.author: magoedte; ryansoc
+ms.date: 4/5/2018
+ms.author: gsacavdm
 
 ---
 # Azure Government Monitoring + Management
 This article outlines the monitoring and management services variations and considerations for the Azure Government environment.
 
+## Advisor
+Advisor is in public preview in Azure Government.
+
+For more information, see [Advisor public documentation](../advisor/advisor-overview.md).
+
+### Variations
+The following Advisor recommendations are not currently available in Azure Government:
+
+* Security
+  * Security recommendations from Security Center 
+* Cost 
+  * Optimize virtual machine spend by resizing or shutting down underutilized instances 
+  * Eliminate unprovisioned ExpressRoute circuits 
+* Performance 
+  * Improve App Service performance and reliability 
+  * Improve Redis Cache performance and reliability 
+
 ## Automation
 Automation is generally available in Azure Government.
+
 For more information, see [Automation public documentation](../automation/automation-intro.md).
 
 ## Backup
@@ -66,17 +84,18 @@ For more information, see [Monitor commercial documentation](https://docs.micros
 The following sections detail differences and workarounds for features of Azure Monitor in Azure Government:
 
 #### Action Groups 
-Action Groups do not support SMS at this time but will in a coming update.    
+Action Groups are generally available in Azure Government with no differences from commercial Azure.   
 
 #### Activity Log Alerts
-Activity Log Alerts are generally available in Azure Government with no differences from commercial Azure.
+Activity Log Alerts are generally available in Azure Government with no differences from commercial Azure. 
+
+#### Alerts Experience
+The unified alerts UI experience is not available in Azure Government. 
 
 #### Autoscale
-<aside class="warning">
-Autoscale via the portal is not currently available. This feature is coming soon.  
-</aside>
+Autoscale is generally available in Azure Government.
 
-In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the Autoscale to USGov Virginia or USGov Iowa. The resource targetted by Autoscale can exist in any region. An example of the setting is below:
+If you are using PowerShell/ARM/REST calls to specify settings, set the "Location" of the Autoscale to "USGov Virginia" or "USGov Iowa". The resource targeted by Autoscale can exist in any region. An example of the setting is below:
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Requests" -MetricResourceId "/subscriptions/S1/resourceGroups/RG1/providers/Microsoft.Web/sites/WebSite1" -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1" 
@@ -87,26 +106,21 @@ $notification1= New-AzureRmAutoscaleNotification -CustomEmails myname@company.co
 Add-AzureRmAutoscaleSetting -Location "USGov Virginia" -Name "MyScaleVMSSSetting" -ResourceGroup sdubeys-usgv -TargetResourceId /subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Web/serverFarms/ServerFarm1 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
-If you are interested in implementing autoscale on your resources, please use PowerShell/ARM/Rest calls to specify the settings. 
+If you are interested in implementing autoscale on your resources, use PowerShell/ARM/Rest calls to specify the settings. 
 
-For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
+For more information on using PowerShell, see [public documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
 
 #### Diagnostic Logs
 Diagnostic Logs are generally available in Azure Government with no differences from commercial Azure.
 
 #### Metrics
-Metrics are supported in all regions, but only for services which are available in Azure Government; a few exceptions are below:
+Metrics are generally available in Azure Government. However, multi-dimensional metrics are supported only via the REST API. The Azure Government portal is not able show charts that include multi-dimensional metrics. 
 
-* Coming Soon: Azure IoT Hub
 
-The same methods for viewing the metrics that are used in commercial Azure are used in Azure Government. 
+#### Metric Alerts
+The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*.  A second generation of alerts is available only in commercial Azure.  
 
-#### Metric Alerts 
-<aside class="warning">
-Creating Metric Alerts for resources outside of USGov Virginia and USGov Iowa in the portal will fail. A fix for this issue is in progress. 
-</aside>
-
-In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the metric alert to USGov Virginia or USGov Iowa. The resource targetted by the alert can exist in any region. An example of the setting is below:
+When using PowerShell/ARM/Rest calls to create Metric Alerts, you will need to set the "Location" of the metric alert to "USGov Virginia" or "USGov Iowa". An example of the setting is below:
 
 ```PowerShell
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com 
@@ -114,12 +128,16 @@ $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com
 Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%" 
 ```
 
-For more information on using PowerShell, please see [public documentation](../monitoring-and-diagnostics/insights-powershell-samples.md).
+For more information on using PowerShell, see [public documentation](../monitoring-and-diagnostics/insights-powershell-samples.md).
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
 
 ### Variations
+
+* Solutions that are available in Azure Government include:
+  * [Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) - NPM is a cloud-based network monitoring solution for public and hybrid cloud environments. Organizations use NPM to monitor network availability across on-premises and cloud environments.  Endpoint Monitor - a subcapability of NPM, monitors network connectivity to applications.
+  
 The following Log Analytics features and solutions are not currently available in Azure Government.
 
 * Solutions that are in preview in Microsoft Azure, including:
@@ -145,6 +163,9 @@ The URLs for Log Analytics are different in Azure Government:
 | \*.ods.opinsights.azure.com |\*.ods.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.oms.opinsights.azure.com |\*.oms.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.blob.core.windows.net |\*.blob.core.usgovcloudapi.net |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
+| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
+| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
+| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
 
 The following Log Analytics features behave differently in Azure Government:
 
@@ -172,8 +193,8 @@ For more information, see [Log Analytics public documentation](../log-analytics/
 ## Scheduler
 For information on this service and how to use it, see [Azure Scheduler Documentation](../scheduler/index.md). 
 
-## Azure Portal
-The Azure Government Portal can be accessed [here](https://portal.azure.us). 
+## Azure portal
+The Azure Government portal can be accessed [here](https://portal.azure.us). 
 
 ## Azure Resource Manager
 For information on this service and how to use it, see [Azure Resource Manager Documentation](../azure-resource-manager/resource-group-overview.md). 
@@ -181,4 +202,4 @@ For information on this service and how to use it, see [Azure Resource Manager D
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)
-* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 
+* Give feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 

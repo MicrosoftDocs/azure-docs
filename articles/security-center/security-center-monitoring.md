@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 02/06/2018
 ms.author: yurid
 
 ---
@@ -84,6 +84,13 @@ To view the recommendation details, click the name of the missing update from th
 > [!NOTE]
 > The security recommendations here are the same as those in the **Recommendations** option. See the [Implementing security recommendations in Azure Security Center](security-center-recommendations.md) article for more information about how to resolve recommendations. This is applicable not only for virtual machines and computers, but also for all resources that are available in the **Resource Health** tile.
 >
+
+#### Unmonitored VMs
+A VM is unmonitored by Security Center if the VM is not running the Microsoft Monitoring Agent extension. A VM may have a local agent already installed, for example the OMS direct agent or the SCOM agent. VMs with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Microsoft Monitoring Agent extension is required.
+
+You can install the extension on the unmonitored VM in addition to the already installed local agent. Configure both agents the same, connecting them to the same workspace. This enables Security Center to interact with the Microsoft Monitoring Agent extension and collect data.  See [Enable the VM extension](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) for instructions on how to install the Microsoft Monitoring Agent extension.
+
+See [Monitoring agent health issues](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) to learn more about the reasons Security Center is unable to successfully monitor VMs and computers initialized for automatic provisioning.
 
 #### VMs & computers section
 The virtual machines and computers section gives you an overview of all virtual machines and computer's recommendations. Each column represents one set of recommendations as shown in the following screenshot:

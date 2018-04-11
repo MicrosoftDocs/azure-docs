@@ -21,7 +21,7 @@ ms.author: LADocs; millopis; estfan
 # Install the on-premises data gateway for Azure Logic Apps
 
 Before your logic apps can access data sources on premises, 
-you must install and set up the on-premises data gateway. 
+you have to install and set up the on-premises data gateway. 
 The gateway acts as a bridge that provides quick data transfer 
 and encryption between on-premises systems and your logic apps. 
 The gateway relays data from on-premises sources 
@@ -61,18 +61,18 @@ For information about how to use the gateway with other services, see these arti
 
 ## Requirements
 
-**Minimum**:
+**Minimum**
 
 * .NET 4.5 Framework
 * 64-bit version of Windows 7 or Windows Server 2008 R2 (or later)
 
-**Recommended**:
+**Recommended**
 
 * 8 Core CPU
 * 8 GB Memory
 * 64-bit version of Windows 2012 R2 (or later)
 
-**Important considerations**:
+**Important considerations**
 
 * Install the on-premises data gateway only on a local computer.
 You can't install the gateway on a domain controller.
@@ -86,7 +86,7 @@ You can't install the gateway on a domain controller.
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
 Also, gateway performance might suffer over a wireless network.
 
-* During installation, you must sign in with a 
+* During installation, you have to sign in with a 
 [work or school account](https://docs.microsoft.com/azure/active-directory/sign-up-organization) 
 that's managed by Azure Active Directory (Azure AD), not a Microsoft account.
 
@@ -99,10 +99,10 @@ that's managed by Azure Active Directory (Azure AD), not a Microsoft account.
   > then give that user access to your subscription. 
   > You can then sign in during gateway installation with this username and password.
 
-  You must use the same work or school account later in the Azure portal when you create 
+  You have to use the same work or school account later in the Azure portal when you create 
   and associate a gateway resource with your gateway installation. You then select this 
   gateway resource when you create the connection between your logic app and the 
-  on-premises data source. [Why must I use an Azure AD work or school account?](#why-azure-work-school-account)
+  on-premises data source. [Why do I have to use an Azure AD work or school account?](#why-azure-work-school-account)
 
   > [!TIP]
   > If you signed up for an Office 365 offering and didn't supply your actual work email, 
@@ -123,7 +123,7 @@ that's managed by Azure Active Directory (Azure AD), not a Microsoft account.
 
 ## Install the data gateway
 
-1.	[Download and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Download and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Review and accept the terms of use and privacy statement.
 
@@ -275,7 +275,7 @@ TcpTestSucceeded       : True
 
 If **TcpTestSucceeded** is not set to **True**, you might be blocked by a firewall. 
 If you want to be comprehensive, substitute the **ComputerName** and **Port** values 
-with the values listed under [Configure ports](#configure-ports) in this topic.
+with the values listed under [Configure ports](#configure-ports) in this article.
 
 The firewall might also block connections that the Azure Service Bus makes to the Azure datacenters. 
 If this scenario happens, approve (unblock) all the IP addresses for those datacenters in your region. 
@@ -288,8 +288,8 @@ and communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 
 The gateway doesn't require inbound ports. Learn more about 
 [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-| DOMAIN NAMES | OUTBOUND PORTS | DESCRIPTION |
-| --- | --- | --- |
+| Domain names | Outbound ports | Description |
+| ------------ | -------------- | ----------- |
 | *.analysis.windows.net | 443 | HTTPS | 
 | *.login.windows.net | 443 | HTTPS | 
 | *.servicebus.windows.net | 5671-5672 | Advanced Message Queuing Protocol (AMQP) | 
@@ -298,12 +298,14 @@ The gateway doesn't require inbound ports. Learn more about
 | *.core.windows.net | 443 | HTTPS | 
 | login.microsoftonline.com | 443 | HTTPS | 
 | *.msftncsi.com | 443 | Used to test internet connectivity when the gateway is unreachable by the Power BI service. | 
+||||
 
 If you have to approve IP addresses instead of the domains, 
 you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). 
 In some cases, the Azure Service Bus connections are made with IP Address rather than fully qualified domain names.
 
 <a name="gateway-cloud-service"></a>
+
 ## How does the data gateway work?
 
 The data gateway facilitates quick and secure communication between your logic app, 
@@ -328,6 +330,7 @@ and sends the query to the queue for the gateway to process.
 The gateway cloud service then uses the results.
 
 <a name="faq"></a>
+
 ## Frequently asked questions
 
 ### General
@@ -342,7 +345,7 @@ The gateway just needs the capability to connect to the server name that was pro
 
 <a name="why-azure-work-school-account"></a>
 
-**Q**: Why must I use an Azure work or school account to sign in? <br/>
+**Q**: Why do I have to use an Azure work or school account to sign in? <br/>
 **A**: You can only use an Azure work or school account when you install the on-premises data gateway. 
 Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
 Usually, your Azure AD account's user principal name (UPN) matches the email address.
@@ -377,7 +380,7 @@ This proximity minimizes latency and avoids egress charges on the Azure VM.
 **A**: In Services, the gateway is called Power BI Enterprise Gateway Service.
 
 **Q**: Can the gateway Windows service run with an Azure Active Directory account? <br/>
-**A**: No. The Windows service must have a valid Windows account. By default, 
+**A**: No. The Windows service has to have a valid Windows account. By default, 
 the service runs with the Service SID, NT SERVICE\PBIEgwService.
 
 ### High availability and disaster recovery
@@ -390,7 +393,9 @@ When you install the gateway, specify the recovery key.
 **A**: The recovery key provides a way to migrate or recover your gateway settings after a disaster.
 
 **Q**: Are there any plans for enabling high availability scenarios with the gateway? <br/>
-**A**: These scenarios are on the roadmap, but we don't have a timeline yet.
+**A**: Some connectors support high availability scenarios, 
+such as the File System connector and others on the way. For more information, 
+see [High availability clusters for on-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 ## Troubleshooting
 
@@ -405,7 +410,7 @@ You can also look at tools that your data source has for tracing queries.
 For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
 
 **Q**: Where are the gateway logs? <br/>
-**A**: See Tools later in this topic.
+**A**: See Tools later in this article.
 
 ### Update to the latest version
 

@@ -58,4 +58,13 @@ Reservations are available for most VM sizes with some exceptions:
 ## Next steps
 Start saving on your virtual machines by purchasing a [Reserved Virtual Machine Instance](https://go.microsoft.com/fwlink/?linkid=861721). 
 
+To learn more about Reserved Virtual Machine Instances, see the following articles.
+
+- [Prepay for Virtual Machines with Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Manage Reserved Virtual Machine Instances](billing-manage-reserved-vm-instance.md)
+- [Understand how the Reserved Virtual Machine Instance discount is applied](billing-understand-vm-reservation-charges.md)
+- [Understand Reserved Instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
+- [Understand Reserved Instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+- [Windows software costs not included with Reserved Instances](billing-reserved-instance-windows-software-costs.md)
+
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

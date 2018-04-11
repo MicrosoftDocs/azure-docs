@@ -1,6 +1,6 @@
 ---
-title: Azure Managed Application SizeSelector UI element | Microsoft Docs
-description: Describes the Microsoft.Compute.SizeSelector UI element for Azure Managed Applications
+title: Azure SizeSelector UI element | Microsoft Docs
+description: Describes the Microsoft.Compute.SizeSelector UI element for Azure portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
 
 ---
 # Microsoft.Compute.SizeSelector UI element
-A control for selecting a size for one or more virtual machine instances. You use this element when [creating an Azure Managed Application](publish-service-catalog-app.md).
+A control for selecting a size for one or more virtual machine instances.
 
 ## UI sample
 ![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
@@ -69,6 +69,5 @@ a static value, like **2**, or a dynamic value from another element, like
 ```
 
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

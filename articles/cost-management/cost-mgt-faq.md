@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/14/2017
+ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
@@ -14,7 +14,7 @@ ms.custom:
 
 # Frequently asked questions for Azure Cost Management
 
-This article addresses some common questions about Azure Cost Management (also known as Cloudyn). If you have questions about Cost Management, you can ask them at [FAQs for Azure Cost Management by Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+This article addresses some common questions about Azure Cost Management (also known as Cloudyn). If you have questions about Cost Management, you can ask them at [FAQs for Azure Cost Management](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
 ## How can I resolve common indirect enterprise setup problems?
 
@@ -112,9 +112,9 @@ To add additional CSP accounts to an entity, select **MSP Access** instead of **
 
 You might have multiple Azure accounts using different currencies. However, cost reports in Cloudyn do not show more than one currency type per report.
 
-If you have multiple subscriptions using different currencies, a parent entity and its child entity currencies are displayed with the **$** symbol. Our suggested best practice is to avoid using different currencies in the same entity hierarchy. In other words, all your subscriptions organized in an entity structure should use the same currency.
+If you have multiple subscriptions using different currencies, a parent entity and its child entity currencies are displayed in USD **$**. Our suggested best practice is to avoid using different currencies in the same entity hierarchy. In other words, all your subscriptions organized in an entity structure should use the same currency.
 
-Cloudyn automatically detects your Enterprise Agreement subscription currency and presents it properly in reports.  However, Cloudyn only displays the **$** symbol for CSP and web-direct Azure accounts.
+Cloudyn automatically detects your Enterprise Agreement subscription currency and presents it properly in reports.  However, Cloudyn only displays USD **$** for CSP and web-direct Azure accounts.
 
 ## What are Cloudyn data refresh timelines?
 

@@ -41,7 +41,7 @@ The following section in an Ansible playbook creates a virtual network named *my
   azure_rm_virtualnetwork:
     resource_group: myResourceGroup
     name: myVnet
-    address_prefixes: "10.10.0.0/16"
+    address_prefixes: "10.0.0.0/16"
 ```
 
 To add a subnet, the following section creates a subnet named *mySubnet* in the *myVnet* virtual network:
@@ -78,7 +78,7 @@ Network Security Groups control the flow of network traffic in and out of your V
     name: myNetworkSecurityGroup
     rules:
       - name: SSH
-        protocol: TCP
+        protocol: Tcp
         destination_port_range: 22
         access: Allow
         priority: 1001
@@ -184,7 +184,7 @@ To bring all these sections together, create an Ansible playbook named *azure_cr
         version: latest
 ```
 
-Ansible needs a resource group to deploy all your resources into. Create a resource group with [az group create](/cli/azure/vm#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Ansible needs a resource group to deploy all your resources into. Create a resource group with [az group create](/cli/azure/vm#az_vm_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

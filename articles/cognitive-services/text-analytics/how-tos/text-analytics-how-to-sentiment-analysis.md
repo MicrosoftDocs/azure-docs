@@ -3,7 +3,7 @@ title: How-to sentiment analysis in Text Analytics REST API (Microsoft Cognitive
 description: How to detect sentiment  using the Text Analytics REST API in Microsoft Cognitive Services on Azure in this walkthrough tutorial.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: text-analytics

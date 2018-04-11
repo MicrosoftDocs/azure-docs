@@ -24,18 +24,23 @@ When importing an API, you might come across some restrictions or identify issue
 ## <a name="open-api"> </a>Open API/Swagger
 If you are receiving errors importing your Open API document, ensure you have validated it - either using the designer in the Azure portal (Design - Front End - Open API Specification Editor), or with a third-party tool such as <a href="http://www.swagger.io">Swagger Editor</a>.
 
-* **Host Name** APIM requires a host name attribute.
-* **Base Path**  APIM requires a base path attribute.
-* **Schemes**  APIM requires a scheme array. 
+* Only JSON format for OpenAPI is supported.
+* Schemas referenced using **$ref** properties can't contain other **$ref** properties.
+* **$ref** pointers can't reference external files.
+* **x-ms-paths** and **x-servers** are the only supported extensions.
+* Custom extensions are ignored on import and are not saved or preserved for export.
+
+> [!IMPORTANT]
+> See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
 
 ## <a name="wsdl"> </a>WSDL
 WSDL files are used to generate SOAP Pass-through APIs or serve as the backend of a SOAP-to-REST API.
-
-* **WSDL:Import** - Currently, APIM  does not support APIs using this attribute. Customers should merge the imported elements into one document.
-* **Messages with multiple parts** Currently, APIM  does not support these types of messages.
-* **WCF wsHttpBinding** SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding is not supported.
-* **MTOM** Services using MTOM <em>may</em> work. Official support is not offered at this time.
-* **Recursion** types that are defined recursively (for example, refer to an array of themselves) are not supported by APIM.
+* **SOAP bindings** -Only SOAP bindings of style ”document” and “literal” encoding are supported. There is no support for “rpc” style or SOAP-Encoding.
+* **WSDL:Import** - This attribute is not supported. Customers should merge the imports into one document.
+* **Messages with multiple parts** - These types of messages are not supported.
+* **WCF wsHttpBinding** - SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding is not supported.
+* **MTOM** - Services using MTOM <em>may</em> work. Official support is not offered at this time.
+* **Recursion** - Types that are defined recursively (for example, refer to an array of themselves) are not supported by APIM.
 
 ## <a name="wadl"> </a>WADL
 Currently, there are no known WADL import issues.

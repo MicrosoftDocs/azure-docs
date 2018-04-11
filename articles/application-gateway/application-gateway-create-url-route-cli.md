@@ -202,17 +202,6 @@ done
 
 ### Install NGINX
 
-In your current shell, create a file named customConfig.json and paste the following configuration. You can use any editor you wish to create the file in the Cloud Shell.  Enter `sensible-editor cloudConfig.json` to see a list of available editors to create the file.
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
-  "commandToExecute": "./install_nginx.sh"
-}
-```
-
-Run this command in the shell window:
-
 ```azurecli-interactive
 for i in `seq 1 3`; do
   az vmss extension set \
@@ -221,7 +210,7 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings @cloudConfig.json
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 

@@ -52,11 +52,11 @@ The following limits apply only for networking resources managed through Azure R
 | Rules per resource, Basic | 150 | 250 |
 | Rules per resource, Standard | 1250 | 1500 |
 | Rules per IP configuration | 299 |299 |
-| Frontend IP configurations, Basic | 10 | contact support |
+| Frontend IP configurations, Basic | 10 | 200 |
 | Frontend IP configurations, Standard | 10 | 600 |
-| Backend pool, Basic | 100, single Availability Set | - |
-| Backend pool, Standard | 1000, single VNet | - |
-| HA Ports, Standard | 1 per internal frontend | - |
+| Backend pool, Basic | 100, single Availability Set | 100, single Availability Set |
+| Backend pool, Standard | 1000, single VNet | 1000, single VNet |
+| HA Ports, Standard | 1 per internal frontend | 1 per internal frontend |
 
 [Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
 

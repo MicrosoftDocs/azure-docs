@@ -31,6 +31,8 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 
 These instructions assume you have already installed and signed in to Azure CLI 2.0. For help, see [How to manage DNS zones using Azure CLI 2.0](dns-operations-dnszones-cli.md).
 
+Azure DNS now also supports private DNS zones (currently in public preview). To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md). For an example of how to create a private DNS zone, see [Get started with Azure DNS private zones using CLI](./private-dns-getstarted-cli.md).
+
 ## Create the resource group
 
 Before creating the DNS zone, a resource group is created to contain the DNS Zone. The following shows the command.
@@ -49,7 +51,6 @@ The following example creates a DNS zone called *contoso.com* in the resource gr
 az network dns zone create -g MyResourceGroup -n contoso.com
 ```
 
-
 ## Create a DNS record
 
 To create a DNS record, use the `az network dns record-set [record type] add-record` command. For help, for A records for example, see `azure network dns record-set A add-record -h`.
@@ -62,7 +63,6 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 
 For other record types, for record sets with more than one record, for alternative TTL values, and to modify existing records, see [Manage DNS records and record sets using the Azure CLI 2.0](dns-operations-recordsets-cli.md).
 
-
 ## View records
 
 To list the DNS records in your zone, use:
@@ -70,7 +70,6 @@ To list the DNS records in your zone, use:
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
 ```
-
 
 ## Update name servers
 

@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need a deployed instance of Azure IoT Device Simulation in your Azure subscription.
 
-If you haven't deployed Device Simulation yet, you should complete the [Deploy Azure IoT Device Simulation](iot-suite-device-simulation-explore.md) tutorial.
+If you haven't deployed Device Simulation yet, you should complete the [Deploy Azure IoT Device Simulation](iot-suite-device-simulation-deploy.md) tutorial.
 
 ## Configuring Device Simulation
 
@@ -65,22 +65,22 @@ The device model enables you to choose the type of device to simulate. You can c
 
 Device Simulation provides three pre-configured device models. Device models for Chillers, Elevators, and Trucks are available.
 
-Pre-configured device models include multiple sensors with a pre-determined telemetry frequency. You cannot customize the telemetry frequency for these devices.
+Pre-configured device models include multiple sensors with advanced behaviors defined in a JavaScript file. These custom behaviors are not supported in the web UI. 
 
 The following table shows a list of the configurations for each pre-configured device model:
 
-| Device model | Sensor | Unit | Telemetry frequency
-| -------------| ------ | -----| --------------------|
-| Chiller | humidity | % | 5 seconds |
-| | pressure | psig | 5 seconds |
-| | temperature | F | 5 seconds |
-| Elevator | Floor | | 5 seconds |
-| | Vibration | mm | 5 seconds |
-| | Temperature | F | 5 seconds |
-| Truck | Latitude | | 3 seconds |
-| | Longitude | | 3 seconds |
-| | speed | mph | 5 seconds |
-| | cargotemperature | F | 5 seconds |
+| Device model | Sensor | Unit | 
+| -------------| ------ | -----| 
+| Chiller | humidity | % |
+| | pressure | psig | 
+| | temperature | F | 
+| Elevator | Floor | 
+| | Vibration | mm | 
+| | Temperature | F | 
+| Truck | Latitude | |
+| | Longitude | | 
+| | speed | mph | 
+| | cargotemperature | F | 
 
 #### Custom device model
 
@@ -102,7 +102,7 @@ Custom sensors have the following properties:
 
 ### Number of devices
 
-Device Simulation currently enables you to simulate up to 1,000 devices.
+Device Simulation currently enables you to simulate up to 20,000 devices.
 
 ![Number of devices](media/iot-suite-device-simulation-explore/numberofdevices.png)
 

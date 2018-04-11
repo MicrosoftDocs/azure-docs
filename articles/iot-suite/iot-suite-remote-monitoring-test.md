@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Test your solution with simulated devices
+# Create a new simulated device
 
 This tutorial shows you how to customize the device simulator microservice in the remote monitoring preconfigured solution. To show the capabilities of the device simulator, this tutorial uses two scenarios in the Contoso IoT application.
 
@@ -100,7 +100,7 @@ Complete the following tasks to prepare your development environment for adding 
 
 When you created your remote monitoring solution at [www.azureiotsuite.com](https://www.azureiotsuite.com), you chose a solution name. The solution name becomes the name of the Azure resource group that contains the various deployed resources that the solution uses. The following commands use a resource group named **Contoso-01**, you should replace **Contoso-01** with the name of your resource group.
 
-The following commands use the `az` command from [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). You can install the Azure CLI 2.0 on your development machine, or use the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in the [Azure portal](http://portal.azure.com). The Azure CLI 2.0 is pre-installed in the Cloud Shell.
+The following commands use the `az` command from [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). You can install the Azure CLI 2.0 on your development machine, or use the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in the [Azure portal](http://portal.azure.com). The Azure CLI 2.0 is pre-installed in the Cloud Shell.
 
 1. To verify the name of the resource group that contains your remote monitoring resources, run the following command:
 
@@ -127,24 +127,24 @@ The following commands use the `az` command from [Azure CLI 2.0](https://docs.mi
 1. To enable SSH access your virtual machine, run the following command using the name of your network security group from the previous step:
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     To view the list of inbound rules for your network, run the following command:
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. To change the virtual machine password to a password you know, run the following command. Use the name of the virtual machine you noted previously and a password of your choice:
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. To find the IP address of your virtual machine, use the following command and make a note of the public IP address:
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. You can now use SSH to connect to your virtual machine. The `ssh` command is pre-installed in the Cloud Shell. Use the public IP address from the previous step and, when prompted, the password you configured for the virtual machine:

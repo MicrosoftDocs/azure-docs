@@ -2,13 +2,13 @@
 title: Provision Azure Batch pools from custom images | Microsoft Docs
 description: You can create a Batch pool from a custom image to provision compute nodes that contain the software and data that you need for your application. Custom images are an efficient way to configure compute nodes to run your Batch workloads.
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-dotren
+ms.author: danlep
 ---
 
 # Use a managed custom image to create a pool of virtual machines 

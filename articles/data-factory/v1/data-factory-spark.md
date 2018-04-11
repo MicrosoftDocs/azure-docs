@@ -3,9 +3,9 @@ title: Invoke Spark programs from Azure Data Factory | Microsoft Docs
 description: Learn how to invoke Spark programs from an Azure data factory by using the MapReduce activity.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 
 robots: noindex
 ---
@@ -81,7 +81,7 @@ To create a data factory, follow these steps:
 7. Select **Create**.
 
    > [!IMPORTANT]
-   > To create Data Factory instances, you must be a member of the [Data Factory contributor](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
+   > To create Data Factory instances, you must be a member of the [Data Factory contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
 
 8. You see the data factory as it is created in the dashboard of the Azure portal.
 

@@ -17,7 +17,7 @@ ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Build a PHP and MySQL web app in Azure
+# Tutorial: Build a PHP and MySQL web app in Azure
 
 > [!NOTE]
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a PHP and MySQL web app in Azure App Service on Linux](./containers/tutorial-php-mysql-app.md).
@@ -150,7 +150,7 @@ To stop the PHP server, type `Ctrl + C` in the terminal.
 
 ## Create MySQL in Azure
 
-In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you configure the PHP application to connect to this database.
+In this step, you create a MySQL database in [Azure Database for MySQL](/azure/mysql). Later, you configure the PHP application to connect to this database.
 
 ### Create a resource group
 
@@ -158,7 +158,7 @@ In this step, you create a MySQL database in [Azure Database for MySQL (Preview)
 
 ### Create a MySQL server
 
-In the Cloud Shell, create a server in Azure Database for MySQL (Preview) with the [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) command.
+In the Cloud Shell, create a server in Azure Database for MySQL with the [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) command.
 
 In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique.
 
@@ -195,7 +195,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 ```
 
 > [!NOTE]
-> Azure Database for MySQL (Preview) doesn't currently limit connections only to Azure services. As IP addresses in Azure are dynamically assigned, it is better to enable all IP addresses. The service is in preview. Better methods for securing your database are planned.
+> Azure Database for MySQL doesn't currently limit connections only to Azure services. As IP addresses in Azure are dynamically assigned, it is better to enable all IP addresses. Better methods for securing your database are planned.
 >
 >
 
@@ -232,7 +232,7 @@ quit
 
 ## Connect app to Azure MySQL
 
-In this step, you connect the PHP application to the MySQL database you created in Azure Database for MySQL (Preview).
+In this step, you connect the PHP application to the MySQL database you created in Azure Database for MySQL.
 
 <a name="devconfig"></a>
 
@@ -256,12 +256,12 @@ MYSQL_SSL=true
 Save the changes.
 
 > [!TIP]
-> To secure your MySQL connection information, this file is already excluded from the Git repository (See _.gitignore_ in the repository root). Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL (Preview). With environment variables, you don't need the *.env* file in App Service.
+> To secure your MySQL connection information, this file is already excluded from the Git repository (See _.gitignore_ in the repository root). Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL. With environment variables, you don't need the *.env* file in App Service.
 >
 
 ### Configure SSL certificate
 
-By default, Azure Database for MySQL enforces SSL connections from clients. To connect to your MySQL database in Azure, you must use a _.pem_ SSL certificate.
+By default, Azure Database for MySQL enforces SSL connections from clients. To connect to your MySQL database in Azure, you must use the [_.pem_ certificate supplied by Azure Database for MySQL](../mysql/howto-configure-ssl.md).
 
 Open _config/database.php_ and add the `sslmode` and `options` parameters to `connections.mysql`, as shown in the following code.
 
@@ -270,20 +270,16 @@ Open _config/database.php_ and add the `sslmode` and `options` parameters to `co
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
     'options' => (env('MYSQL_SSL')) ? [
-        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/certificate.pem', 
+        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem', 
     ] : []
 ],
 ```
 
-To learn how to generate this _certificate.pem_, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](../mysql/howto-configure-ssl.md).
-
-> [!TIP]
-> The path _/ssl/certificate.pem_ points to an existing _certificate.pem_ file in the Git repository. This file is provided for convenience in this tutorial. For best practice, you should not commit your _.pem_ certificates into source control. 
->
+The certificate `BaltimoreCyberTrustRoot.crt.pem` is provided in the repository for convenience in this tutorial. 
 
 ### Test the application locally
 
-Run Laravel database migrations with _.env.production_ as the environment file to create the tables in your MySQL database in Azure Database for MySQL (Preview). Remember that _.env.production_ has the connection information to your MySQL database in Azure.
+Run Laravel database migrations with _.env.production_ as the environment file to create the tables in your MySQL database in Azure Database for MySQL. Remember that _.env.production_ has the connection information to your MySQL database in Azure.
 
 ```bash
 php artisan migrate --env=production --force
@@ -305,7 +301,7 @@ Navigate to `http://localhost:8000`. If the page loads without errors, the PHP a
 
 Add a few tasks in the page.
 
-![PHP connects successfully to Azure Database for MySQL (Preview)](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
+![PHP connects successfully to Azure Database for MySQL](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
 To stop PHP, type `Ctrl + C` in the terminal.
 

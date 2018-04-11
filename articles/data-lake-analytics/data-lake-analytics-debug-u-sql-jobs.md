@@ -39,7 +39,7 @@ When you open a failed job in Azure Data Lake Tools for Visual Studio, you see a
 
 1. Click **Download** to download all the required resources and input streams. If the download doesn't complete, click **Retry**.
 
-2. Click **Open** after the download completes to generate a local debugging environment. A new Visual Studio instance with a debugging solution is automatically created and opened.
+2. Click **Open** after the download completes to generate a local debugging environment. A new debugging solution will be opened, and if you have existing solution opened in Visual Studio, please make sure to save and close it before debugging.
 
 ![Azure Data Lake Analytics U-SQL debug visual studio download vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 

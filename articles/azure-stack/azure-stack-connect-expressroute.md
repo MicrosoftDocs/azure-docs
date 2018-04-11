@@ -3,8 +3,8 @@ title: Connect Azure Stack to Azure using ExpressRoute
 description: How to connect virtual networks in Azure Stack to virtual networks in Azure using ExpressRoute.
 services: azure-stack
 documentationcenter: ''
-author: victorar
-manager: 
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
-ms.author: victorh
+ms.author: brenduns
+ms.reviewer:  
 
 ---
+
 # Connect Azure Stack to Azure using ExpressRoute
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
@@ -288,7 +290,7 @@ The example Azure network infrastructure is configured in the following way:
 3. Create the spoke VNet and subnet using the 10.100.0.0/16 address range.
 
 
-For more information about creating virtual networks in Azure, see [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+For more information about creating virtual networks in Azure, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 ### Configure an ExpressRoute circuit
 

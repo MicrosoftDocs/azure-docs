@@ -4,7 +4,7 @@ description: Create a new VM by attaching a specialized unmanaged disk, in the R
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -115,7 +115,7 @@ You can copy a VHD to another storage account to use when creating a new, duplic
 ### Before you begin
 Make sure that you:
 
-* Have information about the **source and destination storage accounts**. For the source VM, you need to have the storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**More Services** > Storage accounts > Add) or using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
+* Have information about the **source and destination storage accounts**. For the source VM, you need to have the storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**All Services** > Storage accounts > Add) or using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
 * Have downloaded and installed the [AzCopy tool](../../storage/common/storage-use-azcopy.md). 
 
 ### Deallocate the VM
@@ -135,7 +135,7 @@ You need the URLs of the source and destination storage accounts. The URLs look 
 
 You can use the Azure portal or Azure Powershell to get the URL:
 
-* **Portal**: Click the **>** for **More services** > **Storage accounts** > *storage account* > **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
+* **Portal**: Click the **>** for **All services** > **Storage accounts** > *storage account* > **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
 * **Powershell**: Use [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) to get the information for VM named **myVM** in the resource group **myResourceGroup**. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
 
 ```powershell
@@ -145,7 +145,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## Get the storage access keys
 Find the access keys for the source and destination storage accounts. For more information about access keys, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
 
-* **Portal**: Click **More services** > **Storage accounts** > *storage account* > **Access keys**. Copy the key labeled as **key1**.
+* **Portal**: Click **All services** > **Storage accounts** > *storage account* > **Access keys**. Copy the key labeled as **key1**.
 * **Powershell**: Use [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) to get the storage key for the storage account **mystorageaccount** in the resource group **myResourceGroup**. Copy the key labeled **key1**.
 
 ```powershell
@@ -309,7 +309,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### Verify that the VM was created
-You should see the newly created VM either in the [Azure portal](https://portal.azure.com), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
+You should see the newly created VM either in the [Azure portal](https://portal.azure.com), under **All services** > **Virtual machines**, or by using the following PowerShell commands:
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName

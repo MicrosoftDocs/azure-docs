@@ -1,18 +1,18 @@
 ---
 title: Quickstart - Create your first Azure Container Instances container with the Azure portal
-description: Deploy and get started with Azure Container Instances
+description: In this quickstart, you use the Azure portal to deploy a container in Azure Container Instances
 services: container-instances
 author: mmacy
 manager: timlt
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 04/02/2018
 ms.author: marsma
 ms.custom: mvc
 ---
 
-# Create your first container in Azure Container Instances
+# Quickstart: Create your first container in Azure Container Instances
 
 Azure Container Instances makes it easy to create and manage containers in Azure. In this quickstart, you create a container in Azure and expose it to the internet with a public IP address. This operation is completed by using the Azure portal. With just a few clicks, you will see this in your browser:
 
@@ -24,7 +24,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a container instance
 
-Select the **New** > **Containers** > **Azure Container Instances (preview)**.
+Select the **Create a resource** > **Containers** > **Azure Container Instances**.
 
 ![Begin creating a new container instance in the Azure portal][aci-portal-01]
 
@@ -50,7 +50,7 @@ When deployment starts, a tile is placed on your portal dashboard indicating dep
 
 ![Creation progress of a new container instance in the Azure portal][aci-portal-08]
 
-Select the **mycontainer-myc1** container group to display the container group properties. Take note of the **Ip address** of the container group, as well as the **STATE** of your container.
+Select the **mycontainer-myc1** container group to display the container group properties. Take note of the **IP address** of the container group, as well as the **STATE** of your container.
 
 ![Container group overview in the Azure portal][aci-portal-06]
 
@@ -69,7 +69,7 @@ This will launch a confirmation dialog box, select **Yes** when prompted.
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
-[aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png
+<!--[aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png-->
 [aci-portal-03]: ./media/container-instances-quickstart-portal/qs-portal-03.png
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png

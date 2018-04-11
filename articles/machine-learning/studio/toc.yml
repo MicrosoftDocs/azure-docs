@@ -1,10 +1,8 @@
-- name: Machine Learning Studio Documentation
-  href: index.md
+- name: Machine Learning Studio Documentation 
+  href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What's Machine Learning?
-    href: what-is-machine-learning.md
   - name: Machine Learning Studio
     href: what-is-ml-studio.md
   - name: ML Studio capabilities
@@ -235,6 +233,4 @@
     href: http://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-  - name: Get help from live chat
-    href: live-chat.md
 
