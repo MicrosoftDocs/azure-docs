@@ -122,7 +122,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Copy the **SP-initiated target URL** and the **Identifier URL**  and paste into the fields specified in step 3. (To view the Identifier URL, click **Generate SAML metadata**. This initiates a download of the SAML configuration in XML format. The URL required is listed in the `entityID="https://app.workrite.co.uk/<NAME>` section.)
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_certificate.png)
 	
@@ -130,17 +130,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	`openssl x509 -inform der -in certificate.cer -out certificate.pem`
 When correctly formatted, the certificate will look like this when viewed in a text editor:
 
-`-----BEGIN CERTIFICATE-----`
-``
-`CERTIFICATE_GOES_HERE`
-``
-`-----END CERTIFICATE-----`
+`-----BEGIN CERTIFICATE-----
 
-5. Click **Save** button.
+CERTIFICATE_GOES_HERE
+
+-----END CERTIFICATE-----`
+
+6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-workrite-tutorial/tutorial_general_400.png)
 
-6. On the **Workrite Configuration** section, click **Configure Workrite** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. On the **Workrite Configuration** section, click **Configure Workrite** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Workrite Configuration](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_configure.png) 
 
