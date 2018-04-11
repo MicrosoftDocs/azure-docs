@@ -67,14 +67,14 @@ New-AzureStorageShare `
 > [!Important]  
 > Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-## Manipulating the contents of the Azure file share
-Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can manipulate your Azure file share with the Azure PowerShell module. This is advantageous over mounting the file share with SMB, because all requests made with PowerShell are made with the File REST API enabling you to create, modify, and delete files and directories in your file share from:
+## Work with the contents of the Azure file share
+Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can work with your Azure file share with the Azure PowerShell module. This is advantageous over mounting the file share with SMB, because all requests made with PowerShell are made with the File REST API enabling you to create, modify, and delete files and directories in your file share from:
 
 - The PowerShell Cloud Shell (which cannot mount file shares over SMB).
 - Clients which cannot mount SMB shares, such as on-premises clients which do not have port 445 unblocked.
 - Serverless scenarios, such as in [Azure Functions](../../azure-functions/functions-overview.md). 
 
-### Create directory
+### Create a directory
 To create a new directory named *myDirectory* at the root of your Azure file share, use the [`New-AzureStorageDirectory`](/powershell/module/azurerm.storage/new-azurestoragedirectory) cmdlet.
 
 ```azurepowershell-interactive
