@@ -1,7 +1,7 @@
 | **Component** | **Requirement** |
 | --- |---|
 | CPU cores| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | Number of disks | 3, including the OS disk, process server cache disk, and retention drive for failback |
 | Disk free space (process server cache) | 600 GB
 | Disk free space (retention disk) | 600 GB|

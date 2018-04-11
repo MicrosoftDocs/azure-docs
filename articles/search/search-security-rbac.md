@@ -20,7 +20,7 @@ ms.author: heidist
 ---
 # Set RBAC roles for administrative access
 
-Azure provides a [global role-based authorization model](../active-directory/role-based-access-control-configure.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of *service administration* for Active Directory users, groups, and security principals assigned to each role. 
+Azure provides a [global role-based authorization model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of *service administration* for Active Directory users, groups, and security principals assigned to each role. 
 
 > [!Note]
 > There is no role-based access controls for securing portions of an index or a subset of documents. For identity-based access over search results, you can create security filters to trim results by identity, removing documents for which the requestor should not have access. For more information, see [Security filters](search-security-trimming-for-azure-search.md) and [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md).
@@ -42,4 +42,4 @@ Roles do not grant access rights to the service endpoint. Search service operati
 
 + [Manage using PowerShell](search-manage-powershell.md) 
 + [Performance and optimization in Azure Search](search-performance-optimization.md)
-+ [Get started with Role-Based Access Control in the Azure portal](../active-directory/role-based-access-control-what-is.md).
++ [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).
