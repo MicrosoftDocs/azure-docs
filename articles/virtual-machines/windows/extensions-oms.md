@@ -4,7 +4,7 @@ description: Deploy the OMS agent on Windows virtual machine using a virtual mac
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -148,7 +148,7 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS ` 
+    -Location WestUS 
 ```
 
 ## Troubleshoot and support

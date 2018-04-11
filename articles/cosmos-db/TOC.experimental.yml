@@ -8,8 +8,6 @@ items:
     items:
     - name: About Azure Cosmos DB
       href: introduction.md
-    - name: Documentation experiment
-      href: experiment.experimental.md
   - name: Quickstarts
     expanded: true
     items:
@@ -75,14 +73,12 @@ items:
     items:
     - name: Global distribution
       href: distribute-data-globally.md
-    - name: Consistency
-      href: consistency-levels.md
     - name: Partitioning
       href: partition-data.md
     - name: Throughput
       href: request-units.md
-    - name: TCO
-      href: https://aka.ms/documentdb-tco-paper
+    - name: Consistency
+      href: consistency-levels.md
     - name: Serverless database
       href: serverless-computing-database.md
     - name: Security
@@ -90,10 +86,10 @@ items:
       items:
         - name: Encryption at rest
           href: database-encryption-at-rest.md
-        - name: Firewall support
-          href: firewall-support.md
         - name: Securing access to data
           href: secure-access-to-data.md
+    - name: TCO
+      href: https://aka.ms/cosmosdb-tco-paper
     - name: Use cases
       href: use-cases.md
       items:
@@ -184,7 +180,7 @@ items:
             href: sql-api-sql-query-metrics.md
         - name: Index
           href: indexing-policies.md
-        - name: Partition data
+        - name: SQL data partitioning
           href: sql-api-partition-data.md
         - name: Stored procedures, triggers, and UDFs
           href: programming.md
@@ -202,6 +198,8 @@ items:
           items:
           - name: Performance test
             href: performance-testing.md
+          - name: Performance tips for Async Java
+            href: performance-tips-async-java.md
           - name: Performance tips for .NET
             href: performance-tips.md
           - name: Performance tips for Java
@@ -219,23 +217,23 @@ items:
           - name: Application logging with Logic Apps
             href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
           - name: Bind to Azure Functions
-            href: ../azure-functions/functions-bindings-documentdb.md
+            href: ../azure-functions/functions-bindings-cosmosdb.md
           - name: Integrate with Azure Search
-            href: ../search/search-howto-index-documentdb.md
+            href: ../search/search-howto-index-cosmosdb.md
           - name: Move data with Azure Data Factory
             href: ../data-factory/connector-azure-cosmos-db.md
           - name: Analyze real-time data with Azure Stream Analytics
-            href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
+            href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
           - name: Get changed HL7 FHIR record using Logic Apps
             href: change-feed-hl7-fhir-logic-apps.md
           - name: Process sensor data in real time
-            href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+            href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
           - name: Visualize your data with Power BI
             href: powerbi-visualize.md
           - name: Leverage the ODBC driver for data visualization
             href: odbc-driver.md
           - name: Use Spring Boot Starter with SQL APIs
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
       - name: Reference
         items:
         - name: Async Java
@@ -265,7 +263,7 @@ items:
         - name: Schema agnostic indexing paper
           href: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
         - name: SQL playground
-          href: https://www.documentdb.com/sql/demo
+          href: https://aka.ms/cosmos-db-playground
     - name: MongoDB API Docs
       items: 
       - name: Overview
@@ -348,6 +346,8 @@ items:
           href: tutorial-global-distribution-graph.md
       - name: How To Guides
         items:
+        - name: Graph partitioning
+          href: graph-partitioning.md
         - name: Integrate
           items:
           - name: Connect to Spark GraphX
@@ -436,6 +436,8 @@ items:
       href: manage-account.md
     - name: Throughput
       href: set-throughput.md
+    - name: Firewall support
+      href: firewall-support.md
     - name: Metrics
       href: use-metrics.md
     - name: Monitor SLAs
@@ -468,5 +470,3 @@ items:
       href: faq.md
     - name: Data consistency explained through baseball
       href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
-    - name: Troubleshoot Azure Cosmos DB
-      href: troubleshoot-azure-cosmosdb.md

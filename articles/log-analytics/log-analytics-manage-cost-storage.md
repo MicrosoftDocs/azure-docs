@@ -1,6 +1,6 @@
 ---
 title: Manage cost of data in Azure Log Analytics | Microsoft Docs
-description: Learn how to change the pricing plan and manage data volume and retention policy for your Log Analytics workspace in the Azure portal.   
+description: Learn how to change the pricing plan and manage data volume and retention policy for your Log Analytics workspace in Azure.   
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/09/2018
 ms.author: magoedte
 ---
 
  
-# Manage cost by controlling data volume and retention with your Log Analytics workspace
+# Manage cost by controlling data volume and retention in Log Analytics
 Log Analytics is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, its important to understand that the cost of a Log Analytisc workspace isn't just based on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
 
 In this article we review how you can proactively monitor data volume and storage growth, and define limits to control those associated costs. 
@@ -30,15 +30,14 @@ The cost of data can be considerable depending on the following factors:
 - The period data is retained in the workspace  
 - Number of Management solutions enabled, data source, and collection frequency 
 
+Refer to the documentation for each solution as it provides an estimate of how much data it collects.   
+
+If you are on the "Free" pricing tier, data is limited to 7 days retention. For the "Per-GB (Standalone)" or "Per-node (OMS)" tiers, data collected is available for the last 31 days and retention can be increased up to 2 years. Charges apply if you select a longer retention period. The Free plan has 500 MB daily ingestion limit, and if you find that you consistently exceed the amounts allowed volume, you can change your workspace to the Per-GB or Per-node tiers to collect data beyond this limit. You can change your plan type at any time and for more information on pricing, see [pricing details](https://azure.microsoft.com/pricing/details/log-analytics/). 
+
 > [!NOTE]
-> Refer to the documentation for each solution as it provides an estimate of how much data it collects.   
+> In April 2018, we [introduced](https://azure.microsoft.com/en-us/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) a new pricing model for Azure monitoring. This model adopts a simple “pay-as-you-go” model across the complete portfolio of monitoring services. Learn more about the  [new pricing model](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), how to [assess the impact of moving to this model](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) based on your usage patterns, and [how to opt into the new model](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
 
-If you are on the *Free* plan, data is limited to 7 days retention. For the *Standalone* or *Paid* tier, data collected is available for the last 31 days. The *Free* plan has 500 MB daily ingestion limit, and if you find that you consistently exceed the amounts allowed volume, you can change your workspace to a paid plan to collect data beyond this limit. 
-
-> [!NOTE]
-> Charges apply if you choose to select a longer retention period for the paid tier. You can change your plan type at any time and for more information on pricing, see [pricing details](https://azure.microsoft.com/pricing/details/log-analytics/). 
-
-There are two ways in which the volume of data can be limited and help control your cost, these are daily cap and data retention.  
+Regardless of the pricing model or tier, managing the volume of data is fundmental to controlling your costs. Aside from the choice and configuration of specific solution, within Log Analytics there are two ways in which the volume of data can be limited and help control your cost, these are daily cap and data retention.  
 
 ## Review estimated cost
 Log Analytics makes it easy to understand what the costs are likely be based on recent usage patterns.  To do this, perform the following steps.  
