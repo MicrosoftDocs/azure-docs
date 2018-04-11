@@ -34,7 +34,9 @@ You might define a cohort of users that have all tried a new feature in your app
 Your team defines an engaged user as anyone who uses your app five or more times in a given month. Let’s define a cohort of these engaged users.
 
 1. Open the **Cohorts** tool
+
 2. Click **Template Gallery** tab. Here you’ll find a collection of templates for various cohorts.
+
 3. Choose **Engaged Users** – by Days Used”
 
     There are three parameters for this cohort:
@@ -67,14 +69,16 @@ A few important things to notice:
    * This is a filter you couldn’t have applied through normal filters. The date logic is more advanced.
    * You can further filter this cohort using the normal filters in the Users tool. So while the cohort is defined on 28-day windows, you can still adjust the time range in the Users tool to be 30, 60, or 90 days. 
 
-This lets you ask more sophisticated questions like, _for people who were engaged in the past 28 days, how did those same people behave over the past 60 days?_ etc. that would otherwise be impossible to express through the query builder.
+This lets you ask more sophisticated questions like: _for people who were engaged in the past 28 days, how did those same people behave over the past 60 days?_ etc. that would otherwise be impossible to express through the query builder.
 
 ## Example: events cohort
 
-You can also make cohorts of events. Let’s define a cohort of the events and page views, then see how to use them from the other tools. This might be useful to define a set of events that your team considers “active usage,” or to define a set of events related to a certain new feature.
+You can also make cohorts of events. Let’s define a cohort of the events and page views, then see how to use them from the other tools. This might be useful to define a set of events that your team considers _active usage_, or to define a set of events related to a certain new feature.
 
 1. Open the **Cohorts)) tool
+
 2. Click the **Template Gallery** tab. Here you’ll find a collection of templates for various cohorts.
+
 3. Choose **Events Picker**
 
     ![Screenshot of Events picker](.\media\app-insights-usage-cohorts\006.png)
