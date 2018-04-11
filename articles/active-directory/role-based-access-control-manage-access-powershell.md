@@ -133,28 +133,24 @@ Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT Operatio
 ```
 
 ### Create role with PSRoleDefinitionObject
-When you use PowerShell to create a custom role, you can start from scratch or use one of the [built-in roles](role-based-access-built-in-roles.md) as a starting point. The example in this section starts with a built-in role and then customizes it with more privileges. Edit the attributes to add the *Actions*, *notActions*, or *scopes* that you want, and then save the changes as a new role.
+Use PowerShell to create a custom role from scratch and use one of the [built-in roles](role-based-access-built-in-roles.md) as input. The example in this section starts with a empty role and then customizes it with more privileges from built-in role, *Virtual Machine Contributor*. Edit the attributes to add the *Actions*, *notActions*, or *scopes* that you want, and then save the changes as a new role.
 
-The following example starts with the *Virtual Machine Contributor* role and uses that to create a custom role called *Virtual Machine Operator*. The new role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions.
+The following example creates a custom role called *Virtual Machine Operator*. The new role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. The custom role can be used in the two specified subscription scopes.
 
 ```
-$role = Get-AzureRmRoleDefinition "Virtual Machine Contributor"
-$role.Id = $null
-$role.Name = "Virtual Machine Operator"
-$role.Description = "Can monitor and restart virtual machines."
-$role.Actions.Clear()
-$role.Actions.Add("Microsoft.Storage/*/read")
-$role.Actions.Add("Microsoft.Network/*/read")
-$role.Actions.Add("Microsoft.Compute/*/read")
-$role.Actions.Add("Microsoft.Compute/virtualMachines/start/action")
-$role.Actions.Add("Microsoft.Compute/virtualMachines/restart/action")
-$role.Actions.Add("Microsoft.Authorization/*/read")
-$role.Actions.Add("Microsoft.Resources/subscriptions/resourceGroups/read")
-$role.Actions.Add("Microsoft.Insights/alertRules/*")
-$role.Actions.Add("Microsoft.Support/*")
-$role.AssignableScopes.Clear()
-$role.AssignableScopes.Add("/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e")
-$role.AssignableScopes.Add("/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624")
+$subs = '/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e','/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624'
+$role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
+$role.Name = 'Virtual Machine Operator'
+$role.Description = 'Can monitor and restart virtual machines.'
+$role.IsCustom = $true
+$perms = 'Microsoft.Storage/*/read','Microsoft.Network/*/read','Microsoft.Compute/*/read'
+$perms += 'Microsoft.Compute/virtualMachines/start/action','Microsoft.Compute/virtualMachines/restart/action'
+$perms += 'Microsoft.Authorization/*/read','Microsoft.Resources/subscriptions/resourceGroups/read'
+$perms += 'Microsoft.Insights/alertRules/*','Microsoft.Support/*'
+$role.Actions = $perms
+$role.NotActions = (Get-AzureRmRoleDefinition -Name 'Virtual Machine Contributor').NotActions
+$role.DataActions = (Get-AzureRmRoleDefinition -Name 'Virtual Machine Contributor').DataActions
+$role.AssignableScopes = $subs
 New-AzureRmRoleDefinition -Role $role
 ```
 
