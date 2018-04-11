@@ -3,9 +3,8 @@ title: 'Azure Cosmos DB: Build an app with Python and the SQL API | Microsoft Do
 description: Presents a Python code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
 ms.service: cosmos-db
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/29/2017
-ms.author: mimig
+ms.author: sngun
 
 ---
 # Azure Cosmos DB: Build a SQL API app with Python and the Azure portal
