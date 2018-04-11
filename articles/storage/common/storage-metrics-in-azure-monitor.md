@@ -25,6 +25,7 @@ Azure Monitor provides unified user interfaces for monitoring across different A
 
 ## Access metrics
 
+Azure Monitor provides multiple ways to access metrics. You can access them from the [Azure portal](https://portal.azure.com), the Azure Monitor APIs (REST, and .Net) and analysis solutions such as Operation Management Suite and Event Hub. For more information, see  [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Metrics are enabled by default, and you can access most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) in Azure Monitor.
 
@@ -213,9 +214,6 @@ The following example shows how to read `UsedCapacity` data at account level:
 
         foreach (var metric in Response.Value)
         {
-            | Metric Name | Description |
-            | ------------------- | ----------------- |
-            | UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it’s the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, this is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
             //Enumrate metric value
             //    Id
             //    Name
@@ -258,7 +256,6 @@ The following example shows how to read metric data on the metric supporting mul
         // It's applicable to define meta data filter when a metric support dimension
         // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
         ODataQuery<MetadataValue> odataFilterMetrics = new ODataQuery<MetadataValue>(
-        Azure Monitor provides multiple ways to access metrics. You can access them from the [Azure portal](https://portal.azure.com), the Azure Monitor APIs (REST, and .Net) and analysis solutions such as Operation Management Suite and Event Hub. For more information, see  [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
             string.Format("BlobType eq '{0}'", "BlockBlob"));
 
         Response = readOnlyClient.Metrics.List(
@@ -284,9 +281,6 @@ The following example shows how to read metric data on the metric supporting mul
     }
 
 ```
-
-## Billing for metrics
-
 
 ## Understanding resource ID for services in Azure Storage
 
@@ -342,6 +336,9 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 ### Account Level
 
+| Metric Name | Description |
+| ------------------- | ----------------- |
+| UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it’s the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, this is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
 ### Blob storage
 
@@ -375,7 +372,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 | FileCount   | The number of files in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | FileShareCount | The number of file shares in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
-## Transaction Metrics
+## Transaction metrics
 
 Transaction metrics are sent from Azure Storage to Azure Monitor every minute. All transaction metrics are available at both account and service level (Blob storage, Table storage, Azure Files, and Queue storage). The time grain defines the time interval that metric values are presented. The supported time grains for all transaction metrics are PT1H and PT1M.
 
@@ -390,7 +387,7 @@ Azure Storage provides the following transaction metrics in Azure Monitor.
 | SuccessE2ELatency | The average end-to-end latency of successful requests made to a storage service or the specified API operation. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response. <br/><br/> Unit: Milliseconds <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName ([Definition](#metrics-dimensions)) <br/> Value example: 1024 |
 | Availability | The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the total billable requests value and dividing it by the number of applicable requests, including those requests that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation. <br/><br/> Unit: Percent <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName ([Definition](#metrics-dimensions)) <br/> Value example: 99.99 |
 
-## Metrics Dimensions
+## Metrics dimensions
 
 Azure Storage supports following dimensions for metrics in Azure Monitor.
 
