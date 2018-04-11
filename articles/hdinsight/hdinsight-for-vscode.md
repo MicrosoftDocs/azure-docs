@@ -277,7 +277,8 @@ HDInsight Tools for VS Code also enables you to submit interactive PySpark queri
 
 After you submit a Python job, submission logs appear in the **OUTPUT** window in VS Code. The **Spark UI URL** and **Yarn UI URL** are shown as well. You can open the URL in a web browser to track the job status.
 
-
+>[!NOTE]
+>PySpark3 not supported anymore in Livy 0.4 (which is HDI spark 2.2 cluster). Only “PySpark” is supported for python. It is known issue that submit to spark 2.2 fail with python3.
    
 
 
