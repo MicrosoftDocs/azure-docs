@@ -203,21 +203,21 @@ The objective of this section is to create a user called Britta Simon in WorkRit
 
 2. From the dashboard, click **Management System**.
    
-    ![Admin Control][400]
+    ![Management System][403]
 
 3. Using the left hand navigation menu, select **User**
    
-    ![Create User Section][401]
+    ![User][404]
 
 4. From the **User** page, click **Create User** and complete the fields as follows:
    
-    ![Create User Dailog][402]
+    ![Create User][405]
 	
 	a. In the **Email** textbox, type the email address of user like `Brittasimon@contoso.com`
 
 	b. In the **First Name** textbox, type the firstname of user like `Britta`
 
-	c. In the **Surname** textbox, type the surname of user like `Simon
+	c. In the **Surname** textbox, type the surname of user like `Simon`
 	
 	d. Select `Student` as **Role Type**.
 	
@@ -280,4 +280,7 @@ When you click the Workrite tile in the Access Panel, you should get automatical
 [400]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_400.png
 [401]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_401.png
 [402]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_402.png
+[403]: ./media/active-directory-saas-workrite-tutorial/management_system.png
+[404]: ./media/active-directory-saas-workrite-tutorial/users.png
+[405]: ./media/active-directory-saas-workrite-tutorial/create_user.png
 
