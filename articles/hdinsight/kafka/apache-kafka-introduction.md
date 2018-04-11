@@ -4,17 +4,17 @@ description: 'Learn about Apache Kafka on HDInsight: What it is, what it does, a
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: f284b6e3-5f3b-4a50-b455-917e77588069
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/27/2018
+ms.date: 04/11/2018
 ms.author: larryfr
 ---
 # Introducing Apache Kafka on HDInsight
@@ -45,7 +45,7 @@ Kafka on HDInsight provides the following features:
 
     For information on using MirrorMaker, see [Replicate Kafka topics with Kafka on HDInsight](apache-kafka-mirroring.md).
 
-* **Cluster scaling**: HDInsight allows you to change the number of worker nodes (which host the Kafka-broker) after cluster creation. Scale up a cluster as workloads increase, or scale down to reduce costs. Scaling can be performed from the Azure portal, Azure PowerShell, and other Azure management interfaces. For Kafka, you should rebalance partition replicas after scaling operations. Rebalancing partitions allows Kafka to take advantage of the new number of worker nodes.
+* **Cluster scaling**: HDInsight allows you to change the number of worker nodes (which host the Kafka-broker) after cluster creation. Scaling can be performed from the Azure portal, Azure PowerShell, and other Azure management interfaces. For Kafka, you should rebalance partition replicas after scaling operations. Rebalancing partitions allows Kafka to take advantage of the new number of worker nodes.
 
     For more information, see [High availability with Kafka on HDInsight](apache-kafka-high-availability.md).
 
@@ -90,12 +90,8 @@ Each Kafka broker uses Azure Managed Disks. The number of disks is user-defined,
 
 Use the following links to learn how to use Apache Kafka on HDInsight:
 
-* [Get started with Kafka on HDInsight](apache-kafka-get-started.md)
+* [Quickstart: Create Kafka on HDInsight](apache-kafka-get-started.md)
 
-* [Use MirrorMaker to create a replica of Kafka on HDInsight](apache-kafka-mirroring.md)
+* [Tutorial: Use Apache Spark with Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
-* [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
-
-* [Use Apache Spark with Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
-
-* [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
+* [Tutorial: Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
