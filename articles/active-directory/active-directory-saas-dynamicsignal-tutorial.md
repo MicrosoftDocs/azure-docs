@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Dynamic Signal Configuration](./media/active-directory-saas-dynamicsignal-tutorial/tutorial_dynamicsignal_configure.png) 
 
-7. To configure single sign-on on **Dynamic Signal** side, you need to send the downloaded **Metadata XML, Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Dynamic Signal support team](mailto:support@dynamicsignal.com). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **Dynamic Signal** side, you need to send the downloaded **Certificate (Base64), Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Dynamic Signal support team](mailto:support@dynamicsignal.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
