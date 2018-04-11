@@ -42,7 +42,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **Europe** |France Central, France South, North Europe, West Europe, UK West, UK South |Amsterdam, Dublin, London, Newport(Wales), Paris |
 | **Asia** |East Asia, Southeast Asia |Hong Kong, Singapore, Singapore2 |
 | **Japan** |Japan West, Japan East |Osaka, Tokyo |
-| **Australia** |Australia Southeast, Australia East |Melbourne, Sydney |
+| **Australia** |Australia Southeast, Australia East, Australia Central, Australia Central 2 |Melbourne, Sydney |
 | **India** |India West, India Central, India South |Chennai, Mumbai |
 | **South Korea** |Korea Central, Korea South |Busan, Seoul |
 
