@@ -116,7 +116,6 @@ Creates a standard Service Bus namespace of type **Messaging**.
         "kind": "Messaging",
         "sku": {
             "name": "Standard",
-            "tier": "Standard"
         },
         "properties": {
         }

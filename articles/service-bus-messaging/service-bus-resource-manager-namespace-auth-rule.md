@@ -105,7 +105,6 @@ Creates a standard Service Bus namespace of type **Messaging**, and a Service Bu
             "kind": "Messaging",
             "sku": {
                 "name": "Standard",
-                "tier": "Standard"
             },
             "resources": [
                 {

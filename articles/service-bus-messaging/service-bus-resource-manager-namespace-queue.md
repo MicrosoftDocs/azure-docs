@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/11/2018
-ms.author: sethm;shvija
+ms.author: sethm
 
 ---
 # Create a Service Bus namespace and a queue using an Azure Resource Manager template
@@ -98,7 +98,6 @@ Creates a standard Service Bus namespace of type **Messaging**, with a queue.
         "kind": "Messaging",
         "sku": {
             "name": "Standard",
-            "tier": "Standard"
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",

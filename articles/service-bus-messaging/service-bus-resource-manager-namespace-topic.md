@@ -103,7 +103,6 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
         "kind": "Messaging",
         "sku": {
             "name": "Standard",
-            "tier": "Standard"
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",
