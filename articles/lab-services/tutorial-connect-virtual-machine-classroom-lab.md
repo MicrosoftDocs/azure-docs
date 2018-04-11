@@ -38,8 +38,4 @@ In this tutorial, you do the following actions:
 4. Use the **user name** and **password** you get from your educator/professor to log in to the machine. 
 
 ## Next steps
-In this tutorial, you accessed a classroom lab using the registration link you get from your educator/professor. To learn how to set up a trial lab, advance to the next tutorial:
-
-> [!div class="nextstepaction"]
-> [Tutorial: Connect to a VM in the classroom lab](tutorial-connect-to-vm-in-classroom-lab.md)
-
+In this tutorial, you accessed a classroom lab using the registration link you get from your educator/professor. 

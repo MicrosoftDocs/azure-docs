@@ -70,5 +70,5 @@ In this tutorial, you do the following actions:
 In this tutorial, you created a classroom lab, and configured the lab. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Connect to a VM in the classroom lab](tutorial-connect-to-vm-in-classroom-lab.md)
+> [Connect to a VM in the classroom lab](tutorial-connect-virtual-machine-classroom-lab.md)
 
