@@ -1,10 +1,10 @@
 ---
-title: Understand and use Azure IoT Hub Device Provisioning SDKs | Microsoft Docs
+title: Understand and use Azure IoT Hub Device Provisioning Service SDKs | Microsoft Docs
 description: Reference - how to use SDKs to develop for Azure IoT Hub Device Provisioning Service
 services: iot-dps
 documentationcenter: ''
 author: yizhon
-manager: arjmands
+manager: timlt
 editor: ''
 
 ms.service: iot-dps
@@ -17,7 +17,7 @@ ms.author: yizhon
 
 ---
 
-# Understand and use Azure IoT Hub Provisioning SDKs
+# Understand and use Azure IoT Hub Provisioning Service SDKs
 
 There are two categories of software development kits (SDKs) for working with IoT Hub Device Provisioning Service:
 
@@ -27,7 +27,7 @@ There are two categories of software development kits (SDKs) for working with Io
 
 ## Azure IoT device SDKs
 
-The Microsoft Azure IoT device SDKs contain code that facilitates building devices and applications that connect to and are managed by Azure IoT Hub Device Provisioning Service.
+The device SDKs contain code and samples to facilitate building device applications that connect to and are managed by Azure IoT Hub Device Provisioning Service.
 
 Azure IoT Hub Provisioning device SDK for C: written in ANSI C (C99) for portability and broad platform compatibility
 * Install from [apt-get, MBED, Arduino IDE, or Nuget][lnk-c-package] ??
@@ -60,7 +60,7 @@ Azure IoT Hub Provisioning device SDK for Python:
 
 ## Azure IoT service SDKs
 
-The Azure IoT service SDKs contain code to facilitate building applications that interact directly with IoT Hub to manage devices and security.
+The service SDKs contain code and samples to facilitate building back-end applications that interact directly with Device Provisioning Service to manage enrollments.
 
 Azure IoT Hub Provisioning service SDK for .NET:
 * Download from [Nuget][lnk-nuget-csharp-service] 
