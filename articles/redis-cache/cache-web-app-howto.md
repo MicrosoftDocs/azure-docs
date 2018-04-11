@@ -54,7 +54,7 @@ Open Visual Studio and click **File**, **New**, **Project**.
 
 Expand the **Visual C#** node in the **Templates** list, select **Cloud**, and click **ASP.NET Web Application**. Ensure that **.NET Framework 4.5.2** or higher is selected.  Type **ContosoTeamStats** into the **Name** textbox and click **OK**.
    
-    ![Create project](./media/cache-web-app-howto/cache-create-project.png)
+![Create project](./media/cache-web-app-howto/cache-create-project.png)
 
 Select **MVC** as the project type. 
 
