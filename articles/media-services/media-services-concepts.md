@@ -4,7 +4,7 @@ description: This topic gives an overview of Azure Media Services Concepts
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: dcefc8bc-e2ea-4b38-a643-9010f4436fb5
@@ -20,7 +20,7 @@ ms.author: juliako
 # Azure Media Services concepts
 This topic gives an overview of the most important Media Services concepts.
 
-## <a id="assets"></a>Assets and Storage
+## <a id="assets"/>Assets and Storage
 ### Assets
 An [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.
 
@@ -68,7 +68,7 @@ A blob container provides a grouping of a set of blobs. Blob containers are used
 > 
 > 
 
-### <a id="locators"></a>Locators
+### <a id="locators"/>Locators
 [Locator](https://docs.microsoft.com/rest/api/media/operations/locator)s provide an entry point to access the files contained in an asset. An access policy is used to define the permissions and duration that a client has access to a given asset. Locators can have a many to one relationship with an access policy, such that different locators can provide different start times and connection types to different clients while all using the same permission and duration settings; however, because of a shared access policy restriction set by Azure storage services, you cannot have more than five unique locators associated with a given asset at one time. 
 
 Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) or progressively download media and SAS URL locators, used to upload or download media files to\from Azure storage. 
@@ -80,7 +80,7 @@ Media Services supports two types of locators: OnDemandOrigin locators, used to 
 All access to Azure Storage is done through a storage account. A Media Service account can associate with one or more storage accounts. An account can contain an unlimited number of containers, as long as their total size is under 500TB per storage account.  Media Services provides SDK level tooling to allow you to manage multiple storage accounts and load balance the distribution of your assets during upload to these accounts based on metrics or random distribution. For more information, see Working with [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## Jobs and tasks
-A [job](https://https://docs.microsoft.com/rest/api/media/operations/job) is typically used to process (for example, index or encode) one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded.
+A [job](https://docs.microsoft.com/rest/api/media/operations/job) is typically used to process (for example, index or encode) one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded.
 
 A job contains metadata about the processing to be performed. Each job contains one or more [task](https://docs.microsoft.com/rest/api/media/operations/task)s that specify an atomic processing task, its input Assets, output Assets, a media processor and its associated settings. Tasks within a job can be chained together, where the output asset of one task is given as the input asset to the next task. In this way one job can contain all of the processing necessary for a media presentation.
 
@@ -148,13 +148,12 @@ The content key authorization policy could have one or more authorization restri
 When configuring the token restricted policy, you must specify the primary verification key, issuer and audience parameters. The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
 For more information, see the following articles:
-
-[Protect content overview](media-services-content-protection-overview.md)
-[Protect with AES-128](media-services-protect-with-aes128.md)
-[Protect with DRM](media-services-protect-with-drm.md)
+- [Protect content overview](media-services-content-protection-overview.md)
+- [Protect with AES-128](media-services-protect-with-aes128.md)
+- [Protect with PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## Delivering
-### <a id="dynamic_packaging"></a>Dynamic packaging
+### <a id="dynamic_packaging"/>Dynamic packaging
 When working with Media Services, it is recommended to encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md).
 
 ### Streaming endpoint

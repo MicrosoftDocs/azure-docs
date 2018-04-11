@@ -4,7 +4,7 @@ description: Learn how to manage Data Lake Analytics acounts, data sources, user
 services: data-lake-analytics
 documentationcenter: ''
 author: saveenr
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
+ms.author: saveenr
 
 ---
 # Manage Azure Data Lake Analytics by using the Azure portal
@@ -30,7 +30,7 @@ Learn how to manage Azure Data Lake Analytics accounts, account data sources, us
 ### Create an account
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **New** > **Intelligence + analytics** > **Data Lake Analytics**.
+2. Click **Create a resource** > **Intelligence + analytics** > **Data Lake Analytics**.
 3. Select values for the following items: 
    1. **Name**: The name of the Data Lake Analytics account.
    2. **Subscription**: The Azure subscription used for the account.
@@ -142,6 +142,24 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
 1. In the Azure portal, go to your Data Lake Analytics account.
 2. Click **View All Jobs**. A list of all the active and recently finished jobs in the account is shown.
 3. Optionally, click **Filter** to help you find the jobs by **Time Range**, **Job Name**, and **Author** values. 
+
+### Monitoring pipeline jobs
+Jobs that are part of a pipeline work together, usually sequentially, to accomplish a specific scenario. For example, you can have a pipeline that cleans, extracts, transforms, aggregates usage for customer insights. Pipeline jobs are identified using the "Pipeline" property when the job was submitted. Jobs scheduled using ADF V2 will automatically have this property populated. 
+
+To view a list of U-SQL jobs that are part of pipelines: 
+
+1. In the Azure portal, go to your Data Lake Analytics accounts.
+2. Click **Job Insights**. The "All Jobs" tab will be defaulted, showing a list of running, queued, and ended jobs.
+3. Click the **Pipeline Jobs** tab. A list of pipeline jobs will be shown along with aggregated statistics for each pipeline.
+
+### Monitoring recurring jobs
+A recurring job is one that has the same business logic but uses different input data every time it runs. Ideally, recurring jobs should always succeed, and have relatively stable execution time; monitoring these behaviors will help ensure the job is healthy. Recurring jobs are identified using the "Recurrence" property. Jobs scheduled using ADF V2 will automatically have this property populated.
+
+To view a list of U-SQL jobs that are recurring: 
+
+1. In the Azure portal, go to your Data Lake Analytics accounts.
+2. Click **Job Insights**. The "All Jobs" tab will be defaulted, showing a list of running, queued, and ended jobs.
+3. Click the **Recurring Jobs** tab. A list of recurring jobs will be shown along with aggregated statistics for each recurring job.
 
 ## Manage policies
 

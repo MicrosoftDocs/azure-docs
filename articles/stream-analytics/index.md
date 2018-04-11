@@ -1,17 +1,14 @@
 ---
-title: Azure Stream Analytics Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure Stream Analytics Documentation - Tutorials, API Reference
 description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
 services: stream-analytics
-author: carolz
-manager: carolz
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 layout: LandingPage
-ms.assetid: 
 ms.service: stream-analytics
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/23/2017
-ms.author: carolz
 ---
 
 # Stream Analytics Documentation
@@ -26,7 +23,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/stream-analytics.svg" alt="" />
+                            <img src="media/index/stream-analytics.svg" alt="Learn about Azure Stream Analytics" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -44,7 +41,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="Azure Stream Analytics Video Library" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -62,7 +59,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="Get started with Stream Analytics" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -80,7 +77,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="Get Started with an IoT solution using Stream Analytics" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -98,7 +95,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="Get Started with a Twitter sentiment analysis solution using Stream Analytics" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -116,7 +113,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="Get Started with a real-time scoring solution leveraging Azure Machine Learning" />
                         </div>
                     </div>
                     <div class="cardText">

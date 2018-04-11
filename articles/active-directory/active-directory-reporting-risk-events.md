@@ -4,7 +4,7 @@ description: This topic gives you a detailed overview of what risk events are.
 services: active-directory
 keywords: azure active directory identity protection, security, risk, risk level, vulnerability, security policy
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -26,12 +26,15 @@ Currently, Azure Active Directory detects six types of risk events:
 - [Users with leaked credentials](#leaked-credentials) 
 - [Sign-ins from anonymous IP addresses](#sign-ins-from-anonymous-ip-addresses) 
 - [Impossible travel to atypical locations](#impossible-travel-to-atypical-locations) 
-- [Sign-ins from unfamiliar locations](#sign-in-from-unfamiliar-locations)
 - [Sign-ins from infected devices](#sign-ins-from-infected-devices) 
 - [Sign-ins from IP addresses with suspicious activity](#sign-ins-from-ip-addresses-with-suspicious-activity) 
+- [Sign-ins from unfamiliar locations](#sign-in-from-unfamiliar-locations) 
 
 
 ![Risk event](./media/active-directory-reporting-risk-events/91.png)
+
+The insight you get for a detected risk event is tied to your Azure AD subscription. With the Azure AD Premium P2 edition, you get the most detailed information about all underlying detections. With the Azure AD Premium P1 edition, detections that are not covered by your license appear as the risk event **Sign-in with additional risk detected**.
+
 
 This topic gives you a detailed overview of what risk events are and how you can use them to protect your Azure AD identities.
 
@@ -46,7 +49,14 @@ Microsoft's continuous investments into the detection process lead to:
 
 ### Leaked credentials
 
-Leaked credentials are found posted publicly in the dark web by Microsoft security researchers. These credentials are usually found in plain text. They are checked against Azure AD credentials, and if there is a match, they are reported as “Leaked credentials” in Identity Protection.
+When cybercriminals compromise valid passwords of legitimate users, the criminals often share those credentials. This is usually done by posting them publicly on the dark web or paste sites or by trading or selling the credentials on the black market. The Microsoft leaked credentials service acquires username / password pairs by monitoring public and dark web sites and by working with:
+
+- Researchers
+- Law enforcement
+- Security teams at Microsoft
+- Other trusted sources 
+
+When the service acquires username / password pairs, they are checked against AAD users' current valid credentials. When a match is found, it means that a user's password has been compromised, and a *leaked credentials risk event* is created.
 
 ### Sign-ins from anonymous IP addresses
 
@@ -55,9 +65,9 @@ This risk event type identifies users who have successfully signed in from an IP
 
 ### Impossible travel to atypical locations
 
-This risk event type identifies two sign-ins originating from geographically distant locations, where at least one of the locations may also be atypical for the user, given past behavior. In addition, the time between the two sign-ins is shorter than the time it would have taken the user to travel from the first location to the second, indicating that a different user is using the same credentials. 
+This risk event type identifies two sign-ins originating from geographically distant locations, where at least one of the locations may also be atypical for the user, given past behavior. Among several other factors, this machine learning algorithm takes into account the time between the two sign-ins and the time it would have taken for the user to travel from the first location to the second, indicating that a different user is using the same credentials.
 
-This machine learning algorithm that ignores obvious "*false positives*" contributing to the impossible travel condition, such as VPNs and locations regularly used by other users in the organization.  The system has an initial learning period of 14 days during which it learns a new user’s sign-in behavior.
+The algorithm ignores obvious "false positives" contributing to the impossible travel conditions, such as VPNs and locations regularly used by other users in the organization. The system has an initial learning period of 14 days during which it learns a new user’s sign-in behavior. 
 
 ### Sign-in from unfamiliar locations
 
@@ -128,7 +138,7 @@ We recommend that you immediately contact the user to verify if they were using 
 Impossible travel is usually a good indicator that a hacker was able to successfully sign-in. However, false-positives may occur when a user is traveling using a new device or using a VPN that is typically not used by other users in the organization. Another source of false-positives is applications that incorrectly pass server IPs as client IPs, which may give the appearance of sign-ins taking place from the data center where that application’s back-end is hosted (often these are Microsoft datacenters, which may give the appearance of sign-ins taking place from Microsoft owned IP addresses). As a result of these false-positives, the risk level for this risk event is **Medium**.
 
 > [!TIP]
-> You can reduce the amount of reported false-positves for this risk event type by configuring [named locations](active-directory-named-locations.md). 
+> You can reduce the amount of reported false-positives for this risk event type by configuring [named locations](active-directory-named-locations.md). 
 
 ### Sign-in from unfamiliar locations
 

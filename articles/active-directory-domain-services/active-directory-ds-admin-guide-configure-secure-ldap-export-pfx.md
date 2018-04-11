@@ -4,7 +4,7 @@ description: Configure Secure LDAP (LDAPS) for an Azure AD Domain Services manag
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7

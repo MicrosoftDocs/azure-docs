@@ -1,10 +1,10 @@
 ---
-title: Make web, mobile, and API apps available to your Azure Stack users | Microsoft Docs
-description: Tutorial to install the App Service resource provider and create offers that give your Azure Stack users the ability to create web, mobile, and API apps.
+title: Make web, and API apps available to your Azure Stack users | Microsoft Docs
+description: Tutorial to install the App Service resource provider and create offers that give your Azure Stack users the ability to create web, and API apps.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: 
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -12,14 +12,14 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 7/03/2017
-ms.author: erikje
+ms.topic: tutorial
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: 
 ms.custom: mvc
 ---
-# Make web, mobile, and API apps available to your Azure Stack users
-
-As an Azure Stack cloud administrator, you can create offers that let your users (tenants) create Azure Functions and web, mobile, and API applications. By providing access to these on-demand, cloud-based apps to your users, you can save them time and resources. To set this up, you will:
+# Make web, and API apps available to your Azure Stack users
+As an Azure Stack cloud administrator, you can create offers that let your users (tenants) create Azure Functions and web, and API applications. By providing access to these on-demand, cloud-based apps to your users, you can save them time and resources. To set this up, you will:
 
 > [!div class="checklist"]
 > * Deploy the App Service resource provider
@@ -29,17 +29,17 @@ As an Azure Stack cloud administrator, you can create offers that let your users
 ## Deploy the App Service resource provider
 
 1. [Prepare the Azure Stack Development Kit host](azure-stack-app-service-before-you-get-started.md). This includes deploying the SQL Server resource provider, which is required for creating some apps.
-2. [Download the installer and helper scripts](azure-stack-app-service-deploy.md#download-the-required-components).
-3. [Run the helper script to create required certificates](azure-stack-app-service-deploy.md#create-certificates-required-by-app-service-on-azure-stack).
-4. [Install the App Service resource provider](azure-stack-app-service-deploy.md#use-the-installer-to-download-and-install-app-service-on-azure-stack) (it will take a couple hours to install and for all the worker roles to appear).
-5. [Validate the installation](azure-stack-app-service-deploy.md#validate-app-service-on-azure-stack-installation).
+2. [Download the installer and helper scripts](azure-stack-app-service-deploy.md).
+3. [Run the helper script to create required certificates](azure-stack-app-service-deploy.md).
+4. [Install the App Service resource provider](azure-stack-app-service-deploy.md) (it will take a couple hours to install and for all the worker roles to appear).
+5. [Validate the installation](azure-stack-app-service-deploy.md#validate-the-app-service-on-azure-stack-installation).
 
 ## Create an offer
 
 As an example, you can create an offer that lets users create DNN web content management systems. It requires the SQL Server service which you already enabled by installing the SQL Server resource provider.
 
 1.	[Set a quota](azure-stack-setting-quotas.md) and name it *AppServiceQuota*. Select **Microsoft.Web** for the **Namespace** field.
-2.	[Create a plan](azure-stack-create-plan.md). Name it *TestAppServicePlan*, select the the **Microsoft.SQL** service, and **AppService Quota** quota.
+2.	[Create a plan](azure-stack-create-plan.md). Name it *TestAppServicePlan*, select the **Microsoft.SQL** service, and **AppService Quota** quota.
 
     > [!NOTE]
     > To let users create other apps, other services might be required in the plan. For example, Azure Functions requires that the plan     include the **Microsoft.Storage** service, while Wordpress requires **Microsoft.MySQL**.
@@ -87,4 +87,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to:
 
 > [!div class="nextstepaction"]
-> [Deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md)
+> [Deploy apps to Azure and Azure Stack](user/azure-stack-solution-pipeline.md)

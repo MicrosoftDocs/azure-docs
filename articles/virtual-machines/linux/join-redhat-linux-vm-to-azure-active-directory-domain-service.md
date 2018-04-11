@@ -4,7 +4,7 @@ description: How to join an existing RedHat Enterprise Linux 7 VM to an Azure Ac
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid:
@@ -107,4 +107,4 @@ ssh -l ahmet@mydomain.com mydomain.cloudapp.net
 
 * [Red Hat Update Infrastructure (RHUI) for on-demand Red Hat Enterprise Linux VMs in Azure](update-infrastructure-redhat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Set up Key Vault for virtual machines in Azure Resource Manager](key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

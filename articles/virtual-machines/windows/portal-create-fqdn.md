@@ -4,7 +4,7 @@ description: Learn how to create a Fully Qualified Domain Name, or FQDN, for a R
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 

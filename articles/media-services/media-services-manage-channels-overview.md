@@ -4,7 +4,7 @@ description: This topic gives an overview of live streaming using Azure Media Se
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
@@ -13,11 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 03/19/2018
 ms.author: juliako
 
 ---
 # Overview of Live Streaming using Azure Media Services
+
+> [!NOTE]
+> Starting May 12, 2018, live channels will no longer support the RTP/MPEG-2 transport stream ingest protocol. Please migrate from RTP/MPEG-2 to RTMP or fragmented MP4 (Smooth Streaming) ingest protocols.
+
 ## Overview
 When delivering live streaming events with Azure Media Services the following components are commonly involved:
 

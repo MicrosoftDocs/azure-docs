@@ -2,14 +2,14 @@
 title: Computer Vision API cURL quick starts | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Computer Vision API with cURL in Cognitive Services.
 services: cognitive-services
-author: JuliaNik
-manager: ytkuo
+author: KellyDF
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
 ms.date: 02/06/2017
-ms.author: juliakuz
+ms.author: kefre
 ---
 
 # Computer Vision cURL Quick Starts
@@ -32,9 +32,12 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 * The dominant color, the accent color, or whether an image is black & white.
 * Whether the image contains pornographic or sexually suggestive content. 
 
+>[!NOTE]
+>In the following samples, the parameter `--data-ascii "{body}"` has a placeholder `{body}` which should be replaced with a JSON formatted string that defines a URL for a web-accessible JPG file. For example: `--data-ascii '{"url": "https://domain/path/to/my/photo.jpg"}'`. 
+
 ### Analyze an Image curl Example Request
 
-Change the URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+Change the URL to use the location where you obtained your subscription keys. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, and replace `{string}` with "Celebrities" or "Landmark," or alternatively, remove the entire parameter `&details={string}`.
 
 >[!NOTE]
 >You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".

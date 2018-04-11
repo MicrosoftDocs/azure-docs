@@ -2,17 +2,17 @@
 title: Persist job and task output to Azure Storage with the Azure Batch service API | Microsoft Docs
 description: Learn how to use Batch service API to persist Batch task and job output to Azure Storage.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 06/16/2017
-ms.author: tamram
+ms.author: danlep
 
 ---
 
@@ -49,7 +49,7 @@ await conainer.CreateIfNotExists();
 
 ## Get a shared access signature for the container
 
-After you create the container, get a shared access signature (SAS) with write access to the container. A SAS provides delegated access to the container. The SAS grants access with a specified set of permissions and over a specified time interval. The Batch service needs a SAS with write permissions to write task output to the container. For more information about SAS, see [Using shared access signatures \(SAS\) in Azure Storage](../storage/storage-dotnet-shared-access-signature-part-1.md).
+After you create the container, get a shared access signature (SAS) with write access to the container. A SAS provides delegated access to the container. The SAS grants access with a specified set of permissions and over a specified time interval. The Batch service needs a SAS with write permissions to write task output to the container. For more information about SAS, see [Using shared access signatures \(SAS\) in Azure Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 When you get a SAS using the Azure Storage APIs, the API returns a SAS token string. This token string includes all parameters of the SAS, including the permissions and the interval over which the SAS is valid. To use the SAS to access a container in Azure Storage, you need to append the SAS token string to the resource URI. The resource URI, together with the appended SAS token, provides authenticated access to Azure Storage.
 
@@ -141,7 +141,7 @@ https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-For more information about virtual directories in Azure Storage, see [List the blobs in a container](../storage/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+For more information about virtual directories in Azure Storage, see [List the blobs in a container](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
 
 ## Diagnose file upload errors

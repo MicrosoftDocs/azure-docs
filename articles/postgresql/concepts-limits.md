@@ -1,60 +1,65 @@
 ---
-title: Limitations in Azure Database for PostgreSQL  | Microsoft Docs
-description: Describes limitations in Azure Database for PostgreSQL.
+title: Limitations in Azure Database for PostgreSQL
+description: This article describes limitations in Azure Database for PostgreSQL, such as number of connection and storage engine options.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
-ms.service: postgresql-database
-ms.custom: mvc
+ms.service: postgresql
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 03/20/2018
 ---
 # Limitations in Azure Database for PostgreSQL
-The Azure Database for PostgreSQL service is in public preview. The following sections describe capacity and functional limits in the database service.
+The following sections describe capacity and functional limits in the database service.
 
-## Service Tier Maximums
-Azure Database for PostgreSQL has multiple service tiers you can choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-service-tiers.md).  
+## Pricing Tier Maximums
+Azure Database for PostgreSQL has multiple pricing tiers you can choose from when creating a server. For more information, see [Pricing tiers in Azure Database for PostgreSQL](concepts-pricing-tiers.md).  
 
-There is a maximum number of connections, compute units, and storage in each service tier during the service preview, as follows: 
+There is a maximum number of connections, compute units, and storage in each pricing tier, as follows: 
 
-|                            |                   |
-| :------------------------- | :---------------- |
-| **Max connections**        |                   |
-| Basic 50 Compute Units     | 50 connections    |
-| Basic 100 Compute Units    | 100 connections   |
-| Standard 100 Compute Units | 200 connections   |
-| Standard 200 Compute Units | 300 connections   |
-| Standard 400 Compute Units | 400 connections   |
-| Standard 800 Compute Units | 500 connections   |
-| **Max Compute Units**      |                   |
-| Basic service tier         | 100 Compute Units |
-| Standard service tier      | 800 Compute Units |
-| **Max storage**            |                   |
-| Basic service tier         | 1 TB              |
-| Standard service tier      | 1 TB              |
+|Pricing Tier| Compute Generation| vCore(s)| Max Connections |
+|---|---|---|---|
+|Basic| Gen 4| 1| 50 |
+|Basic| Gen 4| 2| 100 |
+|Basic| Gen 5| 1| 50 |
+|Basic| Gen 5| 2| 100 |
+|General Purpose| Gen 4| 2| 150|
+|General Purpose| Gen 4| 4| 250|
+|General Purpose| Gen 4| 8| 480|
+|General Purpose| Gen 4| 16| 950|
+|General Purpose| Gen 4| 32| 1500|
+|General Purpose| Gen 5| 2| 150|
+|General Purpose| Gen 5| 4| 250|
+|General Purpose| Gen 5| 8| 480|
+|General Purpose| Gen 5| 16| 950|
+|General Purpose| Gen 5| 32| 1500|
+|Memory Optimized| Gen 5| 2| 150|
+|Memory Optimized| Gen 5| 4| 250|
+|Memory Optimized| Gen 5| 8| 480|
+|Memory Optimized| Gen 5| 16| 950|
 
-When too many connections are reached, you may receive the following error:
+When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already
 
-## Preview functional limitations
+The Azure system requires five connections to monitor the Azure Database for PostgreSQL server. 
+
+## Functional limitations
 ### Scale operations
-1.	Dynamic scaling of servers across service tiers is currently not supported. That is, switching between Basic and Standard service tiers.
-2.	Dynamic on-demand increase of storage on pre-created server is currently not supported.
-3.	Decreasing server storage size is not supported.
+1.	Dynamic scaling of servers across pricing tiers is currently not supported. That is, switching between Basic, General Purpose, or Memory Optimized tiers.
+2.	Decreasing server storage size is currently not supported.
 
 ### Server version upgrades
 - Automated migration between major database engine versions is currently not supported.
 
 ### Subscription management
-- Dynamically moving pre-created servers across subscription and resource group is currently not supported.
+- Dynamically moving servers across subscriptions and resource groups is currently not supported.
 
-### Point-in-time-restore
-1.	Restoring to different service tier and/or Compute Units and Storage size is not allowed.
-2.	Restoring a dropped server is not supported.
+### Point-in-time-restore (PITR)
+1.	When using the PITR feature, the new server is created with the same configurations as the server it is based on.
+2.	Restoring a deleted server is not supported.
 
 ## Next steps
-- Understand [What’s available in each pricing tier](concepts-service-tiers.md)
-- Understand [Supported PostgreSQL Database Versions](concepts-supported-versions.md)
-- Review [How To Back up and Restore a server in Azure Database for PostgreSQL using the Azure portal](howto-restore-server-portal.md)
+- Understand [what’s available in each pricing tier](concepts-pricing-tiers.md)
+- Learn about [Supported PostgreSQL Database Versions](concepts-supported-versions.md)
+- Review [how to back up and restore a server in Azure Database for PostgreSQL using the Azure portal](howto-restore-server-portal.md)

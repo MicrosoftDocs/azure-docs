@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/03/2017
+ms.date: 09/28/2017
 ms.author: alkohli
 
 ---
@@ -32,6 +32,9 @@ The Azure portal **Device settings** section in the **Settings** blade contains 
 ## Modify device friendly name
 
 You can use the Azure portal to change the device name and assign it a unique friendly name of your choice. Use the **General settings** blade on your device to modify the device friendly name. The friendly name can contain any characters and can be a maximum of 64 characters long.
+
+> [!NOTE] 
+> You can only modify the device name in the Azure portal before the device setup is complete. Once the minimum device setup is complete, you cannot change the device name.
 
 ![Device name in General settings](./media/storsimple-8000-modify-device-config/modify-general-settings3.png)
 
@@ -131,14 +134,14 @@ For each network interface, the following parameters are displayed:
 
 ### Configure DATA 0
 
-DATA 0 is cloud-enabled by default. When configuring DATA 0, you are also required to configure two fixed IP addresses, one for each controller. These fixed IP addresses can be used to access the device controllers directly and are useful when you install updates on the device or when you access the controllers for the purpose of troubleshooting.
+DATA 0 is cloud-enabled by default. When configuring DATA 0, you are also required to configure two fixed IP addresses, one for each controller. These fixed IP addresses can be used to access the device controllers directly and are useful when you install updates on the device, for garbage collection to work properly or when you access the controllers for the purpose of troubleshooting.
 
 You can reconfigure the fixed IP controllers via the DATA 0 settings blade.
 
 ![Configure network interface - DATA 0](./media/storsimple-8000-modify-device-config/modify-network-settings2.png)
 
 > [!NOTE]
-> The fixed IP addresses for the controller are used for servicing the updates to the device. Therefore, the fixed IPs must be routable and able to connect to the Internet.
+> The fixed IP addresses for the controller are used for servicing the updates to the device and for space reclamation algorithms (garbage collection) to work properly. Therefore, the fixed IPs must be routable and able to connect to the Internet.
 
 ### Configure DATA 1 - DATA 5
 

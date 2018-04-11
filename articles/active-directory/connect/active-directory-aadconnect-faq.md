@@ -4,14 +4,14 @@ description: This page has frequently asked questions about Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 03/09/2017
 ms.author: billmath
 
 ---
@@ -28,9 +28,15 @@ It is only supported to install Azure AD Connect using the installation wizard. 
 With the builds from February 2016, this is supported.
 
 **Q: Does the AD DS health agent work on server core?**  
-Yes. After installing the agent, you can complete the registration process using the following PowerShell commandlet: 
+Yes. After installing the agent, you can complete the registration process using the following PowerShell cmdlet: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
+**Q: Does AADConnect support syncing from two domains to on Azure AD?**</br>
+Yes, this is supported. Refer to [Multiple Domains](active-directory-aadconnect-multiple-domains.md)
+ 
+**Q: Do we support having multiple connectors for same Active Directory domain in Azure AD connect?**</br> 
+No, this is not supported 
 
 ## Network
 **Q: I have a firewall, network device, or something else that limits the maximum time connections can stay open on my network. How long should my client side timeout threshold be when using Azure AD Connect?**  
@@ -39,8 +45,14 @@ All networking software, physical devices, or anything else that limits the maxi
 **Q: Are SLDs (Single Label Domains) supported?**  
 No, Azure AD Connect does not support on-premises forests/domains using SLDs.
 
+**Q: Are Forests with disjoint AD domains supported?**  
+No, Azure AD Connect does not support on-premises forests containing disjoint namespaces.
+
 **Q: Are "dotted" NetBios named supported?**  
 No, Azure AD Connect does not support on-premises forests/domains where the NetBios name contains a period "." in the name.
+
+**Q: Is pure IPv6 environment supported?**  
+No, Azure AD Connect does not support pure IPv6 environment.
 
 ## Federation
 **Q: What do I do if I receive an email that asking me to renew my Office 365 certificate**  
@@ -63,12 +75,10 @@ See these articles:
 You can also configure Azure AD to allow the sync engine to update the userPrincipalName as described in [Azure AD Connect sync service features](active-directory-aadconnectsyncservice-features.md).
 
 **Q: Is it supported to soft match on-premises AD Group/Contact objects with existing Azure AD Group/Contact objects?**  
-No, this is currently not supported.
+Yes, this will be based on the proxyAddress.  Soft matching is not supported for groups that are not mail-enabled.
 
 **Q: Is it supported to manually set ImmutableId attribute on existing Azure AD Group/Contact objects to hard match it to on-premises AD Group/Contact objects?**  
 No, this is currently not supported.
-
-
 
 ## Custom configuration
 **Q: Where are the PowerShell cmdlets for Azure AD Connect documented?**  
@@ -86,8 +96,6 @@ We currently do not support modifying the HTML attributes of the sign-in page. W
 **Q: Is there a way to prevent concurrent sessions?**</br>
 No.
 
-
-
 ## Troubleshooting
 **Q: How can I get help with Azure AD Connect?**
 
@@ -99,7 +107,7 @@ No.
 
 * You can search and browse for technical questions and answers from the community or ask your own question by clicking [here](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
-[Azure AD Connect customer support](https://manage.windowsazure.com/?getsupport=true)
+[How to get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 * Use this link to get support through the Azure portal.
 

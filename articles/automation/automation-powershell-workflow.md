@@ -1,22 +1,15 @@
 ---
-title: Learning PowerShell Workflow for Azure Automation | Microsoft Docs
+title: Learning PowerShell Workflow for Azure Automation
 description: This article is intended as a quick lesson for authors familiar with PowerShell to understand the specific differences between PowerShell and PowerShell Workflow and concepts applicable to Automation runbooks.
 services: automation
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-
-ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/21/2017
-ms.author: magoedte;bwren
-
+manager: carmonm
 ---
+
 # Learning key Windows PowerShell Workflow concepts for Automation runbooks 
 Runbooks in Azure Automation are implemented as Windows PowerShell Workflows.  A Windows PowerShell Workflow is similar to a Windows PowerShell script but has some significant differences that can be confusing to a new user.  While this article is intended to help you write runbooks using PowerShell workflow, we recommend you write runbooks using PowerShell unless you need checkpoints.  There are several syntax differences when authoring PowerShell Workflow runbooks and these differences require a bit more work to write effective workflows.  
 
@@ -196,7 +189,7 @@ The following example is similar to the previous example copying files in parall
 >
 
 ## Checkpoints
-A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. If a workflow ends in error or is suspended, then the next time it is run it will start from its last checkpoint instead of the start of the worfklow.  You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity.
+A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. If a workflow ends in error or is suspended, then the next time it is run it will start from its last checkpoint instead of the start of the workflow.  You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity.
 
 In the following sample code, an exception occurs after Activity2 causing the workflow to end. When the workflow is run again, it starts by running Activity2 since this was just after the last checkpoint set.
 
@@ -206,7 +199,7 @@ In the following sample code, an exception occurs after Activity2 causing the wo
     <Exception>
     <Activity3>
 
-You should set checkpoints in a workflow after activities that may be prone to exception and should not be repeated if the workflow is resumed. For example, your workflow may create a virtual machine. You could set a checkpoint both before and after the commands to create the virtual machine. If the creation fails, then the commands would be repeated if the workflow is started again. If the worfklow fails after the creation succeeds, then the virtual machine will not be created again when the workflow is resumed.
+You should set checkpoints in a workflow after activities that may be prone to exception and should not be repeated if the workflow is resumed. For example, your workflow may create a virtual machine. You could set a checkpoint both before and after the commands to create the virtual machine. If the creation fails, then the commands would be repeated if the workflow is started again. If the workflow fails after the creation succeeds, then the virtual machine will not be created again when the workflow is resumed.
 
 The following example copies multiple files to a network location and sets a checkpoint after each file.  If the network location is lost, then the workflow ends in error.  When it is started again, it will resume at the last checkpoint meaning that only the files that have already been copied are skipped.
 

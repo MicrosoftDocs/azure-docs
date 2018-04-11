@@ -1,10 +1,10 @@
 ---
-title: Configure content key authorization policy using Media Services .NET SDK | Microsoft Docs
-description: Learn how to configure an authorization policy for a content key using Media Services .NET SDK.
+title: Configure a content key authorization policy by using the Media Services .NET SDK | Microsoft Docs
+description: Learn how to configure an authorization policy for a content key by using the Media Services .NET SDK.
 services: media-services
 documentationcenter: ''
-author: Mingfeiy
-manager: erikre
+author: mingfeiy
+manager: cfowler
 editor: ''
 
 ms.assetid: 1a0aedda-5b87-4436-8193-09fc2f14310c
@@ -13,49 +13,47 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
 
 ---
-# Dynamic encryption: configure content key authorization policy
+# Dynamic encryption: Configure a content key authorization policy
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## Overview
-Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and HTTP-Live-Streaming (HLS) streams protected with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). AMS also enables you to deliver DASH streams encrypted with Widevine DRM. Both PlayReady and Widevine are encrypted per the Common Encryption (ISO/IEC 23001-7 CENC) specification.
+ You can use Azure Media Services to deliver MPEG-DASH, Smooth Streaming, and HTTP Live Streaming (HLS) streams protected with the Advanced Encryption Standard (AES) by using 128-bit encryption keys or [PlayReady digital rights management (DRM)](https://www.microsoft.com/playready/overview/). With Media Services, you also can deliver DASH streams encrypted with Widevine DRM. Both PlayReady and Widevine are encrypted per the common encryption (ISO/IEC 23001-7 CENC) specification.
 
-Media Services also provides a **Key/License Delivery Service** from which clients can obtain AES keys or PlayReady/Widevine licenses to play the encrypted content.
+Media Services also provides a key/license delivery service from which clients can obtain AES keys or PlayReady/Widevine licenses to play the encrypted content.
 
-If you want for Media Services to encrypt an asset, you need to associate an encryption key (**CommonEncryption** or **EnvelopeEncryption**) with the asset (as described [here](media-services-dotnet-create-contentkey.md)) and also configure authorization policies for the key (as described in this article).
+If you want Media Services to encrypt an asset, you need to associate an encryption key (CommonEncryption or EnvelopeEncryption) with the asset. For more information, see [Create ContentKeys with .NET](media-services-dotnet-create-contentkey.md). You also need to configure authorization policies for the key (as described in this article).
 
-When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or DRM encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES or DRM encryption. To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
-Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy could have one or more authorization restrictions: **open** or **token** restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS). Media Services supports tokens in the **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) format and **JSON Web Token** ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)) format.
+Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy can have one or more authorization restrictions. The options are open or token restriction. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the simple web token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) format and the JSON Web Token ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)) format.
 
-Media Services does not provide Secure Token Services. You can create a custom STS or leverage Microsoft Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration (as described in this article). The Media Services key delivery service will return the encryption key to the client if the token is valid and the claims in the token match those configured for the content key.
+Media Services doesn't provide STS. You can create a custom STS or use Azure Access Control Service to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration (as described in this article). If the token is valid and the claims in the token match those configured for the content key, the Media Services key delivery service returns the encryption key to the client.
 
-For more information, see
+For more information, see the following articles:
 
-[JWT token authentication](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [JWT token authentication](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [Integrate Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 
-[Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+### Some considerations apply
+* When your Media Services account is created, a default streaming endpoint is added to your account in the "Stopped" state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, your streaming endpoint must be in the "Running" state. 
+* Your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files. For more information, see [Encode an asset](media-services-encode-asset.md).
+* Upload and encode your assets by using the AssetCreationOptions.StorageEncrypted option.
+* If you plan to have multiple content keys that require the same policy configuration, we recommend that you create a single authorization policy and reuse it with multiple content keys.
+* The key delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes. You can create ContentKeyAuthorizationPolicy and specify to use a token restriction, test it, and then update the policy to the open restriction. This process takes roughly 15 minutes before the policy switches to the open version of the policy.
+* If you add or update your asset's delivery policy, you must delete any existing locator and create a new locator.
+* Currently, you can't encrypt progressive downloads.
+* A Media Services streaming endpoint sets the value of the CORS 'Access-Control-Allow-Origin' header in preflight response as the wildcard '\*'. This value works well with most players, including Azure Media Player, Roku and JWPlayer, and others. However, some players that use dashjs don't work because, with the credentials mode set to "include", XMLHttpRequest in their dashjs doesn't allow the wildcard "\*" as the value of 'Access-Control-Allow-Origin'. As a workaround to this limitation in dashjs, if you host your client from a single domain, Media Services can specify that domain in the preflight response header. For assistance, open a support ticket through the Azure portal.
 
-[Use Azure ACS to issue tokens](http://mingfeiy.com/acs-with-key-services).
+## AES-128 dynamic encryption
+### Open restriction
+Open restriction means the system delivers the key to anyone who makes a key request. This restriction might be useful for testing purposes.
 
-### Some considerations apply:
-* When your AMS account is created a **default** streaming endpoint is added  to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, your streaming endpoint has to be in the **Running** state. 
-* Your asset must contain a set of adaptive bitrate MP4s or  adaptive bitrate Smooth Streaming files. For more information, see [Encode an asset](media-services-encode-asset.md).
-* Upload and encode your assets using **AssetCreationOptions.StorageEncrypted** option.
-* If you plan to have multiple content keys that require the same policy configuration, it is strongly recommended to create a single authorization policy and reuse it with multiple content keys.
-* The Key Delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes.  If you create a ContentKeyAuthorizationPolicy and specify to use a “Token” restriction, then test it, and then update the policy to “Open” restriction, it will take roughly 15 minutes before the policy switches to the “Open” version of the policy.
-* If you add or update your asset’s delivery policy, you must delete an existing locator (if any) and create a new locator.
-* Currently, you cannot encrypt progressive downloads.
-
-## AES-128 Dynamic Encryption
-### Open Restriction
-Open restriction means the system will deliver the key to anyone who makes a key request. This restriction might be useful for testing purposes.
-
-The following example creates an open authorization policy and adds it to the content key.
-
+The following example creates an open authorization policy and adds it to the content key:
+```csharp
 	static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
 	{
 		// Create ContentKeyAuthorizationPolicy with Open restrictions
@@ -91,14 +89,14 @@ The following example creates an open authorization policy and adds it to the co
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
     }
+```
 
+### Token restriction
+This section describes how to create a content key authorization policy and associate it with the content key. The authorization policy describes what authorization requirements must be met to determine if the user is authorized to receive the key. For example, does the verification key list contain the key that the token was signed with?
 
-### Token Restriction
-This section describes how to create a content key authorization policy and associate it with the content key. The authorization policy describes what authorization requirements must be met to determine if the user is authorized to receive the key (for example, does the “verification key” list contain the key that the token was signed with).
-
-To configure the token restriction option, you need to use an XML to describe the token’s authorization requirements. The token restriction configuration XML must conform to the following XML schema.
-
-#### <a id="schema"></a>Token restriction schema
+To configure the token restriction option, you need to use an XML to describe the token's authorization requirements. The token restriction configuration XML must conform to the following XML schema:
+```csharp
+#### Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -145,12 +143,12 @@ To configure the token restriction option, you need to use an XML to describe th
       </xs:complexType>
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
+```
+When you configure the token-restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the STS that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
-When configuring the **token** restricted policy, you must specify the primary** verification key**, **issuer** and **audience** parameters. The **primary verification key **contains the key that the token was signed with, **issuer** is the secure token service that issues the token. The **audience** (sometimes called **scope**) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template. 
-
-When using **Media Services SDK for .NET**, you can use the **TokenRestrictionTemplate** class to generate the restriction token.
-The following example creates an authorization policy with a token restriction. In this example, the client would have to present a token that contains: signing key (VerificationKey), a token issuer, and required claims.
-
+When you use the Media Services SDK for .NET, you can use the TokenRestrictionTemplate class to generate the restriction token.
+The following example creates an authorization policy with a token restriction. In this example, the client must present a token that contains a signing key (VerificationKey), a token issuer, and required claims.
+```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
         string tokenTemplateString = GenerateTokenRequirements();
@@ -204,10 +202,10 @@ The following example creates an authorization policy with a token restriction. 
 
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
-
-#### <a id="test"></a>Test token
-To get a test token based on the token restriction that was used for the key authorization policy, do the following.
-
+```
+#### Test token
+To get a test token based on the token restriction that was used for the key authorization policy, do the following:
+```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -223,20 +221,21 @@ To get a test token based on the token restriction that was used for the key aut
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
     Console.WriteLine();
+```
 
+## PlayReady dynamic encryption
+You can use Media Services to configure the rights and restrictions that you want the PlayReady DRM runtime to enforce when a user tries to play back protected content. 
 
-## PlayReady Dynamic Encryption
-Media Services enables you to configure the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to play back protected content. 
+When you protect your content with PlayReady, one of the things you need to specify in your authorization policy is an XML string that defines the [PlayReady license template](media-services-playready-license-template-overview.md). In the Media Services SDK for .NET, the PlayReadyLicenseResponseTemplate and PlayReadyLicenseTemplate classes help you define the PlayReady license template.
 
-When protecting your content with PlayReady, one of the things you need to specify in your authorization policy is an XML string that defines the [PlayReady license template](media-services-playready-license-template-overview.md). In Media Services SDK for .NET, the **PlayReadyLicenseResponseTemplate** and **PlayReadyLicenseTemplate** classes will help you define the PlayReady License Template.
+To learn how to encrypt your content with PlayReady and Widevine, see [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md).
 
-[This topic](media-services-protect-with-drm.md) shows how to encrypt your content with **PlayReady** and **Widevine**.
+### Open restriction
+Open restriction means the system delivers the key to anyone who makes a key request. This restriction might be useful for testing purposes.
 
-### Open Restriction
-Open restriction means the system will deliver the key to anyone who makes a key request. This restriction might be useful for testing purposes.
+The following example creates an open authorization policy and adds it to the content key:
 
-The following example creates an open authorization policy and adds it to the content key.
-
+```csharp
     static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
     {
 
@@ -273,10 +272,12 @@ The following example creates an open authorization policy and adds it to the co
         contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
         contentKey = contentKey.UpdateAsync().Result;
     }
+```
 
-### Token Restriction
-To configure the token restriction option, you need to use an XML to describe the token’s authorization requirements. The token restriction configuration XML must conform to the XML schema shown in [this](#schema) section.
+### Token restriction
+To configure the token restriction option, you need to use an XML to describe the token's authorization requirements. The token restriction configuration XML must conform to the XML schema shown in the "[Token restriction schema](#token-restriction-schema)" section.
 
+```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
         string tokenTemplateString = GenerateTokenRequirements();
@@ -362,7 +363,7 @@ To configure the token restriction option, you need to use an XML to describe th
 
 
         // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
-        // It grants the user the ability to playback the content subject to the zero or more restrictions 
+        // It grants the user the ability to play back the content subject to the zero or more restrictions 
         // configured in the license and on the PlayRight itself (for playback specific policy). 
         // Much of the policy on the PlayRight has to do with output restrictions 
         // which control the types of outputs that the content can be played over and 
@@ -382,20 +383,25 @@ To configure the token restriction option, you need to use an XML to describe th
 
         return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
     }
+```
 
+To get a test token based on the token restriction that was used for the key authorization policy, see the "[Test token](#test-token)" section. 
 
-To get a test token based on the token restriction that was used for the key authorization policy see [this](#test) section. 
-
-## <a id="types"></a>Types used when defining ContentKeyAuthorizationPolicy
+## <a id="types"></a>Types used when you define ContentKeyAuthorizationPolicy
 ### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+
+```csharp
     public enum ContentKeyRestrictionType
     {
         Open = 0,
         TokenRestricted = 1,
         IPRestricted = 2,
     }
+```
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+
+```csharp 
     public enum ContentKeyDeliveryType
     {
       None = 0,
@@ -403,16 +409,18 @@ To get a test token based on the token restriction that was used for the key aut
       BaselineHttp = 2,
       Widevine = 3
     }
+```
 
 ### <a id="TokenType"></a>TokenType
+
+```csharp
     public enum TokenType
     {
         Undefined = 0,
         SWT = 1,
         JWT = 2,
     }
-
-
+```
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -420,6 +428,6 @@ To get a test token based on the token restriction that was used for the key aut
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Next step
-Now that you have configured content key's authorization policy, go to the [How to configure asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md) topic.
+## Next steps
+Now that you have configured the content key's authorization policy, see [Configure an asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
 

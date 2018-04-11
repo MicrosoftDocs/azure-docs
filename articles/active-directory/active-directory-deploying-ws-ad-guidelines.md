@@ -4,7 +4,7 @@ description: If you know how to deploy AD Domain Services and AD Federation Serv
 services: active-directory
 documentationcenter: ''
 author: femila
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 03/20/2018
 ms.author: femila
 
 ---
@@ -48,7 +48,7 @@ You may download and run the [Azure Virtual Machine Readiness Assessment](https:
 
 We recommend that you also first review the tutorials, guides, and videos that cover the following topics:
 
-* [Configure a Cloud-Only Virtual Network in the Azure Portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* [Configure a Cloud-Only Virtual Network in the Azure Portal](../virtual-network/quick-create-portal.md)
 * [Configure a Site-to-Site VPN in the Azure Portal](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Install a new Active Directory forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)
 * [Install a replica Active Directory domain controller on Azure](active-directory-install-replica-active-directory-domain-controller.md)
@@ -68,8 +68,10 @@ See [Virtual Network](http://azure.microsoft.com/documentation/services/virtual-
 > 
 > 
 
-### Static IP addresses must be configured with Azure PowerShell.
-Dynamic addresses are allocated by default, but use the Set-AzureStaticVNetIP cmdlet to assign a static IP address instead. That sets a static IP address that will persist through service healing and VM shutdown/restart. For more information, see [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
+### Static IP addresses can be configured with Azure PowerShell
+Dynamic addresses are allocated by default, but use the Set-AzureStaticVNetIP cmdlet if you want to assign a static IP address instead. That cmdlet sets a static IP address that will persist through service healing and VM shutdown/restart. For more information, see [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/). You can also configure a static IP address while creating your VM in the Azure portal, as shown below. For more information, see [Create a VM with a static public IP address using the Azure portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md).
+
+![screenshot of step to add static IP address when creating a VM](media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>Terms and definitions
 The following is a non-exhaustive list of terms for various Azure technologies which will be referenced in this article.
@@ -104,7 +106,7 @@ For more information about how DCs are impacted, see [USN and USN Rollback](http
 Beginning with Windows Server 2012, [additional safeguards are built in to AD DS](https://technet.microsoft.com/library/hh831734.aspx). These safeguards help protect virtualized domain controllers against the aforementioned problems, as long as the underlying hypervisor platform supports VM-GenerationID. Azure supports VM-GenerationID, which means that domain controllers that run Windows Server 2012 or later on Azure virtual machines have the additional safeguards.
 
 > [!NOTE]
-> You should shut down and restart a VM that runs the domain controller role in Azure within the guest operating system instead of using the **Shut Down** option in the Azure portal or classic portal. Today, using the portal to shut down a VM causes the VM to be deallocated. A deallocated VM has the advantage of not incurring charges, but it also resets the VM-GenerationID, which is undesirable for a DC. When the VM-GenerationID is reset, the invocationID of the AD DS database is also reset, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services (AD DS) Virtualization](https://technet.microsoft.com/library/hh831734.aspx) and [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
+> You should shut down and restart a VM that runs the domain controller role in Azure within the guest operating system instead of using the **Shut Down** option in the Azure porta. Today, using the portal to shut down a VM causes the VM to be deallocated. A deallocated VM has the advantage of not incurring charges, but it also resets the VM-GenerationID, which is undesirable for a DC. When the VM-GenerationID is reset, the invocationID of the AD DS database is also reset, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services (AD DS) Virtualization](https://technet.microsoft.com/library/hh831734.aspx) and [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
 > 
 > 
 
@@ -122,7 +124,7 @@ Finally, you may want to deploy a network application on Azure, such as SharePoi
 
 ## Contrasts between deploying Windows Server Active Directory domain controllers on Azure Virtual Machines versus on-premises
 * For any Windows Server Active Directory deployment scenario that includes more than a single VM, it is necessary to use an Azure virtual network for IP address consistency. Note that this guide assumes that DCs are running on an Azure virtual network.
-* As with on-premises DCs, static IP addresses are recommended. A static IP address can only be configured by using Azure PowerShell. See [Static internal IP address for VMs](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) for more details. If you have monitoring systems or other solutions that check for static IP address configuration within the guest operating system, you can assign the same static IP address to the network adapter properties of the VM. But be aware that the network adapter will be discarded if the VM undergoes service healing or is shut down in the classic portal and has its address deallocated. In that case, the static IP address within the guest will need to be reset.
+* As with on-premises DCs, static IP addresses are recommended. A static IP address can only be configured by using Azure PowerShell. See [Static internal IP address for VMs](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) for more details. If you have monitoring systems or other solutions that check for static IP address configuration within the guest operating system, you can assign the same static IP address to the network adapter properties of the VM. But be aware that the network adapter will be discarded if the VM undergoes service healing or is shut down in the portal and has its address deallocated. In that case, the static IP address within the guest will need to be reset.
 * Deploying VMs on a virtual network does not imply (or require) connectivity back to an on-premises network; the virtual network merely enables that possibility. You must create a virtual network for private communication between Azure and your on-premises network. You need to deploy a VPN endpoint on the on-premises network. The VPN is opened from Azure to the on-premises network. For more information, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) and [Configure a Site-to-Site VPN in the Azure Portal](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 > [!NOTE]
@@ -430,7 +432,7 @@ Do not use SYSPREP to deploy or clone DCs. The ability to clone DCs is only avai
 Select where to locate the Windows Server AD DS database, logs, and SYSVOL. They must be deployed on Azure Data disks.
 
 > [!NOTE]
-> Azure Data disks are constrained to 1 TB.
+> Azure data disks are limited to 4 TB.
 > 
 > 
 

@@ -3,7 +3,7 @@ title: Visualize Azure Network Watcher NSG flow logs using open source tools | M
 description: This page describes how to use open source tools to visualize NSG flow logs.
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Visualize Azure Network Watcher NSG flow logs using open source tools
@@ -43,7 +43,7 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
 1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have java install, refer to documentation on [Oracle's website](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
 1. Download the correct binary package for your system:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -53,13 +53,13 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
 
 1. Verify that Elasticsearch is running with the command:
 
-    ```
+    ```bash
     curl http://127.0.0.1:9200
     ```
 
     You should see a response similar to this:
 
-    ```
+    ```json
     {
     "name" : "Angela Del Toro",
     "cluster_name" : "elasticsearch",
@@ -80,72 +80,77 @@ For further instructions on installing Elastic search, refer to the page [Instal
 
 1. To install Logstash run the following commands:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
 1. Next we need to configure Logstash to access and parse the flow logs. Create a logstash.conf file using:
 
-    ```
+    ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
 1. Add the following content to the file:
 
   ```
-    input {
-      azureblob
-        {
-            storage_account_name => "mystorageaccount"
-            storage_access_key => "storageaccesskey"
-            container => "nsgflowlogContainerName"
-            codec => "json"
-        }
-      }
-
-      filter {
-        split { field => "[records]" }
-        split { field => "[records][properties][flows]"}
-        split { field => "[records][properties][flows][flows]"}
-        split { field => "[records][properties][flows][flows][flowTuples]"}
-
-     mutate{
-      split => { "[records][resourceId]" => "/"}
-      add_field => {"Subscription" => "%{[records][resourceId][2]}"
-                    "ResourceGroup" => "%{[records][resourceId][4]}"
-                    "NetworkSecurityGroup" => "%{[records][resourceId][8]}"}
-      convert => {"Subscription" => "string"}
-      convert => {"ResourceGroup" => "string"}
-      convert => {"NetworkSecurityGroup" => "string"}
-      split => { "[records][properties][flows][flows][flowTuples]" => ","}
-      add_field => {
-                  "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
-                  "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
-                  "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
-                  "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
-                  "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
-                  "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
-                  "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
-                  "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
-                   }
-      convert => {"unixtimestamp" => "integer"}
-      convert => {"srcPort" => "integer"}
-      convert => {"destPort" => "integer"}        
+input {
+   azureblob
+     {
+         storage_account_name => "mystorageaccount"
+         storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
+         container => "insights-logs-networksecuritygroupflowevent"
+         codec => "json"
+         # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
+         # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
+         file_head_bytes => 12
+         file_tail_bytes => 2
+         # Enable / tweak these settings when event is too big for codec to handle.
+         # break_json_down_policy => "with_head_tail"
+         # break_json_batch_count => 2
      }
+   }
 
-     date{
-       match => ["unixtimestamp" , "UNIX"]
-     }
-    }
+   filter {
+     split { field => "[records]" }
+     split { field => "[records][properties][flows]"}
+     split { field => "[records][properties][flows][flows]"}
+     split { field => "[records][properties][flows][flows][flowTuples]"}
 
-    output {
-      stdout { codec => rubydebug }
-      elasticsearch {
-        hosts => "localhost"
-        index => "nsg-flow-logs"
-      }
-    }  
+  mutate{
+   split => { "[records][resourceId]" => "/"}
+   add_field => {"Subscription" => "%{[records][resourceId][2]}"
+                 "ResourceGroup" => "%{[records][resourceId][4]}"
+                 "NetworkSecurityGroup" => "%{[records][resourceId][8]}"}
+   convert => {"Subscription" => "string"}
+   convert => {"ResourceGroup" => "string"}
+   convert => {"NetworkSecurityGroup" => "string"}
+   split => { "[records][properties][flows][flows][flowTuples]" => ","}
+   add_field => {
+               "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
+               "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
+               "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
+               "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
+               "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
+               "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
+               "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
+               "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+                }
+   convert => {"unixtimestamp" => "integer"}
+   convert => {"srcPort" => "integer"}
+   convert => {"destPort" => "integer"}        
+  }
 
+  date{
+    match => ["unixtimestamp" , "UNIX"]
+  }
+ }
+output {
+  stdout { codec => rubydebug }
+  elasticsearch {
+    hosts => "localhost"
+    index => "nsg-flow-logs"
+  }
+}  
   ```
 
 For further instructions on installing Logstash, refer to the [official documentation](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
@@ -154,13 +159,13 @@ For further instructions on installing Logstash, refer to the [official document
 
 This Logstash plugin will allow you to directly access the flow logs from their designated storage account. To install this plugin, from the default Logstash installation directory (in this case /usr/share/logstash/bin) run the command:
 
-```
+```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
 To start Logstash run the command:
 
-```
+```bash
 sudo /etc/init.d/logstash start
 ```
 
@@ -170,14 +175,14 @@ For more information about this plugin, refer to documentation [here](https://gi
 
 1. Run the following commands to install Kibana:
 
-  ```
+  ```bash
   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
   ```
 
 1. To run Kibana use the commands:
 
-  ```
+  ```bash
   cd kibana-5.2.0-linux-x86_64/
   ./bin/kibana
   ```

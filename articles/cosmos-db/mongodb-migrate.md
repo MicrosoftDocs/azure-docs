@@ -4,8 +4,7 @@ description: 'Learn how to use mongoimport and mongorestore to import data to an
 keywords: mongoimport, mongorestore
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: ''
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
@@ -26,7 +25,7 @@ To migrate data from MongoDB to an Azure Cosmos DB account for use with the API 
 * Download either *mongoimport.exe* or *mongorestore.exe* from the [MongoDB Download Center](https://www.mongodb.com/download-center).
 * Get your [API for MongoDB connection string](connect-mongodb-account.md).
 
-If you are importing data from MongoDB and plan to use it with the DocumentDB API, you should use the [Data Migration tool](import-data.md) to import data.
+If you are importing data from MongoDB and plan to use it with the Azure Cosmos DB, you should use the [Data Migration tool](import-data.md) to import data.
 
 This tutorial covers the following tasks:
 

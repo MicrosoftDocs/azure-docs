@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of scaling media processi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
@@ -27,6 +27,10 @@ ms.author: juliako
 > 
 > 
 
+> [!NOTE]
+> To get the latest version of Java SDK and get started developing with Java, see [Get started with the Java client SDK for Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> To download the latest PHP SDK for Media Services, look for version 0.5.7 of the Microsoft/WindowAzure package in the [Packagist repository](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+
 ## Overview
 
 A Media Services account is associated with a Reserved Unit Type, which determines the speed with which your media processing tasks are processed. You can pick between the following reserved unit types: **S1**, **S2**, or **S3**. For example, the same encoding job runs faster when you use the **S2** reserved unit type compare to the **S1** type.
@@ -47,11 +51,10 @@ To change the reserved unit type and the number of reserved units, do the follow
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 2. In the **Settings** window, select **Media reserved units**.
    
-    To change the number of reserved units for the selected reserved unit type, use the **Media Served Units** slider.
+    To change the number of reserved units for the selected reserved unit type, use the **Media Served Units** slider at the top of the screen.
    
-    To change the **RESERVED UNIT TYPE**, press S1, S2, or S3.
+    To change the **RESERVED UNIT TYPE**, click on the **Speed of reserved processing units** bar. Then, select the pricing tier you need: S1, S2, or S3.
    
-    ![Processors page](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 3. Press the SAVE button to save your changes.
    
     The new reserved units are allocated when you press SAVE.

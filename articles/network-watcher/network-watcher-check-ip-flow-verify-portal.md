@@ -3,7 +3,7 @@ title: Verify traffic with Azure Network Watcher IP flow verify - Azure portal |
 description: This article describes how to check if traffic to or from a virtual machine is allowed or denied
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 # Check if traffic is allowed or denied to or from a VM with IP Flow Verify a component of Azure Network Watcher
@@ -56,7 +56,7 @@ As seen in the following image, traffic is changed to inbound and the inbound po
 
 ## Next steps
 
-If traffic is being blocked and it should not be, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to track down the network security group and security rules that are defined.
+If traffic is being blocked and it should not be, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that are defined.
 
 [1]: ./media/network-watcher-check-ip-flow-verify-portal/figure1.png
 [2]: ./media/network-watcher-check-ip-flow-verify-portal/figure2.png

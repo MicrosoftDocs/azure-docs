@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 11/21/2017
 ms.author: yurid
 
 ---
 # Azure Security Services and Technologies
 In our discussions with current and future Azure customers, we’re often asked “do you have a list of all the security related services and technologies that Azure has to offer?”
 
-We understand that when you’re evaluating your cloud service provider technical options, it’s helpful to have such a list available that you can use to dig down deeper when the time is right for you.
+When evaluating cloud service provider options, it’s helpful to have this information.
 
 The following is our initial effort at providing a list. Over time, this list will change and grow, just as Azure does. The list is categorized, and the list of categories will also grow over time. Make sure to check this page on a regular basis to stay up-to-date on our security-related services and technologies.
 
@@ -32,12 +32,12 @@ The following is our initial effort at providing a list. Over time, this list wi
 * [Azure Dev/Test Labs](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
 ## Azure Storage Security
-* [Azure Storage Service Encryption](../storage/storage-service-encryption.md)
+* [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md)
 * [StorSimple Encrypted Hybrid Storage](https://azure.microsoft.com/documentation/services/storsimple/)
-* [Azure Client-Side Encryption](../storage/storage-client-side-encryption.md)
-* [Azure Storage Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Azure Storage Account Keys](../storage/storage-create-storage-account.md)
-* [Azure File shares with SMB 3.0 Encryption](../storage/storage-dotnet-how-to-use-files.md)
+* [Azure Client-Side Encryption](../storage/common/storage-client-side-encryption.md)
+* [Azure Storage Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Azure Storage Account Keys](../storage/common/storage-create-storage-account.md)
+* [Azure File shares with SMB 3.0 Encryption](../storage/files/storage-dotnet-how-to-use-files.md)
 * [Azure Storage Analytics](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## Azure Database Security
@@ -51,7 +51,7 @@ The following is our initial effort at providing a list. Over time, this list wi
 * [Azure SQL Database Auditing](../sql-database/sql-database-auditing.md)
 
 ## Azure Identity and Access Management
-* [Azure Role Based Access Control](../active-directory/role-based-access-control-configure.md)
+* [Azure Role Based Access Control](../role-based-access-control/role-assignments-portal.md)
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
 * [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)

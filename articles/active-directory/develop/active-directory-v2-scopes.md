@@ -4,7 +4,7 @@ description: A description of authorization in the Azure AD v2.0 endpoint, inclu
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
@@ -43,8 +43,8 @@ By defining these types of permissions, the resource has fine-grained control ov
 
 In Azure AD and OAuth, these types of permissions are called *scopes*. They also sometimes are referred to as *oAuth2Permissions*. A scope is represented in Azure AD as a string value. Continuing with the Microsoft Graph example, the scope value for each permission is:
 
-* Read a user's calendar by using `Calendar.Read`
-* Write to a user's calendar by using `Mail.ReadWrite`
+* Read a user's calendar by using `Calendars.Read`
+* Write to a user's calendar by using `Calendars.ReadWrite`
 * Send mail as a user using by `Mail.Send`
 
 An app can request these permissions by specifying the scopes in requests to the v2.0 endpoint.
@@ -78,7 +78,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
 &scope=
-https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
+https%3A%2F%2Fgraph.microsoft.com%2Fcalendars.read%20
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
@@ -144,7 +144,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
-| tenant |Required |The directory tenant that you want to request permission from. Can be provided in GUID or friendly name format. |
+| tenant |Required |The directory tenant that you want to request permission from. Can be provided in GUID or friendly name format OR generically referenced with "common" as seen in the example. |
 | client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
 | redirect_uri |Required |The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the app registration portal. |
 | state |Recommended |A value included in the request that will also be returned in the token response. It can be a string of any content you want. Use the state to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |

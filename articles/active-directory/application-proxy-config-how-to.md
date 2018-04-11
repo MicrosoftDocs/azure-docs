@@ -4,7 +4,7 @@ description: Learn how to create an configure an APplication Proxy application i
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

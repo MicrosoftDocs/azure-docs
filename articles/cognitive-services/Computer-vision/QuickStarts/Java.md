@@ -2,14 +2,14 @@
 title: Computer Vision API Java quick starts | Microsoft Docs 
 description: Get information and code samples to help you quickly get started using Java and the Computer Vision API in Cognitive Services. 
 services: cognitive-services 
-author: v-royhar 
-manager: ytkuo 
+author: KellyDF 
+manager: corncar 
 
 ms.service: cognitive-services 
 ms.technology: computer-vision 
 ms.topic: article
 ms.date: 06/15/2017 
-ms.author: v-royhar 
+ms.author: kefre 
 --- 
 
 # Computer Vision Java Quick Starts
@@ -24,7 +24,7 @@ This article provides information and code samples to help you quickly get start
 ## Prerequisites
 
 * Get the Microsoft Computer Vision Android SDK [here](https://github.com/Microsoft/Cognitive-vision-android).
-* To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](https://docs.microsoft.com/en-us/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
+* To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](https://docs.microsoft.com/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
 
 ## Analyze an image with Computer Vision API using Java <a name="AnalyzeImage"> </a>
 
@@ -34,7 +34,7 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 * The coordinates, gender, and age of any faces contained in the image.
 * The ImageType (clip art or a line drawing).
 * The dominant color, the accent color, or whether an image is black & white.
-* The category defined in this [taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
+* The category defined in this [taxonomy](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).
 * Does the image contain adult or sexually suggestive content?
 
 ### Analyze an image Java example request

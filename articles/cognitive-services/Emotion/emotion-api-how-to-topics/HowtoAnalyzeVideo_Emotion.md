@@ -2,8 +2,8 @@
 title: Real-time video analysis with the Emotion API | Microsoft Docs
 description: Use the Emotion API in Cognitive Services to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: anrothMSFT
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: emotion
@@ -13,6 +13,11 @@ ms.author: anroth
 ---
 
 # How to Analyze Videos in Real-time
+
+> [!IMPORTANT]
+> Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
+videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+
 This guide will demonstrate how to perform near-real-time analysis on frames taken from a live video stream. The basic components in such a system are:
 - Acquire frames from a video source
 - Select which frames to analyze
@@ -177,9 +182,9 @@ In most modes, there will be a visible delay between the live video on the left,
 To get started with this sample, follow these steps:
 
 1. Get API keys for the Vision APIs from [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). For video frame analysis, the applicable APIs are:
-	- [Computer Vision API](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home)
-	- [Emotion API](https://docs.microsoft.com/en-us/azure/cognitive-services/emotion/home)
-	- [Face API](https://docs.microsoft.com/en-us/azure/cognitive-services/face/overview)
+	- [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
+	- [Emotion API](https://docs.microsoft.com/azure/cognitive-services/emotion/home)
+	- [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 2. Clone the [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub repo
 
 3. Open the sample in Visual Studio 2015, build and run the sample applications:

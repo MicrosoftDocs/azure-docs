@@ -4,7 +4,7 @@ description: Learn how to create an Analysis Services server instance in Azure.
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/14/2017
+ms.date: 02/14/2018
 ms.author: owend
 
 ---
@@ -22,10 +22,10 @@ ms.author: owend
 This article walks you through creating an Analysis Services server resource in your Azure subscription.
 
 ## Before you begin
-To get started, you need:
+To complete this quickstart, you need:
 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
-* **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. Microsoft accounts are not supported. To learn more, see [User authentication](analysis-services-overview.md#secure).
+* **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. Microsoft accounts are not supported. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 * **Resource group**: Use a resource group you already have or [create a new one](../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
@@ -33,7 +33,7 @@ To get started, you need:
 > 
 > 
 
-## To create a server in Azure portal
+## To create a server in the Azure portal
 1. Sign in to the [Azure portal](https://portal.azure.com).  
 2. Click **+ New** > **Data + analytics** > **Analysis Services**.
 3. In the **Analysis Services** blade, fill in the required fields, and then press **Create**.
@@ -47,7 +47,7 @@ To get started, you need:
    * **Pricing tier**: Select a pricing tier. Tabular models up to 400 GB are supported. To learn more, see [Azure Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
 4. Click **Create**.
 
-Create usually takes under a minute; often just a few seconds. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **More services** > **Analysis Services** to see if your server is ready.
+Create usually takes under a minute; often just a few seconds. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **All services** > **Analysis Services** to see if your server is ready.
 
  ![Dashboard](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 

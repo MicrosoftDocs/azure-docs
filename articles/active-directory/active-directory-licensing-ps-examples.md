@@ -6,7 +6,7 @@
   keywords: Azure AD licensing
   documentationcenter: ''
   author: curtand
-  manager: femila
+  manager: mtillman
   editor: ''
 
   ms.assetid:
@@ -27,6 +27,9 @@ cmdlets](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory)
 
 > [!NOTE]
 > Before you begin running cmdlets, make sure you connect to your tenant first, by running the `Connect-MsolService` cmdlet.
+
+>[!WARNING]
+>This code is provided as an example for demonstration purposes. If you intend to use it in your environment, consider testing it first on a small scale, or in a separate test tenant. You may have to adjust the code to meet the specific needs of your environment.
 
 ## View product licenses assigned to a group
 The
@@ -74,7 +77,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice 			  {ENTERPRISEPREMIUM,EMSPRE
 
 ## Get statistics for groups with licenses
 You can report basic statistics for groups with licenses. In the example
-below we list the total user count, the count of users with licenses
+below, the script lists the total user count, the count of users with licenses
 already assigned by the group, and the count of users for whom licenses
 could not be assigned by the group.
 
@@ -147,9 +150,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## Get all users with license errors in a group
 
-Given a group that contains some license related errors, you can now list all users affected by those errors. A jser can have errors
-from other groups, too. However, in this example we limit results only to errors relevant to the group in question by checking the
-**ReferencedObjectId** property of each **IndirectLicenseError** entry on the user.
+Given a group that contains some license-related errors, you can now list all users affected by those errors. A user can have errors from other groups, too. However, in this example we limit results only to errors relevant to the group in question by checking the **ReferencedObjectId** property of each **IndirectLicenseError** entry on the user.
 
 ```
 #a sample group with errors
@@ -175,10 +176,10 @@ ObjectId                             DisplayName      License Error
 ```
 ## Get all users with license errors in the entire tenant
 
-To list all users who have license errors from one or more groups, the following script can be used. This script will list one row per user, per license error which allows you to clearly identify the source of each error.
+The following script can be used to get all users who have license errors from one or more groups. The script prints one row per user, per license error, which allows you to clearly identify the source of each error.
 
 > [!NOTE]
-> This script will enumerate all users in the tenant, which might not be optimal for large tenants.
+> This script enumerates all users in the tenant, which might not be optimal for large tenants.
 
 ```
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
@@ -221,7 +222,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
 
 ## Check if user license is assigned directly or inherited from a group
 
-For a user object it is possible to check if a particular product license is assigned from a group or if it is assigned directly.
+For a user object, it is possible to check if a particular product license is assigned from a group or if it is assigned directly.
 
 The two sample functions below can be used to analyze the type of assignment on an individual user:
 ```
@@ -310,7 +311,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 ## Remove direct licenses for users with group licenses
 The purpose of this script is to remove unnecessary direct licenses from users who already inherit the same license from a group; for example, as part of a [transitioning to group-based licensing](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
 > [!NOTE]
-> It is important to first validate that the direct licenses to be removed do not enable more service functionality than the inherited licenses. Otherwise, removing the direct license may disable access to services and data for users. Currently it is not possible to check via PowerShell which services are enabled via inherited licenses vs direct. In the script we will specify the minimum level of services we know are being inherited from groups and we will check against that.
+> It is important to first validate that the direct licenses to be removed do not enable more service functionality than the inherited licenses. Otherwise, removing the direct license may disable access to services and data for users. Currently it is not possible to check via PowerShell which services are enabled via inherited licenses vs direct. In the script, we specify the minimum level of services we know are being inherited from groups and check against that to make sure users do not unexpectedly lose access to services.
 
 ```
 #BEGIN: Helper functions used by the script
@@ -390,7 +391,7 @@ function GetDisabledPlansForSKU
 {
     Param([string]$skuId, [string[]]$enabledPlans)
 
-    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ieq "PendingActivation"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
+    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation" -and $_.ServicePlan.TargetClass -ieq "User"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
     $disabledPlans = $allPlans | Where {$enabledPlans -inotcontains $_}
 
     return $disabledPlans
@@ -484,7 +485,7 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 ## Next steps
 
-To learn more about the feature set for license management through groups, see the following:
+To learn more about the feature set for license management through groups, see the following articles:
 
 * [What is group-based licensing in Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Assigning licenses to a group in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)

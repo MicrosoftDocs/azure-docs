@@ -4,7 +4,7 @@ description: This article shows you how to use the Azure Media Services telemetr
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 08/09/2017
 ms.author: juliako
 
 ---
@@ -43,7 +43,7 @@ The steps described in this topic are:
  
 ## Get the storage account associated with a Media Services account
 
-###Request
+### Request
 
 	GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
 	x-ms-version: 2.13
@@ -71,7 +71,7 @@ The steps described in this topic are:
 
 ## Get the Notification Endpoints
 
-###Request
+### Request
 
 	GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
 	x-ms-version: 2.13
@@ -81,7 +81,7 @@ The steps described in this topic are:
 	Authorization: (redacted)
 	Host: wamsbnp1clus001rest-hs.cloudapp.net
 	
-###Response
+### Response
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
 	Content-Length: 20
@@ -104,7 +104,7 @@ The steps described in this topic are:
  
 ## Create a Notification Endpoint for monitoring
 
-###Request
+### Request
 
 	POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
 	x-ms-version: 2.13
@@ -125,7 +125,7 @@ The steps described in this topic are:
 >[!NOTE]
 >Don't forget to change the "https://telemetryvalidationstore.table.core.windows.net" value to your storage account.
 
-###Response
+### Response
 
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -156,7 +156,7 @@ The steps described in this topic are:
 	Authorization: (redacted)
 	Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-###Response
+### Response
 	
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -219,7 +219,7 @@ The steps described in this topic are:
 
 ## Stop telemetry
 
-###Request
+### Request
 
 	DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
 	x-ms-version: 2.13

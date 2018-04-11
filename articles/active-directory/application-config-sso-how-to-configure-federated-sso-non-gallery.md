@@ -4,7 +4,7 @@ description: How to configure federated single sign-on for a custom non-gallery 
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -19,10 +19,10 @@ ms.author: asteen
 
 # How to configure federated single sign-on for a non-gallery application
 
-To configure a non-gallery application, you need to have Azure AD premium and the application supports SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+To configure single sign-on for a non-gallery application *without writing code*, you need to have a subscription or Azure AD Premium and the application must support SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Overview of steps required
-Below is a high level overview of the steps required to configure federated single sign-on for a non-gallery (e.g., custom) application.
+Below is a high-level overview of the steps required to configure federated single sign-on with SAML 2.0 for a non-gallery (e.g. custom) application.
 
 -   [Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)](#_Configuring_single_sign-on)
 
@@ -38,15 +38,15 @@ Below is a high level overview of the steps required to configure federated sing
 
 To configure single sign-on for an application that is not in the Azure AD gallery, follow the steps below:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  click the **Add** button at the top-right corner on the **Enterprise Applications** blade.
+5.  click the **Add** button at the top-right corner on the **Enterprise Applications** pane.
 
 6.  click **Non-gallery application** in the **Add your own app** section
 
@@ -54,7 +54,7 @@ To configure single sign-on for an application that is not in the Azure AD galle
 
 8.  Click **Add** button, to add the application.
 
-9.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+9.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
 10. Select **SAML-based Sign-on** in the **Mode** dropdown.
 
@@ -62,11 +62,11 @@ To configure single sign-on for an application that is not in the Azure AD galle
 
    1. To configure the application as IdP-initiated SSO, enter the Reply URL and the Identifier.
 
-   2. **Optional:** To configure the application as SP-initiated SSO, the Sign on URL it’s a required value.
+   2. **Optional:** To configure the application as SP-initiated SSO, the Sign-on URL it’s a required value.
 
 12. In the **User attributes**, select the unique identifier for your users in the **User Identifier** dropdown.
 
-13. **Optional:** click **View and edit all other user attributes** to edit the attributes to be sent to the application in the SAML token when user sign in.
+13. **Optional:** click **View and edit all other user attributes** to edit the attributes to be sent to the application in the SAML token when users sign in.
 
    To add an attribute:
 
@@ -82,13 +82,13 @@ To configure single sign-on for an application that is not in the Azure AD galle
 
 To select the User Identifier or add user attributes, follow the steps below:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -96,7 +96,7 @@ To select the User Identifier or add user attributes, follow the steps below:
 
 6.  Select the application you have configured single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
 8.  Under the **User attributes** section, select the unique identifier for your users in the **User Identifier** dropdown. The selected option needs to match the expected value in the application to authenticate the user.
 
@@ -105,7 +105,7 @@ To select the User Identifier or add user attributes, follow the steps below:
  >
  >
 
-9.  To add user attributes, click **View and edit all other user attributes** to edit the attributes to be sent to the application in the SAML token when user sign in.
+9.  To add user attributes, click **View and edit all other user attributes** to edit the attributes to be sent to the application in the SAML token when users sign in.
 
    To add an attribute:
 
@@ -117,13 +117,13 @@ To select the User Identifier or add user attributes, follow the steps below:
 
 To download the application metadata or certificate from Azure AD, follow the steps below:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -131,7 +131,7 @@ To download the application metadata or certificate from Azure AD, follow the st
 
 6.  Select the application you have configured single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
 8.  Go to **SAML Signing Certificate** section, then click **Download** column value. Depending on what the application requires configuring single sign-on, you see either the option to download the Metadata XML or the Certificate.
 
@@ -141,13 +141,13 @@ Azure AD doesn’t provide a URL to get the metadata. The metadata can only be r
 
 To assign one or more users to an application directly, follow the steps below:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -155,11 +155,11 @@ To assign one or more users to an application directly, follow the steps below:
 
 6.  Select the application you want to assign a user to from the list.
 
-7.  Once the application loads, click **Users and Groups** from the application’s left hand navigation menu.
+7.  Once the application loads, click **Users and Groups** from the application’s left-hand navigation menu.
 
-8.  Click the **Add** button on top of the **Users and Groups** list to open the **Add Assignment** blade.
+8.  Click the **Add** button on top of the **Users and Groups** list to open the **Add Assignment** pane.
 
-9.  click the **Users and groups** selector from the **Add Assignment** blade.
+9.  click the **Users and groups** selector from the **Add Assignment** pane.
 
 10. Type in the **full name** or **email address** of the user you are interested in assigning into the **Search by name or email address** search box.
 
@@ -169,7 +169,7 @@ To assign one or more users to an application directly, follow the steps below:
 
 13. When you are finished selecting users, click the **Select** button to add them to the list of users and groups to be assigned to the application.
 
-14. **Optional:** click the **Select Role** selector in the **Add Assignment** blade to select a role to assign to the users you have selected.
+14. **Optional:** click the **Select Role** selector in the **Add Assignment** pane to select a role to assign to the users you have selected.
 
 15. Click the **Assign** button to assign the application to the selected users.
 

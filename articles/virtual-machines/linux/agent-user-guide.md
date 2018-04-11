@@ -4,7 +4,7 @@ description: Learn how to install and configure Linux Agent (waagent) to manage 
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
 
@@ -143,6 +143,7 @@ A sample configuration file is shown below:
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ A sample configuration file is shown below:
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 The various configuration options are described in detail below. Configuration options are of three types; Boolean, String or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as detailed below.
 
@@ -209,9 +211,15 @@ Default: n
 
 If set, waagent will execute CustomData after provisioning.
 
+**Provisioning.AllowResetSysUser**
+Type: Boolean
+Default: n
+
+This option allows the password for the sys user to be reset; default is disabled.
+
 **Provisioning.PasswordCryptId**  
-Type:String  
-Default:6
+Type: String  
+Default: 6
 
 Algorithm used by crypt when generating password hash.  
  1 - MD5  
@@ -220,8 +228,8 @@ Algorithm used by crypt when generating password hash.
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-Type:String  
-Default:10
+Type: String  
+Default: 10
 
 Length of random salt used when generating password hash.
 
@@ -290,6 +298,14 @@ Type: String
 Default: None
 
 If set, the agent will use this proxy server to access the internet. 
+
+**AutoUpdate.Enabled**
+Type: Boolean
+Default: y
+
+Enable or disable auto-update for goal state processing; default is enabled.
+
+
 
 ## Ubuntu Cloud Images
 Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) to perform many configuration tasks that would otherwise be managed by the Azure Linux Agent.  Please note the following differences:

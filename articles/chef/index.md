@@ -2,15 +2,15 @@
 title:  Chef on Azure
 description: Deploy and integrate Chef with Azure 
 services: multiple
-author: mlearned
-manager: douge
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.service: multiple
 ms.tgt_pltfrm: na
 ms.devlang: devops
 ms.topic: landing-page
 ms.date: 04/25/2017
-ms.author: mlearned
+ms.author: carolz
 ---
 <div class="content">
    <h1>Chef on Azure</h1>
@@ -30,7 +30,7 @@ ms.author: mlearned
 </ol>
 <h2>Resources</h2>
 <p>See the following links for additional reference materials and tools for working with Chef on Azure.</p>
-<a href="https://docs.microsoft.com/en-us/powershell/module/azure/get-azurevmchefextension?view=azuresmps-4.0.0">Powershell Chef Reference</a><br/>
+<a href="https://docs.microsoft.com/powershell/module/azure/get-azurevmchefextension?view=azuresmps-4.0.0">Powershell Chef Reference</a><br/>
 <a href="https://github.com/chef-partners/vsts-chef/wiki/Getting-Started">Getting Started with Chef and VSTS</a><br/>
 Video:<a href="https://channel9.msdn.com/Events/TechDaysOnline/UK-TechDays-Online-2016/Release-Management-with-VSTS--integration-with-Azure--Chef-Deployment"> Release Management with VSTS, Chef, and Octopus Deploy</a><br/>
 <a href="https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/">Blog:  VSTS and Chef</a><br/>

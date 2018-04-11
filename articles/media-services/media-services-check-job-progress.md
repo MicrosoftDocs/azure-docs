@@ -4,7 +4,7 @@ description: Learn how to use event handler code to track job progress and send 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 07/20/2017
 ms.author: juliako
 
 ---
@@ -30,6 +30,7 @@ When you run jobs, you often require a way to track job progress. You can check 
 ## Define StateChanged event handler to monitor job progress
 The following code example defines the StateChanged event handler. This event handler tracks job progress and provides updated status, depending on the state. The code also defines the LogJobStop method. This helper method logs error details.
 
+```csharp
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
     {
         Console.WriteLine("Job state changed event:");
@@ -104,7 +105,7 @@ The following code example defines the StateChanged event handler. This event ha
     {
         return jobID.Replace(":", "_");
     }
-
+```
 
 
 ## Next step

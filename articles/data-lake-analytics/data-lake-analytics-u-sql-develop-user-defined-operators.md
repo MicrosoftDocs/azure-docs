@@ -3,8 +3,8 @@ title: Develop U-SQL user-defined operators (UDOs) | Microsoft Docs
 description: 'Learn how to develop user-defined operators to be used and reused in Data Lake Analytics jobs. '
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: kfile
 editor: cgronlun
 
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
+ms.author: saveenr
 
 ---
 # Develop U-SQL user-defined operators (UDOs)
@@ -127,6 +127,5 @@ For instructions on developing general-purpose assemblies for U-SQL, see [Develo
 2. Expand Samples, expand Outputs, and then double-click **Drivers.csv**.
 
 ## See also
-* [Get started with Data Lake Analytics using PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Get started with Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md)
+* [Extending U-SQL Expressions with User-Code](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
 * [Use Data Lake Tools for Visual Studio for developing U-SQL applications](data-lake-analytics-data-lake-tools-get-started.md)

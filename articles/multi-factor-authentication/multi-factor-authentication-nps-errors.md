@@ -3,8 +3,8 @@ title: Troubleshoot error codes for the Azure MFA NPS extension | Microsoft Docs
 description: Get help resolving issues with the NPS extension for Azure Multi-Factor Authentication with specific resolutions for common error messages
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: MicrosoftGuyJFlo
+manager: mtillman
 
 ms.assetid:
 ms.service: multi-factor-authentication
@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: kgremban
-ms.reviewer: yossib
+ms.author: joflore
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 
@@ -33,8 +33,11 @@ If you encounter errors with the NPS extension for Azure Multi-Factor Authentica
 | **HTTP_CONNECT_ERROR** | On the server that runs the NPS extension, verify that you can reach  https://adnotifications.windowsazure.com and https://login.microsoftonline.com/. If those sites don't load, troubleshoot connectivity on that server. |
 | **REGISTRY_CONFIG_ERROR** | A key is missing in the registry for the application, which may be because the [PowerShell script](multi-factor-authentication-nps-extension.md#install-the-nps-extension) wasn't run after installation. The error message should include the missing key. Make sure you have the key under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Radius Request missing mandatory Radius userName\Identifier attribute.Verify that NPS is receiving RADIUS requests | This error usually reflects an installation issue. The NPS extension must be installed in NPS servers that can receive RADIUS requests. NPS servers that are installed as dependencies for services like RDG and RRAS don't receive radius requests. NPS Extension does not work when installed over such installations and errors out since it cannot read the details from the authentication request. |
-| **REQUEST_MISSING_CODE** | If SMS or Oath tokens are used for the secondary authentication method, then the password ecryption protocol between NPS and Nas servers must be PAP. The NPS extension does not support other password encryption methods at this point.|
+| **REQUEST_MISSING_CODE** | Make sure that the password encryption protocol between the NPS and NAS servers supports the secondary authentication method that you're using. **PAP** supports all the authentication methods of Azure MFA in the cloud: phone call, one-way text message, mobile app notification, and mobile app verification code. **CHAPV2** and **EAP** support phone call and mobile app notification. |
 | **USERNAME_CANONICALIZATION_ERROR** | Verify that the user is present in your on-premises Active Directory instance, and that the NPS Service has permissions to access the directory. If you are using cross-forest trusts, [contact support](#contact-microsoft-support) for further help. |
+
+
+   
 
 ### Alternate login ID errors
 
@@ -100,9 +103,10 @@ If your users are [Having trouble with two-step verification](./end-user/multi-f
 
 If you need additional help, contact a support professional through [Azure Multi-Factor Authentication Server support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, the ID of the user who saw the error, and debug logs.
 
-To collect debug logs for support diagnostics, use the following steps: 
+To collect debug logs for support diagnostics, use the following steps on the NPS server:
 
-1. Open an Administrator command prompt and run these commands:
+1. Open Registry Editor and browse to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** to **TRUE**
+2. Open an Administrator command prompt and run these commands:
 
    ```
    Mkdir c:\NPS
@@ -112,9 +116,9 @@ To collect debug logs for support diagnostics, use the following steps:
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
    ```
 
-2. Reproduce the issue
+3. Reproduce the issue
 
-3. Stop the tracing with these commands:
+4. Stop the tracing with these commands:
 
    ```
    logman stop "NPSExtension" -ets
@@ -125,6 +129,7 @@ To collect debug logs for support diagnostics, use the following steps:
    Start .
    ```
 
-4. Zip the contents of the C:\NPS folder and attach the zipped file to the support case.
+5. Open Registry Editor and browse to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** to **FALSE**
+6. Zip the contents of the C:\NPS folder and attach the zipped file to the support case.
 
 

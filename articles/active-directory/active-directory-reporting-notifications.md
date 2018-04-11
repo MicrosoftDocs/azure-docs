@@ -4,7 +4,7 @@ description: How to use the Azure Active Directory reporting notifications for s
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
@@ -33,16 +33,16 @@ The email is sent to all global admins who have been assigned an Active Director
 The email is sent if 10 new irregular sign-in activities occur in the last 30 days, or since the last email was sent, whichever is less.
 
 ## How do I access the report mentioned in the email?
-When you click on the link, you will be redirected to the report page within the Azure classic portal. In order to access the report, you need to be both:
+When you click on the link, you will be redirected to the report page within the Azure portal. In order to access the report, you need to be both:
 
 * An admin or co-admin of your Azure subscription
 * A global administrator in the directory, and assigned an Active Directory Premium license. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
 ## Can I turn off these emails?
-Yes, to turn off notifications related to anomalous sign-ins within the Azure classic portal, click **Configure**, and then select **Disabled** under the **Notifications** section.
+Yes, to turn off notifications related to anomalous sign-ins within the Azure portal, click **Configure**, and then select **Disabled** under the **Notifications** section.
 
 ## What's next
 * Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md)
 * [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
+* [Add company branding to your Sign In and Access Panel pages](customize-branding.md)
 

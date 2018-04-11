@@ -12,7 +12,7 @@
 3. In the **Add volume container** blade:
    
    1. The device is automatically selected.
-   2. Supply a **Name** for your volume container. The name must be 3 to 32 characters long.
+   2. Supply a **Name** for your volume container. The name must be 3 to 32 characters long. You cannot rename a volume container once it is created.
    3. Select **Enable Cloud Storage Encryption** to enable encryption of the data sent from the device to the cloud.
    4. Provide and confirm a **Cloud Storage Encryption Key** that is 8 to 32 characters long. This key is used by the device to access encrypted data.
    5. Select a **Storage Account** to associate with this volume container. You can choose an existing storage account or the default account that is generated at the time of service creation. You can also use the **Add new** option to specify a storage account that is not linked to this service subscription.

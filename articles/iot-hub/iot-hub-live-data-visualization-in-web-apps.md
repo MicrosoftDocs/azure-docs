@@ -3,7 +3,7 @@ title: Real-time data visualization of sensor data from your Azure IoT hub – W
 description: Use the Web Apps feature of Microsoft Azure App Service to visualize temperature and humidity data that is collected from the sensor and sent to your Iot hub.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: 'real time data visualization, live data visualization, sensor data visualization'
@@ -14,8 +14,8 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
-ms.author: xshi
+ms.date: 4/11/2018
+ms.author: rangv
 
 ---
 # Visualize real-time sensor data from your Azure IoT hub by using the Web Apps feature of Azure App Service
@@ -46,7 +46,7 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 
 ## Create a web app
 
-1. In the [Azure portal](https://ms.portal.azure.com/), click **New** > **Web + Mobile** > **Web App**.
+1. In the [Azure portal](https://portal.azure.com/), click **Create a resource** > **Web + Mobile** > **Web App**.
 2. Enter a unique job name, verify the subscription, specify a resource group and a location, select **Pin to dashboard**, and then click **Create**.
 
    We recommend that you select the same location as that of your resource group. Doing so assists with processing speed and reduces the cost of data transfer.
@@ -108,6 +108,9 @@ On the **Overview** page of your web app, click the URL to open the web app.
 You should see the real-time temperature and humidity data from your IoT hub.
 
 ![Web app page showing real-time temperature and humidity](media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
+
+> [!NOTE]
+> Ensure the sample application is running on your device. If not, you will get a blank chart, you can refer to the tutorials under [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md).
 
 ## Next steps
 You've successfully used your web app to visualize real-time sensor data from your IoT hub.

@@ -12,8 +12,8 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 07/06/2017
+ms.topic: article
+ms.date: 02/23/2018
 ms.author: tomfitz
 
 ---
@@ -23,40 +23,40 @@ In this article, you learn how to export a Resource Manager template from existi
 There are two ways to export a template:
 
 * You can export the **actual template used for deployment**. The exported template includes all the parameters and variables exactly as they appeared in the original template. This approach is helpful when you deployed resources through the portal, and want to see the template to create those resources. This template is readily usable. 
-* You can export a **generated template that represents the current state of the resource group**. The exported template is not based on any template that you used for deployment. Instead, it creates a template that is a snapshot of the resource group. The exported template has many hard-coded values and probably not as many parameters as you would typically define. This approach is useful when you have modified the resource group after deployment. This template usually requires modifications before it is usable.
+* You can export a **generated template that represents the current state of the resource group**. The exported template is not based on any template that you used for deployment. Instead, it creates a template that is a "snapshot" or "backup" of the resource group. The exported template has many hard-coded values and probably not as many parameters as you would typically define. Use this option to redeploy resources to the same resource group. To use this template for another resource group, you may have to significantly modify it.
 
-This topic shows both approaches through the portal.
+This article shows both approaches through the portal.
 
 ## Deploy resources
-Let's start by deploying resources to Azure that you can use for exporting as a template. If you already have a resource group in your subscription that you want to export to a template, you can skip this section. The remainder of this article assumes you have deployed the web app and SQL database solution shown in this section. If you use a different solution, your experience might be a little different, but the steps to export a template are the same. 
+Let's start by deploying resources to Azure that you can use for exporting as a template. If you already have a resource group in your subscription that you want to export to a template, you can skip this section. The rest of this article assumes you've deployed the web app and SQL database solution shown in this section. If you use a different solution, your experience might be a little different, but the steps to export a template are the same. 
 
-1. In the [Azure portal](https://portal.azure.com), select **New**.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
    
-      ![select new](./media/resource-manager-export-template/new.png)
+      ![Select new](./media/resource-manager-export-template/new.png)
 2. Search for **web app + SQL** and select it from the available options.
    
-      ![search web app and SQL](./media/resource-manager-export-template/webapp-sql.png)
+      ![Search web app and SQL](./media/resource-manager-export-template/webapp-sql.png)
 
 3. Select **Create**.
 
-      ![select create](./media/resource-manager-export-template/create.png)
+      ![Select create](./media/resource-manager-export-template/create.png)
 
 4. Provide the required values for the web app and SQL database. Select **Create**.
 
-      ![provide web and SQL value](./media/resource-manager-export-template/provide-web-values.png)
+      ![Provide web and SQL value](./media/resource-manager-export-template/provide-web-values.png)
 
 The deployment may take a minute. After the deployment finishes, your subscription contains the solution.
 
 ## View template from deployment history
-1. Go to the resource group blade for your new resource group. Notice that the blade shows the result of the last deployment. Select this link.
+1. Go to the resource group for your new resource group. Notice that the portal shows the result of the last deployment. Select this link.
    
-      ![resource group blade](./media/resource-manager-export-template/select-deployment.png)
-2. You see a history of deployments for the group. In your case, the blade probably lists only one deployment. Select this deployment.
+      ![Resource group](./media/resource-manager-export-template/select-deployment.png)
+2. You see a history of deployments for the group. In your case, the portal probably lists only one deployment. Select this deployment.
    
-     ![last deployment](./media/resource-manager-export-template/select-history.png)
-3. The blade displays a summary of the deployment. The summary includes the status of the deployment and its operations and the values that you provided for parameters. To see the template that you used for the deployment, select **View template**.
+     ![Last deployment](./media/resource-manager-export-template/select-history.png)
+3. The portal displays a summary of the deployment. The summary includes the status of the deployment and its operations and the values that you provided for parameters. To see the template that you used for the deployment, select **View template**.
    
-     ![view deployment summary](./media/resource-manager-export-template/view-template.png)
+     ![View deployment summary](./media/resource-manager-export-template/view-template.png)
 4. Resource Manager retrieves the following seven files for you:
    
    1. **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
@@ -67,23 +67,23 @@ The deployment may take a minute. After the deployment finishes, your subscripti
    5. **.NET** - A .NET class that you can use to deploy the template.
    6. **Ruby** - A Ruby class that you can use to deploy the template.
       
-      The files are available through links across the blade. By default, the blade displays the template.
+      By default, the portal displays the template.
       
-       ![view template](./media/resource-manager-export-template/see-template.png)
+       ![View template](./media/resource-manager-export-template/see-template.png)
       
 This template is the actual template used to create your web app and SQL database. Notice it contains parameters that enable you to provide different values during deployment. To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
 ## Export the template from resource group
-If you have manually changed your resources or added resources in multiple deployments, retrieving a template from the deployment history does not reflect the current state of the resource group. This section shows you how to export a template that reflects the current state of the resource group. 
+If you've manually changed your resources or added resources in multiple deployments, retrieving a template from the deployment history doesn't reflect the current state of the resource group. This section shows you how to export a template that reflects the current state of the resource group. It is intended as a snapshot of the resource group, which you can use to redeploy to the same resource group. To use the exported template for other solutions, you must significantly modify it.
 
 > [!NOTE]
-> You cannot export a template for a resource group that has more than 200 resources.
+> You can't export a template for a resource group that has more than 200 resources.
 > 
 > 
 
 1. To view the template for a resource group, select **Automation script**.
    
-      ![export resource group](./media/resource-manager-export-template/select-automation.png)
+      ![Export resource group](./media/resource-manager-export-template/select-automation.png)
    
      Resource Manager evaluates the resources in the resource group, and generates a template for those resources. Not all resource types support the export template function. You may see an error stating that there is a problem with the export. You learn how to handle those issues in the [Fix export issues](#fix-export-issues) section.
 2. You again see the six files that you can use to redeploy the solution. However, this time the template is a little different. Notice that the generated template contains fewer parameters than the template in previous section. Also, many of the values (like location and SKU values) are hard-coded in this template rather than accepting a parameter value. Before reusing this template, you might want to edit the template to make better use of parameters. 
@@ -92,31 +92,31 @@ If you have manually changed your resources or added resources in multiple deplo
    
      If you are comfortable using a JSON editor like [VS Code](https://code.visualstudio.com/) or [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), you might prefer downloading the template locally and using that editor. To work locally, select **Download**.
    
-      ![download template](./media/resource-manager-export-template/download-template.png)
+      ![Download template](./media/resource-manager-export-template/download-template.png)
    
-     If you are not set up with a JSON editor, you might prefer editing the template through the portal. The remainder of this topic assumes you have saved the template to your library in the portal. However, you make the same syntax changes to the template whether working locally with a JSON editor or through the portal. To work through the portal, select **Add to library**.
+     If you aren't set up with a JSON editor, you might prefer editing the template through the portal. The rest of this article assumes you've saved the template to your library in the portal. However, you make the same syntax changes to the template whether working locally with a JSON editor or through the portal. To work through the portal, select **Add to library**.
    
-      ![add to library](./media/resource-manager-export-template/add-to-library.png)
+      ![Add to library](./media/resource-manager-export-template/add-to-library.png)
    
-     When adding a template to the library, give the template a name and description. Then, select **Save**.
+     When adding a template to the library, you give the template a name and description. Then, select **Save**.
    
-     ![set template values](./media/resource-manager-export-template/save-library-template.png)
+     ![Set template values](./media/resource-manager-export-template/save-library-template.png)
 4. To view a template saved in your library, select **More services**, type **Templates** to filter results, select **Templates**.
    
-      ![find templates](./media/resource-manager-export-template/find-templates.png)
+      ![Find templates](./media/resource-manager-export-template/find-templates.png)
 5. Select the template with the name you saved.
    
-      ![select template](./media/resource-manager-export-template/select-saved-template.png)
+      ![Select template](./media/resource-manager-export-template/select-saved-template.png)
 
 ## Customize the template
 The exported template works fine if you want to create the same web app and SQL database for every deployment. However, Resource Manager provides options so that you can deploy templates with a lot more flexibility. This article shows you how to add parameters for the database administrator name and password. You can use this same approach to add more flexibility for other values in the template.
 
 1. To customize the template, select **Edit**.
    
-     ![show template](./media/resource-manager-export-template/select-edit.png)
+     ![Show template](./media/resource-manager-export-template/select-edit.png)
 2. Select the template.
    
-     ![edit template](./media/resource-manager-export-template/select-added-template.png)
+     ![Edit template](./media/resource-manager-export-template/select-added-template.png)
 3. To be able to pass the values that you might want to specify during deployment, add the following two parameters to the **parameters** section in the template:
 
    ```json
@@ -151,10 +151,10 @@ The exported template works fine if you want to create the same web app and SQL 
 6. Select **OK** when you are done editing the template.
 7. Select **Save** to save the changes to the template.
    
-     ![save template](./media/resource-manager-export-template/save-template.png)
+     ![Save template](./media/resource-manager-export-template/save-template.png)
 8. To redeploy the updated template, select **Deploy**.
    
-     ![deploy template](./media/resource-manager-export-template/redeploy-template.png)
+     ![Deploy template](./media/resource-manager-export-template/redeploy-template.png)
 9. Provide parameter values, and select a resource group to deploy the resources to.
 
 
@@ -167,9 +167,8 @@ Not all resource types support the export template function. To resolve this iss
 > 
 
 ## Next steps
-You have learned how to export a template from resources that you created in the portal.
 
 * You can deploy a template through [PowerShell](resource-group-template-deploy.md), [Azure CLI](resource-group-template-deploy-cli.md), or [REST API](resource-group-template-deploy-rest.md).
-* To see how to export a template through PowerShell, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
-* To see how to export a template through Azure CLI, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+* To see how to export a template through PowerShell, see [Export Azure Resource Manager templates with PowerShell](resource-manager-export-template-powershell.md).
+* To see how to export a template through Azure CLI, see [Export Azure Resource Manager templates with Azure CLI](resource-manager-export-template-cli.md).
 

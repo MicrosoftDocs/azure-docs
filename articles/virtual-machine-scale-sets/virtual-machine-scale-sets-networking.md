@@ -3,8 +3,8 @@ title: Networking for Azure virtual machine scale sets | Microsoft Docs
 description: Configuration networking properties for Azure virtual machine scale sets.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,18 +14,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
-ms.author: guybo
+ms.date: 07/17/2017
+ms.author: negat
 
 ---
 # Networking for Azure virtual machine scale sets
 
 When you deploy an Azure virtual machine scale set through the portal, certain network properties are defaulted, for example an Azure Load Balancer with inbound NAT rules. This article describes how to use some of the more advanced networking features that you can configure with scale sets.
 
-You can configure all of the features covered in this article using Azure Resource Manager templates. Azure CLI examples are also included for selected features. Use a July 2017 or later CLI version. Additional CLI, and PowerShell, examples will be added soon.
+You can configure all of the features covered in this article using Azure Resource Manager templates. Azure CLI and PowerShell examples are also included for selected features. Use CLI 2.10, and PowerShell 4.2.0 or later.
 
 ## Accelerated Networking
-Azure [Accelerated Networking](../virtual-network/virtual-network-create-vm-accelerated-networking.md) improves  network performance by enabling single root I/O virtualization (SR-IOV) to a virtual machine. To use accelerated networking with scale sets, set enableAcceleratedNetworking to **true** in your scale set's networkInterfaceConfigurations settings. For example:
+Azure Accelerated Networking improves network performance by enabling single root I/O virtualization (SR-IOV) to a virtual machine. To learn more about using Accelerated networking, see Accelerated networking for [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) virtual machines. To use accelerated networking with scale sets, set enableAcceleratedNetworking to **true** in your scale set's networkInterfaceConfigurations settings. For example:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -104,7 +104,7 @@ To set the domain name in an Azure template, add a **dnsSettings** property to t
 
 The output, for an individual virtual machine dns name would be in the following form: 
 ```
-<vmname><vmindex>.<specifiedVmssDomainNameLabel>
+<vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
 ## Public IPv4 per virtual machine
@@ -130,7 +130,17 @@ Example template: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quic
 ### Querying the public IP addresses of the virtual machines in a scale set
 To list the public IP addresses assigned to scale set virtual machines using CLI 2.0, use the **az vmss list-instance-public-ips** command.
 
-You can also query the public IP addresses assigned to scale set virtual machines using the [Azure Resource Explorer](https://resources.azure.com), or the Azure REST API with version **2017-03-30** or higher.
+To list scale set public IP addresses using PowerShell, use the _Get-AzureRmPublicIpAddress_ command. For example:
+```PowerShell
+PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+```
+
+You can also query the public IP addresses by referencing the resource ID of the public IP address configuration directly. For example:
+```PowerShell
+PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+```
+
+To query the public IP addresses assigned to scale set virtual machines using the [Azure Resource Explorer](https://resources.azure.com), or the Azure REST API with version **2017-03-30** or higher.
 
 To view public IP addresses for a scale set using the Resource Explorer, look at the **publicipaddresses** section under your scale set. For example:
 https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
@@ -294,4 +304,4 @@ For example:
 ```
 
 ## Next steps
-For more information about Azure virtual networks, refer to [this documentation](../virtual-network/virtual-networks-overview.md).
+For more information about Azure virtual networks, see [Azure virtual networks overview](../virtual-network/virtual-networks-overview.md).

@@ -4,7 +4,7 @@ description: This article provides an overview of the Single Sign-On and Single 
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
@@ -13,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 07/21/2017
 ms.author: priyamo
 ms.custom: aaddev
+ms.reviewer: dastrock
 
 ---
 # How Azure Active Directory uses the SAML protocol

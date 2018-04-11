@@ -4,21 +4,19 @@ description: Learn how to add roles to privileged identities with the Azure Acti
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
-
-ms.assetid: 6a47ced8-cf34-4ce8-bea2-e4fc548cfe22
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/06/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.custom: pim
+
 ---
 # Azure AD Privileged Identity Management: How to add or remove a user role
-With Azure Active Directory (AD), a global administrator (or company administrator) can update which users are **permanently** assigned to roles in Azure AD. This is done with PowerShell cmdlets like `Add-MsolRoleMember` and `Remove-MsolRoleMember`. Or they can use the Azure classic portal as described in [assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
+With Azure Active Directory (AD), a global administrator (or company administrator) can update which users are **permanently** assigned to roles in Azure AD. This is done with PowerShell cmdlets like `Add-MsolRoleMember` and `Remove-MsolRoleMember`. Or they can use the Azure portal as described in [assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
 
 The Azure AD Privileged Identity Management application allows privileged role administrators to make permanent role assignments, as well. Additionally, privileged role administrators can make users **eligible** for admin roles. An eligible admin can activate the role when they need it, and then their permissions expire once they're done.
 

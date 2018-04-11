@@ -2,8 +2,8 @@
 ms.assetid: 
 title: Azure Key Vault throttling guidance | Microsoft Docs
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+author: lleonard-msft
+ms.author: alleonar
 manager: mbaldwin
 ms.date: 06/21/2017
 ---
