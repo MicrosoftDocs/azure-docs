@@ -39,7 +39,7 @@ This feature is important because it allows the tenant admin to see all the subs
 > [!TIP] 
 > The impression is that this is a Global Property for Azure Active Directory, however, it functions on a per-user basis for the currently logged on user. When you have Global Administrator rights in Azure Active Directory, you can invoke the elevateAccess feature for the user that you are currently logged into Azure Active Directory Admin Center.
 
-![Azure AD Admin Center - Properties - Global admin can manage Azure Subscription - screenshot](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+![Azure AD Admin Center - Properties - Global admin can manage Azure Subscription - screenshot](./media/elevate-access-global-admin/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
 ## View role assignments at the "/" scope using PowerShell
 To view the **User Access Administrator** assignment at the **/** scope, use the `Get-AzureRmRoleAssignment` PowerShell cmdlet.
@@ -190,6 +190,6 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 
 ## Next steps
 
-- Learn more about [managing Role-Based Access Control with REST](role-based-access-control-manage-access-rest.md)
+- Learn more about [managing Role-Based Access Control with REST](role-assignments-rest.md)
 
-- [Manage access assignments](role-based-access-control-manage-assignments.md) in the Azure portal
+- [Manage access assignments](role-assignments-users.md) in the Azure portal

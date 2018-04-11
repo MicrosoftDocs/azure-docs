@@ -27,4 +27,4 @@ You can now use PIM with Azure Role-Based Access Control (RBAC) to manage, contr
 - Assign temporary access to Azure resources for quick tasks or on-call schedules
 - Get alerts when new users or groups are assigned resource access, and when they activate eligible assignments
 
-For more information, see [Overview of Role-Based Access Control in Azure PIM](privileged-identity-management/azure-pim-resource-rbac.md).
+For more information, see [Overview of Role-Based Access Control in Azure PIM](../active-directory/privileged-identity-management/azure-pim-resource-rbac.md).

@@ -27,7 +27,7 @@ Each Azure subscription is associated with one Azure Active Directory (AD) direc
 
 Grant access by assigning the appropriate RBAC role to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource. A role assigned at a parent scope also grants access to the children contained within it. For example, a user with access to a resource group can manage all the resources it contains, like websites, virtual machines, and subnets.
 
-![Relationship between Azure Active Directory elements - diagram](./media/role-based-access-control-what-is/rbac_aad.png)
+![Relationship between Azure Active Directory elements - diagram](./media/overview/rbac_aad.png)
 
 The RBAC role that you assign dictates what resources the user, group, or application can manage within that scope.
 
@@ -40,7 +40,7 @@ Azure RBAC has three basic roles that apply to all resource types:
 
 The rest of the RBAC roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the virtual network or the subnet that the virtual machine connects to. 
 
-[RBAC built-in roles](role-based-access-built-in-roles.md) lists the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md).
+[RBAC built-in roles](built-in-roles.md) lists the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](custom-roles.md).
 
 ## Resource hierarchy and access inheritance
 * Each **subscription** in Azure belongs to only one directory. (But each directory can have more than one subscription.)
@@ -61,6 +61,6 @@ Only the Azure portal and the new Azure Resource Manager APIs support Azure RBAC
 Azure RBAC only supports management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. It cannot authorize all data level operations for Azure resources. For example, you can authorize someone to manage Storage Accounts, but not to the blobs or tables within a Storage Account. Similarly, a SQL database can be managed, but not the tables within it.
 
 ## Next Steps
-* Get started with [Role-Based Access Control in the Azure portal](role-based-access-control-configure.md).
-* See the [RBAC built-in roles](role-based-access-built-in-roles.md)
-* Define your own [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md)
+* Get started with [Role-Based Access Control in the Azure portal](role-assignments-portal.md).
+* See the [RBAC built-in roles](built-in-roles.md)
+* Define your own [Custom roles in Azure RBAC](custom-roles.md)

@@ -45,11 +45,11 @@ Operations such as moving resources between subscriptions can be more difficult 
 
 ## Next Steps
 * To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing/billing-add-change-azure-subscription-administrator.md)
-* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
-* For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
+* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
+* For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-understanding-resource-access/IC707931.png
-[2]: ./media/active-directory-understanding-resource-access/IC707932.png
-[3]: ./media/active-directory-understanding-resource-access/IC707933.png
-[4]: ./media/active-directory-understanding-resource-access/IC707934.png
+[1]: ./media/rbac-and-directory-admin-roles/IC707931.png
+[2]: ./media/rbac-and-directory-admin-roles/IC707932.png
+[3]: ./media/rbac-and-directory-admin-roles/IC707933.png
+[4]: ./media/rbac-and-directory-admin-roles/IC707934.png

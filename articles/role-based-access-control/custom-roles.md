@@ -18,7 +18,7 @@ ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ---
 # Create custom roles for Azure Role-Based Access Control
-Create a custom role in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure Command-Line Interface](role-based-access-control-manage-access-azure-cli.md) (CLI), and the [REST API](role-based-access-control-manage-access-rest.md). Just like built-in roles, you can assign custom roles to users, groups, and applications at subscription, resource group, and resource scopes. Custom roles are stored in an Azure AD tenant and can be shared across subscriptions.
+Create a custom role in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using [Azure PowerShell](role-assignments-powershell.md), [Azure Command-Line Interface](role-assignments-cli.md) (CLI), and the [REST API](role-assignments-rest.md). Just like built-in roles, you can assign custom roles to users, groups, and applications at subscription, resource group, and resource scopes. Custom roles are stored in an Azure AD tenant and can be shared across subscriptions.
 
 Each tenant can create up to 2000 custom roles. 
 
@@ -69,7 +69,7 @@ Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Ope
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```
 
-![PowerShell screenshot - Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+![PowerShell screenshot - Get-AzureRMProviderOperation](./media/custom-roles/1-get-azurermprovideroperation-1.png)
 
 ```azurecli
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
@@ -77,7 +77,7 @@ azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js
 azure provider operations show "Microsoft.Network/*"
 ```
 
-![Azure CLI screenshot - azure provider operations show "Microsoft.Compute/virtualMachines/\*/action" ](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
+![Azure CLI screenshot - azure provider operations show "Microsoft.Compute/virtualMachines/\*/action" ](./media/custom-roles/1-azure-provider-operations-show.png)
 
 ## NotActions
 Use the **NotActions** property if the set of operations that you wish to allow is more easily defined by excluding restricted operations. The access granted by a custom role is computed by subtracting the **NotActions** operations from the **Actions** operations.
@@ -113,10 +113,10 @@ The **AssignableScopes** property of the custom role also controls who can view,
     All built-in roles in Azure RBAC allow viewing of roles that are available for assignment. Users who can perform the `Microsoft.Authorization/roleDefinition/read` operation at a scope can view the RBAC roles that are available for assignment at that scope.
 
 ## See also
-* [Role Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
-* For a list of available operations, see [Azure Resource Manager Resource Provider operations](role-based-access-control-resource-provider-operations.md).
+* [Role Based Access Control](role-assignments-portal.md): Get started with RBAC in the Azure portal.
+* For a list of available operations, see [Azure Resource Manager Resource Provider operations](resource-provider-operations.md).
 * Learn how to manage access with:
-  * [PowerShell](role-based-access-control-manage-access-powershell.md)
-  * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-  * [REST API](role-based-access-control-manage-access-rest.md)
-* [Built-in roles](role-based-access-built-in-roles.md): Get details about the roles that come standard in RBAC.
+  * [PowerShell](role-assignments-powershell.md)
+  * [Azure CLI](role-assignments-cli.md)
+  * [REST API](role-assignments-rest.md)
+* [Built-in roles](built-in-roles.md): Get details about the roles that come standard in RBAC.
