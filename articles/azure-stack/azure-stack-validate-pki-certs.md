@@ -67,19 +67,19 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates:
 2. Create the certificate directory structure. In the example below, you can change `<c:\certificates>` to a new directory path of your choice.
 
     ````PowerShell  
-    New-Item C:\<Certificates> -ItemType Directory
+    New-Item C:\Certificates -ItemType Directory
 
     $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal' 
 
-    $destination = '<c:\certificates>' 
+    $destination = 'c:\certificates' 
 
     $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
     ````
 
  - Place your certificate(s) in the appropriate directories created in the previous step. For example:  
-    - `c:\certificates\ACSBlob\CustomerCertificate.pfx` 
-    - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx` 
-    - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx` 
+    - c:\certificates\ACSBlob\CustomerCertificate.pfx 
+    - c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx 
+    - c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx 
     - and so on… 
 
 3. In the PowerShell window run:
@@ -92,39 +92,39 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates:
 
 4. Review the output to verify that all the certificates passed the tests. For example:
 
-````PowerShell
-AzsReadinessChecker v1.1803.405.3 started
-Starting Certificate Validation
+    ````PowerShell
+    AzsReadinessChecker v1.1803.405.3 started
+    Starting Certificate Validation
 
-Starting Azure Stack Certificate Validation 1.1803.405.3
-Testing: ARM Public\ssl.pfx
-	Read PFX: OK
-	Signature Algorithm: OK
-	Private Key: OK
-	Cert Chain: OK
-	DNS Names: OK
-	Key Usage: OK
-	Key Size: OK
-	Chain Order: OK
-	Other Certificates: OK
-Testing: ACSBlob\ssl.pfx
-	Read PFX: OK
-	Signature Algorithm: OK
-	Private Key: OK
-	Cert Chain: OK
-	DNS Names: OK
-	Key Usage: OK
-	Key Size: OK
-	Chain Order: OK
-	Other Certificates: OK
-Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
+    Starting Azure Stack Certificate Validation 1.1803.405.3
+    Testing: ARM Public\ssl.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: ACSBlob\ssl.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
 
-Finished Certificate Validation
+    Finished Certificate Validation
 
-AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
-AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessReport.json
-AzsReadinessChecker Completed
-````
+    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
+    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessReport.json
+    AzsReadinessChecker Completed
+    ````
 
 ### Known issues
 
@@ -134,28 +134,28 @@ AzsReadinessChecker Completed
 
  - Other certificates are skipped if certificate chain fails.
 
-````PowerShell  
-Testing: ACSBlob\singlewildcard.pfx
-    Read PFX: OK
-    Signature Algorithm: OK
-    Private Key: OK
-    Cert Chain: OK
-    DNS Names: Fail
-    Key Usage: OK
-    Key Size: OK
-    Chain Order: OK
-    Other Certificates: Skipped
-Details:
-The certificate records '*.east.azurestack.contoso.com' do not contain a record that is valid for '*.blob.east.azurestack.contoso.com'. Please refer to the documentation for how to create the required certificate file.
-The Other Certificates check was skipped because Cert Chain and/or DNS Names failed. Follow the guidance to remediate those issues and recheck. 
-Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
+    ````PowerShell  
+    Testing: ACSBlob\singlewildcard.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: Fail
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: Skipped
+    Details:
+    The certificate records '*.east.azurestack.contoso.com' do not contain a record that is valid for '*.blob.east.azurestack.contoso.com'. Please refer to the documentation for how to create the required certificate file.
+    The Other Certificates check was skipped because Cert Chain and/or DNS Names failed. Follow the guidance to remediate those issues and recheck. 
+    Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
 
-Finished Certificate Validation
+    Finished Certificate Validation
 
-AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
-AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessChecker.log
-AzsReadinessChecker Completed
-````
+    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
+    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessChecker.log
+    AzsReadinessChecker Completed
+    ````
 
 **Resolution**: Follow the tool's guidance in the details section under each set of tests for each certificate.
 
