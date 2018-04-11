@@ -3,8 +3,8 @@ title: Deploy templates with PowerShell in Azure Stack | Microsoft Docs
 description: Learn how to deploy a virtual machine using a Resource Manager template and PowerShell.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: heathl17
+manager: byronr
 editor: ''
 
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
@@ -14,8 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: brenduns
-ms.reviewer:
+ms.author: helaw
 
 ---
 # Deploy templates in Azure Stack using PowerShell

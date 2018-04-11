@@ -2,8 +2,9 @@
 title: Azure PowerShell Samples for Azure Cosmos DB | Microsoft Docs
 description: Azure PowerShell Samples - Scripts to help you create and manage Azure Cosmos DB accounts. 
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
+author: mimig1
+manager: jhubbard
+editor: ''
 tags: azure-service-management
 
 ms.assetid: 
@@ -14,10 +15,12 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 10/16/2017
-ms.author: sngun
+ms.author: mimig
 ---
 
 # Azure PowerShell samples for Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB. At this time you can only manage the Azure Cosmos DB accountlayer via PowerShell; other resources such as databases and collections cannot be managed via PowerShell.
 

@@ -2,8 +2,9 @@
 title: Retired Azure Cosmos DB performance levels | Microsoft Docs
 description: Learn about the S1, S2, and S3 performance levels previously available in Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
+author: mimig1
+manager: jhubbard
+editor: monicar
 documentationcenter: ''
 
 ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
@@ -13,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: sngun
+ms.author: mimig
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -22,6 +23,8 @@ ms.custom: H1Hack27Feb2017
 > [!IMPORTANT] 
 > The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new Azure Cosmos DB accounts.
 >
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 This article provides an overview of S1, S2, and S3 performance levels, and discusses how the collections that use these performance levels will be migrated to single partition collections late in 2017. After reading this article, you'll be able to answer the following questions:
 
@@ -141,7 +144,7 @@ Another option for changing your collections' performance levels is through the 
 
 Here is a code snippet for changing the collection throughput to 5,000 request units per second:
     
-```csharp
+```C#
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
                       .Where(r => r.ResourceLink == collection.SelfLink)    

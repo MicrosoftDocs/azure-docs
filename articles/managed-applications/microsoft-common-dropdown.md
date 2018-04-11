@@ -1,6 +1,6 @@
 ---
-title: Azure DropDown UI element | Microsoft Docs
-description: Describes the Microsoft.Common.DropDown UI element for Azure portal.
+title: Azure Managed Application DropDown UI element | Microsoft Docs
+description: Describes the Microsoft.Common.DropDown UI element for Azure Managed Applications
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 10/12/2017
 ms.author: tomfitz
 
 ---
 
 # Microsoft.Common.DropDown UI element
-A selection control with a dropdown list.
+A selection control with a dropdown list. You use this element when [creating an Azure Managed Application](publish-service-catalog-app.md).
 
 ## UI sample
 ![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
@@ -29,17 +29,17 @@ A selection control with a dropdown list.
   "name": "element1",
   "type": "Microsoft.Common.DropDown",
   "label": "Some drop down",
-  "defaultValue": "my value",
+  "defaultValue": "Foo",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
       {
-        "label": "Value one",
-        "value": "one"
+        "label": "Foo",
+        "value": "Bar"
       },
       {
-        "label": "Value two",
-        "value": "two"
+        "label": "Baz",
+        "value": "Qux"
       }
     ]
   },
@@ -59,5 +59,6 @@ A selection control with a dropdown list.
 ```
 
 ## Next steps
+* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

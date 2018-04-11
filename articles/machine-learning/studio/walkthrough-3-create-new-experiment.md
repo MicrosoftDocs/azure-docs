@@ -3,9 +3,8 @@ title: 'Step 3: Create a new Machine Learning experiment | Microsoft Docs'
 description: 'Step 3 of the Develop a predictive solution walkthrough: Create a new training experiment in Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
+author: garyericson
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
+ms.author: garye
 
 ---
 # Walkthrough Step 3: Create a new Azure Machine Learning experiment

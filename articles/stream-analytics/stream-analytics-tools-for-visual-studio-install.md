@@ -1,20 +1,27 @@
 ---
-title: Setup Azure Stream Analytics tools for Visual Studio
-description: This article describes installation requirements and how to setup the Azure Stream Analytics tools for Visual Studio.
+title: Installation instructions for Azure Stream Analytics tools for Visual Studio | Microsoft Docs
+description: Installation instructions for Azure Stream Analytics tools for Visual Studio
+keywords: visual studio
+documentationcenter: ''
 services: stream-analytics
 author: su-jie
-ms.author: sujie
-manager: kfile
-ms.reviewer: jasonh
+manager: 
+editor: 
+
+ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 09/19/2017
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 9/19/2017
+ms.author: sujie
 
 ---
-# Install Azure Stream Analytics tools for Visual Studio
-Azure Stream Analytics tools now support Visual Studio 2017, 2015, and 2013. This document describes how to install and uninstall the tools.
+# Installation instructions for Stream Analytics tools for Visual Studio
+Azure Stream Analytics tools now support Visual Studio 2017, 2015, and 2013. In this document, we introduce how to install and uninstall the tools.
 
-For more information on using the tools, see [Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Learn how to use [Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## Install
 ### Visual Studio 2017

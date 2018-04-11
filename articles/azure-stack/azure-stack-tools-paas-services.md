@@ -3,8 +3,8 @@ title: Tools and PaaS services for Azure Stack | Microsoft Docs
 description: Learn how to get started with PaaS services in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: ErikjeMS
+manager: byronr
 editor: ''
 
 ms.assetid: 2ce8d7e3-bc5d-4d61-8ab8-e8f61df40675
@@ -14,8 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
-ms.author: brenduns
-ms.reviewer:
+ms.author: erikje
 
 ---
 # PaaS services for Azure Stack

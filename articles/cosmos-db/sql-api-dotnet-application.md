@@ -4,8 +4,9 @@ description: ASP.NET MVC tutorial to create an MVC web application using Azure C
 keywords: asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step
 services: cosmos-db
 documentationcenter: .net
-author: SnehaGunda
-manager: kfile
+author: mimig1
+manager: jhubbard
+editor: cgronlun
 
 ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
 ms.service: cosmos-db
@@ -14,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
-ms.author: sngun
+ms.author: mimig
 ms.custom: devcenter
 
 
@@ -27,6 +28,8 @@ ms.custom: devcenter
 > * [Python](sql-api-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 To highlight how you can efficiently leverage Azure Cosmos DB to store and query JSON documents, this article provides an end-to-end walk-through showing you how to build a todo app using Azure Cosmos DB. The tasks will be stored as JSON documents in Azure Cosmos DB.
 

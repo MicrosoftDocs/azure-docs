@@ -2,7 +2,7 @@
 title: Frequently Asked Questions (FAQ) about Bing Web Search API on Azure | Microsoft Docs
 description: Get answers to common questions about Microsoft Cognitive Services Bing Web Search API on Azure.
 services: cognitive-services
-author: v-jerkin
+author: jerrykindall
 manager: jhubbard
 
 ms.service: cognitive-services

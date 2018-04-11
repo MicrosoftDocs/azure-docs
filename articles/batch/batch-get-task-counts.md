@@ -2,13 +2,13 @@
 title: Monitor a job's progress by counting tasks by state - Azure Batch | Microsoft Docs
 description: Monitor the progress of a job by calling the Get Task Counts operation to count tasks for a job. You can get a count of active, running, and completed tasks, and by tasks that have succeeded or failed.
 services: batch
-author: dlepow
-manager: jeconnoc
+author: tamram
+manager: timlt
 
 ms.service: batch
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: danlep
+ms.author: tamram
 
 ---
 # Count tasks by state to monitor a job's progress (Preview)

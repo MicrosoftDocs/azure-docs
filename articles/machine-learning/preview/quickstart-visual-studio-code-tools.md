@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: quickstart
+ms.topic: get-started-article
 ms.date: 11/15/2017
 ---
 

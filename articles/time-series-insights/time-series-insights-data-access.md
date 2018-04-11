@@ -3,8 +3,8 @@ title: Configure security to access and manage Azure Time Series Insights | Micr
 description: This article describes how to configure security and permissions as management access policies and data access policies to secure Azure Time Series Insights.
 services: time-series-insights
 ms.service: time-series-insights
-author: ashannon7
-ms.author: anshan
+author: op-ravi
+ms.author: omravi
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan

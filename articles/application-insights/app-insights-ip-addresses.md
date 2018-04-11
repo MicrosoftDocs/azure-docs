@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 12/13/2017
 ms.author: mbullwin
 
 ---
@@ -45,7 +45,7 @@ Status Monitor Configuration - needed only when making changes.
 | Configuration |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configuration |`auth.gfx.ms` | |`443` |
 | Configuration |`login.live.com` | |`443` |
-| Installation |`packages.nuget.org` , `nuget.org`, `api.nuget.org` | |`443` |
+| Installation |`packages.nuget.org` | |`443` |
 
 ## HockeyApp
 | Purpose | URL | IP | Ports |
@@ -58,34 +58,44 @@ This is the list of addresses from which [availability web tests](app-insights-m
 Open ports 80 (http) and 443 (https) for incoming traffic from these addresses (IP addresses are grouped by location):
 
 ```
-Australia East
+AU : Sydney
 13.70.83.252
 13.75.150.96
 13.75.153.9
 13.75.158.185
-Brazil South
+BR : Sao Paulo
 191.232.32.122
 191.232.172.45
 191.232.176.218
 191.232.191.225
-France South
+CH : Zurich
+94.245.66.43
+94.245.66.44
+94.245.66.45
+94.245.66.48
 52.136.140.221
 52.136.140.222
 52.136.140.223
 52.136.140.226
-France Central
-52.143.140.242
+FR : Paris
+94.245.72.44
+94.245.72.45
+94.245.72.46
+94.245.72.49
+94.245.72.52
+94.245.72.53
+52.143.140.242 
 52.143.140.246
 52.143.140.247
 52.143.140.249
-East Asia
+HK : Hong Kong
 13.75.121.122
 23.99.115.153
 23.99.123.38
 23.102.232.186
 52.175.38.49
 52.175.39.103
-North Europe
+IE : Dublin
 13.74.184.101
 13.74.185.160
 40.69.200.198
@@ -94,12 +104,12 @@ North Europe
 52.169.14.11
 52.169.237.149
 52.178.183.105
-Japan East
+JP : Kawaguchi
 52.243.33.33
 52.243.33.141
 52.243.35.253
 52.243.41.117
-West Europe
+NL : Amsterdam
 52.174.166.113
 52.174.178.96
 52.174.31.140
@@ -108,24 +118,32 @@ West Europe
 52.178.109.190
 52.178.111.139
 52.233.166.221
-UK South
+RU : Moscow
+94.245.82.32
+94.245.82.33
+94.245.82.37
+94.245.82.38
 51.140.79.229
 51.140.84.172
 51.140.87.211
 51.140.105.74
-UK West
+SE : Stockholm
+94.245.78.40
+94.245.78.41
+94.245.78.42
+94.245.78.45
 51.141.25.219
 51.141.32.101
 51.141.35.167
 51.141.54.177
-Southeast Asia
+SG : Singapore
 52.187.29.7
 52.187.179.17
 52.187.76.248
 52.187.43.24
 52.163.57.91
 52.187.30.120
-West US
+US : CA-San Jose
 104.45.228.236
 104.45.237.251
 13.64.152.110
@@ -136,7 +154,15 @@ West US
 40.118.131.182
 40.83.189.192
 40.83.215.122
-Central US
+US : FL-Miami
+65.54.78.49
+65.54.78.50
+65.54.78.51
+65.54.78.54
+65.54.78.57
+65.54.78.58
+65.54.78.59
+65.54.78.60
 52.165.130.58
 52.173.142.229
 52.173.147.190
@@ -145,7 +171,7 @@ Central US
 52.173.244.190
 52.173.36.222
 52.176.1.226
-North Central US
+US : IL-Chicago
 23.96.247.139
 23.96.249.113
 52.162.124.242
@@ -158,7 +184,7 @@ North Central US
 52.237.156.14
 52.237.157.218
 52.237.157.37
-South Central US
+US : TX-San Antonio
 104.210.145.106
 13.84.176.24
 13.84.49.16
@@ -169,7 +195,7 @@ South Central US
 52.171.141.253
 52.171.57.172
 52.171.58.140
-East US
+US : VA-Ashburn
 13.82.218.95
 13.90.96.71
 13.90.98.52
@@ -233,7 +259,7 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71 | 443
+| Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | dynamic | 443
 | Portal | gateway.azureserviceprofiler.net | dynamic | 443
 | Storage | *.core.windows.net | dynamic | 443
 
@@ -241,6 +267,6 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Agent | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> | 443
+| Agent | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | dynamic | 443
 | Portal | ppe.gateway.azureserviceprofiler.net | dynamic | 443
 | Storage | *.core.windows.net | dynamic | 443

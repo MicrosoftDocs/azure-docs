@@ -4,7 +4,7 @@ services: cloud-services
 description: Investigate performance issues in cloud services with the Visual Studio profiler
 documentationcenter: ''
 author: mikejo
-manager: douge
+manager: ghogen
 editor: ''
 tags: ''
 
@@ -44,35 +44,31 @@ You can use these instructions with an existing project or with a new project.  
 For example purposes, add some code to your project that takes
 a lot of time and demonstrates some obvious performance problem. For example, add the following code to a worker role project:
 
-```csharp
-public class Concatenator
-{
-    public static string Concatenate(int number)
+    public class Concatenator
     {
-        int count;
-        string s = "";
-        for (count = 0; count < number; count++)
+        public static string Concatenate(int number)
         {
-            s += "\n" + count.ToString();
+            int count;
+            string s = "";
+            for (count = 0; count < number; count++)
+            {
+                s += "\n" + count.ToString();
+            }
+            return s;
         }
-        return s;
     }
-}
-```
 
 Call this code from the RunAsync method in the worker role's RoleEntryPoint-derived class. (Ignore the warning about the method running synchronously.)
 
-```csharp
-private async Task RunAsync(CancellationToken cancellationToken)
-{
-    // TODO: Replace the following with your own logic.
-    while (!cancellationToken.IsCancellationRequested)
-    {
-        Trace.TraceInformation("Working");
-        Concatenator.Concatenate(10000);
-    }
-}
-```
+        private async Task RunAsync(CancellationToken cancellationToken)
+        {
+            // TODO: Replace the following with your own logic.
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                Trace.TraceInformation("Working");
+                Concatenator.Concatenate(10000);
+            }
+        }
 
 Build and run your cloud service locally without debugging (Ctrl+F5), with the solution configuration set to **Release**. This ensures that all files and folders are created for running the application locally, and ensures that all the emulators are started. Start the Compute Emulator UI from the taskbar to verify that your worker role is running.
 
@@ -93,11 +89,9 @@ If your project folder is on a network drive, the profiler will ask you to provi
  If there are multiple worker role processes in your application, you need to use the processID to distinguish them. You can query the processID programmatically by accessing the Process object. For example, if you add this code to the Run method of the RoleEntryPoint-derived class in a role, you can look at the
 log in the Compute Emulator UI to know what process to connect to.
 
-```csharp
-var process = System.Diagnostics.Process.GetCurrentProcess();
-var message = String.Format("Process ID: {0}", process.Id);
-Trace.WriteLine(message, "Information");
-```
+    var process = System.Diagnostics.Process.GetCurrentProcess();
+    var message = String.Format("Process ID: {0}", process.Id);
+    Trace.WriteLine(message, "Information");
 
 To view the log, start the Compute Emulator UI.
 
@@ -135,18 +129,16 @@ If you added the string concatenation code in this article, you should see a war
 ## 4: Make changes and compare performance
 You can also compare the performance before and after a code change.  Stop the running process, and edit the code to replace the string concatenation operation with the use of StringBuilder:
 
-```csharp
-public static string Concatenate(int number)
-{
-    int count;
-    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-    for (count = 0; count < number; count++)
+    public static string Concatenate(int number)
     {
-        builder.Append("\n" + count.ToString());
+        int count;
+        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+        for (count = 0; count < number; count++)
+        {
+             builder.Append("\n" + count.ToString());
+        }
+        return builder.ToString();
     }
-    return builder.ToString();
-}
-```
 
 Do another performance run, and then compare the performance. In the Performance Explorer, if the runs are in the same session, you can just select both reports, open the shortcut menu, and choose **Compare Performance Reports**. If you want to compare with a run in another performance session, open the **Analyze** menu, and choose **Compare Performance Reports**. Specify both files in the dialog box that appears.
 

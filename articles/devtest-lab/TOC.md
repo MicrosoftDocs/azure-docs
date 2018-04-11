@@ -1,5 +1,3 @@
-# [Devtest Labs Documentation](index.md)
-
 # Overview
 ## [About Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concepts](devtest-lab-concepts.md)
@@ -18,7 +16,6 @@
 ### [Create VMs](devtest-lab-add-vm.md)
 ### [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md)
 ### [Create and manage VMs with Azure CLI](devtest-lab-vmcli.md)
-### [Create a VM from a resource manager template](devtest-lab-use-resource-manager-template.md)
 ### [Restart a VM](devtest-lab-restart-vm.md)
 
 ## Use environments in a lab
@@ -49,6 +46,7 @@
 
 ## Manage reusable templates
 ### [Add a Git repository for artifacts and templates](devtest-lab-add-artifact-repo.md)
+### [Use a resource manager template](devtest-lab-use-resource-manager-template.md)
 ### [Manage formulas](devtest-lab-manage-formulas.md)
 
 ## Manage artifacts

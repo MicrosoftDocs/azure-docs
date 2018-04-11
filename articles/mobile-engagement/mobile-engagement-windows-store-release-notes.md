@@ -18,10 +18,6 @@ ms.author: piyushjo
 
 ---
 # Windows Universal Apps SDK Release Notes
-> [!IMPORTANT]
-> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
-> 
-
 ## 3.4.1 (11/03/2016)
 
 * Stability improvements.

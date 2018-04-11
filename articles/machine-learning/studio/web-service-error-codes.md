@@ -4,9 +4,8 @@ description: These error codes could be returned by an operation on an Azure Mac
 keywords: 
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
+author: garyericson
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
@@ -16,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
+ms.author: garye
 
 ---
  

@@ -4,15 +4,15 @@ description: Learn how to copy data from PostgreSQL to supported sink data store
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
+manager: jhubbard
+editor: spelluru
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 10/12/2017
 ms.author: jingwang
 
 ---
@@ -41,8 +41,7 @@ To use this PostgreSQL connector, you need to:
 - Install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) with version between 2.0.12 and 3.1.9 on the Integration Runtime machine.
 
 ## Getting started
-
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to PostgreSQL connector.
 
@@ -57,7 +56,7 @@ The following properties are supported for PostgreSQL linked service:
 | database | Name of the PostgreSQL database. |Yes |
 | schema | Name of the schema in the database. The schema name is case-sensitive. |No |
 | username | Specify user name to connect to the PostgreSQL database. |Yes |
-| password | Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| password | Specify password for the user account you specified for the username. Mark this field as a SecureString. |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**

@@ -1,5 +1,3 @@
-# [Azure China Documentation](index.md)
-
 # Overview
 ## [What is Azure China 21Vianet?](china-welcome.md)
 ## [Azure operations in China vs. global Azure](china-overview-operations.md)

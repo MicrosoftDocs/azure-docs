@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/26/2018
+ms.date: 8/30/2017
 ms.author: johnkem
 
 ---
@@ -37,31 +37,19 @@ Below we give an example of the template JSON file you need to generate for non-
 ## Non-Compute resource template
 For non-Compute resources, you will need to do two things:
 
-1. Add parameters to the parameters blob for the storage account name, event hub authorization rule ID, and/or Log Analytics workspace ID (enabling archival of Diagnostic Logs in a storage account, streaming of logs to Event Hubs, and/or sending logs to Log Analytics).
+1. Add parameters to the parameters blob for the storage account name, service bus rule ID, and/or OMS Log Analytics workspace ID (enabling archival of Diagnostic Logs in a storage account, streaming of logs to Event Hubs, and/or sending logs to Log Analytics).
    
     ```json
-    "settingName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
-      }
-    },
     "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
       }
     },
-    "eventHubAuthorizationRuleId": {
+    "serviceBusRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
-      }
-    },
-    "eventHubName": {
-      "type": "string",
-      "metadata": {
-        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
+        "description": "Resource ID of the Service Bus Rule for the Service Bus Namespace in which the Event Hub should be created or streamed to."
       }
     },
     "workspaceId":{
@@ -77,16 +65,14 @@ For non-Compute resources, you will need to do two things:
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "Microsoft.Insights/[parameters('settingName')]",
+        "name": "Microsoft.Insights/service",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
-        "apiVersion": "2017-05-01-preview",
+        "apiVersion": "2015-07-01",
         "properties": {
-          "name": "[parameters('settingName')]",
           "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-          "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
-          "eventHubName": "[parameters('eventHubName')]",
+          "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
           "workspaceId": "[parameters('workspaceId')]",
           "logs": [ 
             {
@@ -100,7 +86,7 @@ For non-Compute resources, you will need to do two things:
           ],
           "metrics": [
             {
-              "category": "AllMetrics",
+              "timeGrain": "PT1M",
               "enabled": true,
               "retentionPolicy": {
                 "enabled": false,
@@ -113,7 +99,7 @@ For non-Compute resources, you will need to do two things:
     ]
     ```
 
-The properties blob for the Diagnostic Setting follows [the format described in this article](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). Adding the `metrics` property will enable you to also send resource metrics to these same outputs, provided that [the resource supports Azure Monitor metrics](monitoring-supported-metrics.md).
+The properties blob for the Diagnostic Setting follows [the format described in this article](https://msdn.microsoft.com/library/azure/dn931931.aspx). Adding the `metrics` property will enable you to also send resource metrics to these same outputs, provided that [the resource supports Azure Monitor metrics](monitoring-supported-metrics.md).
 
 Here is a full example that creates a Logic App and turns on streaming to Event Hubs and storage in a storage account.
 
@@ -133,28 +119,16 @@ Here is a full example that creates a Logic App and turns on streaming to Event 
       "type": "string",
       "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
     },
-    "settingName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the setting. Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
-      }
-    },
     "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
       }
     },
-    "eventHubAuthorizationRuleId": {
+    "serviceBusRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
-      }
-    },
-    "eventHubName": {
-      "type": "string",
-      "metadata": {
-        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
+        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
       }
     },
     "workspaceId": {
@@ -207,16 +181,14 @@ Here is a full example that creates a Logic App and turns on streaming to Event 
       "resources": [
         {
           "type": "providers/diagnosticSettings",
-          "name": "Microsoft.Insights/[parameters('settingName')]",
+          "name": "Microsoft.Insights/service",
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
-          "apiVersion": "2017-05-01-preview",
+          "apiVersion": "2015-07-01",
           "properties": {
-            "name": "[parameters('settingName')]",
             "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
-            "eventHubName": "[parameters('eventHubName')]",
+            "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
             "workspaceId": "[parameters('workspaceId')]",
             "logs": [
               {

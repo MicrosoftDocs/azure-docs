@@ -3,7 +3,7 @@ title: Use Azure DevTest Labs for developers | Microsoft Docs
 description: Learn how to use Azure DevTest Labs for developer scenarios.
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: craigcaseyMSFT
+author: tomarcher
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: v-craic
+ms.author: tarcher
 
 ---
 # Use Azure DevTest Labs for developers

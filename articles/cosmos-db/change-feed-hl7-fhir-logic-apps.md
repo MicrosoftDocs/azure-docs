@@ -4,7 +4,8 @@ description: Learn how to set up change notifications for HL7 FHIR patient healt
 keywords: hl7 fhir
 services: cosmos-db
 author: hedidin
-manager: kfile
+manager: jhubbard
+editor: mimig
 documentationcenter: ''
 
 ms.assetid: 0d25c11f-9197-419a-aa19-4614c6ab2d06
@@ -14,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: sngun
+ms.author: b-hoedid
 
 ---
 
@@ -105,7 +106,7 @@ We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/li
 
 **Source for the API app**
 
-```csharp
+```C#
 
 	using System.Collections.Generic;
 	using System.Linq;

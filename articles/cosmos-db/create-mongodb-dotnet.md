@@ -3,8 +3,9 @@ title: 'Azure Cosmos DB: Build a web app with .NET and the MongoDB API | Microso
 description: Presents a .NET code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
 documentationcenter: ''
-author: SnehaGunda
-manager: kfile
+author: mimig1
+manager: jhubbard
+editor: ''
 
 ms.assetid: 
 ms.service: cosmos-db
@@ -13,41 +14,41 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/19/2018
-ms.author: sngun
+ms.date: 05/10/2017
+ms.author: mimig
 
 ---
 # Azure Cosmos DB: Build a MongoDB API web app with .NET and the Azure portal
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to create an Azure Cosmos DB [MongoDB API](mongodb-introduction.md) account, document database, and collection using the Azure portal. You'll then build and deploy a tasks list web app built on the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a tasks list web app built on the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/). 
 
-## Prerequisites to run the sample app
+## Prerequisites
 
-To run the sample, you'll need [Visual Studio](https://www.visualstudio.com/downloads/) and a valid Azure CosmosDB account.
-
-If you don't already have Visual Studio, download [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload installed with setup.
+If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 <a id="create-account"></a>
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## Clone the sample app
+## Clone the sample application
 
-First, download the sample MongoDB API app from GitHub. It implements a task list with MongoDB's document storage model.
+Now let's clone a MongoDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Open a git terminal window, such as git bash, and `cd` to a working directory.
+1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
+
 2. Run the following command to clone the sample repository. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
     ```
 
-If you don't wish to use git, you can also [download the project as a ZIP file](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started/archive/master.zip).
+3. Then open the solution file in Visual Studio. 
 
 ## Review the code
 

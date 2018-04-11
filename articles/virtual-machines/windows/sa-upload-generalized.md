@@ -4,7 +4,7 @@ description: Upload a generalized VHD to an Azure storage account to create a Wi
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
-ROBOTS: NOINDEX
+
 ---
 
 # Upload a generalized VHD to Azure to create a new VM

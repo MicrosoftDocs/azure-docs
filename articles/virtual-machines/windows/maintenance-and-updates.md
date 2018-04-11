@@ -4,7 +4,7 @@ description: Overview of maintenance and updates for Windows virtual machines ru
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/15/2017
 ms.author: cynthn
 
 ---
@@ -22,6 +22,9 @@ ms.author: cynthn
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 
-## Next steps 
+## Next steps
 
-For information on managing maintenance requiring a reboot, see [Handling planned maintenance notifications](maintenance-notifications.md).
+For information on managing planned maintence, see [Handling planned maintenance notifications](maintenance-notifications.md).
+
+
+

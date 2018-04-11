@@ -1,14 +1,22 @@
 ---
-title: Handling event order and lateness in Azure Stream Analytics
-description: This article describes how Stream Analytics handles out-of-order or late events in data streams.
+title: Handling event order and lateness with Azure Stream Analytics | Microsoft Docs
+description: Learn about how Stream Analytics works with out-of-order or late events in data streams.
+keywords: out of order, late, events
+documentationcenter: ''
 services: stream-analytics
 author: jseb225
-ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
 ms.date: 04/20/2017
+ms.author: jeanb
+
 ---
 # Azure Stream Analytics event order considerations
 
@@ -59,9 +67,6 @@ Events that arrive out of order but within the set out-of-order tolerance window
 * **Dropped**: Discarded.
 
 When Stream Analytics reorders events that are received within the out-of-order tolerance window, the output of the query is delayed by the out-of-order tolerance window.
-
-### Early events
-When processing by application time, events whose application time is more than 5 minutes ahead of their arrival time are either dropped or adjusted according to the configuration option selected.
 
 ### Example
 
@@ -122,7 +127,7 @@ Azure Stream Analytics implements this functionality by using the [TIMESTAMP BY 
 * When you're combining multiple timelines, lack of data in one of the sources or partitions can delay the output by an additional late arrival tolerance window.
 
 ## Get help
-For additional assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For additional assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)

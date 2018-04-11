@@ -1,16 +1,16 @@
 ---
-title: Azure CLI script - Create an Azure Database for MySQL
+title: "Azure CLI Script - Create an Azure Database for MySQL | Microsoft Docs"
 description: This sample CLI script creates an Azure Database for MySQL server and configures a server-level firewall rule.
 services: mysql
-author: ajlam
-ms.author: andrela
-manager: kfile
+author: v-chenyh
+ms.author: v-chenyh
+manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 02/28/2018
+ms.date: 11/02/2017
 ---
 
 # Create a MySQL server and configure a firewall rule using the Azure CLI
@@ -18,18 +18,18 @@ This sample CLI script creates an Azure Database for MySQL server and configures
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI. 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
-In this sample script, edit the highlighted lines to update the admin username and password to your own.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh?highlight=18-19 "Create an Azure Database for MySQL, and server-level firewall rule.")]
+In this sample script, edit the highlighted lines to customize the admin username and password.
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh?highlight=15-16 "Create an Azure Database for MySQL, and server-level firewall rule.")]
 
 ## Clean up deployment
-Use the following command to remove the resource group and all resources associated with it after the script has been run. 
+After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/delete-mysql.sh "Delete the resource group.")]
 
 ## Script explanation
-This script uses the commands outlined in the following table:
+This script uses the following commands. Each command in the table links to command specific documentation.
 
 | **Command** | **Notes** |
 |---|---|
@@ -39,5 +39,5 @@ This script uses the commands outlined in the following table:
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure).
+- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview).
 - Try additional scripts: [Azure CLI samples for Azure Database for MySQL](../sample-scripts-azure-cli.md)

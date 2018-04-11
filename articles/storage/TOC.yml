@@ -15,8 +15,4 @@
 - name: Tables
   href: ../cosmos-db/table-storage-overview.md
 - name: Disks
-  items:
-  - name: Windows
-    href: ../virtual-machines/windows/about-disks-and-vhds.md
-  - name: Linux
-    href: ../virtual-machines/linux/about-disks-and-vhds.md
+  href: ../virtual-machines/windows/managed-disks-overview.md

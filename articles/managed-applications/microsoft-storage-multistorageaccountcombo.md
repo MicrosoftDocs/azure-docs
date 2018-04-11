@@ -1,6 +1,6 @@
 ---
-title: Azure MultiStorageAccountCombo UI element | Microsoft Docs
-description: Describes the Microsoft.Storage.MultiStorageAccountCombo UI element for Azure portal.
+title: Azure Managed Application MultiStorageAccountCombo UI element | Microsoft Docs
+description: Describes the Microsoft.Storage.MultiStorageAccountCombo UI element for Azure Managed Applications
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -17,7 +17,7 @@ ms.author: tomfitz
 
 ---
 # Microsoft.Storage.MultiStorageAccountCombo UI element
-A group of controls for creating multiple storage accounts, with names that start with a common prefix.
+A group of controls for creating multiple storage accounts, with names that start with a common prefix. You use this element when [creating an Azure Managed Application](publish-service-catalog-app.md).
 
 ## UI sample
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
@@ -79,5 +79,6 @@ a dynamic value from another element, like
 ```
 
 ## Next steps
+* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

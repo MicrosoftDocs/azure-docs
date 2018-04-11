@@ -3,8 +3,9 @@ title: Introduction to Azure Stack storage
 description: Learn about Azure Stack storage
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: xiaofmao
+manager:
+editor: ''
 
 ms.assetid: 092aba28-04bc-44c0-90e1-e79d82f4ff42
 ms.service: azure-stack
@@ -12,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/29/2018
-ms.author: mabrigg
+ms.date: 9/25/2017
+ms.author: xiaofmao
 
 ---
 # Introduction to Azure Stack storage

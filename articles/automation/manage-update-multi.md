@@ -1,13 +1,20 @@
 ---
-title: Manage updates for multiple Azure virtual machines
+title: Manage updates for multiple Azure virtual machines | Microsoft Docs
 description: This topic describes how to manage updates for Azure virtual machines.
 services: automation
-ms.service: automation
+documentationcenter: ''
 author: georgewallace
-ms.author: gwallace
-ms.date: 03/16/2018
-ms.topic: article
 manager: carmonm
+editor: ''
+
+ms.assetid: 
+ms.service: automation
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 11/30/2017
+ms.author: magoedte;gwallace
 ---
 # Manage updates for multiple machines
 
@@ -57,7 +64,7 @@ Windows agents must either be configured to communicate with a Windows Server Up
 
 Linux agents must have access to an update repository.
 
-This solution doesn't support an OMS Agent for Linux configured to report to multiple Log Analytics workspaces.
+This solution doesn't support an OMS Agent for Linux configured to report to multiple Operations Management Suite workspaces.
 
 ## Enable update management for Azure virtual machines
 
@@ -173,5 +180,5 @@ To see detailed information about any errors from the deployment, select **Error
 
 ## Next steps
 
-* To learn more about update management--including logs, output, and errors--see [Update Management solution in Azure](../operations-management-suite/oms-solution-update-management.md).
+* To learn more about update management--including logs, output, and errors--see [Update Management solution in OMS](../operations-management-suite/oms-solution-update-management.md).
 

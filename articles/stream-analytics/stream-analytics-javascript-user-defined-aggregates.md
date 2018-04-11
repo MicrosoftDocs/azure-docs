@@ -1,14 +1,20 @@
 ---
-title: JavaScript user-defined aggregates in Azure Stream Analytics
-description: This article describes how to perform advanced query mechanics with JavaScript user-defined aggregates in Azure Stream Analytics.
+title: Azure Stream Analytics JavaScript user-defined aggregates | Microsoft Docs
+description: Perform advanced query mechanics with JavaScript user-defined aggregates
+keywords: javascript, user defined aggregates, uda
 services: stream-analytics
 author: minhe-msft
-ms.author: minhe
 manager: santoshb
-ms.reviewer: jasonh
+editor: cgronlun
+
+ms.assetid:
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
 ms.date: 10/28/2017
+ms.author: minhe
 ---
 # Azure Stream Analytics JavaScript user-defined aggregates (Preview)
 
@@ -221,7 +227,7 @@ Create a local JSON file with below content, upload the file to Stream Analytics
 
 ## Get help
 
-For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 

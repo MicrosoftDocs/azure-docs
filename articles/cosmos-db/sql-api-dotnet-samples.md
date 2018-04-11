@@ -4,7 +4,8 @@ description: Find C# .NET examples on github for common tasks using the Azure Co
 keywords: NoSQL example
 services: cosmos-db
 author: rnagpal
-manager: kfile
+manager: jhubbard
+editor: monicar
 documentationcenter: .net
 
 ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
@@ -25,6 +26,8 @@ ms.author: rnagpal
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Latest sample solutions that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) GitHub repository. This article provides:
 

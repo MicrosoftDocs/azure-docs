@@ -7,13 +7,14 @@ author: barbkess
 manager: jhubbard
 editor: ''
 
+ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/15/2018
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
 
 ---
@@ -197,7 +198,7 @@ Refer to the following articles to help you understand some additional key perfo
 [Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
 [Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
-[Workload and concurrency management]: ./resource-classes-for-workload-management.md
+[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
 [Table design overview]: ./sql-data-warehouse-tables-overview.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Table indexing]: ./sql-data-warehouse-tables-index.md

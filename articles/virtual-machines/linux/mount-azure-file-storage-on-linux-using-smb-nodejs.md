@@ -4,7 +4,7 @@ description: How to mount Azure File storage on Linux VMs by using SMB
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
-manager: jeconnoc
+manager: timlt
 editor: ''
 
 ms.assetid:

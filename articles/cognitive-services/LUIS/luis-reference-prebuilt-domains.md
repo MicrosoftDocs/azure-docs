@@ -2,14 +2,13 @@
 title: Prebuilt domain reference | Microsoft Docs
 description: Reference for the prebuilt domains, which are prebuilt collections of intents and entities from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
-
+author: DeniseMak
+manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-geberr;
+ms.author: v-demak
 ---
 
 # Prebuilt domain reference

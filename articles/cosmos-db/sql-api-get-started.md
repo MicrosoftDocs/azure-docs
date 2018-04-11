@@ -5,7 +5,8 @@ keywords: nosql tutorial, online database, c# console application
 services: cosmos-db
 documentationcenter: .net
 author: AndrewHoh
-manager: kfile
+manager: jhubbard
+editor: monicar
 
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
 ms.service: cosmos-db
@@ -27,6 +28,8 @@ ms.author: anhoh
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Welcome to the Azure Cosmos DB SQL API getting started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 

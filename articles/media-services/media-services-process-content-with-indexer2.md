@@ -53,7 +53,6 @@ When creating an indexing task with **Azure Media Indexer 2 Preview**, you must 
 
 The following JSON sets available parameters.
 
-```json
     {
       "version":"1.0",
       "Features":
@@ -67,7 +66,6 @@ The following JSON sets available parameters.
            "Type":"SpReco"
         }]
     }
-```
 
 ## Supported languages
 Azure Media Indexer 2 Preview supports speech-to-text for the following languages (when specifying the language name in the task configuration, use 4-character code in brackets as shown below):
@@ -95,23 +93,20 @@ The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
 2. Create a job with an indexing task based on a configuration file that contains the following json preset:
-
-    ```json
-            {
-            "version":"1.0",
-            "Features":
-                [
-                {
-                "Options": {
-                        "Formats":["WebVtt","ttml"],
-                        "Language":"enUs",
-                        "Type":"RecoOptions"
-                },
-                "Type":"SpReco"
-                }]
-            }
-    ```
-    
+   
+        {
+          "version":"1.0",
+          "Features":
+            [
+               {
+               "Options": {
+                    "Formats":["WebVtt","ttml"],
+                    "Language":"enUs",
+                    "Type":"RecoOptions"
+               },
+               "Type":"SpReco"
+            }]
+        }
 3. Download the output files. 
    
 #### Create and configure a Visual Studio project
@@ -120,7 +115,7 @@ Set up your development environment and populate the app.config file with connec
 
 #### Example
 
-```csharp
+```
 using System;
 using System.Configuration;
 using System.IO;

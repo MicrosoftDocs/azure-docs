@@ -3,8 +3,8 @@ title: Azure CLI Redis cache samples | Microsoft Docs
 description: Azure CLI samples for Azure Redis Cache.
 services: redis-cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: steved0x
+manager: douge
 editor: ''
 
 ms.assetid: 8d2de145-50c0-4f76-bf8f-fdf679f03698
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
-ms.author: wesmc
+ms.author: sdanie
 
 ---
 # Azure CLI Samples for Azure Redis Cache

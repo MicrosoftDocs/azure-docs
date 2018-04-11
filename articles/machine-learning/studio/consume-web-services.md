@@ -3,9 +3,8 @@ title: How to consume an Azure Machine Learning Web service | Microsoft Docs
 description: Once a machine learning service is deployed, the RESTFul Web service that is made available can be consumed either as real-time request-response service or as a batch execution service.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
+author: garyericson
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
@@ -15,6 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
+ms.author: garye
 
 ---
 # How to consume an Azure Machine Learning Web service

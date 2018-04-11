@@ -3,7 +3,7 @@ title: Azure DevTest Labs FAQ | Microsoft Docs
 description: Find answers to common questions about Azure DevTest Labs.
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: craigcaseyMSFT
+author: tomarcher
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
-ms.author: v-craic
+ms.author: tarcher
 
 ---
 # Azure DevTest Labs FAQ

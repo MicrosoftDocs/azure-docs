@@ -148,11 +148,13 @@ armGroupResult = resourceClient.resource_groups.create_or_update( rg, ResourceGr
 First create a store account.
 
 ```python
-adlsAcctResult = adlsAcctClient.account.create(
+adlaAcctResult = adlaAcctClient.account.create(
 	rg,
-	adls,
-	DataLakeStoreAccount(
-		location=location)
+	adla,
+	DataLakeAnalyticsAccount(
+		location=location,
+		default_data_lake_store_account=adls,
+		data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adls)]
 	)
 ).wait()
 ```

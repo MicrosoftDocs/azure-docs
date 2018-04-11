@@ -276,5 +276,11 @@ ms.author: kevin;barbkess
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## Next steps
-For more TSQL reference, see [SQL Data Warehouse T-SQL statements](sql-data-warehouse-reference-tsql-statements.md).
+For more reference information, see [SQL Data Warehouse reference overview][SQL Data Warehouse reference overview].
 
+<!--Image references-->
+
+<!--Article references-->
+[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
+
+<!--MSDN references-->

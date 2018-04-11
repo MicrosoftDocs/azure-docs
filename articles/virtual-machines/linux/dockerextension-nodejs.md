@@ -4,7 +4,7 @@ description: Learn how to use the Docker VM extension to quickly and securely de
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: jeconnoc
+manager: timlt
 editor: ''
 
 ms.assetid:

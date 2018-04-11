@@ -3,18 +3,18 @@ title: Design efficient list queries - Azure Batch | Microsoft Docs
 description: Increase performance by filtering your queries when requesting information on Batch resources like pools, jobs, tasks, and compute nodes.
 services: batch
 documentationcenter: .net
-author: dlepow
-manager: jeconnoc
+author: tamram
+manager: timlt
 editor: ''
 
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 08/02/2017
-ms.author: danlep
+ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
 ---

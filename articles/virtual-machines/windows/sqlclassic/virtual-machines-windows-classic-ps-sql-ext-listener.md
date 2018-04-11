@@ -4,7 +4,7 @@ description: This tutorial walks you through steps of creating an Always On Avai
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: craigg
+manager: jhubbard
 editor: ''
 tags: azure-service-management
 

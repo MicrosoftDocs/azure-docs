@@ -3,7 +3,7 @@ title: Add an internal support statement to a lab in Azure DevTest Labs | Micros
 description: Learn how to post an internal support statement to a lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: craigcaseyMSFT
+author: tomarcher
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2017
-ms.author: v-craic
+ms.author: tarcher
 
 ---
 # Add an internal support statement to a lab in Azure DevTest Labs

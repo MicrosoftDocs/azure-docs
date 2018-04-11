@@ -4,7 +4,7 @@ description: "This article introduces SQL Server Availability Groups on Azure vi
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: craigg
+manager: jhubbard
 editor: monicar
 tags: azure-service-management
 

@@ -5,7 +5,7 @@ description: Learn how to troubleshoot Windows VM issues in Azure by connecting 
 services: virtual-machines-windows
 documentationCenter: ''
 authors: genlin
-manager: jeconnoc
+manager: timlt
 editor: ''
 
 ms.service: virtual-machines-windows

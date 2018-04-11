@@ -2,17 +2,17 @@
 title: Azure Batch Analytics | Microsoft Docs
 description: Reference for Azure Batch Analytics.
 services: batch
-author: dlepow
-manager: jeconnoc
+author: tamram
+manager: timlt
 
 ms.assetid: 
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
+ms.author: tamram
 ---
 
 # Batch Analytics

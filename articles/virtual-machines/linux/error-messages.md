@@ -4,14 +4,14 @@ description: Understand some of the common error codes encountered when you prov
 services: virtual-machines-linux
 documentationcenter: ''
 author: xujing-ms
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/22/2017

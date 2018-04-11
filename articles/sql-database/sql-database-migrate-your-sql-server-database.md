@@ -2,12 +2,20 @@
 title: Migrate SQL Server DB to Azure SQL Database | Microsoft Docs
 description: Learn to migrate your SQL Server database to Azure SQL Database.
 services: sql-database
+documentationcenter: ''
 author: CarlRabeler
-manager: craigg
+manager: jhubbard
+editor: ''
+tags: ''
+
+ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,migrate
+ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.tgt_pltfrm: na
+ms.workload: "Active"
+ms.date: 09/01/2017
 ms.author: carlrab
 
 ---
@@ -42,7 +50,7 @@ An Azure SQL database is created with a defined set of [compute and storage reso
 
 Follow these steps to create a blank SQL database. 
 
-1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
+1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **Create** under **SQL Database** on the **New** page.
 
@@ -81,7 +89,7 @@ Follow these steps to create a blank SQL database.
    > [!IMPORTANT]
    > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
@@ -104,7 +112,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstart tutorials. 
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. 
 
    ![server name](./media/sql-database-get-started-portal/server-name.png) 
 

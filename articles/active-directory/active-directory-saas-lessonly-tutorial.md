@@ -140,8 +140,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| ---------------  | ----------------|
 	| urn:oid:2.5.4.42 |user.givenname |
 	| urn:oid:2.5.4.4  |user.surname |
-	| urn:oid:0.9.2342.19200300.100.1.3 |user.mail |
-	| urn:oid:1.3.6.1.4.1.5923.1.1.1.10 |user.objectid |
+	| urn:oid:0.9.2342.19200300.1001.3 |user.mail |
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 

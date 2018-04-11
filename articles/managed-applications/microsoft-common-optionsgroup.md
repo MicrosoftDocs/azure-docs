@@ -1,6 +1,6 @@
 ---
-title: Azure OptionsGroup UI element | Microsoft Docs
-description: Describes the Microsoft.Common.OptionsGroup UI element for Azure portal.
+title: Azure Managed Application OptionsGroup UI element | Microsoft Docs
+description: Describes the Microsoft.Common.OptionsGroup UI element for Azure Managed Applications
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 10/12/2017
 ms.author: tomfitz
 
 ---
 # Microsoft.Common.OptionsGroup UI element
-A selection control with a row of available options.
+A selection control with a row of available options. You use this element when [creating an Azure Managed Application](publish-service-catalog-app.md).
 
 ## UI sample
 ![Microsoft.Common.OptionsGroup](./media/managed-application-elements/microsoft.common.optionsgroup.png)
@@ -28,17 +28,17 @@ A selection control with a row of available options.
   "name": "element1",
   "type": "Microsoft.Common.OptionsGroup",
   "label": "Some options group",
-  "defaultValue": "my value",
+  "defaultValue": "Foo",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
       {
-        "label": "Value one",
-        "value": "one"
+        "label": "Foo",
+        "value": "Bar"
       },
       {
-        "label": "Value two",
-        "value": "two"
+        "label": "Baz",
+        "value": "Qux"
       }
     ]
   },
@@ -58,5 +58,6 @@ A selection control with a row of available options.
 ```
 
 ## Next steps
+* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

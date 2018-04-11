@@ -4,7 +4,7 @@ description: How to use cloud-init to customize a Linux VM during creation with 
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 

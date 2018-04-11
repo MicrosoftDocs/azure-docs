@@ -1,18 +1,18 @@
 ---
 title: Create an Azure data factory using REST API | Microsoft Docs
-description: Create an Azure data factory to copy data from one location in Azure Blob storage to another location.
+description: Create an Azure data factory to copy data from one location in in an Azure Blob Storage to another location in the same Blob Storage.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
+manager: jhubbard
+editor: spelluru
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: rest-api
 ms.topic: hero-article
-ms.date: 01/22/2018
+ms.date: 09/26/2017
 ms.author: jingwang
 
 ---

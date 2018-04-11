@@ -143,10 +143,8 @@ The following considerations apply:
 1. Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 2. Add the following elements to **appSettings** defined in your app.config file:
 
-    ```xml
-            <add key="Issuer" value="http://testacs.com"/>
-            <add key="Audience" value="urn:test"/>
-    ```
+		<add key="Issuer" value="http://testacs.com"/>
+		<add key="Audience" value="urn:test"/>
 
 ## Example
 
@@ -159,7 +157,7 @@ Overwrite the code in your Program.cs file with the code shown in this section.
 
 Make sure to update variables to point to folders where your input files are located.
 
-```csharp
+```
 using System;
 using System.Collections.Generic;
 using System.Configuration;

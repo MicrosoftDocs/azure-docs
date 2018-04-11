@@ -4,7 +4,7 @@ description: Set up a load-balanced, high availability Linux MySQL cluster creat
 services: virtual-machines-linux
 documentationcenter: ''
 author: bureado
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-service-management 
 

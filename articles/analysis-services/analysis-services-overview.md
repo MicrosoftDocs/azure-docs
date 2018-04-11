@@ -1,5 +1,5 @@
 ---
-title: Azure Analysis Services overview| Microsoft Docs
+title: What is Azure Analysis Services | Microsoft Docs
 description: Get the big picture of Analysis Services in Azure.
 services: analysis-services
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 12/08/2017
 ms.author: owend
 
 ---
-# Azure Analysis Services overview
+# What is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services provides enterprise-grade data modeling in the cloud. It is a fully managed platform as a service (PaaS), integrated with Azure data platform services. 

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/30/2018
+ms.date: 11/02/2017
 ms.author: nitinme
 
 ---
@@ -82,7 +82,7 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
         {
             class Program
             {
-                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net";        
+                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; //Replace this value with the name of your existing Data Lake Store account.        
             }
         }
 
@@ -104,24 +104,21 @@ The following snippet creates the Data Lake Store filesystem client object, whic
 Add the following snippet to your application. This snippet adds a file as well as any parent directory that do not exist.
 
     // Create a file - automatically creates any parent directories that don't exist
-    // The AdlsOuputStream preserves record boundaries - it does not break records while writing to the store
-    using (var stream = client.CreateFile(fileName, IfExists.Overwrite))
+    
+    string fileName = "/Test/testFilename1.txt";
+    using (var streamWriter = new StreamWriter(client.CreateFile(fileName, IfExists.Overwrite)))
     {
-        byte[] textByteArray = Encoding.UTF8.GetBytes("This is test data to write.\r\n");
-        stream.Write(textByteArray, 0, textByteArray.Length);
-
-        textByteArray = Encoding.UTF8.GetBytes("This is the second line.\r\n");
-        stream.Write(textByteArray, 0, textByteArray.Length);
+        streamWriter.WriteLine("This is test data to write");
+        streamWriter.WriteLine("This is line 2");
     }
 
 ## Append to a file
 The following snippet appends data to an existing file in Data Lake Store account.
 
     // Append to existing file
-    using (var stream = client.GetAppendStream(fileName))
+    using (var streamWriter = new StreamWriter(client.GetAppendStream(fileName)))
     {
-        byte[] textByteArray = Encoding.UTF8.GetBytes("This is the added line.\r\n");
-        stream.Write(textByteArray, 0, textByteArray.Length);
+        streamWriter.WriteLine("This is the added line");
     }
 
 ## Read a file

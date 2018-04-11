@@ -4,7 +4,7 @@
   items:
   - name: About Web Apps
     href: app-service-web-overview.md
-  - name: About App Service on Linux
+  - name: About Web App for Containers
     href: containers/app-service-linux-intro.md
   - name: About App Service Environments
     href: environment/intro.md
@@ -31,8 +31,6 @@
   items:
   - name: 1 - App with DB
     items:
-    - name: .NET Core with SQL DB
-      href: app-service-web-tutorial-dotnetcore-sqldb.md
     - name: .NET with SQL DB
       href: app-service-web-tutorial-dotnet-sqldatabase.md
     - name: PHP with MySQL
@@ -41,9 +39,7 @@
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: Java with MySQL
       href: app-service-web-tutorial-java-mysql.md
-    - name: Python with PostgreSQL
-      href: app-service-web-tutorial-python-postgresql.md
-  - name: 1 - Host RESTful API
+  - name: 1 - Create RESTful API
     href: app-service-web-tutorial-rest-api.md
   - name: 2 - Map Custom Domain
     href: app-service-web-tutorial-custom-domain.md
@@ -51,16 +47,12 @@
     href: app-service-web-tutorial-custom-ssl.md
   - name: 4 - Add CDN
     href: app-service-web-tutorial-content-delivery-network.md
-  - name: 5 - Authenticate users
-    href: app-service-web-tutorial-auth-aad.md
 - name: Samples
   items:
   - name: Azure CLI
     href: app-service-cli-samples.md
   - name: Azure PowerShell
     href: app-service-powershell-samples.md
-  - name: Resource Manager templates
-    href: app-service-rm-template-samples.md
 - name: Concepts
   items:
   - name: How App Service works
@@ -79,8 +71,6 @@
     href: app-service-local-cache-overview.md
   - name: Diagnostics
     href: app-service-diagnostics.md
-  - name: OS and runtime patching
-    href: app-service-patch-os-runtime.md
 - name: How-To guides
   items:
   - name: Configure app
@@ -99,7 +89,7 @@
     items:
     - name: Deploy the app
       items:
-      - name: Deploy ZIP or WAR
+      - name: Deploy ZIP file
         href: app-service-deploy-zip.md
       - name: Deploy via FTP
         href: app-service-deploy-ftp.md
@@ -115,8 +105,6 @@
       href: app-service-deployment-credentials.md
     - name: Create staging environments
       href: web-sites-staged-publishing.md
-    - name: Resource Manager template guidance
-      href: web-sites-rm-template-guidance.md
   - name: Map custom domain
     items:
     - name: Buy domain
@@ -141,8 +129,6 @@
         href: app-service-mobile-how-to-configure-microsoft-authentication.md
       - name: Authenticate with Twitter
         href: app-service-mobile-how-to-configure-twitter-authentication.md
-    - name: Customize auth
-      href: app-service-authentication-how-to.md
     - name: Use Managed Service Identity
       href: app-service-managed-service-identity.md
     - name: Use SSL cert in application code
@@ -174,7 +160,7 @@
     - name: Clone an app
       href: app-service-web-app-cloning.md
     - name: Move resources
-      href: ../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations
+      href: app-service-move-resources.md
   - name: Run background tasks
     items:
     - name: Create WebJobs
@@ -234,7 +220,7 @@
   - name: Cookbooks
     items:
     - name: Reference Architectures
-      href: /azure/architecture/reference-architectures/app-service-web-app/
+      href: ../guidance/guidance-ra-app-service.md
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting

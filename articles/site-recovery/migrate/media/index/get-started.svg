@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 80 80" style="enable-background:new 0 0 80 80;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#444444;}
+	.st1{display:none;}
+	.st2{display:inline;fill:#FFFFFF;stroke:#00AEEF;stroke-width:2;stroke-miterlimit:10;}
+	.st3{display:inline;fill:#00AEEF;}
+	.st4{display:inline;}
+	.st5{fill:#00AEEF;}
+	.st6{display:inline;fill:#FFFFFF;}
+	.st7{display:inline;fill:#FFF200;stroke:#231F20;stroke-width:0.5;stroke-miterlimit:10;}
+	.st8{display:inline;fill:#FFFFFF;stroke:#E6E7E8;stroke-width:0.25;stroke-miterlimit:10;}
+	.st9{display:none;fill:#FFF200;stroke:#231F20;stroke-width:0.5;stroke-miterlimit:10;}
+	.st10{display:none;fill:#FFF200;stroke:#231F20;stroke-width:0.2;stroke-miterlimit:10;}
+	.st11{display:inline;fill:#B5BABE;}
+	.st12{fill:#FFFFFF;}
+	.st13{fill:#6E6E6E;}
+	.st14{fill:#FFFFFF;stroke:#6E6E6E;stroke-width:3;stroke-miterlimit:10;}
+	.st15{fill:none;stroke:#6E6E6E;stroke-width:3;stroke-miterlimit:10;}
+	.st16{fill:none;}
+	.st17{fill:#231F20;}
+	.st18{fill:#E6E6E6;}
+	.st19{fill:#2E2E2E;}
+	.st20{fill:#CCCCCC;}
+</style>
+<g id="Layer_1">
+	<ellipse class="st13" cx="17.18" cy="11.442" rx="5.292" ry="6.432"/>
+	<ellipse class="st13" cx="65.549" cy="58.318" rx="5.534" ry="6.014"/>
+	<path class="st13" d="M71.244,63.479c-1.36,1.771-3.405,2.899-5.694,2.899c-2.262,0-4.284-1.104-5.645-2.84
+		c-5.144,1.281-4.587,6.658-4.372,10.895C55.577,75.312,56.24,76,57.051,76h17.3c0.81,0,1.474-0.688,1.518-1.567
+		C76.087,70.127,76.66,64.644,71.244,63.479z"/>
+	<ellipse class="st13" cx="40.719" cy="58.318" rx="5.534" ry="6.014"/>
+	<path class="st13" d="M46.413,63.479c-1.36,1.771-3.405,2.899-5.694,2.899c-2.262,0-4.284-1.104-5.645-2.84
+		c-5.144,1.281-4.587,6.658-4.372,10.895C30.747,75.312,31.41,76,32.22,76h17.3c0.81,0,1.474-0.688,1.518-1.567
+		C51.257,70.127,51.83,64.644,46.413,63.479z"/>
+	<path class="st13" d="M5.107,45.588c1.458,1.874,2.437,3.131,3.011,3.74L8.145,75h5.295c0.648-5.56,2.47-21.15,2.711-22.711
+		c0.219-1.422,2.422-1.422,2.642,0C19.034,53.85,20.856,69.44,21.504,75h5.357l-0.063-26.814h2.311V28.692l4.278,1.132
+		c0.322,0.116,0.662,0.159,0.998,0.13c0.263-0.023,0.522-0.09,0.767-0.199l9.826-4.876c1.183-0.532,1.71-1.922,1.174-3.101
+		c-0.533-1.18-1.925-1.701-3.112-1.17l-8.587,3.525l-8.211-2.415c-0.477-0.144-0.985-0.294-1.517-0.446l-0.024-0.007l-0.002,0
+		c-2.126-0.606-4.382-1.196-4.382-1.196l-3.087,6.444H17.18l-3.087-6.444c0,0-3.89,0.879-5.948,1.465
+		c-2.058,0.586-3.304,2.203-3.528,4.54c-0.316,3.287-0.307,10.634-0.579,13.59C3.944,40.683,3.935,44.082,5.107,45.588z"/>
+	<rect x="30.29" y="14" class="st0" width="33.781" height="2"/>
+	<rect x="49" y="20" class="st0" width="15.071" height="2"/>
+	<rect x="49" y="26" class="st0" width="15.071" height="2"/>
+	<polygon class="st0" points="49,5.917 49,3 42,3 42,5.917 26,5.917 26,10.58 73,10.58 73,45 34,45 34,48 76,48 76,5.917 	"/>
+</g>
+<g id="Layer_3" class="st1">
+</g>
+<g id="titles">
+</g>
+</svg>

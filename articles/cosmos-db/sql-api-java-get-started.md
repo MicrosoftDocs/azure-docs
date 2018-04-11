@@ -4,8 +4,9 @@ description: A NoSQL tutorial that creates an online database and Java console a
 keywords: nosql tutorial, online database, java console application
 services: cosmos-db
 documentationcenter: Java
-author: SnehaGunda
-manager: kfile
+author: arramac
+manager: jhubbard
+editor: monicar
 
 ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
 ms.service: cosmos-db
@@ -14,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: sngun
+ms.author: arramac
 
 ---
 # NoSQL tutorial: Build a SQL API Java console application
@@ -27,6 +28,8 @@ ms.author: sngun
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Welcome to the NoSQL tutorial for the SQL API for Azure Cosmos DB Java SDK! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 

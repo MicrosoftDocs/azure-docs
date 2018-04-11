@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot an abnormal recurring job | Microsoft Docs
+title: How to troubleshoot an abnormal recurring job | Microsoft Docs
 description: 'Learn how to use Azure Data Lake Tools for Visual Studio to debug an abnormal recurring job.'
 services: data-lake-analytics
 documentationcenter: ''
@@ -18,57 +18,54 @@ ms.author: yanacai
 
 ---
 
-# Troubleshoot an abnormal recurring job
+# How to troubleshoot an abnormal recurring job
 
-This article shows how to use [Azure Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs) to troubleshoot problems with recurring jobs. Learn more about pipeline and recurring jobs from the [Azure Data Lake and Azure HDInsight blog](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
+In this document, we will introduce how to use [Azure Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs) to troubleshoot recurring job problems. Learn more about pipeline and recurring jobs from [here](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
+Recurring jobs usually share same query logic and similar input data. For example, you have a recurring job running on every Monday morning at 8 A.M. to count last week’s weekly active user, the scripts for these jobs share one script template which contains the query logic, and the inputs for these jobs are the usage data for last week. Sharing same query logic and similar input usually means performance of these jobs is similar and stable, if one of your recurring jobs suddenly performs abnormal, failed or slow down a lot, you might want to:
 
-Recurring jobs usually share the same query logic and similar input data. For example, imagine that you have a recurring job running every Monday morning at 8 A.M. to count last week’s weekly active user. The scripts for these jobs share one script template that contains the query logic. The inputs for these jobs are the usage data for last week. Sharing the same query logic and similar input usually means that performance of these jobs is similar and stable. If one of your recurring jobs suddenly performs abnormally, fails, or slows down a lot, you might want to:
-
-- See the statistics reports for the previous runs of the recurring job to see what happened.
-- Compare the abnormal job with a normal one to figure out what has been changed.
+1.	See the statistics reports for the previews runs of the recurring job to see what happened.
+2.	Compare the abnormal job with a normal one to figure out what has been changed.
 
 **Related Job View** in Azure Data Lake Tools for Visual Studio helps you accelerate the troubleshooting progress with both cases.
 
 ## Step 1: Find recurring jobs and open Related Job View
 
-To use Related Job View to troubleshoot a recurring job problem, you need to first find the recurring job in Visual Studio and then open Related Job View.
+To use Related Job View troubleshoot recurring job problem, you need to first find the recurring job in Visual Studio and then open Related Job View.
 
 ### Case 1: You have the URL for the recurring job
 
-Through **Tools** > **Data Lake** > **Job View**, you can paste the job URL to open Job View in Visual Studio. Select **View Related Jobs** to open Related Job View.
+Through **Tools > Data Lake > Job View**, you can paste the job URL to open Job View in Visual Studio, and through View Related Jobs to open Related Job View.
 
-![View Related Jobs link in Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
+![Data Lake Analytics Tools View Related Jobs](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  
 ### Case 2: You have the pipeline for the recurring job, but not the URL
 
-In Visual Studio, you can open Pipeline Browser through Server Explorer > your Azure Data Lake Analytics account > **Pipelines**. (If you can't find this node in Server Explorer, [download the latest plug-in](http://aka.ms/adltoolsvs).) 
+In Visual Studio, you can open Pipeline Browser through **Server Explorer > your Data Lake Analytics account > Pipelines** (if you cannot find this node in Server Explorer, please get the lasted tool [here](http://aka.ms/adltoolsvs)). In Pipeline Browser, all pipelines for the ADLA account are listed at left, you can expand the pipelines to find all recurring jobs, click the one has problems, the Related Job View opens at right.
 
-![Selecting the Pipelines node](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
+![Data Lake Analytics Tools View Related Jobs](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 
-In Pipeline Browser, all pipelines for the Data Lake Analytics account are listed at left. You can expand the pipelines to find all recurring jobs, and then select the one that has problems. Related Job View opens at right.
+![Data Lake Analytics Tools View Related Jobs](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-view.png)
 
-![Selecting a pipeline and opening Related Job View](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-view.png)
+## Step 2: Analyze statistics report
 
-## Step 2: Analyze a statistics report
+A summary and a statistics report are shown at top of Related Job View, through which you can get the potential root cause of the abnormal. 
 
-A summary and a statistics report are shown at top of Related Job View. There, you can find the potential root cause of the problem. 
+1.	First you need to find the abnormal job in the report. The X axis shows job submission time, through which you can locate the abnormal job.
+2.	Follow below process to check the statistics and get the insights of the abnormal and the possible solutions.
 
-1.	In the report, the X-axis shows the job submission time. Use it to find the abnormal job.
-2.	Use the process in the following diagram to check statistics and get insights about the problem and the possible solutions.
+![Data Lake Analytics Tools View Related Jobs](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
 
-![Process diagram for checking statistics](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
+## Step 3: Compare the abnormal recurring job to a normal job
 
-## Step 3: Compare the abnormal job to a normal job
+You can find all submitted recurring jobs through job list at bottom of Related Job View. Through right click you can compare the abnormal job with a previous normal one to find more insights and potential solutions in Job Diff view.
 
-You can find all submitted recurring jobs through the job list at the bottom of Related Job View. To find more insights and potential solutions, right-click the abnormal job. Use the Job Diff view to compare the abnormal job with a previous normal one.
+![Data Lake Analytics Tools View Related Jobs](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/compare-job.png)
 
-![Shortcut menu for comparing jobs](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/compare-job.png)
+You usually need to pay attention to the big differences between these 2 jobs as they are probably the reasons causing performance issues, and you can also follow below steps to do a further checking.
 
-Pay attention to the big differences between these two jobs. Those differences are probably causing the performance problems. To check further, use the steps in the following diagram:
-
-![Process diagram for checking differences between jobs](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-diff-debugging-flow.png)
+![Data Lake Analytics Tools View Related Jobs](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-diff-debugging-flow.png)
 
 ## Next steps
 
-* [Resolve data-skew problems](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
-* [Debug user-defined C# code for failed U-SQL jobs](data-lake-analytics-debug-u-sql-jobs.md)
+* [How to debug and resolve data skew issues](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
+* [How to debug U-SQL job failure for user-defined code error](data-lake-analytics-debug-u-sql-jobs.md)

@@ -4,7 +4,7 @@ description: Learn to how to use C# and a Resource Manager template to deploy an
 services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
-manager: jeconnoc
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
@@ -279,11 +279,11 @@ container.SetPermissionsAsync(containerPermissions).Wait();
 
 Console.WriteLine("Uploading template file...");
 var templateblob = container.GetBlockBlobReference("CreateVMTemplate.json");
-templateblob.UploadFromFileAsync("..\\..\\CreateVMTemplate.json").Result();
+templateblob.UploadFromFile("..\\..\\CreateVMTemplate.json");
 
 Console.WriteLine("Uploading parameters file...");
 var paramblob = container.GetBlockBlobReference("Parameters.json");
-paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
+paramblob.UploadFromFile("..\\..\\Parameters.json");
 ```
 
 ## Deploy the template

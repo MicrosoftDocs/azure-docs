@@ -2,8 +2,8 @@
 title: "Azure Batch compute node environment variables | Microsoft Docs"
 description: Compute node environment variable reference for Azure Batch Analytics.
 services: batch
-author: dlepow
-manager: jeconnoc
+author: tamram
+manager: timlt
 
 ms.assetid: 
 ms.service: batch
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 05/05/2017
-ms.author: danlep
+ms.author: tamram
 ---
 
 # Azure Batch compute node environment variables

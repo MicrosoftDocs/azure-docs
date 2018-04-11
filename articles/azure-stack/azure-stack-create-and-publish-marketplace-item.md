@@ -3,8 +3,8 @@ title: Create and publish a Marketplace item in Azure Stack | Microsoft Docs
 description: Create and publish a Marketplace item in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: ErikjeMS
+manager: byronr
 editor: ''
 
 ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
@@ -14,8 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
-ms.author: brenduns
-ms.reviewer: jeffgo
+ms.author: erikje
 
 ---
 # Create and publish a Marketplace item

@@ -31,7 +31,6 @@ The following JSON and XML preset can be used to produce a single output PNG fil
 
 ### JSON preset
 
-```json
 	{
 	  "Version": 1.0,
 	  "Codecs": [
@@ -56,11 +55,9 @@ The following JSON and XML preset can be used to produce a single output PNG fil
 	    }
 	  ]
 	}
-```
 	
 ### XML preset
 
-```xml
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
 	  <Encoding>
@@ -79,7 +76,6 @@ The following JSON and XML preset can be used to produce a single output PNG fil
 	    </Output>
 	  </Outputs>
 	</Preset>
-```
 
 ## Example of a "series of JPEG images" preset
 
@@ -87,7 +83,6 @@ The following JSON and XML preset can be used to produce a set of 10 images at t
 
 ### JSON preset
 
-```json
 	{
 	  "Version": 1.0,
 	  "Codecs": [
@@ -115,11 +110,9 @@ The following JSON and XML preset can be used to produce a set of 10 images at t
 	    }
 	  ]
 	}
-```
 
 ### XML preset
 	
-```xml
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
 	  <Encoding>
@@ -139,7 +132,6 @@ The following JSON and XML preset can be used to produce a set of 10 images at t
 	    </Output>
 	  </Outputs>
 	</Preset>
-```
 
 ## Example of a "one image at a specific timestamp" preset
 
@@ -147,7 +139,6 @@ The following JSON and XML preset can be used to produce a single JPEG image at 
 
 ### JSON preset
 
-```json
 	{
 	  "Version": 1.0,
 	  "Codecs": [
@@ -175,10 +166,9 @@ The following JSON and XML preset can be used to produce a single JPEG image at 
 	    }
 	  ]
 	}
-```
-
+	
 ### XML preset
-```xml
+	
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
 	  <Encoding>
@@ -198,8 +188,7 @@ The following JSON and XML preset can be used to produce a single JPEG image at 
 	    </Output>
 	  </Outputs>
 	</Preset>
-```
-
+	
 ## Example of a "thumbnails at different resolutions" preset
 
 The following preset can be used to generate thumbnails at different resolutions in one task. In the example, at positions 5%, 15%, …, 95% of the input timeline, the encoder generates two images – one at 100% of the input video resolution and the other at 50%.
@@ -208,7 +197,6 @@ Note the use of {Resolution} macro in the FileName; it indicates to the encoder 
 
 ### JSON preset
 
-```json
 	{
 	  "Version": 1.0,
 	  "Codecs": [
@@ -243,10 +231,9 @@ Note the use of {Resolution} macro in the FileName; it indicates to the encoder 
 	    }
 	  ]
 	}
-```
 
 ### XML preset
-```xml
+
 	<?xml version="1.0" encoding="utf-8"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
 	<Encoding>
@@ -271,8 +258,7 @@ Note the use of {Resolution} macro in the FileName; it indicates to the encoder 
 	  </Output>
 	</Outputs>
 	</Preset>
-```
-
+	
 ## Example of generating a thumbnail while encoding
 
 While all of the above examples have discussed how you can submit an encoding task that only produces images, you can also combine video/audio encoding with thumbnail generation. The following JSON and XML preset tell **Media Encoder Standard** to generate a thumbnail during encoding.
@@ -280,7 +266,6 @@ While all of the above examples have discussed how you can submit an encoding ta
 ### <a id="json"></a>JSON preset
 For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) article.
 
-```json
 	{
 	  "Version": 1.0,
 	  "Codecs": [
@@ -340,12 +325,10 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 	    }
 	  ]
 	}
-```
 
 ### <a id="xml"></a>XML preset
 For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) article.
-
-```csharp
+	
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
 	  <Encoding>
@@ -395,7 +378,6 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 	    </Output>
 	  </Outputs>
 	</Preset>	
-```
 
 ## <a id="code_sample"></a>Encode video and generate thumbnail with .NET
 
@@ -415,7 +397,7 @@ The following code example uses Media Services .NET SDK to perform the following
 
 See the [Media Services development with .NET](media-services-dotnet-how-to-use.md) article for directions on how to set up your dev environment.
 
-```csharp
+```
 using System;
 using System.Configuration;
 using System.IO;

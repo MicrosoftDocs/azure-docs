@@ -3,7 +3,7 @@ title: Supported languages in Text Analytics API (Microsoft Cognitive Services o
 description: List of generally available and preview language support for Text Analytics API operations. Applies to sentiment analysis, key phrase extraction, and language detection.
 services: cognitive-services
 author: luiscabrer
-manager: cgronlun
+manager: jhubbard
 
 ms.service: cognitive-services
 ms.technology: text-analytics
@@ -40,7 +40,6 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Greek       | `el`          | ✔ \*     |             |            |
 | Italian     | `it`          | ✔ \*     | ✔           |             |
 | Japanese    | `ja`          |          | ✔           |            |
-| Korean      | `ko`          |          | ✔           |            |
 | Norwegian  (Bokmål) | `no`          | ✔ \*     |  ✔          |             |
 | Polish      | `pl`          | ✔ \*     |  ✔          |             |
 | Portuguese (Portugal) | `pt-PT`| ✔        |  ✔          |`pt` also accepted |

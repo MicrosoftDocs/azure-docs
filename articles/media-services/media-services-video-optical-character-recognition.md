@@ -48,7 +48,6 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
 
 #### JSON preset example
 
-```json
     {
         "Version":1.0, 
         "Options": 
@@ -67,11 +66,8 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
              ]
         }
     }
-```
 
 #### XML preset example
-
-```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
@@ -89,7 +85,6 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
        <TextOrientation>Up</TextOrientation>
       </Options>
     </VideoOcrPreset>
-```
 
 ## OCR output files
 The output of the OCR media processor is a JSON file.
@@ -120,7 +115,6 @@ The output contains the following attributes:
 ### JSON output example
 The following output example contains the general video information and several video fragments. In every video fragment, it contains every region, which is detected by OCR MP with the language and its text orientation. The region also contains every word line in this region with the line’s text, the line’s position, and every word information (word content, position, and confidence) in this line. The following is an example, and I put some comments inline.
 
-```json
     {
         "version": 1, 
         "timescale": 90000, 
@@ -173,7 +167,6 @@ The following output example contains the general video information and several 
             }
         ]
     }
-```
 
 ## .NET sample code
 
@@ -189,7 +182,7 @@ Set up your development environment and populate the app.config file with connec
 
 #### Example
 
-```csharp
+```
 using System;
 using System.Configuration;
 using System.IO;

@@ -4,16 +4,15 @@ description: Learn how to copy data from an FTP server to a supported sink data 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
+manager: jhubbard
+editor: spelluru
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
-
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -37,8 +36,7 @@ Specifically, this FTP connector supports:
 - Copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Get started
-
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](create-self-hosted-integration-runtime.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to FTP.
 
@@ -55,7 +53,7 @@ The following properties are supported for FTP linked service:
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you are using FTP over SSL/TLS channel.<br/>Allowed values are: **true** (default), **false**. | No |
 | authenticationType | Specify the authentication type.<br/>Allowed values are: **Basic**, **Anonymous** | Yes |
 | userName | Specify the user who has access to the FTP server. | No |
-| password | Specify the password for the user (userName). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | Specify the password for the user (userName). Mark this field as SecureString. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example 1: using Anonymous authentication**
@@ -162,7 +160,7 @@ To copy data from FTP, set the source type in the copy activity to **FileSystemS
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **FileSystemSource** |Yes |
-| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. Note when recursive is set to true and sink is file-based store, empty folder/sub-folder will not be copied/created at sink.<br/>Allowed values are: **true** (default), **false** | No |
+| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder.<br/>Allowed values are: **true** (default), **false** | No |
 
 **Example:**
 

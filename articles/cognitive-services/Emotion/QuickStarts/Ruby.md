@@ -2,8 +2,8 @@
 title: Emotion API Ruby quick start | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Emotion API with Ruby in Cognitive Services.
 services: cognitive-services
-author: anrothMSFT
-manager: corncar
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
 ms.technology: emotion

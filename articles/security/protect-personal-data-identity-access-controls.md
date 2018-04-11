@@ -1,6 +1,6 @@
 ﻿---
 title: Protect personal data with Azure identity and access controls | Microsoft Docs
-description: Azure identity and access controls help you protect personal data and may be helpful complying with General Data Protection Regulation (GDPR)
+description: Using Azure identity and access controls to help you protect your personal data
 services: security
 documentationcenter: na
 author: Barclayn
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2018
+ms.date: 11/13/2017
 ms.author: barclayn
 ms.custom: 
 
 ---
 # Azure Active Directory and Multi-Factor Authentication: Protect personal data with identity and access controls
 
-This article provides information and procedures you can use to protect personal data using Azure Active Directory and Multi-factor authentication security features and services. The information contained in this article may be helpful in you efforts to comply with General Data Protection Regulation (GDPR).
+This article provides information and procedures you can use to protect personal data using Azure Active Directory and Multi-factor authentication security features and services.
 
 ## Scenario
 

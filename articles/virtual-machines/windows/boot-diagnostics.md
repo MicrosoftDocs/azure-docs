@@ -4,7 +4,7 @@ description: Overview of the two debugging features for Windows virtual machines
 services: virtual-machines-windows
 documentationcenter: virtual-machines-windows
 author: Deland-Han
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -13,7 +13,7 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/10/2017
 ms.author: delhan
 ---

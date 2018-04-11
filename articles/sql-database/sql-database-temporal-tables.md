@@ -2,12 +2,19 @@
 title: Getting Started with Temporal Tables in Azure SQL Database | Microsoft Docs
 description: Learn how to get started with using Temporal Tables in Azure SQL Database.
 services: sql-database
+documentationcenter: ''
 author: bonova
-ms.date: 03/21/2018
-manager: craigg
+manager: jhubbard
+editor: ''
+
+ms.assetid: c8c0f232-0751-4a7f-a36e-67a0b29fa1b8
 ms.service: sql-database
 ms.custom: develop databases
+ms.devlang: NA
 ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: "On Demand"
+ms.date: 01/10/2017
 ms.author: bonova
 
 ---
@@ -60,7 +67,7 @@ When you create system-versioned temporal table, the accompanying history table 
 In this particular case, we aim to perform time-based trend analysis over a longer data history and with bigger data sets, so the storage choice for the history table is a clustered columnstore index. A clustered columnstore provides very good compression and performance for analytical queries. Temporal Tables give you the flexibility to configure indexes on the current and temporal tables completely independently. 
 
 > [!NOTE]
-> Columnstore indexes are available in the Premium tier and in the Standard tier, S3 and above.
+> Columnstore indexes are only available in the premium service tier.
 >
 
 The following script shows how default index on history table can be changed to the clustered columnstore:

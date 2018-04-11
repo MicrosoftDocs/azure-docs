@@ -1,14 +1,14 @@
 ---
-title: Server logs for Azure Database for MySQL
+title: Server logs for Azure Database for MySQL | Microsoft Docs
 description: Describes the logs available in Azure Database for MySQL, and the available parameters for enabling different logging levels.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
+manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 10/18/2017
 ---
 # Server Logs in Azure Database for MySQL
 In Azure Database for MySQL, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting. 

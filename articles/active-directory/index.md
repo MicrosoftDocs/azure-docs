@@ -4,7 +4,7 @@ description: Learn how to synchronize directories and enable single sign-on. Doc
 title: Azure Active Directory Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
 services: active-directory
-author: rolyon
+author: czeumault
 manager: mtillman
 layout: LandingPage
 ms.assetid:	
@@ -14,8 +14,6 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-experimental: true
-experiment_id: "15364e34-28ea-48"
 ---
 
 # Azure Active Directory Documentation

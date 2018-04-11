@@ -1,7 +1,5 @@
-# [Power BI Embedded Documentation](index.md)
-
 # Overview
-## [About Power BI Embedded](what-is-power-bi-embedded.md)
+## [What is Power BI Embedded?](what-is-power-bi-embedded.md)
 
 # Get started
 ## [Get started with Power BI Embedded](get-started.md)
@@ -23,20 +21,22 @@
 # Samples
 ## [Code samples](https://github.com/Microsoft/PowerBI-Developer-Samples)
 ## [Sample walkthrough](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
-## [JavaScript embed sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
 # Reference
 ## APIs
 ### [Azure Resource Management REST APIs](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### [Power BI REST APIs](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
+### [REST APIs](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
+## SDKs
+### [.NET SDK download](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
+### [JavaScript SDK download](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
 
 # Resources
-## [Power BI community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
-## [.NET SDK download](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
-## [JavaScript SDK download](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
+## [JavaScript embed sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)
+## [Apiary](http://docs.powerbi.apiary.io/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## GitHub repos
-### [.NET for Power BI](https://github.com/Microsoft/PowerBI-CSharp)
-### [JavaScript for Power BI](https://github.com/Microsoft/PowerBI-JavaScript)
-
+### [.NET](https://github.com/Microsoft/PowerBI-CSharp)
+### [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [Power BI community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 

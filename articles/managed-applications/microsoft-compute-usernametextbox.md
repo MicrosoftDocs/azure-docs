@@ -1,6 +1,6 @@
 ---
-title: Azure UserNameTextBox UI element | Microsoft Docs
-description: Describes the Microsoft.Compute.UserNameTextBox UI element for Azure portal.
+title: Azure Managed Application UserNameTextBox UI element | Microsoft Docs
+description: Describes the Microsoft.Compute.UserNameTextBox UI element for Azure Managed Applications
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -17,7 +17,7 @@ ms.author: tomfitz
 
 ---
 # Microsoft.Compute.UserNameTextBox UI element
-A text box control with built-in validation for Windows and Linux user names.
+A text box control with built-in validation for Windows and Linux user names. You use this element when [creating an Azure Managed Application](publish-service-catalog-app.md).
 
 ## UI sample
 ![Microsoft.Compute.UserNameTextBox](./media/managed-application-elements/microsoft.compute.usernametextbox.png)
@@ -61,5 +61,6 @@ custom validations are triggered.
 ```
 
 ## Next steps
+* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

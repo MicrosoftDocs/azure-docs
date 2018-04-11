@@ -18,9 +18,7 @@ ms.author: heidist
 ---
 # Create an Azure Search service in the portal
 
-Learn how to create or provision an Azure Search service in the portal. 
-
-Prefer PowerShell? Use the Azure Resource Manager [service template](https://azure.microsoft.com/resources/templates/101-azure-search-create/). For help getting started, see [Manage Azure Search with PowerShell](search-manage-powershell.md) for background.
+Learn how to create or provision an Azure Search service in the portal. For PowerShell instructions, see [Manage Azure Search with PowerShell](search-manage-powershell.md).
 
 ## Subscribe (free or paid)
 

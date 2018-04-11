@@ -3,10 +3,9 @@ title: Deploy a Machine Learning workspace with Azure Resource Manager | Microso
 description: How to deploy a workspace for Azure Machine Learning using Azure Resource Manager template
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
+author: ahgyger
+manager: haining
+editor: garye
 
 ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
 ms.service: machine-learning
@@ -14,7 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/05/2018
+ms.date: 3/15/2017
+ms.author: ahgyger
 
 ---
 # Deploy Machine Learning Workspace Using Azure Resource Manager

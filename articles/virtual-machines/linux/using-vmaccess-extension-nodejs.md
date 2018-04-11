@@ -4,7 +4,7 @@ description: Reset access on Azure Linux VMs using the VMAccess Extension.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 

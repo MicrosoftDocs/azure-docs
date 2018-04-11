@@ -4,7 +4,7 @@ description: Learn how to expand the operating system (OS) virtual disk on a Lin
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: jeconnoc
+manager: timlt
 editor: ''
 
 ms.assetid:

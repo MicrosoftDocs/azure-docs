@@ -1,5 +1,5 @@
 ---
-title: Self-service password reset troubleshooting- Azure Active Directory
+title: 'Troubleshoot: Azure AD SSPR | Microsoft Docs'
 description: Troubleshooting Azure AD self-service password reset
 services: active-directory
 keywords:
@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 09/21/2017
 ms.author: joflore
-ms.custom: it-pro;seohack1
+ms.custom: it-pro
 
 ---
 # Troubleshoot self-service password reset

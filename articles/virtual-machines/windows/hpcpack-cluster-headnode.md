@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal and the Resource Manager deployme
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager,hpc-pack
 

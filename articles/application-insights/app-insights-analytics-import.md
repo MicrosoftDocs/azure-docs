@@ -193,7 +193,7 @@ This code uses the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.J
 
 ### Classes
 
-```csharp
+```C#
 namespace IngestionClient 
 { 
     using System; 
@@ -352,7 +352,7 @@ namespace IngestionClient
 
 Use this code for each blob. 
 
-```csharp
+```C#
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
    var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 

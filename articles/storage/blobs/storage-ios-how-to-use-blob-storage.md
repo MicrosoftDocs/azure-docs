@@ -4,20 +4,26 @@ description: Store unstructured data in the cloud with Azure Blob storage (objec
 services: storage
 documentationcenter: ios
 author: michaelhauss
-manager: jeconnoc
+manager: vamshik
+editor: tysonn
 
+ms.assetid: df188021-86fc-4d31-a810-1b0e7bcd814b
 ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/11/2017
 ms.author: michaelhauss
 
 ---
 # How to use Blob storage from iOS
+[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-This article shows how to perform common scenarios using Microsoft Azure Blob storage. The samples are written in Objective-C and use the [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios). The scenarios covered include uploading, listing, downloading, and deleting blobs. For more information on blobs, see the [Next Steps](#next-steps) section. You can also download the [sample app](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) to quickly see the use of Azure Storage in an iOS application.
+[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
 
-## What is Blob storage?
+## Overview
+This article will show you how to perform common scenarios using Microsoft Azure Blob storage. The samples are written in Objective-C and use the [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios). The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#next-steps) section. You can also download the [sample app](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) to quickly see the use of Azure Storage in an iOS application.
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 

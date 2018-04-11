@@ -3,8 +3,9 @@ title: 'Azure Cosmos DB: Build an app with Python and the SQL API | Microsoft Do
 description: Presents a Python code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
 documentationcenter: ''
-author: SnehaGunda
-manager: kfile
+author: mimig1
+manager: jhubbard
+editor: ''
 
 ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
 ms.service: cosmos-db
@@ -14,14 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/29/2017
-ms.author: sngun
+ms.author: mimig
 
 ---
 # Azure Cosmos DB: Build a SQL API app with Python and the Azure portal
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
+
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and collection using the Azure portal. You then build and run a console app built on the [SQL Python API](sql-api-sdk-python.md).
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You then build and run a console app built on the [SQL Python API](sql-api-sdk-python.md).
 
 ## Prerequisites
 

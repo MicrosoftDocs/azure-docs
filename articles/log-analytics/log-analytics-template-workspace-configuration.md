@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 12/06/2017
 ms.author: richrund
 
 ---
@@ -28,6 +28,7 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/resourc
 * Collect performance counters from Linux and Windows computers
 * Collect events from syslog on Linux computers 
 * Collect events from Windows event logs
+* Collect custom event logs
 * Add the log analytics agent to an Azure virtual machine
 * Configure log analytics to index data collected using Azure diagnostics
 
@@ -56,9 +57,10 @@ The following template sample illustrates how to:
 7. Collect syslog events from Linux computers
 8. Collect Error and Warning events from the Application Event Log from Windows computers
 9. Collect Memory Available Mbytes performance counter from Windows computers
+10. Collect a custom log 
 11. Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account
 
-```json
+```
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -290,6 +292,61 @@ The following template sample illustrates how to:
         },
         {
           "apiVersion": "2015-11-01-preview",
+          "type": "datasources",
+          "name": "sampleCustomLog1",
+          "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+          ],
+          "kind": "CustomLog",
+          "properties": {
+            "customLogName": "sampleCustomLog1",
+            "description": "test custom log datasources",
+            "inputs": [
+              {
+                "location": {
+                  "fileSystemLocations": {
+                    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
+                    "linuxFileTypeLogPaths": [ "/var/logs" ]
+                  }
+                },
+                "recordDelimiter": {
+                  "regexDelimiter": {
+                    "pattern": "\\n",
+                    "matchIndex": 0,
+                    "matchIndexSpecified": true,
+                    "numberedGroup": null
+                  }
+                }
+              }
+            ],
+            "extractions": [
+              {
+                "extractionName": "TimeGenerated",
+                "extractionType": "DateTime",
+                "extractionProperties": {
+                  "dateTimeExtraction": {
+                    "regex": null,
+                    "joinStringRegex": null
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "2015-11-01-preview",
+          "type": "datasources",
+          "name": "sampleCustomLogCollection1",
+          "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+          ],
+          "kind": "CustomLogCollection",
+          "properties": {
+            "state": "LinuxLogsEnabled"
+          }
+        },
+        {
+          "apiVersion": "2015-11-01-preview",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
@@ -409,12 +466,10 @@ To deploy the sample template:
 3. Use PowerShell or the command line to deploy the template
 
 #### PowerShell
-```powershell
-New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
-```
+`New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
 
 #### Command line
-```cmd
+```
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```

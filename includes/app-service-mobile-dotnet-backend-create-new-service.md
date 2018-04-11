@@ -1,6 +1,6 @@
 1. Sign in to the [Azure portal].
 
-2. Click **Create a resource**.
+2. Click **New**.
 
 3. In the search box, type **Mobile Apps**.
 

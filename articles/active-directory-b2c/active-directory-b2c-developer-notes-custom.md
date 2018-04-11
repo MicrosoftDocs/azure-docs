@@ -3,15 +3,18 @@ title: 'Azure Active Directory B2C: Developer notes on using custom policies | M
 description: Notes for developers on configuring and maintaining Azure AD B2C with custom policies
 services: active-directory-b2c
 documentationcenter: ''
-author: davidmu1
+author: rojasja
 manager: mtillman
-editor: ''
+editor: rojasja
 
+ms.assetid:
 ms.service: active-directory-b2c
 ms.workload: identity
+ms.tgt_pltfrm: na
 ms.topic: article
+ms.devlang: na
 ms.date: 10/13/2017
-ms.author: davidmu
+ms.author: joroja
 
 ---
 # Release notes for Azure Active Directory B2C custom policy public preview
@@ -54,7 +57,7 @@ To fully benefit from the public preview, we suggest that developers consuming t
 ## Features by stage and known issues
 Custom Policy/Identity Experience Framework capabilities are under constant and rapid development.  This table is an index of features/component availability.
 
-Post questions in Stack Overflow at [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
+Post questions in Stack Overflow at [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
 
 
 ### Identity Providers, Tokens, Protocols

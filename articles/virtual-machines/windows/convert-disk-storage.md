@@ -47,11 +47,10 @@ $storageType = 'PremiumLRS'
 # Premium capable size
 # Required only if converting storage from standard to premium
 $size = 'Standard_DS2_v2'
+$vm = Get-AzureRmVM -Name $vmName -resourceGroupName $rgName
 
 # Stop and deallocate the VM before changing the size
 Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
-
-$vm = Get-AzureRmVM -Name $vmName -resourceGroupName $rgName
 
 # Change the VM size to a size that supports premium storage
 # Skip this step if converting storage from premium to standard
@@ -64,7 +63,7 @@ $vmDisks = Get-AzureRmDisk -ResourceGroupName $rgName
 # For disks that belong to the selected VM, convert to premium storage
 foreach ($disk in $vmDisks)
 {
-	if ($disk.ManagedBy -eq $vm.Id)
+	if ($disk.OwnerId -eq $vm.Id)
 	{
 		$diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType $storageType
 		Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
@@ -92,11 +91,10 @@ $disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
 
 # Get the ARM resource to get name and resource group of the VM
 $vmResource = Get-AzureRmResource -ResourceId $disk.diskId
+$vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName 
 
 # Stop and deallocate the VM before changing the storage type
 Stop-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force
-
-$vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName 
 
 # Change the VM size to a size that supports premium storage
 # Skip this step if converting storage from premium to standard

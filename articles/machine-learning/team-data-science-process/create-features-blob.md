@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev
+ms.author: bradsev;garye
 
 ---
 # Create features for Azure blob storage data using Panda

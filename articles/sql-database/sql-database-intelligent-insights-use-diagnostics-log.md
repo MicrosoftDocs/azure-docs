@@ -2,13 +2,19 @@
 title: Intelligent Insights performance diagnostics log - Azure SQL Database | Microsoft Docs
 description: Intelligent Insights provides a diagnostics log of Azure SQL Database performance issues
 services: sql-database
+documentationcenter: ''
 author: danimir
-manager: craigg
-ms.reviewer: carlrab
+manager: drasumic
+editor: carlrab
+
+ms.assetid: 
 ms.service: sql-database
 ms.custom: monitor & tune
+ms.devlang: NA
 ms.topic: article
-ms.date: 04/04/2018
+ms.tgt_pltfrm: na
+ms.workload: "Inactive"
+ms.date: 09/25/2017
 ms.author: v-daljep
 
 ---
@@ -74,7 +80,7 @@ Depending on the performance issue detected, the details outputted in the diagno
 
 | Detectable performance patterns | Details outputted |
 | :------------------- | ------------------- |
-| Reaching resource limits | <li>Resources affected</li><li>Query hashes</li><li>Resource consumption percentage</li> |
+| Reaching Resource Limits | <li>Resources affected</li><li>Query hashes</li><li>Resource consumption percentage</li> |
 | Workload Increase | <li>Number of queries whose execution increased</li><li>Query hashes of queries with the largest contribution to the workload increase</li> |
 | Memory Pressure | <li>Memory clerk</li> |
 | Locking | <li>Affected query hashes</li><li>Blocking query hashes</li> |

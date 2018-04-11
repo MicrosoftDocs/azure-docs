@@ -27,9 +27,7 @@ ms.custom: mvc
 
 ![Sample app running in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-You can follow the steps in this tutorial using a Mac, Windows, or Linux machine. You can also follow along with [the video](#video) that covers this article.
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+You can follow the steps below using a Mac, Windows, or Linux machine.
 
 ## Prerequisites
 
@@ -37,6 +35,8 @@ To complete this quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
 * <a href="https://nodejs.org/" target="_blank">Install Node.js and NPM</a>
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
@@ -74,21 +74,19 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
 Browse to your newly created web app. Replace _&lt;app name>_ with your web app name.
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
-
-Here is what your new web app should look like:
 
 ![Empty web app page](media/quickstart-nodejs/app-service-web-service-created.png)
 
@@ -176,10 +174,6 @@ You see your web app's Overview page. Here, you can perform basic management tas
 The left menu provides different pages for configuring your app. 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
-
-## Video
-
->[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
 
 ## Next steps
 

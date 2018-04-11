@@ -3,7 +3,7 @@ title: C# Quickstart for Azure Cognitive Services, Bing Video Search API | Micro
 description: Get information and code samples to help you quickly get started using the Bing Video Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
-author: v-jerkin
+author: jerrykindall
 
 ms.service: cognitive-services
 ms.technology: bing-search
@@ -33,7 +33,7 @@ The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservice
 1. Replace the `accessKey` value with an access key valid for your subscription.
 1. Run the program.
 
-```csharp
+```c#
 using System;
 using System.Text;
 using System.Net;

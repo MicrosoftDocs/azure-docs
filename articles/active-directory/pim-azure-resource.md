@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/30/2018
-ms.author: billmath
+ms.date: 09/22/2017
+ms.author: skwan
 ---
 
-# Manage access to Azure resources with Privileged Identity Management
+# Manage access to Azure resources with Privileged Identity Management (Preview)
 
 To protect privileged accounts from malicious cyber-attacks, you can use Azure Active Directory Privileged Identity Management (PIM) to lower the exposure time of privileges and increase your visibility into their use through reports and alerts. PIM does this by limiting users to only taking on their privileges "just in time" (JIT), or by assigning privileges for a shortened duration after which privileges are revoked automatically. 
 

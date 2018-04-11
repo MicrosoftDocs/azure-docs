@@ -23,9 +23,9 @@ Schemas confirm that the XML documents you receive are valid and have the expect
 
 ## Add a schema
 
-1. In the Azure portal, select **All services**.
+1. In the Azure portal, select **More services**.
 
-	![Azure portal, "All services"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+	![Azure portal, "More services"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
 
 2. In the filter search box, enter **integration**, 
 and select **Integration Accounts** from the results list.

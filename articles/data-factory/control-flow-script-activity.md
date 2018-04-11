@@ -4,15 +4,15 @@ description: Learn how you can use the SQL Server Stored Procedure Activity to i
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+manager: jhubbard
+editor: spelluru
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/22/2017
 ms.author: shlo
 
 ---

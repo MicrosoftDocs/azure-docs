@@ -1,14 +1,22 @@
 ---
-title: Troubleshoot event hub receivers in Azure Stream Analytics
+title: Debug Azure Stream Analytics with event hub receivers | Microsoft Docs
 description: Query best practices for considering Event Hubs consumer groups in Stream Analytics jobs.
+keywords: event hub limit, consumer group
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+documentationcenter: ''
+author: samacha
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
 ms.date: 04/20/2017
+ms.author: samacha
+
 ---
 
 # Debug Azure Stream Analytics with event hub receivers
@@ -50,9 +58,9 @@ FROM inputEventHub
 Use this query:
 
 ```
-WITH data AS (
+WITH input (
    SELECT * FROM inputEventHub
-)
+) as data
 
 SELECT foo
 INTO output1
@@ -70,7 +78,7 @@ For queries in which three or more inputs are connected to the same Event Hubs c
 
 
 ## Get help
-For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)

@@ -1,16 +1,20 @@
 ---
 title: About unmanaged (page blobs) and managed disks storage for Microsoft Azure Linux VMs | Microsoft Docs
 description: Learn about the basics of unmanaged (page blobs) and managed disks storage for Linux virtual machines in Azure.
-services: virtual-machines
-author: roygara
-manager: jeconnoc
+services: storage
+documentationcenter: ''
+author: robinsh
+manager: timlt
+editor: tysonn
 
-ms.service: virtual-machines
+ms.assetid: 7be8dd52-98f7-4187-9b78-55197915bc9b
+ms.service: storage
 ms.workload: storage
-ms.tgt_pltfrm: linux
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: rogarana
+ms.author: robinsh
 
 ---
 # About disks storage for Azure Linux VMs
@@ -38,7 +42,7 @@ For more information on how Azure uses the temporary disk, see [Understanding th
 A data disk is a VHD that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Each data disk has a maximum capacity of 4095 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
 > [!NOTE]
-> For more details about virtual machines capacities, see [Sizes for Linux virtual machines](./sizes.md).
+> For more details about virtual machines capacities, see [Sizes for Linux virtual machines](../windows/sizes.md).
 > 
 
 Azure creates an operating system disk when you create a virtual machine from an image. If you use an image that includes data disks, Azure also creates the data disks when it creates the virtual machine. Otherwise, you add data disks after you create the virtual machine.

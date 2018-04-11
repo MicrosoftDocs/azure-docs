@@ -1,6 +1,6 @@
 ---
-title: Access controls in Azure Active Directory conditional access | Microsoft Docs
-description: Learn how access controls in Azure Active Directory conditional access work.
+title: Controls in Azure Active Directory conditional access | Microsoft Docs
+description: Learn how controls in Azure Active Directory conditional access work.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
@@ -14,29 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2018
+ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: calebb
 
 ---
 
-# Access controls in Azure Active Directory conditional access 
+# Controls in Azure Active Directory conditional access 
 
-With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a conditional access policy, you define the response ("do this") to the reason for triggering your policy ("when this happens"). 
+With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a conditional access policy, you define the response ("do this") to a specific condition ("when this happens"). In the context of conditional access, 
 
-![Control](./media/active-directory-conditional-access-controls/10.png)
+- "**When this happens**" is called **condition statement**
 
+- "**Then do this**" is called **controls**
 
-In the context of conditional access, 
-
-- "**When this happens**" is called **conditions**
-
-- "**Then do this**" is called **access controls**
-
+![Control](./media/active-directory-conditional-access-controls/11.png)
 
 The combination of a condition statement with your controls represents a conditional access policy.
 
-![Control](./media/active-directory-conditional-access-controls/61.png)
+![Control](./media/active-directory-conditional-access-controls/12.png)
 
 Each control is either a requirement that must be fulfilled by the person or system signing in, or a restriction on what the user can do after signing in. 
 
@@ -73,15 +69,11 @@ Using multi-factor authentication helps protect resources from being accessed by
 
 ### Compliant device
 
-You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to grant access to the configured resources only from trusted devices. Requiring a compliant device is one option you have to define what a trusted device is. If this option is selected, your conditional access policy grants access to access attempts made with devices that are joined to your Azure Active Directory and are marked as compliant by your MDM solution.
-
-For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
+You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to grant access to the configured resources only from trusted devices. Requiring a compliant device is one option you have to define what a trusted device is. For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
 
 ### Domain-joined device
 
-Requiring a domain-joined device is another option you have to configure device-based conditional access policies. This requirement refers to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. If this option is selected, your conditional access policy grants access to access attempts made with devices that are joined to your on-premises Active Directory and your Azure Active Directory.  
-
-For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
+Requiring a domain-joined device is another option you have to configure device-based conditional access policies. This requirement refers to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
 
 
 
@@ -113,7 +105,7 @@ These controls allow the use of certain external or custom services as condition
 
 Providers currently offering a compatible service include:
 
-- [Duo Security](https://duo.com/docs/azure-ca)
+- Duo Security
 
 - RSA
 

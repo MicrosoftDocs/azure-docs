@@ -4,7 +4,7 @@ description: Learn how to capture and generalize an image of a Linux-based Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 

@@ -54,7 +54,7 @@ To register for transaction notifications and/or state manager notifications, yo
 A common place to register with these event handlers is the constructor of your stateful service. 
 When you register on the constructor, you won't miss any notification that's caused by a change during the lifetime of **IReliableStateManager**.
 
-```csharp
+```C#
 public MyService(StatefulServiceContext context)
     : base(MyService.EndpointName, context, CreateReliableStateManager(context))
 {
@@ -74,7 +74,7 @@ It also contains the transaction property that provides a reference to the trans
 
 Following is an example **TransactionChanged** event handler.
 
-```csharp
+```C#
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
 {
     if (e.Action == NotifyTransactionChangedAction.Commit)
@@ -96,7 +96,7 @@ You use the action property in **NotifyStateManagerChangedEventArgs** to cast **
 
 Following is an example **StateManagerChanged** notification handler.
 
-```csharp
+```C#
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
@@ -123,7 +123,7 @@ To get Reliable Dictionary notifications, you need to register with the **Dictio
 A common place to register with these event handlers is in the **ReliableStateManager.StateManagerChanged** add notification.
 Registering when **IReliableDictionary** is added to **IReliableStateManager** ensures that you won't miss any notifications.
 
-```csharp
+```C#
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
 {
     var operation = e as NotifyStateManagerSingleEntityChangedEventArgs;
@@ -135,6 +135,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
             var dictionary = (IReliableDictionary<TKey, TValue>)operation.ReliableState;
             dictionary.RebuildNotificationAsyncCallback = this.OnDictionaryRebuildNotificationHandlerAsync;
             dictionary.DictionaryChanged += this.OnDictionaryChangedHandler;
+            }
         }
     }
 }
@@ -148,7 +149,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 The preceding code sets the **IReliableNotificationAsyncCallback** interface, along with **DictionaryChanged**. 
 Because **NotifyDictionaryRebuildEventArgs** contains an **IAsyncEnumerable** interface--which needs to be enumerated asynchronously--rebuild notifications are fired through **RebuildNotificationAsyncCallback** instead of **OnDictionaryChangedHandler**.
 
-```csharp
+```C#
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
     IReliableDictionary<TKey, TValue> origin,
     NotifyDictionaryRebuildEventArgs<TKey, TValue> rebuildNotification)
@@ -178,7 +179,7 @@ Use the action property in **NotifyDictionaryChangedEventArgs** to cast **Notify
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
-```csharp
+```C#
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
 {
     switch (e.Action)

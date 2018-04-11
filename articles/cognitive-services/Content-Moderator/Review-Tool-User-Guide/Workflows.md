@@ -1,6 +1,6 @@
 ---
-title: Define and use workflows in Azure Content Moderator | Microsoft Docs
-description: Learn how to create custom workflows based on your content policies.
+title: Define and use workflows in Content Moderator | Microsoft Docs
+description: Content Moderator includes default workflows, and you can create your own based on content policies that are specific to your business.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -8,78 +8,72 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.technology: content-moderator
 ms.topic: article
-ms.date: 01/07/2018
+ms.date: 06/22/2017
 ms.author: sajagtap
 ---
 
-# Define, test, and use workflows
+# Defining, testing, and using workflows  #
 
-You can use the Azure Content Moderator workflow designer and APIs to define custom workflows and thresholds based on your content policies.
+In addition to default workflow used for generating reviews, you can define custom workflows and thresholds based on content policies that are specific to your business.
 
-Workflows "connect" to the Content Moderator API by using connectors. You can use other APIs if a connector for that API is available. The example here uses the Content Moderator connector that is included by default.
+Workflows “connect” to the Content Moderator API using connectors. In addition, you can use other APIs, as long as a connector for that API is available. The example here will use the Content Moderator connector, which is included by default.
 
-## Browse to the Workflows section
+## Creating a workflow ##
 
-On the **Settings** tab, select **Workflows**.
+1. Select Workflows from the Settings tab.
 
-  ![Workflows setting](images/2-workflows-0.png)
+  ![Content Moderation Workflow](images/2-workflows-0.png)
 
-## Start a new workflow
+2. Click the Add Workflows button.
 
-Select **Add Workflow**.
+  ![Content Moderation Workflow](images/2-workflows-1.png)
 
-  ![Add a workflow](images/2-workflows-1.png)
+3. Name your workflow, provide a description, and select whether you want to process images or text. 
 
-## Assign a name and description
+  ![Content Moderation Workflow](images/2-Workflows-2.PNG)
 
-Name your workflow, enter a description, and choose whether the workflow handles images or text.
+4. Define the evaluation criteria (“Condition”). 
 
-  ![Workflow name and description](images/ocr-workflow-step-1.PNG)
+  In the screenshot below, you can see the fields and the If-Then-Else selections that you will need to make to define your custom workflows. Choose a connector (in this example, Content Moderator). The available options for Output change, depending on the connector you choose. 
 
-## Define the evaluation criteria ("condition")
+  ![Content Moderation Workflow](images/2-Workflows-3.PNG)
 
-In the following screenshot, you see the fields and the If-Then-Else selections that you need to define for your workflows. Choose a connector. This example uses **Content Moderator**. Depending on the connector you choose, the available options for output change.
+  After you choose a connector and an output, a field displays for Operator, with available options dependent on your choices.
 
-  ![Define workflow condition](images/ocr-workflow-step-2-condition.PNG)
+  ![Content Moderation Workflow](images/workflow-connectors-options-1.png)
+  ![Content Moderation Workflow](images/workflow-connectors-options-2.png)
 
-After you choose the connector and its output that you want, select an operator and the value for the condition.
+  Select an Operator, then enter a value.
 
-## Define the action to take
+5. Define the action to be taken if the condition is met. The example below creates an image review, assigns it to a subteam, and creates a tag condition. It also specifies an additional criteria that must be fulfilled for the tag to be selected. In this way, you can combine multiple conditions to get the results you want.
 
-Select the action to take and the condition to meet. The following example creates an image review, assigns a tag `a`, and highlights it for the condition shown. You also can combine multiple conditions to get the results you want. Optionally, add an alternative (Else) path.
+  ![Content Moderation Workflow](images/2-Workflows-5.PNG)
 
-  ![Define workflow action](images/ocr-workflow-step-3-action.PNG)
+6. Optionally, add an Else action in the same way that you defined the If section.
+7. Click Save and make note of the workflow name. You will need the name when you use it with the Review API. 
 
-## Save your workflow
+## Test the Workflow ##
 
-Finally, save the workflow, and note the workflow name. You need the name to start a moderation job by using the Review API.
+Now that you have a custom workflow defined, use the Review Tool Dashboard to test it. 
 
-## Test the workflow
+1. To test a particular workflow, click the respective arrow under Execute Workflow.
 
-Now that you defined a custom workflow, test it with sample content.
+  ![Content Moderation Workflow](images/workflow-test-1.png)
 
-Select the corresponding **Execute Workflow** button.
+2. Upload a file (or several).
 
-  ![Workflow test](images/ocr-workflow-step-6-list.PNG)
+  ![Content Moderation Workflow](images/workflow-test-2.png)
 
-### Upload a file
+3. Wait for the job to process and display the results of the review.
 
-Save the [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) to your local drive. To test the workflow, select **Choose File(s)** and upload the image.
+  ![Content Moderation Workflow](images/workflow-test-3.png)
 
-  ![Upload image file](images/ocr-workflow-step-7-upload.PNG)
+## Use the Workflow with the Review API ##
 
-### Track the workflow
+Now that you have a custom workflow defined, use the Review API to start a moderation job with the workflow name as one of the parameters. This should be the workflow name that you noted in the previous step (in the example above, “ExampleWorkflow”). There are several required fields in the API. You can find much of the necessary information in your Settings.
 
-Track the workflow as it executes.
+- **teamName**: Select Settings > Team
+- **WorkflowName**: Select Settings > Workflows
+- **Ocp-Apim-Subscription-Key**: Select Settings > Credentials
 
-  ![Track workflow execution](images/ocr-workflow-step-4-test.PNG)
-
-### Review any images flagged for human moderation
-
-To see the image review, go to the **Image** tab under **Review**.
-
-  ![Review images](images/ocr-sample-image-workflow1.PNG)
-
-## Next steps 
-
-To invoke the workflow from code, use custom workflows with the [`Job` API console quickstart](../try-review-api-job.md) and the [.NET SDK quickstart](../moderation-jobs-quickstart-dotnet.md).
+![Content Moderation Workflow](images/workflow-use-review-api.png)

@@ -537,7 +537,7 @@ If your application attaches [custom dimensions (properties) and custom measurem
 
 For example, if your app includes:
 
-```csharp
+```C#
 
     var dimensions = new Dictionary<string, string>
                      {{"p1", "v1"},{"p2", "v2"}};
@@ -610,7 +610,7 @@ If you use [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) 
 
 Let's take an example where your app code contains these lines:
 
-```csharp
+```C#
 
     telemetry.TrackEvent("Query",
        new Dictionary<string,string> {{"query", sqlCmd}},

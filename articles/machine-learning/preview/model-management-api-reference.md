@@ -4,9 +4,9 @@ description: This article describes the steps for creating a Docker image for yo
 services: machine-learning
 author: chhavib    
 ms.author: chhavib
-manager: hjerez
+manager: neerajkh
 editor: jasonwhowell
-ms.reviewer: jasonwhowell, mldocs
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na

@@ -1,14 +1,22 @@
 ---
-title: Data Lake Store output of Azure Stream Analytics
+title: Stream Analytics Data Lake Store Output | Microsoft Docs
 description: Configuration of authentication and authorization of an Azure Data Lake Store in a Stream Analytics job
+keywords: ''
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+documentationcenter: ''
+author: samacha
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
 ms.date: 03/28/2017
+ms.author: samacha
+
 ---
 # Stream Analytics Data Lake Store output
 Stream Analytics jobs support several output methods, one being an [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to store data of any size, type and ingestion speed for operational and exploratory analytics.

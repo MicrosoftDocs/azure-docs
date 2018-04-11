@@ -4,7 +4,7 @@ description: Create a MariaDB + Galera MySQL cluster on Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
 author: sabbour
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-service-management
 

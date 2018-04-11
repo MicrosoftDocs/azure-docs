@@ -3,8 +3,9 @@ title: 'Azure Cosmos DB: Build an app with Node.js and the SQL API | Microsoft D
 description: Presents a Node.js code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
 documentationcenter: ''
-author: SnehaGunda
-manager: kfile
+author: mimig1
+manager: jhubbard
+editor: ''
 
 ms.assetid: 9c0f033c-240e-4fee-8421-08907231087f
 ms.service: cosmos-db
@@ -14,14 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/29/2017
-ms.author: sngun
+ms.author: mimig
 
 ---
 # Azure Cosmos DB: Build a SQL API app with Node.js and the Azure portal
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
+
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and collection using the Azure portal. You then build and run a console app built on the [SQL Node.js API](sql-api-sdk-node.md).
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You then build and run a console app built on the [SQL Node.js API](sql-api-sdk-node.md).
 
 ## Prerequisites
 

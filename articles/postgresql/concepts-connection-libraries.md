@@ -1,14 +1,14 @@
 ---
-title: Connection libraries for Azure Database for PostgreSQL
+title: 'Connection libraries for Azure Database for PostgreSQL | Microsoft Docs'
 description: This article describes several libraries and drivers that developers can use when coding applications to connect and query Azure Database for PostgreSQL.
 services: postgresql
-author: rachel-msft
-ms.author: raagyema
-manager: kfile
+author: SaloniSonpal
+ms.author: salonis
+manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 09/26/2017
 ---
 # Connection libraries for Azure Database for PostgreSQL
 This article lists libraries and drivers that developers can use to develop applications to connect to and query Azure Database for PostgreSQL.

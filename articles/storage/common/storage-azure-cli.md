@@ -3,8 +3,8 @@ title: Using the Azure CLI 2.0 with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure Command-Line Interface (Azure CLI) 2.0 with Azure Storage to create and manage storage accounts and work with Azure blobs and files. The Azure CLI 2.0 is a cross-platform tool written in Python.
 services: storage
 documentationcenter: na
-author: roygara
-manager: jeconnoc
+author: tamram
+manager: timlt
 editor: tysonn
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: rogarana
+ms.author: tamram
 
 ---
 # Using the Azure CLI 2.0 with Azure Storage
@@ -194,7 +194,6 @@ az storage account create \
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-
 ### Set default Azure storage account environment variables
 You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
 
@@ -266,7 +265,7 @@ az storage blob download \
 
 ### List the blobs in a container
 
-List the blobs in a container with the [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) command.
+List the blobs in a container with the [az storage blob list](/cli/azure/storage/blob#list) command.
 
 ```azurecli
 az storage blob list \

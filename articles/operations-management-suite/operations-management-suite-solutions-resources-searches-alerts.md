@@ -1,6 +1,6 @@
 ---
-title: Saved searches and alerts in management solutions | Microsoft Docs
-description: Management solutions typically include saved searches in Log Analytics to analyze data collected by the solution.  They may also define alerts to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a Resource Manager template so they can be included in management solutions.
+title: Saved searches and alerts in OMS solutions | Microsoft Docs
+description: Solutions in OMS typically include saved searches in Log Analytics to analyze data collected by the solution.  They may also define alerts to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a Resource Manager template so they can be included in management solutions.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -12,31 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/16/2018
+ms.date: 10/16/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
 
 ---
 
-# Adding Log Analytics saved searches and alerts to management solution (Preview)
+# Adding Log Analytics saved searches and alerts to OMS management solution (Preview)
 
 > [!NOTE]
-> This is preliminary documentation for creating management solutions which are currently in preview. Any schema described below is subject to change.   
+> This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.   
 
 
-[Management solutions](operations-management-suite-solutions.md) will typically include 
+[Management solutions in OMS](operations-management-suite-solutions.md) will typically include 
 [saved searches](../log-analytics/log-analytics-log-searches.md) in Log Analytics to analyze data collected by the solution.  They may also define [alerts](../log-analytics/log-analytics-alerts.md) to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../resource-manager-template-walkthrough.md) so they can be included in [management solutions](operations-management-suite-solutions-creating.md).
 
 > [!NOTE]
-> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure](operations-management-suite-solutions-creating.md)  
+> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
 
 ## Prerequisites
 This article assumes that you're already familiar with how to [create a management solution](operations-management-suite-solutions-creating.md) and the structure of a [Resource Manager template](../resource-group-authoring-templates.md) and solution file.
 
 
 ## Log Analytics Workspace
-All resources in Log Analytics are contained in a [workspace](../log-analytics/log-analytics-manage-access.md).  As described in [Log Analytics workspace and Automation account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), the workspace isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install fails.
+All resources in Log Analytics are contained in a [workspace](../log-analytics/log-analytics-manage-access.md).  As described in [OMS workspace and Automation account](operations-management-suite-solutions.md#oms-workspace-and-automation-account), the workspace isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install fails.
 
 The name of the workspace is in the name of each Log Analytics resource.  This is done in the solution with the **workspace** parameter as in the following example of a savedsearch resource.
 
@@ -45,14 +45,17 @@ The name of the workspace is in the name of each Log Analytics resource.  This i
 ## Log Analytics API version
 All Log Analytics resources defined in a Resource Manager template have a property **apiVersion** that defines the version of the API the resource should use.  This version is different for resources that use the [legacy and the upgraded query language](../log-analytics/log-analytics-log-search-upgrade.md).  
 
- The following table specifies the Log Analytics API versions for saved searches in legacy and upgraded workspaces: 
+ The following table specifies the Log Analytics API versions for legacy and upgraded workspaces and a sample query to specify the different syntax for each. 
 
-| Workspace version | API version | Query |
+| Workspace version | API version | Sample query |
 |:---|:---|:---|
-| v1 (legacy)   | 2015-11-01-preview | Legacy format.<br> Example: Type=Event EventLevelName = Error  |
-| v2 (upgraded) | 2015-11-01-preview | Legacy format.  Converted to upgraded format on install.<br> Example: Type=Event EventLevelName = Error<br>Converted to: Event &#124; where EventLevelName == "Error"  |
-| v2 (upgraded) | 2017-03-03-preview | Upgrade format. <br>Example: Event &#124; where EventLevelName == "Error"  |
+| v1 (legacy)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
+| v2 (upgraded) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
 
+Note the following for which workspaces are supported by different versions.
+
+- Templates that use the legacy query language can be installed in a legacy or upgraded workspace.  If installed in an upgraded workspace, then queries are converted on the fly to the new language when they are run by the user.
+- Templates that use the upgraded query language can only be installed in an upgraded workspace.
 
 
 ## Saved Searches

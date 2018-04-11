@@ -11,7 +11,7 @@ manager: erikre
 ms.workload: web
 ms.custom: mvc
 ---
-# Tutorial: Add a Content Delivery Network (CDN) to an Azure App Service
+# Add a Content Delivery Network (CDN) to an Azure App Service
 
 [Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. The CDN also decreases server load on your web app. This tutorial shows how to add Azure CDN to a [web app in Azure App Service](app-service-web-overview.md). 
 

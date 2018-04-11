@@ -2,7 +2,7 @@
 title: Supported countries and languages for Bing Image Search API on Azure | Microsoft Docs
 description: Find out which countries and languages are supported by the Bing Image Search API.
 services: cognitive-services
-author: v-jerkin
+author: jerrykindall
 manager: jhubbard
 
 ms.service: cognitive-services
@@ -95,6 +95,7 @@ Alternatively, you may specify the market using the `mkt` query parameter and a 
 |Mexico|Spanish|es-MX|
 |Netherlands|Dutch|nl-NL|
 |New Zealand|English|en-NZ|
+|Norway|Norwegian|no-NO|
 |China|Chinese|zh-CN|
 |Poland|Polish|pl-PL|
 |Portugal|Portuguese|pt-PT|
@@ -111,6 +112,3 @@ Alternatively, you may specify the market using the `mkt` query parameter and a 
 |United Kingdom|English|en-GB|
 |United States|English|en-US|
 |United States|Spanish|es-US|
-
-## Next steps
-For more information about the Bing News Search endpoints, see [News Image Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).

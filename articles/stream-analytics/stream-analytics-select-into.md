@@ -1,14 +1,22 @@
 ---
-title: Debug Azure Stream Analytics queries by using SELECT INTO
-description: This article describes how to sample data mid-query in Azure Stream Analytics job by using SELECT INTO statements in the query syntax.
+title: Debug Azure Stream Analytics queries by using SELECT INTO | Microsoft Docs
+description: Sample data mid-query by using SELECT INTO statements in Stream Analytics
+keywords: 
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+documentationcenter: ''
+author: samacha
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
 ms.date: 04/20/2017
+ms.author: samacha
+
 ---
 # Debug queries by using SELECT INTO statements
 
@@ -63,7 +71,7 @@ This time, the data in the output is formatted and populated as expected.
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 

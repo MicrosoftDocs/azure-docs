@@ -3,8 +3,8 @@ title: How to monitor Azure Redis Cache | Microsoft Docs
 description: Learn how to monitor the health and performance your Azure Redis Cache instances
 services: redis-cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: steved0x
+manager: douge
 editor: ''
 
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: wesmc
+ms.author: sdanie
 
 ---
 # How to monitor Azure Redis Cache

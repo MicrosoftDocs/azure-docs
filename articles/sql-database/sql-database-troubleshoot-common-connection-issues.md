@@ -2,12 +2,19 @@
 title: Troubleshoot common connection issues to Azure SQL Database
 description: Steps to identify and resolve common connection errors for Azure SQL Database.
 services: sql-database
+documentationcenter: ''
 author: dalechen
-manager: craigg
+manager: cshepard
+editor: ''
+
+ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
-ms.date: 04/01/2018
+ms.workload: "On Demand"
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: troubleshooting
+ms.date: 11/03/2017
 ms.author: daleche
 
 ---

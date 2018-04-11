@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: bradsev
+ms.author: deguhath;bradsev;gokuma
 
 ---
 # Operationalize Spark-built machine learning models

@@ -4,7 +4,7 @@ description: Learn how to maximize your Windows Software Assurance benefits to b
 services: virtual-machines-windows
 documentationcenter: ''
 author: kmouss
-manager: jeconnoc
+manager: timlt
 editor: ''
 
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0

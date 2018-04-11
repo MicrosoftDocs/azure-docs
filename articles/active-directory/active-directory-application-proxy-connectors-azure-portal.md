@@ -3,7 +3,7 @@ title: Publishing applications on separate networks and locations using connecto
 description: Covers how to create and manage groups of connectors in Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: kgremban
 manager: mtillman
 
 ms.assetid: 
@@ -12,11 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
-ms.author: markvi
+ms.date: 08/23/2017
+ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-
 ---
 
 # Publish applications on separate networks and locations using connector groups

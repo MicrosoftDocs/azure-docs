@@ -3,9 +3,8 @@ title: Deploy a Machine Learning web service | Microsoft Docs
 description: How to convert a training experiment to a predictive experiment, prepare it for deployment, then deploy it as an Azure Machine Learning web service.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
+author: garyericson
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
+ms.author: garye
 
 ---
 # Deploy an Azure Machine Learning web service

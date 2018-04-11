@@ -29,8 +29,6 @@ ms.custom: mvc, devcenter
 > If you're looking for how to build and deploy an ASP.NET Framework Web App, that article is available [here](app-service-web-get-started-dotnet-framework.md). 
 >
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 ## Prerequisites
 
 To complete this tutorial:
@@ -41,7 +39,7 @@ To complete this tutorial:
 
     ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
-If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create an ASP.NET Core web app
 
@@ -172,4 +170,4 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core with SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)
+> [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)

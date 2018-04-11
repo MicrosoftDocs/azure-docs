@@ -1,5 +1,3 @@
-# [Mobile Engagement Documentation](index.md)
-
 # [Overview](mobile-engagement-overview.md)
 ## [Comparison with related services](mobile-engagement-comparison.md)
 ## [Features overview](mobile-engagement-key-features.md)

@@ -1,7 +1,7 @@
 ---
 
-title: Azure Security and Compliance Blueprint - PCI DSS-compliant Payment Processing environments
-description: Azure Security and Compliance Blueprint - PCI DSS-compliant Payment Processing environments
+title: Payment Processing Blueprint for PCI DSS-compliant environments
+description: PCI DSS Requirement
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2018
+ms.date: 11/29/2017
 ms.author: frasim
 
 ---
 
-# Azure Security and Compliance Blueprint - PCI DSS-compliant Payment Processing environments
+# Azure Blueprint Automation: Payment Processing for PCI DSS-compliant environments
 
 ## Overview
 
@@ -42,7 +42,7 @@ The foundational architecture is comprised of the following components:
 - **Deployment templates**. In this deployment, [Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment) are used to automatically deploy the components of the architecture into Microsoft Azure by specifying configuration parameters during setup.
 - **Automated deployment scripts**. These scripts help deploy the end-to-end solution. The scripts consist of:
     - A module installation and [global administrator](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) setup script is used to install and verify that required PowerShell modules and global administrator roles are configured correctly.
-    - An installation PowerShell script is used to deploy the end-to-end solution, provided via a .zip file and a .bacpac file that contain a pre-built demo web application with [SQL database sample](https://github.com/Microsoft/azure-sql-security-sample). content. The source code for this solution is available for review [ Blueprint code repository][code-repo]. 
+    - An installation PowerShell script is used to deploy the end-to-end solution, provided via a .zip file and a .bacpac file that contain a pre-built demo web application with [SQL database sample](https://github.com/Microsoft/azure-sql-security-sample). content. The source code for this solution is available for review [Payment Processing Blueprint code repository][code-repo]. 
 
 ## Architectural diagram
 
@@ -110,6 +110,8 @@ Edna Benson is the receptionist and business manager. She is responsible for ens
 - Edna can modify customer information.
 - Edna can overwrite or replace credit card number, expiration, and CVV information.
 
+> In the Contoso Webstore, the user is automatically as the **Edna** user for testing the capabilities of the deployed environment.
+
 ### Contoso Webstore - Estimated pricing
 
 This foundational architecture and example web application have a monthly fee structure and a usage cost per hour which must be considered when sizing the solution. These costs can be estimated using the [Azure costing calculator](https://azure.microsoft.com/pricing/calculator/). As of September 2017, the estimated monthly cost for this solution is ~$2500 this includes a $1000/mo usage charge for ASE v2. These costs will vary based on the usage amount and are subject to change. It is incumbent on the customer to calculate their estimated monthly costs at the time of deployment for a more accurate estimate. 
@@ -119,7 +121,7 @@ This solution used the following Azure services. Details of the deployment archi
 >- Application Gateway
 >- Azure Active Directory
 >- App Service Environment v2
->- Log Analytics
+>- OMS Log Analytics
 >- Azure Key Vault
 >- Network Security Groups
 >- Azure SQL DB
@@ -173,7 +175,7 @@ Each of the NSGs have specific ports and protocols opened for the secure and cor
 Each of the NSGs have specific ports and protocols opened for the secure and
 correct working of the solution. In addition, the following configurations are enabled for each NSG:
 - Enabled [diagnostic logs and events](/azure/virtual-network/virtual-network-nsg-manage-log) are stored in storage account 
-- Connected Log Analytics to the [NSG's diagnostics](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Connected OMS Log Analytics to the [NSG's diagnostics](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 #### Subnets
  Ensure each subnet is associated with its corresponding NSG.
@@ -203,12 +205,12 @@ The Azure SQL Database instance uses the following database security measures:
 
 ### Logging and auditing
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics) can provide the Contoso Webstore with extensive logging of all system and user activity, include cardholder data logging. Changes can be reviewed and verified for accuracy. 
+[Operations Management Suite (OMS)](/azure/operations-management-suite/) can provide the Contoso Webstore with extensive logging of all system and user activity, include cardholder data logging. Changes can be reviewed and verified for accuracy. 
 
 - **Activity Logs:**  [Activity logs](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into the operations that were performed on resources in your subscription.
 - **Diagnostic Logs:**  [Diagnostic logs](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) are all logs emitted by every resource. These logs include Windows event system logs, Azure Blob storage, tables, and queue logs.
 - **Firewall Logs:**  The Application Gateway provides full diagnostic and access logs. Firewall logs are available for Application Gateway resources that have WAF enabled.
-- **Log Archiving:**  All diagnostic logs are configured to write to a centralized and encrypted Azure storage account for archival with a defined retention period (2 days). Logs are then connected to Azure Log Analytics for processing, storing, and dashboarding. [Log Analytics](https://azure.microsoft.com/services/log-analytics) is a service that helps collect and analyze data generated by resources in your cloud and on-premises environments.
+- **Log Archiving:**  All diagnostic logs are configured to write to a centralized and encrypted Azure storage account for archival with a defined retention period (2 days). Logs are then connected to Azure Log Analytics for processing, storing, and dashboarding. [Log Analytics](https://azure.microsoft.com/services/log-analytics) is an OMS service that helps collect and analyze data generated by resources in your cloud and on-premises environments.
 
 ### Encryption and secrets management
 
@@ -279,11 +281,11 @@ Use [Application Insights](https://azure.microsoft.com/services/application-insi
 
 #### Log analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) is a service in Azure that helps you collect and analyze data generated by resources in your cloud and on-premises environments.
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) is a service in Operations Management Suite (OMS) that helps you collect and analyze data generated by resources in your cloud and on-premises environments.
 
-#### Management solutions
+#### OMS solutions
 
-These additional management solutions should be considered and configured:
+These additional OMS solutions should be considered and configured:
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure Networking Analytics](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -339,9 +341,9 @@ It is highly recommended that a clean installation of PowerShell be used to depl
     
     For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. Logging and monitoring. Once the solution is deployed, a Log Analytics workspace can be opened, and the sample templates provided in the solution repository can be used to illustrate how a monitoring dashboard can be configured. For the sample templates refer to the [omsDashboards folder](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Note that data must be collected in Log Analytics for templates to deploy correctly. This can take up to an hour or more depending on site activity.
+3. OMS logging and monitoring. Once the solution is deployed, a [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) workspace can be opened, and the sample templates provided in the solution repository can be used to illustrate how a monitoring dashboard can be configured. For the sample OMS templates refer to the [omsDashboards folder](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Note that data must be collected in OMS for templates to deploy correctly. This can take up to an hour or more depending on site activity.
  
-    When setting up your Log Analytics logging, consider including these resources:
+    When setting up your OMS logging, consider including these resources:
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups
@@ -356,7 +358,7 @@ It is highly recommended that a clean installation of PowerShell be used to depl
     
 ## Threat model
 
-A data flow diagram (DFD) and sample threat model for the Contoso Webstore [Blueprint Threat Model](https://aka.ms/pciblueprintthreatmodel).
+A data flow diagram (DFD) and sample threat model for the Contoso Webstore [Payment Processing Blueprint Threat Model](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 

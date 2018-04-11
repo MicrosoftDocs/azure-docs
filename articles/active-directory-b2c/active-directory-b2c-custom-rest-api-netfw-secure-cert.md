@@ -3,15 +3,18 @@ title: 'Azure Active Directory B2C: Secure your RESTful service by using client 
 description: Secure your custom REST API claims exchanges in your Azure AD B2C by using client certificates
 services: active-directory-b2c
 documentationcenter: ''
-author: davidmu1
+author: yoelhor
 manager: mtillman
-editor: ''
+editor: 
 
+ms.assetid:
 ms.service: active-directory-b2c
 ms.workload: identity
+ms.tgt_pltfrm: na
 ms.topic: article
+ms.devlang: na
 ms.date: 09/25/2017
-ms.author: davidmu
+ms.author: yoelh
 ---
 
 # Secure your RESTful service by using client certificates
@@ -175,7 +178,7 @@ Replace the certificate's **Subject name**, **Issuer name**, and **Certificate t
 ### 6.2 Add the IsValidClientCertificate function
 Open the *Controllers\IdentityController.cs* file, and then add to the `Identity` controller class the following function: 
 
-```csharp
+```C#
 private bool IsValidClientCertificate()
 {
     string ClientCertificateSubject = ConfigurationManager.AppSettings["ClientCertificate:Subject"];
@@ -277,7 +280,7 @@ In the preceding sample code, we accept the certificate as valid only if all the
 ### 6.3 Call the IsValidClientCertificate function
 Open the *Controllers\IdentityController.cs* file and then, at the beginning of the `SignUp()` function, add the following code snippet: 
 
-```csharp
+```C#
 if (IsValidClientCertificate() == false)
 {
     return Content(HttpStatusCode.Conflict, new B2CResponseContent("Your client certificate is not valid", HttpStatusCode.Conflict));

@@ -1,5 +1,5 @@
 ---
-title: Triggers and bindings in Azure Functions
+title: Work with triggers and bindings in Azure Functions
 description: Learn how to use triggers and bindings in Azure Functions to connect your code execution to online events and cloud-based services.
 services: functions
 documentationcenter: na
@@ -14,25 +14,22 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/07/2018
+ms.date: 11/21/2017
 ms.author: glenga
 ---
 
 # Azure Functions triggers and bindings concepts
-
-This article is a conceptual overview of triggers and bindings in Azure Functions. Features that are common to all bindings and all supported languages are described here.
+Azure Functions allows you to write code in response to events in Azure and other services, through *triggers* and *bindings*. This article is a conceptual overview of triggers and bindings for all supported programming languages. Features that are common to all bindings are described here.
 
 ## Overview
 
-A *trigger* defines how a function is invoked. A function must have exactly one trigger. Triggers have associated data, which is usually the payload that triggered the function.
+Triggers and bindings are a declarative way to define how a function is invoked and what data it works with. A *trigger* defines how a function is invoked. A function must have exactly one trigger. Triggers have associated data, which is usually the payload that triggered the function.
 
-Input and output *bindings* provide a declarative way to connect to data from within your code. Bindings are optional and a function can have multiple input and output bindings. 
+Input and output *bindings* provide a declarative way to connect to data from within your code. Similar to triggers, you specify connection strings and other properties in your function configuration. Bindings are optional and a function can have multiple input and output bindings. 
 
-Triggers and bindings let you avoid hardcoding the details of the services that you're working with. Your function receives data (for example, the content of a queue message) in function parameters. You send data (for example, to create a queue message) by using the return value of the function, an `out` parameter, or a [collector object](functions-reference-csharp.md#writing-multiple-output-values).
+Using triggers and bindings, you can write code that is more generic and does not hardcode the details of the services with which it interacts. Data coming from services simply become input values for your function code. To output data to another service (such as creating a new row in Azure Table Storage), use the return value of the method. Or, if you need to output multiple values, use a helper object. Triggers and bindings have a **name** property, which is an identifier you use in your code to access the binding.
 
-When you develop functions by using the Azure portal, triggers and bindings are configured in a *function.json* file. The portal provides a UI for this configuration but you can edit the file directly by changing to the **Advanced editor**.
-
-When you develop functions by using Visual Studio to create a class library, you configure triggers and bindings by decorating methods and parameters with attributes.
+You can configure triggers and bindings in the **Integrate** tab in the Azure Functions portal. Under the covers, the UI modifies a file called *function.json* file in the function directory. You can edit this file by changing to the **Advanced editor**.
 
 ## Supported bindings
 
@@ -40,55 +37,68 @@ When you develop functions by using Visual Studio to create a class library, you
 
 For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
 
-## Register binding extensions
+## Example: queue trigger and table output binding
 
-In version 2.x of the Azure Functions runtime, you must explicitly register the [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) that you use in your function app. 
+Suppose you want to write a new row to Azure Table Storage whenever a new message appears in Azure Queue Storage. This scenario can be implemented using an Azure Queue trigger and an Azure Table Storage output binding. 
 
-Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  The way you install and register binding extensions depends on how you develop your functions: 
+An Azure Queue Storage trigger requires the following information in the **Integrate** tab:
 
-+ [Locally in C# using Visual Studio or VS Code](#local-c-development-using-visual-studio-or-vs-code)
-+ [Locally using Azure Functions Core Tools](#local-development-azure-functions-core-tools)
-+ [In the Azure portal](#azure-portal-development) 
+* The name of the app setting that contains the Azure Storage account connection string for the Azure Queue Storage
+* The queue name
+* The identifier in your code to read the contents of the queue message, such as `order`.
 
-There is a core set of bindings in version 2.x that are not provided as extensions. You do not need to register extensions for the following triggers and bindings: HTTP, timer, and Azure Storage. 
+To write to Azure Table Storage, use an output binding with the following details:
 
-For information about how to set a function app to use version 2.x of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md). Version 2.x of the Functions runtime is currently in preview. 
+* The name of the app setting that contains the Azure Storage account connection string for the Azure Table Storage
+* The table name
+* The identifier in your code to create output items, or the return value from the function.
 
-The package versions shown in this section are provided only as examples. Check the [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) to determine which version of a given extension are required by the other dependencies in your function app.    
+Bindings use connection strings values stored in the app settings to enforce the best practice that *function.json* does not contain service secrets and instead simply contain the names of the app settings.
 
-###  Local C# development using Visual Studio or VS Code 
+Then, use the identifiers you provided to integrate with Azure Storage in your code.
 
-When you use Visual Studio or Visual Studio Code to locally develop functions in C#, you simply need to add the NuGet package for the extension. 
+```cs
+#r "Newtonsoft.Json"
 
-+ **Visual Studio**: Use the NuGet Package Manager tools. The following [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command installs the Azure Cosmos DB extension from the Package Manager Console:
+using Newtonsoft.Json.Linq;
 
-    ```
-    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
-    ```
-+ **Visual Studio Code**: You can install packages from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET CLI, as follows:
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The method return value creates a new row in Table Storage
+public static Person Run(JObject order, TraceWriter log)
+{
+    return new Person() { 
+            PartitionKey = "Orders", 
+            RowKey = Guid.NewGuid().ToString(),  
+            Name = order["Name"].ToString(),
+            MobileNumber = order["MobileNumber"].ToString() };  
+}
+ 
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+    public string MobileNumber { get; set; }
+}
+```
 
-    ```
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
-    ```
+```javascript
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The second parameter to context.done is used as the value for the new row
+module.exports = function (context, order) {
+    order.PartitionKey = "Orders";
+    order.RowKey = generateRandomId(); 
 
-### Local development Azure Functions Core Tools
+    context.done(null, order);
+};
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+function generateRandomId() {
+    return Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+}
+```
 
-### Azure portal development
-
-When you create a function or add a binding to an existing function, you are prompted when the extension for the trigger or binding being added requires registration.   
-
-After a warning appears for the specific extension being installed, click **Install** to register the extension. You need only install each extension one time for a given function app. 
-
->[!Note] 
->The in-portal installation process can take up to 10 minutes on a consumption plan.
-
-## Example trigger and binding
-
-Suppose you want to write a new row to Azure Table storage whenever a new message appears in Azure Queue storage. This scenario can be implemented using an Azure Queue storage trigger and an Azure Table storage output binding. 
-
-Here's a *function.json* file for this scenario. 
+Here is the *function.json* that corresponds to the preceding code. Note that the same configuration can be used, regardless of the language of the function implementation.
 
 ```json
 {
@@ -110,88 +120,9 @@ Here's a *function.json* file for this scenario.
   ]
 }
 ```
-
-The first element in the `bindings` array is the Queue storage trigger. The `type` and `direction` properties identify the trigger. The `name` property identifies the function parameter that receives the queue message content. The name of the queue to monitor is in `queueName`, and the connection string is in the app setting identified by `connection`.
-
-The second element in the `bindings` array is the Azure Table Storage output binding. The `type` and `direction` properties identify the binding. The `name` property specifies how the function provides the new table row, in this case by using the function return value. The name of the table is in `tableName`, and the connection string is in the app setting identified by `connection`.
-
 To view and edit the contents of *function.json* in the Azure portal, click the **Advanced editor** option on the **Integrate** tab of your function.
 
-> [!NOTE]
-> The value of `connection` is the name of an app setting that contains the connection string, not the connection string itself. Bindings use connection strings stored in app settings to enforce the best practice that *function.json* does not contain service secrets.
-
-Here's C# script code that works with this trigger and binding. Notice that the name of the parameter that provides the queue message content is `order`; this name is required because the `name` property value in *function.json* is `order` 
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json.Linq;
-
-// From an incoming queue message that is a JSON object, add fields and write to Table storage
-// The method return value creates a new row in Table Storage
-public static Person Run(JObject order, TraceWriter log)
-{
-    return new Person() { 
-            PartitionKey = "Orders", 
-            RowKey = Guid.NewGuid().ToString(),  
-            Name = order["Name"].ToString(),
-            MobileNumber = order["MobileNumber"].ToString() };  
-}
- 
-public class Person
-{
-    public string PartitionKey { get; set; }
-    public string RowKey { get; set; }
-    public string Name { get; set; }
-    public string MobileNumber { get; set; }
-}
-```
-
-The same function.json file can be used with a JavaScript function:
-
-```javascript
-// From an incoming queue message that is a JSON object, add fields and write to Table Storage
-// The second parameter to context.done is used as the value for the new row
-module.exports = function (context, order) {
-    order.PartitionKey = "Orders";
-    order.RowKey = generateRandomId(); 
-
-    context.done(null, order);
-};
-
-function generateRandomId() {
-    return Math.random().toString(36).substring(2, 15) +
-        Math.random().toString(36).substring(2, 15);
-}
-```
-
-In a class library, the same trigger and binding information &mdash; queue and table names, storage accounts, function parameters for input and output &mdash; is provided by attributes instead of a function.json file. Here's an example:
-
-```csharp
- public static class QueueTriggerTableOutput
- {
-     [FunctionName("QueueTriggerTableOutput")]
-     [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
-     public static Person Run(
-         [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
-         TraceWriter log)
-     {
-         return new Person() {
-                 PartitionKey = "Orders",
-                 RowKey = Guid.NewGuid().ToString(),
-                 Name = order["Name"].ToString(),
-                 MobileNumber = order["MobileNumber"].ToString() };
-     }
- }
-
- public class Person
- {
-     public string PartitionKey { get; set; }
-     public string RowKey { get; set; }
-     public string Name { get; set; }
-     public string MobileNumber { get; set; }
- }
-```
+For more code examples and details on integrating with Azure Storage, see [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md).
 
 ## Binding direction
 
@@ -201,55 +132,12 @@ All triggers and bindings have a `direction` property in the *function.json* fil
 - Input and output bindings use `in` and `out`
 - Some bindings support a special direction `inout`. If you use `inout`, only the **Advanced editor** is available in the **Integrate** tab.
 
-When you use [attributes in a class library](functions-dotnet-class-library.md) to configure triggers and bindings, the direction is provided in an attribute constructor or inferred from the parameter type.
+## Using the function return type to return a single output
 
-## Using the function return value
-
-In languages that have a return value, you can bind an output binding to the return value:
-
-* In a C# class library, apply the output binding attribute to the method return value.
-* In other languages, set the `name` property in *function.json* to `$return`.
-
-If you need to write more than one item, use a [collector object](functions-reference-csharp.md#writing-multiple-output-values) instead of the return value. If there are multiple output bindings, use the return value for only one of them.
-
-See the language-specific example:
-
-* [C#](#c-example)
-* [C# script (.csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-
-### C# example
-
-Here's C# code that uses the return value for an output binding, followed by an async example:
-
-```cs
-[FunctionName("QueueTrigger")]
-[return: Blob("output-container/{id}")]
-public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
-{
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
-}
-```
-
-```cs
-[FunctionName("QueueTrigger")]
-[return: Blob("output-container/{id}")]
-public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
-{
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return Task.FromResult(json);
-}
-```
-
-### C# script example
-
-Here's the output binding in the *function.json* file:
+The preceding example shows how to use the function return value to provide output to a binding, which is achieved by using the special name parameter `$return`. (This is only supported in languages that have a return value, such as C#, JavaScript, and F#.) If a function has multiple output bindings, use `$return` for only one of the output bindings. 
 
 ```json
+// excerpt of function.json
 {
     "name": "$return",
     "type": "blob",
@@ -258,9 +146,10 @@ Here's the output binding in the *function.json* file:
 }
 ```
 
-Here's the C# script code, followed by an async example:
+The examples below show how return types are used with output bindings in C#, JavaScript, and F#.
 
 ```cs
+// C# example: use method return value for output binding
 public static string Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -270,6 +159,7 @@ public static string Run(WorkItem input, TraceWriter log)
 ```
 
 ```cs
+// C# example: async method, using return value for output binding
 public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -278,44 +168,8 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 }
 ```
 
-### F# example
-
-Here's the output binding in the *function.json* file:
-
-```json
-{
-    "name": "$return",
-    "type": "blob",
-    "direction": "out",
-    "path": "output-container/{id}"
-}
-```
-
-Here's the F# code:
-
-```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
-```
-
-### JavaScript example
-
-Here's the output binding in the *function.json* file:
-
-```json
-{
-    "name": "$return",
-    "type": "blob",
-    "direction": "out",
-    "path": "output-container/{id}"
-}
-```
-
-In JavaScript, the return value goes in the second parameter for `context.done`:
-
 ```javascript
+// JavaScript: return a value in the second parameter to context.done
 module.exports = function (context, input) {
     var json = JSON.stringify(input);
     context.log('Node.js script processed queue message', json);
@@ -323,11 +177,19 @@ module.exports = function (context, input) {
 }
 ```
 
+```fsharp
+// F# example: use return value for output binding
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
 ## Binding dataType property
 
-In .NET, use the parameter type to define the data type for input data. For instance, use `string` to bind to the text of a queue trigger, a byte array to read as binary and a custom type to deserialize to a POCO object.
+In .NET, use the types to define the data type for input data. For instance, use `string` to bind to the text of a queue trigger, a byte array to read as binary and a custom type to deserialize to a POCO object.
 
-For languages that are dynamically typed such as JavaScript, use the `dataType` property in the *function.json* file. For example, to read the content of an HTTP request in binary format, set `dataType` to `binary`:
+For languages that are dynamically typed such as JavaScript, use the `dataType` property in the binding definition. For example, to read the content of an HTTP request in binary format, use the type `binary`:
 
 ```json
 {
@@ -340,32 +202,12 @@ For languages that are dynamically typed such as JavaScript, use the `dataType` 
 
 Other options for `dataType` are `stream` and `string`.
 
-## Binding expressions and patterns
-
-One of the most powerful features of triggers and bindings is *binding expressions*. In the *function.json* file and in function parameters and code, you can use expressions that resolve to values from various sources.
-
-Most expressions are identified by wrapping them in curly braces. For example, in a queue trigger function, `{queueTrigger}` resolves to the queue message text. If the `path` property for a blob output binding is `container/{queueTrigger}` and the function is triggered by a queue message `HelloWorld`, a blob named `HelloWorld` is created.
-
-Types of binding expressions
-
-* [App settings](#binding-expressions---app-settings)
-* [Trigger file name](#binding-expressions---trigger-file-name)
-* [Trigger metadata](#binding-expressions---trigger-metadata)
-* [JSON payloads](#binding-expressions---json-payloads)
-* [New GUID](#binding-expressions---create-guids)
-* [Current date and time](#binding-expressions---current-time)
-
-### Binding expressions - app settings
-
-As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it safe to store files such as *function.json* in public source control repositories.
+## Resolving app settings
+As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it safe to store *function.json* in a public source control repository.
 
 App settings are also useful whenever you want to change configuration based on the environment. For example, in a test environment, you may want to monitor a different queue or blob storage container.
 
-App setting binding expressions are identified differently from other binding expressions: they are wrapped in percent signs rather than curly braces. For example if the blob output binding path is `%Environment%/newblob.txt` and the `Environment` app setting value is `Development`, a blob will be created in the `Development` container.
-
-When a function is running locally, app setting values come from the *local.settings.json* file.
-
-Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
+App settings are resolved whenever a value is enclosed in percent signs, such as `%MyAppSetting%`. Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings. 
 
 The following example is an Azure Queue Storage trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
 
@@ -383,89 +225,11 @@ The following example is an Azure Queue Storage trigger that uses an app setting
 }
 ```
 
-You can use the same approach in class libraries:
+## Trigger metadata properties
 
-```csharp
-[FunctionName("QueueTrigger")]
-public static void Run(
-    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
-    TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-}
-```
+In addition to the data payload provided by a trigger (such as the queue message that triggered a function), many triggers provide additional metadata values. These values can be used as input parameters in C# and F# or properties on the `context.bindings` object in JavaScript. 
 
-### Binding expressions - trigger file name
-
-The `path` for a Blob trigger can be a pattern that lets you refer to the name of the triggering blob in other bindings and function code. The pattern can also include filtering criteria that specify which blobs can trigger a function invocation.
-
-For example, in the following Blob trigger binding, the `path` pattern is `sample-images/{filename}`, which creates a binding expression named `filename`:
-
-```json
-{
-  "bindings": [
-    {
-      "name": "image",
-      "type": "blobTrigger",
-      "path": "sample-images/{filename}",
-      "direction": "in",
-      "connection": "MyStorageConnection"
-    },
-    ...
-```
-
-The expression `filename` can then be used in an output binding to specify the name of the blob being created:
-
-```json
-    ...
-    {
-      "name": "imageSmall",
-      "type": "blob",
-      "path": "sample-images-sm/{filename}",
-      "direction": "out",
-      "connection": "MyStorageConnection"
-    }
-  ],
-}
-```
-
-Function code has access to this same value by using `filename` as a parameter name:
-
-```csharp
-// C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
-{
-    log.Info($"Blob trigger processing: {filename}");
-    // ...
-} 
-```
-
-<!--TODO: add JavaScript example -->
-<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
-
-The same ability to use binding expressions and patterns applies to attributes in class libraries. In the following example, the attribute constructor parameters are the same `path` values as the preceding *function.json* examples: 
-
-```csharp
-[FunctionName("ResizeImage")]
-public static void Run(
-    [BlobTrigger("sample-images/{filename}")] Stream image,
-    [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
-    string filename,
-    TraceWriter log)
-{
-    log.Info($"Blob trigger processing: {filename}");
-    // ...
-}
-
-```
-
-You can also create expressions for parts of the file name such as the extension. For more information on how to use expressions and patterns in the Blob path string, see the [Storage blob binding reference](functions-bindings-storage-blob.md).
- 
-### Binding expressions - trigger metadata
-
-In addition to the data payload provided by a trigger (such as the content of the queue message that triggered a function), many triggers provide additional metadata values. These values can be used as input parameters in C# and F# or properties on the `context.bindings` object in JavaScript. 
-
-For example, an Azure Queue storage trigger supports the following properties:
+For example, an Azure Storage Queue trigger supports the following properties:
 
 * QueueTrigger - triggering message content if a valid string
 * DequeueCount
@@ -475,7 +239,9 @@ For example, an Azure Queue storage trigger supports the following properties:
 * NextVisibleTime
 * PopReceipt
 
-These metadata values are accessible in *function.json* file properties. For example, suppose you use a queue trigger and the queue message contains the name of a blob you want to read. In the *function.json* file, you can use `queueTrigger` metadata property in the blob `path` property, as shown in the following example:
+Details of metadata properties for each trigger are described in the corresponding reference topic. Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
+
+For example, since blob triggers have some delays, you can use a queue trigger to run your function (see [Blob Storage Trigger](functions-bindings-storage-blob.md#trigger)). The queue message would contain the blob filename to trigger on. Using the `queueTrigger` metadata property, you can specify this behavior all in your configuration, rather than your code.
 
 ```json
   "bindings": [
@@ -495,13 +261,82 @@ These metadata values are accessible in *function.json* file properties. For exa
   ]
 ```
 
-Details of metadata properties for each trigger are described in the corresponding reference article. For an example, see [queue trigger metadata](functions-bindings-storage-queue.md#trigger---message-metadata). Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
+Metadata properties from a trigger can also be used in a *binding expression* for another binding, as described in the following section.
 
-### Binding expressions - JSON payloads
+## Binding expressions and patterns
 
-When a trigger payload is JSON, you can refer to its properties in configuration for other bindings in the same function and in function code.
+One of the most powerful features of triggers and bindings is *binding expressions*. Within your binding, you can define pattern expressions which can then be used in other bindings or your code. Trigger metadata can also be used in binding expressions, as show in the sample in the preceding section.
 
-The following example shows the *function.json* file for a webhook function that receives a blob name in JSON: `{"BlobName":"HelloWorld.txt"}`. A Blob input binding reads the blob, and the HTTP output binding returns the blob contents in the HTTP response. Notice that the Blob input binding gets the blob name by referring directly to the `BlobName` property (`"path": "strings/{BlobName}"`)
+For example, suppose you want to resize images in particular blob storage container, similar to the **Image Resizer** template in the **New Function** page. Go to **New Function** -> Language **C#** -> Scenario **Samples** -> **ImageResizer-CSharp**. 
+
+Here is the *function.json* definition:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Notice that the `filename` parameter is used in both the blob trigger definition as well as the blob output binding. This parameter can also be used in function code.
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+
+### Random GUIDs
+Azure Functions provides a convenience syntax for generating GUIDs in your bindings, through the `{rand-guid}` binding expression. The following example uses this to generate a unique blob name: 
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{rand-guid}"
+}
+```
+
+### Current time
+
+You can use the binding expression `DateTime`, which resolves to `DateTime.UtcNow`.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
+## Bind to custom input properties in a binding expression
+
+Binding expressions can also reference properties that are defined in the trigger payload itself. For example, you may want to dynamically bind to a blob storage file from a filename provided in a webhook.
+
+For example, the following *function.json* uses a property called `BlobName` from the trigger payload:
 
 ```json
 {
@@ -516,7 +351,7 @@ The following example shows the *function.json* file for a webhook function that
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+      "path": "strings/{BlobName}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -528,7 +363,7 @@ The following example shows the *function.json* file for a webhook function that
 }
 ```
 
-For this to work in C# and F#, you need a class that defines the fields to be deserialized, as in the following example:
+To accomplish this in C# and F#, you must define a POCO that defines the fields that will be deserialized in the trigger payload.
 
 ```csharp
 using System.Net;
@@ -550,7 +385,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 }
 ```
 
-In JavaScript, JSON deserialization is automatically performed.
+In JavaScript, JSON deserialization is automatically performed and you can use the properties directly.
 
 ```javascript
 module.exports = function (context, info) {
@@ -568,80 +403,11 @@ module.exports = function (context, info) {
 }
 ```
 
-#### Dot notation
+## Configuring binding data at runtime
 
-If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. For example, suppose your JSON looks like this:
-
-```json
-{"BlobName": {
-  "FileName":"HelloWorld",
-  "Extension":"txt"
-  }
-}
-```
-
-You can refer directly to `FileName` as `BlobName.FileName`. With this JSON format, here's what the `path` property in the preceding example would look like:
-
-```json
-"path": "strings/{BlobName.FileName}.{BlobName.Extension}",
-```
-
-In C#, you would need two classes:
-
-```csharp
-public class BlobInfo
-{
-    public BlobName BlobName { get; set; }
-}
-public class BlobName
-{
-    public string FileName { get; set; }
-    public string Extension { get; set; }
-}
-```
-
-### Binding expressions - create GUIDs
-
-The `{rand-guid}` binding expression creates a GUID. The following blob path in a `function.json` file creates a blob with a name like *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*.
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{rand-guid}"
-}
-```
-
-### Binding expressions - current time
-
-The binding expression `DateTime` resolves to `DateTime.UtcNow`. The following blob path in a `function.json` file creates a blob with a name like *2018-02-16T17-59-55Z.txt*.
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{DateTime}"
-}
-```
-
-## Binding at runtime
-
-In C# and other .NET languages, you can use an imperative binding pattern, as opposed to the declarative bindings in *function.json* and attributes. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. To learn more, see the [C# developer reference](functions-dotnet-class-library.md#binding-at-runtime) or the [C# script developer reference](functions-reference-csharp.md#binding-at-runtime).
-
-## function.json file schema
-
-The *function.json* file schema is available at [http://json.schemastore.org/function](http://json.schemastore.org/function).
-
-## Handling binding errors
-
-[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
-
-For links to all relevant error topics for the various services supported by Functions, see the [Binding error codes](functions-bindings-error-pages.md#binding-error-codes) section of the [Azure Functions error handling](functions-bindings-error-pages.md) overview topic.  
+In C# and other .NET languages, you can use an imperative binding pattern, as opposed to the declarative bindings in *function.json*. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. To learn more, see [Binding at runtime via imperative bindings](functions-reference-csharp.md#imperative-bindings) in the C# developer reference.
 
 ## Next steps
-
 For more information on a specific binding, see the following articles:
 
 - [HTTP and webhooks](functions-bindings-http-webhook.md)
@@ -651,7 +417,7 @@ For more information on a specific binding, see the following articles:
 - [Table storage](functions-bindings-storage-table.md)
 - [Event Hub](functions-bindings-event-hubs.md)
 - [Service Bus](functions-bindings-service-bus.md)
-- [Azure Cosmos DB](functions-bindings-cosmosdb.md)
+- [Azure Cosmos DB](functions-bindings-documentdb.md)
 - [Microsoft Graph](functions-bindings-microsoft-graph.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)

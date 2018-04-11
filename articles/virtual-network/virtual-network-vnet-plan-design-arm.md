@@ -4,7 +4,7 @@ description: Learn how to plan and design virtual networks in Azure based on you
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
+manager: carmonm
 editor: tysonn
 
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
@@ -18,7 +18,7 @@ ms.author: jdial
 
 ---
 # Plan and design Azure Virtual Networks
-Creating a VNet to experiment with is easy enough, but chances are, you will deploy multiple VNets over time to support the production needs of your organization. With some planning and design, you will be able to deploy VNets and connect the resources you need more effectively. If you are not familiar with VNets, it's recommended that you [learn about VNets](virtual-networks-overview.md) and [how to deploy](quick-create-portal.md) one before proceeding.
+Creating a VNet to experiment with is easy enough, but chances are, you will deploy multiple VNets over time to support the production needs of your organization. With some planning and design, you will be able to deploy VNets and connect the resources you need more effectively. If you are not familiar with VNets, it's recommended that you [learn about VNets](virtual-networks-overview.md) and [how to deploy](virtual-networks-create-vnet-arm-pportal.md) one before proceeding.
 
 ## Plan
 A thorough understanding of Azure subscriptions, regions, and network resources is critical for success. You can use the list of considerations below as a starting point. Once you understand those considerations, you can define the requirements for your network design.
@@ -245,7 +245,7 @@ The following requirements are related to access control:
 Based on those requirements, you could add users from the networking team to the built-in **Network Contributor** role in each subscription; and create a custom role for the application developers in each subscription giving them rights to add VMs to existing subnets.
 
 ## Next steps
-* [Deploy a virtual network](quick-create-portal.md).
+* [Deploy a virtual network](virtual-networks-create-vnet-arm-template-click.md) based on a scenario.
 * Understand how to [load balance](../load-balancer/load-balancer-overview.md) IaaS VMs and [manage routing over multiple Azure regions](../traffic-manager/traffic-manager-overview.md).
-* Learn more about [network security groups](security-overview.md) an NSG solution.
+* Learn more about [NSGs and how to plan and design](virtual-networks-nsg.md) an NSG solution.
 * Learn more about your [cross-premises and VNet connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).

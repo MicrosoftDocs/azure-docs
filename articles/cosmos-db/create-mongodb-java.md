@@ -3,8 +3,9 @@ title: 'Azure Cosmos DB: Build a console app with Java and the MongoDB API | Mic
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
 documentationcenter: ''
-author: SnehaGunda
-manager: kfile
+author: mimig1
+manager: jhubbard
+editor: ''
 
 ms.assetid: 
 ms.service: cosmos-db
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
-ms.author: sngun
+ms.author: mimig
 
 ---
 # Azure Cosmos DB: Build a MongoDB API console app with Java and the Azure portal
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB [MongoDB API](mongodb-introduction.md) account, document database, and collection using the Azure portal. You'll then build and deploy a console app built on the [MongoDB Java driver](https://docs.mongodb.com/ecosystem/drivers/java/). 
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a console app built on the [MongoDB Java driver](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
 ## Prerequisites
 
@@ -54,11 +55,11 @@ Now let's clone a MongoDB API app from github, set the connection string, and ru
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-getting-started.git
     ```
 
-3. Then open the code in your favorite editor. 
+3. Then open the solution file in Visual Studio. 
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the `Program.java` file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+Let's make a quick review of what's happening in the app. Open the `Program.cs` file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
 * The DocumentClient is initialized.
 

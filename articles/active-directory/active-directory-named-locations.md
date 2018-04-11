@@ -1,6 +1,6 @@
 ---
-title: Configure named locations in Azure Active Directory | Microsoft Docs
-description: Learn how to configure named locations.
+title: Named locations in Azure Active Directory | Microsoft Docs
+description: Learn what named locations are and how to configure them.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ---
-# Configure named locations in Azure Active Directory
+# Named locations in Azure Active Directory
 
 With named locations, you can label trusted IP address ranges in your organization. Azure Active Directory uses  named locations in the context of:
 
 - The detection of [risk events](active-directory-reporting-risk-events.md) to reduce the number of reported false positives.  
 
-- [Location-based conditional access](active-directory-conditional-access-locations.md).
+- [Location-based conditional access](active-directory-conditional-access-azure-portal.md#locations).
 
 
 This article explains, how you can configure named locations in your environment.
@@ -86,14 +86,22 @@ You can access the named location configuration page in the **Security** section
 
 
 
+## What you should know
+
+**Bulk updates**: When you create or update named locations, for bulk updates, you can upload or download a CSV file with the IP ranges. An upload adds the IP ranges in the file to the list instead of overwriting the list.
+
+![The Upload and Download links](./media/active-directory-named-locations/09.png)
+
+
+**Limitations**: You can define a maximum of 60 named locations, with one IP range assigned to each of them. If you have just one named location configured, you can define up to 500 IP ranges for it.
+
+
 ## Next steps
 
-For more information, see:
+To learn more about:
 
-- [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- **Risk events**, see [Azure Active Directory risk events](active-directory-reporting-risk-events.md).
 
-- [Location conditions in Azure Active Directory conditional access](active-directory-conditional-access-locations.md)
+- **Conditional access**, see [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-- [Azure Active Directory risk events](active-directory-reporting-risk-events.md).
-
-- [Risky sign-ins report in the Azure Active Directory portal](active-directory-reporting-security-risky-sign-ins.md).  
+- **Risky sign-ins reports**, see [Risky sign-ins report in the Azure Active Directory portal](active-directory-reporting-security-risky-sign-ins.md).  

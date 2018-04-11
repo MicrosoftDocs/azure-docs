@@ -3,15 +3,18 @@ title: 'Azure Active Directory B2C: Multi-Factor Authentication | Microsoft Docs
 description: How to enable Multi-Factor Authentication in consumer-facing applications secured by Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
-author: davidmu1
+author: swkrish
 manager: mtillman
-editor: ''
+editor: bryanla
 
+ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
 ms.service: active-directory-b2c
 ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: davidmu
+ms.author: swkrish
 
 ---
 # Azure Active Directory B2C: Enable Multi-Factor Authentication in your consumer-facing applications

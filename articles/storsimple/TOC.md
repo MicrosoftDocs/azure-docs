@@ -1,9 +1,8 @@
-# [StorSimple Documentation](index.md)
-
 # StorSimple Virtual Array
 
 ## Overview
 ### [What is the solution?](storsimple-ova-overview.md)
+### [Region availability](storsimple-regions.md)
 
 ## Get started
 ### Plan
@@ -14,7 +13,6 @@
 ### Deploy
 #### [Prepare to deploy](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Deploy StorSimple Manager service](storsimple-virtual-array-manage-service.md)
-##### [New authentication](storsimple-virtual-array-aad-registration-key.md)
 #### [Provision in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Provision in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Set up as file server](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -40,6 +38,7 @@
 #### [Manage ACRs](storsimple-virtual-array-manage-acrs.md)
 #### [Manage jobs](storsimple-virtual-array-manage-jobs.md)
 #### [Change device password](storsimple-virtual-array-change-device-admin-password.md)
+#### [Configure MPIO on Windows Server host](storsimple-virtual-array-configure-mpio-windows-server.md)
 #### [Monitor using alerts](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnose and troubleshoot](storsimple-virtual-array-diagnose-problems.md)
 #### [Log Support request](storsimple-virtual-array-log-support-ticket.md)
@@ -81,7 +80,6 @@
 
 ### Deploy
 #### [StorSimple Device Manager service](storsimple-8000-manage-service.md)
-#### [New authentication for service](storsimple-8000-aad-registration-key.md)
 #### [Physical device in Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Physical device in Government Portal](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Cloud appliance in Azure](storsimple-8000-cloud-appliance-u2.md)
@@ -205,7 +203,7 @@
 ### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 
-# StorSimple Data Manager
+# StorSimple Data Manager (Private preview)
 
 ## Overview
 ### [What is the solution?](storsimple-data-manager-overview.md)
@@ -238,7 +236,6 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Marketing blog](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
-## [StorSimple Support options](storsimple-8000-support-options.md)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Pricing](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

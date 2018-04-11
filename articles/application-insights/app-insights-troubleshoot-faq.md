@@ -57,7 +57,7 @@ The Enterprise plan incurs a charge for each day that each web server node sends
 
 ## How much is it costing?
 
-* Open the **Usage and estimated costs page** page in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
+* Open the **Features + pricing** page in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
 * Open the [Azure Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) to see your bills across all resources.
 
 ## <a name="q14"></a>What does Application Insights modify in my project?
@@ -118,7 +118,7 @@ From other sources, if you configure them:
 * [Azure diagnostics](app-insights-azure-diagnostics.md)
 * [Docker containers](app-insights-docker.md)
 * [Import tables to Analytics](app-insights-analytics-import.md)
-* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [OMS (Log Analytics)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## Can I filter out or modify some telemetry?
@@ -149,7 +149,7 @@ Take a look at [Data Retention and Privacy][data].
 
 This is possible if your code sends such data. It can also happen if variables in stack traces include PII. Your development team should conduct risk assessments to ensure that PII is properly handled. [Learn more about data retention and privacy](app-insights-data-retention-privacy.md).
 
-**All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
+The last octet of the client web address is always set to 0 after ingestion by the portal.
 
 ## My iKey is visible in my web page source. 
 
@@ -239,7 +239,7 @@ This doesn't depend on where your Application Insights resource is hosted. It ju
 
 ## Can I send telemetry to the Application Insights portal?
 
-We recommend you use our SDKs and use the [SDK API](app-insights-api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app-insights-platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
+We recommend you use our SDKs and use the SDK API (app-insights-api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app-insights-platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
 
 ## Can I monitor an intranet web server?
 

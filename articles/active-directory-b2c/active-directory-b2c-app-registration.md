@@ -2,15 +2,18 @@
 title: Application registration - Azure Active Directory B2C 
 description: How to register your application with Azure Active Directory B2C
 services: active-directory-b2c
-author: davidmu1
+author: PatAltimore
 manager: mtillman
-editor: ''
+editor: parakhj
 
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
-ms.author: davidmu
+ms.author: parakhj
 ---
 
 # Azure Active Directory B2C: Register your application

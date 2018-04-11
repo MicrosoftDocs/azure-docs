@@ -33,17 +33,15 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Govern VMs
-    href: tutorial-govern-resources.md
-  - name: 11 - Monitor and update VMs
+  - name: 10 - Monitor and update VMs
     href: tutorial-monitoring.md
-  - name: 12 - Manage VM security
+  - name: 11 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 13 - Team Services CI/CD
+  - name: 12 - Team Services CI/CD
     href: tutorial-vsts-iis-cicd.md
-  - name: 14 - Install a SQL\IIS\.NET stack
+  - name: 13 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
-  - name: 15 - Secure web server with SSL
+  - name: 14 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -82,9 +80,7 @@
     - name: High performance compute
       href: sizes-hpc.md    
     - name: Azure compute units (ACU)
-      href: acu.md 
-    - name: Benchmark scores
-      href: compute-benchmark-scores.md       
+      href: acu.md          
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
@@ -102,8 +98,6 @@
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: Troubleshoot attached VHDs
-      href: troubleshoot-vhds.md      
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -131,11 +125,7 @@
     - name: Use C#
       href: csharp.md
     - name: Use specialized disk
-      items:
-      - name: Portal
-        href: create-vm-specialized-portal.md
-      - name: PowerShell
-        href: create-vm-specialized.md
+      href: create-vm-specialized.md
     - name: Use a template with C#
       href: csharp-template.md
     - name: Create VM with Chef
@@ -201,8 +191,6 @@
       href: agent-user-guide.md
     - name: Planned maintenance
       href: maintenance-notifications.md
-    - name: Mitigating speculative execution
-      href: mitigate-se.md
     - name: Scheduled events
       href: scheduled-events.md
     - name: Monitor metadata
@@ -255,8 +243,6 @@
       href: ../workloads/sap/get-started.md
     - name: MATLAB cluster
       href: matlab-mdcs-cluster.md
-    - name: Visual Studio
-      href: using-visual-studio-vm.md
     - name: High Performance Computing (HPC)
       href: hpcpack-cluster-options.md
       items:
@@ -292,8 +278,6 @@
       href: convert-disk-storage.md
     - name: Migrate to Premium storage with Azure Site Recovery
       href: migrate-to-premium-storage-using-azure-site-recovery.md
-    - name: Find unattached disks
-      href: find-unattached-disks.md
     - name: Use File storage
       href: mount-azure-file-storage.md
     - name: Deploy disks with template
@@ -320,8 +304,6 @@
       href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Use multiple NICs
       href: multiple-nics.md
-    - name: Use accelerated networking
-      href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Assign public DNS name
       href: portal-create-fqdn.md
     - name: DNS resolution
@@ -344,24 +326,15 @@
     - name: Azure Log Collector extension
       href: log-collector-extension.md
     - name: Azure diagnostics extension
-      href: extensions-diagnostics.md
-      items:
-      - name: Extension schema
-        href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
-      - name: Enable using PowerShell
-        href: ps-extensions-diagnostics.md
-      - name: Enable with templates
-        href: extensions-diagnostics-template.md
-      - name: Troubleshooting
-        href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
+      href: ps-extensions-diagnostics.md
     - name: Exporting VM extensions
       href: extensions-export-templates.md
     - name: Troubleshoot extensions
       href: extensions-troubleshoot.md
+    - name: Monitoring and Diagnostics Extension
+      href: extensions-diagnostics-template.md
     - name: Network Watcher Agent
       href: extensions-nwa.md
-    - name: Restrict extension installation
-      href: extensions-rmpolicy-howto-ps.md 
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
@@ -407,8 +380,6 @@
       href: reset-network-interface.md
     - name: Boot diagnostics
       href: boot-diagnostics.md
-    - name: Serial console 
-      href: serial-console.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Deployment issues
@@ -437,8 +408,6 @@
       href: performance-diagnostics-vm-extension.md
     - name: Use nested virtualization 
       href: troubleshoot-vm-by-use-nested-virtualization.md
-    - name: Install the VM agent in offline mode
-      href: install-vm-agent-offline.md
 - name: Reference
   items:
   - name: Azure CLI

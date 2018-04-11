@@ -3,7 +3,7 @@ title: PowerShell Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Windows PowerShell Connector.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: AndKjell
 manager: mtillman
 editor: ''
 

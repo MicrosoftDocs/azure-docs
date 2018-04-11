@@ -4,15 +4,15 @@ description: Learn about Web Table Connector of Azure Data Factory that lets you
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
+manager: jhubbard
+editor: spelluru
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -23,6 +23,7 @@ ms.author: jingwang
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Web table database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Web Table connector in V1](v1/data-factory-web-table-connector.md).
 
@@ -32,13 +33,8 @@ You can copy data from Web table database to any supported sink data store. For 
 
 Specifically, this Web table connector supports **extracting table content from an HTML page**. To retrieve data from a HTTP/s endpoint, use [HTTP connector](connector-http.md) instead.
 
-## Prerequisites
-
-To use this Web table connector, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-
 ## Getting started
-
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](create-self-hosted-integration-runtime.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Web table connector.
 
@@ -51,7 +47,7 @@ The following properties are supported for Web table linked service:
 | type | The type property must be set to: **Web** |Yes |
 | url | URL to the Web source |Yes |
 | authenticationType | Allowed value is: **Anonymous**. |Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
 
@@ -63,10 +59,6 @@ The following properties are supported for Web table linked service:
         "typeProperties": {
             "url" : "https://en.wikipedia.org/wiki/",
             "authenticationType": "Anonymous"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -140,8 +132,6 @@ To copy data from Web table, set the source type in the copy activity to **WebSo
 ```
 
 ## Get index of a table in an HTML page
-
-To get the index of a table which you need to configure in [dataset properties](#dataset-properties), you can use e.g. Excel 2016 as the tool as follows:
 
 1. Launch **Excel 2016** and switch to the **Data** tab.
 2. Click **New Query** on the toolbar, point to **From Other Sources** and click **From Web**.

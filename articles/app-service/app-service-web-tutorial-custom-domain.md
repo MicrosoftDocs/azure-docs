@@ -18,7 +18,7 @@ ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Tutorial: Map an existing custom DNS name to Azure Web Apps
+# Map an existing custom DNS name to Azure Web Apps
 
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to map an existing custom DNS name to Azure Web Apps.
 
@@ -54,8 +54,6 @@ To complete this tutorial:
 ## Prepare the app
 
 To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**). In this step, you make sure that the App Service app is in the supported pricing tier.
-
-[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### Sign in to Azure
 
@@ -288,7 +286,7 @@ At the bottom of the page, the root virtual directory `/` points to `site\wwwroo
 
 ![Customize virtual directory](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Once the operation completes, your app should return the right page at the root path (for example, http://contoso.com).
+Once the operation completes, you app should return the right page at the root path (for example, http://contoso.com).
 
 ## Automate with scripts
 

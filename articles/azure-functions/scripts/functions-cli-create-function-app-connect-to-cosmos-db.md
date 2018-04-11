@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 01/22/2018
+ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
 ---
 # Create an Azure Function that connects to an Azure Cosmos DB
 
-This Azure Functions sample script creates a function app and connects the function to an Azure Cosmos DB database. The created app setting that contains the connection can be used with an [Azure Cosmos DB trigger or binding](..\functions-bindings-cosmosdb.md).
+This sample script creates an Azure Function App and connects to an Azure Cosmos DB database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -33,6 +33,10 @@ This sample creates an Azure Function app and adds a Cosmos DB endpoint and acce
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Create an Azure Function that connects to an Azure Cosmos DB")]
 
+## Clean up deployment
+
+After the script sample has been run, the follow command can be used to remove the resource group and all related resources.
+
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
@@ -41,7 +45,7 @@ This script uses the following commands: Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) | Log in to Azure. |
+| [az login](https://docs.microsoft.com/cli/azure/#login) | Log in to Azure. |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Create a resource group with location |
 | [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account) | Create a storage account |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Create a new function app |
@@ -50,7 +54,7 @@ This script uses the following commands: Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).
 

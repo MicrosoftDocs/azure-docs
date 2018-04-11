@@ -4,9 +4,8 @@ description: Use this R programming tutorial to get started quickly using the R 
 keywords: quickstart,r language,r programming language,r programming tutorial
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
+author: garyericson
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
@@ -16,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
+ms.author: garye
 
 ---
 # Quickstart tutorial for the R programming language for Azure Machine Learning

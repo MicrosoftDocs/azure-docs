@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 01/30/2018
+ms.date: 11/06/2017
 ms.author: ryanwi
 ---
 
@@ -82,15 +82,15 @@ Application Instance specific information like application name and application 
 |Attribute|Value|
 |---|---|
 |name|StartPort|
-|use|required|
 |type|xs:int|
+|use|required|
 
 #### EndPort
 |Attribute|Value|
 |---|---|
 |name|EndPort|
-|use|required|
 |type|xs:int|
+|use|required|
 
 
 ## ApplicationInstance Element
@@ -306,9 +306,9 @@ The capacities of various metrics for this node type
 |Attribute|Value|
 |---|---|
 |name|Capacity|
+|type|KeyValuePairType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|KeyValuePairType|
 
 ## Capacity Element
 |Attribute|Value|
@@ -395,8 +395,8 @@ Describe the certificates associated with this node type
 |Attribute|Value|
 |---|---|
 |name|SecretsCertificate|
-|minOccurs|0|
 |type|FabricCertificateType|
+|minOccurs|0|
 
 ## Certificates Element
 Declares certificates used to secure endpoints or encrypt secrets within the application manifest or a cluster manifest.
@@ -435,15 +435,15 @@ Declares a certificate used to encrypt sensitive information within the applicat
 |Attribute|Value|
 |---|---|
 |name|SecretsCertificate|
-|minOccurs|0|
 |type|FabricCertificateType|
+|minOccurs|0|
 
 #### EndpointCertificate
 |Attribute|Value|
 |---|---|
 |name|EndpointCertificate|
-|minOccurs|0|
 |type|EndpointCertificateType|
+|minOccurs|0|
 
 ## Certificates Element
 Describe the certificates associated with this node type
@@ -601,8 +601,6 @@ Describes a Microsoft Azure Service Fabric Cluster.
 ```
 
 ## Commands Element
-A comma delimited list of commands for container.
-
 |Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|
@@ -680,9 +678,9 @@ Describes configuration overrides for the imported service manifest. Configurati
 |Attribute|Value|
 |---|---|
 |name|ConfigOverride|
+|type|ConfigOverrideType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|ConfigOverrideType|
 
 ## ConfigPackage Element
 |Attribute|Value|
@@ -944,9 +942,9 @@ Destinations to which the crash dumps need to be transferred.
 #### None
 |Attribute|Value|
 |---|---|
+|ref|Parameters|
 |minOccurs|0|
 |maxOccurs|1|
-|ref|Parameters|
 
 ## CurrentInstallation Element
 |Attribute|Value|
@@ -1057,7 +1055,7 @@ Destinations to which the crash dumps need to be transferred.
 ```
 
 ## DefaultRunAsPolicy Element
-Specify a default user account for all service code packages that don't have a specific RunAsPolicy defined in the ServiceManifestImport section.
+Specify a default user account for all service code packages that don�t have a specific RunAsPolicy defined in the ServiceManifestImport section.
 
 |Attribute|Value|
 |---|---|
@@ -1070,7 +1068,7 @@ Specify a default user account for all service code packages that don't have a s
 ```xml
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DefaultRunAsPolicy" minOccurs="0">
                                 <xs:annotation>
-                                        <xs:documentation>Specify a default user account for all service code packages that don't have a specific RunAsPolicy defined in the ServiceManifestImport section.</xs:documentation>
+                                        <xs:documentation>Specify a default user account for all service code packages that don�t have a specific RunAsPolicy defined in the ServiceManifestImport section.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                         <xs:attribute name="UserRef" type="xs:string" use="required">
@@ -1089,8 +1087,8 @@ Specify a default user account for all service code packages that don't have a s
 |Attribute|Value|
 |---|---|
 |name|UserRef|
-|use|required|
 |type|xs:string|
+|use|required|
 
 
 ## DefaultServiceTypeHealthPolicy Element
@@ -1235,25 +1233,25 @@ Destinations to which the crash dumps need to be transferred.
 |Attribute|Value|
 |---|---|
 |name|LocalStore|
+|type|LocalStoreType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|LocalStoreType|
 
 #### FileStore
 |Attribute|Value|
 |---|---|
 |name|FileStore|
+|type|FileStoreType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|FileStoreType|
 
 #### AzureBlob
 |Attribute|Value|
 |---|---|
 |name|AzureBlob|
+|type|AzureBlobType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|AzureBlobType|
 
 ## Destinations Element
 Destinations to which the crash dumps need to be transferred.
@@ -1288,25 +1286,25 @@ Destinations to which the crash dumps need to be transferred.
 |Attribute|Value|
 |---|---|
 |name|LocalStore|
+|type|LocalStoreETWType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|LocalStoreETWType|
 
 #### FileStore
 |Attribute|Value|
 |---|---|
 |name|FileStore|
+|type|FileStoreETWType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|FileStoreETWType|
 
 #### AzureBlob
 |Attribute|Value|
 |---|---|
 |name|AzureBlob|
+|type|AzureBlobETWType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|AzureBlobETWType|
 
 ## Destinations Element
 Destinations to which the folder contents need to be transferred.
@@ -1341,25 +1339,25 @@ Destinations to which the folder contents need to be transferred.
 |Attribute|Value|
 |---|---|
 |name|LocalStore|
+|type|LocalStoreType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|LocalStoreType|
 
 #### FileStore
 |Attribute|Value|
 |---|---|
 |name|FileStore|
+|type|FileStoreType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|FileStoreType|
 
 #### AzureBlob
 |Attribute|Value|
 |---|---|
 |name|AzureBlob|
+|type|AzureBlobType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|AzureBlobType|
 
 ## Diagnostics Element
 |Attribute|Value|
@@ -1446,15 +1444,15 @@ Destinations to which the folder contents need to be transferred.
 |Attribute|Value|
 |---|---|
 |name|SecretsCertificate|
-|minOccurs|0|
 |type|FabricCertificateType|
+|minOccurs|0|
 
 #### EndpointCertificate
 |Attribute|Value|
 |---|---|
 |name|EndpointCertificate|
-|minOccurs|0|
 |type|EndpointCertificateType|
+|minOccurs|0|
 
 ## DigestedCertificates Element
 |Attribute|Value|
@@ -1483,9 +1481,9 @@ Destinations to which the folder contents need to be transferred.
 |Attribute|Value|
 |---|---|
 |name|EndpointCertificate|
+|type|EndpointCertificateType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|EndpointCertificateType|
 
 ## DigestedCodePackage Element
 |Attribute|Value|
@@ -1548,33 +1546,33 @@ Destinations to which the folder contents need to be transferred.
 |Attribute|Value|
 |---|---|
 |name|RunAsPolicy|
+|type|RunAsPolicyType|
 |minOccurs|0|
 |maxOccurs|2|
-|type|RunAsPolicyType|
 
 #### DebugParameters
 |Attribute|Value|
 |---|---|
 |name|DebugParameters|
+|type|DebugParametersType|
 |minOccurs|0|
 |maxOccurs|1|
-|type|DebugParametersType|
 
 #### ContainerHostPolicies
 Specifies policies for activating container hosts.
 |Attribute|Value|
 |---|---|
 |name|ContainerHostPolicies|
-|minOccurs|0|
 |type|ContainerHostPoliciesType|
+|minOccurs|0|
 
 #### ResourceGovernancePolicy
 Specifies resource limits for codepackage.
 |Attribute|Value|
 |---|---|
 |name|ResourceGovernancePolicy|
-|minOccurs|0|
 |type|ResourceGovernancePolicyType|
+|minOccurs|0|
 
 ## DigestedConfigPackage Element
 |Attribute|Value|
@@ -1630,16 +1628,16 @@ Specifies resource limits for codepackage.
 |Attribute|Value|
 |---|---|
 |name|ConfigOverride|
-|minOccurs|0|
 |type|ConfigOverrideType|
+|minOccurs|0|
 
 #### DebugParameters
 |Attribute|Value|
 |---|---|
 |name|DebugParameters|
+|type|DebugParametersType|
 |minOccurs|0|
 |maxOccurs|1|
-|type|DebugParametersType|
 
 ## DigestedDataPackage Element
 |Attribute|Value|
@@ -1692,9 +1690,9 @@ Specifies resource limits for codepackage.
 |Attribute|Value|
 |---|---|
 |name|DebugParameters|
+|type|DebugParametersType|
 |minOccurs|0|
 |maxOccurs|1|
-|type|DebugParametersType|
 
 ## DigestedEndpoint Element
 |Attribute|Value|
@@ -1732,23 +1730,23 @@ Specifies resource limits for codepackage.
 |Attribute|Value|
 |---|---|
 |name|SecurityAccessPolicy|
-|minOccurs|0|
 |type|SecurityAccessPolicyType|
+|minOccurs|0|
 
 #### EndpointBindingPolicy
 |Attribute|Value|
 |---|---|
 |name|EndpointBindingPolicy|
-|minOccurs|0|
 |type|EndpointBindingPolicyType|
+|minOccurs|0|
 
 #### ResourceGovernancePolicy
 |Attribute|Value|
 |---|---|
 |name|ResourceGovernancePolicy|
+|type|ResourceGovernancePolicyType|
 |minOccurs|0|
 |maxOccurs|1|
-|type|ResourceGovernancePolicyType|
 
 ## DigestedEndpoints Element
 |Attribute|Value|
@@ -1927,8 +1925,8 @@ Specifies resource limits for codepackage.
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 
 ## DomainUser Element
@@ -1956,8 +1954,8 @@ Specifies resource limits for codepackage.
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 
 ## DriverOption Element
@@ -2137,9 +2135,9 @@ Destinations to which the crash dumps need to be transferred.
 #### None
 |Attribute|Value|
 |---|---|
+|ref|Parameters|
 |minOccurs|0|
 |maxOccurs|1|
-|ref|Parameters|
 
 ## Endpoint Element
 |Attribute|Value|
@@ -2319,8 +2317,8 @@ Defines endpoints for the service.
 |Attribute|Value|
 |---|---|
 |name|Endpoint|
-|maxOccurs|unbounded|
 |type|EndpointOverrideType|
+|maxOccurs|unbounded|
 
 ## Endpoints Element
 Defines endpoints for the service.
@@ -2353,8 +2351,8 @@ Defines endpoints for the service.
 |Attribute|Value|
 |---|---|
 |name|Endpoint|
-|maxOccurs|unbounded|
 |type|EndpointType|
+|maxOccurs|unbounded|
 
 ## Endpoints Element
 Describe the endpoints associated with this node type
@@ -2510,15 +2508,15 @@ Environment variable.
 |Attribute|Value|
 |---|---|
 |name|StartPort|
-|use|required|
 |type|xs:int|
+|use|required|
 
 #### EndPort
 |Attribute|Value|
 |---|---|
 |name|EndPort|
-|use|required|
 |type|xs:int|
+|use|required|
 
 
 ## EvictionPolicy Element
@@ -2553,15 +2551,15 @@ Eviction Policy extension for the Service Type.
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### Provider
 |Attribute|Value|
 |---|---|
 |name|Provider|
-|use|required|
 |type|xs:string|
+|use|required|
 
 ### Content element details
 
@@ -2569,8 +2567,8 @@ Eviction Policy extension for the Service Type.
 |Attribute|Value|
 |---|---|
 |name|Properties|
-|minOccurs|0|
 |type|ServiceTypeExtensionPolicyPropertiesType|
+|minOccurs|0|
 
 ## ExeHost Element
 |Attribute|Value|
@@ -2662,8 +2660,8 @@ Eviction Policy extension for the Service Type.
 |Attribute|Value|
 |---|---|
 |name|GeneratedId|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 
 ## Extensions Element
@@ -2838,9 +2836,9 @@ Destinations to which the folder contents need to be transferred.
 #### None
 |Attribute|Value|
 |---|---|
+|ref|Parameters|
 |minOccurs|0|
 |maxOccurs|1|
-|ref|Parameters|
 
 ## FromSource Element
 |Attribute|Value|
@@ -2919,8 +2917,8 @@ Declares a group as a security principal, which can be referenced in policies.
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 ### Content element details
 
@@ -2970,8 +2968,8 @@ The group to add the user to.  The group must be defined in the Groups section.
 |Attribute|Value|
 |---|---|
 |name|NameRef|
-|use|required|
 |type|xs:string|
+|use|required|
 
 
 ## Groups Element
@@ -3047,28 +3045,6 @@ Declares a group as a security principal, which can be referenced in policies.
 |name|Group|
 |maxOccurs|unbounded|
 
-## HealthConfig Element
-Specifies docker HEALTHCHECK integration options for the container.
-
-|Attribute|Value|
-|---|---|
-|type|[ContainerHealthConfigType](#containerhealthconfigtype-type)|
-|content|0 element(s), 0 attribute(s)|
-|name|HealthConfig|
-|minOccurs|0|
-|maxOccurs|1|
-
-### XML source
-```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="HealthConfig" type="ContainerHealthConfigType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>Specifies docker HEALTHCHECK integration options for the container.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      
-
-```
-
 ## HealthPolicy Element
 |Attribute|Value|
 |---|---|
@@ -3114,28 +3090,6 @@ Specifies docker HEALTHCHECK integration options for the container.
 
 ```
 
-## Image Element
-Container images to be deployed.
-
-|Attribute|Value|
-|---|---|
-|type|[ImageType](#imagetype-type)|
-|content|0 element(s), 0 attribute(s)|
-|name|Image|
-|minOccurs|0|
-|maxOccurs|unbounded|
-
-### XML source
-```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Image" type="ImageType" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>Container images to be deployed.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    
-
-```
-
 ## ImageName Element
 |Attribute|Value|
 |---|---|
@@ -3147,28 +3101,6 @@ Container images to be deployed.
 ```xml
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ImageName" type="xs:string"/>
       
-
-```
-
-## ImageOverrides Element
-Image names corresponding to OS build number to be launched.
-
-|Attribute|Value|
-|---|---|
-|type|[ImageOverridesType](#imageoverridestype-type)|
-|content|0 element(s), 0 attribute(s)|
-|name|ImageOverrides|
-|minOccurs|0|
-|maxOccurs|1|
-
-### XML source
-```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ImageOverrides" type="ImageOverridesType" minOccurs="0" maxOccurs="1">
-      <xs:annotation>
-        <xs:documentation>Image names corresponding to OS build number to be launched.</xs:documentation>
-      </xs:annotation>
-      </xs:element>
-    
 
 ```
 
@@ -3491,8 +3423,8 @@ Load metrics reported by this service, used for resource balancing services.
 |Attribute|Value|
 |---|---|
 |name|LoadMetric|
-|maxOccurs|unbounded|
 |type|LoadMetricType|
+|maxOccurs|unbounded|
 
 ## LoadMetrics Element
 Load metrics reported by this service.
@@ -3525,8 +3457,8 @@ Load metrics reported by this service.
 |Attribute|Value|
 |---|---|
 |name|LoadMetric|
-|maxOccurs|unbounded|
 |type|LoadMetricType|
+|maxOccurs|unbounded|
 
 ## LoadMetrics Element
 Load metrics reported by this service.
@@ -3559,8 +3491,8 @@ Load metrics reported by this service.
 |Attribute|Value|
 |---|---|
 |name|LoadMetric|
-|maxOccurs|unbounded|
 |type|LoadMetricType|
+|maxOccurs|unbounded|
 
 ## LoadMetrics Element
 Load metrics reported by this service.
@@ -3593,8 +3525,8 @@ Load metrics reported by this service.
 |Attribute|Value|
 |---|---|
 |name|LoadMetric|
-|maxOccurs|unbounded|
 |type|LoadMetricType|
+|maxOccurs|unbounded|
 
 ## LoadMetrics Element
 Load metrics reported by this service, used for resource balancing services.
@@ -3627,8 +3559,8 @@ Load metrics reported by this service, used for resource balancing services.
 |Attribute|Value|
 |---|---|
 |name|LoadMetric|
-|maxOccurs|unbounded|
 |type|LoadMetricType|
+|maxOccurs|unbounded|
 
 ## LocalStore Element
 |Attribute|Value|
@@ -3737,8 +3669,8 @@ Specifies whether log collection is enabled. Works only in an Azure cluster envi
 |Attribute|Value|
 |---|---|
 |name|Path|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 
 ## LogConfig Element
@@ -3794,8 +3726,8 @@ Describe the LogicalDirectories settings associated with this node type
 |Attribute|Value|
 |---|---|
 |name|LogicalDirectory|
-|maxOccurs|unbounded|
 |type|LogicalDirectoryType|
+|maxOccurs|unbounded|
 
 ## LogicalDirectory Element
 |Attribute|Value|
@@ -3873,9 +3805,9 @@ Lists the data packages containing ETW manifests for the components of this serv
 |Attribute|Value|
 |---|---|
 |name|ManifestDataPackage|
+|type|DataPackageType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|DataPackageType|
 
 ## Member Element
 |Attribute|Value|
@@ -4011,9 +3943,9 @@ Member services of this service group
 |Attribute|Value|
 |---|---|
 |name|Member|
+|type|ServiceGroupMemberType|
 |minOccurs|1|
 |maxOccurs|unbounded|
-|type|ServiceGroupMemberType|
 
 ## Members Element
 Member services of this service group
@@ -4047,9 +3979,9 @@ Member services of this service group
 |Attribute|Value|
 |---|---|
 |name|Member|
+|type|ServiceGroupMemberType|
 |minOccurs|1|
 |maxOccurs|unbounded|
-|type|ServiceGroupMemberType|
 
 ## Membership Element
 |Attribute|Value|
@@ -4132,9 +4064,9 @@ Member services of this service group
 |Attribute|Value|
 |---|---|
 |name|IsEnabled|
-|default|true|
-|use|optional|
 |type|xs:boolean|
+|use|optional|
+|default|true|
 
 
 ## NTLMAuthenticationPolicy Element
@@ -4177,31 +4109,31 @@ Member services of this service group
 |Attribute|Value|
 |---|---|
 |name|IsEnabled|
-|default|true|
-|use|optional|
 |type|xs:boolean|
+|use|optional|
+|default|true|
 
 #### PasswordSecret
 |Attribute|Value|
 |---|---|
 |name|PasswordSecret|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### PasswordSecretEncrypted
 |Attribute|Value|
 |---|---|
 |name|PasswordSecretEncrypted|
-|default|false|
-|use|optional|
 |type|xs:boolean|
+|use|optional|
+|default|false|
 
 #### X509StoreLocation
 |Attribute|Value|
 |---|---|
 |name|X509StoreLocation|
-|default|LocalMachine|
 |use|optional|
+|default|LocalMachine|
 
 #### X509StoreName
 |Attribute|Value|
@@ -4371,8 +4303,8 @@ Specifies the network configuration for a container.
 |Attribute|Value|
 |---|---|
 |name|Node|
-|maxOccurs|unbounded|
 |type|FabricNodeType|
+|maxOccurs|unbounded|
 
 ## NodeList Element
 |Attribute|Value|
@@ -4399,8 +4331,8 @@ Specifies the network configuration for a container.
 |Attribute|Value|
 |---|---|
 |name|Node|
-|maxOccurs|unbounded|
 |type|FabricNodeType|
+|maxOccurs|unbounded|
 
 ## NodeList Element
 |Attribute|Value|
@@ -4427,8 +4359,8 @@ Specifies the network configuration for a container.
 |Attribute|Value|
 |---|---|
 |name|Node|
-|maxOccurs|unbounded|
 |type|InfrastructureNodeType|
+|maxOccurs|unbounded|
 
 ## NodeType Element
 Describe a node type.
@@ -4510,8 +4442,8 @@ Describe a node type.
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 ### Content element details
 
@@ -4520,16 +4452,16 @@ Describe the endpoints associated with this node type
 |Attribute|Value|
 |---|---|
 |name|Endpoints|
-|minOccurs|0|
 |type|FabricEndpointsType|
+|minOccurs|0|
 
 #### KtlLoggerSettings
 Describe the KtlLogger information associated with this node type
 |Attribute|Value|
 |---|---|
 |name|KtlLoggerSettings|
-|minOccurs|0|
 |type|FabricKtlLoggerSettingsType|
+|minOccurs|0|
 
 #### LogicalDirectories
 Describe the LogicalDirectories settings associated with this node type
@@ -4543,8 +4475,8 @@ Describe the certificates associated with this node type
 |Attribute|Value|
 |---|---|
 |name|Certificates|
-|minOccurs|0|
 |type|CertificatesType|
+|minOccurs|0|
 
 #### PlacementProperties
 Describe the properties for this NodeType that will be used as placement constraints
@@ -4714,9 +4646,9 @@ An application parameter to be used in this manifest. The parameter value can be
 |type|anonymous complexType|
 |content|0 element(s), 2 attribute(s)|
 |name|Parameter|
+|block||
 |minOccurs|0|
 |maxOccurs|unbounded|
-|block||
 
 ### XML source
 ```xml
@@ -4757,8 +4689,8 @@ An application parameter to be used in this manifest. The parameter value can be
 |Attribute|Value|
 |---|---|
 |name|DefaultValue|
-|use|required|
 |type|xs:string|
+|use|required|
 
 
 ## Parameter Element
@@ -4798,8 +4730,8 @@ The setting to override.
 |Attribute|Value|
 |---|---|
 |name|IsEncrypted|
-|default|false|
 |type|xs:boolean|
+|default|false|
 
 
 ## Parameter Element
@@ -4854,29 +4786,29 @@ The setting to override.
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### Value
 |Attribute|Value|
 |---|---|
 |name|Value|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### MustOverride
 |Attribute|Value|
 |---|---|
 |name|MustOverride|
-|default|false|
 |type|xs:boolean|
+|default|false|
 
 #### IsEncrypted
 |Attribute|Value|
 |---|---|
 |name|IsEncrypted|
-|default|false|
 |type|xs:boolean|
+|default|false|
 
 
 ## Parameter Element
@@ -4952,9 +4884,9 @@ An application parameter to be used in this manifest. The parameter value can be
 |Attribute|Value|
 |---|---|
 |name|Parameter|
+|block||
 |minOccurs|0|
 |maxOccurs|unbounded|
-|block||
 
 ## Parameters Element
 Additional settings specified as name-value pairs
@@ -5094,8 +5026,8 @@ Persistence Policy extension for the Service Type
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### Mode
 |Attribute|Value|
@@ -5107,15 +5039,15 @@ Persistence Policy extension for the Service Type
 |Attribute|Value|
 |---|---|
 |name|WriteBehind|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### Provider
 |Attribute|Value|
 |---|---|
 |name|Provider|
-|use|required|
 |type|xs:string|
+|use|required|
 
 ### Content element details
 
@@ -5123,11 +5055,11 @@ Persistence Policy extension for the Service Type
 |Attribute|Value|
 |---|---|
 |name|Properties|
-|minOccurs|0|
 |type|ServiceTypeExtensionPolicyPropertiesType|
+|minOccurs|0|
 
 ## PlacementConstraints Element
-Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service's requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
+Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service�s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
 
 |Attribute|Value|
 |---|---|
@@ -5140,7 +5072,7 @@ Used to control which nodes in the cluster a service can run on. A key/value pai
 ```xml
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PlacementConstraints" type="xs:string" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service's requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion&gt;12  &amp;&amp; InDMZ == True)".</xs:documentation>
+                    <xs:documentation>Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service�s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion&gt;12  &amp;&amp; InDMZ == True)".</xs:documentation>
                 </xs:annotation>
             </xs:element>
             
@@ -5220,9 +5152,9 @@ Describe the properties for this NodeType that will be used as placement constra
 |Attribute|Value|
 |---|---|
 |name|Property|
+|type|KeyValuePairType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|KeyValuePairType|
 
 ## Policies Element
 |Attribute|Value|
@@ -5410,15 +5342,15 @@ The executable name.  For example, "MySetup.bat" or "MyServiceHost.exe".
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### Value
 |Attribute|Value|
 |---|---|
 |name|Value|
-|use|required|
 |type|xs:string|
+|use|required|
 
 
 ## ProviderGuid Element
@@ -5695,8 +5627,8 @@ Specifies resource limits for codepackage.
 |Attribute|Value|
 |---|---|
 |name|Role|
-|maxOccurs|unbounded|
 |type|AzureRoleType|
+|maxOccurs|unbounded|
 
 ## Roles Element
 |Attribute|Value|
@@ -5723,9 +5655,9 @@ Specifies resource limits for codepackage.
 |Attribute|Value|
 |---|---|
 |name|Role|
+|type|BlackbirdRoleType|
 |minOccurs|1|
 |maxOccurs|unbounded|
-|type|BlackbirdRoleType|
 
 ## Roles Element
 |Attribute|Value|
@@ -5752,8 +5684,8 @@ Specifies resource limits for codepackage.
 |Attribute|Value|
 |---|---|
 |name|Role|
-|maxOccurs|unbounded|
 |type|PaaSRoleType|
+|maxOccurs|unbounded|
 
 ## RunAsPolicy Element
 |Attribute|Value|
@@ -5987,8 +5919,8 @@ The setting to override.
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 ### Content element details
 
@@ -6094,7 +6026,7 @@ Specifies securityoptions for the container.
           <xs:documentation>Specifies securityoptions for the container.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+    
 
 ```
 
@@ -6154,10 +6086,16 @@ Declares a service to be created automatically when the application is instantia
                             <xs:documentation>The DNS name of the service.</xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
-                        <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
+                        <xs:attribute name="ServicePackageActivationMode" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="SharedProcess"/>
+                              <xs:enumeration value="ExclusiveProcess"/>
+                            </xs:restriction>
+                          </xs:simpleType>
                         </xs:attribute>
                     </xs:complexType>
                 </xs:element>
@@ -6170,30 +6108,29 @@ Declares a service to be created automatically when the application is instantia
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### GeneratedIdRef
 |Attribute|Value|
 |---|---|
 |name|GeneratedIdRef|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### ServiceDnsName
 |Attribute|Value|
 |---|---|
 |name|ServiceDnsName|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### ServicePackageActivationMode
 |Attribute|Value|
 |---|---|
 |name|ServicePackageActivationMode|
-|default|SharedProcess|
 |use|optional|
-|type|xs:string|
+|default|SharedProcess|
 
 ### Content element details
 
@@ -6370,10 +6307,16 @@ A collection of services that are automatically located together, so they are al
                                 <xs:documentation>Name of this service relative to this application Name URI. Fully qualified Name of the service is a combination of Name Uri of the Application and this Name.</xs:documentation>
                             </xs:annotation>
                         </xs:attribute>
-                        <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
+                        <xs:attribute name="ServicePackageActivationMode" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="SharedProcess"/>
+                              <xs:enumeration value="ExclusiveProcess"/>
+                            </xs:restriction>
+                          </xs:simpleType>
                         </xs:attribute>
                     </xs:complexType>
                 </xs:element>
@@ -6387,17 +6330,16 @@ Defines an affinity relationship with another service. Useful when splitting a p
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### ServicePackageActivationMode
 Defines an affinity relationship with another service. Useful when splitting a previously-monolithic application into microservices.  One service has a local dependency on another service and both services need to run on the same node in order to work.
 |Attribute|Value|
 |---|---|
 |name|ServicePackageActivationMode|
-|default|SharedProcess|
 |use|optional|
-|type|xs:string|
+|default|SharedProcess|
 
 ### Content element details
 
@@ -6444,9 +6386,9 @@ Member types of this service group type.
 #### None
 |Attribute|Value|
 |---|---|
+|ref|ServiceGroupTypeMember|
 |minOccurs|1|
 |maxOccurs|unbounded|
-|ref|ServiceGroupTypeMember|
 
 ## ServiceGroupTypeMember Element
 Describes the member type of the service group.
@@ -6579,23 +6521,23 @@ Describes configuration overrides for the imported service manifest. Configurati
 |Attribute|Value|
 |---|---|
 |name|ResourceOverrides|
-|minOccurs|0|
 |type|ResourceOverridesType|
+|minOccurs|0|
 
 #### EnvironmentOverrides
 |Attribute|Value|
 |---|---|
 |name|EnvironmentOverrides|
+|type|EnvironmentOverridesType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|EnvironmentOverridesType|
 
 #### Policies
 |Attribute|Value|
 |---|---|
 |name|Policies|
-|minOccurs|0|
 |type|ServiceManifestImportPoliciesType|
+|minOccurs|0|
 
 ## ServiceManifestRef Element
 |Attribute|Value|
@@ -7188,8 +7130,8 @@ Defines path to shared log.
 |Attribute|Value|
 |---|---|
 |name|Value|
-|use|required|
 |type|xs:string|
+|use|required|
 
 
 ## SharedLogFileSizeInMB Element
@@ -7485,8 +7427,8 @@ Describes a stateless ServiceType.
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 
 ## SystemGroup Element
@@ -7523,8 +7465,8 @@ The system group to add the user to.  The system group must be defined in the Gr
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 
 ## TargetInformation Element
@@ -7604,22 +7546,22 @@ Describes a uniform partitioning scheme based on Int64 keys.
 |Attribute|Value|
 |---|---|
 |name|PartitionCount|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### LowKey
 |Attribute|Value|
 |---|---|
 |name|LowKey|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### HighKey
 |Attribute|Value|
 |---|---|
 |name|HighKey|
-|use|required|
 |type|xs:string|
+|use|required|
 
 
 ## UnmanagedDll Element
@@ -7780,38 +7722,38 @@ Declares a user as a security principal, which can be referenced in policies.
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### AccountType
 |Attribute|Value|
 |---|---|
 |name|AccountType|
-|default|LocalUser|
 |use|optional|
+|default|LocalUser|
 
 #### LoadUserProfile
 |Attribute|Value|
 |---|---|
 |name|LoadUserProfile|
-|default|false|
-|use|optional|
 |type|xs:boolean|
+|use|optional|
+|default|false|
 
 #### PerformInteractiveLogon
 |Attribute|Value|
 |---|---|
 |name|PerformInteractiveLogon|
-|default|false|
-|use|optional|
 |type|xs:boolean|
+|use|optional|
+|default|false|
 
 #### PasswordEncrypted
 |Attribute|Value|
 |---|---|
 |name|PasswordEncrypted|
-|use|optional|
 |type|xs:boolean|
+|use|optional|
 
 ### Content element details
 
@@ -8039,8 +7981,8 @@ Specifies the volume to be bound to container.
 |Attribute|Value|
 |---|---|
 |name|Vote|
-|maxOccurs|unbounded|
 |type|PaaSVoteType|
+|maxOccurs|unbounded|
 
 ## WindowsAzure Element
 |Attribute|Value|
@@ -8181,8 +8123,8 @@ Specifies the volume to be bound to container.
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 ### Content element details
 
@@ -8250,18 +8192,18 @@ List of parameters for the application as defined in application manifest and th
 |Attribute|Value|
 |---|---|
 |name|ConsiderWarningAsError|
-|default|false|
-|use|optional|
 |type|xs:string|
+|use|optional|
+|default|false|
 
 #### MaxPercentUnhealthyDeployedApplications
 List of parameters for the application as defined in application manifest and their respective values.
 |Attribute|Value|
 |---|---|
 |name|MaxPercentUnhealthyDeployedApplications|
-|default|0|
-|use|optional|
 |type|xs:string|
+|use|optional|
+|default|0|
 
 ### Content element details
 
@@ -8270,8 +8212,8 @@ Specifies the default service type health policy, which will replace the default
 |Attribute|Value|
 |---|---|
 |name|DefaultServiceTypeHealthPolicy|
-|minOccurs|0|
 |type|ServiceTypeHealthPolicyType|
+|minOccurs|0|
 
 #### ServiceTypeHealthPolicy
 Describes the policy for evaluating health events reported on services, partitions and replicas of a particular service type.
@@ -8328,8 +8270,8 @@ Describes the policy for evaluating health events reported on services, partitio
 |Attribute|Value|
 |---|---|
 |name|Version|
-|use|required|
 |type|xs:int|
+|use|required|
 
 ### Content element details
 
@@ -8470,8 +8412,8 @@ Text describing this application.
 |Attribute|Value|
 |---|---|
 |name|Description|
-|minOccurs|0|
 |type|xs:string|
+|minOccurs|0|
 
 #### Parameters
 Declares the parameters that are used in this application manifest. The value of these parameters can be supplied when the application is instantiated and can be used to override application or service configuration settings.
@@ -8492,36 +8434,36 @@ Declares the set of permitted service types that can be created dynamically insi
 |Attribute|Value|
 |---|---|
 |name|ServiceTemplates|
-|minOccurs|0|
 |type|ServiceTemplatesType|
+|minOccurs|0|
 
 #### DefaultServices
 |Attribute|Value|
 |---|---|
 |name|DefaultServices|
-|minOccurs|0|
 |type|DefaultServicesType|
+|minOccurs|0|
 
 #### Principals
 |Attribute|Value|
 |---|---|
 |name|Principals|
-|minOccurs|0|
 |type|SecurityPrincipalsType|
+|minOccurs|0|
 
 #### Policies
 |Attribute|Value|
 |---|---|
 |name|Policies|
-|minOccurs|0|
 |type|ApplicationPoliciesType|
+|minOccurs|0|
 
 #### Diagnostics
 |Attribute|Value|
 |---|---|
 |name|Diagnostics|
-|minOccurs|0|
 |type|DiagnosticsType|
+|minOccurs|0|
 
 #### Certificates
 Declares certificates used to secure endpoints or encrypt secrets within the application manifest or a cluster manifest.
@@ -8579,8 +8521,8 @@ Declares certificates used to secure endpoints or encrypt secrets within the app
 |Attribute|Value|
 |---|---|
 |name|ApplicationTypeName|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### ContentChecksum
 Declares certificates used to secure endpoints or encrypt secrets within the application manifest or a cluster manifest.
@@ -8633,7 +8575,7 @@ Describes the policies (log collection, default run-as, health, and security acc
                         </xs:element>
                         <xs:element name="DefaultRunAsPolicy" minOccurs="0">
                                 <xs:annotation>
-                                        <xs:documentation>Specify a default user account for all service code packages that don't have a specific RunAsPolicy defined in the ServiceManifestImport section.</xs:documentation>
+                                        <xs:documentation>Specify a default user account for all service code packages that don�t have a specific RunAsPolicy defined in the ServiceManifestImport section.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                         <xs:attribute name="UserRef" type="xs:string" use="required">
@@ -8669,7 +8611,7 @@ Specifies whether log collection is enabled. Works only in an Azure cluster envi
 |minOccurs|0|
 
 #### DefaultRunAsPolicy
-Specify a default user account for all service code packages that don't have a specific RunAsPolicy defined in the ServiceManifestImport section.
+Specify a default user account for all service code packages that don�t have a specific RunAsPolicy defined in the ServiceManifestImport section.
 |Attribute|Value|
 |---|---|
 |name|DefaultRunAsPolicy|
@@ -8679,8 +8621,8 @@ Specify a default user account for all service code packages that don't have a s
 |Attribute|Value|
 |---|---|
 |name|HealthPolicy|
-|minOccurs|0|
 |type|ApplicationHealthPolicyType|
+|minOccurs|0|
 
 #### SecurityAccessPolicies
 List of security policies applied to resources at the application level.
@@ -8760,25 +8702,25 @@ List of security policies applied to resources at the application level.
 |Attribute|Value|
 |---|---|
 |name|RoleName|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### NodeTypeRef
 List of security policies applied to resources at the application level.
 |Attribute|Value|
 |---|---|
 |name|NodeTypeRef|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### SeedNodeCount
 List of security policies applied to resources at the application level.
 |Attribute|Value|
 |---|---|
 |name|SeedNodeCount|
-|default|0|
-|use|optional|
 |type|xs:int|
+|use|optional|
+|default|0|
 
 ## AzureStoreBaseType complexType
 Describes a diagnostic store in an Azure storage account.
@@ -8814,16 +8756,16 @@ List of security policies applied to resources at the application level.
 |Attribute|Value|
 |---|---|
 |name|ConnectionStringIsEncrypted|
-|use|required|
 |type|xs:string|
+|use|required|
 
 ### Content element details
 
 #### None
 |Attribute|Value|
 |---|---|
-|minOccurs|0|
 |ref|Parameters|
+|minOccurs|0|
 ## BlackbirdRoleType complexType
 |Attribute|Value|
 |---|---|
@@ -8848,30 +8790,30 @@ List of security policies applied to resources at the application level.
 |Attribute|Value|
 |---|---|
 |name|EnvironmentName|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### RoleName
 |Attribute|Value|
 |---|---|
 |name|RoleName|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### NodeTypeRef
 |Attribute|Value|
 |---|---|
 |name|NodeTypeRef|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### IsSeedNode
 |Attribute|Value|
 |---|---|
 |name|IsSeedNode|
-|default|0|
-|use|optional|
 |type|xs:boolean|
+|use|optional|
+|default|0|
 
 ## CertificatesType complexType
 |Attribute|Value|
@@ -8916,32 +8858,32 @@ The certificate used to secure the intra cluster communication.
 |Attribute|Value|
 |---|---|
 |name|ClusterCertificate|
-|minOccurs|0|
 |type|FabricCertificateType|
+|minOccurs|0|
 
 #### ServerCertificate
 The certificate used to secure the intra cluster communication.
 |Attribute|Value|
 |---|---|
 |name|ServerCertificate|
-|minOccurs|0|
 |type|FabricCertificateType|
+|minOccurs|0|
 
 #### ClientCertificate
 The default admin role client certificate used to secure client server communication.
 |Attribute|Value|
 |---|---|
 |name|ClientCertificate|
-|minOccurs|0|
 |type|FabricCertificateType|
+|minOccurs|0|
 
 #### UserRoleClientCertificate
 The default user role client certificate used to secure client server communication.
 |Attribute|Value|
 |---|---|
 |name|UserRoleClientCertificate|
-|minOccurs|0|
 |type|FabricCertificateType|
+|minOccurs|0|
 ## ClusterManifestType complexType
 Describes a Microsoft Azure Service Fabric Cluster.
 
@@ -9167,8 +9109,8 @@ The default user role client certificate used to secure client server communicat
 |Attribute|Value|
 |---|---|
 |name|FabricSettings|
-|minOccurs|0|
 |type|SettingsOverridesType|
+|minOccurs|0|
 
 #### Certificates
 |Attribute|Value|
@@ -9221,8 +9163,8 @@ Describes a code package that supports a defined service type. When a service is
 |Attribute|Value|
 |---|---|
 |name|IsShared|
-|default|false|
 |type|xs:boolean|
+|default|false|
 
 ### Content element details
 
@@ -9237,16 +9179,16 @@ A privileged entry point that runs with the same credentials as Service Fabric (
 |Attribute|Value|
 |---|---|
 |name|EntryPoint|
-|minOccurs|1|
 |type|EntryPointDescriptionType|
+|minOccurs|1|
 
 #### EnvironmentVariables
 |Attribute|Value|
 |---|---|
 |name|EnvironmentVariables|
+|type|EnvironmentVariablesType|
 |minOccurs|0|
 |maxOccurs|1|
-|type|EnvironmentVariablesType|
 ## ConfigOverrideType complexType
 Describes the configuration overrides for a particular config package in the imported service manifest.
 
@@ -9293,8 +9235,8 @@ Describes the configuration overrides for a particular config package in the imp
 |Attribute|Value|
 |---|---|
 |name|Settings|
-|minOccurs|0|
 |type|SettingsOverridesType|
+|minOccurs|0|
 ## ConfigPackageType complexType
 Declares a folder, named by the Name attribute, that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.
 
@@ -9380,112 +9322,57 @@ Specifies information about an X509 certificate which is to be exposed to the co
 |Attribute|Value|
 |---|---|
 |name|X509StoreName|
-|default|My|
 |type|xs:string|
+|default|My|
 
 #### X509FindValue
 |Attribute|Value|
 |---|---|
 |name|X509FindValue|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### DataPackageRef
 |Attribute|Value|
 |---|---|
 |name|DataPackageRef|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### DataPackageVersion
 |Attribute|Value|
 |---|---|
 |name|DataPackageVersion|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### RelativePath
 |Attribute|Value|
 |---|---|
 |name|RelativePath|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### Password
 |Attribute|Value|
 |---|---|
 |name|Password|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### IsPasswordEncrypted
 |Attribute|Value|
 |---|---|
 |name|IsPasswordEncrypted|
-|default|false|
 |type|xs:boolean|
+|default|false|
 
 #### Name
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
-
-## ContainerHealthConfigType complexType
-Specifies docker HEALTHCHECK integration options for the container.
-
-|Attribute|Value|
-|---|---|
-|type|anonymous complexType|
-|content|0 element(s), 2 attribute(s)|
-|name|ContainerHealthConfigType|
-
-### XML source
-```xml
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerHealthConfigType">
-    <xs:annotation>
-        <xs:documentation>Specifies docker HEALTHCHECK integration options for the container.</xs:documentation>
-    </xs:annotation>
-    <xs:attribute name="IncludeDockerHealthStatusInSystemHealthReport" type="xs:boolean" use="optional" default="true">
-        <xs:annotation>
-            <xs:documentation>
-            If the container has HEALTHCHECK enabled and docker reports health_status event for this container, 
-            Service Fabric will include this as part of system reported health. When health_status is unhealthy
-            Service Fabric will report a health warning. By default it is set to true.
-            </xs:documentation>
-        </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="RestartContainerOnUnhealthyDockerHealthStatus" type="xs:boolean" use="optional" default="false">
-        <xs:annotation>
-            <xs:documentation>
-            If the container has HEALTHCHECK enabled and docker reports health_status event for this container, 
-            Service Fabric will restart the container when health_status reported by docker is unhealthy.
-            By default it is set to false.
-            </xs:documentation>
-        </xs:annotation>
-    </xs:attribute>
-  </xs:complexType>  
-  
-
-```
-### Attribute details
-
-#### IncludeDockerHealthStatusInSystemHealthReport
-|Attribute|Value|
-|---|---|
-|name|IncludeDockerHealthStatusInSystemHealthReport|
-|default|true|
-|use|optional|
-|type|xs:boolean|
-
-#### RestartContainerOnUnhealthyDockerHealthStatus
-|Attribute|Value|
-|---|---|
-|name|RestartContainerOnUnhealthyDockerHealthStatus|
-|default|false|
-|use|optional|
-|type|xs:boolean|
+|use|required|
 
 ## ContainerHostEntryPointType complexType
 |Attribute|Value|
@@ -9521,30 +9408,30 @@ Specifies docker HEALTHCHECK integration options for the container.
 |Attribute|Value|
 |---|---|
 |name|Commands|
+|type|xs:string|
 |minOccurs|0|
 |maxOccurs|1|
-|type|xs:string|
 
 #### EntryPoint
 |Attribute|Value|
 |---|---|
 |name|EntryPoint|
+|type|xs:string|
 |minOccurs|0|
 |maxOccurs|1|
-|type|xs:string|
 
 #### FromSource
 |Attribute|Value|
 |---|---|
 |name|FromSource|
+|type|xs:string|
 |minOccurs|0|
 |maxOccurs|1|
-|type|xs:string|
 ## ContainerHostPoliciesType complexType
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
-|content|9 element(s), 5 attribute(s)|
+|content|7 element(s), 3 attribute(s)|
 |name|ContainerHostPoliciesType|
 
 ### XML source
@@ -9554,11 +9441,6 @@ Specifies docker HEALTHCHECK integration options for the container.
       <xs:element name="RepositoryCredentials" type="RepositoryCredentialsType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Credentials for container image repository to pull images from.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="HealthConfig" type="ContainerHealthConfigType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>Specifies docker HEALTHCHECK integration options for the container.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="PortBinding" type="PortBindingType" minOccurs="0" maxOccurs="unbounded">
@@ -9591,12 +9473,7 @@ Specifies docker HEALTHCHECK integration options for the container.
           <xs:documentation>Specifies securityoptions for the container.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ImageOverrides" type="ImageOverridesType" minOccurs="0" maxOccurs="1">
-      <xs:annotation>
-        <xs:documentation>Image names corresponding to OS build number to be launched.</xs:documentation>
-      </xs:annotation>
-      </xs:element>
-    </xs:choice>    
+    </xs:choice>
     <xs:attribute name="CodePackageRef" use="required">
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -9614,16 +9491,6 @@ Specifies docker HEALTHCHECK integration options for the container.
               <xs:documentation>Specify Hostname for container.</xs:documentation>
           </xs:annotation>
       </xs:attribute>
-    <xs:attribute name="ContainersRetentionCount" use="optional" type="xs:string" default="0">
-      <xs:annotation>
-        <xs:documentation>Number of containers to leave behind when container repeatedly dies. By default this is set to 0 so no containers will be left behind.</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="RunInteractive" use="optional" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>Run container with interactive flag enabled. Valid values are true/false. false by default.</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
   </xs:complexType>
   
 
@@ -9650,21 +9517,6 @@ Specifies docker HEALTHCHECK integration options for the container.
 |use|optional|
 |type|xs:string|
 
-#### ContainersRetentionCount
-|Attribute|Value|
-|---|---|
-|name|ContainersRetentionCount|
-|default|0|
-|use|optional|
-|type|xs:string|
-
-#### RunInteractive
-|Attribute|Value|
-|---|---|
-|name|RunInteractive|
-|use|optional|
-|type|xs:string|
-
 ### Content element details
 
 #### RepositoryCredentials
@@ -9672,81 +9524,63 @@ Credentials for container image repository to pull images from.
 |Attribute|Value|
 |---|---|
 |name|RepositoryCredentials|
-|minOccurs|0|
-|maxOccurs|1|
 |type|RepositoryCredentialsType|
-
-#### HealthConfig
-Specifies docker HEALTHCHECK integration options for the container.
-|Attribute|Value|
-|---|---|
-|name|HealthConfig|
 |minOccurs|0|
 |maxOccurs|1|
-|type|ContainerHealthConfigType|
 
 #### PortBinding
 Specifies which endpoint resource to bind container exposed port.
 |Attribute|Value|
 |---|---|
 |name|PortBinding|
+|type|PortBindingType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|PortBindingType|
 
 #### CertificateRef
 Specifies information for a certificate which will be exposed to the container.
 |Attribute|Value|
 |---|---|
 |name|CertificateRef|
+|type|ContainerCertificateType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|ContainerCertificateType|
 
 #### LogConfig
 Specifies the logging driver for a container.
 |Attribute|Value|
 |---|---|
 |name|LogConfig|
+|type|ContainerLoggingDriverType|
 |minOccurs|0|
 |maxOccurs|1|
-|type|ContainerLoggingDriverType|
 
 #### NetworkConfig
 Specifies the network configuration for a container.
 |Attribute|Value|
 |---|---|
 |name|NetworkConfig|
+|type|ContainerNetworkConfigType|
 |minOccurs|0|
 |maxOccurs|1|
-|type|ContainerNetworkConfigType|
 
 #### Volume
 Specifies the volume to be bound to container.
 |Attribute|Value|
 |---|---|
 |name|Volume|
+|type|ContainerVolumeType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|ContainerVolumeType|
 
 #### SecurityOption
 Specifies securityoptions for the container.
 |Attribute|Value|
 |---|---|
 |name|SecurityOption|
+|type|SecurityOptionsType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|SecurityOptionsType|
-
-#### ImageOverrides
-Image names corresponding to OS build number to be launched.
-|Attribute|Value|
-|---|---|
-|name|ImageOverrides|
-|minOccurs|0|
-|maxOccurs|1|
-|type|ImageOverridesType|
 ## ContainerLoggingDriverType complexType
 |Attribute|Value|
 |---|---|
@@ -9778,7 +9612,7 @@ Image names corresponding to OS build number to be launched.
 ### Attribute details
 
 #### Driver
-Image names corresponding to OS build number to be launched.
+Specifies securityoptions for the container.
 |Attribute|Value|
 |---|---|
 |name|Driver|
@@ -9791,9 +9625,9 @@ Driver options to be passed to driver.
 |Attribute|Value|
 |---|---|
 |name|DriverOption|
+|type|DriverOptionType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|DriverOptionType|
 ## ContainerNetworkConfigType complexType
 |Attribute|Value|
 |---|---|
@@ -9893,8 +9727,8 @@ Driver options to be passed to driver.
 |Attribute|Value|
 |---|---|
 |name|IsReadOnly|
-|default|false|
 |type|xs:boolean|
+|default|false|
 
 ### Content element details
 
@@ -9903,9 +9737,9 @@ Driver options to be passed to driver.
 |Attribute|Value|
 |---|---|
 |name|DriverOption|
+|type|DriverOptionType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|DriverOptionType|
 ## DataPackageType complexType
 Declares a folder, named by the Name attribute, which contains static data files. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.
 
@@ -10053,8 +9887,8 @@ Driver options to be passed to driver.
 |Attribute|Value|
 |---|---|
 |name|EntryPointType|
-|default|Main|
 |use|optional|
+|default|Main|
 
 #### CodePackageLinkFolder
 Driver options to be passed to driver.
@@ -10105,27 +9939,27 @@ Overidden entrypoint for containers so debugger can be launched..
 |Attribute|Value|
 |---|---|
 |name|ContainerEntryPoint|
+|type|xs:string|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|xs:string|
 
 #### ContainerMountedVolume
 Volumes to be mounted inside container.
 |Attribute|Value|
 |---|---|
 |name|ContainerMountedVolume|
+|type|xs:string|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|xs:string|
 
 #### ContainerEnvironmentBlock
 EnvironmentBlock for containers.
 |Attribute|Value|
 |---|---|
 |name|ContainerEnvironmentBlock|
+|type|xs:string|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|xs:string|
 ## DefaultServicesType complexType
 Declares service instances that are automatically created whenever an application is instantiated against this application type.
 
@@ -10167,10 +10001,16 @@ Declares service instances that are automatically created whenever an applicatio
                             <xs:documentation>The DNS name of the service.</xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
-                        <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
+                        <xs:attribute name="ServicePackageActivationMode" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="SharedProcess"/>
+                              <xs:enumeration value="ExclusiveProcess"/>
+                            </xs:restriction>
+                          </xs:simpleType>
                         </xs:attribute>
                     </xs:complexType>
                 </xs:element>
@@ -10188,10 +10028,16 @@ Declares service instances that are automatically created whenever an applicatio
                                 <xs:documentation>Name of this service relative to this application Name URI. Fully qualified Name of the service is a combination of Name Uri of the Application and this Name.</xs:documentation>
                             </xs:annotation>
                         </xs:attribute>
-                        <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
+                        <xs:attribute name="ServicePackageActivationMode" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="SharedProcess"/>
+                              <xs:enumeration value="ExclusiveProcess"/>
+                            </xs:restriction>
+                          </xs:simpleType>
                         </xs:attribute>
                     </xs:complexType>
                 </xs:element>
@@ -10385,8 +10231,8 @@ Specifies the collection of the contents of a particular folder on the local nod
 |Attribute|Value|
 |---|---|
 |name|IsolationPolicy|
-|default|DedicatedProcess|
 |use|optional|
+|default|DedicatedProcess|
 
 ### Content element details
 
@@ -10405,7 +10251,7 @@ Specifies the collection of the contents of a particular folder on the local nod
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
-|content|0 element(s), 3 attribute(s)|
+|content|0 element(s), 2 attribute(s)|
 |name|DriverOptionType|
 
 ### XML source
@@ -10413,7 +10259,6 @@ Specifies the collection of the contents of a particular folder on the local nod
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DriverOptionType">
         <xs:attribute name="Name" type="xs:string" use="required"/>
         <xs:attribute name="Value" type="xs:string" use="required"/>
-        <xs:attribute name="IsEncrypted" type="xs:string" use="optional" default="false"/>
     </xs:complexType>
     
 
@@ -10424,23 +10269,15 @@ Specifies the collection of the contents of a particular folder on the local nod
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### Value
 |Attribute|Value|
 |---|---|
 |name|Value|
+|type|xs:string|
 |use|required|
-|type|xs:string|
-
-#### IsEncrypted
-|Attribute|Value|
-|---|---|
-|name|IsEncrypted|
-|default|false|
-|use|optional|
-|type|xs:string|
 
 ## EndpointBindingPolicyType complexType
 |Attribute|Value|
@@ -10525,8 +10362,8 @@ Specifies information about an X509 certificate used to secure an endpoint.
 |Attribute|Value|
 |---|---|
 |name|X509StoreName|
-|default|My|
 |type|xs:string|
+|default|My|
 
 #### X509FindValue
 |Attribute|Value|
@@ -10538,8 +10375,8 @@ Specifies information about an X509 certificate used to secure an endpoint.
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 ## EndpointOverrideType complexType
 |Attribute|Value|
@@ -10566,7 +10403,7 @@ Specifies information about an X509 certificate used to secure an endpoint.
         <xs:documentation>The port will be overridden in the Service Manifest</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-     <xs:attribute name="Protocol" type="xs:string" use="optional">
+	   <xs:attribute name="Protocol" type="xs:string" use="optional">
       <xs:annotation>
         <xs:documentation>The protocol for the endpoint. HTTPS endpoints must also have an EndpointCertificate and an EndpointBindingPolicy declared in the application manifest. The protocol cannot be changed later in an application upgrade. </xs:documentation>
       </xs:annotation>
@@ -10608,15 +10445,15 @@ Specifies information about an X509 certificate used to secure an endpoint.
 |Attribute|Value|
 |---|---|
 |name|Protocol|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### Type
 |Attribute|Value|
 |---|---|
 |name|Type|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### UriScheme
 |Attribute|Value|
@@ -10731,15 +10568,15 @@ Defines an endpoint for the service. Specific ports can be requested.  If a port
 |Attribute|Value|
 |---|---|
 |name|Protocol|
-|default|tcp|
 |use|optional|
+|default|tcp|
 
 #### Type
 |Attribute|Value|
 |---|---|
 |name|Type|
-|default|Internal|
 |use|optional|
+|default|Internal|
 
 #### CodePackageRef
 |Attribute|Value|
@@ -10875,9 +10712,9 @@ Environment variable.
 |Attribute|Value|
 |---|---|
 |name|EnvironmentVariable|
+|type|EnvironmentVariableType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|EnvironmentVariableType|
 ## EnvironmentType complexType
 |Attribute|Value|
 |---|---|
@@ -10949,8 +10786,8 @@ Environment variable.
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### Value
 |Attribute|Value|
@@ -10985,9 +10822,9 @@ Environment variable.
 |Attribute|Value|
 |---|---|
 |name|EnvironmentVariable|
+|type|EnvironmentVariableType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|EnvironmentVariableType|
 ## ExeHostEntryPointType complexType
 |Attribute|Value|
 |---|---|
@@ -11050,8 +10887,8 @@ The executable name.  For example, "MySetup.bat" or "MyServiceHost.exe".
 |Attribute|Value|
 |---|---|
 |name|Arguments|
-|minOccurs|0|
 |type|xs:string|
+|minOccurs|0|
 
 #### WorkingFolder
 |Attribute|Value|
@@ -11162,8 +10999,8 @@ This specifies the certificate information.
 |Attribute|Value|
 |---|---|
 |name|X509StoreName|
-|default|My|
 |type|xs:string|
+|default|My|
 
 #### X509FindType
 |Attribute|Value|
@@ -11181,15 +11018,15 @@ This specifies the certificate information.
 |Attribute|Value|
 |---|---|
 |name|X509FindValueSecondary|
-|default||
 |use|optional|
+|default||
 
 #### Name
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 ## FabricEndpointsType complexType
 |Attribute|Value|
@@ -11260,92 +11097,92 @@ This specifies the certificate information.
 |Attribute|Value|
 |---|---|
 |name|HttpGatewayEndpoint|
-|minOccurs|0|
 |type|InputEndpointType|
+|minOccurs|0|
 
 #### HttpApplicationGatewayEndpoint
 |Attribute|Value|
 |---|---|
 |name|HttpApplicationGatewayEndpoint|
-|minOccurs|0|
 |type|InputEndpointType|
+|minOccurs|0|
 
 #### ServiceConnectionEndpoint
 |Attribute|Value|
 |---|---|
 |name|ServiceConnectionEndpoint|
-|minOccurs|0|
 |type|InternalEndpointType|
+|minOccurs|0|
 
 #### ClusterManagerReplicatorEndpoint
 |Attribute|Value|
 |---|---|
 |name|ClusterManagerReplicatorEndpoint|
-|minOccurs|0|
 |type|InternalEndpointType|
+|minOccurs|0|
 
 #### RepairManagerReplicatorEndpoint
 |Attribute|Value|
 |---|---|
 |name|RepairManagerReplicatorEndpoint|
-|minOccurs|0|
 |type|InternalEndpointType|
+|minOccurs|0|
 
 #### NamingReplicatorEndpoint
 |Attribute|Value|
 |---|---|
 |name|NamingReplicatorEndpoint|
-|minOccurs|0|
 |type|InternalEndpointType|
+|minOccurs|0|
 
 #### FailoverManagerReplicatorEndpoint
 |Attribute|Value|
 |---|---|
 |name|FailoverManagerReplicatorEndpoint|
-|minOccurs|0|
 |type|InternalEndpointType|
+|minOccurs|0|
 
 #### ImageStoreServiceReplicatorEndpoint
 |Attribute|Value|
 |---|---|
 |name|ImageStoreServiceReplicatorEndpoint|
-|minOccurs|0|
 |type|InternalEndpointType|
+|minOccurs|0|
 
 #### UpgradeServiceReplicatorEndpoint
 |Attribute|Value|
 |---|---|
 |name|UpgradeServiceReplicatorEndpoint|
-|minOccurs|0|
 |type|InternalEndpointType|
+|minOccurs|0|
 
 #### FaultAnalysisServiceReplicatorEndpoint
 |Attribute|Value|
 |---|---|
 |name|FaultAnalysisServiceReplicatorEndpoint|
-|minOccurs|0|
 |type|InternalEndpointType|
+|minOccurs|0|
 
 #### BackupRestoreServiceReplicatorEndpoint
 |Attribute|Value|
 |---|---|
 |name|BackupRestoreServiceReplicatorEndpoint|
-|minOccurs|0|
 |type|InternalEndpointType|
+|minOccurs|0|
 
 #### UpgradeOrchestrationServiceReplicatorEndpoint
 |Attribute|Value|
 |---|---|
 |name|UpgradeOrchestrationServiceReplicatorEndpoint|
-|minOccurs|0|
 |type|InternalEndpointType|
+|minOccurs|0|
 
 #### DefaultReplicatorEndpoint
 |Attribute|Value|
 |---|---|
 |name|DefaultReplicatorEndpoint|
-|minOccurs|0|
 |type|InternalEndpointType|
+|minOccurs|0|
 
 #### ApplicationEndpoints
 |Attribute|Value|
@@ -11496,48 +11333,48 @@ Defines how large is the shared log.
 |Attribute|Value|
 |---|---|
 |name|NodeName|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### IPAddressOrFQDN
 Defines how large is the shared log.
 |Attribute|Value|
 |---|---|
 |name|IPAddressOrFQDN|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### IsSeedNode
 Defines how large is the shared log.
 |Attribute|Value|
 |---|---|
 |name|IsSeedNode|
-|default|false|
 |type|xs:boolean|
+|default|false|
 
 #### NodeTypeRef
 Defines how large is the shared log.
 |Attribute|Value|
 |---|---|
 |name|NodeTypeRef|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### FaultDomain
 Defines how large is the shared log.
 |Attribute|Value|
 |---|---|
 |name|FaultDomain|
-|use|optional|
 |type|xs:anyURI|
+|use|optional|
 
 #### UpgradeDomain
 Defines how large is the shared log.
 |Attribute|Value|
 |---|---|
 |name|UpgradeDomain|
-|use|optional|
 |type|xs:anyURI|
+|use|optional|
 
 ## FileStoreETWType complexType
 Describes a file store destination for ETW events. Works only in on-premise environment.
@@ -11621,81 +11458,8 @@ Defines how large is the shared log.
 #### None
 |Attribute|Value|
 |---|---|
-|minOccurs|0|
 |ref|Parameters|
-## ImageOverridesType complexType
-|Attribute|Value|
-|---|---|
-|type|anonymous complexType|
-|content|1 element(s), 0 attribute(s)|
-|name|ImageOverridesType|
-
-### XML source
-```xml
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ImageOverridesType">
-    <xs:sequence>
-      <xs:element name="Image" type="ImageType" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>Container images to be deployed.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  
-
-```
-### Content element details
-
-#### Image
-Container images to be deployed.
-|Attribute|Value|
-|---|---|
-|name|Image|
 |minOccurs|0|
-|maxOccurs|unbounded|
-|type|ImageType|
-## ImageType complexType
-|Attribute|Value|
-|---|---|
-|type|anonymous complexType|
-|content|0 element(s), 2 attribute(s)|
-|name|ImageType|
-
-### XML source
-```xml
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ImageType">
-    <xs:attribute name="Name" type="xs:string" use="required">
-      <xs:annotation>
-        <xs:documentation>Name of container image.</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="Os" type="xs:string" use="optional">
-      <xs:annotation>
-        <xs:documentation>Build version of the Os. for ex: 1809 for RS1</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:complexType>
-  
-
-```
-### Attribute details
-
-#### Name
-Container images to be deployed.
-|Attribute|Value|
-|---|---|
-|name|Name|
-|use|required|
-|type|xs:string|
-
-#### Os
-Container images to be deployed.
-|Attribute|Value|
-|---|---|
-|name|Os|
-|use|optional|
-|type|xs:string|
-
 ## InfrastructureInformationType complexType
 Contains the infrastructure information for this Microsoft Azure Service Fabric cluster.
 
@@ -11802,51 +11566,51 @@ Describes a Infrastructure information needed.
 |Attribute|Value|
 |---|---|
 |name|NodeName|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### IPAddressOrFQDN
 |Attribute|Value|
 |---|---|
 |name|IPAddressOrFQDN|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### RoleOrTierName
 |Attribute|Value|
 |---|---|
 |name|RoleOrTierName|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### NodeTypeRef
 |Attribute|Value|
 |---|---|
 |name|NodeTypeRef|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### IsSeedNode
 |Attribute|Value|
 |---|---|
 |name|IsSeedNode|
-|default|false|
-|use|optional|
 |type|xs:boolean|
+|use|optional|
+|default|false|
 
 #### FaultDomain
 |Attribute|Value|
 |---|---|
 |name|FaultDomain|
-|use|optional|
 |type|xs:anyURI|
+|use|optional|
 
 #### UpgradeDomain
 |Attribute|Value|
 |---|---|
 |name|UpgradeDomain|
-|use|optional|
 |type|xs:anyURI|
+|use|optional|
 
 ### Content element details
 
@@ -11855,16 +11619,16 @@ Describe the endpoints associated with this node type
 |Attribute|Value|
 |---|---|
 |name|Endpoints|
-|minOccurs|0|
 |type|FabricEndpointsType|
+|minOccurs|0|
 
 #### Certificates
 Describe the certificates associated with this node type
 |Attribute|Value|
 |---|---|
 |name|Certificates|
-|minOccurs|0|
 |type|CertificatesType|
+|minOccurs|0|
 ## InputEndpointType complexType
 |Attribute|Value|
 |---|---|
@@ -11896,16 +11660,16 @@ Describe the certificates associated with this node type
 |Attribute|Value|
 |---|---|
 |name|Port|
-|use|required|
 |type|xs:positiveInteger|
+|use|required|
 
 #### Protocol
 Describe the certificates associated with this node type
 |Attribute|Value|
 |---|---|
 |name|Protocol|
-|default|tcp|
 |use|optional|
+|default|tcp|
 
 ## InternalEndpointType complexType
 |Attribute|Value|
@@ -11938,16 +11702,16 @@ Describe the certificates associated with this node type
 |Attribute|Value|
 |---|---|
 |name|Port|
-|use|required|
 |type|xs:positiveInteger|
+|use|required|
 
 #### Protocol
 Describe the certificates associated with this node type
 |Attribute|Value|
 |---|---|
 |name|Protocol|
-|default|tcp|
 |use|optional|
+|default|tcp|
 
 ## KeyValuePairType complexType
 |Attribute|Value|
@@ -12010,7 +11774,7 @@ A resource that this service should be balanced on, such as memory or CPU usage.
       </xs:annotation>
     <xs:attribute name="Name" use="required">
       <xs:annotation>
-        <xs:documentation>A unique identifier for the metric within the cluster from the Cluster Resource Manager's perspective.</xs:documentation>
+        <xs:documentation>A unique identifier for the metric within the cluster from the Cluster Resource Manager�s perspective.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -12062,25 +11826,25 @@ A resource that this service should be balanced on, such as memory or CPU usage.
 |Attribute|Value|
 |---|---|
 |name|DefaultLoad|
-|default|0|
-|use|optional|
 |type|xs:long|
+|use|optional|
+|default|0|
 
 #### PrimaryDefaultLoad
 |Attribute|Value|
 |---|---|
 |name|PrimaryDefaultLoad|
-|default|0|
-|use|optional|
 |type|xs:long|
+|use|optional|
+|default|0|
 
 #### SecondaryDefaultLoad
 |Attribute|Value|
 |---|---|
 |name|SecondaryDefaultLoad|
-|default|0|
-|use|optional|
 |type|xs:long|
+|use|optional|
+|default|0|
 
 #### Weight
 |Attribute|Value|
@@ -12141,8 +11905,8 @@ Describes a store destination within the node for diagnostic data.
 #### None
 |Attribute|Value|
 |---|---|
-|minOccurs|0|
 |ref|Parameters|
+|minOccurs|0|
 ## LogicalDirectoryType complexType
 Describes a LogicalDirectoryType.
 
@@ -12186,22 +11950,22 @@ Describes a LogicalDirectoryType.
 |Attribute|Value|
 |---|---|
 |name|LogicalDirectoryName|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### MappedTo
 |Attribute|Value|
 |---|---|
 |name|MappedTo|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### Context
 |Attribute|Value|
 |---|---|
 |name|Context|
-|default|application|
 |use|optional|
+|default|application|
 
 ## ManagedAssemblyType complexType
 Unsupported, do not use. The name of managed assembly (for example, Queue.dll), to host.
@@ -12248,22 +12012,22 @@ Unsupported, do not use. The name of managed assembly (for example, Queue.dll), 
 |Attribute|Value|
 |---|---|
 |name|RoleName|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### NodeTypeRef
 |Attribute|Value|
 |---|---|
 |name|NodeTypeRef|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### RoleNodeCount
 |Attribute|Value|
 |---|---|
 |name|RoleNodeCount|
-|use|required|
 |type|xs:int|
+|use|required|
 
 ## PaaSVoteType complexType
 |Attribute|Value|
@@ -12300,8 +12064,8 @@ Unsupported, do not use. The name of managed assembly (for example, Queue.dll), 
 |Attribute|Value|
 |---|---|
 |name|Port|
-|use|required|
 |type|xs:int|
+|use|required|
 
 ## PackageSharingPolicyType complexType
 Indicates if a code, config or data package should be shared.
@@ -12407,9 +12171,9 @@ Indicates if a code, config or data package should be shared.
 |Attribute|Value|
 |---|---|
 |name|Parameter|
+|type|ParameterType|
 |minOccurs|1|
 |maxOccurs|unbounded|
-|type|ParameterType|
 ## PortBindingType complexType
 |Attribute|Value|
 |---|---|
@@ -12442,8 +12206,8 @@ Indicates if a code, config or data package should be shared.
 |Attribute|Value|
 |---|---|
 |name|ContainerPort|
-|use|required|
 |type|xs:int|
+|use|required|
 
 #### EndpointRef
 |Attribute|Value|
@@ -12483,8 +12247,8 @@ Indicates if a code, config or data package should be shared.
 |Attribute|Value|
 |---|---|
 |name|PasswordEncrypted|
-|use|optional|
 |type|xs:boolean|
+|use|optional|
 
 #### Email
 |Attribute|Value|
@@ -12508,45 +12272,69 @@ Indicates if a code, config or data package should be shared.
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="MemoryInMB" type="xs:string" use="optional" default="0">
+    <xs:attribute name="MemoryInMB" use="optional" default="0">
       <xs:annotation>
         <xs:documentation>Memory limits in MB. Must be a positive integer.</xs:documentation>
       </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:nonNegativeInteger"/>
+      </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="MemorySwapInMB" type="xs:string" use="optional" default="0">
+    <xs:attribute name="MemorySwapInMB" use="optional" default="0">
        <xs:annotation>
         <xs:documentation>Total memory (memory + swap) limits in MB.</xs:documentation>
       </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:nonNegativeInteger"/>
+      </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="MemoryReservationInMB" type="xs:string" use="optional" default="0">
+    <xs:attribute name="MemoryReservationInMB" use="optional" default="0">
       <xs:annotation>
         <xs:documentation>Memory soft limits in MB. Must be a positive integer.</xs:documentation>
       </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:nonNegativeInteger"/>
+      </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="CpuShares" type="xs:string" use="optional" default="0">
+    <xs:attribute name="CpuShares" use="optional" default="0">
       <xs:annotation>
         <xs:documentation>Relative CPU weight. Must be a positive integer.</xs:documentation>
       </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:nonNegativeInteger"/>
+      </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="CpuPercent" type="xs:string" use="optional" default="0">
+    <xs:attribute name="CpuPercent" use="optional" default="0">
       <xs:annotation>
         <xs:documentation>Usable percentage of available CPUs (windows only). Must be a positive integer.</xs:documentation>
       </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:nonNegativeInteger"/>
+      </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="MaximumIOps" type="xs:string" use="optional" default="0">
+    <xs:attribute name="MaximumIOps" use="optional" default="0">
       <xs:annotation>
         <xs:documentation>Maximum IO rate in terms of IOps. Must be a positive integer.</xs:documentation>
       </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:nonNegativeInteger"/>
+      </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="MaximumIOBandwidth" type="xs:string" use="optional" default="0">
+    <xs:attribute name="MaximumIOBandwidth" use="optional" default="0">
       <xs:annotation>
         <xs:documentation>Maximum IO bandwidth. Must be a positive integer.</xs:documentation>
       </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:nonNegativeInteger"/>
+      </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="BlockIOWeight" type="xs:string" use="optional" default="0">
+    <xs:attribute name="BlockIOWeight" use="optional" default="0">
       <xs:annotation>
         <xs:documentation>Relative block IO weight. Must be a positive integer between 10 and 1000.</xs:documentation>
       </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:nonNegativeInteger"/>
+      </xs:simpleType>
     </xs:attribute>
   </xs:complexType>
   
@@ -12564,65 +12352,57 @@ Indicates if a code, config or data package should be shared.
 |Attribute|Value|
 |---|---|
 |name|MemoryInMB|
-|default|0|
 |use|optional|
-|type|xs:string|
+|default|0|
 
 #### MemorySwapInMB
 |Attribute|Value|
 |---|---|
 |name|MemorySwapInMB|
-|default|0|
 |use|optional|
-|type|xs:string|
+|default|0|
 
 #### MemoryReservationInMB
 |Attribute|Value|
 |---|---|
 |name|MemoryReservationInMB|
-|default|0|
 |use|optional|
-|type|xs:string|
+|default|0|
 
 #### CpuShares
 |Attribute|Value|
 |---|---|
 |name|CpuShares|
-|default|0|
 |use|optional|
-|type|xs:string|
+|default|0|
 
 #### CpuPercent
 |Attribute|Value|
 |---|---|
 |name|CpuPercent|
-|default|0|
 |use|optional|
-|type|xs:string|
+|default|0|
 
 #### MaximumIOps
 |Attribute|Value|
 |---|---|
 |name|MaximumIOps|
-|default|0|
 |use|optional|
-|type|xs:string|
+|default|0|
 
 #### MaximumIOBandwidth
 |Attribute|Value|
 |---|---|
 |name|MaximumIOBandwidth|
-|default|0|
 |use|optional|
-|type|xs:string|
+|default|0|
 
 #### BlockIOWeight
 |Attribute|Value|
 |---|---|
 |name|BlockIOWeight|
-|default|0|
 |use|optional|
-|type|xs:string|
+|default|0|
 
 ## ResourceOverridesType complexType
 Describes the resource overrides for endpoints in servicemanifest resources.
@@ -12774,8 +12554,8 @@ Defines endpoints for the service.
 |Attribute|Value|
 |---|---|
 |name|EntryPointType|
-|default|Main|
 |use|optional|
+|default|Main|
 
 ## SecurityAccessPolicyType complexType
 Grants access permissions to a principal on a resource (such as an endpoint) defined in a service manifest. Typically, it is very useful to control and restrict access of services to different resources in order to minimize security risks. This is especially important when the application is built from a collection of services from a marketplace which are developed by different developers.
@@ -12867,8 +12647,8 @@ Defines endpoints for the service.
 |Attribute|Value|
 |---|---|
 |name|ResourceType|
-|default|Endpoint|
 |use|optional|
+|default|Endpoint|
 
 ## SecurityOptionsType complexType
 |Attribute|Value|
@@ -13346,8 +13126,8 @@ Load metrics reported by this service.
 |Attribute|Value|
 |---|---|
 |name|UseImplicitFactory|
-|use|optional|
 |type|xs:boolean|
+|use|optional|
 
 ### Content element details
 
@@ -13363,8 +13143,8 @@ Constraints for the placement of services that are part of this package.
 |Attribute|Value|
 |---|---|
 |name|PlacementConstraints|
-|minOccurs|0|
 |type|xs:string|
+|minOccurs|0|
 
 #### ServiceGroupMembers
 Member types of this service group type.
@@ -13377,8 +13157,8 @@ Member types of this service group type.
 #### None
 |Attribute|Value|
 |---|---|
-|minOccurs|0|
 |ref|Extensions|
+|minOccurs|0|
 ## ServiceManifestImportPoliciesType complexType
 Describes policies (end-point binding, package sharing, run-as, and security access) to be applied on the imported service manifest.
 
@@ -13429,55 +13209,55 @@ Describes policies (end-point binding, package sharing, run-as, and security acc
 |Attribute|Value|
 |---|---|
 |name|RunAsPolicy|
-|minOccurs|0|
 |type|RunAsPolicyType|
+|minOccurs|0|
 
 #### SecurityAccessPolicy
 |Attribute|Value|
 |---|---|
 |name|SecurityAccessPolicy|
-|minOccurs|0|
 |type|SecurityAccessPolicyType|
+|minOccurs|0|
 
 #### PackageSharingPolicy
 |Attribute|Value|
 |---|---|
 |name|PackageSharingPolicy|
-|minOccurs|0|
 |type|PackageSharingPolicyType|
+|minOccurs|0|
 
 #### EndpointBindingPolicy
 Specifies a certificate that should be returned to a client for an HTTPS endpoint.
 |Attribute|Value|
 |---|---|
 |name|EndpointBindingPolicy|
-|minOccurs|0|
 |type|EndpointBindingPolicyType|
+|minOccurs|0|
 
 #### ServicePackageResourceGovernancePolicy
 Defines the resource governance policy that is applied at the level of the entire service package.
 |Attribute|Value|
 |---|---|
 |name|ServicePackageResourceGovernancePolicy|
+|type|ServicePackageResourceGovernancePolicyType|
 |minOccurs|0|
 |maxOccurs|1|
-|type|ServicePackageResourceGovernancePolicyType|
 
 #### ResourceGovernancePolicy
 Specifies resource limits for codepackage.
 |Attribute|Value|
 |---|---|
 |name|ResourceGovernancePolicy|
-|minOccurs|0|
 |type|ResourceGovernancePolicyType|
+|minOccurs|0|
 
 #### ContainerHostPolicies
 Specifies policies for activating container hosts.
 |Attribute|Value|
 |---|---|
 |name|ContainerHostPolicies|
-|minOccurs|0|
 |type|ContainerHostPoliciesType|
+|minOccurs|0|
 ## ServiceManifestRefType complexType
 Imports the service manifest by reference. Currently the service manifest file (ServiceManifest.xml) must be present in the build package.
 
@@ -13548,8 +13328,8 @@ Specifies policies for activating container hosts.
 |Attribute|Value|
 |---|---|
 |name|ManifestId|
-|default||
 |use|optional|
+|default||
 |type|xs:string|
 
 ### Content element details
@@ -13559,8 +13339,8 @@ Text describing this service.
 |Attribute|Value|
 |---|---|
 |name|Description|
-|minOccurs|0|
 |type|xs:string|
+|minOccurs|0|
 
 #### ServiceTypes
 Defines what service types are supported by a CodePackage in this manifest. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. Service types are declared at the manifest level and not the code package level.
@@ -13573,38 +13353,38 @@ Defines what service types are supported by a CodePackage in this manifest. When
 |Attribute|Value|
 |---|---|
 |name|CodePackage|
-|maxOccurs|unbounded|
 |type|CodePackageType|
+|maxOccurs|unbounded|
 
 #### ConfigPackage
 |Attribute|Value|
 |---|---|
 |name|ConfigPackage|
+|type|ConfigPackageType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|ConfigPackageType|
 
 #### DataPackage
 |Attribute|Value|
 |---|---|
 |name|DataPackage|
+|type|DataPackageType|
 |minOccurs|0|
 |maxOccurs|unbounded|
-|type|DataPackageType|
 
 #### Resources
 |Attribute|Value|
 |---|---|
 |name|Resources|
-|minOccurs|0|
 |type|ResourcesType|
+|minOccurs|0|
 
 #### Diagnostics
 |Attribute|Value|
 |---|---|
 |name|Diagnostics|
-|minOccurs|0|
 |type|ServiceDiagnosticsType|
+|minOccurs|0|
 ## ServicePackageResourceGovernancePolicyType complexType
 |Attribute|Value|
 |---|---|
@@ -13615,15 +13395,23 @@ Defines what service types are supported by a CodePackage in this manifest. When
 ### XML source
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackageResourceGovernancePolicyType">
-    <xs:attribute name="CpuCores" type="xs:string" use="optional" default="0">
+    <xs:attribute name="CpuCores" use="optional" default="0">
       <xs:annotation>
         <xs:documentation>CPU limit in number of logical cores. Must be a positive integer.</xs:documentation>
       </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+      </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="MemoryInMB" type="xs:string" use="optional" default="0">
+    <xs:attribute name="MemoryInMB" use="optional" default="0">
       <xs:annotation>
         <xs:documentation>Memory limits in MB. Must be a positive integer.</xs:documentation>
       </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:nonNegativeInteger"/>
+      </xs:simpleType>
     </xs:attribute>
   </xs:complexType>
   
@@ -13635,17 +13423,15 @@ Defines what service types are supported by a CodePackage in this manifest. When
 |Attribute|Value|
 |---|---|
 |name|CpuCores|
-|default|0|
 |use|optional|
-|type|xs:string|
+|default|0|
 
 #### MemoryInMB
 |Attribute|Value|
 |---|---|
 |name|MemoryInMB|
-|default|0|
 |use|optional|
-|type|xs:string|
+|default|0|
 
 ## ServicePackageType complexType
 ServicePackage represents a versioned unit of deployment and activation. The version of the ServicePackage is determined based on the manifest version and the version of the overrides.
@@ -13773,15 +13559,15 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
 |Attribute|Value|
 |---|---|
 |name|Name|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### ManifestVersion
 |Attribute|Value|
 |---|---|
 |name|ManifestVersion|
-|use|required|
 |type|xs:string|
+|use|required|
 
 #### ManifestChecksum
 |Attribute|Value|
@@ -13801,16 +13587,16 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
 |Attribute|Value|
 |---|---|
 |name|Description|
-|minOccurs|0|
 |type|xs:string|
+|minOccurs|0|
 
 #### ServicePackageResourceGovernancePolicy
 |Attribute|Value|
 |---|---|
 |name|ServicePackageResourceGovernancePolicy|
+|type|ServicePackageResourceGovernancePolicyType|
 |minOccurs|0|
 |maxOccurs|1|
-|type|ServicePackageResourceGovernancePolicyType|
 
 #### DigestedServiceTypes
 |Attribute|Value|
@@ -13922,7 +13708,7 @@ Base type that defines a Microsoft Azure Service Fabric service.
             </xs:element>
             <xs:element name="PlacementConstraints" type="xs:string" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service's requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion&gt;12  &amp;&amp; InDMZ == True)".</xs:documentation>
+                    <xs:documentation>Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service�s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion&gt;12  &amp;&amp; InDMZ == True)".</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="ServiceCorrelations" minOccurs="0">
@@ -14054,12 +13840,12 @@ Load metrics reported by this service, used for resource balancing services.
 |minOccurs|0|
 
 #### PlacementConstraints
-Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service's requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
+Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service�s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
 |Attribute|Value|
 |---|---|
 |name|PlacementConstraints|
-|minOccurs|0|
 |type|xs:string|
+|minOccurs|0|
 
 #### ServiceCorrelations
 Defines affinity relationships between services.
@@ -14144,25 +13930,25 @@ Defines Properties for the Persistence and Eviction policies.
 |Attribute|Value|
 |---|---|
 |name|MaxPercentUnhealthyServices|
-|default|0|
-|use|optional|
 |type|xs:string|
+|use|optional|
+|default|0|
 
 #### MaxPercentUnhealthyPartitionsPerService
 |Attribute|Value|
 |---|---|
 |name|MaxPercentUnhealthyPartitionsPerService|
-|default|0|
-|use|optional|
 |type|xs:string|
+|use|optional|
+|default|0|
 
 #### MaxPercentUnhealthyReplicasPerPartition
 |Attribute|Value|
 |---|---|
 |name|MaxPercentUnhealthyReplicasPerPartition|
-|default|0|
-|use|optional|
 |type|xs:string|
+|use|optional|
+|default|0|
 
 ## ServiceTypeType complexType
 Base type that describes a stateful or a stateless ServiceType.
@@ -14273,8 +14059,8 @@ Used to control which nodes in the cluster a service can run on. A key/value pai
 |Attribute|Value|
 |---|---|
 |name|PlacementConstraints|
-|minOccurs|0|
 |type|xs:string|
+|minOccurs|0|
 
 #### ServicePlacementPolicies
 Declares placement policies for a service.  Useful when the cluster spans geographic distances or and/or geopolitical regions.
@@ -14286,8 +14072,8 @@ Declares placement policies for a service.  Useful when the cluster spans geogra
 #### None
 |Attribute|Value|
 |---|---|
-|minOccurs|0|
 |ref|Extensions|
+|minOccurs|0|
 ## ServiceTypesType complexType
 |Attribute|Value|
 |---|---|
@@ -14724,15 +14510,15 @@ Describes a stateless service type.
 |Attribute|Value|
 |---|---|
 |name|CurrentInstallation|
-|minOccurs|0|
 |type|WindowsFabricDeploymentInformation|
+|minOccurs|0|
 
 #### TargetInstallation
 |Attribute|Value|
 |---|---|
 |name|TargetInstallation|
-|minOccurs|1|
 |type|WindowsFabricDeploymentInformation|
+|minOccurs|1|
 ## UnmanagedDllType complexType
 Unsupported, do not use. The name of unmanaged assembly (for example, Queue.dll), to host.
 
@@ -14830,79 +14616,79 @@ Unsupported, do not use. The name of unmanaged assembly (for example, Queue.dll)
 |Attribute|Value|
 |---|---|
 |name|InstanceId|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### MSILocation
 |Attribute|Value|
 |---|---|
 |name|MSILocation|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### ClusterManifestLocation
 |Attribute|Value|
 |---|---|
 |name|ClusterManifestLocation|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### InfrastructureManifestLocation
 |Attribute|Value|
 |---|---|
 |name|InfrastructureManifestLocation|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### TargetVersion
 |Attribute|Value|
 |---|---|
 |name|TargetVersion|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### NodeName
 |Attribute|Value|
 |---|---|
 |name|NodeName|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### RemoveNodeState
 |Attribute|Value|
 |---|---|
 |name|RemoveNodeState|
-|default|false|
-|use|optional|
 |type|xs:boolean|
+|use|optional|
+|default|false|
 
 #### UpgradeEntryPointExe
 |Attribute|Value|
 |---|---|
 |name|UpgradeEntryPointExe|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### UpgradeEntryPointExeParameters
 |Attribute|Value|
 |---|---|
 |name|UpgradeEntryPointExeParameters|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### UndoUpgradeEntryPointExe
 |Attribute|Value|
 |---|---|
 |name|UndoUpgradeEntryPointExe|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 #### UndoUpgradeEntryPointExeParameters
 |Attribute|Value|
 |---|---|
 |name|UndoUpgradeEntryPointExeParameters|
-|use|optional|
 |type|xs:string|
+|use|optional|
 
 ## WindowsInfrastructureType complexType
 |Attribute|Value|
@@ -14962,8 +14748,8 @@ User name or Service Account Name (i.e., MyMachine\JohnDoe or John.Doe@departmen
 |Attribute|Value|
 |---|---|
 |name|AccountName|
-|use|optional|
 |type|xs:string|
+|use|optional|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AccountName" type="xs:string" use="optional">
@@ -14979,8 +14765,8 @@ Password for the user account.
 |Attribute|Value|
 |---|---|
 |name|Password|
-|use|optional|
 |type|xs:string|
+|use|optional|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Password" type="xs:string" use="optional">
@@ -15025,8 +14811,8 @@ Fully qualified name of the application.
 |Attribute|Value|
 |---|---|
 |name|NameUri|
-|use|required|
 |type|FabricUri|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NameUri" type="FabricUri" use="required">
@@ -15042,8 +14828,8 @@ Id of this application.
 |Attribute|Value|
 |---|---|
 |name|ApplicationId|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationId" type="xs:string" use="required">
@@ -15146,8 +14932,8 @@ The identifier of this application manifest, an un-structured string.
 |Attribute|Value|
 |---|---|
 |name|ManifestId|
-|default||
 |use|optional|
+|default||
 |type|xs:string|
 ##### XML source
 ```xml
@@ -15188,8 +14974,8 @@ Identifies configuration overrides for a service package.
 |Attribute|Value|
 |---|---|
 |name|ServicePackageName|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackageName" type="xs:string" use="required"/>
@@ -15201,8 +14987,8 @@ ID of the rollout in which changes were made to the overrides element.
 |Attribute|Value|
 |---|---|
 |name|RolloutVersion|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RolloutVersion" type="xs:string" use="required">
@@ -15243,8 +15029,8 @@ ID of the rollout in which changes were made to the overrides element.
 |Attribute|Value|
 |---|---|
 |name|ConnectionString|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConnectionString" type="xs:string" use="required">
@@ -15458,8 +15244,8 @@ The new value of the setting.
 |Attribute|Value|
 |---|---|
 |name|Value|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Value" type="xs:string" use="required">
@@ -15500,8 +15286,8 @@ The new value of the setting.
 |Attribute|Value|
 |---|---|
 |name|Path|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Path" type="xs:string" use="required">
@@ -15539,8 +15325,8 @@ Path to the folder, relative to the application log directory.
 |Attribute|Value|
 |---|---|
 |name|RelativeFolderPath|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RelativeFolderPath" type="xs:string" use="required">
@@ -15691,8 +15477,8 @@ Attribute group for versioning sections in ApplicationInstance and ServicePackag
 |Attribute|Value|
 |---|---|
 |name|RolloutVersion|
-|use|required|
 |type|xs:string|
+|use|required|
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RolloutVersion" type="xs:string" use="required"/>
@@ -15783,7 +15569,6 @@ Version of the versioned item, an unstructured string.
 
 
 <!--  Python script used to generate this article:
-
 
 try:
     from lxml import etree
@@ -16206,7 +15991,7 @@ for ag in orderedAttributeGroups:
 #
 # Add this script to the article.
 file.write('\n\n<!--  Python script used to generate this article:\n\n')
-file2 = open('BuildServiceModelSchemaArticle.py','r')
+file2 = open('OutputXsdDocs.py','r')
 
 lines = file2.readlines()
 for line in lines:
@@ -16216,4 +16001,4 @@ file.write('\n\n- ->')
 # close file
 file.close()
 
-- ->
+-->

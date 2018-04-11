@@ -3,10 +3,9 @@ title: Troubleshoot retraining an Azure Machine Learning Classic web service | M
 description: Identify and correct common issues encounted when you are retraining the model for an Azure Machine Learning Web Service.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
-editor: cgronlun
+author: garyericson
+manager: raymondl
+editor: ''
 
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 011/01/2017
+ms.author: garye
 
 ---
 # Troubleshooting the retraining of an Azure Machine Learning Classic web service

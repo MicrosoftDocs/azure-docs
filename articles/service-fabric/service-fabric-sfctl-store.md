@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: reference
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 09/22/2017
 ms.author: ryanwi
 
 ---

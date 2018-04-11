@@ -2,15 +2,21 @@
 title: Azure SQL Data Sync (Preview) | Microsoft Docs
 description: This overview introduces Azure SQL Data Sync (Preview)
 services: sql-database
+documentationcenter: ''
 author: douglaslms
 manager: craigg
+editor: ''
+
+ms.assetid: 
 ms.service: sql-database
 ms.custom: load & move data
+ms.workload: "On Demand"
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.custom: data-sync
 ---
 # Sync data across multiple cloud and on-premises databases with SQL Data Sync (Preview)
 
@@ -88,8 +94,6 @@ Data Sync uses insert, update, and delete triggers to track changes. It creates 
 
 -   A table cannot have an identity column that is not the primary key.
 
--   A primary key cannot have the datetime data type.
-
 -   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 
 -   Azure Active Directory authentication is not supported.
@@ -162,7 +166,7 @@ For more info about SQL Data Sync, see:
 
 -   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
 -   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   [Monitor Azure SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Monitor Azure SQL Data Sync with OMS Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Complete PowerShell examples that show how to configure SQL Data Sync:

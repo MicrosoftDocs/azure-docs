@@ -3,7 +3,7 @@ title: Performance tuning guidance for using Powershell with Data Lake Store | M
 description: Tips on how to improve performance when using Azure PowerShell with Data Lake Store
 services: data-lake-store
 documentationcenter: ''
-author: stewu
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
-ms.author: stewu
+ms.date: 09/30/2017
+ms.author: nitinme
 
 ---
 # Performance tuning guidance for using PowerShell with Azure Data Lake Store

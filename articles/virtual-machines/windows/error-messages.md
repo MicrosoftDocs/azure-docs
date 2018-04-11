@@ -4,14 +4,14 @@ description: Understand some of the common error codes encountered when you prov
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing-ms
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/03/2017

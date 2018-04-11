@@ -1,25 +1,13 @@
 - name: Overview
   href: Home.md
 - name: Get started
-  expanded: true
   href: GetStarted/GetStarted.md
   items:
   - name: REST
     href: GetStarted/GetStartedREST.md
   - name: Client libraries
     href: GetStarted/GetStartedClientLibraries.md
-    items:
-    - name: C# desktop library
-      href: GetStarted/GetStartedCSharpDesktop.md
-    - name: C# service library
-      href: GetStarted/GetStartedCSharpServiceLibrary.md
-    - name: JavaScript library
-      href: GetStarted/GetStartedJSWebsockets.md
-    - name: Java library for Android
-      href: GetStarted/GetStartedJavaAndroid.md
-    - name: Objective-C library for iOS
-      href: GetStarted/Get-Started-ObjectiveC-iOS.md 
-- name: How-to guides
+- name: How-to Guides
   items:
   - name: Authentication for using the service 
     href: How-to/how-to-authentication.md
@@ -35,7 +23,7 @@
   href: troubleshooting.md
 - name: Reference
   items: 
-  - name: Microsoft speech WebSocket protocol
+  - name: Microsoft Speech WebSocket protocol
     href: API-Reference-REST/websocketprotocol.md
   - name: Text-to-Speech API reference
     href: API-Reference-REST/BingVoiceOutput.md
@@ -45,5 +33,3 @@
   items:
   - name: Support
     href: support.md
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127980-bing-speech

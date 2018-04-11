@@ -4,7 +4,7 @@ description: Learn to use Python to create and manage a Windows VM in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
-manager: jeconnoc
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 

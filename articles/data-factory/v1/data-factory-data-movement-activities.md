@@ -4,8 +4,8 @@ description: 'Learn about data movement in Data Factory pipelines: data migratio
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
-
+manager: jhubbard
+editor: monicar
 
 ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory

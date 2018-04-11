@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: bradsev
+ms.author: deguhath;bradsev;gokuma
 
 ---
 # Advanced data exploration and modeling with Spark

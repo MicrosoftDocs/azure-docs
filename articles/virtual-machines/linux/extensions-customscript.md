@@ -4,7 +4,7 @@ description: Automate Linux VM configuration tasks by using the Custom Script Ex
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -18,27 +18,22 @@ ms.date: 04/26/2017
 ms.author: danis
 
 ---
-# Use the Azure Custom Script Extension with Linux virtual machines
-The Custom Script Extension downloads and runs scripts on Azure virtual machines. This extension is useful for post-deployment configuration, software installation, or any other configuration/management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime. 
+# Using the Azure Custom Script Extension with Linux Virtual Machines
+The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or other accessible internet location, or provided to the extension run time. The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine REST API.
 
-The Custom Script Extension integrates with Azure Resource Manager templates. You can also run it by using Azure CLI, PowerShell, the Azure portal, or the Azure Virtual Machines REST API.
+This document details how to use the Custom Script Extension from the Azure CLI, and an Azure Resource Manager template, and also details troubleshooting steps on Linux systems.
 
-This article details how to use the Custom Script Extension from Azure CLI, and how to run the extension by using an Azure Resource Manager template. This article also provides troubleshooting steps for Linux systems.
+## Extension Configuration
+The Custom Script Extension configuration specifies things like script location and the command to be run. This configuration can be stored in configuration files, specified on the command line, or in an Azure Resource Manager template. Sensitive data can be stored in a protected configuration, which is encrypted and only decrypted inside the virtual machine. The protected configuration is useful when the execution command includes secrets such as a password.
 
-## Extension configuration
-The Custom Script Extension configuration specifies things like script location and the command to be run. You can store this configuration in configuration files, specify it on the command line, or specify it in an Azure Resource Manager template. 
+### Public Configuration
+Schema:
 
-You can store sensitive data in a protected configuration, which is encrypted and only decrypted inside the virtual machine. The protected configuration is useful when the execution command includes secrets such as a password.
+**Note** - these property names are case sensitive. Use the names as seen below to avoid deployment issues.
 
-### Public configuration
-The schema for the public configuration is as follows.
-
->[!NOTE]
->These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
-
-* **commandToExecute** (required, string): The entry point script to run.
-* **fileUris** (optional, string array): The URLs for files to be downloaded.
-* **timestamp** (optional, integer): The time stamp of the script. Change the value of this field only if you want to trigger a rerun of the script.
+* **commandToExecute**: (required, string) the entry point script to execute
+* **fileUris**: (optional, string array) the URLs for files to be downloaded.
+* **timestamp** (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
 
 ```json
 {
@@ -47,15 +42,14 @@ The schema for the public configuration is as follows.
 }
 ```
 
-### Protected configuration
-The schema for the protected configuration is as follows.
+### Protected Configuration
+Schema:
 
->[!NOTE]
->These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
+**Note** - these property names are case sensitive. Use the names as seen below to avoid deployment issues.
 
-* **commandToExecute** (optional, string): The entry point script to run. Use this field if your command contains secrets such as passwords.
-* **storageAccountName** (optional, string): The name of the storage account. If you specify storage credentials, all file URIs must be URLs for Azure blobs.
-* **storageAccountKey** (optional, string): The access key of the storage account.
+* **commandToExecute**: (optional, string) the entry point script to execute. Use this field instead if your command contains secrets such as passwords.
+* **storageAccountName**: (optional, string) the name of storage account. If you specify storage credentials, all fileUris must be URLs for Azure Blobs.
+* **storageAccountKey**: (optional, string) the access key of storage account.
 
 ```json
 {
@@ -66,13 +60,13 @@ The schema for the protected configuration is as follows.
 ```
 
 ## Azure CLI
-When you're using Azure CLI to run the Custom Script Extension, create a configuration file or files. At a minimum, configuration files contain the file URI and the script execution command.
+When using the Azure CLI to run the Custom Script Extension, create a configuration file or files containing at minimum the file uri, and the script execution command.
 
 ```azurecli
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-Optionally, you can specify the settings in the command as a JSON formatted string. This allows the configuration to be specified during execution and without a separate configuration file.
+Optionally the settings can be specified in the command as a JSON formatted string. This allows the configuration to be specified during execution and without a separate configuration file.
 
 ```azurecli
 az vm extension set '
@@ -80,17 +74,17 @@ az vm extension set '
   --vm-name exttest `
   --name customScript `
   --publisher Microsoft.Azure.Extensions `
-  --settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],"commandToExecute": "./config-music.sh"}'
+  --settings '{"fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],"commandToExecute": "./test.sh"}'
 ```
 
-### Azure CLI examples
+### Azure CLI Examples
 
-#### Public configuration with script file
+**Example 1** - Public configuration with script file.
 
 ```json
 {
-  "fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],
-  "commandToExecute": "./config-music.sh"
+  "fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],
+  "commandToExecute": "./test.sh"
 }
 ```
 
@@ -100,7 +94,7 @@ Azure CLI command:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-#### Public configuration with no script file
+**Example 2** - Public configuration with no script file.
 
 ```json
 {
@@ -114,9 +108,7 @@ Azure CLI command:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-#### Public and protected configuration files
-
-You use a public configuration file to specify the script file URI. You use a protected configuration file to specify the command to be run.
+**Example 3** - A public configuration file is used to specify the script file URI, and a protected configuration file is used to specify the command to be executed.
 
 Public configuration file:
 
@@ -140,12 +132,11 @@ Azure CLI command:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings ./protected-config.json
 ```
 
-## Resource Manager template
-You can run the Azure Custom Script Extension at virtual machine deployment time by using a Resource Manager template. To do so, add properly formatted JSON to the deployment template.
+## Resource Manager Template
+The Azure Custom Script Extension can be run at Virtual Machine deployment time using a Resource Manager template. To do so, add properly formatted JSON to the deployment template.
 
-### Resource Manager examples
-
-#### Public configuration
+### Resource Manager Examples
+**Example 1** - public configuration.
 
 ```json
 {
@@ -174,7 +165,7 @@ You can run the Azure Custom Script Extension at virtual machine deployment time
 }
 ```
 
-#### Execution command in protected configuration
+**Example 2** - execution command in protected configuration.
 
 ```json
 {
@@ -205,22 +196,22 @@ You can run the Azure Custom Script Extension at virtual machine deployment time
 }
 ```
 
-For a complete example, see the [.NET Music Store demo](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+See the .Net Core Music Store Demo for a complete example - [Music Store Demo](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db).
 
 ## Troubleshooting
-When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files.
+When the Custom Script Extension runs, the script is created or downloaded into a directory similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` file.
 
 ```bash
 /var/lib/waagent/custom-script/download/0/
 ```
 
-The Azure Script Extension produces a log, which you can find here:
+The Azure Script Extension produces a log, which can be found here.
 
 ```bash
 /var/log/azure/custom-script/handler.log
 ```
 
-You can also retrieve the execution state of the Custom Script Extension by using Azure CLI:
+The execution state of the Custom Script Extension can also be retrieved with the Azure CLI.
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM
@@ -238,6 +229,6 @@ data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2
 info:    vm extension get command OK
 ```
 
-## Next steps
-For information on other VM script extensions, see [Azure script extension overview for Linux](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## Next Steps
+For information on other VM Script Extensions, see [Azure Script Extension overview for Linux](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

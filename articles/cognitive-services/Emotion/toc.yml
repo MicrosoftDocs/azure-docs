@@ -2,6 +2,10 @@
   href: ../index.md
 - name: Overview
   href: Home.md
+- name: How to
+  items:
+  - name: Analyze videos in real time
+    href: emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md
 - name: Quickstarts
   expanded: true
   items:
@@ -25,10 +29,6 @@
     href: Tutorials/CSharpTutorial.md
   - name: Python
     href: Tutorials/PythonTutorial.md
-- name: How to
-  items:
-  - name: Analyze videos in real time
-    href: emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md
 - name: Reference
   items: 
   - name: Emotion Reference
