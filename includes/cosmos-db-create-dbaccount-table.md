@@ -15,10 +15,10 @@
     Enable geo-redundancy| Leave blank | This creates a replicated version of your database in a second (paired) region. Leave this blank.  
     Pin to dashboard | Select | Select this box so that your new database account is added to your portal dashboard for easy access.
 
-    Then, click **Create**.  
+    Then click **Create**.
 
-    ![Screen shot of the New Azure Cosmos DB blade](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-2.png)
+    ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-create-new-account.png)
 
 4. The account creation takes a few minutes. Wait for the portal to display the **Congratulations! Your Azure Cosmos DB account was created** page.
 
-    ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount-table/deploying-cosmos-db.png)
+    ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png)
