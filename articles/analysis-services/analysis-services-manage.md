@@ -44,15 +44,13 @@ To get all the latest features, and the smoothest experience when connecting to 
    
     ![Get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. In SSMS > **Object Explorer**, click **Connect** > **Analysis Services**.
-3. In the **Connect to Server** dialog box, paste in the server name, then in **Authentication**, choose one of the following authentication types:
-
+3. In the **Connect to Server** dialog box, paste in the server name, then in **Authentication**, choose one of the following authentication types:   
     > [!NOTE]
-    > Active Directory - Universal with MFA support is recommended.
+    > Authentication type, **Active Directory - Universal with MFA support**, is recommended.
 
     > [!NOTE]
     > If you sign in with a Microsoft Account, Live ID, @gmail, etc., leave the password field blank. You are prompted for a password after clicking Connect.
 
-   
     **Windows Authentication** to use your Windows domain\username and password credentials.
 
     **Active Directory Password Authentication** to use an organizational account. For example, when connecting from a non-domain joined computer.
