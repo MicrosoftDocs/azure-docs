@@ -14,7 +14,7 @@ ms.date: 04/10/2018
 ---
 
 # Migrate SQL Server to Azure SQL Database Managed Instance using DMS
-You can use the Azure Database Migration Service to migrate the databases from an on-premises SQL Server instance to an [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md) with near-zero downtime. For additional methods that require some downtime, see [SQL Server instance migration to Azure SQL Database Managed Instance](../sql-database-managed-instance-migrate.md).
+You can use the Azure Database Migration Service to migrate the databases from an on-premises SQL Server instance to an [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md) with near-zero downtime. For additional methods that require some downtime, see [SQL Server instance migration to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md).
 
 In this tutorial, you migrate the **Adventureworks2012** database from an on-premises instance of SQL Server to an Azure SQL Database by using the Azure Database Migration Service.
 
@@ -146,6 +146,6 @@ After the service is created, locate it within the Azure portal and open it.
 ## Next steps
 
 - For a tutorial showing you how to migrate a database to a Managed Instance using the T-SQL RESTORE command, see [Restore a backup to a Managed Instance using the restore command](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- For information about importing a database from a BACPAC file, see [Import a BACPAC file to a new Azure SQL Database](../sql-database-import.md).
+- For information about importing a database from a BACPAC file, see [Import a BACPAC file to a new Azure SQL Database](../sql-database/sql-database-import.md).
 - For information about Managed Instance, see [What is a Managed Instance](../sql-database/sql-database-managed-instance.md).
 - For information about connecting apps to a Managed Instance, see [Connect applications](../sql-database/sql-database-managed-instance-connect-app.md).
