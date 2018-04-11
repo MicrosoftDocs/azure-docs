@@ -39,7 +39,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Download the demo application for Azure Maps
 
-1. Download the <a href="https://raw.githubusercontent.com/Azure-Samples/location-based-services-samples/master/src/interactiveSearch.html" download> **interactiveSearch.html** </a> file.
+1. Download the <a href="https://raw.githubusercontent.com/Azure-Samples/location-based-services-samples/master/src/interactiveSearch.html" download="interactiveSearch.html"> interactiveSearch.html </a> file.
 2. In the file, search for the string `<insert-key>`, and replace it with the **Primary Key** value obtained in the preceding section. 
 
 
