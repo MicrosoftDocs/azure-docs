@@ -33,7 +33,7 @@ The Azure Stack Readiness Checker tool (AzsReadinessChecker) performs the follow
 
 ## Prerequisites
 
-Your system should meet the following prerequisites before generating the CSR(s) for PKI certificates for Azure Stack deployment:
+Your system should meet the following prerequisites before generating the CSR(s) for PKI certificates for an Azure Stack deployment:
 
  - Microsoft Azure Stack Readiness Checker
  - Certificate attributes:
