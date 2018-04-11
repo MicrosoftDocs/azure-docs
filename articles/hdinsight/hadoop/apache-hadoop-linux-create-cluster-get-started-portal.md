@@ -23,17 +23,17 @@ ms.author: jgao
 
 In this article, you learn how to create [Hadoop](http://hadoop.apache.org/) clusters in HDInsight using Azure portal, and then run Hive jobs in HDInsight. Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you perform all the three tasks.
 
+In this quickstart, you use the Azure portal to create an HDInsight Hadoop cluster. You can also create a cluster using the [Azure Resource Manager template](apache-hadoop-linux-tutorial-get-started.md).
+
 Currently HDInsight comes with [seven different cluster types](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Log in to the Azure portal
-
-Log in to the [Azure  portal](https://portal.azure.com).
-
 ## Create a Hadoop cluster
 
 In this section, you create a Hadoop cluster in HDInsight using the Azure portal. 
+
+1. Log in to the [Azure  portal](https://portal.azure.com).
 
 1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **HDInsight**. 
 
@@ -88,7 +88,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
     ![HDInsight Linux get started cluster summary](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-portal-summary.png "HDInsight Linux get started cluster summary")
       
-4. Select **Create**. You shall see a new tile titled **Submitting deployment for HDInsight** on the portal dashboard. It takes about around 20 minutes to create a cluster.
+4. Select **Create**. You shall see a new tile titled **Submitting deployment for HDInsight** on the portal dashboard. It takes about 20 minutes to create a cluster.
 
     ![HDInsight Linux get started resource group](./media/apache-hadoop-linux-create-cluster-get-started-portal/deployment-progress-tile.png "Azure HDInsight cluster resource group")
 
@@ -152,9 +152,9 @@ If you run into issues with creating HDInsight clusters, see [access control req
 After you complete the tutorial, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. 
 
 > [!NOTE]
-> Using [Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md), you can create HDInsight clusters on demand, and configure a TimeToLive setting to  delete the clusters automatically. 
+> If you are *immediately* proceeding to the next tutorial to learn how to run ETL operations using Hadoop on HDInsight, you may want to keep the cluster running. This is becuase in the tutorial you have to create a Hadoop cluster again. However, if you are not going through the next tutorial right away, you must delete the cluster now.
 > 
-> 
+>  
 
 **To delete the cluster and/or the default storage account**
 
@@ -167,7 +167,12 @@ After you complete the tutorial, you may want to delete the cluster. With HDInsi
 3. Select **Delete resource group** to delete the resource group, which contains the cluster and the default storage account. Note deleting the resource group deletes the storage account. If you want to keep the storage account, choose to delete the cluster only.
 
 ## Next steps
-In this tutorial, you learned how to create a Linux-based HDInsight cluster using a Resource Manager template, and how to perform basic Hive queries. If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
+In this tutorial, you learned how to create a Linux-based HDInsight cluster using a Resource Manager template, and how to perform basic Hive queries. In the next article, you learn how to perform an extract, transform, and load (ETL) operation using Hadoop on HDInsight.
+
+> [!div class="nextstepaction"]
+>[Extract, transform, and load data using Apache Hive on HDInsight ](../hdinsight-analyze-flight-delay-data-linux.md)
+
+If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
 
 * For information on how HDInsight uses Azure Storage, see [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 * For information on how to upload data to HDInsight, see [Upload data to HDInsight](../hdinsight-upload-data.md).
@@ -178,7 +183,6 @@ To learn more about analyzing data with HDInsight, see the following articles:
 * To learn about Pig, a language used to transform data, see [Use Pig with HDInsight](hdinsight-use-pig.md).
 * To learn about MapReduce, a way to write programs that process data on Hadoop, see [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md).
 * To learn about using the HDInsight Tools for Visual Studio to analyze data on HDInsight, see [Get started using Visual Studio Hadoop tools for HDInsight](apache-hadoop-visual-studio-tools-get-started.md).
-
 
 
 If you'd like to learn more about creating or managing an HDInsight cluster, see the following articles:
