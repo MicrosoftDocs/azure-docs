@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 04/11/2018
 ms.author: owend
 
 ---
@@ -32,6 +32,9 @@ Connecting to a server in Excel is supported by using Get Data in Excel 2016. Co
 1. In Excel 2016, on the **Data** ribbon, click **Get External Data** > **From Other Sources** > **From Analysis Services**.
 
 2. In the Data Connection Wizard, in **Server name**, enter the server name including protocol and URI. Then, in **Logon credentials**, select **Use the following User Name and Password**, and then type the organizational user name, for example nancy@adventureworks.com, and password.
+
+    > [!NOTE]
+    > If signing in with a Microsoft Account, Live ID, @gmail, etc., leave the password field blank. You will be prompted for a password        after clicking Next.
 
     ![Connect from Excel logon](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 

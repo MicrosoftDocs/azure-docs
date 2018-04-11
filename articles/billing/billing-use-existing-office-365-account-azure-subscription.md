@@ -36,7 +36,7 @@ Save time and avoid account proliferation by signing up for Azure using your Off
 
     ![Screenshot that shows the sign-up form.](./media/billing-use-existing-office-365-account-azure-subscription/billing-azure-sign-up-fill-information.png)
 
-- If you need to add other people in your organization to the Azure subscription, see [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md). 
+- If you need to add other people in your organization to the Azure subscription, see [Get started with access management in the Azure portal](../role-based-access-control/overview.md). 
 
 ## <a id="more-about-subs">More about Azure and Office 365 subscriptions</a>
 Office 365 and Azure use the Azure AD service to manage users and subscriptions. The Azure directory is like a container in which you can group users and subscriptions. To use the same user accounts for your Azure and Office 365 subscriptions, you need to make sure that the Azure subscriptions are created in the same directory as the Office 365 subscriptions. Keep in mind the following points:

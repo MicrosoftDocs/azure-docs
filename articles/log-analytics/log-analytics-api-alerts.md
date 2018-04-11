@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 04/10/2018
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -99,7 +99,7 @@ All actions have the properties in the following table.  Different types of aler
 ### Retrieving actions
 
 > [!NOTE]
-> Beginning April 23, 2018, all alerts in a workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before April 23, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in a workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
 
 Use the Get method to retrieve all actions for a schedule.
 
@@ -122,7 +122,7 @@ The request format for creating a new action varies by action type so these exam
 ### Deleting actions
 
 > [!NOTE]
-> Beginning April 23, 2018, all alerts in a workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before April 23, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in a workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
 
 Use the Delete method with the action ID to delete an action.
 
@@ -142,7 +142,7 @@ A Schedule should have one and only one Alert action.  Alert actions have one or
 | Webhook Actions | Push data from Alerts, to desired service as JSON |Not required, if alerts are extended to Azure|
 
 > [!NOTE]
-> Beginning April 23, 2018, all alerts in a workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before April 23, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
+> Beginning May 14, 2018, all alerts in a workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
 
 #### Thresholds
 An Alert action should have one and only one threshold.  When the results of a saved search match the threshold in an action associated with that search, then any other processes in that action are run.  An action can also contain only a threshold so that it can be used with actions of other types that don’t contain thresholds.
@@ -321,7 +321,7 @@ Use the Put method with an existing action ID to modify an Action Group associat
 Email Notifications send mail to one or more recipients.  They include the properties in the following table.
 
 > [!NOTE]
-> Beginning April 23, 2018, all alerts in a workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before April 23, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions like E-Mail Notification are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in a workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions like E-Mail Notification are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
    
 
 | Property | Description |
@@ -365,7 +365,7 @@ Use the Put method with an existing action ID to modify an e-mail action for a s
 Remediations start a runbook in Azure Automation that attempts to correct the problem identified by the alert.  You must create a webhook for the runbook used in a remediation action and then specify the URI in the WebhookUri property.  When you create this action using the OMS console, a new webhook is automatically created for the runbook.
 
 > [!NOTE]
-> Beginning April 23, 2018, all alerts in a workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before April 23, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions like Remediation using runbook are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in a workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions like Remediation using runbook are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
 
 Remediations include the properties in the following table.
 
@@ -424,7 +424,7 @@ Following is a complete example to create a new email alert.  This creates a new
 Webhook actions start a process by calling a URL and optionally providing a payload to be sent.  They are similar to Remediation actions except they are meant for webhooks that may invoke processes other than Azure Automation runbooks.  They also provide the additional option of providing a payload to be delivered to the remote process.
 
 > [!NOTE]
-> Beginning April 23, 2018, all alerts in a workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before April 23, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions like Webhook are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in a workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions like Webhook are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
 
 
 Webhook actions do not have a threshold but instead should be added to a schedule that has an Alert action with a threshold.  

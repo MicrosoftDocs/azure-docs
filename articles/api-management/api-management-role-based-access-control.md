@@ -57,7 +57,7 @@ New-AzureRmRoleDefinition -Role $role
 New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionName 'Calculator API Contributor' -Scope '/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>'
 ```
 
-The [Azure Resource Manager resource provider operations](../active-directory/role-based-access-control-resource-provider-operations.md#microsoftapimanagement) article contains the list of permissions that can be granted on the API Management level.
+The [Azure Resource Manager resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement) article contains the list of permissions that can be granted on the API Management level.
 
 ## Video
 
@@ -72,5 +72,5 @@ To learn more about Role-Based Access Control in Azure, see the following articl
   * [Get started with access management in the Azure portal](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/)
   * [Use role assignments to manage access to your Azure subscription resources](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/)
   * [Custom roles in Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)
-  * [Azure Resource Manager resource provider operations](../active-directory/role-based-access-control-resource-provider-operations.md#microsoftapimanagement)
+  * [Azure Resource Manager resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)
 
