@@ -31,17 +31,17 @@ Metrics are enabled by default, and you can access most recent 30 days of data. 
 
 ### Access metrics in the Azure portal
 
-You can monitor metrics over time in the Azure portal. The following is an example showing how to view **UsedCapacity** at account level.
+You can monitor metrics over time in the Azure portal. The following example shows how to view **UsedCapacity** at account level.
 
 ![screenshot of accessing metrics in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-For metrics supporting dimensions, you must filter with the desired dimension value. The following is an example showing how to view **Transactions** at account level with **Success** response type.
+For metrics supporting dimensions, you must filter with the desired dimension value. The following example shows how to view **Transactions** at account level with **Success** response type.
 
 ![screenshot of accessing metrics with dimension in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
 ### Access metrics with the REST API
 
-Azure Monitor provides [REST APIs](/rest/api/monitor/) to read metric definition and values. This section shows you how to read the storage metrics. Resource ID is used in all REST APIS. For more informaiton, please read [Understanding resource ID for services in Storage](#understanding-resource-id-for-services-in-storage).
+Azure Monitor provides [REST APIs](/rest/api/monitor/) to read metric definition and values. This section shows you how to read the storage metrics. Resource ID is used in all REST APIS. For more information, please read [Understanding resource ID for services in Storage](#understanding-resource-id-for-services-in-storage).
 
 The following example shows how to use [ArmClient](https://github.com/projectkudu/ARMClient)  at the command line to simplify testing with the REST API.
 
@@ -138,7 +138,7 @@ The following response contains metric values in JSON format:
 
 ### Access metrics with the .Net SDK
 
-Azure Monitor provides [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics. Resource ID is used in .Net SDK. For more informaiton, please read [Understanding resource ID for services in Storage](#understanding-resource-id-for-services-in-storage).
+Azure Monitor provides [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics. Resource ID is used in .Net SDK. For more information, please read [Understanding resource ID for services in Storage](#understanding-resource-id-for-services-in-storage).
 
 The following example shows how to use Azure Monitor .Net SDK to read storage metrics.
 
@@ -330,7 +330,7 @@ GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 `
 
 ## Capacity metrics
-Capacity metrics values are sent to Azure Monitor every hour. The value are refreshed daily. The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
+Capacity metrics values are sent to Azure Monitor every hour. The values are refreshed daily. The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
 
 Azure Storage provides the following capacity metrics in Azure Monitor.
 
@@ -338,7 +338,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-| UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it’s the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, this is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it’s the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
 ### Blob storage
 
@@ -398,11 +398,11 @@ Azure Storage supports following dimensions for metrics in Azure Monitor.
 | GeoType | Transaction from Primary or Secondary cluster. The available values include Primary and Secondary. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
 | ApiName | The name of operation. For example: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> For all operation names, see [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 
-For the metrics-supporting dimensions, you need to specify the dimension value to see the corresponding metrics values. For example, if you look at  **Transactions** value for successful responses, you need to filter the **ResponseType** dimension with **Success**. Or if you look at **BlobCount** value for Block Blob, you need to filter the **BlobType** dimension with **BlockBlob**.
+For the metrics supporting dimensions, you need to specify the dimension value to see the corresponding metrics values. For example, if you look at  **Transactions** value for successful responses, you need to filter the **ResponseType** dimension with **Success**. Or if you look at **BlobCount** value for Block Blob, you need to filter the **BlobType** dimension with **BlockBlob**.
 
 ## Service continuity of legacy metrics
 
-Legacy metrics are available in parallel with Azure Monitor managed metrics. The support keeps the same until Azure Storage ends the service on legacy metrics. We will announce the ending plan after we release Azure Monitor managed metrics officially.
+Legacy metrics are available in parallel with Azure Monitor managed metrics. The support keeps the same until Azure Storage ends the service on legacy metrics.
 
 ## Next steps
 

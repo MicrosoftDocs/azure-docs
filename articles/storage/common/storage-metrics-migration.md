@@ -19,7 +19,7 @@ ms.author: fryu
 
 # Azure Storage metrics migration
 
-Aligned with the strategy of unifying Monitor experience in Azure, Azure Storage on-boards metrics to Azure Monitor platform. In the future, the service of legacy metrics will be ended with early notice based on Azure policy. If you rely on legacy storage metrics you need to migrate prior to the service end date in order to maintain your metric information.
+Aligned with the strategy of unifying Monitor experience in Azure, Azure Storage on-boards metrics to Azure Monitor platform. In the future, the service of legacy metrics will be ended with early notice based on Azure policy. If you rely on legacy storage metrics, you need to migrate prior to the service end date in order to maintain your metric information.
 
 This article guides you in migrating from legacy metrics to the new metrics.
 
@@ -29,7 +29,7 @@ Azure Storage collects legacy metric values, aggregates, and stores them in $Met
 
 Legacy metrics provide capacity metrics on Blob only and transaction metrics on Blob, Table, File, and Queue.
 
-Legacy metrics are designed in flat schema. The design results in zero metric value when you don't have the traffic patterns triggering the metric. For example, ThrottlingError is set to 0 in $Metric tables even when you don't receive any throttling errors from the live traffic to storage account.
+Legacy metrics are designed in flat schema. The design results in zero metric value when you don't have the traffic patterns triggering the metric. For example, **ThrottlingError** is set to 0 in $Metric tables even when you don't receive any throttling errors from the live traffic to storage account.
 
 ## Understand new metrics managed by Azure Monitor
 
@@ -37,11 +37,11 @@ For new storage metrics, Azure Storage emits the metric data to Azure Monitor ba
 
 New metrics provide capacity metrics and transaction metrics on Blob, Table, File, Queue, and premium storage.
 
-Multi-dimension is one of features provided by Azure Monitor. Azure Storage adopts the design in defining new metric schema. For supported dimensions on metrics, you can find details in this [Azure Storage metrics in Azure Monitor](./storage-metrics-in-azure-monitor.md). Multi-dimension design provides cost efficiency on both bandwidth from ingestion and capacity from storing metrics. Consequently, if your traffic has not triggered related metrics, there won't be related metric values generated. For example, if your traffic has not triggered any throttling errors, Azure Monitor will return no data when you query metric **Transactions** with dimension **ResponseType** equal to **ThrottlingError**.
+Multi-dimension is one of features provided by Azure Monitor. Azure Storage adopts the design in defining new metric schema. For supported dimensions on metrics, you can find details in this [Azure Storage metrics in Azure Monitor](./storage-metrics-in-azure-monitor.md). Multi-dimension design provides cost efficiency on both bandwidth from ingestion and capacity from storing metrics. Consequently, if your traffic has not triggered related metrics, the related metric data will not be generated. For example, if your traffic has not triggered any throttling errors, Azure Monitor returns no data when you query the value of metric **Transactions** with dimension **ResponseType** equal to **ThrottlingError**.
 
 ## Metrics mapping between legacy metrics and new metrics
 
-If you read metric data programmatically, you need to adopt the new metric schema in your programs. To better understand the changes, you can refer to the mapping listed the following table.
+If you read metric data programmatically, you need to adopt the new metric schema in your programs. To better understand the changes, you can refer to the mapping listed the following table:
 
 **Capacity metrics**
 
