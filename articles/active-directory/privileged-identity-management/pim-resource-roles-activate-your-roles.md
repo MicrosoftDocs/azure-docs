@@ -20,6 +20,7 @@ Privileged Identity Management (PIM) introduces a new experience in activating r
 
 ## Activate roles
 Browse to the **My roles** section in the left pane. Select **Activate** for the role that you want to activate.
+
 !["Eligible roles" tab in the "My roles" pane.](media/azure-pim-resource-rbac/rbac-roles.png)
 
 From the **Activations** menu, enter the start date and time to activate the role. Optionally, decrease the activation duration (the length of time that the role is active) and enter a justification if necessary. Then, select **Activate**.
