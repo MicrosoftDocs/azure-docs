@@ -102,7 +102,7 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
         "location": "[variables('location')]",
         "kind": "Messaging",
         "sku": {
-            "name": "StandardSku",
+            "name": "Standard",
             "tier": "Standard"
         },
         "resources": [{

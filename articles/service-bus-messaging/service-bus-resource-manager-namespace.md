@@ -115,7 +115,7 @@ Creates a standard Service Bus namespace of type **Messaging**.
         "location": "[variables('location')]",
         "kind": "Messaging",
         "sku": {
-            "name": "StandardSku",
+            "name": "Standard",
             "tier": "Standard"
         },
         "properties": {
