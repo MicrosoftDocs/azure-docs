@@ -1,4 +1,4 @@
- ---
+---
 title: Azure virtual network service endpoints | Microsoft Docs
 description: Learn how to enable direct access to Azure resources from a virtual network using service endpoints.
 services: virtual-network
@@ -15,7 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2018
 ms.author: anithaa
-ms.custom: 
+ms.custom:
+
 ---
 
 # Virtual Network Service Endpoints
