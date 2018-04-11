@@ -1,5 +1,5 @@
 ---
-title: 'Restore a backup to SQL Database Managed Instance | Microsoft Docs'
+title: 'Restore a backup to Azure SQL Database Managed Instance | Microsoft Docs'
 description: Restore a database backup to an Azure SQL Database Managed Instance using SSMS.
 keywords: sql database tutorial, sql database managed instance, restore a backup
 services: sql-database
