@@ -29,7 +29,7 @@ This article shows you how to add a line, a circle, and a polygon to the map.
 
 In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
 
-In the second block of code, a line is created. A line is a [Feature](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/feature?view=azure-iot-typescript-latest) of LineString with LineStringProperties as its Feature property. Use `new atlas.data.Feature(new atlas.data.LineString())` to create a line and define its properties. 
+In the second block of code, a line is created. A line is a [Feature](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/feature?view=azure-iot-typescript-latest) of [LineString](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/linestring?view=azure-iot-typescript-latest) with [LineStringProperties](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/linestringproperties?view=azure-iot-typescript-latest) as its Feature property. Use `new atlas.data.Feature(new atlas.data.LineString())` to create a line and define its properties. 
 
 A line layer is an array of lines. The last block of code uses [addLineStrings](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#addlinestrings) function of the map class to add the line layer to the map and define the properties of the line layer. See properties of a line layer at [LinestringLayerOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/linestringlayeroptions?view=azure-iot-typescript-latest).
 
