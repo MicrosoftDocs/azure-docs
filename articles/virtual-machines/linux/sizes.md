@@ -4,7 +4,7 @@ description: Lists the different sizes available for Linux virtual machines in A
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -39,7 +39,7 @@ This article describes the available sizes and options for the Azure virtual mac
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
 
-## Rest API
+## REST API
 
 For information on using the REST API to query for VM sizes, see the following:
 
@@ -51,6 +51,10 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 ## ACU
 
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+
+## Benchmark scores
+
+Learn more about compute performance for Linux VMs using the [CoreMark benchmark scores](compute-benchmark-scores.md).
 
 ## Next steps
 

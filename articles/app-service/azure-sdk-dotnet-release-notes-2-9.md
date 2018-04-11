@@ -20,7 +20,7 @@ ms.author: juliako
 
 This topic includes release notes for versions 2.9 and 2.9.6 of Azure SDK for .NET.
 
-##Azure SDK for .NET 2.9.6 release summary
+## Azure SDK for .NET 2.9.6 release summary
 
 Release date: 11/16/2016
  

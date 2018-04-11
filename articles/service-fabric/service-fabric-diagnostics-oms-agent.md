@@ -13,17 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/31/2017
+ms.date: 04/03/2018
 ms.author: dekapur
 
 ---
 
 # Add the OMS Agent to a cluster
 
-This article covers the steps to add the OMS Agent as a virtual machine scale set extension to your cluster, and connect it to your existing OMS Log Analytics workspace. This enables collecting diagnostics data about containers, applications, and performance monitoring. By adding it as an extension, Azure Resource Manager ensures that it gets installed on every node, even when scaling the cluster.
+This article covers the steps to add the OMS Agent as a virtual machine scale set extension to your cluster, and connect it to your existing Azure Log Analytics workspace. This enables collecting diagnostics data about containers, applications, and performance monitoring. By adding it as an extension, Azure Resource Manager ensures that it gets installed on every node, even when scaling the cluster.
 
 > [!NOTE]
-> This article assumes that you have an OMS Log Analytics workspace already set up. If you do not, head over to [Set up OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)
+> This article assumes that you have an Azure Log Analytics workspace already set up. If you do not, head over to [Set up Azure Log Analytics](service-fabric-diagnostics-oms-setup.md)
 
 ## Add the agent extension via Azure CLI
 
@@ -31,9 +31,9 @@ The best way to add the OMS Agent to your cluster is via the virtual machine sca
 
 1. Once your Cloud Shell is requested, make sure you are working in the same subscription as your resource. Check this with `az account show` and make sure the "name" value matches that of your cluster's subscription.
 
-2. In the Portal, navigate to the resource group where your OMS workspace is located. Click into the Log Analytics resource (the type of the resource will be Log Analytics), on the right navigation, scroll down and click on **Properties**.
+2. In the Portal, navigate to the resource group where your Log Analytics workspace is located. Click into the Log Analytics resource (the type of the resource will be Log Analytics), on the right navigation, scroll down and click on **Properties**.
 
-    ![OMS properties page](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
+    ![Log Analytics properties page](media/service-fabric-diagnostics-oms-agent/oms-properties.png)
 
     Take note of your `workspaceId`. 
 
@@ -44,19 +44,25 @@ The best way to add the OMS Agent to your cluster is via the virtual machine sca
     For a Windows cluster:
     
     ```sh
-    az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
+    az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<LogAnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<LogAnalyticsworkspaceKey>'}"
     ```
 
     For a Linux cluster:
 
     ```sh
-    az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
+    az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<LogAnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<LogAnalyticsworkspaceKey>'}"
     ```
 
     Here's an example of the OMS Agent being added to a Windows cluster.
 
     ![OMS agent cli command](media/service-fabric-diagnostics-oms-agent/cli-command.png)
  
+5. Run the command to apply this configuration to your VM instances that already exist:  
+
+    ```sh
+    az vmss update-instances
+    ```
+
     This should take less than 15 min to successfully add the agent to your nodes. You can verify that the agents have been added by using the `az vmss extension list` API:
 
     ```sh
@@ -65,11 +71,11 @@ The best way to add the OMS Agent to your cluster is via the virtual machine sca
 
 ## Add the agent via the Resource Manager template
 
-Sample Resource Manager templates that deploy an OMS Log Analytics workspace and add an agent to each of your nodes is available for [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) or [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+Sample Resource Manager templates that deploy an Azure Log Analytics workspace and add an agent to each of your nodes is available for [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) or [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
 
 You can download and modify this template to deploy a cluster that best suits your needs.
 
-## Next Steps
+## Next steps
 
-* Collect relevant [performance counters](service-fabric-diagnostics-event-generation-perf.md). To configure the OMS agent to pick up specific performance counters, head to the OMS Portal (linked at the top of the OMS Log Analytics resource). Then click on **Home > Settings > Data > Windows Performance Counters** or **Linux Performance Counters**  and choose the counters you would like to collect.
-* Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics
+* Collect relevant [performance counters](service-fabric-diagnostics-event-generation-perf.md). To configure the OMS agent to collect specific performance counters, review [configuring data sources](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
+* Configure Log Analytics to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics

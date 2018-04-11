@@ -483,7 +483,7 @@ You can connect an on-premises network to an Azure virtual network by using Expr
 
 Because the Azure virtual network is connected to your on-premises network, cross-premises virtual networks must use a unique portion of the address space that your organization uses. In the same way that different corporate locations are assigned a specific IP subnet, Azure becomes another location as you extend your network.
 
-###Deploying a virtual network
+### Deploying a virtual network
 
 There are several options for deploying a virtual network.
 

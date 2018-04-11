@@ -17,9 +17,9 @@ Together with the [Kubernetes Service Catalog][kubernetes-service-catalog], Open
 ## Prerequisites
 * An Azure subscription
 
-* Azure CLI 2.0: You can [install it locally][azure-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
+* Azure CLI 2.0: [install it locally][azure-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
 
-* Helm CLI 2.7+: You can [install it locally][helm-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
+* Helm CLI 2.7+: [install it locally][helm-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
 
 * Permissions to create a service principal with the Contributor role on your Azure subscription
 
@@ -72,17 +72,45 @@ Start by adding the Open Service Broker for Azure Helm repository:
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-Next, use the following script to create a [Service Principal][create-service-principal] and populate several variables. These variables are used when running the Helm chart to install the service broker.
+Create a [Service Principal][create-service-principal] with the following Azure CLI command:
 
 ```azurecli-interactive
-SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
-AZURE_CLIENT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 4)
-AZURE_CLIENT_SECRET=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 16)
-AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
-AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+az ad sp create-for-rbac
 ```
 
-Now that you've populated these environment variables, execute the following command to install the service broker.
+Output should be similar to the following. Take note of the `appId`, `password`, and `tenant` values, which you use in the next step.
+
+```JSON
+{
+  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
+  "displayName": "azure-cli-2017-10-15-02-20-15",
+  "name": "http://azure-cli-2017-10-15-02-20-15",
+  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
+  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
+}
+```
+
+Set the following environment variables with the preceding values:
+
+```azurecli-interactive
+AZURE_CLIENT_ID=<appId>
+AZURE_CLIENT_SECRET=<password>
+AZURE_TENANT_ID=<tenant>
+```
+
+Now, get your Azure subscription ID:
+
+```azurecli-interactive
+az account show --query id --output tsv
+```
+
+Again, set the following environment variable with the preceding value:
+
+```azurecli-interactive
+AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
+```
+
+Now that you've populated these environment variables, execute the following command to install the Open Service Broker for Azure using the Helm chart:
 
 ```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \

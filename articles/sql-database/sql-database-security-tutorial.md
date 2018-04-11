@@ -2,20 +2,12 @@
 title: Secure your Azure SQL database | Microsoft Docs
 description: Learn about techniques and features to secure your Azure SQL database.
 services: sql-database
-documentationcenter: ''
 author: DRediske
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
-ms.date: 06/28/2017
+ms.date: 04/01/2018
 ms.author: daredis
 
 ---

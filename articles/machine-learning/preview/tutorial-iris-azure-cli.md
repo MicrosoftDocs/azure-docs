@@ -3,7 +3,7 @@ title: Tutorial article for Azure Machine Learning preview features - Command Li
 description: This tutorial walk through all the steps required to complete an Iris classification end-to-end from the command line interface.
 services: machine-learning
 author: ahgyger
-ms.author: ahgyger, ritbhat
+ms.author: ahgyger
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning

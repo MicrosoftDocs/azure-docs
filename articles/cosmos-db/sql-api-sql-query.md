@@ -5,7 +5,7 @@ keywords: sql syntax,sql query, sql queries, json query language, database conce
 services: cosmos-db
 documentationcenter: ''
 author: LalithaMV
-manager: jhubbard
+manager: kfile
 editor: monicar
 
 ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
@@ -14,13 +14,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 03/26/2018
 ms.author: laviswa
 
 ---
 # SQL queries for Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Microsoft Azure Cosmos DB supports querying documents using SQL (Structured Query Language) as a JSON query language on SQL API accounts. Azure Cosmos DB is truly schema-free. By virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes.
 
@@ -31,11 +29,17 @@ While designing the query language for Cosmos DB, we had two goals in mind:
 
 We believe that these capabilities are key to reducing the friction between the application and the database and are crucial for developer productivity.
 
-We recommend getting started by watching the following video, where Aravind Ramachandran shows Cosmos DB's querying capabilities, and by visiting our [Query Playground](http://www.documentdb.com/sql/demo), where you can try out Cosmos DB and run SQL queries against our dataset.
+We recommend getting started by watching the following video, where Azure Cosmos DB Program Manager Andrew Liu shows Azure Cosmos DB's querying capabilities and demonstrates the online [Query Playground](http://www.documentdb.com/sql/demo), where you can try out Azure Cosmos DB and run SQL queries against our dataset as demonstrated in the video.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
-> 
-> 
+> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
+>
+>
+
+More advanced querying techniques are demonstrated in this follow up video:
+
+> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
+>
+>
 
 Then, return to this article, where we start with a SQL query tutorial that walks you through some simple JSON documents and SQL commands.
 

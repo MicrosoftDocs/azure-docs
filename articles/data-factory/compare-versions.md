@@ -4,15 +4,14 @@ description: This article compares Azure Data Factory V1 Azure Data Factory V2.
 services: data-factory
 documentationcenter: ''
 author: kromerm
-manager: jhubbard
-editor: spelluru
+manager: craigg
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2018
+ms.date: 04/09/2018
 ms.author: makromer
 
 ---
@@ -109,7 +108,7 @@ In V1, you implement (custom) DotNet activity code by creating a .NET class libr
 
 In a V2 custom activity, you don't have to implement a .NET interface. You can directly run commands, scripts, and your own custom code compiled as an executable. 
 
-For more information, see [Difference between custom activity in V1 and V2](transform-data-using-dotnet-custom-activity.md#difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1).
+For more information, see [Difference between custom activity in V1 and V2](transform-data-using-dotnet-custom-activity.md#compare-v2-v1).
 
 ## SDKs
  Data Factory V2 provides a richer set of SDKs that can be used to author, manage, and monitor pipelines.
@@ -135,6 +134,9 @@ The SDKs that are updated for V2 are not backward-compatible with V1 clients.
 | Python SDK | [Yes](quickstart-create-data-factory-python.md) | No |
 | Resource Manager template | [Yes](quickstart-create-data-factory-resource-manager-template.md) | [Yes](data-factory-build-your-first-pipeline-using-arm.md) | 
 
+## Roles and permissions
+
+The Data Factory version 1 Contributor role can be used to create and manage Data Factory v2 resources.
 
 ## Monitoring experience
 In V2, you can also monitor data factories by using [Azure Monitor](monitor-using-azure-monitor.md). The new PowerShell cmdlets support monitoring of [integration runtimes](monitor-integration-runtime.md). Both V1 and V2 support visual monitoring via a monitoring application that can be launched from the Azure portal.

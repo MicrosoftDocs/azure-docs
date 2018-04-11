@@ -32,7 +32,7 @@ The [Azure Active Directory user provisioning service](active-directory-saas-app
 
 * **Writeback of email addresses to Workday** - the Azure AD user provisioning service can write selected Azure AD user attributes back to Workday, such as the email address.
 
-### Scenarios covered
+### What human resources scenarios does it cover?
 
 The Workday user provisioning workflows supported by the Azure AD user provisioning service enable automation of the following human resources and identity lifecycle management scenarios:
 
@@ -43,6 +43,20 @@ The Workday user provisioning workflows supported by the Azure AD user provision
 * **Employee terminations** - When an employee is terminated in Workday, their user account is automatically disabled in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md).
 
 * **Employee re-hires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md).
+
+### Who is this user provisioning solution best suited for?
+
+This Workday user provisioning solution is presently in public preview, and is ideally suited for:
+
+* Organizations that desire a pre-built, cloud-based solution for Workday user provisioning
+
+* Organizations that require direct user provisioning from Workday to Active Directory, or Azure Active Directory
+
+* Organizations that require users to be provisioned using data obtained from the Workday HCM module (see [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)) 
+
+* Organizations that require joining, moving, and leaving users to be synced to one or more Active Directory Forests, Domains, and OUs based only on change information detected in the Workday HCM module (see [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
+
+* Organizations using Office 365 for email
 
 
 ## Planning your solution
@@ -59,10 +73,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * For user provisioning to Active Directory, a domain-joined server running Windows Service 2012 or greater is required to host the [on-premises synchronization agent](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](connect/active-directory-aadconnect.md) for synchronizing between Active Directory and Azure AD
 
-
 ### Solution architecture
 
-Azure AD provides a rich set of provisioning connectors to help you solve provisioning and identity lifecycle management from Workday to Active Directory, Azure AD, SaaS apps, and beyond. Which features you will use and how you set up the solution will vary depending on your organization's environment and requirements. As a first step, take stock of how many of the following are present and deployed in your organization:
+Azure AD provides a rich set of provisioning connectors to help you solve provisioning and identity life cycle management from Workday to Active Directory, Azure AD, SaaS apps, and beyond. Which features you will use and how you set up the solution will vary depending on your organization's environment and requirements. As a first step, take stock of how many of the following are present and deployed in your organization:
 
 * How many Active Directory Forests are in use?
 * How many Active Directory Domains are in use?
@@ -71,6 +84,7 @@ Azure AD provides a rich set of provisioning connectors to help you solve provis
 * Are there users who need to be provisioned to both Active Directory and Azure Active Directory (e.g. "hybrid" users)?
 * Are there users who need to be provisioned to Azure Active Directory, but not Active Directory (e.g. "cloud-only" users)?
 * Do user email addresses need to be written back to Workday?
+
 
 Once you have answers to these questions, you can plan your Workday provisioning deployment by following the guidance below.
 
@@ -141,7 +155,7 @@ You need to create an unconstrained integration system security group and assign
    
     ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity Group")
 2. Complete the **Create Security Group** task.  
-3. Select Integration System Security Group—Unconstrained from the **Type of Tenanted Security Group** dropdown.
+3. Select **Integration System Security Group (Unconstrained)** from the **Type of Tenanted Security Group** dropdown.
 4. Create a security group to which members will be explicitly added. 
    
     ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity Group")
@@ -161,21 +175,11 @@ You need to create an unconstrained integration system security group and assign
     ![System Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "System Security Group")  
 
 ### Configure security group options
-In this step, you'll grant domain security policy permissions for the worker data secured by the following domain security policies:
-
-
-| Operation | Domain Security Policy |
-| ---------- | ---------- | 
-| Get and Put |  External Account Provisioning |
-| Get and Put | Worker Data: Public Worker Reports |
-| Get and Put | Worker Data: All Positions |
-| Get and Put | Worker Data: Current Staffing Information |
-| Get and Put | Worker Data: Business Title on Worker Profile |
-| View and Modify | Worker Data: Work Email |
+In this step, you'll grant domain security policy permissions for the worker data to the security group.
 
 **To configure security group options:**
 
-1. Enter domain security policies in the search box, and then click on the link **Domain Security Policies for Functional Area**.  
+1. Enter **Domain Security Policies** in the search box, and then click on the link **Domain Security Policies for Functional Area**.  
    
     ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Domain Security Policies")  
 2. Search for system and select the **System** functional area.  Click **OK**.  
@@ -187,27 +191,17 @@ In this step, you'll grant domain security policy permissions for the worker dat
 4. Click **Edit Permissions**, and then, on the **Edit Permissions** dialog page, add the new security group to the list of security groups with **Get** and **Put** integration permissions. 
    
     ![Edit Permission](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Edit Permission")  
-5. Repeat step 1 above to return to the screen for selecting functional areas, and this time, search for staffing, select the **Staffing functional area** and click **OK**.
+	
+5. Repeat steps 1-4 above for each of these remaining security policies:
+
+| Operation | Domain Security Policy |
+| ---------- | ---------- | 
+| Get and Put | Worker Data: Public Worker Reports |
+| Get and Put | Worker Data: Work Contact Information |
+| Get | Worker Data: All Positions |
+| Get | Worker Data: Current Staffing Information |
+| Get | Worker Data: Business Title on Worker Profile |
    
-    ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "Domain Security Policies")  
-6. In the list of security policies for the Staffing functional area, expand **Worker Data: Staffing** and repeat step 4 above for each of these remaining security policies:
-
-   * Worker Data: Public Worker Reports
-   * Worker Data: All Positions
-   * Worker Data: Current Staffing Information
-   * Worker Data: Business Title on Worker Profile
-   
-7. Repeat step 1, above, to return to the screen for selecting
-    functional areas, and this time, search for **Contact Information**,
-    select the Staffing functional area, and click **OK**.
-
-8.  In the list of security policies for the Staffing functional area,
-    expand **Worker Data: Work Contact Information**, and repeat step 4
-    above for the security policies below:
-
-    * Worker Data: Work Email
-
-    ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "Domain Security Policies")  
     
 ### Activate security policy changes
 
@@ -226,6 +220,41 @@ In this step, you'll grant domain security policy permissions for the worker dat
 ## Configuring user provisioning from Workday to Active Directory
 Follow these instructions to configure user account provisioning from Workday to each Active Directory forest that you require provisioning to.
 
+### Planning
+
+Before configuring user provisioning to an Active Directory forest, consider the following questions. The answers to these questions will determine how your scoping filters and attribute mappings need to be set. 
+
+* **What users in Workday need to be provisioned to this Active Directory forest?**
+
+   * *Example: Users where the Workday "Company" attribute contains the value "Contoso", and the "Worker_Type" attribute contains "Regular"*
+
+* **How are users routed into different organization units (OUs)?**
+
+   * *Example: Users are routed to OUs that correspond to an office location, as defined in the Workday "Municipality" and "Country_Region_Reference" attributes*
+
+* **How should the following attributes be populated in the Active Directory?**
+
+   * Common Name (cn)
+      * *Example: Use the Workday User_ID value, as set by human resources*
+	  
+   * Employee ID (employeeId)
+      * *Example: Use the Workday Worker_ID value*
+	  
+   * SAM Account Name (sAMAccountName)
+      * *Example: Use the Workday User_ID value, filtered through an Azure AD provisioning expression to remove illegal characters*
+	  
+   * User Principal Name (userPrincipalName)
+      * *Example: Use the Workday User_ID value, with an Azure AD provisioning expression to append a domain name*
+
+* **How should users be matched between Workday and Active Directory?**
+
+  * *Example: Users with a specific Workday "Worker_ID" value are matched with Active Directory users where "employeeID" has the same value. If the Worker_ID value is not found in Active Directory, then create a new user.*
+  
+* **Does the Active Directory forest already contain the user IDs required for the matching logic to work?**
+
+  * *Example: If this is a new Workday deployment, it is strongly recommended that Active Directory be pre-populated with the correct Workday Worker_ID values (or unique ID value of choice) to keep the matching logic as simple as possible.*
+	
+	
 ### Part 1: Adding the provisioning connector app and creating the connection to Workday
 
 **To configure Workday to Active Directory provisioning:**
@@ -413,10 +442,10 @@ After installing agent, run the Powershell commands below to configure the agent
 
 **Command #1**
 
-> cd C:\\Program Files\\Microsoft Azure Active Directory Synchronization
+> cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent"
 Agent\\Modules\\AADSyncAgent
 
-> import-module AADSyncAgent.psd1
+> Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
 **Command #2**
 
@@ -433,6 +462,9 @@ Agent\\Modules\\AADSyncAgent
 
 >[!IMPORTANT]
 >There is presently a known issue with global administrator credentials not working if they use a custom domain (example: admin@contoso.com). As a workaround, create and use a global administrator account with an onmicrosoft.com domain (example: admin@contoso.onmicrosoft.com)
+
+>[!IMPORTANT]
+>There is presently a known issue with global administrator credentials not working if they have multi-factor authentication enabled. As a workaround, disable multi-factor authentication for the global administrator.
 
 
 **Command #4**
@@ -804,6 +836,7 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
             <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
             <wd:Include_Photo>true</wd:Include_Photo>
             <wd:Include_User_Account>true</wd:Include_User_Account>
+			<wd:Include_Roles>true</wd:Include_Roles>
           </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>

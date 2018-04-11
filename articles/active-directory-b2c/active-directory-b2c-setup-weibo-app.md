@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Weibo configuration | Microsoft Docs'
 description: Provide sign-up and sign-in to consumers with Weibo accounts in your applications that are secured by Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
+editor: ''
 
-ms.assetid: 1860de34-94cb-4ceb-851e-102f930f7230
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
-ms.author: parakhj
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Weibo accounts

@@ -9,12 +9,13 @@ manager: cgronlun
 
 ms.assetid: 
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: gokuma; bradsev;
+ms.author: gokuma
 
 ---
 

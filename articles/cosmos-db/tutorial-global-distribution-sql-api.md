@@ -5,7 +5,7 @@ services: cosmos-db
 keywords: global distribution
 documentationcenter: ''
 author: rafats
-manager: jhubbard
+manager: kfile
 
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
@@ -19,8 +19,6 @@ ms.custom: mvc
 
 ---
 # How to setup Azure Cosmos DB global distribution using the SQL API
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the SQL API.
 
