@@ -148,7 +148,7 @@ spec:
     spec:
       containers:
       - name: tf-mnist
-        image: lachlanevenson/tf-mnist:gpu
+        image: microsoft/samples-tf-mnist-demo:gpu
         args: ["--max_steps", "500"]
         imagePullPolicy: IfNotPresent
         resources:
