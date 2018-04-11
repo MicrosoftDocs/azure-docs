@@ -97,7 +97,7 @@ Listing your consulting-service offer on the Azure Marketplace involves the foll
 5. **Staging**: Your submission is staged for your review. 
 6. **Publishing**: When you and Microsoft are satisfied with the staged content, your listing is ready to go live on the Azure Marketplace. The go-live date for your listing depends on the country that's specified in your offering. If the catalog for your selected country is already live on the Azure Marketplace, your listing will appear within a few hours. Otherwise, the listing will appear as soon as the catalog goes live.
 
-## Content Review Critieria
+## Content review criteria
 
 Once you have configured the required elements listed above, the content review team will validate that your offer description is informative and complete for your target audience. 
 
