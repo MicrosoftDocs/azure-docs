@@ -53,7 +53,7 @@ Your team defines an engaged user as anyone who uses your app five or more times
 5. Click **Save**
 
    > [!TIP]
-   >  Give your cohort a name, like “Engaged Users (5+ Days)” and save it to “My reports” or “Shared reports”depending if you want other people with access to this Appication Insights resource to see this cohort.
+   >  Give your cohort a name, like “Engaged Users (5+ Days)” and save it to “My reports” or “Shared reports” depending if you want other people with access to this Appication Insights resource to see this cohort.
 
 6. Click **Back to Gallery**
 
@@ -75,7 +75,7 @@ This lets you ask more sophisticated questions like: _for people who were engage
 
 You can also make cohorts of events. Let’s define a cohort of the events and page views, then see how to use them from the other tools. This might be useful to define a set of events that your team considers _active usage_, or to define a set of events related to a certain new feature.
 
-1. Open the **Cohorts)) tool
+1. Open the **Cohorts** tool
 
 2. Click the **Template Gallery** tab. Here you’ll find a collection of templates for various cohorts.
 
@@ -85,12 +85,6 @@ You can also make cohorts of events. Let’s define a cohort of the events and p
 
 4. In the **Activities** dropdown, select the events you’d like to be in the cohort
 5. Save the cohort and give it a name
-
-### What can you do with this cohort?
-
-Open the **Users** tool > In the **Who used** dropdown, select the cohort you created under the **Cohorts** header.
-
-Now the Users tool is filtered to users who used this set of events
 
 ## Example: Active users where you modify query
 
@@ -106,7 +100,8 @@ The previous two cohorts were defined using dropdowns. But we can also define co
        * A Markdown text section where you can describe the cohort in more detail for others on your team
        * A parameters section you can use to make your own parameters, like the **Activities** and other dropdowns from the previous two examples. 
        * A query section that you use to define the cohort using an Analytics query.
-       * In the query section, you write an Analytics query that selects the certain set of rows that describe the cohort you want to define. The Cohorts tool then implicitly adds a “| summarize by user_Id” clause to the query. This is previewed below the query in a table so you can make sure your query is returning results.
+
+    In the query section, you write an Analytics query that selects the certain set of rows that describe the cohort you want to define. The Cohorts tool then implicitly adds a “| summarize by user_Id” clause to the query. This is previewed below the query in a table so you can make sure your query is returning results.
 
     > [!NOTE]
     > If you don’t see the query, try resizing the section to make it taller and reveal the query.
