@@ -25,7 +25,6 @@ Azure Monitor provides unified user interfaces for monitoring across different A
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can access them from the [Azure portal](https://portal.azure.com), the Azure Monitor APIs (REST, and .Net) and analysis solutions such as Log Analytics and Event Hub. For more information, see  [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Metrics are enabled by default, and you can access most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) in Azure Monitor.
 
@@ -138,7 +137,7 @@ The following response contains metric values in JSON format:
 
 ### Access metrics with the .Net SDK
 
-Azure Monitor provides [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/en-us/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics. Resource ID is used in .Net SDK. For more informaiton, please read [Understanding resource ID for services in Storage](#understanding-resource-id-for-services-in-storage).
+Azure Monitor provides [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics. Resource ID is used in .Net SDK. For more informaiton, please read [Understanding resource ID for services in Storage](#understanding-resource-id-for-services-in-storage).
 
 The following example shows how to use Azure Monitor .Net SDK to read storage metrics.
 
@@ -157,6 +156,7 @@ The following example shows how to list metric definition at account level:
         var applicationId = "{ApplicationID}";
         var accessKey = "{AccessKey}";
 
+        Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
         MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
         IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
 
@@ -206,12 +206,16 @@ The following example shows how to read `UsedCapacity` data at account level:
             timespan: timeSpan,
             interval: System.TimeSpan.FromHours(1),
             metric: "UsedCapacity",
+
             aggregation: "Average",
             resultType: ResultType.Data,
             cancellationToken: CancellationToken.None);
 
         foreach (var metric in Response.Value)
         {
+            | Metric Name | Description |
+            | ------------------- | ----------------- |
+            | UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it’s the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, this is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
             //Enumrate metric value
             //    Id
             //    Name
@@ -254,6 +258,7 @@ The following example shows how to read metric data on the metric supporting mul
         // It's applicable to define meta data filter when a metric support dimension
         // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
         ODataQuery<MetadataValue> odataFilterMetrics = new ODataQuery<MetadataValue>(
+        Azure Monitor provides multiple ways to access metrics. You can access them from the [Azure portal](https://portal.azure.com), the Azure Monitor APIs (REST, and .Net) and analysis solutions such as Operation Management Suite and Event Hub. For more information, see  [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
             string.Format("BlobType eq '{0}'", "BlockBlob"));
 
         Response = readOnlyClient.Metrics.List(
@@ -282,7 +287,6 @@ The following example shows how to read metric data on the metric supporting mul
 
 ## Billing for metrics
 
-Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Log Analytics if you stream metrics data to Log Analytics for advanced analysis.
 
 ## Understanding resource ID for services in Azure Storage
 
@@ -332,16 +336,12 @@ GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 `
 
 ## Capacity metrics
-
 Capacity metrics values are sent to Azure Monitor every hour. The value are refreshed daily. The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
 
 Azure Storage provides the following capacity metrics in Azure Monitor.
 
 ### Account Level
 
-| Metric Name | Description |
-| ------------------- | ----------------- |
-| UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it’s the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, this is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
 ### Blob storage
 
@@ -407,6 +407,6 @@ For the metrics-supporting dimensions, you need to specify the dimension value t
 
 Legacy metrics are available in parallel with Azure Monitor managed metrics. The support keeps the same until Azure Storage ends the service on legacy metrics. We will announce the ending plan after we release Azure Monitor managed metrics officially.
 
-## See Also
+## Next steps
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
