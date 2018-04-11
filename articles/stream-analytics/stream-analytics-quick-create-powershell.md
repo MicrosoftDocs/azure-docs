@@ -21,6 +21,7 @@ The Azure PowerShell module is used to create and manage Azure resources by usin
 ## Before you begin
 
 * If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/free/)  
+
 * This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version that is installed on your local machine. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) article. The scenario in this article describes reading data from the blob storage, transforming the data and writing it back to a different container in the same blob storage.
 
 ## Sign in to Azure
@@ -53,8 +54,11 @@ New-AzureRMResourceGroup `
 Before defining the Stream Analytics job, you should prepare the data which is configured as input to the job. Run the following steps to prepare the input data required by the job: 
 
 1. Download the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub.  
+
 2. Create a standard general-purpose storage account with LRS replication using [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) cmdlet  
-3. Retrieve the storage account context that defines the storage account to be used. When working with storage accounts, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called mystorageaccount with locally redundant storage(LRS) and blob encryption (enabled by default). 
+
+3. Retrieve the storage account context that defines the storage account to be used. When working with storage accounts, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called mystorageaccount with locally redundant storage(LRS) and blob encryption (enabled by default).  
+
 4. Next create a container using [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer), set the permissions to 'blob' to allow public access of the files, and upload the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) that you downloaded earlier. 
 
 These steps are achieved by running the following PowerShell script:

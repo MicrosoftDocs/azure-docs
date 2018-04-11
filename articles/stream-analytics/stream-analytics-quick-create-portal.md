@@ -20,7 +20,8 @@ This quickstart shows you how to get started with creating a Stream Analytics jo
 
 ## Before you begin
 
-* If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/free/)
+* If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/free/)..
+
 * Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Prepare the input data
@@ -28,6 +29,7 @@ This quickstart shows you how to get started with creating a Stream Analytics jo
 Before defining the Stream Analytics job, you should prepare the data which is configured as input to the job. Run the following steps to prepare the input data required by the job:
 
 1. Download the [sample sensor data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub. The sample data contains sensor information in the following JSON format:  
+
    ```json
    {
      "time": "2016-01-26T21:18:52.0000000",
@@ -37,11 +39,13 @@ Before defining the Stream Analytics job, you should prepare the data which is c
    }
    ```
 2. Sign in to the Azure portal  
-3. From the upper left-hand corner of the Azure portal, select **Create a resource** > **Storage** > **Storage account**. Fill out the Storage account job blade with **Name** set to "myasastorageaccount", **Location** set to "West US 2", **Resource group** set to "MyRG" (host the storage account in the same resource group as the Streaming job for increased performance). Remaining settings can be left to their default values.
+
+3. From the upper left-hand corner of the Azure portal, select **Create a resource** > **Storage** > **Storage account**. Fill out the Storage account job blade with **Name** set to "myasastorageaccount", **Location** set to "West US 2", **Resource group** set to "MyRG" (host the storage account in the same resource group as the Streaming job for increased performance). Remaining settings can be left to their default values.  
 
    ![Create storage account](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
 4. From **All resources** blade, find the storage account you created in the previous step. Open the **Overview** blade, and then the **Blobs** tile.  
+
 5. From the **Blob Service** blade, select **Container**, provide a **Name** for your container, such as *container1* and change the **Public access level** to Blob (anonymous read access for blobs only) > select **OK**.  
 
    ![Create a container](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
@@ -53,8 +57,11 @@ Before defining the Stream Analytics job, you should prepare the data which is c
 ## Create a Stream Analytics job
 
 1. Sign in to the Azure portal  
+
 2. Select **Create a resource** in the upper left-hand corner of the Azure portal.  
+
 3. Select **Data+Analytics** > **Stream Analytics job** from the results list.  
+
 4. Fill out the Stream Analytics job blade with the following information:
 
    |**Setting**  |**Suggested value**  |**Description**  |
@@ -68,8 +75,9 @@ Before defining the Stream Analytics job, you should prepare the data which is c
 
    ![Create job](./media/stream-analytics-quick-create-portal/create-job.png)
 
-4. Check the **Pin to dashboard** box to place your job on your dashboard and then select **Create**.  
-5. You should see a 'Deployment in progress...' displayed in the top right of your browser window. 
+5. Check the **Pin to dashboard** box to place your job on your dashboard and then select **Create**.  
+
+6. You should see a 'Deployment in progress...' displayed in the top right of your browser window. 
 
 ## Configure input to the job
 
@@ -78,7 +86,9 @@ In this section, you will configure blob storage as an input to the Stream Analy
 ### Add the input 
 
 1. Navigate to your Stream Analytics job.  
+
 2. Select **Inputs** > **Add Stream input** > **Blob storage**.  
+
 3. Fill out the **Blob storage** blade with the following values:
 
    |**Setting**  |**Suggested value**  |**Description**  |
@@ -95,7 +105,9 @@ In this section, you will configure blob storage as an input to the Stream Analy
 ## Configure output to the job
 
 1. Navigate to the Stream Analytics job that you created earlier.  
+
 2. Select **Outputs > Add > Blob storage**.  
+
 3. Fill out the **Blob storage** blade with the following values:
 
    |**Setting**  |**Suggested value**  |**Description**  |
@@ -111,8 +123,9 @@ In this section, you will configure blob storage as an input to the Stream Analy
  
 ## Define the transformation query
 
-1. Navigate to the Stream Analytics job that you created earlier.
-2. Select **Query** and update the query as follows:
+1. Navigate to the Stream Analytics job that you created earlier.  
+
+2. Select **Query** and update the query as follows:  
 
    ```sql
    SELECT 
@@ -127,17 +140,19 @@ In this section, you will configure blob storage as an input to the Stream Analy
    HAVING Avg(temp)>100
    ```
 
-3. In this example, the query reads the data from blob and copies it to a new file in the blob select **Save**.
+3. In this example, the query reads the data from blob and copies it to a new file in the blob select **Save**.  
 
    ![Configure job transformation](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
 
 ## Start the Stream Analytics job and check the output
+
 1. Return to the job overview blade and select **Start**  
+
 2. Under **Start job**, select **Custom**, for **Start time** field. Select one day prior to when you uploaded the file to blob storage because the time at which the file was uploaded is earlier that the current time. When you're done, select **Start**.  
 
    ![Start the job](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
-3. After few minutes, In the portal, find the storage account & the container that you have configured as output for the job. You can now see the output file in the container. The job takes a few minutes to start for the first time, after it is started, it will continue to run as the data arrives.
+3. After few minutes, In the portal, find the storage account & the container that you have configured as output for the job. You can now see the output file in the container. The job takes a few minutes to start for the first time, after it is started, it will continue to run as the data arrives.  
 
    ![Transformed output](./media/stream-analytics-quick-create-portal/transformed-output.png)
 
@@ -146,6 +161,7 @@ In this section, you will configure blob storage as an input to the Stream Analy
 When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and restart it later when you need. If you are not going to continue to use this job, delete all resources created by this quickstart by using the following steps:
 
 1. From the left-hand menu in the Azure portal, select **Resource groups** and then select the name of the resource you created.  
+
 2. On your resource group page, select **Delete**, type the name of the resource to delete in the text box, and then select **Delete**.
 
 ## Next steps
