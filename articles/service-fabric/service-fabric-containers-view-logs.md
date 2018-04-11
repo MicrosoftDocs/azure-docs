@@ -1,32 +1,36 @@
 ---
-title: Overview of Service Fabric and containers | Microsoft Docs
-description: An overview of Service Fabric and the use of containers to deploy microservice applications. This article provides an overview of how containers can be used and the available capabilities in Service Fabric.
+title: View containers logs in Azure Service Fabric | Microsoft Docs
+description: Describes how to view container logs for a running Service Fabric container services using Service Fabric Explorer.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
 editor: ''
 
-ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
+ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/11/2018
+ms.date: 04/09/2018
 ms.author: ryanwi
 
 ---
 # View logs for a Service Fabric container service
-Azure Service Fabric is a container orchestrator and supports containers on both Linux and Windows.
+Azure Service Fabric is a container orchestrator and supports both [Linux and Windows containers](service-fabric-containers-overview.md).  This article descbribes how to view container logs of a running container service so that you can diagnose and troubleshoot problems.
 
+Container logs can be accessed using [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  In a web browser, open Service Fabric Explorer from the cluster's managment endpoint by navigating to http://<mycluster>.<region>.cloudapp.azure.com:19080/Explorer.  
 
-Azure Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of services across a cluster of machines, with years of usage and optimization in massive scale services at Microsoft. Services can be developed in many ways, from using the [Service Fabric programming models](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-guest-executables-introduction.md). By default, Service Fabric deploys and activates these services as processes. Processes provide the fastest activation and highest density usage of the resources in a cluster. Service Fabric can also deploy services in container images. Importantly, you can mix services in processes and services in containers in the same application.   
+Container logs are located on the cluster node that the container service instance is running on. For example, get the logs of the web front end container of the [Linux Voting sample application](service-fabric-quickstart-containers-linux.md). In the tree view, expand **Cluster**>**Applications**>**VotingType**>**fabric:/Voting/azurevotefront**.  Then expand the partition (d1aa737e-f22a-e347-be16-eec90be24bc1, in this example) and see that the container is running on cluster node *_lnxvm_0*.
 
+In the tree view, expand **Nodes**>**_lnxvm_0**>**fabric/Voting**>**azurevotfrontPkg**>**Code Packages**>**code** and select the **Container Logs** option.  The container logs now display.
 
 ![Service Fabric platform][Image1]
 
 
 ## Next steps
+- Work through the [Create a Linux container application tutorial](service-fabric-tutorial-create-container-images.md).
+- Learn more about [Service Fabric and containers](service-fabric-containers-overview.md)
 
 [Image1]: media/service-fabric-containers-view-logs/view-container-logs-sfx.png
