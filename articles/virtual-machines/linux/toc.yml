@@ -402,6 +402,8 @@
       href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Assign public DNS name
       href: portal-create-fqdn.md
+    - name: Find and delete unattached NICs
+      href: find-unattached-nics.md
     - name: DNS resolution
       href: azure-dns.md
       items:

@@ -48,9 +48,9 @@ Currently, the resource group is empty.
 
 In this article, you deploy a virtual machine and its related virtual network. For managing virtual machine solutions, there are three resource-specific roles that provide commonly needed access:
 
-* [Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Network Contributor](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage Account Contributor](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../active-directory/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
 
