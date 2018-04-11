@@ -27,10 +27,12 @@ To properly shut down Azure Stack services, and the ASDK host computer, use the 
 1. Log in as AzureStack\CloudAdmin on the ASDK host computer.
 2. Open PowerShell as an administrator (not PowerShell ISE).
 3. Run the following commands to establish a privileged endpoint (PEP) session: 
+
    ```powershell
    Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint
    ```
 4. Next, use the **Stop-AzureStack** cmdlet to stop Azure Stack services and shut down the ASDK host computer:
+
    ```powershell
    Stop-AzureStack
    ```
@@ -45,10 +47,12 @@ Regardless of how the ASDK was shut down, you should use the following steps to 
 2. Log in as AzureStack\CloudAdmin on the ASDK host computer.
 3. Open PowerShell as an administrator (not PowerShell ISE).
 4. Run the following commands to establish a privileged endpoint (PEP) session:
+
    ```powershell
    Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint
    ```
 5. Next, in the PEP session, run the following commands to check the startup status of Azure Stack services:
+
    ```powershell
    Get-ActionStatus Start-AzureStack
    ```
@@ -62,15 +66,18 @@ Perform these steps if ASDK services don't successfully start within two hours a
 1. Log in as AzureStack\CloudAdmin on the ASDK host computer.
 2. Open PowerShell as an administrator (not PowerShell ISE).
 3. Run the following commands to establish a privileged endpoint (PEP) session:
+
    ```powershell
    Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint
    ```
 4. Next, in the PEP session, run the following commands to check the startup status of Azure Stack services:
+
    ```powershell
    Test-AzureStack
    ```
 5. Review the output and resolve any errors. For more information, see [Run a validation test of Azure Stack](.\.\azure-stack-diagnostic-test.md).
 6. Restart Azure Stack services from within the PEP session by running the **Start-AzureStack** cmdlet:
+
    ```powershell
    Start-AzureStack
    ```
