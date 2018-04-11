@@ -27,4 +27,4 @@
   - name: IoT Edge
     href: ../iot-edge/index.yml
   - name: IoT Device/Service SDKs
-    href: ../iot-hub/iot-hub-devguide-sdks
+    href: ../iot-hub/iot-hub-devguide-sdks.md
