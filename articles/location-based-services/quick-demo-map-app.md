@@ -39,15 +39,14 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Download the demo application for Azure Maps
 
-1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
-2. Save the contents of this file locally as **AzureMapDemo.html** and open it in a text editor.
-3. Search for the string `<insert-key>`, and replace it with the **Primary Key** value obtained in the preceding section. 
+1. Right click on the <a href="https://raw.githubusercontent.com/Azure-Samples/location-based-services-samples/master/src/interactiveSearch.html" download="interactiveSearch.html"> quickstart link, </a> and save the file as **interactiveSearch.html**.
+2. In the file, search for the string `<insert-key>`, and replace it with the **Primary Key** value obtained in the preceding section. 
 
 
 ## Launch the demo application for Azure Maps
 
-1. Open the file **AzureMapDemo.html** in a browser of your choice.
-2. Observe the map shown of Los Angeles city. The city is determined by the value of the `[longitude, latitude]` pair given to the JavaScript variable named **center** in the *AzureMapDemo.html*. You can change these coordinates to any other city of your choice. For example, New York city's coordinates are *[-74.0060, 40.7128]*.
+1. Open the file **interactiveSearch.html** in a browser of your choice.
+2. Observe the map shown of Los Angeles city. The city is determined by the value of the `[longitude, latitude]` pair given to the JavaScript variable named **center** in the *interactiveSearch.html*. You can change these coordinates to any other city of your choice. For example, New York city's coordinates are *[-74.0060, 40.7128]*.
 3. In the search box on the upper left corner of the demo web application, enter any location type or address that you want to search. 
 4. Move your mouse over the list of addresses/locations that appear below the search box, and notice how the corresponding pin on the map pops out information about that location. For example, a sample launch of this web application and a search for *restaurants* leads to the following. Please note that for privacy of private businesses, fictitious names and addresses are shown. 
 
@@ -58,7 +57,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 The tutorials go in details about how to use and configure the Azure Maps for your account. If you plan to continue on to work with the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
 
-1. Close the browser running the **AzureMapDemo.html** web application.
+1. Close the browser running the **interactiveSearch.html** web application.
 2. From the left-hand menu in the Azure portal, click **All resources** and then select your Maps account. At the top of the **All resources** blade, click **Delete**.
 
 ## Next steps
