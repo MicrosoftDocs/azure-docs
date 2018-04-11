@@ -38,7 +38,6 @@ In this tutorial, you take the following steps:
 The completed code for this tutorial can be found [on GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted). 
 
 ## Prerequisites
-This tutorial requires the following:
 
 - An active Azure account. If you don't have an account, you can create a [free trial account](https://azure.microsoft.com/free) in just a couple of minutes. 
 - [Windows Azure Messaging Framework]
@@ -65,7 +64,7 @@ In this section, you create a notification hub and configure authentication with
 3. Select the **file icon**.
 4. Select the **.p12** file that you exported earlier.
 5. Specify the correct **password**.
-6. Select **Sandbox** mode since this is for development. Only use the **Production** if you want to send push notifications to users who purchased your app from the store.
+6. Select **Sandbox** mode. Only use the **Production** if you want to send push notifications to users who purchased your app from the store.
 
     ![Configure APNS certification in Azure portal][7]
 
@@ -162,7 +161,7 @@ You have now configured your notification hub with APNS, and you have the connec
 11. To verify there are no failures, build and run the app on your device.
 
 ## Send test push notifications
-You can test receiving notifications in your app with the *Test Send* option in the [Azure portal]. This sends a test push notification to your device.
+You can test receiving notifications in your app with the *Test Send* option in the [Azure portal]. It sends a test push notification to your device.
 
 ![Azure portal - Test Send][30]
 
@@ -175,7 +174,7 @@ To test push notifications on iOS, you must deploy the app to a physical iOS dev
 1. Run the app and verify that registration succeeds, and then press **OK**.
    
     ![iOS App Push Notification Registration Test][33]
-2. Next you send a test push notification from the [Azure portal], as described above. 
+2. Next you send a test push notification from the [Azure portal], as described in the previous section. 
 
 3. The push notification is sent to all devices that are registered to receive the notifications from the particular Notification Hub.
    
