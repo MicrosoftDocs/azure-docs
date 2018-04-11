@@ -17,7 +17,10 @@ ms.author: jlian
 
 # Programmatically create Azure Enterprise subscriptions (preview)
 
-As an [Azure Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) customer and Account Owner, you can create EA (MS-AZR-0017P) and EA Dev/Test (MS-AZR-0148P) subscriptions programmatically. To give another user or service principal the permission to create subscriptions billed to your account, give them [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) access to your enrollment account. The subscriptions created with this API are governed by your enterprise agreement. 
+As an [Azure Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) customer and Account Owner, you can create EA (MS-AZR-0017P) and EA Dev/Test (MS-AZR-0148P) subscriptions programmatically. To give another user or service principal the permission to create subscriptions billed to your account, give them [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) access to your enrollment account. 
+
+> [!IMPORTANT]
+> The Azure subscription(s) created via this API are governed by the agreement under which you have obtained Microsoft Azure services from Microsoft or an authorized reseller. To learn more, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
 In this article you will:
 
