@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2018
+ms.date: 04/10/2018
 ms.author: yurid
 
 ---
@@ -21,7 +21,7 @@ ms.author: yurid
 Learn how to configure application control in Azure Security Center using this walkthrough.
 
 ## What are adaptive application controls in Security Center?
-Adaptive application controls help control which applications can run on your VMs located in Azure, which among other benefits helps harden your VMs against malware. Security Center uses machine learning to analyze the processes running in the VM and helps you apply whitelisting rules using this intelligence. This capability greatly simplifies the process of configuring and maintaining application whitelists, enabling you to:
+Adaptive application controls help control which applications can run on your VMs located in Azure, which among other benefits helps harden your VMs against malware. Security Center uses machine learning to analyze the applications running in the VM and helps you apply whitelisting rules using this intelligence. This capability greatly simplifies the process of configuring and maintaining application whitelists, enabling you to:
 
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions
 - Comply with your organization's security policy that dictates the use of only licensed software.
@@ -54,7 +54,7 @@ The **Groups of VMs** section contains three tabs:
 >
 
 ### Configure a new application control policy
-1. Click on the **Recommended** tab for a list of resource groups with application control recommendations:
+1. Click on the **Recommended** tab for a list of groups with application control recommendations:
 
   ![Recommended](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
@@ -65,7 +65,7 @@ The **Groups of VMs** section contains three tabs:
   - **STATE**: the state of the recommendations, which in most cases will be open
   - **SEVERITY**: the severity level of the recommendations
 
-2. Select a resource group to open the **Create application control rules** option.
+2. Select a group to open the **Create application control rules** option.
 
   ![Application control rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
@@ -95,16 +95,16 @@ Security Center relies on a minimum of two weeks of data in order to create a ba
 
 1. To edit and monitor a group configured with application control, return to the **Adaptive application controls** page and select **CONFIGURED** under **Groups of VMs**:
 
-  ![Resource groups](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+  ![Groups](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
   The list includes:
 
-  - **NAME**: the name of the subscription and resource group
-  - **VMs**: the number of virtual machines in the resource group
-  - **MODE**: Audit mode will log attempts to run non-whitelisted applications; Block will not allow non-whitelisted applications to run
+  - **NAME**: the name of the subscription and group
+  - **VMs**: the number of virtual machines in the group
+  - **MODE**: Audit mode will log attempts to run non-whitelisted applications; Enforce will not allow non-whitelisted applications to run
   - **ISSUES**: any current violations
 
-2. Select a resource group to make changes in the **Edit application control policy** page.
+2. Select a group to make changes in the **Edit application control policy** page.
 
   ![Protection](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
