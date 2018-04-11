@@ -21,9 +21,9 @@ ms.author: yizhon
 
 There are two categories of software development kits (SDKs) for working with IoT Hub Device Provisioning Service:
 
-* **Device SDKs** help you to build registration software that connects to IoT Hub Device Provisioning Service using supported attestation method.
+* **Device SDKs** help you to build registration software on a device that connects to IoT Hub Device Provisioning Service to register using the supported [attestation mechanism][lnk-attestation].
 
-* **Service SDKs** help you to manage your IoT Hub Device Provisioning Service enrollments.
+* **Service SDKs** help you to build back-end applications to manage your IoT Hub Device Provisioning Service [enrollments][lnk-enrollments]
 
 ## Azure IoT device SDKs
 
@@ -130,3 +130,5 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-service-concept]: https://docs.microsoft.com/azure/iot-dps/concepts-service
 [lnk-device-concept]: https://docs.microsoft.com/azure/iot-dps/concepts-device
 [lnk-tools]: https://docs.microsoft.com/azure/iot-dps/how-to-use-sdk-tools
+[lnk-attestation]: https://docs.microsoft.com/azure/iot-dps/concepts-security#attestation-mechanism
+[lnk-enrollments]: https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment
