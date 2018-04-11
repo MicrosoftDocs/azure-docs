@@ -40,6 +40,14 @@ This quick start demonstrates how to create an Azure Cosmos DB [SQL API](sql-api
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
+## Add sample data
+
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+
+## Query your data
+
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
+
 ## Clone the sample application
 
 Now let's clone a SQL API app from github, set the connection string, and run it. You see how easy it is to work with data programmatically. 
