@@ -131,7 +131,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On Save button](./media/active-directory-saas-workrite-tutorial/tutorial_general_400.png)
 
 7.	This certificate will be in DER format - base64 encoded. WorkRite requires the certificate to be in PEM format. You can use the tool **OpenSSL** to convert this using the following command:
-	`openssl x509 -inform der -in certificate.cer -out certificate.pem`
+`openssl x509 -inform der -in certificate.cer -out certificate.pem`
+
 When correctly formatted, the certificate will look like this when viewed in a text editor:
 
 -----BEGIN CERTIFICATE-----
@@ -147,10 +148,6 @@ CERTIFICATE_GOES_HERE
 
 (WorkRite does support a logout URL however this must be entered by a member of the support team if you wish to utulise this.)
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 Return to WorkRite, and open the **Security** panel of the **Company** admin page.
 
 Paste the **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal into the **Identity provider url (for SP-initiated redirect)** text box.
@@ -160,6 +157,9 @@ Click the **Upload your X.509 certificate** button and paste the X.509 PEM encod
 >[!NOTE]
 >If you have any issues configuring the WorkRite SAML settings please contact WorkRite Support via email <a href="mailto:support@workrite.co.uk">support@workrite.co.uk</a>
 >
+> [!TIP]
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
 ### Create an Azure AD test user
 
