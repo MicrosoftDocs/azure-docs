@@ -21,12 +21,24 @@ ms.author: wesmc
 
 *redis-cli.exe* is a popular command-line tool for interacting with a Redis Cache as a client. This tool is also available for use with Azure Redis Cache.
 
-Download the [Redis command-line tools for Windows](https://github.com/MSOpenTech/redis/releases/). If you want to run the command-line tool on another platform, download the package from [http://redis.io/download](https://redis.io/download).
+The tool is available for Windows platforms by downloading the [Redis command-line tools for Windows](https://github.com/MSOpenTech/redis/releases/). 
+
+If you want to run the command-line tool on another platform, download Redis Cache from [http://redis.io/download](https://redis.io/download).
+
+## Gather cache access information.
+
+You can gather the information needed to access the cache using three methods
+
+1. Azure CLI using [az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
+2. Azure PowerShell using [Get-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Get-AzureRmRedisCacheKey?view=azurermps-4.4.1)
+3. Using the Azure portal.
+
+In this section we will demonstrate how to retrieve the keys from the Azure portal.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 
-### Enable access for redis-cli.exe
+## Enable access for redis-cli.exe
 
 With Azure Redis Cache, only the SSL port (6380) is enabled by default. The `redis-cli.exe` command-line tool doesn't support SSL. You have two configuration choices to use it:
 
@@ -54,7 +66,7 @@ With Azure Redis Cache, only the SSL port (6380) is enabled by default. The `red
     On the stunnel Log Window menu, click **Configuration** > **Reload Configuration**.
 
 
-### Connect using the Redis command-line tool.
+## Connect using the Redis command-line tool.
 
 When using stunnel, run *redis-cli.exe*, and pass only your *port*, and *access key* (primary or secondary) to connect to the cache.
 
@@ -75,7 +87,7 @@ redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 
 
 
-## Next steps
+## Next Steps
 
 Learn more about using the [Redis Console](cache-configure.md#redis-console) to issue commands.
 
