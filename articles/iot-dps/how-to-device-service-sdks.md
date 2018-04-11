@@ -88,6 +88,8 @@ Azure IoT Hub Provisioning service SDK for C:
 > [!NOTE]
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
 
+## Development tools
+Learn about the tools provided in the SDKs to simplify development for provisioning [here][lnk-tools].
 
 ## Next steps
 
@@ -127,3 +129,4 @@ Other reference topics in this IoT Hub developer guide include:
 
 [lnk-service-concept]: https://docs.microsoft.com/azure/iot-dps/concepts-service
 [lnk-device-concept]: https://docs.microsoft.com/azure/iot-dps/concepts-device
+[lnk-tools]: https://docs.microsoft.com/azure/iot-dps/how-to-use-sdk-tools
