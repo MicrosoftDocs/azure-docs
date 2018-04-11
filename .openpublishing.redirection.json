@@ -17909,6 +17909,12 @@
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
             "redirect_url": "/azure/cosmos-db/storage-explorer",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md",
+            "redirect_url": "/azure/data-factory/load-azure-sql-data-warehouse",
+            "redirect_document_id": false
         }
+
     ]
 }
