@@ -1,5 +1,5 @@
 ---
-title: Test your Stream Analytics job with sample data | Microsoft Docs
+title: Test your Azure Stream Analytics job with sample data | Microsoft Docs
 description: How to test your queries in Stream Analytics jobs.
 keywords: test a job, input sampling, upload sample date
 documentationcenter: ''
