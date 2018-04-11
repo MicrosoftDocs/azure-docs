@@ -107,29 +107,54 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Workrite Domain and URLs single sign-on information](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_url.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=<uniqueid>`
-
+    in the **Identifier** text box, type a URL using the following pattern: `https://app.workrite.co.uk/<NAME>`
+    
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Workrite Client support team](mailto:support@workrite.co.uk) to get this value.
+	> These values are not real. Update these values with the actual Sign-On URL. The next step explains where to get these from within WorkRite.
+	
+4. In a different web browser window, log in to your WorkRite application as a Client Administrator.
+
+	a. Select **Management System** from the dashboard, then select **Company** from the left hand navigation menu. 
+
+	b. On the **Company** page, click the **Security** panel to view the SAML Single Sign-On configuration settings.
+
+	c. Click the **Status** toggle button to enable Single Sign-On, if not already enabled.
+	
+	d. Copy the **SP-initiated target URL** and the **Identifier URL**  and paste into the fields specified in step 3.
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_certificate.png) 
+	![The Certificate download link](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_certificate.png)
+	
+	This certificate will be in DER format - base64 encoded. WorkRite requires the certificate to be in PEM format. You can use the tool **OpenSSL** to convert this using the following command:
+	`openssl x509 -inform der -in certificate.cer -out certificate.pem`
+When correctly formatted, the certificate will look like this when viewed in a text editor:
+
+`-----BEGIN CERTIFICATE-----
+
+CERTIFICATE_GOES_HERE
+
+-----END CERTIFICATE-----`
 
 5. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-workrite-tutorial/tutorial_general_400.png)
 
-6. On the **Workrite Configuration** section, click **Configure Workrite** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **Workrite Configuration** section, click **Configure Workrite** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Workrite Configuration](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_configure.png) 
-	
-7. On the **WorkRite Configuration** section, in the **Identifier** text box, you need to enter the EntityID URL which is in the following pattern `https://app.workrite.co.uk/<NAME>`. Multiple end points are able to be chosen to sign in to WorkRite, AMS, RMS or courses. Default is the WorkRite application only.
 
-8. To configure single sign-on on **Workrite** side, you need to send the downloaded **Certificate(Base64), Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Workrite support team](mailto:support@workrite.co.uk).
+(WorkRite does support a logout URL however this must be entered by a member of the support team if you wish to utulise this.)
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
+
+Return to WorkRite, and open the **Security** panel of the **Company** admin page.
+
+Paste the **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal into the **Identity provider url (for SP-initiated redirect)** text box.
+
+Click the **Upload your X.509 certificate** button and paste the X.509 PEM encoded certificate in the box and click the **Save Changes** button on the **Security** panel header.
 
 ### Create an Azure AD test user
 
