@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Workrite | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Workrite.
+title: 'Tutorial: Azure Active Directory integration with WorkRite | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and WorkRite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,24 +17,24 @@ ms.date: 07/19/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Workrite
+# Tutorial: Azure Active Directory integration with WorkRite
 
-In this tutorial, you learn how to integrate Workrite with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate WorkRite with Azure Active Directory (Azure AD).
 
-Integrating Workrite with Azure AD provides you with the following benefits:
+Integrating WorkRite with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Workrite.
-- You can enable your users to automatically get signed-on to Workrite (Single Sign-On) with their Azure AD accounts.
+- You can control in Azure AD who has access to WorkRite.
+- You can enable your users to automatically get signed-on to WorkRite (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Workrite, you need the following items:
+To configure Azure AD integration with WorkRite, you need the following items:
 
 - An Azure AD subscription
-- A Workrite single sign-on enabled subscription
+- A WorkRite single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -48,13 +48,13 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Workrite from the gallery
+1. Adding WorkRite from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding Workrite from the gallery
-To configure the integration of Workrite into Azure AD, you need to add Workrite from the gallery to your list of managed SaaS apps.
+## Adding WorkRite from the gallery
+To configure the integration of WorkRite into Azure AD, you need to add WorkRite from the gallery to your list of managed SaaS apps.
 
-**To add Workrite from the gallery, perform the following steps:**
+**To add WorkRite from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
@@ -68,33 +68,33 @@ To configure the integration of Workrite into Azure AD, you need to add Workrite
 
 	![The New application button][3]
 
-4. In the search box, type **Workrite**, select **Workrite** from result panel then click **Add** button to add the application.
+4. In the search box, type **WorkRite**, select **WorkRite** from result panel then click **Add** button to add the application.
 
 	![Workrite in the results list](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Workrite based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with WorkRite based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Workrite is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Workrite needs to be established.
+For single sign-on to work, Azure AD needs to know what the counterpart user in WorkRite is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in WorkRite needs to be established.
 
-In Workrite, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In WorkRite, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
 
-To configure and test Azure AD single sign-on with Workrite, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with WorkRite, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Workrite test user](#create-a-workrite-test-user)** - to have a counterpart of Britta Simon in Workrite that is linked to the Azure AD representation of user.
+3. **[Create a WorkRite test user](#create-a-workrite-test-user)** - to have a counterpart of Britta Simon in WorkRite that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Workrite application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your WorkRite application.
 
-**To configure Azure AD single sign-on with Workrite, perform the following steps:**
+**To configure Azure AD single sign-on with WorkRite, perform the following steps:**
 
-1. In the Azure portal, on the **Workrite** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **WorkRite** application integration page, click **Single sign-on**.
 
 	![Configure single sign-on link][4]
 
@@ -102,7 +102,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_samlbase.png)
 
-3. On the **Workrite Domain and URLs** section, perform the following steps:
+3. On the **WorkRite Domain and URLs** section, perform the following steps:
 
 	![Workrite Domain and URLs single sign-on information](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_url.png)
 	
@@ -142,9 +142,9 @@ CERTIFICATE_GOES_HERE
 -----END CERTIFICATE-----
 
 
-8. On the **Workrite Configuration** section, click **Configure Workrite** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **WorkRite Configuration** section, click **Configure WorkRite** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Workrite Configuration](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_configure.png) 
+	![WorkRite Configuration](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_configure.png) 
 
 (WorkRite does support a logout URL however this must be entered by a member of the support team if you wish to utulise this.)
 
@@ -193,35 +193,35 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Create a Workrite test user
+### Create a WorkRite test user
 
-The objective of this section is to create a user called Britta Simon in Workrite.
+The objective of this section is to create a user called Britta Simon in WorkRite.
 
-**To create a user called Britta Simon in Workrite, perform the following steps:**
+**To create a user called Britta Simon in WorkRite, perform the following steps:**
 
-1. Sign on to your workrite company site as administrator.
+1. Sign in to WorkRite as a Client Administrator.
 
-2. In the navigation pane, click **Admin**.
+2. From the dashboard, click **Management System**.
    
     ![Admin Control][400]
 
-3. Go to Quick Links, and then click **Create a User**.
+3. Using the left hand navigation menu, select **User**
    
     ![Create User Section][401]
 
-4. On the **Create User** dialog, perform the following steps:
+4. From the **User** page, click **Create User** and complete the fields as follows:
    
     ![Create User Dailog][402]
 	
-	a. In the **Email** textbox, type the email address of user like Brittasimon@contoso.com.
+	a. In the **Email** textbox, type the email address of user like `Brittasimon@contoso.com`
 
-	b. In the **First Name** textbox, type the firstname of user like Britta.
+	b. In the **First Name** textbox, type the firstname of user like `Britta`
 
-	c. In the **Surname** textbox, type the surname of user like Simon.
+	c. In the **Surname** textbox, type the surname of user like `Simon
 	
-	d. Select **Client Administrator** as **Choose Role**.
+	d. Select `Student` as **Role Type**.
 	
-	e. Click **Save**.   
+	e. Click **Create User**.   
 
 ### Assign the Azure AD test user
 
