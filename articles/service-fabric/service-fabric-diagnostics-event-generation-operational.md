@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric Operational Channel | Microsoft Docs
-description: Comprehensive list of logs generated in the operational channel of Azure Service Fabric clusters.
+title: Azure Service Fabric Event List | Microsoft Docs
+description: Comprehensive list of events provided by Azure Service Fabric to help monitor clusters.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -13,21 +13,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 04/10/2018
 ms.author: dekapur
 
 ---
 
-# Operational channel 
+# Service Fabric events 
 
-The operational channel is the primary set of cluster events to inform you of the status of your cluster. It is based actions performed by Service Fabric on your nodes and your cluster or management decisions made by a cluster owner/operator. When "Diagnostics" is enabled for a cluster, the Azure Diagnostics agent is deployed on your cluster, and is by default configured to read in logs from the Operational channel. Read more about configuring the [Azure Diagnostics agent](service-fabric-diagnostics-event-aggregation-wad.md) to modify the diagnostics configuration of your cluster to pick up more logs or performance counters. 
+Service Fabric exposes a primary set of cluster events to inform you of the status of your cluster. These are based on actions performed by Service Fabric on your nodes and your cluster or management decisions made by a cluster owner/operator. These events can be accessed by querying the [EventStore](service-fabric-diagnostics-eventstore.md) in your cluster, or through the operational channel. On Windows machines, the operational channel is also hooked up to the EventLog - so you can see Service Fabric Events in Event Viewer. 
 
-## Operational channel events
+## List of events
 
 >[!NOTE]
->For a list of operational events for clusters in versions < 6.2, please refer to the following section. 
+>For a list of Service Fabric events for clusters in versions < 6.2, please refer to the following section. 
 
-Here is a list of all the events exposed in the operational channel, sorted by the entity that they map to.
+Here is a list of all the events exposed by the platform, sorted by the entity that they map to.
 
 ### Cluster
 
@@ -35,7 +35,7 @@ Here is a list of all the events exposed in the operational channel, sorted by t
 
 | EventId | Name | Source (Task) | Level | Version |
 | --- | --- | --- | --- | --- |
-| 29627 | ClusterUpgradeStartOperational | CM | Informational | 1 |
+| 29627 | ClusterUpgradeStartOperational | CM | Informational | c1 |
 | 29628 | ClusterUpgradeCompleteOperational | CM | Informational | 1 |
 | 29629 | ClusterUpgradeRollbackStartOperational | CM | Informational | 1 |
 | 29630 | ClusterUpgradeRollbackCompleteOperational | CM | Informational | 1 |
@@ -210,7 +210,7 @@ Here is a list of all the events exposed in the operational channel, sorted by t
 
 ## Events prior to version 6.2
 
-Here is a comprehensive list of events provided by Service Fabric in the operational channel, prior to version 6.2.
+Here is a comprehensive list of events provided by Service Fabric prior to version 6.2.
 
 | EventId | Name | Source (Task) | Level |
 | --- | --- | --- | --- |

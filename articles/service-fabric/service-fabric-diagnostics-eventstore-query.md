@@ -119,4 +119,9 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 
 ## Sample scenarios and queries
 
+Here are few examples on how you can call the Event Store REST APIs to help identify and diagnose issues in your cluster.
+
+1. Failure to update your cluster's Service Fabric version
+If you are you unable to update your cluster's version, you should start by looking at whether or not the upgrade was iniated correctly and where it failed. Use this query to see all “cluster” level events: `https://vipinrtobit.cloudapp.net:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-03-24T17:01:51Z&endtimeutc=2019-03-29T17:02:51Z`. You'll see various events, including the successful initiation of the upgrade, and the UDs for which the upgrade rolled through succesfully. You will also see events for the point at which the rollback started and corresponding health events.
+
 ## Next steps

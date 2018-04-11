@@ -240,11 +240,13 @@
     items:
     - name: Monitoring overview
       href: service-fabric-diagnostics-overview.md
-    - name: Cluster events
+    - name: Cluster monitoring
       href: service-fabric-diagnostics-event-generation-infra.md
       items:
-      - name: Operational channel
-        href: service-fabric-diagnostics-event-generation-operational.md
+      - name: Service Fabric events
+        href: service-fabric-diagnostics-events.md
+      - name: EventStore overview
+        href: service-fabric-diagnostics-eventstore.md
       - name: Reliable Services events
         href: service-fabric-reliable-services-diagnostics.md
       - name: Reliable Actors events
@@ -544,7 +546,7 @@
   - name: Monitor and diagnose
     items:
     - name: Query the EventStore
-      href: service-fabric-diagnostics-eventstore.md  
+      href: service-fabric-diagnostics-eventstore-query.md  
     - name: Analyze with OMS
       items:
       - name: Set up OMS Log Analytics
@@ -614,6 +616,8 @@
     href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
   - name: REST
     href: /rest/api/servicefabric
+  - name: Service Faric events
+    href: service-fabric-diagnostics-event-generation-operational.md
   - name: Configure cluster settings and fabric upgrade policy
     href: service-fabric-cluster-fabric-settings.md
   - name: Service model XML schema

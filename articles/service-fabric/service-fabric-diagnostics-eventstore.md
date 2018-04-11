@@ -23,24 +23,18 @@ ms.author: dekapur
 >[!NOTE]
 >As of Service Fabric version 6.2. the EventStore APIs are currently in preview for Windows clusters running on Azure only. We are working on porting this functionality to Linux as well as our Standalone clusters.
 
-The Event Store in an out-of-the-box monitoring option in Service Fabric, which provides a way for you to understand the state of your cluster or workloads at a given point in time. Service Fabric exposes several structured platform events via the Operational Channel today, but also exposes the same events through the Event Store APIs. These APIs allow you to query the cluster directly to get diagnostics data on various entities in your cluster and should be used to help:
+Introduced in version 6.2, the EventStore in an out-of-the-box monitoring option in Service Fabric, which provides a way for you to understand the state of your cluster or workloads at a given point in time. 
+The EventStore exposes Service Fabric events through APIs that you can make calls. To see a full list of events available in the EventStore, see [Service Fabric events](service-fabric-diagnostics-event-generation-operational.md). 
+
+Service Fabric events are available for each entity in your cluster. These EventStore APIs allow you to query the cluster directly to get diagnostics data on any entity in your cluster and should be used to help:
 * Diagnose issues in development or testing, where you might not have a fully baked monitoring pipeline available
 * Confirm that management actions you are taking on your cluster are being processed correctly by your cluster
 
-To see a full list of events available in the EventStore, have a look at Service Fabric's [Operational Channel events](service-fabric-diagnostics-event-generation-operational.md). 
+The EventStore also has the ability to correlate events in your cluster. By looking at events that were written at the same time from different entities that may have impacted each other, the EventStore service is able to link these events to help with identifying causes for activities in your cluster. 
+For example, if there is an unexpected change in your replica configuration, i.e., a secondary replica is unexpectedly promoted, when exposing the event for the replica, the EventStore will also look at other events exposed by the platform and correlate this with a `NodeDown` event. This means that the node hosting your primary replica went down, causing this change. Correlation helps with faster failure detection and root causes analysis.
 
-The EventStore also looks at various operations in the cluster and attempts to correlate certain activities together. For example, if there is an unexpected change in your replica configuration, i.e. a secondary replica becomes promoted to being primary because the node with your primary on it is having issues, when exposing the event for the replica, the EventStore will also look at other events exposed by the platform to attempt to connect this with a `NodeDown` event. this helps with faster failure detection and root causes analysis.
-
-The EventStore exposes events on various levels, so you can query for events for the following entities in your cluster:
-* Cluster
-* Application
-* Service
-* Partition
-* Replica 
-* Container
-
-This data is exposed through REST APIs as well as Service Fabric's client tooling. See [Query EventStore APIs for cluster events](service-fabric-diagnostics-eventstore.md) to learn how to do this.
+To get started with using the EventStore, see [Query EventStore APIs for cluster events](service-fabric-diagnostics-eventstore.md).
 
 ## Next steps
-* Learn more about monitoring and diagnostics in Service Fabric - [Monitoring and Diagnostics overview](service-fabric-diagnostics-overview.md)
-* 
+* Overview of monitoring and diagnostics in Service Fabric - [Monitoring and Diagnostics overview](service-fabric-diagnostics-overview.md)
+* Learn more about monitoring your cluster - [Platform level event and log generation](service-fabric-diagnostics-event-generation-infra.md).
