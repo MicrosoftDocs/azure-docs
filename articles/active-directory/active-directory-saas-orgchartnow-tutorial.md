@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 04/11/2018
 ms.author: jeedes
 
 ---
@@ -163,25 +163,43 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create an OrgChart Now test user
 
-To enable Azure AD users to log in to OrgChart Now, they must be provisioned into OrgChart Now. In OrgChart Now, provisioning is a manual task.
+To enable Azure AD users to log in to OrgChart Now, they must be provisioned into OrgChart Now. 
 
-**To provision a user account, perform the following steps:**
+1. OrgChart Now supports just-in-time provisioning, which is by default enabled. A new user is created during an attempt to access OrgChart Now if it doesn't exist yet. The just-in-time user provisioning feature will only create a **read-only** user when an SSO request comes from a recognized IDP and the email in the SAML assertion is not found in the user list. For this auto provisioning feature you need to create an access group titled **General** in OrgChart Now. Please follow the below steps to create an access group:
 
-1. Log in to OrgChart Now as a Security Administrator.
+	a. Go to the **Manage Groups** option after clicking the **gear** in the top right corner of the UI.
 
-2.  Click on **Settings** on the top right corner and then navigate to **Manage Users**.
+    ![OrgChart Now groups](./media/active-directory-saas-orgchartnow-tutorial/tutorial_orgchartnow_manage.png)	
+
+	b. Select the **Add** icon and name the group **General** then click **OK**. 
+
+	![OrgChart Now add](./media/active-directory-saas-orgchartnow-tutorial/tutorial_orgchartnow_add.png)
+
+	c. Select the folder(s) you wish the general or read-only users to be able to access:
+
+	![OrgChart Now folders](./media/active-directory-saas-orgchartnow-tutorial/tutorial_orgchartnow_chart.png)
+
+	d. **Lock** the folders so that only Admin users can modify them. Then press **OK**.
+
+	![OrgChart Now lock](./media/active-directory-saas-orgchartnow-tutorial/tutorial_orgchartnow_lock.png)
+
+2. To create **Admin** users and **read/write** users, you must manually create a user in order to get access to their privilege level via SSO. To provision a user account, perform the following steps:
+
+	a. Log in to OrgChart Now as a Security Administrator.
+
+	b.  Click on **Settings** on the top right corner and then navigate to **Manage Users**.
 
 	![OrgChart Now settings](./media/active-directory-saas-orgchartnow-tutorial/tutorial_orgchartnow_settings.png)
 
-3. Click on **Add** and perform the following steps:
+	c. Click on **Add** and perform the following steps:
 
 	![OrgChart Now manage](./media/active-directory-saas-orgchartnow-tutorial/tutorial_orgchartnow_manageusers.png)
 
-	a. In the **User ID** textbox, enter the User ID like **brittasimon@contoso.com**.
+	* In the **User ID** textbox, enter the User ID like **brittasimon@contoso.com**.
 
-	b. In **Email Address** text box, enter the email of user like **brittasimon@contoso.com**.
+	* In **Email Address** text box, enter the email of user like **brittasimon@contoso.com**.
 
-	c. Click **Add**.
+	* Click **Add**.
 	
 ### Assign the Azure AD test user
 
