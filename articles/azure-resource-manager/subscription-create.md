@@ -207,7 +207,7 @@ To see a full list of all parameters, see [az account create](/cli/azure/account
 
 ## Delegate access to an enrollment account using RBAC
 
-To give another user or service principal the ability to create subscriptions against a specific account, [give them an RBAC Owner or Contributor role at the scope of the enrollment account](../active-directory/role-based-access-control-manage-access-rest.md). The following example gives a user in the tenant with `principalId` of `5ac84765-1c8c-4994-94b2-629461bd191b` (for MobileOnboardingEng@contoso.com) a Contributor role on the enrollment account. 
+To give another user or service principal the ability to create subscriptions against a specific account, [give them an RBAC Owner or Owner role at the scope of the enrollment account](../active-directory/role-based-access-control-manage-access-rest.md). The following example gives a user in the tenant with `principalId` of `5ac84765-1c8c-4994-94b2-629461bd191b` (for MobileOnboardingEng@contoso.com) a Owner role on the enrollment account. 
 
 # [REST](#tab/rest)
 
@@ -221,7 +221,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   }
 }
 ```
-When the Contributor role is successfully assigned at the enrollment account scope, Azure responds with information of the role assignment:
+When the Owner role is successfully assigned at the enrollment account scope, Azure responds with information of the role assignment:
 
 ```json
 {
@@ -242,23 +242,23 @@ When the Contributor role is successfully assigned at the enrollment account sco
 
 # [PowerShell](#tab/azure-powershell)
 
-Use the [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell#grant-access) to give another user Contributor access to your enrollment account.
+Use the [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell#grant-access) to give another user Owner access to your enrollment account.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ObjectId 5ac84765-1c8c-4994-94b2-629461bd191b -Scope /providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556
+New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId 5ac84765-1c8c-4994-94b2-629461bd191b -Scope /providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli#assign-access) to give another user Contributor access to your enrollment account.
+Use the [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli#assign-access) to give another user Owner access to your enrollment account.
 
 ```azurecli-interactive 
-az role assignment create --role Contributor --assignee-object-id 5ac84765-1c8c-4994-94b2-629461bd191b --scope /providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556
+az role assignment create --role Owner --assignee-object-id 5ac84765-1c8c-4994-94b2-629461bd191b --scope /providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556
 ```
 
 ----
 
-Once a user becomes a Contributor for your enrollment account, they can programmatically create subscriptions under it. A subscription created by a delegated user still has the original Account Owner as Service Admin, but it also has the delegated user as an Owner by default. 
+Once a user becomes a Owner for your enrollment account, they can programmatically create subscriptions under it. A subscription created by a delegated user still has the original Account Owner as Service Admin, but it also has the delegated user as an Owner by default. 
 
 ## Audit who created subscriptions
 
