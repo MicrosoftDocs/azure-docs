@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Ruby | Microsoft Docs
-description: In this quickstart, you create a storage account and a container. Then you use the storage client library for Ruby to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+title: Azure Quickstart - Create a blob in object storage using Ruby | Microsoft Docs
+description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Ruby to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: seguler
 ---
 
