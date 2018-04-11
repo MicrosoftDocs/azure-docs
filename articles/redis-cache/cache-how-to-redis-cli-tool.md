@@ -33,7 +33,7 @@ You can gather the information needed to access the cache using three methods
 2. Azure PowerShell using [Get-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Get-AzureRmRedisCacheKey?view=azurermps-4.4.1)
 3. Using the Azure portal.
 
-In this section we will demonstrate how to retrieve the keys from the Azure portal.
+In this section, you will retrieve the keys from the Azure portal.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
