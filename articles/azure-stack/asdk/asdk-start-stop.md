@@ -34,7 +34,7 @@ To properly shut down the Azure Stack host computer and ASDK services, run the f
   ```powershell
   Stop-AzureStack
   ```
-5. Review the PowerShell output to ensure all Azure Stack services are successfully shutdown. The shutdown process will take several minutes. The output should look similair to the following before the ASDK host computer shuts down:
+5. Review the PowerShell output to ensure all Azure Stack services are successfully shut down. The shutdown process takes several minutes. The output should look similar to the following before the ASDK host computer shuts down:
 
 ## Start Azure Stack 
 ASDK services should start automatically when the host computer is started. However, ASDK infrastructure services startup time varies based on the performance of the ASDK host computer hardware configuration. It can take several hours for all services to successfully restart in some cases.
@@ -52,7 +52,7 @@ Regardless of how the ASDK was shut down, you should use the following steps to 
   ```powershell
   Get-ActionStatus Start-AzureStack
   ```
-6. Review the output to ensure that Azure Stack services have restarted succesfully.
+6. Review the output to ensure that Azure Stack services have restarted successfully.
 
 To learn more about the recommended procedures to properly shut down and restart Azure Stack services, see [Start and stop Azure Stack](.\.\azure-stack-start-and-stop.md). 
 
