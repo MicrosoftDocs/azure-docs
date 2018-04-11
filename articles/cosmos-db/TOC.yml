@@ -8,8 +8,6 @@ items:
     items:
     - name: About Azure Cosmos DB
       href: introduction.md
-    - name: Documentation experiment
-      href: experiment.md
   - name: Quickstarts
     expanded: true
     items:
@@ -166,7 +164,7 @@ items:
     - name: Security
       href: database-security.md
     - name: TCO
-      href: https://aka.ms/documentdb-tco-paper
+      href: https://aka.ms/cosmosdb-tco-paper
     - name: Use cases
       href: use-cases.md
       items:
@@ -186,13 +184,15 @@ items:
         - name: SQL query performance
           href: sql-api-sql-query-metrics.md        
         - name: SQL playground
-          href: https://www.documentdb.com/sql/demo
-        - name: Partitioning
+          href: https://aka.ms/cosmos-db-playground
+        - name: SQL data partitioning
           href: sql-api-partition-data.md
         - name: Stored procedures, triggers, and UDFs
           href: programming.md
         - name: Performance testing
           href: performance-testing.md
+        - name: Performance tips for Async Java
+          href: performance-tips-async-java.md
         - name: Performance tips for .NET
           href: performance-tips.md
         - name: Performance tips for Java
@@ -288,6 +288,8 @@ items:
         items:
         - name: Gremlin support
           href: gremlin-support.md
+        - name: Graph partitioning
+          href: graph-partitioning.md
       - name: Table API
         items:
         - name: Table development
@@ -330,8 +332,6 @@ items:
         href: geospatial.md
       - name: Indexing
         href: indexing-policies.md
-      - name: Connected Service in Visual Studio
-        href: connected-service.md
     - name: Manage
       items:
       - name: Cost-effective reads and writes
@@ -380,23 +380,23 @@ items:
       - name: Application logging with Logic Apps
         href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
       - name: Bind to Azure Functions
-        href: ../azure-functions/functions-bindings-documentdb.md
+        href: ../azure-functions/functions-bindings-cosmosdb.md
       - name: Integrate with Azure Search
-        href: ../search/search-howto-index-documentdb.md
+        href: ../search/search-howto-index-cosmosdb.md
       - name: Move data with Azure Data Factory
         href: ../data-factory/connector-azure-cosmos-db.md
       - name: Analyze real-time data with Azure Stream Analytics
-        href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
+        href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
       - name: Get changed HL7 FHIR record using Logic Apps
         href: change-feed-hl7-fhir-logic-apps.md
       - name: Process sensor data in real time
-        href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+        href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Visualize your data with Power BI
         href: powerbi-visualize.md
       - name: Leverage the ODBC driver for data visualization
         href: odbc-driver.md
       - name: Use Spring Boot Starter with SQL APIs
-        href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+        href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
   - name: Reference
     items:
     - name: Code samples

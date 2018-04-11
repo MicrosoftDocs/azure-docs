@@ -52,7 +52,7 @@ Before you prepare your environment, be sure to understand these limitations:
 * Backup data doesn't include network mounted drives attached to a VM.
 * Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 * Cross-region back up and restore are not supported.
-* Backing up and restoring virtual machines using unmanaged disks in storage accounts with network rules applied, is not supported. 
+* Backing up and restoring virtual machines using unmanaged disks in storage accounts with network rules applied, is not supported for customers on the old VM backup stack. 
 * While configuring back up, make sure the **Firewalls and virtual networks** storage account settings allow access from All networks.
 * You can back up virtual machines in all public regions of Azure. (See the [checklist](https://azure.microsoft.com/regions/#services) of supported regions.) If the region that you're looking for is unsupported today, it will not appear in the drop-down list during vault creation.
 * Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. To learn more, see [Restoring a multi-DC domain controller](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
