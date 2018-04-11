@@ -1,7 +1,7 @@
 ---
 
 title: Allow or block invitations to B2B users from specific domains - Azure Active Directory | Microsoft Docs
-description: Shows how an admin can add guest users to their directory from a partner organization using Azure Active Directory (Azure AD) B2B collaboration.
+description: Shows how an administrator can use the Azure portal or PowerShell to set an access or deny list to allow or block B2B users from certain domains.
 services: active-directory
 documentationcenter: ''
 author: twooley
@@ -30,10 +30,10 @@ You can use an allow list or a deny list to allow or block invitations to B2B us
 
 ## Important considerations
 
- - You can create either an allow list or a block list. You can't set up both types of lists. By default, whatever domains are not in the allow list are on the block list, and vice versa. 
+- You can create either an allow list or a deny list. You can't set up both types of lists. By default, whatever domains are not in the allow list are on the deny list, and vice versa. 
 - You can create only one policy per organization. You can update the policy to include more domains, or you can delete the policy to create a new one. 
-- This list works independently from OneDrive for Business and SharePoint Online allow/block lists. If you want to restrict individual file sharing in SharePoint Online, you would need to set up an allow or deny list for OneDrive for Business and SharePoint Online. For more information, see [Restricted domains sharing in SharePoint Online and OneDrive for Business](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
-- This list doesn’t apply to already-added external users. The list will be enforced for all external users that are added after the list is set up. If an invitation is in a pending state when you set the policy, the user's attempt to redeem the invitation will fail.
+- This list works independently from OneDrive for Business and SharePoint Online allow/block lists. If you want to restrict individual file sharing in SharePoint Online, you need to set up an allow or deny list for OneDrive for Business and SharePoint Online. For more information, see [Restricted domains sharing in SharePoint Online and OneDrive for Business](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
+- This list does not apply to already-added external users. The list will be enforced for all external users that are added after the list is set up. If a user invitation is in a pending state, and you set a policy that blocks their domain, the user's attempt to redeem the invitation will fail.
 
 ## Set the allow or deny list policy in the portal
 
@@ -41,15 +41,15 @@ By default, the **Allow invitations to be sent to any domain (most inclusive)** 
 
 ### Add a deny list
 
-This is the most typical scenario, where your organization wants to work with any organization, but wants to prevent users from specific organizations and domains to be invited to your organization.
+This is the most typical scenario, where your organization wants to work with almost any organization, but wants to prevent users from specific domains to be invited as B2B users.
 
 To add a deny list:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory**> **Users** > **User settings**.
+2. Select **Azure Active Directory** > **Users** > **User settings**.
 3. Under **External users**, select **Manage external collaboration settings**.
 4. Under **Collaboration restrictions**, select **Deny invitations to the specified domains**.
-6. Under **TARGET DOMAINS**, enter the name of one of the domains that you want to block. For multiple domains, enter each domain on a new line.
+5. Under **TARGET DOMAINS**, enter the name of one of the domains that you want to block. For multiple domains, enter each domain on a new line.
 
    ![Shows the deny option with added domains](/media/active-directory-b2b-allow-deny-list/DenyListSettings.png)
  
@@ -64,7 +64,7 @@ After you set the policy, if you try to invite a user from a blocked domain, you
 
 This is a more restrictive configuration, where you can set specific domains in the allow list and restrict invitations to any other organizations or domains that aren't mentioned. 
 
-If you want to use an allow list, make sure that you first spend time to fully evaluate what your business needs. If you make this policy too restrictive, your users may choose to send documents over email or find other non-IT sanctioned ways of collaborating.
+If you want to use an allow list, make sure that you spend time to fully evaluate what your business needs. If you make this policy too restrictive, your users may choose to send documents over email, or find other non-IT sanctioned ways of collaborating.
 
 ### Switch from allow to deny list and vice versa 
 
@@ -83,6 +83,7 @@ To check the version of the module (and see if it's installed):
    ````powershell  
    Get-Module -ListAvailable AzureAD*
    ````
+
 If the module is not installed, or you don't have a required version, do one of the following:
 
 - If no results are returned, run the following command to install the latest version of the AzureADPreview module:
@@ -113,7 +114,7 @@ If the module is not installed, or you don't have a required version, do one of 
 
 ### Use the AzureADPolicy cmdlets to configure the policy
 
-To create an allow or deny list, use the [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet. The following example shows how to set an example deny list that blocks the "live.com" domain.
+To create an allow or deny list, use the [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet. The following example shows how to set a deny list that blocks the "live.com" domain.
 
 ````powershell  
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
