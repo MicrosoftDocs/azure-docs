@@ -104,27 +104,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Secret Server (On-Premises) Domain and URLs single sign-on information](./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_secretserver_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://secret.cyber.guru`
+    a. In the **Identifier** textbox, enter the user chosen value as an example: `https://secretserveronpremises.azure`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.secretserver.life/secretserver/SAML/AssertionConsumerService.aspx`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
 
 	> [!NOTE]
-	> Choose an Entity ID for your Secret Server instance. This can be anything and is used to uniquely identify your Secret Server instance to the IdP. The preceding identifier values is one example is to use the URL of your Secret Server instance.
+	> Choose an Entity ID for your Secret Server instance. This can be anything and is used to uniquely identify your Secret Server instance to the IdP. You need to send the identifier value to [Secret Server (On-Premises) Client support team](https://thycotic.force.com/support/s/) for more information refer [this](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server)
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Secret Server (On-Premises) Domain and URLs single sign-on information](./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_secretserver_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.secretserver.life/secretserver/login.aspx`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SecretServerURL>/login.aspx`
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Secret Server (On-Premises) Client support team](https://thycotic.force.com/support/s/) to get these values.
 
-5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the metadata file on your computer.
+5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_secretserver_certificate.png)
 
-6. Check **Show advanced certificate Signing settings** and select **Signing Option** as **Sign SAML response and assertion**.
+6. Check **Show advanced certificate signing settings** and select **Signing Option** as **Sign SAML response and assertion**.
 
 	![Signing options](./media/active-directory-saas-secretserver(on-premises)-tutorial/signing.png)
 7. Click **Save** button.
