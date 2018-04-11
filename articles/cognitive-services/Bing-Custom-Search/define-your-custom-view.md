@@ -40,7 +40,7 @@ File Upload details:
 - File upload is available only for adding slices to the Active list, you cannot use it to add slices to the Blocked list. 
 - Create a text file and specify a single domain, subpage, or webpage per line. The entire upload is rejected if an error occurs. 
 - If the Blocked list contains the domain, subpage, or webpage that you specified in the upload file, the service removes it from the Blocked list and adds it to the Active list. 
-- The service ignores duplicates found in the upload file.
+- The service ignores duplicates in the upload file.
 
 To edit or delete slices, use the options under the Controls column. 
 
@@ -53,7 +53,7 @@ For information about pinning results, see [Adjust Rank](#adjustrank).
 ## Site suggestions
 After adding slices to the Active list, the service generates site and subpage suggestions that you might want to add to your search. The **You might want to add** section contains the suggestions. The instance settings page includes this section only if suggestions are available. 
 
-To add suggestions to your Active list, click the + icon.  Because the service generates suggestions base on your settings, be sure to click **Refresh** after adding the suggestions. 
+To add suggestions to your Active list, click the + icon.  Because the service generates suggestions based on your settings, be sure to click **Refresh** after adding the suggestions. 
 
 ## Preview pane
 At any time, you can test out your search instance by using the preview pane. This pane mimics the results that the instance would return for a specific query. You can also review Bing results by switching to Bing using the My Instance drop-down button next to the search button. 
@@ -75,7 +75,7 @@ You can super boost, boost, or demote any domain or subpage in your Active list.
 
 It is important to note that super boost, boost, and demote give respective weight variants to the domains or subpages. This is just one of many signals used by the ranker to determine the order of the results. This means that their effect for a specific query is not guaranteed as many other factors might influence the overall ranking of the web results.  To determine the possible effect that boosting or demoting has on the ranker, test the search experience using the Preview pane.
 
-You can super boost, boost, or demote items by using the Ranking Adjust controls in the Active list or by using the Boost and Demote controls exposed in the Preview pane. The service adds the slice to your Active list and adjust the ranking accordingly.
+You can super boost, boost, or demote items by using the Ranking Adjust controls in the Active list or by using the Boost and Demote controls in the Preview pane. The service adds the slice to your Active list and adjusts the ranking accordingly.
 
 Super boost, boost, and demote changes are automatically saved and reflect instantly against your custom search endpoint. 
 
@@ -101,14 +101,21 @@ But if you’re not sure which slices to include, you can run Bing queries in th
 
 Follow these steps to use Bing to add slices to your Custom Search instance. 
 1.	Sign in to Bing Custom Search [portal](https://customsearch.ai).
-2.	Create an instance or select an instance to update .
+2.	Create an instance or select an instance to update.
 3.	In the Preview pane on the right side, select Bing from the dropdown list.
 4.	In the search box, enter a query term that’s relevant for your instance.
 5.	Click **Add site** next to the result you want to include.
 6.	Click the **Ok** button.
 
+## Share your instance
+You can share your instance at any time. Click **Settings**, enter the email address of the person to share your instance with and click **Share**. The email address is shown in the list titled **Instance shared with**. Repeat for each person you want to share with.
+
+After you share an instance with someone, they'll see the instance in their list of custom search instances.
+
+To stop sharing an instance with someone, use the remove icon to remove their email address from the list.
+
 ## Publish or discard
-Changes you make to a Custom Search instance are made in **Staging** so you can validate your changes. When you are done making changes and ready to publish, click on **Publish**. When you publish your changes, all new query results will be served using your new configuration.
+Changes you make to a Custom Search instance are made in **Staging** so you can validate your changes. When you're done making changes and ready to publish, click on **Publish**. After you publish your changes, all new query results will be served using your new configuration.
 
 If you decide that you don't want to keep the changes you've made, click **Discard**. When you discard your changes the production configuration remains unchanged and the staging environment will revert to match production.
 
