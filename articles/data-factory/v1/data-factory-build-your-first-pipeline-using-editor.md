@@ -78,7 +78,7 @@ To create a data factory, follow these steps:
 8. Select **Create**.
 
    > [!IMPORTANT]
-   > To create Data Factory instances, you must be a member of the [Data Factory contributor](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
+   > To create Data Factory instances, you must be a member of the [Data Factory contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
    >
    >
 9. On the dashboard, you see the following tile with the status **Deploying Data Factory**:    
