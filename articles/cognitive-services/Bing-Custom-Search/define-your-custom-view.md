@@ -120,7 +120,7 @@ Changes you make to a Custom Search instance are made in **Staging** so you can 
 If you decide that you don't want to keep the changes you've made, click **Discard**. When you discard your changes the production configuration remains unchanged and the staging environment will revert to match production.
 
 ## View statistics
-If you subscribed at the **S2 Tier** or above, a **Statistics** tab is added to your production instances. The statistics tab shows details about **Endpoint Hits**, **Query Hits**, and **Top Queries**. You can filter details to a specific time period using the provided calendar controls.
+If you subscribed at the **S2 Tier** or above (see the [pricing pages](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/)), a **Statistics** tab is added to your production instances. The statistics tab shows details about **Endpoint Hits**, **Query Hits**, and **Top Queries**. You can filter details to a specific time period using the provided calendar controls.
 
 ## Understanding Quota
 - For each custom search instance, the maximum number of ranking adjustments that you may make to **Active** and **Blocked** slices is limited to 400.
