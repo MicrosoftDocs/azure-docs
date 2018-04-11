@@ -4796,6 +4796,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/connected-service.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
             "redirect_document_id": false
@@ -7533,6 +7538,21 @@
         {
             "source_path": "articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
             "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-manage-nsg-arm-cli.md",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-manage-nsg-arm-ps.md",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-manage-nsg-arm-portal.md",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
             "redirect_document_id": false
         },
         {
