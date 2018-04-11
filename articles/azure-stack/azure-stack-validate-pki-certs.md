@@ -21,7 +21,7 @@ ms.reviewer: ppacent
 
 The Azure Stack Readiness Checker tool described in this article is available [from the PSGallery](https://aka.ms/AzsReadinessChecker). You can use the tool to validate that  the [generated PKI certificates](azure-stack-get-pki-certs.md) are suitable for pre-deployment. You should validate certificates by leaving  enough time to test and reissue certificates if necessary.
 
-The Certificate Checker tool (Certchecker) performs the following checks:
+The Readiness Checker tool performs the following certificate validations:
 
 - **Read PFX**  
     Checks for valid PFX file, correct password, and warns if public information is not protected by the password. 
@@ -41,8 +41,6 @@ The Certificate Checker tool (Certchecker) performs the following checks:
     Checks the order of the other certificates making the chain is correct.
 - **Other Certificates**  
     Ensure no other certificates have been packaged in PFX other than the relevant leaf certificate and its chain.
-- **No Profile**  
-    Checks that a new user can load the PFX data without a user profile loaded, mimicking the behavior of gMSA accounts during certificate servicing.
 
 > [!IMPORTANT]  
 > The PKI certificate is a PFX file and password should be treated as sensitive information.
