@@ -87,7 +87,9 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     ![Service information](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
 2. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system](https://pip.pypa.io/en/stable/installing/).
-    - If you are using Windows OS, also install the [Visual C++ redistributable package](http://www.microsoft.com/download/confirmation.aspx?id=48145) to allow the use of native DLLs from Python.
+    
+    > [!NOTE] 
+    > If you are using Windows, also install the [Visual C++ Redistributable for Visual Studio 2015](http://www.microsoft.com/download/confirmation.aspx?id=48145). The pip packages require the redistributable in order to load/execute the C DLLs.
 
 3. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
 
