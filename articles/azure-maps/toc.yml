@@ -1,12 +1,12 @@
-- name: Azure Location Based Services Documentation 
+- name: Azure Maps Documentation 
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Location Based Services
-    href: about-location-based-services.md
+  - name: About Azure Maps
+    href: about-azure-maps.md
 - name: Quickstarts
   items:
-  - name: Map app using Location Based Services
+  - name: Create a map app
     href: quick-demo-map-app.md
 - name: Tutorials
   items:
@@ -65,9 +65,9 @@
 - name: Reference
   items:
   - name: Services API - REST
-    href: https://docs.microsoft.com/rest/api/location-based-services/
+    href: https://docs.microsoft.com/rest/api/azure-maps/
   - name: Map Control API - Javascript
-    href: https://docs.microsoft.com/javascript/api/location-based-services-javascript/
+    href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
 - name: Resources
   items:
   - name: Azure IoT Developer Center
@@ -77,7 +77,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/location-based-services
+    href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
