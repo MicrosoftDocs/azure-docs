@@ -16,15 +16,15 @@ ms.author: mbullwin ; daviste
 
 # Application Insights Cohorts
 
-A cohort is a set of users, sessions, events, or operations that have something in common. In Azure Application Insights cohorts are defined by an Analytics query. If you find your yourself entering the same filters and time ranges repeatedly, cohorts offer a more flexible alternative. They also can be shared within an Application Insights resource, allowing your whole team to benefit.
+A cohort is a set of users, sessions, events, or operations that have something in common. In Azure Application Insights cohorts are defined by an Analytics query. If you find yourself analyzing a specific set of users or events repeatedly, cohorts can give you even more flexibility to express exactly the set you’re interested in.
 
 ![Cohorts pane](.\media\app-insights-usage-cohorts\001.png)
 
 ## Cohorts versus basic filters
 
-While cohorts are used in similar ways as filters, the fact that a cohort's definition is built from custom Analytics queries allows them to be far more adaptable and complex.
+While cohorts are used in similar ways as filters, the fact that a cohort's definition is built from custom Analytics queries allows them to be far more adaptable and complex. Unlike filters, you can save cohorts so other members of your team can reuse them.
 
-You might define a cohort of users that have all tried a new feature in your app. This cohort is a kind of bookmark, making it easy for you to filter to this group of users in the future.
+You might define a cohort of users that have all tried a new feature in your app. With this cohort saved in your Application Insights resource, it makes analyzing this specific group of users in the future one click away.
 
 > [!NOTE]
 > Once created, cohorts are available from the Users, Sessions, Events, and User Flows tools.
