@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/12/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 
@@ -31,11 +31,6 @@ The **AzureRM.Bootstrapper** module that is available through the PowerShell Gal
 
 ```PowerShell
 Install-Module -Name AzureRm.BootStrapper
-```
-The AzureRM.Bootstrapper module is in preview; details and functionality are subject to change. To download and install the latest version of this module from the PowerShell Gallery, run the following cmdlet:
-
-```PowerShell
-Update-Module -Name "AzureRm.BootStrapper"
 ```
 
 ## Install a profile
