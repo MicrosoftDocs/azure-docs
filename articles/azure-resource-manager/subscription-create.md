@@ -242,7 +242,7 @@ When the Owner role is successfully assigned at the enrollment account scope, Az
 
 # [PowerShell](#tab/azure-powershell)
 
-Use the [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md#grant-access) to give another user Owner access to your enrollment account.
+Use the [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) to give another user Owner access to your enrollment account.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId 5ac84765-1c8c-4994-94b2-629461bd191b -Scope /providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556
@@ -250,7 +250,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId 5ac84765-1c8c-4994
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli.md#assign-access) to give another user Owner access to your enrollment account.
+Use the [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli.md) to give another user Owner access to your enrollment account.
 
 ```azurecli-interactive 
 az role assignment create --role Owner --assignee-object-id 5ac84765-1c8c-4994-94b2-629461bd191b --scope /providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556
