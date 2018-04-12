@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: DevTiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.author: DevTiw
 
 ---
 # Azure Disk Encryption troubleshooting guide

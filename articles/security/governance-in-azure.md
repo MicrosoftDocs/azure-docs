@@ -146,7 +146,7 @@ When Azure was initially released, access controls to a subscription were basic:
 
 This proliferation of subscriptions is no longer needed. With role-based access control, you can assign users to standard roles (such as common "reader" and "writer" types of roles). You can also define custom roles.
 
-[Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. Security-oriented companies should focus on giving employees the exact permissions they need. Too many permissions expose an account to attackers. Too few permissions mean that employees can't get their work done efficiently. Azure Role-Based Access Control (RBAC) helps address this problem by offering fine-grained access management for Azure. RBAC helps you to segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions.
+[Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. Security-oriented companies should focus on giving employees the exact permissions they need. Too many permissions expose an account to attackers. Too few permissions mean that employees can't get their work done efficiently. Azure Role-Based Access Control (RBAC) helps address this problem by offering fine-grained access management for Azure. RBAC helps you to segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions.
 
 For example, use RBAC to let one employee manage virtual machines in a subscription, while another can manage SQL databases within the same subscription.
 
@@ -160,7 +160,7 @@ Azure RBAC has three basic roles that apply to all resource types:
 
 The rest of the RBAC roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the virtual network or the subnet that the virtual machine connects to.
 
-[RBAC built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) lists the roles available in Azure. It specifies the operations and scope that each built-in role grants to users.
+[RBAC built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) lists the roles available in Azure. It specifies the operations and scope that each built-in role grants to users.
 
 Grant access by assigning the appropriate RBAC role to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource. A role assigned at a parent scope also grants access to the children contained within it.
 
@@ -168,9 +168,9 @@ For example, a user with access to a resource group can manage all the resources
 
 Azure RBAC only supports management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. It cannot authorize all data level operations for Azure resources. For example, you can authorize someone to manage Storage Accounts, but not to the blobs or tables within a Storage Account cannot. Similarly, a SQL database can be managed, but not the tables within it.
 
-If you want more details about how RBAC helps you manage access, see [What is Role-Based Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+If you want more details about how RBAC helps you manage access, see [What is Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-You can also [create a custom role](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli), and the [REST API](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest). Just like built-in roles, custom roles can be assigned to users, groups, and applications at subscription, resource group, and resource scopes.
+You can also [create a custom role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), and the [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Just like built-in roles, custom roles can be assigned to users, groups, and applications at subscription, resource group, and resource scopes.
 
 Within each subscription, you can grant up to 2000 role assignments.
 
@@ -270,7 +270,7 @@ Applying **ReadOnly** can lead to unexpected results because some operations tha
 
 For another example, placing a ReadOnly lock on an App Service resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
 
-Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure Role-based Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure Role-based Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
 
