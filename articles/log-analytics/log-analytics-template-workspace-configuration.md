@@ -49,59 +49,59 @@ The following parameters set a default value:
 
 1. Copy and paste the following JSON syntax into your file:
 
-        ```json
+    ```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String",
+			"metadata": {
+              "description": "Specifies the name of the workspace."
+            }
+        },
+        "location": {
+            "type": "String",
+			"allowedValues": [
+			  "eastus",
+			  "westus"
+			],
+			"defaultValue": "eastus",
+			"metadata": {
+			  "description": "Specifies the location in which to create the workspace."
+			}
+        },
+        "sku": {
+            "type": "String",
+			"allowedValues": [
+              "Standalone",
+              "PerNode",
+		      "PerGB2018"
+            ],
+			"defaultValue": "PerGB2018",
+	        "metadata": {
+            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
+		}
+          },
+    },
+    "resources": [
         {
-            "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {
-                "workspaceName": {
-                   "type": "String",
-			             "metadata": {
-                     "description": "Specifies the name of the workspace."
-                    }
-               },
-              "location": {
-                  "type": "String",
-			            "allowedValues": [
-			              "eastus",
-			               "westus"
-			            ],
-			            "defaultValue": "eastus",
-			            "metadata": {
-			               "description": "Specifies the location in which to create the workspace."
-			            }
-              },
-              "sku": {
-                  "type": "String",
-			              "allowedValues": [
-                      "Standalone",
-                      "PerNode",
-		                 "PerGB2018"
-                    ],
-			             "defaultValue": "PerGB2018",
-	                 "metadata": {
-                     "description": "Specifies the service tier of the workspace: Standalone, PerNode, or Per-GB in 2018 pricing model"
-		               }
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2017-03-15-preview",
+            "location": "[parameters('location')]",
+            "properties": {
+                "sku": {
+                    "Name": "[parameters('sku')]"
                 },
-             },
-             "resources": [
-                {
-                   "type": "Microsoft.OperationalInsights/workspaces",
-                   "name": "[parameters('workspaceName')]",
-                   "apiVersion": "2017-03-15-preview",
-                   "location": "[parameters('location')]",
-                   "properties": {
-                       "sku": {
-                          "Name": "[parameters('sku')]"
-                       },
-                    "features": {
-                       "searchVersion": 1
-                    }
-                  }
-               }
-            ]
-         }
-        ```
+                "features": {
+                    "searchVersion": 1
+                }
+            }
+          }
+       ]
+    }
+    ```
 2. Edit the template to meet your requirements.  Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
 4. You are ready to deploy this template. You use either PowerShell or the command line to cretae the workspace.
