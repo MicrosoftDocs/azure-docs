@@ -98,11 +98,13 @@ Select this trigger: **When events are available in Event Hub**
 3. Select the Event Hub to monitor, and set up the interval and frequency for when to check the Event Hub.
 
     ![Specify Event Hub or consumer group](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
-
+    
     > [!NOTE]
-    > All Event Hub triggers are **long-polling** triggers, which means that when a trigger fires, the trigger processes all the events
+    > All Event Hub triggers are **long-polling** triggers, which means that when a trigger fires, 
+    > the trigger processes all the events
     > and then waits for 30 seconds for more events to appear in the Event Hub.
-    > If no events are received in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading events until Event Hub is empty.
+    > If no events are received in 30 seconds, the trigger run is skipped. Otherwise, 
+    > the trigger continues reading events until Event Hub is empty.
     > The next trigger poll is based on the recurrence interval specified in the trigger's properties.
 
 
@@ -114,9 +116,9 @@ Select this trigger: **When events are available in Event Hub**
     | --- | --- |
     | Content type  |Enter content type. |
     | Content schema |Enter content schema. |
-    | Consume group name |Enter the Event Hub consumer group name for reading the events. When it's not specified, default consumer group is used.|
-    | Minimum partition key |Enter the minimum partition ID to read. By default, all partitions are read.|
-    | Maximum partition key |Enter the maximum partition ID to read. By default, all partitions are read.|
+    | Consume group name |Enter the Event Hub consumer group name for reading the events. When it's not specified, default consumer group is used. |
+    | Minimum partition key |Enter the minimum partition ID to read. By default, all partitions are read. |
+    | Maximum partition key |Enter the maximum partition ID to read. By default, all partitions are read. |
     | Maximum events count |Enter the count for maximum number of events. The trigger returns between one and the number of events specified by this property. |
 
 
