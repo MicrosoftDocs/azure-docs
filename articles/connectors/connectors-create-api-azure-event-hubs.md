@@ -102,17 +102,17 @@ and set up the interval and frequency for when to check the Event Hub.
 
 
     > [!NOTE]
-    > All Event Hub triggers are **long-polling** triggers, which means that when a trigger fires, the trigger processes all the messages
-    > and then waits for 30 seconds for more messages to appear in the queue or topic subscription.
-    > If no messages are received in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty.
+    > All Event Hub triggers are **long-polling** triggers, which means that when a trigger fires, the trigger processes all the events
+    > and then waits for 30 seconds for more events to appear in the Event Hub.
+    > If no events are received in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading events until Event Hub is empty.
     > The next trigger poll is based on the recurrence interval specified in the trigger's properties.
 
 
 4. To optionally select some of the advanced trigger options, choose **Show advanced options**.
 
    ![Trigger advanced options](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
- 
-     
+
+
    | Property | Details |
    | --- | --- |
    | Content type  |Enter content type. |
