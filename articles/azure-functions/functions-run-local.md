@@ -31,78 +31,7 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 [Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local development computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. There are two versions of Azure Functions Core Tools:
 
 + [Version 1.x](#v1): supports version 1.x of the runtime. This version is only supported on Windows computers and is installed from an [npm package](https://docs.npmjs.com/getting-started/what-is-npm).
-+ [Version 2.x](#v2): supports version 2.x of the runtime. This version supports all major platforms and uses platform-specific package managers or [npm](#npm) for installation. 
-
-### <a name="v2"></a>Version 2.x
-
->[!NOTE]
-> Azure Functions runtime 2.0 is in preview, and currently not all features of Azure Functions are supported. For more information, see [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
-
-Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports. Use this version for cross-platform development and when the Functions runtime 2.x is required. 
-
->[!IMPORTANT]   
-> Before installing Azure Functions Core Tools, install .NET Core 2.0 for [Windows](https://www.microsoft.com/net/download/windows), [Linux](https://www.microsoft.com/net/download/linux), or [macOS](https://www.microsoft.com/net/download/macos).  
-
-#### MacOS with Homebrew
-
-Use the following commands to install Core Tools on macOS using [Homebrew](https://brew.sh/):
-
-```bash
-brew tap azure/functions
-brew install azure-functions-core-tools 
-```
-
-#### Linux distributions
-
-Use the following steps to install Core Tools on your Linux distribution:
-
-1. Register the Microsoft product key as trusted:
-
-  ```bash
-  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-  ```
-
-2.  Set up the package feed, replacing `<version>` in the following code with the appropriate version name from the table below:
-
-  ```bash
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
-  sudo apt-get update
-  ```
-
-  | Linux distribution | `<version>` |
-  | --------------- | ----------- |
-  | Ubuntu 17.10    | `artful`    |
-  | Ubuntu 17.04    | `zesty`     |
-  | Ubuntu 16.04/Linux Mint 18    | `xenial`     |
-
-3. Install the Core Tools package:
-
-  ```bash
-  sudo apt-get install azure-functions-core-tools
-  ```
-
-#### <a name="npm"></a>Windows and npm 
-
-You must use npm to install version 2.x of the Core Tools on Windows. You can also use npm to install on Linux or macOS. Before you install the tools, you must [install Node.js](https://docs.npmjs.com/getting-started/installing-node), which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
-
- Use the following command to install the version 2.0 tools on Windows:
-
-```bash
-npm install -g azure-functions-core-tools@core
-```
-
-When installing on Ubuntu use `sudo`, as follows:
-
-```bash
-sudo npm install -g azure-functions-core-tools@core
-```
-
-When installing on macOS and Linux, you may need to include the `unsafe-perm` flag, as follows:
-
-```bash
-sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
-```
++ [Version 2.x](#v2): supports version 2.x of the runtime. This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or [npm][npm package] for installation. 
 
 ### <a name="v1"></a>Version 1.x
 
@@ -113,6 +42,154 @@ Use the following command to install the version 1.x tools:
 ```bash
 npm install -g azure-functions-core-tools
 ```
+
+### <a name="v2"></a>Version 2.x
+
+>[!NOTE]
+> Azure Functions runtime 2.0 is in preview, and currently not all features of Azure Functions are supported. For more information, see [Azure Functions versions](functions-versions.md) 
+
+Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux).
+
+#### <a name="windows-npm"></a>Windows
+
+The following steps use npm to install Core Tools on Windows. 
+
+1. Install [.NET Core 2.0 for Windows](https://www.microsoft.com/net/download/windows).
+
+2. Install [Node.js], which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
+
+3. Install the Core Tools package:
+
+  ```bash
+  npm install -g azure-functions-core-tools@core
+  ```
+
+#### <a name="brew"></a>MacOS with Homebrew
+
+The following steps use Homebrew to install the Core Tools on macOS. You can also [use npm](#mac-npm).
+
+1. Install [.NET Core 2.0 for macOS](https://www.microsoft.com/net/download/macos).
+
+1. Install [Homebrew](https://brew.sh/), if it's not already installed.
+
+2. Install the Core Tools package:
+
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools 
+    ```
+
+#### <a name="mac-npm"></a>MacOS with npm
+
+The following steps use npm to install the Core Tools on macOS.
+
+1. Install [.NET Core 2.0 for macOS](https://www.microsoft.com/net/download/macos).
+ 
+2. Install [Node.js], which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
+
+3. Install the Core Tools package:
+
+  ```bash
+  sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+  ```
+
+#### <a name="linux"></a> Linux distributions
+
+Different Linux distributions use different package managers. Core Tools can be installed by using [APT (Ubuntu/Debian)](#linux-apt), [yum (Red Hat/Fedora/CentOS)](#linux-yum), and [zypper (openSUSE)](#linux-zypper). You can also [use npm](#linux-npm). 
+
+##### <a name="linux-apt"></a>Ubuntu/Debian with APT
+
+The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution.
+
+1. Install [.NET Core 2.0 for Linux](https://www.microsoft.com/net/download/linux).
+
+1. Register the Microsoft product key as trusted:
+
+  ```bash
+  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+  ```
+
+2.  Set up the package feed, replacing `<version>` in the following command with the appropriate version name from the table:
+
+  ```bash
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
+  sudo apt-get update
+  ```
+
+  | Linux distribution | `<version>` |
+  | --------------- | ----------- |
+  | Ubuntu 17.10    | `artful`    |
+  | Ubuntu 17.04    | `zesty`     |
+  | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+
+3. Install the Core Tools package:
+
+  ```bash
+  sudo apt-get install azure-functions-core-tools
+  ```
+
+##### <a name="linux-yum"></a>Red Hat/Fedora/CentOS with yum
+
+The following steps use [yum](http://yum.baseurl.org/) to install Core Tools on your 
+Fedora/CentOS/Red Hat Linux distribution. 
+
+1. Install [.NET Core 2.0 for Linux](https://www.microsoft.com/net/download/linux).
+
+1. Register the Microsoft product key as trusted:
+
+  ```bash
+  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+  ```
+
+2.  Set up the package feed:
+
+  ```bash
+   sudo sh -c 'echo -e "[packages-microsoft-com-prod]\nname=packages-microsoft-com-prod \nbaseurl=https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/dotnetdev.repo'
+  ```
+3. Install the Core Tools package:
+
+  ```bash
+  sudo yum install azure-functions-core-tools
+  ```
+
+##### <a name="linux-zypper"></a>openSUSE with zypper
+
+The following steps use [zypper](https://en.opensuse.org/Portal:Zypper) to install Core Tools on your 
+openSUSE Linux distribution. 
+
+1. Install [.NET Core 2.0 for Linux](https://www.microsoft.com/net/download/linux).
+
+1. Register the Microsoft product key as trusted:
+
+  ```bash
+  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+  ```
+
+2.  Set up the package feed:
+
+  ```bash
+   sudo sh -c 'echo -e "[packages-microsoft-com-prod]\nname=packages-microsoft-com-prod \nbaseurl=https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/zypp/repos.d/dotnetdev.repo'
+  ```
+3. Install the Core Tools package:
+
+  ```bash
+  sudo zypper install azure-functions-core-tools
+  ```
+
+##### <a name="linux-npm"></a>Linux with npm
+
+The following steps use npm to install Core Tools on your Linux distribution:
+
+1. Install [.NET Core 2.0 for Linux](https://www.microsoft.com/net/download/linux).
+ 
+2. Install [Node.js](https://docs.npmjs.com/getting-started/installing-node#linux), which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
+
+3. Install the Core Tools package:
+  
+  ```bash
+  sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+  ```
 
 ## Run Azure Functions Core Tools
  
@@ -214,7 +291,7 @@ To set a value for connection strings, you can do one of the following options:
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
-    Both commands require you to first sign-in to Azure.
+    Both commands require you to first sign in to Azure.
 
 <a name="create-func"></a>
 ## Create a function
@@ -322,7 +399,7 @@ The following example is the same function called from a POST request passing _n
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
-Note that you can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use cURL, Fiddler, Postman, or a similar HTTP testing tool.  
+You can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use cURL, Fiddler, Postman, or a similar HTTP testing tool.  
 
 #### Non-HTTP triggered functions
 For all kinds of functions other than HTTP triggers and webhooks, you can test your functions locally by calling an administration endpoint. Calling this endpoint with an HTTP POST request on the local server triggers the function. You can optionally pass test data to the execution in the body of the POST request. This functionality is similar to the **Test** tab in the Azure portal.  
@@ -408,3 +485,4 @@ To file a bug or feature request, [open a GitHub issue](https://github.com/azure
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure portal]: https://portal.azure.com 
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
