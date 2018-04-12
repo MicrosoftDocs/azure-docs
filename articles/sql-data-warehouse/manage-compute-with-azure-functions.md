@@ -86,7 +86,8 @@ Currently, the functions on by default are *DWScaleDownTrigger* and *DWScaleUpTr
 
 3. Navigate to the *Integrate* tabs for the respective triggers to change their schedule.
 
-   [!NOTE]: The functional difference between the scaling triggers and the pause/resume triggers is the message that is sent to the queue. For more information, see [Add a new trigger function][Add a new trigger function].
+   > [!NOTE]
+   > The functional difference between the scaling triggers and the pause/resume triggers is the message that is sent to the queue. For more information, see [Add a new trigger function][Add a new trigger function].
 
 
 ## Add a new trigger function
