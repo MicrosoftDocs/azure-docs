@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/10/2018
 ms.author: bonova
 ---
 
@@ -181,7 +181,13 @@ The Azure Database Migration Service is a fully managed service designed to enab
 
 ### Backup and restore  
 
-The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance. 
+The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance. To restore an existing SQL database to a Managed instance, you can:
+
+- Use [Data Migration Service (DMS)](/sql/dma/dma-overview). For a tutorial, see [Migrate to a Managed Instance using the Azure Database Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file
+- Use the [T-SQL RESTORE command](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+  - For a tutorial showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md). This tutorial shows you have to upload a backup file to Azure blog storage and secure it using a Shared access signature (SAS) key.
+  - For information about restore from URL, see [Native RESTORE from URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
+- [Import from a BACPAC file](sql-database-import.md)
 
 ## SQL features supported 
 
