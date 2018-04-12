@@ -20,9 +20,10 @@ ms.author: ryanwi
 # View logs for a Service Fabric container service
 Azure Service Fabric is a container orchestrator and supports both [Linux and Windows containers](service-fabric-containers-overview.md).  This article describes how to view container logs of a running container service so that you can diagnose and troubleshoot problems.
 
+## Access container logs
 Container logs can be accessed using [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  In a web browser, open Service Fabric Explorer from the cluster's management endpoint by navigating to [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer).  
 
-Container logs are located on the cluster node that the container service instance is running on. As an example, get the logs of the web front end container of the [Linux Voting sample application](service-fabric-quickstart-containers-linux.md). In the tree view, expand **Cluster**>**Applications**>**VotingType**>**fabric:/Voting/azurevotefront**.  Then expand the partition (d1aa737e-f22a-e347-be16-eec90be24bc1, in this example) and see that the container is running on cluster node *_lnxvm_0*.
+Container logs are located on the cluster node that the container service instance is running on. As an example, get the logs of the web front-end container of the [Linux Voting sample application](service-fabric-quickstart-containers-linux.md). In the tree view, expand **Cluster**>**Applications**>**VotingType**>**fabric:/Voting/azurevotefront**.  Then expand the partition (d1aa737e-f22a-e347-be16-eec90be24bc1, in this example) and see that the container is running on cluster node *_lnxvm_0*.
 
 In the tree view, find the code package on the *_lnxvm_0* node by expanding **Nodes**>**_lnxvm_0**>**fabric:/Voting**>**azurevotfrontPkg**>**Code Packages**>**code**.  Then select the **Container Logs** option to display the container logs.
 
