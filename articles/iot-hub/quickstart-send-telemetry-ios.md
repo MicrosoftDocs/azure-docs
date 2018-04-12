@@ -29,7 +29,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 - Download the code sample from [Azure samples](https://github.com/yzhong94/azure-iot-ios-sample/archive/master.zip) 
-- The latest version of [XCode](https://developer.apple.com/xcode/), running the latest verstion of the iOS SDK. This quickstart was tested with XCode 9.3 and iOS 11.3.
+- The latest version of [XCode](https://developer.apple.com/xcode/), running the latest version of the iOS SDK. This quickstart was tested with XCode 9.3 and iOS 11.3.
 - The latest version of [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
 - The iothub-explorer CLI utility, which reads telemetry from IoT Hub. To install, first install [Node.js](https://nodejs.org) v4.x.x or higher, then run the following command: 
 
@@ -95,13 +95,13 @@ Navigate to the Azure IoT iOS Sample folder that you downloaded in the prerequis
 cd ios-client-sample
 ```
 
-This folder has the XCode project files and workspace, as well as a `Podfile` which lists the pods required for the sample project. Make sure that XCode is closed, then run the following command to install the pods according to the podfile:
+This folder has the XCode project files and workspace, and a `Podfile` file that lists the pods required for the sample project. Make sure that XCode is closed, then run the following command to install the pods according to the podfile:
 
 ```sh
 pod install
 ```
 
-Your project folder now has another file named `Pods` as well as a second XCode workspace file. 
+Your project folder now has another file named `Pods` and a second XCode workspace file. 
 
 ### Run the sample application 
 
