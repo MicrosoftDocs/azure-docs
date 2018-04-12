@@ -35,7 +35,7 @@ To complete this tutorial, make sure you have:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you're using PowerShell locally, you must be running the latest version of PowerShell in order to complete this article. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
+If you're using PowerShell locally, you must be running the latest version of PowerShell in order to complete this article. If you need to install or upgrade, see [Install and Configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
 
 ## Log on to Azure
 
