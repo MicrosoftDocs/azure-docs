@@ -1,27 +1,21 @@
 ---
-title: Azure SQL Data Warehouse performance tiers | Microsoft Docs
-description: Introduction to elasticity and compute-optimized performance tiers available in Azure SQL Data Warehouse.
+title: Memory and concurrency limits - Azure SQL Data Warehouse | Microsoft Docs
+description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: ''
-
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 11/10/2017
-ms.author: jrj;barbkess
-
+author: kevinvngo
+manager: craigg-msft
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/11/2018
+ms.author: kevin
+ms.reviewer: jrj
 ---
-# Azure SQL Data Warehouse performance tiers (Preview)
-SQL Data Warehouse offers two performance tiers that are optimized for analytical workloads. This article explains the concepts of performance tiers to help you choose the most suitable performance tier for your workload. 
+# Memory and concurrency limits for Azure SQL Data Warehouse
+View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse. For more information, and to apply these capabilities to your workload management plan, see [Resource classes for workload management](resource-classes-for-workload-management.md). 
 
-## What is a performance tier?
-A performance tier is an option that determines the configuration of your data warehouse. This option is one of the first choices you make when creating a data warehouse.  
+## Performance tiers
+
+SQL Data Warehouse offers two performance tiers that are optimized for analytical workloads. A performance tier is an option that determines the configuration of your data warehouse. This option is one of the first choices you make when creating a data warehouse.  
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
@@ -29,35 +23,14 @@ A performance tier is an option that determines the configuration of your data w
 
 - The **Optimized for Compute performance tier** uses the latest Azure hardware to introduce a new NVMe Solid State Disk cache that keeps the most frequently accessed data close to the CPUs, which is exactly where you want it. By automatically tiering the storage, this performance tier excels with complex queries since all IO is kept local to the compute layer. Furthermore, the columnstore is enhanced to store an unlimited amount of data in your SQL Data Warehouse. The Optimized for Compute performance tier provides the greatest level of scalability, enabling you to scale up to 30,000 compute Data Warehouse Units (cDWU). Choose this tier for workloads that requires continuous, blazing fast, performance.
 
-## Service levels
-The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for the Optimized for Compute performance tier scale are measured in compute data warehouse units (cDWU), for example DW2000c. The Optimized for Elasticity service levels are measured in DWUs, for example DW2000. For more information, see [What is a data warehouse unit?](what-is-a-data-warehouse-unit-dwu-cdwu.md)
-
-In T-SQL the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your data warehouse.
-
-```sql
---Optimized for Elasticity
-CREATE DATABASE myElasticSQLDW
-WITH
-(    SERVICE_OBJECTIVE = 'DW1000'
-)
-;
-
---Optimized for Compute
-CREATE DATABASE myComputeSQLDW
-WITH
-(    SERVICE_OBJECTIVE = 'DW1000c'
-)
-;
-```
-
-## Memory maximums
-The performance tiers have different memory profiles, which translates into a different amount of memory per query. The Optimized for Compute performance tier provides 2.5x more memory per query than the Optimized for Elasticity performance tier. This extra memory helps the Optimized for Compute performance tier deliver its blazing fast performance. Additional memory per query also allows you to run more queries concurrently since queries can use lower [resource classes](resource-classes-for-workload-management.md). 
+## Data warehouse limits
+The following tables show the maximum capacity for the data warehouse at different performance levels. To change the performance level, see [Scale compute - portal](quickstart-scale-compute-portal.md).
 
 ### Optimized for Elasticity
 
 The service levels for the Optimized for Elasticity performance tier range from DW100 to DW6000. 
 
-| Service level | Max concurrent queries | Compute nodes | Distributions per Compute node | Max memory per distribution (MB) | Max memory per data warehouse (GB) |
+| Performance level | Max concurrent queries | Compute nodes | Distributions per Compute node | Max memory per distribution (MB) | Max memory per data warehouse (GB) |
 |:-------------:|:----------------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
 | DW100         | 4                      | 1             | 60                             | 400                              |  24                                |
 | DW200         | 8                      | 2             | 30                             | 800                              |  48                                |
@@ -74,9 +47,9 @@ The service levels for the Optimized for Elasticity performance tier range from 
 
 ### Optimized for Compute
 
-The service levels for the Optimized for Compute performance tier range from DW1000c to DW30000c. 
+The Optimized for Compute performance tier provides 2.5x more memory per query than the Optimized for Elasticity performance tier. This extra memory helps the Optimized for Compute performance tier deliver its fast performance.  The performance levels for the Optimized for Compute performance tier range from DW1000c to DW30000c. 
 
-| Service level | Max concurrent queries | Compute nodes | Distributions per Compute node | Max memory per distribution (GB) | Max memory per data warehouse (GB) |
+| Performance level | Max concurrent queries | Compute nodes | Distributions per Compute node | Max memory per distribution (GB) | Max memory per data warehouse (GB) |
 |:-------------:|:----------------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
 | DW1000c       | 32                     | 2             | 30                             |  10                              |   600                              |
 | DW1500c       | 32                     | 3             | 20                             |  15                              |   900                              |
@@ -92,29 +65,17 @@ The service levels for the Optimized for Compute performance tier range from DW1
 
 The maximum cDWU is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
 
+
 ## Concurrency maximums
-SQL Data Warehouse provides industry-leading concurrency on a single data warehouse. To ensure each query has enough resources to execute efficiently, the system tracks compute resource utilization by assigning concurrency slots to each query. The system puts queries into a queue where they wait until enough concurrency slots are available. 
+To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks compute resource utilization by assigning concurrency slots to each query. The system puts queries into a queue where they wait until enough [concurrency slots](resource-classes-for-workload-management.md#concurrency-slots) are available. 
 
 Concurrency slots also determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
 
-### Concurrency slots
-Concurrency slots are a convenient way to track the resources available for query execution. They are like tickets that you purchase to reserve seats at a concert because seating is limited. Similarly, SQL Data Warehouse has a finite number of compute resources. Queries reserve compute resources by acquiring concurrency slots. Before a query can start executing, it must be able to reserve enough concurrency slots. When a query finishes, it releases its concurrency slots. 
-
-* The optimized for elasticity performance tier scales to 240 concurrency slots.
-* The optimized for compute performance tier scales to 1200 concurrency slots.
-
-Each query will consume zero, one, or more concurrency slots. System queries and some trivial queries do not consume any slots. By default, queries that are governed by resource classes require one concurrency slot. More complex queries can require additional concurrency slots.  
-
-- A query running with 10 concurrency slots can access 5 times more compute resources than a query running with 2 concurrency slots.
-- If each query requires 10 concurrency slots and there are 40 concurrency slots, then only 4 queries can run concurrently.
- 
-Only resource governed queries consume concurrency slots. The exact number of concurrency slots consumed is determined by the query's [resource class](resource-classes-for-workload-management.md).
-
 ### Optimized for Compute
-The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md).  These apply to the Optimized for Compute performance tier.
+The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md). These apply to the Optimized for Compute performance tier.
 
 **Dynamic resource classes**
-| Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
+| Performance Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW1000c       | 32                         |   40                        | 1                     |  8                     |  16                   |  32                    |
 | DW1500c       | 32                         |   60                        | 1                     |  8                     |  16                   |  32                    |
