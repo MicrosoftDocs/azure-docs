@@ -65,7 +65,7 @@
 
 ## Troubleshoot
 ### [Troubleshooting steps](stream-analytics-troubleshooting-guide.md)
-### [Common troubleshooting issues](stream-analytics-common-troubleshooting-issues.md)
+### [Common issues](stream-analytics-common-troubleshooting-issues.md)
 ### [Job diagram](stream-analytics-job-diagram-with-metrics.md)
 ### [Diagnostic logs](stream-analytics-job-diagnostic-logs.md)
 ### [Check resource health](stream-analytics-resource-health.md)

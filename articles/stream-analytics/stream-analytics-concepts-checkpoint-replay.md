@@ -14,7 +14,7 @@ ms.date: 04/11/2018
 
 This article describes best practices to optimize a Stream Analytics query for memory consumption, latency to generate output, and speed of recovery during failure and upgrades.
 
-## Best practices when using windows functions
+## Best practices for windowing functions
 The temporal window concept appears in several Stream Analytics query elements. The maximum window size for these query elements is seven days.
 
 1.	Windowed aggregates (GROUP BY of Tumbling, Hopping, and Sliding windows)
@@ -25,7 +25,7 @@ The temporal window concept appears in several Stream Analytics query elements. 
 
 These query elements are the core set of stateful operators provided by Stream Analytics. Stream Analytics manages their states on user’s behalf, by managing memory consumption, checkpointing for resiliency, and state recovery during service upgrades. Even though Stream Analytics fully manages the states, there are a number of best practice recommendations that users should follow. 
 
-## Memory Consumption
+## Memory consumption
 Consider the following factors that influence memory consumed by Stream Analytics jobs:
 
 1. The memory consumed for a windowed aggregate is not always directly proportional to the window size. Instead, the memory consumed is proportional to the cardinality of the data, or the number of groups in each time window.
@@ -86,7 +86,7 @@ To estimate the length of the delay due to a service upgrade, you can follow thi
 
 For general service stability concern during upgrade of mission critical jobs, consider running duplicate jobs in paired Azure regions. For more information, see [Guarantee Stream Analytics job reliability during service updates](stream-analytics-job-reliability.md).
 
-## Job recovery from a user initiated Stop and Start
+## Job recovery from a user initiated stop and start
 To edit the Query syntax on a streaming job, or to adjust inputs and outputs, the job needs to be stopped to make the changes and upgrade the job design. In such scenarios, when a user stops the streaming job, and starts it again, the recovery scenario is similar to service upgrade. 
 
 Checkpoint data cannot be used for a user initiated job restart. To estimate the delay of output during such a restart, use the same procedure as described in the previous section, and apply similar mitigation if the delay is too long.
