@@ -1,13 +1,13 @@
 ---
-title: Create and query an Azure SQL data warehouse - Azure Portal | Microsoft Docs
-description: Create an Azure SQL Data Warehouse in the Azure portal, and then query it.
+title: 'Quickstart: Create and query Azure SQL Data Warehouse - Azure Portal | Microsoft Docs'
+description: Create and query a data warehouse with Azure SQL Data Warehouse in the Azure portal.
 services: sql-data-warehouse
 author: hirokib
-manager: jhubbard
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.component: implement
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: jrj
 ---
