@@ -39,7 +39,7 @@ If you're using PowerShell locally, you must be running the latest version of Po
 
 ## Log on to Azure
 
-Once PowerShell is installed, perform the following steps to install the Event Hubs PowerShell module and log on to Azure:
+Once PowerShell is installed, install the Event Hubs PowerShell module and log on to Azure:
 
 1. To install the Event Hubs PowerShell module, run:
 
@@ -90,7 +90,7 @@ To create an event hub, specify the namespace under which you want it created. T
 
 ### Create a storage account for Event Processor Host
 
-Event Processor Host is an intelligent agent that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives. For checkpointing, Event Processor Host requires a storage account. To create a storage account and get its keys, run:
+Event Processor Host simplifies receiving events from Event Hubs by managing checkpoints and parallel receivers. For checkpointing, Event Processor Host requires a storage account. To create a storage account and get its keys, run:
 
 ```powershell
 # create a standard general-purpose storage account 
@@ -106,7 +106,7 @@ Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup -Name $storageAcc
 
 ### Get the connection string
 
-A connection string is required to connect to your event hub and process events. To obtain the connection string, run:
+A connection string is required to connect to your event hub and process events. To get your connection string, run:
 
 ```powershell
 Get-AzureRmEventHubKey -ResourceGroupName eventhubsResourceGroup -NamespaceName <namespace_name> -EventHubName <eventhub_name> -Name RootManageSharedAccessKey
@@ -126,7 +126,7 @@ You can now start streaming into your Event Hubs. The samples can be downloaded 
 
 4. Add [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) Nuget package to the project.
 
-5. In Program.cs, replace the following place holders with the resource names and connection strings you have obtained while provisioning the resources:
+5. In Program.cs, replace the following place holders with the resource names and connection strings you have obtained while provisioning resources:
 
   ```C#
   private const string EhConnectionString = "Event Hubs connection string";
@@ -147,7 +147,7 @@ You can now start streaming into your Event Hubs. The samples can be downloaded 
 
 4. Add the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) and [Microsoft.Azure.EventHubs.Processor](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) Nuget packages to the project.
 
-5. In Program.cs, replace the following constants with the corresponding values for the Event Hubs connection string, event hub name, storage account container name, storage account name and, storage account key:
+5. In Program.cs, replace the following constants with their corresponding values:
 
   ```C#
   private const string EventHubConnectionString = "Event Hubs connection string";
