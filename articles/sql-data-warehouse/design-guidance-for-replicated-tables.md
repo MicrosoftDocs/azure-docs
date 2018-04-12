@@ -4,6 +4,7 @@ description: Recommendations for designing replicated tables in your Azure SQL D
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/11/2018

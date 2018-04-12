@@ -4,6 +4,7 @@ description: Recommendations and performance optimizations for loading data into
 services: sql-data-warehouse
 author: ckarst
 manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/11/2018

@@ -4,6 +4,7 @@ description: Learn best practices for using using Elastic Query to access data i
 services: sql-data-warehouse
 author: hirokb
 manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/11/2018

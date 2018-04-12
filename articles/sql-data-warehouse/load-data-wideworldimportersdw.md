@@ -4,6 +4,7 @@ description: Tutorial uses Azure portal and SQL Server Management Studio to load
 services: sql-data-warehouse
 author: ckarst
 manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: tutorial
 ms.component: implement
 ms.date: 04/11/2018
