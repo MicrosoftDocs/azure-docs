@@ -1,23 +1,17 @@
 ---
 title: Data loading best practices - Azure SQL Data Warehouse | Microsoft Docs
-description: Recommendations for loading data and performing ELT with Azure SQL Data Warehouse. 
+description: Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse. 
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
-
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 12/13/2017
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/11/2018
+ms.author: cakarst
+ms.reviewer: igorstan
 ---
+
 # Best practices for loading data into Azure SQL Data Warehouse
 Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse. 
 
