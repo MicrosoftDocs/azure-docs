@@ -17,7 +17,7 @@ ms.custom: pim
 
 # Privileged Identity Management: Configure resource roles 
 
-When you configure role settings, you define the default settings that are applied to assignments in the PIM environment. To define these settings for your resource, select the **Role Settings** tab from the left navigation pane, or the role settings button from the action bar (in any role) to view the current options.
+When you configure role settings, you define the default settings that are applied to assignments in the Privileged Identity Management (PIM) environment. To define these settings for your resource, select the **Role Settings** tab from the left navigation pane, or the role settings button from the action bar (in any role) to view the current options.
 
 
 ## Select a role
