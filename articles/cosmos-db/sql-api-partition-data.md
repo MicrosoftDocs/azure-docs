@@ -3,7 +3,7 @@ title: Partitioning and scaling in Azure Cosmos DB | Microsoft Docs
 description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
 services: cosmos-db
 author: rafats
-manager: jhubbard
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
@@ -75,7 +75,7 @@ In the SQL API, you specify the partition key definition in the form of a JSON p
 Let's look at how the choice of partition key impacts the performance of your application.
 
 ## Working with the Azure Cosmos DB SDKs
-Azure Cosmos DB added support for automatic partitioning with [REST API version 2015-12-16](/rest/api/documentdb/). In order to create partitioned containers, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python, MongoDB). 
+Azure Cosmos DB added support for automatic partitioning with [REST API version 2015-12-16](/rest/api/cosmos-db/). In order to create partitioned containers, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python, MongoDB). 
 
 ### Creating containers
 The following sample shows a .NET snippet to create a container to store device telemetry data of 20,000 request units per second of throughput. The SDK sets the OfferThroughput value (which in turn sets the `x-ms-offer-throughput` request header in the REST API). Here we set the `/deviceId` as the partition key. The choice of partition key is saved along with the rest of the container metadata like name and indexing policy.
@@ -222,6 +222,6 @@ In the next section, we look at how you can move to partitioned containers from 
 In this article, we provided an overview of how to work with partitioning of Azure Cosmos DB containers with the SQL API. Also see [partitioning and horizontal scaling](../cosmos-db/partition-data.md) for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
 
 * Perform scale and performance testing with Azure Cosmos DB. See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) for a sample.
-* Get started coding with the [SDKs](sql-api-sdk-dotnet.md) or the [REST API](/rest/api/documentdb/)
+* Get started coding with the [SDKs](sql-api-sdk-dotnet.md) or the [REST API](/rest/api/cosmos-db/)
 * Learn about [provisioned throughput in Azure Cosmos DB](request-units.md)
 

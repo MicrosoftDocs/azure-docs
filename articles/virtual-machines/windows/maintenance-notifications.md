@@ -4,7 +4,7 @@ description: View maintenance notifications for Windows virtual machines running
 services: virtual-machines-windows
 documentationcenter: ''
 author: zivraf
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
 

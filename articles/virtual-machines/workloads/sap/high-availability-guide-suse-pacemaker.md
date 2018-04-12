@@ -278,7 +278,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 1. **[A]** Setup host name resolution   
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
-   Replace the IP address and the hostname in the following commands
+   Replace the IP address and the hostname in the following commands. The benefit of using /etc/hosts is that your cluster become independent of DNS which could be a single point of failures too.
 
    <pre><code>
    sudo vi /etc/hosts
@@ -327,10 +327,16 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Add the following bold content to the file.
+   Add the following bold content to the file if the values are not there or different.
    
    <pre><code> 
    [...]
+     <b>token:          5000
+     token_retransmits_before_loss_const: 10
+     join:           60
+     consensus:      6000
+     max_messages:   20</b>
+     
      interface { 
         [...] 
      }
@@ -388,7 +394,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 ### **[1]** Create a custom role for the fence agent
 
-The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell#create-a-custom-role) or [Azure CLI](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli#create-a-custom-role)
+The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell#create-a-custom-role) or [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli#create-a-custom-role)
 
 Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace c276fc76-9cd4-44c9-99a7-4fd71546436e and e91d47c4-76f3-4271-a796-21b4ecfe3624 with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 

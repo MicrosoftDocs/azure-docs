@@ -3,9 +3,8 @@ title: 'Quickstart: Cassandra API with Python - Azure Cosmos DB | Microsoft Docs
 description: This quickstart shows how to use the Azure Cosmos DB's Apache Cassandra API to create a profile application  with Python
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 4ebc883e-c512-4e34-bd10-19f048661159
 ms.service: cosmos-db
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.author: govindk
+ms.author: sngun
 
 ---
 # Quickstart: Build a Cassandra app with Python and Azure Cosmos DB

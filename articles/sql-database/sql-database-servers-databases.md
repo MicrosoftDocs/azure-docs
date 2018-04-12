@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: carlrab
 
 ---
@@ -43,14 +43,14 @@ An Azure Database logical server:
 - Is the parent resource for databases, elastic pools, and data warehouses
 - Provides a namespace for databases, elastic pools, and data warehouses
 - Is a logical container with strong lifetime semantics - delete a server and it deletes the contained databases, elastic pools, and data warehouses
-- Participates in [Azure role-based access control (RBAC)](/active-directory/role-based-access-control-what-is) - databases, elastic pools, and data warehouses within a server inherit access rights from the server
+- Participates in [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) - databases, elastic pools, and data warehouses within a server inherit access rights from the server
 - Is a high-order element of the identity of databases, elastic pools, and data warehouses for Azure resource management purposes (see the URL scheme for databases and pools)
 - Collocates resources in a region
 - Provides a connection endpoint for database access (<serverName>.database.windows.net)
 - Provides access to metadata regarding contained resources via DMVs by connecting to a master database 
 - Provides the scope for management policies that apply to its databases - logins, firewall, audit, threat detection, etc. 
 - Is restricted by a quota within the parent subscription (six servers per subscription by default - [see Subscription limits here](../azure-subscription-service-limits.md))
-- Provides the scope for database quota and DTU quota for the resources it contains (such as 45,000 DTU)
+- Provides the scope for database quota and DTU or vCore quota for the resources it contains (such as 45,000 DTU)
 - Is the versioning scope for capabilities enabled on contained resources 
 - Server-level principal logins can manage all databases on a server
 - Can contain logins similar to those in instances of SQL Server on your premises that are granted access to one or more databases on the server, and can be granted limited administrative rights. For more information, see [Logins](sql-database-manage-logins.md).
@@ -76,9 +76,8 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.co
 
 > [!IMPORTANT]
 > For information on selecting the pricing tier for your database, see [Service tiers](sql-database-service-tiers.md).
->
 
-To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md)
+To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md)
 
 ### Manage an existing SQL server
 
@@ -166,7 +165,7 @@ To create and manage Azure SQL server, databases, and firewalls with Transact-SQ
 |[ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Modifies an Azure SQL Data Warehouse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Deletes a database.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for an Azure SQL database or an Azure SQL Data Warehouse. If logged on to the master database in an Azure SQL Database server, returns information on all databases. For Azure SQL Data Warehouse, you must be connected to the master database.|
-|[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returns CPU, I/O, and memory consumption for an Azure SQL Database database. One row exists for every 15 seconds, even if there is no activity in the database.|
+|[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returns CPU, IO, and memory consumption for an Azure SQL Database database. One row exists for every 15 seconds, even if there is no activity in the database.|
 |[sys.resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Returns CPU usage and storage data for an Azure SQL Database. The data is collected and aggregated within five-minute intervals.|
 |[sys.database_connection_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contains statistics for SQL Database database connectivity events, providing an overview of database connection successes and failures. |
 |[sys.event_log (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Returns successful Azure SQL Database database connections, connection failures, and deadlocks. You can use this information to track or troubleshoot your database activity with SQL Database.|

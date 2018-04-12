@@ -146,7 +146,7 @@ When Azure was initially released, access controls to a subscription were basic:
 
 This proliferation of subscriptions is no longer needed. With role-based access control, you can assign users to standard roles (such as common "reader" and "writer" types of roles). You can also define custom roles.
 
-[Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. Security-oriented companies should focus on giving employees the exact permissions they need. Too many permissions expose an account to attackers. Too few permissions mean that employees can't get their work done efficiently. Azure Role-Based Access Control (RBAC) helps address this problem by offering fine-grained access management for Azure. RBAC helps you to segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions.
+[Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. Security-oriented companies should focus on giving employees the exact permissions they need. Too many permissions expose an account to attackers. Too few permissions mean that employees can't get their work done efficiently. Azure Role-Based Access Control (RBAC) helps address this problem by offering fine-grained access management for Azure. RBAC helps you to segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions.
 
 For example, use RBAC to let one employee manage virtual machines in a subscription, while another can manage SQL databases within the same subscription.
 
@@ -160,7 +160,7 @@ Azure RBAC has three basic roles that apply to all resource types:
 
 The rest of the RBAC roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the virtual network or the subnet that the virtual machine connects to.
 
-[RBAC built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) lists the roles available in Azure. It specifies the operations and scope that each built-in role grants to users.
+[RBAC built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) lists the roles available in Azure. It specifies the operations and scope that each built-in role grants to users.
 
 Grant access by assigning the appropriate RBAC role to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource. A role assigned at a parent scope also grants access to the children contained within it.
 
@@ -168,9 +168,9 @@ For example, a user with access to a resource group can manage all the resources
 
 Azure RBAC only supports management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. It cannot authorize all data level operations for Azure resources. For example, you can authorize someone to manage Storage Accounts, but not to the blobs or tables within a Storage Account cannot. Similarly, a SQL database can be managed, but not the tables within it.
 
-If you want more details about how RBAC helps you manage access, see [What is Role-Based Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+If you want more details about how RBAC helps you manage access, see [What is Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-You can also [create a custom role](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli), and the [REST API](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest). Just like built-in roles, custom roles can be assigned to users, groups, and applications at subscription, resource group, and resource scopes.
+You can also [create a custom role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), and the [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Just like built-in roles, custom roles can be assigned to users, groups, and applications at subscription, resource group, and resource scopes.
 
 Within each subscription, you can grant up to 2000 role assignments.
 
@@ -270,7 +270,7 @@ Applying **ReadOnly** can lead to unexpected results because some operations tha
 
 For another example, placing a ReadOnly lock on an App Service resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
 
-Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure Role-based Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure Role-based Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
 
@@ -409,33 +409,33 @@ Azure Security Center monitors the following Azure resources:
 
 - Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on [App Service Environment](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
 
-### Operations Management Suite
+### Log Analytics
 
-The OMS software development and service team's information security and [governance program](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) supports its business requirements and adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). How OMS establish security requirements, identifies security controls, manages, and monitors risks are also described there. Annually, we review polices, standards, procedures, and guidelines.
+The Log Analytics software development and service team's information security and [governance program](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) supports its business requirements and adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). How Log Analytics establish security requirements, identifies security controls, manages, and monitors risks are also described there. Annually, we review polices, standards, procedures, and guidelines.
 
-Each OMS development team member receives formal application security training. Internally, we use a version control system for software development. Each software project is protected by the version control system.
+Each Log Analytics development team member receives formal application security training. Internally, we use a version control system for software development. Each software project is protected by the version control system.
 
-Microsoft has a security and compliance team that oversees and assesses all services in Microsoft. Information security officers make up the team and they are not associated with the engineering departments that develop OMS. The security officers have their own management chain and conduct independent assessments of products and services to ensure security and compliance.
+Microsoft has a security and compliance team that oversees and assesses all services in Microsoft. Information security officers make up the team and they are not associated with the engineering departments that develop Log Analytics. The security officers have their own management chain and conduct independent assessments of products and services to ensure security and compliance.
 
-Operations Management Suite (also known as OMS) is a collection of management services that were designed in the cloud from the start. Rather than deploying and managing on premises resources, OMS components are entirely hosted in Azure. Configuration is minimal, and you can be up and running literally in a matter of minutes.
+Azure provides a collection of management services that were designed in the cloud from the start. Rather than deploying and managing on premises resources, these components are entirely hosted in Azure. Configuration is minimal, and you can be up and running literally in a matter of minutes.
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-Just because OMS services run in the cloud doesn't mean that they can't effectively manage your on-premises environment.
+Just because Log Analytics services run in the cloud doesn't mean that they can't effectively manage your on-premises environment.
 
 Put an agent on any Windows or Linux computer in your data center, and it will send data to Log Analytics where it can be analyzed along with all other data collected from cloud or on premises services. Use Azure Backup and Azure Site Recovery to leverage the cloud for backup and high availability for on premises resources.
 
 Runbooks in the cloud can't typically access your on-premises resources, but you can install an agent on one or more computers too that will host runbooks in your data center. When you start a runbook, you simply specify whether you want it to run in the cloud or on a local worker.
 
-The core functionality of OMS is provided by a set of services that run in Azure. Each service provides a specific management function, and you can combine services to achieve different management scenarios.
+The core functionality of Log Analytics is provided by a set of services that run in Azure. Each service provides a specific management function, and you can combine services to achieve different management scenarios.
 
 ![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Azure operation manager extends its functionalities by providing management solutions. [Management Solutions](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) are prepackaged sets of logic that implement a management scenario leveraging one or more OMS services.
+Azure operation manager extends its functionalities by providing management solutions. [Management Solutions](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) are prepackaged sets of logic that implement a management scenario leveraging one or more management services.
 
 ![Azure operation manage](./media/governance-in-azure/security-governance-in-azure-fig10.png)
 
-Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in OMS.
+Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Log Analytics.
 
 As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quick Start Templates.
 
@@ -454,7 +454,7 @@ Alerts are available across different services, including:
 >[!Note]
 > See [Set alerts in Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) and [Monitor availability and responsiveness of any website](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Log Analytics (Operations Management Suite): Enables the routing of Activity and Diagnostic Logs to Log Analytics. Operations Management Suite allows metric, log, and other alert types.
+- Log Analytics: Enables the routing of Activity and Diagnostic Logs to Log Analytics, and allows metric, log, and other alert types.
 
 >[!Note]
 > For more information, see Alerts in [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).

@@ -23,18 +23,16 @@
     href: quickstarts/php.md
   - name: First query in Ruby
     href: quickstarts/ruby.md
-- name: SDK
+- name: Tutorials
   items:
-  - name: SDK samples overview 
-    href: sdk.md
-  - name: Image search SDK C# quickstart
-    href: image-search-sdk-quickstart.md
-  - name: Image search SDK Node.js quickstart (preview)
-    href: image-search-sdk-node-quickstart.md
-  - name: Image Search SDK Python quickstart (preview)
-    href: image-sdk-python-quickstart.md
-  - name: Image Search SDK Java quickstart (preview)
-    href: image-sdk-java-quickstart.md
+  - name: Single-page Web app
+    href: tutorial-bing-image-search-single-page-app.md
+  - name: Single-page Web app (source code)
+    href: tutorial-bing-image-search-single-page-app-source.md
+  - name: Bing image upload for insights
+    href: tutorial-image-post.md
+  - name: Bing image upload for insights (source code)
+    href: tutorial-image-post-source.md
 - name: How To Guides
   items:
   - name: Use and display results
@@ -49,20 +47,23 @@
     href: resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7
     href: bing-image-upgrade-guide-v5-to-v7.md
-- name: Tutorials
-  items:
-  - name: Single-page Web app
-    href: tutorial-bing-image-search-single-page-app.md
-  - name: Single-page Web app (source code)
-    href: tutorial-bing-image-search-single-page-app-source.md
-  - name: Bing image upload for insights
-    href: tutorial-image-post.md
-  - name: Bing image upload for insights (source code)
-    href: tutorial-image-post-source.md
 - name: Reference
+  expanded: true
   items:
   - name: REST v7 API
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
+  - name: SDK
+    items:
+    - name: SDK samples overview 
+      href: sdk.md
+    - name: Image search SDK C# quickstart
+      href: image-search-sdk-quickstart.md
+    - name: Image search SDK Node.js quickstart (preview)
+      href: image-search-sdk-node-quickstart.md
+    - name: Image Search SDK Python quickstart (preview)
+      href: image-sdk-python-quickstart.md
+    - name: Image Search SDK Java quickstart (preview)
+      href: image-sdk-java-quickstart.md
   - name: REST v5 API (old version)
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
 - name: Resources
