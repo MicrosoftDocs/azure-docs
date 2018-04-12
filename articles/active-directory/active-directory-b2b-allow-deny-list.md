@@ -1,6 +1,6 @@
 ---
 
-title: Allow or block invitations to B2B users from specific domains - Azure Active Directory | Microsoft Docs
+title: Allow or block invitations to B2B users from specific organizations - Azure Active Directory | Microsoft Docs
 description: Shows how an administrator can use the Azure portal or PowerShell to set an access or deny list to allow or block B2B users from certain domains.
 services: active-directory
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/13/2018
+ms.date: 04/12/2018
 ms.author: twooley
 ms.reviewer: sasubram
 
 ---
 
-# Allow or block invitations to B2B users from specific domains (Preview)
+# Allow or block invitations to B2B users from specific organizations
 
-You can use an allow list or a deny list to allow or block invitations to B2B users from specific domains. For example, if you want to block personal email address domains, you can set up a deny list that contains domains like Gmail.com and Outlook.com. Or, if your business has a partnership with other businesses like Contoso.com, Fabrikam.com, and Litware.com, and you want to restrict invitations to only these organizations, you can add Contoso.com, Fabrikam.com and Litware.com to your allow list.
+You can use an allow list or a deny list to allow or block invitations to B2B users from specific organizations. For example, if you want to block personal email address domains, you can set up a deny list that contains domains like Gmail.com and Outlook.com. Or, if your business has a partnership with other businesses like Contoso.com, Fabrikam.com, and Litware.com, and you want to restrict invitations to only these organizations, you can add Contoso.com, Fabrikam.com and Litware.com to your allow list.
   
 > [!NOTE]
 > Currently, you can only use deny lists. The ability to use allow lists is coming very soon.
