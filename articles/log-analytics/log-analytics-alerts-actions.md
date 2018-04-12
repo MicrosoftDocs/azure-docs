@@ -179,10 +179,10 @@ The following runbook will work with the payload from an [upgraded Log Analytics
     $SearchWindowInterval = $RequestBody.SearchIntervalInSeconds
 
     # Get detailed search results
-    if($RequestBody.SearchResult -ne $null)
+    if($RequestBody.Data.SearchResult -ne $null)
     {
-        $SearchResultRows    = $RequestBody.SearchResult.tables[0].rows 
-        $SearchResultColumns = $RequestBody.SearchResult.tables[0].columns;
+        $SearchResultRows    = $RequestBody.Data.SearchResult.tables[0].rows 
+        $SearchResultColumns = $RequestBody.Data.SearchResult.tables[0].columns;
 
         foreach ($SearchResultRow in $SearchResultRows)
         {   
