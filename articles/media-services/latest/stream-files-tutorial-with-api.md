@@ -57,7 +57,7 @@ Log in to the [Azure portal](http://portal.azure.com).
 
 ## Access the Media Services API
 
-To connect to the latest version of Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure you .NET app, as shown in the following step.
+To connect to the latest version of Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure your .NET app, as shown in the following step.
 
 Before running the script, replace the `amsaccountname` placeholder.  `amsaccountname` is the name of the Azure Media Services account where to attach the service principal.
 
@@ -108,7 +108,8 @@ To run the app and access the Media Services APIs, you need to specify the corre
   </appSettings>
 ```    
 
-7. Press Ctrl+Shift+B to build the solution.
+7. Click the right mouse button the solution and select "Restore NuGet packages".
+8. Press Ctrl+Shift+B to build the solution.
 
 ## Examine the code
 
@@ -175,11 +176,11 @@ private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string 
 
 ### Create a transform and a job that encodes the uploaded file
 
-When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). In this tutorial, we define a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
+When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
 
 #### Transform
 
-When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, we use a built-in Preset called **AdaptiveStreaming**. This Preset auto-generates a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about, see [auto-generating bitrate ladder](autogen-bitrate-ladder.md).
+When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article, uses a built-in Preset called **AdaptiveStreaming**. This Preset auto-generates a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about, see [auto-generating bitrate ladder](autogen-bitrate-ladder.md).
 
 When creating a **Transform**, you should first check if one already exists using the **Get** method., as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist.
 
@@ -289,7 +290,7 @@ private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string r
 
 ### Get streaming locator
 
-In Media Services, a locator provides an entry point to access the files contained in an Asset. It also defines duration that a client has access to a given asset. One of the arguments that you need to pass is a **StreamingPolicyName**. In this case we are streaming non-encrypted content, so we are just passing a predefined clear streaming policy name.
+In Media Services, a locator provides an entry point to access the files contained in an Asset. It also defines duration that a client has access to a given asset. One of the arguments that you need to pass is a **StreamingPolicyName**. In this example, you are streaming non-encrypted content, so the predefined clear streaming policy name can be passed.
 
 ```csharp
 private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client, string resourceGroup, string accountName, string assetName, string clearPolicyName, string streamingLocatorName)
@@ -310,7 +311,7 @@ private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient
 
 ### Get streaming URLs
 
-Now that we have the streaming policy and the streaming locator, we can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the streaming endpoint's host name and the streaming locator path. In this sample, we are using the *default* streaming endpoint. By default, a streaming endpoint is in the stopped state, so you need to call **Start**. 
+Now that the streaming locator has been created, you can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the streaming endpoint's host name and the streaming locator path. In this sample, we are using the *default* streaming endpoint. By default, a streaming endpoint is in the stopped state, so you need to call **Start**. 
 
 ```csharp
 static IList<string> GetStreamingURLs(
@@ -362,13 +363,13 @@ static void CleanUp(IAzureMediaServicesClient client, string resourceGroupName, 
 1. Press Ctrl+F5 to run the *EncodeAndStreamFiles* application.
 2. Copy the streaming URL from the console.
 
-In this example, we are displaying URLs that can be used to play back the video using different protocol:
+This example displays URLs that can be used to play back the video using different protocol:
 
 ![Output](./media/stream-files-tutorial-with-api/output.png)
 
 ## Test the streaming URL
 
-In this tutorial, we are using Azure Media Player to test the streaming URL.
+To test the stream, this article uses Azure Media Player.
 
 1. Open a web browser and navigate to https://ampdemo.azureedge.net/.
 2. In the **URL:** box, paste one of the streaming URL values you got when you ran the application. 
@@ -381,7 +382,7 @@ If you no longer need any of the resources in your resource group, including the
 In the **CloudShell**, execute the following command:
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name amsResourcegroup
 ```
 
 ## Next steps
