@@ -26,6 +26,8 @@
     href: https://github.com/Azure/azure-devtestlab/tree/master/Samples
   - name: Azure PowerShell
     href: samples-powershell.md
+  - name: Azure CLI
+    href: samples-cli.md    
 - name: Concepts
   items:
   - name: Custom labs
