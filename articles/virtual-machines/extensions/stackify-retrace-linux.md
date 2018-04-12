@@ -22,12 +22,12 @@ ms.author: danis
 ## Overview
 Stackify provides products that track details about your application to help find and fix problems quickly. For developer teams, Retrace is a fully integrated, multi-environment, app performance super-power. It combines several tools every development team needs.
 
-Retrace is the ONLY tool that delivers all of the below across all environments in a single platform.
+Retrace is the ONLY tool that delivers all of the following capabilities across all environments in a single platform.
 
-* Application Performance Management (APM)
-* Application and Server Logging
-* Error Tracking and Monitoring
-* Server, Application and Custom Metrics
+* Application performance management (APM)
+* Application and server logging
+* Error tracking and monitoring
+* Server, application, and custom metrics
 
 **About Stackify Linux Agent Extension**
 
