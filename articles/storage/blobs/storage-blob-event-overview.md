@@ -88,7 +88,7 @@ Blob event subscriptions can be filtered based on the event type and by the cont
 
 The subject of Blob storage events uses the format:
 
-```json
+```
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 
@@ -96,19 +96,19 @@ To match all events for a storage account, you can leave the subject filters emp
 
 To match events from blobs created in a set of containers sharing a prefix, use a `subjectBeginsWith` filter like:
 
-```json
+```
 /blobServices/default/containers/containerprefix
 ```
 
 To match events from blobs created in specific container, use a `subjectBeginsWith` filter like:
 
-```json
+```
 /blobServices/default/containers/containername/
 ```
 
 To match events from blobs created in specific container sharing a blob name prefix, use a `subjectBeginsWith` filter like:
 
-```json
+```
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 
