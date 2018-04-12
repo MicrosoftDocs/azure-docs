@@ -22,7 +22,7 @@ Pricing for [Azure Application Insights][start] is based on data volume per appl
 
 Application Insights has two pricing plans: Basic and Enterprise. The Basic pricing plan is the default plan. It includes all Enterprise plan features, at no additional cost. The Basic plan bills primarily on the volume of data that's ingested. 
 
-The Enterprise plan has a per-node charge in addition to daily data allowances. In the Enterprise pricing plan, you are charged for data ingested above the included allowance. If you use Operations Management Suite, you should choose the Enterprise plan. 
+The Enterprise plan has per-node charge, and each node receives a daily data allowance. In the Enterprise pricing plan, you are charged for data ingested above the included allowance. If you use Operations Management Suite, you should choose the Enterprise plan. 
 
 If you have questions about how pricing works for Application Insights, you can post a question in our [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights).
 
