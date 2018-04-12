@@ -128,7 +128,7 @@ The table below lists the property names and their description for creating a bl
 </tr>
 <tr>
 <td>Path Prefix Pattern [optional]</td>
-<td>The file path pattern used to write your blobs within the specified container. <BR> In the path pattern, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written: <BR> {date}, {time} <BR> Example 1: cluster1/logs/{date}/{time} <BR> Example 2: cluster1/logs/{date} <BR> <BR> File naming follows the following convention: <BR> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR> Example output files: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> Also, here are the situations, where a new file is created: <BR> 1. Current file exceeds the maximum permissible number of blocks (currently 50,000) <BR> 2. Change in output schema <BR> 3. External or internal restart of a job  </td>
+<td>The file path pattern used to write your blobs within the specified container. <BR> In the path pattern, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written: <BR> {date}, {time} <BR> <BR> You may also specify one field (column) name from your data to partition blobs by, where the field name is alphanumeric and can include spaces, hyphens, and underscores. Restrictions on custom fields include the following: <BR> 1. case insensitivity (cannot different between column "ID" and column "id") <BR> 2. nested fields are not permitted (instead use an alias in the job query to "flatten" the field) <BR> 3. expressions cannot be used as a field name <BR> <BR> Example 1: cluster1/logs/{date}/{time} <BR> Example 2: cluster1/logs/{date} <BR> Example 3: cluster1/{client_id}/{date}/{time} <BR> Example 4: cluster1/{myField} where the query is: SELECT data.myField AS myField FROM Input; <BR> <BR> File naming follows the following convention: <BR> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR> Example output files: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> Also, here are the situations, where a new file is created: <BR> 1. Current file exceeds the maximum permissible number of blocks (currently 50,000) <BR> 2. Change in output schema <BR> 3. External or internal restart of a job <BR> 4. Output is partitioned by a custom field (column) where cardinality can exceed 8000 </td>
 </tr>
 <tr>
 <td>Date Format [optional]</td>
@@ -165,6 +165,8 @@ When using blob storage as output, a new file is created in the blob in the foll
 * If the query is fully partitioned, new file is created for each output partition.  
 * If a file or a container of the storage account is deleted by the user.  
 * If the output is time partitioned by using the path prefix pattern, a new blob is used when the query moves to the next hour.
+* If the output is partitioned by a custom field, a new blob is created per partition key if it does not exist.
+*	If the output is partitioned by a custom field where the partition key cardinality exceeds 8000, a new blob may be created per partition key.
 
 ## Event Hub
 [Event Hubs](https://azure.microsoft.com/services/event-hubs/) is a highly scalable publish-subscribe event ingestor. It can collect millions of events per second. One use of an Event Hub as output is when the output of a Stream Analytics job becomes the input of another streaming job.
