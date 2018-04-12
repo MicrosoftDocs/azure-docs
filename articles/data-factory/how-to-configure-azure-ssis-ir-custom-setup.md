@@ -151,3 +151,8 @@ To customize your Azure-SSIS IR, you need the following things:
 
     e. To try these custom setup samples, copy and paste the content from the selected folder into your container. When you provision or reconfigure your Azure-SSIS IR with PowerShell, run the `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet with the SAS URI of your container as the value for new `SetupScriptContainerSasUri` parameter.
 
+## Next steps
+
+-   [Enterprise Edition of the Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-enterprise-edition.md)
+
+-   [How to develop paid or licensed custom components for the Azure-SSIS integration runtime](how-to-develop-azure-ssis-ir-licensed-components.md)

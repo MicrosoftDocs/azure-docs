@@ -68,3 +68,7 @@ The following diagram shows the typical installation, activation and license bin
     ```
 
 ## Next steps
+
+-   [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md)
+
+-   [Enterprise Edition of the Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-enterprise-edition.md)

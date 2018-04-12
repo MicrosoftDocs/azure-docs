@@ -54,6 +54,10 @@ Some of these features require you to install additional components to customize
     Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName
                                                  -Name $MyAzureSsisIrName
                                                  -ResourceGroupName $MyResourceGroupName
-```
+    ```
 
 ## Next steps
+
+-   [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md)
+
+-   [How to develop paid or licensed custom components for the Azure-SSIS integration runtime](how-to-develop-azure-ssis-ir-licensed-components.md)
