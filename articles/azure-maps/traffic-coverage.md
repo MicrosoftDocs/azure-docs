@@ -1,6 +1,6 @@
 ---
-title: Traffic Coverage in Azure Maps | Microsoft Docs
-description: Learn about Traffic Coverage in Azure Maps
+title: Traffic coverage in Azure Maps | Microsoft Docs
+description: Learn about traffic coverage in Azure Maps
 services: azure-maps
 keywords: 
 author: kgremban
@@ -16,7 +16,7 @@ ms.custom:
 ---
 
 
-# Azure Maps - Traffic Coverage
+# Azure Maps traffic coverage
 
 Azure Maps provides rich traffic information in the form of flow and incidents that can be served as overlays atop of the Azure Maps map control or used in conjunction with the Azure Maps Route Service. The following table provides coverage information for Azure Maps traffic, so users have insight on where to expect (and not expect) traffic information.
 

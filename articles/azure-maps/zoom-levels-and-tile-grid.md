@@ -1,6 +1,6 @@
 ---
-title: Zoom Levels and Tile Grid in Azure Maps | Microsoft Docs
-description: Learn about Zoom Levels and Tile Grid in Azure Maps
+title: Zoom levels and tile grid in Azure Maps | Microsoft Docs
+description: Learn about zoom levels and tile grid in Azure Maps
 services: azure-maps
 keywords: 
 author: jinzh-azureiot
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.custom: 
 ---
 
-# Zoom Levels and Tile Grid
+# Zoom levels and tile grid
 Azure Maps use the Spherical Mercator projection coordinate system (EPSG: 3857).
 
 The world is divided into square tiles. Render (Raster) has 19 zoom levels, numbered 0 through 18. Render (Vector) has 21 zoom levels, numbered 0 through 20. At zoom level 0, the entire world fits on a single tile:
@@ -33,7 +33,7 @@ Each subsequent zoom level quad-divides the tiles of the previous one, creating 
 
 The full table of values for zoom levels is here:
 
-|zoom level|meters/pixel|meters/tile side|
+|Zoom level|Meters/pixel|Meters/tile side|
 |--- |--- |--- |
 |0|156543|40075008|
 |1|78271.5|20037504|

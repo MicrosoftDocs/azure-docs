@@ -1,6 +1,6 @@
 ---
-title: Render Coverage in Azure Maps | Microsoft Docs
-description: Learn about Render Coverage in Azure Maps
+title: Render coverage in Azure Maps | Microsoft Docs
+description: Learn about Render coverage in Azure Maps
 services: azure-maps
 keywords: 
 author: jinzh-azureiot
@@ -16,7 +16,7 @@ ms.custom:
 ---
 
 
-# Azure Maps - Render Coverage
+# Azure Maps - Render coverage
 
 This article provides coverage information for Azure Maps Render. 
 
@@ -35,7 +35,7 @@ Check out coverage for [**Routing**](routing-coverage.md).
 
 <br>  
 
-## Render Coverage of Raster Tiles
+## Render coverage of raster tiles
 
 The following table provides coverage information for Azure Maps Render of Raster Tiles.
 
@@ -172,7 +172,7 @@ The following table provides coverage information for Azure Maps Render of Raste
 <br>  
 
 
-## Render Coverage of Vector Tiles 
+## Render coverage of vector tiles 
 
 The following table provides coverage information for Azure Maps Render of Vector Tiles.
 

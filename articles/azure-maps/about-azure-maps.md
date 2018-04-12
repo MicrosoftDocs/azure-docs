@@ -57,8 +57,8 @@ Azure Maps consists of five primary services to bolster Azure applications requi
 ```
 
 **Traffic Service** – The Traffic Service is a suite of web services designed for developers to create web and mobile applications requiring traffic. The offering is split into the following data types:
-1. Traffic Flow - provides real-time observed speeds and travel times for all key roads in the network; and, 
-2. Traffic Incidents - provides an accurate view about the traffic jams and incidents around the road network.
+* Traffic Flow - provides real-time observed speeds and travel times for all key roads in the network; and, 
+* Traffic Incidents - provides an accurate view about the traffic jams and incidents around the road network.
 
 ![Azure Maps Traffic](media/about-azure-maps/Introduction_Traffic.png)
 
@@ -66,7 +66,7 @@ Azure Maps is built for mobility and can power cross-platform applications since
 
 Azure Maps uses a key-based authentication scheme, so accessing the services is a matter of navigating to the [Azure portal](http://portal.azure.com) and creating an Azure Maps account. Your account comes with two keys pre-generated for you. Start integrating these location capabilities directly into your applications by using either of your keys in the requests to the Azure Maps service.
 
-## Unsupported Regions
+## Unsupported regions
 The Azure Maps API is currently unavailable in below countries. Check your current IP address and verify that your IP address' location is not in one of the unsupported countries below.
 
 * Argentina
@@ -81,7 +81,7 @@ The Azure Maps described in this document are distinct from those provided by Bi
 
 Microsoft’s goal is to provide choice to the developer community in terms of location service offerings.  Below is some quick guidance for developers on which service to use for various use cases and customer situations. 
 
-| Customer Criteria | Use Azure Maps when… | Use Bing Maps when… |
+| Scenario | Use Azure Maps when… | Use Bing Maps when… |
 | ------------- | ------------- | ------------- |
 | Development Environment | Building in or leveraging other Azure services | Using a third-party cloud or other developer environment |
 | Development Stage  | Because Azure Maps is currently in Public Preview, it is optimized for early stage testing and Proof of Concept development | An enterprise grade SLA is required for a production environment |

@@ -38,10 +38,12 @@
       href: how-to-manage-account-keys.md
   - name: Services REST APIs
     items:
-    - name: How to search for an address
+    - name: Search for an address
       href: how-to-search-for-address.md
   - name: Map Control JavaScript API
     items:
+    - name: Use the map control
+      href: how-to-use-map-control.md
     - name: Create a map
       href: map-create.md
     - name: Add a pin
