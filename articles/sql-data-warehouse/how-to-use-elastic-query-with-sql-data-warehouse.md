@@ -13,7 +13,7 @@ ms.reviewer: jrj
 ---
 
 # Best practices for using Elastic Query in Azure SQL Database to access data in Azure SQL Data Warehouse
-Learn best practices for using using Elastic Query to access data in Azure SQL Data Warehouse from Azure SQL Database. 
+Learn best practices for using Elastic Query to access data in Azure SQL Data Warehouse from Azure SQL Database. 
 
 ## What is an elastic query?
 An elastic query allows you to use T-SQL and external tables to write a query in an Azure SQL database that is sent remotely to an Azure SQL data warehouse. Using this feature provides cost-savings and more performant architectures, depending on the scenario.
@@ -46,7 +46,7 @@ The first step is to create an external data source definition that refers to th
 > 
 > You must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included with the ALTER DATABASE permission. ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to remote data sources.
 
-Next we create a remote external table definition in a SQL database instance which points to a remote table in the SQL data warehouse. When you use a query that uses an external table, the portion of the query referring to the external table is sent to the SQL data warehouse instance to be processed. Once the query has completed, the result set is sent back to the calling SQL database instance. For a brief tutorial of setting up an Elastic Query between SQL database and SQL data warehouse, see the [Configure Elastic Query with SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
+Next, create a remote external table definition in a SQL database instance, which points to a remote table in the SQL data warehouse. When a query uses an external table, the portion of the query referring to the external table is sent to the SQL data warehouse instance to be processed. Once the query has completed, the result set is sent back to the calling SQL database instance. For a brief tutorial of setting up an Elastic Query between SQL database and SQL data warehouse, see the [Configure Elastic Query with SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
 
 For more information on Elastic Query with SQL database, see the [Azure SQL Database elastic query overview][Azure SQL Database elastic query overview].
 
@@ -65,9 +65,9 @@ Use these best practices to use elastic query effectively.
 
 ### Elastic Querying
 
-- In many cases, one might want to manage a type of stretched table, where a portion of your table is within the SQL Database as cached data for performance with the rest of the data stored in SQL Data Warehouse. You will need to have two objects in SQL Database: an external table within SQL Database that references the base table in SQL Data Warehouse, and the "cached" portion of the table within the SQL Database. Consider creating a view over the top of the cached portion of the table and the external table which unions both tables and applies filters that separate data materialized within SQL Database and SQL Data Warehouse data exposed through external tables.
+- In many cases, one might want to manage a type of stretched table, where a portion of your table is within the SQL Database as cached data for performance with the rest of the data stored in SQL Data Warehouse. You need two objects in SQL Database: an external table within SQL Database that references the base table in SQL Data Warehouse, and the "cached" portion of the table within the SQL Database. Consider creating a view over the top of the cached portion of the table and the external table which unions both tables and applies filters that separate data materialized within SQL Database and SQL Data Warehouse data exposed through external tables.
 
-  Imagine we would like to keep the most recent year of data in a SQL database instance. We have two tables **ext.Orders**, which references the data warehouse orders tables, and **dbo.Orders** which represents the most recent years worth of data within the SQL database instance. Instead of asking users to decide whether to query one table or another, we create a view over the top of both tables on the partition point of the most recent year.
+  Imagine you want to keep the most recent year of data in a SQL database instance. The **ext.Orders** table references the data warehouse orders tables. The **dbo.Orders** represents the most recent years worth of data within the SQL database instance. Instead of asking users to decide whether to query one table or the other, create a view over the top of both tables on the partition point of the most recent year.
 
   ```sql
   CREATE VIEW dbo.Orders_Elastic AS
@@ -102,7 +102,7 @@ Use these best practices to use elastic query effectively.
 ### Moving data 
 
 - If possible, keep data management easier with append-only source tables such that updates are easily maintainable between the data warehouse and database instances.
-- Move data on the partition level with flush and fill semantics to minimize the query cost on the data warehouse level and the amount of data moved to keep the database instance up to date. 
+- Move data on the partition level with flush and fill semantics to minimize the query cost on the data warehouse level and the amount of data moved to keep the database instance up-to-date. 
 
 ### When to choose Azure Analysis Services vs SQL Database
 
