@@ -10,17 +10,15 @@ editor: cgronlun
 
 ms.assetid: 0198d6c9-7767-4682-bd34-42838cf48fc5
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 
 ---
 # Access YARN application logs on Windows-based HDInsight
-This topic explains how to access the logs for YARN (Yet Another Resource Negotiator) applications that have finished on a Windows-based Hadoop cluster in Azure HDInsight
+This document explains how to access the logs for YARN applications that have finished on a Windows-based Hadoop cluster in Azure HDInsight
 
 > [!IMPORTANT]
 > The information in this document applies only to Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For information on accessing YARN logs on Linux-based HDInsight clusters, see [Access YARN application logs on Linux-based Hadoop on HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
@@ -43,7 +41,7 @@ Generic information on applications includes the following sorts of data:
 * Information on attempts made to complete the application
 * The containers used by any given application attempt
 
-On your HDInsight clusters, this information will be stored by Azure Resource Manager to a history store in the default container of your default Azure Storage account. This generic data on completed applications can be retrieved through a REST API:
+On your HDInsight clusters, this information will be stored by Azure Resource Manager. The information is saved to the history store in the default storage for the cluster. This generic data on completed applications can be retrieved through a REST API:
 
     GET on https://<cluster-dns-name>.azurehdinsight.net/ws/v1/applicationhistory/apps
 
