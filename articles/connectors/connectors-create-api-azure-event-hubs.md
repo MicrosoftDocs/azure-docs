@@ -100,7 +100,7 @@ Select this trigger: **When events are available in Event Hub**
     ![Specify Event Hub or consumer group](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
     
     > [!NOTE]
-    > All Event Hub triggers are **long-polling** triggers, which means that when a trigger fires, 
+    > All Event Hub triggers are *long-polling* triggers, which means that when a trigger fires, 
     > the trigger processes all the events
     > and then waits for 30 seconds for more events to appear in the Event Hub.
     > If no events are received in 30 seconds, the trigger run is skipped. Otherwise, 
@@ -114,13 +114,13 @@ Select this trigger: **When events are available in Event Hub**
 
     | Property | Details |
     | --- | --- |
-    | Content type  |Enter the content type by selecting the content-type of the events from the drop down. By default, octet-stream is selected. |
+    | Content type  |Enter the content type of the events from the drop down. By default, application/octet-stream is selected. |
     | Content schema |Enter content schema in JSON for the events being read from Event Hub. |
     | Consumer group name |Enter the Event Hub [consumer group name](../event-hubs/event-hubs-features.md#consumer-groups) for reading  the events. When consumer group name is not specified, default consumer group is used. |
     | Minimum partition key |Enter the minimum [partition](../event-hubs/event-hubs-features.md#partitions) ID to read. By default, all partitions are read. |
     | Maximum partition key |Enter the maximum [partition](../event-hubs/event-hubs-features.md#partitions) ID to read. By default, all partitions are read. |
     | Maximum events count |Enter the count for maximum number of events. The trigger returns between one and the number of events specified by Maximum events count property. |
-    | --- | --- |
+    |||
 
 5. Save your logic app. On the designer toolbar, choose **Save**.
 
