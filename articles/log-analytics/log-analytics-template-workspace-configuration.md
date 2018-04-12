@@ -45,7 +45,9 @@ The example in this article is for an [upgraded Log Analytics workspace](log-ana
 
 
 ## Create a Log Analytics workspace
-The following example creates a workspace using a template from  your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters when no value is provided during deployment that would likely be used as a standard configuration in your environment. The following parameters set a default value:
+The following example creates a workspace using a template from  your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment.  
+
+The following parameters set a default value:
 
 * Location - defaults to East US
 * SKU - defaults to the new Per-GB pricing tier released in the April 2018 pricing model
