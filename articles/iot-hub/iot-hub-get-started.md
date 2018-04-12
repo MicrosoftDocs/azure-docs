@@ -18,20 +18,20 @@ ms.date: 01/29/2018
 ms.author: dobett
 
 ---
-# Azure IoT Hub get started tutorials
+# Azure IoT Hub get started with real devices
 
 You can use Azure IoT Hub and the Azure IoT device SDKs to build Internet of Things (IoT) solutions:
 
 * Azure IoT Hub is a fully managed service in the cloud that securely connects, monitors, and manages your IoT devices. Use the Azure IoT Device SDKs to implement your IoT devices.
 * Use an IoT gateway in more complex IoT scenarios. For example, where you need to consider factors such as legacy devices, bandwidth costs, security and privacy policies, or edge data processing. In these scenarios, use [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) to implement a gateway that connects devices to your IoT hub.
 
-## What the tutorials cover
+## What the How-to articles cover
 
-These tutorials introduce you to Azure IoT Hub and the device SDKs. The tutorials cover common IoT scenarios to demonstrate the capabilities of IoT Hub. The tutorials also illustrate how to combine IoT Hub with other Azure services and tools to build more powerful IoT solutions. In the tutorials, you can choose to use either simulated or real IoT devices. In addition, you can learn how to use a gateway to enable devices to connect to your IoT hub.
+These articles introduce you to Azure IoT Hub and the device SDKs. The articles cover common IoT scenarios to demonstrate the capabilities of IoT Hub. The articles also illustrate how to combine IoT Hub with other Azure services and tools to build more powerful IoT solutions. In the articles, you use real IoT devices.
 
 ## Set up your device
 
-Connect an IoT device or gateway to Azure IoT Hub. You can choose a physical or simulated device to get started:
+Connect an IoT device or gateway to Azure IoT Hub:
 
 | IoT device                       | Programming language |
 |----------------------------------|----------------------|
@@ -41,7 +41,6 @@ Connect an IoT device or gateway to Azure IoT Hub. You can choose a physical or 
 | Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 Thing Dev       | [Arduino][Th_Ard]              |
 | Adafruit Feather M0              | [Arduino][M0_Ard]              |
-| Simulated device on PC           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
 | Online device simulator         | [Raspberry Pi (Node.js)][Ol_Sim] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
@@ -55,11 +54,4 @@ Connect an IoT device or gateway to Azure IoT Hub. You can choose a physical or 
 [Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md
 [Th_Ard]: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
 [M0_Ard]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
-[Sim_NET]: iot-hub-csharp-csharp-getstarted.md
-[Sim_Jav]: iot-hub-java-java-getstarted.md
-[Sim_Nd]: iot-hub-node-node-getstarted.md
-[Sim_Pyth]: iot-hub-python-getstarted.md
-[NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
-[Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
-[Sim_Win]: iot-hub-windows-iot-edge-get-started.md
 [Ol_Sim]: iot-hub-raspberry-pi-web-simulator-get-started.md
