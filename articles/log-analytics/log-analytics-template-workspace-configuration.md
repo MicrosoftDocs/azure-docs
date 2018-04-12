@@ -20,7 +20,7 @@ ms.author: richrund
 # Manage Log Analytics using Azure Resource Manager templates
 You can use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
 
-* Create a workspace
+* Create a workspace including setting pricing tier 
 * Add a solution
 * Create saved searches
 * Create a computer group
@@ -31,7 +31,7 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/resourc
 * Add the log analytics agent to an Azure virtual machine
 * Configure log analytics to index data collected using Azure diagnostics
 
-This article provides template samples that illustrate some of the configuration that you can perform from templates.
+This article provides template samples that illustrate some of the configuration that you can perform with templates.
 
 ## API versions
 The example in this article is for an [upgraded Log Analytics workspace](log-analytics-log-search-upgrade.md).  To use a legacy workspace, you would need to change the syntax of the queries to the legacy language and change the API version for each resource.  The following table lists the API version for the resources used in this example.
@@ -49,6 +49,10 @@ The following example creates a workspace using a template from  your local mach
 
 * Location - defaults to East US
 * SKU - defaults to the new Per-GB pricing tier released in the April 2018 pricing model
+
+>[!WARNING]
+>If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**. 
+>
 
 ### Create and deploy template
 
@@ -85,7 +89,7 @@ The following example creates a workspace using a template from  your local mach
             ],
 			"defaultValue": "PerGB2018",
 	        "metadata": {
-            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
+            "description": "Specifies the service tier of the workspace: Standalone, PerNode, or Per-GB in 2018 pricing model"
 		}
           },
     },
