@@ -61,24 +61,14 @@ az storage account create -n <storageaccountforams> -g <myresourcegroup>
 
 ## Create an Azure Media Services account
 
-Below you can find the Azure CLI commands that creates a new Media Services account. You just need to replace the following highlighted values:
+Below you can find the Azure CLI command that creates a new Media Services account. You just need to replace the following values:
 
 * *myamsaccountname*
 * *myresourcegroup*
 * *storageaccountforams*
 
 ```azurecli-interactive
-az ams create -n <myamsaccountname> -g <myresourcegroup> --storage-account <storageaccountforams>
-```
-
-## Clean up resources
-
-If you no longer need any of the resources in your resource group, including the Media Services account you created in this Quickstart, delete the resource group.
-
-In the **CloudShell**, execute the following command:
-
-```azurecli-interactive
-az group delete --name myResourceGroup
+az ams account create -n <myamsaccountname> -g <myresourcegroup> --storage-account <storageaccountforams>
 ```
 
 ## Next steps
