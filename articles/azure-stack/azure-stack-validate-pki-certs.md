@@ -19,7 +19,7 @@ ms.reviewer: ppacent
 
 # Validate Azure Stack PKI certificates
 
-The Azure Stack Readiness Checker tool described in this article is available [from the PSGallery](https://aka.ms/AzsReadinessChecker). You can use the tool to validate that  the [generated PKI certificates](azure-stack-get-pki-certs.md) are suitable for pre-deployment. You should validate certificates by leaving  enough time to test and reissue certificates if necessary.
+The Azure Stack Readiness Checker tool described in this article is available [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker). You can use the tool to validate that  the [generated PKI certificates](azure-stack-get-pki-certs.md) are suitable for pre-deployment. You should validate certificates by leaving  enough time to test and reissue certificates if necessary.
 
 The Readiness Checker tool performs the following certificate validations:
 

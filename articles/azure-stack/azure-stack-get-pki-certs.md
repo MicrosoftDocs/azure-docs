@@ -20,7 +20,7 @@ ms.reviewer: ppacent
 
 # Azure Stack certificates signing request generation
 
-The Azure Stack Readiness Checker tool described in this article is available [from the PSGallery](https://aka.ms/AzsReadinessChecker). The tool creates Certificate Signing Requests (CSRs) suitable for an Azure Stack deployment. Certificates should be requested, generated, and validated with enough time to test before deployment. 
+The Azure Stack Readiness Checker tool described in this article is available [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker). The tool creates Certificate Signing Requests (CSRs) suitable for an Azure Stack deployment. Certificates should be requested, generated, and validated with enough time to test before deployment. 
 
 The Azure Stack Readiness Checker tool (AzsReadinessChecker) performs the following certificate requests:
 
