@@ -17,11 +17,11 @@ This article describes best practices to optimize a Stream Analytics query for m
 ## Best practices for windowing functions
 The temporal window concept appears in several Stream Analytics query elements. The maximum window size for these query elements is seven days.
 
-1.	Windowed aggregates (GROUP BY of Tumbling, Hopping, and Sliding windows)
+1. Windowed aggregates (GROUP BY of Tumbling, Hopping, and Sliding windows)
 
-2.	Temporal joins (JOIN with DATEDIFF)
+2. Temporal joins (JOIN with DATEDIFF)
 
-3.	Temporal analytic functions (ISFIRST, LAST, and LAG with LIMIT DURATION)
+3. Temporal analytic functions (ISFIRST, LAST, and LAG with LIMIT DURATION)
 
 These query elements are the core set of stateful operators provided by Stream Analytics. Stream Analytics manages their states on user’s behalf, by managing memory consumption, checkpointing for resiliency, and state recovery during service upgrades. Even though Stream Analytics fully manages the states, there are a number of best practice recommendations that users should follow. 
 
