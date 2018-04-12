@@ -1,30 +1,21 @@
 ---
-title: Elastic Query Concepts with Azure SQL Data Warehouse | Microsoft Docs
-description: 'Elastic Query concepts with Azure SQL Data Warehouse'
+title: Elastic query - access data in Azure SQL Data Warehouse from Azure SQL Database | Microsoft Docs
+description: Learn best practices for using using Elastic Query to access data in Azure SQL Data Warehouse from Azure SQL Database.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: johnmac
-editor: ''
-
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 09/18/2017
+author: hirokb
+manager: craigg-msft
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/11/2018
 ms.author: elbutter
+ms.reviewer: jrj
 ---
 
+# Best practices for using Elastic Query in Azure SQL Database to access data in Azure SQL Data Warehouse
+Learn best practices for using using Elastic Query to access data in Azure SQL Data Warehouse from Azure SQL Database. 
 
-
-# How to use Elastic Query with SQL Data Warehouse
-
-
-
-Elastic Query with Azure SQL Data Warehouse allows you to write Transact-SQL in a SQL Database that is sent remotely to an Azure SQL Data Warehouse instance through the use of external tables. Using this feature provides cost-savings and more performant architectures depending on the scenario.
+## What is an elastic query?
+An elastic query allows you to use T-SQL and external tables to write a query in an Azure SQL database that is sent remotely to an Azure SQL data warehouse. Using this feature provides cost-savings and more performant architectures, depending on the scenario.
 
 This feature enables two primary scenarios:
 
@@ -45,10 +36,7 @@ Elastic query can provide the ability to easily select subsets of SQL data wareh
 
 Elastic query allows for remote query execution on a SQL data warehouse instance. One can utilize the best of both SQL database and SQL data warehouse by separating your hot and cold data between the two databases. Users can keep more recent data within a SQL database, which can serve reports and large numbers of average business users. However, when more data or computation is needed, a user can offload part of the query to a SQL data warehouse instance where large-scale aggregates can be processed much faster and more efficiently.
 
-
-
-## Elastic Query overview
-
+## Elastic query process
 An elastic query can be used to make data located within a SQL data warehouse available to SQL database instances. Elastic query allows queries from a SQL database refer to tables in a remote SQL data warehouse instance. 
 
 The first step is to create an external data source definition that refers to the SQL data warehouse instance, which uses existing user credentials within the SQL data warehouse. No changes are necessary on the remote SQL data warehouse instance. 
@@ -61,9 +49,8 @@ Next we create a remote external table definition in a SQL database instance whi
 
 For more information on Elastic Query with SQL database, see the [Azure SQL Database elastic query overview][Azure SQL Database elastic query overview].
 
-
-
 ## Best practices
+Use these best practices to use elastic query effectively.
 
 ### General
 
@@ -118,19 +105,17 @@ For more information on Elastic Query with SQL database, see the [Azure SQL Data
 
 ### When to choose Azure Analysis Services vs SQL Database
 
-#### Azure Analysis Services
+Use Azure Analysis Services when:
 
 - You plan on using your cache with a BI tool that submits large numbers of small queries
 - You need subsecond query latency
 - You are experienced in managing/developing models for Analysis Services 
 
-#### SQL Database
+Use Azure SQL Database when:
 
 - You want to query your cache data with SQL
 - You need remote execution for certain queries
 - You have larger cache requirements
-
-
 
 ## FAQ
 
@@ -160,19 +145,11 @@ A: You can store spatial types in SQL Data Warehouse as varbinary(max) values. W
 
 ![spatial types](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 
-
-
-
-
-<!--Image references-->
-
 <!--Article references-->
 
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
-[Configure Elastic Query with SQL Data Warehouse]: ./tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Configure Elastic Query with SQL Data Warehouse]: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
 [Feedback Page]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Database elastic query overview]: ../sql-database/sql-database-elastic-query-overview.md
 
-<!--MSDN references-->
 
-<!--Other Web references-->
