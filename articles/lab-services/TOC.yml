@@ -24,6 +24,8 @@
   items:
   - name: Resource Manager templates
     href: https://github.com/Azure/azure-devtestlab/tree/master/Samples
+  - name: Azure PowerShell
+    href: samples-powershell.md
 - name: Concepts
   items:
   - name: Custom labs
