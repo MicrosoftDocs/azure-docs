@@ -42,7 +42,7 @@ Your team defines an engaged user as anyone who uses your app five or more times
     There are three parameters for this cohort:
       * **Activities** that let you choose which events and page views should count as “usage”.
       * **Period** the definition of a month.
-      * **UsedAtleastCustom**: the number of times they need to use within a period to count as an engaged user.
+      * **UsedAtleastCustom** the number of times they need to use something within a period to count as an engaged user.
 
 4. Change **UsedAtleastCustom** to “5+ days” and leave **Period** to the default of 28 days.
 
@@ -53,7 +53,7 @@ Your team defines an engaged user as anyone who uses your app five or more times
 5. Click **Save**.
 
    > [!TIP]
-   >  Give your cohort a name, like “Engaged Users (5+ Days)” and save it to “My reports” or “Shared reports” depending if you want other people with access to this Appication Insights resource to see this cohort.
+   >  Give your cohort a name, like “Engaged Users (5+ Days)” and save it to “My reports” or “Shared reports” depending on if you want other people with access to this Appication Insights resource to see this cohort.
 
 6. Click **Back to Gallery**.
 
@@ -66,10 +66,10 @@ Now the Users tool is filtered to this cohort of users:
 ![Users pane filtered to a particular cohort](.\media\app-insights-usage-cohorts\004.png)
 
 A few important things to notice:
-   * This is a filter you couldn’t have applied through normal filters. The date logic is more advanced.
+   * This is a set you couldn’t have created through normal filters. The date logic is more advanced.
    * You can further filter this cohort using the normal filters in the Users tool. So while the cohort is defined on 28-day windows, you can still adjust the time range in the Users tool to be 30, 60, or 90 days. 
 
-This lets you ask more sophisticated questions like: _for people who were engaged in the past 28 days, how did those same people behave over the past 60 days?_ etc. that would otherwise be impossible to express through the query builder.
+This lets you ask more sophisticated questions like: _for people who were engaged in the past 28 days, how did those same people behave over the past 60 days?_ that would otherwise be impossible to express through the query builder.
 
 ## Example: events cohort
 
@@ -84,6 +84,7 @@ You can also make cohorts of events. Let’s define a cohort of the events and p
     ![Screenshot of Events picker](.\media\app-insights-usage-cohorts\006.png)
 
 4. In the **Activities** dropdown, select the events you’d like to be in the cohort
+
 5. Save the cohort and give it a name.
 
 ## Example: active users where you modify query
