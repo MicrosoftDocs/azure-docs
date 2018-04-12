@@ -6726,6 +6726,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-sql-database-managed-instance-tutorial-portal.md",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-create-tutorial-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-geo-replication-failover-powershell.md",
             "redirect_url": "/azure/sql-database/scripts/sql-database-setup-geodr-and-failover-database-powershell",
             "redirect_document_id": false
@@ -18006,6 +18011,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/sql-data-warehouse/performance-tiers.md",
+            "redirect_url": "/azure/sql-data-warehouse/memory-and-concurrency-limits",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md",
             "redirect_url": "/azure/data-factory/load-azure-sql-data-warehouse",
             "redirect_document_id": false
@@ -18019,17 +18029,17 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-polybase.md",
             "redirect_url": "/azure/sql-data-warehouse/load-data-wideworldimportersdw",
             "redirect_document_id": false
-        }
-        ,{
+        },
+		{
             "source_path": "articles/stream-analytics/stream-analytics-data-lake-output.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs#azure-data-lake-store",
             "redirect_document_id": false
-         }
-         ,{
+        },
+		{
             "source_path": "articles/stream-analytics/stream-analytics-sample-data-input.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-test-query",
             "redirect_document_id": false
-         }
+        }
 
     ]
 }
