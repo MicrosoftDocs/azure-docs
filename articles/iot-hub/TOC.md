@@ -13,6 +13,7 @@
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
+#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 
 ### [Use an online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 

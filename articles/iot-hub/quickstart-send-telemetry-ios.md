@@ -7,7 +7,7 @@ manager: timlt
 editor: ''
 
 ms.service: iot-hub
-ms.devlang: node
+ms.devlang: 
 ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
@@ -18,9 +18,11 @@ ms.author: kgremban
 # As a developer, I need to build an end-to-end IoT solution that sends telemetry from a device to an IoT hub and reads that telemetry data from the hub using a back-end application.
 ---
 
-# Quickstart: Send telemetry from a device to an IoT hub
+# Quickstart: Send telemetry from a device to an IoT hub (Swift)
 
-IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this quickstart, you send telemetry from a simulated device, through IoT Hub, to a back-end application for processing. 
+IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this article, you send telemetry from a simulated device application to IoT Hub. Then you can view the data from a back-end application. 
+
+This article uses a pre-written Swift application to send the telemetry and a CLI utility to read the telemetry from IoT Hub. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -41,9 +43,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 The first step is to use the Azure portal to create an IoT hub in your subscription. The IoT hub enables you to ingest high volumes of telemetry into the cloud from many devices. The hub then enables one or more back-end services running in the cloud to read and process that telemetry.
 
-1. In a new browser window, sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](http://portal.azure.com).
 
-1. Select **Create a resource** > **Internet of Things** > **IoT Hub**. <!-- ![Select to install IoT Hub](media/quickstart-send-telemetry-node/selectiothub.png) -->
+1. Select **Create a resource** > **Internet of Things** > **IoT Hub**. 
+
+   ![Select to install IoT Hub](media/quickstart-send-telemetry-node/selectiothub.png)
 
 1. To create your IoT hub, use the values in the following table:
 
@@ -58,7 +62,9 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
     | Location | The location closest to you. |
     | Pin to dashboard | Yes |
 
-1. Click **Create**.  <!-- ![Hub settings](media/quickstart-send-telemetry-node/hubdefinition.png) -->
+1. Click **Create**.  
+
+   ![Hub settings](media/quickstart-send-telemetry-node/hubdefinition.png)
 
 1. Make a note of your IoT hub and resource group names. You use these values later in this quickstart.
 
@@ -66,20 +72,28 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure CLI to register a simulated device.
 
-1. Add the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with the name of your IoT hub:
+Add the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with a name for your IoT hub:
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
     ```
 
-1. Run the following command to get the _device connection string_ for the device you just registered:
+Run the following command to get the _device connection string_ for the device you just registered:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myiOSdevice --output table
     ```
 
-    Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
+    Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the article.
+
+You also need a _service connection string_ to enable back-end applications to connect to your IoT hub and retrieve device-to-cloud messages. The following command retrieves the service connection string for your IoT hub:
+
+    ```azurecli-interactive
+    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    ```
+
+    Make a note of the service connection string, which looks like `Hostname=...=`. You use this value later in the article.
 
 ## Send simulated telemetry
 
@@ -130,15 +144,7 @@ The following screenshot shows some example output as the application sends simu
 
 The sample app that you ran on the XCode emulator shows data about messages sent from the device. You can also view the data through your IoT hub as it is received. The `iothub-explorer` CLI utility connects to the service-side **Events** endpoint on your IoT Hub. 
 
-You need a service connection string to enable back-end applications to connect to your IoT hub and retrieve device-to-cloud messages. The following command retrieves the service connection string for your IoT hub:
-
-    ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-    ```
-
-Copy the service connection string, which looks like `Hostname=...=`. 
-
-Open a new terminal window. Run the following command replacing {your hub service connection string} with the service connection string:
+Open a new terminal window. Run the following command replacing {your hub service connection string} with the service connection string that you retrieved at the beginning of this article:
 
     ```sh
     iothub-explorer monitor-events myiOSdevice --login "{your hub service connection string}"
@@ -164,3 +170,8 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 
+<!-- Links -->
+[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
