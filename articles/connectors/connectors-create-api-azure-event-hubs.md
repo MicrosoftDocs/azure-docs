@@ -117,8 +117,8 @@ and set up the interval and frequency for when to check the Event Hub.
    | --- | --- |
    | Content type  |Enter content type. |
    | Content schema |Enter content schema. |
-   | Consume group name |Enter the Event Hub consumer group name for reading the events. When its not specified, default consumer group is used.|
-   | Minimum partition key |Enter the mimimum partition ID to read. By default, all partitions are read.|
+   | Consume group name |Enter the Event Hub consumer group name for reading the events. When it's not specified, default consumer group is used.|
+   | Minimum partition key |Enter the minimum partition ID to read. By default, all partitions are read.|
    | Maximum partition key |Enter the maximum partition ID to read. By default, all partitions are read.|
    | Maximum events count |Enter the count for maximum number of events. The trigger returns between one and the number of events specified by this property. |
 
