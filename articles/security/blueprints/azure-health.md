@@ -137,9 +137,9 @@ sixth role is defined for an auditor to evaluate compliance with HIPAA
 and other regulations. Azure Role-based Access Control (RBAC) enables
 precisely focused access management for each user of the solution
 through built-in and custom roles. See [Get started with Role-Based
-Access Control in the Azure portal](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)
+Access Control in the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview)
 and [Built-in roles for Azure role-based access
-control](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)
+control](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 for detailed information about RBAC, roles, and permissions.
 
 ### Site Administrator
@@ -150,7 +150,7 @@ subscription. They control the overall deployment, but have no access to
 patient records.
 
 -   Default role assignments:
-    [Owner](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#owner)
+    [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   Custom role assignments: N/A
 
@@ -162,9 +162,9 @@ The database analyst administers the SQL Server instance and database.
 They have no access to patient records.
 
 -   Built-in role assignments: [SQL DB
-    Contributor](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-db-contributor),
+    Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor),
     [SQL Server
-    Contributor](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-server-contributor)
+    Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Custom role assignments: N/A
 
@@ -178,7 +178,7 @@ import, export, and manage data, and run reports. The data scientist has
 access to patient data, but does not have administrative privileges.
 
 -   Built-in role assignments: [Storage Account
-    Contributor](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#storage-account-contributor)
+    Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   Custom role assignments: N/A
 
@@ -217,7 +217,7 @@ The auditor evaluates the solution for compliance. They have no direct
 access to the network.
 
 -   Built-in role assignments:
-    [Reader](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#reader)
+    [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   Custom role assignments: N/A
 
@@ -351,7 +351,7 @@ built into the Blueprint outlined to:
     suspicious incidents and takes appropriate action to resolve them.
 
 -   [Azure Role-based Access Control
-    (RBAC)](/azure/active-directory/role-based-access-control-configure)
+    (RBAC)](/azure/role-based-access-control/role-assignments-portal)
     enables precisely focused access management for Azure. Subscription
     access is limited to the subscription administrator, and Azure Key
     Vault access is limited to the site administrator. Strong passwords
@@ -367,7 +367,7 @@ built into the Blueprint outlined to:
 **Roles:**
 
 -   The solution makes use of [built-in
-    roles](/azure/active-directory/role-based-access-built-in-roles)
+    roles](/azure/role-based-access-control/built-in-roles)
     to manage access to resources.
 
 -   All users are assigned specific built-in roles by default.

@@ -47,7 +47,7 @@ Role-Based Access Control (RBAC) provides fine-grained access management for Azu
 Learn more:
 
 * [Active Directory team blog on RBAC](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
-* [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
+* [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)
 
 ## Antimalware
 With Azure, you can use antimalware software from major security vendors such as Microsoft, Symantec, Trend Micro, McAfee, and Kaspersky to help protect your virtual machines from malicious files, adware, and other threats.
