@@ -120,100 +120,100 @@ When booking a plane ticket, you can specify the city "Paris" as a location to o
 
 A list entity identifies known synonyms of words. Add a list entity for the different seat types: first, business, and economy. When labeling an utterance by creating a new list entity, you create the list with one item in the list, such as "business". 
 
-1. In the utterance 
+1. In the utterance, 
 `book me 2 adult business tickets to Paris tomorrow on Air France`,
-select "business," then create a new entity named "Seat".  
+select **business**, and then create a new entity named "Seat".  
 
-    ![Create List Entity from Label](./media/add-example-utterances/list-seat-type-entity-create-new-entity.png)
+    ![Screenshot of Intents details page, with Create new entity highlighted](./media/add-example-utterances/list-seat-type-entity-create-new-entity.png)
 
-2. In the **What type of entity do you want to create** dialog, add `Bus.`, `bus`, and `biz`.
+2. In the **What type of entity do you want to create** dialog box, add `Bus.`, `bus`, and `biz`.
 
-    ![Create List Entity](./media/add-example-utterances/list-seat-type-entity.png)
+    ![Screenshot of What type of entity do you want to create dialog box](./media/add-example-utterances/list-seat-type-entity.png)
 
 3. Select **Done**.
 
-The **Seat** list entity contains one item of business with synonyms: `Bus.`, `bus`, and `biz` . 
+The **Seat** list entity contains one item of business, with synonyms `Bus.`, `bus`, and `biz`. 
 
 > [!TIP]
 > Try the list entity [quickstart](luis-quickstart-intent-and-list-entity.md) to learn more.
 
 ## Add synonyms to the list entity 
-Add a list to the list entity by selecting the word or phrase in the utterance.
+Add a synonym to the list entity by selecting the word or phrase in the utterance.
 
-1. Add a new utterance to the BookFlight intent `Book an economy class seat to seattle`. This utterance has a new Seat list item, `economy`.
-2. Select the word `economy` in the utterance, then select `Seat` in the pop-up dialog, then select `Create a new synonym`.
+1. Add a new utterance to the BookFlight intent, `Book an economy class seat to seattle`. This utterance has a new Seat list item, `economy`.
+2. Select the word **economy** in the utterance, and then select **Seat** in the pop-up dialog box. Then select **Create a new synonym**.
 
-    ![Add List Entity Synonym](./media/add-example-utterances/list-seat-type-entity-add-new-synonyn.png)
+    ![Screenshot of Intents details page, with Create a new synonym highlighted](./media/add-example-utterances/list-seat-type-entity-add-new-synonyn.png)
 
 ## Wrap entities in composite label
 In the following procedure, you create and label a composite entity named `TicketsOrder` for the existing utterance:
 
 `book me 2 adult business tickets to Paris tomorrow on Air France`
 
-The composite entity contains three child entities: number (of tickets), Seat, and Category. The Seat hierarchical category was created in [a previous section](#add-list-entity-and-label). Label the word "business" as a Seat category. 
+The composite entity contains three child entities: number (of tickets), Seat, and Category. (You created the Seat hierarchical category [earlier](#add-list-entity-and-label)). Label the word "business" as a Seat category. 
 
-1. Follow these [steps](Add-entities.md#add-prebuilt-entity) to add the **number** prebuilt entity. After the entity is created, the `2` will be blue indicating it is a labeled entity. Prebuilt entities are labeled by LUIS. 
+1. Follow these [steps](Add-entities.md#add-prebuilt-entity) to add the **number** prebuilt entity. After the entity is created, the `2` in the utterance is blue, indicating it is a labeled entity. Prebuilt entities are labeled by LUIS. 
 
-2. Follow these [steps](#add-hierarchical-entity-and-label) to create a **Category** [hierarchical entity] with values of Adult, Child, and Infant. Label the word "adult" as a Category entity. At this point, all three words should be labeled with the blue background. 
+2. Follow these [steps](#add-hierarchical-entity-and-label) to create a **Category** hierarchical entity, with values of Adult, Child, and Infant. Label the word "adult" as a Category entity. At this point, all three words should be labeled with the blue background. 
 
 3. Select on the left-most word of the phrase, "2", labeled as number.
 
-    ![select on number](./media/add-example-utterances/composite-wrap-1.png)
+    ![Screenshot of BookFlight Intent page, with number highlighted](./media/add-example-utterances/composite-wrap-1.png)
 
 4. In the pop-up menu, select **Wrap in composite entity**.
 
-    ![select on Wrap in Composite entity](./media/add-example-utterances/composite-wrap-2.png)
+    ![Screenshot of menu, with Wrap in composite entity highlighted](./media/add-example-utterances/composite-wrap-2.png)
 
-5. Select third word in phrase, `business`. A green bar appears below entire phrase. 
+5. Select the third word in phrase, **business**. A green bar appears below the entire phrase. 
 
-6. Enter `TicketsOrder` then select **Create new composite**.
+6. Enter `TicketsOrder`, and then select **Create new composite**.
 
-    ![Enter TicketsOrder](./media/add-example-utterances/composite-wrap-3.png)
+    ![Screenshot of BookFlight Intent page, with Create new composite highlighted](./media/add-example-utterances/composite-wrap-3.png)
 
-7. In the pop-up box, enter three existing entity children: number, Category, Seat. 
+7. In the **What type of entity do you want to create?** dialog box, enter the three existing entity children: number, Category, and Seat. 
 
-    ![Enter Child entities](./media/add-example-utterances/composite-wrap-4.png)
+    ![Screenshot of What type of entity do you want to create dialog box](./media/add-example-utterances/composite-wrap-4.png)
 
 8. Select **Done**. 
 
-9. Verify the new composite entity by hovering on the green bar under the three words. The composite name, **TicketsOrder** pops up.
+9. Verify the new composite entity by hovering on the green bar under the three words. The composite name **TicketsOrder** appears.
 
-    ![Verify composite entity](./media/add-example-utterances/composite-wrap-final.png)
+    ![Screenshot of BookFlight Intent page, with TicketsOrder highlighted](./media/add-example-utterances/composite-wrap-final.png)
 
 > [!TIP]
 > Try the composite [tutorial](luis-tutorial-composite-entity.md) to learn more.
 
-## Remove custom entity label
+## Remove your custom entity label
 
-In order to remove your own custom entity label from an utterance, select the entity in the utterance and select **Remove label** in the entity drop-down box that appears.
+To remove your own custom entity label from an utterance, select the entity in the utterance. Then select **Remove Label** in the entity drop-down box that appears.
 
-![Remove Labeling](./media/add-example-utterances/remove-label.png) 
+![Screenshot of Intents details page, with Remove Label highlighted](./media/add-example-utterances/remove-label.png) 
 
-Custom list entities cannot be removed because they are predicted by LUIS.
+Custom list entities cannot be removed, because they are predicted by LUIS.
 
 ## Search in utterances
 
-Searching allows you to find utterances that contain text (words/phrases). For example, sometimes you notice an error that involves a particular word, and may want to find all the examples including that particular word. 
+You can search for utterances that contain text (words or phrases). For example, you might notice an error that involves a particular word, and you want to find all examples that include that particular word. 
 
-Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. 
+Type the word or phrase in the search box at the top right corner of the utterances list, and press Enter. The utterances list updates, to display only the utterances that include your search text. 
 
 To cancel the search and restore your full list of utterances, delete the search text you've typed.
 
 ## Filter by intent prediction discrepancy errors
-An utterance in an intent may have a discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the score. Use the **Errors** checkbox to filter the utterance list to only utterances with an intent prediction discrepancy. 
+An utterance in an intent may have a discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the score. To filter the utterance list to only utterances with an intent prediction discrepancy, select **Errors**. 
 
-![Intent prediction discrepancy](./media/add-example-utterances/score-discrepancy.png) 
+![Screenshot of BookFlight Intent page, with prediction discrepancy score highlighted](./media/add-example-utterances/score-discrepancy.png) 
 
 ## Filter by entity type
-Use the **Entity** drop-down list to filter the utterances by entity. The new filter is shown under **Filters**. To remove the filter, select on the blue filter box with that word or phrase.  
+Use the **Entity** drop-down list to filter the utterances by entity. The new filter is shown under **Filters**. To remove the filter, select the blue filter box with that word or phrase.  
 
-![Entity type filter](./media/add-example-utterances/entity-type-filter.png) 
+![Screenshot of Intents page, with entity type filter highlighted](./media/add-example-utterances/entity-type-filter.png) 
 
 ## Switch to token view
-Toggle **Tokens View** to view the tokens instead of the entity type names. The keyboard command, control + e, also switches between tokens and entities. 
+Toggle **Tokens View** to view the tokens instead of the entity type names. On the keyboard, you can also use Control + e to toggle the view. 
 
-![Token View](./media/add-example-utterances/tokens-view.png)
+![Screenshot of BookFlight intent, with Token View highlighted](./media/add-example-utterances/tokens-view.png)
 
 ## Next steps
 
-After labeling utterances in your intents, now your next task is to create a [composite entity](Add-entities.md).
+After labeling utterances in your intents, you can now create a [composite entity](Add-entities.md).
