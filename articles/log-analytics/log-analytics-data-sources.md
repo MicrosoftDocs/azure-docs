@@ -38,6 +38,24 @@ The data sources that are currently available in Log Analytics are listed in the
 | [IIS logs](log-analytics-data-sources-iis-logs.md) |W3CIISLog |Internet Information Services logs in W3C format. |
 | [Syslog](log-analytics-data-sources-syslog.md) |Syslog |Syslog events on Windows or Linux computers. |
 
+### Data sources
+
+
+| Data source | Where | Platform | Microsoft monitoring agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Azure Activity Logs | |Windows |  |  |  |  |  |on notification |
+| Azure Diagnostic Logs | |Windows |  |  |  |  |  |on notification |
+| Azure Diagnostic Metrics | |Windows |  |  |  |  |  |on notification |
+| ETW | |Windows |  |  |&#8226; |  |  |5 minutes |
+| IIS Logs | Data sources |Windows |&#8226; |&#8226; |&#8226; |  |  |5 minutes |
+| Performance Counters | Data sources |Windows |&#8226; |&#8226; |  |  |  |as scheduled, minimum of 10 seconds |
+| Performance Counters | Data sources |Linux |&#8226; |  |  |  |  |as scheduled, minimum of 10 seconds |
+| Syslog | Data sources |Linux |&#8226; |  |  |  |  |from Azure storage: 10 minutes; from agent: on arrival |
+| Windows security event logs | Security and Audit |Windows |&#8226; |&#8226; |&#8226; |  |  |for Azure storage: 10 min; for the agent: on arrival |
+| Windows firewall logs | Security and Audit |Windows |&#8226; |&#8226; |  |  |  |on arrival |
+| Windows event logs | Data sources |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; |for Azure storage: 10 min; for the agent: on arrival |
+
+
 ## Configuring data sources
 You configure data sources from the **Data** menu in Log Analytics **Advanced Settings**.  Any configuration is delivered to all connected sources in your workspace.  You cannot currently exclude any agents from this configuration.
 
