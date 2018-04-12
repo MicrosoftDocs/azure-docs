@@ -17,8 +17,9 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/07/2018
 ms.author: jgao
-
+#Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Azure portal and run a Hive job
 ---
+
 # Quickstart: Get started with Hadoop and Hive in Azure HDInsight using the Azure portal
 
 In this article, you learn how to create [Hadoop](http://hadoop.apache.org/) clusters in HDInsight using Azure portal, and then run Hive jobs in HDInsight. Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you perform all the three tasks.
