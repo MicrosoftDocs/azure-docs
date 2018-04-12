@@ -28,7 +28,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: xxxxxxxx
+        src: media/index/API_QnAMaker.svg
       text: Create an app with QNAMaker
       href: /azure/cognitive-services/qnamaker/quickstart
     - image: 
