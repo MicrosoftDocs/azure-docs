@@ -22,7 +22,7 @@ ms.author: renash
 
 In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.0. 
 
-You can mount Azure File shares on a Windows installation that is running either in an Azure VM or on-premises. The table below illustrates which OS versions support mounting file shares in which environment:
+You can mount Azure File shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support mounting file shares in which environment:
 
 | Windows Version        | SMB Version | Mountable in Azure VM | Mountable On-Premises |
 |------------------------|-------------|-----------------------|----------------------|
@@ -59,7 +59,7 @@ You can mount Azure File shares on a Windows installation that is running either
 
 ## Persisting connections across reboots
 ### CmdKey
-The easiest way to establish a persistent connections is to save your storage account credentials into windows using the “CmdKey” command line utility. The following is an example command line for persisting your storage account credentials into your VM:
+The easiest way to establish a persistent connection is to save your storage account credentials into windows using the “CmdKey” command-line utility. The following is an example command-line for persisting your storage account credentials into your VM:
 ```
 C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
 ```
@@ -90,7 +90,7 @@ Once the credentials have been persisted, you no longer have to supply them when
 
 2. **Navigate to the "This PC" item on the left-hand side of the window. This will change the menus available in the ribbon. Under the Computer menu, select "Map Network Drive"**.
     
-    ![A screenshot of the "Map network drive" drop down menu](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
+    ![A screenshot of the "Map network drive" drop-down menu](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
 3. **Copy the UNC path from the "Connect" pane in the Azure portal.** 
 
@@ -108,7 +108,7 @@ Once the credentials have been persisted, you no longer have to supply them when
     
     ![Azure File share is now mounted](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. **When you are ready to dismount (or disconnect) the Azure File share, you can do so by right clicking on the entry for the share under the "Network locations" in File Explorer and selecting "Disconnect"**.
+7. **When you are ready to dismount (or disconnect) the Azure File share, you can do so by right-clicking on the entry for the share under the "Network locations" in File Explorer and selecting "Disconnect"**.
 
 ## Mount the Azure File share with PowerShell
 1. **Use the following command to mount the Azure File share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` with the proper information.
