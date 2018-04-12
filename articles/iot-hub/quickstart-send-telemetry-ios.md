@@ -28,8 +28,14 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
+- Download the code sample from [Azure samples](https://github.com/yzhong94/azure-iot-ios-sample/archive/master.zip) 
 - The latest version of [XCode](https://developer.apple.com/xcode/), running the latest verstion of the iOS SDK. This quickstart was tested with XCode 9.3 and iOS 11.3.
 - The latest version of [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
+- The iothub-explorer CLI utility, which reads telemetry from IoT Hub. To install, first install [Node.js](https://nodejs.org) v4.x.x or higher, then run the following command: 
+
+   ```sh
+   sudo npm install -g iothub-explorer
+   ```
 
 ## Create an IoT hub
 
@@ -37,11 +43,7 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
 
 1. In a new browser window, sign in to the [Azure portal](http://portal.azure.com).
 
-1. Select **Create a resource** > **Internet of Things** > **IoT Hub**.
-
-<!--
-    ![Select to install IoT Hub](media/quickstart-send-telemetry-node/selectiothub.png)
--->
+1. Select **Create a resource** > **Internet of Things** > **IoT Hub**. <!-- ![Select to install IoT Hub](media/quickstart-send-telemetry-node/selectiothub.png) -->
 
 1. To create your IoT hub, use the values in the following table:
 
@@ -56,11 +58,7 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
     | Location | The location closest to you. |
     | Pin to dashboard | Yes |
 
-1. Click **Create**.
-
-<!--
-    ![Hub settings](media/quickstart-send-telemetry-node/hubdefinition.png)
--->
+1. Click **Create**.  <!-- ![Hub settings](media/quickstart-send-telemetry-node/hubdefinition.png) -->
 
 1. Make a note of your IoT hub and resource group names. You use these values later in this quickstart.
 
@@ -83,71 +81,70 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
 
-1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
+## Send simulated telemetry
 
-    ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-    ```
+The sample application runs on an iOS device, which connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry. 
 
-    Make a note of the service connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
+### Install CocoaPods
 
-## Download the sample
+CocoaPods manage dependencies for iOS projects that use third-party libraries.
 
-In your terminal, navigate to the location where you want to store the sample. Clone the Azure IoT C SDK repo, which contains several samples including the one that this article walks through.
+Navigate to the Azure IoT iOS Sample folder that you downloaded in the prerequisites. Then, navigate to the sample project:
 
 ```sh
-git clone https://github.com/Azure/azure-iot-sdk-c.git
+cd ios-client-sample
 ```
 
-Navigate to the Azure IoT Sample folder.
-
-```sh
-cd azure-iot-sdk-c/iothub-client/samples/ios/AzureIoTSample
-```
-
-Install the CocoaPods, which manage the dependencies for your Objective-C project. The install command reads the `podfile` in the AzureIoTSample project and installs the pods as instructed. Make sure that XCode is closed before you run this command. 
+This folder has the XCode project files and workspace, as well as a `Podfile` which lists the pods required for the sample project. Make sure that XCode is closed, then run the following command to install the pods according to the podfile:
 
 ```sh
 pod install
 ```
 
-Copy the sample project code into your AzureIoTSample folder. 
-```sh
-cp ../../iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c ./AzureIoTSample/iothub_ll_telemetry_sample.c 
-```
+Your project folder now has another file named `Pods` as well as a second XCode workspace file. 
 
-## Run the simulated device application
-
-The simulated device application connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
+### Run the sample application 
 
 1. Open the sample workspace in XCode.
 
    ```sh
-   open AzureIoTSampleWorkspace.xcworkspace
+   open "MQTT Client Sample WS.xcworkspace"
    ```
 
-2. In the project navigator, expand the **AzureIoTSample** project.
-3. Right-click the **AzureIoTSample** folder and select **Add Files to "AzureIoTSample"**.
-
-   ![Add files to AzureIoTSample](media/quickstart-send-telemetry-ios/add-files.png)
-
-4. Select **iothub_ll_telemetry_sample.c** and click **Add**. 
-5. Expand the **AzureIoTSample** folder and open **iothub_ll_telemetry_sample.c** for editing in XCode. 
-6. Add the following include to line 12, after the other include files:
-
-   ```objc
-   #include "ios-sample.h"
-   ```
-7. In line 45 replace the value of the **connectionString** variable with the device connection string that you copied earlier. 
-8. Save your changes. 
-9. Run the project in the device emulator with the build and run button or the key combo **Command + r**. 
+2. Expand the **MQTT Client Sample** project and then folder of the same name.  
+3. Open **ViewController.swift** for editing in XCode. 
+4. Search for the **connectionString** variable and update the value with the device connection string that you copied previously.
+5. Search for the **deviceID** variable and update the value with **myiOSdevice** or whatever ID you set when you registered your device. 
+6. Save your changes. 
+7. Run the project in the device emulator with the build and run button or the key combo **Command + r**. 
 
    ![Run the project](media/quickstart-send-telemetry-ios/run-sample.png)
+
+8. When the emulator opens, select **Start** in the sample app.
 
 The following screenshot shows some example output as the application sends simulated telemetry to your IoT hub:
 
 ![Run the simulated device](media/quickstart-send-telemetry-ios/view-results.png)
 
+## Read the telemetry from your hub
+
+The sample app that you ran on the XCode emulator shows data about messages sent from the device. You can also view the data through your IoT hub as it is received. The `iothub-explorer` CLI utility connects to the service-side **Events** endpoint on your IoT Hub. 
+
+You need a service connection string to enable back-end applications to connect to your IoT hub and retrieve device-to-cloud messages. The following command retrieves the service connection string for your IoT hub:
+
+    ```azurecli-interactive
+    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    ```
+
+Copy the service connection string, which looks like `Hostname=...=`. 
+
+Open a new terminal window. Run the following command replacing {your hub service connection string} with the service connection string:
+
+    ```sh
+    iothub-explorer monitor-events myiOSdevice --login "{your hub service connection string}"
+    ```
+
+![View telemetry](media/quickstart-send-telemetry-ios/view-telemetry.png)
 
 ## Clean up resources
 
@@ -157,7 +154,7 @@ If you don't need the IoT hub any longer, delete it and the resource group in th
 
 ## Next steps
 
-In this article, you set up an IoT hub, registered a device, sent simulated telemetry to the hub from an iOS device, and read the telemetry from the hub using a simple app. 
+In this article, you set up an IoT hub, registered a device, sent simulated telemetry to the hub from an iOS device, and read the telemetry from the hub. 
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
