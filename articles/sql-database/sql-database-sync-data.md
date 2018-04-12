@@ -114,7 +114,7 @@ Data Sync uses insert, update, and delete triggers to track changes. It creates 
 | Database, table, schema, and column names                       | 50 characters per name |                             |
 | Tables in a sync group                                          | 500                    | Create multiple sync groups |
 | Columns in a table in a sync group                              | 1000                   |                             |
-| Data row size on a table                                        | 24 MB                  |                             |
+| Data row size on a table                                        | 24 Mb                  |                             |
 | Minimum sync interval                                           | 5 Minutes              |                             |
 |||
 
@@ -137,6 +137,8 @@ Not directly. You can sync between SQL Server on-premises databases indirectly, 
 
 ### Can I use Data Sync to sync between SQL Databases that belong to different subscriptions?
 Yes. You can sync between SQL Databases that belong to resource groups owned by different subscriptions.
+-   If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
+-   Otherwise, you have to use PowerShell to add the sync members that belong to different subscriptions.
    
 ### Can I use Data Sync to seed data from my production database to an empty database, and then keep them synchronized? 
 Yes. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.
@@ -151,7 +153,7 @@ For one recommended backup technique, see [Copy an Azure SQL database](sql-datab
 
 -   If a database uses Always Encrypted, you can sync only the tables and columns that are *not* encrypted. You can't sync the encrypted columns, because Data Sync can't decrypt the data.
 
--   If a column uses Column-Level Encryption (CLE), you can sync the column, as long as the row size is less than the maximum size of 24 MB. Data Sync treats the column encrypted by key (CLE) as normal binary data. To decrypt the data on other sync members, you need to have the same certificate.
+-   If a column uses Column-Level Encryption (CLE), you can sync the column, as long as the row size is less than the maximum size of 24 Mb. Data Sync treats the column encrypted by key (CLE) as normal binary data. To decrypt the data on other sync members, you need to have the same certificate.
 
 ### Is collation supported in SQL Data Sync?
 

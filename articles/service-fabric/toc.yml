@@ -325,6 +325,8 @@
         href: service-fabric-resource-governance.md
       - name: Volume and logging drivers
         href: service-fabric-containers-volume-logging-drivers.md
+      - name: View container logs
+        href: service-fabric-containers-view-logs.md
       - name: Services inside containers
         href: service-fabric-services-inside-containers.md
       - name: Container networking modes

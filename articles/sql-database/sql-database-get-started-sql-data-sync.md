@@ -222,15 +222,15 @@ Not necessarily. In a sync group with a hub and three spokes (A, B, and C), the 
 ### How do I get schema changes into a sync group?
 
 You have to make and propagate all schema changes manually.
-1. Replicate the schema changes manually to all sync members.
+1. Replicate the schema changes manually to the hub and to all sync members.
 2. Update the sync schema.
 
 **Adding new tables and columns**. New tables and columns don't impact the current sync. Data Sync ignores the new tables and columns until you add them to the sync schema. When you add new database objects, this is the best sequence to follow:
-1. Add the new tables or columns to all sync members.
+1. Add the new tables or columns to the hub and to all sync members.
 2. Add the new tables or columns to the sync schema.
 3. Start to insert values into the new tables and columns.
 
-**Changing the data type of a column**. When you change the data type of an existing column, Data Sync continues to work as long as the new values fit the original data type defined in the sync schema. For example, if you change the type in the source database from **int** to **bigint**, Data Sync continues to work until you insert a value that's too large for the **int** data type.
+**Changing the data type of a column**. When you change the data type of an existing column, Data Sync continues to work as long as the new values fit the original data type defined in the sync schema. For example, if you change the type in the source database from **int** to **bigint**, Data Sync continues to work until you insert a value that's too large for the **int** data type. To complete the change, replicate the schema change manually to the hub and to all sync members, and then update the sync schema.
 
 ### How can I export and import a database with Data Sync?
 After you export a database as a `.bacpac` file and import the file to create a new database, you have to do the following two things to use Data Sync in the new database:
