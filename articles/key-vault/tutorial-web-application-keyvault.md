@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure an Azure web application to read a secret from Key vault | Microsoft Docs
 description: Tutorial - Configure an application to read a secret from Key vault
 services: key-vault
@@ -10,7 +10,7 @@ ms.assetid:
 ms.service: key-vault
 ms.workload: identity
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/12/2018
 ms.author: barclayn
 ms.custom: mvc
 

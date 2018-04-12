@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/02/2017
+ms.date: 04/12/2017
 ms.author: barclayn
 
 ---
@@ -33,7 +33,7 @@ To log in to the Azure using the CLI you can type:
 az login
 ```
 
-For more information on login options via the CLI take a look at [Log in with Azure CLI 2.0](../cli/azure/authenticate-azure-cli?view=azure-cli-latest.md)
+For more information on login options via the CLI take a look at [Log in with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## Create a resource group
 
@@ -60,8 +60,8 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 
 The output of this cmdlet shows properties of the newly created Key Vault. Take note of the two properties listed below:
 
-* **Vault Name**: In the example, this is **ContosoKeyVault**. You will use this name for other Key Vault commands.
-* **Vault URI**: In the example, this is https://contosokeyvault.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+- **Vault Name**: In the example, this is **ContosoKeyVault**. You will use this name for other Key Vault commands.
+- **Vault URI**: In the example, this is https://contosokeyvault.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 
@@ -101,3 +101,4 @@ In this quickstart, you have created a Key Vault and stored a software key in it
 
 > [!div class="nextstepaction"]
 > [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md)
+> [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md)

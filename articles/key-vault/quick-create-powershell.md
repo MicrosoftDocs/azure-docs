@@ -110,3 +110,4 @@ In this quickstart you have created a Key Vault and stored a software key in it.
 
 > [!div class="nextstepaction"]
 > [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md)
+> [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md)

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/06/2017
+ms.date: 04/12/2018
 ms.author: barclayn
 
 ---
@@ -87,3 +87,4 @@ In this quickstart, you have created a Key Vault and stored a secret. To learn m
 
 > [!div class="nextstepaction"]
 > [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md)
+> [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md)
