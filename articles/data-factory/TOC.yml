@@ -378,7 +378,7 @@
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
-    - name: Developed licensed components for Azure-SSIS integration runtime
+    - name: Develop licensed components for Azure-SSIS integration runtime
       href: how-to-develop-azure-ssis-ir-licensed-components.md
   - name: Create triggers
     items:

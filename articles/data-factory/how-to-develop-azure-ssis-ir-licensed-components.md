@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: douglasl
 ---
-# How to develop paid or licensed custom components for the Azure-SSIS integration runtime
+# Develop paid or licensed custom components for the Azure-SSIS integration runtime
 
 ## Problem - The Azure-SSIS IR requires a different approach
 

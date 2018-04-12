@@ -23,7 +23,7 @@ You configure your custom setup by preparing a script and its associated files, 
 You can install both free or unlicensed components, and paid or licensed components. If you're an ISV, see [How to develop paid or licensed components for the Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 
-## Current Limitations
+## Current limitations
 
 -   You cannot directly use scripts that call xcopy or robocopy or similar tools to copy files at this time. As a workaround, create a `cmd` file containing scripts that call xcopy or robocopy tools (for example, `install.cmd`), and call this `cmd` file instead. For example:
 
@@ -37,13 +37,13 @@ You can install both free or unlicensed components, and paid or licensed compone
 
 To customize your Azure-SSIS IR, you need the following things:
 
--   [Azure subscription](https://azure.microsoft.com/en-us/)
+-   [Azure subscription](https://azure.microsoft.com/)
 
 -   [An Azure SQL Database or Managed Instance server](https://ms.portal.azure.com/#create/Microsoft.SQLServer)
 
--   [Provision your Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure)
+-   [Provision your Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)
 
--   [An Azure Storage account](https://azure.microsoft.com/en-us/services/storage/). For custom setup, you upload and store your custom setup script and its associated files in a blob container. The custom setup process also uploads its execution logs to the same blob container.
+-   [An Azure Storage account](https://azure.microsoft.com/services/storage/). For custom setup, you upload and store your custom setup script and its associated files in a blob container. The custom setup process also uploads its execution logs to the same blob container.
 
 ## Instructions
 
@@ -61,37 +61,37 @@ To customize your Azure-SSIS IR, you need the following things:
 
     1.  Under **(Local and Attached)**, right-select **Storage Accounts** and select **Connect to Azure storage**.
 
-       ![](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
+       ![Connect to Azure storage](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
     2.  Select **Use a storage account name and key** and select **Next**.
 
-       ![](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image2.png)
+       ![Use a storage account name and key](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image2.png)
 
     3.  Enter your Azure Storage account name and key, select **Next**, and then select **Connect**.
 
-       ![](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image3.png)
+       ![Provide store account name and key](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image3.png)
 
     4.  Under your connected Azure Storage account, right-click on **Blob Containers**, select **Create Blob Container**, and name the new
         container.
 
-       ![](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
+       ![Create a blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
     5.  Select the new container and upload your custom setup script and its associated files. Make sure that you upload `main.cmd` at the top
         level of the container, not in any folder. 
 
-       ![](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
+       ![Upload files to the blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
     6.  Right-click the container and select **Get Shared Access Signature**.
 
-       ![](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
+       ![Get the Shared Access Signature for the container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
 
     7.  Create the SAS URI for your container with a sufficiently long expiry time and with read + write + list permissions. You need the SAS URI to download and run your custom setup script and its associated files whenever any node of your Azure-SSIS IR is reimaged. You need write permission to upload setup execution logs.
 
-       ![](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png)
+       ![Generate the Shared Access Signature for the container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png)
 
     8.  Copy and save the SAS URI of your container.
 
-       ![](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
+       ![Copy and save the Shared Access Signature](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
     9.  When you provision or reconfigure your Azure-SSIS IR with PowerShell, before you start your Azure-SSIS IR, run the `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet with the SAS URI of your container as the value for new `SetupScriptContainerSasUri` parameter. For example:
 
@@ -113,13 +113,13 @@ To customize your Azure-SSIS IR, you need the following things:
     a.  Under **(Local and Attached)**, right-click **Storage Accounts**, select **Connect to Azure storage**, select **Use a
         connection string or a shared access signature URI**, and then select **Next**.
 
-       ![](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
+       ![Connect to Azure storage with the Shared Access Signature](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 
     b.  Select **Use a SAS URI** and enter the following SAS URI for the Public Preview container. Select **Next**, and the select **Connect**.
 
        `https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2018-04-08T14%3A10%3A00Z&se=2020-04-10T14%3A10%3A00Z&sv=2017-04-17&sig=mFxBSnaYoIlMmWfxu9iMlgKIvydn85moOnOch6%2F%2BheE%3D&sr=c`
 
-       ![](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image10.png)
+       ![Provide the Shared Access Signature for the container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image10.png)
 
     c. Select the connected Public Preview container and double-click the `CustomSetupScript` folder. In this folder are the following items:
 
@@ -127,7 +127,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
        2. A `UserScenarios` folder, which contains eight custom setups for real user scenarios.
 
-    ![](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
+    ![Contents of the public preview container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 
     d. Double-click the `UserScenarios` folder. In this folder are the following items:
 
@@ -143,11 +143,11 @@ To customize your Azure-SSIS IR, you need the following things:
 
        6. An `SAP BW` folder, which contains a custom setup script (`main.cmd`) to install the SAP .NET connector assembly (`librfc32.dll`) on each node of your Azure-SSIS IR Enterprise Edition (Private Preview). This setup lets you use the SAP BW Connection Manager, Source, and Destination. First, upload the 64-bit or the 32-bit version of `librfc32.dll` from the SAP installation folder into your container, together with `main.cmd`. The script then copies the SAP assembly into the `%windir%\SysWow64` or `%windir%\System32` folder during setup.
 
-       7. A `STORAGE` folder, which contains a custom setup to install Azure PowerShell on each node of your Azure-SSIS IR. This setup lets you deploy and run SSIS packages that run [PowerShell scripts to manipulate your Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-use-blobs-powershell). Copy `main.cmd`, a sample `AzurePowerShell.msi` (or install the latest version), and `storage.ps1` to your container. Use PowerShell.dtsx as a template for your packages. The package template combines an [Azure Blob Download Task](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), which downloads `storage.ps1` as a modifiable PowerShell script, and an [Execute Process Task](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/)  that executes the script on each node.
+       7. A `STORAGE` folder, which contains a custom setup to install Azure PowerShell on each node of your Azure-SSIS IR. This setup lets you deploy and run SSIS packages that run [PowerShell scripts to manipulate your Azure Storage account](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Copy `main.cmd`, a sample `AzurePowerShell.msi` (or install the latest version), and `storage.ps1` to your container. Use PowerShell.dtsx as a template for your packages. The package template combines an [Azure Blob Download Task](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), which downloads `storage.ps1` as a modifiable PowerShell script, and an [Execute Process Task](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/)  that executes the script on each node.
 
        8. A `TERADATA` folder, which contains a custom setup script (`main.cmd)`, its associated file (`install.cmd`), and installer packages (`.msi`). These files install Teradata connectors, the TPT API, and the ODBC driver on each node of your Azure-SSIS IR Enterprise Edition (Private Preview). This setup lets you use the Teradata Connection Manager, Source, and Destination. First, download the Teradata Tools and Utilities (TTU) 15.x zip file (for example,  `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) from [Teradata](http://partnerintelligence.teradata.com), and then upload it together with the above `.cmd` and `.msi` files into your container.
 
-    ![](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
+    ![Folders in the user scenarios folder](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 
     e. To try these custom setup samples, copy and paste the content from the selected folder into your container. When you provision or reconfigure your Azure-SSIS IR with PowerShell, run the `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet with the SAS URI of your container as the value for new `SetupScriptContainerSasUri` parameter.
 
