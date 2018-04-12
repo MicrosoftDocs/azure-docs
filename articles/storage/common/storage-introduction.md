@@ -77,7 +77,7 @@ For more information about Azure Queues, see [Introduction to Queues](../queues/
 
 Azure Table storage is now part of Azure Cosmos DB. To see Azure Table storage documentation, see the [Azure Table Storage Overview](../../cosmos-db/table-storage-overview.md). In addition to the existing Azure Table storage service, there is a new Azure Cosmos DB Table API offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, please check out [Azure Cosmos DB Table API](https://aka.ms/premiumtables).
 
-For more information about Table storage, see [Overview of Azure Table storage](../../cosmos-db/table-storage-overview)
+For more information about Table storage, see [Overview of Azure Table storage](../../cosmos-db/table-storage-overview.md).
 
 ## Disk storage
 
@@ -175,12 +175,12 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 ### Azure Storage data API and libraries
 * [Storage Services REST API](https://docs.microsoft.com/rest/api/storageservices/)
 * [Storage Client Library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-* [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 * [Storage Client Library for Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Storage Client Library for Node.js](http://azure.github.io/azure-storage-node/)
-* [Storage Client Library for PHP](https://github.com/Azure/azure-storage-php)
+* [Storage Client Library for Node.js](https://docs.microsoft.com/en-us/javascript/api/azure-storage)
 * [Storage Client Library for Python](https://github.com/Azure/azure-storage-python)
+* [Storage Client Library for PHP](https://github.com/Azure/azure-storage-php)
 * [Storage Client Library for Ruby](https://github.com/Azure/azure-storage-ruby)
+* [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 
 ### Azure Storage management API and libraries
 * [Storage Resource Provider REST API Reference](/rest/api/storagerp/)
