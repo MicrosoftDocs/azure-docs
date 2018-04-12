@@ -68,7 +68,7 @@ Below you can find the Azure CLI commands that creates a new Media Services acco
 * *storageaccountforams*
 
 ```azurecli-interactive
-az ams create -n <myamsaccountname> -g <myresourcegroup> --storage-account <storageaccountforams>
+az ams account create -n <myamsaccountname> -g <myresourcegroup> --storage-account <storageaccountforams>
 ```
 
 ## Clean up resources
