@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/11/2018
 ms.author: douglasl
 ---
 # Continuous integration and deployment in Azure Data Factory
@@ -58,6 +58,8 @@ that you can use after you enable VSTS GIT integration in the Data Factory UI:
 ## Automate continuous integration with VSTS Releases
 
 Here are the steps to set up a VSTS Release so you can automate the deployment of a data factory to multiple environments.
+
+![Diagram of continuous integration with VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### Requirements
 

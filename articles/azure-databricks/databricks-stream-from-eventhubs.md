@@ -171,6 +171,7 @@ In this section, you create two notebooks in Databricks workspace with the follo
 
 In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholders with values for your Event Hubs namesapce and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Event Hubs in real time.
 
+```scala
     import java.util._
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
@@ -240,6 +241,7 @@ In the **SendTweetsToEventHub** notebook, paste the following code, and replace 
 
     // Closing connection to the Event Hub
     eventHubClient.get().close()
+```
 
 To run the notebook, press **SHIFT + ENTER**. You see an output like the snippet below. Each event in the output is a tweet that is ingested into the Event Hubs containing the term "Azure".
 
@@ -262,6 +264,7 @@ To run the notebook, press **SHIFT + ENTER**. You see an output like the snippet
 
 In the **ReadTweetsFromEventHub** notebook, paste the following code, and replace the placeholder with values for your Azure Event Hubs that you created earlier. This notebook reads the tweets that you earlier streamed into Event Hubs using the **SendTweetsToEventHub** notebook.
 
+```scala
     import org.apache.spark.eventhubs._
 
     // Build connection string with the above information
@@ -280,6 +283,7 @@ In the **ReadTweetsFromEventHub** notebook, paste the following code, and replac
     // Sending the incoming stream into the console.
     // Data comes in batches!
     incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 You get the following output:
 
@@ -310,6 +314,7 @@ You get the following output:
 
 Because the output is in a binary mode, use the following snippet to convert it into string.
 
+```scala
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
 
@@ -326,6 +331,7 @@ Because the output is in a binary mode, use the following snippet to convert it 
     messages.printSchema
 
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 The output now resembles the following snippet:
 
