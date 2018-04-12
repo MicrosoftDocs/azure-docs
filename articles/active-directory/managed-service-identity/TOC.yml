@@ -1,6 +1,14 @@
 - name: Managed Service Identity
   href: overview.md
   items:
+    - name: Quickstarts
+      items:
+      - name: Use a VM MSI to acess Azure Resource Manager
+        items: 
+        - name: Windows VM
+          href: tutorial-windows-vm-access-arm.md
+        - name: Linux VM
+          href: tutorial-linux-vm-access-arm.md
     - name: Configure MSI for an Azure VM
       items:
       - name: Using Azure Portal
@@ -41,8 +49,6 @@
       items:
       - name: Access Azure Data Lake Store
         href: tutorial-windows-vm-access-datalake.md
-      - name: Access Azure Resource Manager
-        href: tutorial-windows-vm-access-arm.md
       - name: Access Azure SQL
         href: tutorial-windows-vm-access-sql.md
       - name: Access Azure Storage using an access key
@@ -55,8 +61,6 @@
       items:
       - name: Access Azure Data Lake Store
         href: tutorial-linux-vm-access-datalake.md
-      - name: Access Azure Resource Manager
-        href: tutorial-linux-vm-access-arm.md
       - name: Access Azure Storage using an access key
         href: tutorial-linux-vm-access-storage.md
       - name: Access Azure Storage using SAS
