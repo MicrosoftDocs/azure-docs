@@ -153,5 +153,5 @@ The REST operations for working with the activity log are part of the [Insights 
 * To learn about setting security policies, see [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md).
 * To learn about the commands for viewing deployment operations, see [View deployment operations](resource-manager-deployment-operations.md).
 * To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
-* To see the list of operations available for each Microsoft Azure Resource Manager provider, see [Azure Resource Manager Resource Provider operations](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
+* To see the list of operations available for each Microsoft Azure Resource Manager provider, see [Azure Resource Manager Resource Provider operations](../role-based-access-control/resource-provider-operations.md)
 
