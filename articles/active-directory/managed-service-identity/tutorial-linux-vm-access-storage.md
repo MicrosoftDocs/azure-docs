@@ -102,7 +102,7 @@ Because files require blob storage, you need to create a blob container in which
 
     ![Upload text file](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## Retrieve the `principalID` of the Linux VM's MSI
+## Retrieve the principalID of the Linux VM's MSI
 
 To grant the Linux VM's MSI access to an Azure Storage container in the following section, you need to retrieve the `principalID` of the Linux VM's MSI.  Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resource group in which you VM resides), and `<VM NAME>` parameter values with your own values.
 
@@ -163,7 +163,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 4. Now use the access token to access Azure Storage, for example to read the contents of the sample file which you previously uploaded to the container. Replace the values of `<STORAGE ACCOUNT>`, `<CONTAINER NAME>`, and `<FILE NAME>` with the values you specified earlier, and `<ACCESS TOKEN>` with the token returned in the previous step.
 
    ```bash
-   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2017-11-09 -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME> -H "x-ms-version: 2017-11-09" -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
    The response contains the contents of the file:
