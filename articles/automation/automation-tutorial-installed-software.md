@@ -127,7 +127,9 @@ ConfigurationData
 In this tutorial you learned how view software inventory such as how to:
 
 > [!div class="checklist"]
-> * Onboard a VM for Change tracking and Inventory
+> * Enable the solution
+> * Onboard an Azure VM
+> * Onboard a non-Azure VM
 > * View installed software
 > * Search inventory logs for installed software
 
