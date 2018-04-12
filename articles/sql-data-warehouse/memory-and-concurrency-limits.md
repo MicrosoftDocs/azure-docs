@@ -1,17 +1,17 @@
 ---
 title: Memory and concurrency limits - Azure SQL Data Warehouse | Microsoft Docs
-description: Memory and concurrency limits for the performance levels (service levels) in Azure SQL Data Warehouse.
+description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/09/2018
+ms.date: 04/11/2018
 ms.author: kevin
 ms.reviewer: jrj
 ---
 # Memory and concurrency limits for Azure SQL Data Warehouse
-View the memory and concurrency limits allocated to the performance levels and resource classes in Azure SQL Data Warehouse. For more information, and to apply these capabilities to your workload management plan, see [Resource classes for workload management](resource-classes-for-workload-management.md). 
+View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse. For more information, and to apply these capabilities to your workload management plan, see [Resource classes for workload management](resource-classes-for-workload-management.md). 
 
 ## Performance tiers
 
