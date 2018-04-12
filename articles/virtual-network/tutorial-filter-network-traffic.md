@@ -296,6 +296,10 @@ When no longer needed, you can use [Remove-AzureRmResourceGroup](/powershell/mod
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
+## Template
+
+For an example on how to work with Application Security Groups using Azure Resource Manager Templates, please refer to [Application Security Groups](https://azure.microsoft.com/en-us/resources/templates/201-application-security-group/) on Azure Quickstart templates repository on GitHub. 
+
 ## Next steps
 
 In this tutorial, you created a network security group and associated it to a virtual network subnet. To learn more about network security groups, see [Network security group overview](security-overview.md) and [Manage a network security group](manage-network-security-group.md).
