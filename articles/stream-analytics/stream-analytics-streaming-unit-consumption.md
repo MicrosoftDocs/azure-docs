@@ -65,9 +65,8 @@ The temporal window concept appears in several Stream Analytics query elements:
 The following factors influence the memory used (part of streaming units metric) by Stream Analytics jobs:
 
 ## Windowed aggregates
-The memory consumed for a windowed aggregate is not always directly proportional to the window size. Instead, the memory consumed is proportional to the cardinality of the data, or the number of groups in each time window.
+The memory consumed (state size) for a windowed aggregate is not always directly proportional to the window size. Instead, the memory consumed is proportional to the cardinality of the data, or the number of groups in each time window.
 
-The state size of a windowed aggregate is proportional to the number of groups (cardinality) in the group by operator. 
 
 For example, in the following query, the number associated with `clusterid` is the cardinality of the query. 
 
@@ -90,7 +89,7 @@ Once the query is partitioned out, it is spread out over multiple nodes. As a re
 Event Hub partitions should be partitioned by the grouping key to avoid the need for a reduce step. For more information, see [Event Hubs overview](../event-hubs/event-hubs-what-is-event-hubs.md). 
 
 ## Temporal joins
-The state size of a temporal join is proportional to the number of events in the temporal wiggle room of the join, which is event input rate multiply by the wiggle room size. In other words, the memory consumed by joins is proportional to the DateDiff time range multiplied by average event rate.
+The memory consumed (state size) of a temporal join is proportional to the number of events in the temporal wiggle room of the join, which is event input rate multiply by the wiggle room size. In other words, the memory consumed by joins is proportional to the DateDiff time range multiplied by average event rate.
 
 The number of unmatched events in the join affect the memory utilization for the query. The following query is looking to find the ad impressions that generate clicks:
 
@@ -114,7 +113,7 @@ To remediate this, send events to Event Hub partitioned by the join keys (id in 
 Once the query is partitioned out, it is spread out over multiple nodes. As a result the number of events coming into each node is reduced thereby reducing the size of the state kept in the join window. 
 
 ## Temporal analytic functions
-The state size of a temporal analytic function is proportional to the event rate multiply by the duration. The memory consumed by analytic functions is not proportional to the window size, but rather partition count in each time window.
+The memory consumed (state size) of a temporal analytic function is proportional to the event rate multiply by the duration. The memory consumed by analytic functions is not proportional to the window size, but rather partition count in each time window.
 
 The remediation is similar to temporal join. You can scale out the query using **PARTITION BY**. 
 
