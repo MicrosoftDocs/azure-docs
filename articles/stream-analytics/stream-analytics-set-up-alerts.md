@@ -1,24 +1,16 @@
 ---
-title: Set up alerts for queries in Stream Analytics | Microsoft Docs
-description: Understanding Stream Analytics Alerting
-keywords: set up alerts
+title: Set up monitoring alerts for Azure Stream Analytics jobs
+description: This article describes how to use the Azure portal to set up monitoring and alerts for Azure Stream Analytics jobs.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-
-ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/26/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/26/2017
 ---
-# Set up alerts for Azure Stream Analytics jobs
-## Introduction: Monitor page
+# Tutorial: Set up alerts for Azure Stream Analytics jobs
 You can set up alerts to trigger an alert when a metric reaches a condition that you specify. For example, you might set up an alert for a condition like the following:
 
 `If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`
@@ -46,7 +38,7 @@ For more detail on configuring alerts in the Azure portal, see [Receive alert no
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

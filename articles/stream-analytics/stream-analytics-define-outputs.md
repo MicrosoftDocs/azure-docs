@@ -1,40 +1,34 @@
 ---
-title: 'Stream Analytics outputs: Options for storage, analysis | Microsoft Docs'
+title: Types of outputs from Azure Stream Analytics jobs
 description: Learn about targeting Stream Analytics data outputs options including Power BI for analysis results.
-keywords: data transformation, analysis results, data storage options
-services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: ''
-author: SnehaGunda
+services: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-
-ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 02/18/2017
-ms.author: sngun
-
+ms.topic: conceptual
+ms.date: 04/09/2018
 ---
-# Stream Analytics outputs: Options for storage, analysis
+# Stream Analytics outputs: Options for storage and analysis
 When authoring a Stream Analytics job, consider how the resulting data is consumed. How can you view the results of the Stream Analytics job and where can you store it?
 
 In order to enable a variety of application patterns, Azure Stream Analytics has different options for storing output and viewing analysis results. This makes it easy to view job output and gives you flexibility in the consumption and storage of the job output for data warehousing and other purposes. Any output configured in the job must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job doesn't create a storage account automatically. Create a storage account before the Stream Analytics job is started.
 
 ## Azure Data Lake Store
-Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). This storage enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Further, Stream Analytics needs to be authorized to access the Data Lake Store. Details on authorization and how to sign up for the Data Lake Store (if needed) are discussed in the [Data Lake output article](stream-analytics-data-lake-output.md).
+Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Further, Stream Analytics needs to be authorized to access the Data Lake Store.
 
-### Authorize an Azure Data Lake Store
-When Data Lake Storage is selected as an output in the Azure portal, you are prompted to authorize a connection to an existing Data Lake Store.  
+### Authorize an Azure Data Lake Store account
 
-![Authorize Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+1. When Data Lake Storage is selected as an output in the Azure portal, you are prompted to authorize a connection to an existing Data Lake Store.  
 
-Then fill out the properties for the Data Lake Store output as seen below:
+   ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
-![Authorize Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+2. If you already have access to Data Lake Store, click “Authorize Now” and a page will pop up indicating “Redirecting to authorization”. After authorization succeeds, you are presented with the page that allows you to configure the Data Lake Store output.  
 
-The table below lists the property names and their description needed for creating a Data Lake Store output.
+3. Once you have the Data Lake Store account authenticated, you can configure the properties for your Data Lake Store output. The table below is the list of property names and their description to configure your Data Lake Store output.
+
+   ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 <table>
 <tbody>
@@ -48,11 +42,11 @@ The table below lists the property names and their description needed for creati
 </tr>
 <tr>
 <td>Account Name</td>
-<td>The name of the Data Lake Storage account where you are sending your output. You are presented with a drop-down list of Data Lake Store accounts to which the user logged in to the portal has access to.</td>
+<td>The name of the Data Lake Storage account where you are sending your output. You are presented with a drop-down list of Data Lake Store accounts that are available in your subscription.</td>
 </tr>
 <tr>
 <td>Path Prefix Pattern</td>
-<td>File naming follows the following convention: <BR>{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR>Example output files:<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>Also, here are the situations, where a new file is created:<BR>1. Change in output schema <BR>2. External or Internal restart of a job<BR><BR>Additionally, if the file path pattern does not contain a trailing “/”, the last pattern in the file path is treated as a filename prefix.<BR><BR>Example:<BR>For the path pattern: folder1/logs/HH, the generated file may look like: folder1/logs/02_134343_gguid_1.csv</td>
+<td>The file path used to write your files within the specified Data Lake Store Account. You can specify one or more instances of the {date} and {time} variables.<BR> Example 1: folder1/logs/{date}/{time}<BR>Example 2: folder1/logs/{date}<BR>Also, here are the situations, where a new file is created:<BR>1. Change in output schema <BR>2. External or Internal restart of a job<BR><BR>Additionally, if the file path pattern does not contain a trailing “/”, the last pattern in the file path is treated as a filename prefix.<BR></td>
 </tr>
 <tr>
 <td>Date Format [<I>optional</I>]</td>
@@ -82,12 +76,14 @@ The table below lists the property names and their description needed for creati
 </table>
 
 ### Renew Data Lake Store Authorization
-You need to reauthenticate your Data Lake Store account if its password has changed since your job was created or last authenticated.
+You need to reauthenticate your Data Lake Store account if its password has changed since your job was created or last authenticated. If you don't reauthenticate, your job will not output results and an error indicating the need for re-authorization is logged in the Operation Logs. Currently, there is a limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Data Lake Store output. 
+
+To renew authorization, **Stop** your job > go to your Data Lake Store output > click the **Renew authorization** link, and for a brief time a page will pop up indicating “Redirecting to authorization..”. The page will automatically close and if successful, will indicate “Authorization has been successfully renewed”. You then need to click **Save** at the bottom of the page, and can proceed by restarting your job from the **Last Stopped Time** to avoid data loss.
 
 ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## SQL Database
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in an Azure SQL Database.  The table schema must exactly match the fields and their types being output from your job. An [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) can also be specified as an output via the SQL Database output option as well (this is a preview feature). The table below lists the property names and their description for creating a SQL Database output.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in an Azure SQL Database.  The table schema must exactly match the fields and their types being output from your job. An [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) can also be specified as an output via the SQL Database output option as well. The table below lists the property names and their description for creating a SQL Database output.
 
 | Property Name | Description |
 | --- | --- |
@@ -306,21 +302,26 @@ The table below lists the property names and their description for creating a ta
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
 
 ## Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a globally distributed, multi-model database service that offers limitless elastic scale around the globe, rich query, and automatic indexing over schema-agnostic data models, guaranteed low latency, and industry-leading comprehensive SLAs.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a globally distributed, multi-model database service that offers limitless elastic scale around the globe, rich query, and automatic indexing over schema-agnostic data models, guaranteed low latency, and industry-leading comprehensive SLAs. To learn about Cosmos DB collection options for Stream Analytics, refer to the [Stream Analytics with Cosmos DB as output](stream-analytics-documentdb-output.md) article.
 
-The below list details the property names and their description for creating an Azure Cosmos DB output.
+> [!Note]
+> At this time, Azure Stream Analytics only supports connection to CosmosDB using **SQL API**.
+> Other Azure Cosmos DB APIs are not yet supported. If you point Azure Stream Analytics to the Azure Cosmos DB accounts created with other APIs, the data might not be properly stored. 
 
-* **Output Alias** – An alias to refer this output in your Stream Analytics query  
-* **Account Name** – The name or endpoint URI of the Cosmos DB account.  
-* **Account Key** – The shared access key for the Cosmos DB account.  
-* **Database** – The Cosmos DB database name.  
-* **Collection Name Pattern** – The collection name or their pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. Following are sample valid inputs:  
-  1\) MyCollection – One collection named “MyCollection” must exist.  
-  2\) MyCollection{partition} – Such collections must exist– "MyCollection0”, “MyCollection1”, “MyCollection2” and so on.  
-* **Partition Key** – Optional. This is only needed if you are using a partition token in your collection name pattern. The name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used for example, PartitionId.  
-* **Document ID** – Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
+The following table describes the properties for creating an Azure Cosmos DB output.
+| Property Name | Description |
+| --- | --- |
+| Output alias | An alias to refer this output in your Stream Analytics query. |
+| Sink | Cosmos DB |
+| Import option | Choose either to "Select Cosmos DB from your subscription", or to "Provide Cosmos DB settings manually".
+| Account id | The name or endpoint URI of the Cosmos DB account. |
+| Account key | The shared access key for the Cosmos DB account. |
+| Database | The Cosmos DB database name. |
+| Collection name pattern | The collection name or their pattern for the collections to be used. <br/>The collection name format can be constructed using the optional {partition} token, where partitions start from 0. Two examples:  <br/>1. _MyCollection_ – One collection named "MyCollection" must exist.  <br/>2. _MyCollection{partition}_ – Based on the partitioning column. <br/>The partitioning column collections must exist– "MyCollection0", "MyCollection1", "MyCollection2" and so on. |
+| Partition Key | Optional. This is only needed if you are using a {partition} token in your collection name pattern.<br/> The partition key is the name of the field in output events used to specify the key for partitioning output across collections.<br/> For single collection output, any arbitrary output column can be used for example, PartitionId. |
+| Document ID |Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
 
-## Azure Functions (In Preview)
+## Azure Functions (in preview)
 Azure Functions is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. It lets you implement code that is triggered by events occurring in Azure or third-party services.  This ability of Azure Functions to respond to triggers makes it a natural output for an Azure Stream Analytics. This output adapter allows users to connect Stream Analytics to Azure Functions, and run a script or piece of code in response to a variety of events.
 
 Azure Stream Analytics invokes Azure Functions via HTTP triggers. The new Azure Function Output adapter is available with the following configurable properties:
@@ -339,7 +340,7 @@ Also, in a situation where there is no event landing in a time window, no output
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 You've been introduced to Stream Analytics, a managed service for streaming analytics on data from the Internet of Things. To learn more about this service, see:

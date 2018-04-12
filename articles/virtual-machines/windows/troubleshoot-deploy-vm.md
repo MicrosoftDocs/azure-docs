@@ -4,7 +4,7 @@ description: Troubleshoot deploying Windows virtual machine issues in Azurethe R
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

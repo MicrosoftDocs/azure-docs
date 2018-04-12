@@ -38,5 +38,5 @@ Server administrators must be a valid user or group in the Azure Active Director
 ## Next steps 
 [Authentication and user permissions](analysis-services-manage-users.md)  
 [Manage database roles and users](analysis-services-database-users.md)  
-[Role-Based Access Control](../active-directory/role-based-access-control-what-is.md)  
+[Role-Based Access Control](../role-based-access-control/overview.md)  
 
