@@ -12,15 +12,15 @@ ms.author: elbutter
 ms.reviewer: jrj
 ---
 
-# Use Azure Functions to manage compute in Azure SQL Data Warehouse
+# Use Azure Functions to manage compute resources in Azure SQL Data Warehouse
 
-This tutorial uses Azure Functions to manage compute for a data warehouse in Azure SQL Data Warehouse. These architectures are recommended for use with SQL Data Warehouse [Optimized for Elasticity][Performance Tiers].
+This tutorial uses Azure Functions to manage compute resources for a data warehouse in Azure SQL Data Warehouse. These architectures are recommended for use with SQL Data Warehouse [Optimized for Elasticity][Performance Tiers].
 
 In order to use Azure Function App with SQL Data Warehouse, you must create a [Service Principal Account](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) with contributor access under the same subscription as your data warehouse instance. 
 
 ## Deploy timer-based scaling with an Azure Resource Manager template
 
-To deploy the template, you will need the following information:
+To deploy the template, you need the following information:
 
 - Name of the resource group your SQL DW instance is in
 - Name of the logical server your SQL DW instance is in
@@ -30,13 +30,13 @@ To deploy the template, you will need the following information:
 - Service Principal Application ID
 - Service Principal Secret Key
 
-Once you have the above information, deploy this template:
+Once you have the preceding information, deploy this template:
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
 
-Once you've deployed the template, you should find three new resources: a free Azure App Service Plan, a consumption based Function App plan, and a storage account which will handle the logging and the operations queue. Continue reading the other sections to see how to modify the deployed functions to fit your need.
+Once you've deployed the template, you should find three new resources: a free Azure App Service Plan, a consumption-based Function App plan, and a storage account that handles the logging and the operations queue. Continue reading the other sections to see how to modify the deployed functions to fit your need.
 
 ## Change the compute level
 
@@ -44,11 +44,11 @@ Once you've deployed the template, you should find three new resources: a free A
 
    ![Functions that are deployed with template](media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Select either *DWScaleDownTrigger* or *DWScaleUpTrigger* depending on whether you would like to change the scale up or scale down time. In the drop down, select Integrate.
+2. Select either *DWScaleDownTrigger* or *DWScaleUpTrigger* depending on whether you would like to change the scale up or scale down time. In the drop-down menu, select Integrate.
 
    ![Select Integrate for function](media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Currently the value displayed should say either *%ScaleDownTime%* or *%ScaleUpTime%*. These values indicate the schedule is based on values defined in your [Application Settings][Application Settings]. For now, you can ignore this and change the schedule to your preferred time based on the next steps.
+3. Currently the value displayed should say either *%ScaleDownTime%* or *%ScaleUpTime%*. These values indicate the schedule is based on values defined in your [Application Settings][Application Settings]. For now, you can ignore this value and change the schedule to your preferred time based on the next steps.
 
 4. In the schedule area, add the time the CRON expression you would like to reflect how often you want the SQL Data Warehouse to be scaled up. 
 
@@ -59,7 +59,7 @@ Once you've deployed the template, you should find three new resources: a free A
   {second} {minute} {hour} {day} {month} {day-of-week}
   ```
 
-  For example *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples][schedule examples].
+  For example, *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples][schedule examples].
 
 
 ## Change the time of the scale operation
@@ -70,7 +70,7 @@ Once you've deployed the template, you should find three new resources: a free A
 
    ![Change function trigger compute level](media/manage-compute-with-azure-functions/index-js.png)
 
-3. Change the value of *ServiceLevelObjective* to the level you would like and hit save. This is the compute level that your data warehouse instance will be scaled to based on the schedule defined in the Integrate section.
+3. Change the value of *ServiceLevelObjective* to the level you would like and hit save. This value is the compute level that your data warehouse instance will scale to based on the schedule defined in the Integrate section.
 
 ## Use pause or resume instead of scale 
 
@@ -86,14 +86,14 @@ Currently, the functions on by default are *DWScaleDownTrigger* and *DWScaleUpTr
 
 3. Navigate to the *Integrate* tabs for the respective triggers to change their schedule.
 
-   [!NOTE]: The functional difference between the scaling triggers and the pause/resume triggers is the message that is sent to the queue. See [Add a new trigger function][Add a new trigger function] for more information.
+   [!NOTE]: The functional difference between the scaling triggers and the pause/resume triggers is the message that is sent to the queue. For more information, see [Add a new trigger function][Add a new trigger function].
 
 
 ## Add a new trigger function
 
-Currently, there are only two scaling functions included within the template. This means that, over the course of a day, you can only scale down once and up once. For more granular control, such as scaling down multiple times per day or having different scaling behavior on the weekends, you will have to add another trigger.
+Currently, there are only two scaling functions included within the template. With these functions, during the course of a day, you can only scale down once and up once. For more granular control, such as scaling down multiple times per day or having different scaling behavior on the weekends, you need to add another trigger.
 
-1. Create a new blank function. Select the *+* button near your Functions location to bring up the function template pane.
+1. Create a new blank function. Select the *+* button near your Functions location to show the function template pane.
 
    ![Create new function](media/manage-compute-with-azure-functions/create-new-function.png)
 
@@ -109,7 +109,7 @@ Currently, there are only two scaling functions included within the template. Th
 
    ![Copy index js](media/manage-compute-with-azure-functions/index-js.png)
 
-5. Set your your operation variable to the desired behavior as follows:
+5. Set your operation variable to the desired behavior as follows:
 
    ```javascript
    // Resume the data warehouse instance
@@ -132,7 +132,7 @@ Currently, there are only two scaling functions included within the template. Th
 
 ## Complex scheduling
 
-This section will briefly demonstrate what is necessary to get more complex scheduling of pause, resume, and scaling capabilities.
+This section briefly demonstrates what is necessary to get more complex scheduling of pause, resume, and scaling capabilities.
 
 ### Example 1:
 
@@ -145,7 +145,7 @@ Daily scale up at 8am to DW600 and scale down at 8pm to DW200.
 
 ### Example 2: 
 
-Daily scale up at 8am to DW1000, scale down once to DW600 at 4pm and scale down at 10pm to DW200.
+Daily scale up at 8am to DW1000, scale down once to DW600 at 4pm, and scale down at 10pm to DW200.
 
 | Function  | Schedule     | Operation                                |
 | :-------- | :----------- | :--------------------------------------- |
