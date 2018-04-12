@@ -86,7 +86,7 @@ You can also make cohorts of events. Let’s define a cohort of the events and p
 4. In the **Activities** dropdown, select the events you’d like to be in the cohort
 5. Save the cohort and give it a name
 
-## Example: Active users where you modify query
+## Example: active users where you modify query
 
 The previous two cohorts were defined using dropdowns. But we can also define cohorts with Analytics queries for total flexibility. Let’s see how by creating a cohort of users from the United Kingdom.
 
