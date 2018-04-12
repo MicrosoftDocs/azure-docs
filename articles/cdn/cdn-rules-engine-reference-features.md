@@ -513,11 +513,11 @@ Key information:
 
 ---
 ### Debug Cache Response Headers
-**Purpose:** Determines whether a response can include the X-EC-Debug response header, which provides information on the cache policy for the requested asset.
+**Purpose:** Determines whether a response can include the [X-EC-Debug response header](cdn-http-headers.md#x-ec-debug-headers), which provides information on the cache policy for the requested asset.
 
 Debug cache response headers will be included in the response when both of the following are true:
 
-- The Debug Cache Response Headers Feature has been enabled on the desired request.
+- The Debug Cache Response Headers feature has been enabled on the desired request.
 - The above request defines the set of debug cache response headers that will be included in the response.
 
 Debug cache response headers may be requested by including the following header and the desired directives in the request:
@@ -989,12 +989,22 @@ Key information:
 
 ---
 ### Proxy Special Headers
-**Purpose:** Defines the set of CDN-specific request headers that will be forwarded from a POP to an origin server.
+**Purpose:** Defines the set of CDN-specific [HTTP request headers](cdn-http-headers.md#verizon-specific-http-request-headers) that will be forwarded from a POP to an origin server.
 
 Key information:
 
-- Each CDN-specific request header defined in this feature will be forwarded to an origin server.
-- Prevent a CDN-specific request header from being forwarded to an origin server by removing it from this list.
+- Each CDN-specific request header defined in this feature is forwarded to an origin server. Excluded headers are not forwarded.
+- To prevent a CDN-specific request header from being forwarded, remove it from space-separated list in the header list field.
+
+The following HTTP headers are included in the default list:
+- Via
+- X-Forwarded-For
+- X-Forwarded-Proto
+- X-Host
+- X-Midgress
+- X-Gateway-List
+- X-EC-Name
+- Host
 
 **Default Behavior:** All CDN-specific request headers will be forwarded to the origin server.
 
