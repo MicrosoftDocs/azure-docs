@@ -4,6 +4,7 @@ description: Learn how to use an Azure SQL Data Warehouse, which combines SQL re
 services: sql-data-warehouse
 author: hirokib
 manager: craigg-msft
+layout: LandingPage
 ms.service: sql-data-warehouse
 ms.topic: landing-page
 ms.component: design
