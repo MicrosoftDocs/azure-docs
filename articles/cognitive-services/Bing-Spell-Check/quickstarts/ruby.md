@@ -37,17 +37,16 @@ require 'json'
 
 uri = 'https://api.cognitive.microsoft.com'
 path = '/bing/v7.0/spellcheck?'
+params = 'mkt=en-us&mode=proof'
 
-uri = URI(uri + path)
+uri = URI(uri + path + params)
 uri.query = URI.encode_www_form({
     # Request parameters
-    'mode' => 'proof',
-    'mkt' => 'en-US',
-	'text' => 'Hollo, wrld!',
+	'text' => 'Hollo, wrld!'
 })
 
 # NOTE: Replace this example key with a valid subscription key.
-key = 'enter key here'
+key = 'ENTER KEY HERE'
 
 # The headers in the following example 
 # are optional but should be considered as required:
@@ -67,8 +66,8 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
     http.request(request)
 end
 
-puts request.method
-puts response.body
+result = JSON.pretty_generate(JSON.parse(response.body))
+puts result
 ```
 
 **Response**
