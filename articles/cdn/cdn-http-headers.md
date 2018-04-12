@@ -1,6 +1,6 @@
 ---
 title: HTTP headers | Microsoft Docs
-description: This article describes how HTTP headers work in a request and a response.
+description: This article describes how HTTP headers work.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/12/2018
 ms.author: rli
 
 ---
@@ -26,7 +26,7 @@ For **Azure CDN Premium from Verizon** products, when an HTTP request is sent to
 
 To prevent one of these reserved headers from being added in the CDN POP request to the origin server, you must create a rule with the Proxy Special Headers feature in the rules engine. In this rule, add a list of all the headers except the one you wish to remove. If you've enabled the Debug Cache Response Headers feature, be sure to add the necessary  `X-EC-Debug` headers. 
 
-For example, to remove the `Via` header, the headers field of the rule should contain the following headers: `X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host`. 
+For example, to remove the `Via` header, the headers field of the rule should contain the following list of headers: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
 
 ![Proxy Special Headers rule](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
 
