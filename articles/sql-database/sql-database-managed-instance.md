@@ -127,7 +127,7 @@ The following outlines the key features of the General Purpose service tier:
 
 Managed Instance provide additional security isolation from other tenants in the Azure cloud. Security isolation includes: 
 
-- Native virtual network implementation and connectivity to your on-premises environment using Azure Express Route or VPN Gateway 
+- [Native virtual network implementation](sql-database-managed-instance-vnet-configuration.md) and connectivity to your on-premises environment using Azure Express Route or VPN Gateway 
 - SQL endpoint is exposed only through a private IP address, allowing safe connectivity from private Azure or hybrid networks
 - Single-tenant with dedicated underlying infrastructure (compute, storage)
 
@@ -219,5 +219,6 @@ Managed Instance enable system administrator to focus on what matters the most f
 ## Next steps
 
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-- For a tutorial that creates a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+- For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
+- For a tutorial that creates a Managed Instance and restores a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md).
