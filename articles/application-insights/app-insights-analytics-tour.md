@@ -540,7 +540,7 @@ For example, if your app includes:
 ```csharp
 
     var dimensions = new Dictionary<string, string>
-                     {{"p1", "v1"},{"p2", "v2"}};
+                     {{"p1", "v1"},{"p2.d2", "v2"}};
     var measurements = new Dictionary<string, double>
                      {{"m1", 42.0}, {"m2", 43.2}};
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
@@ -553,7 +553,6 @@ To extract these values in Analytics:
     customEvents
     | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
-
 ```
 
 To verify whether a custom dimension is of a particular type:
@@ -564,6 +563,18 @@ To verify whether a custom dimension is of a particular type:
     | extend p1 = customDimensions.p1,
       iff(notnull(todouble(customMeasurements.m1)), ...
 ```
+
+### Special Characters
+
+For identifiers with special characters or langauge keywords in their names, you need to access them via `['` and `']` or using `["` and `"]`.
+
+```AIQL
+
+    customEvents
+    | extend p2d2 = customDimensions.['p2.d2'], ...
+```
+
+[Identifier naming rules reference](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
 
 ## Dashboards
 You can pin your results to a dashboard in order to bring together all your most important charts and tables.
