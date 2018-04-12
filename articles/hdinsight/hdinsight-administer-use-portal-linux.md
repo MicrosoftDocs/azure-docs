@@ -11,10 +11,8 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
 
@@ -61,7 +59,7 @@ You must specify an Azure subscription when you create an HDInsight cluster. The
     1. Sign in to the [Azure portal](https://portal.azure.com).
     2. Click **Subscription** from the left menu. It has a yellow key icon. You shall see a list of subscriptions.
     3. Click the subscription that you use to create clusters. 
-    4. Click **My permissions**.  It shows your [role](../active-directory/role-based-access-control-what-is.md#built-in-roles) on the subscription. You need at least Contributor access to create HDInsight cluster.
+    4. Click **My permissions**.  It shows your [role](../role-based-access-control/overview.md#built-in-roles) on the subscription. You need at least Contributor access to create HDInsight cluster.
 
 - To use an existing resource group:
 
@@ -88,7 +86,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
 
     **Left menu:**
     * **Activity logs**: Show and query activity logs.
-    * **Access control (IAM)**: Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
+    * **Access control (IAM)**: Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
     * **Tags**: Allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
     * **Diagnose and solve problems**: Display troubleshooting information.
     * **Locks**: Add a lock to prevent the cluster being modified or deleted.

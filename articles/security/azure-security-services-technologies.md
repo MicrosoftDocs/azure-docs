@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Security Services and Technologies | Microsoft Docs
 description: The article provides a curated list of Azure Security services and technologies.
 services: security
@@ -51,7 +51,7 @@ The following is our initial effort at providing a list. Over time, this list wi
 * [Azure SQL Database Auditing](../sql-database/sql-database-auditing.md)
 
 ## Azure Identity and Access Management
-* [Azure Role Based Access Control](../active-directory/role-based-access-control-configure.md)
+* [Azure Role Based Access Control](../role-based-access-control/role-assignments-portal.md)
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
 * [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)
