@@ -21,7 +21,7 @@ ms.author: sethm
 
 # Process events using PowerShell and .NET Standard
 
-This quickstart will show you how to:
+This quickstart shows you how to:
 * Create an event hub using PowerShell
 * Send to and receive from an event hub using the .NET Standard SDK. 
 
