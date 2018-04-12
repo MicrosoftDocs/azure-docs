@@ -86,13 +86,13 @@ To work with Presto in an HDInsight cluster, use the following steps:
    
 	By default, [Hive](https://prestodb.io/docs/current/connector/hive.html) and [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors for Presto are already configured. Hive connector is configured to use the default installed Hive installation, so all the tables from Hive will be automatically visible in Presto.
 
-	For a detailed description on how you can use Presto, see [Presto documentation](https://prestodb.io/docs/current/index.html).
+	For more information, see [Presto documentation](https://prestodb.io/docs/current/index.html).
 
 ## Use Airpal with Presto
 
 [Airpal](https://github.com/airbnb/airpal#airpal) is an open-source web-based query interface for Presto. For more information on Airpal, see [Airpal documentation](https://github.com/airbnb/airpal#airpal).
 
-In this section, we look at the steps to **install Airpal on the edgenode** of an HDInsight Hadoop cluster, that already has Presto installed. This ensures that the Airpal web query interface is available over the Internet.
+Use the following steps to install Airpal on the edge node:
 
 1. Using SSH, connect to the headnode of the HDInsight cluster that has Presto installed:
    
@@ -104,7 +104,7 @@ In this section, we look at the steps to **install Airpal on the edgenode** of a
 
 		sudo slider registry  --name presto1 --getexp presto 
    
-    You should see an output like the following:
+    You see output similar to the following JSON:
 
 		{
   			"coordinator_address" : [ {
@@ -113,7 +113,7 @@ In this section, we look at the steps to **install Airpal on the edgenode** of a
     			"updatedTime" : "Mon Apr 03 20:13:41 UTC 2017"
   		} ]
 
-3. From the output, note the value for the **value** property. You will need this while installing Airpal on the cluster edgenode. From the output above, the value that you will need is **10.0.0.12:9090**.
+3. From the output, note the value for the **value** property. You will need this value while installing Airpal on the cluster edgenode. From the output above, the value that you will need is **10.0.0.12:9090**.
 
 4. Use the template **[here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)** to create an HDInsight cluster edgenode and provide the values as shown in the following screenshot.
 
@@ -135,7 +135,7 @@ In this section, we look at the steps to **install Airpal on the edgenode** of a
 
 ## Customize a Presto installation on HDInsight cluster
 
-After you have installed Presto on an HDInsight Hadoop cluster, you can customize the installation to make changes such as update memory settings, change connectors, etc. Perform the following steps to do so.
+To customize the installation, use the following steps:
 
 1. Using SSH, connect to the headnode of the HDInsight cluster that has Presto installed:
    
@@ -161,12 +161,12 @@ After you have installed Presto on an HDInsight Hadoop cluster, you can customiz
 
 ## Generate benchmark data for HDInsight clusters that run Presto
 
-TPC-DS is the industry standard for measuring the performance of many decision support systems, including big data systems. You can use Presto on HDInsight clusters to generate data and evaluate how it compares with your own HDInsight benchmark data. For more information, see [here](https://github.com/hdinsight/tpcds-datagen-as-hive-query/blob/master/README.md).
+TPC-DS is the industry standard for measuring the performance of many decision support systems, including big data systems. You can use Presto to generate data and evaluate how it compares with your own HDInsight benchmark data. For more information, see [here](https://github.com/hdinsight/tpcds-datagen-as-hive-query/blob/master/README.md).
 
 
 
 ## See also
-* [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run, and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.
+* [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run, and save Pig and Hive jobs.
 
 * [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight.
 

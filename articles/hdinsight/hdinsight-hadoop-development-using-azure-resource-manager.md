@@ -19,7 +19,7 @@ ms.author: nitinme
 ---
 # Migrating to Azure Resource Manager-based development tools for HDInsight clusters
 
-HDInsight is deprecating Azure Service Manager (ASM)-based tools for HDInsight. If you have been using Azure PowerShell, Azure CLI, or the HDInsight .NET SDK to work with HDInsight clusters, you are encouraged to use the Azure Resource Manager versions of PowerShell, CLI, and .NET SDK going forward. This article provides pointers on how to migrate to the new ARM-based approach. Wherever applicable, this article also points out the differences between the ASM and Resource Manager approaches for HDInsight.
+HDInsight is deprecating Azure Service Manager (ASM)-based tools for HDInsight. If you have been using Azure PowerShell, Azure CLI, or the HDInsight .NET SDK to work with HDInsight clusters, you are encouraged to use the Azure Resource Manager versions of PowerShell, CLI, and .NET SDK going forward. This article provides pointers on how to migrate to the new ARM-based approach. Wherever applicable, this document highlights the differences between the ASM and Resource Manager approaches for HDInsight.
 
 > [!IMPORTANT]
 > The support for ASM based PowerShell, CLI, and .NET SDK will discontinue on **January 1, 2017**.
@@ -50,7 +50,7 @@ New commands available with Azure Resource Manager are:
 * `azure hdinsight config` - provides commands for creating a configuration file that can be used with the `hdinsight cluster create` command to provide configuration information.
 
 ### Deprecated commands
-If you use the `azure hdinsight job` commands to submit jobs to your HDInsight cluster, these are not available through the Resource Manager commands. If you need to programmatically submit jobs to HDInsight from scripts, you should instead use the REST APIs provided by HDInsight. For more information on submitting jobs using REST APIs, see the following documents.
+If you use the `azure hdinsight job` commands to submit jobs to your HDInsight cluster, these commands are not available through the Resource Manager commands. If you need to programmatically submit jobs to HDInsight from scripts, you should instead use the REST APIs provided by HDInsight. For more information on submitting jobs using REST APIs, see the following documents.
 
 * [Run MapReduce jobs with Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
 * [Run Hive queries with Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-hive-curl.md)
@@ -87,7 +87,7 @@ For information on other ways to run MapReduce, Hive, and Pig interactively, see
 ## Migrating Azure PowerShell to Azure Resource Manager
 The general information about Azure PowerShell in the Azure Resource Manager mode can be found at [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-The Azure PowerShell Resource Manager cmdlets can be installed side-by-side with the ASM cmdlets. The cmdlets from the two modes can be distinguished by their names.  The Resource Manager mode has *AzureRmHDInsight* in the cmdlet names comparing to *AzureHDInsight* in the ASM mode.  For example, *New-AzureRmHDInsightCluster* vs. *New-AzureHDInsightCluster*. Parameters and switches may have news names, and there are many new parameters available when using Resource Manager.  For example, several cmdlets require a new switch called *-ResourceGroupName*. 
+The Azure PowerShell Resource Manager cmdlets can be installed side by side with the ASM cmdlets. The cmdlets from the two modes can be distinguished by their names.  The Resource Manager mode has *AzureRmHDInsight* in the cmdlet names comparing to *AzureHDInsight* in the ASM mode.  For example, *New-AzureRmHDInsightCluster* vs. *New-AzureHDInsightCluster*. Parameters and switches may have news names, and there are many new parameters available when using Resource Manager.  For example, several cmdlets require a new switch called *-ResourceGroupName*. 
 
 Before you can use the HDInsight cmdlets, you must connect to your Azure account, and create a new resource group:
 
@@ -101,7 +101,7 @@ To list the HDInsight ASM cmdlets in Windows PowerShell console:
 
 The following table lists the ASM cmdlets and their names in Resource Manager mode:
 
-| ASM cmdlets | Resorce Manager cmdlets |
+| ASM cmdlets | Resource Manager cmdlets |
 | --- | --- |
 | Add-AzureHDInsightConfigValues |[Add-AzureRmHDInsightConfigValues](https://msdn.microsoft.com/library/mt603530.aspx) |
 | Add-AzureHDInsightMetastore |[Add-AzureRmHDInsightMetastore](https://msdn.microsoft.com/library/mt603670.aspx) |
@@ -134,7 +134,7 @@ The following table lists the ASM cmdlets and their names in Resource Manager mo
 ### New cmdlets
 The following are the new cmdlets that are only available in Resource Manager mode. 
 
-**Script action related cmdlets:**
+**Script action-related cmdlets:**
 
 * **Get-AzureRmHDInsightPersistedScriptAction**: Gets the persisted script actions for a cluster and lists them in chronological order, or gets details for a specified persisted script action. 
 * **Get-AzureRmHDInsightScriptActionHistory**: Gets the script action history for a cluster and lists it in reverse chronological order, or gets details of a previously executed script action. 
@@ -144,7 +144,7 @@ The following are the new cmdlets that are only available in Resource Manager mo
 
 For additional usage information, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
-**Clsuter identity related cmdlets:**
+**Cluster identity-related cmdlets:**
 
 * **Add-AzureRmHDInsightClusterIdentity**: Adds a cluster identity to a cluster configuration object so that the HDInsight cluster can access Azure Data Lake Stores. See [Create an HDInsight cluster with Data Lake Store using Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 

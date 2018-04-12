@@ -45,12 +45,12 @@ The Tez UI is a web page provides information on processes that use Tez. It may 
 * Analyzing historical data for successful or failed processes to learn how processing could be improved or why it failed.
 
 ## Generate a DAG
-The Tez UI will only contain data if a job that uses the Tez engine is currently running, or has been ran in the past. Simple Hive queries can usually be resolved without using Tez, however more complex queries that do filtering, grouping, ordering, joins, etc. will usually require Tez.
+The Tez UI contains data if a job that uses the Tez engine is currently running, or has been ran in the past. Simple Hive queries can usually be resolved without using Tez. More complex queries that do filtering, grouping, ordering, joins, etc. require Tez.
 
-Use the following steps to run a Hive query that will execute using Tez.
+Use the following steps to run a Hive query that uses Tez.
 
 1. In a web browser, navigate to https://CLUSTERNAME.azurehdinsight.net, where **CLUSTERNAME** is the name of your HDInsight cluster.
-2. From the menu at the top of the page, select the **Hive Editor**. This will display a page with the following example query.
+2. From the menu at the top of the page, select the **Hive Editor**. This displays a page with the following example query.
 
         Select * from hivesampletable
 
@@ -58,7 +58,7 @@ Use the following steps to run a Hive query that will execute using Tez.
 
         set hive.execution.engine=tez;
         select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
-3. Select the **Submit** button. The **Job Session** section at the bottom of the page will display the status of the query. Once the status changes to **Completed**, select the **View Details** link to view the results. The **Job Output** should be similar to the following:
+3. Select the **Submit** button. The **Job Session** section at the bottom of the page displays the status of the query. Once the status changes to **Completed**, select the **View Details** link to view the results. The **Job Output** should be similar to the following:
 
         en-GB   Hessen      Germany
         en-GB   Kingston    Jamaica
@@ -70,7 +70,7 @@ Use the following steps to run a Hive query that will execute using Tez.
 >
 >
 
-1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster. From the top of the HDInsight blade, select the **Remote Desktop** icon. This will display the remote desktop blade
+1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster. From the top of the HDInsight blade, select the **Remote Desktop** icon. This link displays the remote desktop blade
 
     ![Remote desktop icon](./media/hdinsight-debug-tez-ui/remotedesktopicon.png)
 2. From the Remote Desktop blade, select **Connect** to connect to the cluster head node. When prompted, use the cluster Remote Desktop user name and password to authenticate the connection.
@@ -83,14 +83,14 @@ Use the following steps to run a Hive query that will execute using Tez.
    >
 3. Once connected, open Internet Explorer on the remote desktop, select the gear icon in the upper right of the browser, and then select **Compatibility View Settings**.
 4. From the bottom of **Compatibility View Settings**, clear the check box for **Display intranet sites in Compatibility View** and **Use Microsoft compatibility lists**, and then select **Close**.
-5. In Internet Explorer, browse to http://headnodehost:8188/tezui/#/. This will display the Tez UI
+5. In Internet Explorer, browse to http://headnodehost:8188/tezui/#/. This displays the Tez UI
 
     ![Tez UI](./media/hdinsight-debug-tez-ui/tezui.png)
 
-    When the Tez UI loads, you will see a list of DAGs that are currently running, or have been ran on the cluster. The default view includes the Dag Name, Id, Submitter, Status, Start Time, End Time, Duration, Application ID, and Queue. More columns can be added using the gear icon at the right of the page.
+    When the Tez UI loads, you see a list of DAGs that are currently running, or have been ran on the cluster. The default view includes the DAG Name, Id, Submitter, Status, Start Time, End Time, Duration, Application ID, and Queue. More columns can be added using the gear icon at the right of the page.
 
-    If you have only one entry, it will be for the query that you ran in the previous section. If you have multiple entries, you can search by entering search criteria in the fields above the DAGs, then hit **Enter**.
-6. Select the **Dag Name** for the most recent DAG entry. This will display information about the DAG, as well as the option to download a zip of JSON files that contain information about the DAG.
+    If you have only one entry, it is for the query that you ran in the previous section. If you have multiple entries, you can search by entering search criteria in the fields above the DAGs, then hit **Enter**.
+6. Select the **Dag Name** for the most recent DAG entry. This link displays information about the DAG, as well as the option to download a zip of JSON files that contain information about the DAG.
 
     ![DAG Details](./media/hdinsight-debug-tez-ui/dagdetails.png)
 7. Above the **DAG Details** are several links that can be used to display information about the DAG.
@@ -106,11 +106,11 @@ Use the following steps to run a Hive query that will execute using Tez.
      >
      >
 
-     If there was a failure with the job, the DAG Details will display a status of FAILED, along with links to information about the failed task. Diagnostics information will be displayed beneath the DAG details.
+     If there was a failure with the job, the DAG Details display a status of FAILED, along with links to information about the failed task. Diagnostics information is be displayed beneath the DAG details.
 8. Select **Graphical View**. This displays a graphical representation of the DAG. You can place the mouse over each vertex in the view to display information about it.
 
     ![Graphical view](./media/hdinsight-debug-tez-ui/dagdiagram.png)
-9. Clicking on a vertex will load the **Vertex Details** for that item. Click on the **Map 1** vertex to display details for this item. Select **Confirm** to confirm the navigation.
+9. Clicking on a vertex loads the **Vertex Details** for that item. Click on the **Map 1** vertex to display details for this item. Select **Confirm** to confirm the navigation.
 
     ![Vertex details](./media/hdinsight-debug-tez-ui/vertexdetails.png)
 10. Note that you now have links at the top of the page that are related to vertices and tasks.
@@ -129,7 +129,7 @@ Use the following steps to run a Hive query that will execute using Tez.
       > As with the previous menu, you can scroll the column display for Tasks, Task Attempts, and Sources & Sinks__ to display links to more information for each item.
       >
       >
-11. Select **Tasks**, and then select the item named **00_000000**. This will display **Task Details** for this task. From this screen, you can view **Task Counters** and **Task Attempts**.
+11. Select **Tasks**, and then select the item named **00_000000**. This link displays **Task Details** for this task. From this screen, you can view **Task Counters** and **Task Attempts**.
 
     ![Task details](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
