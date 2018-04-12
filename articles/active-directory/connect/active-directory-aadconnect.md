@@ -22,6 +22,9 @@ Azure AD Connect will integrate your on-premises directories with Azure Active D
 
 > [!IMPORTANT]
 > [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated are no longer supported as of April 13, 2017.](active-directory-aadconnect-dirsync-deprecated.md)  Also:
+
+
+
 > 
 > - Synchronizing users to Azure AD is a **free feature** and doesn’t require customers to have any paid subscription.
 >- Synchronized users are **not automatically granted** *any* license. Admins still have total control on the license assignment. 
@@ -47,6 +50,10 @@ Azure Active Directory Connect is made up of three primary components: the synch
 * Health Monitoring - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. For additional information, see [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 ## Install Azure AD Connect
+
+> [!IMPORTANT]
+> Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the actions that are formally documented. Any of these actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
+
 You can find the download for Azure AD Connect on [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Solution | Scenario |
