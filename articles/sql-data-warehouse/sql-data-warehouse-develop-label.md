@@ -17,7 +17,7 @@ Tips for using labels to instrument queries in Azure SQL Data Warehouse for deve
 
 
 ## What are labels?
-SQL Data Warehouse supports a concept called query labels. Before going into any depth let's look at an example of one:
+SQL Data Warehouse supports a concept called query labels. Before going into any depth, let's look at an example:
 
 ```sql
 SELECT *
@@ -28,7 +28,7 @@ OPTION (LABEL = 'My Query Label')
 
 This last line tags the string 'My Query Label' to the query. This is particularly helpful as the label is query-able through the DMVs. This provides us with a mechanism to track down problem queries and also to help identify progress through an ETL run.
 
-A good naming convention really helps here. For example something like ' PROJECT : PROCEDURE : STATEMENT : COMMENT' would help to uniquely identify the query in amongst all the code in source control.
+A good naming convention really helps here. For example something like 'PROJECT : PROCEDURE : STATEMENT : COMMENT' helps to uniquely identify the query amongst all the code in source control.
 
 To search by label you can use the following query that uses the dynamic management views:
 

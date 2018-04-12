@@ -16,7 +16,7 @@ ms.reviewer: igorstan
 Get connected to Azure SQL Data Warehouse.
 
 ## Find your server name
-The first step to connecting to SQL Data Warehouse is knowing how to find your server name.  For example, the server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:
+The server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:
 
 1. Go to the [Azure portal][Azure portal].
 2. Click on **SQL data warehouses**.
@@ -26,7 +26,7 @@ The first step to connecting to SQL Data Warehouse is knowing how to find your s
     ![Full server name][1]
 
 ## Supported drivers and connection strings
-Azure SQL Data Warehouse supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. Click on one of the preceding drivers to find the latest version and documentation. To automatically generate the connection string for the driver that you are using from the Azure portal, you can click on the **Show database connection strings** from the preceding example.  Following are also some examples of what a connection string looks like for each driver.
+Azure SQL Data Warehouse supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
 
 > [!NOTE]
 > Consider setting the connection timeout to 300 seconds to allow your connection to survive short periods of unavailability.

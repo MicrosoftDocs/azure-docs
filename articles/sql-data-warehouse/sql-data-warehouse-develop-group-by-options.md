@@ -17,7 +17,7 @@ Tips for implementing group by options in Azure SQL Data Warehouse for developin
 
 ## What does GROUP BY do?
 
-The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL clause aggregates data to a summary set of rows. It also has a few options that extend it's functionality that need to be worked around as they are not directly supported by Azure SQL Data Warehouse.
+The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL clause aggregates data to a summary set of rows. GROUP BY has some options that SQL Data Warehouse does not support. These options have workarounds.
 
 These options are
 
@@ -26,10 +26,9 @@ These options are
 * GROUP BY with CUBE
 
 ## Rollup and grouping sets options
-The simplest option here is to use `UNION ALL` instead to perform the rollup rather than relying on the explicit syntax. The result is exactly the same
+The simplest option here is to use UNION ALL instead to perform the rollup rather than relying on the explicit syntax. The result is exactly the same
 
-Below is an example of a group by statement using the `ROLLUP` option:
-
+The following example using the GROUP BY statement with the ROLLUP option:
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -43,13 +42,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-By using ROLLUP we have requested the following aggregations:
+By using ROLLUP, the preceding example requests the following aggregations:
 
 * Country and Region
 * Country
 * Grand Total
 
-To replace this you will need to use `UNION ALL`; specifying the aggregations required explicitly to return the same results:
+To replace ROLLUP and return the same results, you can use UNION ALL and explicitly specify the required aggregations:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -76,10 +75,10 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-For GROUPING SETS all we need to do is adopt the same principal but only create UNION ALL sections for the aggregation levels we want to see
+To replace GROUPING SETS, the sample principle applies. You only need to create UNION ALL sections for the aggregation levels you want to see.
 
 ## Cube options
-It is possible to create a GROUP BY WITH CUBE using the UNION ALL approach. The problem is that the code can quickly become cumbersome and unwieldy. To mitigate this you can use this more advanced approach.
+It is possible to create a GROUP BY WITH CUBE using the UNION ALL approach. The problem is that the code can quickly become cumbersome and unwieldy. To mitigate this, you can use this more advanced approach.
 
 Let's use the example above.
 
@@ -114,7 +113,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-The results of the CTAS can be seen below:
+The following shows the results of the CTAS:
 
 ![Group by cube](media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
@@ -165,7 +164,7 @@ BEGIN
 END
 ```
 
-Lastly we can return the results by simply reading from the #Results temporary table
+Lastly, you can return the results by simply reading from the #Results temporary table
 
 ```sql
 SELECT *
@@ -174,7 +173,7 @@ ORDER BY 1,2,3
 ;
 ```
 
-By breaking the code up into sections and generating a looping construct the code becomes more manageable and maintainable.
+By breaking the code up into sections and generating a looping construct, the code becomes more manageable and maintainable.
 
 ## Next steps
 For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).

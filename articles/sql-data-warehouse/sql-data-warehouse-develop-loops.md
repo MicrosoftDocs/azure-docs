@@ -23,12 +23,12 @@ Tips for using T-SQL loops and replacing cursors in Azure SQL Data Warehouse for
 
 ## Purpose of WHILE loops
 
-SQL Data Warehouse supports the [WHILE](/sql/t-sql/language-elements/while-transact-sql) loop for repeatedly executing statement blocks. This will continue for as long as the specified conditions are true or until the code specifically terminates the loop using the `BREAK` keyword. Loops are particularly useful for replacing cursors defined in SQL code. Fortunately, almost all cursors that are written in SQL code are of the fast forward, read only variety. Therefore [WHILE] loops are a great alternative if you find yourself having to replace one.
+SQL Data Warehouse supports the [WHILE](/sql/t-sql/language-elements/while-transact-sql) loop for repeatedly executing statement blocks. This WHILE loop continues for as long as the specified conditions are true or until the code specifically terminates the loop using the BREAK keyword. Loops are useful for replacing cursors defined in SQL code. Fortunately, almost all cursors that are written in SQL code are of the fast forward, read-only variety. Therefore, [WHILE] loops are a great alternative for replacing cursors.
 
 ## Replacing cursors in SQL Data Warehouse
-However, before diving in head first you should ask yourself the following question: "Could this cursor be re-written to use set based operations?". In many cases the answer will be yes and is often the best approach. A set based operation often performs significantly faster than an iterative, row by row approach.
+However, before diving in head first you should ask yourself the following question: "Could this cursor be rewritten to use set-based operations?." In many cases, the answer is yes and is often the best approach. A set-based operation often performs faster than an iterative, row by row approach.
 
-Fast forward read-only cursors can be easily replaced with a looping construct. Below is a simple example. This code example updates the statistics for every table in the database. By iterating over the tables in the loop we are able to execute each command in sequence.
+Fast forward read-only cursors can be easily replaced with a looping construct. The following is a simple example. This code example updates the statistics for every table in the database. By iterating over the tables in the loop, each command executes in sequence.
 
 First, create a temporary table containing a unique row number used to identify the individual statements:
 

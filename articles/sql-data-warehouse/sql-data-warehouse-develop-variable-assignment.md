@@ -24,7 +24,7 @@ DECLARE @v  int = 0
 ;
 ```
 
-You can also use DECLARE to set more than one variable at a time. You cannot use `SELECT` or `UPDATE` to do this:
+You can also use DECLARE to set more than one variable at a time. You cannot use SELECT or UPDATE to do the following:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -32,7 +32,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-You cannot initialise and use a variable in the same DECLARE statement. To illustrate the point the example below is **not** allowed as @p1 is both initialized and used in the same DECLARE statement. This will result in an error.
+You cannot initialize and use a variable in the same DECLARE statement. To illustrate the point, the following example is **not** allowed since @p1 is both initialized and used in the same DECLARE statement. The following example gives an error.
 
 ```sql
 DECLARE @p1 int = 0
@@ -41,9 +41,9 @@ DECLARE @p1 int = 0
 ```
 
 ## Setting values with SET
-Set is a very common method for setting a single variable.
+SET is a common method for setting a single variable.
 
-All of the examples below are valid ways of setting a variable with SET:
+The following statements are all valid ways to set a variable with SET:
 
 ```sql
 SET     @v = (Select max(database_id) from sys.databases);
@@ -52,7 +52,7 @@ SET     @v = @v+1;
 SET     @v +=1;
 ```
 
-You can only set one variable at a time with SET. However, as can be seen above compound operators are permissable.
+You can only set one variable at a time with SET. However, compound operators are permissible.
 
 ## Limitations
 You cannot use SELECT or UPDATE for variable assignment.
