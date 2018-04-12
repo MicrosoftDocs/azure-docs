@@ -233,7 +233,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
        Create the logical volumes
 
        <pre><code>
-       sudo lvcreate -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+       sudo lvcreate -i 2 -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
        sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
