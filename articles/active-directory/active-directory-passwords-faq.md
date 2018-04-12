@@ -188,7 +188,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Can I block users from resetting their password?**
 
-  > **A:** Yes, if you use a group to enable SSPR, you can remove an individual user from the group that allows users to reset their password.
+  > **A:** Yes, if you use a group to enable SSPR, you can remove an individual user from the group that allows users to reset their password. If the user is a Global Administrator they will retain the ability to reset their password and this cannot be disabled.
   >
   >
 
