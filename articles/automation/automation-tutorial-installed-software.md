@@ -5,13 +5,12 @@ services: automation
 keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 02/28/2018
+ms.date: 04/11/2018
 ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
 ---
-
 # Discover what software is installed on your Azure and non-Azure machines
 
 In this tutorial, you learn how to discover what software is installed in your environment. You can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows Registry keys on your computers. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
@@ -19,7 +18,9 @@ In this tutorial, you learn how to discover what software is installed in your e
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Onboard a VM for Change tracking and Inventory
+> * Enable the solution
+> * Onboard an Azure VM
+> * Onboard a non-Azure VM
 > * View installed software
 > * Search inventory logs for installed software
 
@@ -37,10 +38,11 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Enable Change tracking and Inventory
 
-First you need to enable Change tracking and Inventory for your VM for this tutorial. If you've previously enabled the **Change Tracking** solution for your VM, this step is not necessary.
+First you need to enable Change tracking and Inventory for this tutorial. If you've previously enabled the **Change Tracking** solution, this step is not necessary.
 
-1. On the left menu, select **Virtual machines** and select a VM from the list
-2. On the left menu, under the **Operations** section, click **Inventory**. The **Enable Change tracking and Inventory** page opens.
+Navigate to your Automation account and select **Inventory** under **CONFIGURATION MANAGEMENT**.
+
+Choose the Log analytics workspace and Automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
 ![Inventory onboard configuration banner](./media/automation-tutorial-installed-software/enableinventory.png)
 
@@ -53,11 +55,27 @@ Enabling the solution can take up to 15 minutes. During this time, you shouldn't
 After the solution is enabled, information about installed software and changes on the VM flows to Log Analytics.
 It can take between 30 minutes and 6 hours for the data to be available for analysis.
 
+## Onboard a VM
+
+In your Automation Account, navigate to **Inventory** under **CONFIGURATION MANAGEMENT**.
+
+Select **+ Add Azure VM**, this opens up the **Virtual machines** page and allows you to select an existing VM from the list. Select the VM you want to onboard. On the page that opens click **Enable** to enable the solution on the VM. The Microsoft Management Agent is being deployed to the VM and configuring the agent to talk to the Log Analytics workspace you configured when enabling the solution. This can take a few minutes to complete the onboarding. At this point you can select a new VM from the list and onboard another VM.
+
+## Onboard a non-Azure machine
+
+To add non-Azure machines, install the agent for [Windows](../log-analytics/log-analytics-agent-windows.md) or [Linux](../virtual-machines/linux/extensions-oms.md) dependant on your operating system.  Once the agent is installed, navigate to your Automation Account and go to **Inventory** under **CONFIGURATION MANAGEMENT**. When you click **Manage Machines** you see a list of the machines reporting to your Log Analytics workspace that do not have the solution enabled.  Select the appropriate option for your environment.
+
+* **Enable on all available machines** - This optiom enables the solution on all the machines reporting to your Log Analytics workspace at this time.
+* **Enable on all available machines and future machines** - This option enables the solution on all machines reporting to your Log Analytics workspace and subsequently on all future machines added to the workspace.
+* **Enable on selected machines** - This option enables the solution only on the machines that you have selected.
+
+![Manage Machines](./media/automation-tutorial-installed-software/manage-machines.png)
+
 ## View installed software
 
 Once the Change tracking and Inventory solution is enabled, you can view the results on the **Inventory** page.
 
-From within your VM, select **Inventory** under **OPERATIONS**.
+From within your Automation Account, select **Inventory** under **CONFIGURATION MANAGEMENT**.
 
 On the **Inventory** page, click on the **Software** tab.
 
@@ -83,25 +101,25 @@ The following sample Log Analytics query returns the Publishers that contain "Mi
 
 ```
 ConfigurationData
-| summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 | where ConfigDataType == "Software"
-| search Publisher:"Microsoft"
-| summarize count() by Publisher
+| where Publisher == "Microsoft Corporation"
+| summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
 To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](https://docs.loganalytics.io/index).
 
 ### Single machine inventory
 
-To see the software inventory for a single machine, you can access Inventory from the Azure VM resource page or use Log Analytics to filter down to the corresponding machine. 
+To see the software inventory for a single machine, you can access Inventory from the Azure VM resource page or use Log Analytics to filter down to the corresponding machine.
 The following example Log Analytics query returns the list of software for a machine named ContosoVM.
 
 ```
 ConfigurationData
-| where ConfigDataType == "Software" 
+| where ConfigDataType == "Software"
 | summarize arg_max(TimeGenerated, *) by SoftwareName, CurrentVersion
 | where Computer =="ContosoVM"
 | render table
+| summarize by Publisher, SoftwareName
 ```
 
 ## Next steps
