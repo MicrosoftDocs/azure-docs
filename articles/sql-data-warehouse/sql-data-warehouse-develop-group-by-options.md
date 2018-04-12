@@ -1,25 +1,23 @@
 ---
-title: Group by options in SQL Data Warehouse | Microsoft Docs
+title: Using group by options in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: ''
-
-ms.assetid: f95a1e43-768f-4b7b-8a10-8a0509d0c871
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
+
 # Group by options in SQL Data Warehouse
-The [GROUP BY][GROUP BY] clause is used to aggregate data to a summary set of rows. It also has a few options that extend it's functionality that need to be worked around as they are not directly supported by Azure SQL Data Warehouse.
+Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.
+
+## What does GROUP BY do?
+
+The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL clause aggregates data to a summary set of rows. It also has a few options that extend it's functionality that need to be worked around as they are not directly supported by Azure SQL Data Warehouse.
 
 These options are
 
@@ -118,7 +116,7 @@ FROM GrpCube;
 
 The results of the CTAS can be seen below:
 
-![][1]
+![Group by cube](media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
 The second step is to specify a target table to store interim results:
 
@@ -179,16 +177,5 @@ ORDER BY 1,2,3
 By breaking the code up into sections and generating a looping construct the code becomes more manageable and maintainable.
 
 ## Next steps
-For more development tips, see [development overview][development overview].
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
-
-
-<!--Other Web references-->

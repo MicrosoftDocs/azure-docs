@@ -1,24 +1,21 @@
 ---
-title: Transactions in SQL Data Warehouse | Microsoft Docs
+title: Using transactions in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips for implementing transactions in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: ''
-
-ms.assetid: ae621788-e575-41f5-8bfe-fa04dc4b0b53
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
-# Transactions in SQL Data Warehouse
+
+# Using transactions in SQL Data Warehouse
+Tips for implementing transactions in Azure SQL Data Warehouse for developing solutions.
+
+## What to expect
 As you would expect, SQL Data Warehouse supports transactions as part of the data warehouse workload. However, to ensure the performance of SQL Data Warehouse is maintained at scale some features are limited when compared to SQL Server. This article highlights the differences and lists the others. 
 
 ## Transaction isolation levels
@@ -32,7 +29,7 @@ In the table below the following assumptions have been made:
 * An even distribution of data has occurred 
 * The average row length is 250 bytes
 
-| [DWU][DWU] | Cap per distribution (GiB) | Number of Distributions | MAX transaction size (GiB) | # Rows per distribution | Max Rows per transaction |
+| [DWU](sql-data-warehouse-overview-what-is.md) | Cap per distribution (GiB) | Number of Distributions | MAX transaction size (GiB) | # Rows per distribution | Max Rows per transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -49,7 +46,7 @@ In the table below the following assumptions have been made:
 
 The transaction size limit is applied per transaction or operation. It is not applied across all concurrent transactions. Therefore each transaction is permitted to write this amount of data to the log. 
 
-To optimize and minimize the amount of data written to the log please refer to the [Transactions best practices][Transactions best practices] article.
+To optimize and minimize the amount of data written to the log please refer to the [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md) article.
 
 > [!WARNING]
 > The maximum transaction size can only be achieved for HASH or ROUND_ROBIN distributed tables where the spread of the data is even. If the transaction is writing data in a skewed fashion to the distributions then the limit is likely to be reached prior to the maximum transaction size.
@@ -152,7 +149,7 @@ The expected behavior is now observed. The error in the transaction is managed a
 All that has changed is that the `ROLLBACK` of the transaction had to happen before the read of the error information in the `CATCH` block.
 
 ## Error_Line() function
-It is also worth noting that SQL Data Warehouse does not implement or support the ERROR_LINE() function. If you have this in your code you will need to remove it to be compliant with SQL Data Warehouse. Use query labels in your code instead to implement equivalent functionality. Please refer to the [LABEL][LABEL] article for more details on this feature.
+It is also worth noting that SQL Data Warehouse does not implement or support the ERROR_LINE() function. If you have this in your code you will need to remove it to be compliant with SQL Data Warehouse. Use query labels in your code instead to implement equivalent functionality. Please refer to the [LABEL](sql-data-warehouse-develop-label.md) article for more details on this feature.
 
 ## Using THROW and RAISERROR
 THROW is the more modern implementation for raising exceptions in SQL Data Warehouse but RAISERROR is also supported. There are a few differences that are worth paying attention to however.
@@ -174,17 +171,5 @@ They are as follows:
 * No support for DDL such as `CREATE TABLE` inside a user defined transaction
 
 ## Next steps
-To learn more about optimizing transactions, see [Transactions best practices][Transactions best practices].  To learn about other SQL Data Warehouse best practices, see [SQL Data Warehouse best practices][SQL Data Warehouse best practices].
+To learn more about optimizing transactions, see [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md).  To learn about other SQL Data Warehouse best practices, see [SQL Data Warehouse best practices](sql-data-warehouse-best-practices.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[DWU]: ./sql-data-warehouse-overview-what-is.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-[Transactions best practices]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
-[LABEL]: ./sql-data-warehouse-develop-label.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

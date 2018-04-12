@@ -1,29 +1,26 @@
 ---
-title: Stored procedures in SQL Data Warehouse | Microsoft Docs
+title: Using stored procedures in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips for implementing stored procedures in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: ''
-
-ms.assetid: 9b238789-6efe-4820-bf77-5a5da2afa0e8
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
-# Stored procedures in SQL Data Warehouse
+
+# Using stored procedures in SQL Data Warehouse
+Tips for implementing stored procedures in Azure SQL Data Warehouse for developing solutions.
+
+## What to expect
+
 SQL Data Warehouse supports many of the Transact-SQL features found in SQL Server. More importantly there are scale out specific features that we will want to leverage to maximize the performance of your solution.
 
 However, to maintain the scale and performance of SQL Data Warehouse there are also some features and functionality that have behavioral differences and others that are not supported.
 
-This article explains how to implement stored procedures within SQL Data Warehouse.
 
 ## Introducing stored procedures
 Stored procedures are a great way for encapsulating your SQL code; storing it close to your data in the data warehouse. By encapsulating the code into manageable units stored procedures help developers modularize their solutions; facilitating greater re-usability of code. Each stored procedure can also accept parameters to make them even more flexible.
@@ -86,15 +83,5 @@ They are:
 * return statement
 
 ## Next steps
-For more development tips, see [development overview][development overview].
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[temporary tables]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[nest level]: https://msdn.microsoft.com/library/ms187371.aspx
-
-<!--Other Web references-->

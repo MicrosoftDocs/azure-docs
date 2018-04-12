@@ -1,24 +1,22 @@
 ---
-title: Use labels to instrument queries in SQL Data Warehouse | Microsoft Docs
+title: Using labels to instrument queries in SQL Data Warehouse | Microsoft Docs
 description: Tips for using labels to instrument queries in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: ''
-
-ms.assetid: 44988de8-04c1-4fed-92be-e1935661a4e8
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
-# Use labels to instrument queries in SQL Data Warehouse
+
+# Using labels to instrument queries in Azure SQL Data Warehouse
+Tips for using labels to instrument queries in Azure SQL Data Warehouse for developing solutions.
+
+
+## What are labels?
 SQL Data Warehouse supports a concept called query labels. Before going into any depth let's look at an example of one:
 
 ```sql
@@ -47,13 +45,6 @@ WHERE   r.[label] = 'My Query Label'
 > 
 
 ## Next steps
-For more development tips, see [development overview][development overview].
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
 
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

@@ -1,24 +1,21 @@
 ---
 title: Using T-SQL views in Azure SQL Data Warehouse | Microsoft Docs
-description: Tips for using Transact-SQL views in Azure SQL Data Warehouse for developing solutions.
-services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: ''
-
-ms.assetid: b5208f32-8f4a-4056-8788-2adbb253d9fd
+description: ccccc
+services: Tips for using T-SQL views in Azure SQL Data Warehouse for developing solutions.
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
-# Views in SQL Data Warehouse
+# Views in Azure SQL Data Warehouse
+Tips for using T-SQL views in Azure SQL Data Warehouse for developing solutions. 
+
+
+## Why use views?
 Views are particularly useful in SQL Data Warehouse. They can be used in a number of different ways to improve the quality of your solution.  This article highlights a few examples of how to enrich your solution with views, as well as the limitations that need to be considered.
 
 > [!NOTE]
