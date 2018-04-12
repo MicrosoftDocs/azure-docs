@@ -33,7 +33,7 @@ You can use an allow list or a deny list to allow or block invitations to B2B us
 - You can create either an allow list or a deny list. You can't set up both types of lists. By default, whatever domains are not in the allow list are on the deny list, and vice versa. 
 - You can create only one policy per organization. You can update the policy to include more domains, or you can delete the policy to create a new one. 
 - This list works independently from OneDrive for Business and SharePoint Online allow/block lists. If you want to restrict individual file sharing in SharePoint Online, you need to set up an allow or deny list for OneDrive for Business and SharePoint Online. For more information, see [Restricted domains sharing in SharePoint Online and OneDrive for Business](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
-- This list does not apply to already-added external users. The list will be enforced for all external users that are added after the list is set up. If a user invitation is in a pending state, and you set a policy that blocks their domain, the user's attempt to redeem the invitation will fail.
+- This list does not apply to external users who have already redeemed the invitation. The list will be enforced after the list is set up. If a user invitation is in a pending state, and you set a policy that blocks their domain, the user's attempt to redeem the invitation will fail.
 
 ## Set the allow or deny list policy in the portal
 
@@ -115,7 +115,18 @@ If the module is not installed, or you don't have a required version, do one of 
 
 ### Use the AzureADPolicy cmdlets to configure the policy
 
+> [!NOTE]
+> Currently, you can only configure deny lists. The ability to use allow lists is coming very soon.
+
 To create an allow or deny list, use the [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet. The following example shows how to set a deny list that blocks the "live.com" domain.
+
+````powershell 
+$policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
+
+New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
+````
+
+The following shows the same example, but with the policy definition inline.
 
 ````powershell  
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
