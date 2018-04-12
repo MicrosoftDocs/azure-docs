@@ -95,11 +95,9 @@ Select this trigger: **When events are available in Event Hub**
 
       ![Create Event Hub connection, part 2](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
 
-3. Select the Event Hub to monitor, 
-and set up the interval and frequency for when to check the Event Hub.
+3. Select the Event Hub to monitor, and set up the interval and frequency for when to check the Event Hub.
 
     ![Specify Event Hub or consumer group](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
-
 
     > [!NOTE]
     > All Event Hub triggers are **long-polling** triggers, which means that when a trigger fires, the trigger processes all the events
@@ -110,19 +108,16 @@ and set up the interval and frequency for when to check the Event Hub.
 
 4. To optionally select some of the advanced trigger options, choose **Show advanced options**.
 
-   ![Trigger advanced options](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+    ![Trigger advanced options](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
 
-
-   | Property | Details |
-   | --- | --- |
-   | Content type  |Enter content type. |
-   | Content schema |Enter content schema. |
-   | Consume group name |Enter the Event Hub consumer group name for reading the events. When it's not specified, default consumer group is used.|
-   | Minimum partition key |Enter the minimum partition ID to read. By default, all partitions are read.|
-   | Maximum partition key |Enter the maximum partition ID to read. By default, all partitions are read.|
-   | Maximum events count |Enter the count for maximum number of events. The trigger returns between one and the number of events specified by this property. |
-
-   
+    | Property | Details |
+    | --- | --- |
+    | Content type  |Enter content type. |
+    | Content schema |Enter content schema. |
+    | Consume group name |Enter the Event Hub consumer group name for reading the events. When it's not specified, default consumer group is used.|
+    | Minimum partition key |Enter the minimum partition ID to read. By default, all partitions are read.|
+    | Maximum partition key |Enter the maximum partition ID to read. By default, all partitions are read.|
+    | Maximum events count |Enter the count for maximum number of events. The trigger returns between one and the number of events specified by this property. |
 
 
 5. Save your logic app. On the designer toolbar, choose **Save**.
