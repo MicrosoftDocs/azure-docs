@@ -26,7 +26,7 @@ This guide will show you how to configure the built-in PHP runtime for Web Apps 
 ## How to: Change the built-in PHP version
 By default, PHP 5.6 is installed and immediately available for use when you create an App Service web app. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
 
-PHP 5.6 and PHP 7.0 versions are also available, but not enabled by default. To update the PHP version, follow one of these methods:
+PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To update the PHP version, follow one of these methods:
 
 ### Azure Portal
 1. Browse to your web app in the [Azure Portal](https://portal.azure.com) and click on the **Settings** button.
