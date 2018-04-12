@@ -172,7 +172,7 @@ For detailed information about pricing for Azure Storage, see the [Pricing page]
 ## Storage APIs, libraries, and tools
 Azure Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior, and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
 
-### Azure Storage data API and libraries
+### Azure Storage data API and library references
 * [Storage Services REST API](https://docs.microsoft.com/rest/api/storageservices/)
 * [Storage Client Library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Storage Client Library for Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
@@ -182,22 +182,22 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Storage Client Library for Ruby](https://github.com/Azure/azure-storage-ruby)
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 
-### Azure Storage management API and libraries
-* [Storage Resource Provider REST API Reference](/rest/api/storagerp/)
-* [Storage Resource Provider Client Library for .NET](/dotnet/api/microsoft.azure.management.storage)
-* [Storage Resource Provider Cmdlets for PowerShell 1.0](/powershell/module/azure.storage)
+### Azure Storage management API and library references
+* [Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp/)
+* [Storage Resource Provider Client Library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/management)
 * [Storage Service Management REST API (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
-### Azure Storage data movement API and library
-* [Storage Import/Export Service REST API](../storage-import-export-service.md)
-* [Storage Data Movement Client Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
+### Azure Storage data movement API and library references
+* [Storage Import/Export Service REST API](https://docs.microsoft.com/rest/api/storageimportexport/)
+* [Storage Data Movement Client Library for .NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
 
 ### Tools and utilities
-* [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-* [Azure Client Tools](../storage-explorers.md)
-* [Azure SDKs and Tools](https://azure.microsoft.com/tools/)
-* [Storage Cmdlets for PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage)
+* [Azure PowerShell Cmdlets for Storage](https://docs.microsoft.com/powershell/module/azure.storage)
+* [Azure CLI Cmdlets for Storage](https://docs.microsoft.com/cli/azure/storage)
 * [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)
+* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+* [Azure Storage Client Tools](../storage-explorers.md)
+* [Azure Developer Tools](https://azure.microsoft.com/tools/)
 
 ## Next steps
 
