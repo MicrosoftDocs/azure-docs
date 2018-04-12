@@ -22,8 +22,6 @@ ms.author: wesmc
 ---
 # Tutorial: Create a cache-aside leaderboard on ASP.NET
 
-## Introduction
-
 In this tutorial you will update the *ContosoTeamStats* ASP.NET web app, created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md), to include a leaderboard that uses the [cache-aside pattern](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) with Azure Redis Cache. The sample application displays a list of team statistics from a database and demonstrates different ways to use Azure Redis Cache to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -50,11 +48,6 @@ To complete this tutorial, you must have the following prerequisites:
 ## Add a leaderboard to the project
 
 In this section of the tutorial, you configure the *ContosoTeamStats* project with a leaderboard that reports the win, loss, and tie statistics for a list of fictional teams. 
-
-* [Add the Entity Framework to the project](#add-the-entity-framework-to-the-project)
-* [Add the Team model](#add-the-team-model)
-* [Add the TeamsController and views](#add-the-teamscontroller-and-views)
-* [Configure the Layout view](#configure-the-layout-view)
 
 
 ### Add the Entity Framework to the project
@@ -260,11 +253,6 @@ For more information about this package, see the [EntityFramework](https://www.n
 ## Configure the app for Redis Cache
 
 In this section of the tutorial, you configure the sample application to store and retrieve Contoso team statistics from an Azure Redis Cache instance by using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) cache client.
-
-* [Add a cache connection to the Teams Controller](#add-a-cache-connection-to-the-teams-controller)
-* [Update the TeamsController to read from the cache or the database](#update-the-teamscontroller-to-read-from-the-cache-or-the-database)
-* [Update the Create, Edit, and Delete methods to work with the cache](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
-* [Add caching methods to the Teams Index view](#add-caching-methods-to-the-teams-index-view)
 
 ### Add a cache connection to the Teams Controller
 
@@ -675,9 +663,6 @@ To run the app locally:
 
 
 ## Publish and run in Azure
-
-* [Provision a SQL Azure database for the app](#provision-a-sql-azure-database-for-the-app)
-* [Publish the application updates to Azure](#publish-the-application-updates-to-azure)
 
 ### Provision a SQL Azure database for the app
 
