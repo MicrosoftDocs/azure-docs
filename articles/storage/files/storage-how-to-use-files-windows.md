@@ -46,7 +46,7 @@ You can mount Azure File shares on a Windows installation that is running either
 
 * **Storage Account Key**: To mount an Azure File share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
-* **Ensure port 445 is open**: Azure Files uses SMB protocol. SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine. You can use Portqry to check if the TCP port 445 is open. If the TCP port 445 is displayed as filtered, the TCP port is blocked. Here is an example query:
+* **Ensure port 445 is open**: Azure Files uses SMB protocol. SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine. You can use Portqry to check whether the TCP port 445 is open. If the TCP port 445 is displayed as filtered, the TCP port is blocked. Here is an example query:
 
     `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
 
