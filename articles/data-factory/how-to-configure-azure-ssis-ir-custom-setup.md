@@ -20,7 +20,7 @@ The custom setup interface for the Azure-SSIS Integration Runtime lets you alter
 
 You configure your custom setup by preparing a script and its associated files, and uploading them into a blob container in your Azure Storage account. You provide a Shared Access Signature (SAS) Uniform Resource Identifier (URI) for your container when you provision or reconfigure your Azure-SSIS IR. Each node of your Azure-SSIS IR then downloads the script and its associated files from your container and runs your custom setup with elevated privileges. When custom setup is finished, each node uploads the standard output of execution and other logs into your container.
 
-You can install both free or unlicensed components, and paid or licensed components. If you're an ISV, see [How to develop paid or licensed components for the Azure-SSIS IR](how-to-configure-azure-ssis-ir-licensed-components.md).
+You can install both free or unlicensed components, and paid or licensed components. If you're an ISV, see [How to develop paid or licensed components for the Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 
 ## Current Limitations
