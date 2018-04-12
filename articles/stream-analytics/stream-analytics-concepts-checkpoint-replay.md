@@ -1,10 +1,10 @@
 ---
 title: Checkpoint and replay concepts in Azure Stream Analytics
-description: This article describes how checkpoints
+description: This article describes best practices to optimize a Stream Analytics query for memory, output latency, and recovery speed.
 services: stream-analytics
 author: zhongc
 ms.author: zhongc
-ms.manager: kfile
+manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
