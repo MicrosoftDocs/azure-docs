@@ -21,7 +21,9 @@ ms.author: sethm
 
 # Process events using PowerShell and .NET Standard
 
-In this quickstart, we'll show you how to (1) create an event hub using PowerShell and (2) send to and receive from an event hub using our .NET Standard SDK. 
+In this quickstart, we'll show you how to:
+* Create an event hub using PowerShell
+* Send to and receive from an event hub using our .NET Standard SDK. 
 
 ## Prerequisites
 
@@ -33,19 +35,19 @@ To complete this tutorial, make sure you have:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
+If you're using PowerShell locally, you must be running the latest version of PowerShell in order to complete this article. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
 
 ## Log on to Azure
 
 Once PowerShell is installed, perform the following steps to install the Event Hubs PowerShell module and log on to Azure:
 
-1. Issue the following command to install the Event Hubs PowerShell module:
+1. To install the Event Hubs PowerShell module, run:
 
    ```azurepowershell-interactive
    Install-Module AzureRM.EventHub
    ```
 
-2. Run the following command to log on to Azure:
+2. To log on to Azure, run:
 
    ```azurepowershell-interactive
    Login-AzureRmAccount
@@ -88,8 +90,7 @@ To create an event hub, specify the namespace under which you want it created. T
 
 ### Create a storage account for Event Processor Host
 
-Event Processor Host is an intelligent agent that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives. For check pointing, Event Processor Host requires a storage account. The following example shows how to create a storage account and how to get its keys for access.
-
+Event Processor Host is an intelligent agent that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives. For checkpointing, Event Processor Host requires a storage account. To create a storage account and get its keys, run:
 
 ```powershell
 # create a standard general-purpose storage account 
@@ -104,7 +105,8 @@ Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup -Name $storageAcc
 ```
 
 ### Get the connection string
-Obtain the connection string required to connect to your Event Hubs for ingesting and processing the events.
+
+A connection string is required to connect to your event hub and process events. To obtain the connection string, run:
 
 ```powershell
 Get-AzureRmEventHubKey -ResourceGroupName eventhubsResourceGroup -NamespaceName <namespace_name> -EventHubName <eventhub_name> -Name RootManageSharedAccessKey
