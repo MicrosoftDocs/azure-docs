@@ -146,7 +146,7 @@ SELECT @xact_state AS TransactionState;
 
 The expected behavior is now observed. The error in the transaction is managed and the ERROR_* functions provide values as expected.
 
-All that has changed is that the ROLLBACK of the transaction had to happen before the read of the error information in the CATC` block.
+All that has changed is that the ROLLBACK of the transaction had to happen before the read of the error information in the CATCH block.
 
 ## Error_Line() function
 It is also worth noting that SQL Data Warehouse does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL Data Warehouse. Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](sql-data-warehouse-develop-label.md) article.
