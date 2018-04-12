@@ -10,8 +10,6 @@ editor: ''
 
 ms.assetid: 4C33828F-2982-47F0-B858-C32FFF634D9E
 ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
