@@ -26,7 +26,7 @@ This sample PowerShell script sets allowed virtual machine (VM) sizes in Azure L
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-external-user-to-lab/add-external-user-to-lab.ps1 "Add external user to a custom lab")]
+[!code-powershell[main](../../../powershell_scripts/devtest-lab/set-allowed-vm-sizes-in-lab/set-allowed-vm-sizes-in-lab.ps1 "Add external user to a custom lab")]
 
 ## Script explanation
 

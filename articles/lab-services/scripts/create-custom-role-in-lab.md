@@ -26,7 +26,7 @@ This sample PowerShell script creates a custom role to use in a custom lab in Az
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-external-user-to-lab/add-external-user-to-lab.ps1 "Add external user to a custom lab")]
+[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-role-in-lab/create-custom-role-in-lab.ps1 "Add external user to a custom lab")]
 
 ## Script explanation
 

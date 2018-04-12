@@ -26,7 +26,7 @@ This sample PowerShell script creates a custom image from a VHD file in Azure La
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-external-user-to-lab/add-external-user-to-lab.ps1 "Add external user to a custom lab")]
+[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-image-from-vhd/create-custom-image-from-vhd.ps1 "Add external user to a custom lab")]
 
 ## Script explanation
 
