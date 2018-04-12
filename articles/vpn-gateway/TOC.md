@@ -94,7 +94,7 @@
 ### [Delete a VPN gateway](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ### [Configure multiple S2S connections](vpn-gateway-multi-site.md)
 ### [Configure a VPN gateway](vpn-gateway-configure-vpn-gateway-mp.md)
-## [Classic to Resource Manager migration](vpn-gateway-classic-resource-manager-migration.md)
+### [Classic to Resource Manager migration](vpn-gateway-classic-resource-manager-migration.md)
 
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
