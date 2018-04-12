@@ -580,6 +580,23 @@ To assist with diagnosing container startup failures, Service Fabric (version 6.
 The setting **ContainersRetentionCount** specifies the number of containers to retain when they fail. If a negative value is specified, all failing containers will be retained. When the **ContainersRetentionCount**  attribute is not specified, no containers will be retained. The attribute **ContainersRetentionCount** also supports Application Parameters so users can specify different values for test and production clusters. It is recommended to use placement constraints to target the container service to a particular node when using this features to prevent the container service from moving to other nodes. 
 Any containers retained using this feature must be manually removed.
 
+## Start the Docker daemon with custom arguments
+
+With the 6.2 version of the Service Fabric runtime and greater, you can start the Docker daemon with custom arguments. When custom arguments are specified, Service Fabric do not pass any other argument to docker engine except the `--pidfile` argument. Hence, `--pidfile` should not be passed as an argument. Additionally, the argument should continue to have the docker daemon listen on the default name pipe on Windows (or unix domain socket on Linux) for Service Fabric to communicate with the Daemon.  The custom arguments are passed in the cluster manifest under the **Hosting** section under **ContainerServiceArguments** as shown in the following snippet: 
+ 
+
+```json
+{ 
+   "name": "Hosting", 
+        "parameters": [ 
+          { 
+            "name": "ContainerServiceArguments", 
+            "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
+          } 
+        ] 
+} 
+
+```
 
 ## Next steps
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
