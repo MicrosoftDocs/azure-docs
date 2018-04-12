@@ -56,7 +56,6 @@ This problem can happen when the system upgrades the streaming jobs, thus restar
 
 One mitigation for this kind of slow startup time is to use query parallelization techniques (partitioning the data), or add more Streaming Units to improve the throughput until the job catches up.  For more information, see [Considerations when creating Stream Analytics jobs](stream-analytics-concepts-checkpoint-replay.md)
 
-
 ## Next steps
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
