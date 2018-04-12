@@ -33,15 +33,15 @@ You might define a cohort of users that have all tried a new feature in your app
 
 Your team defines an engaged user as anyone who uses your app five or more times in a given month. Let’s define a cohort of these engaged users.
 
-1. Open the **Cohorts** tool
+1. Open the **Cohorts** tool.
 
 2. Click **Template Gallery** tab. Here you’ll find a collection of templates for various cohorts.
 
-3. Choose **Engaged Users** – by Days Used”
+3. Choose **Engaged Users** – by Days Used”.
 
     There are three parameters for this cohort:
-      * **Activities** that let you choose which events and page views should count as “usage”
-      * **Period** the definition of a month
+      * **Activities** that let you choose which events and page views should count as “usage”.
+      * **Period** the definition of a month.
       * **UsedAtleastCustom**: the number of times they need to use within a period to count as an engaged user.
 
 4. Change **UsedAtleastCustom** to “5+ days” and leave **Period** to the default of 28 days.
@@ -50,12 +50,12 @@ Your team defines an engaged user as anyone who uses your app five or more times
 
     Now this cohort represents all user IDs that were sent with any custom event or page view on five separate days in the past 28 days.
 
-5. Click **Save**
+5. Click **Save**.
 
    > [!TIP]
    >  Give your cohort a name, like “Engaged Users (5+ Days)” and save it to “My reports” or “Shared reports” depending if you want other people with access to this Appication Insights resource to see this cohort.
 
-6. Click **Back to Gallery**
+6. Click **Back to Gallery**.
 
 ### What can you do with this cohort?
 
@@ -75,16 +75,16 @@ This lets you ask more sophisticated questions like: _for people who were engage
 
 You can also make cohorts of events. Let’s define a cohort of the events and page views, then see how to use them from the other tools. This might be useful to define a set of events that your team considers _active usage_, or to define a set of events related to a certain new feature.
 
-1. Open the **Cohorts** tool
+1. Open the **Cohorts** tool.
 
 2. Click the **Template Gallery** tab. Here you’ll find a collection of templates for various cohorts.
 
-3. Choose **Events Picker**
+3. Choose **Events Picker**.
 
     ![Screenshot of Events picker](.\media\app-insights-usage-cohorts\006.png)
 
 4. In the **Activities** dropdown, select the events you’d like to be in the cohort
-5. Save the cohort and give it a name
+5. Save the cohort and give it a name.
 
 ## Example: active users where you modify query
 
@@ -97,8 +97,10 @@ The previous two cohorts were defined using dropdowns. But we can also define co
     ![Blank Users Cohort](.\media\app-insights-usage-cohorts\001.png)
 
     There are three sections:
-       * A Markdown text section where you can describe the cohort in more detail for others on your team
-       * A parameters section you can use to make your own parameters, like the **Activities** and other dropdowns from the previous two examples. 
+       * A Markdown text section where you can describe the cohort in more detail for others on your team.
+
+       * A parameters section you can use to make your own parameters, like the **Activities** and other dropdowns from the previous two examples.
+
        * A query section that you use to define the cohort using an Analytics query.
 
     In the query section, you [write an Analytics query](https://docs.loganalytics.io/index) that selects the certain set of rows that describe the cohort you want to define. The Cohorts tool then implicitly adds a “| summarize by user_Id” clause to the query. This is previewed below the query in a table so you can make sure your query is returning results.
