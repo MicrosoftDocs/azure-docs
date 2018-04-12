@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/02/2018
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
 ---
@@ -41,19 +41,12 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 
 While the information is verified and the workspace is created, you can track its progress under **Notifications** from the menu. 
 
->[!NOTE]
->When you create a new workspace linked to a new subscription created after April 2, 2018 it will automatically use the *PerGB2018* pricing plan.  This plan includes 5 GB of data per month free across Application Insights and Log Analytics resources. For additional information the pricing model, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
->
-
 ## Enable the Log Analytics VM Extension
 For Windows and Linux virtual machines already deployed in Azure, you install the Log Analytics agent with the Log Analytics VM Extension.  Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically, ensuring that you have the latest features and fixes.
 
 >[!NOTE]
 >The OMS agent for Linux cannot be configured to report to more than one Log Analytics workspace. 
 
-If you created a workspace in Azure Government cloud, you may notice the banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.  The upgrade is not needed for the purposes of this quickstart.<br>
-
-![Log Analytics upgrade notice in the Azure portal](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select *DefaultLAWorkspace* created earlier.
 3. On the left-hand menu, under Workspace Data Sources, click **Virtual machines**.  
@@ -89,10 +82,6 @@ Now that you have enabled data collection, lets run a simple log search example 
 
 1. In the Azure portal, navigate to Log Analytics and select the workspace created earlier.
 2. Click the **Log Search** tile and on the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.<br> ![Log Analytics log search query example](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
-
-   >[!NOTE]
-   >If your workspace is created in Azure Government cloud, you will use the query `Type=Perf`.  
-   >
 
 For example, the query in the following image returned 78,000 Performance records.  Your results will be significantly less.<br> ![Log Analytics log search result](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 

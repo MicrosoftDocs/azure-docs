@@ -4,7 +4,7 @@ description: Learn about Azure solutions for running high performance computing 
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 

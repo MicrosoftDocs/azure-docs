@@ -37,6 +37,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git
 
 This command clones the repository to your local git folder. To open the Python program, look for the storage-blobs-python-quickstart folder, and example.py file.  
 
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
+
 ## Configure your storage connection string
 In the application, you must provide your storage account name and account key to create a `BlockBlobService` object. Open the `example.py` file from the Solution Explorer in your IDE. Replace the **accountname** and **accountkey** values with your account name and key. 
 

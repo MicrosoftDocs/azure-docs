@@ -223,7 +223,7 @@ namespace MSTranslatorTextDemo
             return text;
         }
         
-        // ***** GET TRANSLATABLE LANGAUGE CODES
+        // ***** GET TRANSLATABLE LANGUAGE CODES
         private void GetLanguagesForTranslate()
         {
             // send request to get supported language codes

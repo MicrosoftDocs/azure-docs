@@ -4,7 +4,7 @@ description: Learn how to set up an on-premises computer to submit jobs to an HP
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management,hpc-pack
 
