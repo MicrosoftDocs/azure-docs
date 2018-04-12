@@ -1,5 +1,5 @@
 ---
-title: Stackify Retrace Linux Agent Extension | Microsoft Docs
+title: Stackify Retrace Azure Linux Agent Extension | Microsoft Docs
 description: Deploy the Stackify Retrace Linux agent on a Linux virtual machine.
 services: virtual-machines-linux 
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services 
-ms.date: 04/4/2018
+ms.date: 04/12/2018
 ms.author: danis
 
 ---
@@ -25,9 +25,9 @@ Stackify provides products that track details about your application to help fin
 Retrace is the ONLY tool that delivers all of the below across all environments in a single platform.
 
 * Application Performance Management (APM)
-* Application & Server Logging
-* Error Tracking & Monitoring
-* Server, Application & Custom Metrics
+* Application and Server Logging
+* Error Tracking and Monitoring
+* Server, Application and Custom Metrics
 
 **About Stackify Linux Agent Extension**
 
@@ -48,7 +48,7 @@ The Retrace agent can be run against these Linux distributions
 ### Internet connectivity
 The Stackify Agent extension for Linux requires that the target virtual machine is connected to the internet. 
 
-You may need to adjust your network configuration allow connections to Stackify, see https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
+You may need to adjust your network configuration to allow connections to Stackify, see https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
 
 
 ## Extension schema
@@ -168,15 +168,15 @@ The Azure CLI tool can be used to deploy the Stackify Retrace Linux Agent virtua
 
 The extension requires the `environment` and `activationKey`.
 
-``` 
+```azurecli
 az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --name 'StackifyLinuxAgentExtension' --protected-settings '{"activationKey":"myActivationKey"}' --settings '{"environment":"myEnvironment"}'  --resource-group 'myResourceGroup' --vm-name 'myVmName'
 ```
 
-## Troubleshoot and Support
+## Troubleshoot and support
 
-### Error Codes
+### Error codes
 
-| Error Code | Meaning | Possible Action |
+| Error code | Meaning | Possible action |
 | :---: | --- | --- |
 | 10 | Install Error | wget is required |
 | 20 | Install Error | python is required |
@@ -191,4 +191,4 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 110 | Disable Error | Service Removal Failed |
 | 120 | Uninstall Error | Service Stop Failed |
 
-If you need more help you can contact Stackify support at [https://support.stackify.com].
+If you need more help you can contact Stackify support at https://support.stackify.com
