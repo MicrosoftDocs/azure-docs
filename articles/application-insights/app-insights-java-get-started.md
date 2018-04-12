@@ -1,6 +1,6 @@
 ﻿---
 title: Java web app analytics with Azure Application Insights | Microsoft Docs
-description: Application Performance Monitoring for Java web apps with Application Insights. 
+description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -19,23 +19,22 @@ ms.author: mbullwin
 # Get started with Application Insights in a Java web project
 
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](app-insights-detect-triage-diagnose.md) and [write code][api] to track what users do with your app.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](app-insights-detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
 
-![Sample data](./media/app-insights-java-get-started/5-results.png)
+![sample data](./media/app-insights-java-get-started/5-results.png)
 
 Application Insights supports Java apps running on Linux, Unix, or Windows.
 
 You need:
 
 * Oracle or Zulu JRE version 1.7 or 1.8
-* A subscription to [Microsoft Azure](https://azure.microsoft.com/)
+* A subscription to [Microsoft Azure](https://azure.microsoft.com/).
 
->[NOTE!]
-> If you have a web app that's already live, you can follow the alternative procedure to [add the SDK at runtime in the web server](app-insights-java-live.md). This alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.
+*If you have a web app that's already live, you could follow the alternative procedure to [add the SDK at runtime in the web server](app-insights-java-live.md). That alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.*
 
 ## 1. Get an Application Insights instrumentation key
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
-2. Create an Application Insights resource. Set the application type to **Java web application**.
+2. Create an Application Insights resource. Set the application type to Java web application.
 
     ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-get-started/02-create.png)
 3. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
@@ -43,12 +42,12 @@ You need:
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-get-started/03-key.png)
 
 ## 2. Add the Application Insights SDK for Java to your project
-Choose the appropriate way to add the SDK for your project.
+*Choose the appropriate way for your project.*
 
 #### If you're using Maven... <a name="maven-setup" />
 If your project is already set up to use Maven for build, merge the following code to your pom.xml file.
 
-Then refresh the project dependencies to download the binaries.
+Then, refresh the project dependencies to get the binaries downloaded.
 
 ```XML
 
@@ -70,14 +69,13 @@ Then refresh the project dependencies to download the binaries.
     </dependencies>
 ```
 
-* *Build or checksum validation errors?* Try using a specific version, such as: `<version>2.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in the [Maven artifacts(http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-
+* *Build or checksum validation errors?* Try using a specific version, such as: `<version>2.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in the [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Need to update to a new SDK?* Refresh your project's dependencies.
 
 #### If you're using Gradle... <a name="gradle-setup" />
 If your project is already set up to use Gradle for build, merge the following code to your build.gradle file.
 
-Then refresh the project dependencies to download the binaries.
+Then refresh the project dependencies to get the binaries downloaded.
 
 ```gradle
 
@@ -92,10 +90,7 @@ Then refresh the project dependencies to download the binaries.
 ```
 
 #### If you're using Eclipse to create a Dynamic Web project ...
-Use the [Application Insights SDK for Java plug-in][eclipse]. 
-
->[NOTE!]
->  Although using this plugin will get you up and running with Application Insights quicker (assuming you're not using Maven/Gradle), it is not a dependency management system. As such, updating the plugin will not automatically update the Application Insights libraries in your project.
+Use the [Application Insights SDK for Java plug-in][eclipse]. Note: even though using this plugin will get you up and running with Application Insights quicker (assuming you're not using Maven/Gradle), it is not a dependency management system. As such, updating the plugin will not automatically update the Application Insights libraries in your project.
 
 * *Build or checksum validation errors?* Try using a specific version, such as: `version:'2.0.n'`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in the [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *To update to a new SDK* Refresh your project's dependencies.
@@ -103,20 +98,19 @@ Use the [Application Insights SDK for Java plug-in][eclipse].
 #### Otherwise, if you are manually managing dependencies ...
 Download the [latest version](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and copy the necessary files into your project, replacing any previous versions.
 
-### Frequently asked auestions
-* What's the relationship between the `-core` and `-web` components?
+### Questions...
+* *What's the relationship between the `-core` and `-web` components?*
   * `applicationinsights-core` gives you the bare API. You always need this component.
-  * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this component if you don't want this telemetry automatically collected (for example, if you want to write your own).
+  * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this component if you don't want this telemetry automatically collected. For example, if you want to write your own.
   
-* How should I update the SDK to the latest version?
-  * If you are using Gradle or Maven:
-    * Update your build file to specify the latest version, or use Gradle/Maven's wildcard syntax to include the latest version automatically. Then refresh your project's dependencies. The wildcard syntax can be seen in the previous examples  for [Gradle](#gradle-setup) or [Maven](#maven-setup).
-
-  * If you are manually managing dependencies:
+* *How should I update the SDK to the latest version?*
+  * If you are using Gradle or Maven...
+    * Update your build file to specify the latest version or use Gradle/Maven's wildcard syntax to include the latest version automatically. Then, refresh your project's dependencies. The wildcard syntax can be seen in the examples above for [Gradle](#gradle-setup) or [Maven](#maven-setup).
+  * If you are manually managing dependencies...
     * Download the latest [Application Insights SDK for Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and replace the old ones. Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## 3. Add an ApplicationInsights.xml file
-Add ApplicationInsights.xml to the resources folder in your project, or make sure to add it to your project’s deployment class path. Copy the following XML into it.
+Add ApplicationInsights.xml to the resources folder in your project, or make sure it is added to your project’s deployment class path. Copy the following XML into it.
 
 Substitute the instrumentation key that you got from the Azure portal.
 
@@ -151,13 +145,11 @@ Substitute the instrumentation key that you got from the Azure portal.
     </ApplicationInsights>
 ```
 
-Optionally, the configuration file can reside in any location that's accessible to your application. The system property `-Dapplicationinsights.configurationDirectory` specifies the directory that contains ApplicationInsights.xml. For example, a configuration file that's located at `E:\myconfigs\appinsights\ApplicationInsights.xml` is configured with the property `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
+Optionally, the configuration file can reside in any location accessible to your application.  The system property `-Dapplicationinsights.configurationDirectory` specifies the directory that contains ApplicationInsights.xml. For example, a configuration file located at `E:\myconfigs\appinsights\ApplicationInsights.xml` would be configured with the property `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
-* The instrumentation key is sent, along with every item of telemetry, and tells Application Insights to display it in your resource.
-
+* The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
-
-* Event correlation is an addition to the HTTP request component. It assigns an identifier to each request that's received by the server, and adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. Using event correlation, you can correlate the telemetry that's associated with each request by setting a filter in [diagnostic search][diagnostic].
+* Event correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
 
 ### Alternative ways to set the instrumentation key
 Application Insights SDK looks for the key in this order:
@@ -172,10 +164,10 @@ You can also [set it in code](app-insights-api-custom-events-metrics.md#ikey):
     TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
 ```
 
-## 4. Add an HTTP filter 
-The last configuration step allows the HTTP request component to log each web request. (This step isn't required if you just want the bare API.)
+## 4. Add an HTTP filter
+The last configuration step allows the HTTP request component to log each web request. (Not required if you just want the bare API.)
 
-### Spring boot applications
+### Spring Boot Applications
 Register the Application Insights `WebRequestTrackingFilter` in your Configuration class:
 
 ```Java
@@ -224,13 +216,13 @@ package devCamp.WebApp.configurations;
     }
 ```
 
-This class configures the `WebRequestTrackingFilter` to be the first filter on the http filter chain. It also pulls the instrumentation key from the operating system environment variable if it is available.
+This class will configure the `WebRequestTrackingFilter` to be the first filter on the http filter chain. It will also pull the instrumentation key from the operating system environment variable if it is available.
 
-> We are using the web http filter configuration rather than the Spring MVC configuration because this is a Spring Boot application, and it has its own Spring MVC configuration. See the following sections for Spring MVC-specific configuration.
+> We are using the web http filter configuration rather than the Spring MVC configuration because this is a Spring Boot application, and it has its own Spring MVC configuration. See the sections below for Spring MVC specific configuration.
 
 
 ### Applications Using Web.xml
-Locate and open the web.xml file in your project. Then merge the following code under the web-app node, where your application filters are configured.
+Locate and open the web.xml file in your project, and merge the following code under the web-app node, where your application filters are configured.
 
 To get the most accurate results, the filter should be mapped before all other filters.
 
@@ -280,40 +272,40 @@ If you have interceptors defined in a default stack, the interceptor can be adde
 Either run it in debug mode on your development machine, or publish to your server.
 
 ## 6. View your telemetry in Application Insights
-Return to your Application Insights resource in the [Microsoft Azure portal](https://portal.azure.com).
+Return to your Application Insights resource in [Microsoft Azure portal](https://portal.azure.com).
 
-HTTP requests data appears on the overview blade. (If it isn't there, wait a few seconds, and then select **Refresh**.)
+HTTP requests data appears on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
-![Sample data](./media/app-insights-java-get-started/5-results.png)
+![sample data](./media/app-insights-java-get-started/5-results.png)
 
 [Learn more about metrics.][metrics]
 
 Click through any chart to see more detailed aggregated metrics.
 
-![Server requests by request name](./media/app-insights-java-get-started/6-barchart.png)
+![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Application Insights assumes that the format of HTTP requests for MVC applications is: `VERB controller/action`. For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET Home/Product/sdf96vws` are grouped into `GET Home/Product`. This grouping enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
+> Application Insights assumes the format of HTTP requests for MVC applications is: `VERB controller/action`. For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET Home/Product/sdf96vws` are grouped into `GET Home/Product`. This grouping enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
 >
 >
 
 ### Instance data
 Click through a specific request type to see individual instances.
 
-Two kinds of data are displayed in Application Insights: aggregated data (stored and displayed as averages, counts, and sums), and instance data--individual reports of HTTP requests, exceptions, page views, or custom events.
+Two kinds of data are displayed in Application Insights: aggregated data, stored and displayed as averages, counts, and sums; and instance data - individual reports of HTTP requests, exceptions, page views, or custom events.
 
-When viewing the properties of a request, you can see the telemetry events that are associated with it, such as requests and exceptions.
+When viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
 
-![Request properties](./media/app-insights-java-get-started/7-instance.png)
+![](./media/app-insights-java-get-started/7-instance.png)
 
 ### Analytics: Powerful query language
-As you accumulate more data, you can run queries both to aggregate data and to find individual instances. [Analytics](app-insights-analytics.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](app-insights-analytics.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
-![Example of analytics](./media/app-insights-java-get-started/025.png)
+![Example of Analytics](./media/app-insights-java-get-started/025.png)
 
 ## 7. Install your app on the server
 Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
 
-* Make sure your firewall allows your application to send telemetry to the following ports:
+* Make sure your firewall allows your application to send telemetry to these ports:
 
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
