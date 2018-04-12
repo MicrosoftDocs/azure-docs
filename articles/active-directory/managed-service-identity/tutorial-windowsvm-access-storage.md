@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 04/12/2018
 ms.author: daveba
 ---
 
@@ -108,8 +108,76 @@ You can use an MSI to retrieve Azure storage blob containers and data.
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager 
 
+Azure Storage natively supports Azure AD authentication, so it can directly accept access tokens obtained using MSI. You use the access token method of creating a connection to Azure Storage. This is part of Azure Storage's integration with Azure AD, and is different from supplying credentials on the connection string.
+Here's a .Net code example of opening a connection to Azure Storage using an access token. This code must run on the VM to be able to access the VM MSI endpoint. .Net Framework 4.6 or higher is required to use the access token method. Replace the value of `<URI to blob file>` accordingly. You can obtain this value from the **Overview** page in the Azure portal of file you created earlier.  Note the resource ID for Azure SQL is "https://storage.azure.com/".
 
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Net;
+using System.Web.Script.Serialization; 
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Blob;
 
+namespace StorageOAuthToken
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //get token
+            string accessToken = GetMSIToken("https://storage.azure.com/");
+           
+            //create token credential
+            TokenCredential tokenCredential = new TokenCredential(accessToken);
+
+            //create storage credentials
+            StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
+
+            Uri blobAddress = new Uri("<URI to blob file>");
+
+            //create block blob using storage credentials
+            CloudBlockBlob blob = new CloudBlockBlob(blobAddress, storageCredentials);
+        
+            //retrieve blob contents
+            Console.WriteLine(blob.DownloadText());
+            Console.ReadLine();
+        }
+
+        static string GetMSIToken(string resourceID)
+        {
+            string accessToken = string.Empty;
+            // Build request to acquire MSI token
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=" + resourceID);
+            request.Headers["Metadata"] = "true";
+            request.Method = "GET";
+
+            try
+            {
+                // Call /token endpoint
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                // Pipe response Stream to a StreamReader, and extract access token
+                StreamReader streamResponse = new StreamReader(response.GetResponseStream());
+                string stringResponse = streamResponse.ReadToEnd();
+                JavaScriptSerializer j = new JavaScriptSerializer();
+                Dictionary<string, string> list = (Dictionary<string, string>)j.Deserialize(stringResponse, typeof(Dictionary<string, string>));
+                accessToken = list["access_token"];
+                return accessToken;
+            }
+            catch (Exception e)
+            {
+                string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
+                return accessToken;
+            }
+        }            
+    }
+}
+```
 
 ## Related content
 
@@ -119,6 +187,5 @@ You can use an MSI to retrieve Azure storage blob containers and data.
   - [Using shared access signatures (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
   - [Constructing a Service SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
 
-Use the following comments section to provide feedback and help us refine and shape our content
 
 
