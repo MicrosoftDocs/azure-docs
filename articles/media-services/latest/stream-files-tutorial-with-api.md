@@ -57,7 +57,7 @@ Log in to the [Azure portal](http://portal.azure.com).
 
 ## Access the Media Services API
 
-To connect to the latest version of Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure your .NET app, as shown in the following step.
+To connect to the latest version of Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure your .NET app, as shown in the script that follows.
 
 Before running the script, replace the `amsaccountname` placeholder.  `amsaccountname` is the name of the Azure Media Services account where to attach the service principal.
 
@@ -65,7 +65,7 @@ Before running the script, replace the `amsaccountname` placeholder.  `amsaccoun
 az ams sp create --account-name <amsaccountname> --resource-group amsResourcegroup
 ```
 
-This command will produce a response similar to this:
+This command produces a response similar to this:
 
 ```json
 {
@@ -133,7 +133,7 @@ private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper
 
 ### Create an input asset and upload a local file into it 
 
-The **CreateInputAsset** function creates an input asset and uploads the specified local video file into it. This asset will be used as the input to your encoding job. In Media Services v3, the job input can be created from HTTP(s) URLs, SAS URLs, AWS S3 Token URLs, or paths to files located in Azure Blob storage. If you want to learn how to create a job input from an HTTP(s) URL, see [this](job-input-from-http-how-to.md) article.  
+The **CreateInputAsset** function creates an input asset and uploads the specified local video file into it. This asset is used as the input to your encoding job. In Media Services v3, the job input can be created from HTTP(s) URLs, SAS URLs, AWS S3 Token URLs, or paths to files located in Azure Blob storage. If you want to learn how to create a job input from an HTTP(s) URL, see [this](job-input-from-http-how-to.md) article.  
 
 The following function performs these actions:
 
@@ -180,9 +180,9 @@ When encoding or processing content in Media Services, it is a common pattern to
 
 #### Transform
 
-When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article, uses a built-in Preset called **AdaptiveStreaming**. This Preset auto-generates a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about, see [auto-generating bitrate ladder](autogen-bitrate-ladder.md).
+When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article, uses a built-in Preset called **AdaptiveStreaming**. The Preset auto-generates a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about, see [auto-generating bitrate ladder](autogen-bitrate-ladder.md).
 
-When creating a **Transform**, you should first check if one already exists using the **Get** method., as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist.
+When creating a **Transform**, you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist.
 
 ```csharp
 private static Transform EnsureTransformExists(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName)
@@ -245,7 +245,7 @@ The job takes some time to complete and when it does you want to be notified. Th
 > [!Note]
 > Polling is not a recommended best practice for production applications. Developers should instead use Event Grid.
 
-The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you will get the **Error** state. If the job is in the process of being canceled, you will get **Canceling** and **Canceled** when it is done.
+The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
 ```csharp
 private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, string jobName)
@@ -311,7 +311,7 @@ private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient
 
 ### Get streaming URLs
 
-Now that the streaming locator has been created, you can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the streaming endpoint's host name and the streaming locator path. In this sample, we are using the *default* streaming endpoint. By default, a streaming endpoint is in the stopped state, so you need to call **Start**. 
+Now that the streaming locator has been created, you can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the streaming endpoint's host name and the streaming locator path. In this sample, the *default* streaming endpoint is used. By default, a streaming endpoint is in the stopped state, so you need to call **Start**. 
 
 ```csharp
 static IList<string> GetStreamingURLs(
@@ -346,7 +346,7 @@ static IList<string> GetStreamingURLs(
 
 ### Clean up resource in your account
 
-Generally, you should clean up everything except objects that you are planning to reuse (commonly, you will want to reuse a transform). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes jobs.
+Generally, you should clean up everything except objects that you are planning to reuse (commonly, you want to reuse a transform). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes jobs.
 
 ```csharp
 static void CleanUp(IAzureMediaServicesClient client, string resourceGroupName, string accountName, String transformName)
