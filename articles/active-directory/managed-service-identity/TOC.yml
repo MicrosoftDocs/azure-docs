@@ -89,18 +89,6 @@
         - name: Ruby
         - name: Node.js
         - name: Go
-      - name: Configure Identity for Application Service
-        items:
-        - name: Portal
-        - name: CLI
-        - name: PowerShell
-        - name: Azure Resource Manager Template
-        - name: .NET
-        - name: Java
-        - name: Python
-        - name: Ruby
-        - name: Node.js
-        - name: Go
       - name: Acquire an access token
         items:
         - name: PowerShell
