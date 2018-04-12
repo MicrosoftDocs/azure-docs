@@ -122,7 +122,7 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 
 > [!NOTE]
 > To use this report, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> To access preview, Global Admin or [Security Reader](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#security-reader) permission is required.  
+> To access preview, Global Admin or [Security Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) permission is required.  
 > 
 
 ### What is in the report

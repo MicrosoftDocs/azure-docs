@@ -2,20 +2,14 @@
 title: What are Data Warehouse Units (DWUs, cDWUs) in Azure SQL Data Warehouse? | Microsoft Docs
 description: Performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs, cDWUs,or pause and resume compute resources to save costs.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-
+author: sqlmojo
+manager: craigg-msft
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/09/2018
+ms.author: joeyong
+ms.reviewer: jrj
+---
 ---
 # Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
 Explains Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUS) for Azure SQL Data Warehouse. Include recommendations on choosing the ideal number of data warehouse units, and how to change the number of them. 
@@ -35,6 +29,27 @@ Increasing DWUs:
 - Linearly changes performance of the system for scans, aggregations, and CTAS statements
 - Increases the number of readers and writers for PolyBase load operations
 - Increases the maximum number of concurrent queries and concurrency slots.
+
+## Service Level Objective
+The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for the Optimized for Compute performance tier scale are measured in compute data warehouse units (cDWU), for example DW2000c. The Optimized for Elasticity service levels are measured in DWUs, for example DW2000. 
+
+In T-SQL the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your data warehouse.
+
+```sql
+--Optimized for Elasticity
+CREATE DATABASE myElasticSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000'
+)
+;
+
+--Optimized for Compute
+CREATE DATABASE myComputeSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000c'
+)
+;
+```
 
 ## Performance Tiers and Data Warehouse Units
 
@@ -206,7 +221,7 @@ Refer to the following articles to help you understand some additional key perfo
 [Best practices]: ./sql-data-warehouse-best-practices.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+[SQL DB Contributor]:../role-based-access-control/built-in-roles.md#sql-db-contributor
 
 <!--MSDN references-->
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
