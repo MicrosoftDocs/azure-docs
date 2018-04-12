@@ -17,10 +17,10 @@ ms.author: trinadhk, sogup
 
 # Upgrade to VM backup stack V2
 The virtual machine (VM) backup stack V2 upgrade provides the following feature enhancements:
-* Ability to see a snapshot taken as part of a backup job. The snapshot is available for recovery before the data transfer completes.
-The upgrade reduces the wait time when a snapshot is copied to the vault before triggering restore. Also, this eliminates the additional storage requirement for backing up premium VMs, except for the first backup.
+* Ability to see snapshot taken as part of backup job to be available for recovery without waiting for data transfer to complete.
+It will reduce the wait on snapshot to be copied to vault before triggering restore. Also, this will eliminate the additional storage requirement for backing up premium VMs except for first backup.  
 
-* Reduction in backup and restore times through local seven-day snapshots retention. 
+* Reduction in backup and restore times by retaining snapshots locally for 7 days. 
 
 * Support for disk sizes up to 4 TB.  
 
@@ -86,7 +86,7 @@ From an elevated PowerShell terminal, run the following cmdlet:
 Get-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-If it says, "Registered," then your subscription is upgraded to VM backup stack V2. 
+If it says Registered, then your subscription is upgraded to VM backup stack V2. 
 
 
 
