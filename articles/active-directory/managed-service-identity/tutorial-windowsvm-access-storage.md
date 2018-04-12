@@ -89,111 +89,26 @@ Later we will upload and download a file to the new storage account. Because fil
 4. Give the container a name, select an access level, then click **OK**. The name you specified will be used later in the tutorial. 
 
     ![Create storage container](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+5. Upload a file to the newly created container by clicking on the container name, then **Upload**, then select a file, then click **Upload**.
+
+    ![Upload text file](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## Grant your VM access to an Azure Storage container 
 
-Azure Storage does not natively support Azure AD authentication.  However, you can use an MSI to retrieve storage account access keys from the Resource Manager, then use a key to access storage.  In this step, you grant your VM MSI access to the keys to your storage account.   
+You can use an MSI to retrieve Azure storage blob containers and data.   
 
 1. Navigate back to your newly created storage account.  
 2. Click the **Access control (IAM)** link in the left panel.  
 3. Click **+ Add** on top of the page to add a new role assignment for your VM
-4. Set **Role** to "Storage Account Key Operator Service Role", on the right side of the page. 
-5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
-6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
-7. Finally, under **Select** choose your Windows Virtual Machine in the dropdown, then click **Save**. 
-
-    ![Alt image text](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
+4. Set **Role** to **Storage Blob+
+5.  Data Reader (Preview)**, on the right side of the page. 
+6. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
+7. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
+8. Finally, under **Select** choose your Windows Virtual Machine in the dropdown, then click **Save**. 
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager 
 
-For the remainder of the tutorial, we will work from the VM we created earlier. 
 
-You will need to use the Azure Resource Manager PowerShell cmdlets in this portion.  If you don’t have it installed, [download the latest version](https://docs.microsoft.com/powershell/azure/overview) before continuing.
-
-1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top. 
-2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
-3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session.
-4. Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
-
-    ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-    ```
-    
-    > [!NOTE]
-    > The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
-    
-    Next, extract the "Content" element, which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object. 
-    
-    ```powershell
-    $content = $response.Content | ConvertFrom-Json
-    ```
-    Next, extract the access token from the response.
-    
-    ```powershell
-    $ArmToken = $content.access_token
-    ```
- 
-## Get storage account access keys from Azure Resource Manager to make storage calls  
-
-Now use PowerShell to call Resource Manager using the access token we retrieved in the previous section, to retrieve the storage access key. Once we have the storage access key, we can call storage upload/download operations.
-
-```powershell
-$keysResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE-ACCOUNT>/listKeys/?api-version=2016-12-01 -Method POST -Headers @{Authorization="Bearer $ARMToken"}
-```
-> [!NOTE] 
-> The URL is case-sensitive, so ensure you use the exact same case used earlier, when you named the Resource Group, including the uppercase "G" in "resourceGroups." 
-
-```powershell
-$keysContent = $keysResponse.Content | ConvertFrom-Json
-$key = $keysContent.keys[0].value
-```
-
-Next we create a file called "test.txt". Then use the storage access key to authenticate with the `New-AzureStorageContent` cmdlet, upload the file to our blob container, then download the file.
-
-```bash
-echo "This is a test text file." > test.txt
-```
-
-Be sure to install the Azure Storage cmdlets first, using `Install-Module Azure.Storage`. Then upload the blob you just created, using the `Set-AzureStorageBlobContent` PowerShell cmdlet:
-
-```powershell
-$ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT> -StorageAccountKey $key
-Set-AzureStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
-```
-
-Response:
-
-```powershell
-ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob
-BlobType          : BlockBlob
-Length            : 56
-ContentType       : application/octet-stream
-LastModified      : 9/13/2017 6:14:25 PM +00:00
-SnapshotTime      :
-ContinuationToken :
-Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
-Name              : testblob
-```
-
-You can also download the blob you just uploaded, using the `Get-AzureStorageBlobContent` PowerShell cmdlet:
-
-```powershell
-Get-AzureStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
-```
-
-Response:
-
-```powershell
-ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob
-BlobType          : BlockBlob
-Length            : 56
-ContentType       : application/octet-stream
-LastModified      : 9/13/2017 6:14:25 PM +00:00
-SnapshotTime      :
-ContinuationToken :
-Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
-Name              : testblob
-```
 
 
 ## Related content
