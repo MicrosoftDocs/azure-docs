@@ -100,11 +100,32 @@ and set up the interval and frequency for when to check the Event Hub.
 
     ![Specify Event Hub or consumer group](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
 
-    > [!TIP]
-    > To optionally select a consumer group for reading events, 
-    > choose **Show advanced options**.
 
-4. Save your logic app. On the designer toolbar, choose **Save**.
+    > [!NOTE]
+    > All Event Hub triggers are **long-polling** triggers, which means that when a trigger fires, the trigger processes all the messages
+    > and then waits for 30 seconds for more messages to appear in the queue or topic subscription.
+    > If no messages are received in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty.
+    > The next trigger poll is based on the recurrence interval specified in the trigger's properties.
+
+
+4. To optionally select some of the advanced trigger options, choose **Show advanced options**.
+
+   ![Trigger advanced options](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+ 
+     
+   | Property | Details |
+   | --- | --- |
+   | Content type  |Enter content type. |
+   | Content schema |Enter content schema. |
+   | Consume group name |Enter the Event Hub consumer group name for reading the events. When its not specified, default consumer group is used.|
+   | Minimum partition key |Enter the mimimum partition ID to read. By default, all partitions are read.|
+   | Maximum partition key |Enter the maximum partition ID to read. By default, all partitions are read.|
+   | Maximum events count |Enter the count for maximum number of events. The trigger returns between one and the number of events specified by this property. |
+
+   
+
+
+5. Save your logic app. On the designer toolbar, choose **Save**.
 
 Now, when your logic app checks the selected Event Hub and finds 
 a new event, the trigger runs the actions in your logic app 
