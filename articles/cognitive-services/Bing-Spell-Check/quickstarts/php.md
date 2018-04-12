@@ -43,17 +43,16 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 $host = 'https://api.cognitive.microsoft.com';
 $path = '/bing/v7.0/spellcheck?';
+$params = 'mkt=en-us&mode=proof';
 
 $input = "Hollo, wrld!";
 
 $data = array (
-	'mkt' => 'en-US',
-	'method' => 'proof',
 	'text' => urlencode ($input)
 );
 
 // NOTE: Replace this example key with a valid subscription key.
-$key = 'enter key here';
+$key = 'ENTER KEY HERE';
 
 // The following headers are optional, but it is recommended
 // that they are treated as required. These headers will assist the service
@@ -75,13 +74,14 @@ $options = array (
     )
 );
 $context  = stream_context_create ($options);
-$result = file_get_contents ($host . $path, false, $context);
+$result = file_get_contents ($host . $path . $params, false, $context);
 
 if ($result === FALSE) {
 	/* Handle error */
 }
 
-var_dump($result);
+$json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+echo $json;
 ?>
 ```
 
