@@ -23,18 +23,18 @@ However, to maintain the scale and performance of SQL Data Warehouse there are a
 
 
 ## Introducing stored procedures
-Stored procedures are a great way for encapsulating your SQL code; storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units; facilitating greater re-usability of code. Each stored procedure can also accept parameters to make them even more flexible.
+Stored procedures are a great way for encapsulating your SQL code; storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units; facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible.
 
-SQL Data Warehouse provides a simplified and streamlined stored procedure implementation. The biggest difference compared to SQL Server is that the stored procedure is not pre-compiled code. In data warehouses, compilation time is usually less of an issue. It is more important that the stored procedure code is correctly optimized when operating against large data volumes. The goal is to save hours, minutes, and seconds, not milliseconds. It is therefore more helpful to think of stored procedures as containers for SQL logic.     
+SQL Data Warehouse provides a simplified and streamlined stored procedure implementation. The biggest difference compared to SQL Server is that the stored procedure is not pre-compiled code. In data warehouses, compilation time is usually not an issue. It is more important that the stored procedure code is correctly optimized when operating against large data volumes. The goal is to save hours, minutes, and seconds, not milliseconds. It is therefore more helpful to think of stored procedures as containers for SQL logic.     
 
 When SQL Data Warehouse executes your stored procedure, the SQL statements are parsed, translated, and optimized at run time. During this process, each statement is converted into distributed queries. The SQL code that is y executed against the data is different than the query submitted.
 
 ## Nesting stored procedures
-When stored procedures call other stored procedures or execute dynamic sql then the inner stored procedure or code invocation is said to be nested.
+When stored procedures call other stored procedures, or execute dynamic SQL, then the inner stored procedure or code invocation is said to be nested.
 
 SQL Data Warehouse supports a maximum of eight nesting levels. This is slightly different to SQL Server. The nest level in SQL Server is 32.
 
-The top-level stored procedure call equates to nest level 1.
+The top-level stored procedure call equates to nest level one.
 
 ```sql
 EXEC prc_nesting
@@ -58,7 +58,7 @@ GO
 EXEC prc_nesting
 ```
 
-Note SQL Data Warehouse does not currently support @@NESTLEVEL. You need to keep a track of the nest level yourself. It is unlikely you will hit the 8 nest level limit, but if you do, you need to re-work your code to "flatten" it so that it fits within this limit.
+Note, SQL Data Warehouse does not currently support [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). You need to keep a track of the nest level yourself. It is unlikely you will exceed the 8 nest level limit, but if you do, you need to re-work your code to fit the nesting levels within this limit.
 
 ## INSERT..EXECUTE
 SQL Data Warehouse does not permit you to consume the result set of a stored procedure with an INSERT statement. However, there is an alternative approach you can use.
