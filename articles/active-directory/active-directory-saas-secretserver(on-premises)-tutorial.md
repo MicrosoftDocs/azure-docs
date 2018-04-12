@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/12/2018
 ms.author: jeedes
 
 ---
@@ -106,7 +106,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Identifier** textbox, enter the user chosen value as an example: `https://secretserveronpremises.azure`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.secretserver.life/secretserver/SAML/AssertionConsumerService.aspx `
 
 	> [!NOTE]
 	> Choose an Entity ID for your Secret Server instance. This can be anything and is used to uniquely identify your Secret Server instance to the IdP. You need to send the identifier value to [Secret Server (On-Premises) Client support team](https://thycotic.force.com/support/s/) for more information refer [this](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server)
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Secret Server (On-Premises) Domain and URLs single sign-on information](./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_secretserver_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SecretServerURL>/login.aspx`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.secretserver.life/secretserver/login.aspx `
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Secret Server (On-Premises) Client support team](https://thycotic.force.com/support/s/) to get these values.
