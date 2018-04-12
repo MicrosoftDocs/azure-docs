@@ -100,16 +100,16 @@ You can use an MSI to retrieve Azure storage blob containers and data.
 1. Navigate back to your newly created storage account.  
 2. Click the **Access control (IAM)** link in the left panel.  
 3. Click **+ Add** on top of the page to add a new role assignment for your VM
-4. Set **Role** to **Storage Blob+
-5.  Data Reader (Preview)**, on the right side of the page. 
-6. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
-7. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
-8. Finally, under **Select** choose your Windows Virtual Machine in the dropdown, then click **Save**. 
+4. Set **Role** to **Storage Blob Data Reader (Preview)**, on the right side of the page. 
+5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
+6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
+7. Finally, under **Select** choose your Windows Virtual Machine in the dropdown, then click **Save**. 
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager 
 
 Azure Storage natively supports Azure AD authentication, so it can directly accept access tokens obtained using MSI. You use the access token method of creating a connection to Azure Storage. This is part of Azure Storage's integration with Azure AD, and is different from supplying credentials on the connection string.
-Here's a .Net code example of opening a connection to Azure Storage using an access token. This code must run on the VM to be able to access the VM MSI endpoint. .Net Framework 4.6 or higher is required to use the access token method. Replace the value of `<URI to blob file>` accordingly. You can obtain this value from the **Overview** page in the Azure portal of file you created earlier.  Note the resource ID for Azure SQL is "https://storage.azure.com/".
+
+Here's a .Net code example of opening a connection to Azure Storage using an access token and then reading the contents of the file you created earlier. This code must run on the VM to be able to access the VM MSI endpoint. .Net Framework 4.6 or higher is required to use the access token method. Replace the value of `<URI to blob file>` accordingly. You can obtain this value from the **Overview** page in the Azure portal of file you created earlier.  Note the resource ID for Azure SQL is "https://storage.azure.com/".
 
 ```csharp
 using System;
@@ -178,6 +178,10 @@ namespace StorageOAuthToken
     }
 }
 ```
+
+The response contains the contents of the file:
+
+`Hello world! :)`
 
 ## Related content
 
