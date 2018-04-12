@@ -13,8 +13,8 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: sethm;shvija
+ms.date: 04/11/2018
+ms.author: sethm
 
 ---
 # Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template
@@ -104,8 +104,7 @@ Creates a standard Service Bus namespace of type **Messaging**, and a Service Bu
             "location": "[variables('location')]",
             "kind": "Messaging",
             "sku": {
-                "name": "StandardSku",
-                "tier": "Standard"
+                "name": "Standard",
             },
             "resources": [
                 {
