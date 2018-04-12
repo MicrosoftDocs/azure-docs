@@ -44,10 +44,18 @@ Another use case scenario is media upload. The data upload happens through UDP, 
 
 ## Configure source IP affinity settings
 
-For virtual machines, use Azure PowerShell to change the timeout settings. Add an Azure endpoint to a virtual machine and configure the load balancer distribution mode:
+For classic virtual machines, use Azure PowerShell to change the distribution settings. Add an Azure endpoint to a virtual machine and configure the load balancer distribution mode:
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
+```
+
+For virual machines deployed with Resource Manager, use PowerShell to change the load balancer distribution settings on the load balancing rule of te load balancer.  This would update the distribution mode:
+
+```powershell
+$lb = Get-AzureRmLoadBalancer -Name MyLb -ResourceGroupName MyLbRg
+$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
+Set-AzureRmLoadBalancer -LoadBalancer $lb
 ```
 
 Set the value of the `LoadBalancerDistribution` element for the desired amount of load balancing. Specify sourceIP for 2-tuple (source IP and destination IP) load balancing. Specify sourceIPProtocol for 3-tuple (source IP, destination IP, and protocol type) load balancing. Specify none for the default behavior of 5-tuple load balancing.
