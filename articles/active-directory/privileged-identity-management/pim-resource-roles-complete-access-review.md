@@ -41,7 +41,7 @@ All access reviews have an end date, but you can use the **Stop** button to fini
 You can reset an access review to remove all decisions that are made on it. Once you've reset an access review, all users are marked as unreviewed again. 
 
 ### Apply
-After an access review is completed, either because you reached the end date or stopped it manually, the **Apply** button implements the outcome of the review. If a user's access was denied in the review, this step removes their role assignment.  
+After an access review is completed, use the **Apply** button to implement the outcome of the review. If a user's access was denied in the review, this step removes their role assignment.  
 
 ### Delete
 If you aren't interested in the review any more, delete it. The **Delete** button removes the review from the PIM application.

@@ -1,5 +1,5 @@
 ---
-title:  Privileged Identity Management for Azure resources - security slerts| Microsoft Docs
+title:  Privileged Identity Management for Azure resources - security alerts| Microsoft Docs
 description: Describes PIM security alerts.
 services: active-directory
 documentationcenter: ''
@@ -21,13 +21,13 @@ PIM for Azure Resources generates alerts when there is suspicious or unsafe acti
 ![Alerts page](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 
 ## Review alerts
-Select an alert to see a report that lists the users or roles that triggered the alert, as well as remediation advice.
+Select an alert to see a report that lists the users or roles that triggered the alert, along with remediation advice.
 ![Alert report](media/azure-pim-resource-rbac/rbac-alert-info.png)
 
 ## Alerts
 | Alert | Severity | Trigger | Recommendation |
 | --- | --- | --- | --- |
-| **Too many owners assigned to a resource** |Medium |Too many users have the owner role. |Review the users in the list and re-assign some to less privileged roles. |
+| **Too many owners assigned to a resource** |Medium |Too many users have the owner role. |Review the users in the list and reassign some to less privileged roles. |
 | **Too many permanent owners assigned to a resource** |Medium |Too many users are permanently assigned to a role. |Review the users in the list and re-assign some to require activation for role use. |
 | **Duplicate role created** |Medium |Multiple roles have the same criteria. |Use only one of these roles. |
 
