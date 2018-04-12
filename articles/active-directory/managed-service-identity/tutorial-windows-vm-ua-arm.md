@@ -39,7 +39,7 @@ If you choose to install and use PowerShell locally, this tutorial requires the 
 
 ## Create resource group
 
-In the following example, a resource group named, *TestRG* is created in the *EastUS* region.
+In the following example, a resource group named, *myResourceGroupVM* is created in the *EastUS* region.
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastUS"
@@ -110,10 +110,6 @@ Before your code can access the API though, you need to grant the MSI's identity
 ```azurepowershell-interactive
 $spID = (Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1).principalid
 New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/"
-```
-
-```azurecli-interactive
-az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
 The response contains details for the role assignment created, similar to the following example:
