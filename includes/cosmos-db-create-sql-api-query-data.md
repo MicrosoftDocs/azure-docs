@@ -19,6 +19,6 @@ You can now use queries in Data Explorer to retrieve and filter your data.
 
     ![Change the default query by adding ORDER BY c._ts DESC and clicking Apply Filter](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png)
 
-This modified query lists the documents in descending order based on their time stamp, so now your second document is listed first. If you're familiar with SQL syntax, you can enter any of the supported [SQL queries](sql-api-sql-query.md) in this box. 
+This modified query lists the documents in descending order based on their time stamp, so now your second document is listed first. If you're familiar with SQL syntax, you can enter any of the supported [SQL queries](../articles/cosmos-db/sql-api-sql-query.md) in this box. 
 
 That completes our work in Data Explorer. Before we move on to working with code, note that you can also use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic as well as scale throughput. Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data in the Azure portal.
