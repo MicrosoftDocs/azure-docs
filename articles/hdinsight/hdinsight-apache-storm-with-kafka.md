@@ -364,4 +364,4 @@ In this tutorial, you learned how to use a Storm topology to write to and read f
 
 To learn more about using Kafka on HDInsight, see the [Use Kafka Producer and Consumer API](kafka/apache-kafka-producer-consumer-api.md) document.
 
-To learn more about Storm on HDInsight, see [Example Storm topologies and components](storm/apache-storm-example-topology.md).
+For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
