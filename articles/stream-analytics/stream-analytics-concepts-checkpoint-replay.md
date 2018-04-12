@@ -36,7 +36,7 @@ Consider the following factors that influence memory consumed by Stream Analytic
 
 Monitor the **SU % Utilization** metric of the streaming job, and avoid that metric exceeding 80% utilization. Set an alert at 80% threshold for production jobs. For more information, see [Tutorial: Set up alerts for Azure Stream Analytics jobs](stream-analytics-set-up-alerts.md).
 
-## Latency to generate output
+## Delayed output
 Once a Stream Analytics job is started, and input events are read in, output may not be produced immediately. These factors impact the timeliness of the output that is generated:
 
 1. For tumbling or hopping window aggregates, results are generated at the end of the window timeframe. For a sliding window, the results are generated when an event enters or exits the sliding window. If you are planning to use large window size (> 1 hour), it’s best to choose hopping or sliding window so that you can see the output more frequently.
@@ -60,7 +60,8 @@ At times, a given worker node may fail, or an Operating System upgrade can occur
 Stream Analytics uses a separate worker node for every six streaming units that are configured in the job. In a fully parallel query, the number of processing partitions is the number of configured Streaming Units divided by six. 
 
 The time it takes to catch up after a worker node failure is proportional to:
-/[the input event rate/] x /[the gap length/] / /[number of processing partitions/]. 
+
+[the input event rate] x [the gap length] / [number of processing partitions]. 
 
 If you ever observe significant processing delay because of node failure and OS upgrade, consider making the query fully parallel, and scale the job to allocate more Streaming Units. For more information, see [Scale an Azure Stream Analytics job to increase throughput](stream-analytics-scale-jobs.md).
 
