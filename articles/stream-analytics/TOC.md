@@ -4,7 +4,7 @@
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
 
 # Quickstarts
-## [Create a job - portal](stream-analytics-quick-create-portal.md)
+## [Create a job - Azure portal](stream-analytics-quick-create-portal.md)
 ## [Create a job - PowerShell](stream-analytics-quick-create-powershell.md)
 
 # Tutorials
@@ -46,7 +46,7 @@
 
 ## Monitor
 
-### [Monitor jobs- Portal](stream-analytics-monitoring.md)
+### [Monitor jobs- Azure portal](stream-analytics-monitoring.md)
 ### [Monitor jobs- PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Monitor jobs- Azure .Net SDK](stream-analytics-monitor-jobs.md)
 

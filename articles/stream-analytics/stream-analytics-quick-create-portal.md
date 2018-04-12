@@ -1,5 +1,5 @@
 ---
-title: Create a Stream Analytics job by using Azure portal | Microsoft Docs
+title: Create a Stream Analytics job by using the Azure portal | Microsoft Docs
 description: This quickstart shows you how to get started by creating a Stream Analytic job, configuring inputs, outputs, and defining a query.
 services: stream-analytics
 keywords: Stream analytics, Cloud jobs, Azure portal, job input, job output, job transformation
@@ -14,13 +14,13 @@ manager: kfile
 #Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Azure portal."
 ---
 
-# Quickstart: Create a Stream Analytics job by using Azure portal
+# Quickstart: Create a Stream Analytics job by using the Azure portal
 
 This quickstart shows you how to get started with creating a Stream Analytics job. In this quickstart you define a Stream Analytics job that reads sample sensor data and filters rows that have average temperature greater than 100 for every 30 seconds. In this article you read data from blob storage, transform the data and write it back to a different container in the same blob storage.
 
 ## Before you begin
 
-* If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/free/)..
+* If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/free/).
 
 * Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -166,7 +166,7 @@ When no longer needed, delete the resource group, the streaming job, and all rel
 
 ## Next steps
 
-In this quickstart, you’ve deployed a simple Stream analytics job, to learn about configuring other input sources and performing real-time detection, continue to the following article:
+In this quickstart, you’ve deployed a simple Stream Analytics job, to learn about configuring other input sources and performing real-time detection, continue to the following article:
 
 > [!div class="nextstepaction"]
 > [Real-time fraud detection using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

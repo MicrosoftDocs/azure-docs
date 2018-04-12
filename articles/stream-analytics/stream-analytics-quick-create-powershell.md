@@ -1,5 +1,5 @@
 ---
-title: Create a Stream Analytic job by using Azure PowerShell | Microsoft Docs
+title: Create a Stream Analytics job by using Azure PowerShell | Microsoft Docs
 description: This quickstart details using the Azure PowerShell module to deploy and run an Azure Stream Analytics job.
 services: stream-analytics
 keywords: Stream analytics, Cloud jobs, Azure PowerShell, job input, job output, job transformation
@@ -14,7 +14,7 @@ manager: kfile
 #Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Azure PowerShell."
 ---
 
-# Quickstart: Create a Stream Analytic job by using Azure PowerShell
+# Quickstart: Create a Stream Analytics job by using Azure PowerShell
 
 The Azure PowerShell module is used to create and manage Azure resources by using PowerShell cmdlets or scripts. This quickstart details using the Azure PowerShell module to deploy and run an Azure Stream Analytics job.
 
@@ -266,7 +266,7 @@ Remove-AzureRmResourceGroup `
 
 ## Next steps
 
-In this quickstart, you’ve deployed a simple Stream analytics job, to learn about configuring other input sources and performing real-time detection, continue to the following article:
+In this quickstart, you’ve deployed a simple Stream Analytics job, to learn about configuring other input sources and performing real-time detection, continue to the following article:
 
 > [!div class="nextstepaction"]
 > [Real-time fraud detection using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
