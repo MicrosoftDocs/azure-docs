@@ -95,8 +95,6 @@ $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
 ```
 
-The response includes the details for the role assignment created:
-
 ## Get an access token using the Windows VM's MSI to call Azure Resource Manager
 
 For the remainder of the tutorial, we will work from the VM we created earlier. 
