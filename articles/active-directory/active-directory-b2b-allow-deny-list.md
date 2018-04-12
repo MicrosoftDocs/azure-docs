@@ -51,9 +51,9 @@ To add a deny list:
 4. Under **Collaboration restrictions**, select **Deny invitations to the specified domains**.
 5. Under **TARGET DOMAINS**, enter the name of one of the domains that you want to block. For multiple domains, enter each domain on a new line.
 
-   ![Shows the deny option with added domains](/media/active-directory-b2b-allow-deny-list/DenyListSettings.png)
+   ![Shows the deny option with added domains](./media/active-directory-b2b-allow-deny-list/DenyListSettings.png)
  
-9. When you're done, click **Save**.
+6. When you're done, click **Save**.
 
 After you set the policy, if you try to invite a user from a blocked domain, you receive a message saying that the user is currently blocked by your invitation policy.
  
@@ -73,6 +73,7 @@ If you switch from one policy to the other, this discards the existing policy co
 ## Set the allow or deny list policy using PowerShell
 
 ### Prerequisite
+
 To set the allow or deny list by using PowerShell, you must install the preview version of the Azure Active Directory Module for Windows PowerShell. Specifically, install the AzureADPreview module version 2.0.0.98 or later.
 
 To check the version of the module (and see if it's installed):
