@@ -36,7 +36,6 @@ Some App Service features available in Azure Government have variations:
 Some App Service features available in the public cloud are not yet available 
 in Azure Government:
 
-- App Service Environments are not available via the portal experience, but can be [created via templates](../app-service/environment/create-from-template.md)
 - App Service Certificates
 - Settings
     - Managed service identity > [Vote for this](https://feedback.azure.com/forums/558487-azure-government/suggestions/33804523-enable-managed-service-identity-for-app-services)
