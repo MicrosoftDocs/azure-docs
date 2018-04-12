@@ -21,9 +21,9 @@ ms.author: sethm
 
 # Process events using PowerShell and .NET Standard
 
-In this quickstart, we'll show you how to:
+This quickstart will show you how to:
 * Create an event hub using PowerShell
-* Send to and receive from an event hub using our .NET Standard SDK. 
+* Send to and receive from an event hub using the .NET Standard SDK. 
 
 ## Prerequisites
 
@@ -161,7 +161,7 @@ You can now start streaming into your Event Hubs. The samples can be downloaded 
 
     ![][4]
 
-You can view the incoming and outgoing events count in the portal for the Event Hubs namespace as shown below:
+On the Azure portal, you can view the rate at which events are being processed for a given Event Hubs namespace as shown:
 
    ![][5]
 
