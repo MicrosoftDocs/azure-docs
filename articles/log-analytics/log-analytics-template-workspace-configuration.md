@@ -33,17 +33,6 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/resourc
 
 This article provides template samples that illustrate some of the configuration that you can perform with templates.
 
-## API versions
-The example in this article is for an [upgraded Log Analytics workspace](log-analytics-log-search-upgrade.md).  To use a legacy workspace, you would need to change the syntax of the queries to the legacy language and change the API version for each resource.  The following table lists the API version for the resources used in this example.
-
-| Resource | Resource type | Legacy API version | Upgraded API version |
-|:---|:---|:---|:---|
-| Workspace   | workspaces    | 2015-11-01-preview | 2017-03-15-preview |
-| Search      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
-| Data source | datasources   | 2015-11-01-preview | 2015-11-01-preview |
-| Solution    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
-
-
 ## Create a Log Analytics workspace
 The following example creates a workspace using a template from  your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment.  
 
@@ -60,59 +49,59 @@ The following parameters set a default value:
 
 1. Copy and paste the following JSON syntax into your file:
 
-```json
-{
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "workspaceName": {
-            "type": "String",
-			"metadata": {
-              "description": "Specifies the name of the workspace."
-            }
-        },
-        "location": {
-            "type": "String",
-			"allowedValues": [
-			  "eastus",
-			  "westus"
-			],
-			"defaultValue": "eastus",
-			"metadata": {
-			  "description": "Specifies the location in which to create the workspace."
-			}
-        },
-        "sku": {
-            "type": "String",
-			"allowedValues": [
-              "Standalone",
-              "PerNode",
-		      "PerGB2018"
-            ],
-			"defaultValue": "PerGB2018",
-	        "metadata": {
-            "description": "Specifies the service tier of the workspace: Standalone, PerNode, or Per-GB in 2018 pricing model"
-		}
-          },
-    },
-    "resources": [
+        ```json
         {
-            "type": "Microsoft.OperationalInsights/workspaces",
-            "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
-            "location": "[parameters('location')]",
-            "properties": {
-                "sku": {
-                    "Name": "[parameters('sku')]"
+            "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+                "workspaceName": {
+                   "type": "String",
+			             "metadata": {
+                     "description": "Specifies the name of the workspace."
+                    }
+               },
+              "location": {
+                  "type": "String",
+			            "allowedValues": [
+			              "eastus",
+			               "westus"
+			            ],
+			            "defaultValue": "eastus",
+			            "metadata": {
+			               "description": "Specifies the location in which to create the workspace."
+			            }
+              },
+              "sku": {
+                  "type": "String",
+			              "allowedValues": [
+                      "Standalone",
+                      "PerNode",
+		                 "PerGB2018"
+                    ],
+			             "defaultValue": "PerGB2018",
+	                 "metadata": {
+                     "description": "Specifies the service tier of the workspace: Standalone, PerNode, or Per-GB in 2018 pricing model"
+		               }
                 },
-                "features": {
-                    "searchVersion": 1
-                }
-            }
-        }
-    ]
-}
-```
+             },
+             "resources": [
+                {
+                   "type": "Microsoft.OperationalInsights/workspaces",
+                   "name": "[parameters('workspaceName')]",
+                   "apiVersion": "2017-03-15-preview",
+                   "location": "[parameters('location')]",
+                   "properties": {
+                       "sku": {
+                          "Name": "[parameters('sku')]"
+                       },
+                    "features": {
+                       "searchVersion": 1
+                    }
+                  }
+               }
+            ]
+         }
+        ```
 2. Edit the template to meet your requirements.  Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
 4. You are ready to deploy this template. You use either PowerShell or the command line to cretae the workspace.
