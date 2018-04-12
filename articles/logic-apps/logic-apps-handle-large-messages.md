@@ -7,7 +7,7 @@ author: shae-hurst
 manager: bshyam
 editor: ''
 
-ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
+ms.assetid:
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -20,6 +20,15 @@ ms.author: LADocs; shhurst
 # Handle large messages through chunking with logic apps
 
 Logic Apps limits the maximum size on messages that the service can handle. When a message has content that exceeds this limit, Logic Apps **chunks** large messages into smaller messages. Learn more about [message size limits for logic apps.](../logic-apps/logic-apps-limits-and-config.md)
+
+-	What is a large message?
+-	What is the difference between large messages in the engine versus a large message in a connector?
+-	What can I do with a large (chunked) message? (e.g. can’t access content of a large message (from the engine’s point of view)).
+-	How does the engine handle message when the message sizes are between an engine large message (i.e. 100MB) and a connector large message (i.e. 50MB)?
+-	What happens if I turned off chunked on an action and a large message is read?
+
+## Why
+Individual connectors have size limitations as well.
 
 ## Transfer content in chunks
 
@@ -51,24 +60,24 @@ Here is an example workflow definition using an HTTP GET action to download cont
             "Range": "0-1024"
         },
         "method": "GET",
-        "uri": "http://myAPIendpoint/api/action",
+        "uri": "http://myAPIendpoint/api/action"
     },
     "runAfter": {},
     "type": "Http"
 }
 ```
-### Chunked Uploads
+### Upload Chunks
 
-Uploading content as chunked requires that the Logic Apps operation have the proper **Runtime Configuration** set to allow chunking. The Logic Apps protocol for uploading chunked content is to send an initiating empty POST or PUT message and then follow up PATCH messages containing chunks of the content.
+To upload content in chunks, Logic Apps operations must correctly set the **Runtime Configuration** to permit chunking. The protocol is to send an initial empty POST or PUT message, and then follow up with PATCH messages that contain the content chunks.
 
 1. Logic Apps sends an initiating HTTP POST or PUT request with a header information about the content and an empty body. Follow up messages will then be able to use the information in the response from this initial request.
 
     | Request Header Field | Value | Description |
     | -------------------- | ----- | ----------- |
     | x-ms-transfer-mode | chunked | Indicates the response should contain the desired length and size of the chunks |
-    | x-ms-content-length | _*varies_ | The total size in bytes of the content before it is split into chunks |
+    | x-ms-content-length | <content-length> | The total size in bytes of the content before it is split into chunks |
 
-2. The endpoints' response can contain a suggested chunk size. Logic Apps can then use that size to create the follow up HTTP PATCH requests that will be sent to the `Location` uri.
+2. The endpoints' response can contain a suggested chunk size. Logic Apps can then use that size to create the follow-up HTTP PATCH requests that are sent to the `Location` uri.
 
     | Response Header Field | Required | Description |
     | --------------------- | -------- | ----------- |
@@ -79,8 +88,8 @@ Uploading content as chunked requires that the Logic Apps operation have the pro
 
     | Request Header Field | Value | Description |
     | -------------------- | ----- | ----------- |
-    | Range |  _*varies_ | The "from" and "to" values for the range of content in this chunk. For example, bytes=0-1023 |
-    | Content-Type |  _*varies_ | The type of the chunked content |
+    | Range |  <range> | The "from" and "to" values for the range of content in this chunk. For example, bytes=0-1023 |
+    | Content-Type |  <content-type> | The type of the chunked content |
 
 4. To confirm the receipt of every chunk, the endpoint responds with status code "200" to each PATCH request.
 
