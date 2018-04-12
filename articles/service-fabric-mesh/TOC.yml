@@ -10,6 +10,8 @@
   items:
   - name: Deploy an existing container
     href: service-fabric-mesh-quickstart-deploy-container.md
+  - name: Deploy a Service Fabric application
+    href: service-fabric-mesh-quickstart-dotnet-core.md
 
 - name: Tutorials
   items:
