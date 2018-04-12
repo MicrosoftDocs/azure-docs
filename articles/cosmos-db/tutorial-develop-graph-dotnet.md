@@ -4,7 +4,7 @@ description: Learn how to develop with Azure Cosmos DB's SQL API using .NET
 services: cosmos-db
 documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
+manager: kfile
 editor: ''
 
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261

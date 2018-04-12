@@ -13,17 +13,9 @@ ms.date: 08/30/2017
 ---
 # Azure Machine Learning frequently asked questions
 
+Azure Machine Learning is a fully managed Azure service that allows you to create, test, manage, and deploy machine learning and AI models. Our services and downloadable application offer a code-first approach that leverages the cloud, on-premises, and edge to provide the train, deploy, manage, and monitor models with power, speed, and flexibility. Alternatively, Azure Machine Learning Studio offers a browser-based, visual drag-and-drop authoring environment where no coding is required. 
+
 ## General product questions
-
-**What is Azure Machine Learning?**
-
-Azure Machine Learning is a fully managed Azure service that allows you to create, test, manage, and deploy machine learning and AI models. Our new services and downloadable application offer a code-first approach that leverages the cloud, on-premises, and edge to provide the train, deploy, manage, and monitor models with power, speed, and flexibility. Alternatively, Azure Machine Learning Studio offers a browser-based, visual drag-and-drop authoring environment where no coding is required. 
-
-**In which regions are the new services be available?**
-
-Look for supported Azure regions for experimentation and model management service under Azure Machine Learning on the [Azure Products by region](https://azure.microsoft.com/regions/services/) page.
-
-More regions will be added as we develop the product.  You can help us prioritize which regions to deploy to on our [Azure Machine Learning Feedback](https://feedback.azure.com/forums/257792-machine-learning) site. 
 
 **What other Azure services are required?**
 

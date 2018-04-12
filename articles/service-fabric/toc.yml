@@ -201,6 +201,8 @@
     items:
     - name: Cluster security
       href: service-fabric-cluster-security.md
+    - name: Scaling
+      href: service-fabric-cluster-scaling.md
     - name: Feature differences between Linux and Windows
       href: service-fabric-linux-windows-differences.md
     - name: Clusters on Azure
@@ -240,7 +242,7 @@
     items:
     - name: Monitoring overview
       href: service-fabric-diagnostics-overview.md
-    - name: Cluster logging
+    - name: Cluster events
       href: service-fabric-diagnostics-event-generation-infra.md
       items:
       - name: Operational channel
@@ -249,12 +251,12 @@
         href: service-fabric-reliable-services-diagnostics.md
       - name: Reliable Actors events
         href: service-fabric-reliable-actors-diagnostics.md
-      - name: Performance metrics
-        href: service-fabric-diagnostics-event-generation-perf.md
       - name: Monitoring Service Remoting
         href: service-fabric-reliable-serviceremoting-diagnostics.md
     - name: Application logging
       href: service-fabric-diagnostics-event-generation-app.md
+    - name: Performance metrics
+      href: service-fabric-diagnostics-event-generation-perf.md
     - name: Health model overview
       href: service-fabric-health-introduction.md
     - name: Report health events
@@ -316,11 +318,7 @@
       - name: Deploy multiple guest executables
         href: service-fabric-deploy-multiple-apps.md
     - name: Build a container service
-      items:
-      - name: Use a certificate in a container
-        href: service-fabric-securing-containers.md
-      - name: Set up gMSA for Windows containers 
-        href: service-fabric-setup-gmsa-for-windows-containers.md
+      items:      
       - name: Docker compose (preview)
         href: service-fabric-docker-compose.md
       - name: Resource governance for containers and services
@@ -382,23 +380,31 @@
       - name: Configure communications settings
         href: service-fabric-reliable-actors-fabrictransportsettings.md
       - name: Configure ReliableDictionaryActorStateProvider
-        href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
-    - name: Migrate old Java Application to support Maven
-      href: service-fabric-migrate-old-javaapp-to-use-maven.md
-    - name: Configure reverse proxy for secure communication
-      href: service-fabric-reverseproxy-configure-secure-communication.md
+        href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md    
     - name: Build an ASP.NET Core service
       href: service-fabric-add-a-web-frontend.md
     - name: Configure security
       items:
       - name: Manage application secrets
         href: service-fabric-application-secret-management.md
+      - name: Configure reverse proxy for secure communication
+        href: service-fabric-reverseproxy-configure-secure-communication.md
       - name: Run a service startup script as a local user or system account
         href: service-fabric-run-script-at-service-startup.md
       - name: Run a service as a local user or system account
         href: service-fabric-application-runas-security.md      
       - name: Assign a security access policy for endpoints
         href: service-fabric-assign-policy-to-endpoint.md
+      - name: Run a service as an AD user or group
+        href: service-fabric-run-service-as-ad-user-or-group.md
+      - name: Run a service as a group Managed Service Account
+        href: service-fabric-run-service-as-gmsa.md
+      - name: Use a certificate in a container
+        href: service-fabric-securing-containers.md
+      - name: Set up gMSA for Windows containers 
+        href: service-fabric-setup-gmsa-for-windows-containers.md
+    - name: Migrate old Java Application to support Maven
+      href: service-fabric-migrate-old-javaapp-to-use-maven.md
   - name: Work in a Windows/VS dev environment
     items:
     - name: Manage applications in Visual Studio
@@ -429,6 +435,8 @@
       href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
     - name: Recommended practices
       href: /azure/architecture/service-fabric/migrate-from-cloud-services
+    - name: Refactor a migrated app
+      href: /azure/architecture/service-fabric/refactor-migrated-app
   - name: Manage application lifecycle
     items:
     - name: Package an application
@@ -500,9 +508,7 @@
       - name: Upgrade
         href: service-fabric-cluster-upgrade.md
       - name: Set access control
-        href: service-fabric-cluster-security-roles.md
-      - name: Configure
-        href: service-fabric-cluster-fabric-settings.md
+        href: service-fabric-cluster-security-roles.md      
       - name: Open a port in the load balancer
         href: create-load-balancer-rule.md
       - name: Manage cluster certificates
@@ -525,14 +531,8 @@
           href: service-fabric-cluster-standalone-package-contents.md
       - name: Scale
         href: service-fabric-cluster-windows-server-add-remove-nodes.md
-      - name: Configure security
-        items:
-        - name: Set access control
-          href: service-fabric-cluster-security-roles.md
-        - name: Run a service as an AD user or group
-          href: service-fabric-run-service-as-ad-user-or-group.md
-        - name: Run a service as a group Managed Service Account
-          href: service-fabric-run-service-as-gmsa.md
+      - name: Set access control
+        href: service-fabric-cluster-security-roles.md        
       - name: Configure
         href: service-fabric-cluster-manifest.md
       - name: Upgrade
@@ -567,6 +567,8 @@
       href: service-fabric-diagnostics-perf-wad.md
     - name: Report and check health
       href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+    - name: Add logging to your service
+      href: service-fabric-how-to-diagnostics-log.md
     - name: Troubleshoot with system health reports
       href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
     - name: View health reports
@@ -612,6 +614,8 @@
     href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
   - name: REST
     href: /rest/api/servicefabric
+  - name: Configure cluster settings and fabric upgrade policy
+    href: service-fabric-cluster-fabric-settings.md
   - name: Service model XML schema
     href: service-fabric-service-model-schema.md
   - name: Environment variables

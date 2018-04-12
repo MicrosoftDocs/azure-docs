@@ -147,7 +147,7 @@ In Azure, a Data Lake Store account has several Azure roles, including:
 * Contributors
 * Readers
 
-Everyone in the **Owners** role for a Data Lake Store account is automatically a super-user for that account. To learn more, see [Role-based access control](../active-directory/role-based-access-control-configure.md).
+Everyone in the **Owners** role for a Data Lake Store account is automatically a super-user for that account. To learn more, see [Role-based access control](../role-based-access-control/role-assignments-portal.md).
 If you want to create a custom role-based-access control (RBAC) role that has super-user permissions, it needs to have the following permissions:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -181,7 +181,7 @@ The owning group can be changed by:
 * The owning user, if the owning user is also a member of the target group.
 
 > [!NOTE]
-> The owning group *cannot* change the ACLs of a file or folder.
+> The owning group *cannot* change the ACLs of a file or folder.  While the owning group is set to the user who created the account in the case of the root folder, **Case 1** above, a single user account is not valid for providing permissions via the owning group.  You can assign this permission to a valid user group if applicable.
 
 ## Access check algorithm
 

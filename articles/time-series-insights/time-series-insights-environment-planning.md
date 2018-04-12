@@ -28,6 +28,8 @@ Consider the following attributes to best plan the environment for long-term suc
 - Storage capacity
 - Data retention period
 - Ingress capacity 
+- Shaping your events
+- Ensuring you have reference data in place
 
 ## Understand storage capacity
 By default, Time Series Insights retains data based on the amount of storage you have provisioned (units times amount of storage per unit) and ingress.
@@ -70,15 +72,26 @@ For example, if you have a single S1 SKU and ingress data at a rate of 700 event
 
 You may not know in advance how much data you expect to push. In this case, you can find data telemetry for [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) and [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) in your Azure portal. This telemetry can help you determine how to provision your environment. Use the **Metrics** page in the Azure portal for the respective event source to view its telemetry. If you understand your event source metrics, you can more effectively plan and provision your Time Series Insights environment.
 
-## Calculate ingress requirements
+### Calculate ingress requirements
 
 - Confirm your ingress capacity is above your average per-minute rate and that your environment is large enough to handle your anticipated ingress equivalent to 2x your capacity for less than 1 hour.
 
 - If ingress spikes occur that last for longer than 1 hour, use the spike rate as your average, and provision an environment with the capacity to handle the spike rate.
  
-## Mitigate throttling and latency
+### Mitigate throttling and latency
 
 For information about how to prevent throttling and latency, see [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md). 
+
+## Shaping your events
+It's important to ensure the way you send events to TSI supports the size of the environment you are provisioning (Conversely, you can map the size of the environment to how many events TSI reads and the size of each event).  Likewise, it's important to think about the attributes you may want to slice and filter by when querying your data.  With this in mind, we suggest reviewing the JSON shaping section of our *Send events* documentation [documentation] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events).  It's towards the bottom of the page.  
+
+## Ensuring you have reference data in place
+A Reference Data Set is a collection of items that augment the events from your event source. Time Series Insights ingress engine joins each event from your event source with the corresponding data row in your reference data set. This augmented event is then available for query. This join is based on the Primary Key column(s) defined in your reference data set.
+
+Note, reference data is not joined retroactively. This means that only current and future ingress data is matched and joined to the reference date set, once it has been configured and uploaded.  If you plan to send lots of historical data to TSI and don't upload or create reference data in TSI first, then you may have to re-do your work (hint, not fun).  
+
+To learn more about how to create, upload, and manage your reference data in TSI, head to our *reference data* documentation [documentation] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+
 
 ## Next steps
 - [How to add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)
