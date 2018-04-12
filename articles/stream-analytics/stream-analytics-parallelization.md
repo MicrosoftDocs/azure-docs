@@ -34,7 +34,7 @@ When you work with Stream Analytics, you can take advantage of partitioning in t
 -	Azure Data Lake Storage
 -	Azure Functions
 -	Azure Table
--	Blob storage
+-	Blob storage (can set the partition key explicitly)
 -	CosmosDB  (need to set the partition key explicitly)
 -	EventHub (need to set the partition key explicitly)
 -	IoT Hub  (need to set the partition key explicitly)
@@ -57,12 +57,13 @@ An *embarrassingly parallel* job is the most scalable scenario we have in Azure 
 
 3. Most of our output can take advantage of partitioning, however if you use an output type that doesn't support partitioning your job won't be fully parallel. Refer to the [output section](#outputs) for more details.
 
-4. The number of input partitions must equal the number of output partitions. Blob storage output doesn't currently support partitions. But that's okay, because it inherits the partitioning scheme of the upstream query. Here are examples of partition values that allow a fully parallel job:  
+4. The number of input partitions must equal the number of output partitions. Blob storage output can support partitions and inherits the partitioning scheme of the upstream query. When a partition key for Blob storage is specified, data is partitioned per input partition thus the result is still fully parallel. Here are examples of partition values that allow a fully parallel job:
 
    * 8 event hub input partitions and 8 event hub output partitions
-   * 8 event hub input partitions and blob storage output  
-   * 8 blob storage input partitions and blob storage output  
-   * 8 blob storage input partitions and 8 event hub output partitions  
+   * 8 event hub input partitions and blob storage output
+   * 8 event hub input partitions and blob storage output partitioned by a custom field with arbitrary cardinality
+   * 8 blob storage input partitions and blob storage output
+   * 8 blob storage input partitions and 8 event hub output partitions
 
 The following sections discuss some example scenarios that are embarrassingly parallel.
 
