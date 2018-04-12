@@ -110,6 +110,8 @@
           href: azure-stack-version-profiles-azurecli2.md
         - name: GO
           href: azure-stack-version-profiles-go.md
+        - name: Ruby
+          href: azure-stack-version-profiles-ruby.md
         - name: Resource provider APIs supported by profiles
           href: azure-stack-profiles-azure-resource-manager-versions.md
     - name: Use policy module
