@@ -39,7 +39,7 @@ az group delete --name myResourceGroup
 
 ## Script explanation
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses the following commands:
 
 | Command | Notes |
 |---|---|

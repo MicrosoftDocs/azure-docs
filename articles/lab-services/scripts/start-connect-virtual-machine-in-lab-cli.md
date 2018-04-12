@@ -32,7 +32,7 @@ This Azure CLI script starts a virtual machine (VM) in a custom lab.
 
 ## Script explanation
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses the following commands:
 
 | Command | Notes |
 |---|---|
