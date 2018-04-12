@@ -36,7 +36,7 @@ When determining which queuing technology fits the purpose for a given solution,
 
 As a solution architect/developer, **you should consider using Storage queues** when:
 
-* Your application must store over 80 GB of messages in a queue, where the messages have a lifetime shorter than 7 days.
+* Your application must store over 80 GB of messages in a queue.
 * Your application wants to track progress for processing a message inside of the queue. This is useful if the worker processing a message crashes. A subsequent worker can then use that information to continue from where the prior worker left off.
 * You require server side logs of all of the transactions executed against your queues.
 
@@ -48,7 +48,6 @@ As a solution architect/developer, **you should consider using Service Bus queue
 * Your solution must be able to support automatic duplicate detection.
 * You want your application to process messages as parallel long-running streams (messages are associated with a stream using the [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) property on the message). In this model, each node in the consuming application competes for streams, as opposed to messages. When a stream is given to a consuming node, the node can examine the state of the application stream state using transactions.
 * Your solution requires transactional behavior and atomicity when sending or receiving multiple messages from a queue.
-* The time-to-live (TTL) characteristic of the application-specific workload can exceed the 7-day period.
 * Your application handles messages that can exceed 64 KB but will not likely approach the 256 KB limit.
 * You deal with a requirement to provide a role-based access model to the queues, and different rights/permissions for senders and receivers.
 * Your queue size will not grow larger than 80 GB.
@@ -130,7 +129,7 @@ This section compares Storage queues and Service Bus queues from the perspective
 | --- | --- | --- |
 | Maximum queue size |**500 TB**<br/><br/>(limited to a [single storage account capacity](../storage/common/storage-introduction.md#queue-storage)) |**1 GB to 80 GB**<br/><br/>(defined upon creation of a queue and [enabling partitioning](service-bus-partitioning.md) – see the “Additional Information” section) |
 | Maximum message size |**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200 GB for a single item. |**256 KB** or **1 MB**<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
-| Maximum message TTL |**7 days** |**TimeSpan.Max** |
+| Maximum message TTL |**Infinite** (as of api-version 2017-07-27) |**TimeSpan.Max** |
 | Maximum number of queues |**Unlimited** |**10,000**<br/><br/>(per service namespace) |
 | Maximum number of concurrent clients |**Unlimited** |**Unlimited**<br/><br/>(100 concurrent connection limit only applies to TCP protocol-based communication) |
 

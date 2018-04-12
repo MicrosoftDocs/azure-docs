@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: jodehavi;stgriffi
+ms.author: stgriffi
 
 ---
 # Set up Azure Key Vault with end-to-end key rotation and auditing
