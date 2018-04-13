@@ -449,7 +449,7 @@ Following are the steps for generating SAS URL by using Azure CLI
 
     b. **`<Storage Account Key>`**: Give your storage account key
 
-    c. **`<Permission Start Date>`**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 26, 2016, then value should be 10/25/2016. If using Azure CLI 2.0 (az command), provide both the date and time in the Start and End Dates, for example: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 25, 2016, then value should be 10/25/2016. If using Azure CLI 2.0 (az command), provide both the date and time in the Start and End Dates, for example: 10-25-2016T00:00:00Z.
 
     d. **`<Permission End Date>`**: Select a date that is at least 3 weeks after the **Start Date**. The value should be **11/02/2016**. If using Azure CLI 2.0 (az command), provide both the date and time in the Start and End Dates, for example: 11-02-2016T00:00:00Z.
 
