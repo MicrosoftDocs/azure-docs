@@ -26,7 +26,7 @@ The OMS Agent for Linux supports collecting alerts from Nagios version 4.2.x and
 ## Configure alert collection
 
 ### Configuring Nagios alert collection
-Perform the following steps on the Nagios server to collect alerts.
+To collect alerts, perform the following steps on the Nagios server.
 
 1. Grant the user **omsagent** read access to the Nagios log file `/var/log/nagios/nagios.log`. Assuming the nagios.log file is owned by the group `nagios`, you can add the user **omsagent** to the **nagios** group. 
 
@@ -53,7 +53,7 @@ Perform the following steps on the Nagios server to collect alerts.
     ```
 
 ### Configuring Zabbix alert collection
-To collect alerts from a Zabbix server, you need to specify a user and password in *clear text*. This is not ideal, but we recommend that you create the user and grant permissions to monitor onlu.
+To collect alerts from a Zabbix server, you need to specify a user and password in *clear text*.  While not ideal, we recommend that you create the user and grant permissions to monitor onlu.
 
 Perform the following steps on the Nagios server to collect alerts.
 
