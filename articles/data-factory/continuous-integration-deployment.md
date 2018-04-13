@@ -89,34 +89,31 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
     a.  Add the secrets to parameters file:
 
-        -   Create a copy of the parameters file that is uploaded to the publish branch and set the values of the parameters you want to get from key vault with the following format:
+       -   Create a copy of the parameters file that is uploaded to the publish branch and set the values of the parameters you want to get from key vault with the following format:
 
-        ```json
-        {
-	        "parameters": {
-		        "azureSqlReportingDbPassword": {
-			        "reference": {
-				        "keyVault": {
-					        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-				        },
-				        "secretName": " &lt secret - name &gt "
-			        }
-        		}        
-        	}
-        }
-        ```
+       ```json
+       "parameters": {
+             "azureSqlReportingDbPassword": {
+               "reference": {
+                   "keyVault": {
+                       "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
+                   },
+                   "secretName": “<secret-name>"
+               }
+           }
+       ```
 
-        -   When you use this method, the secret is pulled from the key vault automatically.
+       -   When you use this method, the secret is pulled from the key vault automatically.
 
-        -   The parameters file needs to be in the publish branch as well.
+       -   The parameters file needs to be in the publish branch as well.
 
     b.  Add an [Azure Key Vault task](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
 
-        -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
+       -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
 
-        -   In the Key Vault task, choose the subscription in which you created the key vault, provide credentials if necessary, and then choose the key vault.
+       -   In the Key Vault task, choose the subscription in which you created the key vault, provide credentials if necessary, and then choose the key vault.
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Add an Azure Resource Manager Deployment task:
 
