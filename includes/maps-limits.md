@@ -2,4 +2,4 @@ Here are the usage constraints for the Azure Maps service. For information about
 
 | Resource                              | Limit |
 |---------------------------------------|:-----:|
-| Maximum number of requests per second |   50  |
+| Maximum request rate per subscription |   50 requests per second  |
