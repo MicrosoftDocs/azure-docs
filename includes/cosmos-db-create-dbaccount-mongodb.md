@@ -26,6 +26,6 @@
 
     ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-create-new-account.png)
 
-4. The account creation takes a few minutes. Wait for the portal to display the **Congratulations! Your Azure Cosmos DB account was created** page.
+4. The account creation takes a few minutes. Wait for the portal to display the **Congratulations! Your Azure Cosmos DB account with MongoDB API is ready** page.
 
     ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-account-created.png)

@@ -104,7 +104,7 @@ This step is optional. If you're interested in learning how the database resourc
    }
     ```
     
- * Query to get a single user's information.
+* Query to get a single user's information.
 
     ```csharp
     mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);

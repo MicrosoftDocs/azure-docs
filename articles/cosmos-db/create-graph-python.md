@@ -46,8 +46,6 @@ Before you can create a graph database, you need to create a Gremlin (Graph) dat
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-3. Once the form is filled out, click **OK**.
-
 ## Clone the sample application
 
 Now let's switch to working with code. Let's clone a Graph API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically.  
