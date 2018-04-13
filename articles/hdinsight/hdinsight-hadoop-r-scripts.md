@@ -10,10 +10,8 @@ editor: cgronlun
 
 ms.assetid: be851270-afa5-4af0-a69e-2d343a4deeb7
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX

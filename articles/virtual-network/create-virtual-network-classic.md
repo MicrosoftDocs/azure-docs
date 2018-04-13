@@ -3,10 +3,10 @@ title: Create an Azure virtual network (classic) with multiple subnets | Microso
 description: Learn how to create a virtual network (classic) with multiple subnets in Azure.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: ''
-tags: azure-resource-manager
+tags: azure-service-management
 
 ms.assetid: 
 ms.service: virtual-network
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: jdial
+ms.author: genli
 ms.custom: 
 
 ---
