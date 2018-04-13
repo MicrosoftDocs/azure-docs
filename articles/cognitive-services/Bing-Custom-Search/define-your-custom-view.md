@@ -108,7 +108,7 @@ Follow these steps to use Bing to add slices to your Custom Search instance.
 6.	Click the **Ok** button.
 
 ## Share your instance
-You can share your instance at any time. Click **Settings**, enter the email address of the person to share your instance with and click **Share**. The email address is shown in the list titled **Instance shared with**. Repeat for each person you want to share with.
+You can share your custom search with anyone at any time using just their email address. Click **Settings**, enter the email address of the person to share your instance with and click **Share**. The email address is shown in the list titled **Instance shared with**. Repeat for each person you want to share your custom search with.
 
 After you share an instance with someone, they'll see the instance in their list of custom search instances.
 
