@@ -68,6 +68,7 @@ Replace the Host, DBName, User, and Password parameters with the values that you
 #include <cppconn/prepared_statement.h>
 using namespace std;
 
+//for demonstration only. never save your password in the code!
 const string server = "tcp://yourservername.mysql.database.azure.com:3306";
 const string username = "username@servername";
 const string password = "yourpassword";
@@ -82,7 +83,6 @@ int main()
 	try
 	{
 		driver = get_driver_instance();
-		//for demonstration only. never save password in the code!
 		con = driver->connect(server, username, password);
 	}
 	catch (sql::SQLException e)
@@ -143,6 +143,7 @@ Replace the Host, DBName, User, and Password parameters with the values that you
 #include <cppconn/prepared_statement.h>
 using namespace std;
 
+//for demonstration only. never save your password in the code!
 const string server = "tcp://yourservername.mysql.database.azure.com:3306";
 const string username = "username@servername";
 const string password = "yourpassword";
@@ -201,6 +202,7 @@ Replace the Host, DBName, User, and Password parameters with the values that you
 #include <cppconn/prepared_statement.h>
 using namespace std;
 
+//for demonstration only. never save your password in the code!
 const string server = "tcp://yourservername.mysql.database.azure.com:3306";
 const string username = "username@servername";
 const string password = "yourpassword";
@@ -258,6 +260,7 @@ Replace the Host, DBName, User, and Password parameters with the values that you
 #include <cppconn/prepared_statement.h>
 using namespace std;
 
+//for demonstration only. never save your password in the code!
 const string server = "tcp://yourservername.mysql.database.azure.com:3306";
 const string username = "username@servername";
 const string password = "yourpassword";
