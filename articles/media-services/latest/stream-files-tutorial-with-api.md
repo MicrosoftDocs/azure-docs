@@ -1,10 +1,10 @@
 ---
 title: Upload, encode, and stream using Azure Media Services | Microsoft Docs
-description: Follow the steps of this tutorial to upload a file and encode the video with Azure Media Services.
+description: Follow the steps of this tutorial to upload a file, and encode the video, and stream your content with Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: cfowler
 editor: ''
 
 ms.service: media-services
@@ -17,7 +17,7 @@ ms.author: juliako
 
 # Tutorial: Upload, encode, and stream videos using APIs
 
-This tutorial shows you how to stream video files with Azure Media Services. Most likely, you would want to deliver adaptive bitrate content in HLS, MPEG DASH, or Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. 
+This tutorial shows you how to stream video files with Azure Media Services. You would want to deliver adaptive bitrate content in Apple's HLS, MPEG DASH, or Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. 
 
 ![Play the video](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -49,15 +49,16 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 ## Log in to Azure
 
-Log in to the [Azure portal](http://portal.azure.com).
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 ## Access the Media Services API
 
-To connect to the latest version of Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure your .NET app, as shown in the script that follows.
+>[!Tip]
+> To connect to Azure Media Services APIs, you use the Azure AD service principal authentication. 
+
+The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure your .NET app, as shown in the script that follows.
 
 Before running the script, replace the `amsaccountname` placeholder.  `amsaccountname` is the name of the Azure Media Services account where to attach the service principal.
 
