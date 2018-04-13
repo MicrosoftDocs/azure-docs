@@ -20,7 +20,7 @@ ms.author: bwren
 # Understanding alerts in Log Analytics
 
 > [!NOTE]
-> Alerts in Log Analytics are [being extended into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Information in this article can be used for defining the details of alerts in the Azure portal that use Log Analytics searches.
+> Alerts in Log Analytics are [being extended into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Information in this article can still be used for defining the details of alerts in the Azure portal that use Log Analytics searches.
 
 Alerts in Log Analytics identify important information in your Log Analytics repository.  This article discusses some of the design decisions that must be made based on the collection frequency of the data being queried, random delays with data ingestion possibly caused by network latency or processing capacity, and committing the data into the Log Analytics workspace.  It also provides details of how alert rules in Log Analytics work and describes the differences between different types of alert rules.
 
