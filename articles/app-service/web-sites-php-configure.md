@@ -50,33 +50,30 @@ PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To 
         PS C:\> Login-AzureRmAccount
 1. Set the PHP version for the web app.
 
-        PS C:\> Set-AzureWebsite -PhpVersion {5.5 | 5.6 | 7.0} -Name {app-name}
+        PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
 1. The PHP version is now set. You can confirm these settings:
 
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
-### Azure Command-Line Interface (Linux, Mac, Windows)
+### Azure CLI 2.0 (Linux, Mac, Windows)
 
-To use the Azure Command-Line Interface, you must have **Node.js** installed on your computer.
+To use the Azure Command-Line Interface, you must [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) on your computer.
 
 1. Open Terminal, and login to your account.
 
-        azure login
+        az login
+
+1. Check to see the list of supported runtimes.
+
+        az webapp list-runtimes | grep php
+
 1. Set the PHP version for the web app.
 
-        azure site set --php-version {5.5 | 5.6 | 7.0} {app-name}
+        az webapp config set --php-version {5.6 | 7.0 | 7.1 | 7.2} --name {app-name} --resource-group {resource-group-name}
 
 1. The PHP version is now set. You can confirm these settings:
 
-        azure site show {app-name}
-
-> [!NOTE]
-> The [Azure CLI 2.0](https://github.com/Azure/azure-cli) commands that are equivalent to the above are:
->
-
-    az login
-    az appservice web config update --php-version {5.5 | 5.6 | 7.0} -g {resource-group-name} -n {app-name}
-    az appservice web config show -g {resource-group-name} -n {app-name}
+        az webapp show --name {app-name} --resource-group {resource-group-name}
 
 ## How to: Change the built-in PHP configurations
 
