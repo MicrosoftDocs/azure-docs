@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ---
 # Checkpoint and replay concepts in Azure Stream Analytics jobs
-This article describes the internal checkpoint and replay concepts, and the impact to Stream Analytics job recovery. Each time a Stream Analytics job runs, state information is maintained internally. That state information is checkpointed periodically. In some scenarios, the checkpoint information is used for job recovery if a job failure or upgrade occurs. In other circumstances, the state cannot be used for recovery, and a replay is necessary.
+This article describes the internal checkpoint and replay concepts in Azure Stream Analytics, and the impact those have on job recovery. Each time a Stream Analytics job runs, state information is maintained internally. That state information is saved in a checkpoint periodically. In some scenarios, the checkpoint information is used for job recovery if a job failure or upgrade occurs. In other circumstances, the checkpoint cannot be used for recovery, and a replay is necessary.
 
 ## Stateful query logic in temporal elements
 One of the unique capability of Azure Stream Analytics job is to perform stateful processing, such as windowed aggregates, temporal joins, and temporal analytic functions. Each of these operators keeps state information when the job runs. The maximum window size for these query elements is seven days. 

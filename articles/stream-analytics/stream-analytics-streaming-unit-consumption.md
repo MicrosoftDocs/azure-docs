@@ -50,7 +50,7 @@ For more information about choosing the right number of SUs, see this page: [Sca
 
 ## Factors increasing SU% utilization 
 
-Temporal (time-oriented) query elements are the core set of stateful operators provided by Stream Analytics. Stream Analytics manages their states on user’s behalf, by managing memory consumption, checkpointing for resiliency, and state recovery during service upgrades. Even though Stream Analytics fully manages the states, there are a number of best practice recommendations that users should follow. 
+Temporal (time-oriented) query elements are the core set of stateful operators provided by Stream Analytics. Stream Analytics manages the state of these operations internally on user’s behalf, by managing memory consumption, checkpointing for resiliency, and state recovery during service upgrades. Even though Stream Analytics fully manages the states, there are a number of best practice recommendations that users should consider.
 
 ## Stateful query logic in temporal elements
 One of the unique capability of Azure Stream Analytics job is to perform stateful processing, such as windowed aggregates, temporal joins, and temporal analytic functions. Each of these operators keeps state information. The maximum window size for these query elements is seven days. 
@@ -78,7 +78,7 @@ For example, in the following query, the number associated with `clusterid` is t
 
 In order to ameliorate issues caused by high cardinality in the previous query, you can send events to Event Hub partitioned by `clusterid`, and scale out the query by allowing the system to process each input partition separately using **PARTITION BY** as shown in the example below:
 
-   ```
+   ```sql
    SELECT count(*) 
    FROM PARTITION BY PartitionId
    GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)
@@ -93,22 +93,22 @@ The memory consumed (state size) of a temporal join is proportional to the numbe
 
 The number of unmatched events in the join affect the memory utilization for the query. The following query is looking to find the ad impressions that generate clicks:
 
-    ```sql
-    SELECT clicks.id
-    FROM clicks 
-    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
-    ```
+   ```sql
+   SELECT clicks.id
+   FROM clicks 
+   INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+   ```
 
 In this example, it is possible that lots of ads are shown and few people click on it and it is required to keep all the events in the time window. Memory consumed is proportional to the window size and event rate. 
 
 To remediate this, send events to Event Hub partitioned by the join keys (id in this case), and scale out the query by allowing the system to process each input partition separately using  **PARTITION BY** as shown:
 
-    ```sql
-    SELECT clicks.id
-    FROM clicks PARTITION BY PartitionId
-    INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
-    ```
+   ```sql
+   SELECT clicks.id
+   FROM clicks PARTITION BY PartitionId
+   INNER JOIN impressions PARTITION BY PartitionId 
+   ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+   ```
 
 Once the query is partitioned out, it is spread out over multiple nodes. As a result the number of events coming into each node is reduced thereby reducing the size of the state kept in the join window. 
 

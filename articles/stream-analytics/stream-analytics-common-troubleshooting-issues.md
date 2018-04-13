@@ -38,13 +38,13 @@ To see more information, enable the diagnostics logs to view the details of the 
 ## Delayed output
 
 ### First output is delayed
-Use discretion when designing your Stream Analytics query. If you use a large time window (more than several hours, up to seven days) for temporal elements in the job's query syntax, it can lead to a delay on the first output when the job is started or restarted. 
+When a Stream Analytics job is started, the input events are read, but there can be a delay in the output being produced in certain circumstances.
 
-This problem can happen when the system upgrades the streaming jobs, thus restarting the job. Such upgrades generally occur once every couple of months. 
+Large time values in temporal query elements can contribute to the output delay. To produce correct output over the large time windows, the streaming job starts up by reading data from the latest time possible (up to seven days ago) to fill the time window. During that time, no output is produced until the catch-up read of the outstanding input events is complete. This problem can surface when the system upgrades the streaming jobs, thus restarting the job. Such upgrades generally occur once every couple of months. 
 
-One mitigation for this kind of slow startup time is to use query parallelization techniques (partitioning the data), or add more Streaming Units to improve the throughput until the job catches up.  For more information, see [Considerations when creating Stream Analytics jobs](stream-analytics-concepts-checkpoint-replay.md)
+Therefore, use discretion when designing your Stream Analytics query. If you use a large time window (more than several hours, up to seven days) for temporal elements in the job's query syntax, it can lead to a delay on the first output when the job is started or restarted.  
 
-Once a Stream Analytics job is started, and input events are read in, output may not be produced immediately. To produce correct output over the large time windows, the streaming job starts up by reading data from the latest time possible (up to seven days ago) to fill the time window. During that time, no output is produced until the catch-up read of the outstanding input events is complete. 
+One mitigation for this kind of first output delay is to use query parallelization techniques (partitioning the data), or add more Streaming Units to improve the throughput until the job catches up.  For more information, see [Considerations when creating Stream Analytics jobs](stream-analytics-concepts-checkpoint-replay.md)
 
 These factors impact the timeliness of the first output that is generated:
 
@@ -60,7 +60,7 @@ These factors impact the timeliness of the first output that is generated:
 3. Use of temporal analytic functions (ISFIRST, LAST, and LAG with LIMIT DURATION)
    - For analytic functions, the output is generated for every event, there is no delay.
 
-### Output is falling behind
+### Output falls behind
 During normal operation of the job, if you find the job’s output is falling behind (longer and longer latency), you can pinpoint the root causes by examining these factors:
 - Whether the downstream sink is throttled
 - Whether the upstream source is throttled
