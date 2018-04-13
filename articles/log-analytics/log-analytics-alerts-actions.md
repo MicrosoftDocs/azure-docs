@@ -36,7 +36,7 @@ When an [alert is created in Log Analytics](log-analytics-alerts.md), you have t
 
 
 ## Email actions
-Email actions send an e-mail with the details of the alert to one or more recipients.  You can specify the subject of the mail, but it's content is a standard format constructed by Log Analytics.  It includes summary information such as the name of the alert in addition to details of up to ten records returned by the log search.  It also includes a link to a log search in Log Analytics that will return the entire set of records from that query.   The sender of the mail is *Microsoft Operations Management Suite Team &lt;noreply@oms.microsoft.com&gt;*. 
+Email actions send an e-mail with the details of the alert to one or more recipients.  You can specify the subject of the mail, but its content is a standard format constructed by Log Analytics.  It includes summary information such as the name of the alert in addition to details of up to ten records returned by the log search.  It also includes a link to a log search in Log Analytics that returns the entire set of records from that query.   The sender of the mail is *Microsoft Operations Management Suite Team &lt;noreply@oms.microsoft.com&gt;*. 
 
 Email actions require the properties in the following table.
 
@@ -48,7 +48,7 @@ Email actions require the properties in the following table.
 
 ## Webhook actions
 
-Webhook actions allow you to invoke an external process through a single HTTP POST request.  The service being called should support webhooks and determine how it will use any payload it receives.  You could also call a REST API that doesn't specifically support webhooks as long as the request is in a format that the API understands.  Examples of using a webhook in response to an alert are sending a message in [Slack](http://slack.com) or creating an incident in [PagerDuty](http://pagerduty.com/).  A complete walkthrough of creating an alert rule with a webhook to call Slack is available at [Webhooks in Log Analytics alerts](log-analytics-alerts-webhooks.md).
+Webhook actions allow you to invoke an external process through a single HTTP POST request.  The service being called should support webhooks and determine how it uses any payload it receives.  You could also call a REST API that doesn't specifically support webhooks as long as the request is in a format that the API understands.  Examples of using a webhook in response to an alert are sending a message in [Slack](http://slack.com) or creating an incident in [PagerDuty](http://pagerduty.com/).  A complete walkthrough of creating an alert rule with a webhook to call Slack is available at [Webhooks in Log Analytics alerts](log-analytics-alerts-webhooks.md).
 
 Webhook actions require the properties in the following table.
 
@@ -58,7 +58,7 @@ Webhook actions require the properties in the following table.
 | Custom JSON payload |Custom payload to send with the webhook.  See below for details. |
 
 
-Webhooks include a URL and a payload formatted in JSON that is the data sent to the external service.  By default, the payload will include the values in the following table.  You can choose to replace this payload with a custom one of your own.  In that case you can use the variables in the table for each of the parameters to include their value in your custom payload.
+Webhooks include a URL and a payload formatted in JSON that is the data sent to the external service.  By default, the payload includes the values in the following table.  You can choose to replace this payload with a custom one of your own.  In that case you can use the variables in the table for each of the parameters to include their value in your custom payload.
 
 
 | Parameter | Variable | Description |
@@ -87,7 +87,7 @@ This example payload would resolve to something like the following when sent to 
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 
-To include search results in a custom payload, add the following line as a top level property in the json payload.  
+To include search results in a custom payload, add the following line as a top-level property in the json payload.  
 
     "IncludeSearchResults":true
 
@@ -112,9 +112,9 @@ Runbook actions require the properties in the following table.
 | Runbook | Runbook that you want to start when an alert is created. |
 | Run on | Specify **Azure** to run the runbook in the cloud.  Specify **Hybrid worker** to run the runbook on an agent with [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md ) installed.  |
 
-Runbook actions start the runbook using a [webhook](../automation/automation-webhooks.md).  When you create the alert rule, it will automatically create a new webhook for the runbook with the name **OMS Alert Remediation** followed by a GUID.  
+Runbook actions start the runbook using a [webhook](../automation/automation-webhooks.md).  When you create the alert rule, it automatically creates a new webhook for the runbook with the name **OMS Alert Remediation** followed by a GUID.  
 
-You cannot directly populate any parameters of the runbook, but the [$WebhookData parameter](../automation/automation-webhooks.md) will include the details of the alert, including the results of the log search that created it.  The runbook will need to define **$WebhookData** as a parameter for it to access the properties of the alert.  The alert data is available in json format in a single property called **SearchResult** (for runbook actions and webhook actions with standard payload) or **SearchResults** (webhook actions with custom payload including **IncludeSearchResults":true**) in the **RequestBody** property of **$WebhookData**.  This will have with the properties in the following table.
+You cannot directly populate any parameters of the runbook, but the [$WebhookData parameter](../automation/automation-webhooks.md) includes the details of the alert, including the results of the log search that created it.  The runbook needs to define **$WebhookData** as a parameter for it to access the properties of the alert.  The alert data is available in json format in a single property called **SearchResult** (for runbook actions and webhook actions with standard payload) or **SearchResults** (webhook actions with custom payload including **IncludeSearchResults":true**) in the **RequestBody** property of **$WebhookData**.  This has with the properties in the following table.
 
 >[!NOTE]
 > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the runbook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  You can see an example in [Samples](#sample-payload) below.  
@@ -123,7 +123,7 @@ You cannot directly populate any parameters of the runbook, but the [$WebhookDat
 |:--- |:--- |
 | id |Path and GUID of the search. |
 | __metadata |Information about the alert including the number of records and status of the search results. |
-| value |Separate entry for each record in the search results.  The details of the entry will match the properties and values of the record. |
+| value |Separate entry for each record in the search results.  The details of the entry match the properties and values of the record. |
 
 For example, the following runbooks would extract the records returned by the log search  and assign different properties based on the type of each record.  Note that the runbook starts by converting **RequestBody** from json so that it can be worked with as an object in PowerShell.
 

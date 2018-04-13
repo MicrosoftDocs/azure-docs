@@ -34,9 +34,9 @@ For the process of creating alert rules, see the following articles:
 
 Details about the data collection frequency for various solutions and data type are available in the [Data collection details](log-analytics-add-solutions.md#data-collection-details) of the Solutions overview article. As noted in this article, collection frequency can be as infrequent as once every seven days to *on notification*. It is important to understand and consider the data collection frequency before setting up an alert. 
 
-- The collection frequency determines how often the OMS agent on machines will send data to Log Analytics. For instance, if the collection frequency is 10 minutes and there are no other delays in the system, then time stamps of the transmitted data may be anywhere between zero and 10 minutes old before being added to the repository and is searchable in Log Analytics.
+- The collection frequency determines how often the OMS agent on machines send data to Log Analytics. For instance, if the collection frequency is 10 minutes and there are no other delays in the system, then time stamps of the transmitted data may be anywhere between zero and 10 minutes old before being added to the repository and is searchable in Log Analytics.
 
-- Before an alert can be triggered, the data must be written to the repository so that it is available when queried. Because of the latency described above, the collection frequency is not the same as the time the data is available to queries. For instance, while the data may be collected precisely every 10 min, the data will be available in the data repository at irregular intervals. Hypothetically, data collected at zero, 10, and 20 minute intervals might be available for search at 25, 28, and 35 minutes respectively, or at some other irregular interval influenced by ingestion latency. The worst case for these delays is documented in the [SLA for Log Analytics](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1), which does not include a delay introduced by the collection frequency or network latency between the computer and Log Analytics service.
+- Before an alert can be triggered, the data must be written to the repository so that it is available when queried. Because of the latency described above, the collection frequency is not the same as the time the data is available to queries. For instance, while the data may be collected precisely every 10 min, the data is available in the data repository at irregular intervals. Hypothetically, data collected at zero, 10, and 20 minute intervals might be available for search at 25, 28, and 35 minutes respectively, or at some other irregular interval influenced by ingestion latency. The worst case for these delays is documented in the [SLA for Log Analytics](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1), which does not include a delay introduced by the collection frequency or network latency between the computer and Log Analytics service.
 
 
 ## Alert rules
@@ -47,22 +47,22 @@ Alerts are created by alert rules that automatically run log searches at regular
 
 Because there is an anticipated latency with the ingestion of log data, the absolute time between indexing data and when it is available to search can be unpredictable.  The near-real-time availability of data collected should be taken into consideration while defining alert rules.    
 
-There is a trade-off between reliability of alerts and the responsiveness of alerts. You can choose to configure alert parameters to minimize false alerts and missing alerts, or you can choose alert parameters to respond quickly to the conditions that are being monitored, but will occasionally generate false or missed alerts.
+There is a trade-off between reliability of alerts and the responsiveness of alerts. You can choose to configure alert parameters to minimize false alerts and missing alerts, or you can choose alert parameters to respond quickly to the conditions that are being monitored, but occasionally generates false or missed alerts.
 
 Alert Rules are defined by the following details:
 
-- **Log search**.  The query that runs every time the alert rule fires.  The records returned by this query is used to determine whether an alert is created.
+- **Log search**.  The query that runs every time the alert rule fires.  The records returned by this query are used to determine whether an alert is created.
 - **Time window**.  Specifies the time range for the query.  The query returns only records that were created within this range of the current time.  This can be any value between five minutes and 24 hours. The range needs to be wide enough to accommodate reasonable delays in ingestion. The time window needs to be two times the length of the longest delay you want to be able to handle.<br> For instance, if you want alerts to be reliable for 30 minute delays, then the range needs to be one hour.  
 
     There are two symptoms you could experience if the time range is too small.
 
-    - **Missing alerts**. Assume the ingestion delay is 60 minutes sometimes, but most of the time it is fifteen minutes.  If the time window is set to 30 minutes then it will miss an alert when the delay is 60 minutes because the data will not be available for search when the alert query is executed. 
+    - **Missing alerts**. Assume the ingestion delay is 60 minutes sometimes, but most of the time it is fifteen minutes.  If the time window is set to 30 minutes then it misses an alert when the delay is 60 minutes because the data isn't available for search when the alert query is executed. 
    
         >[!NOTE]
         >Trying to diagnose why the alert is missed is impossible. For example, in the case above, the data is written to the repository 60 minutes after the alert query was executed. If it is noticed the next day that an alert was missed, and the next day the query is executed over the correct time interval, the log search criteria would match the result. It would appear that the alert should have been triggered. In fact, the alert was not triggered because the data was not yet available when the alert query was executed. 
         >
  
-    - **False Alerts**. Sometimes alert queries are designed to identify the absence of events. One example of this is detecting when a virtual machine is off-line by searching for missed heartbeats. As above, if the heartbeat is not available for search within the Alert time window, then an alert will be generated because the heartbeat data was not yet searchable, and therefore absent. This is the same result as if the VM  was legitimately off-line and there was no heartbeat data generated by it. Executing the query the next day over the correct time window will show that there were heartbeats and alerting failed. In fact, the heartbeats were not yet available for search because the Alert time window was set too small.  
+    - **False Alerts**. Sometimes alert queries are designed to identify the absence of events. One example of this is detecting when a virtual machine is off-line by searching for missed heartbeats. As above, if the heartbeat is not available for search within the Alert time window, then an alert is generated because the heartbeat data was not yet searchable, and therefore absent. This is the same result as if the VM  was legitimately off-line and there was no heartbeat data generated by it. Executing the query the next day over the correct time window shows that there were heartbeats and alerting failed. In fact, the heartbeats were not yet available for search because the Alert time window was set too small.  
 
 - **Frequency**.  Specifies how often the query should be run and can be used to make alerts more responsive for the normal case. The value can be between five minutes and 24 hours and should be equal to or less than the Alert time window.  If the value is greater than the time window, then you risk records being missed.<br>If the goal is to be reliable for delays up to 30 minutes and the normal delay is 10 minutes, the time window should be one hour and the frequency value should be 10 minutes. This would trigger an alert with data that has a 10 minute ingestion delay between 10 and 20 minutes of when the alert data was generated.<br>To avoid creating multiple alerts for the same data because the time window is too wide, the [Suppress Alerts](log-analytics-tutorial-response.md#create-alerts) option can be used to suppress alerts for at least as long as the time window.
   
@@ -75,7 +75,7 @@ Each alert rule in Log Analytics is one of two types.  Each of these types is de
 
 The differences between alert rule types are as follows.
 
-- **Number of results** alert rule will always create a single alert while **Metric measurement** alert rule creates an alert for each object that exceeds the threshold.
+- **Number of results** alert rule always create a single alert while **Metric measurement** alert rule creates an alert for each object that exceeds the threshold.
 - **Number of results** alert rules create an alert when the threshold is exceeded a single time. **Metric measurement** alert rules can create an alert when the threshold is exceeded a certain number of times over a particular time interval.
 
 ## Number of results alert rules
@@ -118,7 +118,7 @@ If you wanted to alert when the processor averaged over 90% for a particular tim
 #### Log search
 While you can use any query for a **Number of results** alert rule, there are specific requirements the query for a metric measurement alert rule.  It must include a [Measure command](log-analytics-search-reference.md#commands) to group the results on a particular field. This command must include the following elements.
 
-- **Aggregate function**.  Determines the calculation that is performed and potentially a numeric field to aggregate.  For example, **count()** will return the number of records in the query, **avg(CounterValue)** will return the average of the CounterValue field over the interval.
+- **Aggregate function**.  Determines the calculation that is performed and potentially a numeric field to aggregate.  For example, **count()** returns the number of records in the query, **avg(CounterValue)**  returns the average of the CounterValue field over the interval.
 - **Group Field**.  A record with an aggregated value is created for each instance of this field, and an alert can be generated for each.  For example, if you wanted to generate an alert for each computer, you would use **by Computer**.   
 - **Interval**.  Defines the time interval over which the data is aggregated.  For example, if you specified **5 minutes**, a record would be created for each instance of the group field aggregated at 5 minute intervals over the time window specified for the alert.
 
@@ -147,7 +147,7 @@ Alert records created by alert rules in Log Analytics have a **Type** of **Alert
 |:--- |:--- |
 | Type |*Alert* |
 | SourceSystem |*OMS* |
-| *Object*  | [Metric measurement alerts](#metric-measurement-alert-rules) will have a property for the group field.  For example, if the log search groups on Computer, the alert record with have a Computer field with the name of the computer as the value.
+| *Object*  | [Metric measurement alerts](#metric-measurement-alert-rules) has a property for the group field.  For example, if the log search groups on Computer, the alert record with have a Computer field with the name of the computer as the value.
 | AlertName |Name of the alert. |
 | AlertSeverity |Severity level of the alert. |
 | LinkToSearchResults |Link to Log Analytics log search that returns the records from the query that created the alert. |
