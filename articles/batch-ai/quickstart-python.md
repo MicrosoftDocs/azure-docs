@@ -41,7 +41,7 @@ az provider register -n Microsoft.BatchAI
 ```
 
 ## Configure credentials
-Create these parameters in your Python script, substituting your own values:
+Add the following code into your script file and replace `FILL-IN-HERE` with approapriate values:
 
 ```Python
 # credentials used for authentication
@@ -59,8 +59,8 @@ admin_user_name = 'FILL-IN-HERE'
 admin_user_password = 'FILL-IN-HERE'
 ```
 
-Please note, that putting credentials into the source code is not a good practice and we do so only to make the quickstart simpler.
-Please consider to use environment variables or a separate configuration file instead.
+Note, that putting credentials into the source code is not a good practice and it's done here to make the quickstart simpler.
+Consider to use environment variables or a separate configuration file instead.
 
 ## Create Batch AI Client
 
@@ -180,7 +180,7 @@ print('Cluster state: {0} Target: {1}; Allocated: {2}; Idle: {3}; '
     cluster.node_state_counts.leaving_node_count))
 ```
 
-The preceding code prints basic cluster allocation information such as the following:
+The preceding code prints basic cluster allocation information like in the following example:
 
 ```
 Cluster state: AllocationState.steady Target: 1; Allocated: 1; Idle: 0; Unusable: 0; Running: 0; Preparing: 1; Leaving: 0
