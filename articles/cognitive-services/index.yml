@@ -28,12 +28,12 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: media/index/API_QnAMaker.svg
+        src: ../media/index/API_QnAMaker.svg
       text: Create an app with QNAMaker
       href: /azure/cognitive-services/qnamaker/quickstart
     - image: 
-        src: /media/index/API_TextAnalytics.svg
-      text: Quickstart for Text Analytics API with C#
+        src: ../media/index/API_TextAnalytics.svg
+      text: Use Text Analytics API with C#
       href: /azure/cognitive-services/text-analytics/quickstarts/csharp
 - title: Step-by-Step Tutorials
   items:
