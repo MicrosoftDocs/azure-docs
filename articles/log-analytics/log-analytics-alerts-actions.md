@@ -318,7 +318,6 @@ Following is a sample payload for a webhook action.
 
 ### Runbooks
 
-#### Upgraded workspace
 Following is a sample payload for a runbook action.
 
     {

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/05/2018
+ms.date: 04/12/2018
 ms.author: bwren
 
 ---
 # Understanding alerts in Log Analytics
+
 
 Alerts in Log Analytics identify important information in your Log Analytics repository.  This article discusses some of the design decisions that must be made based on the collection frequency of the data being queried, random delays with data ingestion possibly caused by network latency or processing capacity, and committing the data into the Log Analytics repository.  It also provides details of how alert rules in Log Analytics work and describes the differences between different types of alert rules.
 
@@ -97,16 +98,12 @@ In some cases, you may want to create an alert in the absence of an event.  For 
 
 For example, if you wanted to alert when the processor runs over 90%, you would use a query like the following with the threshold for the alert rule **greater than 0**.
 
-	Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
+	Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90
 
 If you wanted to alert when the processor averaged over 90% for a particular time window, you would use a query using the [measure command](log-analytics-search-reference.md#commands) like the following with the threshold for the alert rule **greater than 0**.
 
-	Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
+	Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
 
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following:
-> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
-> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 
 
 ## Metric measurement alert rules
