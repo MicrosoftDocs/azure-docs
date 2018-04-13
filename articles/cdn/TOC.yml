@@ -14,6 +14,8 @@
   items:
   - name: Add a custom domain
     href: cdn-map-content-to-custom-domain.md    
+  - name: Configure HTTPS on a custom domain
+    href: cdn-custom-ssl.md    
 - name: Samples
   items:
   - name: Code samples
@@ -42,8 +44,6 @@
       href: cdn-cors.md
     - name: Add a custom domain to your CDN endpoint
       href: cdn-map-content-to-custom-domain.md
-    - name: Configure HTTPS on a custom domain
-      href: cdn-custom-ssl.md
   - name: Optimize content
     items:
     - name: Optimization overview
