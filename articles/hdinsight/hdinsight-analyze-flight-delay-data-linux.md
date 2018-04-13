@@ -17,6 +17,7 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
+#Customer intent: As a data analyst, I need to load some data into a Hadoop cluster, transform, and then export it to an Azure SQL database
 ---
 
 # Tutorial: Extract, transform, and load data using Apache Hive on Azure HDInsight

@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Blob storage from iOS | Microsoft Docs
+title: How to use object (Blob) storage from iOS - Azure | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: ios

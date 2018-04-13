@@ -217,7 +217,7 @@ You cannot delete an application security group if it has any network interfaces
 
 ## Permissions
 
-To perform tasks on network security groups, security rules, and application security groups, your account must be assigned to the [network contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate permissions listed in the following table:
+To perform tasks on network security groups, security rules, and application security groups, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate permissions listed in the following table:
 
 |Operation                                                       |   Operation name                               |
 |--------------------------------------------------------------  |   -------------------------------------------  |

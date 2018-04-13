@@ -63,7 +63,7 @@ If you want to give another user access to manage in PIM itself, the roles which
 ## Roles not managed in PIM
 Roles within Exchange Online or SharePoint Online, except for those mentioned above, are not represented in Azure AD and so are not visible in PIM. For more information on changing fine-grained role assignments in these Office 365 services, see [Permissions in Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Azure subscriptions and resource groups are also not represented in Azure AD. To manage Azure subscriptions, see [How to add or change Azure administrator roles](../billing/billing-add-change-azure-subscription-administrator.md) and for more information on Azure RBAC see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+Azure subscriptions and resource groups are also not represented in Azure AD. To manage Azure subscriptions, see [How to add or change Azure administrator roles](../billing/billing-add-change-azure-subscription-administrator.md) and for more information on Azure RBAC see [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
