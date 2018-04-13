@@ -3,8 +3,8 @@ title: Supported Languages in Azure Location Based Services | Microsoft Docs
 description: Learn about Supported Languages for the services in Azure Location Based Services
 services: location-based-services
 keywords: 
-author: juliekohler
-ms.author: julieko
+author: kgremban
+ms.author: kgremban
 ms.date: 3/30/2018
 ms.topic: article
 ms.service: location-based-services

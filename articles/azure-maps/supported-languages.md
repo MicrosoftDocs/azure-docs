@@ -1,6 +1,6 @@
 ---
-title: Supported languages in Azure Location Based Services | Microsoft Docs
-description: Learn about supported languages for the services in Azure Location Based Services
+title: Supported languages in Azure Maps | Microsoft Docs
+description: Learn about supported languages for the services in Azure Maps
 services: azure-maps
 keywords: 
 author: juliekohler
@@ -15,15 +15,11 @@ ms.devlang: na
 ms.custom: 
 ---
 
-# Azure Location Based Services supported languages
-Azure Location Based Services have been localized in a variety
+# Azure Maps supported languages
+Azure Maps have been localized in a variety
 of languages across the services.  The following
 table provides the supported language codes for each service.  
   
-<br>
- 
-
-
 
 | ID         | Name                   |  Maps | Search | Routing | Traffic incidents | JS map control | Time zone |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|

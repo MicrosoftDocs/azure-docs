@@ -95,8 +95,8 @@ Sign up for an [Azure Maps account today](http://aka.ms/azurelbsportal).
 
 ## Next steps
 
-You now have an overview of Azure Maps. The next step is to try out a sample app showcasing the service, as well as create an end-to-end scenario in your web application.
+You now have an overview of Azure Maps. The next step is to try out a sample app showcasing the service.
 
 > [!div class="nextstepaction"]
 > [Launch a demo interactive map search using Azure Maps](quick-demo-map-app.md)
-> [Search nearby point of interest using Azure Maps](tutorial-search-location.md)
+
