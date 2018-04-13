@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/16/2018
 ms.author: marsma
 ---
 
@@ -30,14 +30,30 @@ When you mount a *gitRepo* volume, you can set three properties to configure the
 | `directory` | No | Directory into which the repository should be cloned. The path must not contain or start with "`..`".  If you specify "`.`", the repository is cloned into the volume's directory. Otherwise, the Git repository is cloned into a subdirectory of the given name within the volume directory. |
 | `revision` | No | The commit hash of the revision to be cloned. If unspecified, the `HEAD` revision is cloned. |
 
-## Mount a gitRepo volume
+## Mount a gitRepo volume: Azure CLI
 
-To mount a *gitRepo* volume in a container instance, you must deploy using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups).
+To mount a gitRepo volume when you deploy container instances with the [Azure CLI](/cli/azure), supply the `--gitrepo-url` and `--gitrepo-mount-path` parameters to the [az container create][] command.
 
-First, populate the `volumes` array in the container group `properties` section of the template. Next, for each container in the container group in which you'd like to mount the *gitRepo* volume, populate the `volumeMounts` array in the `properties` section of the container definition.
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name hellogitrepo \
+    --image microsoft/aci-hellofiles \
+    --dns-name-label aci-demo \
+    --ports 80 \
+    --gitrepo-url https://github.com/Azure-Samples/aci-helloworld \
+    --gitrepo-mount-path /mnt/aci-helloworld
+```
+
+You can optionally specify additional parameters that specify the directory within the volume to clone into (`--gitrepo-dir`) and the commit hash to specify which revision should be cloned (`--gitrepo-revision`).
+
+## Mount a gitRepo volume: Resource Manager
+
+To mount a gitRepo volume when you deploy container instances with an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups), first populate the `volumes` array in the container group `properties` section of the template. Then, for each container in the container group in which you'd like to mount the *gitRepo* volume, populate the `volumeMounts` array in the `properties` section of the container definition.
 
 For example, the following Resource Manager template creates a container group consisting of a single container. The container clones two GitHub repositories specified by the *gitRepo* volume blocks. The second volume includes additional properties specifying a directory to clone to, and the commit hash of a specific revision to clone.
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json -->
 [!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
 
 The resulting directory structure of the two cloned repos defined in the preceding template is:
