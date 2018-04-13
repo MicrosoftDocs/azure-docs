@@ -19,15 +19,15 @@ ms.custom:
 ---
 # The collection of PaaS/SaaS technologies and solutions available for building an Azure IoT solution
 
-Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The Azure IoT product portfolio gives you an overview of the available PaaS/SaaS technologies and solutions, and presents the two paths that are available for building your own solution:
-- Platform as a Service (PaaS): build your own application using IoT solution accelerators, an enterprise-grade collection of preconfigured solutions built on Azure Platform-as-a-Service that enable you to accelerate the development of custom IoT solutions.
-- Software as a Service (SaaS): get started fast with the new SaaS solution to develop IoT applications without being exposed to the complexity of IoT solution. If your organization lacks the resources or skills to build your own IoT solution, IoT Central is a codeless IoT solution that can create device models, dashboards, and rules in minutes.
+Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The Azure IoT product portfolio gives you an overview of the available PaaS/SaaS technologies and solutions. It presents the two paths that are available for building your own solution:
+- Platform as a Service (PaaS): build your application using IoT solution accelerators. These enterprise-grade preconfigured solutions enable you to accelerate the development of custom IoT solutions.
+- Software as a Service (SaaS): get started fast with the new SaaS solution to develop IoT applications without being exposed to the complexity of IoT solution. If your organization lacks the resources to build your own IoT solution, IoT Central is a codeless IoT solution that can create device models, dashboards, and rules in minutes.
 
 ![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
 ## Solutions
 
-Get started quickly with solution accelerators and SaaS offerings. Choose from preconfigured solutions that enable common IoT scenarios, such as remote monitoring, predictive maintenance and connected factory, to create a fully customizable solution. Or use Azure IoT Central, a fully managed, end-to-end solution that enables powerful IoT scenarios without requiring cloud-solution expertise.
+Get started quickly with solution accelerators and SaaS offerings. Choose from preconfigured solutions that enable common IoT scenarios, such as remote monitoring, predictive maintenance, and connected factory, to create a fully customizable solution. Or use Azure IoT Central, a fully managed, end-to-end solution that enables powerful IoT scenarios without requiring cloud-solution expertise.
 
 ### Videos
 
@@ -67,8 +67,8 @@ With the most comprehensive IoT portfolio of platform services, Platform-as-a-Se
 
 ### Device support
 
-Get started on your IoT project with confidence by leveraging [Azure IoT Starter Kits](https://catalog.azureiotsuite.com/kits) or choosing from hundreds of Certified for IoT devices in our [device catalog](http://catalog.azureiotsuite.com/). All devices are platform-agnostic and tested to connect seamlessly to IoT Hub.
-Connect all your devices to Azure IoT using our open-source [device SDKs](/azure/iot-hub/iot-hub-devguide-sdks). Our SDKs support multiple operating systems, such as Linux, Windows, and real-time operating systems, as well as multiple programming languages, such as [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), and [Python](https://github.com/Azure/azure-iot-sdk-python).
+Get started on your IoT project with confidence by leveraging [Azure IoT Starter Kits](https://catalog.azureiotsuite.com/kits) or choosing from hundred of Certified for IoT devices in our [device catalog](http://catalog.azureiotsuite.com/). All devices are platform-agnostic and tested to connect seamlessly to IoT Hub.
+Connect all your devices to Azure IoT using the open-source [device SDKs](/azure/iot-hub/iot-hub-devguide-sdks). The SDKs support multiple operating systems, such as Linux, Windows, and real-time operating systems, as well as multiple programming languages, such as [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), and [Python](https://github.com/Azure/azure-iot-sdk-python).
 
 ### IoT 
 Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end. The Azure IoT Hub Device Provisioning Service is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, enabling customers to provision millions of devices in a secure and scalable manner.
@@ -78,7 +78,7 @@ Azure IoT Edge is an Internet of Things (IoT) service. This service is meant for
 
 
 ### Data and analytics
-Leverage an array of Azure data and analytics PaaS offerings in your IoT solution, from bringing cloud intelligence to the edge with Azure Machine Learning, to storing IoT device data in a cost-effective way with Azure Data Lake, to visualizing huge amount of data from IoT devices with Azure Time Series Insights.
+Take the advantage of an array of Azure data and analytics PaaS offerings in your IoT solution, from bringing cloud intelligence to the edge with Azure Machine Learning, to storing IoT device data in a cost-effective way with Azure Data Lake, to visualizing huge amount of data from IoT devices with Azure Time Series Insights.
 
 ### Visualization and integration
 Microsoft Azure offers a complete cloud solution, one that combines a constantly growing collection of integrated cloud services with an industry-leading commitment to the protection and privacy of your data. Find out more about [Microsoft Azure](https://azure.microsoft.com/en-us/).
