@@ -79,7 +79,7 @@ From within your Automation Account, select **Inventory** under **CONFIGURATION 
 
 On the **Inventory** page, click on the **Software** tab.
 
-On the **Software** tab, there is a table list the software that had been found. The software is grouped by software name and version.
+On the **Software** tab, there is a table that lists the software that has been found. The software is grouped by software name and version.
 
 The high-level details for each software record are viewable in the table. These details include the software name, version, publisher, last refreshed time (the most recent refresh time reported by a machine in the group), and machines (the count of machines with that software).
 
@@ -97,9 +97,9 @@ For instance, searching for "Contoso" returns all software with a name, publishe
 Inventory generates log data that is sent to Log Analytics. To search the logs by running queries, select **Log Analytics** at the top of the **Inventory** window.
 
 Inventory data is stored under the type **ConfigurationData**.
-The following sample Log Analytics query returns the Publishers that contain "Microsoft" and the number of Software records (grouped by SoftwareName and Computer) for each Publisher.
+The following sample Log Analytics query returns the inventory results where the Publisher that contains "Microsoft".
 
-```
+```loganalytics
 ConfigurationData
 | where ConfigDataType == "Software"
 | where Publisher == "Microsoft Corporation"
@@ -113,7 +113,7 @@ To learn more about running and searching log files in Log Analytics, see [Azure
 To see the software inventory for a single machine, you can access Inventory from the Azure VM resource page or use Log Analytics to filter down to the corresponding machine.
 The following example Log Analytics query returns the list of software for a machine named ContosoVM.
 
-```
+```loganalytics
 ConfigurationData
 | where ConfigDataType == "Software"
 | summarize arg_max(TimeGenerated, *) by SoftwareName, CurrentVersion
