@@ -27,14 +27,9 @@ This quick start demonstrates how to create an Azure Cosmos DB [SQL API](sql-api
 
 ## Prerequisites
 
-* [Python 3.6](https://www.python.org/downloads/) with C:\Program Files\Python36 and C:\Program Files\Python36\Scripts added to your PATH. 
-* [Visual Studio Code](https://code.visualstudio.com/) 
+* [Python 3.6](https://www.python.org/downloads/) with \<install location\>\Python36 and \<install location>\Python36\Scripts added to your PATH. 
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [Python extention for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
-* From within VS Code, select a version of Python using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available:
-
-    ![No interpreter selected](./media/create-sql-api-python/no-interpreter-selected-statusbar.png)
-
-    The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
 
 ## Create a database account
 
@@ -137,15 +132,22 @@ Now go back to the Azure portal to get your connection string information and co
     `'MASTERKEY': 'FILLME',`
     
 ## Run the app
-1. In Visual Studio Code, select **View** > **Integrated Terminal (Ctrl+` with the backtick character)**, to open the VS Code integrated terminal.
 
-2. In the integrated terminal window, ensure you're in the run the azure-cosmos-db-documentdb-python-getting-started folder. If not, run the following command to switch to the sample folder. 
+1. In Visual Studio Code, select **View**>**Command Palette**. 
+
+2. At the prompt, enter  **Python: Select Interpreter** and then select the version of Python to use.
+
+    The Footer in Visual Studio Code is updated to indicate the interpreter selected. 
+
+3. Select **View** > **Integrated Terminal** to open the Visual Studio SCode integrated terminal.
+
+4. In the integrated terminal window, ensure you're in the run the azure-cosmos-db-documentdb-python-getting-started folder. If not, run the following command to switch to the sample folder. 
 
     ```
     cd "C:\git-samples\azure-cosmos-db-documentdb-python-getting-started"`
     ```
 
-3. Run the following command to install the pydocumentdb package. 
+5. Run the following command to install the pydocumentdb package. 
 
     ```
     pip3 install pydocumentdb
@@ -153,13 +155,13 @@ Now go back to the Azure portal to get your connection string information and co
 
     If you get an error about access being denied when attempting to install pydocumentdb, you'll need to [run VS Code as an administrator](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
 
-3. Run the following command to run the sample and create and store new documents in Azure Cosmos dB.
+6. Run the following command to run the sample and create and store new documents in Azure Cosmos dB.
 
     ```
     python DocumentDBGetStarted.py
     ```
 
-4. To confirm the new documents were created and saved, in the Azure portal, select **Data Explorer**, expand **coll**, expand **Documents**, and then select the **server1** document. The server1 document contents match the content returned in the integrated terminal window. 
+7. To confirm the new documents were created and saved, in the Azure portal, select **Data Explorer**, expand **coll**, expand **Documents**, and then select the **server1** document. The server1 document contents match the content returned in the integrated terminal window. 
 
     ![View the new documents in the Azure portal](./media/create-sql-api-python/azure-cosmos-db-confirm-documents.png)
 
