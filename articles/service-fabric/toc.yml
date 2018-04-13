@@ -543,8 +543,10 @@
       href: service-fabric-visualizing-your-cluster.md
     - name: Connect to a secure cluster
       href: service-fabric-connect-to-secure-cluster.md
-    - name: Patch cluster nodes
+    - name: Patch cluster nodes (Windows)
       href: service-fabric-patch-orchestration-application.md
+    - name: Patch cluster nodes (Linux)
+      href: service-fabric-patch-orchestration-application-linux.md
   - name: Monitor and diagnose
     items:
     - name: Analyze with OMS
