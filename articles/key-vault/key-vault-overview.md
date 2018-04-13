@@ -15,7 +15,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 04/12/2018
 ms.author: barclayn
-#Customer intent: Trying to learn what Key Vault is and if it offers anything that could be used in my organization.
+#Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Key Vault is and if it offers anything that could be used in my organization.
 
 ---
 # What is Azure Key Vault?

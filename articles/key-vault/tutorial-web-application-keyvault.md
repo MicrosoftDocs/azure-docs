@@ -13,9 +13,9 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: barclayn
 ms.custom: mvc
-
+#Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
-# Configure an Azure web application to read a secret from Key Vault
+# Tutorial Configure an Azure web application to read a secret from Key Vault
 
 In this tutorial, you go over the necessary steps to get an Azure web application to read information from Key vault. You learn how to:
 
