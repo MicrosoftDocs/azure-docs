@@ -18039,6 +18039,16 @@
             "source_path": "articles/stream-analytics/stream-analytics-sample-data-input.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-test-query",
             "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-migrate-migration-utility.md",
+            "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-migrate",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-migrate-to-premium-storage.md",
+            "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-migrate",
+            "redirect_document_id": false
         }
 
     ]
