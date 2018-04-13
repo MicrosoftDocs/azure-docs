@@ -139,19 +139,21 @@ The following snippets are all taken from the DocumentDBGetStarted.py file.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `DocumentDBGetStarted.py` file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the **URI** and **Primary Key** into the DocumentDBGetStarted.py file in the next step.
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
 
-2. In Open the `DocumentDBGetStarted.py` file. 
+2. Open the DocumentDBGetStarted.py file.
 
-3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in `DocumentDBGetStarted.py`. 
+3. Copy your **URI** value from the portal (using the copy button) and make it the value of the **endpoint** key in DocumentDBGetStarted.py. 
 
     `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the `config.MASTERKEY` in `DocumentDBGetStarted.py`. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+4. Then copy your **PRIMARY KEY** value from the portal and make it the value of the **config.MASTERKEY** in DocumentDBGetStarted.py. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
     `'MASTERKEY': 'FILLME',`
+
+5. Save the DocumentDBGetStarted.py file.
     
 ## Run the app
 1. In Visual Studio, right-click on the project in **Solution Explorer**, select the current Python environment, then right click.
