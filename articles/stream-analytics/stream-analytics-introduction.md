@@ -23,7 +23,7 @@ ms.reviewer: jasonh
 
 Azure Stream Analytics an event-processing engine that allows you to examine high volumes of data streaming from devices. Incoming data can be from devices, sensors, web sites, social media feeds, applications, and more. It also supports extracting information from data streams, identifying patterns, and relationships. You can then use these patterns to trigger other actions downstream, like alerts, feed information to a reporting tool, or store it for later use.
 
-The following are some examples where Azure Stream Analytics can be used: 
+Following are some examples where Azure Stream Analytics can be used: 
 
 * Internet of Things(IoT) Sensor fusion and real-time analytics on device telemetry
 * Web logs/clickstream analytics
