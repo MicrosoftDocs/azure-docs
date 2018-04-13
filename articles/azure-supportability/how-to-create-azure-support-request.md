@@ -30,7 +30,7 @@ Based on customer feedback, we’ve updated the support request experience to fo
 
 * **Streamlined**: Reduce clicks and blades to make the process of submitting a support request simple.
 * **Integrated**: When you’re troubleshooting an issue with an Azure resource, it should be easy to open a support request for that resource without switching context.
-* **Efficient**: Gather the key information your support engineer will need to efficiently resolve your issue.
+* **Efficient**: Gather the key information your support engineer needs to efficiently resolve your issue.
 
 ## Getting started
 You can create a support request from the top navigation menu or directly from a resource blade.
@@ -105,7 +105,7 @@ Additionally, you can sort and search for support requests on this page.
 Select the support request to view details, including severity and the expected time it will take for a support engineer to respond.
 ![VID](./media/how-to-create-azure-support-request/VID.png)
 
-If you want to change the severity of the request, click the **Business impact** tile. In the preceeding example, the request is currently set to Severity C.
+If you want to change the severity of the request, click the **Business impact** tile. In the preceding example, the request is currently set to Severity C.
 
 Clicking the tile shows you the list of severities you can assign to an open support request.
 
