@@ -1,21 +1,13 @@
 ﻿---
 title: Create an Azure Analysis Services server by using PowerShell | Microsoft Docs
 description: Learn how to create an Azure Analysis Services server by using PowerShell
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.custom: mvc
+ms.reviewer: minewiskan
 
 ---
 
