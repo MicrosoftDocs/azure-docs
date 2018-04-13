@@ -14,10 +14,9 @@ ms.custom: H1Hack27Feb2017
 
 This article helps you use the Change Tracking solution to easily identify changes in your environment. The solution tracks changes to Windows and Linux software, Windows and Linux files, Windows registry keys, Windows services, and Linux daemons. Identifying configuration changes can help you pinpoint operational issues.
 
-Changes to installed software, Windows services, Windows registry and files, and Linux daemons on the monitored servers are sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
+Changes to installed software, Windows services, Windows registry and files, and Linux daemons on the monitored servers are sent to the Log Analytics service in the cloud for processing. To detect file changes, the solution uses the MD5 hash algorithm to detect changes. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 
 ## Enable Change Tracking and Inventory
-
 
 To begin tracking changes, you need to enable the Change Tracking and Inventory solution for your Automation Account.
 
