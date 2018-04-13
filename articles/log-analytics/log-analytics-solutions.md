@@ -21,10 +21,10 @@ ms.author: magoedte
 
 Management solutions leverage services in Azure to provide additional insight into the operation of a particular application or service.  They typically collect information into Log Analytics and provide log searches and views to analyze collected data.  They may also leverage other services such as Azure Automation to perform actions related to the application or service.
 
-You can add management solutions to your Azure subscription for applications and services that you use.  They are typically available at no cost but will collect data that could invoke usage charges.  In addition to solutions provided by Microsoft, partners and customers can create management solutions to be used in their own environment or made available to customers through the community.
+You can add management solutions to your Azure subscription for applications and services that you use.  They are typically available at no cost but collect data that could invoke usage charges.  In addition to solutions provided by Microsoft, partners and customers can create management solutions to be used in their own environment or made available to customers through the community.
 
 ## List management solutions 
-There are two ways to list installed management solutions.  You can either view all the solutions in your subscription or the just the solutions installed in a single Log Analytics workspace.
+There are two ways to list installed management solutions.  You can either view all the solutions in your subscription or just the solutions installed in a single Log Analytics workspace.
 
 ### List all management solutions in your subscription
 
@@ -47,11 +47,11 @@ There are two ways to list installed management solutions.  You can either view 
 
 
 ## View a solution
-Once installed, the most common method for using a solution is from its view on the **Overview** page for the Log Analytics workspace.  The **Overview** page will display a tile for each solution installed in the workspace.  Click on the tile for the solution to open its view which will include more detailed analysis of the data it's collected.
+Once installed, the most common method for using a solution is from its view on the **Overview** page for the Log Analytics workspace.  The **Overview** page displays a tile for each solution installed in the workspace.  Click on the tile for the solution to open its view which includes more detailed analysis of the data it's collected.
 
-Management solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log searches included in the solution will be included with **Saved Searches** in the workspace.  You can use those searches when performing ad hoc analysis in Log Analytics.
+Management solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log searches included in the solution are included with **Saved Searches** in the workspace.  You can use those searches when performing ad hoc analysis in Log Analytics.
 
-The summary page for each solution will display any Log Analytics views included in the solution and provide different options for the solution itself and its workspace.  View the summary page for a solution by using one of the procedures above to list solutions and then click on the name of the solution.
+The summary page for each solution displays any Log Analytics views included in the solution and provide different options for the solution itself and its workspace.  View the summary page for a solution by using one of the procedures above to list solutions and then click on the name of the solution.
 
 
 
@@ -68,7 +68,7 @@ You can use any of the following methods to locate and start the installation of
 - In the Azure portal, select **Create a resource** > **Monitoring + Management** > **See all**.  To the right of **Management Solutions**, click **More**.  Locate the management solution you want and click **Create**.
 
 
-When you installation process starts, you're prompted to provide required configuration which will vary for each solution.  All of them will require you to select a Log Analytics workspace to install the solution.  You can either select an existing workspace or create a new one.
+When the installation process starts, you're prompted to provide required configuration which varies for each solution.  All of them require you to select a Log Analytics workspace to install the solution.  You can either select an existing workspace or create a new one.
 
 ## Install a solution from the community
 ### Azure Quickstart Templates
@@ -79,7 +79,7 @@ Members of the community can submit management solutions to Azure Quickstart Tem
 3. Search for a solution that you're interested in.
 4. Select the solution from the results to view its details.
 5. Click the **Deploy to Azure** button.
-6. You will be prompted to provide information such as the resource group and location in addition to values for any parameters in the solution.
+6. You're prompted to provide information such as the resource group and location in addition to values for any parameters in the solution.
 7. Click **Purchase** to install the solution.
 
 
@@ -88,13 +88,13 @@ All management solutions require a [Log Analytics workspace](../log-analytics/lo
 
 * One installation of a solution can only use one Log Analytics workspace and one Automation account.  You can install the solution separately into multiple workspaces.
 * If a solution requires an Automation account, then the Log Analytics workspace and Automation account must be linked to one another. A Log Analytics workspace may only be linked to one Automation account, and an Automation account may only be linked to one Log Analytics workspace.
-* To be linked, the Log Analytics workspace and Automation account must be in the same resource group and region.  The exception is a workspace in East US region and and Automation account in East US 2.
+* To be linked, the Log Analytics workspace and Automation account must be in the same resource group and region.  The exception is a workspace in East US region and Automation account in East US 2.
 
 ### Creating a link between a Log Analytics workspace and Automation account
 How you specify the Log Analytics workspace and Automation account depends on the installation method for your solution.
 
 * When you install a solution through the Azure Marketplace, you are prompted for a workspace and Automation account, and the link between them is created for you.  
-* For solutions outside of the Azure Marketplace, you must link the Log Analytics workspace and Automation account before installing the solution.  You can do this by selecting any solution in the Azure Marketplace and selecting the Log Analytics workspace and Automation account.  You don't have to actually install the solution because the link will be created as soon as the Log Analytics workspace and Automation account are selected.  Once the link is created, then you can use that Log Analytics workspace and Automation account for any solution.
+* For solutions outside of the Azure Marketplace, you must link the Log Analytics workspace and Automation account before installing the solution.  You can do this by selecting any solution in the Azure Marketplace and selecting the Log Analytics workspace and Automation account.  You don't have to actually install the solution because the link is created as soon as the Log Analytics workspace and Automation account are selected.  Once the link is created, then you can use that Log Analytics workspace and Automation account for any solution.
 
 ### Verifying the link between a Log Analytics workspace and Automation account
 You can verify the link between a Log Analytics workspace and an Automation account using the following procedure.
