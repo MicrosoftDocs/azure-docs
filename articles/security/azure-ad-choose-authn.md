@@ -1,5 +1,5 @@
 ---
-title: Choosing the right authentication method for your Azure AD hybrid identity solution | Microsoft Docs
+title: Choose the right authentication method for your Azure AD hybrid identity solution | Microsoft Docs
 description: This guide is intended for helping CEOs, CIOs, CISOs, Chief Identity Architects, Enterprise Architects and Security and IT decision makers responsible for choosing an authentication method for their Azure AD hybrid identity solution in medium to large organizations. 
 services: active-directory 
 keywords: 
@@ -44,7 +44,8 @@ Azure AD supports the following authentication methods for hybrid identity solut
 
 * **Password Hash Sync (PHS)** – The simplest way to enable authentication for on-premises directory objects in Azure AD. Password Hash Sync enables users to use the same username and password that they use on-premises without having to deploy any additional infrastructure. Some premium features of Azure AD, such as Identity Protection, requires Password Hash Sync regardless of which authentication method is selected.
 
-> [!NOTE] Passwords are never stored in clear text or encrypted with a reversible algorithm in Azure AD. For more information on the actual process of Password Hash Sync, see [Implement password hash synchronization with Azure AD Connect sync](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization). 
+> [!NOTE] 
+> Passwords are never stored in clear text or encrypted with a reversible algorithm in Azure AD. For more information on the actual process of Password Hash Sync, see [Implement password hash synchronization with Azure AD Connect sync](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization). 
 
 * **Pass-through Authentication (PTA)** – Provides a simple password validation for Azure AD authentication services using a software agent running on one or more on-premises servers to validate the users directly with your on-premises Active Directory ensuring the password validation doesn't happen in the cloud. Companies with a regulatory requirement that prevents them from having their hashed passwords in the cloud and therefore can’t use Password Hash Sync would use this authentication method. For more information on the actual pass-through authentication process, see [User sign-in with Azure Active Directory Pass-through Authentication](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
 
@@ -70,7 +71,8 @@ The following section will help you decide which authentication method is right 
 
 * **Considerations:** Password Hash Sync does not immediately enforce changes in on-premises account states currently. In this situation, a user will have access to cloud apps until the user account state is synchronized to the Azure AD. If organizations want to overcome this limitation, it is recommended a new synchronization cycle is activated after administrators do bulk updates to on-premises user account states, such as disabling accounts. Account locked-out is another user account state that is synced in the next cycle. 
 
-> [!NOTE] The password expired state is not currently synced to Azure AD with the Azure AD Connect. 
+> [!NOTE] 
+> The password expired state is not currently synced to Azure AD with the Azure AD Connect. 
 
 For more information, on implementing Password Hash Sync refer to the following [article](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization).
 
@@ -108,7 +110,8 @@ For more information, on implementing Pass-through authentication refer to the f
 
 For detailed information, on implementing federation services refer to [this article](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-federation-servers).
 
-> [!NOTE] When you deploy your Azure AD hybrid identity solution, you must ensure you implement one of the supported topologies of Azure AD Connect. Learn more about supported and unsupported configurations at [Topologies for Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-topologies).
+> [!NOTE] 
+> When you deploy your Azure AD hybrid identity solution, you must ensure you implement one of the supported topologies of Azure AD Connect. Learn more about supported and unsupported configurations at [Topologies for Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-topologies).
 
 ## Architecture diagrams
 
