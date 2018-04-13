@@ -18,13 +18,13 @@ This article is the first in a series of articles to help organizations implemen
 
 Choosing the correct authentication method is the first concern for organizations wanting to move their apps to the cloud and the decision should not be taken lightly for the following reasons:
 
-1.It is the first decision for an organization wanting to move to the cloud. 
+1. It is the first decision for an organization wanting to move to the cloud. 
 
-2.The authentication method is a critical component of an organization’s presence in the cloud, controlling access to all cloud data and resources.
+2. The authentication method is a critical component of an organization’s presence in the cloud, controlling access to all cloud data and resources.
 
-3.It is the foundation of all the other advanced security and user experience features in Azure AD.
+3. It is the foundation of all the other advanced security and user experience features in Azure AD.
 
-4.Difficulty in changing the authentication method once implemented.
+4. Difficulty in changing the authentication method once implemented.
 
 With identity as the new control plane of IT security, authentication is an organization’s access guard to the new cloud world. Organizations should ensure the identity control plane makes their security stronger than it ever was and keep their cloud apps safe from intruders.
 
@@ -40,15 +40,15 @@ To choose the authentication method, you need to consider the time, existing inf
 
 Azure AD supports the following authentication methods for your Azure AD hybrid identity solution:
 
-* Cloud Authentication – When you choose this authentication method Azure AD handles the authentication process for user’s sign-in. Coupled with seamless single sign-on (SSO), users can sign-in to cloud apps without having to re-enter their credentials. With cloud authentication you can choose from two options: 
+Cloud Authentication – When you choose this authentication method Azure AD handles the authentication process for user’s sign-in. Coupled with seamless single sign-on (SSO), users can sign-in to cloud apps without having to re-enter their credentials. With cloud authentication you can choose from two options: 
 
-	* Password Hash Sync (PHS) – The simplest way to enable authentication for on-premises directory objects in Azure AD. Password Hash Sync enables users to use the same username and password that they use on-premises without having to deploy any additional infrastructure. Some premium features of Azure AD, such as Identity Protection, requires Password Hash Sync regardless of which authentication method is selected.
+* Password Hash Sync (PHS) – The simplest way to enable authentication for on-premises directory objects in Azure AD. Password Hash Sync enables users to use the same username and password that they use on-premises without having to deploy any additional infrastructure. Some premium features of Azure AD, such as Identity Protection, requires Password Hash Sync regardless of which authentication method is selected.
 
 > [!NOTE] Passwords are never stored in clear text or encrypted with a reversible algorithm in Azure AD. For more information on the actual process of Password Hash Sync, see [Implement password hash synchronization with Azure AD Connect sync](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization). 
 
-	* Pass-through Authentication (PTA) – Provides a simple password validation for Azure AD authentication services using a software agent running on one or more on-premises servers to validate the users directly with your on-premises Active Directory to ensure the password validation does not happen in the cloud. Companies with a regulatory requirement that prevents them from having their hashed passwords in the cloud and therefore can’t use Password Hash Sync would use this authentication method. For more information on the actual pass-through authentication process, see [User sign-in with Azure Active Directory Pass-through Authentication](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
+* Pass-through Authentication (PTA) – Provides a simple password validation for Azure AD authentication services using a software agent running on one or more on-premises servers to validate the users directly with your on-premises Active Directory to ensure the password validation does not happen in the cloud. Companies with a regulatory requirement that prevents them from having their hashed passwords in the cloud and therefore can’t use Password Hash Sync would use this authentication method. For more information on the actual pass-through authentication process, see [User sign-in with Azure Active Directory Pass-through Authentication](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
 
-* Federated authentication – When you choose this authentication method Azure AD hands off the authentication process to a separate trusted authentication system, for example, an on-premises Active Directory Federation Services (ADFS) to validate the user’s password or sign-in. The authentication system can provide additional authentication requirements, such as smartcard-based authentication or a third party multi-factor authentication. For more information, see [Deploying Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide).
+Federated authentication – When you choose this authentication method Azure AD hands off the authentication process to a separate trusted authentication system, for example, an on-premises Active Directory Federation Services (ADFS) to validate the user’s password or sign-in. The authentication system can provide additional authentication requirements, such as smartcard-based authentication or a third party multi-factor authentication. For more information, see [Deploying Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide).
 
 The section above outlines the various authentication methods available in Azure AD. The next section will help you decide which authentication method is right for you using a decision tree diagram to determine whether to deploy cloud or federated authentication for your Azure AD hybrid identity solution.
 
