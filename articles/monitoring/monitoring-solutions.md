@@ -35,6 +35,8 @@ There are two ways to list installed management solutions.  You can either view 
 1. Use the dropdown boxes at the top of the screen to filter by subscription or resource group.
 
 
+![List all solutions](media/monitoring-solutions/list-solutions-all.png)
+
 ### List management solutions in a workspace
 
 1. Log in to the Azure portal.
@@ -44,7 +46,7 @@ There are two ways to list installed management solutions.  You can either view 
 1. In the left pane, select **Solutions**.
 1. Solutions installed in the current workspace are listed.
 
-
+![List all solutions](media/monitoring-solutions/list-solutions-workspace.png)
 
 ## View a solution
 Once installed, the most common method for using a solution is from its view on the **Overview** page for the Log Analytics workspace.  The **Overview** page displays a tile for each solution installed in the workspace.  Click on the tile for the solution to open its view which includes more detailed analysis of the data it's collected.
@@ -53,12 +55,12 @@ Management solutions can contain multiple types of Azure resources, and you can 
 
 The summary page for each solution displays any Log Analytics views included in the solution and provide different options for the solution itself and its workspace.  View the summary page for a solution by using one of the procedures above to list solutions and then click on the name of the solution.
 
-
+![Solution properties](media/monitoring-solutions/solution-properties.png)
 
 ## View available management solutions
 You can browse and install management solutions available from Microsoft and partners in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).  Perform a [search for *Management Solutions*](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions) to filter for management solutions.  Click on any item for more detail.
 
-
+![Marketplace](media/monitoring-solutions/marketplace.png)
 
 ## Install a management solution from the Azure Marketplace
 You can use any of the following methods to locate and start the installation of a management solution.
