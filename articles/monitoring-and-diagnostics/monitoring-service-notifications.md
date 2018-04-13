@@ -38,22 +38,49 @@ channels | One of the following values: **Admin** or **Operation**.
 correlationId | Usually a GUID in the string format. Events that belong to the same action usually share the same correlationId.
 eventDataId | The unique identifier of an event.
 eventName | The title of an event.
-level | The level of an event
- | Action Required (properties.incidentType == ActionRequired)
- | **Informational** – Administrator action required to prevent impact to existing services
- | Maintenance (properties.incidentType == Maintenance)
- | **Warning** - emergency maintenance 
- | **Informational** – standard planned maintenance
- | Information (properties.incidentType == Information)
- | **Informational** – Administrator may be required to prevent impact to existing services
- | Security (properties.incidentType == Security)
- | **Error** – Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.
- | **Warning** – Issues accessing specific services and/or specific regions are impacting a subset of customers.
- | **Informational** – Issues impacting management operations and/or latency, not impacting service availability.
- | Service Issues (properties.incidentType == Incident)
- | **Error** – Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.
- | **Warning** – Issues accessing specific services and/or specific regions are impacting a subset of customers.
- | **Informational** – Issues impacting management operations and/or latency, not impacting service availability.
+level | The level of an event</br>
+  <ul>
+    <li><b>Action Required</b> (properties.incidentType == ActionRequired)
+        <dl>
+            <dt>Informational</dt>
+            <dd>Administrator action required to prevent impact to existing services</dd>
+        </dl>
+    </li>
+    <li><b>Maintenance</b> (properties.incidentType == Maintenance)
+        <dl>
+            <dt>Warning</dt>
+            <dd>emergency maintenance<dd>
+            <dt>Informational</dt>
+            <dd>standard planned maintenance</dd>
+        </dl>
+    </li>
+    <li><b>Information</b> (properties.incidentType == Information)
+        <dl>
+            <dt>Informational</dt>
+            <dd>Administrator may be required to prevent impact to existing services</dd>
+        </dl>
+    </li>
+    <li><b>Security</b> (properties.incidentType == Security)
+        <dl>
+            <dt>Error</dt>
+            <dd>Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.</dd>
+            <dt>Warning</dt>
+            <dd>Issues accessing specific services and/or specific regions are impacting a subset of customers.</dd>
+            <dt>Informational</dt>
+            <dd>Issues impacting management operations and/or latency, not impacting service availability.</dd>
+        </dl>
+    </li>
+    <li><b>Service Issues</b> (properties.incidentType == Incident)
+        <dl>
+            <dt>Error</dt>
+            <dd>Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.</dd>
+            <dt>Warning</dt>
+            <dd>Issues accessing specific services and/or specific regions are impacting a subset of customers.</dd>
+            <dt>Informational</dt>
+            <dd>Issues impacting management operations and/or latency, not impacting service availability.</dd>
+        </dl>
+    </li>
+  </ul>
 resourceProviderName | The name of the resource provider for the impacted resource.
 resourceType| The type of resource of the impacted resource.
 subStatus | Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a substatus. For example: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), and Gateway Timeout (HTTP Status Code: 504).
