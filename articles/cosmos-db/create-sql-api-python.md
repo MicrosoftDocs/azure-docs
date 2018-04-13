@@ -44,21 +44,41 @@ This quick start demonstrates how to create an Azure Cosmos DB [SQL API](sql-api
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
+## Add sample data
+
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+
+## Query your data
+
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
+
 ## Clone the sample application
 
 Now let's clone a SQL API app from github, set the connection string, and run it. You see how easy it is to work with data programmatically. 
 
-1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
+1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
-2. Run the following command to clone the sample repository. 
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-python-getting-started.git
     ```  
+    
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the DocumentDBGetStarted.py file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
+The following snippets are all taken from the DocumentDBGetStarted.py file.
 
 * The DocumentClient is initialized.
 
@@ -122,19 +142,21 @@ Let's make a quick review of what's happening in the app. Open the DocumentDBGet
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `DocumentDBGetStarted.py` file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the **URI** and **Primary Key** into the DocumentDBGetStarted.py file in the next step.
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
 
 2. Open the C:\git-samples\azure-cosmos-db-documentdb-python-getting-startedDocumentDBGetStarted.py file in Visual Studio code. 
 
-3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in `DocumentDBGetStarted.py`. 
+3. Copy your **URI** value from the portal (using the copy button) and make it the value of the **endpoint** key in DocumentDBGetStarted.py. 
 
     `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the `config.MASTERKEY` in `DocumentDBGetStarted.py`. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+4. Then copy your **PRIMARY KEY** value from the portal and make it the value of the **config.MASTERKEY** in DocumentDBGetStarted.py. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
     `'MASTERKEY': 'FILLME',`
+
+5. Save the DocumentDBGetStarted.py file.
     
 ## Run the app
 1. In Visual Studio Code, select **View** > **Integrated Terminal (Ctrl+` with the backtick character)**, to open the VS Code integrated terminal.
@@ -169,10 +191,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
