@@ -1,7 +1,7 @@
 ---
 title: Add example utterances in LUIS apps | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to add utterances in Language Understanding (LUIS) applications.
+description: Learn how to add utterances in Language Understanding Intelligent Services (LUIS) applications.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
@@ -15,7 +15,7 @@ ms.author: v-geberr;
 
 # Add example utterances in LUIS apps
 
-Utterances are examples of user questions or commands. To teach Language Understanding (LUIS) apps, you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
+Utterances are examples of user questions or commands. To teach Language Understanding Intelligent Services (LUIS) apps, you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
 
 Generally, you add an utterance first, and then you create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](Add-entities.md).
 
@@ -126,7 +126,7 @@ select **business**, and then create a new entity named "Seat".
 
     ![Screenshot of Intents details page, with Create new entity highlighted](./media/add-example-utterances/list-seat-type-entity-create-new-entity.png)
 
-2. In the **What type of entity do you want to create** dialog box, add `Bus.`, `bus`, and `biz`.
+2. In the **What type of entity do you want to create?** dialog box, add `Bus.`, `bus`, and `biz`.
 
     ![Screenshot of What type of entity do you want to create dialog box](./media/add-example-utterances/list-seat-type-entity.png)
 
@@ -200,7 +200,7 @@ Type the word or phrase in the search box at the top right corner of the utteran
 To cancel the search and restore your full list of utterances, delete the search text you've typed.
 
 ## Filter by intent prediction discrepancy errors
-An utterance in an intent may have a discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the score. To filter the utterance list to only utterances with an intent prediction discrepancy, select **Errors**. 
+An utterance in an intent might have a discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the score. To filter the utterance list to only utterances with an intent prediction discrepancy, select **Errors**. 
 
 ![Screenshot of BookFlight Intent page, with prediction discrepancy score highlighted](./media/add-example-utterances/score-discrepancy.png) 
 
@@ -210,7 +210,7 @@ Use the **Entity** drop-down list to filter the utterances by entity. The new fi
 ![Screenshot of Intents page, with entity type filter highlighted](./media/add-example-utterances/entity-type-filter.png) 
 
 ## Switch to token view
-Toggle **Tokens View** to view the tokens instead of the entity type names. On the keyboard, you can also use Control + e to toggle the view. 
+Toggle **Tokens View** to view the tokens instead of the entity type names. On the keyboard, you can also use Control+E to toggle the view. 
 
 ![Screenshot of BookFlight intent, with Token View highlighted](./media/add-example-utterances/tokens-view.png)
 
