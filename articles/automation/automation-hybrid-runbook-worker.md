@@ -38,7 +38,7 @@ You can use the following criteria to determine whether Azure Automation with Hy
 
 ## Installing a Hybrid Runbook Worker
 
-The process to install a Hybrid Runbook worker is different depending on the OS The following table shows the different methods you can use to install a Hybrid Runbook Worker. To install and configure a Windows Hybrid Runbook Worker, there are two methods available. The recommended method is using an Automation runbook to completely automate the process required to configure a Windows computer. The second method is following a step-by-step procedure to manually install and configure the role.
+The process to install a Hybrid Runbook worker is different depending on the OS. The following table shows the different methods you can use to install a Hybrid Runbook Worker. To install and configure a Windows Hybrid Runbook Worker, there are two methods available. The recommended method is using an Automation runbook to completely automate the process required to configure a Windows computer. The second method is following a step-by-step procedure to manually install and configure the role.
 
 |OS  |Deployment Types  |
 |---------|---------|

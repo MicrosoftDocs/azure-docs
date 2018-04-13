@@ -108,8 +108,7 @@ AUTHOR: Azure Automation Team
 LASTEDIT: 2016.10.13
 #>
 
-[OutputType([string])]
-
+goto-mhprlist
 # Generate the password used for this certificate
 Add-Type -AssemblyName System.Web -ErrorAction SilentlyContinue | Out-Null
 $Password = [System.Web.Security.Membership]::GeneratePassword(25, 10)

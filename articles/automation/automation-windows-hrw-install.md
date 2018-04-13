@@ -25,10 +25,18 @@ When you start a runbook on a Hybrid Runbook Worker, you specify the group that 
 
 ## Installing the Windows Hybrid Runbook Worker
 
-To install and configure a Windows Hybrid Runbook Worker, there are two methods available.  The recommended method is using an Automation runbook to completely automate the process required to configure a Windows computer.  The second method is following a step-by-step procedure to manually install and configure the role.
+To install and configure a Windows Hybrid Runbook Worker, there are two methods available. The recommended method is using an Automation runbook to completely automate the process required to configure a Windows computer.  The second method is following a step-by-step procedure to manually install and configure the role.
 
 > [!NOTE]
 > To manage the configuration of your servers supporting the Hybrid Runbook Worker role with Desired State Configuration (DSC), you need to add them as DSC nodes.
+
+The following are the minimum requirements for a Windows Hybrid Runbook Worker.
+
+* Windows Server 2012 or later.
+* Windows PowerShell 4.0 or later. For increased reliability, we recommend Windows PowerShell 5.0. You can [download the new version](https://www.microsoft.com/download/details.aspx?id=50395) from the Microsoft Download Center.
+* .NET Framework 4.6.2 or later.
+* A minimum of two cores.
+* A minimum of 4 GB of RAM.
 
 For more information about onboarding them for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).
 If you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer connected to your Log Analytics workspace is  automatically configured as a Hybrid Runbook Worker to support runbooks included in this solution.  However, it is not registered with any Hybrid Worker groups already defined in your Automation account.  The computer can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
