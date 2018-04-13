@@ -9,7 +9,6 @@ editor: cgronlun
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
