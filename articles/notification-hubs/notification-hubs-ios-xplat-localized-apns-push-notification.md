@@ -28,7 +28,7 @@ This tutorial shows you how to use the [templates](notification-hubs-templates-c
 There are two parts to this scenario:
 
 * iOS app allows client devices to specify a language, and to subscribe to different breaking news categories;
-* the back-end broadcasts the notifications, using the **tag** and **template** features of Azure Notification Hubs.
+* The back-end broadcasts the notifications, using the **tag** and **template** features of Azure Notification Hubs.
 
 In this tutorial, you take the following steps:
 
@@ -172,7 +172,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
         }];
     ```
 
-## (optional) Send localized template notifications from .NET console app.
+## (optional) Send localized template notifications from .NET console app
 [!INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
 ## (optional) Send localized template notifications from the device

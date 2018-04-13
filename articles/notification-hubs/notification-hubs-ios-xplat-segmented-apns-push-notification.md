@@ -121,7 +121,6 @@ The first step is to add the UI elements to your existing storyboard that enable
         }
     ```
 
-
     This class uses local storage to store and retrieve the categories of news that this device receives. Also, it contains a method to register for these categories using a [Template](notification-hubs-templates-cross-platform-push-messages.md) registration.
 
 1. In the AppDelegate.h file, add an import statement for Notifications.h and add a property for an instance of the Notifications class:
@@ -182,7 +181,7 @@ The first step is to add the UI elements to your existing storyboard that enable
        NSLog(@"%@", userInfo);
        [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
      }
-    ```obj-c
+    ```
    
    This method handles notifications received when the app is running by displaying a simple **UIAlert**.
 2. In ViewController.m, add an import statement for AppDelegate.h and copy the following code into the XCode-generated **subscribe** method. This code updates the notification registration to use the new category tags the user has chosen in the user interface.
@@ -208,7 +207,8 @@ The first step is to add the UI elements to your existing storyboard that enable
                NSLog(@"Error subscribing: %@", error);
            }
        }];
-       ```
+    ```
+
    This method creates an **NSMutableArray** of categories and uses the **Notifications** class to store the list in the local storage and registers the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
 3. In ViewController.m, add the following code in the **viewDidLoad** method to set the user interface based on the previously saved categories.
 

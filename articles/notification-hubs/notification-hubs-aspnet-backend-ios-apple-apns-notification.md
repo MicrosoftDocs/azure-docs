@@ -290,11 +290,8 @@ This tutorial assumes that you have created and configured your notification hub
         @end
     ```
 
-> [!NOTE]
-> The following snippet is not a secure authentication scheme, you should substitute the implementation of the **createAndSetAuthenticationHeaderWithUsername:AndPassword:** with your specific authentication mechanism that generates an authentication token to be consumed by the register client class, e.g. OAuth, Active Directory.
-> 
-> 
-
+    > [!NOTE]
+    > The following snippet is not a secure authentication scheme, you should substitute the implementation of the **createAndSetAuthenticationHeaderWithUsername:AndPassword:** with your specific authentication mechanism that generates an authentication token to be consumed by the register client class, e.g. OAuth, Active Directory.
 1. Then in the `@implementation` section of `ViewController.m`, add the following code, which adds the implementation for setting the device token and authentication header.
    
     ```obj-c
@@ -407,7 +404,6 @@ This tutorial assumes that you have created and configured your notification hub
             [self SendToEnabledPlatforms];
         }
 
-
         -(void)SendToEnabledPlatforms
         {
             NSString* json = [NSString stringWithFormat:@"\"%@\"",self.notificationMessage.text];
@@ -424,7 +420,6 @@ This tutorial assumes that you have created and configured your notification hub
                 [self SendNotificationASPNETBackend:@"apns" UsernameTag:self.RecipientField.text Message:json];
         }
     ```
-
 
 1. In function **ViewDidLoad**, add the following to instantiate the RegisterClient instance and set the delegate for your text fields.
    
@@ -456,7 +451,7 @@ This tutorial assumes that you have created and configured your notification hub
        }
     ```
 
-## Test the Application
+## Test the application
 1. In XCode, run the app on a physical iOS device (push notifications do not work in the simulator).
 2. In the iOS app UI, enter same value for both username and password. Then click **Log In**.
    
