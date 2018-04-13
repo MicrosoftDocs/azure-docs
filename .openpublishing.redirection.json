@@ -18041,13 +18041,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "azure/active-directory/develop/active-directory-devquickstarts-windowsphone.md",
-            "redirect_url": "articles/active-directory/develop",
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-windowsphone.md",
+            "redirect_url": "/azure/active-directory/develop",
             "redirect_document_id": false
         },
         {
-            "source_path": "azure/active-directory/develop/active-directory-devquickstarts-windowsstore.md",
-            "redirect_url": "articles/active-directory/develop",
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-windowsstore.md",
+            "redirect_url": "/azure/active-directory/develop",
             "redirect_document_id": false
         }
 
