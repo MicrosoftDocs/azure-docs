@@ -79,20 +79,6 @@ The following steps use Homebrew to install the Core Tools on macOS.
     brew install azure-functions-core-tools 
     ```
 
-#### <a name="mac-npm"></a>MacOS with npm
-
-The following steps use npm to install the Core Tools on macOS.
-
-1. Install [.NET Core 2.0 for macOS](https://www.microsoft.com/net/download/macos).
- 
-2. Install [Node.js], which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
-
-3. Install the Core Tools package:
-
-  ```bash
-  sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
-  ```
-
 #### <a name="linux"></a> Linux (Ubuntu/Debian) with APT
 
 The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
