@@ -153,7 +153,7 @@ If the user runs a command that would create a Windows dialog box, such as `Conn
 Azure Cloud Shell takes your personal data seriously, the data captured and stored by the Azure Cloud Shell service are used to provide defaults for your experience such as your most recently used shell, preferred font size, preferred font type, and file share details that back clouddrive. Should you wish to export or delete this data, we have included the following instructions.
 
 ### Export
-In order to export the user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands.
+In order to **export** the user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands.
 
 1. Launch Bash in Cloud Shell
 2. Run the following commands:
@@ -163,7 +163,9 @@ user@Azure:~$ curl https://management.azure.com/providers/Microsoft.Portal/users
 ```
 
 ### Delete
-In order to delete your user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands.
+In order to **delete** your user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands. The next time you start Cloud Shell you will be asked to onboard a file share again. 
+
+The actual Azure Files share will not be deleted if you delete your user settings, go to Azure Files to complete that action.
 
 1. Launch Bash in Cloud Shell
 2. Run the following commands:
