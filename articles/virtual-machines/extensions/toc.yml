@@ -59,6 +59,8 @@
       href: dsc-template.md
   - name: Log Collector extension
     href: log-collector.md
+  - name: IaaS antimalware for Windows
+    href: iaas-antimalware-windows.md
   - name: Key Vault extension
     href: key-vault-windows.md
   - name: VM Snapshot extension
@@ -69,6 +71,8 @@
       href: vmsnapshot-windows.md
   - name: Third-party extensions
     items:
+    - name: Stackify Retrace
+      href: stackify-retrace-linux.md
     - name: Symantec
       href: symantec.md
     - name: Trend
