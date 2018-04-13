@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2018
+ms.date: 10/30/2017
 ms.author: terrylan
 
 ---
@@ -119,6 +119,8 @@ To select an existing Log Analytics workspace:
    >
 
    - Select **Cancel** to cancel the operation.
+
+      ![Reconfigure monitored VMs][6]
 
 ### What if the Microsoft Monitoring Agent was already installed as an extension on the VM?
 Security Center does not override existing connections to user workspaces. Security Center stores security data from the VM in the workspace already connected. Security Center updates the extension version to include the Azure resource ID of the VM to support Security Center usage.
@@ -243,3 +245,4 @@ To learn more about the Security Center platform migration, see
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
+[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png
