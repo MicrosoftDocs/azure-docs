@@ -1,8 +1,7 @@
 ---
 layout: LandingPage
-description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
 title: Azure Active Directory Documentation - Tutorials, API Reference | Microsoft Docs
-description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
+description: Azure Active Directory (Azure AD) is Microsoft's multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -12,10 +11,8 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 04/12/2018
+ms.date: 04/13/2018
 ms.author: carolz
-featureFlags:
-- clicktale
 ---
 
 # Azure Active Directory Documentation
@@ -196,6 +193,22 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <a href="/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview">Access reviews</a><br/>
                         <a href="/azure/active-directory/active-directory-tou">Terms of use</a><br/>
                         <a href="/azure/active-directory/active-directory-reporting-azure-portal">Reports</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Reference</h3>
+                        <p>
+                        <a href="/powershell/module/azurerm.resources#active_directory">PowerShell</a><br/>
+                        <a href="/dotnet/api/overview/azure/activedirectory">.NET</a><br/>
+                        <a href="/java/api/overview/azure/activedirectory">Java</a>
                         </p>
                     </div>
                 </div>
