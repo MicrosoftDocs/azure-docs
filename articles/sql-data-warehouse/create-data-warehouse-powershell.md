@@ -12,13 +12,14 @@ ms.author: elbutter
 ms.reviewer: jrj
 ---
 
-# Create a single Azure SQL database using PowerShell
+# Quickstart: Create and query an Azure SQL data warehouse with Azure PowerShell
 
-PowerShell is used to create and manage Azure resources from the command line or in scripts. This guide details using PowerShell to deploy an Azure SQL Data Warehouse in an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in an [Azure SQL logical server](../sql-database/sql-database-features.md).
+Quickly create and query an Azure SQL data warehouse using the Azure portal.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-This tutorial requires the Azure PowerShell module version 4.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+This tutorial requires Azure PowerShell module version 5.7.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version you have currently. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+
 
 ## Log in to Azure
 
@@ -27,6 +28,19 @@ Log in to your Azure subscription using the [Add-AzureRmAccount](/powershell/mod
 ```powershell
 Add-AzureRmAccount
 ```
+
+To see which subscription you are using, run [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+
+```powershell
+Get-AzureRmSubscription
+```
+
+If you need to use a different subscription than the default, run [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription).
+
+```powershell
+Select-AzureRmSubscription -SubscriptionName "MySubscription"
+```
+
 
 ## Create variables
 
@@ -58,7 +72,7 @@ New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## Create a logical server
 
-Create an [Azure SQL Database logical server](../sql-database/sql-database-features.md) using the [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create an [Azure SQL logical server](../sql-database/sql-database-features.md) using the [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
@@ -69,7 +83,7 @@ New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
 
 ## Configure a server firewall rule
 
-Create an [Azure SQL Database server-level firewall rule](../sql-database/sql-database-firewall-configure.md) using the [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
+Create an [Azure SQL server-level firewall rule](../sql-database/sql-database-firewall-configure.md) using the [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -92,6 +106,40 @@ New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -SampleName "AdventureWorksDW" `
     -RequestedServiceObjectiveName "DW400"
 ```
+
+
+## Create a data warehouse in the server with sample data
+
+This example creates a data warehouse using the previously defined variables.  It specifies the service objective as DW400, which is a lower-cost starting point for your data warehouse. It also loads the AdventureWorksDW sample data.  If you want to create a data warehouse without loading the sample data, you can omit that option.
+
+```Powershell
+New-AzureRmSqlDatabase `
+    -ResourceGroupName $resourcegroupname `
+    -ServerName $servername `
+    -DatabaseName $databasename `
+    -Edition "DataWarehouse" `
+    -RequestedServiceObjectiveName "DW400" `
+    -CollationName "SQL_Latin1_General_CP1_CI_AS" `
+    -MaxSizeBytes 10995116277760
+    -SampleName "AdventureWorksDW"
+```
+
+Required Parameters are:
+
+* **RequestedServiceObjectiveName**: The amount of [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) you are requesting. Increasing this amount increases compute cost. For a list of supported values, see [memory and concurrency limits](memory-and-concurrency-limits.md).
+* **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
+* **ServerName**: The name of the server that you are using for creation.
+* **ResourceGroupName**: Resource group you are using. To find available resource groups in your subscription use Get-AzureResource.
+* **Edition**: Must be "DataWarehouse" to create a SQL Data Warehouse.
+
+Optional Parameters are:
+
+- **CollationName**: The default collation if not specified is SQL_Latin1_General_CP1_CI_AS. Collation cannot be changed on a database.
+- **MaxSizeBytes**: The default max size of a database is 10 GB.
+- **SampleName**: Loads sample data into the data warehouse
+
+For more information on the parameter options, see [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
+
 
 ## Clean up resources
 
