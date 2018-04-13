@@ -44,7 +44,7 @@ The following limits apply only for networking resources managed through Azure R
 | Public IP addresses - static |(Standard) 20 |contact support |
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 
-* These default limits apply to only subscriptions that have not previously increased these limits through support
+* These default limits apply to subscriptions that have not previously increased these specific limits through support
 
 #### <a name="load-balancer"></a>Load Balancer limits
 
