@@ -31,7 +31,7 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 [Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local development computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. There are two versions of Azure Functions Core Tools:
 
 + [Version 1.x](#v1): supports version 1.x of the runtime. This version is only supported on Windows computers and is installed from an [npm package](https://docs.npmjs.com/getting-started/what-is-npm).
-+ [Version 2.x](#v2): supports version 2.x of the runtime. This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or [npm][npm package] for installation. 
++ [Version 2.x](#v2): supports version 2.x of the runtime. This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or npm for installation. 
 
 ### <a name="v1"></a>Version 1.x
 
@@ -52,7 +52,7 @@ Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .
 
 #### <a name="windows-npm"></a>Windows
 
-The following steps use npm to install Core Tools on Windows. 
+The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
 1. Install [.NET Core 2.0 for Windows](https://www.microsoft.com/net/download/windows).
 
@@ -66,7 +66,7 @@ The following steps use npm to install Core Tools on Windows.
 
 #### <a name="brew"></a>MacOS with Homebrew
 
-The following steps use Homebrew to install the Core Tools on macOS. You can also [use npm](#mac-npm).
+The following steps use Homebrew to install the Core Tools on macOS.
 
 1. Install [.NET Core 2.0 for macOS](https://www.microsoft.com/net/download/macos).
 
@@ -93,13 +93,9 @@ The following steps use npm to install the Core Tools on macOS.
   sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
   ```
 
-#### <a name="linux"></a> Linux distributions
+#### <a name="linux"></a> Linux (Ubuntu/Debian) with APT
 
-Different Linux distributions use different package managers. Core Tools can be installed by using [APT (Ubuntu/Debian)](#linux-apt), [yum (Red Hat/Fedora/CentOS)](#linux-yum), and [zypper (openSUSE)](#linux-zypper). You can also [use npm](#linux-npm). 
-
-##### <a name="linux-apt"></a>Ubuntu/Debian with APT
-
-The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution.
+The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
 1. Install [.NET Core 2.0 for Linux](https://www.microsoft.com/net/download/linux).
 
@@ -127,68 +123,6 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
   ```bash
   sudo apt-get install azure-functions-core-tools
-  ```
-
-##### <a name="linux-yum"></a>Red Hat/Fedora/CentOS with yum
-
-The following steps use [yum](http://yum.baseurl.org/) to install Core Tools on your 
-Fedora/CentOS/Red Hat Linux distribution. 
-
-1. Install [.NET Core 2.0 for Linux](https://www.microsoft.com/net/download/linux).
-
-1. Register the Microsoft product key as trusted:
-
-  ```bash
-  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-  ```
-
-2.  Set up the package feed:
-
-  ```bash
-   sudo sh -c 'echo -e "[packages-microsoft-com-prod]\nname=packages-microsoft-com-prod \nbaseurl=https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/dotnetdev.repo'
-  ```
-3. Install the Core Tools package:
-
-  ```bash
-  sudo yum install azure-functions-core-tools
-  ```
-
-##### <a name="linux-zypper"></a>openSUSE with zypper
-
-The following steps use [zypper](https://en.opensuse.org/Portal:Zypper) to install Core Tools on your 
-openSUSE Linux distribution. 
-
-1. Install [.NET Core 2.0 for Linux](https://www.microsoft.com/net/download/linux).
-
-1. Register the Microsoft product key as trusted:
-
-  ```bash
-  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-  ```
-
-2.  Set up the package feed:
-
-  ```bash
-   sudo sh -c 'echo -e "[packages-microsoft-com-prod]\nname=packages-microsoft-com-prod \nbaseurl=https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/zypp/repos.d/dotnetdev.repo'
-  ```
-3. Install the Core Tools package:
-
-  ```bash
-  sudo zypper install azure-functions-core-tools
-  ```
-
-##### <a name="linux-npm"></a>Linux with npm
-
-The following steps use npm to install Core Tools on your Linux distribution:
-
-1. Install [.NET Core 2.0 for Linux](https://www.microsoft.com/net/download/linux).
- 
-2. Install [Node.js](https://docs.npmjs.com/getting-started/installing-node#linux), which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
-
-3. Install the Core Tools package:
-  
-  ```bash
-  sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
   ```
 
 ## Run Azure Functions Core Tools
