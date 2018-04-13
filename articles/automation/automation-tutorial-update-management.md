@@ -24,6 +24,7 @@ In this tutorial, you learn how to:
 > * View an update assessment
 > * Schedule an update deployment
 > * View the results of a deployment
+> * Configure alerting
 
 ## Prerequisites
 
@@ -143,6 +144,22 @@ Click **All logs** to see all log entries that the deployment created.
 Click the **Output** tile to see job stream of the runbook responsible for managing the update deployment on the target VM.
 
 Click **Errors** to see detailed information about any errors from the deployment.
+
+## Configure alerting
+
+In the Azure portal, navigate to **Monitor**. Click **+ New Alert Rule**, this opens the **Create rule** page.  Under **1. Define alert condition** click **+  Select target**. Under **Filter by resource type** select **Log Analytics**.  Choose your Log Analytics workspace and click **Done**.
+
+![create alert](./media/automation-tutorial-update-management/create-alert.png)
+
+Click **+ Add criteria** to open the **Configure signal logic** page. Enter the following query in the **Search query** text box.
+
+
+```loganalytics
+UpdateRunProgress
+| where InstallationStatus == 'Succeeded'
+| where TimeGenerated > now(-10m)
+| summarize Systems=count() by UpdateRunName
+```
 
 ## Next Steps
 
