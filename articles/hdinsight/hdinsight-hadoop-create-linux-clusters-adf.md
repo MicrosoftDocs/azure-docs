@@ -225,12 +225,11 @@ With the storage account, the input data, and the HiveQL script prepared, you ar
  
 4. Once the data factory is created, the caption of the tile is changed to the resource group name you specified. The tile also lists the data factory that is created within the resource group. 
    
-    ![Azure Data Factory resource group](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure Data Factory resource group")
+    ![Azure Data Factory resource group](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-resource-group.png "Azure Data Factory resource group")
 
-4. Wait until the **Resource group** blade for your resource group opens. You can also click the tile titled as your resource group name to open the resource group blade.
-1. Click the tile to open the resource group if the resource group blade is not already open. Now you shall see one more data factory resource listed in addition to the storage account resource.
-2. Click the name of your data factory (value you specified for the **Data Factory Name** parameter).
-3. In the Data Factory blade, click the **Diagram** tile. The diagram shows one activity with an input dataset, and an output dataset:
+5. Click the name of your data factory.
+
+6. In the Data Factory blade, click the **Diagram** tile. The diagram shows one activity with an input dataset, and an output dataset:
 
     ![Azure Data Factory HDInsight on-demand Hive activity pipeline diagram](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
 
