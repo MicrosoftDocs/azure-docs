@@ -116,7 +116,7 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
         -   In the Key Vault task, choose the subscription in which you created the key vault, provide credentials if necessary, and then choose the key vault.
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Add an Azure Resource Manager Deployment task:
 
