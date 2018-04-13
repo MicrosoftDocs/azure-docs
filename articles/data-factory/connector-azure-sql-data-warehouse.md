@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/13/2018
 ms.author: jingwang
 
 ---
@@ -128,7 +128,7 @@ To use service principal based AAD application token authentication, follow thes
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             },
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
