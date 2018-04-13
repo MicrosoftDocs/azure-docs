@@ -21,7 +21,7 @@ ms.author: bwren
 
 The following tables show data collection methods and other details about how data is collected for Log Analytics management solutions and data sources. 
 
-The Log Analytics Windows agent and System Center Operations Manager agent are essentially the same. The Windows agent includes additional functionality to allow it to connect to the Log Analytics workspace and route through a proxy. If you use an Operations Manager agent, it must be targeted as an OMS agent to communicate with Log Analytics. Operations Manager agents in this table are OMS agents that are connected to Operations Manager. See [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md) for information about connecting your existing Operations Manager environment to Log Analytics.
+The Log Analytics Windows agent and System Center Operations Manager agent are essentially the same. The Windows agent includes additional functionality to allow it to connect to the Log Analytics workspace and route through a proxy. If you use an Operations Manager agent, it must be targeted as an OMS agent to communicate with Log Analytics. Operations Manager agents in this table are OMS agents that are connected to Operations Manager. See [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md) for information about connecting your existing Operations Manager environment to Log Analytics.
 
 > [!NOTE]
 > The type of agent that you use determines how data is sent to Log Analytics, with the following conditions:
@@ -57,11 +57,11 @@ The Log Analytics Windows agent and System Center Operations Manager agent are e
 | [Network Performance Monitor](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |   |   |   | TCP handshakes every 5 seconds, data sent every 3 minutes |
 | [Office 365 Analytics (Preview)](../operations-management-suite/oms-solution-office-365.md) |Windows |  |  |  |  |  |on notification |
 | [Security and Audit](../operations-management-suite/oms-security-getting-started.md)<sup>1</sup> | Windows and Linux | partial | partial | partial |   | partial | various |
-| [Service Fabric Analytics (Preview)](log-analytics-service-fabric.md) |Windows |  |  |&#8226; |  |  |5 minutes |
+| [Service Fabric Analytics (Preview)](../log-analytics/log-analytics-service-fabric.md) |Windows |  |  |&#8226; |  |  |5 minutes |
 | [Service Map](../operations-management-suite/operations-management-suite-service-map.md) | Windows and Linux | &#8226; | &#8226; |   |   |   | 15 seconds |
 | [SQL Assessment](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; |  |  |&#8226; |7 days |
 | [SurfaceHub](../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; |  |  |  |  |on arrival |
-| [System Center Operations Manager Assessment (Preview)](log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |   |   | &#8226; | seven days |
+| [System Center Operations Manager Assessment (Preview)](../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |   |   | &#8226; | seven days |
 | [Update Management](../operations-management-suite/oms-solution-update-management.md) | Windows |&#8226; |&#8226; |  |  |&#8226; |at least 2 times per day and 15 minutes after installing an update |
 | [Upgrade Readiness](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |   |   |   |   | 2 days |
 | [VMware Monitoring (Preview)](../log-analytics/log-analytics-vmware.md) | Linux | &#8226; |   |   |   |   | 3 minutes |
@@ -78,4 +78,4 @@ The Log Analytics Windows agent and System Center Operations Manager agent are e
 
 
 ## Next steps
-* [Search logs](log-analytics-log-searches.md) to view detailed information gathered by management solutions.
+* [Search logs](../log-analytics/log-analytics-log-searches.md) to view detailed information gathered by management solutions.

@@ -118,4 +118,4 @@ You can verify the link between a Log Analytics workspace and an Automation acco
 
 
 ## Next steps
-* [Search logs](.../log-analytics/log-analytics-log-searches.md) to view detailed information gathered by management solutions.
+* [Search logs](../log-analytics/log-analytics-log-searches.md) to view detailed information gathered by management solutions.
