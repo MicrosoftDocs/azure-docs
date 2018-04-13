@@ -51,6 +51,8 @@ There are two ways to list installed management solutions.  You can either view 
 ## View a solution
 Once installed, the most common method for using a solution is from its view on the **Overview** page for the Log Analytics workspace.  The **Overview** page displays a tile for each solution installed in the workspace.  Click on the tile for the solution to open its view which includes more detailed analysis of the data it's collected.
 
+![Overview](media/monitoring-solutions/overview.png)
+
 Management solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log searches included in the solution are included with **Saved Searches** in the workspace.  You can use those searches when performing ad hoc analysis in Log Analytics.
 
 The summary page for each solution displays any Log Analytics views included in the solution and provide different options for the solution itself and its workspace.  View the summary page for a solution by using one of the procedures above to list solutions and then click on the name of the solution.
@@ -111,10 +113,9 @@ You can verify the link between a Log Analytics workspace and an Automation acco
 1. In the [Azure portal](https://portal.azure.com), navigate to **Log Analytics** > **Subscriptions** > ***workspace name*** and then in the ***workspace name*** blade, click **Solutions**.
 2. In the list of management solutions, select the solution that you want to remove.
 3. In the solution blade for your workspace, click **Delete**.  
-    ![delete solution](./media/log-analytics-add-solutions/solution-delete.png)  
 4. In the confirmation dialog, click **Yes**.
 
 
 
 ## Next steps
-* [Search logs](log-analytics-log-searches.md) to view detailed information gathered by management solutions.
+* [Search logs](.../log-analytics/log-analytics-log-searches.md) to view detailed information gathered by management solutions.
