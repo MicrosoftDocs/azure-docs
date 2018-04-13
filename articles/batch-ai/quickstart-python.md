@@ -22,7 +22,7 @@ ms.author: lili
 
 This quickstart details using the Azure Python SDK to run a Microsoft Cognitive Toolkit (CNTK) training job using the Batch AI service.
 
-In this example, you use the MNIST database of handwritten images to train a convolutional neural network (CNN) on a single-node GPU cluster. 
+In this example, you use the MNIST database of handwritten images to train a convolutional neural network (CNN) on a single-node GPU cluster.
 
 ## Prerequisites
 
@@ -59,11 +59,12 @@ admin_user_name = 'FILL-IN-HERE'
 admin_user_password = 'FILL-IN-HERE'
 ```
 
-As a best practice, all credentials should be stored in a separate configuration file or environment variables, which is not shown in this example.
+Please note, that putting credentials into the source code is not a good practice and we do so only to make the quickstart simpler.
+Please consider to use environment variables or a separate configuration file instead.
 
-## Authenticate with Batch AI
+## Create Batch AI Client
 
-To be able to access Azure Batch AI, you need to authenticate using Azure Active Directory. Below is code to authenticate with the service (create a `BatchAIManagementClient` object) using your service principal credentials and subscription ID:
+The following code creates a service principal credentials object and Batch AI client:
 
 ```Python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -93,9 +94,9 @@ resource = resource_management_client.resource_groups.create_or_update(
 
 
 ## Prepare Azure file share
-For illustration purposes, this quickstart uses an Azure file share to host the training data and scripts for the learning job.
+For illustration purposes, this quickstart uses an Azure File share to host the training data and scripts for the training job.
 
-1. Create a file share named *batchaiquickstart*.
+1. Create a file share named `batchaiquickstart`.
 
 ```Python
 from azure.storage.file import FileService
@@ -104,14 +105,14 @@ service = FileService(storage_account_name, storage_account_key)
 service.create_share(azure_file_share_name, fail_on_exist=False)
 ```
 
-2. Create a directory in the share named *mnistcntksample*
+2. Create a directory in the share named `mnistcntksample`
 
 ```Python
 mnist_dataset_directory = 'mnistcntksample'
 service.create_directory(azure_file_share_name, mnist_dataset_directory,
                          fail_on_exist=False)
 ```
-3. Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip. Upload the contents to the directory where you will be executing the Python script.
+3. Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip into the current directory. The following code uploads required files into Azure File share:
 
 ```Python
 for f in ['Train-28x28_cntk_text.txt', 'Test-28x28_cntk_text.txt',
@@ -122,7 +123,7 @@ for f in ['Train-28x28_cntk_text.txt', 'Test-28x28_cntk_text.txt',
 
 ## Create GPU cluster
 
-Create a Batch AI cluster. In this example, the cluster consists of a single STANDARD_NC6 VM node. This VM size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare.
+Create a Batch AI cluster. In this example, the cluster consists of a single STANDARD_NC6 VM node. This VM size has one NVIDIA K80 GPU. Mount the file share at a folder named `azurefileshare`. The full path of this folder on the GPU compute node is `$AZ_BATCHAI_MOUNT_ROOT/azurefileshare`.
 
 ```Python
 cluster_name = 'mycluster'
@@ -181,16 +182,15 @@ print('Cluster state: {0} Target: {1}; Allocated: {2}; Idle: {3}; '
 
 The preceding code prints basic cluster allocation information such as the following:
 
-```Shell
+```
 Cluster state: AllocationState.steady Target: 1; Allocated: 1; Idle: 0; Unusable: 0; Running: 0; Preparing: 1; Leaving: 0
-
 ```
 
 The cluster is ready when the nodes are allocated and finished preparation (see the `nodeStateCounts` attribute). If something went wrong, the `errors` attribute contains the error description.
 
 ## Create training job
 
-After the cluster is ready, configure and submit the learning job.
+After the cluster is created, configure and submit the learning job:
 
 ```Python
 job_name = 'myjob'
@@ -230,7 +230,7 @@ batchai_client.jobs.create(resource_group_name, job_name, parameters).result()
 ```
 
 ## Monitor job
-You can inspect the job’s state using the following command:
+You can inspect the job’s state using the following code:
 
 ```Python
 job = batchai_client.jobs.get(resource_group_name, job_name)
@@ -270,17 +270,17 @@ for file in (f for f in files if f.download_url):
 
 ## Delete resources
 
-Use the following command to delete the job:
+Use the following code to delete the job:
 ```Python
 batchai_client.jobs.delete(resource_group_name, job_name)
 ```
 
-Use the following command to delete the cluster:
+Use the following code to delete the cluster:
 ```Python
 batchai_client.clusters.delete(resource_group_name, cluster_name)
 ```
 
-Use the following command to delete all allocated resources:
+Use the following code to delete all allocated resources:
 ```Python
 resource_management_client.resource_groups.delete('myresourcegroup')
 ```
