@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2018
-ms.author: v-masebo;kgremban
+ms.author: kgremban
 
 ---
 # Use desired properties to configure devices (Python)
@@ -156,7 +156,7 @@ In this section, you create a Python console app that connects to your hub as **
 1. Run the device app:
    
     ```cmd/sh
-    node SimulateDeviceConfiguration.js
+    node SimulateDeviceConfiguration.py
     ```
    
     You should see the message `Device twins updated.`. Keep the app running.
