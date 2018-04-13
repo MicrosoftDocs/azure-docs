@@ -2,7 +2,9 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Lab Services
+  - name: About Lab Services (Preview)
+    href: lab-services-overview.md
+  - name: About DevTest Labs 
     href: devtest-lab-overview.md
 - name: Tutorials
   items:
@@ -30,6 +32,10 @@
     href: samples-cli.md    
 - name: Concepts
   items:
+  - name: Types of labs
+    href: concepts-lab-types.md
+  - name: User profiles
+    href: concepts-user-profiles.md
   - name: Custom labs
     href: devtest-lab-concepts.md
     items: 
