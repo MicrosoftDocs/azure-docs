@@ -1,4 +1,4 @@
---
+---
 title: Understanding Azure virtual machine usage | Microsoft Docs
 description: Understand virtual machine usage details
 services: virtual-machines
