@@ -23,7 +23,6 @@ ms.author: spelluru
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 > 
 
-## Overview
 This tutorial shows you how to use the [templates](notification-hubs-templates-cross-platform-push-messages.md) feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial, you start with the iOS app created in [Use Notification Hubs to send breaking news]. When complete, you can register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
 
 There are two parts to this scenario:
@@ -31,6 +30,16 @@ There are two parts to this scenario:
 * iOS app allows client devices to specify a language, and to subscribe to different breaking news categories;
 * the back-end broadcasts the notifications, using the **tag** and **template** features of Azure Notification Hubs.
 
+In this tutorial, you take the following steps:
+
+> [!div class="checklist"]
+> * Update the app user interface
+> * Build the iOS app
+> * Send localized template notifications from .NET console app
+> * Send localized template notifications from the device
+
+
+## Overview
 In [Use Notification Hubs to send breaking news], you built an app that used **tags** to subscribe to notifications for different news categories. Many apps, however, target multiple markets and require localization. This means that the content of the notifications themselves have to be localized and delivered to the correct set of devices. In this tutorial, we show how to use the **template** feature of Notification Hubs to easily deliver localized breaking news notifications.
 
 > [!NOTE]
@@ -53,14 +62,6 @@ Then we ensure that devices register with a template that refers to the correct 
     }
 
 Templates are a powerful feature you can learn more about in our [Templates](notification-hubs-templates-cross-platform-push-messages.md) article.
-
-In this tutorial, you take the following steps:
-
-> [!div class="checklist"]
-> * Update the app user interface
-> * Build the iOS app
-> * Send localized template notifications from .NET console app
-> * Send localized template notifications from the device
 
 ## Prerequisites
 
