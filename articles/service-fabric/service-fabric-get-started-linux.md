@@ -194,7 +194,7 @@ To build Service Fabric services using Java, install JDK 1.8 and Gradle to run b
 
 ## Install the Eclipse plug-in (optional)
 
-You can install the Eclipse plug-in for Service Fabric from within the Eclipse IDE for Java Developers or for Java EE Developers. You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.
+You can install the Eclipse plug-in for Service Fabric from within the Eclipse IDE for Java Developers or Java EE Developers. You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.
 
 > [!IMPORTANT]
 > The  Service Fabric plug-in requires Eclipse Neon or a later version. See the instructions that follow this note for how to check your version of Eclipse. If you have an earlier version of Eclipse installed, you can download more recent versions from the [Eclipse site](https://www.eclipse.org). It is not recommended that you install on top of (overwrite) an existing installation of Eclipse. You can either remove it before running the installer or install the newer version in a different directory. 
