@@ -183,9 +183,9 @@ processing during `git push` by enabling the Composer extension.
     ![Add Composer extension to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-add.png)
 3. Click **OK** to accept legal terms. Click **OK** again to add the extension.
 
-    The **Installed extensions** blade will now show the Composer extension.  
+    The **Installed extensions** blade will now show the Composer extension.
     ![Accept legal terms to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-view.png)
-4. Now, perform `git add`, `git commit`, and `git push` like in the previous section. You'll now see that Composer
+4. Now, in a terminal window on your local machine, perform `git add`, `git commit`, and `git push` to your Web App. You'll now see that Composer
    is installing dependencies defined in composer.json.
 
     ![Git deployment with Composer automation in Azure](./media/web-sites-php-configure/composer-extension-success.png)
