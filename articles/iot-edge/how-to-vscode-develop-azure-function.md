@@ -10,7 +10,8 @@ ms.author: xshi
 ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
-
+ROBOTS: NOINDEX
+redirect_url: https://docs.microsoft.com/azure/iot-edge/tutorial-multiple-modules-in-vscode
 ---
 # Use Visual Studio Code to develop and deploy Azure Functions to Azure IoT Edge
 

@@ -10,7 +10,8 @@ ms.author: xshi
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-
+ROBOTS: NOINDEX
+redirect_url: https://docs.microsoft.com/azure/iot-edge/tutorial-multiple-modules-in-vscode
 ---
 
 # Use Visual Studio Code to develop a C# module with Azure IoT Edge
