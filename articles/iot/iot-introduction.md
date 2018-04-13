@@ -176,9 +176,6 @@ Explore the following areas of technologies and solutions, or see the Table of C
 </ul>
 
 [img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
-[img-video-contoso-hvac-iot-part1]: media/index/contoso-hvac-iot-part1.png
-[img-video-contoso-hvac-iot-part8]: media/index/contoso-hvac-iot-part8.png
-
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/

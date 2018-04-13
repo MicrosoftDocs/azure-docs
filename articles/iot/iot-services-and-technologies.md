@@ -19,8 +19,8 @@ ms.custom:
 ---
 # The collection of PaaS/SaaS technologies and solutions available for building an Azure IoT solution
 
-Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The Azure IoT product portfolio gives you an overview of the available PaaS/SaaS technologies and solutions. It presents the two paths that are available for building your own solution:
-- Platform as a Service (PaaS): build your application using IoT solution accelerators. These enterprise-grade preconfigured solutions enable you to accelerate the development of custom IoT solutions.
+Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The Azure IoT product portfolio is an overview of the available PaaS/SaaS technologies and solutions. It presents the two paths that are available for building your own solution:
+- Platform as a Service (PaaS): build your application using IoT solution accelerators, which are enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions.
 - Software as a Service (SaaS): get started fast with the new SaaS solution to develop IoT applications without being exposed to the complexity of IoT solution. If your organization lacks the resources to build your own IoT solution, IoT Central is a codeless IoT solution that can create device models, dashboards, and rules in minutes.
 
 ![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
@@ -37,7 +37,7 @@ Get started quickly with solution accelerators and SaaS offerings. Choose from p
 
 ### Azure IoT solution accelerators (PaaS)
 
-Azure IoT solution accelerators is a collection of customizable PaaS solution, providing a high level of control over your IoT solution. If your business is implementing IoT for connected operations, or has specific customization requirements for connected products, Azure IoT solution accelerators provide the control you need. 
+Azure IoT solution accelerators are customizable PaaS solutions that provide a high level of control over your IoT solution. If your business is implementing IoT for connected operations or has specific customization requirements for connected products, Azure IoT solution accelerators provide the control you need. 
 
 Organizations with a large number of devices or device models, and manufacturers seeking connected factory solutions, are examples of companies that can benefit from IoT solution accelerators. Creating highly customizable solutions tailored to complex needs, IoT solution accelerators provide:
 
@@ -90,3 +90,5 @@ Microsoft Azure offers a complete cloud solution, one that combines a constantly
 Check out the [Get started](/azure/iot-hub/iot-hub-get-started) section to experience IoT features quickly and easily. Or for a more in-depth hands-on experience, try one of  the [Tutorials](/azure/iot-edge/tutorial-simulate-device-windows).
 
 [img-paas-saas-technologies-solutions]: media/iot-comparison/paas-saas-technologies-solutions.png
+[img-video-contoso-hvac-iot-part1]: media/index/contoso-hvac-iot-part1.png
+[img-video-contoso-hvac-iot-part8]: media/index/contoso-hvac-iot-part8.png
