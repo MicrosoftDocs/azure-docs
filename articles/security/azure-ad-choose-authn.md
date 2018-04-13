@@ -134,9 +134,9 @@ First, Azure AD recommends using or enabling Password Hash Sync regardless which
 
 2. On-premises outage survival:  The consequences of a on-premises outage due to a cyber-attack or disaster can be substantial, ranging from reputational brand damage to a paralyzed organization unable to deal with the attack. In the last year, many organizations were victims of malware attacks, including targeted ransomware, that caused their on-premises servers to be down. In helping customers deal with these kinds of attacks, Microsoft noticed two categories of organizations:
 
-a. Organizations that previously enabled Password Hash Sync was back online in a matter of hours by changing their primary authentication method to use cloud authentication with Password Hash Sync. Using access to email via Office 365, they could work to resolve issues and have access to other cloud-based workloads.
+	a. Organizations that previously enabled Password Hash Sync was back online in a matter of hours by changing their primary authentication method to use cloud authentication with Password Hash Sync. Using access to email via Office 365, they could work to resolve issues and have access to other cloud-based workloads.
 
-b. Organizations that didn’t previously enable Password Hash Sync had to resort to untrusted external consumer email systems for communications and resolving issues. In those cases, it took them weeks or more to be up and running again.
+	b. Organizations that didn’t previously enable Password Hash Sync had to resort to untrusted external consumer email systems for communications and resolving issues. In those cases, it took them weeks or more to be up and running again.
 
 3. Identity Protection: One of the best ways to protect users in the cloud is Azure AD Identity Protection. Microsoft continually scans the Internet for user and password lists, bad actors sell and make available on the dark web. Azure AD can use this information to verify if any of the usernames and passwords in your organization are compromised. It is therefore critical to enable Password Hash Sync regardless of what authentication method you use, whether that is federated or pass-through authentication. Leaked credentials are presented as a report and can be used to block or force a user to change their password when they try to sign-in to Azure AD with a leaked password.
 
@@ -144,7 +144,7 @@ Second, according to [Gartner](https://info.microsoft.com/landingIAMGartnerrepor
 
 # Conclusion
 
-In this article outlines two different authentication options; organizations can configure and deploy to support access to cloud apps. To meet various business, security and technical requirements, organizations can choose between Password Hash Sync, Pass-through authentication, and federation. With each authentication method, your organization can choose whether your business requirements are addressed by the effort to deploy the solution and the user experience of the sign-in process. You also need to evaluate whether your organization needs the advanced scenarios and business continuity features of each authentication method. Finally, you have to evaluate the considerations of each authentication method to see if any prevent you from implementing it.
+In this article outlines two different authentication options; organizations can configure and deploy to support access to cloud apps. To meet various business, security and technical requirements, organizations can choose between Password Hash Sync, Pass-through authentication, and federation. With each authentication method, your organization can choose whether your business requirements are addressed by the effort to deploy the solution and the user experience of the sign-in process. You also need to evaluate whether your organization needs the advanced scenarios and business continuity features of each authentication method. Finally, you have to evaluate the considerations of each authentication method to see if any prevent you from implementing your choice.
 
 
 # Next steps
