@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/09/2018
-ms.author: ryanwi
+ms.author: ryanwi;aljo
 
 ---
 # Scaling Service Fabric clusters
