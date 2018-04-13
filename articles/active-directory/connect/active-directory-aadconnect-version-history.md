@@ -21,11 +21,10 @@ ms.author: billmath
 # Azure AD Connect: Version release history
 The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
 
+
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
 This is a list of related topics:
-
-
 
 Topic |  Details
 --------- | --------- |
@@ -33,6 +32,21 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## 1.1.751.0
+Status 4/12/2018: Released for download only
+
+>[!NOTE]
+>This is a hotfix for Azure AD Connect
+
+### Azure AD Connect sync
+#### Fixed issues
+Corrected an issue where automatic Azure instance discovery for China tenants was occasionally failing.  
+
+### AD FS Management
+#### Fixed issues
+
+There was a problem in the configuration retry logic that would result in an ArgumentException stating “an item with the same key has already been added.”  This would cause all retry operations to fail.
 
 ## 1.1.750.0
 Status 3/22/2018: Released for auto-upgrade and download.
@@ -98,8 +112,7 @@ Status: Released to select customers
 The changes will take care of following:
 1. Express Installations
 2. Custom Installations with Auto-Create account
-
-* Changed the installer so it doesn't require SA privilege on clean install of Azure AD Connect
+3. Changed the installer so it doesn't require SA privilege on clean install of Azure AD Connect
 
 * Added a new utility to troubleshoot synchronization issues for a specific object. It is available under 'Troubleshoot Object Synchronization' option of Azure AD Connect Wizard Troubleshoot Additional Task. Currently, the utility checks for the following:
 
