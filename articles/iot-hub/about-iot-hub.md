@@ -5,7 +5,7 @@ services: iot-hub
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 03/30/2018
+ms.date: 04/15/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
@@ -23,13 +23,13 @@ IoT Hub is a central message hub for bi-directional communication between your I
 
 IoT Hub supports communications both from the device to the cloud and from the cloud to the device. IoT Hub supports multiple messaging patterns such as device-to-cloud telemetry, file upload from devices, and request-reply methods to control your devices from the cloud. IoT Hub monitoring helps you maintain the health of your solution by tracking events such as device creation, device failures, and device connections.
 
-IoT Hub's capabilities help you build scalable, full-featured IoT solutions.
+IoT Hub's capabilities help you build scalable, full-featured IoT solutions such as managing industrial equipment used in manufacturing, tracking valuable assets in healthcare, and monitoring office building usage.
+
+TODO: create image
 
 ## Scale your solution
 
-IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads.
-
-TODO: more
+IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads. IoT Hub offers several tiers of service to best fit your scalability needs. [Learn more](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## Secure communications between your devices and the cloud
 
@@ -45,10 +45,10 @@ IoT Hub gives you a secure communication channel for your devices to send data.
 
 ## Route device data where it needs to go
 
-TODO: intro
+Built-in message routing functionality gives you flexibility to setup automatic rules-based message fan-out.
 
 * Use message routing to control where your hub sends device telemetry.
-* No additional cost to route messages to multiple endpoints.
+* There is no additional cost to route messages to multiple endpoints.
 * No-code routing rules take the place of custom message dispatcher code.
 
 ## Integrate with other services
@@ -65,7 +65,7 @@ You can integrate IoT Hub with other Azure services to build complete, end-to-en
 
 ## Configure and control your devices
 
-TODO: intro
+You can manage your devices connected to IoT Hub with an array of built-in functionality.
 
 * Store, synchronize, and query device metadata and state information for all your devices.
 * Set device state either per-device or based on common characteristics of devices.
