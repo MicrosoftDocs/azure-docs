@@ -733,7 +733,7 @@ To save the **Join Result** dataflow to a .csv file, you must change the `BikeSh
 3. Create the HDInsight run config. You need the name of your cluster and the `sshuser` password.
 
     ```azurecli
-    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml computetarget attach cluster --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password>
     az ml experiment prepare -c hdinsight
     ```
 > [!NOTE]

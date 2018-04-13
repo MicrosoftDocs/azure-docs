@@ -42,7 +42,7 @@ The dashboard displays the total numbers of intents, entities, and labeled utter
 ![App Data Statistics](./media/luis-app-dashboard/app-model-count.png)
 
 ## Endpoint hits
-The dashboard displays the total endpoint hits that the LUIS app receives and enables you to display hits within a period that you specify. The total number of hits displayed is the sum of endpoint hits that use an [Endpoint key](./manage-keys.md#endpoint-key) and endpoint hits that use an [Authoring key](./manage-keys.md#endpoint-key).
+The dashboard displays the total endpoint hits that the LUIS app receives and enables you to display hits within a period that you specify. The total number of hits displayed is the sum of endpoint hits that use an [Endpoint key](./luis-concept-keys.md#endpoint-key) and endpoint hits that use an [Authoring key](./luis-concept-keys.md#authoring-key).
 
 <!-- TBD: this image is old but I don't have a new one based on usage -->
 ![Endpoint Hits](./media/luis-app-dashboard/dashboard-endpointhits.png)
@@ -65,7 +65,7 @@ To select a period to view on the chart:
 2. Select a period from the list and then click the back arrow ![Back Arrow](./media/luis-app-dashboard/Dashboard-backArrow.png) to display the chart.
 
 ### Key usage
-The number of hits consumed from the application's subscription key. For more information about subscription keys, see [Manage your keys](manage-keys.md). 
+The number of hits consumed from the application's subscription key. For more information about subscription keys, see [Keys in LUIS](luis-concept-keys.md). 
   
 ## Intent breakdown
 The **Intent Breakdown** displays a breakdown of intents based on labeled utterances or endpoint hits. This summary graph shows the relative importance of each intent in the app. When you hover your mouse pointer over a slice, you see the intent name and the percentage it represents of the total count of labeled utterances/endpoint hits. 

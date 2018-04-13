@@ -3,7 +3,7 @@ title: Connect to GitHub with Azure Logic Apps | Microsoft Docs
 description: Automate workflows for GitHub with Azure Logic Apps
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 03/02/2018
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 ---
 
 # Connect to GitHub

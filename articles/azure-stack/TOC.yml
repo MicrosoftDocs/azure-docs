@@ -6,18 +6,14 @@
     href: azure-stack-poc.md
   - name: Release notes
     items:
-    - name: Development kit release notes
-      href: azure-stack-asdk-release-notes.md
-    - name: Integrated systems release notes
-      items:
-      - name: 1802 update 
-        href: azure-stack-update-1802.md 
-      - name: 1712 update
-        href: azure-stack-update-1712.md
-      - name: 1711 update
-        href: azure-stack-update-1711.md
-      - name: 1710 update
-        href: azure-stack-update-1710.md
+    - name: 1803 update
+      href: azure-stack-update-1803.md
+    - name: 1802 update 
+      href: azure-stack-update-1802.md 
+    - name: 1712 update
+      href: azure-stack-update-1712.md
+    - name: 1711 update
+      href: azure-stack-update-1711.md
 - name: Quickstarts
   expanded: true
   items:
@@ -59,16 +55,14 @@
     - name: Azure Stack deployment PKI requirements
       href: azure-stack-pki-certs.md
       items:
-      - name: Get Azure Stack PKI certificates
+      - name: Generate PKI certificates
         href: azure-stack-get-pki-certs.md
       - name: Prepare Azure Stack PKI certificates
-        href: prepare-pki-certs.md
-      - name: Validate Azure Stack PKI certificates
-        href: validate-pki-certs.md
+        href: azure-stack-prepare-pki-certs.md
+      - name: Validate PKI certificates
+        href: azure-stack-validate-pki-certs.md
     - name: Identity integration
       href: azure-stack-integrate-identity.md
-    - name: Register Azure Stack
-      href: azure-stack-registration.md
     - name: External monitoring
       href: azure-stack-integrate-monitor.md
     - name : Security integration
@@ -77,30 +71,14 @@
     href: azure-stack-servicing-policy.md
   - name: Key features and concepts
     href: azure-stack-key-features.md
-  - name: Development kit architecture
-    href: azure-stack-architecture.md
   - name: Administration basics
     href: azure-stack-manage-basics.md
 - name: How-to guides
   items:
-  - name: Deploy the ASDK
-    items:
-    - name: Prerequisites
-      href: azure-stack-deploy.md
-    - name: Telemetry
-      href: azure-stack-telemetry.md
-    - name: Deploy
-      href: azure-stack-run-powershell-script.md
-    - name: Install PowerShell
-      href: azure-stack-powershell-install.md
-    - name: Register
-      href: azure-stack-register.md
-    - name: Connect to Azure Stack
-      href: azure-stack-connect-azure-stack.md
-    - name: Add default image
-      href: azure-stack-add-default-image.md
-    - name: Create a test VM
-      href: azure-stack-provision-vm.md
+  - name: Configure telemetry collection
+    href: azure-stack-telemetry.md
+  - name: Register Azure Stack
+    href: azure-stack-registration.md
   - name: Manage
     items:
     - name: Region management
@@ -146,7 +124,7 @@
         - name: Manage storage capacity
           href: azure-stack-manage-storage-shares.md
         - name: Manage physical storage capacity for Azure Stack
-          href: azure-stack-manage-storage-physical-capacity.md
+          href: azure-stack-manage-storage-physical-memory-capacity.md
     - name: Replace hardware
       items:
       - name: Node actions
@@ -246,6 +224,8 @@
         href: azure-stack-app-service-add-worker-roles.md
       - name: Configure deployment sources
         href: azure-stack-app-service-configure-deployment-sources.md
+      - name: App Service on Azure Stack update 1 release notes
+        href: azure-stack-app-service-release-notes-update-one.md
     - name: Populate the marketplace
       items:
       - name: Marketplace overview
@@ -306,8 +286,6 @@
       href: azure-stack-diagnostics.md
     - name: Validation for Azure Stack
       href: azure-stack-diagnostic-test.md
-    - name: Redeploy Azure Stack Development Kit
-      href: azure-stack-redeploy.md
 - name: Reference
   items:
   - name: Azure Stack PowerShell
@@ -316,6 +294,8 @@
   items:
   - name: Azure Stack User Documentation
     href: /azure/azure-stack/user/
+  - name: ASDK Documentation
+    href: /azure/azure-stack/asdk/
 - name: Resources
   items:
   - name: Azure Stack roadmap

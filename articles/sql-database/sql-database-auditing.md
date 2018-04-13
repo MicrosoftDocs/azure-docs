@@ -2,19 +2,12 @@
 title: Get started with Azure SQL database auditing | Microsoft Docs
 description: Use Azure SQL database auditing to track database events into an audit log.
 services: sql-database
-documentationcenter: ''
 author: giladm
-manager: jhubbard
-editor: giladm
-
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 04/01/2018
 ms.author: giladm
 
 ---
@@ -124,7 +117,7 @@ There are several methods you can use to view blob auditing logs:
 
     4. The merged file opens in SSMS, where you can view and analyze it, as well as export it to an XEL or CSV file or to a table.
 
-* Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes Operations Management Suite (OMS) Log Analytics public APIs to push SQL audit logs into OMS. The sync application pushes SQL audit logs into OMS Log Analytics for consumption via the OMS Log Analytics dashboard.
+* Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes Log Analytics public APIs to push SQL audit logs into Log Analytics. The sync application pushes SQL audit logs into Log Analytics for consumption via the Log Analytics dashboard.
 
 * Use Power BI. You can view and analyze audit log data in Power BI. Learn more about [Power BI, and access a downloadable template](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 

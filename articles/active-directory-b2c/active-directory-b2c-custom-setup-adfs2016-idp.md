@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Add ADFS as a SAML identity provider using c
 description: A How-To article on setting up ADFS 2016 using SAML protocol and custom policies
 services: active-directory-b2c
 documentationcenter: ''
-author: yoelhor
+author: davidmu1
 manager: mtillman
-editor: 
+editor: ''
 
-ms.assetid:
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
+ms.author: davidmu
 ---
 
 # Azure Active Directory B2C: Add ADFS as a SAML identity provider using custom policies

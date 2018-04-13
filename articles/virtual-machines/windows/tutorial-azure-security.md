@@ -4,7 +4,7 @@ description: Learn about security for your Azure Windows virtual machine with Az
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 

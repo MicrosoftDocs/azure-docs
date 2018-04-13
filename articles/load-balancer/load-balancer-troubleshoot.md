@@ -51,7 +51,7 @@ If the VM is healthy, but is not responding to the probe, then one possible reas
 3. If the port state is not listed as **LISTENING**, configure the proper port. 
 4. Alternatively, select another port, that is listed as **LISTENING**, and update load balancer configuration accordingly.              
 
-###Cause 3: Firewall, or a network security group is blocking the port on the load balancer backend pool VMs  
+### Cause 3: Firewall, or a network security group is blocking the port on the load balancer backend pool VMs  
 If the firewall on the VM is blocking the probe port, or one or more network security groups configured on the subnet or on the VM, is not allowing the probe to reach the port, the VM is unable to respond to the health probe.          
 
 **Validation and resolution**
@@ -100,9 +100,7 @@ If a VM does not respond to the data traffic, it may be because either the targe
 
 If one or more network security groups configured on the subnet or on the VM, is blocking the source IP or port, then the VM is unable to respond.
 
-* List the network security groups configured on the backend VM. For more information, see:
-    -  [Manage network security groups using the Portal](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
-    -  [Manage network security groups using PowerShell](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
+* List the network security groups configured on the backend VM. For more information, see [Manage network security groups](../virtual-network/manage-network-security-group.md).
 * From the list of network security groups, check if:
     - the incoming or outgoing traffic on the data port has interference. 
     - a **Deny All** network security group rule on the NIC of the VM or the subnet that has a higher priority that the default rule that allows Load Balancer probes and traffic (network security groups must allow Load Balancer IP of 168.63.129.16, that is probe port) 

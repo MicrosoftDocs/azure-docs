@@ -188,7 +188,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Can I block users from resetting their password?**
 
-  > **A:** Yes, if you use a group to enable SSPR, you can remove an individual user from the group that allows users to reset their password.
+  > **A:** Yes, if you use a group to enable SSPR, you can remove an individual user from the group that allows users to reset their password. If the user is a Global Administrator they will retain the ability to reset their password and this cannot be disabled.
   >
   >
 
@@ -267,7 +267,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  What types of accounts does password writeback work for?**
 
-  > **A:** Password writeback works for federated and password hash synchronized users.
+  > **A:** Password writeback works for user accounts that are synchronized from on-premises Active Directory to Azure AD, including federated, password hash synchronized, and Pass-Through Autentication Users.
   >
   >
 * **Q:  Does password writeback enforce my domain’s password policies?**

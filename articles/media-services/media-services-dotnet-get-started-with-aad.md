@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 03/27/2018
 ms.author: juliako
 
 ---
@@ -33,7 +33,7 @@ When you're using Azure AD authentication with Azure Media Services, you can aut
 - **Service principal authentication** authenticates a service. Applications that commonly use this authentication method are apps that run daemon services, middle-tier services, or scheduled jobs, such as web apps, function apps, logic apps, APIs, or microservices.
 
 >[!IMPORTANT]
->Azure Media Service currently supports an Azure Access Control Service  authentication model. However, Access Control authorization is going to be deprecated on June 1, 2018. We recommend that you migrate to an Azure Active Directory authentication model as soon as possible.
+>Azure Media Service currently supports an Azure Access Control Service  authentication model. However, Access Control authorization is going to be deprecated on June 22, 2018. We recommend that you migrate to an Azure Active Directory authentication model as soon as possible.
 
 ## Get an Azure AD access token
 

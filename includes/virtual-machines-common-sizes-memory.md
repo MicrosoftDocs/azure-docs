@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: jonbeck7
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 03/09/2018
+ ms.author: azcspmt;jonbeck;cynthn
+ ms.custom: include file
+---
 
 Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for relational database servers, medium to large caches, and in-memory analytics. This article provides information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for each size in this grouping. 
 

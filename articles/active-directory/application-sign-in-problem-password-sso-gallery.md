@@ -1,5 +1,5 @@
 ---
-title: Problems signing in to an Azure AD Gallery application configured for federated single sign-on | Microsoft Docs
+title: Problems signing in to an Azure AD Gallery application configured for password single sign-on | Microsoft Docs
 description: How to troubleshoot issues with Azure AD Gallery application configured for password single sign-on
 documentationcenter: ''
 author: ajamess
@@ -16,7 +16,7 @@ ms.author: asteen
 
 ---
 
-# Problems signing in to an Azure AD Gallery application configured for federated single sign-on
+# Problems signing in to an Azure AD Gallery application configured for password single sign-on
 
 The Access Panel is a web-based portal which enables a user who has a work or school account in Azure Active Directory (Azure AD) to view and launch cloud-based applications that the Azure AD administrator has granted them access to. A user who has Azure AD editions can also use self-service group and app management capabilities through the Access Panel. The Access Panel is separate from the Azure portal and does not require users to have an Azure subscription.
 

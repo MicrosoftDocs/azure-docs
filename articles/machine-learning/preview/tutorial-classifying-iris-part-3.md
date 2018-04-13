@@ -1,19 +1,19 @@
 ---
-title: Deploy a model tutorial for Azure Machine Learning services (preview) | Microsoft Docs
-description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part three and discusses the deploying model.
+title: Deploy a model tutorial for Azure Machine Learning services
+description: This full-length tutorial shows how to use Azure Machine Learning services end to end. This is part three and discusses the deploying model.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, j-martens, aashishb
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
+ms.date: 3/13/2018
 ---
 
-# Tutorial: Classify Iris part 3: Deploy a model
+# Tutorial 3: Classify Iris: Deploy a model
 Azure Machine Learning (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists. Data scientists can use it to prepare data, develop experiments, and deploy models at cloud scale.
 
 This tutorial is **part three of a three-part series**. In this part of the tutorial, you use Machine Learning (preview) to:
@@ -26,17 +26,15 @@ This tutorial is **part three of a three-part series**. In this part of the tuto
 > * Run the real-time web service.
 > * Examine the output blob data. 
 
-This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). 
 
 ## Prerequisites
-Complete the first two parts of this tutorial series:
 
-   * Follow the [Prepare data tutorial](tutorial-classifying-iris-part-1.md) to create Machine Learning resources and install the Azure Machine Learning Workbench application.
-   * Follow the [Build a model tutorial](tutorial-classifying-iris-part-2.md) to create a logistic regression model in Machine Learning.
-
-You need a Docker engine installed and running locally. Alternatively, you can deploy to an Azure Container Service cluster in Azure.
+To complete this tutorial, you need:
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+- An experimentation account and Azure Machine Learning Workbench installed as described in this [quickstart](quickstart-installation.md)
+- The classification model from [Tutorial part 2](tutorial-classifying-iris-part-2.md)
+- A Docker engine installed and running locally
 
 ## Download the model pickle file
 In the previous part of the tutorial, the **iris_sklearn.py** script was run in the Machine Learning Workbench locally. This action serialized the logistic regression model by using the popular Python object-serialization package [pickle](https://docs.python.org/3/library/pickle.html). 
@@ -87,7 +85,7 @@ To deploy the web service along with the model file, you also need a scoring scr
 
 4. To get the schema file, run the script. Select the **local** environment and the **score_iris.py** script in the command bar, and then select **Run**. 
 
-5. This script creates a JSON file in the **Outputs** section, which captures the input data schema required by the model.
+   This script creates a JSON file in the **Outputs** section, which captures the input data schema required by the model.
 
 6. Note the **Jobs** pane on the right side of the **Project Dashboard** pane. Wait for the latest **score_iris.py** job to display the green **Completed** status. Then select the hyperlink **score_iris.py** for the latest job run to see the run details. 
 
@@ -124,7 +122,10 @@ Use _local mode_ deployment to run in Docker containers on your local computer.
 You can use _local mode_ for development and testing. The Docker engine must be running locally to complete the following steps to operationalize the model. You can use the `-h` flag at the end of each command to show the corresponding help message.
 
 >[!NOTE]
->If you don't have a local Docker engine, you can still proceed by creating a cluster in Azure for deployment. Just be sure to delete the cluster after the tutorial so you don't incur ongoing charges.
+>If you don't have the Docker engine locally, you can still proceed by creating a cluster in Azure for deployment. You can keep the cluster for re-use, or delete it after the tutorial so you don't incur ongoing charges.
+
+>[!NOTE]
+>Web services deployed locally do not show up in Azure Portal's list of services. They will be running in Docker on the local machine.
 
 1. Open the command-line interface (CLI).
    In the Machine Learning Workbench application, on the **File** menu, select **Open Command Prompt**.

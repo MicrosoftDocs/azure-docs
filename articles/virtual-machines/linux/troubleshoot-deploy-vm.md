@@ -4,7 +4,7 @@ description: Troubleshoot deploying Linux virtual machine issues in Azurethe Res
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

@@ -96,7 +96,7 @@ A data factory can have one or more pipelines. A pipeline can have one or more a
    6. Click **Create**.
       
       > [!IMPORTANT]
-      > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
+      > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
       > 
       > The name of the data factory may be registered as a DNS name in the future and hence become publically visible.                
       > 

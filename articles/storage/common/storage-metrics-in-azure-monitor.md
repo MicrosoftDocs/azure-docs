@@ -25,7 +25,7 @@ Azure Monitor provides unified user interfaces for monitoring across different A
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can access them from the [Azure portal](https://portal.azure.com), the Azure Monitor APIs (REST, and .Net) and analysis solutions such as Operation Management Suite and Event Hub. For more information, see  [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor provides multiple ways to access metrics. You can access them from the [Azure portal](https://portal.azure.com), the Azure Monitor APIs (REST, and .Net) and analysis solutions such as Log Analytics and Event Hub. For more information, see  [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Metrics are enabled by default, and you can access most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) in Azure Monitor.
 
@@ -138,7 +138,7 @@ The following response contains metric values in JSON format:
 
 ## Billing for metrics
 
-Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
+Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Log Analytics if you stream metrics data to Log Analytics for advanced analysis.
 
 ## Understanding resource ID for services in Azure Storage
 

@@ -3,7 +3,7 @@ title: Configure Azure Active Directory authentication - SQL | Microsoft Docs
 description: Learn how to connect to SQL Database, Managed Instance, and SQL Data Warehouse by using Azure Active Directory Authentication - after configuring Azure AD.
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article

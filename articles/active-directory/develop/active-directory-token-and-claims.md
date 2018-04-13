@@ -2,7 +2,7 @@
 title: Learn about the different token and claim types supported by Azure AD | Microsoft Docs
 description: A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)
 documentationcenter: na
-author: dstrockis
+author: hpsin
 services: active-directory
 manager: mtillman
 editor: ''
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
 
 ---
@@ -87,7 +87,7 @@ Refresh tokens are security tokens, which your app can use to acquire new access
 
 Refresh tokens are multi-resource.  That is to say that a refresh token received during a token request for one resource can be redeemed for access tokens to a completely different resource. To do this, set the `resource` parameter in the request to the targeted resource.
 
-Refresh tokens are completely opaque to your app. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time.  Refresh tokens can be invalidated at any moment in time for a variety of reasons.  The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD token endpoint.
+Refresh tokens are completely opaque to your app. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time.  Refresh tokens can be invalidated at any moment in time for a variety of reasons - see [Token Revocation](#token-revocation) for these reasons.  The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD token endpoint.
 
 When you redeem a refresh token for a new access token, you will receive a new refresh token in the token response.  You should save the newly issued refresh token, replacing the one you used in the request.  This will guarantee that your refresh tokens remain valid for as long as possible.
 
@@ -143,6 +143,24 @@ When your app receives a token (either an id_token upon user sign-in, or an acce
 * and more...
 
 For a full list of claim validations your app should perform for ID Tokens, refer to the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Details of the expected values for these claims are included in the preceding [id_token section](#id-tokens) section.
+
+## Token Revocation
+
+Refresh tokens can be invalidated or revoked at any time, for a variety of reasons.  These fall into two main categories: timeouts and revocations. 
+* Token Timeouts
+  * MaxInactiveTime: If the refresh token has not been used within the time dictated by the MaxInactiveTime, the Refresh Token will no longer be valid. 
+  * MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then re-authentication will be required after the time set in the MaxAgeSession* elapses.  
+  * Examples:
+    * The tenant has a MaxInactiveTime of 5 days, and the user went on vacation for a week, and so AAD has not seen a new token request from the user in 7 days.  The next time the user requests a new token, they will find their Refresh Token has been revoked, and they must enter their credentials again. 
+    * A sensitive application has a MaxAgeSessionSingleFactor of 1 day.  If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they will be required to re-authenticate.  
+* Revocation
+  * Voluntary Password Change: If a user changes their password, they may have to re-authenticate across some of their applications, depending on the way the token was attained.  See notes below for exceptions. 
+  * Involuntary Password Change: If an administrator forces a user to change their password or resets it, then the user's tokens are invalidated if they were attained using their password.  See notes below for exceptions. 
+  * Security Breach: In the event of a security breach (e.g. the on-premises store of passwords is breached) the admin can revoke all of the refresh tokens currently issued.  This will force all users to re-authenticate. 
+
+Note: 
+
+If a non-password method of authentication was used (Windows Hello, the Authenticator app, biometrics like a face or fingerprint) to attain the token, changing the user's password will not force the user to re-authenticate (but it will force their Authenticator app to re-authenticate).  This is because their chosen authentication input (a face, e.g.) has not changed, and therefore can be used again to re-authenticate.
 
 ## Sample Tokens
 
@@ -300,3 +318,4 @@ In addition to claims, the token includes a version number in **ver** and **appi
 ## Related content
 * See the Azure AD Graph [Policy operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), to learn more about managing token lifetime policy via the Azure AD Graph API.
 * For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](../active-directory-configurable-token-lifetimes.md). 
+* Add [custom and optional claims](active-directory-optional-claims.md) to the tokens for your application. 

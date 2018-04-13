@@ -1,6 +1,6 @@
 ---
 title: Kubernetes on Azure tutorial - Monitor Kubernetes
-description: AKS tutorial - Monitor Kubernetes with Microsoft Operations Management Suite (OMS)
+description: AKS tutorial - Monitor Kubernetes with Azure Log Analytics
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Monitor Azure Container Service (AKS)
+# Tutorial: Monitor Azure Container Service (AKS)
 
 Monitoring your Kubernetes cluster and containers is critical, especially when running a production cluster, at scale, with multiple applications.
 
@@ -37,11 +37,11 @@ In the Azure portal, select **Create a resource** and search for `Container Moni
 
 ![Add solution](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Create a new OMS workspace, or select an existing one. The OMS Workspace form guides you through this process.
+Create a new Log Analytics workspace, or select an existing one. The Log Analytics Workspace form guides you through this process.
 
 When creating the workspace, select **Pin to dashboard** for easy retrieval.
 
-![OMS Workspace](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
+![Log Analytics Workspace](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
 When done, select **OK**. Once validation has completed, select **Create** to create the container monitoring solution.
 
@@ -55,7 +55,7 @@ To retrieve these values, Select **OMS Workspace** from the container solutions 
 
 ## Create Kubernetes secret
 
-Store the OMS workspace settings in a Kubernetes secret named `omsagent-secret` using the [kubectl create secret][kubectl-create-secret] command. Update `WORKSPACE_ID` with your OMS workspace ID and `WORKSPACE_KEY` with the workspace key.
+Store the Log Analytics workspace settings in a Kubernetes secret named `omsagent-secret` using the [kubectl create secret][kubectl-create-secret] command. Update `WORKSPACE_ID` with your Log Analytics workspace ID and `WORKSPACE_KEY` with the workspace key.
 
 ```console
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
@@ -151,7 +151,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-After the agents are running, it takes several minutes for OMS to ingest and process the data.
+After the agents are running, it takes several minutes for Log Analytics to ingest and process the data.
 
 ## Access monitoring data
 
@@ -163,7 +163,7 @@ See the [Azure Log Analytics documentation][log-analytics-docs] for detailed gui
 
 ## Next steps
 
-In this tutorial, you monitored your Kubernetes cluster with OMS. Tasks covered included:
+In this tutorial, you monitored your Kubernetes cluster with Log Analytics. Tasks covered included:
 
 > [!div class="checklist"]
 > * Configuring the container monitoring solution

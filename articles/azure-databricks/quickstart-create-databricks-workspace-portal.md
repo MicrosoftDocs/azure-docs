@@ -12,7 +12,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/09/2018
+ms.date: 03/23/2018
 ms.author: nitinme
 ms.custom: mvc
 
@@ -22,21 +22,21 @@ ms.custom: mvc
 
 This quickstart shows how to create an Azure Databricks workspace and an Apache Spark cluster within that workspace. Finally, you learn how to run a Spark job on the Databricks cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
 
+In this quickstart, as part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics. 
+
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Log in to the Azure portal
 
 Log in to the [Azure  portal](https://portal.azure.com).
 
-## Create a Databricks workspace
+## Create an Azure Databricks workspace
 
 In this section, you create an Azure Databricks workspace using the Azure portal. 
 
-1. In the Azure portal, click **Create a resource**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. 
+1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Azure Databricks**. 
 
     ![Databricks on Azure portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
-
-2. Under **Azure Databricks (Preview)**, click **Create**.
 
 3. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
 
@@ -54,7 +54,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     Select **Pin to dashboard** and then click **Create**.
 
-4. The account creation takes a few minutes. During account creation the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
+4. The workspace creation takes a few minutes. During workspace creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
 
     ![Databricks deployment tile](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks deployment tile")
 
@@ -70,11 +70,13 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     ![Create Databricks Spark cluster on Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
+    Accept all other default values other than the following:
+
     * Enter a name for the cluster.
     * For this article, create a cluster with **4.0** runtime. 
     * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
-    * Accept all other default values. 
-    * Click **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
+    
+    Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs. 
 
 For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
@@ -82,9 +84,9 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
 Before you begin with this section, you must complete the following prerequisites:
 
-* [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+* [Create an Azure Blob storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
 * Download a sample JSON file [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Upload the sample JSON file to the Azure storage account you created. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
+* Upload the sample JSON file to the Azure Blob storage account you created. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
 
 Perform the following tasks to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
 
@@ -98,10 +100,10 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
     Click **Create**.
 
-3. In this step, associate the Azure Storage account with the Databricks Spark cluster. There are two ways to accomplish this association. You can mount the Azure Storage account to the Databricks Filesystem (DBFS) or directly access the Azure Storage account from the application you create.  
+3. In this step, associate the Azure Storage account with the Databricks Spark cluster. There are two ways to accomplish this association. You can mount the Azure Storage account to the Databricks Filesystem (DBFS), or directly access the Azure Storage account from the application you create.  
 
     > [!IMPORTANT]
-    >This article uses the **approach to mount the storage with DBFS**. This approach ensures that the mounted storage gets associated with the cluster filesystem itself. Hence, any application accessing the cluster is able to use the associated storage as well. The direct access approach is limited to the application from where you configure the access.
+    >This article uses the approach to **mount the storage with DBFS**. This approach ensures that the mounted storage gets associated with the cluster filesystem itself. Hence, any application accessing the cluster is able to use the associated storage as well. The direct-access approach is limited to the application from where you configure the access.
     >
     > To use the mounting approach, you must create a Spark cluster with Databricks runtime version **4.0**, which is what you chose in this article.
 
@@ -127,7 +129,7 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
     ```sql
     %sql 
-    DROP TABLE IF EXISTS radio_sample_data
+    DROP TABLE IF EXISTS radio_sample_data;
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
@@ -139,7 +141,7 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
     The `%sql` language magic command enables you to run a SQL code from the notebook, even if the notebook is of another type. For more information, see [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
 
-5. Let's look at a snapshot of the sample JSON data to better understand the query that we run. Paste the following snippet in the code cell and press **SHIFT + ENTER**.
+5. Let's look at a snapshot of the sample JSON data to better understand the query that you run. Paste the following snippet in the code cell and press **SHIFT + ENTER**.
 
     ```sql
     %sql 
@@ -173,15 +175,15 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
 ## Clean up resources
 
-While creating the Spark cluster, if you selected the checkbox **Terminate after __ minutes of inactivity**, the cluster will automatically terminate if it has been inactive for the specified time.
+After you have finished the article, you can terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, select **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon.
 
-If you did not select the checkbox, you must manually terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, click **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and click the **Terminate** icon.
+![Stop a Databricks cluster](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-![Terminate Databricks cluster](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Terminate Databricks cluster")
+If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after __ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster automatically stops, if it has been inactive for the specified time.
 
 ## Next steps
 
-In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to use Azure Data Lake Store with Azure Databricks.
+In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Use Data Lake Store with Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084)
+>[Extract, transform, and load data using Azure Databricks](databricks-extract-load-sql-data-warehouse.md)
