@@ -16,7 +16,7 @@
         - name: Access Azure Data Lake Store
           href: tutorial-windows-vm-access-datalake.md
         - name: Access Azure Storage
-          href: tutorial-windowsvm-access-storage.md
+          href: tutorial-vm-windows-access-storage.md
         - name: Access Azure Storage using an access key
           href: tutorial-windows-vm-access-storage.md
         - name: Acess Azure Storage using SAS
