@@ -322,7 +322,7 @@ This tutorial assumes that you have created and configured your notification hub
         }
     ```
    
-    Note how setting the device token enables the log in button. This is because as a part of the login action, the view controller registers for push notifications with the app backend. Hence, do not want Log In action to be accessible until the device token has been properly set up. You can decouple the login from the push registration as long as the former happens before the latter.
+    Notice how setting the device token enables the log in button. It's because as a part of the login action, the view controller registers for push notifications with the app backend. Hence, do not want Log In action to be accessible until the device token has been properly set up. You can decouple the login from the push registration as long as the former happens before the latter.
 2. In ViewController.m, use the following snippets to implement the action method for your **Log In** button and a method to send the notification message using the ASP.NET backend.
    
     ```obj-c
@@ -465,7 +465,7 @@ This tutorial assumes that you have created and configured your notification hub
    
     ![][3]
 4. In the **Recipient username tag* text field, enter the user name tag used with the registration from another device.
-5. Enter a notification message and click **Send Notification**.  Only the devices that have a registration with the recipient user name tag receive the notification message.  It is only sent to those users.
+5. Enter a notification message and click **Send Notification**. Only the devices that have a registration with the recipient user name tag receive the notification message. It is only sent to those users.
    
     ![][4]
 

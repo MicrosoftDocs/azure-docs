@@ -40,7 +40,7 @@ In this tutorial, you take the following steps:
 
 
 ## Overview
-In [Use Notification Hubs to send breaking news], you built an app that used **tags** to subscribe to notifications for different news categories. Many apps, however, target multiple markets and require localization. This means that the content of the notifications themselves have to be localized and delivered to the correct set of devices. This tutorial shows you how to use the **template** feature of Notification Hubs to easily deliver localized breaking news notifications.
+In [Use Notification Hubs to send breaking news], you built an app that used **tags** to subscribe to notifications for different news categories. Many apps, however, target multiple markets and require localization. It means that the content of the notifications themselves have to be localized and delivered to the correct set of devices. This tutorial shows you how to use the **template** feature of Notification Hubs to easily deliver localized breaking news notifications.
 
 > [!NOTE]
 > One way to send localized notifications is to create multiple versions of each tag. For instance, to support English, French, and Mandarin, you would need three different tags for world news: "world_en", "world_fr", and "world_ch". You would then have to send a localized version of the world news to each of these tags. In this topic, you use templates to avoid the proliferation of tags and the requirement of sending multiple messages.
@@ -53,7 +53,7 @@ At a high level, templates are a way to specify how a specific device should rec
         "News_Mandarin": "..."
     }
 
-Then you ensure that devices register with a template that refers to the correct property. For instance,  an iOS app that wants to register for French news registers the following:
+Then you ensure that devices register with a template that refers to the correct property. For instance,  an iOS app that wants to register for French news registers using the following syntax:
 
     {
         aps:{
@@ -146,7 +146,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
     ```obj-c
         self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
      ```  
-    Then, in your *subscribe* method, change your call to the *storeCategoriesAndSubscribe* to the following:
+    Then, in your *subscribe* method, change your call to the *storeCategoriesAndSubscribe* to the following code:
    
     ```obj-c
         [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
@@ -160,7 +160,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
             }
         }];
     ```
-3. Finally, you have to update the *didRegisterForRemoteNotificationsWithDeviceToken* method in your AppDelegate.m, so that you can correctly refresh your registration when your app starts. Change your call to the *subscribe* method of notifications with the following:
+3. Finally, you have to update the *didRegisterForRemoteNotificationsWithDeviceToken* method in your AppDelegate.m, so that you can correctly refresh your registration when your app starts. Change your call to the *subscribe* method of notifications with the following code:
    
     ```obj-c
         NSSet* categories = [self.notifications retrieveCategories];
@@ -176,7 +176,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
 [!INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
 ## (optional) Send localized template notifications from the device
-If you don't have access to Visual Studio, or want to just test sending the localized template notifications directly from the app on the device.  You can simple add the localized template parameters to the `SendNotificationRESTAPI` method you defined in the previous tutorial.
+If you don't have access to Visual Studio, or want to just test sending the localized template notifications directly from the app on the device. You can add the localized template parameters to the `SendNotificationRESTAPI` method you defined in the previous tutorial.
 
     ```obj-c
         - (void)SendNotificationRESTAPI:(NSString*)categoryTag

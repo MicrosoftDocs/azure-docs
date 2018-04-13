@@ -50,7 +50,7 @@ The first step is to add the UI elements to your existing storyboard that enable
      
      ![][3]
 2. In the assistant editor, create outlets for all the switches and call them "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
-3. Create an Action for your button called "subscribe". Your ViewController.h should contain the following:
+3. Create an Action for your button called **subscribe**. Your ViewController.h should contain the following code:
    
     ```obj-c
         @property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
@@ -122,7 +122,7 @@ The first step is to add the UI elements to your existing storyboard that enable
     ```
 
 
-    This class uses local storage to store and retrieve the categories of news that this device will receive. Also, it contains a method to register for these categories using a [Template](notification-hubs-templates-cross-platform-push-messages.md) registration.
+    This class uses local storage to store and retrieve the categories of news that this device receives. Also, it contains a method to register for these categories using a [Template](notification-hubs-templates-cross-platform-push-messages.md) registration.
 
 1. In the AppDelegate.h file, add an import statement for Notifications.h and add a property for an instance of the Notifications class:
    
@@ -166,7 +166,7 @@ The first step is to add the UI elements to your existing storyboard that enable
 
     At this point, there should be no other code in the **didRegisterForRemoteNotificationsWithDeviceToken** method.
 
-1. The following methods should already be present in AppDelegate.m from completing the [Get started with Notification Hubs][get-started] tutorial.  If not, add them.
+1. The following methods should already be present in AppDelegate.m from completing the [Get started with Notification Hubs][get-started] tutorial. If not, add them.
    
     ```obj-c    
     -(void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -228,7 +228,7 @@ The first step is to add the UI elements to your existing storyboard that enable
     ```
 
 
-The app can now store a set of categories in the device local storage used to register with the notification hub whenever the app starts.  The user can change the selection of categories at runtime and click the **subscribe** method to update the registration for the device. Next, you update the app to send the breaking news notifications directly in the app itself.
+The app can now store a set of categories in the device local storage used to register with the notification hub whenever the app starts. The user can change the selection of categories at runtime and click the **subscribe** method to update the registration for the device. Next, you update the app to send the breaking news notifications directly in the app itself.
 
 ## (optional) Send tagged notifications
 If you don't have access to Visual Studio, you can skip to the next section and send notifications from the app itself. You can also send the proper template notification from the [Azure portal] using the debug tab for your notification hub. 
@@ -236,9 +236,9 @@ If you don't have access to Visual Studio, you can skip to the next section and 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## (optional) Send notifications from the device
-Normally notifications would be sent by a backend service but, you can send breaking news notifications directly from the app. To do this, you update the `SendNotificationRESTAPI` method that you defined in the [Get started with Notification Hubs][get-started] tutorial.
+Normally notifications would be sent by a backend service but, you can send breaking news notifications directly from the app. To do so, you update the `SendNotificationRESTAPI` method that you defined in the [Get started with Notification Hubs][get-started] tutorial.
 
-1. In ViewController.m update the `SendNotificationRESTAPI` method as follows so that it accepts a parameter for the category tag and sends the proper [template](notification-hubs-templates-cross-platform-push-messages.md) notification.
+1. In `ViewController.m`, update the `SendNotificationRESTAPI` method as follows so that it accepts a parameter for the category tag and sends the proper [template](notification-hubs-templates-cross-platform-push-messages.md) notification.
    
     ```obj-c
         - (void)SendNotificationRESTAPI:(NSString*)categoryTag
@@ -298,7 +298,7 @@ Normally notifications would be sent by a backend service but, you can send brea
             [dataTask resume];
         }
     ```
-2. In ViewController.m update the **Send Notification** action as shown in the code that follows. So that it sends the notifications using each tag individually and sends to multiple platforms.
+2. In `ViewController.m`, update the **Send Notification** action as shown in the code that follows. So that it sends the notifications using each tag individually and sends to multiple platforms.
 
     ```obj-c
         - (IBAction)SendNotificationMessage:(id)sender
