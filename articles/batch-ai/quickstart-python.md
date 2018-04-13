@@ -243,7 +243,7 @@ Output is similar to: `Job state: running`.
 The `executionState` contains the current execution state of the job:
 * `queued`: the job is waiting for the cluster nodes to become available
 * `running`: the job is running
-* `succeeded` (or `failed`) : the job is completed and `executionInfo` contains details about the result
+* `succeeded` (or `failed`): the job is completed and `executionInfo` contains details about the result
 
 ## List stdout and stderr output
 Use the following code to list generated stdout, stderr, and log files:
