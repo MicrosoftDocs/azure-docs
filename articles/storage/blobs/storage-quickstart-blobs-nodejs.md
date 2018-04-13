@@ -79,7 +79,7 @@ The purpose of the modules is as follows:
 - *dotenv* loads environment variables defined in a file named *.env* into the current execution context
 - *path* is required in order to determine the absolute file path of the file to upload to blob storage
 - *yargs* exposes a simple interface to access command-line arguments
-- *azure-storage* is the [Azure Storage SDK](/nodejs/api/azure-storage) module for Node.js
+- *azure-storage* is the [Azure Storage SDK](https://docs.microsoft.com/javascript/api/azure-storage) module for Node.js
 
 Next, a series of variables are initialized:
 
@@ -291,4 +291,4 @@ This quickstart demonstrates how to upload a file between a local disk and Azure
 > [!div class="nextstepaction"]
 > [Blob Storage Operations How-To](storage-nodejs-how-to-use-blob-storage.md)
 
-For the Node.js reference for Azure Storage, see [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).
+For the Node.js reference for Azure Storage, see [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage).
