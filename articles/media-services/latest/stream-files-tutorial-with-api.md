@@ -47,8 +47,6 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
-## Open Azure Cloud Shell
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
@@ -94,20 +92,20 @@ To run the app and access the Media Services APIs, you need to specify the corre
 5. Open App.config.
 6. Replace settings values with the values that you got in the [previous](#create-an-azure-ad-application-and-service-principal) step.
 
-```xml
-  <appSettings>
-    <add key="SubscriptionId" value ="42345678-1234-1234-1234-111111111111" />
-    <add key="Region" value ="West US" />      
-    <add key="ResourceGroup" value ="amsResourcegroup" />
-    <add key="AccountName" value ="amsaccountname" />
-    <add key="AadTenantId" value ="32345678-1234-1234-1234-111111111111" />
-    <add key="AadClientId" value ="12345678-1234-1234-1234-111111111111" />
-    <add key="AadSecret" value ="22345678-1234-1234-1234-111111111111" />
-    <add key="ArmAadAudience" value ="https://management.core.windows.net/" />
-    <add key="AadEndpoint" value ="https://login.microsoftonline.com" />
-    <add key="ArmEndpoint" value ="https://management.azure.com/" />
-  </appSettings>
-```    
+    ```xml
+    <appSettings>
+        <add key="SubscriptionId" value ="42345678-1234-1234-1234-111111111111" />
+        <add key="Region" value ="West US" />      
+        <add key="ResourceGroup" value ="amsResourcegroup" />
+        <add key="AccountName" value ="amsaccountname" />
+        <add key="AadTenantId" value ="32345678-1234-1234-1234-111111111111" />
+        <add key="AadClientId" value ="12345678-1234-1234-1234-111111111111" />
+        <add key="AadSecret" value ="22345678-1234-1234-1234-111111111111" />
+        <add key="ArmAadAudience" value ="https://management.core.windows.net/" />
+        <add key="AadEndpoint" value ="https://login.microsoftonline.com" />
+        <add key="ArmEndpoint" value ="https://management.azure.com/" />
+    </appSettings>
+    ```    
 
 7. Click the right mouse button the solution and select "Restore NuGet packages".
 8. Press Ctrl+Shift+B to build the solution.
