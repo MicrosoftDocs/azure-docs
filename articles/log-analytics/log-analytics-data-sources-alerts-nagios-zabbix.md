@@ -13,13 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 04/13/2018
 ms.author: magoedte
 
 ---
 # Collect alerts from Nagios and Zabbix in Log Analytics from OMS Agent for Linux 
 [Nagios](https://www.nagios.org/) and [Zabbix](http://www.zabbix.com/) are open source monitoring tools.  You can collect alerts from these tools into Log Analytics in order to analyze them along with [alerts from other sources](log-analytics-alerts.md).  This article describes how to configure the OMS Agent for Linux to collect alerts from these systems.
  
+## Prerequsites
+The OMS Agent for Linux supports collecting alerts from Nagios version 4.2.x and Zabbix 2.x.
+
 ## Configure alert collection
 
 ### Configuring Nagios alert collection
