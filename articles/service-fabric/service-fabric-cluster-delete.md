@@ -3,7 +3,7 @@ title: Delete an Azure cluster and its resources | Microsoft Docs
 description: Learn how to completely delete a Service Fabric cluster either deleting the resource group containing the cluster or by selectively deleting resources.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
-ms.author: chackdan
+ms.author: aljo
 
 ---
 # Delete a Service Fabric cluster on Azure and the resources it uses
