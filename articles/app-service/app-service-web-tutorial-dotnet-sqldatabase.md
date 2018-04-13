@@ -143,6 +143,9 @@ Add an administrator username and password. For password complexity requirements
 
 Remember this username and password. You need them to manage the logical server instance later.
 
+> [!IMPORTANT]
+> Even though your password in the connection strings is masked (in Visual Studio and also in App Service), the fact that it's maintained somewhere adds to the attack surface of your app. App Service can use [managed service identities](app-service-managed-service-identity.md) to eliminate this risk by removing the need to maintain secrets in your code or app configuration at all. For more information, see [Next steps](#next).
+
 ![Create SQL Server instance](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
 Click **OK**. Don't close the **Configure SQL Database** dialog yet.
@@ -188,9 +191,6 @@ Select the SQL Database that you created earlier. The connection you created ear
 Type the database administrator password you created earlier and click **Connect**.
 
 ![Configure database connection from Visual Studio](./media/app-service-web-tutorial-dotnet-sqldatabase/connect-to-sql-database.png)
-
-> [!IMPORTANT]
-> Even though your password in the connection strings is masked (in Visual Studio and also in App Service), the fact that it's maintained somewhere adds to the attack surface of your app. App Service can use [managed service identities](app-service-managed-service-identity.md) to eliminate this risk by removing the need to maintain secrets in your code or app configuration at all. For more information, see [Next steps](#next).
 
 ### Allow client connection from your computer
 
