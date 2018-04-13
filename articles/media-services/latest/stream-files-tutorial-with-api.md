@@ -47,7 +47,7 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
-## Log in to Azure
+## Open Azure Cloud Shell
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
