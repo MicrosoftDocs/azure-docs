@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-network
+ author: genli
+ ms.service: virtual-network
+ ms.topic: include
+ ms.date: 04/13/2018
+ ms.author: genli
+ ms.custom: include file
+
+---
+
 ## How to create a classic VNet using Azure CLI
 You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
 

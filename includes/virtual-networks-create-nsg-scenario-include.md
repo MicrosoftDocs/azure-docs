@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-network
+ author: genli
+ ms.service: virtual-network
+ ms.topic: include
+ ms.date: 04/13/2018
+ ms.author: genli
+ ms.custom: include file
+
+---
+
 ## Scenario
 To better illustrate how to create NSGs, this document will use the scenario below.
 
