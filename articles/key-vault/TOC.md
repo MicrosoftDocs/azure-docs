@@ -2,7 +2,6 @@
 
 # Overview
 ## [What is Key Vault?](key-vault-whatis.md)
-## [Service overview](https://azure.microsoft.com/services/key-vault/)
 
 # Quickstarts
 ## [Create a Key Vault - CLI](quick-create-cli.md)
@@ -55,6 +54,7 @@
 ### [Service authentication using .NET](service-to-service-authentication.md)
 
 # Resources
+## [Service overview](https://azure.microsoft.com/services/key-vault/)
 ## [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
