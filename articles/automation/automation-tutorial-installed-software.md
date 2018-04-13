@@ -97,7 +97,7 @@ For instance, searching for "Contoso" returns all software with a name, publishe
 Inventory generates log data that is sent to Log Analytics. To search the logs by running queries, select **Log Analytics** at the top of the **Inventory** window.
 
 Inventory data is stored under the type **ConfigurationData**.
-The following sample Log Analytics query returns the inventory results where the Publisher that contains "Microsoft".
+The following sample Log Analytics query returns the inventory results where the Publisher equals "Microsoft Corporation".
 
 ```loganalytics
 ConfigurationData
