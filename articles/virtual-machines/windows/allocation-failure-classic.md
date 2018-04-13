@@ -20,5 +20,5 @@ ms.author: genli
 ---
 # Troubleshooting steps specific to allocation failure scenarios in the classic deployment model
 
-[!INCLUDE [virtual-machines-common-allocation-failure-classic](../../../includes/virtual-machines-common-allocation-failure -classic.md)]
+[!INCLUDE [virtual-machines-common-allocation-failure-classic](../../../includes/virtual-machines-common-allocation-failure-classic.md)]
 
