@@ -45,7 +45,7 @@ Before you begin this article, you must have the following:
         [ID] [int] NOT NULL,
         [FName] [nvarchar](50) NOT NULL,
         [LName] [nvarchar](50) NOT NULL,
-         CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED
+         CONSTRAINT [PK_Table_1] PRIMARY KEY CLUSTERED
             (
                    [ID] ASC
             )
@@ -58,7 +58,7 @@ Before you begin this article, you must have the following:
         [ID] [int] NOT NULL,
         [FName] [nvarchar](50) NOT NULL,
         [LName] [nvarchar](50) NOT NULL,
-         CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED
+         CONSTRAINT [PK_Table_2] PRIMARY KEY CLUSTERED
             (
                    [ID] ASC
             )
