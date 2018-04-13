@@ -126,7 +126,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
 
-2. In Open the `DocumentDBGetStarted.py` file. 
+2. Open the C:\git-samples\azure-cosmos-db-documentdb-python-getting-startedDocumentDBGetStarted.py file in Visual Studio code. 
 
 3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in `DocumentDBGetStarted.py`. 
 
