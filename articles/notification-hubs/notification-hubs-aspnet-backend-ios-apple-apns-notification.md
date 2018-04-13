@@ -22,6 +22,16 @@ ms.author: spelluru
 
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
 
+In this tutorial, you take the following steps:
+
+> [!div class="checklist"]
+> * Create the WebAPI project
+> * Authenticate clients to the WebAPI backend
+> * Register for notifications by using the WebAPI backend
+> * Send notifications from the WebAPI backend
+> * Publish the new WebAPI backend
+> * Modify your iOS app
+> * Test the application
 
 ## Prerequisites
 This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). This tutorial is also the prerequisite to the [Secure Push (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) tutorial.
