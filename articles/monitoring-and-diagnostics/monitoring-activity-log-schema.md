@@ -11,8 +11,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
-ms.author: johnkem
+ms.date: 4/12/2018
+ms.author: dukek
 
 ---
 # Azure Activity Log event schema
@@ -191,35 +191,7 @@ This category contains the record of any service health incidents that have occu
   }
 }
 ```
-
-### Property descriptions
-Element Name | Description
--------- | -----------
-channels | Is one of the following values: “Admin”, “Operation”
-correlationId | Is usually a GUID in the string format. Events with that belong to the same uber action usually share the same correlationId.
-description | Description of the event.
-eventDataId | The unique identifier of an event.
-eventName | The title of the event.
-level | Level of the event. One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose”
-resourceProviderName | Name of the resource provider for the impacted resource. If not known, this will be null.
-resourceType| The type of resource of the impacted resource. If not known, this will be null.
-subStatus | Usually null for Service Health events.
-eventTimestamp | Timestamp when the log event was generated and submitted to the Activity Log.
-submissionTimestamp | 	Timestamp when the event became available in the Activity Log.
-subscriptionId | The Azure subscription in which this event was logged.
-status | String describing the status of the operation. Some common values are: Active, Resolved.
-operationName | Name of the operation. Usually Microsoft.ServiceHealth/incident/action.
-category | "ServiceHealth"
-resourceId | Resource id of the impacted resource, if known. Subscription ID is provided otherwise.
-Properties.title | The localized title for this communication. English is the default language.
-Properties.communication | The localized details of the communication with HTML markup. English is the default.
-Properties.incidentType | Possible values: AssistedRecovery, ActionRequired, Information, Incident, Maintenance, Security
-Properties.trackingId | Identifies the incident this event is associated with. Use this to correlate the events related to an incident.
-Properties.impactedServices | An escaped JSON blob which describes the services and regions that are impacted by the incident. A list of Services, each of which has a ServiceName and a list of ImpactedRegions, each of which has a RegionName.
-Properties.defaultLanguageTitle | The communication in English
-Properties.defaultLanguageContent | The communication in English as either html markup or plain text
-Properties.stage | Possible values for AssistedRecovery, ActionRequired, Information, Incident, Security: are Active, Resolved. For Maintenance they are: Active, Planned, InProgress, Canceled, Rescheduled, Resolved, Complete
-Properties.communicationId | The communication this event is associated.
+Refer to the [service health notifications](./monitoring-service-notifications.md) article for documentation about the values in the properties.
 
 ## Alert
 This category contains the record of all activations of Azure alerts. An example of the type of event you would see in this category is "CPU % on myVM has been over 80 for the past 5 minutes." A variety of Azure systems have an alerting concept -- you can define a rule of some sort and receive a notification when conditions match that rule. Each time a supported Azure alert type 'activates,' or the conditions are met to generate a notification, a record of the activation is also pushed to this category of the Activity Log.
