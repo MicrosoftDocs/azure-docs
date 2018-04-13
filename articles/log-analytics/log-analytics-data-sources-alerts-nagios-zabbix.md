@@ -18,9 +18,9 @@ ms.author: magoedte
 
 ---
 # Collect alerts from Nagios and Zabbix in Log Analytics from OMS Agent for Linux 
-[Nagios](https://www.nagios.org/) and [Zabbix](http://www.zabbix.com/) are open source monitoring tools.  You can collect alerts from these tools into Log Analytics in order to analyze them along with [alerts from other sources](log-analytics-alerts.md).  This article describes how to configure the OMS Agent for Linux to collect alerts from these systems.
+[Nagios](https://www.nagios.org/) and [Zabbix](http://www.zabbix.com/) are open source monitoring tools. You can collect alerts from these tools into Log Analytics in order to analyze them along with [alerts from other sources](log-analytics-alerts.md).  This article describes how to configure the OMS Agent for Linux to collect alerts from these systems.
  
-## Prerequsites
+## Prerequisites
 The OMS Agent for Linux supports collecting alerts from Nagios version 4.2.x and Zabbix 2.x.
 
 ## Configure alert collection
@@ -102,8 +102,8 @@ Alert records collected by Zabbix have a **Type** of **Alert** and a **SourceSys
 | SourceSystem |*Zabbix* |
 | AlertName | Name of the alert. |
 | AlertPriority | Severity of the alert.<br><br>not classified<br>information<br>warning<br>average<br>high<br>disaster  |
-| AlertState | State of the alert.<br><br>0 - State is up to date.<br>1 - State is unknown.  |
-| AlertTypeNumber | Specifies whether alert can generate multiple problem events.<br><br>0 - State is up to date.<br>1 - State is unknown.    |
+| AlertState | State of the alert.<br><br>0 - State is up-to-date.<br>1 - State is unknown.  |
+| AlertTypeNumber | Specifies whether alert can generate multiple problem events.<br><br>0 - State is up-to-date.<br>1 - State is unknown.    |
 | Comments | Additional comments for alert. |
 | HostName | Name of the host that created the alert. |
 | PriorityNumber | Value indicating severity of the alert.<br><br>0 - not classified<br>1 - information<br>2 - warning<br>3 - average<br>4 - high<br>5 - disaster |
