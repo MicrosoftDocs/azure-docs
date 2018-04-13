@@ -133,7 +133,7 @@ The recovery process does the following:
 
 4. Provisions an instance of the app in the recovery region and configures it to use the restored catalog in that region. To keep latency to a minimum, the sample app is designed to always connect to a tenant database in the same region.
 
-5. Provisions a server and elastic pool in which new tenants will be provisioned. Creating these resources ensures that provisioning new tenants doesn't interfere with the recovery of existing tenants.
+5. Provisions a server and elastic pool in which new tenants are provisioned. Creating these resources ensures that provisioning new tenants doesn't interfere with the recovery of existing tenants.
 
 6. Updates the new tenant alias to point to the server for new tenant databases in the recovery region. Changing this alias ensures that databases for any new tenants are provisioned in the recovery region.
 		
