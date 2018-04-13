@@ -5,12 +5,12 @@
 ## [Service overview](https://azure.microsoft.com/services/key-vault/)
 
 # Quickstarts
-- [Create a Key Vault - CLI](quick-create-cli.md)
-- [Create a Key Vault - PowerShell](quick-create-powershell.md)
-- [Create a Key Vault - Portal](quick-create-portal.md)
+## [Create a Key Vault - CLI](quick-create-cli.md)
+## [Create a Key Vault - PowerShell](quick-create-powershell.md)
+## [Create a Key Vault - Portal](quick-create-portal.md)
 
 # Tutorials
-= [Configure an Azure web application to read a secret from Key vault ](tutorial-web-application-keyvault.md)
+## [Configure an Azure web application to read a secret from Key vault ](tutorial-web-application-keyvault.md)
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 # Concepts
