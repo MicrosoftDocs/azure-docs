@@ -154,7 +154,7 @@ Azure event grid supports the following actions:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-The last three operations return potentially secret information, which gets filtered out of normal read operations. It is best practice for you to restrict access to these operations. Custom roles can be created using [Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md), [Azure Command-Line Interface (CLI)](../active-directory/role-based-access-control-manage-access-azure-cli.md), and the [REST API](../active-directory/role-based-access-control-manage-access-rest.md).
+The last three operations return potentially secret information, which gets filtered out of normal read operations. It is best practice for you to restrict access to these operations. Custom roles can be created using [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure Command-Line Interface (CLI)](../role-based-access-control/role-assignments-cli.md), and the [REST API](../role-based-access-control/role-assignments-rest.md).
 
 ### Enforcing Role Based Access Check (RBAC)
 
