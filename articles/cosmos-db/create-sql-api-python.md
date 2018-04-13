@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 04/13/2018
 ms.author: sngun
 
 ---
@@ -23,20 +23,18 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 This quick start demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and collection using the Azure portal. You then build and run a console app built on the [SQL Python API](sql-api-sdk-python.md).
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+* [Python 3.6](https://www.python.org/downloads/) with C:\Program Files\Python36 and C:\Program Files\Python36\Scripts added to your PATH. 
+* [Visual Studio Code](https://code.visualstudio.com/) 
+* [Python extention for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
+* From within VS Code, select a version of Python using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available:
 
-* In addition, you'll also need:
-    1. [Python 3.6](https://www.python.org/downloads/) with C:\Program Files\Python36 and C:\Program Files\Python36\Scripts added to your PATH. 
-    2. [Visual Studio Code](https://code.visualstudio.com/) 
-    3. [Python extention for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
-    4. From within VS Code, select a version of Python using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available:
+    ![No interpreter selected](./media/create-sql-api-python/no-interpreter-selected-statusbar.png)
 
-        ![No interpreter selected](./media/create-sql-api-python/no-interpreter-selected-statusbar.png)
-
-        The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
+    The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
 
 ## Create a database account
 
@@ -147,7 +145,7 @@ Now go back to the Azure portal to get your connection string information and co
     cd "C:\git-samples\azure-cosmos-db-documentdb-python-getting-started"`
     ```
 
-3. Now run the following command to install the pydocumentdb package. 
+3. Run the following command to install the pydocumentdb package. 
 
     ```
     pip3 install pydocumentdb
@@ -155,7 +153,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     If you get an error about access being denied when attempting to install pydocumentdb, you'll need to [run VS Code as an administrator](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
 
-3. In the integrated terminal window, run the following command to run the sample and create and store new documents in Azure Cosmos dB.
+3. Run the following command to run the sample and create and store new documents in Azure Cosmos dB.
 
     ```
     python DocumentDBGetStarted.py
