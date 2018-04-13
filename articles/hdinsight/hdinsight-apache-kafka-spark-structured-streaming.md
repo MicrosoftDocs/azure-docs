@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2018
 ms.author: larryfr
-#Customer intent: As a developer, I want to learn how to build a streaming pipeline that uses Spark and Kafka to process streaming data.
+#Customer intent: As a developer, I want to learn how to use Spark Structured Streaming with Kafka on HDInsight.
 ---
 # Tutorial: Use Spark Structured Streaming with Kafka on HDInsight
 
 This tutorial demonstrates how to use Spark Structured Streaming to read and write data with Apache Kafka on Azure HDInsight.
 
-Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide](http://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
+Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. 
 
 In this tutorial, you learn how to:
 
@@ -34,9 +34,17 @@ In this tutorial, you learn how to:
 > [!IMPORTANT]
 > The steps in this document require an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
 > 
-> If you already have a virtual network that contains a Kafka cluster, you can create a Spark cluster in the same virtual network. For your convenience, this document also provides a template that can create all the required Azure resources.
+> For your convenience, this document also provides a template that can create all the required Azure resources.
 
 When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
+
+## Prerequisites
+
+* Familiarity with using Jupyter Notebooks with Spark on HDInsight. For more information, see the [Load data and run queries with Spark on HDInsight](../spark/apache-spark-load-data-run-query.md) document.
+
+* Familiarity with the [Scala](https://www.scala-lang.org/) programming language. The code used in this tutorial is written in Scala.
+
+* Familiarity with creating Kafka topics. For more information, see the [Kafka on HDInsight quickstart](apache-kafka-get-started.md) document.
 
 ## Create the clusters
 

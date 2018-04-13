@@ -10,13 +10,11 @@ tags: azure-portal
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2018
 ms.author: larryfr
-#Customer intent: As a developer, I need to create an application that uses the consumer/producer API
+#Customer intent: As a developer, I need to create an application that uses the Kafka consumer/producer API with Kafka on HDInsight
 ---
 
 # Apache Kafka Producer and Consumer APIs
