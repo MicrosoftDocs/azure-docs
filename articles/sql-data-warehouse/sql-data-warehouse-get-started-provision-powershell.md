@@ -1,6 +1,6 @@
 ---
-title: Create Azure SQL Data Warehouse - PowerShell | Microsoft Docs
-description: Create an Azure SQL Data Warehouse by using PowerShell.
+title: 'Azure PowerShell: Create an Azure SQL Data Warehouse | Microsoft Docs'
+description: Learn how to create an Azure SQL Data Warehouse logical server, server-level firewall rule, and databases with Azure PowerShell.
 services: sql-data-warehouse
 author: hirokib
 manager: craigg-msft
