@@ -62,13 +62,12 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 
 ## Enable MSI on your VM
 
-You can use MSI for a virtual machine to get access tokens from Azure AD without needing to put credentials in your code. Enabling MSI installs the MSI VM extension on your VM, and it enables MSI in Azure Resource Manager.  
+A Virtual Machine MSI enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling MSI on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and installs the MSI VM extension.
 
-1. For **Virtual Machine**, select the virtual machine that you want to enable MSI on.
-2. In the left pane, select **Configuration**.
-3. You see **Managed service identity**. To register and enable MSI, select **Yes**. If you want to disable it, select **No**.
-   !["Register with Azure Active Directory" selection](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-4. Select **Save**.
+1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
+2. Under the "Settings" category on the left navigation, click on  Configuration.
+3. To enable the MSI, select Yes. To disable, choose No.
+4. Click Save, to apply the configuration. 
 5. If you want to check which extensions are on this Linux VM, select **Extensions**. If MSI is enabled, **ManagedIdentityExtensionforLinux** appears in the list.
 
    ![List of extensions](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)

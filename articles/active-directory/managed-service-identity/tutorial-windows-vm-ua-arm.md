@@ -1,6 +1,6 @@
 ---
-title: Use a Windows VM user-assigned MSI to access Azure Resource Manager
-description: A tutorial that walks you through the process of using a User-Assigned Managed Service Identity (MSI) on a Windows VM, to access Azure Resource Manager.
+title: Use a Windows VM user assigned MSI to access Azure Resource Manager
+description: A tutorial that walks you through the process of using a User Assigned Managed Service Identity (MSI) on a Windows VM, to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -15,11 +15,11 @@ ms.date: 04/10/2018
 ms.author: arluca
 ---
 
-# Use a user-assigned Managed Service Identity (MSI) on a Windows VM, to access Azure Resource Manager
+# Use a User Assigned Managed Service Identity (MSI) on a Windows VM, to access Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-This tutorial explains how to create a user-assigned Managed Service Identity (MSI), assign it to a Windows Virtual Machine (VM), and then use that identity to access the Azure Resource Manager API. 
+This tutorial explains how to create a user assigned Managed Service Identity (MSI), assign it to a Windows Virtual Machine (VM), and then use that identity to access the Azure Resource Manager API. 
 
 Managed Service Identities are automatically managed by Azure. They enable authentication to services that support Azure AD authentication, without needing to embed credentials into your code.
 
@@ -27,11 +27,18 @@ You learn how to:
 
 > [!div class="checklist"]
 > * Create a Windows VM 
-> * Create a user-assigned MSI
-> * Assign your user-assigned MSI to your Windows VM
+> * Create a user assigned MSI
+> * Assign your user assigned MSI to your Windows VM
 > * Grant the MSI access to a Resource Group in Azure Resource Manager 
 > * Get an access token using the MSI and use it to call Azure Resource Manager 
 > * Read the properties of a Resource Group
+
+## Prerequisites
+
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -47,7 +54,7 @@ New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastU
 
 ## Create virtual machine
 
-After the resource group is completed, create a Windows VM.
+After the resource group is created, create a Windows VM.
 
 Set the username and password needed for the administrator account on the virtual machine with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
@@ -68,15 +75,15 @@ New-AzureRmVm `
     -Credential $cred
 ```
 
-## Create a user-assigned MSI
+## Create a user assigned MSI
 
-A user assigned MSI is create as a standalone Azure resource.  Using the [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity), Azure creates an identity in an Azure AD tenant that can be assigned to one or more Azure service instances.
+A user assigned MSI is create as a standalone Azure resource.  Using the [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity), Azure creates an identity in your Azure AD tenant that can be assigned to one or more Azure service instances.
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
 ```
 
-The response contains details for the user-assigned MSI created, similar to the following example. Note the `Id` value for your MSI, as it will be used in the next step:
+The response contains details for the user assigned MSI created, similar to the following example. Note the `Id` value for your MSI, as it will be used in the next step:
 
 ```azurepowershell
 {
@@ -92,16 +99,16 @@ Type: Microsoft.ManagedIdentity/userAssignedIdentities
 }
 ```
 
-## Assign the user-assigned MSI to a Windows VM
+## Assign the user assigned MSI to a Windows VM
 
-A user-assigned MSI can be used by clients on multiple Azure resources. Use the following commands to assign the user assigned identity to a single VM. Use the `Id` property returned in the previous step for the `-IdentityID` parameter.
+A user assigned MSI can be used by clients on multiple Azure resources. Use the following commands to assign the user assigned identity to a single VM. Use the `Id` property returned in the previous step for the `-IdentityID` parameter.
 
 ```azurepowershell-interactive
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzureRmVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
 ```
 
-## Grant your user-assigned MSI access to a Resource Group in Azure Resource Manager 
+## Grant your user assigned MSI access to a Resource Group in Azure Resource Manager 
 
 MSI provides your code with an access token to authenticate to resource APIs that support Azure AD authentication. In this tutorial, your code accesses the Azure Resource Manager API. 
 
@@ -147,7 +154,7 @@ $ArmToken = $content.access_token
 ```
 ## Read the properties of a Resource Group
 
-Use the access token retrieved in the previous step to access Azure Resource Manager, and read the properties of the Resource Group you granted your user-assigned MSI access. Replace <SUBSCRIPTION ID> with the subscription id of your environment.
+Use the access token retrieved in the previous step to access Azure Resource Manager, and read the properties of the Resource Group you granted your user assigned MSI access. Replace <SUBSCRIPTION ID> with the subscription id of your environment.
 
 ```azurepowershell
 (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/myResourceGroupVM?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{Authorization ="Bearer $ArmToken"}).content

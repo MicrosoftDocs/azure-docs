@@ -17,15 +17,9 @@ ms.author: arluca
 
 # Use a Windows VM MSI to access Azure Cosmos DB
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to create and use a Windows VM MSI to access Cosmos DB. You learn how to:
-
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-You learn how to:
 
 > [!div class="checklist"]
 > * Create a MSI enabled Windows VM 
@@ -33,6 +27,13 @@ You learn how to:
 > * Grant Windows VM MSI access to the Cosmos DB account access keys
 > * Get an access token using the Windows VM's MSI to call Azure Resource Manager
 > * Get access keys from Azure Resource Manager to make Cosmos DB calls
+
+## Prerequisites
+
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
 
 ## Sign in to Azure
 
@@ -53,7 +54,7 @@ For this tutorial, we create a new Windows VM.  You can also enable MSI on an ex
 
 ## Enable MSI on your VM 
 
-A VM MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your VM. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM, and it enables MSI in Azure Resource Manager.
+A Virtual Machine MSI enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling MSI on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and installs the MSI VM extension.
 
 1. Select the **Virtual Machine** that you want to enable MSI on.  
 2. On the left navigation bar click **Configuration**. 
@@ -86,7 +87,7 @@ Next, add a data collection in the Cosmos DB account that you can query in later
 
 ## Grant Windows VM MSI access to the Cosmos DB account access keys
 
-Cosmos DB does not natively support Azure AD authentication.  However, you can use an MSI to retrieve a Cosmos DB access key from the Resource Manager, then use the key to access Cosmos DB.  In this step, you grant your system assigned MSI access to the keys to the Cosmos DB account.
+Cosmos DB does not natively support Azure AD authentication. However, you can use an MSI to retrieve a Cosmos DB access key from the Resource Manager, and use the key to access Cosmos DB. In this step, you grant your MSI access to the keys to the Cosmos DB account.
 
 To grant the MSI identity access to the Cosmos DB account in Azure Resource Manager using PowerShell, update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Replace `<MSI PRINCIPALID>` with the `principalId` property returned by the `az resource show` command in [Retrieve the principalID of the Linux VM's MSI](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account:
 

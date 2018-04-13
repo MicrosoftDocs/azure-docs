@@ -20,13 +20,13 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, then use that identity to access Azure Storage. You will learn how to:
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, and use the identity to access Azure Storage.
 
 
 > [!div class="checklist"]
-> * Enable MSI on a Windows Virtual Machine 
-> * Grant your VM access to a storage account 
-> * Get an access token using your VM's identity, and use it to access Azure Storage 
+> * Enable the Managed Service Identity (MSI) on a Windows Virtual Machine (VM) 
+> * Grant your Virtual Machine Identity access to a storage account 
+> * Get an access token using your Virtual Machine's identity, and use it to access Azure Storage 
 
 ## Prerequisites
 
@@ -53,12 +53,12 @@ For this tutorial, we create a new Windows VM. You can also enable MSI on an exi
 
 ## Enable MSI on your VM
 
-A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM and it enables MSI for the Virtual Machine.  
+A Virtual Machine MSI enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling MSI on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and installs the MSI VM extension. 
 
 1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
-2. Under the VM "Settings" on the left, click **Configuration**.
-3. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
-4. Ensure you click **Save** to save the configuration.
+2. Under the "Settings" category on the left navigation, click on  Configuration.
+3. To enable the MSI, select Yes. To disable, choose No.
+4. Click Save, to apply the configuration. 
 
     ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
