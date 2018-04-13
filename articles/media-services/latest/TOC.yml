@@ -24,7 +24,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=media
+    href: https://azure.microsoft.com/resources/samples/?service=media-services
 - name: Concepts
   items:
   - name: Storage accounts
@@ -33,7 +33,7 @@
     href: transform-concept.md
   - name: Assets
     href: assets-concept.md
-  - name: Autogen adptive bitrate ladder
+  - name: Autogen adaptive bitrate ladder
     href: autogen-bitrate-ladder.md
 - name: How-to guides
   items:
@@ -49,8 +49,6 @@
       href: job-input-from-local-file-how-to.md    
 - name: Reference
   items:
-  - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=media-services   
   - name: Azure PowerShell (Resource Manager)
     href: /powershell/module/azurerm.media
   - name: REST
