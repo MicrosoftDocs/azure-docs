@@ -232,7 +232,7 @@ You can also use `copyIndex()` to append a number to a resource name. You can th
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-You can read a complete example of [creating multiple NICs by using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+You can read a complete example of [creating multiple NICs by using Resource Manager templates](../../virtual-network/template-samples.md).
 
 Add routes for secondary NICs to the OS by completing the steps in [Configure the operating system for multiple NICs](#configure-guest-os-for-multiple-nics).
 
