@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-hub
+ author: dominicbetts
+ ms.service: iot-hub
+ ms.topic: include
+ ms.date: 04/13/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 The first step is to use the Azure portal to create an IoT hub in your subscription. The IoT hub enables you to ingest high volumes of telemetry into the cloud from many devices. The hub then enables one or more back-end services running in the cloud to read and process that telemetry.
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
