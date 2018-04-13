@@ -24,19 +24,19 @@ ms.author: spelluru
 > 
 
 ## Overview
-This tutorial shows you how to use the [templates](notification-hubs-templates-cross-platform-push-messages.md) feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial you start with the iOS app created in [Use Notification Hubs to send breaking news]. When complete, you can register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
+This tutorial shows you how to use the [templates](notification-hubs-templates-cross-platform-push-messages.md) feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial, you start with the iOS app created in [Use Notification Hubs to send breaking news]. When complete, you can register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
 
 There are two parts to this scenario:
 
 * iOS app allows client devices to specify a language, and to subscribe to different breaking news categories;
-* the back-end broadcasts the notifications, using the **tag** and **template** feautres of Azure Notification Hubs.
+* the back-end broadcasts the notifications, using the **tag** and **template** features of Azure Notification Hubs.
 
-In [Use Notification Hubs to send breaking news], you built an app that used **tags** to subscribe to notifications for different news categories. Many apps, however, target multiple markets and require localization. This means that the content of the notifications themselves have to be localized and delivered to the correct set of devices. In this tutorial, we will show how to use the **template** feature of Notification Hubs to easily deliver localized breaking news notifications.
+In [Use Notification Hubs to send breaking news], you built an app that used **tags** to subscribe to notifications for different news categories. Many apps, however, target multiple markets and require localization. This means that the content of the notifications themselves have to be localized and delivered to the correct set of devices. In this tutorial, we show how to use the **template** feature of Notification Hubs to easily deliver localized breaking news notifications.
 
 > [!NOTE]
-> One way to send localized notifications is to create multiple versions of each tag. For instance, to support English, French, and Mandarin, we would need three different tags for world news: "world_en", "world_fr", and "world_ch". We would then have to send a localized version of the world news to each of these tags. In this topic we use templates to avoid the proliferation of tags and the requirement of sending multiple messages.
+> One way to send localized notifications is to create multiple versions of each tag. For instance, to support English, French, and Mandarin, we would need three different tags for world news: "world_en", "world_fr", and "world_ch". We would then have to send a localized version of the world news to each of these tags. In this topic, we use templates to avoid the proliferation of tags and the requirement of sending multiple messages.
 
-At a high level, templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In our case, we will send a locale-agnostic message containing all supported languages:
+At a high level, templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In our case, we send a locale-agnostic message containing all supported languages:
 
     {
         "News_English": "...",
@@ -44,7 +44,7 @@ At a high level, templates are a way to specify how a specific device should rec
         "News_Mandarin": "..."
     }
 
-Then we will ensure that devices register with a template that refers to the correct property. For instance,  an iOS app that wants to register for French news will register the following:
+Then we ensure that devices register with a template that refers to the correct property. For instance,  an iOS app that wants to register for French news registers the following:
 
     {
         aps:{
@@ -52,7 +52,7 @@ Then we will ensure that devices register with a template that refers to the cor
         }
     }
 
-Templates are a very powerful feature you can learn more about in our [Templates](notification-hubs-templates-cross-platform-push-messages.md) article.
+Templates are a powerful feature you can learn more about in our [Templates](notification-hubs-templates-cross-platform-push-messages.md) article.
 
 In this tutorial, you take the following steps:
 
@@ -70,7 +70,7 @@ In this tutorial, you take the following steps:
 ## Update the app user interface
 We will now modify the Breaking News app that you created in the topic [Use Notification Hubs to send breaking news] to send localized breaking news using templates.
 
-In your MainStoryboard_iPhone.storyboard, add a Segmented Control with the three languages which we will support: English, French, and Mandarin.
+In your MainStoryboard_iPhone.storyboard, add a Segmented Control with the three languages, which we support: English, French, and Mandarin.
 
 ![][13]
 
