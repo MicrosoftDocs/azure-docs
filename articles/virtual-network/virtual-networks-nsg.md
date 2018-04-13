@@ -59,10 +59,12 @@ NSGs contain two sets of rules: Inbound and outbound. The priority for a rule mu
 
 The previous picture shows how NSG rules are processed.
 
-### Service tags
+### <a name="default-tags"></a>System tags
+
 Service tags are system-provided identifiers to address a category of IP addresses. You can use service tags in the **source address prefix** and **destination address prefix** properties of any security rule. Learn more about [service tags](security-overview.md#service-tags).
 
-### Default security rules
+### <a name="default-rules"></a>Default security rules
+
 All NSGs contain a set of default security rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. Learn more about [default security rules](security-overview.md#default-security-rules).
 
 ## Associating NSGs
