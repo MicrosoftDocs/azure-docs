@@ -50,7 +50,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
-* [Azure Maps](#maps-limits)
+* [Azure  ](#azure-maps-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -197,9 +197,6 @@ The following App Service limits include limits for Web Apps, Mobile Apps, API A
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
-### Azure Maps limits
-[!INCLUDE [maps-limits](../includes/maps-limits.md)]
-
 ### Scheduler limits
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
@@ -281,6 +278,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Azure Event Grid limits
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
+
+### Azure Maps limits
+[!INCLUDE [maps-limits](../includes/maps-limits.md)]
 
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
