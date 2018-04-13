@@ -36,10 +36,10 @@ The steps in this section assume that you are familiar with developing using .NE
    2. Run the installer and follow the installation prompts to complete the installation.
 
 ### **Configure Visual Studio**
-1. From Visual Studio, Project -> Properties -> Linker -> General > Additional Library Directories, add the "lib\opt" directory (i.e.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) of the C++ connector.
+1. From Visual Studio, Project -> Properties -> Linker -> General > Additional Library Directories, add the "\lib\opt" directory (i.e.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) of the C++ connector.
 2. From Visual Studio, Project -> Properties -> C/C++ -> General -> Additional Include Directories:
-   - Add the "include\" directory of c++ connector (i.e.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\).
-   - Add Boost library's root directory (i.e.: C:\boost_1_64_0\).
+   - Add the "\include" directory of c++ connector (i.e.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\).
+   - Add the Boost library's root directory (i.e.: C:\boost_1_64_0\).
 3. From Visual Studio, Project -> Properties -> Linker -> Input > Additional Dependencies, add **mysqlcppconn.lib** into the text field.
 4. Either copy **mysqlcppconn.dll** from the C++ connector library folder in step 3 to the same directory as the application executable or add it to the environment variable so your application can find it.
 
