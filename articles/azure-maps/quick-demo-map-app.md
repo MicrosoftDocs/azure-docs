@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
-## Create a Maps account and get account key
+## Create an account and get your key
 
 1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), click **Create a resource**.
 2. In the *Search the Marketplace* box, type **Maps**.
@@ -37,14 +37,14 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 5. Once your account is successfully created, open it and navigate to the account's **SETTINGS**. Click **Keys** to obtain the primary and secondary keys for your Azure Maps account. Copy the **Primary Key** value to your local clipboard to use in the following section. 
 
-## Download the demo application for Azure Maps
+## Download the application
 
 1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html).
 2. Save the contents of this file locally as **AzureMapDemo.html** and open it in a text editor.
 3. Search for the string `<insert-key>`, and replace it with the **Primary Key** value obtained in the preceding section. 
 
 
-## Launch the demo application for Azure Maps
+## Launch the application
 
 1. Open the file **AzureMapDemo.html** in a browser of your choice.
 2. Observe the map shown of Los Angeles city. The city is determined by the value of the `[longitude, latitude]` pair given to the JavaScript variable named **center** in the *AzureMapDemo.html*. You can change these coordinates to any other city of your choice. For example, New York city's coordinates are *[-74.0060, 40.7128]*.
@@ -66,4 +66,4 @@ The tutorials go in details about how to use and configure the Azure Maps for yo
 In this Quickstart, you’ve created your Azure Maps account, and launched a demo app using your account. To learn how to create your own application using the Azure Maps APIs, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial to user Azure Map and Search](./tutorial-search-location.md)
+> [Search points of interest using Azure Maps](./tutorial-search-location.md)

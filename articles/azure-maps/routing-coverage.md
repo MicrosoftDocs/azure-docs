@@ -1,6 +1,6 @@
 ---
-title: Routing coverage in Azure Location Based Services | Microsoft Docs
-description: Learn about Routing coverage in Azure Location Based Services
+title: Routing coverage in Azure Maps | Microsoft Docs
+description: Learn about routing coverage in Azure Maps 
 services: azure-maps
 keywords: 
 author: jinzh-azureiot
@@ -17,9 +17,9 @@ ms.custom:
 
 
 
-# Azure Location Based Services - Routing coverage
+# Azure Maps routing coverage
 
-This article provides coverage information for Azure Location Based Services Routing. 
+This article provides coverage information for Azure Maps routing. 
 
 Check out coverage for [**Geocoding**](geocoding-coverage.md).       
 Check out coverage for [**Traffic**](traffic-coverage.md).  
@@ -35,7 +35,7 @@ Check out coverage for [**Render**](render-coverage.md).
 
 <br>  
 
-The following table provides coverage information for Azure Location Based Services Routing.
+The following table provides coverage information for Azure Maps routing.
 <br>  
 
 | Region                         | Routing |

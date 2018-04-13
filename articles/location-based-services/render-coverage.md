@@ -3,8 +3,8 @@ title: Render Coverage in Azure Maps | Microsoft Docs
 description: Learn about Render Coverage in Azure Maps
 services: location-based-services
 keywords: 
-author: jinzh-azureiot
-ms.author: jinzh
+author: kgremban
+ms.author: kgremban
 ms.date: 3/6/2018
 ms.topic: article
 ms.service: location-based-services
