@@ -36,9 +36,11 @@ Based on customer feedback, we’ve updated the support request experience to fo
 You can create a support request from the top navigation menu or directly from a resource blade.
 
 **From the top navigation bar**
+
 ![Help and Support](./media/how-to-create-azure-support-request/HelpandSupport.png)
 
 From the Help and Support page, select "New support request"
+
 ![New Support Request](./media/how-to-create-azure-support-request/NewSupportRequest.png)
 
 **From a resource blade**
@@ -69,6 +71,7 @@ Continuing with the virtual machine connectivity example from above, you would f
 
 ## Related Help
 Based on problem type and the category you select, we provide a solution that can help resolve your issue.
+
 ![Related help](./media/how-to-create-azure-support-request/RelatedHelp.png)
 
 We also provide contextual self-help solutions based on the textual description of your issue.
@@ -76,13 +79,16 @@ We also provide contextual self-help solutions based on the textual description 
 ![Related help 2](./media/how-to-create-azure-support-request/RelatedHelp02.png)
 
 If the recommended solutions do not help, you can continue through the process to create a support request.
+
 ![Problem blade 3](./media/how-to-create-azure-support-request/Problem03.png)
 
 ## Contact Information
 The last step of the wizard confirms your contact options and contact information so we know how to reach you.
+
 ![Contact Information](./media/how-to-create-azure-support-request/ContactInformation.png)
 
 Depending on the severity of your issue, you may be asked to indicate if you would like us to contact you during business hours or if you would prefer a 24x7 response, which means we may contact you at any time.
+
 ![Contact Information 24x7](./media/how-to-create-azure-support-request/ContactInformation-2.png)
 
 ## All support requests
@@ -97,6 +103,7 @@ From the Help and Support page, select "All support requests" from the left menu
 ![All Support Request link](./media/how-to-create-azure-support-request/AllSupportRequest-link.png)
 
 On the **All support requests** page, you can view all support requests and their status.
+
 ![All Support Request](./media/how-to-create-azure-support-request/AllSupportRequest.png)
 
 The support requests page, provides customers to filter cases by Subscription, Created date (UTC) and status.
