@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/12/2018
 ms.author: dukek
 
 ---
@@ -53,14 +53,44 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     a. **Name**: Enter a unique identifier for this action.
 
-    b. **Action Type**: Select Email/SMS/Push/Voice, Webhook, ITSM, or Automation Runbook.
+    b. **Action Type**: Select Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
 
     c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
 
-   > [!NOTE]
-   > ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md). 
-
 8. Select **OK** to create the action group.
+
+## Action Specific Information
+### Azure app Push
+- You may have up to 10 Azure app actions in an Action Group.
+- At this time the Azure app action only supports ServiceHealth alerts. Any other alert time will be ignored. See [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).
+
+### Email
+- You may have up to 50 email actions in an Action Group
+- See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article
+
+### ITSM
+- You may have up to 10 ITSM actions in an Action Group
+- ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md).
+
+### Logic App
+- You may have up to 10 Logic App actions in an Action Group
+
+### Runbook
+- You may have up to 10 Runbook actions in an Action Group
+
+### SMS
+- You may have up to 10 SMS actions in an Action Group
+- See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article
+- See the [SMS alert behavior](monitoring-sms-alert-behavior.md) article
+
+### Voice
+- You may have up to 10 Voice actions in an Action Group
+- See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article
+
+### Webhook
+- You may have up to 10 Webhook actions in an Action Group
+- Retry logic - the webhook call will be retried a maximum of 3 times when the following status codes are returned
+  - 408, 429, 503, 504
 
 ## Manage your action groups ##
 After you create an action group, it's visible in the **Action groups** section of the **Monitor** blade. Select the action group you want to manage to:
