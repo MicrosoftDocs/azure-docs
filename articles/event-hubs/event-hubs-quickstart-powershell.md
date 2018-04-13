@@ -29,43 +29,43 @@ This quickstart shows you how to:
 
 To complete this tutorial, make sure you have:
 
-1. An Azure subscription. If you don't have one, [create a free subscription][] before you begin.
+1. An Azure subscription. If you don't have one, [create a free subscription](https://azure.microsoft.com/en-us/free/) before you begin.
 2. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
 3. [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you're using PowerShell locally, you must be running the latest version of PowerShell in order to complete this article. If you need to install or upgrade, see [Install and Configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+If you're using PowerShell locally, you must run the latest version of PowerShell to complete this quickstart. If you need to install or upgrade, see [Install and Configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
 
 ## Log on to Azure
 
-Once PowerShell is installed, install the Event Hubs PowerShell module and log on to Azure:
+Once PowerShell is installed, install the Event Hubs PowerShell module and log on to Azure.
 
-1. To install the Event Hubs PowerShell module, run:
+1. Install the Event Hubs PowerShell module:
 
    ```azurepowershell-interactive
    Install-Module AzureRM.EventHub
    ```
 
-2. To log on to Azure, run:
+2. Log on to Azure:
 
    ```azurepowershell-interactive
    Login-AzureRmAccount
    ```
 
-3. Change to the current subscription or see the currently active subscription. Replace `MyAzureSub` with the name of the Azure subscription you want to use:
+3. Select your Azure subscription. Replace `MyAzureSub` with the name of the Azure subscription you want to use:
 
    ```azurepowershell
    Select-AzureRmSubscription -SubscriptionName "MyAzureSub"
-   Get-AzureRmContext
    ```
 
 ## Provision resources
 
 ### Create a resource group
 
-A resource group is a logical collection of Azure resources. All resources are deployed, managed into a resource group.
-The following example creates a resource group named eventhubsResourceGroup in the East US region
+A [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups) is a logical collection of Azure resources, and you need a resource group to create an event hub. 
+
+The following example creates a resource group named `eventhubsResourceGroup` in the East US region:
 
 ```powershell
 New-AzureRmResourceGroup –Name eventhubsResourceGroup –Location east
@@ -73,16 +73,15 @@ New-AzureRmResourceGroup –Name eventhubsResourceGroup –Location east
 
 ### Create an Event Hubs namespace
 
-An Event Hubs namespace provides a unique fully qualified domain name in which you can create your event hub. The following example creates a namespace in your resource group. Replace <namespace_name> with a unique name for your namespace.
-
+Once your resource group is made, create an Event Hubs namespace within that resource group. An Event Hubs namespace provides a unique fully-qualified domain name in which you can create your event hub. Replace `<namespace_name>` with a unique name for your namespace.
 
 ```powershell
 New-AzureRmEventHubNamespace -ResourceGroupName eventhubsResourceGroup  -NamespaceName <namespace_name> -Location eastus
 ```
 
 ### Create an event hub
-To create an event hub, specify the namespace under which you want it created. The following example shows how to create an event hub
 
+Now that you have an Event Hubs namespace, it's time to create an event hub within that namespace.
 
 ```powershell
   New-AzureRmEventHub -ResourceGroupName eventhubsResourceGroup   -NamespaceName <eventhubs_namespace_name> -EventHubName <eventhub_name> -Location eastus 
@@ -126,7 +125,7 @@ You can now start streaming into your Event Hubs. The samples can be downloaded 
 
 4. Add [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) Nuget package to the project.
 
-5. In Program.cs, replace the following place holders with the resource names and connection strings you have obtained while provisioning resources:
+5. In Program.cs, replace the following place holders with your event hub name and connection string:
 
   ```C#
   private const string EhConnectionString = "Event Hubs connection string";
@@ -167,7 +166,7 @@ On the Azure portal, you can view the rate at which events are being processed f
 
 ## Clean up deployment
 
-Run the following command to remove the resource group, namespace, storage account, and all related resources. Replace `myResourceGroup` with the name of the resource group you created:
+When you've completed the quickstart, you can delete your resource group and the namespace, storage account, and event hub within it. Replace `myResourceGroup` with the name of the resource group you created. 
 
 ```azurepowershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -175,7 +174,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-In this article, you created the Event Hubs namespace and other resources required to send and receive events from an event hub. To learn more, continue with the following articles:
+Congratulations! You created an event hub and you sent and received events. To learn more, continue with the following articles:
 
 * [Download the PowerShell script for provisioning Event Hubs resources](https://github.com/Azure/azure-event-hubs/blob/master/samples/DotNet/Quickstart_PSsample1.ps1)
 * [Learn about Event Processor Host](event-hubs-dotnet-standard-getstarted-send.md)
