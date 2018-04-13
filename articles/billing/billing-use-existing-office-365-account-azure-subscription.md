@@ -19,7 +19,7 @@ ms.author: cjiang
 
 ---
 # Sign up for an Azure subscription with your Office 365 account
-If you have an Office 365 subscription, you can use your Office 365 account to create an Azure subscription. Sign in to the [Azure portal](https://portal.azure.com/) using your Office 365 user name and password. If you want to set up virtual machines or use other Azure services, you must sign up for an Azure subscription. You can share your Azure subscription with others and [use Role-Based Access Control to manage access to your Azure subscription and resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)
+If you have an Office 365 subscription, you can use your Office 365 account to create an Azure subscription. Sign in to the [Azure portal](https://portal.azure.com/) using your Office 365 user name and password. If you want to set up virtual machines or use other Azure services, you must sign up for an Azure subscription. You can share your Azure subscription with others and [use Role-Based Access Control to manage access to your Azure subscription and resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 If you already have both an Office 365 account and an Azure subscription, see [Associate an Office 365 tenant to an Azure subscription](billing-add-office-365-tenant-to-azure-subscription.md).
 

@@ -1,29 +1,20 @@
 ---
 title: 'Tutorial: Load data to Azure SQL Data Warehouse | Microsoft Docs'
-description: This tutorial uses the Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from Azure Blob storage to Azure SQL Data Warehouse. 
+description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a public Azure blob to Azure SQL Data Warehouse. 
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: "Active"
-ms.date: 03/06/2018
+ms.component: implement
+ms.date: 04/11/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-
+ms.reviewer: igorstan
 ---
 
 # Tutorial: Load data to Azure SQL Data Warehouse
 
-This tutorial loads the WideWorldImportersDW data warehouse from Azure Blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
+This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
 
 > [!div class="checklist"]
 > * Create a data warehouse in the Azure portal
@@ -951,6 +942,7 @@ This section creates the wwi.dimension_Date and wwi.fact_Sales tables. It also c
 	    END;
 
     END;
+    ```
 
 ## Generate millions of rows
 Use the stored procedures you created to generate millions of rows in the wwi.fact_Sales table, and corresponding data in the wwi.dimension_Date table. 

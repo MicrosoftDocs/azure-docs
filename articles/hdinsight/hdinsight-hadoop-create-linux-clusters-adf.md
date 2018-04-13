@@ -12,9 +12,7 @@ ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: spelluru
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
