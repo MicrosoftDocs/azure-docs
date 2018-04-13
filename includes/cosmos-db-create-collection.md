@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: cosmos-db
+ author: SnehaGunda
+ ms.service: cosmos-db
+ ms.topic: include
+ ms.date: 04/13/2018
+ ms.author: sngun
+ ms.custom: include file
+---
+
 You can now use the Data Explorer tool in the Azure portal to create a database and collection. 
 
 1. Click **Data Explorer** > **New Collection**. 

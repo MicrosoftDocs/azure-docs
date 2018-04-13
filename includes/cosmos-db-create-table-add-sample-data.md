@@ -1,13 +1,13 @@
 ---
-title: "Add sample data to an Azure CosmosDB table"
-description: "Learn how to add sample data to an Azure Cosmos DB table for the Table API quickstarts"
-services: cosmos-db
-author: SnehaGunda
-ms.service: cosmos-db
-ms.topic: "include"
-ms.date: 04/11/2018
-ms.author: sngun
-ms.custom: "include file"
+ title: include file
+ description: include file
+ services: cosmos-db
+ author: SnehaGunda
+ ms.service: cosmos-db
+ ms.topic: include
+ ms.date: 04/13/2018
+ ms.author: sngun
+ ms.custom: include file
 ---
 You can now add data to your new table using Data Explorer.
 

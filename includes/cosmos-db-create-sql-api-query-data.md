@@ -1,13 +1,13 @@
 ---
-title: "Create sample data for SQL API quickstarts"
-description: "Learn how to create sample data for the SQL API quickstarts"
-services: cosmos-db
-author: SnehaGunda
-ms.service: cosmos-db
-ms.topic: "include"
-ms.date: 04/06/2018
-ms.author: sngun
-ms.custom: "include file"
+ title: include file
+ description: include file
+ services: cosmos-db
+ author: SnehaGunda
+ ms.service: cosmos-db
+ ms.topic: include
+ ms.date: 04/13/2018
+ ms.author: sngun
+ ms.custom: include file
 ---
 You can now use queries in Data Explorer to retrieve and filter your data.
 

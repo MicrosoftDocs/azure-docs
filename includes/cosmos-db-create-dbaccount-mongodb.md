@@ -1,11 +1,11 @@
 ---
- title: Create an Azure Cosmos DB MongoDB API account
- description: Describes how to create an Azure Cosmos DB MongoDB API account in the Azure portal
+ title: include file
+ description: include file
  services: cosmos-db
  author: SnehaGunda
  ms.service: cosmos-db
  ms.topic: include
- ms.date: 03/20/2018
+ ms.date: 04/13/2018
  ms.author: sngun
  ms.custom: include file
 ---

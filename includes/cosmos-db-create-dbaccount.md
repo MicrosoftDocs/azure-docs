@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: cosmos-db
+ author: SnehaGunda
+ ms.service: cosmos-db
+ ms.topic: include
+ ms.date: 04/13/2018
+ ms.author: sngun
+ ms.custom: include file
+---
+
 1. In a new browser window, sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **Create a resource** > **Databases** > **Azure Cosmos DB**.
    
