@@ -185,7 +185,7 @@ items:
           href: sql-api-sql-query-metrics.md        
         - name: SQL playground
           href: https://aka.ms/cosmos-db-playground
-        - name: Partitioning
+        - name: SQL data partitioning
           href: sql-api-partition-data.md
         - name: Stored procedures, triggers, and UDFs
           href: programming.md
@@ -288,7 +288,7 @@ items:
         items:
         - name: Gremlin support
           href: gremlin-support.md
-        - name: Partitioned graph
+        - name: Graph partitioning
           href: graph-partitioning.md
       - name: Table API
         items:
@@ -332,8 +332,6 @@ items:
         href: geospatial.md
       - name: Indexing
         href: indexing-policies.md
-      - name: Connected Service in Visual Studio
-        href: connected-service.md
     - name: Manage
       items:
       - name: Cost-effective reads and writes

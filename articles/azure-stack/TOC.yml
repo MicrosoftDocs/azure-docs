@@ -55,11 +55,11 @@
     - name: Azure Stack deployment PKI requirements
       href: azure-stack-pki-certs.md
       items:
-      - name: Get Azure Stack PKI certificates
+      - name: Generate PKI certificates
         href: azure-stack-get-pki-certs.md
       - name: Prepare Azure Stack PKI certificates
         href: azure-stack-prepare-pki-certs.md
-      - name: Validate Azure Stack PKI certificates
+      - name: Validate PKI certificates
         href: azure-stack-validate-pki-certs.md
     - name: Identity integration
       href: azure-stack-integrate-identity.md
@@ -286,8 +286,6 @@
       href: azure-stack-diagnostics.md
     - name: Validation for Azure Stack
       href: azure-stack-diagnostic-test.md
-    - name: Redeploy Azure Stack Development Kit
-      href: azure-stack-redeploy.md
 - name: Reference
   items:
   - name: Azure Stack PowerShell
