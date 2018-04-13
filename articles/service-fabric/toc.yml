@@ -26,10 +26,12 @@
     - name: 1- Build a .NET application
       href: service-fabric-tutorial-create-dotnet-app.md
     - name: 2- Deploy the application
-      href: service-fabric-tutorial-deploy-app-to-party-cluster.md    
-    - name: 3- Configure CI/CD
+      href: service-fabric-tutorial-deploy-app-to-party-cluster.md
+    - name: 3- Enable HTTPS
+      href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
+    - name: 4- Configure CI/CD
       href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-    - name: 4- Monitor and Diagnose
+    - name: 5- Monitor and Diagnose
       href: service-fabric-tutorial-monitoring-aspnet.md
   - name: Deploy a Java app
     items:

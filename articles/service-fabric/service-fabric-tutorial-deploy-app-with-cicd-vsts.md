@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 # Tutorial: deploy an application with CI/CD to a Service Fabric cluster
-This tutorial is part three of a series and describes how to set up continuous integration and deployment for an Azure Service Fabric application using Visual Studio Team Services.  An existing Service Fabric application is needed, the application created in [Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is used as an example.
+This tutorial is part four of a series and describes how to set up continuous integration and deployment for an Azure Service Fabric application using Visual Studio Team Services.  An existing Service Fabric application is needed, the application created in [Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is used as an example.
 
 In part three of the series, you learn how to:
 
@@ -34,6 +34,7 @@ In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
 > * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * Configure CI/CD using Visual Studio Team Services
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
