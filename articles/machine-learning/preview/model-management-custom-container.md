@@ -19,7 +19,7 @@ This article describes how to customize a container image for Azure Machine Lear
 ## How to customize the Docker image
 Customize the Docker image that Azure ML deploys using:
 
-1. A depenencies.yml file: to manage dependencies that are installable from [PyPi]( https://pypi.python.org/pypi), you can use the conda_dependencies.yml file from the Workbench project, or create your own. This is the recommend approach for installing Python dependencies that are pip-installable.
+1. A `dependencies.yml` file: to manage dependencies that are installable from [PyPi]( https://pypi.python.org/pypi), you can use the `conda_dependencies.yml` file from the Workbench project, or create your own. This is the recommend approach for installing Python dependencies that are pip-installable.
 
    Example CLI command:
    ```azurecli
