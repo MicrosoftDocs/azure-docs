@@ -19,7 +19,7 @@ ms.author: nitinme
 ---
 # Migrating to Azure Resource Manager-based development tools for HDInsight clusters
 
-HDInsight is deprecating Azure Service Manager (ASM)-based tools for HDInsight. If you have been using Azure PowerShell, Azure CLI, or the HDInsight .NET SDK to work with HDInsight clusters, you are encouraged to use the Azure Resource Manager versions of PowerShell, CLI, and .NET SDK going forward. This article provides pointers on how to migrate to the new ARM-based approach. Wherever applicable, this document highlights the differences between the ASM and Resource Manager approaches for HDInsight.
+HDInsight is deprecating Azure Service Manager (ASM)-based tools for HDInsight. If you have been using Azure PowerShell, Azure CLI, or the HDInsight .NET SDK to work with HDInsight clusters, you are encouraged to use the Azure Resource Manager versions of PowerShell, CLI, and .NET SDK going forward. This article provides pointers on how to migrate to the new Resource Manager-based approach. Wherever applicable, this document highlights the differences between the ASM and Resource Manager approaches for HDInsight.
 
 > [!IMPORTANT]
 > The support for ASM based PowerShell, CLI, and .NET SDK will discontinue on **January 1, 2017**.
@@ -221,7 +221,7 @@ New command:
 * [Submit Sqoop jobs](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## Migrating to the new HDInsight .NET SDK
-The Azure Service Management-based [(ASM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) is now deprecated. You are encouraged to use the Azure Resource Management-based [(ARM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt271028.aspx). The following ASM-based HDInsight packages are being deprecated.
+The Azure Service Management-based [(ASM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) is now deprecated. You are encouraged to use the Azure Resource Management-based [Resource Manager-based HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt271028.aspx). The following ASM-based HDInsight packages are being deprecated.
 
 * `Microsoft.WindowsAzure.Management.HDInsight`
 * `Microsoft.Hadoop.Client`
