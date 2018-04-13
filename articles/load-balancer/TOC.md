@@ -12,8 +12,8 @@
 ## [Standard Load Balancer metrics and diagnostics](load-balancer-standard-diagnostics.md)
 
 # Get Started
-## [Create Basic Load Balancer](load-balancer-get-started-internet-portal.md)
-### [Create Basic Load Balancer (CLI)](load-balancer-get-started-internet-arm-cli.md)
+## [Create Basic Load Balancer](quick-create-load-balancer-basic-portal.md)
+### [Create Basic Load Balancer (CLI)](quick-create-load-balancer-basic-cli.md)
 ### [Create Basic Load Balancer (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
 ## [Create Standard Load Balancer](load-balancer-standard-public-portal.md)
 ### [Create a Standard Load Balancer (CLI)](load-balancer-standard-public-cli.md)

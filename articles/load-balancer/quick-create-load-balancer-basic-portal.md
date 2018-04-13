@@ -17,6 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: kumud
+ms.custom: mvc
 ---
 
 # Quickstart: Create a public Basic Load Balancer to load balance VMs using the Azure portal
