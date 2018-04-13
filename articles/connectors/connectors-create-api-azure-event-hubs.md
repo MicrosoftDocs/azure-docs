@@ -114,12 +114,12 @@ Select this trigger: **When events are available in Event Hub**
 
     | Property | Details |
     | --- | --- |
-    | Content type  |Enter the content type of the events from the drop down. By default, application/octet-stream is selected. |
-    | Content schema |Enter content schema in JSON for the events being read from Event Hub. |
-    | Consumer group name |Enter the Event Hub [consumer group name](../event-hubs/event-hubs-features.md#consumer-groups) for reading  the events. When consumer group name is not specified, default consumer group is used. |
+    | Content type  |Select the events' content type from the drop-down list. By default, application/octet-stream is selected. |
+    | Content schema |Enter the content schema in JSON for the events that are read from the Event Hub. |
+    | Consumer group name |Enter the Event Hub [consumer group name](../event-hubs/event-hubs-features.md#consumer-groups) to read the events. When consumer group name is not specified, default consumer group is used. |
     | Minimum partition key |Enter the minimum [partition](../event-hubs/event-hubs-features.md#partitions) ID to read. By default, all partitions are read. |
     | Maximum partition key |Enter the maximum [partition](../event-hubs/event-hubs-features.md#partitions) ID to read. By default, all partitions are read. |
-    | Maximum events count |Enter the count for maximum number of events. The trigger returns between one and the number of events specified by Maximum events count property. |
+    | Maximum events count |Enter a value for the maximum number of events. The trigger returns between one and the number of events specified by this property. |
     |||
 
 5. Save your logic app. On the designer toolbar, choose **Save**.
