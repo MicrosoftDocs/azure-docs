@@ -3,8 +3,8 @@ title: Viewing and Modifying Hostnames | Microsoft Docs
 description: How to view and change hostnames for Azure virtual machines, web and worker roles for name resolution
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genli
+manager: cshepard
 editor: tysonn
 
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
-ms.author: jdial
+ms.author: genli
 
 ---
 # Viewing and modifying hostnames
