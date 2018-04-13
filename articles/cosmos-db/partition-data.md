@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
 
@@ -96,8 +96,8 @@ Azure Cosmos DB is designed for predictable performance. When you create a conta
 ## Work with the Azure Cosmos DB APIs
 You can use the Azure portal or Azure CLI to create containers and scale them at any time. This section shows how to create containers and specify the throughput and partition key definition in each of the supported APIs.
 
-### Azure Cosmos DB API
-The following sample shows how to create a container (collection) by using the Azure Cosmos DB API. 
+### SQL API
+The following sample shows how to create a container (collection) by using the Azure Cosmos DB SQL API. 
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -121,6 +121,8 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
   UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 ```
+
+For more information, see [Partitioning in Azure Cosmos DB using the SQL API](sql-api-partition-data.md).
 
 ### MongoDB API
 With the MongoDB API, you can create a sharded collection through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell for the collection creation.
@@ -183,7 +185,7 @@ You can reference an edge by using the partition key and the row key.
 g.E(['USA', 'I5'])
 ```
 
-For more information, see [Gremlin support for Azure Cosmos DB](gremlin-support.md).
+For more information, see [Using a partitioned graph in Azure Cosmos DB](graph-partitioning.md).
 
 
 <a name="designing-for-partitioning"></a>

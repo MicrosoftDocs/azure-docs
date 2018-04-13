@@ -1,11 +1,11 @@
 ---
-title: How to use the MXChip IoT DevKit to connect to the Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: How to use the MXChip IoT DevKit to connect to the Azure IoT Hub Device Provisioning Service
+title: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub  | Microsoft Docs
+description: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub.
 services: iot-dps
 keywords: 
 author: liydu
 ms.author: liydu
-ms.date: 02/20/2018
+ms.date: 04/04/2018
 ms.topic: article
 ms.service: iot-dps
 
@@ -16,9 +16,9 @@ ms.custom: mvc
 
 ---
 
-# Connect the MXChip IoT DevKit to the Azure IoT Hub Device Provisioning Service
+# Use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub
 
-This article describes how to configure the MXChip IoT DevKit to make it automatically register with Azure IoT Hub by using the Azure IoT Device Provisioning Service. In this tutorial, you learn how to:
+This article describes how to use Azure IoT Hub Device Provisioning Service [auto-provisioning](concepts-auto-provisioning.md), to register the MXChip IoT DevKit with Azure IoT Hub. In this tutorial, you learn how to:
 
 * Configure the global endpoint of the device provisioning service on a device.
 * Use a unique device secret (UDS) to generate an X.509 certificate.
@@ -31,11 +31,11 @@ The [MXChip IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino-comp
 
 To complete the steps in this tutorial, first do the following tasks:
 
-* Prepare your DevKit by following the steps in [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Prepare your DevKit by following the steps in [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 * Upgrade to the latest firmware (1.3.0 or later) with the [Update DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) tutorial.
-* Create and link an IoT Hub with a device provisioning service instance by following the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](https://docs.microsoft.com/en-us/azure/iot-dps/quick-setup-auto-provision).
+* Create and link an IoT Hub with a device provisioning service instance by following the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](/azure/iot-dps/quick-setup-auto-provision).
 
-## Set up the device provisioning service configuration on the device
+## Build and deploy auto-provisioning registration software to the device
 
 To connect the DevKit to the device provisioning service instance that you created:
 
@@ -49,7 +49,7 @@ To connect the DevKit to the device provisioning service instance that you creat
   git clone https://github.com/DevKitExamples/DevKitDPS.git
   ```
 
-4. Open Visual Studio Code and connect DevKit to your computer, and then open the folder that contains the code you cloned.
+4. Open Visual Studio Code, connect the DevKit to your computer, and then open the folder that contains the code you cloned.
 
 5. Open **DevKitDPS.ino**. Find and replace `[Global Device Endpoint]` and `[ID Scope]` with the values you just noted down.
   ![DPS Endpoint](./media/how-to-connect-mxchip-iot-devkit/endpoint.png)
@@ -61,7 +61,7 @@ To connect the DevKit to the device provisioning service instance that you creat
 
 ## Save a unique device secret on an STSAFE security chip
 
-The device provisioning service can be configured on a device based on its [Hardware Security Module](https://azure.microsoft.com/en-us/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/). The MXChip IoT DevKit uses the [Device Identity Composition Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) from the [Trusted Computing Group](https://trustedcomputinggroup.org). A *unique device secret* (UDS) saved in an STSAFE security chip on the DevKit is used to generate the device's unique [X.509](https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-set-up-device#select-a-hardware-security-module) certificate. The certificate can be used later for the enrollment process in the device provisioning service.
+Auto-provisioning can be configured on a device based on the device's [attestation mechanism](concepts-security.md#attestation-mechanism). The MXChip IoT DevKit uses the [Device Identity Composition Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) from the [Trusted Computing Group](https://trustedcomputinggroup.org). A *unique device secret* (UDS) saved in an STSAFE security chip on the DevKit is used to generate the device's unique [X.509 certificate](concepts-security.md#x509-certificates). The certificate is used later for the enrollment process in the device provisioning service, and during registration at runtime.
 
 A typical unique device secret is a 64-character string, as seen in the following sample:
 
@@ -81,7 +81,8 @@ To save a unique device secret on the DevKit:
 
 4. In the serial monitor window, type *set_dps_uds [your_own_uds_value]* and select Enter.
   > [!NOTE]
-  > For example, if you set your own UDS by changing the last two characters to `f`, you need to enter the command like this: set_dps_uds 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eff.
+  > For example, if you set your own UDS by changing the last two characters to `f`, you need to enter the command like this: 
+  > `set_dps_uds 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eff`.
 
 5. Without closing the serial monitor window, press the **Reset** button on the DevKit.
 
@@ -106,17 +107,18 @@ To save a unique device secret on the DevKit:
 
 ## Create a device enrollment entry in the device provisioning service
 
-1. In the Azure portal, go to your provisioning service. Select **Manage enrollments**, and then select the **Individual Enrollments** tab.
+1. In the Azure portal, go to your Device Provisioning Service instance. Select **Manage enrollments**, and then select the **Individual Enrollments** tab.
   ![Individual enrollments](./media/how-to-connect-mxchip-iot-devkit/individual-enrollments.png)
 
 2. Select **Add**.
 
-3. In **Mechanism**, select **X.509**.
-  ![Upload certificate](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
+3. On the "Add enrollment" panel:
+   - select **X.509** under **Mechanism**
+   - click "Select a file" under **Primary Certificate .pem or .cer file**
+   - on the File Open dialog, navigate to and upload the **.pem** certificate you just generated
+   - leave the rest as default and click **Save**
 
-4. In **Certificate .pem or .cer file**, upload the **.pem** certificate you just generated.
-
-5. Leave the rest as default and select **Save**.
+   ![Upload certificate](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
 
 ## Start the DevKit
 

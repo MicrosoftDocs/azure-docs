@@ -1,24 +1,20 @@
 ---
 title: "Quickstart: Scale out compute in Azure SQL Data Warehouse - PowerShell | Microsoft Docs"
-description: Powershell tasks to scale out compute resources by adjusting data warehouse units. 
+description: Scale compute in Azure SQL Data Warehouse in PowerShell. Scale out compute for better performance, or scale back compute to save costs.  
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: jhubbard
-editor: ''
-
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/16/2018
-ms.author: elbutter;barbkess
-
+ms.topic: quickstart
+ms.component: implement
+ms.date: 04/11/2018
+ms.author: elbutter
+ms.reviewer: jrj
 ---
-# Quickstart: Scale compute in Azure SQL Data Warehouse in PowerShell
 
+
+# Quickstart: Scale compute in Azure SQL Data Warehouse in PowerShell
+ 
 Scale compute in Azure SQL Data Warehouse in PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
