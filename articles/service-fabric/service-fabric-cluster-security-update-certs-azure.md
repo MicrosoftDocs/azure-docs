@@ -20,7 +20,7 @@ ms.author: chackdan
 # Add or remove certificates for a Service Fabric cluster in Azure
 It is recommended that you familiarize yourself with how Service Fabric uses X.509 certificates and be familiar with the [Cluster security scenarios](service-fabric-cluster-security.md). You must understand what a cluster certificate is and what is used for, before you proceed further.
 
-Azure Service Fabrics SDK's default certificate load behavior, is to deploy and use a defined certificate with an expiring date furthest into the future; regardles of their primary or secondary configuration definition. Falling back to the classic behavior is a non recommended advanced action, and requires setting the "UseSecondaryIfNever" setting parameter value to false within your Fabric.Code configuration.
+Azure Service Fabrics SDK's default certificate load behavior, is to deploy and use a defined certificate with an expiring date furthest into the future; regardless of their primary or secondary configuration definition. Falling back to the classic behavior is a non recommended advanced action, and requires setting the "UseSecondaryIfNever" setting parameter value to false within your Fabric.Code configuration.
 
 Service fabric lets you specify two cluster certificates, a primary and a secondary, when you configure certificate security during cluster creation, in addition to client certificates. Refer to [creating an azure cluster via portal](service-fabric-cluster-creation-via-portal.md) or [creating an azure cluster via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) for details on setting them up at create time. If you specify only one cluster certificate at create time, then that is used as the primary certificate. After cluster creation, you can add a new certificate as a secondary.
 
@@ -35,7 +35,7 @@ Secondary cluster certificate cannot be added through the Azure portal, use Azur
 ## Remove a cluster certificate using the portal
 For a secure cluster, you will always need at least one valid (not revoked and not expired) certificate. The certificate deployed with the furthest into the future expiring date will be in use, and removing it will make your cluster stop functioning; ensure to only remove the certificate that is expired, or a unused certificate that expires the soonest.
 
-To remove an unused cluster secuirty certificate, Navigate to the Security section and select the 'Delete' option from the context menu on the unused certificate.
+To remove an unused cluster security certificate, Navigate to the Security section and select the 'Delete' option from the context menu on the unused certificate.
 
 If your intent is to remove the certificate that is marked primary, then you will need to deploy a secondary certificate with an expiring date further into the future than the primary certificate, enabling the auto rollover behavior; delete the primary certificate after the auto rollover has completed.
 
@@ -257,7 +257,7 @@ Get-ServiceFabricClusterHealth
 
 ## Deploying Application certificates to the cluster.
 
-You can use the same steps as outlined in the preceeding Steps 5 to have the certificates deployed from a keyvault to the Nodes. You just need define and use different parameters.
+You can use the same steps as outlined in the preceding Steps 5 to have the certificates deployed from a keyvault to the Nodes. You just need define and use different parameters.
 
 
 ## Adding or removing Client certificates
