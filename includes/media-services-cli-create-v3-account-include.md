@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: media-services
+ author: Juliako
+ ms.service: media-services
+ ms.topic: include
+ ms.date: 04/13/2018
+ ms.author: juliako
+ ms.custom: include file
+---
+
 ## Create a Media Services account
 
 You first need to create a Media Services account. This section shows what you need for the acount creation using CLI 2.0.
