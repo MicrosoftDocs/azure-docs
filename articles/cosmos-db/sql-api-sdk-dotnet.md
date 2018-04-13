@@ -52,7 +52,7 @@ ms.custom: H1Hack27Feb2017
 ### <a name="1.21.1"/>1.21.1
 
 * Fixed KeyNotFoundException for cross partition order by queries in corner cases.
-* Fixed bug where JsonPropery attribute in select clause for LINQ queries was not being honored.
+* Fixed bug where JsonProperty attribute in select clause for LINQ queries was not being honored.
 
 ### <a name="1.20.2"/>1.20.2
 
