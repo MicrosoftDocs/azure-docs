@@ -70,6 +70,7 @@
 ### [Starter pack](active-directory-b2c-reference-custom-policies-understanding-contents.md)
 ### Configure OIDC/OAUTH providers
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Multi-tenant Azure AD](active-directory-b2c-setup-commonaad-custom.md)
 #### [Microsoft Account](active-directory-b2c-custom-setup-msa-idp.md)
 #### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
 #### [LinkedIn](active-directory-b2c-custom-setup-li-idp.md)
