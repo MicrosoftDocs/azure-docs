@@ -23,18 +23,12 @@
     href: python.md
   - name: Ruby
     href: ruby.md
-- name: SDK
+- name: Tutorials
   items:
-  - name: SDK samples overview 
-    href: sdk.md
-  - name: News Search SDK C# quickstart
-    href: news-search-sdk-quickstart.md
-  - name: News Search SDK Node.js quickstart (preview)  
-    href: news-search-sdk-node-quickstart.md
-  - name: News Search SDK Python quickstart (preview)  
-    href: news-sdk-python-quickstart.md
-  - name: News Search SDK Java quickstart (preview)  
-    href: news-sdk-java-quickstart.md
+  - name: Single-page News app
+    href: tutorial-bing-news-search-single-page-app.md
+  - name: Single-page News app (source code)
+    href: tutorial-bing-news-search-single-page-app-source.md
 - name: How to
   items:
   - name: Use and display requirements
@@ -47,16 +41,23 @@
     href: resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7
     href: bing-news-upgrade-guide-v5-to-v7.md
-- name: Tutorials
-  items:
-  - name: Single-page News app
-    href: tutorial-bing-news-search-single-page-app.md
-  - name: Single-page News app (source code)
-    href: tutorial-bing-news-search-single-page-app-source.md
 - name: Reference
+  expanded: true
   items:
   - name: REST v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
+  - name: SDK
+    items:
+    - name: SDK samples overview 
+      href: sdk.md
+    - name: News Search SDK C# quickstart
+      href: news-search-sdk-quickstart.md
+    - name: News Search SDK Node.js quickstart (preview)  
+      href: news-search-sdk-node-quickstart.md
+    - name: News Search SDK Python quickstart (preview)  
+      href: news-sdk-python-quickstart.md
+    - name: News Search SDK Java quickstart (preview)  
+      href: news-sdk-java-quickstart.md
   - name: REST v5 
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference  
 - name: Resources

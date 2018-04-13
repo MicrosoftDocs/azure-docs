@@ -566,7 +566,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint deploys Azure Automation DSC. Part of Azure's Operations Management Suite (OMS), Automation DSC can be configured to generate an alert or to remedy misconfigurations when detected. |
+| **Customer** | This blueprint deploys Azure Automation DSC. Automation DSC can be configured to generate an alert or to remedy misconfigurations when detected. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 

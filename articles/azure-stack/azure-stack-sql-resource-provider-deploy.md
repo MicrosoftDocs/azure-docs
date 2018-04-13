@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ---
@@ -68,7 +68,7 @@ You must create one (or more) instances of SQL Server and/or provide access to e
     | 1710: 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
   
 
-4. Provide the required certificate. For the Azure Stack SDK, a self-signed certificate is created as part of this process, no additional certificate is required. For integrated systems, you must provide an appropriate certificate.
+4. For the Azure Stack SDK, a self-signed certificate is created as part of this process. For integrated systems, you must provide an appropriate certificate.
 
    To provide your own certificate, place a .pfx file in the **DependencyFilesLocalPath** as follows:
 
@@ -78,7 +78,7 @@ You must create one (or more) instances of SQL Server and/or provide access to e
 
     - Only a single certificate file can exist in the directory pointed to by the DependencyFilesLocalPath parameter.
 
-    - The file name must not contain any special characters.
+    - The file name must not contain any special characters or spaces.
 
 
 5. Open a **new** elevated (administrative) PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that might arise from incorrect PowerShell modules that are already loaded on the system.

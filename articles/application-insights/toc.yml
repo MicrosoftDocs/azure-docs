@@ -196,6 +196,8 @@
         href: app-insights-usage-segmentation.md
       - name: Funnels
         href: usage-funnels.md
+      - name: Cohorts
+        href: app-insights-usage-cohorts.md
       - name: Impact
         href: app-insights-usage-impact.md
       - name: Retention
@@ -238,6 +240,9 @@
     items:
     - name: Manage pricing and data volume
       href: app-insights-pricing.md
+      items:
+      - name: Enterprise plan details
+        href: app-insights-pricing-enterprise-details.md
     - name: Application Performance Monitoring using Application Insights for SCOM
       href: app-insights-scom.md
   - name: Export
