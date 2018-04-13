@@ -17889,6 +17889,11 @@
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
             "redirect_url": "/azure/cosmos-db/storage-explorer",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-android.md",
+            "redirect_url": "/azure/active-directory/develop/guidedsetups/active-directory-android",
+            "redirect_document_id": false
         }
     ]
 }
