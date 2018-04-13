@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines-windows, azure-resource-manager
+ author: genlin
+ ms.service: virtual-machines-windows
+ ms.topic: include
+ ms.date: 04/14/2018
+ ms.author: genli
+ ms.custom: include file
+---
+
 When you create a virtual machine (VM), restart stopped (deallocated) VMs, or resize a VM, Microsoft Azure allocates compute resources to your subscription. We are continually investing in additional infrastructure and features to make sure that we always have all VM types available to support customer demand. However, you may occasionally experience resource allocation failures because of unprecedented growth in demand for Azure services in specific regions. This problem can occur when you try to create or start VMs in a region while the VMs display the following error code and message:
 
 **Error code**: AllocationFailed or ZonalAllocationFailed
@@ -62,14 +74,14 @@ As we expand Azure infrastructure, we deploy newer-generation hardware that’s 
 
 |Legacy VM-series/size|Recommended newer VM-series/size|More information|
 |----------------------|----------------------------|--------------------|
-|Av1-series|[Av2-series](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/en-us/blog/new-av2-series-vm-sizes/
-|Dv1 or DSv1-series (D1 to D5)|[Dv3 or DSv3-series](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/en-us/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Av1-series|[Av2-series](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|Dv1 or DSv1-series (D1 to D5)|[Dv3 or DSv3-series](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
 |Dv1 or DSv1-series (D11 to D14)|[Ev3 or ESv3-series](../articles/virtual-machines/windows/sizes-memory.md#esv3-series-sup1sup)|
-|D15v2 or DS15v2|If you are using theResource Manager deployment model in order to take advantage of the larger VM sizes, consider moving to D16v3/DS16v3 or D32v3/DS32v3. These are designed to run on the latest generation hardware. If you are using the Resource Manager deployment model to make sure your VM instance is isolated to hardware dedicated to a single customer, consider moving to the new isolated VM sizes, E64i_v3 or E64is_v3, which are designed to run on the latest generation hardware. |https://azure.microsoft.com/en-us/blog/new-isolated-vm-sizes-now-available/
+|D15v2 or DS15v2|If you are using theResource Manager deployment model in order to take advantage of the larger VM sizes, consider moving to D16v3/DS16v3 or D32v3/DS32v3. These are designed to run on the latest generation hardware. If you are using the Resource Manager deployment model to make sure your VM instance is isolated to hardware dedicated to a single customer, consider moving to the new isolated VM sizes, E64i_v3 or E64is_v3, which are designed to run on the latest generation hardware. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 ## Allocation failures for large deployments (more than 500 cores)
 
-Reduce the number of instances of the requested VM size, and then retry the deployment operation. Additionally, for larger deployments, you may want to evaluate [Azure virtual machine scale sets](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/). The number of VM instances can automatically increase or decrease in response to demand or a defined schedule, and you have a greater chance of allocation success because the deployments can be spread across multiple clusters. 
+Reduce the number of instances of the requested VM size, and then retry the deployment operation. Additionally, for larger deployments, you may want to evaluate [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). The number of VM instances can automatically increase or decrease in response to demand or a defined schedule, and you have a greater chance of allocation success because the deployments can be spread across multiple clusters. 
 
 ## Background information
 ### How allocation works

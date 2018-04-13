@@ -1,3 +1,22 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines-windows, azure-resource-manager
+ author: genlin
+ ms.service: virtual-machines-windows
+ ms.topic: include
+ ms.date: 04/14/2018
+ ms.author: genli
+ ms.custom: include file
+---
+
+services: virtual-machines-linux, azure-resource-manager
+documentationcenter: ''
+author: JiangChen79
+manager: felixwu
+editor: ''
+tags: top-support-issue,azure-resourece-manager,azure-service-management
+
 The following are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
 
 - Resize a VM or add VMs or role instances to an existing cloud service
