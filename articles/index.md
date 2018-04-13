@@ -164,6 +164,7 @@ featureFlags:
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg" alt="">
                                                             Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -2839,6 +2840,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-central/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/IoTCentralBlue.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Central</h3>
+                                                    <p>Experience SaaS for IoT, with no cloud expertise required</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-dps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -4305,6 +4325,36 @@ featureFlags:
                                                 </p>
                                                 <p>
                                                     <a href="https://code.visualstudio.com/docs/languages/python">Get Started with Visual Studio Code</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/Fabric.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    Service Fabric SDK and Tools
+                                                </h3>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">Download for Windows</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux">Download for Linux</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Download Mac OS X</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Download Service Fabric CLI </a>
                                                 </p>
                                             </div>
                                         </div>

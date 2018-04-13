@@ -121,7 +121,7 @@ Each storefront supports multiple publishing options and offer types. Select an 
 Use Contact Me when trial-level or transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with an in-market solution to immediately begin receiving leads that can be nurtured into the foundational deals to start your business flywheel. However, the drawback is that customer engagement is limited, as compared with other offer types.
 
 >[!IMPORTANT]
->We don't recommend the Contact Me listing type. You should use it only in situations where there is no way to establish a trial experience. Customer engagement is best with trial and transaction offers. If you have any type of trial experience, our onboarding process will guide you to one of those options, depending on your scenario.
+>Customer engagement is best with Trial and Transact offers. The value of Contact Me is the lead that you receive, so if you choose this type of listing, ensure that your lead destination is configured and you are ready to maximize the lead. 
 
 When the offer consists primarily of professional services (for example, assessments, implementations, workshops), use the Consulting Services offer type. Offer scope, duration, and price must be fixed, must be for a single customer, and must be conducted on site.
 
@@ -412,7 +412,7 @@ In this section, we explain the steps to:
 
 |Marketplace registration step  |Time  |Description  |
 |---------|---------|---------|
-| Register in Microoft Partner Network | 15 min | Publishers need to be registered in Microsoft Partner Network (MPN) in order to have first level of account validation and receive additional benefits and support for being an Azure Marketplace Publisher |
+| Register in Microsoft Partner Network | 15 min | Publishers need to be registered in Microsoft Partner Network (MPN) in order to have first level of account validation and receive additional benefits and support for being an Azure Marketplace Publisher |
 |Create a Microsoft ID     |   15 minutes      |   Partners need to have a Microsoft ID. This Microsoft ID will be used to access the Cloud Partner Portal.       |
 |Submit the marketplace nomination form     |  1-3 days       |  Partners need to submit the nomination form to start the approval process for the marketplace. After the form is submitted, the marketplace onboarding team will review the application and validate the request.       |
 |Register in the Developer Center     |    5-10 days     | Registration with the Microsoft Developer Center is required for Microsoft to validate that the partner is a valid legal entity with a valid tax ID for the country in which it is registered. The Developer Center will enable the partner to be a registered Microsoft developer and provide them with access to the Azure developer program. <br><br>Note that if you haven't completed the marketplace nomination form, you'll be asked to pay a $99 registration fee. To have this fee waived, complete the marketplace nomination form and you'll receive a promotional code via email.  |
@@ -493,7 +493,6 @@ This is the list of the support options for the Azure Marketplace:
 
 |Support channel  |Description  |
 |---------|---------|
-|Slack: [Join Marketplace Slack](https://join.marketplace.azure.com)    |   Slack environment to support partners with technical issues. There are more than 350 partners currently working in this environment.        |
 |MSDN forums: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network forum.         |
 |Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Stack Overflow environment to get solutions and ask questions about everything related to Azure and the Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 

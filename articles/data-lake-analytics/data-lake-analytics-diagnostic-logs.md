@@ -3,9 +3,9 @@ title: Viewing diagnostic logs for Azure Data Lake Analytics | Microsoft Docs
 description: 'Understand how to setup and access diagnostic logs for Azure Data Lake analytics '
 services: data-lake-analytics
 documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.service: data-lake-analytics
@@ -14,7 +14,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/12/2018
-ms.author: larryfr
 
 ---
 # Accessing diagnostic logs for Azure Data Lake Analytics

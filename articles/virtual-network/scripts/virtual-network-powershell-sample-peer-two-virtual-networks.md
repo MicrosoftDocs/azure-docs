@@ -11,16 +11,16 @@ tags:
 ms.assetid:
 ms.service: virtual-network
 ms.devlang: powershell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
 ---
 
-# Peer two virtual networks
+# Peer two virtual networks script sample
 
-This script creates and connects two virtual networks in the same region through the Azure network. After running the script, you will create a peering between two virtual networks.
+This script sample creates and connects two virtual networks in the same region through the Azure network. After running the script, you will create a peering between two virtual networks.
 
 You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 

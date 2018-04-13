@@ -66,7 +66,7 @@ The **mode** determines which resource types will be evaluated for a policy. The
 * `all`: evaluate resource groups and all resource types 
 * `indexed`: only evaluate resource types that support tags and location
 
-We recommend that you set **mode** to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you need to specify the **mode** parameter manually.
+We recommend that you set **mode** to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you need to specify the **mode** parameter manually. If the policy definition does not contain a **mode** value it defaults to `indexed` for backwards compatibility.
 
 `indexed` should be used when creating policies that will enforce tags or locations. This isn't required but it will prevent resources that don't support tags and locations from showing up as non-compliant in the compliance results. The one exception to this is **resource groups**. Policies that are attempting to enforce location or tags on a resource group should set **mode** to `all` and specifically target the `Microsoft.Resources/subscriptions/resourceGroup` type. For an example, see [Enforce resource group tags](scripts/enforce-tag-rg.md).
 
@@ -98,6 +98,8 @@ Within the metadata property you can use **strongType** to provide a multi-selec
 * `"resourceTypes"`
 * `"storageSkus"`
 * `"vmSKUs"`
+* `"existingResourceGroups"`
+* `"omsWorkspace"`
 
 In the policy rule, you reference parameters with the following syntax:
 

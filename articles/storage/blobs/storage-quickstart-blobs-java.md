@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Java | Microsoft Docs
-description: In this quickstart, you create a storage account and a container. Then you use the storage client library for Java to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+title: Azure Quickstart - Create a blob in object storage using Java | Microsoft Docs
+description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Java to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: roygara
 manager: jeconnoc
@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: rogarana
 ---
 
@@ -43,11 +43,12 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 This command clones the repository to your local git folder. To open the project, launch Eclipse and close the welcome screen. Select **File** then **Open Projects from File System...**. Make sure **Detect and configure project natures** is checked. Select **Directory** then navigate to where you stored the cloned repository, inside it select the **javaBlobsQuickstart** folder. Make sure the **javaBlobsQuickstarts** project appears as an Eclipse project, then select **Finish**.
 
 Once the project finishes importing, open **AzureApp.java** (located in **blobQuickstart.blobAzureApp** inside of **src/main/java**), and replace the `accountname` and `accountkey` inside of the `storageConnectionString` string. Then run the application.
-     
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]   
 
 ## Configure your storage connection string
     
-In the application, you must provide the connection string for your storage account. Open the **AzureApp.Java** file. Find the `storageConnectionString` variable. Replace the `AccountName` and `AccountKey` values in the connection string with the values you saved from the Azure portal. Your `storageConnectionString` should look similar to the following:
+In the application, you must provide the connection string for your storage account. Open the **AzureApp.Java** file. Find the `storageConnectionString` variable and paste the connection string value that you copied in the previous section. Your `storageConnectionString` variable should look similar to the following:
 
 ```java
 public static final String storageConnectionString =

@@ -6,19 +6,19 @@ manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 
+ms.assetid:
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 04/04/2018
 ms.author: johnkem
 
 ---
 # Stream Azure Diagnostic Logs to Log Analytics
-**[Azure diagnostic logs](monitoring-overview-of-diagnostic-logs.md)** can be streamed in near real time to Azure Log Analytics using the portal, PowerShell cmdlets or Azure CLI.
+
+**[Azure diagnostic logs](monitoring-overview-of-diagnostic-logs.md)** can be streamed in near real time to Azure Log Analytics using the portal, PowerShell cmdlets or Azure CLI 2.0.
 
 ## What you can do with diagnostics logs in Log Analytics
 
@@ -30,9 +30,17 @@ Azure Log Analytics is a flexible log search and analytics tool that enables you
 * **Advanced analytics** - Apply machine learning and pattern matching algorithms to identify possible issues revealed by your logs.
 
 ## Enable streaming of diagnostic logs to Log Analytics
+
 You can enable streaming of diagnostic logs programmatically, via the portal, or using the [Azure Monitor REST APIs](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). Either way, you create a diagnostic setting in which you specify a Log Analytics workspace and the log categories and metrics you want to send in to that workspace. A diagnostic **log category** is a type of log that a resource may provide.
 
 The Log Analytics workspace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+
+> [!NOTE]
+> Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+>
+> *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
+>
+>
 
 ## Stream diagnostic logs using the portal
 1. In the portal, navigate to Azure Monitor and click on **Diagnostic Settings**
@@ -50,7 +58,7 @@ The Log Analytics workspace does not have to be in the same subscription as the 
    ![Add diagnostic setting - existing settings](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
 3. Give your setting a name and check the box for **Send to Log Analytics**, then select a Log Analytics workspace.
-   
+
    ![Add diagnostic setting - existing settings](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
 4. Click **Save**.
@@ -66,19 +74,31 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resour
 
 Note that the workspaceID property takes the full Azure resource ID of the workspace, not the workspace ID/key shown in the Log Analytics portal.
 
-### Via Azure CLI
-To enable streaming via the [Azure CLI](insights-cli-samples.md), you can use the `insights diagnostic set` command like this:
+### Via Azure CLI 2.0
+
+To enable streaming via the [Azure CLI 2.0](insights-cli-samples.md), you can use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli
-azure insights diagnostic set --resourceId <resourceID> --workspaceId <workspace resource ID> --categories <list of categories> --enabled true
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --workspace <log analytics name or object ID> \
+    --resource <target resource object ID> \
+    --resource-group <log analytics workspace resource group> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true
+    }
+    ]'
 ```
 
-Note that the workspaceId property takes the full Azure resource ID of the workspace, not the workspace ID/key shown in the Log Analytics portal.
+You can add additional categories to the diagnostic log by adding dictionaries to the JSON array passed as the `--logs` parameter.
+
+The `--resource-group` argument is only required if `--workspace` is not an object ID.
 
 ## How do I query the data in Log Analytics?
 
 In the Log Search blade in the portal or Advanced Analytics experience as part of Log Analytics, you can query diagnostic logs as part of the Log Management solution under the AzureDiagnostics table. There are also [several solutions for Azure resources](../log-analytics/log-analytics-add-solutions.md) you can install to get immediate insight into the log data you are sending into Log Analytics.
 
-
 ## Next steps
+
 * [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)

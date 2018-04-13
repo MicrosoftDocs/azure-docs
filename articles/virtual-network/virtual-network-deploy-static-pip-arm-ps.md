@@ -37,7 +37,7 @@ ms.custom: H1Hack27Feb2017
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## Step 1 - Start your script
+## Start your script
 You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Follow the steps below to change the script to work in your environment.
 
 Change the values of the variables below based on the values you want to use for your deployment. The following values map to the scenario used in this article:
@@ -71,7 +71,7 @@ $pipName               = "PIPWEB1"
 $dnsName               = "iaasstoryws1"
 ```
 
-## Step 2 - Create the necessary resources for your VM
+## Create the necessary resources for your VM
 Before creating a VM, you need a resource group, VNet, public IP, and NIC to be used by the VM.
 
 1. Create a new resource group.
@@ -116,7 +116,7 @@ Before creating a VM, you need a resource group, VNet, public IP, and NIC to be 
 	-ResourceGroupName $rgName -Type Standard_LRS -Location $location
 	```
 
-## Step 3 - Create the VM
+## Create the VM
 Now that all necessary resources are in place, you can create a new VM.
 
 1. Create the configuration object for the VM.
@@ -166,81 +166,14 @@ Now that all necessary resources are in place, you can create a new VM.
 
 8. Save the script file.
 
-## Step 4 - Run the script
-After making any necessary changes, and understanding the script show above, run the script. 
+## Run the script
 
-1. From a PowerShell console, or PowerShell ISE, run the script above.
-2. The following output should be displayed after a few minutes:
-   
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ProvisioningState : Succeeded
-        Tags              : 
-        ResourceId        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory
-   
-        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-        Subnets           : {FrontEnd}
-        ProvisioningState : Succeeded
-        AddressSpaceText  : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptionsText   : {}
-        SubnetsText       : [
-                              {
-                                "Name": "FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24"
-                              }
-                            ]
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ResourceGuid      : [Id]
-        Tag               : {}
-        TagsTable         : 
-        Name              : WTestVNet
-        Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        Id                : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
-   
-        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-        Subnets           : {FrontEnd}
-        ProvisioningState : Succeeded
-        AddressSpaceText  : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptionsText   : {
-                              "DnsServers": []
-                            }
-        SubnetsText       : [
-                              {
-                                "Name": "FrontEnd",
-                                "Etag": [Id],
-                                "Id": "/subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24",
-                                "IpConfigurations": [],
-                                "ProvisioningState": "Succeeded"
-                              }
-                            ]
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ResourceGuid      : [Id]
-        Tag               : {}
-        TagsTable         : 
-        Name              : WTestVNet
-        Etag              : [Id]
-        Id                : /subscriptions/[Subscription Id]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
-   
-        TrackingOperationId : [Id]
-        RequestId           : [Id]
-        Status              : Succeeded
-        StatusCode          : OK
-        Output              : 
-        StartTime           : [Subscription Id]
-        EndTime             : [Subscription Id]
-        Error               : 
-        ErrorText           : 
+After making any necessary changes, run the previous script. The virtual machine is created after a few minutes.
 
+## Set IP addresses within the operating system
+
+You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system. It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary, such as when [assigning multiple IP addresses to a Windows VM](virtual-network-multiple-ip-addresses-powershell.md). If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings.
+
+## Next steps
+
+Any network traffic can flow to and from the VM created in this article. You can define inbound and outbound security rules within a network security group that limit the traffic that can flow to and from the network interface, the subnet, or both. To learn more about network security groups, see [Network security group overview](security-overview.md).

@@ -11,7 +11,7 @@ manager: erikre
 ms.workload: web
 ms.custom: mvc
 ---
-# Add a Content Delivery Network (CDN) to an Azure App Service
+# Tutorial: Add a Content Delivery Network (CDN) to an Azure App Service
 
 [Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. The CDN also decreases server load on your web app. This tutorial shows how to add Azure CDN to a [web app in Azure App Service](app-service-web-overview.md). 
 
@@ -42,7 +42,7 @@ To create the web app that you'll work with, follow the [static HTML quickstart]
 
 ### Have a custom domain ready
 
-To complete the custom domain step of this tutorial, you need to own a custom domain and have access to your DNS registry for your domain provider (such as GoDaddy). For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must have access to configure the DNS settings for the `contoso.com` root domain.
+To complete the custom domain step of this tutorial, you need to own a custom domain and have access to your DNS registry for your domain provider. For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must have access to configure the DNS settings for the `contoso.com` root domain.
 
 If you don't already have a domain name, consider following the [App Service domain tutorial](custom-dns-web-site-buydomains-web-app.md) to purchase a domain using the Azure portal. 
 
