@@ -40,12 +40,12 @@ In this tutorial, you take the following steps:
 
 
 ## Overview
-In [Use Notification Hubs to send breaking news], you built an app that used **tags** to subscribe to notifications for different news categories. Many apps, however, target multiple markets and require localization. This means that the content of the notifications themselves have to be localized and delivered to the correct set of devices. In this tutorial, we show how to use the **template** feature of Notification Hubs to easily deliver localized breaking news notifications.
+In [Use Notification Hubs to send breaking news], you built an app that used **tags** to subscribe to notifications for different news categories. Many apps, however, target multiple markets and require localization. This means that the content of the notifications themselves have to be localized and delivered to the correct set of devices. This tutorial shows you how to use the **template** feature of Notification Hubs to easily deliver localized breaking news notifications.
 
 > [!NOTE]
-> One way to send localized notifications is to create multiple versions of each tag. For instance, to support English, French, and Mandarin, we would need three different tags for world news: "world_en", "world_fr", and "world_ch". We would then have to send a localized version of the world news to each of these tags. In this topic, we use templates to avoid the proliferation of tags and the requirement of sending multiple messages.
+> One way to send localized notifications is to create multiple versions of each tag. For instance, to support English, French, and Mandarin, you would need three different tags for world news: "world_en", "world_fr", and "world_ch". You would then have to send a localized version of the world news to each of these tags. In this topic, you use templates to avoid the proliferation of tags and the requirement of sending multiple messages.
 
-At a high level, templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In our case, we send a locale-agnostic message containing all supported languages:
+At a high level, templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In your case, you send a locale-agnostic message containing all supported languages:
 
     {
         "News_English": "...",
@@ -53,7 +53,7 @@ At a high level, templates are a way to specify how a specific device should rec
         "News_Mandarin": "..."
     }
 
-Then we ensure that devices register with a template that refers to the correct property. For instance,  an iOS app that wants to register for French news registers the following:
+Then you ensure that devices register with a template that refers to the correct property. For instance,  an iOS app that wants to register for French news registers the following:
 
     {
         aps:{
@@ -61,7 +61,7 @@ Then we ensure that devices register with a template that refers to the correct 
         }
     }
 
-Templates are a powerful feature you can learn more about in our [Templates](notification-hubs-templates-cross-platform-push-messages.md) article.
+For more information on templates, see [Templates](notification-hubs-templates-cross-platform-push-messages.md) article.
 
 ## Prerequisites
 
@@ -69,18 +69,18 @@ Templates are a powerful feature you can learn more about in our [Templates](not
 - Visual Studio 2012 or later is optional.
 
 ## Update the app user interface
-We will now modify the Breaking News app that you created in the topic [Use Notification Hubs to send breaking news] to send localized breaking news using templates.
+In this section, you modify the Breaking News app that you created in the topic [Use Notification Hubs to send breaking news] to send localized breaking news using templates.
 
-In your MainStoryboard_iPhone.storyboard, add a Segmented Control with the three languages, which we support: English, French, and Mandarin.
+In your MainStoryboard_iPhone.storyboard, add a Segmented Control with the three languages: English, French, and Mandarin.
 
 ![][13]
 
-Then make sure to add an IBOutlet in your ViewController.h as shown below:
+Then make sure to add an IBOutlet in your ViewController.h as shown in the following image:
 
 ![][14]
 
 ## Build the iOS app
-1. In your Notification.h add the *retrieveLocale* method, and modify the store and subscribe methods as shown below:
+1. In your Notification.h add the *retrieveLocale* method, and modify the store and subscribe methods as shown in the following code:
    
     ```obj-c
         - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
@@ -128,7 +128,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown below:
             [hub registerTemplateWithDeviceToken:self.deviceToken name:@"localizednewsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
         }
        ```
-    Note how we are now using the method *registerTemplateWithDeviceToken*, instead of *registerNativeWithDeviceToken*. When we register for a template we have to provide the json template and also a name for the template (as our app might want to register different templates). Make sure to register your categories as tags, as we want to make sure to receive the notifciations for those news.
+    You use the method *registerTemplateWithDeviceToken*, instead of *registerNativeWithDeviceToken*. When you register for a template, you have to provide the json template and also a name for the template (as the app might want to register different templates). Make sure to register your categories as tags, as you want to make sure to receive the notifciations for those news.
    
     Add a method to retrieve the locale from the user default settings:
    
@@ -141,7 +141,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown below:
             return locale < 0?0:locale;
         }
     ```
-2. Now that we modified our Notifications class, we have to make sure that our ViewController makes use of the new UISegmentControl. Add the following line in the *viewDidLoad* method to make sure to show the locale that is currently selected:
+2. Now that you modified the Notifications class, you have to make sure that the ViewController makes use of the new UISegmentControl. Add the following line in the *viewDidLoad* method to make sure to show the locale that is currently selected:
    
     ```obj-c
         self.Locale.selectedSegmentIndex = [notifications retrieveLocale];

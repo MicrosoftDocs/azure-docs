@@ -33,10 +33,10 @@ This tutorial assumes that you have created and configured your notification hub
 1. Open the Single Page view app you created in the [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial.
    
    > [!NOTE]
-   > In this section we assume that your project is configured with an empty organization name. If not, you will need to prepend your organization name to all class names.
+   > This section assumes that your project is configured with an empty organization name. If not, you need to prepend your organization name to all class names.
    > 
    > 
-2. In the `Main.storyboard` add the components shown in the screenshot below from the object library.
+2. In the `Main.storyboard`, add the components shown in the screenshot from the object library.
    
     ![][1]
    
@@ -69,7 +69,7 @@ This tutorial assumes that you have created and configured your notification hub
    
         - (IBAction)LogInAction:(id)sender;
     ```
-2. In ViewController.h, add the following `#define` just below your import statements. Substitute the *<Enter Your Backend Endpoint\>* placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, *http://you_backend.azurewebsites.net*.
+2. In ViewController.h, add the following `#define` after your import statements. Substitute the *<Enter Your Backend Endpoint\>* placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, *http://you_backend.azurewebsites.net*.
    
     ```obj-c
         #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
@@ -266,7 +266,7 @@ This tutorial assumes that you have created and configured your notification hub
         @end
     ```
 
-    The code above implements the logic explained in the guidance article [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) using NSURLSession to perform REST calls to your app backend, and NSUserDefaults to locally store the registrationId returned by the notification hub.
+    This code implements the logic explained in the guidance article [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) using NSURLSession to perform REST calls to your app backend, and NSUserDefaults to locally store the registrationId returned by the notification hub.
 
     This class requires its property **authorizationHeader** to be set in order to work properly. This property is set by the **ViewController** class after the login.
 
@@ -322,7 +322,7 @@ This tutorial assumes that you have created and configured your notification hub
         }
     ```
    
-    Note how setting the device token enables the log in button. This is because as a part of the login action, the view controller registers for push notifications with the app backend. Hence, we do not want Log In action to be accessible until the device token has been properly set up. You can decouple the login from the push registration as long as the former happens before the latter.
+    Note how setting the device token enables the log in button. This is because as a part of the login action, the view controller registers for push notifications with the app backend. Hence, do not want Log In action to be accessible until the device token has been properly set up. You can decouple the login from the push registration as long as the former happens before the latter.
 2. In ViewController.m, use the following snippets to implement the action method for your **Log In** button and a method to send the notification message using the ASP.NET backend.
    
     ```obj-c
@@ -457,8 +457,8 @@ This tutorial assumes that you have created and configured your notification hub
     ```
 
 ## Test the Application
-1. In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).
-2. In the iOS app UI, enter a username and password. These can be any string, but they must both be the same string value. Then click **Log In**.
+1. In XCode, run the app on a physical iOS device (push notifications do not work in the simulator).
+2. In the iOS app UI, enter same value for both username and password. Then click **Log In**.
    
     ![][2]
 3. You should see a pop-up informing you of registration success. Click **OK**.
