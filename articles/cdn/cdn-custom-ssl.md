@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Configure HTTPS on an Azure CDN custom domain | Microsoft Docs
-description: Learn how to enable or disable HTTPS on your Azure CDN endpoint custom domain.
+description: In this tutorial, you learn how to enable and disable HTTPS on your Azure CDN endpoint custom domain.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2018
+ms.date: 04/12/2018
 ms.author: rli
 ms.custom: mvc
 # As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
@@ -45,11 +45,7 @@ In this tutorial, you learn how to:
 
 Before you can complete the steps in this tutorial, you must first create a CDN profile and at least one CDN endpoint. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 
-If you do not already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).
-
-If you are using Azure to host your [DNS domains](https://docs.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you are using a domain provider to handle your DNS domain, proceed to [Create a CNAME DNS record](#create-a-cname-dns-record).
-
-Prior to enabling HTTPS support, you must have already associated an [Azure CDN custom domain](./cdn-map-content-to-custom-domain.md) on your endpoint.
+In addition, you must associate an Azure CDN custom domain on your CDN endpoint. For more information, see [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
 
 ## Enable the HTTPS feature
 
@@ -57,25 +53,31 @@ To enable HTTPS on a custom domain, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), browse to your **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** CDN profile.
 
-2. In the list of endpoints, click the endpoint containing your custom domain.
+2. In the list of CDN endpoints, select the endpoint containing your custom domain.
 
-3. Click the custom domain for which you want to enable HTTPS.
+    ![Endpoints list](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
+
+    The **Endpoint** page appears.
+
+3. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
 
     ![Custom domains list](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
-4. Click **On** to enable HTTPS, then click **Apply**.
+    The **Custom domain** page appears.
+
+4. Select **On** to enable HTTPS, then select **Apply**.
 
     ![Custom domain HTTPS status](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
 
 
 ## Validate the domain
 
->[!NOTE]
->If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. A CAA record allows domain owners to specify with their DNS providers which CAs are authorized to issue certificates for their domain. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
+If you already have a custom domain in use that is mapped to your custom endpoint with a CNAME record, proceed to  
+[Custom domain is mapped to your CDN endpoint](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). Otherwise, if the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, proceed to [Custom domain is not mapped to your CDN endpoint](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
 
-### Custom domain is mapped to CDN endpoint by a CNAME record
+### Custom domain is mapped to your CDN endpoint by a CNAME record
 
-When you added a custom domain to your endpoint, you created a CNAME record in the DNS table of your domain registrar to map to your CDN endpoint hostname. If that CNAME record still exists and does not contain the cdnverify subdomain, the DigiCert certificate authority (CA) uses it to validate ownership of your custom domain. 
+When you added a custom domain to your endpoint, you created a CNAME record in the DNS table of your domain registrar to map it to your CDN endpoint hostname. If that CNAME record still exists and does not contain the cdnverify subdomain, the DigiCert certificate authority (CA) uses it to validate ownership of your custom domain. 
 
 Your CNAME record should be in the following format, where *Name* is your custom domain name and *Value* is your CDN endpoint hostname:
 
@@ -89,7 +91,10 @@ If your CNAME record is in the correct format, DigiCert automatically verifies y
 
 The automatic validation typically takes a few mins. If you don’t see your domain validated within an hour, open a support ticket.
 
-### Custom domain is not mapped to a CDN endpoint
+>[!NOTE]
+>If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. A CAA record allows domain owners to specify with their DNS providers which CAs are authorized to issue certificates for their domain. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
+
+### Custom domain is not mapped to your CDN endpoint
 
 If the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, follow the rest of the instructions in this step.
 
@@ -146,7 +151,6 @@ The following table shows the operation progress that occurs when you enable HTT
 | 4 Complete | HTTPS has been successfully enabled on your domain. |
 
 \* This message does not appear unless an error has occurred. 
-
 
 If an error occurs before the request is submitted, the following error message is displayed:
 
