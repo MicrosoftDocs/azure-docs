@@ -10,10 +10,8 @@ tags: azure-portal
 
 ms.assetid: 3a63e216-4163-40c1-aa04-6b42fd0162ad
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
