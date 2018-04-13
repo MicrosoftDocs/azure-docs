@@ -20,7 +20,7 @@ sections:
 - title: Notice
   items:
   - type: paragraph
-    text: '<div class="IMPORTANT alert"><p>Important</p><p>Azure Container Service (AKS) is currently in <strong>preview</strong>. Previews are made available to you on the condition that you agree to the <a href="https://azure.microsoft.com/support/legal/preview-supplemental-terms/">supplemental terms of use</a>. Some aspects of this feature may change prior to general availability (GA).</p></div>'
+    text: 'Azure Container Service (AKS) is currently in preview. Previews are made available to you on the condition that you agree to the supplemental terms of use. Some aspects of this feature may change prior to general availability (GA).'
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
