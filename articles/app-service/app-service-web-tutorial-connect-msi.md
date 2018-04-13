@@ -18,7 +18,7 @@ ms.custom: mvc
 ---
 # Tutorial: Access SQL Database securely from Azure App Service using managed service identity
 
-[App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed service identity](app-service-managed-service-identity.md) for your app, which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed service identities App Service make your app more secure by eliminating secrets, such as connection credentials in the database connection strings, completely from your app. This tutorial shows how it's done. When you're finished, your sample ASP.NET web app connects to SQL Database securely without the need of username and passwords.
+[App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed service identity](app-service-managed-service-identity.md) for your app, which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed service identities in App Service make your app more secure by eliminating secrets, such as credentials in the connection strings, completely from your app. This tutorial shows how it's done. When you're finished, your sample ASP.NET web app connects to SQL Database securely without the need of username and passwords.
 
 What you learn how to:
 
@@ -57,7 +57,7 @@ Here's an example of the output after the identity is created in Azure Active Di
 }
 ```
 
-You will use the value of `principalId` in the next step. If you want to see the details of the new identity in Azure Active Directory, run `az ad sp show --id <principalid>` with the value of `principalId`.
+You'll use the value of `principalId` in the next step. If you want to see the details of the new identity in Azure Active Directory, run `az ad sp show --id <principalid>` with the value of `principalId`.
 
 ## Grant database access to identity
 
@@ -136,17 +136,17 @@ In the publish page, click **Publish**. When the new webpage shows your to-do li
 
 ![Azure web app after Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
-You should now edit the to-do list as before.
+You should now be able to edit the to-do list as before.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Grant minimal privileges to identity
 
-With the aforementioned workflow, you may have noticed that your managed service identity is connected to SQL Server as the Azure AD administrator. To grant minimal privileges to your managed service identity instead, you need to log into the Azure SQL Database server as the Azure AD administrator, and then add an Azure Active Directory group that contains the service identity. 
+During the earlier steps, you probably noticed your managed service identity is connected to SQL Server as the Azure AD administrator. To grant minimal privileges to your managed service identity, you need to log into the Azure SQL Database server as the Azure AD administrator, and then add an Azure Active Directory group that contains the service identity. 
 
 ### Add managed service identity to an Azure Active Directory group
 
-In the Cloud Shell, add the managed service identity for your app into a new Azure Active Directory group called _mysqldbclient_, shown in the following script:
+In the Cloud Shell, add the managed service identity for your app into a new Azure Active Directory group called _myAzureSQLDBAccessGroup_, shown in the following script:
 
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -169,7 +169,7 @@ In the Cloud Shell, sign in to SQL Database by using SQLCMD. Replace _\<serverna
 sqlcmd -S <server_name>.database.windows.net -U <AADuser_name> -P "<AADpassword>" -G -l 30
 ```
 
-In the SQL prompt, run the following commands, which adds the Azure Active Directory group you created earlier as a user.
+In the SQL prompt, run the following commands, which add the Azure Active Directory group you created earlier as a user.
 
 ```sql
 CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
