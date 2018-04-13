@@ -16,8 +16,10 @@ manager: timlt
 
 Service Fabric Mesh is a server-less application platform hosted and managed by Microsoft Azure. With Service Fabric Mesh, you can deploy and scale your containerized application without worrying about infrastructure needs. Service Fabric Mesh automatically allocates the infrastructure needed by your application and also handles infrastructure failures. Also, Service Fabric Mesh handles service discovery, data-partitioning, frictionless upgrades, and other features needed by highly available hyper-scalable applications.
 
+<!--
 NEW DIAGRAM NEEDED
 ![Diagram of Service Fabric Mesh for Azure](./media/service-fabric-mesh-overview/diagram.png)
+-->
 
 ## Focus on your app
 
@@ -67,3 +69,4 @@ If you don't already have an Azure account, [create a free account](https://azur
 
 Use the [Deploy a container](service-fabric-mesh-quickstart-deploy-container.md) quickstart to quickly test Service Fabric Mesh.
 
+Create a new sample ASP.NET Core application [Deploy a container](service-fabric-mesh-quickstart-deploy-container.md) quickstart to quickly test Service Fabric Mesh.
