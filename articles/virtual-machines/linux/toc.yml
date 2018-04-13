@@ -468,8 +468,10 @@
       href: serial-console.md
     - name: Access to applications
       href: troubleshoot-app-connection.md
-    - name: Allocation failures
+    - name: Allocation failures 
       href: allocation-failure.md
+    - name: Allocation failures-classic VM
+      href: allocation-failure-classic.md
     - name: Deployment issues
       href: troubleshoot-deploy-vm.md
     - name: Creating a VM
