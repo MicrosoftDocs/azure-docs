@@ -11,10 +11,8 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2017
 ms.author: bradsev
 
@@ -22,23 +20,25 @@ ms.author: bradsev
 
 # Combine ScaleR and SparkR in HDInsight
 
-This article shows how to predict flight arrival delays using a **ScaleR** logistic regression model from data on flight delays and weather joined with **SparkR**. This scenario demonstrates the capabilities of ScaleR for data manipulation on Spark used with Microsoft R Server for analytics. The combination of these technologies enables you to apply the latest capabilities in distributed processing.
+This document shows how to predict flight arrival delays using a **ScaleR** logistic regression model. The example uses flight delay and weather data, joined using **SparkR**.
 
 Although both packages run on Hadoop’s Spark execution engine, they are blocked from in-memory data sharing as they each require their own respective Spark sessions. Until this issue is addressed in an upcoming version of R Server, the workaround is to maintain non-overlapping Spark sessions, and to exchange data through intermediate files. The instructions here show that these requirements are straightforward to achieve.
 
-We use an example here initially shared in a talk at Strata 2016 by Mario Inchiosa and Roni Burd that is also available through the webinar [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio). The example uses SparkR to join the well-known airlines arrival delay data set with weather data at departure and arrival airports. The data joined is then used as input to a ScaleR logistic regression model for predicting flight arrival delay.
+This example was initially shared in a talk at Strata 2016 by Mario Inchiosa and Roni Burd. You can find this talk at [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
-The code we walkthrough was originally written for R Server running on Spark in an HDInsight cluster on Azure. But the concept of mixing the use of SparkR and ScaleR in one script is also valid in the context of on-premises environments. In the following, we presume an intermediate level of knowledge of R and R the [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) library of R Server. We also introduce use of [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) while walking through this scenario.
+The code was originally written for R Server running on Spark in an HDInsight cluster on Azure. But the concept of mixing the use of SparkR and ScaleR in one script is also valid in the context of on-premises environments. 
+
+The steps in this document assume that you have an intermediate level of knowledge of R and R the [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) library of R Server. You are introduced to [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) while walking through this scenario.
 
 ## The airline and weather datasets
 
-The **AirOnTime08to12CSV** airlines public dataset contains information on flight arrival and departure details for all commercial flights within the USA, from October 1987 to December 2012. This is a large dataset: there are nearly 150 million records in total. It is just under 4 GB unpacked. It is available from the [U.S. government archives](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). More conveniently, it is available as a zip file (AirOnTimeCSV.zip) containing a set of 303 separate monthly CSV files from the [Revolution Analytics dataset repository](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/)
+The flight data is available from the [U.S. government archives](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). It is also available as a zip from [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-To see the effects of weather on flight delays, we also need the weather data at each of the airports. This data can be downloaded as zip files in raw form, by month, from the [National Oceanic and Atmospheric Administration repository](http://www.ncdc.noaa.gov/orders/qclcd/). For the purposes of this example, we pull weather data from May 2007 – December 2012 and used the hourly data files within each of the 68 monthly zips. The monthly zip files also contain a mapping (YYYYMMstation.txt) between the weather station ID (WBAN), the airport that it is associated with (CallSign), and the airport’s time zone offset from UTC (TimeZone). All of this information is needed when joining with the airline delay and weather data.
+The weather data can be downloaded as zip files in raw form, by month, from the [National Oceanic and Atmospheric Administration repository](http://www.ncdc.noaa.gov/orders/qclcd/). For this example, download the data for May 2007 – December 2012. Use the hourly data files and `YYYYMMMstation.txt` file within each of the zips. 
 
 ## Setting up the Spark environment
 
-The first step is to set up the Spark environment. We begin by pointing to the directory that contains our input data directories, creating a Spark compute context, and creating a logging function for informational logging to the console:
+Use the following code to set up the Spark environment:
 
 ```
 workDir        <- '~'  
@@ -83,7 +83,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-Next we add “Spark_Home” to the search path for R packages so that we can use SparkR, and initialize a SparkR session:
+Next, add `Spark_Home` to the search path for R packages. Adding it to the search path allows you to use SparkR, and initialize a SparkR session:
 
 ```
 #..setup for use of SparkR  
@@ -106,7 +106,7 @@ sqlContext <- sparkRSQL.init(sc)
 
 ## Preparing the weather data
 
-To prepare the weather data, we subset it to the columns needed for modeling: 
+To prepare the weather data, subset it to the columns needed for modeling: 
 
 - "Visibility"
 - "DryBulbCelsius"
@@ -115,17 +115,9 @@ To prepare the weather data, we subset it to the columns needed for modeling:
 - "WindSpeed"
 - "Altimeter"
 
-Then we add an airport code associated with the weather station and convert the measurements from local time to UTC.
+Then add an airport code associated with the weather station and convert the measurements from local time to UTC.
 
-We begin by creating a file to map the weather station (WBAN) info to an airport code. We could get this correlation from the mapping file included with the weather data. By mapping the *CallSign* (for example, LAX) field in the weather data file to *Origin* in the airline data. However, we just happened to have another mapping on hand that maps *WBAN* to *AirportID* (for example, 12892 for LAX) and includes *TimeZone* that has been saved to a CSV file called “wban-to-airport-id-tz.CSV” that we can use. For example:
-
-| AirportID | WBAN | TimeZone
-|-----------|------|---------
-| 10685 | 54831 | -6
-| 14871 | 24232 | -8
-| .. | .. | ..
-
-The following code reads each of the hourly raw weather data files, subsets to the columns we need, merges the weather station mapping file, adjusts the date times of measurements to UTC, and then writes out a new version of the file:
+Begin by creating a file to map the weather station (WBAN) info to an airport code. The following code reads each of the hourly raw weather data files, subsets to the columns we need, merges the weather station mapping file, adjusts the date times of measurements to UTC, and then writes out a new version of the file:
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time
@@ -517,7 +509,7 @@ plot(logitRoc)
 
 ## Scoring elsewhere
 
-We can also use the model for scoring data on another platform. By saving it to an RDS file and then transferring and importing that RDS into a destination scoring environment such as SQL Server R Services. It is important to ensure that the factor levels of the data to be scored match those on which the model was built. That match can be achieved by extracting and saving the column infomation associated with the modeling data via ScaleR’s `rxCreateColInfo()` function and then applying that column information to the input data source for prediction. In the following we save a few rows of the test dataset and extract and use the column information from this sample in the prediction script:
+We can also use the model for scoring data on another platform. By saving it to an RDS file and then transferring and importing that RDS into a destination scoring environment such as SQL Server R Services. It is important to ensure that the factor levels of the data to be scored match those on which the model was built. That match can be achieved by extracting and saving the column information associated with the modeling data via ScaleR’s `rxCreateColInfo()` function and then applying that column information to the input data source for prediction. In the following we save a few rows of the test dataset and extract and use the column information from this sample in the prediction script:
 
 ```
 # save the model and a sample of the test dataset 
