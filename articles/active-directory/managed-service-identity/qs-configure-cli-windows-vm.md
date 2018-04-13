@@ -68,10 +68,10 @@ If you need to enable MSI on an existing Virtual Machine:
    az login
    ```
 
-2. Use [az vm assign-identity](/cli/azure/vm/#az_vm_assign_identity) with the `--assign-identity` parameter to add an MSI to an existing VM:
+2. Use [az vm identity assign](/cli/azure/vm/identity/#az_vm_identity_assign) with the `identity assign` command to add an MSI to an existing VM:
 
    ```azurecli-interactive
-   az vm assign-identity -g myResourceGroup -n myVm
+   az vm identity assign -g myResourceGroup -n myVm
    ```
 
 ## Remove MSI from an Azure VM
