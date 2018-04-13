@@ -942,6 +942,7 @@ This section creates the wwi.dimension_Date and wwi.fact_Sales tables. It also c
 	    END;
 
     END;
+    ```
 
 ## Generate millions of rows
 Use the stored procedures you created to generate millions of rows in the wwi.fact_Sales table, and corresponding data in the wwi.dimension_Date table. 
