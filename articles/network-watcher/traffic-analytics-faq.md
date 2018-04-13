@@ -92,7 +92,7 @@ ms.author: jdial
 12.  If I receive the following message: “1) Analyzing your NSG flow logs for the first time. This process may take 20-30 minutes to complete. Check back after some time. 2) If the above step doesn’t work and your workspace is under the free SKU, then check your workspace usage here to validate over quota, else refer to FAQs for further information”, how do I resolve it?
 
         You may receive the error for the following reasons:
-        - Traffic analytics may have been recently enabled and may be aggregating enough data for it to derive meaningful insights before any reports can be generated. In this case, try again after 30 minutes
+        - Traffic analytics may have been recently enabled and may not yet have aggregated enough data for it to derive meaningful insights.
         - Your OMS Workspace is under the free SKU and it breached the quota limits. In this case, you may need to use a workspace in a SKU with larger capacity.
     
         If issues persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
