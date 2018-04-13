@@ -80,7 +80,7 @@ To use the Azure Command-Line Interface, you must have **Node.js** installed on 
 
 ## How to: Change the built-in PHP configurations
 
-For any built-in PHP runtime, you can change any of the configuration options by following the steps below. (For information about php.ini directives, see [List of php.ini directives].)
+For any built-in PHP runtime, you can change any of the configuration options by following these steps. (For information about php.ini directives, see [List of php.ini directives].)
 
 ### Changing PHP\_INI\_USER, PHP\_INI\_PERDIR, PHP\_INI\_ALL configuration settings
 
@@ -107,11 +107,11 @@ As an alternative to using a `.user.ini` file, you can use the [ini_set()] funct
         ; Example Settings
         curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
         wincache.maxfilesize=512
-1. Restart your Web App to load the changes.
+1. To reload the changes, restart your Web App.
 
 ## How to: Enable extensions in the default PHP runtime
 
-As noted in the previous section, the best way to see the default PHP version, its default configuration, and the enabled extensions is to deploy a script that calls [phpinfo()]. To enable additional extensions, by following the steps below:
+As noted in the previous section, the best way to see the default PHP version, its default configuration, and the enabled extensions is to deploy a script that calls [phpinfo()]. To enable additional extensions, by following these steps:
 
 ### Configure via ini settings
 
@@ -134,7 +134,7 @@ As noted in the previous section, the best way to see the default PHP version, i
 1. Browse to your web app in the Azure portal and click on the **Settings** button.
 
     ![Web App Settings][settings-button]
-1. From the **Settings** blade select **Application Settings** and scroll to the **App settings** section.
+1. From the **Settings** blade, select **Application Settings** and scroll to the **App settings** section.
 1. In the **App settings** section, create a **PHP_EXTENSIONS** key. The value for this key would be a path relative to website root: **bin\your-ext-file**.
 
     ![Enable extension in app settings][php-extensions]
@@ -146,7 +146,7 @@ Zend extensions are also supported by using a **PHP_ZENDEXTENSIONS** key. To ena
 
 ## How to: Use a custom PHP runtime
 
-Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime that you provide to execute PHP scripts. The runtime that you provide can be configured by a `php.ini` file that you also provide. To use a custom PHP runtime with Web Apps, following the steps below.
+Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime that you provide to execute PHP scripts. The runtime that you provide can be configured by a `php.ini` file that you also provide. To use a custom PHP runtime with Web Apps, following these steps.
 
 1. Obtain a non-thread-safe, VC9 or VC11 compatible version of PHP for Windows. Recent releases of PHP for Windows can be found here: [http://windows.php.net/download/]. Older releases can be found in the archive here: [http://windows.php.net/downloads/releases/archives/].
 1. Modify the `php.ini` file for your runtime. Any configuration settings that are system-level-only directives are ignored by Web Apps. (For information about system-level-only directives, see [List of php.ini directives]).
@@ -156,7 +156,7 @@ Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime t
 1. Browse to your web app in the Azure portal and click on the **Settings** button.
 
     ![Web App Settings][settings-button]
-1. From the **Settings** blade select **Application Settings** and scroll to the **Handler mappings** section. Add `*.php` to the Extension field and add the path to the `php-cgi.exe` executable. If you put your PHP runtime in the `bin` directory in the root of your application, the path is `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
+1. From the **Settings** blade, select **Application Settings** and scroll to the **Handler mappings** section. Add `*.php` to the Extension field and add the path to the `php-cgi.exe` executable. If you put your PHP runtime in the `bin` directory in the root of your application, the path is `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
 
     ![Specify handler in handler mappings][handler-mappings]
 1. Click the **Save** button at the top of the **Web app settings** blade.
@@ -185,7 +185,7 @@ processing during `git push` by enabling the Composer extension.
 
     The **Installed extensions** blade shows the Composer extension.
     ![Accept legal terms to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-view.png)
-4. Now, in a terminal window on your local machine, perform `git add`, `git commit`, and `git push` to your Web App. You'll notice that Composer
+4. Now, in a terminal window on your local machine, perform `git add`, `git commit`, and `git push` to your Web App. Notice that Composer
    is installing dependencies defined in composer.json.
 
     ![Git deployment with Composer automation in Azure](./media/web-sites-php-configure/composer-extension-success.png)
