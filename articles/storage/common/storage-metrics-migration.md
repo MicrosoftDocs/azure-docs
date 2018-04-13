@@ -47,8 +47,8 @@ If you read metric data programmatically, you need to adopt the new metric schem
 
 | Legacy Metric | New Metric |
 | ------------------- | ----------------- |
-| Capacity            | BlobCapacity with dimension BlobType equal to BlockBlob or BlobType equal to PageBlob |
-| ObjectCount         | BlobCount with dimension BlobType equal to BlockBlob or BlobType equal to PageBlob |
+| Capacity            | BlobCapacity with dimension BlobType equal to BlockBlob or PageBlob |
+| ObjectCount         | BlobCount with dimension BlobType equal to BlockBlob or PageBlob |
 | ContainerCount      | ContainerCount |
 
 The following metrics are new offerings that legacy metrics don't support:
@@ -74,7 +74,7 @@ The following metrics are new offerings that legacy metrics don't support:
 | AnonymousServerOtherError | Transactions with dimension ResponseType equal to ServerOtherError |
 | AnonymousServerTimeoutError | Transactions with dimension ResponseType equal to ServerTimeoutError |
 | AnonymousSuccess | Transactions with dimension ResponseType equal to Success |
-| AnonymousThrottlingError | Transactions with dimension ResponseType equal to ThrottlingError |
+| AnonymousThrottlingError | Transactions with dimension ResponseType equal to ClientThrottlingError or ServerBusyError |
 | AuthorizationError | Transactions with dimension ResponseType equal to AuthorizationError |
 | Availability | Availability |
 | AverageE2ELatency | SuccessE2ELatency |
@@ -87,7 +87,7 @@ The following metrics are new offerings that legacy metrics don't support:
 | PercentNetworkError | Transactions with dimension ResponseType equal to NetworkError |
 | PercentServerOtherError | Transactions with dimension ResponseType equal to ServerOtherError |
 | PercentSuccess | Transactions with dimension ResponseType equal to Success |
-| PercentThrottlingError | Transactions with dimension ResponseType equal to ThrottlingError |
+| PercentThrottlingError | Transactions with dimension ResponseType equal to ClientThrottlingError or ServerBusyError |
 | PercentTimeoutError | Transactions with dimension ResponseType equal to ServerTimeoutError or ResponseType equal to ClientTimeoutError|
 | SASAuthorizationError | Transactions with dimension ResponseType equal to AuthorizationError |
 | SASClientOtherError | Transactions with dimension ResponseType equal to ClientOtherError |
@@ -96,11 +96,11 @@ The following metrics are new offerings that legacy metrics don't support:
 | SASServerOtherError | Transactions with dimension ResponseType equal to ServerOtherError |
 | SASServerTimeoutError | Transactions with dimension ResponseType equal to ServerTimeoutError |
 | SASSuccess | Transactions with dimension ResponseType equal to Success |
-| SASThrottlingError | Transactions with dimension ResponseType equal to ThrottlingError |
+| SASThrottlingError | Transactions with dimension ResponseType equal to ClientThrottlingError or ServerBusyError |
 | ServerOtherError | Transactions with dimension ResponseType equal to ServerOtherError |
 | ServerTimeoutError | Transactions with dimension ResponseType equal to ServerTimeoutError |
 | Success | Transactions with dimension ResponseType equal to Success |
-| ThrottlingError | Transactions with dimension ResponseType equal to ThrottlingError |
+| ThrottlingError | Transactions with dimension ResponseType equal to ClientThrottlingError or ServerBusyError |
 | TotalBillableRequests | Transactions |
 | TotalEgress | Egress |
 | TotalIngress | Ingress |
