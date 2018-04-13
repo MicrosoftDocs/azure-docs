@@ -28,11 +28,11 @@ The OMS Agent for Linux supports collecting alerts from Nagios version 4.2.x and
 ### Configuring Nagios alert collection
 Perform the following steps on the Nagios server to collect alerts.
 
-1. Grant the user **omsagent** read access to the Nagios log file (i.e. `/var/log/nagios/nagios.log`). Assuming the nagios.log file is owned by the group `nagios`, you can add the user **omsagent** to the **nagios** group. 
+1. Grant the user **omsagent** read access to the Nagios log file `/var/log/nagios/nagios.log`. Assuming the nagios.log file is owned by the group `nagios`, you can add the user **omsagent** to the **nagios** group. 
 
 	sudo usermod -a -G nagios omsagent
 
-2.	Modify the configuration file at (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Ensure the following entries are present and not commented out:  
+2.	Modify the configuration file at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Ensure the following entries are present and not commented out:  
 
         <source>  
           type tail  
@@ -57,7 +57,7 @@ To collect alerts from a Zabbix server, you need to specify a user and password 
 
 Perform the following steps on the Nagios server to collect alerts.
 
-1. Modify the configuration file at (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Ensure the following entries are present and not commented out.  Change the user name and password to values for your Zabbix environment.
+1. Modify the configuration file at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Ensure the following entries are present and not commented out.  Change the user name and password to values for your Zabbix environment.
 
         <source>
 	     type zabbix_alerts
