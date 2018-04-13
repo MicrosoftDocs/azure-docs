@@ -47,7 +47,7 @@ The following table shows a list of supported operating systems:
 |Operating System  |Notes  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Only supports update assessments         |
-|Windows Server 2008 R2 SP1 and higher     |.NET Framework 4.5 and WMF 5.0 or later are needed for Windows Server 2008 R2 SP1        |
+|Windows Server 2008 R2 SP1 and higher     |Windows PowerShell 4.0 and WMF 4.0 are required. Windows PowerShell 5.0 and WMF 5.0 or higher are recommended.         |
 |CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
 |Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
