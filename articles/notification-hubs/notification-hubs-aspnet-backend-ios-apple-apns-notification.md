@@ -2,8 +2,8 @@
 title: Push notifications to specific users using Azure Notification Hubs | Microsoft Docs
 description: Learn how to send push notifications to specific users by using Azure Notification Hubs. 
 documentationcenter: ios
-author: ysxu
-manager: erikre
+author: spelluru
+manager: 
 editor: ''
 services: notification-hubs
 
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
+ms.date: 04/13/2018
+ms.author: spelluru
 
 ---
 # Tutorial: Push notifications to specific users using Azure Notification Hubs
@@ -468,6 +468,13 @@ This tutorial assumes that you have created and configured your notification hub
 5. Enter a notification message and click **Send Notification**.  Only the devices that have a registration with the recipient user name tag receive the notification message.  It is only sent to those users.
    
     ![][4]
+
+## Next steps
+In this tutorial, you learned how to push notifications to specific users that have tags associated with their registrations. To learn how to push location-based notifications, advance to the following tutorial: 
+
+> [!div class="nextstepaction"]
+>[Push location-based notifications](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png
