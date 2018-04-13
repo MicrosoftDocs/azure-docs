@@ -50,7 +50,7 @@ As an example, let's assume we have an experiment with an [Export Data][writer] 
    * Under **Please specify data destination**, select "Azure Blob Storage".
    * Under **Please specify authentication type**, select "Account".
    * Enter the account information for the Azure blob storage. 
-     <p />
+
 3. Click the icon to the right of the **Path to blob beginning with container parameter**. It looks like this:
    
    ![Web Service Parameter icon][icon]
