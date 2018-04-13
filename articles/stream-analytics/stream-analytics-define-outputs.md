@@ -16,18 +16,19 @@ When authoring a Stream Analytics job, consider how the resulting data is consum
 In order to enable a variety of application patterns, Azure Stream Analytics has different options for storing output and viewing analysis results. This makes it easy to view job output and gives you flexibility in the consumption and storage of the job output for data warehousing and other purposes. Any output configured in the job must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job doesn't create a storage account automatically. Create a storage account before the Stream Analytics job is started.
 
 ## Azure Data Lake Store
-Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). This storage enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Further, Stream Analytics needs to be authorized to access the Data Lake Store. Details on authorization and how to sign up for the Data Lake Store (if needed) are discussed in the [Data Lake output article](stream-analytics-data-lake-output.md).
+Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Further, Stream Analytics needs to be authorized to access the Data Lake Store.
 
-### Authorize an Azure Data Lake Store
-When Data Lake Storage is selected as an output in the Azure portal, you are prompted to authorize a connection to an existing Data Lake Store.  
+### Authorize an Azure Data Lake Store account
 
-![Authorize Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+1. When Data Lake Storage is selected as an output in the Azure portal, you are prompted to authorize a connection to an existing Data Lake Store.  
 
-Then fill out the properties for the Data Lake Store output as seen below:
+   ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
-![Authorize Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+2. If you already have access to Data Lake Store, click “Authorize Now” and a page will pop up indicating “Redirecting to authorization”. After authorization succeeds, you are presented with the page that allows you to configure the Data Lake Store output.  
 
-The table below lists the property names and their description needed for creating a Data Lake Store output.
+3. Once you have the Data Lake Store account authenticated, you can configure the properties for your Data Lake Store output. The table below is the list of property names and their description to configure your Data Lake Store output.
+
+   ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 <table>
 <tbody>
@@ -41,11 +42,11 @@ The table below lists the property names and their description needed for creati
 </tr>
 <tr>
 <td>Account Name</td>
-<td>The name of the Data Lake Storage account where you are sending your output. You are presented with a drop-down list of Data Lake Store accounts to which the user logged in to the portal has access to.</td>
+<td>The name of the Data Lake Storage account where you are sending your output. You are presented with a drop-down list of Data Lake Store accounts that are available in your subscription.</td>
 </tr>
 <tr>
 <td>Path Prefix Pattern</td>
-<td>File naming follows the following convention: <BR>{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR>Example output files:<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>Also, here are the situations, where a new file is created:<BR>1. Change in output schema <BR>2. External or Internal restart of a job<BR><BR>Additionally, if the file path pattern does not contain a trailing “/”, the last pattern in the file path is treated as a filename prefix.<BR><BR>Example:<BR>For the path pattern: folder1/logs/HH, the generated file may look like: folder1/logs/02_134343_gguid_1.csv</td>
+<td>The file path used to write your files within the specified Data Lake Store Account. You can specify one or more instances of the {date} and {time} variables.<BR> Example 1: folder1/logs/{date}/{time}<BR>Example 2: folder1/logs/{date}<BR>Also, here are the situations, where a new file is created:<BR>1. Change in output schema <BR>2. External or Internal restart of a job<BR><BR>Additionally, if the file path pattern does not contain a trailing “/”, the last pattern in the file path is treated as a filename prefix.<BR></td>
 </tr>
 <tr>
 <td>Date Format [<I>optional</I>]</td>
@@ -75,7 +76,9 @@ The table below lists the property names and their description needed for creati
 </table>
 
 ### Renew Data Lake Store Authorization
-You need to reauthenticate your Data Lake Store account if its password has changed since your job was created or last authenticated.
+You need to reauthenticate your Data Lake Store account if its password has changed since your job was created or last authenticated. If you don't reauthenticate, your job will not output results and an error indicating the need for re-authorization is logged in the Operation Logs. Currently, there is a limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Data Lake Store output. 
+
+To renew authorization, **Stop** your job > go to your Data Lake Store output > click the **Renew authorization** link, and for a brief time a page will pop up indicating “Redirecting to authorization..”. The page will automatically close and if successful, will indicate “Authorization has been successfully renewed”. You then need to click **Save** at the bottom of the page, and can proceed by restarting your job from the **Last Stopped Time** to avoid data loss.
 
 ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
@@ -299,7 +302,11 @@ The table below lists the property names and their description for creating a ta
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
 
 ## Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a globally distributed, multi-model database service that offers limitless elastic scale around the globe, rich query, and automatic indexing over schema-agnostic data models, guaranteed low latency, and industry-leading comprehensive SLAs.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a globally distributed, multi-model database service that offers limitless elastic scale around the globe, rich query, and automatic indexing over schema-agnostic data models, guaranteed low latency, and industry-leading comprehensive SLAs. To learn about Cosmos DB collection options for Stream Analytics, refer to the [Stream Analytics with Cosmos DB as output](stream-analytics-documentdb-output.md) article.
+
+> [!Note]
+> At this time, Azure Stream Analytics only supports connection to CosmosDB using **SQL API**.
+> Other Azure Cosmos DB APIs are not yet supported. If you point Azure Stream Analytics to the Azure Cosmos DB accounts created with other APIs, the data might not be properly stored. 
 
 The following table describes the properties for creating an Azure Cosmos DB output.
 | Property Name | Description |
