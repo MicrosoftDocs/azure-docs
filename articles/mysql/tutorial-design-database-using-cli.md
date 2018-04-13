@@ -1,5 +1,5 @@
 ---
-title: Design your first Azure Database for MySQL database - Azure CLI
+title: 'Tutorial: Design an Azure Database for MySQL using Azure CLI'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure CLI 2.0 from the command line.
 services: mysql
 author: ajlam
@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 04/01/2018
 ms.custom: mvc
 ---
 
-# Design your first Azure Database for MySQL database
+# Tutorial: Design an Azure Database for MySQL using Azure CLI
 
 Azure Database for MySQL is a relational database service in the Microsoft cloud based on MySQL Community Edition database engine. In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
 
@@ -44,30 +44,6 @@ The following example creates a resource group named `myresourcegroup` in the `w
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-## Add the extension
-Add the updated Azure Database for MySQL management extension using the following command:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Check you have the correct extension version installed. 
-```azurecli-interactive
-az extension list
-```
-
-The return JSON should include the following: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.3"
-}
-```
-
-If version 0.0.3 is not returned, run the following to update the extension: 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## Create an Azure Database for MySQL server

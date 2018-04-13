@@ -4,7 +4,7 @@ description: Create an unmanged image of a generalized Windows VM to use to crea
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 

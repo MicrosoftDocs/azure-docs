@@ -1,6 +1,14 @@
 - name: Managed Service Identity
   href: overview.md
   items:
+    - name: Quickstarts
+      items:
+      - name: Use a VM MSI to acess Azure Resource Manager
+        items: 
+        - name: Windows VM
+          href: tutorial-windows-vm-access-arm.md
+        - name: Linux VM
+          href: tutorial-linux-vm-access-arm.md
     - name: Configure MSI for an Azure VM
       items:
       - name: Using Azure Portal
@@ -37,37 +45,47 @@
         href: how-to-use-vm-sign-in.md
       - name: Use with Azure SDKs
         href: how-to-use-vm-sdk.md
-    - name: Use a VM MSI to access Azure Data Lake Store
+    - name: Use a Windows VM/VMSS Managed Identity
       items:
-      - name: From a Windows VM
+      - name: Access Azure Data Lake Store
         href: tutorial-windows-vm-access-datalake.md
-      - name: From a Linux VM
-        href: tutorial-linux-vm-access-datalake.md
-    - name: Use a VM MSI to access Azure Resource Manager
-      items:
-      - name: From a Windows VM
-        href: tutorial-windows-vm-access-arm.md
-      - name: From a Linux VM
-        href: tutorial-linux-vm-access-arm.md
-    - name: Use a VM MSI to access Azure SQL
-      items:
-      - name: From a Windows VM
-        href: tutorial-windows-vm-access-sql.md    
-    - name: Use a VM MSI to access Azure storage
-      items:
-      - name: From a Windows VM using access key
+      - name: Access Azure SQL
+        href: tutorial-windows-vm-access-sql.md
+      - name: Access Azure Storage using an access key
         href: tutorial-windows-vm-access-storage.md
-      - name: From a Windows VM using SAS
-        href: tutorial-windows-vm-access-storage-sas.md        
-      - name: From a Linux VM using access key
-        href: tutorial-linux-vm-access-storage.md
-      - name: From a Linux VM using SAS
-        href: tutorial-linux-vm-access-storage-sas.md        
-    - name: Use a VM MSI to access Azure Key Vault
-      items:
-      - name: From a Windows VM
+      - name: Acess Azure Storage using SAS
+        href: tutorial-windows-vm-access-storage-sas.md
+      - name: Access Azure Key Vault
         href: tutorial-windows-vm-access-nonaad.md
-      - name: From a Linux VM
+    - name: Use a Linux VM/VMSS Managed Identity
+      items:
+      - name: Access Azure Data Lake Store
+        href: tutorial-linux-vm-access-datalake.md
+      - name: Access Azure Storage using an access key
+        href: tutorial-linux-vm-access-storage.md
+      - name: Access Azure Storage using SAS
+        href: tutorial-linux-vm-access-storage-sas.md
+      - name: Access Azure Key Vault
         href: tutorial-linux-vm-access-nonaad.md
+      - name: Access Azure Cosmos DB
+        href: tutorial-linux-vm-access-cosmos-db.md
     - name: FAQs and known issues
       href: known-issues.md
+    - name: Reference
+      items:
+      - name: CLI
+        href: /cli/azure/identity
+      - name: PowerShell
+        href: /powershell/module/azurerm.managedserviceidentity#managed_service_identity 
+      - name: .NET
+        href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
+      - name: Java
+        href: https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines
+      - name: Python
+        href: /python/api/azure.mgmt.msi
+      - name: Ruby
+        href: https://rubygems.org/gems/azure_mgmt_msi
+      - name: Node.js
+        href: /javascript/api/ms-rest-azure
+      - name: Go 
+        href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi

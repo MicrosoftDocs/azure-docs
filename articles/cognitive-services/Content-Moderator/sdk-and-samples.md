@@ -14,10 +14,14 @@ ms.author: sajagtap
 
 # Content Moderator SDKs and samples
 
-## .NET SDK
-The [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) is available as a NuGet.
+## SDKs for Python, Java, Node.js, and .NET
 
-## .NET samples
+- [Content Moderator SDK for Python](https://pypi.python.org/pypi/azure-cognitiveservices-vision-contentmoderator)
+- [Content Moderator SDK for Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-cognitiveservices-contentmoderator%22)
+- [Content Moderator SDK for Node.js](https://www.npmjs.com/package/azure-cognitiveservices-contentmoderator)
+- [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)
+
+## .NET SDK samples
 
 The following list includes links to the code samples built using the Azure Content Moderator SDK for .NET.
 

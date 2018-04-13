@@ -4,7 +4,7 @@ description: Learn all about the SQL .NET API and SDK including release dates, r
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
@@ -27,13 +27,11 @@ ms.custom: H1Hack27Feb2017
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -54,7 +52,7 @@ ms.custom: H1Hack27Feb2017
 ### <a name="1.21.1"/>1.21.1
 
 * Fixed KeyNotFoundException for cross partition order by queries in corner cases.
-* Fixed bug where JsonPropery attribute in select clause for LINQ queries was not being honored.
+* Fixed bug where JsonProperty attribute in select clause for LINQ queries was not being honored.
 
 ### <a name="1.20.2"/>1.20.2
 

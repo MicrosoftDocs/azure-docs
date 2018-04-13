@@ -60,7 +60,7 @@ dependencies:
      # a package hosted in a public URL endpoint
      - https://cntk.ai/PythonWheel/CPU-Only/cntk-2.1-cp35-cp35m-win_amd64.whl
      
-     # a wheel file available locally on disk (this only works if you are executing against local target)
+     # a wheel file available locally on disk (this only works if you are executing against local Docker target)
      - C:\temp\my_private_python_pkg.whl
 ```
 
@@ -146,6 +146,8 @@ _\<compute target name>.compute_ file specifies connection and configuration inf
 
 **userManagedEnvironment**: This property specifies whether this compute target is managed by the user directly or managed through experimentation service.  
 
+**pythonLocation**: This property specifies the location of the python runtime to be used on the compute target to execute user's program. 
+
 ### \<run configuration name>.runconfig
 _\<run configuration name>.runconfig_ specifies the Azure ML experiment execution behavior. You can configure execution behavior such as tracking run history or what compute target to use along with many others. The names of the run configuration files are used to populate the execution context dropdown in the Azure ML Workbench desktop application.
 
@@ -184,7 +186,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **TrackedRun**: This flag signals the Experimentation Service whether or not to track the run in Azure ML Workbench run history infrastructure. The default value is _true_. 
 
-**UseSampling**: _UseSampling_ specifies whether the active sample datasets for data sources are used for the run. If set to _false_, data sources ingest and use the full data read from the data store. If set to _true_, active samples are used. Users can use the **DataSourceSettings" to specify which specific sample datasets to use if they want to override the active sample. 
+**UseSampling**: _UseSampling_ specifies whether the active sample datasets for data sources are used for the run. If set to _false_, data sources ingest and use the full data read from the data store. If set to _true_, active samples are used. Users can use the **DataSourceSettings** to specify which specific sample datasets to use if they want to override the active sample. 
 
 **DataSourceSettings**: This configuration section specifies the data source settings. In this section, user specifies which existing data sample for a particular data source is used as part of the run. 
 

@@ -2,10 +2,9 @@
 title: Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App tutorial
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for an ASP.NET web app.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 
-ms.author: patricka
-ms.reviewer: saraford
+ms.author: davidmu
 ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
@@ -64,7 +63,7 @@ Make note of the **Application Client ID**. The ID uniquely identifies the app a
 
 ### Create a client password
 
-Azure AD B2C uses OAuth2 authorization for [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application). Web apps are [confidential clients](../active-directory/develop/active-directory-dev-glossary.md#web-client) and require a client secret (password). The application client ID and client secret are used when the web app authenticates with Azure Active Directory. 
+Azure AD B2C uses OAuth2 authorization for [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application). Web apps are [confidential clients](../active-directory/develop/active-directory-dev-glossary.md#web-client) and require a client ID or application ID and a client secret, client password, or application key.
 
 1. Select the Keys page for the registered web app and click **Generate key**.
 
@@ -148,7 +147,7 @@ There are two projects in the sample solution:
 
 **Web API sample app (TaskService):** Web API that supports the create, read, update, and delete task list functionality. The web API is protected by Azure AD B2C and called by the web app.
 
-You need to change the app to use the app registration in your tenant. You also need to configure the policies you created. The sample web app defines the configuration values as app settings in the Web.config file. To change the app settings:
+You need to change the app to use the app registration in your tenant, which includes the client ID or application ID and the client password or application key. You also need to configure the policies you created. The sample web app defines the configuration values as app settings in the Web.config file. To change the app settings:
 
 1. Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 
@@ -159,7 +158,7 @@ You need to change the app to use the app registration in your tenant. You also 
     
     <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
     
-    <add key="ida:ClientSecret" value="Client password (client secret)" />
+    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
 3. Update the policy settings with the name generated when you created your policies.
 

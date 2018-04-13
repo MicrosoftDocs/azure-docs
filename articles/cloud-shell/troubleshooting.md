@@ -147,3 +147,29 @@ Using PowerShell cmdlets, users can not create files under the Azure drive. When
 ### GUI applications are not supported
 
 If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Login-AzureRMAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+
+## GDPR compliance for Cloud Shell
+
+Azure Cloud Shell takes your personal data seriously, the data captured and stored by the Azure Cloud Shell service are used to provide defaults for your experience such as your most recently used shell, preferred font size, preferred font type, and file share details that back clouddrive. Should you wish to export or delete this data, we have included the following instructions.
+
+### Export
+In order to **export** the user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands.
+
+1. Launch Bash in Cloud Shell
+2. Run the following commands:
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token" -s | jq
+```
+
+### Delete
+In order to **delete** your user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands. The next time you start Cloud Shell you will be asked to onboard a file share again. 
+
+The actual Azure Files share will not be deleted if you delete your user settings, go to Azure Files to complete that action.
+
+1. Launch Bash in Cloud Shell
+2. Run the following commands:
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
+```

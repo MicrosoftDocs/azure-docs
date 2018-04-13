@@ -32,8 +32,8 @@ ms.author: v-geberr;
 
 4. Select **Done**. The dataset file is added.
 
-## Export, rename, delete, or download dataset
-To export, rename, delete, or download the imported dataset, use the three dots (**...**) at the end of the dataset row.
+## Run, rename, export, or delete dataset
+To run, rename, export, or delete the dataset, use the three dots (**...**) at the end of the dataset row.
 
 ![Dataset Actions](./media/luis-how-to-batch-test/batch-testing-options.png)
 

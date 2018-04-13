@@ -44,12 +44,12 @@ Partition switching can be used to quickly remove or replace a section of a tabl
 Partitioning can also be used to improve query performance.  A query that applies a filter to partitioned data can limit the scan to only the qualifying partitions. This method of filtering can avoid a full table scan and only scan a smaller subset of data. With the introduction of clustered columnstore indexes, the predicate elimination performance benefits are less beneficial, but in some cases there can be a benefit to queries.  For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip searching in partitions that don’t match the filter.
 
 ## Partition sizing guidance
-While partitioning can be used to improve performance some scenarios, creating a table with **too many** partitions can hurt performance under some circumstances.  These concerns are especially true for clustered columnstore tables.  For partitioning to be helpful, it is important to understand when to use partitioning and the number of partitions to create.  There is no hard fast rule as to how many partitions are too many, it depends on your data and how many partitions you are loading to simultaneously.  A successful partitioning scheme usually has tens to hundreds of partitions, not thousands.
+While partitioning can be used to improve performance some scenarios, creating a table with **too many** partitions can hurt performance under some circumstances.  These concerns are especially true for clustered columnstore tables.  For partitioning to be helpful, it is important to understand when to use partitioning and the number of partitions to create.  There is no hard fast rule as to how many partitions are too many, it depends on your data and how many partitions you loading simultaneously.  A successful partitioning scheme usually has tens to hundreds of partitions, not thousands.
 
-When creating partitions on **clustered columnstore** tables, it is important to consider how many rows belong to each partition.  For optimal compression and performance of clustered columnstore tables, a minimum of 1 million rows per distribution and partition is needed.  Before partitions are created, SQL Data Warehouse already divides each table into 60 distributed databases.  Any partitioning added to a table is in addition to the distributions created behind the scenes.  Using this example, if the sales fact table contained 36 monthly partitions, and given that SQL Data Warehouse has 60 distributions, then the sales fact table should contain 60 million rows per month, or 2.1 billion rows when all months are populated.  If a table contains significantly fewer than the recommended minimum number of rows per partition, consider using fewer partitions in order to increase the number of rows per partition.  Also see the [Indexing][Index] article, which includes queries that can be run on SQL Data Warehouse to assess the quality of cluster columnstore indexes.
+When creating partitions on **clustered columnstore** tables, it is important to consider how many rows belong to each partition.  For optimal compression and performance of clustered columnstore tables, a minimum of 1 million rows per distribution and partition is needed.  Before partitions are created, SQL Data Warehouse already divides each table into 60 distributed databases.  Any partitioning added to a table is in addition to the distributions created behind the scenes.  Using this example, if the sales fact table contained 36 monthly partitions, and given that SQL Data Warehouse has 60 distributions, then the sales fact table should contain 60 million rows per month, or 2.1 billion rows when all months are populated.  If a table contains fewer than the recommended minimum number of rows per partition, consider using fewer partitions in order to increase the number of rows per partition.  Also see the [Indexing][Index] article, which includes queries that can be run on SQL Data Warehouse to assess the quality of cluster columnstore indexes.
 
 ## Syntax difference from SQL Server
-SQL Data Warehouse introduces a simplified way to define partitions, which is slightly different from SQL Server.  Partitioning functions and schemes are not used in SQL Data Warehouse as they are in SQL Server.  Instead, all you need to do is identify partitioned column and the boundary points.  While the syntax of partitioning may be slightly different from SQL Server, the basic concepts are the same.  SQL Server and SQL Data Warehouse support one partition column per table, which can be ranged partition.  To learn more about partitioning, see [Partitioned Tables and Indexes][Partitioned Tables and Indexes].
+SQL Data Warehouse introduces a way to define partitions that is simpler than SQL Server.  Partitioning functions and schemes are not used in SQL Data Warehouse as they are in SQL Server.  Instead, all you need to do is identify partitioned column and the boundary points.  While the syntax of partitioning may be slightly different from SQL Server, the basic concepts are the same.  SQL Server and SQL Data Warehouse support one partition column per table, which can be ranged partition.  To learn more about partitioning, see [Partitioned Tables and Indexes][Partitioned Tables and Indexes].
 
 The following example of a SQL Data Warehouse partitioned [CREATE TABLE][CREATE TABLE] statement, partitions the FactInternetSales table on the OrderDateKey column:
 
@@ -122,7 +122,7 @@ GROUP BY    s.[name]
 ## Workload management
 One final piece consideration to factor in to the table partition decision is [workload management][workload management].  Workload management in SQL Data Warehouse is primarily the management of memory and concurrency.  In SQL Data Warehouse, the maximum memory allocated to each distribution during query execution is governed by resource classes.  Ideally your partitions are sized in consideration of other factors like the memory needs of building clustered columnstore indexes.  Clustered columnstore indexes benefit greatly when they are allocated more memory.  Therefore, you want to ensure that a partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role, smallrc, to one of the other roles such as largerc.
 
-Information on the allocation of memory per distribution is available by querying the resource governor dynamic management views. In reality, your memory grant is less than the following figures. However, this provides a level of guidance that you can use when sizing your partitions for data management operations.  Try to avoid sizing your partitions beyond the memory grant provided by the extra large resource class. If your partitions grow beyond this figure you run the risk of memory pressure which in turn leads to less optimal compression.
+Information on the allocation of memory per distribution is available by querying the Resource Governor dynamic management views. In reality, your memory grant is less than the results of the following query. However, this query provides a level of guidance that you can use when sizing your partitions for data management operations.  Try to avoid sizing your partitions beyond the memory grant provided by the extra large resource class. If your partitions grow beyond this figure, you run the risk of memory pressure, which in turn leads to less optimal compression.
 
 ```sql
 SELECT  rp.[name]                                AS [pool_name]
@@ -141,14 +141,14 @@ AND     rp.[name]    = 'SloDWPool'
 ```
 
 ## Partition switching
-SQL Data Warehouse supports partition splitting, merging, and switching. Each of these functions is excuted using the [ALTER TABLE][ALTER TABLE] statement.
+SQL Data Warehouse supports partition splitting, merging, and switching. Each of these functions is executed using the [ALTER TABLE][ALTER TABLE] statement.
 
-To switch partitions between two tables you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table the source table must contain the same partition boundaries as the target table. If this is not the case, then the partition switch will fail as the partition metadata will not be synchronized.
+To switch partitions between two tables, you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table, the source table must contain the same partition boundaries as the target table. If the partition boundaries are not then same, then the partition switch will fail as the partition metadata will not be synchronized.
 
 ### How to split a partition that contains data
-The most efficient method to split a partition that already contains data is to use a `CTAS` statement. If the partitioned table is a clustered columnstore then the table partition must be empty before it can be split.
+The most efficient method to split a partition that already contains data is to use a `CTAS` statement. If the partitioned table is a clustered columnstore, then the table partition must be empty before it can be split.
 
-Below is a sample partitioned columnstore table containing one row in each partition:
+The following example creates a partitioned columnstore table. It inserts one row into each partition:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -182,11 +182,11 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 ```
 
 > [!NOTE]
-> By Creating the statistic object, we ensure that table metadata is more accurate. If we omit creating statistics, then SQL Data Warehouse will use default values. For details on statistics please review [statistics][statistics].
+> By creating the statistic object, the table metadata is more accurate. If you omit statistics, then SQL Data Warehouse will use default values. For details on statistics, please review [statistics][statistics].
 > 
 > 
 
-We can then query for the row count using the `sys.partitions` catalog view:
+The folowing query finds the row count by using the `sys.partitions` catalog view:
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -203,7 +203,7 @@ WHERE t.[name] = 'FactInternetSales'
 ;
 ```
 
-If we try to split this table, we will get an error:
+The following split command receives an error message:
 
 ```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
@@ -212,7 +212,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 Msg 35346, Level 15, State 1, Line 44
 SPLIT clause of ALTER PARTITION statement failed because the partition is not empty.  Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.
 
-However, we can use `CTAS` to create a new table to hold our data.
+However, you can use `CTAS` to create a new table to hold the data.
 
 ```sql
 CREATE TABLE dbo.FactInternetSales_20000101
@@ -230,7 +230,7 @@ WHERE   1=2
 ;
 ```
 
-As the partition boundaries are aligned a switch is permitted. This will leave the source table with an empty partition that we can subsequently split.
+As the partition boundaries are aligned, a switch is permitted. This will leave the source table with an empty partition that you can subsequently split.
 
 ```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
@@ -238,7 +238,7 @@ ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-All that is left to do is to align our data to the new partition boundaries using `CTAS` and switch our data back in to the main table
+All that is left is to align the data to the new partition boundaries using `CTAS`, and then switch the data back into the main table.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
@@ -259,14 +259,14 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
-Once you have completed the movement of the data it is a good idea to refresh the statistics on the target table to ensure they accurately reflect the new distribution of the data in their respective partitions:
+Once you have completed the movement of the data, it is a good idea to refresh the statistics on the target table. Updating statistics ensures the statistics accurately reflect the new distribution of the data in their respective partitions.
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### Table partitioning source control
-To avoid your table definition from **rusting** in your source control system you may want to consider the following approach:
+To avoid your table definition from **rusting** in your source control system, you may want to consider the following approach:
 
 1. Create the table as a partitioned table but with no partition values
 
@@ -360,7 +360,7 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[workload management]: ./sql-data-warehouse-develop-concurrency.md
+[workload management]: ./resource-classes-for-workload-management.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!-- MSDN Articles -->

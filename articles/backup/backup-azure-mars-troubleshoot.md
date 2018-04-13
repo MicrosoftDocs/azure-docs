@@ -22,6 +22,8 @@ ms.author: saurse;markgal;
 ## Recommended steps
 Refer to the recommended actions in the following tables to resolve errors that you might encounter during the configuration or registration of Azure Backup Agent.
 
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## Invalid vault credentials provided. The file is either corrupted or does not have the latest credentials associated with recovery service.
 | Error details | Possible causes | Recommended actions |
 | ---     | ---     | ---    |

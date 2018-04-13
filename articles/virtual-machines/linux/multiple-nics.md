@@ -97,6 +97,8 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
+Add routing tables to the guest OS by completing the steps in [Configure the guest OS for multiple NICs](#configure-guest-os-for- multiple-nics).
+
 ## Add a NIC to a VM
 The previous steps created a VM with multiple NICs. You can also add NICs to an existing VM with the Azure CLI 2.0. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly. If needed, you can [resize a VM](change-vm-size.md).
 
@@ -132,6 +134,8 @@ Start the VM with [az vm start](/cli/azure/vm#az_vm_start):
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
+
+Add routing tables to the guest OS by completing the steps in [Configure the guest OS for multiple NICs](#configure-guest-os-for- multiple-nics).
 
 ## Remove a NIC from a VM
 To remove a NIC from an existing VM, first deallocate the VM with [az vm deallocate](/cli/azure/vm#az_vm_deallocate). The following example deallocates the VM named *myVM*:
@@ -176,6 +180,7 @@ You can also use a `copyIndex()` to then append a number to a resource name, whi
 
 You can read a complete example of [creating multiple NICs using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
+Add routing tables to the guest OS by completing the steps in [Configure the guest OS for multiple NICs](#configure-guest-os-for- multiple-nics).
 
 ## Configure guest OS for multiple NICs
 When you add multiple NICs to a Linux VM, you need to create routing rules. These rules allow the VM to send and receive traffic that belongs to a specific NIC. Otherwise, traffic that belongs to *eth1*, for example, cannot be processed correctly by the defined default route.
@@ -187,7 +192,7 @@ echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-To make the change persistent and applied during network stack activation, edit */etc/sysconfig/network-scipts/ifcfg-eth0* and */etc/sysconfig/network-scipts/ifcfg-eth1*. Alter the line *"NM_CONTROLLED=yes"* to *"NM_CONTROLLED=no"*. Without this step, the additional rules/routing are not automatically applied.
+To make the change persistent and applied during network stack activation, edit */etc/sysconfig/network-scripts/ifcfg-eth0* and */etc/sysconfig/network-scripts/ifcfg-eth1*. Alter the line *"NM_CONTROLLED=yes"* to *"NM_CONTROLLED=no"*. Without this step, the additional rules/routing are not automatically applied.
  
 Next, extend the routing tables. Let's assume we have the following setup in place:
 

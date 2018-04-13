@@ -84,12 +84,12 @@ By default, your VNet uses [Azure-provided name resolution](virtual-networks-nam
 Review the networking limits in the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article to ensure that your design doesn't conflict with any of the limits. Some limits can be increased by opening a support ticket.
 
 ### Role-Based Access Control (RBAC)
-You can use [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) to control the level of access different users may have to different resources in Azure. That way you can segregate the work done by your team based on their needs.
+You can use [Azure RBAC](../role-based-access-control/built-in-roles.md) to control the level of access different users may have to different resources in Azure. That way you can segregate the work done by your team based on their needs.
 
 As far as virtual networks are concerned, users in the **Network Contributor** role have full control over Azure Resource Manager virtual network resources. Similarly, users in the **Classic Network Contributor** role have full control over classic virtual network resources.
 
 > [!NOTE]
-> You can also [create your own roles](../active-directory/role-based-access-control-configure.md) to separate your administrative needs.
+> You can also [create your own roles](../role-based-access-control/role-assignments-portal.md) to separate your administrative needs.
 >
 >
 

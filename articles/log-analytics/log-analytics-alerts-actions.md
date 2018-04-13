@@ -442,6 +442,7 @@ Following is a sample payload for a runbook action.
                 "00000000-0000-0000-0000-000000000000",
                 "Usage"
             ]
+            ]
         }
         ]
     },

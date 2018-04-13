@@ -64,6 +64,13 @@ Permanently deleting, purging, a key vault is possible via a POST operation on t
 
 An exception to this is the case when the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and does so as a scheduled process. 
 
+### Billing implications
+
+In general, when an object (a key vault or a key or a secret) is in deleted state, there are only two operations possible: 'purge' and 'recover'. All the other operations will fail. Therefore, even though the object exists, no operations can be performed and hence no usage will occur, so no bill. However there are following exceptions:
+
+- 'purge' and 'recover' actions will count towards normal key vault operations and will be billed.
+- If the object is an HSM-key, the 'HSM Protected key' charge per key version per month charge will apply if a key version has been used in last 30 days. After that, since the object is in deleted state no operations can be performed against it, so no charge will apply.
+
 ## Next steps
 
 The following two guides offer the primary usage scenarios for using soft-delete.

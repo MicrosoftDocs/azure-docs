@@ -4,7 +4,7 @@ description: Provides answers to some of the common questions about Linux virtua
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-management
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 03/22/2018
 ms.author: cynthn
 
 ---
@@ -56,7 +56,8 @@ Yes. The computer name can be a maximum of 64 characters in length. See [Naming 
 Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information about resource groups.
 
 ## What are the username requirements when creating a VM?
-Usernames must be 1 - 64 characters in length.
+
+Usernames should be 1 - 32 characters in length.
 
 The following usernames are not allowed:
 

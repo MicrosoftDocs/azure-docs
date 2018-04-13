@@ -4,7 +4,7 @@ description: Download a Windows VHD using the Azure portal.
 services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

@@ -8,7 +8,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 03/19/2017
 ms.author: cahann
 ---
 
@@ -58,18 +58,19 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
 In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](Add-Features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature. This phrase list should be marked non-interchangeable, to indicate that the set of rare words form a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.
 
 ## Tokenization
-To perform machine learning, LUIS breaks an utterance into tokens. A token is the smallest unit that can be labeled in an entity.
+To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossary.md#token) based on culture. 
 
-Tokenization is based on the application's culture.
-
-|Language|  every space or special character | character level|compound words
-|--|:--:|:--:|:--:|
-|Chinese||✔||
-|Dutch|||✔|
-|English|✔ |||
-|French|✔|||
-|German|||✔|
-|Italian|✔|||
-|Korean||✔|||
-|Portuguese (Brazil)|✔|||
-|Spanish|✔|||
+|Language|  every space or special character | character level|compound words|[tokenized entity returned](luis-concept-data-extraction.md#tokenized-entity-returned)
+|--|:--:|:--:|:--:|:--:|
+|Chinese||✔||✔|
+|Dutch|||✔|✔|
+|English (en-us)|✔ ||||
+|French (fr-FR)|✔||||
+|French (fr-CA)|✔||||
+|German|||✔|✔|
+|Italian|✔||||
+|Japanese||||✔|
+|Korean||✔||✔|
+|Portuguese (Brazil)|✔||||
+|Spanish (es-ES)|✔||||
+|Spanish (es-MX)|✔||||
