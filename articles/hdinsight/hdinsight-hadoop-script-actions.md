@@ -10,7 +10,6 @@ editor: cgronlun
 
 ms.assetid: 836d68a8-8b21-4d69-8b61-281a7fe67f21
 ms.service: hdinsight
-
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
