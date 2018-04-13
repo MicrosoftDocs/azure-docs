@@ -58,9 +58,9 @@ Run the following commands to clone the sample repository. This sample repositor
 
 3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
 
-```bash
-git clone https://github.com/prashanthmadi/mean
-```
+    ```bash
+    git clone https://github.com/prashanthmadi/mean
+    ```
 
 ## Run the application
 
