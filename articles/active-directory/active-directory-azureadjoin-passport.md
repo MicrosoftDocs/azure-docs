@@ -3,7 +3,7 @@ title: Authenticating identities without passwords through Windows Hello for Bus
 description: Provides an overview of Windows Hello for Business and additional information on deploying Windows Hello for Business.
 services: active-directory
 documentationcenter: ''
-author: femila
+author: MicrosoftGuyJFlo
 manager: mtillman
 editor: ''
 tags: azure-classic-portal
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: markvi
+ms.author: joflore
 
 ---
 # Authenticating identities without passwords through Windows Hello for Business

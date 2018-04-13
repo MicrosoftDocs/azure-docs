@@ -4,7 +4,7 @@ description: Deployment instructions to enable Microsoft Passport in your organi
 services: active-directory
 documentationcenter: ''
 keywords: configure Microsoft Passport, Microsoft Windows Hello for Business deployment
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: mtillman
 tags: azure-classic-portal
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: joflore
 
 ---
 # Enable Microsoft Windows Hello for Business in your organization
