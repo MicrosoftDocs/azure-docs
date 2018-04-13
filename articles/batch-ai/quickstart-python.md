@@ -41,7 +41,7 @@ az provider register -n Microsoft.BatchAI
 ```
 
 ## Configure credentials
-Add the following code into your script file and replace `FILL-IN-HERE` with approapriate values:
+Add the following code into your script file and replace `FILL-IN-HERE` with appropriate values:
 
 ```Python
 # credentials used for authentication
