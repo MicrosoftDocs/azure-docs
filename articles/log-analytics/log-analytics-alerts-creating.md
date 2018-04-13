@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2018
+ms.date: 04/13/2018
 ms.author: bwren
 
 ---
 # Working with alert rules in Log Analytics
 
 > [!NOTE]
-> This article describes classic Log Analytics alerts that are managed in the OMS portal.  You can now create alert rules using the new [alert experience in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+> This article describes classic Log Analytics alerts that are managed in the OMS portal.  Alerts in Log Analytics are [being extended into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Once this is done, then you will create and edit alert rules in the Azure portal and note use the procedures in this article.
+
 
 Alerts are created by alert rules that automatically run log searches at regular intervals.  They create an alert record if the results match particular criteria.  The rule can then automatically run one or more actions to proactively notify you of the alert or invoke another process.   
 

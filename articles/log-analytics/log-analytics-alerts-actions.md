@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 04/13/2018
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -21,6 +21,11 @@ ms.custom: H1Hack27Feb2017
 ---
 
 # Add actions to alert rules in Log Analytics
+
+> [!NOTE]
+> Alerts in Log Analytics are [being extended into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Alerts in Azure use [Action Groups](../monitoring-and-diagnostics/monitoring-action-groups.md) to define their actions instead of the information in this article.
+
+
 When an [alert is created in Log Analytics](log-analytics-alerts.md), you have the option of [configuring the alert rule](log-analytics-alerts.md) to perform one or more actions.  This article describes the different actions that are available and details on configuring each kind.
 
 | Action | Description |
@@ -55,8 +60,6 @@ Webhook actions require the properties in the following table.
 
 Webhooks include a URL and a payload formatted in JSON that is the data sent to the external service.  By default, the payload will include the values in the following table.  You can choose to replace this payload with a custom one of your own.  In that case you can use the variables in the table for each of the parameters to include their value in your custom payload.
 
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the webook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  You can see an example in [Samples](#sample-payload) below.
 
 | Parameter | Variable | Description |
 |:--- |:--- |:--- |
@@ -176,6 +179,7 @@ For example, the following runbooks would extract the records returned by the lo
 
 
 ## Sample payload
+This section shows sample payload for webhook and runbook actions.
 
 ### Webhook actions
 This example uses **SearchResult** which is the property that contains results for webhook actions with standard payload.  If the webhook used a custom payload that includes search results, this property would be **SearchResults**.
