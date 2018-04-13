@@ -64,7 +64,7 @@ In this section, you create a Hadoop cluster in HDInsight using an Azure Resourc
 
 3. Select **I agree to the terms and conditions stated above** and **Pin to dashboard**, and then select **Purchase**. You shall see a new tile titled **Submitting deployment** on the portal dashboard. It takes about 20 minutes to create a cluster.
 
-    ![HDInsight Linux get started resource group](./media/apache-hadoop-linux-tutorial-get-started/deployment-progress-tile.png "Azure HDInsight cluster resource group")
+    ![Template deployment progress](./media/apache-hadoop-linux-tutorial-get-started/deployment-progress-tile.png "Azure Template deployment progress")
 
 4. Once the cluster is created, the caption of the tile is changed to the resource group name you specified. The tile also lists the HDInsight cluster that is created within the resource group. 
    
