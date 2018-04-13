@@ -44,8 +44,7 @@ Before starting, make sure you have the following:
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-  You can also use your own Azure subscription by signing up for a [free Azure account](https://azure.microsoft.com/free/). From then on, you can [Create a 
-  account](create-sql-api-dotnet.md#create-a-database-account).
+  You can also use your own Azure subscription by signing up for a [free Azure account](https://azure.microsoft.com/free/). From then on, you can [Create an Azure Cosmos DB account](create-sql-api-dotnet.md#create-a-database-account).
 
 * If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
