@@ -22,10 +22,6 @@ ms.custom: mvc
 
 # What is Azure Media Services v3?
 
-> [!div class="op_single_selector" title1="Select the version of Media Services you want to use:"]
-> * [Version 2 - GA](../previous/media-services-overview.md)
-> * [Version 3 - Preview](media-services-overview.md)
-
 > [!NOTE]
 > The latest version of Azure Media Services is in Preview and may be referred to as v3.
 
