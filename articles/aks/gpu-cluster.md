@@ -131,23 +131,24 @@ Events:         <none>
 
 In order to demonstrate the GPUs are indeed working, schedule a GPU enabled workload with the appropriate resource request. This example will run a [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 
-The following job specification includes a resource limit of `alpha.kubernetes.io/nvidia-gpu: 1`. The appropriate CUDA libraries and debug tools will be available on the node at `/usr/local/nvidia` and must be mounted into the pod using the appropriate volume specification as seen below.
+The following job manifest includes a resource limit of `alpha.kubernetes.io/nvidia-gpu: 1`. The appropriate CUDA libraries and debug tools will be available on the node at `/usr/local/nvidia` and must be mounted into the pod using the appropriate volume specification as seen below.
 
+Copy the manifest and save as **samples-tf-mnist-demo.yaml**.
 ```
 apiVersion: batch/v1
 kind: Job
 metadata:
   labels:
-    app: tf-mnist
-  name: tf-mnist
+    app: samples-tf-mnist-demo
+  name: samples-tf-mnist-demo
 spec:
   template:
     metadata:
       labels:
-        app: tf-mnist
+        app: samples-tf-mnist-demo
     spec:
       containers:
-      - name: tf-mnist
+      - name: samples-tf-mnist-demo
         image: microsoft/samples-tf-mnist-demo:gpu
         args: ["--max_steps", "500"]
         imagePullPolicy: IfNotPresent
@@ -164,30 +165,37 @@ spec:
             path: /usr/local/nvidia         
 ```
 
-Confirm that the job completed successfully.
+Use the [kubectl create][kubectl-create] command to run the job. This command parses the manifest file and creates the defined Kubernetes objects.
 ```
-$ kubectl get jobs
-NAME        DESIRED   SUCCESSFUL   AGE
-mnist-pod   1         1            6h
+$ kubectl create -f samples-tf-mnist-demo.yaml
+job "samples-tf-mnist-demo" created
+```
+
+Monitor the progress of the job until successful completion using the [kubectl get jobs][kubectl-get] command with the `--watch` argument.
+```
+$ kubectl get jobs samples-tf-mnist-demo --watch
+NAME                    DESIRED   SUCCESSFUL   AGE
+samples-tf-mnist-demo   1         0            8s
+samples-tf-mnist-demo   1         1            35s
 ```
 
 Determine the pod name to view the logs by showing completed pods.
 ```
-$ kubectl get pods --show-all
-NAME              READY     STATUS      RESTARTS   AGE
-mnist-pod-7dthc   0/1       Completed   0          6h
+$ kubectl get pods --selector app=samples-tf-mnist-demo --show-all
+NAME                          READY     STATUS      RESTARTS   AGE
+samples-tf-mnist-demo-smnr6   0/1       Completed   0          4m
 ```
 
-Refer to the pod logs to confirm that the appropriate GPU device has been discovered in this case, `Tesla K80`.
+Using the pod name from the output of the command above, refer to the pod logs to confirm that the appropriate GPU device has been discovered in this case, `Tesla K80`.
 ```
-$ kubectl logs mnist-pod-7dthc
-2018-04-05 22:31:11.676047: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
-2018-04-05 22:31:19.256648: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
+$ kubectl logs samples-tf-mnist-demo-smnr6
+2018-04-13 04:11:08.710863: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2018-04-13 04:11:15.824349: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
 name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
-pciBusID: 1f3c:00:00.0
+pciBusID: 04e1:00:00.0
 totalMemory: 11.17GiB freeMemory: 11.10GiB
-2018-04-05 22:31:19.256690: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: 1f3c:00:00.0, compute capability: 3.7)
-2018-04-05 22:31:24.131547: I tensorflow/stream_executor/dso_loader.cc:139] successfully opened CUDA library libcupti.so.8.0 locally
+2018-04-13 04:11:15.824394: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: 04e1:00:00.0, compute capability: 3.7)
+2018-04-13 04:11:20.891910: I tensorflow/stream_executor/dso_loader.cc:139] successfully opened CUDA library libcupti.so.8.0 locally
 Successfully downloaded train-images-idx3-ubyte.gz 9912422 bytes.
 Extracting /tmp/tensorflow/input_data/train-images-idx3-ubyte.gz
 Successfully downloaded train-labels-idx1-ubyte.gz 28881 bytes.
@@ -196,61 +204,68 @@ Successfully downloaded t10k-images-idx3-ubyte.gz 1648877 bytes.
 Extracting /tmp/tensorflow/input_data/t10k-images-idx3-ubyte.gz
 Successfully downloaded t10k-labels-idx1-ubyte.gz 4542 bytes.
 Extracting /tmp/tensorflow/input_data/t10k-labels-idx1-ubyte.gz
-Accuracy at step 0: 0.093
-Accuracy at step 10: 0.6566
-Accuracy at step 20: 0.7899
-Accuracy at step 30: 0.8392
-Accuracy at step 40: 0.873
-Accuracy at step 50: 0.884
-Accuracy at step 60: 0.8913
-Accuracy at step 70: 0.9021
-Accuracy at step 80: 0.9064
-Accuracy at step 90: 0.91
+Accuracy at step 0: 0.0487
+Accuracy at step 10: 0.6571
+Accuracy at step 20: 0.8111
+Accuracy at step 30: 0.8562
+Accuracy at step 40: 0.8786
+Accuracy at step 50: 0.8911
+Accuracy at step 60: 0.8986
+Accuracy at step 70: 0.9017
+Accuracy at step 80: 0.9049
+Accuracy at step 90: 0.9114
 Adding run metadata for 99
-Accuracy at step 100: 0.9066
-Accuracy at step 110: 0.9093
-Accuracy at step 120: 0.9133
-Accuracy at step 130: 0.9213
-Accuracy at step 140: 0.9212
-Accuracy at step 150: 0.9238
-Accuracy at step 160: 0.9276
-Accuracy at step 170: 0.9273
-Accuracy at step 180: 0.9258
-Accuracy at step 190: 0.9325
+Accuracy at step 100: 0.9109
+Accuracy at step 110: 0.9143
+Accuracy at step 120: 0.9188
+Accuracy at step 130: 0.9194
+Accuracy at step 140: 0.9237
+Accuracy at step 150: 0.9231
+Accuracy at step 160: 0.9158
+Accuracy at step 170: 0.9259
+Accuracy at step 180: 0.9303
+Accuracy at step 190: 0.9315
 Adding run metadata for 199
-Accuracy at step 200: 0.93
-Accuracy at step 210: 0.9319
-Accuracy at step 220: 0.9328
-Accuracy at step 230: 0.9355
-Accuracy at step 240: 0.9337
-Accuracy at step 250: 0.9351
-Accuracy at step 260: 0.9359
-Accuracy at step 270: 0.9368
-Accuracy at step 280: 0.9416
-Accuracy at step 290: 0.9409
+Accuracy at step 200: 0.9334
+Accuracy at step 210: 0.9342
+Accuracy at step 220: 0.9359
+Accuracy at step 230: 0.9353
+Accuracy at step 240: 0.933
+Accuracy at step 250: 0.9353
+Accuracy at step 260: 0.9408
+Accuracy at step 270: 0.9396
+Accuracy at step 280: 0.9406
+Accuracy at step 290: 0.9444
 Adding run metadata for 299
-Accuracy at step 300: 0.9406
-Accuracy at step 310: 0.943
-Accuracy at step 320: 0.942
-Accuracy at step 330: 0.9448
-Accuracy at step 340: 0.9479
-Accuracy at step 350: 0.9488
-Accuracy at step 360: 0.9458
-Accuracy at step 370: 0.9444
-Accuracy at step 380: 0.9491
-Accuracy at step 390: 0.9461
+Accuracy at step 300: 0.9453
+Accuracy at step 310: 0.946
+Accuracy at step 320: 0.9464
+Accuracy at step 330: 0.9472
+Accuracy at step 340: 0.9516
+Accuracy at step 350: 0.9473
+Accuracy at step 360: 0.9502
+Accuracy at step 370: 0.9483
+Accuracy at step 380: 0.9481
+Accuracy at step 390: 0.9467
 Adding run metadata for 399
-Accuracy at step 400: 0.9481
-Accuracy at step 410: 0.9509
-Accuracy at step 420: 0.9514
-Accuracy at step 430: 0.9508
-Accuracy at step 440: 0.9515
-Accuracy at step 450: 0.9511
-Accuracy at step 460: 0.9501
-Accuracy at step 470: 0.9515
-Accuracy at step 480: 0.9529
-Accuracy at step 490: 0.9547
+Accuracy at step 400: 0.9477
+Accuracy at step 410: 0.948
+Accuracy at step 420: 0.9496
+Accuracy at step 430: 0.9501
+Accuracy at step 440: 0.9534
+Accuracy at step 450: 0.9551
+Accuracy at step 460: 0.9518
+Accuracy at step 470: 0.9562
+Accuracy at step 480: 0.9583
+Accuracy at step 490: 0.9575
 Adding run metadata for 499
+```
+
+## Cleanup
+Remove the associated Kubernetes objects created in this step.
+```
+$ kubectl delete jobs samples-tf-mnist-demo
+job "samples-tf-mnist-demo" deleted
 ```
 
 ## Next steps
@@ -261,4 +276,6 @@ Interested in running Machine Learning workloads on Kubernetes? Refer to the Kub
 > [Kubeflow User Guide][kubeflow-docs]
 
 <!-- LINKS - external -->
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubeflow-docs]: https://github.com/kubeflow/kubeflow/blob/master/user_guide.md
