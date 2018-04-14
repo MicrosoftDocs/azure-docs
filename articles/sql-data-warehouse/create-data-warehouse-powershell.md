@@ -95,21 +95,9 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > SQL Database and SQL Data Warehouse communicate over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL server unless your IT department opens port 1433.
 >
 
-## Create a data warehouse in the server with sample data
 
-Create a data warehouse with a [DW400 performance level](sql-database-service-tiers.md) in the server using the [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) command. The following example creates a database called `mySampleDataWarehouse` and loads the AdventureWorksDW sample data into this database. Replace these predefined values as desired (other quickstart tutorials in this collection build upon the values in this quickstart).
-
-```powershell
-New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
-    -ServerName $servername `
-    -DatabaseName $databasename `
-    -SampleName "AdventureWorksDW" `
-    -RequestedServiceObjectiveName "DW400"
-```
-
-
-## Create a data warehouse in the server with sample data
-
+## Create a data warehouse with sample data
+i
 This example creates a data warehouse using the previously defined variables.  It specifies the service objective as DW400, which is a lower-cost starting point for your data warehouse. It also loads the AdventureWorksDW sample data.  If you want to create a data warehouse without loading the sample data, you can omit that option.
 
 ```Powershell
