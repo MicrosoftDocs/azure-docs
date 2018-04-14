@@ -28,6 +28,8 @@ In this article you will:
 > * Learn how to create subscriptions programmatically using Azure Resource Manager (ARM)
 > * Understand how to use RBAC to share the ability to create subscriptions billed to your EA account
 
+Also, see the [.NET sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
+
 ## Ask your EA Enrollment Admin to add you as Account Owner
 
 To begin, ask your Enrollment Administrator to [add you as an Account Owner in using the EA portal](https://ea.azure.com/helpdocs/addNewAccount) (log-in required). Follow the instructions in the invitation email you receive to manually create an initial subscription.
@@ -268,7 +270,7 @@ Once a user becomes an RBAC Owner for your enrollment account, they can programm
 
 To track the subscriptions created via this API, use the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs). It's currently not possible to use PowerShell, CLI, or Azure portal to track subscription creation.
 
-1. As a tenant admin of the Azure AD tenant, [elevate access](role-based-access-control/elevate-access-global-admin.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`.
+1. As a tenant admin of the Azure AD tenant, [elevate access](../active-directory/role-based-access-control-tenant-admin-access.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`.
 1. As the auditing user, call the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs) to see subscription creation activities. Example:
 
 ```
@@ -288,6 +290,7 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 
 ## Next steps
 
+* For an example on creating subscriptions using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * To learn more about Azure Resource Manager and its APIs, see [Azure Resource Manager overview](resource-group-overview.md).
 * To learn more about managing large numbers of subscriptions using Management Groups, see [Organize your resources with Azure Management Groups](management-groups-overview.md)
 * To see a comprehensive best practice guidance for large organizations on subscription governance, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md)
