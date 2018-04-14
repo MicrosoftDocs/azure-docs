@@ -24,8 +24,6 @@
   items:
   - name: How caching works
     href: cdn-how-caching-works.md
-  - name: HTTP headers
-    href: cdn-http-headers.md    
 - name: How-to guides
   items:
   - name: Integrate
@@ -139,6 +137,11 @@
       href: cdn-rules-engine-reference-match-conditions.md
     - name: Rules engine features
       href: cdn-rules-engine-reference-features.md
+  - name: HTTP headers
+    href: cdn-http-headers.md
+    items:
+      - name: X-EC-Debug Verizon-specific headers
+        href: cdn-http-debug-headers.md    
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cdn
   - name: .NET
