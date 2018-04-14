@@ -1,4 +1,4 @@
-- name: App Service on Linux
+- name: App Service on Linux Documentation
   href: index.yml
 - name: Overview
   items:
@@ -18,11 +18,11 @@
   - name: Create Node.js app
     href: quickstart-nodejs.md
   - name: Create Java app
-    href: ../../azure-toolkit-for-intellij-hello-world-web-app-linux.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    href: quickstart-java.md
   - name: Create Ruby app
     href: quickstart-ruby.md
-  - name: Deploy custom Docker image
-    href: quickstart-custom-docker-image.md
+  - name: Create Docker/Go app
+    href: quickstart-docker-go.md
 - name: Tutorials
   items:
   - name: 1 - App with DB
@@ -78,7 +78,7 @@
       - name: Deploy via cloud sync
         href: ../app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy continuously
-        href: ../app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        href: ../containers/app-service-linux-ci-cd.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy from local Git
         href: ../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy with template
@@ -188,7 +188,7 @@
   - name: Cookbooks
     items:
     - name: Reference Architectures
-      href: ../../guidance/guidance-ra-app-service.md
+      href: /azure/architecture/reference-architectures/app-service-web-app/
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting

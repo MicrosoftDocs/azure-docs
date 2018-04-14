@@ -144,7 +144,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | FIM and IDS tools are implemented within the Microsoft Azure environment. Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. <br /><br />Logging of service, user, and security events (web server logs, FTP server logs, and so on) is enabled and retained centrally. Azure restricts access to audit logs to authorized personnel based on job responsibilities. Event logs are archived on the Azure secure archival infrastructure and are retained for 180 days. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to Azure. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -157,7 +157,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.5](#pci-dss-requirement-10-5). |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to Azure. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -170,7 +170,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.5](#pci-dss-requirement-10-5). |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to Azure. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -183,7 +183,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.5](#pci-dss-requirement-10-5). |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to Azure. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -196,7 +196,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.5](#pci-dss-requirement-10-5). |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to Azure. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -209,7 +209,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.5](#pci-dss-requirement-10-5). |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to Azure. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 

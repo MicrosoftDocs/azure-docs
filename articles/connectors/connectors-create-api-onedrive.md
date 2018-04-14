@@ -3,7 +3,7 @@ title: Add the OneDrive connector in your Logic Apps | Microsoft Docs
 description: Overview of the OneDrive connector with REST API parameters
 services: logic-apps
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the OneDrive connector
@@ -27,7 +27,7 @@ With OneDrive, you:
 * Use triggers to start your workflow when a file is created or updated within your OneDrive.
 * Use actions to create a file, delete a file, and more. For example, when a new Office 365 email is received with an attachment (a trigger), create a new file in OneDrive (an action).
 
-This topic shows you how to use the OneDrive connector in a logic app, and also lists the triggers and actions.
+This article shows you how to use the OneDrive connector in a logic app, and also lists the triggers and actions.
 
 To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-overview.md) and [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -49,7 +49,7 @@ A trigger is an event that can be used to start the workflow defined in a logic 
    
     ![](./media/connectors-create-api-onedrive/sample-folder.png)
    
-    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this topic lists the steps. 
+    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this article lists the steps. 
    
    > [!NOTE]
    > In this example, the logic app runs when a file in the folder you choose is updated. To see the results of this trigger, add another action that sends you an email. For example, add the Office 365 Outlook *Send an email* action that emails you when a file is updated. 
@@ -73,7 +73,7 @@ An action is an operation carried out by the workflow defined in a logic app. [L
    
     ![](./media/connectors-create-api-onedrive/sample-action.png)
    
-    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this topic describes these properties. 
+    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this article describes these properties. 
    
    > [!NOTE]
    > In this example, we create a new file in a OneDrive folder. You can use output from another trigger to create the OneDrive file. For example, add the Office 365 Outlook *When a new email arrives* trigger. Then add the OneDrive *Create file* action that uses the Attachments and Content-Type fields within a ForEach to create the new file in OneDrive. 

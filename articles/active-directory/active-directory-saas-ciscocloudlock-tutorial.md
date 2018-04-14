@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/09/2018
 ms.author: jeedes
 
 ---
@@ -104,9 +104,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Cisco Cloudlock Domain and URLs single sign-on information](./media/active-directory-saas-ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL: `https://platform.cloudlock.com`
+    a. In the **Sign-on URL** textbox, type a URL:
+	| |
+	|--|
+	| `https://platform.cloudlock.com` |
+	| `https://app.cloudlock.com` |
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://platform.cloudlock.com/gate/saml/sso/<subdomain>`
+	b. In the **Identifier** textbox, type a URL using the following pattern: 
+	| |
+	|--|
+	| `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
+	| `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
 
 	> [!NOTE] 
 	> The Identifier value is not real. Update the value with the actual Identifier. Contact [Cisco Cloudlock Client support team](mailto:support@cloudlock.com) to get the value. 

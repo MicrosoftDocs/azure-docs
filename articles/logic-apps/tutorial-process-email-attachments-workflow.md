@@ -255,7 +255,7 @@ Logic Apps also has an **HTML to Text** connector.
 
 ## Create your logic app
 
-1. On the main Azure menu, choose **New** > **Enterprise Integration** > **Logic App**.
+1. On the main Azure menu, choose **Create a resource** > **Enterprise Integration** > **Logic App**.
 
    ![Create logic app](./media/tutorial-process-email-attachments-workflow/create-logic-app.png)
 

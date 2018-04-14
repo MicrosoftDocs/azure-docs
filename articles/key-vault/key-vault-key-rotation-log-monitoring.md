@@ -13,13 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: jodehavi;stgriffi
+ms.date: 03/01/2018
+ms.author: stgriffi
 
 ---
 # Set up Azure Key Vault with end-to-end key rotation and auditing
 ## Introduction
 After creating your key vault, you will be able to start using that vault to store your keys and secrets. Your applications no longer need to persist your keys or secrets, but rather will request them from the key vault as needed. This allows you to update keys and secrets without affecting the behavior of your application, which opens up a breadth of possibilities around your key and secret management.
+
+>[!IMPORTANT]
+> The examples in this article are provided for illustration purposes only. They are not intended for production use. 
 
 This article walks through an example of using Azure Key Vault to store a secret, in this case an Azure Storage Account key that is accessed by an application. It also demonstrates implementation of a scheduled rotation of that storage account key. Finally, it walks through a demonstration of how to monitor the key vault audit logs and raise alerts when unexpected requests are made.
 
@@ -253,12 +256,12 @@ The next step is to [create an Azure Service Bus queue](../service-bus-messaging
 
 1. Create a Service Bus namespace (if you already have one that you want to use for this, skip to Step 2).
 2. Browse to the service bus in the Azure portal and select the namespace you want to create the queue in.
-3. Select **New** and choose **Service Bus > Queue** and enter the required details.
+3. Select **Create a resource**, **Enterprise Integration**, **Service Bus**, and then enter the required details.
 4. Select the Service Bus connection information by choosing the namespace and clicking **Connection Information**. You will need this information for the next section.
 
 Next, [create an Azure function](../azure-functions/functions-create-first-azure-function.md) to poll key vault logs within the storage account and pick up new events. This will be a function that is triggered on a schedule.
 
-To create an Azure function, choose **New > Function App** in the Azure portal. During creation, you can use an existing hosting plan or create a new one. You could also opt for dynamic hosting. More details on Function hosting options can be found at [How to scale Azure Functions](../azure-functions/functions-scale.md).
+To create an Azure function, choose **Create a resource**, search the marketplace for _Function App_, and click **Create**. During creation, you can use an existing hosting plan or create a new one. You could also opt for dynamic hosting. More details on Function hosting options can be found at [How to scale Azure Functions](../azure-functions/functions-scale.md).
 
 When the Azure function is created, navigate to it and choose a timer function and C\#. Then click **Create this function**.
 

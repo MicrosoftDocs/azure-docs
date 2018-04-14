@@ -4,7 +4,7 @@ description: Learn how to create a copy of your Azure Linux VM using Azure CLI 2
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager
 
 ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
@@ -33,7 +33,7 @@ You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fazure%2fvi
 
 -   Install [Azure CLI 2.0](/cli/azure/install-az-cli2)
 
--   Sign in to an Azure account with [az login](/cli/azure/#az_login).
+-   Sign in to an Azure account with [az login](/cli/azure/reference-index#az_login).
 
 -   Have an Azure VM to use as the source for your copy.
 

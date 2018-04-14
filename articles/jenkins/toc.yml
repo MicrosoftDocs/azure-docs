@@ -20,7 +20,7 @@
   - name: CI/CD to Linux VMs
     href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
     maintainContext: true
-  - name: Create Azure resouces in a pipeline job
+  - name: Create Azure resources in a pipeline job
     href: /azure/jenkins/execute-cli-jenkins-pipeline
     maintainContext: true
   - name: Scale with Azure VM agents
@@ -46,7 +46,7 @@
 - name: Samples
   items:
     - name: Sample jobs and scripts
-      href: https://github.com/Azure/azure-devops-utils/tree/master/jenkins
+      href: https://github.com/azure/jenkins
 - name: Resources
   items:
   - name: Plugins
@@ -75,3 +75,6 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Jenkins home
     href: https://jenkins.io/
+  - name: Jenkins architecture
+    href: /azure/architecture/reference-architectures/jenkins/
+    maintainContext: true

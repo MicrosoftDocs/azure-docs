@@ -13,7 +13,7 @@ ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
 ---
-# Build a Python and PostgreSQL web app in Azure
+# Tutorial: Build a Python and PostgreSQL web app in Azure
 
 > [!NOTE]
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a Docker Python and PostgreSQL web app in Azure](./containers/tutorial-docker-python-postgresql-app.md).
@@ -242,7 +242,7 @@ Your Git repository already contains the following files it needs to run the Fla
 
 ### Create an App Service plan
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 <a name="create"></a>
 ### Create a web app

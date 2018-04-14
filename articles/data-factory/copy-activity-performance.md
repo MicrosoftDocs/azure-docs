@@ -4,15 +4,15 @@ description: Learn about key factors that affect the performance of data movemen
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/27/2018
 ms.author: jingwang
 
 ---
@@ -88,7 +88,7 @@ A **cloud data movement unit (DMU)** is a measure that represents the power (a c
 | Copy data between file-based stores | Between 4 and 32 depending on the number and size of the files. |
 | All other copy scenarios | 4 |
 
-To override this default, specify a value for the **cloudDataMovementUnits** property as follows. The **allowed values** for the **cloudDataMovementUnits** property are 2, 4, 8, 16, 32. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
+To override this default, specify a value for the **cloudDataMovementUnits** property as follows. The **allowed values** for the **cloudDataMovementUnits** property is **up to 256**. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
 
 You can see the actually used cloud data movement units for each copy run in the copy activity output when monitoring an activity run. Learn details from [Copy activity monitoring](copy-activity-overview.md#monitoring).
 
@@ -130,11 +130,14 @@ For each Copy Activity run, Data Factory determines the number of parallel copie
 
 | Copy scenario | Default parallel copy count determined by service |
 | --- | --- |
-| Copy data between file-based stores |Between 1 and 64. Depends on the size of the files and the number of cloud data movement units (DMUs) used to copy data between two cloud data stores, or the physical configuration of the Self-hosted Integration Runtime machine. |
+| Copy data between file-based stores |Depends on the size of the files and the number of cloud data movement units (DMUs) used to copy data between two cloud data stores, or the physical configuration of the Self-hosted Integration Runtime machine. |
 | Copy data from any source data store to Azure Table storage |4 |
 | All other copy scenarios |1 |
 
-Usually, the default behavior should give you the best throughput. However, to control the load on machines that host your data stores, or to tune copy performance, you may choose to override the default value and specify a value for the **parallelCopies** property. The value must be an integer greater than or equal to 1. At run time, for the best performance, Copy Activity uses a value that is less than or equal to the value that you set.
+[!TIP]
+> When copying data between file-based stores, the default behavior (auto determined) usually give you the best throughput. 
+
+To control the load on machines that host your data stores, or to tune copy performance, you may choose to override the default value and specify a value for the **parallelCopies** property. The value must be an integer greater than or equal to 1. At run time, for the best performance, Copy Activity uses a value that is less than or equal to the value that you set.
 
 ```json
 "activities":[

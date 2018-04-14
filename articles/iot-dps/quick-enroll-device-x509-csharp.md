@@ -3,7 +3,7 @@ title: Enroll X.509 device to Azure Device Provisioning Service using C# | Micro
 description: Azure Quickstart - Enroll X.509 device to Azure IoT Hub Device Provisioning Service using C# service SDK
 services: iot-dps 
 keywords: 
-author: JimacoMS2
+author: bryanla
 ms.author: v-jamebr
 ms.date: 01/21/2018
 ms.topic: hero-article
@@ -16,10 +16,9 @@ ms.custom: mvc
 ---
  
 # Enroll X.509 devices to IoT Hub Device Provisioning Service using C# service SDK
-> [!div class="op_single_selector"]
-> * [Java](quick-enroll-device-x509-java.md)
-> * [C#](quick-enroll-device-x509-csharp.md)
-> * [Node.js](quick-enroll-device-x509-node.md)
+
+[!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
+
 
 These steps show how to programmatically create an enrollment group for an intermediate or root CA X.509 certificate using the [C# Service SDK](https://github.com/Azure/azure-iot-sdk-csharp) and a sample C# .NET Core application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview). Although the steps in this article work on both Windows and Linux machines, this article uses a Windows development machine.
 

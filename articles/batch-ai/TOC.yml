@@ -1,4 +1,4 @@
-- name: Batch AI
+- name: Batch AI Documentation
   href: index.md
 - name: Overview
   items:
@@ -15,12 +15,16 @@
   items:
   - name: Azure CLI
     href: /cli/azure/batchai
-  - name: REST
-    href: /rest/api/batchai
   - name: .NET
-    href: /dotnet/api/microsoft.azure.management.batchai
+    href: /dotnet/api/overview/azure/batchai
+  - name: Java
+    href: /java/api/overview/azure/batchai
+  - name: Node.js
+    href: /javascript/api/overview/azure/batchai
   - name: Python
     href: /python/api/overview/azure/batchai
+  - name: REST
+    href: /rest/api/batchai
 - name: Resources
   items:
   - name: Training recipes

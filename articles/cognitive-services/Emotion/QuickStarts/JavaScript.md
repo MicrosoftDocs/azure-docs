@@ -2,8 +2,8 @@
 title: Emotion API JavaScript quick start | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Emotion API with JavaScript in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: anrothMSFT
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: emotion

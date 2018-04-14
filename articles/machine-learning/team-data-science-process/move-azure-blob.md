@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;sachouks
+ms.author: bradsev
 
 ---
 # Move data to and from Azure Blob Storage

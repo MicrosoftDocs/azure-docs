@@ -24,6 +24,8 @@ When sending information from the device app to the solution back end, IoT Hub e
 * [Device twin's reported properties][lnk-twins] for reporting device state information such as available capabilities, conditions, or the state of long-running workflows. For example, configuration and software updates.
 * [File uploads][lnk-fileupload] for media files and large telemetry batches uploaded by intermittently connected devices or compressed to save bandwidth.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
 Here is a detailed comparison of the various device-to-cloud communication options.
 
 |  | Device-to-cloud messages | Device twin's reported properties | File uploads |

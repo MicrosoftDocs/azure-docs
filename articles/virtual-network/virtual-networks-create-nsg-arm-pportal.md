@@ -89,6 +89,6 @@ To create the **NSG-BackEnd** NSG and associate it to the **BackEnd** subnet, fo
 3. Repeat the steps in [Associate the NSG to the FrontEnd subnet](#Associate-the-NSG-to-the-FrontEnd-subnet) to associate the **NSG-Backend** NSG to the **BackEnd** subnet.
 
 ## Next Steps
-* Learn how to [manage existing NSGs](virtual-network-manage-nsg-arm-portal.md)
+* Learn how to [manage existing NSGs](manage-network-security-group.md)
 * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
 

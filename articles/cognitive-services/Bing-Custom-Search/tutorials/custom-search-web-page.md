@@ -27,7 +27,7 @@ The tasks covered are:
 > - Integrate custom search into a web page
 
 ## Prerequisites
-- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
+- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 - If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## Create a custom search instance
@@ -38,14 +38,18 @@ To create a Bing Custom Search instance:
 3.  Sign in to the portal using a Microsoft account (MSA). If you don’t have an MSA, click **Create a Microsoft account**. If it’s your first time using the portal, it will ask for permissions to access your data. Click **Yes**.
 4.  After signing in, click **New custom search**. In the **Create a new custom search instance** window, enter a name that’s meaningful and describes the type of content the search returns. You can change the name at any time.
  
-    ![Screen shot of the Create a new custom search instance box](./media/custom-search-create-a-new-custom-search-instance.png)
+    ![Screen shot of the Create a new custom search instance box](../media/newCustomSrch.png)
+
+5.  Click OK, specify a URL and whether to include subpages of the base page:
+
+    ![Screen shot of URL definition page](../media/newCustomSrch1-a.png)
 
 ## Add active entries
 To include results from specific sites or URLs add them to the **Active** tab.
 
 1.	In the **Definition Editor**, click the **Active** tab and enter the URL of one or more sites you want to include in your search.
 
-    ![Screen shot of the Definition Editor active tab](./media/custom-search-definition-editor-active-tab.png)
+    ![Screen shot of the Definition Editor active tab](../media/customSrchEditor.png)
 
 2.	To confirm that your instance returns results, enter a query in the preview pane on the right. Bing returns results only for public sites that it has indexed.
 
@@ -54,7 +58,7 @@ To exclude results from specific sites or URLs, add them to the **Blocked** tab.
 
 1. In the **Definition Editor**, click the **Blocked** tab and enter the URL of one or more sites you want to exclude from your search.
 
-    ![Screen shot of the Definition Editor blocked tab](./media/custom-search-definition-editor-blocked-tab.png)
+    ![Screen shot of the Definition Editor blocked tab](../media/blockedCustomSrch.png)
 
 
 2. To confirm that your instance doesn't return results from the blocked sites, enter a query in the preview pane on the right. 
@@ -64,7 +68,7 @@ To pin a specific webpage to the top of the search results, add the webpage and 
 
 1. In the **Definition Editor**, click the **Pinned** tab and enter the webpage and query term of the webpage that should return as the top result.
 
-    ![Screen shot of the Definition Editor pinned tab](./media/custom-search-definition-editor-pinned-tab.png)
+    ![Screen shot of the Definition Editor pinned tab](../media/pinnedCustomSrch.png)
 
 2. To confirm that your instance returns the specified webpage as the top result, enter the query term you pinned in the preview pane on the right.
 

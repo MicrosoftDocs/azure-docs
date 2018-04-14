@@ -3,9 +3,10 @@ title: Azure Stack datacenter integration - Security
 description: Learn how to integrate Azure Stack security with your datacenter security
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:

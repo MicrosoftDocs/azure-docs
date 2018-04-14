@@ -7,14 +7,13 @@ author: barbkess
 manager: jenniehubbard
 editor: ''
 
-ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 03/15/2018
 ms.author: barbkess
 
 ---
@@ -88,7 +87,7 @@ WITH ( CLUSTERED INDEX (id) );
 To add a non-clustered index on a table, simply use the following syntax:
 
 ```SQL
-CREATE INDEX zipCodeIndex ON t1 (zipCode);
+CREATE INDEX zipCodeIndex ON myTable (zipCode);
 ```
 
 ## Optimizing clustered columnstore indexes
@@ -305,7 +304,7 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[Concurrency]: ./resource-classes-for-workload-management.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 

@@ -1,25 +1,21 @@
 ---
 title: "Quickstart: Scale out compute in Azure SQL Data Warehouse - PowerShell | Microsoft Docs"
-description: Powershell tasks to scale out compute resources by adjusting data warehouse units. 
+description: Scale compute in Azure SQL Data Warehouse in PowerShell. Scale out compute for better performance, or scale back compute to save costs.  
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: jhubbard
-editor: ''
-
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 01/31/2018
-ms.author: elbutter;barbkess
-
+ms.topic: quickstart
+ms.component: implement
+ms.date: 04/11/2018
+ms.author: elbutter
+ms.reviewer: jrj
 ---
-# Quickstart: Scale compute in Azure SQL Data Warehouse in PowerShell
 
-Scale compute in Azure SQL Data Warehouse in PowerShell. Scale out compute for better performance, or scale back compute to save costs. 
+
+# Quickstart: Scale compute in Azure SQL Data Warehouse in PowerShell
+ 
+Scale compute in Azure SQL Data Warehouse in PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -61,7 +57,7 @@ Follow these steps to find location information for your data warehouse.
 
     ![Server name and resource group](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Write down the data warehouse name which will be used as the database name. Also write down the server name, and the resource group. You will use these in the pause and resume commands.
+4. Write down the data warehouse name, which will be used as the database name. Remember, a data warehouse is one type of database. Also write down the server name, and the resource group. You will use these in the pause and resume commands.
 5. If your server is foo.database.windows.net, use only the first part as the server name in the PowerShell cmdlets. In the preceding image, the full server name is newserver-20171113.database.windows.net. We use **newserver-20171113** as the server name in the PowerShell cmdlet.
 
 ## Scale compute
@@ -74,12 +70,13 @@ To change data warehouse units, use the [Set-AzureRmSqlDatabase](/powershell/mod
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
-## Check database state
+## Check data warehouse state
 
 To see the current state of the data warehouse, use the [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell cmdlet. This gets the state of the **mySampleDataWarehouse** database in ResourceGroup **myResourceGroup** and server **mynewserver-20171113.database.windows.net**.
 
 ```powershell
-Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database
 ```
 
 Which will result in something like this:
@@ -110,7 +107,13 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-You can then check to see the **Status** of the database. In this case, you can see that this database is online.  When you run this command, you should receive a Status value of Online, Pausing, Resuming, Scaling, or Paused.
+You can see the **Status** of the database in the output. In this case, you can see that this database is online.  When you run this command, you should receive a Status value of Online, Pausing, Resuming, Scaling, or Paused. 
+
+To see the status by itself, use the following command:
+
+```powershell
+$database | Select-Object DatabaseName,Status
+```
 
 ## Next steps
 You have now learned how to scale compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.

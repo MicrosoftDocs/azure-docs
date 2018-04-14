@@ -3,8 +3,8 @@ title: Tutorial - Use the Azure Batch client library for .NET | Microsoft Docs
 description: Learn the basic concepts of Azure Batch and build a simple solution using .NET.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 76cb9807-cbc1-405a-8136-d1e53e66e82b
@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 06/28/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---

@@ -3,8 +3,8 @@ title: Quota types in Azure Stack | Microsoft Docs
 description: Review the different quota types available for services and resources in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/23/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer:
 
 ---
 # Quota types in Azure Stack

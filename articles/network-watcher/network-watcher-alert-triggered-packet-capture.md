@@ -62,7 +62,7 @@ This scenario does the following:
 
 The first step is to create an Azure function to process the alert and create a packet capture.
 
-1. In the [Azure portal](https://portal.azure.com), select **New** > **Compute** > **Function App**.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Compute** > **Function App**.
 
     ![Creating a function app][1-1]
 

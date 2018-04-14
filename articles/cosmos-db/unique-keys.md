@@ -4,7 +4,7 @@ description: Learn how to use unique keys in your Azure Cosmos DB database.
 services: cosmos-db
 keywords: unique key constraint, violation of unique key constraint
 author: rafats
-manager: jhubbard
+manager: kfile
 editor: monicar
 documentationcenter: ''
 
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/21/2018
 ms.author: rafats
 
 ---
@@ -56,7 +56,7 @@ Once a container is created with a unique key policy, the policy cannot be chang
 
 A maximum of 16 path values (for example /firstName, /lastName, /address/zipCode, etc.) can be included in each unique key. 
 
-Each unique key policy can have a maximum of 10 unique key constraints or combinations. So the earlier example that uses first name, last name, and email address is just one constraint, and it uses three of the 16 possible paths available. 
+Each unique key policy can have a maximum of 10 unique key constraints or combinations and the combined paths for all unique index properties should not exceed 60 characters. So the earlier example that uses first name, last name, and email address is just one constraint, and it uses three of the 16 possible paths available. 
 
 Request unit charges for creating, updating, and deleting an item are slightly higher when there is a unique key policy on the container. 
 

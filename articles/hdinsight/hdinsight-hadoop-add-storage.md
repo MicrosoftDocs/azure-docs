@@ -10,9 +10,7 @@ tags: azure-portal
 
 ms.service: hdinsight
 ms.devlang: ''
-ms.topic: article
-ms.tgt_pltfrm: 'na'
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
 

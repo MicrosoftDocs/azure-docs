@@ -1,26 +1,19 @@
 ---
-title: Role-based access control in Azure Automation | Microsoft Docs
+title: Role-based access control in Azure Automation
 description: Role-based access control (RBAC) enables access management for Azure resources. This article describes how to set up RBAC in Azure Automation.
-services: automation
-documentationcenter: ''
-author: georgewallace
-manager: jwhit
-editor: tysonn
 keywords: automation rbac, role based access control, azure rbac
-
-ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
+services: automation
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/05/2018
-ms.author: magoedte;sngun
-
+manager: carmonm
 ---
+
 # Role-based access control in Azure Automation
 
-Role-based access control (RBAC) enables access management for Azure resources. Using [RBAC](../active-directory/role-based-access-control-configure.md), you can segregate duties within your team and grant only the amount of access to users, groups, and applications that they need to perform their jobs. Role-based access can be granted to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
+Role-based access control (RBAC) enables access management for Azure resources. Using [RBAC](../role-based-access-control/role-assignments-portal.md), you can segregate duties within your team and grant only the amount of access to users, groups, and applications that they need to perform their jobs. Role-based access can be granted to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
 
 ## Roles in Automation accounts
 In Azure Automation, access is granted by assigning the appropriate RBAC role to users, groups, and applications at the Automation account scope. Following are the built-in roles supported by an Automation account:
@@ -310,7 +303,7 @@ This user also doesn’t have access to view the webhooks associated with a runb
 ![No access to webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 
 ## Configure RBAC for your Automation account using Azure PowerShell
-Role-based access can also be configured to an Automation account using the following [Azure PowerShell cmdlets](../active-directory/role-based-access-control-manage-access-powershell.md):
+Role-based access can also be configured to an Automation account using the following [Azure PowerShell cmdlets](../role-based-access-control/role-assignments-powershell.md):
 
 • [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) lists all RBAC roles that are available in Azure Active Directory. You can use this command along with the **Name** property to list all the actions that can be performed by a specific role.
 
@@ -383,7 +376,7 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 In the preceding examples, replace **sign in Id**, **subscription Id**, **resource group name**, and **Automation account name** with your account details. Choose **yes** when prompted to confirm before continuing to remove user role assignment.   
 
 ## Next steps
-* For information on different ways to configure RBAC for Azure Automation, refer to [manage RBAC with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
+* For information on different ways to configure RBAC for Azure Automation, refer to [manage RBAC with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * For details on different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md)
 * For information about different runbook types, refer to [Azure Automation runbook types](automation-runbook-types.md)
 

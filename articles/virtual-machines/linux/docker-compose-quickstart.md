@@ -29,7 +29,7 @@ When you use the Docker VM extension, your VM is automatically set up as a Docke
 
 
 ### Create Docker host with Azure CLI 2.0
-Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#az_login).
+Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 First, create a resource group for your Docker environment with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 

@@ -3,7 +3,7 @@ title: Azure Data Factory service identity | Microsoft Docs
 description: Learn about data factory service identity in Azure Data Factory. 
 services: data-factory
 author: linda33wj
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.service: data-factory

@@ -4,7 +4,7 @@ title: Create Service Fabric cluster in the Azure portal | Microsoft Docs
 description: This article describes how to set up a secure Service Fabric cluster in Azure using the Azure portal and Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
 editor: vturecek
 
@@ -14,8 +14,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/01/2018
-ms.author: chackdan
+ms.date: 02/09/2018
+ms.author: aljo
 
 ---
 # Create a Service Fabric cluster in Azure using the Azure portal
@@ -80,7 +80,7 @@ Creating a production cluster to meet your application needs involves some plann
 ![search for Service Fabric cluster template on the Azure portal.][SearchforServiceFabricClusterTemplate]
 
 1. Sign in to the [Azure portal][azure-portal].
-2. Click **New** to add a new resource template. Search for the Service Fabric Cluster template in the **Marketplace** under **Everything**.
+2. Click **Create a resource** to add a new resource template. Search for the Service Fabric Cluster template in the **Marketplace** under **Everything**.
 3. Select **Service Fabric Cluster** from the list.
 4. Navigate to the **Service Fabric Cluster** blade, click **Create**,
 5. The **Create Service Fabric cluster** blade has the following four steps:
@@ -129,8 +129,9 @@ Configure your cluster nodes. Node types define the VM sizes, the number of VMs,
 
 To make setting up a secure test cluster easy for you, we have provided the **Basic** option. If you already have a certificate and have uploaded it to your keyvault (and enabled the key vault for deployment), then use the **Custom** option
 
-#####Basic Option
+##### Basic Option
 Follow the screens to add or reuse an existing keyvault and add a certificate. The addition of the certificate is a synchronous process and so you will have to wait for the certificate to be created.
+
 
 Resist the temptation of navigating away from the screen until the preceding process is completed.
 
@@ -140,7 +141,7 @@ Now that the certificate is added to your keyvault, you may see the following sc
 
 ![CreateKeyVault2]
 
-Click on the advanced access policies and enable access to the Virtual Machines for deployment. It is recommended that you enable the template deployment as well.
+Click on the advanced access policies and enable access to the Virtual Machines for deployment. It is recommended that you enable the template deployment as well. Once you have made your selections, do not forget to click the **Save** button and close out of the **Access policies** pane.
 
 ![CreateKeyVault3]
 
@@ -148,7 +149,7 @@ You are now ready to proceed to the rest of the create cluster process.
 
 ![CreateKeyVault4]
 
-#####Custom Option
+##### Custom Option
 Skip this section, if you have already performed the steps in the **Basic** Option.
 
 ![SecurityCustomOption]

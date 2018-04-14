@@ -8,7 +8,7 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/30/2018
 ms.author: v-geberr
 ---
 
@@ -50,13 +50,13 @@ Click the name of the phrase list on the **Phrase lists** page. In the **Edit Ph
 
 ## Delete phrase list 
 
-Click the three dots (...) button at the end of the row, and select **Delete phrase list**.
+Click the three dots (...) button at the end of the row, and select **Delete**.
 
  ![Delete list added](./media/luis-add-features/delete-phrase-list.png)
 
 ## Deactivate phrase list 
 
-Click the three dots (...) button at the end of the row, and select **Deactivate phrase list**.
+Click the three dots (...) button at the end of the row, and select **Deactivate**.
 
  ![Deactivate list added](./media/luis-add-features/deactivate-phrase-list.png)
 

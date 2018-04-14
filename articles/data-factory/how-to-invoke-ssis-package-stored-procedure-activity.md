@@ -4,8 +4,8 @@ description: This article describes how to invoke a SQL Server Integration Servi
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -25,7 +25,7 @@ This article describes how to invoke an SSIS package from an Azure Data Factory 
 ## Prerequisites
 
 ### Azure SQL Database 
-The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Managed Instance (Private Preview).
+The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Managed Instance (Preview).
 
 ## Create an Azure-SSIS integration runtime
 Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](tutorial-create-azure-ssis-runtime-portal.md).
@@ -73,7 +73,7 @@ In this step, you use the Data Factory UI to create a pipeline. You add a stored
 1. In the get started page, click **Create pipeline**: 
 
     ![Get started page](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. In the **Activities** toolbox, expand **SQL Database**, and drag-drop **Stored Procedure** activity to the pipeline designer surface. 
+2. In the **Activities** toolbox, expand **General**, and drag-drop **Stored Procedure** activity to the pipeline designer surface. 
 
     ![Drag-and-drop stored procedure activity](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. In the properties window for the stored procedure activity, switch to the **SQL Account** tab, and click **+ New**. You create a connection to the Azure SQL database that hosts the SSIS Catalog (SSIDB database). 
@@ -92,11 +92,12 @@ In this step, you use the Data Factory UI to create a pipeline. You add a stored
         ![Azure SQL Database linked service](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. In the properties window, switch to the **Stored Procedure** tab from the **SQL Account** tab, and do the following steps: 
 
-    1. For the **Stored procedure name** field, Enter `sp_executesql`. 
-    2. Click **+ New** in the **Stored procedure parameters** section. 
-    3. For **name** of the parameter, enter **stmt**. 
-    4. For **type** of the parameter, enter **String**. 
-    5. For **value** of the parameter, enter the following SQL query:
+    1. Select **Edit**. 
+    2. For the **Stored procedure name** field, Enter `sp_executesql`. 
+    3. Click **+ New** in the **Stored procedure parameters** section. 
+    4. For **name** of the parameter, enter **stmt**. 
+    5. For **type** of the parameter, enter **String**. 
+    6. For **value** of the parameter, enter the following SQL query:
 
         In the SQL query, specify the right values for the **folder_name**, **project_name**, and **package_name** parameters. 
 
@@ -118,7 +119,8 @@ In this section, you trigger a pipeline run and then monitor it.
 1. To trigger a pipeline run, click **Trigger** on the toolbar, and click **Trigger now**. 
 
     ![Trigger now](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
+2. In the **Pipeline Run** window, select **Finish**. 
+3. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
 
     ![Pipeline runs](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 3. Click **View Activity Runs** link in the **Actions** column. You see only one activity run as the pipeline has only one activity (stored procedure activity).
@@ -192,7 +194,7 @@ Create a linked service to link your Azure SQL database that hosts the SSIS cata
 
     ```json
     {
-        "name": "AzureSqlDbLinkedService",
+        "name": "AzureSqlDatabaseLinkedService",
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
@@ -231,7 +233,7 @@ In this step, you create a pipeline with a stored procedure activity. The activi
                     "description":"Runs an SSIS package",
                     "type": "SqlServerStoredProcedure",
                     "linkedServiceName": {
-                        "referenceName": "AzureSqlDbLinkedService",
+                        "referenceName": "AzureSqlDatabaseLinkedService",
                         "type": "LinkedServiceReference"
                     },
                     "typeProperties": {

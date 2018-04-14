@@ -7,11 +7,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Set up auto provisioning
+  - name: Set up auto-provisioning - Azure CLI
+    href: quick-setup-auto-provision-cli.md
+  - name: Set up auto-provisioning - Portal
     href: quick-setup-auto-provision.md
-  - name: Create simulated device
+  - name: Set up auto-provisioning - Template
+    href: quick-setup-auto-provision-rm.md
+  - name: Auto-provision a simulated device
     items:
-    - name: TPM 
+    - name: TPM attestation
       items:
         - name: C
           href: quick-create-simulated-device.md
@@ -19,9 +23,11 @@
           href: quick-create-simulated-device-tpm-java.md
         - name: C#
           href: quick-create-simulated-device-tpm-csharp.md
+        - name: Node.js
+          href: quick-create-simulated-device-tpm-node.md
         - name: Python
           href: quick-create-simulated-device-tpm-python.md
-    - name: X.509 
+    - name: X.509 attestation
       items:
         - name: C
           href: quick-create-simulated-device-x509.md
@@ -29,13 +35,13 @@
           href: quick-create-simulated-device-x509-java.md
         - name: C#
           href: quick-create-simulated-device-x509-csharp.md
-        - name: Python
-          href: quick-create-simulated-device-x509-python.md
         - name: Node.js
           href: quick-create-simulated-device-x509-node.md
-  - name: Enroll device
+        - name: Python
+          href: quick-create-simulated-device-x509-python.md
+  - name: Device enrollment using provisioning service APIs
     items:
-    - name: TPM 
+    - name: TPM attestation
       items:
         - name: Java
           href: quick-enroll-device-tpm-java.md
@@ -45,7 +51,7 @@
           href: quick-enroll-device-tpm-node.md
         - name: Python
           href: quick-enroll-device-tpm-python.md
-    - name: X.509 
+    - name: X.509 attestation
       items:
         - name: Java
           href: quick-enroll-device-x509-java.md
@@ -73,31 +79,39 @@
     href: tutorial-group-enrollments.md
 - name: Concepts
   items:
-  - name: Device concepts
+  - name: Auto-provisioning
+    href: concepts-auto-provisioning.md  
+  - name: Devices
     href: concepts-device.md
-  - name: Service concepts
-    href: concepts-service.md
-  - name: Security concepts
+  - name: Security
     href: concepts-security.md
+  - name: Service
+    href: concepts-service.md
 - name: How-to guides
   items:
-  - name: Manage device enrollments
+  - name: Connect MXChip IoT DevKit to IoT Hub
+    href: how-to-connect-mxchip-iot-devkit.md
+  - name: Manage device provisioning configuration
     items:
-    - name: Manage device enrollments with Azure portal
+    - name: Configure verified CA certificates
+      href: how-to-verify-certificates.md
+    - name: Manage deprovisioning
+      href: how-to-unprovision-devices.md    
+    - name: Manage disenrollment
+      href: how-to-revoke-device-access-portal.md 
+    - name: Manage enrollments - Portal
       href: how-to-manage-enrollments.md
-    - name: Manage device enrollments with Service SDKs
+    - name: Manage enrollments - Service SDKs
       href: how-to-manage-enrollments-sdks.md
-  - name: Revoke device access
-    href: how-to-revoke-device-access-portal.md
-  - name: Unprovision devices
-    href: how-to-unprovision-devices.md
-  - name: Use HSM with SDK
+  - name: Manage device provisioning service
+    items:
+    - name: Configure device provisioning service using Azure CLI
+      href: how-to-manage-dps-with-cli.md
+    - name: Control access to Provisioning Service APIs
+      href: how-to-control-access.md
+  - name: Use attestation mechanisms with SDK
     href: use-hsm-with-sdk.md
-  - name: Control access to Provisioning Service
-    href: how-to-control-access.md
-  - name: Use Azure CLI to manage device provisioning service
-    href: how-to-manage-dps-with-cli.md
-  - name: Use SDK tools to develop
+  - name: Use SDK tools for development
     href: how-to-use-sdk-tools.md
 - name: Reference
   items:

@@ -75,7 +75,7 @@ By default, only the cloud attributes office phone and mobile phone are synchron
 
 Users can only reset their password if they have data present in the authentication methods that the administrator has enabled and requires.
 
-If users don't want their mobile phone number to be visible in the directory, but they still want to use it for password reset, administrators should not populate it in the directory. Users should then populate their **Authentication Phone** attribute via the [password reset registration portal](http://aka.ms/ssprsetup). Administrators can see this information in the user's profile, but it's not published elsewhere.
+If users don't want their mobile phone number to be visible in the directory, but they still want to use it for password reset, administrators should not populate it in the directory. Users should then populate their **Authentication Phone** attribute via the [password reset registration portal](https://aka.ms/ssprsetup). Administrators can see this information in the user's profile, but it's not published elsewhere.
 
 ### The number of authentication methods required
 
@@ -177,7 +177,7 @@ To enable this option, a user who is enabled for password reset has to complete 
 * Federated applications
 * Custom applications by using Azure AD
 
-When requiring registration is disabled, users can still manually register their contact information. They can either visit [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) or select the **Register for password reset** link under the **Profile** tab in the Access Panel.
+When requiring registration is disabled, users can still manually register their contact information. They can either visit [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) or select the **Register for password reset** link under the **Profile** tab in the Access Panel.
 
 > [!NOTE]
 > Users can dismiss the password reset registration portal by selecting **cancel** or by closing the window. But they are prompted to register each time they sign in until they complete their registration.

@@ -3,7 +3,7 @@ title: Weather forecast using Azure Machine Learning with data from IoT Hub | Mi
 description: Use Azure Machine Learning to predict the chance of rain based on the temperature and humidity data your IoT hub collects from a sensor.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: 'weather forecast machine learning'
@@ -14,8 +14,8 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
-ms.author: xshi
+ms.date: 4/11/2018
+ms.author: rangv
 
 ---
 # Weather forecast using the sensor data from your IoT hub in Azure Machine Learning
@@ -77,7 +77,7 @@ You learn how to use Azure Machine Learning to do weather forecast (chance of ra
 
 ### Create a Stream Analytics job
 
-1. In the [Azure portal](https://ms.portal.azure.com/), click **New** > **Internet of Things** > **Stream Analytics job**.
+1. In the [Azure portal](https://portal.azure.com/), click **Create a resource** > **Internet of Things** > **Stream Analytics job**.
 1. Enter the following information for the job.
 
    **Job name**: The name of the job. The name must be globally unique.

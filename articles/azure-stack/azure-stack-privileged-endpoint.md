@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
+ms.reviewer: fiseraci
 
 ---
 # Using the privileged endpoint in Azure Stack
@@ -40,24 +41,26 @@ You access the PEP through a remote PowerShell session on the virtual machine th
 
 Before you begin this procedure for an integrated system, make sure you can access the PEP either by IP address, or through DNS. After the initial deployment of Azure Stack, you can access the PEP only by IP address because DNS integration is not yet set up. Your OEM hardware vendor will provide you with a JSON file named **AzureStackStampDeploymentInfo** that contains the PEP IP addresses.
 
-We recommend that you connect to the PEP only from the hardware lifecycle host or from a dedicated, secure computer, such as a [Privileged Access Workstation](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
-1. Access your Privileged Access Workstation.
+> [!NOTE]
+> For security reasons, we require that you connect to the PEP only from a hardened virtual machine running on top of the hardware lifecycle host, or from a dedicated, secure computer, such as a [Privileged Access Workstation](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). The original configuration of the hardware lifecycle host must not be modified from its original configuration, including installing new software, nor it should be used to connect to the PEP.
 
-    - On an integrated system, run the following command to add the PEP as a trusted host on your hardware lifecycle host or Privileged Access Workstation.
+1. Establish the trust.
+
+    - On an integrated system, run the following command from an elevated Windows PowerShell session to add the PEP as a trusted host on the hardened virtual machine running on the hardware lifecycle host or the Privileged Access Workstation.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - If you’re running the ADSK, sign in to the development kit host.
 
-2. On your hardware lifecycle host or Privileged Access Workstation, open an elevated Windows PowerShell session. Run the following commands to establish a remote session on the virtual machine that hosts the PEP:
+2. On the hardened virtual machine running on the hardware lifecycle host or the Privileged Access Workstation, open a Windows PowerShell session. Run the following commands to establish a remote session on the virtual machine that hosts the PEP:
  
     - On an integrated system:
       ````PowerShell
         $cred = Get-Credential
 
-        Enter-PSSession -ComputerName <IP_address_of_ERCS>`
+        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       The `ComputerName` parameter can be either the IP address or the DNS name of one of the virtual machines that hosts the PEP. 
@@ -66,14 +69,17 @@ We recommend that you connect to the PEP only from the hardware lifecycle host o
       ````PowerShell
         $cred = Get-Credential
 
-        Enter-PSSession -ComputerName azs-ercs01`
+        Enter-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```` 
    When prompted, use the following credentials:
 
       - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
       - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
-    
+
+    > [!NOTE]
+    > If you are unable to connect to the ERCS endpoint, try steps one and two again with the IP address of an ERCS VM to which you haven't already tried to connect.
+
 3.	After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
 
     Many of these cmdlets are intended only for integrated system environments (such as the cmdlets related to datacenter integration). In the ASDK, the following cmdlets have been validated:
@@ -111,22 +117,22 @@ Alternatively, you can use the [Import-PSSession](https://docs.microsoft.com/en-
 
 To import the PEP session on your local machine, do the following steps:
 
-1. Access your Privileged Access Workstation.
+1. Establish the trust.
 
-    - On an integrated system, run the following command to add the PEP as a trusted host on your hardware lifecycle host or Privileged Access Workstation.
+    -On an integrated system, run the following command from an elevated Windows PowerShell session to add the PEP as a trusted host on the hardened virtual machine running on the hardware lifecycle host or the Privileged Access Workstation.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - If you’re running the ADSK, sign in to the development kit host.
 
-2. On your hardware lifecycle host or Privileged Access Workstation, open an elevated Windows PowerShell session. Run the following commands to establish a remote session on the virtual machine that hosts the PEP:
+2. On the hardened virtual machine running on the hardware lifecycle host or the Privileged Access Workstation, open a Windows PowerShell session. Run the following commands to establish a remote session on the virtual machine that hosts the PEP:
  
     - On an integrated system:
       ````PowerShell
         $cred = Get-Credential
 
-        $session = New-PSSession -ComputerName <IP_address_of_ERCS>`
+        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       The `ComputerName` parameter can be either the IP address or the DNS name of one of the virtual machines that hosts the PEP. 
@@ -135,7 +141,7 @@ To import the PEP session on your local machine, do the following steps:
       ````PowerShell
        $cred = Get-Credential
 
-       $session = New-PSSession -ComputerName azs-ercs01`
+       $session = New-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```` 
    When prompted, use the following credentials:
@@ -152,7 +158,7 @@ To import the PEP session on your local machine, do the following steps:
 
 ## Close the privileged endpoint session
 
- As mentioned earlier, the PEP logs every action (and its corresponding output) that you perform in the PowerShell session. You should close the session by using the  `Close-PrivilegedEndpoint` cmdlet. This cmdlet correctly closes the endpoint, and transfers the log files to an external file share for retention.
+ As mentioned earlier, the PEP logs every action (and its corresponding output) that you perform in the PowerShell session. You must close the session by using the  `Close-PrivilegedEndpoint` cmdlet. This cmdlet correctly closes the endpoint, and transfers the log files to an external file share for retention.
 
 To close the endpoint session:
 
@@ -162,7 +168,11 @@ To close the endpoint session:
 
     ![Close-PrivilegedEndpoint cmdlet output that shows where you specify the transcript destination path](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
-After the transcript log files are successfully transferred to the file share, they're automatically deleted from the PEP. If you close the PEP session by using the cmdlets `Exit-PSSession` or `Exit`, or you just close the PowerShell console, the transcript logs don't transfer to a file share. They remain in the PEP. The next time you run `Close-PrivilegedEndpoint` and include a file share, the transcript logs from the previous session(s) will also transfer.
+After the transcript log files are successfully transferred to the file share, they're automatically deleted from the PEP. 
+
+> [!NOTE]
+> If you close the PEP session by using the cmdlets `Exit-PSSession` or `Exit`, or you just close the PowerShell console, the transcript logs don't transfer to a file share. They remain in the PEP. The next time you run `Close-PrivilegedEndpoint` and include a file share, the transcript logs from the previous session(s) will also transfer. Do not use `Exit-PSSession` or `Exit` to close the PEP session; use `Close-PrivilegedEndpoint` instead.
+
 
 ## Next steps
 [Azure Stack diagnostic tools](azure-stack-diagnostics.md)

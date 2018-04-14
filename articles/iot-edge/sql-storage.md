@@ -3,11 +3,12 @@ title: Azure IoT Edge SQL module | Microsoft Docs
 description: Store data at the edge with Microsoft SQL modules, with Azure Functions to format the data. 
 services: iot-edge
 keywords: 
-author: ebertrams
+author: kgremban
 manager: timlt
 
-ms.author: kgremban, ebertrams
-ms.date: 02/07/2018
+ms.author: kgremban
+ms.reviewer: ebertrams
+ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
 ---
@@ -45,7 +46,7 @@ Both Windows and Linux containers on x64 processor architectures work for this t
 
 ## Deploy a SQL Server container
 
-In this section, you add an MS-SQL database to your simulated IoT Edge device. Use the SQL Server 2017 docker container image, available on [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) and [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/). 
+In this section, you add an MS-SQL database to your simulated IoT Edge device. Use the SQL Server 2017 docker container image, available as a [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) container and as a [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/) container. 
 
 ### Deploy SQL Server 2017
 
@@ -64,7 +65,7 @@ In step 3, you add create options to the SQL Server container, which are importa
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "localhost:5000/filterfunction:latest",
+              "image": "<docker registry address>/filterfunction:latest",
               "createOptions": "{}"
             }
           },
@@ -89,33 +90,37 @@ In step 3, you add create options to the SQL Server container, which are importa
              }
           }
         }
-      }
    ```
 
-3. Depending on the operating system that you're running, update the settings for the SQL module with the following code: 
+3. Replace the `<docker registry address>` with the address filled in at the completed tutorial [Deploy Azure Function as an IoT Edge module - preview](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)
+
+   >[!NOTE]
+   >The container registry address is the same as the login server that you copied from your registry. It should be in the form of `<your container registry name>.azurecr.io`
+
+4. Depending on the operating system that you're running, update the settings for the SQL module with the following code: 
 
    * Windows:
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
    * Linux:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"MSSQL_SA_PASSWORD=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "/var/opt/mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-4. Save the file. 
-5. In the VS Code Command Palette, select **Edge: Create deployment for Edge device**. 
-6. Select your IoT Edge device ID.
-7. Select the `deployment.json` file that you updated. In the output window, you can see corresponding outputs for your deployment. 
-8. To start your Edge runtime, select **Edge: Start Edge** in the Command Palette.
+5. Save the file. 
+6. In the VS Code Command Palette, select **Edge: Create deployment for Edge device**. 
+7. Select your IoT Edge device ID.
+8. Select the `deployment.json` file that you updated. In the output window, you can see corresponding outputs for your deployment. 
+9. To start your Edge runtime, select **Edge: Start Edge** in the Command Palette.
 
 >[!TIP]
->Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker.md#change-the-sa-password).
+>Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
 ## Create the SQL database
 
@@ -123,31 +128,31 @@ This section guides you through setting up the SQL database to store the tempera
 
 In a command-line tool, connect to your database: 
 
-* Windows
+* Windows container
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
-   ```cmd
-   Docker exec -it sql 'bash'
+* Linux container
+   ```bash
+   docker exec -it sql bash
    ```
 
 Open the SQL command tool: 
 
-* Windows
+* Windows container
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
-   ```cmd
+* Linux container
+   ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
 Create your database: 
 
-* Windows
+* Windows container
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -155,7 +160,7 @@ Create your database:
    GO
    ```
 
-* Linux
+* Linux container
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -186,7 +191,7 @@ IoT Edge automatically builds a bridge (Linux) or NAT (Windows) network when it 
 
 * Linux
 
-   ```cmd
+   ```bash
    sudo docker network inspect azure-iot-edge
    ```
 
@@ -300,32 +305,32 @@ Once your containers restart, the data received from the temperature sensors is 
 
 In a command-line tool, connect to your database: 
 
-* Windows
+* Windows container
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
-   ```cmd
-   Docker exec -it sql 'bash'
+* Linux container
+   ```bash
+   docker exec -it sql bash
    ```
 
 Open the SQL command tool: 
 
-* Windows
+* Windows container
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
-   ```cmd
+* Linux container
+   ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
 View your data: 
 
    ```sql
-   Select * FROM MeasurementsDB.dbo.TemperatureMeasurements
+   SELECT * FROM MeasurementsDB.dbo.TemperatureMeasurements
    GO
    ```
 

@@ -7,17 +7,15 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm:
+ms.devlang:
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 03/15/2018
 ms.author: curtand
-
 ms.reviewer: vincesm
-ms.custom: it-pro;
+ms.custom: it-pro
 
 ---
 # Assigning administrator roles in Azure Active Directory
@@ -60,9 +58,9 @@ The following administrator roles are available:
   >
   >
 
-* **Guest Inviter**: Users in this role can manage Azure Active Directory B2B guest user invitations when the “Members can invite” user setting is set to No. More information about B2B collaboration at [About the Azure AD B2B collaboration preview](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). It does not include any other permissions.
+* **Guest Inviter**: Users in this role can manage Azure Active Directory B2B guest user invitations when the “Members can invite” user setting is set to No. More information about B2B collaboration at [About Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). It does not include any other permissions.
 
-<!-- * **Information Protection Administrator**: Users with this role can access Azure Information Protection in the Azure portal. They can configure labels for the Azure Information Protection policy, manage protection templates, and activate protection.-->
+* **Information Protection Administrator**: Users with this role have user rights only on the Azure Information Protection service. They are not granted user rights on Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, or Office 365 Security & Compliance Center. They can configure labels for the Azure Information Protection policy, manage protection templates, and activate protection.
 
 * **Intune Service Administrator**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups.
 
@@ -126,11 +124,10 @@ The following administrator roles are available:
 | --- | --- |
 | <p>View company and user information</p><p>Manage Office support tickets</p><p>Change passwords for users and other Helpdesk administrators only</p>|<p>Perform billing and purchasing operations for Office products</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View reports</p>|
 
-<!--### Information Protection Administrator 
+### Information Protection Administrator
 In | Can do
 -------- | ---------
-Azure Information Protection | * Configure global, scoped policies and labels<br>* Manage, configure, update protection templates<br>* Enable protection activation for use 
-Privileged Identity Management | * Read permissions<br>* Cannot manage Azure AD role memberships or settings. --->
+Azure Information Protection | <li>Configure labels and settings in global and scoped policies<li>Configure and manage protection templates<li>Activate or deactivate protection--
  
 ### Reports Reader 
 Can do | Cannot do
@@ -189,7 +186,7 @@ The following roles should not be used. They been deprecated and will be removed
 ## Next steps
 
 * To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
-* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
+* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Manage users](active-directory-create-users.md)
 * [Manage passwords](active-directory-manage-passwords.md)

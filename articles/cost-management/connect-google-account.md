@@ -69,4 +69,4 @@ Within a few hours, Cost Management reports show Google cost and usage informati
 
 ## Next steps
 
-- To learn more about Azure Cost Management by Cloudyn, continue to the [Review usage and costs](./tutorial-review-usage.md) tutorial for Cost Management.
+- To learn more about Azure Cost Management, continue to the [Review usage and costs](./tutorial-review-usage.md) tutorial for Cost Management.

@@ -4,7 +4,7 @@ description: Lists the different GPU optimized sizes available for Windows virtu
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 03/01/2018
 ms.author: jonbeck
 
 ---

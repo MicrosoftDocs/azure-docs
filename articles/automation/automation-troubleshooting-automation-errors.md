@@ -2,22 +2,14 @@
 title: Troubleshooting common Azure Automation issues | Microsoft Docs
 description: This article provides information to help troubleshoot and fix common Azure Automation errors.
 services: automation
-documentationcenter: ''
+ms.service: automation
 author: georgewallace
-manager: stevenka
-editor: tysonn
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
 tags: top-support-issue
 keywords: automation error, troubleshooting, issue
-
-ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
-ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: sngun; v-reagie
-
 ---
 # Troubleshooting common issues in Azure Automation 
 This article provides help troubleshooting common errors you might experience in Azure Automation and suggests possible solutions to resolve them.

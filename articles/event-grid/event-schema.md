@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/22/2018
 ms.author: babanisa
 ---
 
@@ -27,7 +27,7 @@ The following example shows the properties that are used by all event publishers
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -69,7 +69,7 @@ For example, the schema published for an Azure Blob storage event is:
   }
 ]
 ```
- 
+
 ## Event properties
 
 All events contain the same following top-level data:
@@ -89,10 +89,16 @@ To learn about the properties in the data object, see the event source:
 
 * [Azure subscriptions (management operations)](event-schema-subscriptions.md)
 * [Blob storage](event-schema-blob-storage.md)
-* [Event hubs](event-schema-event-hubs.md)
+* [Event Hubs](event-schema-event-hubs.md)
+* [Service Bus](event-schema-service-bus.md)
+* [IoT Hub](event-schema-iot-hub.md)
 * [Resource groups (management operations)](event-schema-resource-groups.md)
 
-For custom topics, the event publisher determines the data object. The top-level data should contain the same fields as standard resource-defined events. When publishing events to custom topics, you should consider modeling the subject of your events to aid in routing and filtering.
+For custom topics, the event publisher determines the data object. The top-level data should contain the same fields as standard resource-defined events.
+
+When publishing events to custom topics, create subjects for your events that make it easy for subscribers to know whether they are interested in the event. Subscribers use the subject to filter and route events. Consider providing the path for where the event happened, so subscribers can filter by segments of that path. The path enables subscribers to narrowly or broadly filter events. For example, if you provide a three segment path like `/A/B/C` in the subject, subscribers can filter by the first segment `/A` to get a broad set of events. Those subscribers get events with subjects like `/A/B/C` or `/A/D/E`. Other subscribers can filter by `/A/B` to get a narrower set of events.
+
+Sometimes your subject needs more detail about what happened. For example, the **Storage Accounts** publisher provides the subject `/blobServices/default/containers/<container-name>/blobs/<file>` when a file is added to a container. A subscriber could filter by the path `/blobServices/default/containers/testcontainer` to get all events for that container but not other containers in the storage account. A subscriber could also filter or route by the suffix `.txt` to only work with text files.
 
 ## Next steps
 
