@@ -513,7 +513,7 @@ Key information:
 
 ---
 ### Debug Cache Response Headers
-**Purpose:** Determines whether a response can include [X-EC-Debug response headers](cdn-http-debug-headers), which provides information on the cache policy for the requested asset.
+**Purpose:** Determines whether a response can include [X-EC-Debug response headers](cdn-http-debug-headers.md), which provides information on the cache policy for the requested asset.
 
 Debug cache response headers will be included in the response when both of the following are true:
 
