@@ -1,38 +1,23 @@
 ---
 title: Partitioning tables in SQL Data Warehouse | Microsoft Docs
-description: Getting started with table partitioning in Azure SQL Data Warehouse.
+description: Recommendations and examples for using table partitions in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
-
-ms.assetid: 6cef870c-114f-470c-af10-02300c58885d
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 12/06/2017
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/14/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
+
 # Partitioning tables in SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Overview][Overview]
-> * [Data Types][Data Types]
-> * [Distribute][Distribute]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistics][Statistics]
-> * [Temporary][Temporary]
-> 
-> 
+Recommendations and examples for using table partitions in Azure SQL Data Warehouse.
 
-Partitioning is supported on all SQL Data Warehouse table types; including clustered columnstore, clustered index, and heap.  Partitioning is also supported on all distribution types, including both hash or round robin distributed.  Partitioning enables you to divide your data into smaller groups of data and in most cases, partitioning is done on a date column.
+## What are table partitions?
+Table partitions enable you to divide your data into smaller groups of data. In most cases, table partitions are created on a date column. Partitioning is supported on all SQL Data Warehouse table types; including clustered columnstore, clustered index, and heap.  Partitioning is also supported on all distribution types, including both hash or round robin distributed.  
 
-## Benefits of partitioning
 Partitioning can benefit data maintenance and query performance.  Whether it benefits both or just one is dependent on how data is loaded and whether the same column can be used for both purposes, since partitioning can only be done on one column.
 
 ### Benefits to loads
@@ -43,15 +28,15 @@ Partition switching can be used to quickly remove or replace a section of a tabl
 ### Benefits to queries
 Partitioning can also be used to improve query performance.  A query that applies a filter to partitioned data can limit the scan to only the qualifying partitions. This method of filtering can avoid a full table scan and only scan a smaller subset of data. With the introduction of clustered columnstore indexes, the predicate elimination performance benefits are less beneficial, but in some cases there can be a benefit to queries.  For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip searching in partitions that don’t match the filter.
 
-## Partition sizing guidance
+## Sizing partitions
 While partitioning can be used to improve performance some scenarios, creating a table with **too many** partitions can hurt performance under some circumstances.  These concerns are especially true for clustered columnstore tables.  For partitioning to be helpful, it is important to understand when to use partitioning and the number of partitions to create.  There is no hard fast rule as to how many partitions are too many, it depends on your data and how many partitions you loading simultaneously.  A successful partitioning scheme usually has tens to hundreds of partitions, not thousands.
 
-When creating partitions on **clustered columnstore** tables, it is important to consider how many rows belong to each partition.  For optimal compression and performance of clustered columnstore tables, a minimum of 1 million rows per distribution and partition is needed.  Before partitions are created, SQL Data Warehouse already divides each table into 60 distributed databases.  Any partitioning added to a table is in addition to the distributions created behind the scenes.  Using this example, if the sales fact table contained 36 monthly partitions, and given that SQL Data Warehouse has 60 distributions, then the sales fact table should contain 60 million rows per month, or 2.1 billion rows when all months are populated.  If a table contains fewer than the recommended minimum number of rows per partition, consider using fewer partitions in order to increase the number of rows per partition.  Also see the [Indexing][Index] article, which includes queries that can be run on SQL Data Warehouse to assess the quality of cluster columnstore indexes.
+When creating partitions on **clustered columnstore** tables, it is important to consider how many rows belong to each partition.  For optimal compression and performance of clustered columnstore tables, a minimum of 1 million rows per distribution and partition is needed.  Before partitions are created, SQL Data Warehouse already divides each table into 60 distributed databases.  Any partitioning added to a table is in addition to the distributions created behind the scenes.  Using this example, if the sales fact table contained 36 monthly partitions, and given that SQL Data Warehouse has 60 distributions, then the sales fact table should contain 60 million rows per month, or 2.1 billion rows when all months are populated.  If a table contains fewer than the recommended minimum number of rows per partition, consider using fewer partitions in order to increase the number of rows per partition.  For more information, see the [Indexing](sql-data-warehouse-tables-index.md) article, which includes queries that can assess the quality of cluster columnstore indexes.
 
-## Syntax difference from SQL Server
-SQL Data Warehouse introduces a way to define partitions that is simpler than SQL Server.  Partitioning functions and schemes are not used in SQL Data Warehouse as they are in SQL Server.  Instead, all you need to do is identify partitioned column and the boundary points.  While the syntax of partitioning may be slightly different from SQL Server, the basic concepts are the same.  SQL Server and SQL Data Warehouse support one partition column per table, which can be ranged partition.  To learn more about partitioning, see [Partitioned Tables and Indexes][Partitioned Tables and Indexes].
+## Syntax differences from SQL Server
+SQL Data Warehouse introduces a way to define partitions that is simpler than SQL Server.  Partitioning functions and schemes are not used in SQL Data Warehouse as they are in SQL Server.  Instead, all you need to do is identify partitioned column and the boundary points.  While the syntax of partitioning may be slightly different from SQL Server, the basic concepts are the same.  SQL Server and SQL Data Warehouse support one partition column per table, which can be ranged partition.  To learn more about partitioning, see [Partitioned Tables and Indexes](/sql/relational-databases/partitions/partitioned-tables-and-indexes).
 
-The following example of a SQL Data Warehouse partitioned [CREATE TABLE][CREATE TABLE] statement, partitions the FactInternetSales table on the OrderDateKey column:
+The following example uses the [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) statement to partition the FactInternetSales table on the OrderDateKey column:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -80,8 +65,8 @@ WITH
 ## Migrating partitioning from SQL Server
 To migrate SQL Server partition definitions to SQL Data Warehouse simply:
 
-* Eliminate the SQL Server [partition scheme][partition scheme].
-* Add the [partition function][partition function] definition to your CREATE TABLE.
+* Eliminate the SQL Server [partition scheme](/sql/t-sql/statements/create-partition-scheme-transact-sql).
+* Add the [partition function](/sql/t-sql/statements/create-partition-function-transact-sql) definition to your CREATE TABLE.
 
 If you are migrating a partitioned table from a SQL Server instance, the following SQL can help you to figure out the number of rows that in each partition.  Keep in mind that if the same partitioning granularity is used on SQL Data Warehouse, the number of rows per partition decreases by a factor of 60.  
 
@@ -120,9 +105,9 @@ GROUP BY    s.[name]
 ```
 
 ## Workload management
-One final piece consideration to factor in to the table partition decision is [workload management][workload management].  Workload management in SQL Data Warehouse is primarily the management of memory and concurrency.  In SQL Data Warehouse, the maximum memory allocated to each distribution during query execution is governed by resource classes.  Ideally your partitions are sized in consideration of other factors like the memory needs of building clustered columnstore indexes.  Clustered columnstore indexes benefit greatly when they are allocated more memory.  Therefore, you want to ensure that a partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role, smallrc, to one of the other roles such as largerc.
+One final consideration to factor in to your table partition decision is [workload management](resource-classes-for-workload-management.md). Workload management in SQL Data Warehouse is primarily the management of memory and concurrency. In SQL Data Warehouse, the maximum memory allocated to each distribution during query execution is governed by resource classes. Ideally your partitions are sized in consideration of other factors like the memory needs of building clustered columnstore indexes. Clustered columnstore indexes benefit greatly when they are allocated more memory. Therefore, you want to ensure that a partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role, smallrc, to one of the other roles such as largerc.
 
-Information on the allocation of memory per distribution is available by querying the Resource Governor dynamic management views. In reality, your memory grant is less than the results of the following query. However, this query provides a level of guidance that you can use when sizing your partitions for data management operations.  Try to avoid sizing your partitions beyond the memory grant provided by the extra large resource class. If your partitions grow beyond this figure, you run the risk of memory pressure, which in turn leads to less optimal compression.
+Information on the allocation of memory per distribution is available by querying the Resource Governor dynamic management views. In reality, your memory grant is less than the results of the following query. However, this query provides a level of guidance that you can use when sizing your partitions for data management operations. Try to avoid sizing your partitions beyond the memory grant provided by the extra large resource class. If your partitions grow beyond this figure, you run the risk of memory pressure, which in turn leads to less optimal compression.
 
 ```sql
 SELECT  rp.[name]                                AS [pool_name]
@@ -141,7 +126,7 @@ AND     rp.[name]    = 'SloDWPool'
 ```
 
 ## Partition switching
-SQL Data Warehouse supports partition splitting, merging, and switching. Each of these functions is executed using the [ALTER TABLE][ALTER TABLE] statement.
+SQL Data Warehouse supports partition splitting, merging, and switching. Each of these functions is executed using the [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) statement.
 
 To switch partitions between two tables, you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table, the source table must contain the same partition boundaries as the target table. If the partition boundaries are not then same, then the partition switch will fail as the partition metadata will not be synchronized.
 
@@ -182,7 +167,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 ```
 
 > [!NOTE]
-> By creating the statistic object, the table metadata is more accurate. If you omit statistics, then SQL Data Warehouse will use default values. For details on statistics, please review [statistics][statistics].
+> By creating the statistic object, the table metadata is more accurate. If you omit statistics, then SQL Data Warehouse will use default values. For details on statistics, please review [statistics](sql-data-warehouse-tables-statistics.md).
 > 
 > 
 
@@ -348,27 +333,5 @@ DROP TABLE #partitions;
 With this approach the code in source control remains static and the partitioning boundary values are allowed to be dynamic; evolving with the warehouse over time.
 
 ## Next steps
-To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
+For more information about developing tables, see the articles on [Table Overview](sql-data-warehouse-tables-overview.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[workload management]: ./resource-classes-for-workload-management.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!-- MSDN Articles -->
-[Partitioned Tables and Indexes]: https://msdn.microsoft.com/library/ms190787.aspx
-[ALTER TABLE]: https://msdn.microsoft.com/en-us/library/ms190273.aspx
-[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
-[partition function]: https://msdn.microsoft.com/library/ms187802.aspx
-[partition scheme]: https://msdn.microsoft.com/library/ms179854.aspx
-
-
-<!-- Other web references -->

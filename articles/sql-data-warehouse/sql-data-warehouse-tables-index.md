@@ -1,35 +1,25 @@
 ---
-title: Indexing tables in SQL Data Warehouse | Microsoft Azure
-description: Getting started with table indexing in Azure SQL Data Warehouse.
+title: Indexing tables in Azure SQL Data Warehouse | Microsoft Azure
+description: Recommendations and examples for indexing tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
-
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 03/15/2018
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/14/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
-# Indexing tables in SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Overview][Overview]
-> * [Data Types][Data Types]
-> * [Distribute][Distribute]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistics][Statistics]
-> * [Temporary][Temporary]
-> 
-> 
 
-SQL Data Warehouse offers several indexing options including [clustered columnstore indexes][clustered columnstore indexes], [clustered indexes and nonclustered indexes][clustered indexes and nonclustered indexes].  In addition, it also offers a no index option also known as [heap][heap].  This article covers the benefits of each index type as well as tips to getting the most performance out of your indexes. See [create table syntax][create table syntax] for more detail on how to create a table in SQL Data Warehouse.
+# Indexing tables in SQL Data Warehouse
+Recommendations and examples for indexing tables in Azure SQL Data Warehouse.
+
+## What are index choices?
+
+SQL Data Warehouse offers several indexing options including [clustered columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview), [clustered indexes and nonclustered indexes](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described), and a non-index option also known as [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+
+To create a table with an index, see the [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) documentation.
 
 ## Clustered columnstore indexes
 By default, SQL Data Warehouse creates a clustered columnstore index when no index options are specified on a table. Clustered columnstore tables offer both the highest level of data compression as well as the best overall query performance.  Clustered columnstore tables will generally outperform clustered index or heap tables and are usually the best choice for large tables.  For these reasons, clustered columnstore is the best place to start when you are unsure of how to index your table.  
@@ -212,7 +202,7 @@ Once your tables have been loaded with some data, follow the below steps to iden
 ### Step 1: Identify or create user which uses the right resource class
 One quick way to immediately improve segment quality is to rebuild the index.  The SQL returned by the above view will return an ALTER INDEX REBUILD statement which can be used to rebuild your indexes.  When rebuilding your indexes, be sure that you allocate enough memory to the session which will rebuild your index.  To do this, increase the resource class of a user which has permissions to rebuild the index on this table to the recommended minimum.  The resource class of the database owner user cannot be changed, so if you have not created a user on the system, you will need to do so first.  The minimum we recommend is xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
 
-Below is an example of how to allocate more memory to a user by increasing their resource class.  For more information about resource classes and how to create a new user can be found in the [concurrency and workload management][Concurrency] article.
+Below is an example of how to allocate more memory to a user by increasing their resource class.  To work with resource classes, see [Resource classes for workload management](resource-classes-for-workload-management.md).
 
 ```sql
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
@@ -221,7 +211,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### Step 2: Rebuild clustered columnstore indexes with higher resource class user
 Logon as the user from step 1 (e.g. LoadUser), which is now using a higher resource class, and execute the ALTER INDEX statements.  Be sure that this user has ALTER permission to the tables where the index is being rebuilt.  These examples show how to rebuild the entire columnstore index or how to rebuild a single partition. On large tables, it is more practical to rebuild indexes a single partition at a time.
 
-Alternatively, instead of rebuilding the index, you could copy the table to a new table using [CTAS][CTAS].  Which way is best? For large volumes of data, [CTAS][CTAS] is usually faster than [ALTER INDEX][ALTER INDEX]. For smaller volumes of data, [ALTER INDEX][ALTER INDEX] is easier to use and won't require you to swap out the table.  See **Rebuilding indexes with CTAS and partition switching** below for more details on how to rebuild indexes with CTAS.
+Alternatively, instead of rebuilding the index, you could copy the table to a new table [using CTAS](sql-data-warehouse-develop-ctas.md).  Which way is best? For large volumes of data, CTAS is usually faster than [ALTER INDEX][ALTER INDEX]. For smaller volumes of data, [ALTER INDEX][ALTER INDEX] is easier to use and won't require you to swap out the table.  See **Rebuilding indexes with CTAS and partition switching** below for more details on how to rebuild indexes with CTAS.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -243,13 +233,13 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation][Columnstore Indexes Defragmentation], and [ALTER INDEX][ALTER INDEX].
+Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation](/sql/relational-databases/indexes/columnstore-indexes-defragmentation), and [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
 ### Step 3: Verify clustered columnstore segment quality has improved
 Rerun the query which identified table with poor segment quality and verify segment quality has improved.  If segment quality did not improve, it could be that the rows in your table are extra wide.  Consider using a higher resource class or DWU when rebuilding your indexes.
 
 ## Rebuilding indexes with CTAS and partition switching
-This example uses [CTAS][CTAS] and partition switching to rebuild a table partition. 
+This example uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) statement and partition switching to rebuild a table partition. 
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS
@@ -289,31 +279,8 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
 ```
 
-For more details about re-creating partitions using `CTAS`, see the [Partition][Partition] article.
+For more details about re-creating partitions using CTAS, see [Using partitions in SQL Data Warehouse](sql-data-warehouse-tables-partition.md).
 
 ## Next steps
-To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  To learn more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
+For more information about developing tables, see [Developing tables](sql-data-warehouse-tables-overview.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Concurrency]: ./resource-classes-for-workload-management.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-[ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
-[heap]: https://msdn.microsoft.com/library/hh213609.aspx
-[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/library/ms190457.aspx
-[create table syntax]: https://msdn.microsoft.com/library/mt203953.aspx
-[Columnstore Indexes Defragmentation]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
-[clustered columnstore indexes]: https://msdn.microsoft.com/library/gg492088.aspx
-
-<!--Other Web references-->
