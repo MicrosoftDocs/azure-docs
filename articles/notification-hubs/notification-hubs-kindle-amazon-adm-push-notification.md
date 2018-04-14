@@ -21,7 +21,7 @@ ms.author: yuaxu
 # Get started with Notification Hubs for Kindle apps
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Kindle application. You'll create a blank Kindle app that receives push notifications by using Amazon Device Messaging (ADM).
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Kindle application. You create a blank Kindle app that receives push notifications by using Amazon Device Messaging (ADM).
 
 In this tutorial, you create/update code to do the following tasks: 
 
@@ -37,7 +37,7 @@ In this tutorial, you create/update code to do the following tasks:
 
 ## Prerequisites
 
-* Get the Android SDK (we assume that you will use Eclipse) from the <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android site</a>.
+* Get the Android SDK (assuming that you are using Eclipse) from the <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android site</a>.
 * Follow the steps in <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Setting Up Your Development Environment</a> to set up your development environment for Kindle.
 
 ## Add a new app to the developer portal
@@ -53,7 +53,7 @@ In this tutorial, you create/update code to do the following tasks:
 4. Click **Create a New Security Profile**, and then create a new security profile (for example, **TestAdm security profile**). Then click **Save**.
    
     ![][3]
-5. Click **Security Profiles** to view the security profile that you just created. Copy the **Client ID** and **Client Secret** values for later use.
+5. Click **Security Profiles** to view the security profile that you created. Copy the **Client ID** and **Client Secret** values for later use.
    
     ![][4]
 
@@ -280,6 +280,12 @@ To send a message by using .NET:
     ```
 
 ![][7]
+
+## Next steps
+In this tutorial, you sent broadcast notifications to all your Kindle devices registered with the backend. To learn how to push notifications to specific Kindle devices, advance to the following tutorial:  The following tutorial shows how to push notifications to specific Android devices, but you can use the same logic for pushing notifications to specific Kindle devices. 
+
+> [!div class="nextstepaction"]
+>[Push notifications to specific devices](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- URLs. -->
 [Amazon developer portal]: https://developer.amazon.com/home.html
