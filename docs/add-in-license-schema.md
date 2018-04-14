@@ -79,7 +79,7 @@ For test licenses for SharePoint Add-ins, you don't need to specify the deployme
 <td>ts</td>
 <td>Integer representing the total number of users licensed to access this add-in, by this purchaser.<p/>
 For add-ins that are site licensed, this value is 0.<p/>
-This attribute does not apply to Office Add-ins.</td>
+This attribute applies to Office Add-ins. Include it in your code even if ts=0. (Previously, this topic incorrectly stated that **ts** does not apply to Office add-ins.)</td>
 </tr>
 <tr>
 <td>et</td>
