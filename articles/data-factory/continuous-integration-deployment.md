@@ -101,6 +101,7 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
                    "secretName": “<secret-name>"
                }
            }
+       }
        ```
 
        -   When you use this method, the secret is pulled from the key vault automatically.
