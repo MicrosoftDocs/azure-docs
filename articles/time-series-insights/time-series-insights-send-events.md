@@ -250,180 +250,266 @@ A JSON object with a nested JSON array containing two JSON objects. This input d
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-### JSON shaping strategies
-Let's use the following example of an event as a starting point, and then discuss issues related with it and strategies for mitigating those issues.
+### Shape the JSON in your events
+It's important to think about how you send events to Time Series Insights to ensure for two major reasons.
+
+1. To send data over the network more efficiently.  
+2. To ensure your data is stored in a way that enables you to perform aggregations on it that is suitable for your scenario.  
+
+Let's use the following example of an event as a starting point, and then discuss pros and cons.
+
+We'll start with a fairly typical message, a single-item JSON array, to use as a sample payload. 
 
 #### Payload 1:
 ```json
 [{
             "messageId": "LINE_DATA",
             "deviceId": "FXXX",
-            "timestamp": 1522355650620,
+            "timestamp": "2018-01-17T01:17:00Z"
             "series": [{
-                        "chId": 3,
+                        "tagId": 3,
+                        "type": "CALC Pump Rate", 
+                        "unit": "psi",
                         "value": -3750.0
                   }, {
-                        "chId": 13,
+                        "tagId": 13,
+                        "type": "CALC Pump Rate",
+                        "unit": "psi",
                         "value": 0.58015072345733643
                   }, {
-                        "chId": 11,
+                        "tagId": 11,
+                        "type": "CALC Pump Rate", 
+                        "unit": "psi",
                         "value": 800.0
                   }, {
-                        "chId": 21,
+                        "tagId": 21,
+                        "type": "CALC Pump Rate", 
+                        "unit": "psi",
                         "value": 0.0
                   }, {
-                        "chId": 14,
+                        "tagId": 14,
+                        "type": "CALC Pump Rate", 
+                        "unit": "psi",
                         "value": -999.0
                   }, {
-                        "chId": 37,
+                        "tagId": 37,
+                        "type": "CALC Pump Rate", 
+                        "unit": "psi",
                         "value": 2.445906400680542
                   }, {
-                        "chId": 39,
+                        "tagId": 39,
+                        "type": "CALC Pump Rate", 
+                        "unit": "psi",
                         "value": 0.0
                   }, {
-                        "chId": 40,
+                        "tagId": 40,
+                        "type": "CALC Pump Rate", 
+                        "unit": "psi",
                         "value": 1.0
                   }, {
-                        "chId": 1,
+                        "tagId": 1,
+                        "type": "CALC Pump Rate", 
+                        "unit": "psi",
                         "value": 1.0172575712203979
                   }
             ],
-            "EventProcessedUtcTime": "2018-03-29T20:36:21.3245900Z",
-            "PartitionId": 2,
-            "EventEnqueuedUtcTime": "2018-03-29T20:34:11.0830000Z",
-            "IoTHub": {
-                  "MessageId": "<17xxx2xx-36x0-4875-9x1x-x428x41x1x68>",
-                  "CorrelationId": "<x253x5xx-7xxx-4xx3-91x4-xxx3bx2xx0x3>",
-                  "ConnectionDeviceId": "AAAA-ZZ-001",
-                  "ConnectionDeviceGenerationId": "<123456789012345678>",
-                  "EnqueuedTime": "2018-03-29T20:34:10.7990000Z",
-                  "StreamId": null
             }
       }
 ]
  ```
 
-If you push this array of events as a payload to TSI, it will be stored as one event per each measure value. Doing so can create an excess of events, which may not be ideal. Notice that you can use reference data in TSI to add meaningful names as properties.  For example, you can create reference data set with Key Property = chId:  
+If the above message is sent to TSI, it will be stored as one event/per measure value, in this case 9 events. This JSON shape enables split-bys of messageId, deviceId, tagId, type, unit, and value.  This JSON shape enables aggregations like sum, count, avg, min, and max of the value of each unit corresponding to the event properties.  In the above example, messageId, timestampId, and deviceId are all the same, so this payload is smaller because this information was only conveyed once.  However, notice that the type and unit of measure are repeated with each tagId.  If these two properties are static, this is not ideal and these  properties would be good candidates for reference data, assuming they are always consistant.  For example, you can create reference data set with Key Property = tagId:  
 
-chId  Measure               Unit
-24    Engine Oil Pressure   PSI
-25    CALC Pump Rate        bbl/min
+
+|tagId|type|unit|
+|--------|---------------|----------------------|
+|13|CALC Pump Rate|PSI|
+|11|CALC Pump Rate|PSI|
+|21|CALC Pump Rate|PSI|
+|14|CALC Pump Rate|PSI|
+|37|CALC Pump Rate|PSI|
+|39|CALC Pump Rate|PSI|
+|40|CALC Pump Rate|PSI|
+|1|CALC Pump Rate|PSI|
 
 For more information on managing reference data in Time Series Insights, see the [reference data article](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
-Another problem with the first payload is that timestamp is in milliseconds. TSI accepts only ISO formatted timestamps. One solution is to leave the default timestamp behavior in TSI, which is to use enqueued timestamp.
+As Time Series Insights ingests this data, we flatten it to store it as rows and columns.  There is no data loss during the process, but to make search performance we flatten nested values to a dot-like notation.  Here is what the above payload would like flattened.  
+
+[!Note - The flattened file would be exactly the same if you employed the reference data set above in lieu of sending 'type' and 'unit' in each nested event.]
+
+|messageId|deviceId|timestamp|series.tagId|series.type|series.unit|series.value|
+|--------|---------------|----------------------|----------------------|----------------------|----------------------|----------------------|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|3|CALC Pump Rate|PSI|-3750.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|13|CALC Pump Rate|PSI|0.58015072345733643|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|11|CALC Pump Rate|PSI|800.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|21|CALC Pump Rate|PSI|0.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|14|CALC Pump Rate|PSI|-999.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|37|CALC Pump Rate|PSI|2.445906400680542|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|39|CALC Pump Rate|PSI|0.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|40|CALC Pump Rate|PSI|1.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|1|CALC Pump Rate|PSI|1.0172575712203979|
+
 
 As an alternative to the payload above, let's look at another example.  
 
 #### Payload 2:
 ```json
-{
-      "line": "Line01",
-      "station": "Station 11",
-      "gatewayid": "AAAA-ZZ-001",
-      "deviceid": "F12XX",
-      "timestamp": "2018-03-29T20:34:15.0000000Z",
-      "STATE Engine State": 1,
-      "unit": "NONE"
-}, {
-      "line": "Line01",
-      "station": "Station 11",
-      "gatewayid": "AAAA-ZZ-001",
-      "deviceid": "MPC_AAAA-ZZ-001",
-      "timestamp": "2018-03-29T20:34:15.0000000Z",
-      "Well Head Px 1": -494162.8515625,
-      "unit": "psi"
-}, {
-      "line": "Line01",
-      "station": "Station 11",
-      "gatewayid": "AAAA-ZZ-001",
-      "deviceid": "F12XX",
-      "timestamp": "2018-03-29T20:34:15.0000000Z",
-      "CALC Pump Rate": 0,
-      "unit": "bbl/min"
-}, {
-      "line": "Line01",
-      "station": "Station 11",
-      "gatewayid": "AAAA-ZZ-001",
-      "deviceid": "F12XX",
-      "timestamp": "2018-03-29T20:34:15.0000000Z",
-      "Engine Fuel Pressure": 0,
-      "unit": "psi"
-}, {
-      "line": "Line01",
-      "station": "Station 11",
-      "gatewayid": "AAAA-ZZ-001",
-      "deviceid": "F12XX",
-      "timestamp": "2018-03-29T20:34:15.0000000Z",
-      "Engine Oil Pressure": 0.58015072345733643,
-      "unit": "psi"
-}
+[{
+            "messageId": "LINE_DATA",
+            "deviceId": "FXXX",
+            "timestamp": "2018-01-17T01:17:00Z"
+            "type": "CALC Pump Rate"
+            "unit": "psi"
+            "series": [{
+                        "tagId": 3,
+                        "value": -3750.0
+                  }, {
+                        "tagId": 13,
+                        "value": 0.58015072345733643
+                  }, {
+                        "tagId": 11,
+                        "value": 800.0
+                  }, {
+                        "tagId": 21,
+                        "value": 0.0
+                  }, {
+                        "tagId": 14,
+                        "value": -999.0
+                  }, {
+                        "tagId": 37,
+                        "value": 2.445906400680542
+                  }, {
+                        "tagId": 39,
+                        "value": 0.0
+                  }, {
+                        "tagId": 40,
+                        "value": 1.0
+                  }, {
+                        "tagId": 1,
+                        "value": 1.0172575712203979
+                  }
+            ],
+            }
+      }
+]
 ```
 
-Like Payload 1, TSI will store each every measured value as a unique event.  The notable difference is that TSI will read the *timestamp* as correctly here, as ISO.  
+Assuming the tagId's have multiple sensors, and therefore may need to convey different 'types' and 'units, we could use the above strategy to embed these properties into the message.  This is more efficient payload if all the nested events have the same type.  Below is another example, but showing as if each tag/device had different types and units.  The flattened payload would look identical to the previous example:
 
-If you need to reduce the number of events sent, then you could send the information as the following.  
+|messageId|deviceId|timestamp|series.tagId|series.type|series.unit|series.value|
+|--------|---------------|----------------------|----------------------|----------------------|----------------------|----------------------|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|3|CALC Pump Rate|PSI|-3750.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|13|CALC Pump Rate|PSI|0.58015072345733643|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|11|CALC Pump Rate|PSI|800.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|21|CALC Pump Rate|PSI|0.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|14|CALC Pump Rate|PSI|-999.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|37|CALC Pump Rate|PSI|2.445906400680542|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|39|CALC Pump Rate|PSI|0.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|40|CALC Pump Rate|PSI|1.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|1|CALC Pump Rate|PSI|1.0172575712203979|
 
 #### Payload 3:
 ```json
+[
 {
-      "line": "Line01",
-      "station": "Station 11",
-      "gatewayid": "AAAA-ZZ-001",
-      "deviceid": "F12XX",
-      "timestamp": "2018-03-29T20:34:15.0000000Z",
-      "CALC Pump Rate": 0,
-      "CALC Pump Rate.unit": "bbl/min"
-      "Engine Oil Pressure": 0.58015072345733643,
-      "Engine Oil Pressure.unit": "psi"
-      "Engine Fuel Pressure": 0,
-      "Engine Fuel Pressure.unit": "psi"
-}
+            "messageId": "LINE_DATA",
+            "deviceId": "FXXX",
+            "timestamp": "2018-01-17T01:17:00Z",
+            "type": "CALC Pump Rate",
+            "unit": "psi",
+            "series": [{
+                        "tagId": 3,
+                        "value": -3750.0
+                  }, {
+                        "tagId": 13,
+                        "value": 0.58015072345733643
+                  }, {
+                        "tagId": 11,
+                        "value": 800.0
+                  }, {
+                        "tagId": 21,
+                        "value": 0.0
+                  }, {
+                        "tagId": 14,
+                        "value": -999.0
+                  }, {
+                        "tagId": 37,
+                        "value": 2.445906400680542
+                  }, {
+                        "tagId": 39,
+                        "value": 0.0
+                  }, {
+                        "tagId": 40,
+                        "value": 1.0
+                  }, {
+                        "tagId": 1,
+                        "value": 1.0172575712203979
+                  }
+            ],
+ },
+ {
+            "messageId": "LINE_DATA",
+            "deviceId": "FXXX",
+            "timestamp": "2018-01-17T01:17:00Z",
+            "type": "Engine Oil Pressure",
+            "unit": "bbl/min",
+            "series": [{
+                        "tagId": 3,
+                        "value": 34.7
+                  }, {
+                        "tagId": 13,
+                        "value": 49.2
+                  }, {
+                        "tagId": 11,
+                        "value": 22.2
+                  }, {
+                        "tagId": 21,
+                        "value": 37.9
+                  }, {
+                        "tagId": 14,
+                        "value": 37.6
+                  }, {
+                        "tagId": 37,
+                        "value": 51.0
+                  }, {
+                        "tagId": 39,
+                        "value": 33.8
+                  }, {
+                        "tagId": 40,
+                        "value": 19.9
+                  }, {
+                        "tagId": 1,
+                        "value": 43.6
+                  }
+             ]
+      }
+]
 ```
-One final suggestion is below.
+The nested JSON objects inside the JSON array above would generate 18 unique events (9 events per object).  Notice here that my tagId's remain the same, but assuming they have multiple sensor types and each type has a unique unit of measure, I can nest these objects in the same payload.  This is an efficient transfer of data, saving bytes by reducing redundant properties, yet still enabling powerful aggregations over the properties.  For example, you could run an aggregation by "series.type" (in the explorer, you would use the 'split by' element of the term to accomplish this), that aggregates based on two dimension values, "Engine Oil Pressure" or "CALC Pump Rate". You could also use measure, which includes operators like minimum, maximum, and average, on series.tagId or series.value.
 
-#### Payload 4:
-```json
-{
-              "line": "Line01",
-              "station": "Station 11",
-              "gatewayid": "AAAA-ZZ-001",
-              "deviceid": "F12XX",
-              "timestamp": "2018-03-29T20:34:15.0000000Z",
-              "CALC Pump Rate": {
-                           "value": 0,
-                           "unit": "bbl/min"
-              },
-              "Engine Oil Pressure": {
-                           "value": 0.58015072345733643,
-                           "unit": "psi"
-              },
-              "Engine Fuel Pressure": {
-                           "value": 0,
-                           "unit": "psi"
-              }
-}
-```
+|messageId|deviceId|timestamp|series.tagId|series.type|series.unit|series.value|
+|--------|---------------|----------------------|----------------------|----------------------|----------------------|----------------------|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|3|CALC Pump Rate|PSI|-3750.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|13|CALC Pump Rate|PSI|0.58015072345733643|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|11|CALC Pump Rate|PSI|800.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|21|CALC Pump Rate|PSI|0.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|14|CALC Pump Rate|PSI|-999.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|37|CALC Pump Rate|PSI|2.445906400680542|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|39|CALC Pump Rate|PSI|0.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|40|CALC Pump Rate|PSI|1.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|1|CALC Pump Rate|PSI|1.0172575712203979|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|3|Engine Oil Pressure|bbl/min|34.7|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|13|Engine Oil Pressure|bbl/min|49.2|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|11|Engine Oil Pressure|bbl/min|22.2|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|21|Engine Oil Pressure|bbl/min|37.9|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|14|Engine Oil Pressure|bbl/min|37.6|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|37|Engine Oil Pressure|bbl/min|51.0|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|39|Engine Oil Pressure|bbl/min|33.8|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|40|Engine Oil Pressure|bbl/min|19.9|
+|LINE_DATA|FXXX|2018-01-17T01:17:00|1|Engine Oil Pressure|bbl/min|43.6|
 
-This example shows the output after flattening the JSON:
 
-```json
-{
-      "line": "Line01",
-      "station": "Station 11",,
-      "gatewayid": "AAAA-ZZ-001",
-      "deviceid": "F12XX",
-      "timestamp": "2018-03-29T20:34:15.0000000Z",
-      "CALC Pump Rate.value": 0,
-      "CALC Pump Rate.unit": "bbl/min"
-      "Engine Oil Pressure.value": 0.58015072345733643,
-      "Engine Oil Pressure.unit": "psi"
-      "Engine Fuel Pressure.value": 0,
-      "Engine Fuel Pressure.unit": "psi"
-}
-```
-
-You have the freedom to define different properties for each of the channels inside its own json object, while still keeping the event count low. This flattened approach does occupy more space, which is important to consider. TSI capacity is based on both events and size, whichever comes first.
 
 ## Next steps
 > [!div class="nextstepaction"]
