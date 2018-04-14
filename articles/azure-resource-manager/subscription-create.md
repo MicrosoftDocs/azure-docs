@@ -169,7 +169,9 @@ In the response, you get back a `subscriptionOperation` object for monitoring. W
 
 # [PowerShell](#tab/azure-powershell)
 
-Use the [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) along with `enrollmentAccount` name as the `EnrollmentAccountObjectId` parameter to create a new subscription.
+To use this preview module, install it by running `Install-Module AzureRM.Subscription -AllowPrerelease` first. To make sure `-AllowPrerelease` works, install a recent version of PowerShellGet from [Get PowerShellGet Module](/powershell/gallery/psget/get_psget_module).
+
+Use the [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) along with `enrollmentAccount` name as the `EnrollmentAccountObjectId` parameter to create a new subscription. 
 
 ```azurepowershell-interactive
 New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556 -OwnerObjectId 973034ff-acb7-409c-b731-e789672c7b31,67439a9e-8519-4016-a630-f5f805eba567
@@ -187,7 +189,9 @@ To see a full list of all parameters, see [New-AzureRmSubscription](/powershell/
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az account create](/cli/azure/account) along with `enrollmentAccount` name as the `enrollment_account_name` parameter to create a new subscription.
+To use this preview extension, install it by running `az extension add --name subscription` first.
+
+Use the [az account create](/cli/azure/ext/subscription/account) along with `enrollmentAccount` name as the `enrollment_account_name` parameter to create a new subscription.
 
 ```azurecli-interactive 
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-name "e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556" --owner-object-id "973034ff-acb7-409c-b731-e789672c7b31","67439a9e-8519-4016-a630-f5f805eba567"
@@ -263,6 +267,16 @@ Once a user becomes an RBAC Owner for your enrollment account, they can programm
 ## Audit who created subscriptions using activity logs
 
 To track the subscriptions created via this API, use the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs). It's currently not possible to use PowerShell, CLI, or Azure portal to track subscription creation.
+
+1. As a tenant admin of the Azure AD tenant, [elevate access](role-based-access-control/elevate-access-global-admin.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`.
+1. As the auditing user, call the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs) to see subscription creation activities. Example:
+
+```HTTP
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Subscription'" 
+```
+
+> [!NOTE]
+> To conveniently call this API from the command line, try [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## Limitations of Azure Enterprise subscription creation API
 
