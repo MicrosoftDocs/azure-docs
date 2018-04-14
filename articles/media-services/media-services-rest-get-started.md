@@ -102,7 +102,7 @@ The following example shows how to create an asset.
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
     Host: wamsbayclus001rest-hs.cloudapp.net
@@ -156,7 +156,7 @@ After you upload your digital media file into a blob container, you use the **ME
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 164
@@ -218,7 +218,7 @@ The following example shows how to create an AccessPolicy:
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 74
@@ -279,7 +279,7 @@ The following example shows how to create a SAS URL Locator, as defined by the T
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 178
@@ -343,7 +343,7 @@ Now that you've uploaded your file, update the FileAsset size (and other) inform
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -371,7 +371,7 @@ If successful, the following is returned:
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -390,7 +390,7 @@ If successful, the following is returned:
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -421,7 +421,7 @@ The following code requests the encoder's id.
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -468,7 +468,7 @@ The following example shows you how to create and post a Job with one Task set t
     Content-Type: application/json;odata=verbose
     Accept: application/json;odata=verbose
     Accept-Charset: UTF-8
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 482
@@ -592,7 +592,7 @@ You can retrieve the Job status by using the State property, as shown in the fol
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 0
 
@@ -629,7 +629,7 @@ The following example shows how to call CancelJob.
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.2
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
 
 
@@ -651,7 +651,7 @@ The following code shows how to request the output asset Id.
     Accept: application/json
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -730,7 +730,7 @@ The following example shows how to specify the AccessPolicy for read permissions
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 74
     Expect: 100-continue
@@ -753,7 +753,7 @@ The following code shows how to get a URL that can be used to download a media f
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 182
     Expect: 100-continue
@@ -846,7 +846,7 @@ The following code shows how to create a streaming URL Locator:
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer {ENCODED JWT TOKEN}
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs
     Content-Length: 182
     Expect: 100-continue
