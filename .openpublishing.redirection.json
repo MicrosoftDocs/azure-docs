@@ -18059,7 +18059,13 @@
             "source_path": "articles/active-directory/active-directory-azureadjoin-passport.md",
             "redirect_url": "https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-provision-powershell.md",
+            "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-powershell",
+            "redirect_document_id": true
         }
+
 
     ]
 }

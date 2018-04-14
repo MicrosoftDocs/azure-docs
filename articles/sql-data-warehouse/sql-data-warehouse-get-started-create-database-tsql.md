@@ -20,12 +20,6 @@ ms.author: elbutter;barbkess
 
 ---
 # Create a SQL Data Warehouse database by using Transact-SQL (TSQL)
-> [!div class="op_single_selector"]
-> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
-> * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
-> * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
->
->
 
 This article shows you how to create a SQL Data Warehouse using T-SQL.
 
