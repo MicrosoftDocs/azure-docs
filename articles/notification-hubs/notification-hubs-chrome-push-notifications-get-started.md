@@ -5,7 +5,7 @@ services: notification-hubs
 keywords: mobile push notifications,push notifications,push notification,chrome push notifications
 documentationcenter: ''
 author: spelluru
-manager: erikre
+manager: 
 editor: ''
 
 ms.assetid: 75d4ff59-d04a-455f-bd44-0130a68e641f

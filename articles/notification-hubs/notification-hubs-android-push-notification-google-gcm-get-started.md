@@ -5,7 +5,7 @@ services: notification-hubs
 documentationcenter: android
 keywords: push notifications,push notification,android push notification
 author: spelluru
-manager: erikre
+manager: 
 editor: ''
 
 ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
