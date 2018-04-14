@@ -44,6 +44,7 @@ For more information, see the [Azure DNS SLA page](https://azure.microsoft.com/s
 
 A domain is a unique name in the domain name system, for example ‘contoso.com’.
 
+
 A DNS zone is used to host the DNS records for a particular domain. For example, the domain ‘contoso.com’ may contain several DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a web site). These records would be hosted in the DNS zone 'contoso.com'.
 
 A domain name is *just a name*, whereas a DNS zone is a data resource containing the DNS records for a domain name. Azure DNS allows you to host a DNS zone and manage the DNS records for a domain in Azure. It also provides DNS name servers to answer DNS queries from the Internet.
@@ -87,6 +88,14 @@ Zone Transfer is a feature being tracked on Azure DNS backlog. You can use the f
 No. URL redirect services are not actually a DNS service - they work at the HTTP level, rather than the DNS level. Some DNS providers to bundle a URL redirect service as part of their overall offering. This is not currently supported by Azure DNS.
 
 URL Redirect feature is tracked on Azure DNS backlog. You can use the feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
+
+### Does Azure DNS support extended ASCII encoding (8-bit) set for TXT Recordset ?
+
+Yes. Azure DNS supports the extended ASCII encoding set for TXT Recordsets, if you use the latest version of the Azure REST APIs, SDKs, PowerShell and CLI (versions older than 2017-10-01 or SDK 2.1 do not support the extended ASCII set). For example, if the user provides a string as the value for a TXT record that has the extended ASCII character \128 (eg: "abcd\128efgh"), Azure DNS will use the byte value of this character (which is 128) in internal representation. At the time of DNS resolution as well this byte value will be returned in the response. Also note that "abc" and "\097\098\099" are interchangeable as far as resolution is concerned. 
+
+We follow [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zone file master format escape rules for TXT records. For example, ‘\’ now actually escapes everything per the RFC. If you specify "A\B" as the TXT record value, it will be represented and resolve as just "AB". If you really want the TXT record to have "A\B" at resolution, you need to escape the "\" again, i.e specify as "A\\B". 
+
+Note that this support is currently not available for TXT records created from the Azure Portal. 
 
 ## Using Azure DNS
 
