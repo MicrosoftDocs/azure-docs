@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: cosmos-db
+ author: SnehaGunda
+ ms.service: cosmos-db
+ ms.topic: include
+ ms.date: 04/13/2018
+ ms.author: sngun
+ ms.custom: include file
+---
+
 1. In a new browser window, sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **Create a resource** > **Databases** > **Azure Cosmos DB**.
    
@@ -17,7 +29,7 @@
 
     Then click **Create**.
 
-    ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account.png)
 
 4. The account creation takes a few minutes. Wait for the portal to display the **Congratulations! Your Azure Cosmos DB account was created** page.
 
