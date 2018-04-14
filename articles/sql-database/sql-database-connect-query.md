@@ -16,6 +16,16 @@ ms.author: carlrab
 
 The following table includes links to Azure examples showing how to connect and query an Azure SQL database.
 
+> [!NOTE]
+> All Microsoft-supplied and supported drivers will always use TLS when connecting to Azure SQL Database without any special 
+> configuration necessary. We recommend that all applications enable the Encrypt=On and TrustServerCertificate=Off (or equivalent) 
+> keywords for all connections to SQL Server and Azure SQL Database to ensure the client driver verifies the server’s identity via its 
+> TLS certificate. Also, we recommend you disable TLS 1.1 and 1.0 on the client if you need to comply with PCI-DSS.
+ 
+> Non-Microsoft drivers may not use TLS by default and may not be capable of doing so at all when connecting to Azure SQL Database. 
+> Applications with embedded drivers may not allow you to control these connection settings. We recommend carefully examining the 
+> security of such drivers and applications before using them on systems that interact with sensitive data.
+
 | |  |
 |---|---|
 |[SQL Server Management Studio](sql-database-connect-query-ssms.md)|This quickstart tutorial demonstrates how to use SSMS to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.|
