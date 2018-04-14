@@ -60,14 +60,10 @@ Here's what we're going to do:
 > * **Step 2: Prepare for database assessment**: Make sure that the external links to the SQL Server machine are allowed.
 > * **Step 3: Prepare for VM assessment**: Set up on-premises accounts, and tweak VMware settings.
 > * **Step 4: Discover on-premises VMs**: Create an Azure Migrate collector VM. Then, run the collector to discover VMs for assessment.
-> * **Step 5**: Install agents: Install Azure Migrate agents on the VMs, so that we can see the dependency mapping between VMs.
-> * **Step 6**: Assess the database: Run and analyze the database assessment.
-> * **Step 7: Assess the VMs**: Gather VMs into a group, and verify group dependencies. Then, run and analyze an assessment.
-
-> * **Prepare for database assessment**: For database assessment, you just need to make sure that the Assistant can connect to the SQL database.
-> * **Prepare for VM assessment**: You need to set up on-premises accounts and permissions.
-> * **Discover on-premises VMs**: You create an Azure Migrate collector VM, and run the collector to discover VMs you want to assess. You also need to install an Azure Migrate component on the VMs, for deep dependency validation.
-> * **Run and analyze assessments**: You run the assessments for the database and VMs, and analyze the results
+> * **Step 5: Prepare for dependency analysis**: Install Azure Migrate agents on the VMs, so that we can see the dependency mapping between VMs.
+> * **Step 6: Download and install Database Migration Assistant**: Set up the Database Migration Assistant, to assess the on-premises SQL Server database.
+> * **Step 7: Assess the database**: Run and analyze the database assessment.
+> * **Step 8: Assess the VMs**: Check dependencies, group the VMs, and run the assessment. AFter the assessment is ready, analyze it in preparation for migration.
 
 
 ## Step 1: Prepare Azure
@@ -193,7 +189,9 @@ Before you start, note that the collector currently only supports "English (Unit
 1. In the vSphere Client console, right-click the VM > **Open Console**.
 2. Provide the language, time zone, and password preferences for the appliance.
 3. On the desktop, click the **Run collector** shortcut.
+
     ![Collector shortcut](./media/migrate-scenarios-assessment/collector-shortcut.png) 
+    
 4. In the Azure Migrate Collector, open **Set up prerequisites**.
     - Accept the license terms, and read the third-party information.
     - The collector checks that the VM has internet access, the time is synchronized, that the collector service is running (it's installed by default on the VM). It also installs VMWare PowerCLI is installed. 
@@ -209,7 +207,7 @@ Before you start, note that the collector currently only supports "English (Unit
     - In **Username** and **Password**, specify the read-only account credentials that the collector will use to discover VMs on the vCenter server.
     - In **Select scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1000 VMs. 
 
-    ![Connect to vCenter](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
+	![Connect to vCenter](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 
 6. In **Specify migration project**, specify the Azure Migrate project ID and key that you copied from the portal. If didn't copy them, open the Azure portal from the collector VM. In the project **Overview** page, click **Discover Machines**, and copy the values.  
 
@@ -230,14 +228,14 @@ After collection completes, check that the VMs appear in the portal.
 
     ![Discovered machines](./media/migrate-scenarios-assessment/discovery-complete.png)
 
-The machines currently don't have the Azure Migrate agents installed. We need to install these so that we can view dependencies.
+3. Note that the machines currently don't have the Azure Migrate agents installed. We need to install these so that we can view dependencies.
+	
+	![Discovered machines](./media/migrate-scenarios-assessment/machines-no-agent.png)
 
-![Discovered machines](./media/migrate-scenarios-assessment/machines-no-agent.png)
 
+## Step 5: Prepare for dependency analysis
 
-## Step 5: Install agents
-
-To view dependencies between VMs we want to assess, we’ll download and install agents on the web app VMs – WEBVM and SQLVM.
+To view dependencies between VMs we want to assess, we download and install agents on the web app VMs – WEBVM and SQLVM.
 
 ### Take a snapshot
 
@@ -245,10 +243,6 @@ Take a snapshot of the VMs before you install the agents.
 
 ![Machine snapshot](./media/migrate-scenarios-assessment/snapshot-vm.png) 
 
-
-## Prepare VMs for dependency mapping
-
-To view dependencies between on-premises machines, you need to download and install agents on each machine. 
 
 ### Download and install the VM agents
 
@@ -360,7 +354,7 @@ If you're running a larger scale assessment:
 
 
        
-## Step 7: Run and analyze the VM assessment
+## Step 8: Run and analyze the VM assessment
 
 Verify machine dependencies, create a group, and run the assessment.
 
@@ -459,13 +453,14 @@ This view shows the total compute and storage cost of running the VMs in Azure, 
 
 In this scenario we've:
 
-Assessed our on-premises database with the Database Migration Assistant tool.
-Assessed our on-premises VMs, using dependency mapping, with the Azure Migrate service.
-Reviewed the assessments to make sure our on-premises resources are ready for migration to Azure.
+> [!div class="checklist"]
+> * Assessed our on-premises database with the Database Migration Assistant tool.
+> * Assessed our on-premises VMs, using dependency mapping, with the Azure Migrate service.
+> * Reviewed the assessments to make sure our on-premises resources are ready for migration to Azure.
 
 ## Next steps
 
-Let's continue with our scenario by migrating the on-premises VMs to Azure.
+Let's continue with the next scenario, to do a lift-and shift migration of the on-premises VMs to Azure.
 
 
 
