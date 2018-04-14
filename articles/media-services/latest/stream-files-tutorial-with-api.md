@@ -250,38 +250,28 @@ The **Job** usually goes through the following states: **Scheduled**, **Queued**
 private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, string jobName)
 {
     Job job = null;
-    bool exit = false;
-            
-    do
+    while (true)
     {
         job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
 
         if (job.State == JobState.Finished || job.State == JobState.Error || job.State == JobState.Canceled)
         {
-            exit = true;
+            break;
         }
-        else
+
+        Console.WriteLine($"Job is {job.State}.");
+        for (int i = 0; i < job.Outputs.Count; i++)
         {
-            Console.WriteLine($"Job is {job.State}.");
-
-            for (int i = 0; i < job.Outputs.Count; i++)
+            JobOutput output = job.Outputs[i];
+            Console.Write($"\tJobOutput[{i}] is {output.State}.");
+            if (output.State == JobState.Processing)
             {
-                JobOutput output = job.Outputs[i];
-
-                Console.Write($"\tJobOutput[{i}] is {output.State}.");
-
-                if (output.State == JobState.Processing)
-                {
-                    Console.Write($"  Progress: {output.Progress}");
-                }
-
-                Console.WriteLine();
+                Console.Write($"  Progress: {output.Progress}");
             }
-
-            System.Threading.Thread.Sleep(SleepInterval);
+            Console.WriteLine();
         }
+        System.Threading.Thread.Sleep(SleepInterval);
     }
-    while (!exit);
 
     return job;
 }
