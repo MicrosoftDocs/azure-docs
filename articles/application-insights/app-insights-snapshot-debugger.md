@@ -89,7 +89,7 @@ The following environments are supported:
 
 3. Modify your application's `Startup` class to add and configure the Snapshot Collector's telemetry processor.
 
-    Add the following using statement to `Startup.cs`
+    Add the following using statements to `Startup.cs`
 
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
