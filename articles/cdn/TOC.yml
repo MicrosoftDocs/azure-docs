@@ -140,7 +140,7 @@
   - name: HTTP headers
     href: cdn-http-headers.md
     items:
-      - name: X-EC-Debug Verizon-specific headers
+      - name: X-EC-Debug headers
         href: cdn-http-debug-headers.md    
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cdn

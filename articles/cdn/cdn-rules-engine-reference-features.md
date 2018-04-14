@@ -513,14 +513,14 @@ Key information:
 
 ---
 ### Debug Cache Response Headers
-**Purpose:** Determines whether a response can include the [X-EC-Debug response header](cdn-http-headers.md#x-ec-debug-headers), which provides information on the cache policy for the requested asset.
+**Purpose:** Determines whether a response can include [X-EC-Debug response headers](cdn-http-debug-headers), which provides information on the cache policy for the requested asset.
 
 Debug cache response headers will be included in the response when both of the following are true:
 
-- The Debug Cache Response Headers feature has been enabled on the desired request.
-- The above request defines the set of debug cache response headers that will be included in the response.
+- The Debug Cache Response Headers feature has been enabled on the specified request.
+- The specified request defines the set of debug cache response headers that will be included in the response.
 
-Debug cache response headers may be requested by including the following header and the desired directives in the request:
+Debug cache response headers may be requested by including the following header and the specified directives in the request:
 
 X-EC-Debug: _Directive1_,_Directive2_,_DirectiveN_
 
@@ -989,7 +989,7 @@ Key information:
 
 ---
 ### Proxy Special Headers
-**Purpose:** Defines the set of CDN-specific [HTTP request headers](cdn-http-headers.md#verizon-specific-http-request-headers) that will be forwarded from a POP to an origin server.
+**Purpose:** Defines the set of [Verizon-specific HTTP request headers](cdn-http-headers.md#verizon-specific-http-request-headers) that will be forwarded from a POP to an origin server.
 
 Key information:
 
