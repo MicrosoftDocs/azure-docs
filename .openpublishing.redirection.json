@@ -5,6 +5,16 @@
             "redirect_url": "/azure/search/search-howto-index-cosmosdb",
             "redirect_document_id": true
         },
+	{
+            "source_path": "articles/active-directory/active-directory-saas-scc-lifecycle-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-scclifecycle-tutorial",
+            "redirect_document_id": true
+	},
+	{
+            "source_path": "articles/active-directory/active-directory-saas-zwayamsso-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-zwayam-tutorial",
+            "redirect_document_id": true
+	},
         {
             "source_path": "articles/machine-learning/preview/release-notes-sprint-0.md",
             "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-1",
@@ -4796,6 +4806,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/connected-service.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
             "redirect_document_id": false
@@ -6711,6 +6726,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-sql-database-managed-instance-tutorial-portal.md",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-create-tutorial-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-geo-replication-failover-powershell.md",
             "redirect_url": "/azure/sql-database/scripts/sql-database-setup-geodr-and-failover-database-powershell",
             "redirect_document_id": false
@@ -7533,6 +7553,21 @@
         {
             "source_path": "articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
             "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-manage-nsg-arm-cli.md",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-manage-nsg-arm-ps.md",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-manage-nsg-arm-portal.md",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
             "redirect_document_id": false
         },
         {
@@ -15922,7 +15957,7 @@
         },
         {
             "source_path": "articles/cognitive-services/index.md",
-            "redirect_url": "/azure/#pivot=products&panel=cognitive",
+            "redirect_url": "/azure/#pivot=products&panel=ai",
             "redirect_document_id": false
         },
         {
@@ -17884,6 +17919,147 @@
             "source_path": "articles/cognitive-services/Bing-Web-Search/search-the-web.md",
             "redirect_url": "/azure/cognitive-services/bing-web-search",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-understanding-resource-access.md",
+            "redirect_url": "/azure/role-based-access-control/rbac-and-directory-admin-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/conditional-access-azure-management.md",
+            "redirect_url": "/azure/role-based-access-control/conditional-access-azure-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/manage-access-to-azure-resources.md",
+            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pim-azure-resource.md",
+            "redirect_url": "/azure/role-based-access-control/pim-azure-resource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-resource-provider-operations.md",
+            "redirect_url": "/azure/role-based-access-control/resource-provider-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-tenant-admin-access.md",
+            "redirect_url": "/azure/role-based-access-control/elevate-access-global-admin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-what-is.md",
+            "redirect_url": "/azure/role-based-access-control/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-troubleshooting.md",
+            "redirect_url": "/azure/role-based-access-control/troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-custom-roles.md",
+            "redirect_url": "/azure/role-based-access-control/custom-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-external-users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-manage-access-azure-cli.md",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-manage-access-powershell.md",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-manage-access-rest.md",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-rest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-manage-assignments.md",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-configure.md",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-portal?toc=%2fazure%2factive-directory%2ftoc.json",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-built-in-roles.md",
+            "redirect_url": "/azure/role-based-access-control/built-in-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-access-change-history-report.md",
+            "redirect_url": "/azure/role-based-access-control/change-history-report",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
+            "redirect_url": "/azure/cosmos-db/storage-explorer",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/performance-tiers.md",
+            "redirect_url": "/azure/sql-data-warehouse/memory-and-concurrency-limits",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md",
+            "redirect_url": "/azure/data-factory/load-azure-sql-data-warehouse",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-load-with-polybase.md",
+            "redirect_url": "/azure/sql-data-warehouse/load-data-wideworldimportersdw",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-polybase.md",
+            "redirect_url": "/azure/sql-data-warehouse/load-data-wideworldimportersdw",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/stream-analytics/stream-analytics-data-lake-output.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs#azure-data-lake-store",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/stream-analytics/stream-analytics-sample-data-input.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-test-query",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-migrate-migration-utility.md",
+            "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-migrate",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-migrate-to-premium-storage.md",
+            "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-migrate",
+            "redirect_document_id": false
+		},
+		{
+            "source_path": "articles/active-directory/active-directory-azureadjoin-passport-deployment.md",
+            "redirect_url": "https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-azureadjoin-passport.md",
+            "redirect_url": "https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification",
+            "redirect_document_id": true
         }
+
     ]
 }
