@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Elastic Query with Azure SQL Data Warehouse | Microsoft Docs
+title: 'Tutorial: Elastic Query with Azure SQL Data Warehouse | Microsoft Docs'
 description: This tutorial uses the Elastic Query feature to query Azure SQL Data Warehouse from Azure SQL Database. 
 services: sql-data-warehouse
 author: hirokib
