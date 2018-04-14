@@ -12,7 +12,7 @@ ms.custom: MVC
 ---
 # Scenario 1: Assess on-premises workloads for migration to Azure
 
-As they consider migration to Azure, Contoso company would like to run a technical assessment to figure out whether their on-premises workloads are suitable for migration to the cloud. In particular, they want to assess machine and database compatibility for migration and estimate capacity and costs for running their resources in Azure.
+As they consider migration to Azure, Contoso company would like to run a technical assessment to figure out whether their on-premises workloads are suitable for migration to the cloud. In particular, they want to assess machine and database compatibility for migration, and estimate capacity and costs for running their resources in Azure.
 
 To get their feet wet and better understand the technologies involved, they're assessing and migrating a small on-premises app.
 
@@ -293,7 +293,7 @@ Take a snapshot of the VMs before you install the agents.
     - You can install the Assistant on any machine that can connect to the SQL instance. You don't need to run it on the SQL Server machine.
     - You shouldn't run it on the SQL Server host machine.
 2. Double-click the downloaded setup file (DownloadMigrationAssistant.msi) to start the installation.
-3. On the **Finish** page, make sure that *Launch Microsoft Data Migration Assistant** is selected, and click **Finish**.
+3. On the **Finish** page, make sure that **Launch Microsoft Data Migration Assistant** is selected, and click **Finish**.
 
 ## Step 7: Run the and analyze database assessment
 
