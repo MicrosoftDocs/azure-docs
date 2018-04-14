@@ -8,6 +8,7 @@ manager: timlt
 editor: ''
 
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
+
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -39,10 +40,10 @@ Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is 
     * Ubuntu 16.04 (`Xenial Xerus`)
 
       * Ensure that the `apt-transport-https` package is installed:
-
-      ```bash
-      sudo apt-get install apt-transport-https
-      ```
+         
+         ```bash
+         sudo apt-get install apt-transport-https
+         ```
     * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 
@@ -118,14 +119,24 @@ To install the SDK and the associated runtime package via the apt-get command-li
 3. Add EfficiOS RHEL7 package repository to your system.
 
     ```bash
-    wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
+    sudo wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
     ```
 
-4. Import the efficios package signing key to the local GPG keyring
+4. Import the efficios package signing key to the local GPG keyring.
 
     ```bash
     sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
     ```
+5. Add Microsoft RHEL repository to your system.
+   ```bash
+      curl https://packages.microsoft.com/config/rhel/7.4/prod.repo > ./microsoft-prod.repo
+      sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
+   ```
+6. Install dotnet sdk.
+   ```bash
+      yum install rh-dotnet20 -y
+      scl enable rh-dotnet20 bash
+   ```
 
 ## Install and set up the Service Fabric SDK for local cluster setup
 
