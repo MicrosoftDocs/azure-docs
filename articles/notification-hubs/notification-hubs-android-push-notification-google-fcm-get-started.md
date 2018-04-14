@@ -120,7 +120,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
         </service>
     ```
 
-2. Once you have received your FCM registration token from the FirebaseInstanceId API, you use it to [register with the Azure Notification Hub](notification-hubs-push-notification-registration-management.md). You support this registration in the background using an `IntentService` named `RegistrationIntentService`. This service will also be responsible for refreshing your FCM registration token.
+2. Once you have received your FCM registration token from the FirebaseInstanceId API, you use it to [register with the Azure Notification Hub](notification-hubs-push-notification-registration-management.md). You support this registration in the background using an `IntentService` named `RegistrationIntentService`. This service is also responsible for refreshing your FCM registration token.
    
     Add the following service definition to the AndroidManifest.xml file, inside the `<application>` tag. 
    
@@ -302,7 +302,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
         import android.widget.TextView;
         import android.widget.Toast;
     ```
-3. Add the following private members at the top of the class. You use these to [check the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
+3. Add the following private members at the top of the class. You use these fields to [check the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
    
     ```java
         public static MainActivity mainActivity;
@@ -487,7 +487,7 @@ You can send push notifications from the [Azure portal] by doing the following a
 
 1. Select **Test Send** in the **Troubleshooting** section.
 2. For **Platforms**, select **Android**. 
-3. Select **Send** button.  You will not see a notification on the Android device yet because you haven't run the mobile app on it. After you run the mobile app, select **Send** button again to see the notification message. 
+3. Select **Send**.  You do not see a notification on the Android device yet because you haven't run the mobile app on it. After you run the mobile app, select **Send** button again to see the notification message. 
 4. See the **result** of the operation in the list at the bottom. 
 
     ![Azure Notification Hubs - Test Send](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
@@ -499,7 +499,7 @@ You can send push notifications from the [Azure portal] by doing the following a
 ### Run the mobile app
 If you want to test push notifications inside an emulator, make sure that your emulator image supports the Google API level that you chose for your app. If your image doesn't support native Google APIs, you end up with the **SERVICE\_NOT\_AVAILABLE** exception.
 
-In addition to the above, ensure that you have added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with GCM may result in the **AUTHENTICATION\_FAILED** exception.
+In addition, ensure that you have added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with GCM may result in the **AUTHENTICATION\_FAILED** exception.
 
 1. Run the app and notice that the registration ID is reported for a successful registration.
    
