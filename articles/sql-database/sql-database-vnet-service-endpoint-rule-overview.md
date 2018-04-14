@@ -222,6 +222,11 @@ A list of several SQL Database error messages is documented [here][sql-database-
 
 This section illustrates how you can use the [Azure portal][http-azure-portal-link-ref-477t] to create a *virtual network rule* in your Azure SQL Database. The rule tells your SQL Database to accept communication from a particular subnet that has been tagged as being a *Virtual Network service endpoint*.
 
+> [!NOTE]
+> Please ensure that service endpoints are turned on for the VNET/Subnet you intend to add to the VNET Firewall Rules of your Server.
+> If service endpoints are not turned on for the VNET/Subnet you will be asked in the portal to enable them, please click enable on 
+> the blade on which you add the rule.
+
 #### PowerShell alternative
 
 A PowerShell script can also create virtual network rules. The crucial cmdlet **New-AzureRmSqlServerVirtualNetworkRule**. If interested, see [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
