@@ -262,21 +262,20 @@ Edit your app manifest to support ADM:
 > If a problem occurs, check the time of the emulator (or device). The time value must be accurate. To change the time of the Kindle emulator, you can run the following command from your Android SDK platform-tools directory:
 > 
 
-    ```
-
-        adb shell  date -s "yyyymmdd.hhmmss"
-    ```
+```
+adb shell  date -s "yyyymmdd.hhmmss"
+```
 
 ## Send a message
 To send a message by using .NET:
 
     ```csharp
-        static void Main(string[] args)
-        {
-            NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("[conn string]", "[hub name]");
+    static void Main(string[] args)
+    {
+        NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("[conn string]", "[hub name]");
 
-            hub.SendAdmNativeNotificationAsync("{\"data\":{\"msg\" : \"Hello from .NET!\"}}").Wait();
-        }
+        hub.SendAdmNativeNotificationAsync("{\"data\":{\"msg\" : \"Hello from .NET!\"}}").Wait();
+    }
     ```
 
 ![][7]
