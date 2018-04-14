@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-## Generate the Certificate Signing Request file
+## Generate the certificate signing request file
 The Apple Push Notification Service (APNS) uses certificates to authenticate your push notifications. Follow these instructions to create the necessary push certificate to send and receive notifications. For more information on these concepts, see the official [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584) documentation.
 
 Generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed push certificate.
