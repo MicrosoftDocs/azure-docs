@@ -185,8 +185,8 @@ g.E(['USA', 'I5'])
 For more information, see [Gremlin support for Azure Cosmos DB](gremlin-support.md).
 
 
-<a name="designing-for-partitioning"></a>
-## Design for partitioning
+<a name="designing-for-scale"></a>
+## Design for scale
 To scale effectively with Azure Cosmos DB, you need to pick a good partition key when you create your container. There are two main considerations for choosing a good partition key:
 
 * **Query boundary and transactions**. Your choice of partition key should balance the need to use transactions against the requirement to distribute your entities across multiple partition keys to ensure a scalable solution. At one extreme, you can set the same partition key for all your items, but this option might limit the scalability of your solution. At the other extreme, you can assign a unique partition key for each item. This choice is highly scalable, but it prevents you from using cross-document transactions via stored procedures and triggers. An ideal partition key enables you to use efficient queries and has sufficient cardinality to ensure your solution is scalable. 
