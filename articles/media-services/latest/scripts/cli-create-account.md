@@ -46,7 +46,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
 | [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Creates a storage account. |
-| [az media services account create]() | Creates the Media Services account. |
+| **az ams account create** | Creates the Media Services account. |
+| **az ams account sp create** | Creates a service principal with password and configures its access to an Azure Media Services account. |
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps

@@ -8,7 +8,7 @@
   expanded: true
   items:
   - name: Stream video files
-    items:
+    items: 
     - name: .NET with Visual Studio
       href: stream-files-dotnet-quickstart.md
 - name: Tutorials

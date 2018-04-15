@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 03/27/2018
+ms.date: 04/15/2018
 ms.author: juliako
 ---
 
@@ -21,6 +21,6 @@ The following table includes links to Azure CLI examples for Azure Media Service
 
 |  |  |
 |---|---|
-|**Create a Media Services account**||
-| [Create a Media Services account](./scripts/cli-create-account.md) | Creates a Media Services account. |
+|**Create an account**||
+| [Create a Media Services account](./scripts/cli-create-account.md) | Creates a Media Services account and a service principal. Configures the service principal access to an Azure Media Services account.  |
 
