@@ -219,11 +219,11 @@ To give another user or service principal the ability to create subscriptions ag
 # [REST](#tab/rest)
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Authorization/roleAssignments/123e4567-e89b-12d3-a456-426655440003?api-version=2015-07-01
+PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
 
 {
   "properties": {
-    "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
     "principalId": "<userObjectId>"
   }
 }
@@ -233,17 +233,17 @@ When the Owner role is successfully assigned at the enrollment account scope, Az
 ```json
 {
   "properties": {
-    "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
     "principalId": "<userObjectId>",
     "scope": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
     "createdOn": "2018-03-05T08:36:26.4014813Z",
     "updatedOn": "2018-03-05T08:36:26.4014813Z",
-    "createdBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e",
-    "updatedBy": "877f0ab8-9c5f-420b-bf88-a1c6c7e2643e"
+    "createdBy": "<assignerObjectId>",
+    "updatedBy": "<assignerObjectId>"
   },
-  "id": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+  "id": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
   "type": "Microsoft.Authorization/roleAssignments",
-  "name": "196965ae-6088-4121-a92a-f1e33fdcc73e"
+  "name": "<roleAssignmentGuid>"
 }
 ```
 
