@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 04/15/2018
 ms.author: spelluru
 
 ---
@@ -44,20 +44,31 @@ In this tutorial, you do the following actions:
     
     ![Classroom lab home page](./media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 
-## Configure the classroom lab
+## Configure usage policy
 
 1. Select **Usage policy**. 
-2. In the **Usage policy**, settings, enter the **number of users** allowed to use the lab, and select **Save**. 
+2. In the **Usage policy**, settings, enter the **number of users** allowed to use the lab.
+3. Select **Save**. 
 
     ![Usage policy](./media/tutorial-setup-classroom-lab/usage-policy-settings.png)
-1. Select **Availability** in the **Template** section. 
-2. In the **Availability** page, select **Public**, and select **Save**.
 
-    ![Availability](./media/tutorial-setup-classroom-lab/public-access.png)
-5. Select **User view** in the **Template** section.
-6. In the **User view** window, specify a **title for the template**, **description for the template**, and select **Save**.
+## Set title and description
+1. In the **Template** section, select **Edit** (pencil icon) for the template. 
+2. In the **User view** window, Enter a **title** for the template.
+3. Enter **description** for the template.
+4. Select **Save**.
 
     ![Classroom lab description](./media/tutorial-setup-classroom-lab/lab-description.png)
+
+## Configure visibility
+1. Select **Visibility** in the **Template** section. 
+2. In the **Availability** page, select **Public**.
+    
+    > [!IMPORTANT]
+    > Once a template is publicly available, its access can't be changed to private. 
+3. Select **Save**.
+
+    ![Availability](./media/tutorial-setup-classroom-lab/public-access.png)
 
 ## Send registration link to students
 
