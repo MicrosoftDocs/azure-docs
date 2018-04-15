@@ -15,7 +15,7 @@ ms.devlang: Java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
-ms.author: yuaxu
+ms.author: spelluru
 
 ---
 # Get started with Notification Hubs for Kindle apps
@@ -33,7 +33,7 @@ In this tutorial, you create/update code to do the following tasks:
 > * Create your ADM message handler
 > * Add your API key to your app
 > * Run the app
-> ** Send a test message
+> * Send a test notification 
 
 ## Prerequisites
 
@@ -266,17 +266,18 @@ Edit your app manifest to support ADM:
 adb shell  date -s "yyyymmdd.hhmmss"
 ```
 
-## Send a message
+## Send a notification message
+
 To send a message by using .NET:
 
-    ```csharp
-    static void Main(string[] args)
-    {
-        NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("[conn string]", "[hub name]");
+```csharp
+static void Main(string[] args)
+{
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("[conn string]", "[hub name]");
 
-        hub.SendAdmNativeNotificationAsync("{\"data\":{\"msg\" : \"Hello from .NET!\"}}").Wait();
-    }
-    ```
+    hub.SendAdmNativeNotificationAsync("{\"data\":{\"msg\" : \"Hello from .NET!\"}}").Wait();
+}
+```
 
 ![][7]
 
