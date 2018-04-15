@@ -127,6 +127,25 @@ curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Co
     }
 ```
 
+# [Python](#tab/Python)
+```py
+import json
+import requests
+
+apiKey = 'YOUR_SUBSCRIPTION_KEY'
+apiURL = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
+
+requestHeader = {
+        'Content-type' : 'application/x-www-form-urlencoded',
+        'Content-Length' : '0',
+        'Ocp-Apim-Subscription-Key' : apiKey
+}
+
+response = requests.post(apiURL, headers=requestHeader)
+
+print(response.content.decode('utf-8'))
+```
+
 ---
 
 The following is a sample POST request:
