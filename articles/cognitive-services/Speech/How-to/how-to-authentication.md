@@ -128,22 +128,18 @@ curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Co
 ```
 
 # [Python](#tab/Python)
+
 ```py
-import json
 import requests
-
 apiKey = 'YOUR_SUBSCRIPTION_KEY'
-apiURL = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
-
-requestHeader = {
+tockenURL = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
+fetchTockenHeader = {
         'Content-type' : 'application/x-www-form-urlencoded',
         'Content-Length' : '0',
         'Ocp-Apim-Subscription-Key' : apiKey
 }
-
-response = requests.post(apiURL, headers=requestHeader)
-
-print(response.content.decode('utf-8'))
+tockenResponse = requests.post(tockenURL, headers=fetchTockenHeader)
+OAuthTocken=tockenResponse.content.decode('utf-8')
 ```
 
 ---
@@ -237,6 +233,26 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
         requestStream.Flush();
     }
 }
+```
+
+# [Python](#tab/Python)
+
+```py
+import json
+recogMode = 'interactive'
+language = 'en-US'
+outputFormat = 'detailed'
+apiURL = 'https://speech.platform.bing.com/speech/recognition/'+ recogMode + '/cognitiveservices/v1?language=' + language + '&format=' + outputFormat
+audioFilePath = 'YOUR_AUDIO_FILE'
+
+requestHeader = {
+        'Authorization' : 'Bearer ' + OAuthTocken,
+        'Content-type' : 'audio/wav; codec=audio/pcm; samplerate=16000'
+}
+
+requestBody = open(audioFilePath, 'rb').read()
+response = requests.post(apiURL, data=requestBody, headers=requestHeader)
+responseJson = json.loads(response.content.decode('utf-8'))
 ```
 
 ---
