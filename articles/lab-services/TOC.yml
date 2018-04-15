@@ -4,8 +4,6 @@
   items:
   - name: About Lab Services (Preview)
     href: lab-services-overview.md
-  - name: About DevTest Labs 
-    href: devtest-lab-overview.md
 - name: Tutorials
   items:
   - name: Custom labs
@@ -45,6 +43,8 @@
       href: devtest-lab-test-env.md
     - name: Use custom labs for training
       href: devtest-lab-training-lab.md
+    - name: DevTest Labs 
+      href: devtest-lab-overview.md
 - name: How-to guides
   items:
   - name: Custom labs
