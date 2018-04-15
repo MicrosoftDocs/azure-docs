@@ -16,7 +16,7 @@
   - name: Upload, encode, and stream
     items:
     - name: Using APIs
-      href: stream-files-tutorial.md
+      href: stream-files-tutorial-with-api.md
   - name: Analyze your video
     items:
     - name: Using APIs    

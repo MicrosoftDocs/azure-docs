@@ -206,4 +206,4 @@ private static void DownloadResults(IAzureMediaServicesClient client, string ass
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: upload, encode, and stream files](stream-files-tutorial.md)
+> [Tutorial: upload, encode, and stream files](stream-files-tutorial-with-api.md)
