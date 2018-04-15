@@ -19,7 +19,7 @@ ms.author: spelluru
 # An introduction to Azure Lab Services (formerly Azure DevTest Labs)
 Azure Lab Services enables you to quickly set up an environment for your team (for example: development environment, test environment, classroom lab environment) in the cloud. A lab owner creates a lab, provisions Windows or Linux virtual machines, installs artifacts, and makes them available to lab users. Lab users connect to virtual machines (VMs) in the lab, and use them for their day-to-day work or for a short-term project or for doing classroom exercises. Once users start utilizing the resources in the lab, a lab admin can analyze cost and usage across multiple labs, and set overarching policies to optimize your organization or team's costs.
 
-The following section provides informaiton about different types of labs you can create with Azure Lab Services:
+The following section provides information about different types of labs you can create with Azure Lab Services:
 
 ## Types of labs
 If you want to input what you need in the lab and let the service roll it out to your audience, you can choose from one of the **managed labs**, such as **classroom lab**. If you want to manage your own infrastructure, choose the **custom lab** type to set up a lab in your own Azure subscription. The custom lab is exactly same as the lab that you could create with Azure DevTest Labs service that is in general availability (GA). The following sections provide more details about these labs. 
