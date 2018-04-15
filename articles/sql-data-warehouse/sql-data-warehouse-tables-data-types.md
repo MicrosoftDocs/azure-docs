@@ -36,7 +36,7 @@ SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_def
 FROM sys.tables  t
 JOIN sys.columns c on t.[object_id]    = c.[object_id]
 JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
-WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
+WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','xml')
  AND  y.[is_user_defined] = 1;
 ```
 
@@ -58,7 +58,7 @@ The following list shows the data types that SQL Data Warehouse does not support
 | [timestamp](/sql/t-sql/data-types/date-and-time-types) |Rework code to use [datetime2](/sql/t-sql/data-types/datetime2-transact-sql) and the [CURRENT_TIMESTAMP](/sql/t-sql/functions/current-timestamp-transact-sql) function. Only constants are supported as defaults, therefore current_timestamp cannot be defined as a default constraint. If you need to migrate row version values from a timestamp typed column, then use [BINARY](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) or [VARBINARY](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) for NOT NULL or NULL row version values. |
 | [xml](/sql/t-sql/xml/xml-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
 | [user-defined type](/sql/relational-databases/native-client/features/using-user-defined-types) |Convert back to the native data type when possible. |
-| default values | Default values support literals and constants only. Non-deterministic expressions or functions, such as [GETDATE](/sql/t-sql/functions/getdate-transact-sql) or [CURRENT_TIMESTAMP](/sql/t-sql/functions/current-timestamp-transact-sql), are not supported. |
+| default values | Default values support literals and constants only. |
 
 
 ## Next steps
