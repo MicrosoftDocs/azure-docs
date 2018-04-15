@@ -17,7 +17,7 @@ ms.date: 04/15/2018
 ms.author: juliako
 ---
 
-# CLI example: Create a Azure Media Services account
+# CLI example: Create an Azure Media Services account
 
 This script creates an Azure Media Services account.
 
