@@ -201,7 +201,7 @@ package devCamp.WebApp.configurations;
         @Bean
         public FilterRegistrationBean aiFilterRegistration(@Value("${spring.application.name:application}") String applicationName) {
 	       FilterRegistrationBean registration = new FilterRegistrationBean();
-	       registration.setFilter(new WebRequestTrackingFilter(applicationName));
+	       registration.setFilter(webRequestTrackingFilter(applicationName));
 	       registration.setName("webRequestTrackingFilter");
 	       registration.addUrlPatterns("/*");
 	       registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 10);
