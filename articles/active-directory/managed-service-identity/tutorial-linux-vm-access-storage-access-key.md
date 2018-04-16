@@ -54,7 +54,7 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 
 ## Enable MSI on your VM
 
-A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM and it enables Managed Service Identity for the VM.  
+A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling Managed Service Identity on a VM, does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.  
 
 1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
 2. Under the VM "Settings" on the left, click **Configuration**.
@@ -62,10 +62,6 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 4. Ensure you click **Save** to save the configuration.
 
     ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. If you wish to check which extensions are on the VM, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** appears in the list.
-
-    ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## Create a storage account 
 
@@ -119,7 +115,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     The CURL request and response for the access token is below:
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true    
+    curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H Metadata:true    
     ```
     
     > [!NOTE]
