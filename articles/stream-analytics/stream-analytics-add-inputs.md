@@ -29,7 +29,7 @@ To add an input to your Stream Analytics job:
 
 1. In the Azure portal click **Inputs** and then click **Add an Input** in your Stream Analytics job.
    
-     ![Azure portal - add an input.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Azure portal - add an input.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
     In the Azure portal click the **Inputs** tile in your Stream Analytics job.  
    
