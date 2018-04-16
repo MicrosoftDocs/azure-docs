@@ -46,5 +46,5 @@ If you cache the token in your code, you should be prepared to handle scenarios 
 To handle token errors, visit the [MSI page about curling MSI access tokens](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling).
 
 ## Next steps
-[Learn more about MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)
+[Learn more about MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
 [Acquiring access tokens from MSI VMs](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)
