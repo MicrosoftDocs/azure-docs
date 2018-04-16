@@ -178,7 +178,7 @@ You can also use a `copyIndex()` to then append a number to a resource name, whi
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-You can read a complete example of [creating multiple NICs using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+You can read a complete example of [creating multiple NICs using Resource Manager templates](../../virtual-network/template-samples.md).
 
 Add routing tables to the guest OS by completing the steps in [Configure the guest OS for multiple NICs](#configure-guest-os-for- multiple-nics).
 
