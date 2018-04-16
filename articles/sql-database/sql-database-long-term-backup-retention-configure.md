@@ -1,5 +1,5 @@
 ---
-title: 'Long-term backup retention & ARS vault - Azure SQL Database | Microsoft Docs' 
+title: 'Manage Azure SQL Database long-term backup retention | Microsoft Docs' 
 description: "Learn how to store automated backups in the SQL Azure storage and then restore them"
 services: sql-database
 author: anosov1960
@@ -7,20 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
-
 ---
-# Configure and restore from Azure SQL Database long-term backup retention using Azure SQL storage
+# Manage Azure SQL Database long-term backup retention
 
-You can configure Azure SQL database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain backups in [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob storage for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell.
+You can configure Azure SQL database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain backups in Azure blob storage for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell.
 
 > [!NOTE]
 > As part of the initial release of the preview of this feature in October 2016, backups were stored in the Azure Services Recovery Service vault. This update removes this dependency, but for backward compatibility the original API is supported until May 31, 2018. If you need to interact with backups in the Azure Services Recovery vault, see [Long-term backup retention using Azure Services Recovery Service vault](sql-database-long-term-backup-retention-configure-vault.md). 
 
-## Azure portal
+## Use the Azure portal to configure long-term retention policies and restore backups
 
 The following sections show you how to use the Azure portal to configure the long-term retention, view backups in long-term retention, and restore backup from long-term retention.
 
@@ -62,7 +61,7 @@ View the backups that are retained for a specific database with a LTR policy, an
 
    ![restore](./media/sql-database-long-term-retention/ltr-restore.png)
 
-5. Click **OK** to restore your database from the backup in the vault to the new database.
+5. Click **OK** to restore your database from the backup in Azure SQL storage to the new database.
 
 6. On the toolbar, click the notification icon to view the status of the restore job.
 
@@ -74,7 +73,7 @@ View the backups that are retained for a specific database with a LTR policy, an
 > From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](sql-database-recovery-using-backups.md#point-in-time-restore).
 >
 
-## PowerShell
+## Use PowerShell to configure long-term retention policies and restore backups
 
 The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
 
@@ -105,10 +104,16 @@ This example shows how to list the LTR policies within a server
 
 ```powershell
 # Get all LTR policies within a server
-$ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName  -ResourceGroupName $resourceGroup
+$ltrPolicies = Get-AzureRmSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | Get-AzureRmSqlDatabaseLongTermRetentionPolicy -Current 
 
 # Get the LTR policy of a specific database 
-$ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup
+$ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
+```
+### Clear an LTR policy
+This example shows how to clear an LTR policy from a database
+
+```powershell
+Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
 ```
 
 ### View LTR backups

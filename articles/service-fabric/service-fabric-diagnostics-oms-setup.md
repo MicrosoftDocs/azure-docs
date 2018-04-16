@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - Set up monitoring with OMS Log Analytics | Microsoft Docs
-description: Learn how to set up Operations Management Suite for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
+title: Azure Service Fabric - Set up monitoring with Log Analytics | Microsoft Docs
+description: Learn how to set up Log Analytics for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -20,10 +20,17 @@ ms.author: dekapur; srrengar
 
 # Set up Log Analytics for a cluster
 
+<<<<<<< HEAD
 Log Analytics is our recommendation to monitor cluster level events. You can set up Log Analytics workspace through Azure Resource Manager, PowerShell, or Azure Marketplace. If you maintain an updated Resource Manager template of your deployment for future use, use the same template to set up your Log Analytics environment. Deployment via Marketplace is easier if you already have a cluster deployed with diagnostics enabled. If you do not have subscription-level access in the account to which you are deploying to, deploy by using PowerShell or the Resource Manager template.
 
 > [!NOTE]
 > To set up Log Analytics to monitor your cluster, you need to have diagnostics enabled to view cluster-level or platform-level events. Refer to [how to set up diagnostics in Windows clusters](service-fabric-diagnostics-event-aggregation-wad.md) and [how to set up diagnostics in Linux clusters](service-fabric-diagnostics-event-aggregation-lad.md) for more
+=======
+You can set up a Log Analytics workspace through Azure Resource Manager, PowerShell, or Azure Marketplace. If you maintain an updated Resource Manager template of your deployment for future use, use the same template to set up your OMS environment. Deployment via Marketplace is easier if you already have a cluster deployed with diagnostics enabled. If you do not have subscription-level access in the account to which you are deploying OMS, deploy by using PowerShell or the Resource Manager template.
+
+> [!NOTE]
+> To set up Log Analytics to monitor your cluster, you need to have diagnostics enabled to view cluster-level or platform-level events.
+>>>>>>> 00b4a0d56d263a1130b3b35c90f793b87fb96f31
 
 ## Deploy a Log Analytics workspace by using Azure Marketplace
 

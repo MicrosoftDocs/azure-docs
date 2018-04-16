@@ -4,7 +4,7 @@ description: Learn additional steps to create an SSH public and private key pair
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: ''
 

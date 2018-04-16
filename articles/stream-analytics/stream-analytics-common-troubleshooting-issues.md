@@ -1,20 +1,14 @@
 ---
-title: Troubleshoot for malformed input events in Azure Stream Analytics| Microsoft Docs
+title: Troubleshoot for malformed input events in Azure Stream Analytics
 description: How do I know which event in my input data is causing issue in a Stream Analytics job
-keywords: ''
-documentationcenter: ''
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
 manager: Kfile
-
-ms.assetid: 
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: sngun
 ---
 
 # Common issues in Stream Analytics and steps to troubleshoot
