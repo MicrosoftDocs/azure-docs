@@ -1,7 +1,7 @@
 ---
 title: Add example utterances in LUIS apps | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to add utterances in Language Understanding Intelligent Services (LUIS) applications.
+description: Learn how to add utterances in Language Understanding (LUIS) applications.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
@@ -15,7 +15,7 @@ ms.author: v-geberr;
 
 # Add example utterances in LUIS apps
 
-Utterances are examples of user questions or commands. To teach Language Understanding Intelligent Services (LUIS) apps, you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
+Utterances are examples of user questions or commands. To teach Language Understanding (LUIS) apps, you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
 
 Generally, you add an utterance first, and then you create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](Add-entities.md).
 
