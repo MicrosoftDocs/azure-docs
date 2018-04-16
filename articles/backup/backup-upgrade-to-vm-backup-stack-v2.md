@@ -38,7 +38,7 @@ A recovery point is considered created only after phases 1 and 2 are done. As pa
 
 ![Backup job in VM backup stack Resource Manager deployment model--storage and vault](./media/backup-azure-vms/instant-rp-flow.jpg) 
 
-By default, snapshots are kept for seven days. This feature allows the restore to be completed faster from these snapshots. It reduces the time that is required to copy data back from the vault to the customer storage account. 
+By default, snapshots are kept for seven days. This feature allows the restore to be completed faster from these snapshots. It reduces the time that's required to copy data back from the vault to the customer storage account. 
 
 ## Considerations before upgrade
 * The upgrade of the VM backup stack is one directional. Therefore, all backups go into this flow. Because it's enabled at the subscription level, all VMs go onto this flow. All new feature additions are based on the same stack.
