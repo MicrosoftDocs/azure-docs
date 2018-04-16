@@ -44,7 +44,7 @@ Before starting, review the following details to understand the supported prereq
 This capability depends on the OMS Agent for Linux to collect performance and event data from all nodes in the cluster.  The agent is automatically deployed and registered with the specified Log Analytics workspace after you enable monitoring container performance. 
 
 >[!NOTE] 
->If you have already deployed an AKS cluster, you cannot enable monitoring afterwards with this feature.  It must be enabled during deployment of the cluster and it can only be performed through the portal, not from an ARM template, PowerShell, or CLI.
+>If you have already deployed an AKS cluster, you cannot enable monitoring afterwards with this feature.  It must be enabled during deployment of the cluster and it can only be performed through the portal, not from an Azure Resource Manager template, PowerShell, or CLI.
 >
 
 ## Log in to Azure portal
@@ -133,8 +133,3 @@ The following table describes the information presented when you view Containers
 ## Search logs to analyze data
 When you're interested in looking for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally, Log Analytics can help.  Pre-defined queries are provided to immediately start using or to customize in order to return the information the way you want. 
 
-### View performance data
-
-## Example log search queries
-
-## Troubleshooting
