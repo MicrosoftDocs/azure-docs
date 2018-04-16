@@ -29,7 +29,7 @@ If you choose to install and use the CLI locally, this quickstart requires the A
 
 To log in to the Azure using the CLI you can type:
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
@@ -39,7 +39,7 @@ For more information on login options via the CLI take a look at [Log in with Az
 
 A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *eastus* location.
 
-```azurecli-interactive
+```azurecli
 az group create --name 'ContosoResourceGroup' --location eastus
 ```
 
@@ -51,7 +51,7 @@ Next you will create a Key Vault in the resource group created in the previous s
 - Resource group name **ContosoResourceGroup**.
 - The location **East US**.
 
-```azurecli-interactive 
+```azurecli
 az keyvault create --name 'Contoso-Vault2' --resource-group 'ContosoResourceGroup' --location eastus
 ```
 
@@ -68,7 +68,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
 
 Type the commands below to create a secret in Key Vault called **ExamplePassword** that will store the value **Pa$$w0rd** :
 
-```azurecli-interactive 
+```azurecli
 az keyvault secret set --vault-name 'Contoso-Vault2' --name 'ExamplePassword' --value 'Pa$$w0rd'
 ```
 
@@ -76,7 +76,7 @@ You can now reference this password that you added to Azure Key Vault by using i
 
 To view the value contained in the secret as plain text:
 
-```azurecli-interactive
+```azurecli
 az keyvault secret show --name 'ExamplePassword' --vault-name 'Contoso-Vault2'
 ```
 
@@ -87,7 +87,7 @@ Now, you have created a Key Vault, stored a secret, and retrieved it.
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, and all related resources. You can delete the resources as follows:
 
-```azurecli-interactive
+```azurecli
 az group delete --name ContosoResourceGroup
 ```
 

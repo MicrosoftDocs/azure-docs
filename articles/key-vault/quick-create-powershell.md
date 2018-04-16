@@ -55,7 +55,7 @@ Although we use “Contoso KeyVault2” as the name for our Key Vault throughout
 - **Resource group name** ContosoResourceGroup.
 - **Location** East US.
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzureRmKeyVault -VaultName 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
 
@@ -99,7 +99,7 @@ When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell
 >[!IMPORTANT]
 > Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 ```
 
