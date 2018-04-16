@@ -105,7 +105,7 @@ In this sample, a container group with two containers, a public IP address, and 
 }
 ```
 
-To use a private container image registry, add an object to the JSON document with the following format. For an example implimentation of this configuration, see the [ACI Resource Manager template reference][template-reference] documentation.
+To use a private container image registry, add an object to the JSON document with the following format. For an example implementation of this configuration, see the [ACI Resource Manager template reference][template-reference] documentation.
 
 ```json
 "imageRegistryCredentials": [
