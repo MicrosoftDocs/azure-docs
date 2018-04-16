@@ -1,13 +1,13 @@
 ---
- title: include file
- description: include file
- services: media-services
- author: Juliako
- ms.service: media-services
- ms.topic: include
- ms.date: 04/13/2018
- ms.author: juliako
- ms.custom: include file
+title: include file
+description: include file
+services: media-services
+author: Juliako
+ms.service: media-services
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: juliako
+ms.custom: include file
 ---
 
 ## Create a Media Services account
@@ -37,5 +37,5 @@ az storage account create --name <storageaccountforams> --resource-group amsReso
 Below you can find the Azure CLI commands that creates a new Media Services account. You just need to replace the following highlighted values: `amsaccountname` and `storageaccountforams`.
 
 ```azurecli-interactive
-az ams create --name <amsaccountname> --resource-group amsResourcegroup --storage-account <storageaccountforams>
+az ams account create --name <amsaccountname> --resource-group amsResourcegroup --storage-account <storageaccountforams>
 ```
