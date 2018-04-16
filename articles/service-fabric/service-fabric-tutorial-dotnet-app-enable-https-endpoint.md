@@ -47,7 +47,7 @@ Before you begin this tutorial:
 - [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 ## Obtain a certificate or create a self-signed development certificate
-In order to enable HTTPS you need a digital certificate.  For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority). For development and test purposes, you can create and use a self-signed certificate. Open a command prompt as administrator and use the New-SelfSignedCertificate Powershell cmdlet to generate a self-signed certificate for development:
+In order to enable HTTPS you need a digital certificate.  For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority). For development and test purposes, you can create and use a self-signed certificate. Open a command prompt as administrator and use the New-SelfSignedCertificate Powershell cmdlet to generate a self-signed certificate and import it into the Cert:\LocalMachine\My certificate store:
 
 ```powershell
 PS C:\Users\sfuser>New-SelfSignedCertificate -NotBefore (Get-Date) -NotAfter (Get-Date).AddYears(1) -Subject "localhost" -KeyAlgorithm "RSA" -KeyLength 2048 -HashAlgorithm "SHA256" -CertStoreLocation "Cert:\LocalMachine\My" -KeyUsage KeyEncipherment -FriendlyName "HTTPS development certificate" -TextExtension @("2.5.29.19={critical}{text}","2.5.29.37={critical}{text}1.3.6.1.5.5.7.3.1","2.5.29.17={critical}{text}DNS=localhost")
@@ -59,8 +59,20 @@ Thumbprint                                Subject
 A2A3C6529DC9BE3C667B7833E519F51DE6F04994  CN=localhost
 ```
 
+If you already have a certificate, run the following to import the certifcate into the "Cert:\LocalMachine\My" certificate store: 
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysslcertificate.pfx -CertStoreLocation Cert:\LocalMachine\My -Password (ConvertTo-SecureString "!Passw0rd321" -AsPlainText -Force)
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
 ## Define an HTTPS endpoint in the service manifest
-In the service manifest, add an endpoint in the **Endpoints** section.  Set the protocol to *https*, the type to *Input*, and port to *443*.
+Launch Visual Studio as an **administrator** and open the Voting solution. In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*. The service manifest defines the service endpoints.  Find the **Endpoints** section and edit the existing "ServiceEndpoint" endpoint.  Change the name to "EndpointHttps", set the protocol to *https*, the type to *Input*, and port to *443*.  Save your changes.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -97,7 +109,7 @@ In the service manifest, add an endpoint in the **Endpoints** section.  Set the 
 
 
 ## Configure Kestrel to use HTTPS
-Open VotingWeb.cs.  Add the following using statements: 
+In Solution Explorer, open the *VotingWeb/VotingWeb.cs* file.  Configure Kestrel to use HTTPS and lookup the certificate in the Cert:\LocalMachine\My store. Add the following using statements: 
 ```csharp
 using System.Net;
 using Microsoft.Extensions.Configuration;
@@ -143,7 +155,7 @@ serviceContext =>
         }))
 ```
 
-Also add the following method so that Kestrel can get the certificate from the LocalMachine store.  Replace "&lt;your_CN_value&gt;" with "localhost" if you created a self-signed certificate with the previous PowerShell command, or use the CN of your certificate.
+Also add the following method so that Kestrel can find the certificate using the subject in the Cert:\LocalMachine\My store.  Replace "&lt;your_CN_value&gt;" with "localhost" if you created a self-signed certificate with the previous PowerShell command, or use the CN of your certificate.
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -163,12 +175,165 @@ private X509Certificate2 GetCertificateFromStore()
 }
 ```
 
+## Give NETWORK SERVICE access to the certificate's private key
+In a previous step, you imported the certificate into the Cert:\LocalMachine\My store on the development computer.  You must also explicitly give the account running the service (NETWORK SERVICE, by default) access to the certificate's private key. You can do this manually (using the certlm.msc tool), but it's better to automatically run a PowerShell script by [configuring a startup script](service-fabric-run-script-at-service-startup.md) in the **SetupEntryPoint** of the service manifest.   
+
+## Configure the service setup entry point
+In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*.  In the **CodePackage** section, add **SetupEntryPoint** node and then a **ExeHost** node.  In **ExeHost**, set **Program** to "Setup.bat" and **WorkingFolder** to "CodePackage".  When the VotingWeb service starts, the Setup.bat scrip executes in the CodePackage folder before VotingWeb.exe starts.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="VotingWebPkg"
+                 Version="1.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ServiceTypes>
+    <StatelessServiceType ServiceTypeName="VotingWebType" />
+  </ServiceTypes>
+
+  <CodePackage Name="Code" Version="1.0.0">
+    <SetupEntryPoint>
+      <ExeHost>
+        <Program>Setup.bat</Program>
+        <WorkingFolder>CodePackage</WorkingFolder>        
+      </ExeHost>
+    </SetupEntryPoint>
+
+    <EntryPoint>
+      <ExeHost>
+        <Program>VotingWeb.exe</Program>
+        <WorkingFolder>CodePackage</WorkingFolder>
+      </ExeHost>
+    </EntryPoint>
+  </CodePackage>
+
+  <ConfigPackage Name="Config" Version="1.0.0" />
+
+  <Resources>
+    <Endpoints>
+      <Endpoint Protocol="https" Name="EndpointHttps" Type="Input" Port="443" />
+    </Endpoints>
+  </Resources>
+</ServiceManifest>
+```
+
+## Add the batch and PowerShell setup scripts
+To run PowerShell from the **SetupEntryPoint** point, you can run PowerShell.exe in a batch file that points to a PowerShell file. First, add the batch file the service project.  In Solution Explorer, right-click **VotingWeb** and select **Add**->**New Item** and add a new file named "Setup.bat".  Edit the *Setup.bat* file and add the following:
+
+```bat
+powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
+```
+
+Modify the *Setup.bat* file properties to set **Copy to Output Directory** to "Copy if newer".
+![Set file properties][image1]
+
+In Solution Explorer, right-click **VotingWeb** and select **Add**->**New Item** and add a new file named "SetCertAccess.ps1".  Edit the *SetCertAccess.ps1* file and add the following:
+
+```powershell
+$subject="localhost"
+$userGroup="NETWORK SERVICE"
+
+Write-Host "Checking permissions to certificate $subject.." -ForegroundColor DarkCyan
+ 
+$cert = (gci Cert:\LocalMachine\My\ | where { $_.Subject.Contains($subject) })[-1]
+
+if ($cert -eq $null)
+{
+    $message="Certificate with subject:"+$subject+" does not exist at Cert:\LocalMachine\My\"
+    Write-Host $message -ForegroundColor Red
+    exit 1;
+}elseif($cert.HasPrivateKey -eq $false){
+    $message="Certificate with subject:"+$subject+" does not have a private key"
+    Write-Host $message -ForegroundColor Red
+    exit 1;
+}else
+{
+    $keyName=$cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName
+    
+    $keyPath = "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\"
+    $fullPath=$keyPath+$keyName
+    $acl=(Get-Item $fullPath).GetAccessControl('Access')
+
+ 
+    $hasPermissionsAlready = ($acl.Access | where {$_.IdentityReference.Value.Contains($userGroup.ToUpperInvariant()) -and $_.FileSystemRights -eq [System.Security.AccessControl.FileSystemRights]::FullControl}).Count -eq 1
+ 
+    if ($hasPermissionsAlready){
+        Write-Host "Account $userGroupCertificate already has permissions to certificate '$subject'." -ForegroundColor Green
+        return $false;
+    } else {
+        Write-Host "Need add permissions to '$subject' certificate..." -ForegroundColor DarkYellow
+		
+	    $permission=$userGroup,"Full","Allow"
+	    $accessRule=new-object System.Security.AccessControl.FileSystemAccessRule $permission
+	    $acl.AddAccessRule($accessRule)
+	    Set-Acl $fullPath $acl
+ 
+	    Write-Output "Permissions were added"
+ 
+        return $true;
+    }
+}
+
+Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
+```
+
+## Run the setup script as a local administrator
+By default, the service setup entry point executable runs under the same credentials as Service Fabric (typically the NetworkService account). The *SetCertAccess.ps1* requires administrator privileges. In the application manifest, you can change the security permissions to run the startup script under a local administrator account.  
+
+In Solution Explorer, open *Voting/ApplicationPackageRoot/ManifestManifest.xml*. First, create a **Principals** section and add a new user (for example, "SetupAdminUser". Add the SetupAdminUser user account to the Administrators system group.
+Next, in the VotingWebPkg **ServiceManifestImport** section, configure a **RunAsPolicy** to apply the SetupAdminUser principal to the setup entry point. This policy tells Service Fabric that the Setup.bat file runs as SetupAdminUser ( with administrator privileges). 
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />
+    <Parameter Name="VotingData_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="VotingWeb_InstanceCount" DefaultValue="-1" />
+  </Parameters>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="VotingDataPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <Policies>
+      <RunAsPolicy CodePackageRef="Code" UserRef="SetupAdminUser" EntryPointType="Setup" />
+    </Policies>
+  </ServiceManifestImport>
+  <DefaultServices>
+    <Service Name="VotingData">
+      <StatefulService ServiceTypeName="VotingDataType" TargetReplicaSetSize="[VotingData_TargetReplicaSetSize]" MinReplicaSetSize="[VotingData_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[VotingData_PartitionCount]" LowKey="0" HighKey="25" />
+      </StatefulService>
+    </Service>
+    <Service Name="VotingWeb" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="VotingWebType" InstanceCount="[VotingWeb_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+  </DefaultServices>
+  <Principals>
+    <Users>
+      <User Name="SetupAdminUser">
+        <MemberOf>
+          <SystemGroup Name="Administrators" />
+        </MemberOf>
+      </User>
+    </Users>
+  </Principals>
+</ApplicationManifest>
+```
+
 ## Run the application locally
 In Solution Explorer, select the **Voting** application and set the **Application URL** property to "https://localhost:443".
 
 Save all files and hit F5 to run the application locally.
 
 ## Install certificate on cluster nodes
+Before deploying the application to the Azure, install the certificate into the Cert:\LocalMachine\My store of the cluster nodes using the Add-AzureRmServiceFabricApplicationCertificate cmdlet.
 
 ```powershell
 Connect-AzureRmAccount
@@ -206,9 +371,6 @@ $secret = Set-AzureKeyVaultSecret -VaultName $vaultname -Name $certname -SecretV
 # Add a certificate to all the VMs in the cluster.
 Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $secret.Id -Verbose
 ```
-
-## Give NETWORK SERVICE access to the certificate's private key
-The SSL certificate is now installed on all the nodes in the cluster, but the front-end must have access to the certificate's private key.  By default, services run under the NETWORK SERVICE account. 
 
 ## Open port 443 in the Azure load balancer
 Open port 443 in the load balancer if it isn't already.  
@@ -252,3 +414,5 @@ In this part of the tutorial, you learned how to:
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
 > [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+
+[image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
