@@ -38,30 +38,27 @@ Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** 
 
 ## Create an Azure AD application and service principal
 
-Before running the script, please replace the following placeholder:
+To connect to the Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure you .NET app, as shown in the following step.
 
-* *amsaccountname*: This is the name of the Azure Media Services account where to attach the service principal
-* *myresourcegroup* 
+Before running the script, replace the `amsresourcegroup` and `amsaccountname` placeholders. `amsaccountname` is the name of the Azure Media Services account where to attach the service principal. <br/>The command that follows uses the `xml` option that returns an xml that you can paste in your app.config. If you omit the `xml` option, the response will be in `json`.
 
 ```azurecli-interactive
-az ams  sp create -a <amsaccountname> -g <myresourcegroup>
+az ams account sp create --account-name "amsaccountname"  --resource-group "amsresourcegroup" --xml
 ```
 
 This command will produce a response similar to this:
 
 ``` 
-{
-  "AadClientId": "00000000-0000-0000-0000-000000000000",
-  "AadEndpoint": "https://login.microsoftonline.com",
-  "AadSecret": "00000000-0000-0000-0000-000000000000",
-  "AadTenantId": "00000000-0000-0000-0000-000000000000",
-  "AccountName": "amsname",
-  "ArmAadAudience": "https://management.core.windows.net/",
-  "ArmEndpoint": "https://management.azure.com/",
-  "Region": "West US",
-  "ResourceGroup": "myresourcegroup",
-  "SubscriptionId": "00000000-0000-0000-0000-000000000000"
-}
+<add key="Region" value="value" />
+<add key="ResourceGroup" value="value" />
+<add key="AadEndpoint" value="value" />
+<add key="AccountName" value="value" />
+<add key="SubscriptionId" value="value" />
+<add key="ArmAadAudience" value="value" />
+<add key="AadTenantId" value="value" />
+<add key="AadSecret" value="value" />
+<add key="AadClientId" value="value" />
+<add key="ArmEndpoint" value="value" />
 ```
 
 ## Next steps
