@@ -29,7 +29,7 @@ To add an input to your Stream Analytics job:
 
 1. In the Azure portal click **Inputs** and then click **Add an Input** in your Stream Analytics job.
    
-    ![Azure portal - add an input.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+     ![Azure portal - add an input.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
     In the Azure portal click the **Inputs** tile in your Stream Analytics job.  
    
@@ -51,7 +51,7 @@ To add an input to your Stream Analytics job:
     ![Add event hub data input](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)  
 5. Specify the serialization settings for the input data:
    
-   * To make sure your queries work the way you expect, specify the **Event Serialization Format** of incoming data.  Supported serialization formats are JSON, CSV, and Avro.
+   * To make sure your queries work the way you expect, specify the **Event Serialization Format** of incoming data.  Supported serialization formats are JSON, CSV, and Avro. Please ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers.
    * Verify the **Encoding** for the data.  UTF-8 is the only supported encoding format at this time.
      
      ![Data serialization settings for the data input](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
