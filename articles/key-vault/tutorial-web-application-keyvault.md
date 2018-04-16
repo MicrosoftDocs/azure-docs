@@ -1,6 +1,6 @@
 ﻿---
 title: Configure an Azure web application to read a secret from Key vault | Microsoft Docs
-description: Tutorial - Configure an ASP.Net core application to read a secret from Key vault
+description: Tutorial Configure an ASP.Net core application to read a secret from Key vault
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -15,9 +15,9 @@ ms.author: barclayn
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
-# Tutorial Configure an Azure web application to read a secret from Key Vault
+# Tutorial: Configure an Azure web application to read a secret from Key Vault
 
-In this tutorial, you go over the necessary steps to get an Azure web application to read information from Key vault. You learn how to:
+In this tutorial, you go over the necessary steps to get an Azure web application to read information from Key vault using managed service identities. You learn how to:
 
 > [!div class="checklist"]
 > * Create a Key Vault.
@@ -50,7 +50,7 @@ az group create --name ContosoResourceGroup --location eastus
 
 The resource group you just created is used throughout this tutorial.
 
-## Create an Azure Key vault
+## Create an Azure Key Vault
 
 Next you create a Key Vault in the resource group created in the previous step. You must provide some information:
 
@@ -93,7 +93,7 @@ az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
 
 This command shows the secret information including the URI. After completing these steps you should have a URI to a secret in an Azure Key Vault. Make note of this information. You need it in a later step.
 
-## Create an ASP.NET Core web app
+## Create a web app
 
 In this section you create an ASP.NET MVC application and deploy it in Azure as a Web App. For more information about Azure Web Apps, see [Web Apps overview](../app-service/app-service-web-overview.md).
 
@@ -117,7 +117,7 @@ In this section you create an ASP.NET MVC application and deploy it in Azure as 
 
 7. From the menu, select **Debug > Start without Debugging** to run the web app locally.
 
-## Make modifications to the default web app
+## Modify the web app
 
 There are two NuGet packages that your web application needs to have installed. To install them follow the steps below:
 
@@ -205,7 +205,7 @@ There are two NuGet packages that your web application needs to have installed. 
 >[!IMPORTANT]
 > If you get a HTTP Error 502.5 - Process Failure message verify the name of the Key Vault specified in `Program.cs`
 
-## Publishing the web application to Azure
+## Publish the web application to Azure
 
 1. Above the editor select **WebKeyVault**.
 2. select **Publish**.
@@ -241,7 +241,7 @@ Using the Azure portal, go to the Key Vault's access policies, and grant yoursel
 
 Now your account in Azure and the application identity have rights to read information from Key Vault. If you refresh the page you should see the landing page of the site. If you select **About**. You see the value you stored in Key Vault.
 
-## Delete the resource group
+## Clean up resources
 
 To delete a resource group and all its resources, use the **az group delete** command.
 
@@ -251,5 +251,5 @@ To delete a resource group and all its resources, use the **az group delete** co
 
 ## Next steps
 
-* For information on how to connect to Key Vault from a web application using the previous way to authenticate to Key Vault review [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md)
-* For an Overview of Azure Key Vault capabilities read [Azure Key Vault Overview](key-vault-overview.md)
+> [!div class="nextstepaction"]
+> [Azure Key Vault Developer's Guide](key-vault-developers-guide.md)
