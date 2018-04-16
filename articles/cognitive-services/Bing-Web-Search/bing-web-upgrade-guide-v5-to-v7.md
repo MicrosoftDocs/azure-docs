@@ -9,7 +9,7 @@ ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
 ms.technology: bing-web-search
 ms.topic: article
-ms.date: 0151/2017
+ms.date: 01/15/2017
 ms.author: scottwhi
 ---
 
