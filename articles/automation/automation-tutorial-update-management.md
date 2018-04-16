@@ -9,7 +9,6 @@ ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
 ---
-
 # Manage Windows updates with Azure Automation
 
 Update management allows you to manage updates and patches for your virtual machines.
@@ -84,9 +83,53 @@ Clicking anywhere else on the update opens the **Log Search** window for the sel
 
 ![View update status](./media/automation-tutorial-update-management/logsearch.png)
 
+## Configure alerting
+
+In the Azure portal, navigate to **Monitor**. Click **Create Alert**, this opens the **Create rule** page.  Under **1. Define alert condition** click **+  Select target**. Under **Filter by resource type** select **Log Analytics**.  Choose your Log Analytics workspace and click **Done**.
+
+![create alert](./media/automation-tutorial-update-management/create-alert.png)
+
+Click the **+ Add criteria** button to open the **Configure signal logic** page. Choose **Custom log search** in the table. Enter the following query in the **Search query** text box. This query returns the computers and the update run name that completed in the time frame specified.
+
+```loganalytics
+UpdateRunProgress
+| where InstallationStatus == 'Succeeded'
+| where TimeGenerated > now(-10m)
+| summarize by UpdateRunName, Computer
+```
+
+Enter **1** as the **Threshold** for the Alert logic. When finished, click **Done**.
+
+![Configure signal logic](./media/automation-tutorial-update-management/signal-logic.png)
+
+Under **2. Define alert details**, fill in the fields as appropriate.
+
+|Property  |Description  |
+|---------|---------|
+|**Alert rule name**     | Friendly name of the alert.         |
+|**Description**     | A description of the alert.        |
+|**Severity**     | The severity of the alert. Chose **Informational(Sev 2)**.          |
+|**Enable rule upon creation**     | This determines if the rule is enabled after the alert rule is created. Set this to **Yes**        |
+|**Supress Alerts** | Allows you to configure a threshold to wait before alerting again on the same alert. Leave this unchecked. |
+
+![Configure signal logic](./media/automation-tutorial-update-management/define-alert-details.png)
+
+Under **3. Define action group**, click **+ New action group**.
+
+1. In the **Action group name** box, enter a name.
+    1. In the **Short name** box, enter a name. The short name is used in place of a full action group name when notifications are sent by using this action group.
+    1. The **Subscription** box is automatically filled with your current subscription. This is the subscription in which the action group is saved.
+    1. Select the resource group in which the action group is saved.
+
+![Configure email action group](./media/automation-tutorial-update-management/configure-email-action-group.png)
+
+Click **OK** on the **Email/SMS/Push/Voice** page to close it and click **Ok** to close the **Add action group** page.
+
+You can customize the subject of the email sent by clicking **Email subject** under **Customize Actions** on the **Create rule** page. When complete, click **Create alert rule**. This creates the rule that alerts you when an update deployment succeeds and which machines were part of that update deployment run.
+
 ## Schedule an update deployment
 
-You now know that your VM is missing updates. To install updates, schedule a deployment that follows your release schedule and service window.
+Now that alerting is setup, to install updates, schedule a deployment that follows your release schedule and service window.
 You can choose which update types to include in the deployment.
 For example, you can include critical or security updates and exclude update rollups.
 
@@ -112,8 +155,9 @@ In the **New update deployment** screen, specify the following information:
   * Updates
 
 * **Schedule settings** - Set the time to 5 minutes in the future. You can also accept the default, which is 30 minutes after the current time.
-You can also specify whether the deployment occurs once or set up a recurring schedule.
-Select **Recurring** under **Recurrence**. Leave the default to 1 day and click **OK**. This sets up a recurring schedule.
+
+   You can also specify whether the deployment occurs once or set up a recurring schedule.
+   Select **Recurring** under **Recurrence**. Leave the default to 1 day and click **OK**. This sets up a recurring schedule.
 
 * **Maintenance window (minutes)** - Leave this value at the default value. You can specify the period of time you want the update deployment to occur within. This setting helps ensure changes are performed within your defined service windows.
 
@@ -145,22 +189,7 @@ Click the **Output** tile to see job stream of the runbook responsible for manag
 
 Click **Errors** to see detailed information about any errors from the deployment.
 
-## Configure alerting
-
-In the Azure portal, navigate to **Monitor**. Click **+ New Alert Rule**, this opens the **Create rule** page.  Under **1. Define alert condition** click **+  Select target**. Under **Filter by resource type** select **Log Analytics**.  Choose your Log Analytics workspace and click **Done**.
-
-![create alert](./media/automation-tutorial-update-management/create-alert.png)
-
-Click **+ Add criteria** to open the **Configure signal logic** page. Enter the following query in the **Search query** text box.
-
-
-```loganalytics
-UpdateRunProgress
-| where InstallationStatus == 'Succeeded'
-| where TimeGenerated > now(-10m)
-| summarize Systems=count() by UpdateRunName
-```
-
+Once your update deploy
 ## Next Steps
 
 In this tutorial, you learned how to:
