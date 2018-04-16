@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2018
+ms.date: 04/16/2018
 ms.author: cherylmc
 
 ---
@@ -40,19 +40,19 @@ The Point-to-Site VPN gateway connection in this example is for a VNet that is n
 
 ### Address space
 
-• VNet1: 10.1.0.0/16
+* VNet1: 10.1.0.0/16
 
 ### Routes added
 
-• Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
+* Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
-• Routes added to non-Windows clients: 10.1.0.0/16, 192.168.0.0/24
+* Routes added to non-Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
 ### Access
 
-• Windows clients can access VNet1
+* Windows clients can access VNet1
 
-• Non-Windows clients can access VNet1
+* Non-Windows clients can access VNet1
 
 ## <a name="multipeered"></a>Multiple peered VNets
 
@@ -64,27 +64,27 @@ Clients using Windows can access directly peered VNets, but the VPN client must 
 
 ### Address space:
 
-• VNet1: 10.1.0.0/16
+* VNet1: 10.1.0.0/16
 
-• VNet2: 10.2.0.0/16
+* VNet2: 10.2.0.0/16
 
-• VNet3: 10.3.0.0/16
+* VNet3: 10.3.0.0/16
 
-• VNet4: 10.4.0.0/16
+* VNet4: 10.4.0.0/16
 
 ### Routes added
 
-• Routes added to Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
+* Routes added to Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
 
-• Routes added to non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
+* Routes added to non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
 
 ### Access
 
-• Windows clients can access VNet1, VNet2, and VNet4, but the VPN client must be downloaded again for any topology changes to take effect.
+* Windows clients can access VNet1, VNet2, and VNet4, but the VPN client must be downloaded again for any topology changes to take effect.
 
-• Non-Windows clients can access VNet1, VNet2, and VNet4
+* Non-Windows clients can access VNet1, VNet2, and VNet4
 
-## <a name="multis2s"></a>Multiple VNets connected using a S2S VPN
+## <a name="multis2s"></a>Multiple VNets connected using an S2S VPN
 
 In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is connected to VNet2 using a Site-to-Site VPN connection. VNet2 is connected to VNet3 using a Site-to-Site VPN connection. There is no peering or Site-to-Site VPN connection between VNet1 and VNet3. All Site-to-Site connections are not running BGP for routing.
 
@@ -94,25 +94,25 @@ Clients using Windows, or another supported OS, can only access VNet1. To access
 
 ### Address space
 
-• VNet1: 10.1.0.0/16
+* VNet1: 10.1.0.0/16
 
-• VNet2: 10.2.0.0/16
+* VNet2: 10.2.0.0/16
 
-• VNet3: 10.3.0.0/16
+* VNet3: 10.3.0.0/16
 
 ### Routes added
 
-• Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
+* Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
-• Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 192.168.0.0/24
+* Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 192.168.0.0/24
 
 ### Access
 
-• Windows clients can only access VNet1
+* Windows clients can only access VNet1
 
-• Non-Windows clients can access VNet1 only
+* Non-Windows clients can access VNet1 only
 
-## <a name="multis2sbgp"></a>Multiple VNets connected using a S2S VPN (BGP)
+## <a name="multis2sbgp"></a>Multiple VNets connected using an S2S VPN (BGP)
 
 In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is connected to VNet2 using a Site-to-Site VPN connection. VNet2 is connected to VNet3 using a Site-to-Site VPN connection. There is no peering or Site-to-Site VPN connection between VNet1 and VNet3. All Site-to-Site connections are running BGP for routing.
 
@@ -122,23 +122,23 @@ Clients using Windows, or another supported OS, can access all VNets that are co
 
 ### Address space
 
-• VNet1: 10.1.0.0/16
+* VNet1: 10.1.0.0/16
 
-• VNet2: 10.2.0.0/16
+* VNet2: 10.2.0.0/16
 
-• VNet3: 10.3.0.0/16
+* VNet3: 10.3.0.0/16
 
 ### Routes added
 
-• Routes added to Windows clients: 10.1.0.0/16
+* Routes added to Windows clients: 10.1.0.0/16
 
-• Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
+* Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
 
 ### Access
 
-• Windows clients can access VNet1, VNet2, and VNet3, but routes to VNet2 and VNet3 will have to be manually added.
+* Windows clients can access VNet1, VNet2, and VNet3, but routes to VNet2 and VNet3 will have to be manually added.
 
-• Non-Windows clients can access VNet1, VNet2, and VNet3
+* Non-Windows clients can access VNet1, VNet2, and VNet3
 
 ## <a name="vnetbranch"></a>One VNet and a branch office
 
@@ -150,21 +150,21 @@ Windows clients can access VNet1 and the branch office (Site1), but the routes t
 
 ### Address space
 
-• VNet1: 10.1.0.0/16
+* VNet1: 10.1.0.0/16
 
-• Site1: 10.101.0.0/16
+* Site1: 10.101.0.0/16
 
 ### Routes added
 
-• Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
+* Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
-• Routes added to Non-Windows clients: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* Routes added to Non-Windows clients: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
 ### Access
 
-• Windows clients can access only VNet1
+* Windows clients can access only VNet1
 
-• Non-Windows clients can access VNet1 only
+* Non-Windows clients can access VNet1 only
 
 ## <a name="vnetbranchbgp"></a>One VNet and a branch office (BGP)
 
@@ -176,21 +176,21 @@ Windows clients can access the VNet and the branch office (Site1), but the route
 
 ### Address space
 
-• VNet1: 10.1.0.0/16
+* VNet1: 10.1.0.0/16
 
-• Site1: 10.101.0.0/16
+* Site1: 10.101.0.0/16
 
 ### Routes added
 
-• Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
+* Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
-• Routes added to Non-Windows clients: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* Routes added to Non-Windows clients: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
 ### Access
 
-• Windows clients can access VNet1 and Site1, but routes to Site1 will have to be manually added.
+* Windows clients can access VNet1 and Site1, but routes to Site1 will have to be manually added.
 
-• Non-Windows clients can access VNet1 and Site1.
+* Non-Windows clients can access VNet1 and Site1.
 
 
 ## <a name="multivnets2sbranch"></a>Multiple VNets connected using S2S and a branch office
@@ -203,25 +203,25 @@ All clients can access VNet1 only.
 
 ### Address space
 
-• VNet1: 10.1.0.0/16
+* VNet1: 10.1.0.0/16
 
-• VNet2: 10.2.0.0/16
+* VNet2: 10.2.0.0/16
 
-• VNet3: 10.3.0.0/16
+* VNet3: 10.3.0.0/16
 
-• Site1: 10.101.0.0/16
+* Site1: 10.101.0.0/16
 
 ### Routes added
 
-• Routes added clients: 10.1.0.0/16, 192.168.0.0/24
+* Routes added clients: 10.1.0.0/16, 192.168.0.0/24
 
-• Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
 ### Access
 
-• The Windows clients can access VNet1 only
+* The Windows clients can access VNet1 only
 
-• Non-Windows clients can access VNet1 only
+* Non-Windows clients can access VNet1 only
 
 ## <a name="multivnets2sbranchbgp"></a>Multiple VNets connected using S2S and a branch office (BGP)
 
@@ -233,25 +233,25 @@ Clients using Windows can access VNets and sites that are connected using a Site
 
 ### Address space
 
-• VNet1: 10.1.0.0/16
+* VNet1: 10.1.0.0/16
 
-• VNet2: 10.2.0.0/16
+* VNet2: 10.2.0.0/16
 
-• VNet3: 10.3.0.0/16
+* VNet3: 10.3.0.0/16
 
-• Site1: 10.101.0.0/16
+* Site1: 10.101.0.0/16
 
 ### Routes added
 
-• Routes added clients: 10.1.0.0/16, 192.168.0.0/24
+* Routes added clients: 10.1.0.0/16, 192.168.0.0/24
 
-• Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
 ### Access
 
-• The Windows clients can access VNet1, VNet2, VNet3, and Site1, but routes to VNet2, VNet3 and Site1 must be manually added to the client.
+* The Windows clients can access VNet1, VNet2, VNet3, and Site1, but routes to VNet2, VNet3 and Site1 must be manually added to the client.
 
-• Non-Windows clients can access VNet1, Vnet2, VNet3, and Site1.
+* Non-Windows clients can access VNet1, Vnet2, VNet3, and Site1.
 
 ## Next steps
 
