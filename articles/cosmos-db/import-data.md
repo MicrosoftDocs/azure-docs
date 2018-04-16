@@ -4,7 +4,7 @@ description: Learn how to use the open source Azure Cosmos DB data migration too
 keywords: csv to json, database migration tools, convert csv to json
 services: cosmos-db
 author: andrewhoh
-manager: jhubbard
+manager: kfile
 editor: monicar
 documentationcenter: ''
 

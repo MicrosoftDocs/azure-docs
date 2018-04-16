@@ -212,7 +212,7 @@ Azure also provides several resource-specific roles. Some common ones are:
 4. SQL Server Contributor - Can manage SQL servers and databases, but not their security-related policies
 5. Website Contributor - Can manage websites, but not the web plans to which they are connected
 
-For the full list of roles and permitted actions, see [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md). For more information about role-based access control, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md). 
+For the full list of roles and permitted actions, see [RBAC: Built in Roles](../role-based-access-control/built-in-roles.md). For more information about role-based access control, see [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md). 
 
 In some cases, you want to run code or script that accesses resources, but you do not want to run it under a user’s credentials. Instead, you want to create an identity called a service principal for the application and assign the appropriate role for the service principal. Resource Manager enables you to create credentials for the application and programmatically authenticate the application. To learn about creating service principals, see one of following topics:
 

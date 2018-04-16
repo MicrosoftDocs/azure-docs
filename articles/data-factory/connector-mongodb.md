@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/13/2018
 ms.author: jingwang
 
 ---
@@ -33,7 +33,7 @@ You can copy data from MongoDB database to any supported sink data store. For a 
 
 Specifically, this MongoDB connector supports:
 
-- MongoDB **versions 2.4, 2.6, 3.0, and 3.2**.
+- MongoDB **versions 2.4, 2.6, 3.0, 3.2, 3.4 and 3.6**.
 - Copying data using **Basic** or **Anonymous** authentication.
 
 ## Prerequisites
@@ -60,6 +60,8 @@ The following properties are supported for MongoDB linked service:
 | username |User account to access MongoDB. |Yes (if basic authentication is used). |
 | password |Password for the user. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes (if basic authentication is used). |
 | authSource |Name of the MongoDB database that you want to use to check your credentials for authentication. |No. For basic authentication, default is to use the admin account and the database specified using databaseName property. |
+| enableSsl | Specifies whether the connections to the server are encrypted using SSL. The default value is false.  | No |
+| allowSelfSignedServerCert | Specifies whether to allow self-signed certificates from the server. The default value is false.  | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -113,7 +115,7 @@ To copy data from MongoDB, set the type property of the dataset to **MongoDbColl
             "collectionName": "<Collection name>"
         }
     }
-
+}
 ```
 
 ## Copy activity properties

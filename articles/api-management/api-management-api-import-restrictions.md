@@ -35,12 +35,12 @@ If you are receiving errors importing your Open API document, ensure you have va
 
 ## <a name="wsdl"> </a>WSDL
 WSDL files are used to generate SOAP Pass-through APIs or serve as the backend of a SOAP-to-REST API.
-
-* **WSDL:Import** - Currently, APIM  does not support APIs using this attribute. Customers should merge the imported elements into one document.
-* **Messages with multiple parts** Currently, APIM  does not support these types of messages.
-* **WCF wsHttpBinding** SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding is not supported.
-* **MTOM** Services using MTOM <em>may</em> work. Official support is not offered at this time.
-* **Recursion** types that are defined recursively (for example, refer to an array of themselves) are not supported by APIM.
+* **SOAP bindings** -Only SOAP bindings of style ”document” and “literal” encoding are supported. There is no support for “rpc” style or SOAP-Encoding.
+* **WSDL:Import** - This attribute is not supported. Customers should merge the imports into one document.
+* **Messages with multiple parts** - These types of messages are not supported.
+* **WCF wsHttpBinding** - SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding is not supported.
+* **MTOM** - Services using MTOM <em>may</em> work. Official support is not offered at this time.
+* **Recursion** - Types that are defined recursively (for example, refer to an array of themselves) are not supported by APIM.
 
 ## <a name="wadl"> </a>WADL
 Currently, there are no known WADL import issues.

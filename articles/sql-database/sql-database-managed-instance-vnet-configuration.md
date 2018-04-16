@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 ---
@@ -141,5 +141,5 @@ If yes, see [Configuring a Custom DNS](sql-database-managed-instance-custom-dns.
 ## Next steps
 
 - For an overview, see [What is a Managed Instance](sql-database-managed-instance.md)
-- For a tutorial showing how to create a VNet, create a Managed Instance, and restore a database from a database backup, see [Creating an Azure SQL Database Managed Instance](sql-database-managed-instance-tutorial-portal.md).
+- For a tutorial showing how to create a VNet, create a Managed Instance, and restore a database from a database backup, see [Creating an Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
 - For DNS issues, see [Configuring a Custom DNS](sql-database-managed-instance-custom-dns.md)
