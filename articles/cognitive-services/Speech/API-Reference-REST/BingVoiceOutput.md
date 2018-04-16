@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 03/16/2017
-ms.author: prrajan
+ms.author: priyar
 ---
 # Bing text to speech API
 
