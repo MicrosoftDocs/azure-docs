@@ -32,7 +32,8 @@ To choose a pricing tier, use the following table as a starting point.
 | General Purpose | Most business workloads that require balanced compute and memory with scalable I/O throughput. Examples include servers for hosting web and mobile apps and other enterprise applications.|
 | Memory Optimized | High-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency. Examples include servers for processing real-time data and high-performance transactional or analytical apps.|
 
-After you create a server, the number of vCores can be changed up or down within seconds. You also can independently adjust the amount of storage up and the backup retention period up or down with no application downtime. For more information, see the "Scale resources" section.
+After you create a server, the number of vCores can be changed up or down (within the same pricing tier) within seconds. You also can independently adjust the amount of storage up and the backup retention period up or down with no application downtime. You can't change the pricing tier or the backup storage type after a server is created. For more information, see the [Scale resources](#scale-resources) section.
+
 
 ## Compute generations, vCores, and memory
 
@@ -86,7 +87,7 @@ The service automatically takes backups of your server. The minimum retention pe
 
 ## Scale resources
 
-After you create your server, you can independently change the vCores, the amount of storage, and the backup retention period. You can't change the pricing tier or the backup storage type after a server is created. vCores and the backup retention period can be scaled up or down. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI. For an example of scaling using Azure CLI, see [Monitor and scale an Azure Database for PostgreSQL server by using Azure CLI](scripts/sample-scale-server-up-or-down.md).
+After you create your server, you can independently change the vCores, the amount of storage, and the backup retention period. You can't change the pricing tier or the backup storage type after a server is created. The number of vCores can be scaled up or down within the same pricing tier. The backup retention period can be scaled up or down from 7 to 35 days. The storage size can only be increased.  Scaling of the resources can be done either through the portal or Azure CLI. For an example of scaling using Azure CLI, see [Monitor and scale an Azure Database for PostgreSQL server by using Azure CLI](scripts/sample-scale-server-up-or-down.md).
 
 When you change the number of vCores, a copy of the original server is created with the new compute allocation. After the new server is up and running, connections are switched over to the new server. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This window varies, but in most cases is less than a minute.
 
