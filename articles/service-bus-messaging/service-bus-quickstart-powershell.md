@@ -37,11 +37,7 @@ To complete this tutorial, make sure you have installed:
 
 This quickstart requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## Log in to Azure
-
-Once PowerShell is installed, open Cloud Shell and issue the following commands: 
 
 1. First, install the Service Bus PowerShell module, if you haven't already:
 
@@ -55,7 +51,7 @@ Once PowerShell is installed, open Cloud Shell and issue the following commands:
    Login-AzureRmAccount
    ```
 
-4. Set the current subscription context, or see the currently active subscription:
+3. Issue the following commands to set the current subscription context, or to see the currently active subscription:
 
    ```azurepowershell
    Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
@@ -64,14 +60,14 @@ Once PowerShell is installed, open Cloud Shell and issue the following commands:
 
 ## Use PowerShell to provision resources
 
-After logging in to Azure, issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
+From the PowerShell prompt, issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
 ```azurepowershell
 # Create a resource group 
-New-AzureRmResourceGroup –Name my-resourcegroup –Location westus2
+New-AzureRmResourceGroup –Name my-resourcegroup –Location eastus
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
+New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location eastus
 
 # Create a queue 
 New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
@@ -88,25 +84,34 @@ After the namespace and queue are created, and you have the necessary credential
 
 To run the code, do the following:
 
-1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/).
-2. Open a Windows PowerShell prompt with Administrator privileges.
+1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
+
+   ```shell
+   git clone https://github.com/Azure/azure-service-bus.git
+   ```
+
 3. Navigate to the sample folder `\azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
+
 4. If you have not done so already, obtain the connection string using the following PowerShell cmdlet. Be sure to replace `<resource_group_name>` and `<namespace_name>` with your specific values: 
 
    ```azurepowershell
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
+
 5.	At the PowerShell prompt, type the following command:
 
    ```shell
    dotnet build
    ```
+
 6.	Navigate to the `bin\Debug\netcoreapp2.0` folder.
+
 7.	Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
    ``` 
+
 8. Observe 10 messages being sent to the queue, and subsequently received from the queue:
 
    ![program output](./media/service-bus-quickstart-powershell/dotnet.png)

@@ -19,13 +19,13 @@ ms.author: sethm
 
 ---
 
-# Send and receive using the Azure portal and JMS
+# Send and receive using the Azure portal and .NET
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the workflow sends to and receives messages from a Service Bus queue.  
 
 ![queue](./media/service-bus-quickstart-portal/quick-start-queue.png)
 
-This quickstart describes how to send and receive messages to and from a Service Bus queue, using the [Azure portal][Azure portal] to create a messaging namespace and a queue within that namespace, and to obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages using the Java Messaging service (JMS).
+This quickstart describes how to send and receive messages to and from a Service Bus queue, using the [Azure portal][Azure portal] to create a messaging namespace and a queue within that namespace, and to obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages from this queue using the [.NET Standard library](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 If you don't have an Azure subscription, you can create a [free account][] before you begin.
 
@@ -33,8 +33,8 @@ If you don't have an Azure subscription, you can create a [free account][] befor
 
 To complete this tutorial, make sure you have installed:
 
--  [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), latest version.
--  [Apache Maven](https://maven.apache.org), version 3.0 or above.
+1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Log on to the Azure portal
 
@@ -83,159 +83,41 @@ After the namespace and queue are provisioned, and you have the necessary creden
 
 To run the code, do the following:
 
-1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/).
-2. Open a command prompt with Administrator privileges.
-3. Navigate to the sample folder `\azure-service-bus\samples\Java\quickstarts-and-tutorials\quickstart-jms`.
-4. Obtain the connection string you copied to Notepad in the [Obtain the management credentials](#obtain-the-management-credentials) section of this quickstart. You also need the name of the queue you created in the previous section.
-5. Type the following command to build the program:
+1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
 
    ```shell
-   mvn clean package -DskipTests
+   git clone https://github.com/Azure/azure-service-bus.git
    ```
-6.	Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
+
+3. Navigate to the sample folder `\azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
+
+4. Copy the the connection string and queue name you obtained in the [Obtain the management credentials](#obtain-the-management-credentials) section.
+
+5.	At a command prompt, type the following command:
 
    ```shell
-   java -jar .\target\samples.quickstart-jms-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -q "myQueueName"
+   dotnet build
+   ```
+
+6.	Navigate to the `bin\Debug\netcoreapp2.0` folder.
+
+7.	Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
+
+   ```shell
+   dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
    ``` 
-8. Observe ten messages being sent to the queue, and subsequently received from the queue:
 
-   ![program output](./media/service-bus-quickstart-portal/jms.png)
+8. Observe 10 messages being sent to the queue, and subsequently received from the queue:
 
-## Clean up resources
+   ![program output](./media/service-bus-quickstart-portal/dotnet.png)
 
-When no longer needed, delete the namespace and queue. To do so, select these resources on the portal and click **Delete**. 
+## Clean up deployment
+
+You can use the portal to remove the resource group, namespace, and queue.
 
 ## Understand the sample code
 
-This section contains more details about what the sample code does. 
-
-### Get connection string and queue
-
-First, the code declares two string variables that are passed to the program as arguments on the command line:
-
-```java
-String ConnectionString = null;
-String QueueName = null;
-```
-
-These values are added via command line parameters passed to `main()` and allocated in the `runApp()` method:
-
-```java
-public static void main(String[] args) {
-    QuickStartJMS app = new QuickStartJMS();
-    try {
-        app.runApp(args);
-        app.run();
-    } catch (Exception e) {
-        System.out.printf("%s", e.toString());
-    }
-    System.exit(0);
-}
-
-public void runApp(String[] args) {
-    try {
-        // parse connection string from command line             
-        Options options = new Options();
-        options.addOption(new Option("c", true, "Connection string"));
-        options.addOption(new Option("q", true, "Queue Name"));
-        CommandLineParser clp = new DefaultParser();
-        CommandLine cl = clp.parse(options, args);
-        if (cl.getOptionValue("c") != null && cl.getOptionValue("q") != null) {
-            ConnectionString = cl.getOptionValue("c");
-            QueueName =  cl.getOptionValue("q");
-        }
-        else
-        {
-            HelpFormatter formatter = new HelpFormatter();
-            formatter.printHelp("run jar with", "", options, "", true);
-        }
-
-    } catch (Exception e) {
-        System.out.printf("%s", e.toString());
-    }
-}
-```
-
-### Create JMS queue connection
-
-The `run()` method uses the Java Messaging Service queue creation mechanics to create the queue context and send messages to it. It also uses the `ConnectionStringBuilder()` API from the Service Bus library to ensure robust parsing of the connection string:
-
-```java
-public void run() throws Exception {
-    ConnectionStringBuilder csb = new ConnectionStringBuilder(ConnectionString);
-        
-    // set up JNDI context
-    Hashtable<String, String> hashtable = new Hashtable<>();
-    hashtable.put("connectionfactory.SBCF", "amqps://" + csb.getEndpoint().getHost() + "?amqp.idleTimeout=120000&amqp.traceFrames=true");
-    hashtable.put("queue.QUEUE", QueueName);
-    //hashtable.put("queue.QUEUE", "testqueue");
-    hashtable.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInitialContextFactory");
-    Context context = new InitialContext(hashtable);
-    ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
-        
-    // Look up queue
-    Destination queue = (Destination) context.lookup("QUEUE");
-
-    // we create a scope here so we can use the same set of local variables cleanly 
-    // again to show the receive side separately with minimal clutter
-    {
-        // Create Connection
-        Connection connection = cf.createConnection(csb.getSasKeyName(), csb.getSasKey());
-        // Create Session, no transaction, client ack
-        Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
-
-        // Create producer
-        MessageProducer producer = session.createProducer(queue);
-
-        // Send messages
-        for (int i = 0; i < totalSend; i++) {
-            BytesMessage message = session.createBytesMessage();
-            message.writeBytes(String.valueOf(i).getBytes());
-            producer.send(message);
-            System.out.printf("Sent message %d.\n", i + 1);
-        }
-
-        producer.close();
-        session.close();
-        connection.stop();
-        connection.close();
-    }
-
-    {
-        // Create Connection
-        Connection connection = cf.createConnection(csb.getSasKeyName(), csb.getSasKey());
-        connection.start();
-        // Create Session, no transaction, client ack
-        Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
-        // Create consumer
-        MessageConsumer consumer = session.createConsumer(queue);
-        // create a listener callback to receive the messages
-        consumer.setMessageListener(message -> {
-            try {
-                // receives message is passed to callback
-                System.out.printf("Received message %d with sq#: %s\n",
-                        totalReceived.incrementAndGet(), // increments the tracking counter
-                        message.getJMSMessageID());
-                message.acknowledge();
-            } catch (Exception e) {
-                logger.error(e);
-            }
-        });
-
-        // wait on the main thread until all sent messages have been received
-        while (totalReceived.get() < totalSend) {
-            Thread.sleep(1000);
-        }
-        consumer.close();
-        session.close();
-        connection.stop();
-        connection.close();
-    }
-
-    System.out.printf("Received all messages, exiting the sample.\n");
-    System.out.printf("Closing queue client.\n");
-}
-```
+For more details about what the sample code does, see [this section](service-bus-quickstart-powershell.md#understand-the-sample-code). 
 
 ## Next steps
 

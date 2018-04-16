@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2018
+ms.date: 04/16/2018
 ms.author: sethm
 
 ---
 
 # Send and receive using Azure CLI and Java
 
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the workflow sends to and receives messages from a Service Bus queue.  
+Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the workflow sends to and receives messages from a Service Bus queue.  
 
 ![queue](./media/service-bus-quickstart-cli/quick-start-queue.png)
 
@@ -38,19 +38,13 @@ To develop a Service Bus app with Java, you must have the following installed:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Log in to Azure
 
-Once CLI is installed, open Cloud Shell and issue the following commands to log in to Azure: 
+1. Open Cloud Shell and from the **Select environment** dropdown, select **Bash**. 
 
-1. Run the following command to log in to Azure:
-
-   ```azurecli-interactive
-   az login
-   ```
-
-2. Set the current subscription context to the Azure subscription you want to use:
+2. From the Bash prompt, issue the following command to set the current subscription context to the Azure subscription you want to use:
 
    ```azurecli
    az account set --subscription Azure_subscription_name
@@ -58,7 +52,7 @@ Once CLI is installed, open Cloud Shell and issue the following commands to log 
 
 ## Use CLI to provision resources
 
-After logging in to Azure, issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
+In Cloud Shell, from the Bash prompt issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
 ```azurecli
 # Create a resource group
@@ -80,8 +74,13 @@ After the last command runs, copy and paste the connection string, and the queue
 
 After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart).
 
-1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/).
-2. From a command prompt, navigate to the sample folder `\azure-service-bus\samples\Java\quickstarts-and-tutorials\quickstart-java`.
+1. Make sure that Cloud Shell is open and displaying the Bash prompt.
+2. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
+   ```shell
+   git clone https://github.com/Azure/azure-service-bus.git
+   ```
+
+2. Navigate to the sample folder `/azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java`. Note that in the Bash shell, the commands are case sensitive and the path separators must be forward slashes.
 3. Issue the following command to build the application:
    
    ```shell
@@ -91,7 +90,7 @@ After the namespace and queue are provisioned, and you have the necessary creden
 4. To run the program, issue the following command. Make sure to replace the placeholders with the connection string and queue name you obtained in the previous step:
 
    ```shell
-   java -jar .\target\samples.quickstart-1.0.0-jar-with-dependencies.jar -c "myConnectionString” -q "queue-name"
+   java -jar ./target/samples.quickstart-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -q "queue-name"
    ```
 
 Observe 10 messages being sent to the queue, and subsequently received from the queue:
@@ -119,7 +118,7 @@ String ConnectionString = null;
 String QueueName = null;
 ```
 
-These values are added via command line parameters passed to `main()` and allocated in the `runApp()` method:
+These values are added via parameters and allocated in the `runApp()` method:
 
 ```java
 public static void main(String[] args) {
