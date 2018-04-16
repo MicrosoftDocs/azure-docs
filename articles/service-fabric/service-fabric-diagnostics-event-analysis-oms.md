@@ -20,11 +20,7 @@ ms.author: dekapur; srrengar
 
 # Event analysis and visualization with Log Analytics
 
-<<<<<<< HEAD
-Log Analytics (OMS) is a collection of management services that help with monitoring and diagnostics for applications and services hosted in the cloud. To get a more detailed overview of Log Analytics and what it offers, read [What is OMS?](../operations-management-suite/operations-management-suite-overview.md)
-=======
 Azure management solutions are a collection of management services that help with monitoring and diagnostics for applications and services hosted in the cloud. To get a more detailed overview of Log Analytics and what it offers, read [What is Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)
->>>>>>> 00b4a0d56d263a1130b3b35c90f793b87fb96f31
 
 ## Log Analytics workspace
 
