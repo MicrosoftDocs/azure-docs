@@ -576,6 +576,7 @@ Create and manage data factories, as well as child resources within them.
 | **Actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read | Read roles and role Assignments |
+| Microsoft.DataFactory/factory/* | Create and manage data factories, and child resources within them. |
 | Microsoft.DataFactory/dataFactories/* | Create and manage data factories, and child resources within them. |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
