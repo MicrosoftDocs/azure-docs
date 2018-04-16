@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/16/2018
 ms.author: babanisa
 ---
 
@@ -21,11 +21,15 @@ Currently, Event Grid supports the following regions:
 
 * Asia Southeast
 * Asia East
+* Australia East
+* Australia Southeast
 * Central US
 *	East US
 *	East US 2
 * Europe West
 * Europe North
+* Japan East
+* Japan West
 *	West Central US
 *	West US
 *	West US 2
