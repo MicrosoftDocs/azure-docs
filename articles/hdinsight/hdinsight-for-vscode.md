@@ -28,7 +28,7 @@ Learn how to use the Azure HDInsight Tools for Visual Studio Code (VS Code) to c
 
 The following items are required for completing the steps in this article:
 
-- A HDInsight cluster.  To create a cluster, see [Get started with HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- A HDInsight cluster. To create a cluster, see [Get started with HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono is only required for Linux and macOS.
 
@@ -113,7 +113,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
    ![link cluster dialog](./media/hdinsight-for-vscode/link-cluster-process.png)
 
    > [!NOTE]
-   > We use the linked username and password if the cluster both logged in Azure subscription and Linked a cluster. 
+   > The linked username and password are used if the cluster both logged in Azure subscription and Linked a cluster. 
    
 3. You can see a Linked cluster by using command **List cluster**. Now you can submit a script to this linked cluster.
 
@@ -281,7 +281,7 @@ After you submit a Python job, submission logs appear in the **OUTPUT** window i
 >PySpark3 is not supported anymore in Livy 0.4 (which is HDI spark 2.2 cluster). Only “PySpark” is supported for python. It is known issue that submit to spark 2.2 fail with python3.
    
 ## Livy configuration
-We support Livy configuration, that could be set at the project settings in work space folder. More details, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
+Livy configuration is supported, it could be set at the project settings in work space folder. More details, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
 
 + The project settings:
 
@@ -289,7 +289,7 @@ We support Livy configuration, that could be set at the project settings in work
 
 + The supported Livy configurations:   
 
-    POST /batches   
+    **POST /batches**   
     Request Body
 
     | name | description | type | 
@@ -322,38 +322,6 @@ We support Livy configuration, that could be set at the project settings in work
     | log | The log lines | list of strings |
     | state | 	The batch state | string |
 
-    <table class="table table-bordered">
-	    <tr>
-		    <th> name </th>
-		    <th> description </th>
-		    <th> type </th>
-	    </tr>
-	    <tr>
-		    <td> id </td>
-	    	<td> The session id </td>
-	    	<td> int </td>
-	    </tr>
-	    <tr>
-	    	<td> appId </td>
-	    	<td> The application id of this session </td>
-	    	<td> String </td>
-	    </tr>
-        	<tr>
-	    	<td> appInfo </td>
-		    <td> The detailed application info </td>
-		    <td> Map of key=val </td>
-	    </tr>
-    	    <tr>
-		    <td> log </td>
-		    <td> The log lines </td>
-	    	<td> list of strings </td>
-	    </tr>
-        	<tr>
-	    	<td> state </td>
-		    <td> The batch state </td>
-	    	<td> string </td>
-	    </tr>
-    </table>
 
 ## Additional features
 
