@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/05/2018
+ms.date: 04/16/2018
 ms.author: dekapur; srrengar
 
 ---
 
 # Performance Monitoring with Log Analytics
 
-This article covers the steps to add the Log Analytics, also known as OMS, Agent as a virtual machine scale set extension to your cluster, and connect it to your existing Azure Log Analytics workspace. This enables collecting diagnostics data about containers, applications, and performance monitoring. By adding it as an extension to the VMSS resource, Azure Resource Manager ensures that it gets installed on every node, even when scaling the cluster.
+This article covers the steps to add the Log Analytics, also known as OMS, Agent as a virtual machine scale set extension to your cluster, and connect it to your existing Azure Log Analytics workspace. This enables collecting diagnostics data about containers, applications, and performance monitoring. By adding it as an extension to the virtual machine scale set resource, Azure Resource Manager ensures that it gets installed on every node, even when scaling the cluster.
 
 > [!NOTE]
 > This article assumes that you have an Azure Log Analytics workspace already set up. If you do not, head over to [Set up Azure Log Analytics](service-fabric-diagnostics-oms-setup.md)
@@ -81,7 +81,7 @@ Now that you have added the OMS agent, head on over to the Log Analytics portal 
 
 4. On the settings page, click Data and choose Windows or Linux Performance Counters. There are a list of default ones you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](service-fabric-diagnostics-event-generation-perf.md) to collect. The proper format is referenced in this [article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa373193(v=vs.85).aspx).
 
-Once your counters are configured, head back to the solutions page and you will soon see data flowing in an displayed in the graphs under **Node Metrics**. You can also query on performance counter data similarly to cluster events and filter on the nodes, perf counter name, and values using the Kusto query language. 
+Once your counters are configured, head back to the solutions page and you will soon see data flowing in and displayed in the graphs under **Node Metrics**. You can also query on performance counter data similarly to cluster events and filter on the nodes, perf counter name, and values using the Kusto query language. 
 
 ![OMS perf counter query](media/service-fabric-diagnostics-oms-agent/oms-perf-counter-query.png)
 
@@ -89,4 +89,4 @@ Once your counters are configured, head back to the solutions page and you will 
 
 * Collect relevant [performance counters](service-fabric-diagnostics-event-generation-perf.md). To configure the OMS agent to collect specific performance counters, review [configuring data sources](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
 * Configure Log Analytics to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics
-* As an alternative you can collect performance counters through [Azure Diagnostics extension and send it to Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)
+* As an alternative you can collect performance counters through [Azure Diagnostics extension and send them to Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)

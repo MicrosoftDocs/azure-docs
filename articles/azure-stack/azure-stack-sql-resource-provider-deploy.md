@@ -78,7 +78,7 @@ You must create one (or more) instances of SQL Server and/or provide access to e
 
     - Only a single certificate file can exist in the directory pointed to by the DependencyFilesLocalPath parameter.
 
-    - The file name must not contain any special characters.
+    - The file name must not contain any special characters or spaces.
 
 
 5. Open a **new** elevated (administrative) PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that might arise from incorrect PowerShell modules that are already loaded on the system.

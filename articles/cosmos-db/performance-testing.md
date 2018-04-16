@@ -3,8 +3,8 @@ title: Azure Cosmos DB scale and performance testing | Microsoft Docs
 description: Learn how to perform scale and performance testing with Azure Cosmos DB
 keywords: performance testing
 services: cosmos-db
-author: arramac
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: ''
 documentationcenter: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
-ms.author: arramac
+ms.author: sngun
 
 ---
 # Performance and scale testing with Azure Cosmos DB

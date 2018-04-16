@@ -26,12 +26,12 @@ Running an existing application in a Windows container on a Service Fabric clust
 
 ![IIS default web page][iis-default]
 
-Using this quickstart you learn how to:
-> [!div class="checklist"]
-> * Package a Docker image container
-> * Configure communication
-> * Build and package the Service Fabric application
-> * Deploy the container application to Azure
+In this quickstart you learn how to:
+
+* Package a Docker image container
+* Configure communication
+* Build and package the Service Fabric application
+* Deploy the container application to Azure
 
 ## Prerequisites
 * An Azure subscription (you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
@@ -209,16 +209,16 @@ Here are the complete service and application manifests used in this quickstart.
 
 ## Next steps
 In this quickstart, you learned how to:
-> [!div class="checklist"]
-> * Package a Docker image container
-> * Configure communication
-> * Build and package the Service Fabric application
-> * Deploy the container application to Azure
 
-* Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
-* Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
-* Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
-* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-containers) on GitHub.
+* Package a Docker image container
+* Configure communication
+* Build and package the Service Fabric application
+* Deploy the container application to Azure
+
+To learn more about working with Windows containers in Service Fabric, continue to the tutorial for Windows container apps.
+
+> [!div class="nextstepaction"]
+> [Create a Windows container app](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

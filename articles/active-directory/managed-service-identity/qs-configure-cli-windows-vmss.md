@@ -68,10 +68,10 @@ If you need to enable MSI on an existing Azure virtual machine scale set:
    az login
    ```
 
-2. Use [az vmss assign-identity](/cli/azure/vm/#az_vmss_assign_identity) with the `--assign-identity` parameter to add an MSI to an existing VM:
+2. Use [az vmss identity assign](/cli/azure/vmss/identity/#az_vmss_identity_assign) command to add an MSI to an existing VM:
 
    ```azurecli-interactive
-   az vmss assign-identity -g myResourceGroup -n myVMSS
+   az vmss identity assign -g myResourceGroup -n myVMSS
    ```
 
 ## Remove MSI from an Azure virtual machine scale set
@@ -84,10 +84,10 @@ If you have a virtual machine scale set that no longer needs an MSI:
    az login
    ```
 
-2. Use the `--identities` switch with [az vmss remove-identity](/cli/azure/vmss/#az_vmss_remove_identity) to remove the MSI:
+2. Use [az vmss identity remove](/cli/azure/vmss/identity/#az_vmss_remove_identity) command to remove the MSI:
 
    ```azurecli-interactive
-   az vmss remove-identity -g myResourceGroup -n myVMSS --identities readerID writerID
+   az vmss identity remove -g myResourceGroup -n myVMSS --identities readerID writerID
    ```
 
 ## Next steps

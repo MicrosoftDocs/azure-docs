@@ -48,7 +48,7 @@ Network Watcher currently has the following capabilities:
 
 ### Role-based Access Control (RBAC) in Network Watcher
 
-Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../active-directory/role-based-access-control-what-is.md). The following permissions are required by the Network Watcher. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
+Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../role-based-access-control/overview.md). The following permissions are required by the Network Watcher. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
 
 |Resource| Permission|
 |---|---| 

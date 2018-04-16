@@ -17,9 +17,9 @@ Together with the [Kubernetes Service Catalog][kubernetes-service-catalog], Open
 ## Prerequisites
 * An Azure subscription
 
-* Azure CLI 2.0: You can [install it locally][azure-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
+* Azure CLI 2.0: [install it locally][azure-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
 
-* Helm CLI 2.7+: You can [install it locally][helm-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
+* Helm CLI 2.7+: [install it locally][helm-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
 
 * Permissions to create a service principal with the Contributor role on your Azure subscription
 

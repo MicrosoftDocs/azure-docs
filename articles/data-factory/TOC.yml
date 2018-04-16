@@ -122,6 +122,8 @@
       href: author-visually.md
     - name: Continuous integration and deployment
       href: continuous-integration-deployment.md
+    - name: Iterative development and debugging
+      href: iterative-development-debugging.md
   - name: Copy data
     items:
     - name: Copy data using Copy Activity
@@ -362,6 +364,10 @@
       href: create-azure-ssis-integration-runtime.md
   - name: Run SSIS packages in Azure
     items:
+    - name: Custom setup for Azure-SSIS integration runtime
+      href: how-to-configure-azure-ssis-ir-custom-setup.md
+    - name: Provision Enterprise Edition for Azure-SSIS integration runtime
+      href: how-to-configure-azure-ssis-ir-enterprise-edition.md
     - name: Join Azure-SSIS integration runtime to a VNET
       href: join-azure-ssis-integration-runtime-virtual-network.md
     - name: Manage Azure-SSIS integration runtime
@@ -372,6 +378,8 @@
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
+    - name: Develop licensed components for Azure-SSIS integration runtime
+      href: how-to-develop-azure-ssis-ir-licensed-components.md
   - name: Create triggers
     items:
     - name: Create a schedule trigger

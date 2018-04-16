@@ -4,7 +4,7 @@ description: Azure Quick Start - Create Windows VM Portal
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 

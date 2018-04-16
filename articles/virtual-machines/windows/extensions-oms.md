@@ -4,7 +4,7 @@ description: Deploy the OMS agent on Windows virtual machine using a virtual mac
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

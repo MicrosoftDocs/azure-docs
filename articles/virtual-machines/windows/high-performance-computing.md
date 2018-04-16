@@ -4,7 +4,7 @@ description: Learn about Azure solutions for running high performance computing 
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 

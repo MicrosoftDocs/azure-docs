@@ -24,8 +24,8 @@ This tutorial, part seven of seven, covers the following tasks:
 
 > [!div class="checklist"]
 > * Get Log Analytics Workspace settings
-> * Set up OMS agents on the Kubernetes nodes
-> * Access monitoring information in the OMS portal or Azure portal
+> * Set up Log Analytics agents on the Kubernetes nodes
+> * Access monitoring information in the Log Analytics portal or Azure portal
 
 ## Before you begin
 
@@ -35,7 +35,7 @@ If you have not done these steps, and would like to follow along, return to [Tut
 
 ## Get Workspace settings
 
-When you can access the [OMS portal](https://mms.microsoft.com), go to **Settings** > **Connected Sources** > **Linux Servers**. There, you can find the *Workspace ID* and a primary or secondary *Workspace Key*. Take note of these values, which you need to set up OMS agents on the cluster.
+When you can access the [Log Analytics portal](https://mms.microsoft.com), go to **Settings** > **Connected Sources** > **Linux Servers**. There, you can find the *Workspace ID* and a primary or secondary *Workspace Key*. Take note of these values, which you need to set up Log Analytics agents on the cluster.
 
 ## Create Kubernetes secret
 
@@ -45,7 +45,7 @@ Store the Log Analytics workspace settings in a Kubernetes secret named `omsagen
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
 ```
 
-## Set up OMS agents
+## Set up Log Analytics agents
 
 The following Kubernetes manifest file can be used to configure the container monitoring agents on a Kubernetes cluster. It creates a Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), which runs a single identical pod on each cluster node.
 
@@ -139,11 +139,11 @@ After the agents are running, it takes several minutes for Log Analytics to inge
 
 ## Access monitoring data
 
-View and analyze the container monitoring data with the [Container solution](../../log-analytics/log-analytics-containers.md) in either the OMS portal or the Azure portal.
+View and analyze the container monitoring data with the [Container solution](../../log-analytics/log-analytics-containers.md) in either the Log Analytics portal or the Azure portal.
 
-To install the Container solution using the [OMS portal](https://mms.microsoft.com), go to **Solutions Gallery**. Then add **Container Solution**. Alternatively, add the Containers solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
+To install the Container solution using the [Log Analytics portal](https://mms.microsoft.com), go to **Solutions Gallery**. Then add **Container Solution**. Alternatively, add the Containers solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
-In the OMS portal, look for a **Containers** summary tile on the dashboard. Click the tile for details including: container events, errors, status, image inventory, and CPU and memory usage. For more granular information, click a row on any tile, or perform a [log search](../../log-analytics/log-analytics-log-searches.md).
+In the Log Analytics portal, look for a **Containers** summary tile on the dashboard. Click the tile for details including: container events, errors, status, image inventory, and CPU and memory usage. For more granular information, click a row on any tile, or perform a [log search](../../log-analytics/log-analytics-log-searches.md).
 
 ![Containers dashboard in OMS portal](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
@@ -157,8 +157,8 @@ In this tutorial, you monitored your Kubernetes cluster with Log Analytics. Task
 
 > [!div class="checklist"]
 > * Get Log Analytics Workspace settings
-> * Set up OMS agents on the Kubernetes nodes
-> * Access monitoring information in the OMS portal or Azure portal
+> * Set up Log Analytics agents on the Kubernetes nodes
+> * Access monitoring information in the Log Analytics portal or Azure portal
 
 
 Follow this link to see pre-built script samples for Container Service.
