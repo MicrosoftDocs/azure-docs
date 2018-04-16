@@ -17,7 +17,7 @@ The main concepts in Azure Event Grid are:
 
 ## Events
 
-An event is the smallest amount of information that fully describes something that happened in the system.  Every event has common information like: source of the event, time the event took place, and unique identifier.  Every event also has specific information that is only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage contains details about the file, such as the `lastTimeModified` value. Or, an event about a virtual machine rebooting contains the name of the virtual machine, and the reason for reboot. Each event is limited to 64 KB of data.
+An event is the smallest amount of information that fully describes something that happened in the system. Every event has common information like: source of the event, time the event took place, and unique identifier. Every event also has specific information that is only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage contains details about the file, such as the `lastTimeModified` value. Or, an event about a virtual machine rebooting contains the name of the virtual machine, and the reason for reboot. Each event is limited to 64 KB of data.
 
 ## Event sources/publishers
 
@@ -37,7 +37,7 @@ A subscription instructs Event Grid on which events on a topic a subscriber is i
 
 ## Event handlers
 
-From an Event Grid perspective, an event handler is the place where the event is sent. The handler takes some further action to process the event.  Event Grid supports multiple subscriber types. Depending on the type of subscriber, Event Grid follows different mechanisms to guarantee the delivery of the event.  For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service is able to successfully process the message push into the queue.
+From an Event Grid perspective, an event handler is the place where the event is sent. The handler takes some further action to process the event. Event Grid supports multiple subscriber types. Depending on the type of subscriber, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service is able to successfully process the message push into the queue.
 
 ## Filters
 
