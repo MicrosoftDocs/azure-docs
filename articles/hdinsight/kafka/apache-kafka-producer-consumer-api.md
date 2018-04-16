@@ -10,20 +10,28 @@ tags: azure-portal
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 04/10/2018
 ms.author: larryfr
-
+#Customer intent: As a developer, I need to create an application that uses the Kafka consumer/producer API with Kafka on HDInsight
 ---
 
 # Apache Kafka Producer and Consumer APIs
 
-Learn how to create an application that uses the Kafka Producer and Consumer APIs with Kafka on HDInsight.
+Learn how to use the Kafka Producer and Consumer APIs with Kafka on HDInsight.
 
-For documentation on the APIs, see [Producer API](https://kafka.apache.org/documentation/#producerapi) and [Consumer API](https://kafka.apache.org/documentation/#consumerapi).
+The Kafka Producer API allows applications to send streams of data to the Kafka cluster. The Kafka Consumer API allows applications to read streams of data from the cluster.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Set up your development environment
+> * Understand the code
+> * Build and deploy the application
+> * Run the application on the cluster
+
+For more information on the APIs, see Apache documentation on the [Producer API](https://kafka.apache.org/documentation/#producerapi) and [Consumer API](https://kafka.apache.org/documentation/#consumerapi).
 
 ## Set up your development environment
 
@@ -35,9 +43,52 @@ You must have the following components installed in your development environment
 
 * An SSH client and the `scp` command. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
-## Set up your deployment environment
+* A text editor or Java IDE.
 
-This example requires Kafka on HDInsight 3.6. To learn how to create a Kafka on HDInsight cluster, see the [Start with Kafka on HDInsight](apache-kafka-get-started.md) document.
+The following environment variables may be set when you install Java and the JDK on your development workstation. However, you should check that they exist and that they contain the correct values for your system.
+
+* `JAVA_HOME` - should point to the directory where the JDK is installed.
+* `PATH` - should contain the following paths:
+  
+    * `JAVA_HOME` (or the equivalent path).
+    * `JAVA_HOME\bin` (or the equivalent path).
+    * The directory where Maven is installed.
+
+## Understand the code
+
+The example application is located at [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), in the `Producer-Consumer` subdirectory. The application consists primarily of four files:
+
+* `pom.xml`: This file defines the project dependencies, Java version, and packaging methods.
+* `Producer.java`: This file sends 1 million (1,000,000) random sentences to Kafka using the producer API.
+* `Consumer.java`: This file uses the consumer API to read data from Kafka and emit it to STDOUT.
+* `Run.java`: The command-line interface used to run the producer and consumer code.
+
+### Pom.xml
+
+The important things to understand in the `pom.xml` file are:
+
+* Dependencies: This project relies on the Kafka producer and consumer APIs, which are provided by the `kafka-clients` project. The following XML code defines this dependency:
+
+    ```xml
+    <!-- Kafka client for producer/consumer operations -->
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>${kafka.version}</version>
+    </dependency>
+    ```
+
+    > [!NOTE]
+    > The `${kafka.version}` entry is declared in the `<properties>..</properties>` section of `pom.xml`, and is configured to the Kafka version of the HDInsight cluster.
+
+* Plugins: Maven plugins provide various capabilities. In this project, the following plugins are used:
+
+    * `maven-compiler-plugin`: Used to set the Java version used by the project to 8. This is the version of Java used by HDInsight 3.6.
+    * `maven-shade-plugin`: Used to generate an uber jar that contains this application as well as any dependencies. It is also used to set the entry point of the application, so that you can directly run the Jar file without having to specify the main class.
+
+### Producer.java
+
+
 
 ## Build and deploy the example
 
@@ -143,8 +194,3 @@ In this document, you learned how to use the Kafka Producer and Consumer API wit
 * [Analyze Kafka logs](apache-kafka-log-analytics-operations-management.md)
 * [Replicate data between Kafka clusters](apache-kafka-mirroring.md)
 * [Kafka Streams API with HDInsight](apache-kafka-streams-api.md)
-* [Use Apache Spark streaming (DStream) with Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Use Apache Spark Structured Streaming with Kafka on HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Use Apache Spark Structured Streaming to move data from Kafka on HDInsight to Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
-* [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
