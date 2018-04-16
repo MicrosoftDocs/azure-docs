@@ -182,7 +182,9 @@ The Azure CLI confirms the firewall rule creation with output similar to the fol
 }
 ```
 
-> [!TIP] You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](app-service-ip-addresses.md#find-outbound-ips).
+> [!TIP] 
+> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](app-service-ip-addresses.md#find-outbound-ips).
+>
 
 ### Create a production database and user
 

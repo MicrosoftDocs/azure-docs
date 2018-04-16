@@ -129,7 +129,9 @@ Create an [Azure SQL Database server-level firewall rule](../sql-database/sql-da
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
-> [!TIP] You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](app-service-ip-addresses.md#find-outbound-ips).
+> [!TIP] 
+> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](app-service-ip-addresses.md#find-outbound-ips).
+>
 
 ### Create a database
 
