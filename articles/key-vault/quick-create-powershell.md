@@ -27,13 +27,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 5.1.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
-```azurepowershell-interactive
+```azurepowershell
 Login-AzureRmAccount
 ```
 
 If you are using a specific instance of Azure use the -Environment parameter. For example:
 
- ```azure-powershell-interactive
+ ```azurepowershell
  Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
 
@@ -41,7 +41,7 @@ If you are using a specific instance of Azure use the -Environment parameter. Fo
 
 Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzureRmResourceGroup -Name ContosoResourceGroup -Location EastUS
 ```
 
@@ -74,19 +74,19 @@ To add a secret to the vault you just need to take a couple of additional steps.
 
 First convert the value of Pa$$w0rd to a secure string by typing:
 
-```azurepowershell-interactive
+```azurepowershell
 $secretvalue = ConvertTo-SecureString 'Pa$$w0rd' -AsPlainText -Force
 ```
 
 Then, type the PowerShell commands below to create a secret in Key Vault called **SQLPassword** with the value **Pa$$w0rd** :
 
-```azurepowershell-interactive
+```azurepowershell
 $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 ```
 
 To view the value contained in the secret as plain text:
 
-```azurepowershell-interactive
+```azurepowershell
 (get-azurekeyvaultsecret -vaultName "Contosokeyvault" -name "SQLPassword").SecretValueText
 ```
 
