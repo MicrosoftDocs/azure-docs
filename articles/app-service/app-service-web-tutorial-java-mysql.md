@@ -164,6 +164,8 @@ In the Cloud Shell, create a firewall rule for your MySQL server to allow client
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
+> [!TIP] You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](app-service-ip-addresses.md#find-outbound-ips).
+
 ## Configure the Azure MySQL database
 
 In the local terminal window, connect to the MySQL server in Azure. Use the value you specified previously for `<admin_user>` and `<mysql_server_name>`.

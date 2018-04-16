@@ -69,6 +69,8 @@
     href: azure-web-sites-web-hosting-plans-in-depth-overview.md
   - name: OS functionality
     href: web-sites-available-operating-system-functionality.md
+  - name: Inbound and outbound IPs
+    href: app-service-ip-addresses.md
   - name: Authentication and authorization
     href: app-service-authentication-overview.md
   - name: Hybrid connections

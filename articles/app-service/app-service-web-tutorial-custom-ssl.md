@@ -223,6 +223,14 @@ When the operation is complete, navigate to any of the HTTP URLs that point to y
 - `http://contoso.com`
 - `http://www.contoso.com`
 
+## Renew certificates
+
+Your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, follow these steps in order:
+
+1. Upload the new certificate.
+2. Bind the new certificate to the custom domain you want without deleting the old one. This action replaces the binding instead of removing the old one.
+3. Delete the old certificate. 
+
 ## Automate with scripts
 
 You can automate SSL bindings for your web app with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).

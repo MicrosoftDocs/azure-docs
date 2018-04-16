@@ -182,6 +182,8 @@ The Azure CLI confirms the firewall rule creation with output similar to the fol
 }
 ```
 
+> [!TIP] You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](app-service-ip-addresses.md#find-outbound-ips).
+
 ### Create a production database and user
 
 Create a database user with access to a single database only. You use these credentials to avoid giving the application full access to the server.
