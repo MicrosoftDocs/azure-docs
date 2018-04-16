@@ -92,7 +92,7 @@ This section guides you through connecting your Azure AD to Asana user account p
 
 12. Select **Save**. 
 
-Now the initial synchronization starts for any users assigned to Asana in the **Users** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. Use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports. The reports describe all actions performed by the provisioning service on your Asana app.
+Now the initial synchronization starts for any users assigned to Asana in the **Users** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. Use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs. The audit logs describe all actions performed by the provisioning service on your Asana app.
 
 For more information on how to read the Azure AD provisioning logs, see [Report on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 

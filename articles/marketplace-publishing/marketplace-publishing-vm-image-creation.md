@@ -3,8 +3,8 @@ title: Creating a virtual machine image for the Azure Marketplace | Microsoft Do
 description: Detailed instructions on how to create a virtual machine image for the Azure Marketplace for others to purchase.
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: hascipio; v-divte
+ms.author: mbaldwin
 
 ---
 # Guide to create a virtual machine image for the Azure Marketplace
@@ -125,7 +125,7 @@ We strongly recommend that you develop your VHD in the cloud by using Remote Des
 
 **Connect via RDP using the [Microsoft Azure portal][link-azure-portal]**
 
-1. Select **Browse** > **VMs**.
+1. Select **All services** > **VMs**.
 2. The Virtual machines blade opens. Ensure that the VM that you want to connect with is running, and then select it from the list of deployed VMs.
 3. A blade opens that describes the selected VM. At the top, click **Connect**.
 4. You are prompted to enter the user name and password that you specified during provisioning.
@@ -134,7 +134,7 @@ We strongly recommend that you develop your VHD in the cloud by using Remote Des
 
 To download a remote desktop file to a local machine, use the [Get-AzureRemoteDesktopFile cmdlet][link-technet-2]. In order to use this cmdlet, you need to know the name of the service and name of the VM. If you created the VM from the [Microsoft Azure portal][link-azure-portal], you can find this information under VM properties:
 
-1. In the Microsoft Azure portal, select **Browse** > **VMs**.
+1. In the Microsoft Azure portal, select **All services** > **VMs**.
 2. The Virtual machines blade opens. Select the VM that you deployed.
 3. A blade opens that describes the selected VM.
 4. Click **Properties**.
@@ -212,7 +212,6 @@ To deploy a VM from a user VM image, you can use the current [Azure portal](http
 
 1. Go to **New** > **Compute** > **Virtual machine** > **From gallery**.
 
-    ![drawing][img-manage-vm-new]
 2. Go to **My images**, and then select the VM image from which to deploy a VM:
 
    1. Pay close attention to which image you select, because the **My images** view lists both operating system images and VM images.
@@ -450,7 +449,7 @@ Following are the steps for generating SAS URL by using Azure CLI
 
     b. **`<Storage Account Key>`**: Give your storage account key
 
-    c. **`<Permission Start Date>`**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 26, 2016, then value should be 10/25/2016. If using Azure CLI 2.0 (az command), provide both the date and time in the Start and End Dates, for example: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 25, 2016, then value should be 10/25/2016. If using Azure CLI 2.0 (az command), provide both the date and time in the Start and End Dates, for example: 10-25-2016T00:00:00Z.
 
     d. **`<Permission End Date>`**: Select a date that is at least 3 weeks after the **Start Date**. The value should be **11/02/2016**. If using Azure CLI 2.0 (az command), provide both the date and time in the Start and End Dates, for example: 11-02-2016T00:00:00Z.
 

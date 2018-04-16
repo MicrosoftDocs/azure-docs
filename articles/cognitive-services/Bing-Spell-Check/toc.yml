@@ -6,7 +6,7 @@
     href: proof-text.md
   - name: Supported languages
     href: bing-spell-check-supported-languages.md
-- name: Quickstarts
+- name: API Quickstarts
   items:
   - name: C#
     href: quickstarts/csharp.md
@@ -20,10 +20,12 @@
     href: quickstarts/php.md
   - name: Ruby
     href: quickstarts/ruby.md
-- name: SDK (preview)
+- name: SDK
   items:
   - name: SDK samples overview 
     href: sdk.md
+  - name: Spell Check SDK C# quickstart
+    href: sdk-quickstart-spell-check.md
 - name: How-to guides
   items:
   - name: Use and display requirements

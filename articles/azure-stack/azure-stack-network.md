@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 ---
@@ -37,7 +37,7 @@ The following table shows the logical networks and associated IPv4 subnet ranges
 
 | Logical Network | Description | Size | 
 | -------- | ------------- | ------------ | 
-| Public VIP | Public IP addresses for a small set of Azure Stack services, with the rest used by tenant virtual machines. The Azure Stack infrastructure uses 32 addresses from this network. If you plan to use App Service and the SQL resource providers, 7 more addresses are used. | /26 (62 hosts) - /22 (1022 hosts)<br><br>Recommended = /24 (254 hosts) | 
+| Public VIP | Azure Stack uses a total of 32 addresses from this network. Eight public IP addresses are used for a small set of Azure Stack services, and the rest are used by tenant virtual machines. If you plan to use App Service and the SQL resource providers, 7 more addresses are used. | /26 (62 hosts) - /22 (1022 hosts)<br><br>Recommended = /24 (254 hosts) | 
 | Switch infrastructure | Point-to-point IP addresses for routing purposes, dedicated switch management interfaces, and loopback addresses assigned to the switch. | /26 | 
 | Infrastructure | Used for Azure Stack internal components to communicate. | /24 |
 | Private | Used for the storage network and private VIPs. | /24 | 
@@ -50,7 +50,9 @@ The network infrastructure for Azure Stack consists of several logical networks 
 ![Logical network diagram and switch connections](media/azure-stack-network/NetworkDiagram.png)
 
 ### BMC network
-This network is dedicated to connecting all the baseboard management controllers (also known as service processors, for example, iDRAC, iLO, iBMC, etc.) to the management network. If present, the (HLH) hardware lifecycle host is located on this network and may provide OEM specific software for hardware maintenance and/or monitoring. 
+This network is dedicated to connecting all the baseboard management controllers (also known as service processors, for example, iDRAC, iLO, iBMC, etc.) to the management network. If present, the Hardware Lifecycle Host (HLH) is located on this network and may provide OEM specific software for hardware maintenance or monitoring. 
+
+The HLH also hosts the Deployment VM (DVM). The DVM is used during Azure Stack deployment and is removed when deployment completes. The DVM requires internet access in connected deployment scenarios to test, validate, and access multiple components. These components can be inside and outside of your corporate network; for example NTP, DNS, and Azure. For more information about connectivity requirements, see the [NAT section in Azure Stack firewall integration](azure-stack-firewall.md#network-address-translation). 
 
 ### Private network
 This /24 (254 host IP’s) network is private to the Azure Stack region (does not expand beyond the border switch devices of the Azure Stack region) and is divided into two subnets:
@@ -62,10 +64,10 @@ This /24 (254 host IP’s) network is private to the Azure Stack region (does no
 This /24 network is dedicated to internal Azure Stack components so that they can communicate and exchange data among themselves. This subnet requires routable IP addresses, but is kept private to the solution by using Access Control Lists (ACLs). It isn’t expected to be routed beyond the border switches except for a small range equivalent in size to a /27 network utilized by some of these services when they require access to external resources and/or the internet. 
 
 ### Public infrastructure network
-This /27 network is the small range from the Azure Stack infrastructure subnet mentioned earlier, it does not require public IP addresses, but it does require internet access through a NAT or Transparent Proxy. This network will be allocated for the Emergency Recovery Console System (ERCS), the ERCS VM requires internet access during registration to Azure and should be routable to your management network for troubleshooting purposes.
+This /27 network is the small range from the Azure Stack infrastructure subnet mentioned earlier, it does not require public IP addresses, but it does require internet access through a NAT or Transparent Proxy. This network will be allocated for the Emergency Recovery Console System (ERCS), the ERCS VM requires internet access during registration to Azure and during infrastructure backups. The ERCS VM should be routable to your management network for troubleshooting purposes.
 
 ### Public VIP network
-The Public VIP Network is assigned to the network controller in Azure Stack. It’s not a logical network on the switch. The SLB uses the pool of addresses and assigns /32 networks for tenant workloads. On the switch routing table, these /32 IPs are advertised as an available route via BGP. This network contains the external-accessible or public IP addresses. The Azure Stack infrastructure uses at least 8 addresses from this Public VIP Network while the remainder is used by tenant VMs. The network size on this subnet can range from a minimum of /26 (64 hosts) to a maximum of /22 (1022 hosts), we recommend that you plan for a /24 network.
+The Public VIP Network is assigned to the network controller in Azure Stack. It’s not a logical network on the switch. The SLB uses the pool of addresses and assigns /32 networks for tenant workloads. On the switch routing table, these /32 IPs are advertised as an available route via BGP. This network contains the external-accessible or public IP addresses. The Azure Stack infrastructure uses 8 addresses from this Public VIP Network while the remainder is used by tenant VMs. The network size on this subnet can range from a minimum of /26 (64 hosts) to a maximum of /22 (1022 hosts), we recommend that you plan for a /24 network.
 
 ### Switch infrastructure network
 This /26 network is the subnet that contains the routable point-to-point IP /30 (2 host IP’s) subnets and the loopbacks which are dedicated /32 subnets for in-band switch management and BGP router ID. This range of IP addresses must be routable externally of the Azure Stack solution to your datacenter, they may be private or public IPs.

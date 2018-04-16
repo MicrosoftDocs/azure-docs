@@ -4,15 +4,15 @@ description: Learn how to copy data from Salesforce to supported sink data store
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: jingwang
 
 ---
@@ -63,8 +63,8 @@ The following properties are supported for the Salesforce linked service.
 | type |The type property must be set to **Salesforce**. |Yes |
 | environmentUrl | Specify the URL of the Salesforce instance. <br> - Default is `"https://login.salesforce.com"`. <br> - To copy data from sandbox, specify `"https://test.salesforce.com"`. <br> - To copy data from custom domain, specify, for example, `"https://[domain].my.salesforce.com"`. |No |
 | username |Specify a user name for the user account. |Yes |
-| password |Specify a password for the user account.<br/><br/>You can mark this field as SecureString to store it securely in Data Factory. You also can store the password in Azure Key Vault and let the copy activity pull from there when you perform data copy. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
-| securityToken |Specify a security token for the user account. For instructions on how to reset and get a security token, see [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>You can mark this field as SecureString to store it securely in Data Factory. You also can store the security token in Key Vault and let the copy activity pull from there when you perform data copy. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
+| password |Specify a password for the user account.<br/><br/>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| securityToken |Specify a security token for the user account. For instructions on how to reset and get a security token, see [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink if the source linked service doesn't have integration runtime |
 
 >[!IMPORTANT]
@@ -184,6 +184,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceSource**. | Yes |
 | query |Use the custom query to read data. You can use a SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. An example is `select * from MyTable__c`. | No (if "tableName" in the dataset is specified) |
+| readBehavior | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is the former. <br>Allowed values: **query** (default), **queryAll**.  | No |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.

@@ -172,7 +172,7 @@ You can verify the data was exported correctly by opening the new file. The data
 > 
 
 ## Next steps
-To design your loading process, see the [Loading overview](sql-data-warehouse-design-elt-data-loading].  
+To design your loading process, see the [Best practices for loading data into Azure SQL Data Warehouse](guidance-for-loading-data.md).  
 
 
 

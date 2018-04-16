@@ -4,8 +4,8 @@ description: Explains how to use SQL Server Stored Procedure Activity to invoke 
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services

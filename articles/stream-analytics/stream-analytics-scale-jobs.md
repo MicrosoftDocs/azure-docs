@@ -1,29 +1,20 @@
 ---
-title: Scale Stream Analytics jobs to increase throughput | Microsoft Docs
-description: Learn how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
-keywords: data streaming, streaming data processing, tune analytics
+title: Scaling up and out in Azure Stream Analytics jobs
+description: This article describes how to scale a Stream Analytics job by partitioning input data, tuning the query, and setting job streaming units.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
 ---
-# Scale Azure Stream Analytics jobs to increase  throughput
+# Scale an Azure Stream Analytics job to increase throughput
 This article shows you how to tune a Stream Analytics query to increase throughput for Streaming Analytics jobs. You can use the following guide to scale your job to handle higher load and take advantage of more system resources (such as more bandwidth, more CPU resources, more memory).
 As a prerequisite, you may need to read the following articles:
 -	[Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md)
 -	[Create parallelizable jobs](stream-analytics-parallelization.md)
-
 
 ## Case 1 – Your query is inherently fully parallelizable across input partitions
 If your query is inherently fully parallelizable across input partitions, you can follow the following steps:
@@ -39,7 +30,6 @@ If your query is inherently fully parallelizable across input partitions, you ca
 > Choose the right number of Streaming Units:
 > Because Stream Analytics creates a processing node for each 6 SU added, it’s best to make the number of nodes a divisor of the number of input partitions, so the partitions can be evenly distributed across the nodes.
 For example, you have measured your 6 SU job can achieve 4 MB/s processing rate, and your input partition count is 4. You can choose to run your job with 12 SU to achieve roughly 8 MB/s processing rate, or 24 SU to achieve 16 MB/s. You can then decide when to increase SU number for the job to what value, as a function of your input rate.
-
 
 
 ## Case 2 - If your query is not embarrassingly parallel.
@@ -150,7 +140,7 @@ And the following graph shows a visualization of the relationship between SUs an
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

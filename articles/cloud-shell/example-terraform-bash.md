@@ -1,6 +1,6 @@
 ---
-title: Deploy with Terraform with Bash in Azure Cloud Shell | Microsoft Docs
-description: Deploy Azure resources with Terraform in Bash
+title: Deploy with Terraform from Bash in Azure Cloud Shell | Microsoft Docs
+description: Deploy with Terraform from Bash in Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: tomarcher
@@ -16,7 +16,7 @@ ms.date: 11/15/2017
 ms.author: tarcher
 ---
 
-# Terraform and Bash in Cloud Shell
+# Deploy with Terraform from Bash in Azure Cloud Shell
 This article walks you through creating a resource group with the [Terraform AzureRM provider](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
 [Hashicorp Terraform](https://www.terraform.io/) is an open source tool that codifies APIs into declarative configuration files that can be shared amongst team members to be edited, reviewed, and versioned. The Microsoft AzureRM provider is used to interact with resources supported by Azure Resource Manager via the AzureRM APIs. 

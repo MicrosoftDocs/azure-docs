@@ -17,6 +17,7 @@
 ### [Upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Upgrade from a previous version](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Install using an existing ADSync database](active-directory-aadconnect-existing-database.md)
+### [Install using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md)
 
 # How to
 ## Plan and design
@@ -35,6 +36,7 @@
 ##### [How does it work?](active-directory-aadconnect-sso-how-it-works.md)
 ##### [Frequently asked questions](active-directory-aadconnect-sso-faq.md)
 ##### [Troubleshoot](active-directory-aadconnect-troubleshoot-sso.md)
+##### [GDPR](active-directory-aadconnect-sso-gdpr.md)
 #### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
 ##### [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
@@ -44,6 +46,7 @@
 ##### [Frequently asked questions](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [Security deep dive](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
+##### [GDPR](active-directory-aadconnect-pass-through-authentication-gdpr.md)
 ### [Multiple domain support for federating](active-directory-aadconnect-multiple-domains.md)
 ### [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Use a SAML 2.0 Identity Provider (IdP) for Single Sign On](active-directory-aadconnect-federation-saml-idp.md)
@@ -51,10 +54,12 @@
 
 
 ## Manage Azure AD Connect Sync
+### [GDPR compliance and Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-### [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Azure AD service account](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installation wizard](active-directory-aadconnectsync-installation-wizard.md)
+### [How UserPrincipalName is populated](active-directory-aadconnect-userprincipalname.md)
 ### [Change the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Configure Filtering](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
@@ -80,7 +85,8 @@
 ### [Connectivity](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Errors during synchronization](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Object is not synchronized](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
-### [Password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Object sync using the troubleshooting task](active-directory-aadconnect-troubleshoot-objectsync.md)
+### [Password hash synchronization](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md)
 ### [LargeObject error caused by userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [How to recover from LocalDB 10-GB limit](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 

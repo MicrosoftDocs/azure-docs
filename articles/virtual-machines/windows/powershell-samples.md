@@ -4,7 +4,7 @@ description: Azure Virtual Machine PowerShell Samples
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 

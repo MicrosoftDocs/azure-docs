@@ -1,20 +1,13 @@
 ---
 title: Azure Analysis Services scale-out| Microsoft Docs
 description: Replicate Azure Analysis Services servers with scale-out
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
-manager: erikre
-editor: 
-
-ms.assetid: 
+manager: kfile
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/06/2017
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Azure Analysis Services scale-out

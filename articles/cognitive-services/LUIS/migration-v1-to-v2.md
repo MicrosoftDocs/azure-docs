@@ -9,7 +9,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 03/01/2018
 ms.author: v-geberr
 ---
 
@@ -147,6 +147,35 @@ LUIS suggests utterances from existing [endpoint utterances](label-suggested-utt
 |/luis/api/v2.0/apps/customprebuiltdomains  |get, post|
 |/luis/api/v2.0/apps/customprebuiltdomains/{culture}  |get|
 
+## Importing 1.x app into 2.x
+The exported 1.x app's JSON has some areas that you need to change before importing into [LUIS][LUIS] 2.0. 
+
+### Prebuilt entities 
+The [prebuilt entities](Pre-builtEntities.md) have changed. Make sure you are using the V2 prebuilt entities. This includes using [datetimeV2](pre-builtentities.md?#use-a-prebuilt-datetimev2-entity), instead of datetime. 
+
+### Actions
+The actions property is no longer valid. It should be an empty 
+
+### Labeled utterances
+V1 allowed labeled utterances to include spaces at the beginning or end of the word or phrase. Removed the spaces. 
+
+## Common reasons for HTTP response status codes
+The following table lists some of the most common HTTP response status codes for the [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs:
+
+|Code|API|Explanation|
+|:--|--|--|
+|400|Authoring, Endpoint|request's parameters are incorrect meaning the required parameters are missing, malformed, or too large|
+|400|Authoring, Endpoint|request's body is incorrect meaning the JSON is missing, malformed, or too large|
+|401|Authoring|used endpoint subscription key, instead of authoring key|
+|401|Authoring, Endpoint|invalid, malformed, or empty key|
+|401|Authoring, Endpoint| key doesn't match region|
+|401|Authoring|you are not the owner or collaborator|
+|401|Authoring|invalid order of API calls|
+|403|Authoring, Endpoint|total monthly key quota limit exceeded|
+|429|Authoring, Endpoint|Rate limit is exceeded (requests/second)|
+
 ## Next steps
 
 Use the v2 API documentation to update existing REST calls to LIUS [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
+
+[LUIS]: luis-reference-regions.md

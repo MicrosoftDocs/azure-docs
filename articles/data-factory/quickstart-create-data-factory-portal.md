@@ -1,11 +1,11 @@
 ---
 title: Create an Azure data factory using the Azure Data Factory UI | Microsoft Docs
-description: 'This tutorial shows you how to create a data factory with a pipeline that copies data from one folder to another folder in Azure Blob Storage.'
+description: Create a data factory with a pipeline that copies data from one location in Azure Blob storage to another location.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -35,8 +35,9 @@ Watching this video helps you understand the Data Factory UI:
 
 ## Create a data factory
 
-1. Go to the [Azure portal](https://portal.azure.com). 
-2. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. Go to the [Azure portal](https://portal.azure.com). 
+3. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 2. On the **New data factory** page, enter **ADFTutorialDataFactory** for **Name**. 

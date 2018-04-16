@@ -33,14 +33,6 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 >[!NOTE]  
 > Before you install either version, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported. 
 
-### Version 1.x runtime
-
-The original version of the tools uses the Functions 1.x runtime. This version uses the .NET Framework and is only supported on Windows computers. Use the following command to install the version 1.x tools:
-
-```bash
-npm install -g azure-functions-core-tools
-```
-
 ### Version 2.x runtime
 
 Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports. Use this version for cross-platform development and when the Functions runtime 2.x is required. 
@@ -66,6 +58,14 @@ When installing on macOS and Linux, you may need to include the `unsafe-perm` fl
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+### Version 1.x runtime
+
+The original version of the tools uses the Functions 1.x runtime. This version uses the .NET Framework and is only supported on Windows computers. Use the following command to install the version 1.x tools:
+
+```bash
+npm install -g azure-functions-core-tools
 ```
 
 ## Run Azure Functions Core Tools
@@ -102,6 +102,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 To create the project without a local Git repository, use the `--no-source-control [-n]` option.
+
+## Register extensions
+
+In version 2.x of the Azure Functions runtime, you must explicitly register the [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) that you use in your function app. 
+
+[!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
+
+For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md#register-binding-extensions).
 
 ## Local settings file
 
@@ -229,6 +237,9 @@ To launch the host and set up JavaScript debugging, run:
 func host start --debug vscode
 ```
 
+> [!IMPORTANT]
+> For debugging, only Node.js 8.x is supported. Node.js 9.x is not supported. 
+
 Then, in Visual Studio Code, in the **Debug** view, select **Attach to Azure Functions**. You can attach breakpoints, inspect variables, and step through code.
 
 ![JavaScript debugging with Visual Studio Code](./media/functions-run-local/vscode-javascript-debugging.png)
@@ -305,6 +316,10 @@ For example, to call an HTTP-triggered function and pass content body, run the f
 ```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
+
+### Viewing log files locally
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>Publish to Azure
 

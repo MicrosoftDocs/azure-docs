@@ -4,8 +4,8 @@ description: Learn how to copy data from an on-premises data store to the Azure 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -198,6 +198,9 @@ In this section, you create a self-hosted integration runtime and associate it w
 
 2. Create a self-hosted integration runtime. 
 
+    ```powershell
+	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    ```	
     Here is the sample output:
 
     ```json
@@ -206,7 +209,7 @@ In this section, you create a self-hosted integration runtime and associate it w
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : onpremdf0914
     Name              : myonpremirsp0914
-    Description       :
+    Description       : selfhosted IR description
     ```
 
 3. To retrieve the status of the created integration runtime, run the following command:

@@ -43,7 +43,7 @@ Azure AD and the Microsoft Account System use industry proven approaches to ensu
 * Dynamically banned passwords
 * Smart Password Lockout
 
-For information about password management based on current research, see the whitepaper [Password Guidance](http://aka.ms/passwordguidance).
+For information about password management based on current research, see the whitepaper [Password Guidance](https://aka.ms/passwordguidance).
 
 ### Dynamically banned passwords
 

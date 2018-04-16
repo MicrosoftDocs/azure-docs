@@ -22,7 +22,7 @@ Log in to Azure at https://portal.azure.com
 
 ## Create Automation account
 
-1. Click the **New** button found on the upper left-hand corner of Azure.
+1. Click the **Create a resource** button found on the upper left-hand corner of Azure.
 
 1. Select **Monitoring + Management**, and then select **Automation**.
 

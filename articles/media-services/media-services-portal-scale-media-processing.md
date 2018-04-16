@@ -51,11 +51,10 @@ To change the reserved unit type and the number of reserved units, do the follow
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 2. In the **Settings** window, select **Media reserved units**.
    
-    To change the number of reserved units for the selected reserved unit type, use the **Media Served Units** slider.
+    To change the number of reserved units for the selected reserved unit type, use the **Media Served Units** slider at the top of the screen.
    
-    To change the **RESERVED UNIT TYPE**, press S1, S2, or S3.
+    To change the **RESERVED UNIT TYPE**, click on the **Speed of reserved processing units** bar. Then, select the pricing tier you need: S1, S2, or S3.
    
-    ![Processors page](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 3. Press the SAVE button to save your changes.
    
     The new reserved units are allocated when you press SAVE.

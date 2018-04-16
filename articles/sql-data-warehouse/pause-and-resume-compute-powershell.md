@@ -1,24 +1,19 @@
 ---
 title: 'Quickstart: Pause and resume compute in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
-description: PowerShell tasks that pause compute for an Azure SQL Data Warehouse to save costs. Resume compute when you are ready to use the data warehouse.
+description: Use PowerShell to pause compute in Azure SQL Data Warehouse to save costs. Resume compute when you are ready to use the data warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-
+author: hirokib
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 01/25/2018
-ms.author: barbkess
-
+ms.topic: quickstart
+ms.component: implement
+ms.date: 04/11/2018
+ms.author: elbutter
+ms.reviewer: jrj
 ---
-# Quickstart: Pause and resume compute for an Azure SQL Data Warehouse in PowerShell
-Use PowerShell to pause compute for an Azure SQL Data Warehouse to save costs. Resume compute when you are ready to use the data warehouse.
+
+# Quickstart: Pause and resume compute in Azure SQL Data Warehouse with PowerShell
+Use PowerShell to pause compute in Azure SQL Data Warehouse to save costs. [Resume compute](sql-data-warehouse-manage-compute-overview.md) when you are ready to use the data warehouse.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -56,15 +51,16 @@ Follow these steps to find location information for your data warehouse.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **SQL databases** in the left page of the Azure portal.
-3. Select **mySampleDataWarehouse** from the **SQL databases** page. This opens the data warehouse. 
+3. Select **mySampleDataWarehouse** from the **SQL databases** page. The data warehouse opens.
 
     ![Server name and resource group](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Write down the data warehouse name which will be used as the database name. Also write down the server name, and the resource group. You will use these in the pause and resume commands.
-5. If your server is foo.database.windows.net, use only the first part as the server name in the PowerShell cmdlets. In the preceding image, the full server name is newserver-20171113.database.windows.net. We will use **newserver-20171113** as the server name in the PowerShell cmdlet.
+4. Write down the data warehouse name, which is the database name. Also write down the server name, and the resource group. You 
+5.  these in the pause and resume commands.
+6. If your server is foo.database.windows.net, use only the first part as the server name in the PowerShell cmdlets. In the preceding image, the full server name is newserver-20171113.database.windows.net. Drop the suffix and use **newserver-20171113** as the server name in the PowerShell cmdlet.
 
 ## Pause compute
-To save costs, you can pause and resume compute resources on-demand. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. You won't be charged for compute resources while the database is paused. However, you will continue to be charged for storage. 
+To save costs, you can pause and resume compute resources on-demand. For example, if you are not using the database during the night and on weekends, you can pause it during those times, and resume it during the day. There is no charge for compute resources while the database is paused. However, you continue to be charged for storage. 
 
 To pause a database, use the [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) cmdlet. The following example pauses a data warehouse named **mySampleDataWarehouse** hosted on a server named **newserver-20171113**. The server is in an Azure resource group named **myResourceGroup**.
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 01/24/2017
+ms.date: 03/30/2018
 ms.author: jawalte
 
 ---
@@ -73,8 +73,12 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 | **National Clouds Azure Region**| **BGP community value** |
 | --- | --- |
 | **US Government** |  |
+| US Gov Arizona | 12076:51106 |
 | US Gov Iowa | 12076:51109 |
 | US Gov Virginia | 12076:51105 |
+| US Gov Texas | 12076:51108 |
+| US DoD Central | 12076:51209 |
+| US DoD East | 12076:51205 |
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
@@ -86,7 +90,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype For Business Online |12076:5130 |
-| CRM Online |12076:5140 |
+| Dynamics 365 |12076:5140 |
 | Other Office 365 Online services |12076:5200 |
 
 > [!NOTE]
@@ -102,7 +106,9 @@ Load Balancer is generally available in Azure Government. For more information, 
 DNS is generally available in Azure Government. For more information, see the [DNS public documentation](../dns/dns-overview.md). 
 
 ## Support for Traffic Manager
-Traffic Manager is generally available in Azure Government. For more information, see the [Traffic Manager public documentation](../traffic-manager/traffic-manager-overview.md). 
+Traffic Manager is generally available in Azure Government. For more information, see the [Traffic Manager public documentation](../traffic-manager/traffic-manager-overview.md).
+
+The **IP addresses for Azure Government from which Traffic Manager health checks can originate are [here](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure-gov/probe-ip-ranges.json)**. Review the IPs listed in the JSON file to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
 
 ## Support for VNet Peering 
 VNet Peering is generally available in Azure Government. For more information, see the [VNet Peering public documentation](../virtual-network/virtual-network-peering-overview.md). 
@@ -114,7 +120,7 @@ VPN Gateway is generally available in Azure Government. For more information, se
 Application Gateway is generally available in Azure Government. For more information, see the [Application Gateway public documentation](../application-gateway/application-gateway-introduction.md). 
 
 ## Support for Network Watcher
-Network Watcher is available through Preview in Azure Government. For more information, see the [Network Watcher public documentation](../network-watcher/index.md). 
+Network Watcher is generally available in Azure Government. For more information, see the [Network Watcher public documentation](../network-watcher/index.md). 
 
 ## Support for Service Bus
 Service Bus is generally available in Azure Government. For more information, see the [Service Bus public documentation](../service-bus/index.md).

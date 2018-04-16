@@ -40,8 +40,7 @@ The following steps illustrate how to create a blob container within Storage Exp
 
    ![Create blob containers context menu][0]
 4. A text box will appear below the **Blob Containers** folder. Enter the name for your blob container. See
-   the [Container naming rules](storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container) section for a list of
-   rules and restrictions on naming blob containers.
+   the [Create the container and set permissions](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) for information on    rules and restrictions on naming blob containers.
 
    ![Create Blob Containers text box][1]
 5. Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container has been successfully created, it will be displayed under the **Blob Containers** folder for the selected storage account.
@@ -178,7 +177,7 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
      2. In the **Upload files** dialog, select the ellipsis (**…**) button on the right side of the **Files** text box to select the file(s) you wish to upload.
 
         ![Upload files options][16]
-     3. Specify the type of **Blob type**. The article [Get started with Azure Blob storage using .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explains the differences between the various blob types.
+     3. Specify the type of **Blob type**. See [Create the container and set permissions](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) for more information.
      4. Optionally, specify a target folder into which the selected file(s) will be uploaded. If the target folder doesn’t exist, it will be created.
      5. Select **Upload**.
    * **Upload a folder to a blob container**
@@ -189,7 +188,7 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
      2. In the **Upload folder** dialog, select the ellipsis (**…**) button on the right side of the **Folder** text box to select the folder whose contents you wish to upload.
 
         ![Upload folder options][18]
-     3. Specify the type of **Blob type**. The article [Get started with Azure Blob storage using .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explains the differences between the various blob types.
+     3. Specify the type of **Blob type**. See [Create the container and set permissions](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) for more information.
      4. Optionally, specify a target folder into which the selected folder's contents will be uploaded. If the target folder doesn’t exist, it will be created.
      5. Select **Upload**.
    * **Download a blob to your local computer**

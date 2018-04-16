@@ -56,8 +56,6 @@
     href: LUIS/index.yml
   - name: QnAMaker
     href: QnAMaker/Home.md
-  - name: Recommendations
-    href: Recommendations/overview.md
   - name: Speaker Recognition
     href: Speaker-recognition/Home.md
   - name: Text Analytics
@@ -80,3 +78,5 @@
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Code of conduct
     href: http://go.microsoft.com/fwlink/?LinkId=698895
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase

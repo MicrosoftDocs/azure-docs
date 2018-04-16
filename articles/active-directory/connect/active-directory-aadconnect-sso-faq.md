@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 03/22/2018
 ms.author: billmath
 ---
 
@@ -22,7 +22,7 @@ In this article, we address frequently asked questions about Azure Active Direct
 
 ## What sign-in methods do Seamless SSO work with?
 
-Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods. However this feature cannot be used with Active Directory Federation Services (ADFS).
+Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods. However this feature cannot be used with Active Directory Federation Services (ADFS).
 
 ## Is Seamless SSO a free feature?
 
@@ -34,7 +34,23 @@ No. Seamless SSO is only available in the worldwide instance of Azure AD.
 
 ## What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?
 
-We are in the process of compiling the list of applications that send these parameters and the ones that don't. If you have applications that you are interested in, let us know in the comments section.
+Listed below is a non-exhaustive list of applications that send these parameters to Azure AD, and therefore provides users a silent sign-on experience using Seamless SSO (i.e., no need for your users to input their usernames):
+
+| Application name | Application URL to be used |
+| -- | -- |
+| Access panel | myapps.microsoft.com/contoso.com |
+| Outlook on Web | outlook.office365.com/contoso.com |
+
+In addition, users get a silent sign-on experience if an application sends sign-in requests to Azure AD's tenanted endpoints - that is, https://login.microsoftonline.com/contoso.com/<..> or https://login.microsoftonline.com/<tenant_ID>/<..> - instead of Azure AD's common endpoint - that is, https://login.microsoftonline.com/common/<...>. Listed below is a non-exhaustive list of applications that make these types of sign-in requests.
+
+| Application name | Application URL to be used |
+| -- | -- |
+| SharePoint Online | contoso.sharepoint.com |
+| Azure portal | portal.azure.com/contoso.com |
+
+In the above tables, replace "contoso.com" with your domain name to get to the right application URLs for your tenant.
+
+If you want other applications using our silent sign-on experience, let us know in the feedback section.
 
 ## Does Seamless SSO support `Alternate ID` as the username, instead of `userPrincipalName`?
 
@@ -62,7 +78,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 ### Step 1. Get list of AD forests where Seamless SSO has been enabled
 
 1. First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+2. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 3. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
 4. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
 5. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.

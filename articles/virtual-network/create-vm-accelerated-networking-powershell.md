@@ -20,7 +20,7 @@ ms.author: jimdial
 # Create a Windows virtual machine with Accelerated Networking
 
 > [!IMPORTANT] 
-> Virtual machines must be created with Accelerated Networking enabled. This feature cannot be enabled on existing virtual machines. You can follow the steps below to enable accelerated networking
+> Virtual machines must be created with Accelerated Networking enabled. This feature cannot be enabled on existing virtual machines. Complete the following steps to enable accelerated networking:
 >   1. Delete the virtual machine
 >   2. Recreate the virtual machine with accelerated networking enabled
 >
@@ -57,6 +57,8 @@ The following limitations exist when using this capability:
 * **Network interface creation:** Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
 * **VM creation:** A NIC with accelerated networking enabled can only be attached to a VM when the VM is created. The NIC cannot be attached to an existing VM. If adding the VM to an existing availability set, all VMs in the availability set must also have accelerated networking enabled.
 * **Deployment through Azure Resource Manager only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
+
+Though this article provides steps to create a virtual machine with accelerated networking using Azure PowerShell, you can also [create a virtual machine with accelerated networking using the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). When creating a virtual machine in the portal, under **Settings**, select **Enabled**, under **Accelerated networking**. The option to enable accelerated networking doesn't appear in the portal unless you've selected a [supported operating system](#supported-operating-systems) and [VM size](#supported-vm-instances). After the virtual machine is created, you need to complete the instructions in [Confirm the driver is installed in the operating system](#confirm-the-driver-is-installed-in-the-operating-system).
 
 ## Create a virtual network
 

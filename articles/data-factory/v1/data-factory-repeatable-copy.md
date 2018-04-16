@@ -4,7 +4,7 @@ description: 'Learn how to avoid duplicates even though a slice that copies data
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory

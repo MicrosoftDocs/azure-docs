@@ -2,19 +2,13 @@
 title: Use PHP to query Azure SQL Database | Microsoft Docs
 description: This topic shows you how to use PHP to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
-ms.assetid: 4e71db4a-a 22f-4f1c-83e5-4a34a036ecf3
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 ---
 # Use PHP to query an Azure SQL database
@@ -31,7 +25,7 @@ To complete this quickstart tutorial, make sure you have the following:
 
 - You have installed PHP and related software for your operating system:
 
-    - **MacOS**: Install Homebrew and PHP, install the ODBC driver and SQLCMD, and then install the PHP Driver for SQL Server. See [Steps 1.2, 1.3, and 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
+    - **MacOS**: Install Homebrew and PHP, install the ODBC driver and SQLCMD, and then install the PHP Driver for SQL Server. See [Steps 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
     - **Ubuntu**:  Install PHP and other required packages, and then install the PHP Driver for SQL Server. See [Steps 1.2 and 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
     - **Windows**: Install the newest version of PHP for IIS Express, the newest version of Microsoft Drivers for SQL Server in IIS Express, Chocolatey, the ODBC driver, and SQLCMD. See [Steps 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
 

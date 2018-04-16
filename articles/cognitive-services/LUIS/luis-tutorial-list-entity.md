@@ -9,7 +9,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/21/2018
 ms.author: v-geberr
 ---
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Latest [Node.js](https://nodejs.org)
 > * [HomeAutomation LUIS app](luis-get-started-create-app.md). If you do not have the Home Automation app created, create a new app, and add the Prebuilt Domain **HomeAutomation**. Train and publish the app. 
-> * [ProgrammaticKey](manage-keys.md##programmatic-key), [EndpointKey](manage-keys.md#endpoint-key) (if querying many times), app ID, version ID, and [region](manage-keys.md#regions-and-keys) for the LUIS app.
+> * [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key) (if querying many times), app ID, version ID, and [region](luis-reference-regions.md) for the LUIS app.
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
@@ -71,7 +71,7 @@ This tutorial is going to create an entity list with the thermostat. The alterna
 If LUIS needs to determine a new alternative often, then a [phrase list](luis-concept-feature.md#how-to-use-phrase-lists) is a better answer.
 
 ## Create a list entity
-Create a Node.js file and copy the following code into it. Change the programmaticKey, appId, versionId, and region values.
+Create a Node.js file and copy the following code into it. Change the authoringKey, appId, versionId, and region values.
 
    [!code-javascript[Create DevicesList List Entity](~/samples-luis/documentation-samples/tutorial-list-entity/add-entity-list.js "Create DevicesList List Entity")]
 
@@ -89,7 +89,7 @@ The output of the run is the ID of the list entity:
 ## Train the model
 Train LUIS in order for the new list to affect the query results. Training is a two-part process of training, then checking status if the training is done. An app with many models may take a few moments to train. The following code trains the app then waits until the training is successful. The code uses a wait-and-retry strategy to avoid the 429 "Too many requests" error. 
 
-Create a Node.js file and copy the following code into it. Change the programmaticKey, appId, versionId, and region values.
+Create a Node.js file and copy the following code into it. Change the authoringKey, appId, versionId, and region values.
 
    [!code-javascript[Train LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/train.js "Train LUIS")]
 
@@ -120,7 +120,7 @@ The output of the run is the status of each iteration of the training of the LUI
 ## Publish the model
 Publish so the list entity is available from the endpoint.
 
-Create a Node.js file and copy the following code into it. Change the endpointKey, appId, and region values. You can use your programmaticKey if you do not plan to call this file beyond your quota limit.
+Create a Node.js file and copy the following code into it. Change the endpointKey, appId, and region values. You can use your authoringKey if you do not plan to call this file beyond your quota limit.
 
    [!code-javascript[Publish LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/publish.js "Publish LUIS")]
 
@@ -147,7 +147,7 @@ The following output includes the endpoint url for any queries. Real JSON result
 ## Query the app 
 Query the app from the endpoint to prove that the list entity helps LUIS determine the device type.
 
-Create a Node.js file and copy the following code into it. Change the endpointKey, appId, and region values. You can use your programmaticKey if you do not plan to call this file beyond your quota limit.
+Create a Node.js file and copy the following code into it. Change the endpointKey, appId, and region values. You can use your authoringKey if you do not plan to call this file beyond your quota limit.
 
    [!code-javascript[Query LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/query.js "Query LUIS")]
 

@@ -72,7 +72,7 @@ To see the original response:
 7. Select **Code editor**.
     
      ![Edit policy](./media/set-edit-policies/set-edit-policies01.png)
-9. Position the cursor inside the **<outbound>** element.
+9. Position the cursor inside the **&lt;outbound&gt;** element.
 10. In the right window, under **Transformation policies**, click **+ Set HTTP header** twice (to insert two policy snippets).
 
     ![Policies](./media/transform-api/transform-api.png)
@@ -108,7 +108,7 @@ To see the original response:
 5. On the top of the screen, select **Design** tab.
 6. In the **Outbound processing** window, click the triangle (next to the pencil).
 7. Select **Code editor**.
-8. Position the cursor inside the **<outbound>** element.
+8. Position the cursor inside the **&lt;outbound&gt;** element.
 9. In the right window, under **Transformation policies**, click **+ Find and replace string in body**.
 10. Modify your **<find-and-replace** code (in the **<outbound>** element) to replace the URL to match your APIM gateway. For example:
 
@@ -125,7 +125,7 @@ This section shows how to add protection for your backend API by configuring rat
 5. On the top of the screen, select **Design** tab.
 6. In the **Inbound processing** window, click the triangle (next to the pencil).
 7. Select **Code editor**.
-8. Position the cursor inside the **<inbound>** element.
+8. Position the cursor inside the **&lt;inbound&gt;** element.
 9. In the right window, under **Access restriction policies**, click **+ Limit call rate per key**.
 10. Modify your **<rate-limit-by-key** code (in the **<inbound>** element) to the following code:
 

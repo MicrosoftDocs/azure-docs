@@ -22,7 +22,7 @@ ms.author: v-craic
 > 
 > 
 
-Access in Azure DevTest Labs is controlled by [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md). Using RBAC, you can segregate duties within your team into *roles* where you grant only the amount of access necessary to users to perform their jobs. Three of these RBAC roles are *Owner*, *DevTest Labs User*, and *Contributor*. In this article, you learn what actions can be performed in each of the three main RBAC roles. From there, you learn how to add users to a lab - both via the portal and via a PowerShell script, and how to add users at the subscription level.
+Access in Azure DevTest Labs is controlled by [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md). Using RBAC, you can segregate duties within your team into *roles* where you grant only the amount of access necessary to users to perform their jobs. Three of these RBAC roles are *Owner*, *DevTest Labs User*, and *Contributor*. In this article, you learn what actions can be performed in each of the three main RBAC roles. From there, you learn how to add users to a lab - both via the portal and via a PowerShell script, and how to add users at the subscription level.
 
 ## Actions that can be performed in each role
 There are three main roles that you can assign a user:
@@ -62,7 +62,7 @@ This includes external users with a valid [Microsoft account (MSA)](devtest-lab-
 The following steps guide you through the process of adding an owner or user to a lab in Azure DevTest Labs:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Select **More services**, and then select **DevTest Labs** from the list.
+2. Select **All services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.
 4. On the lab's blade, select **Configuration**. 
 5. On the **Configuration** blade, select **Users**.
@@ -119,7 +119,7 @@ For example, the added owners do not have full access to some of the resources t
 To add an owner to an Azure subscription, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Select **More Services**, and then select **Subscriptions** from the list.
+2. Select **All Services**, and then select **Subscriptions** from the list.
 3. Select the desired subscription.
 4. Select **Access** icon. 
    

@@ -7,14 +7,14 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 08/14/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Deploy Docker Swarm cluster
 
-In this quick start, a Docker Swarm cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
+In this quick start, a Docker Swarm cluster is deployed using the Azure CLI. A multi-container application consisting of web front-end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -106,7 +106,7 @@ services:
         - "6379:6379"
 
   azure-vote-front:
-    image: microsoft/azure-vote-front:redis-v1
+    image: microsoft/azure-vote-front:v1
     container_name: azure-vote-front
     environment:
       REDIS: azure-vote-back
@@ -124,9 +124,9 @@ Output:
 
 ```bash
 Creating network "user_default" with the default driver
-Pulling azure-vote-front (microsoft/azure-vote-front:redis-v1)...
-swarm-agent-EE873B23000005: Pulling microsoft/azure-vote-front:redis-v1...
-swarm-agent-EE873B23000004: Pulling microsoft/azure-vote-front:redis-v1... : downloaded
+Pulling azure-vote-front (microsoft/azure-vote-front:v1)...
+swarm-agent-EE873B23000005: Pulling microsoft/azure-vote-front:v1...
+swarm-agent-EE873B23000004: Pulling microsoft/azure-vote-front:v1... : downloaded
 Pulling azure-vote-back (redis:latest)...
 swarm-agent-EE873B23000004: Pulling redis:latest... : downloaded
 Creating azure-vote-front ... 

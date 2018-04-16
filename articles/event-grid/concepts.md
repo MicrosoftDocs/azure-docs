@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/04/2018
 ms.author: babanisa
 ---
 
@@ -29,9 +29,11 @@ Publishers categorize events into topics. The topic includes an endpoint where t
 
 System topics are built-in topics provided by Azure services. Custom topics are application and third-party topics.
 
+When designing your application, create a custom topic for each category of related events. For example, consider an application that sends events related to modifying user accounts and processing orders. It's unlikely any event handler wants both categories of events. Create two custom topics and let event handlers subscribe to the one that interests them. When subscribing to the custom topic, the event handler can filter by event type.
+
 ## Event subscriptions
 
-A subscription instructs Event Grid on which events on a topic a subscriber is interested in receiving.  A subscription also holds information on how events should be delivered to the subscriber.
+A subscription instructs Event Grid on which events on a topic a subscriber is interested in receiving. A subscription also holds information on how events should be delivered to the subscriber.
 
 ## Event handlers
 

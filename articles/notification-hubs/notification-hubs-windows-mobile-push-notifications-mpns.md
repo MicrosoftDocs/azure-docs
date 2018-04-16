@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: jawh
 
 ---
@@ -64,7 +64,7 @@ Your hub is now created and configured to send unauthenticated notification for 
 ## Connecting your app to the notification hub
 1. In Visual Studio, create a new Windows Phone 8 application.
    
-       ![Visual Studio - New Project - Windows Phone App][13]
+    ![Visual Studio - New Project - Windows Phone App][13]
    
     In Visual Studio 2013 Update 2 or later, you instead create a Windows Phone Silverlight application.
    
@@ -116,9 +116,9 @@ Your hub is now created and configured to send unauthenticated notification for 
    > 
 6. In Solution Explorer, expand **Properties**, open the `WMAppManifest.xml` file, click the **Capabilities** tab, and make sure that the **ID_CAP_PUSH_NOTIFICATION** capability is checked.
    
-       ![Visual Studio - Windows Phone App Capabilities][14]
+    ![Visual Studio - Windows Phone App Capabilities][14]
    
-       This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
+    This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
 7. Press the `F5` key to run the app.
    
     A registration message is displayed in the app.

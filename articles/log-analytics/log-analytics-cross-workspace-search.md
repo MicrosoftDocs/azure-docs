@@ -1,6 +1,6 @@
 ---
-title: Perform queries across Azure Log Analytics workspaces  | Microsoft Docs
-description: This article describes how you can query across multiple workspaces in your subscription with examples to follow. 
+title: Search across resources with Azure Log Analytics  | Microsoft Docs
+description: This article describes how you can query against resources from multiple workspaces and App Insights app in your subscription. 
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -12,32 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 02/21/2018
 ms.author: magoedte
 
 ---
 
-# Perform queries across multiple Log Analytics workspaces
+# Perform cross-resource log searches in Log Analytics  
 
-Previously with Azure Log Analytics, you could only analyze data from within the current workspace and this limited your ability to query across multiple workspaces defined in your subscription.  
+Previously with Azure Log Analytics, you could only analyze data from within the current workspace, and it limited your ability to query across multiple workspaces defined in your subscription.  Additionally, you could only search telemetry items collected from your web-based application with Application Insights directly in Application Insights or from Visual Studio.  This also made it a challenge to natively analyze operational and application data together.   
 
-Now you can query across multiple workspaces, providing a system-wide view of your data.  You can only perform this type of query in the [Advanced portal](log-analytics-log-search-portals.md#advanced-analytics-portal), not in the Azure portal.  
+Now you can query not only across multiple Log Analytics workspaces, but also data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.  You can only perform these types of queries in the [Advanced portal](log-analytics-log-search-portals.md#advanced-analytics-portal), not in the Azure portal.  
 
-## Querying across Log Analytics workspaces
-To reference another workspace in your query, use the *workspace* identifier.  For example, the following query returns summarized counts of updates needed by their classification from the Update table from both the current workspace, and another workspace named *contosoretail-it*.  
+## Querying across Log Analytics workspaces and from Application Insights
+To reference another workspace in your query, use the [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) identifier, and for an app from Application Insights, use the [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()) identifier.  
 
+### Identifying workspace resources
+The following examples demonstrate queries across Log Analytics workspaces to return summarized counts of updates needed by their classification from the Update table from both the current workspace, and another workspace named *contosoretail-it*. 
 
-## Identifying resources
-Identifying a workspace can be performed one of several ways:
+Identifying a workspace can be accomplished one of several ways:
 
 * Resource name - is a human-readable name of the workspace, sometimes referred to as *component name*. 
 
     `workspace("contosoretail").Update | count`
  
     >[!NOTE]
-    >Identifying a workspace by its name assumes it is unique across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case you must use one of the other identifiers.
+    >Identifying a workspace by name assumes uniqueness across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case, you must use one of the other identifiers.
 
-* Qualified Name - is the “full name” of the workspace, composed of the subscription name, resource group and component name in this format: *subscriptionName/resourceGroup/componentName*. 
+* Qualified name - is the “full name” of the workspace, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
 
     `workspace('contoso/contosoretail/development').requests | count `
 
@@ -45,15 +46,43 @@ Identifying a workspace can be performed one of several ways:
     >Because Azure subscription names are not unique, this identifier might be ambiguous. 
     >
 
-* workspace ID - A workspace ID is the unique, immutable, identifier assigned to each workspace represented as a globally unique identifier (GUID).
+* Workspace ID - A workspace ID is the unique, immutable, identifier assigned to each workspace represented as a globally unique identifier (GUID).
 
-    `workspace("b438b4f6-912a-46d5-9cb1-b44069212ab4").Update | count`
+    `workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update | count`
 
-* Azure Resource ID – the Azure-defined unique identity of the workspace. You use this when the resource name is ambiguous.  For workspaces, the format is: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.  
+* Azure Resource ID – the Azure-defined unique identity of the workspace. You use the Resource ID when the resource name is ambiguous.  For workspaces, the format is: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.  
 
     For example:
     ``` 
-    `workspace("/subscriptions/e427267-5645-4c4e-9c67-3b84b59a6982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
+    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
+    ```
+
+### Identifying an application
+The following examples return a summarized count of requests made against an app named *fabrikamapp* in Application Insights. 
+
+Identifying an application in Application Insights can be accomplished with the *app(Identifier)* expression.  The *Identifier* argument specifies the app using one of the following:
+
+* Resource name - is a human readable name of the app, sometimes referred to as the *component name*.  
+
+    `app("fabrikamapp")`
+
+* Qualified name - is the “full name” of the app, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
+
+    `app("AI-Prototype/Fabrikam/fabrikamapp").requests | count`
+
+     >[!NOTE]
+    >Because Azure subscription names are not unique, this identifier might be ambiguous. 
+    >
+
+* ID - the app GUID of the application.
+
+    `app("b459b4f6-912x-46d5-9cb1-b43069212ab4").requests | count`
+
+* Azure Resource ID - the Azure-defined unique identity of the app. You use the Resource ID when the resource name is ambiguous. The format is: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.  
+
+    For example:
+    ```
+    app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
 
 ## Next steps

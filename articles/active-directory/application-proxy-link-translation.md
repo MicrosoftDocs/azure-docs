@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 02/23/2018
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -24,7 +24,7 @@ Azure AD Application Proxy makes your on-premises apps available to users who ar
 
 The best way to make sure that links work the same both inside and outside of your corporate network is to configure the external URLs of your apps to be the same as their internal URLs. Use [custom domains](active-directory-application-proxy-custom-domains.md) to configure your external URLs to have your corporate domain name instead of the default application proxy domain.
 
-If you can't use custom domains in your tenant, then the link translation feature of Application Proxy keeps your links working no matter where your users are. When you have apps that point directly to internal endpoints or ports, you can map these internal URLs to the published external Application Proxy URLs. When link translation is enabled, and Application Proxy searches through HTML, CSS, and select JavaScript tags for published internal links. Then the Application Proxy service translates them so that your users get an uninterrupted experience.
+If you can't use custom domains in your tenant, then the link translation feature of Application Proxy keeps your links working no matter where your users are. When you have apps that point directly to internal endpoints or ports, you can map these internal URLs to the published external Application Proxy URLs. When link translation is enabled, and Application Proxy searches through HTML and CSS for published internal links, the Application Proxy service translates them so that your users get an uninterrupted experience.
 
 >[!NOTE]
 >The link translation feature is for tenants that, for whatever reason, can't use custom domains to have the same internal and external URLs for their apps. Before you enable this feature, see if [custom domains in Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md) can work for you.
@@ -61,7 +61,7 @@ When you enable link translation for the Benefits app, the links to Expenses and
 To improve performance and security, some links aren't translated:
 
 - Links not inside of code tags. 
-- Links not in HTML, CSS, or JavaScript. 
+- Links not in HTML or CSS. 
 - Internal links opened from other programs. Links sent through email or instant message, or included in other documents, won't be translated. The users need to know to go to the external URL.
 
 If you need to support one of these two scenarios, use the same internal and external URLs instead of link translation.  
@@ -81,7 +81,7 @@ Now, when your users access this application, the proxy will automatically scan 
 
 ## Send feedback
 
-We want your help to make this feature work for all your apps. We search over 30 tags in HTML and CSS, and are considering which JavaScript cases to support. If you have an example of generated links that aren't being translated, send a code snippet to [Application Proxy Feedback](mailto:aadapfeedback@microsoft.com). 
+We want your help to make this feature work for all your apps. We search over 30 tags in HTML and CSS. If you have an example of generated links that aren't being translated, send a code snippet to [Application Proxy Feedback](mailto:aadapfeedback@microsoft.com). 
 
 ## Next steps
 [Use custom domains with Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md) to have the same internal and external URL
