@@ -23,7 +23,7 @@ NEW DIAGRAM NEEDED
 
 ## Focus on your app
 
-With Service Fabric Mesh, you only need to specify the limits of the resources your application needs. Azure will handle all of the infrastructure setup required to host your application. All applications and services you create are deployed as docker containers running either Linux or Windows.
+With Service Fabric Mesh, you only need to specify the limits of the resources your application needs. Azure handles all of the infrastructure setup required to host your application. All applications and services you create are deployed as docker containers running either Linux or Windows.
 
 If you have a monolithic application, you can easily host the entire application in a single container. This makes it easy to port an application to the cloud even though it may not have been designed for the cloud. As time permits, you can break up the monolithic app into smaller, self-contained services. 
 
@@ -35,7 +35,7 @@ If you don't already have an Azure account, [create a free account](https://azur
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI. If you choose to install and use the CLI locally, install Azure CLI version 2.0.31 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+You can use the Azure Cloud Shell or a local installation of the Azure CLI. If you choose to install and use the CLI locally, install Azure CLI version 2.0.31 or later. To find the version, run `az --version`. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 <!--
 Test the Service Fabric Mesh extension with `az sbz -h`
