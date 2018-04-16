@@ -29,7 +29,7 @@ In this scenario:
 - Contoso has an on-premises datacenter (**contoso-datacenter**), with an on-premises domain controller ( **contosodc1**).
 - The internal travel app is tiered across two VMs, **WEBVM** and **SQLVM**, and located on VMware ESXi host **contosohost1.contoso.com**.
 - The VMware environment is managed by vCenter Server (**vcenter**) running on a VM.
-- 
+
 
 ## Azure services and technologies
 
