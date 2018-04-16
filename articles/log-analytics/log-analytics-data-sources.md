@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 04/16/2018
 ms.author: bwren
 
 ---
@@ -27,33 +27,18 @@ collecting data, solutions typically include log searches and views to help you 
 
 
 ## Summary of data sources
-The data sources that are currently available in Log Analytics are listed in the following table.  Each has a link to a separate article providing detail for that data source.
-
-| Data Source | Event Type | Description |
-|:--- |:--- |:--- |
-| [Custom logs](log-analytics-data-sources-custom-logs.md) |\<LogName\>_CL |Text files on Windows or Linux agents containing log information. |
-| [Windows Event logs](log-analytics-data-sources-windows-events.md) |Event |Events collected from the event logon Windows computers. |
-| [Windows Performance counters](log-analytics-data-sources-performance-counters.md) |Perf |Performance counters collected from Windows computers. |
-| [Linux Performance counters](log-analytics-data-sources-performance-counters.md) |Perf |Performance counters collected from Linux computers. |
-| [IIS logs](log-analytics-data-sources-iis-logs.md) |W3CIISLog |Internet Information Services logs in W3C format. |
-| [Syslog](log-analytics-data-sources-syslog.md) |Syslog |Syslog events on Windows or Linux computers. |
-
-### Data sources
+The following table lists the data sources that are currently available in Log Analytics.  Each has a link to a separate article providing detail for that data source.   It also provides information on their method and frequency of data collection into Log Analytics.  You can use the information in this article to identify the different solutions available and to understand the data flow and connection requirements for different management solutions. For explanations of the columns, see [Data collection details for management solutions in Azure](monitoring-solutions-inventory.md#explanation-of-columns).
 
 
-| Data source | Where | Platform | Microsoft monitoring agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
+| Data source | Platform | Microsoft monitoring agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Azure Activity Logs | |Windows |  |  |  |  |  |on notification |
-| Azure Diagnostic Logs | |Windows |  |  |  |  |  |on notification |
-| Azure Diagnostic Metrics | |Windows |  |  |  |  |  |on notification |
-| ETW | |Windows |  |  |&#8226; |  |  |5 minutes |
-| IIS Logs | Data sources |Windows |&#8226; |&#8226; |&#8226; |  |  |5 minutes |
-| Performance Counters | Data sources |Windows |&#8226; |&#8226; |  |  |  |as scheduled, minimum of 10 seconds |
-| Performance Counters | Data sources |Linux |&#8226; |  |  |  |  |as scheduled, minimum of 10 seconds |
-| Syslog | Data sources |Linux |&#8226; |  |  |  |  |from Azure storage: 10 minutes; from agent: on arrival |
-| Windows security event logs | Security and Audit |Windows |&#8226; |&#8226; |&#8226; |  |  |for Azure storage: 10 min; for the agent: on arrival |
-| Windows firewall logs | Security and Audit |Windows |&#8226; |&#8226; |  |  |  |on arrival |
-| Windows event logs | Data sources |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; |for Azure storage: 10 min; for the agent: on arrival |
+| [Custom logs](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | on arrival |
+| [Custom logs](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | on arrival |
+| [IIS logs](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 minutes |
+| [Performance counters](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |as scheduled, minimum of 10 seconds |
+| [Performance counters](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |as scheduled, minimum of 10 seconds |
+| [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |from Azure storage: 10 minutes; from agent: on arrival |
+| [Windows Event logs](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | on arrival |
 
 
 ## Configuring data sources
