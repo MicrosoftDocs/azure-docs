@@ -180,7 +180,7 @@ items:
             href: sql-api-sql-query-metrics.md
         - name: Index
           href: indexing-policies.md
-        - name: Partition data
+        - name: SQL data partitioning
           href: sql-api-partition-data.md
         - name: Stored procedures, triggers, and UDFs
           href: programming.md
@@ -233,7 +233,7 @@ items:
           - name: Leverage the ODBC driver for data visualization
             href: odbc-driver.md
           - name: Use Spring Boot Starter with SQL APIs
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
       - name: Reference
         items:
         - name: Async Java
@@ -346,6 +346,8 @@ items:
           href: tutorial-global-distribution-graph.md
       - name: How To Guides
         items:
+        - name: Graph partitioning
+          href: graph-partitioning.md
         - name: Integrate
           items:
           - name: Connect to Spark GraphX

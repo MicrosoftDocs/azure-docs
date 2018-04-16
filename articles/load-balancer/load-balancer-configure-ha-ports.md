@@ -36,12 +36,6 @@ The illustration shows the following configuration of the deployment example des
 ![High Availability Ports example deployment](./media/load-balancer-configure-ha-ports/haports.png)
 
 
-## Preview sign-up
-
-To participate in the preview of the High Availability Ports feature in Standard Azure Load Balancer, register your subscription to gain access by using either Azure CLI 2.0 or PowerShell. Register your subscription for [Standard Load Balancer Preview](https://aka.ms/lbpreview#preview-sign-up).
-
->[!NOTE]
->Registration of Standard Load Balancer Preview can take up to an hour.
 
 ## Configure High Availability Ports
 

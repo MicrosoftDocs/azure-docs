@@ -7,7 +7,7 @@ manager: jhubbard
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: cakarst
 ms.reviewer: igorstan
 
@@ -66,11 +66,8 @@ To land the data in Azure storage, you can move it to [Azure Blob storage](../st
 These are tools and services you can use to move data to Azure Storage.
 
 - [Azure ExpressRoute](../expressroute/expressroute-introduction.md) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections do not route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
-- [AZCopy utility](../storage/common/storage-use-azcopy.md) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it is acceptable. 
-- [Azure Data Factory (ADF)](../data-factory/introduction.md) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage.
-
-For more information, see [Moving data to and from Azure Storage](../storage/common/storage-moving-data.md)
-
+- [AZCopy utility](../storage/common/storage-moving-data.md) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it is acceptable. 
+- [Azure Data Factory (ADF)](../data-factory/introduction.md) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with SQL Data Warehouse, see [Load data into SQL Data Warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
 
 ## Prepare data
 

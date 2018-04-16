@@ -85,8 +85,6 @@
       href: backup-azure-files.md
     - name: Back up Azure File shares FAQ
       href: backup-azure-files-faq.md
-    - name: Troubleshoot Azure File shares Backup
-      href: troubleshoot-azure-files.md
   - name: Azure VMs
     items:
     - name: Prepare the VM
@@ -181,18 +179,20 @@
       href: backup-azure-delete-vault.md
   - name: Troubleshoot
     items:
-    - name: Azure VM backup problems in Azure portal
+    - name: Azure VM
       href: backup-azure-vms-troubleshoot.md
-    - name: 'Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out'
+    - name: Azure Backup agent or VM extension timed out
       href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-    - name: Slow backup of files and folders in Azure Backup
+    - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-    - name: Troubleshoot Azure Backup Server
+    - name: Azure Backup Server
       href: backup-azure-mabs-troubleshoot.md
-    - name: Troubleshoot System Center Data Protection Manager
+    - name: System Center DPM
       href: backup-azure-scdpm-troubleshooting.md
-    - name: Troubleshoot Azure Backup Agent
+    - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
+    - name: Azure File share
+      href: troubleshoot-azure-files.md
 - name: Reference
   items:
   - name: Azure PowerShell
