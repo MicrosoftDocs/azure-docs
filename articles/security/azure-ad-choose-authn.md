@@ -12,8 +12,6 @@ ms.workload: identity
 ---
 # Choosing the right authentication method for your Azure Active Directory hybrid identity solution 
 
-## Introduction
-
 This article is the first in a series of articles to help organizations implement a complete Azure AD hybrid identity solution. A complete Azure AD hybrid identity solution was outlined as the Hybrid Identity Digital Transformation Framework and covers the business outcomes, and goals organizations should focus on to make sure they've implemented a robust and secure hybrid identity solution. The first business outcome of the framework spells out the requirements for organizations to secure the authentication process when users access cloud apps. The first business goal in the authentication secured business outcome is the ability for users to sign in to cloud apps using their on-premises usernames and passwords. This sign-in process and how users authenticate makes everything in the cloud possible.
 
 Choosing the correct authentication method is the first concern for organizations wanting to move their apps to the cloud. This decision shouldn't be taken lightly for the following reasons:
@@ -40,32 +38,32 @@ To choose an authentication method, you need to consider the time, existing infr
 
 Azure AD supports the following authentication methods for hybrid identity solutions:
 
-**Cloud Authentication** – When you choose this authentication method Azure AD handles the sign-in process for users. Coupled with seamless single sign-on (SSO), users can sign in to cloud apps without having to reenter their credentials. With cloud authentication you can choose from two options: 
+* **Cloud Authentication** – When you choose this authentication method Azure AD handles the sign-in process for users. Coupled with seamless single sign-on (SSO), users can sign in to cloud apps without having to reenter their credentials. With cloud authentication you can choose from two options: 
 
-* **Password Hash Sync (PHS)** – The simplest way to enable authentication for on-premises directory objects in Azure AD. Password Hash Sync enables users to use the same username and password that they use on-premises without having to deploy any additional infrastructure. Some premium features of Azure AD, such as Identity Protection, requires Password Hash Sync regardless of which authentication method is selected.
+> 1. **Password Hash Sync (PHS)** – The simplest way to enable authentication for on-premises directory objects in Azure AD. Password Hash Sync enables users to use the same username and password that they use on-premises without having to deploy any additional infrastructure. Some premium features of Azure AD, such as Identity Protection, requires Password Hash Sync regardless of which authentication method is selected.
 
 > [!NOTE] 
 > Passwords are never stored in clear text or encrypted with a reversible algorithm in Azure AD. For more information on the actual process of Password Hash Sync, see [Implement password hash synchronization with Azure AD Connect sync](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization). 
 
-* **Pass-through Authentication (PTA)** – Provides a simple password validation for Azure AD authentication services using a software agent running on one or more on-premises servers to validate the users directly with your on-premises Active Directory ensuring the password validation doesn't happen in the cloud. Companies with a regulatory requirement that prevents them from having their hashed passwords in the cloud and therefore can’t use Password Hash Sync would use this authentication method. For more information on the actual pass-through authentication process, see [User sign-in with Azure Active Directory Pass-through Authentication](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
+> 2. **Pass-through authentication (PTA)** – Provides a simple password validation for Azure AD authentication services using a software agent running on one or more on-premises servers to validate the users directly with your on-premises Active Directory ensuring the password validation doesn't happen in the cloud. Companies with a regulatory requirement that prevents them from having their hashed passwords in the cloud and therefore can’t use Password Hash Sync would use this authentication method. For more information on the actual pass-through authentication process, see [User sign-in with Azure Active Directory Pass-through authentication](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
 
-**Federated authentication** – When you choose this authentication method Azure AD hands off the authentication process to a separate trusted authentication system, for example, an on-premises Active Directory Federation Services (AD FS) to validate the user’s password. The authentication system can provide additional authentication requirements, such as smartcard-based authentication or a third-party multi-factor authentication. For more information, see [Deploying Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide).
+* **Federated authentication** – When you choose this authentication method Azure AD hands off the authentication process to a separate trusted authentication system, for example, an on-premises Active Directory Federation Services (AD FS) to validate the user’s password. The authentication system can provide additional authentication requirements, such as smartcard-based authentication or a third-party multi-factor authentication. For more information, see [Deploying Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide).
 
 The following section will help you decide which authentication method is right for you, using a decision tree diagram. It will help you determine whether to deploy cloud or federated authentication for your Azure AD hybrid identity solution.
 
-## Azure AD Authentication decision tree diagram
+## Azure AD authentication decision tree diagram
 
 ![image1](media/azure-ad/azure-ad-authn-image1.png)
 
 ## Detailed considerations on authentication methods
 
-### Cloud Authentication: Password Hash Sync 
+### Cloud authentication: Password Hash Sync 
 
 * **Effort:** Password Hash Sync requires the least effort regarding deployment, maintenance, and infrastructure for organizations who only need to enable their users to sign in to Office 365, SaaS apps, and other Azure AD-based resources. When enabled, Password Hash Sync is part of the Azure AD Connect sync process and runs every two minutes. 
 
 * **User experience:** It is recommended that organizations deploy seamless single sign-on (SSO) with Password Hash Sync to improve the user’s sign-in experience by avoiding unnecessary prompts once they signed in.
 
-* **Advanced scenarios:** If organizations choose to, it is possible to use insights from identities with Azure AD Identity Protection reports, such as the leaked credentials report. Windows Hello for Business is another option that has specific requirements when you use Password Hash Sync, for more information, see [this article](https://docs.microsoft.com/en-us/windows/access-protection/hello-for-business/hello-identity-verification). Organizations requiring multi-factor authentication with Password Hash Sync must use Azure AD multi-factor authentication and cannot use a third party or on-premises multi-factor authentication methods.
+* **Advanced scenarios:** If organizations choose to, it is possible to use insights from identities with Azure AD Identity Protection reports, such as the leaked credentials report. Windows Hello for Business is another option that has [specific requirements when you use Password Hash Sync](https://docs.microsoft.com/en-us/windows/access-protection/hello-for-business/hello-identity-verification). Organizations requiring multi-factor authentication with Password Hash Sync must use Azure AD multi-factor authentication and cannot use a third party or on-premises multi-factor authentication methods.
 
 * **Business Continuity:** Password Hash Sync is inherently highly available as a cloud service that scales to all Microsoft datacenters. It is recommended that a second Azure AD Connect server is deployed in staging mode in a standby configuration for disaster recovery purposes.
 
@@ -76,7 +74,7 @@ The following section will help you decide which authentication method is right 
 
 For more information, on implementing Password Hash Sync refer to the following [article](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization).
 
-### Cloud Authentication: Pass-through Authentication  
+### Cloud authentication: Pass-through authentication  
 
 * **Effort:** For Pass-through authentication, you need one or more (three recommended) lightweight agents installed on existing servers with access to your on-premises Active Directory Domain Services, including access to your on-premises AD domain controllers. These agents need outbound access to the Internet and have access to your domain controllers. For this reason, it is not supported to deploy the agents in a perimeter network, because it requires unconstrained network access to domain controllers. All network traffic is encrypted and limited to authentication requests. For more information on this process, see the [security deep dive](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-security-deep-dive) on Pass-through authentication.
 
@@ -86,7 +84,7 @@ For more information, on implementing Password Hash Sync refer to the following 
 
 * **Business Continuity:** It is recommended that you deploy two extra pass-through agents, besides the first agent on the Azure AD Connect server to ensure high availability of authentication requests. When you have three agents deployed, one agent can still fail when another agent is down for maintenance. Another benefit of deploying Password Hash Sync in addition to pass-through authentication, is it can act as backup authentication method when the primary authentication method is no longer available, for example when the on-premises servers are not available.
 
-* **Considerations:** The failover from Pass-through authentication to Password Hash Sync does not happen automatically. You would need to switch the sign-on method manually using Azure AD Connect. Pass-through authentication only supports cloud apps that use modern authentication and specific Exchange Online protocols like ActiveSync, POP3 and IMAP4. For example, Microsoft Office 2013 and later supports modern authentication, but not earlier versions. Refer to this [article](https://blogs.office.com/en-us/2015/11/19/updated-office-365-modern-authentication-public-preview/) on more information of Office app support. For frequently asked questions and other considerations on pass-through authentication, including Alternate ID support, see this [article](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
+* **Considerations:** The failover from Pass-through authentication to Password Hash Sync does not happen automatically. You would need to switch the sign-on method manually using Azure AD Connect. Pass-through authentication only supports cloud apps that use modern authentication and specific Exchange Online protocols like ActiveSync, POP3 and IMAP4. For example, [Microsoft Office 2013 and later supports modern authentication, but not earlier versions](https://blogs.office.com/en-us/2015/11/19/updated-office-365-modern-authentication-public-preview/) on more information of Office app support. See [frequently asked questions](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq) and other considerations on pass-through authentication, including Alternate ID support.
 
 For more information, on implementing Pass-through authentication refer to the following [article](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
 
@@ -100,7 +98,7 @@ For more information, on implementing Pass-through authentication refer to the f
 
 	* Authentication requiring smartcards or certificates
 	* Using on-premises MFA Server or third-party multi-factor provider.
-	* Authentication using third-party authentication solution. See [Azure AD federation compatibility list](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)
+	* Authentication using third-party authentication solution. See the [Azure AD federation compatibility list](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility).
 	* Users must sign in using their sAMAccountName, for example, DOMAIN\username, instead of using a User Principal Name (UPN), for example, user@domain.com
 	* A Windows Hello for Business implementation dependent on an internal Enterprise Public Key Infrastructure (PKI) for certificate trust
 
