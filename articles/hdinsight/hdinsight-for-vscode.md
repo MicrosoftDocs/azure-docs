@@ -280,6 +280,48 @@ After you submit a Python job, submission logs appear in the **OUTPUT** window i
 >[!NOTE]
 >PySpark3 is not supported anymore in Livy 0.4 (which is HDI spark 2.2 cluster). Only “PySpark” is supported for python. It is known issue that submit to spark 2.2 fail with python3.
    
+## Livy configuration
+We support Livy configuration, that could be set at the project settings in work space folder. More details, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
+
++ The project settings:
+
+    ![Livy configuration](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+
++ The supported Livy configurations:   
+
+    POST /batches   
+    Request Body
+
+    | name | description | type | 
+    | :- | :- | :- | 
+    | file | File containing the application to execute | path (required) | 
+    | proxyUser | User to impersonate when running the job | string | 
+    | className | Application Java/Spark main class | string |
+    | args | Command line arguments for the application | list of strings | 
+    | jars | jars to be used in this session | List of string | 
+    | pyFiles | Python files to be used in this session | List of string |
+    | files | files to be used in this session | List of string |
+    | driverMemory | Amount of memory to use for the driver process | string |
+    | driverCores | Number of cores to use for the driver process | int |
+    | executorMemory | Amount of memory to use per executor process | string |
+    | executorCores | Number of cores to use for each executor | int |
+    | numExecutors | Number of executors to launch for this session | int |
+    | archives | Archives to be used in this session | List of string |
+    | queue | The name of the YARN queue to which submitted | string |
+    | name | The name of this session | string |
+    | conf | Spark configuration properties | Map of key=val |
+
+    Response Body   
+
+    The created Batch object.
+
+    | name | description | type | 
+    | :- | :- | :- | 
+    | id | The session id | int | 
+    | appId | The application id of this session | 	String |
+    | appInfo | The detailed application info | Map of key=val |
+    | log | The log lines | list of strings |
+    | state | 	The batch state | string |
 
 
 ## Additional features
