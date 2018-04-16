@@ -5,8 +5,7 @@ keywords: apache spark
 services: cosmos-db
 documentationcenter: ''
 author: dennyglee
-manager: jhubbard
-editor: ''
+manager: kfile
 
 ms.assetid: c4f46007-2606-4273-ab16-29d0e15c0736
 ms.service: cosmos-db

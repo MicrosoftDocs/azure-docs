@@ -5,7 +5,7 @@ keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Drewm3
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

@@ -201,6 +201,8 @@
     items:
     - name: Cluster security
       href: service-fabric-cluster-security.md
+    - name: Scaling
+      href: service-fabric-cluster-scaling.md
     - name: Feature differences between Linux and Windows
       href: service-fabric-linux-windows-differences.md
     - name: Clusters on Azure
@@ -249,12 +251,12 @@
         href: service-fabric-reliable-services-diagnostics.md
       - name: Reliable Actors events
         href: service-fabric-reliable-actors-diagnostics.md
-      - name: Performance metrics
-        href: service-fabric-diagnostics-event-generation-perf.md
       - name: Monitoring Service Remoting
         href: service-fabric-reliable-serviceremoting-diagnostics.md
     - name: Application logging
       href: service-fabric-diagnostics-event-generation-app.md
+    - name: Performance metrics
+      href: service-fabric-diagnostics-event-generation-perf.md
     - name: Health model overview
       href: service-fabric-health-introduction.md
     - name: Report health events
@@ -323,6 +325,8 @@
         href: service-fabric-resource-governance.md
       - name: Volume and logging drivers
         href: service-fabric-containers-volume-logging-drivers.md
+      - name: View container logs
+        href: service-fabric-containers-view-logs.md
       - name: Services inside containers
         href: service-fabric-services-inside-containers.md
       - name: Container networking modes
@@ -433,6 +437,8 @@
       href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
     - name: Recommended practices
       href: /azure/architecture/service-fabric/migrate-from-cloud-services
+    - name: Refactor a migrated app
+      href: /azure/architecture/service-fabric/refactor-migrated-app
   - name: Manage application lifecycle
     items:
     - name: Package an application
@@ -537,8 +543,10 @@
       href: service-fabric-visualizing-your-cluster.md
     - name: Connect to a secure cluster
       href: service-fabric-connect-to-secure-cluster.md
-    - name: Patch cluster nodes
+    - name: Patch cluster nodes (Windows)
       href: service-fabric-patch-orchestration-application.md
+    - name: Patch cluster nodes (Linux)
+      href: service-fabric-patch-orchestration-application-linux.md
   - name: Monitor and diagnose
     items:
     - name: Analyze with OMS

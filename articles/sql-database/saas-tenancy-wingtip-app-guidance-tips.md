@@ -8,7 +8,7 @@ manager: "craigg"
 ms.service: "sql-database"
 ms.custom: "scale out apps"
 ms.topic: "article"
-ms.date: "11/20/2017"
+ms.date: 04/01/2018
 ms.author: "genemi"
 ---
 # General guidance for working with Wingtip Tickets sample SaaS apps
