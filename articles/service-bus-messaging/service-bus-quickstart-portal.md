@@ -19,13 +19,13 @@ ms.author: sethm
 
 ---
 
-# Send and receive using the Azure portal and JMS
+# Send and receive using the Azure portal and .NET
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the workflow sends to and receives messages from a Service Bus queue.  
 
 ![queue](./media/service-bus-quickstart-portal/quick-start-queue.png)
 
-This quickstart describes how to send and receive messages to and from a Service Bus queue, using the [Azure portal][Azure portal] to create a messaging namespace and a queue within that namespace, and to obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages using the Java Messaging service (JMS).
+This quickstart describes how to send and receive messages to and from a Service Bus queue, using the [Azure portal][Azure portal] to create a messaging namespace and a queue within that namespace, and to obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages from this queue using the [.NET Standard library](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 If you don't have an Azure subscription, you can create a [free account][] before you begin.
 
@@ -33,8 +33,8 @@ If you don't have an Azure subscription, you can create a [free account][] befor
 
 To complete this tutorial, make sure you have installed:
 
--  [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), latest version.
--  [Apache Maven](https://maven.apache.org), version 3.0 or above.
+1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Log on to the Azure portal
 
@@ -118,7 +118,7 @@ String ConnectionString = null;
 String QueueName = null;
 ```
 
-These values are added via command line parameters passed to `main()` and allocated in the `runApp()` method:
+These values are added via parameters and allocated in the `runApp()` method:
 
 ```java
 public static void main(String[] args) {
