@@ -63,6 +63,9 @@ The following table lists the [management solutions](monitoring-solutions.md) in
 | [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (Syslog) | Linux | &#8226; | | |  |  | on arrival |
 | [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (Security event logs) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | on arrival |
 | [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (Firewall logs) |Windows |&#8226; |&#8226; |  |  |  |on arrival |
+| [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (Syslog) | Linux | &#8226; | | |  |  | on arrival |
+| [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (Security event logs) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | on arrival |
+| [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (Firewall logs) |Windows |&#8226; |&#8226; |  |  |  |on arrival |
 | [Service Fabric Analytics (Preview)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 minutes |
 | [Service Map](../operations-management-suite/operations-management-suite-service-map.md) | Windows and Linux | &#8226; | &#8226; |  |  |  | 15 seconds |
 | [SQL Assessment](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 days |
