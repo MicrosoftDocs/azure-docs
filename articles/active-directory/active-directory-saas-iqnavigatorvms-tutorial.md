@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 04/16/2018
 ms.author: jeedes
 
 ---
@@ -100,8 +100,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_samlbase.png)
 
 3. On the **IQNavigator VMS Domain and URLs** section, perform the following steps:
@@ -118,42 +118,26 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     In the **Relay state** textbox, type a URL using the following pattern:`https://<subdomain>.iqnavigator.com`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Reply URL and Relay state. Contact [IQNavigator VMS Client support team](https://www.beeline.com/iqn-product-support/) to get these values. 
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Reply URL and Relay state. Contact [IQNavigator VMS Client support team](https://www.beeline.com/iqn-product-support/) to get these values.
 
-5. Click **Save** button.
+5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_metadataurl.png)
+     
+6. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_400.png)
 
-6. To generate the **Metadata** url, perform the following steps:
-
-    a. Click **App registrations**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_appregistrations.png)
-   
-    b. Click **Endpoints** to open **Endpoints** dialog box.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpointicon.png)
-
-    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpoint.png)
-     
-    d. Now go to the property page of **IQNavigator VMS** and copy the **Application Id** using **Copy** button and paste it into notepad.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_appid.png)
-
-    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. IQNavigator application expect the unique user identifier value in the Name Identifier claim. Customer can map the correct value for the Name Identifier claim. In this case we have mapped the user.UserPrincipalName for the demo purpose. But according to your organization settings you should map the correct value for it.   
+7. IQNavigator application expect the unique user identifier value in the Name Identifier claim. Customer can map the correct value for the Name Identifier claim. In this case we have mapped the user.UserPrincipalName for the demo purpose. But according to your organization settings you should map the correct value for it.
 
 	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
 
 8. On the **IQNavigator VMS Configuration** section, click **Configure IQNavigator VMS** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png)
 
-9. To configure single sign-on on **IQNavigator VMS** side, you need to send the **Metadata URL**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [IQNavigator VMS support team](https://www.beeline.com/iqn-product-support/). They set this setting to have the SAML SSO connection set properly on both sides.
+9. To configure single sign-on on **IQNavigator VMS** side, you need to send the **App Federation Metadata Url**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [IQNavigator VMS support team](https://www.beeline.com/iqn-product-support/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
