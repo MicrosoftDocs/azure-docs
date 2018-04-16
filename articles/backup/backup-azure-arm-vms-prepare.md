@@ -48,7 +48,7 @@ Before you prepare your environment, be sure to understand these limitations:
 * Backing up virtual machines with more than 16 data disks is not supported.
 * Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 * Backing up Linux VMs encrypted through Linux Unified Key Setup (LUKS) encryption is not supported.
-* We don't recommend backing up VMs that contain Cluster Shared Volumes (CSV) or Scale-Out File Server configuration. They require involving all VMs included in the cluster configuration during a snapshot task. Azure Backup doesn't support multi-VM consistency. 
+* We don't recommend backing up VMs that contain Cluster Shared Volumes (CSV) or Scale-Out File Server configuration. If done, failure of CSV writers is expected. They require involving all VMs included in the cluster configuration during a snapshot task. Azure Backup doesn't support multi-VM consistency. 
 * Backup data doesn't include network mounted drives attached to a VM.
 * Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 * Cross-region back up and restore are not supported.

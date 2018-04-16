@@ -157,6 +157,10 @@ Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) in
 ## Why does LUIS add spaces to the query around or in the middle of words?
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).  
 
+## Why do I keep getting "Your sign in has expired" error?
+ 
+See [Website sign in time period](luis-boundaries.md#website-sign-in-time-period).
+
 ## Next steps
 
 To learn more about LUIS, see the following resources:

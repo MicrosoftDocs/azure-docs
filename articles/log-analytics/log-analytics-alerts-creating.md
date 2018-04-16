@@ -13,24 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 04/13/2018
 ms.author: bwren
 
 ---
 # Working with alert rules in Log Analytics
+
+> [!NOTE]
+> This article describes classic Log Analytics alerts that are managed in the OMS portal.  Alerts in Log Analytics are [being extended into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Once this is done, then you will create and edit alert rules in the Azure portal and note use the procedures in this article.
+
+
 Alerts are created by alert rules that automatically run log searches at regular intervals.  They create an alert record if the results match particular criteria.  The rule can then automatically run one or more actions to proactively notify you of the alert or invoke another process.   
 
 This article describes the processes to create and edit alert rules using the OMS portal.  For details about the different settings and how to implement required logic, see [Understanding alerts in Log Analytics](log-analytics-alerts.md).
 
->[!NOTE]
-> You cannot currently create or modify an alert rule using the Azure portal. 
 
 ## Create an alert rule
 
 To create an alert rule using the OMS portal, you start by creating a log search for the records that should invoke the alert.  The **Alert** button will then be available so you can create and configure the alert rule.
 
 >[!NOTE]
-> A maximum of 250 alert rules can currently be created in an OMS workspace. 
+> A maximum of 250 alert rules can currently be created in a Log Analytics workspace. 
 
 1. From the OMS Overview page, click **Log Search**.
 2. Either create a new log search query or select a saved log search. 
