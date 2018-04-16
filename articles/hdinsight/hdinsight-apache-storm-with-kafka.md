@@ -24,19 +24,355 @@ This tutorial demonstrates how to use an Apache Storm topology to read and write
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Storm and Kafka
+> * Understanding the code
 > * Create Kafka and Storm clusters
-> * Configure development environment
-> * Understand the code
 > * Create Kafka topic
 > * Start the reader topology
 > * Start the writer topology
 > * Stop the topologies
 > * Clean up resources
 
+## Prerequisites
+
+* Familiarity with creating Kafka topics. For more information, see the [Kafka on HDInsight quickstart](apache-kafka-get-started.md) document.
+
+* Familiarity with building and deploying Storm solutions (topologies). Specifically, topologies that use the Flux framework. For more information, see the [Create a Storm topology in Java](./storm/apache-storm-develop-java-topology.md) document.
+
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
+
+* [Maven 3.x](https://maven.apache.org/download.cgi)
+
+* An SSH client (you need the `ssh` and `scp` commands) - For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+The following environment variables may be set when you install Java and the JDK on your development workstation. However, you should check that they exist and that they contain the correct values for your system.
+
+* `JAVA_HOME` - should point to the directory where the JDK is installed.
+* `PATH` - should contain the following paths:
+  
+    * `JAVA_HOME` (or the equivalent path).
+    * `JAVA_HOME\bin` (or the equivalent path).
+    * The directory where Maven is installed.
+
 > [!IMPORTANT]
-> The steps in this document require an Azure resource group that contains both a Storm on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Storm cluster to directly communicate with the Kafka cluster.
+> The steps in this document require an Azure resource group that contains both a Storm on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
 > 
-> If you already have a virtual network that contains a Kafka cluster, you can create a Storm cluster in the same virtual network. For your convenience, this document also provides a template that can create all the required Azure resources.
+> For your convenience, this document links to a template that can create all the required Azure resources. 
+>
+> For more information on using HDInsight in a virtual network, see the [Extend HDInsight using a virtual network](../hdinsight-extend-hadoop-virtual-network.md) document.
+
+## Storm and Kafka
+
+Apache Storm provides the several components for working with Kafka. The following components are used in this tutorial:
+
+* `org.apache.storm.kafka.KafkaSpout`: This component reads data from Kafka. This component relies on the following components:
+
+    * `org.apache.storm.kafka.SpoutConfig`: Provides configuration for the spout component.
+
+    * `org.apache.storm.spout.SchemeAsMultiScheme` and `org.apache.storm.kafka.StringScheme`: How the data from Kafka is transformed into a Storm tuple.
+
+* `org.apache.storm.kafka.bolt.KafkaBolt`: This component writes data to Kafka. This component relies on the following components:
+
+    * `org.apache.storm.kafka.bolt.selector.DefaultTopicSelector`: Describes the topic that is written to.
+
+    * `org.apache.kafka.common.serialization.StringSerializer`: Configures the bolt to serialize data as a string value.
+
+    * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: Maps from the tuple data structure used inside the Storm topology to fields stored in Kafka.
+
+These components are available in the `org.apache.storm : storm-kafka` package. Use the package version that matches the Storm version. For HDInsight 3.6, the Storm version is 1.1.0.
+You also need the `org.apache.kafka : kafka_2.10` package, which contains additional Kafka components. Use the package version that matches the Kafka version. For HDInsight 3.6, the Kafka version is 0.10.0.0.
+
+The following XML is the dependency declaration in the `pom.xml` for a Maven project:
+
+```xml
+<!-- Storm components for talking to Kafka -->
+<dependency>
+    <groupId>org.apache.storm</groupId>
+    <artifactId>storm-kafka</artifactId>
+    <version>1.1.0</version>
+</dependency>
+<!-- needs to be the same Kafka version as used on your cluster -->
+<dependency>
+    <groupId>org.apache.kafka</groupId>
+    <artifactId>kafka_2.10</artifactId>
+    <version>0.10.0.0</version>
+    <!-- Exclude components that are loaded from the Storm cluster at runtime -->
+    <exclusions>
+        <exclusion>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+```
+
+## Understanding the code
+
+The code used in this document is available at [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
+
+There are two topologies provided with this tutorial:
+
+* Kafka-writer: Generates random sentences and stores them to Kafka.
+
+* Kafka-reader: Reads data from Kafka and then stores it to the HDFS compatible file store for the Storm cluster.
+
+    > [!WARNING] To enable the Storm to work with the HDFS compatible storage used by HDInsight, a script action is required. The script installs several jar files to the `extlib` path for Storm. The template in this tutorial automatically uses the script during cluster creation.
+    >
+    > If you do not use the template in this document to create the Storm cluster, then you must manually apply the script action to your cluster.
+    >
+    > The script action is located at `https://hdiconfigactions2.blob.core.windows.net/stormextlib/stormextlib.sh` and is applied to the supervisor and nimbus nodes of the Storm cluster. For more information on using script actions, see the [Customize HDInsight using script actions](hdinsight-hadoop-customize-cluster-linux.md) document.
+
+The topologies are defined using [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux was introduced in Storm 0.10.x and allows you to separate the topology configuration from the code. For Topologies that use the Flux framework, the topology is defined in a YAML file. The YAML file can be included as part of the topology. It can also be a standalone file used when you submit the topology. Flux also supports variable substitution at run-time, which is used in this example.
+
+The following parameters are set at run time for these topologies:
+
+* `${kafka.topic}`: The name of the Kafka topic that the topologies read/write to.
+
+* `${kafka.broker.hosts}`: The hosts that the Kafka brokers run on. The broker information is used by the KafkaBolt when writing to Kafka.
+
+* `${kafka.zookeeper.hosts}`: The hosts that Zookeeper runs on in the Kafka cluster.
+
+* `${hdfs.url}`: The file system URL for the HDFSBolt component. Indicates whether the data is written to an Azure Storage account or Azure Data Lake Store.
+
+* `${hdfs.write.dir}`: The directory that data is written to.
+
+For more information on Flux topologies, see [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
+
+### Kafka-writer
+
+In the kafka-writer topology, the Kafka bolt component takes two string values as parameters. These indicate which tuple fields the bolt sends to Kafka as __key__ and __message__ values. The key is used to partition data in Kafka. The message is the data being stored.
+
+In this example, the `com.microsoft.example.SentenceSpout` component emits a tuple that contains two fields, `key` and `message`. The Kafka bolt extracts these fields and sends the data in them to Kafka.
+
+The fields don't have to use the names `key` and `message`. These names are used in this project to make the mapping easier to understand.
+
+The following YAML is the definition for the kafka-writer component:
+
+```yaml
+# kafka-writer
+---
+
+# topology definition
+# name to be used when submitting
+name: "kafka-writer"
+
+# Components - constructors, property setters, and builder arguments.
+# Currently, components must be declared in the order they are referenced
+components:
+  # Topic selector for KafkaBolt
+  - id: "topicSelector"
+    className: "org.apache.storm.kafka.bolt.selector.DefaultTopicSelector"
+    constructorArgs:
+      - "${kafka.topic}"
+
+  # Mapper for KafkaBolt
+  - id: "kafkaMapper"
+    className: "org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper"
+    constructorArgs:
+      - "key"
+      - "message"
+
+  # Producer properties for KafkaBolt
+  - id: "producerProperties"
+    className: "java.util.Properties"
+    configMethods:
+      - name: "put"
+        args:
+          - "bootstrap.servers"
+          - "${kafka.broker.hosts}"
+      - name: "put"
+        args:
+          - "acks"
+          - "1"
+      - name: "put"
+        args:
+          - "key.serializer"
+          - "org.apache.kafka.common.serialization.StringSerializer"
+      - name: "put"
+        args:
+          - "value.serializer"
+          - "org.apache.kafka.common.serialization.StringSerializer"
+ 
+
+# Topology configuration
+config:
+  topology.workers: 2
+
+# Spout definitions
+spouts:
+  - id: "sentence-spout"
+    className: "com.microsoft.example.SentenceSpout"
+    parallelism: 8
+
+# Bolt definitions
+bolts:
+  - id: "kafka-bolt"
+    className: "org.apache.storm.kafka.bolt.KafkaBolt"
+    parallelism: 8
+    configMethods:
+    - name: "withProducerProperties"
+      args: [ref: "producerProperties"]
+    - name: "withTopicSelector"
+      args: [ref: "topicSelector"]
+    - name: "withTupleToKafkaMapper"
+      args: [ref: "kafkaMapper"]
+
+# Stream definitions
+
+streams:
+  - name: "spout --> kafka" # Streams data from the sentence spout to the Kafka bolt
+    from: "sentence-spout"
+    to: "kafka-bolt"
+    grouping:
+      type: SHUFFLE
+```
+
+### Kafka-reader
+
+In the Kafka-reader topology, the spout component reads data from Kafka as string values. The data is then written the Storm log by the logging component and to the HDFS compatible file system for the Storm cluster by the HDFS bolt component.
+
+```yaml
+# kafka-reader
+---
+
+# topology definition
+# name to be used when submitting
+name: "kafka-reader"
+
+# Components - constructors, property setters, and builder arguments.
+# Currently, components must be declared in the order they are referenced
+components:
+  # Convert data from Kafka into string tuples in storm
+  - id: "stringScheme"
+    className: "org.apache.storm.kafka.StringScheme"
+  - id: "stringMultiScheme"
+    className: "org.apache.storm.spout.SchemeAsMultiScheme"
+    constructorArgs:
+      - ref: "stringScheme"
+
+  - id: "zkHosts"
+    className: "org.apache.storm.kafka.ZkHosts"
+    constructorArgs:
+      - "${kafka.zookeeper.hosts}"
+
+  # Spout configuration
+  - id: "spoutConfig"
+    className: "org.apache.storm.kafka.SpoutConfig"
+    constructorArgs:
+      # brokerHosts
+      - ref: "zkHosts"
+      # topic
+      - "${kafka.topic}"
+      # zkRoot
+      - ""
+      # id
+      - "readerid"
+    properties:
+      - name: "scheme"
+        ref: "stringMultiScheme"
+
+    # How often to sync files to HDFS; every 1000 tuples.
+  - id: "syncPolicy"
+    className: "org.apache.storm.hdfs.bolt.sync.CountSyncPolicy"
+    constructorArgs:
+      - 1
+
+  # Rotate files when they hit 5 MB
+  - id: "rotationPolicy"
+    className: "org.apache.storm.hdfs.bolt.rotation.FileSizeRotationPolicy"
+    constructorArgs:
+      - 5
+      - "KB"
+
+  # File format; read the directory from filters at run time, and use a .txt extension when writing.
+  - id: "fileNameFormat"
+    className: "org.apache.storm.hdfs.bolt.format.DefaultFileNameFormat"
+    configMethods:
+      - name: "withPath"
+        args: ["${hdfs.write.dir}"]
+      - name: "withExtension"
+        args: [".txt"]
+
+  # Internal file format; fields delimited by `|`.
+  - id: "recordFormat"
+    className: "org.apache.storm.hdfs.bolt.format.DelimitedRecordFormat"
+    configMethods:
+      - name: "withFieldDelimiter"
+        args: ["|"]
+
+# Topology configuration
+config:
+  topology.workers: 2
+
+# Spout definitions
+spouts:
+  - id: "kafka-spout"
+    className: "org.apache.storm.kafka.KafkaSpout"
+    constructorArgs:
+      - ref: "spoutConfig"
+    # Set to the number of partitions for the topic
+    parallelism: 8
+
+# Bolt definitions
+bolts:
+  - id: "logger-bolt"
+    className: "com.microsoft.example.LoggerBolt"
+    parallelism: 1
+  
+  - id: "hdfs-bolt"
+    className: "org.apache.storm.hdfs.bolt.HdfsBolt"
+    configMethods:
+      - name: "withConfigKey"
+        args: ["hdfs.config"]
+      - name: "withFsUrl"
+        args: ["${hdfs.url}"]
+      - name: "withFileNameFormat"
+        args: [ref: "fileNameFormat"]
+      - name: "withRecordFormat"
+        args: [ref: "recordFormat"]
+      - name: "withRotationPolicy"
+        args: [ref: "rotationPolicy"]
+      - name: "withSyncPolicy"
+        args: [ref: "syncPolicy"]
+    parallelism: 1
+
+# Stream definitions
+
+streams:
+  # Stream data to log
+  - name: "kafka --> log" # name isn't used (placeholder for logging, UI, etc.)
+    from: "kafka-spout"
+    to: "logger-bolt"
+    grouping:
+      type: SHUFFLE
+  
+  # stream data to file
+  - name: "kafka --> hdfs"
+    from: "kafka-spout"
+    to: "hdfs-bolt"
+    grouping:
+      type: SHUFFLE
+```
+
+### Property substitutions
+
+The project contains a file named `dev.properties` that is used to pass parameters used by the topologies. It defines the following properties:
+
+| dev.properties file | Description |
+| --- | --- |
+| `kafka.zookeeper.hosts` | The Zookeeper hosts for the Kafka cluster. |
+| `kafka.broker.hosts` | The Kafka broker hosts (worker nodes). |
+| `kafka.topic` | The Kafka topic that the topologies use. |
+| `hdfs.write.dir` | The directory that the Kafka-reader topology writes to. |
+| `hdfs.url` | The file system used by the Storm cluster. For Azure Storage accounts, use a value of `wasb:///`. For Azure Data Lake Store, use a value of `adl:///`. |
 
 ## Create the clusters
 
@@ -90,66 +426,6 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
 > [!NOTE]
 > It can take up to 20 minutes to create the clusters.
-
-## Configure development environment
-
-The code for the example used in this document is available at [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
-
-To compile this project, you need the following configuration for your development environment:
-
-* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
-
-* [Maven 3.x](https://maven.apache.org/download.cgi)
-
-* An SSH client (you need the `ssh` and `scp` commands) - For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* A text editor or IDE.
-
-The following environment variables may be set when you install Java and the JDK on your development workstation. However, you should check that they exist and that they contain the correct values for your system.
-
-* `JAVA_HOME` - should point to the directory where the JDK is installed.
-* `PATH` - should contain the following paths:
-  
-    * `JAVA_HOME` (or the equivalent path).
-    * `JAVA_HOME\bin` (or the equivalent path).
-    * The directory where Maven is installed.
-
-## Understanding the code
-
-This project contains two topologies:
-
-* **KafkaWriter**: Defined by the **writer.yaml** file, this topology writes random sentences to Kafka using the KafkaBolt provided with Apache Storm.
-
-    This topology uses a custom **SentenceSpout** component to generate random sentences.
-
-* **KafkaReader**: Defined by the **reader.yaml** file, this topology reads data from Kafka using the KafkaSpout provided with Apache Storm. It then uses the HDFSBolt component from Storm to write the data to the HDFS compatible storage of the Storm cluster.
-
-* **HDFSBolt**: The HDFSBolt component is provided with Apache Storm. To enable the HDFSBolt component to work with the HDFS compatible storage used by HDInsight, a script action is required. The script installs several jar files to the `extlib` path for Storm. The template in this tutorial automatically uses the script during cluster creation.
-
-    > [!WARNING]
-    > If you did not use the template in this document to create the Storm cluster, then you must manually apply the script action to your cluster.
-
-    The script action is located at `https://hdiconfigactions2.blob.core.windows.net/stormextlib/stormextlib.sh` and is applied to the supervisor and nimbus nodes of the Storm cluster.
-
-    For more information on using script actions, see the [Customize HDInsight using script actions](hdinsight-hadoop-customize-cluster-linux.md) document.
-
-### Flux
-
-The topologies are defined using [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux was introduced in Storm 0.10.x and allows you to separate the topology configuration from the code. For Topologies that use the Flux framework, the topology is defined in a YAML file. The YAML file can be included as part of the topology. It can also be a standalone file used when you submit the topology. Flux also supports variable substitution at run-time, which is used in this example.
-
-The following parameters are set at run time for these topologies:
-
-* `${kafka.topic}`: The name of the Kafka topic that the topologies read/write to.
-
-* `${kafka.broker.hosts}`: The hosts that the Kafka brokers run on. The broker information is used by the KafkaBolt when writing to Kafka.
-
-* `${kafka.zookeeper.hosts}`: The hosts that Zookeeper runs on in the Kafka cluster.
-
-* `${hdfs.url}`: The file system URL for the HDFSBolt component. Indicates whether the data is written to an Azure Storage account or Azure Data Lake Store.
-
-* `${hdfs.write.dir}`: The directory that data is written to.
-
-For more information on Flux topologies, see [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## Build the topology
 
@@ -248,7 +524,7 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
 
 ## Create the Kafka topic
 
-Kafka stores data into a _topic_. You need to create the topic before starting the Storm topologies. To create the topology, use the following steps:
+Kafka stores data into a _topic_. You must create the topic before starting the Storm topologies. To create the topology, use the following steps:
 
 1. Connect to the __Kafka__ cluster through SSH by using the following command. Replace **sshuser** with the SSH user name used when creating the cluster. Replace **kafkaclustername** with the name of the Kafka cluster:
 
