@@ -11,11 +11,11 @@ ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 02/22/2018 
+ms.date: 04/20/2018 
 ms.author: mabrigg
-ms.reviewer: anirudha
+ms.reviewer: thoroet
 
 ---
 # Manage storage accounts in Azure Stack

@@ -1,6 +1,6 @@
 ---
-title: Configure the Azure Stack operator's PowerShell environment | Microsoft Docs
-description: Learn how to Configure the Azure Stack operator's PowerShell environment.
+title: Configure the Azure Stack PowerShell environment | Microsoft Docs
+description: Learn how to Configure the Azure Stack PowerShell environment.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,25 +11,25 @@ ms.assetid: 37D9CAC9-538B-4504-B51B-7336158D8A6B
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/20/2018
 ms.author: mabrigg
-
+ms.reviewer: thoroet
 ---
 
-# Configure the Azure Stack operator's PowerShell environment
+# Configure the Azure Stack PowerShell environment
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-You can configure the Azure Stack to use PowerShell to manage resources such as creating offers, plans, quotas, and alerts. This topic helps you configure the operator environment. If you want to configure PowerShell for the user environment, see to [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md) article.
+You can configure the Azure Stack to use PowerShell to manage resources such as creating offers, plans, quotas, and alerts. This topic helps you configure the operator environment.
 
 ## Prerequisites
 
 Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn): 
 
-* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
+ - Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
+ - Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
 
 ## Configure the operator environment and sign in to Azure Stack
 
@@ -37,31 +37,25 @@ Configure the Azure Stack operator environment with PowerShell. Based on the typ
 
 ### Azure Active Directory (Azure AD) based deployments
 
-````powershell  
+````PowerShell  
 #  Create an administrator environment
 Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
-# Get the value of your Directory Tenant ID
-$TenantID = Get-AzsDirectoryTenantId -AADTenantName "<mydirectorytenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
-
 # After registering the AzureRM environment, cmdlets can be 
 # easily targeted at your Azure Stack instance.
-Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
+Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId mydirectorytenant>.onmicrosoft.com 
 ````
 
 
 ### Active Directory Federation Services (AD FS) based deployments
 
-````powershell  
+````PowerShell  
 #  Create an administrator environment
 Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
-# Get the value of your Directory Tenant ID
-$TenantID = Get-AzsDirectoryTenantId -ADFS -EnvironmentName AzureStackAdmin
-
 # After registering the AzureRM environment, cmdlets can be 
 # easily targeted at your Azure Stack instance.
-Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
+Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
 ````
 
 ## Test the connectivity
@@ -73,5 +67,5 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
 ## Next steps
-* [Develop templates for Azure Stack](user/azure-stack-develop-templates.md)
-* [Deploy templates with PowerShell](user/azure-stack-deploy-template-powershell.md)
+ - [Develop templates for Azure Stack](user/azure-stack-develop-templates.md)
+ - [Deploy templates with PowerShell](user/azure-stack-deploy-template-powershell.md)

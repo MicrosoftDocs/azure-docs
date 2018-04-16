@@ -11,11 +11,11 @@ ms.assetid: 0CDD8B9B-EC32-4453-918A-D0A606C7BC10
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 3/30/2018
+ms.date: 4/20/2018
 ms.author: mabrigg
-
+ms.reviewer: thoroet
 ---
 
 # Install PowerShell for Azure Stack  

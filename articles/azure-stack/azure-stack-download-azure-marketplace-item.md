@@ -11,12 +11,13 @@ ms.assetid:
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 02/27/2018
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: jeffgo
+ms.reviewer: thoroet
 ---
+
 # Download marketplace items from Azure to Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
@@ -56,7 +57,7 @@ Before you can use the marketplace syndication tool, make sure that you have [re
 
 From the machine that has internet connectivity, use the following steps to download the required marketplace items:
 
-1. Open a PowerShell console as an administrator and [install Azure Stack specific PowerShell modules](azure-stack-powershell-install.md). Make sure that you install **PowerShell version 1.2.11 or higher**.  
+1. Open a PowerShell console as an administrator and [install Azure Stack specific PowerShell modules](azure-stack-powershell-install.md). Make sure that you install **PowerShell version 1.2.12 or higher**.  
 
 2. Add the Azure account that you have used to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet without any parameters. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.  
 
@@ -106,11 +107,14 @@ From the machine that has internet connectivity, use the following steps to down
 
 ### Import the image and publish it to Azure Stack marketplace
 
-1. After you download the image and gallery package, save them and the contents in AzureStack-Tools-master folder to a removable disk drive and copy it to the Azure Stack environment (you can copy it locally to any location such as: "C:\MarketplaceImages").     
+1. After you download the image and gallery package, save them to a removable disk drive and copy it to the Azure Stack environment (you can copy it locally to any location such as: "C:\MarketplaceImages").     
 
 2. Before importing the image, you must connect to the Azure Stack operator’s environment by using the steps described in [configure Azure Stack operator’s PowerShell environment](azure-stack-powershell-configure-admin.md).  
 
-3. Import the image to Azure Stack by using the Add-AzsVMImage cmdlet. When using this cmdlet, make sure to replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. You can get the *publisher*, *offer*, and *sku* values of the image from the imageReference object of the Azpkg file that you downloaded earlier and the *version* value from step 6 in the previous section.
+3. Import the image to Azure Stack by using the Add-AzsPlatformImage cmdlet. When using this cmdlet, make sure to replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. You can get the *publisher*, *offer*, and *sku* values of the image from the imageReference object of the Azpkg file that you downloaded earlier and the *version* value from step 6 in the previous section.
+
+ > [!note]  
+ > You first need to upload the VHD into a temporary blob container with access set to public or blob.
 
    ```json
    "imageReference": {
@@ -122,18 +126,8 @@ From the machine that has internet connectivity, use the following steps to down
 
    Replace the parameter values and run the following command:
 
-   ```powershell
-   Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-
-   Add-AzsVMImage `
-    -publisher "MicrosoftWindowsServer" `
-    -offer "WindowsServer" `
-    -sku "2016-Datacenter-Server-Core" `
-    -osType Windows `
-    -Version "2016.127.20171215" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
-    -CreateGalleryItem $False `
-    -Location Local
+   ```PowerShell  
+   Add-AzsPlatformImage -Publisher MicrosoftWindowsServer -Offer WindowsServer -Sku 2016-Datacenter-Server-Core -Version 1.0.0 -OsType "Windows" -OsUri "https://test.blob.local.azurestack.external/test/servercore2016.vhd"
    ```
 
 4. Use portal to upload your Marketplace item (.Azpkg) to Azure Stack Blob storage. You can upload to local Azure Stack storage or upload to Azure Storage. (It's a temporary location for the package.) Make sure that the blob is publicly accessible and note the URI.  
@@ -141,9 +135,7 @@ From the machine that has internet connectivity, use the following steps to down
 5. Publish the marketplace item to Azure Stack by using the **Add-AzsGalleryItem**. For example:
 
    ```powershell
-   Add-AzsGalleryItem `
-     -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.2.azpkg" `
-     –Verbose
+   New-AzsGalleryItem -GalleryItemUri 'http://galleryitemuri'
    ```
 
 6. After the gallery item is published, you can view it from the **New** > **Marketplace** pane.  
