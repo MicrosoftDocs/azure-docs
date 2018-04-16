@@ -19,7 +19,7 @@ ms.author: trinadhk, sogup
 The virtual machine (VM) backup stack Resource Manager deployment model upgrade provides the following feature enhancements:
 * Ability to see snapshots taken as part of a backup job that's available for recovery without waiting for data transfer to complete. It reduces the wait time for snapshots to copy to the vault before triggering restore. Also, this ability eliminates the additional storage requirement for backing up premium VMs, except for the first backup.  
 
-* Reduction in backup and restore times through seven-day local snapshot retention. 
+* Reduction in backup and restore times by retaining snapshots locally for seven-days. 
 
 * Support for disk sizes up to 4 TB. 
 
