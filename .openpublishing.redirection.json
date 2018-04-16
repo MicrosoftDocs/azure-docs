@@ -1107,7 +1107,7 @@
         },
         {
             "source_path": "articles/solution-dev-test-environments.md",
-            "redirect_url": "/azure/devtest-lab/devtest-lab-overview",
+            "redirect_url": "/azure/lab-services/devtest-lab-overview",
             "redirect_document_id": false
         },
         {
@@ -3516,18 +3516,223 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/devtest-lab/devtest-lab-add-artifact-repo.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-add-artifact-repo",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-add-claimable-vm.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-add-claimable-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-add-devtest-user.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-add-devtest-user",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-add-tag.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-add-tag",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-add-vm.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-add-vm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/devtest-lab/devtest-lab-add-vm-with-artifacts.md",
-            "redirect_url": "/azure/devtest-lab/devtest-lab-add-vm",
+            "redirect_url": "/azure/lab-services/devtest-lab-add-vm",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-announcements.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-announcements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-artifact-author.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-artifact-author",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-attach-detach-data-disk.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-attach-detach-data-disk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-comparing-vm-base-image-types.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-comparing-vm-base-image-types",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-concepts.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-configure-cost-management.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-configure-cost-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-configure-marketplace-images.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-configure-marketplace-images",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-configure-vnet.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-configure-vnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-create-custom-image-from-vhd-using-powershell.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-create-custom-image-from-vhd-using-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-create-custom-image-from-vm-using-portal.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-create-custom-image-from-vm-using-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-create-environment-from-arm.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-create-environment-from-arm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-create-first-vm.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-create-first-vm",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/devtest-lab/devtest-lab-create-formulas.md",
-            "redirect_url": "/azure/devtest-lab/devtest-lab-manage-formulas",
+            "redirect_url": "/azure/lab-services/devtest-lab-manage-formulas",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-create-lab.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-create-lab",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-create-template.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-create-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-developer-lab.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-developer-lab",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-enable-licensed-images.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-enable-licensed-images",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-faq.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-get-started-with-lab-policies.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-get-started-with-lab-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-integrate-ci-cd-vsts.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-integrate-ci-cd-vsts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-internal-support-message.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-internal-support-message",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-manage-formulas.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-manage-formulas",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-overview.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-restart-vm.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-restart-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-scale-lab.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-scale-lab",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-set-lab-policy.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-set-lab-policy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-shared-ip.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-shared-ip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-test-env.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-test-env",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-training-lab.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-training-lab",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-troubleshoot-artifact-failure.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-troubleshoot-artifact-failure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-upload-vhd-using-azcopy.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-upload-vhd-using-azcopy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-upload-vhd-using-powershell.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-upload-vhd-using-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-upload-vhd-using-storage-explorer.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-upload-vhd-using-storage-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-use-arm-and-powershell-for-lab-resources.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-use-arm-and-powershell-for-lab-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-use-resource-manager-template.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-use-resource-manager-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/devtest-lab/devtest-lab-vmcli.md",
+            "redirect_url": "/azure/lab-services/devtest-lab-vmcli",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/devtest-lab/devtest-lab-why.md",
-            "redirect_url": "/azure/devtest-lab/devtest-lab-overview",
+            "redirect_url": "/azure/lab-services/devtest-lab-overview",
             "redirect_document_id": false
         },
         {
