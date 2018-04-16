@@ -47,7 +47,7 @@ Status Monitor Configuration - needed only when making changes.
 | Configuration |`login.live.com` | |`443` |
 | Installation |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (NuGet Downloads) | |`443` |
 
-## HockeyApp
+## HockeyApp - Deprecated
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
 | Crash data |gate.hockeyapp.net |104.45.136.42 |80, 443 |
@@ -215,7 +215,7 @@ Note: *.applicationinsights.io domain is owned by Application Insights team.
 
 Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
-## Application Insights Azure Portal Extension
+## Application Insights Azure portal Extension
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
