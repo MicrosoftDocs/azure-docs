@@ -3,7 +3,7 @@ title: Configurable token lifetimes in Azure Active Directory | Microsoft Docs
 description: Learn how to set lifetimes for tokens issued by Azure AD.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: hpsin
 manager: mtillman
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
-ms.author: billmath
+ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
 
@@ -42,19 +42,19 @@ You can designate a policy as the default policy for your organization. The poli
 You can set token lifetime policies for refresh tokens, access tokens, session tokens, and ID tokens.
 
 ### Access tokens
-Clients use access tokens to access a protected resource. An access token can be used only for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime. Adjusting the lifetime of an access token is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled. Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token.
+Clients use access tokens to access a protected resource. An access token can be used only for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime. Adjusting the lifetime of an access token is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled. Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token.  The default is 1 hour - after one hour, the client must use the refresh token to (usually silently) acquire a new refresh token and access token. 
 
 ### Refresh tokens
-When a client acquires an access token to access a protected resource, the client receives both a refresh token and an access token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. A refresh token is bound to a combination of user and client. A refresh token can be revoked, and the token's validity is checked every time the token is used.
+When a client acquires an access token to access a protected resource, the client also receives a refresh token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. A refresh token is bound to a combination of user and client. A refresh token can be [revoked at any time](develop/active-directory-token-and-claims.md#token-revocation), and the token's validity is checked every time the token is used.  
 
-It's important to make a distinction between confidential clients and public clients. For more information about different types of clients, see [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
+It's important to make a distinction between confidential clients and public clients, as this impacts how long refresh tokens can be used. For more information about different types of clients, see [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### Token lifetimes with confidential client refresh tokens
-Confidential clients are applications that can securely store a client password (secret). They can prove that requests are coming from the client application and not from a malicious actor. For example, a web app is a confidential client because it can store a client secret on the web server. It is not exposed. Because these flows are more secure, the default lifetimes of refresh tokens issued to these flows is `until-revoked`, cannot be changed by using policy, and will not be revoked on voluntary password resets.
+Confidential clients are applications that can securely store a client password (secret). They can prove that requests are coming from the secured client application and not from a malicious actor. For example, a web app is a confidential client because it can store a client secret on the web server. It is not exposed. Because these flows are more secure, the default lifetimes of refresh tokens issued to these flows is `until-revoked`, cannot be changed by using policy, and will not be revoked on voluntary password resets.
 
 #### Token lifetimes with public client refresh tokens
 
-Public clients cannot securely store a client password (secret). For example, an iOS/Android app cannot obfuscate a secret from the resource owner, so it is considered a public client. You can set policies on resources to prevent refresh tokens from public clients older than a specified period from obtaining a new access/refresh token pair. (To do this, use the Refresh Token Max Inactive Time property.) You also can use policies to set a period beyond which the refresh tokens are no longer accepted. (To do this, use the Refresh Token Max Age property.) You can adjust the lifetime of a refresh token to control when and how often the user is required to reenter credentials, instead of being silently reauthenticated, when using a public client application.
+Public clients cannot securely store a client password (secret). For example, an iOS/Android app cannot obfuscate a secret from the resource owner, so it is considered a public client. You can set policies on resources to prevent refresh tokens from public clients older than a specified period from obtaining a new access/refresh token pair. (To do this, use the Refresh Token Max Inactive Time property (`MaxInactiveTime`).) You also can use policies to set a period beyond which the refresh tokens are no longer accepted. (To do this, use the Refresh Token Max Age property.) You can adjust the lifetime of a refresh token to control when and how often the user is required to reenter credentials, instead of being silently reauthenticated, when using a public client application.
 
 ### ID tokens
 ID tokens are passed to websites and native clients. ID tokens contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until their expiry. Usually, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user. You can adjust the lifetime of an ID token to control how often the web application expires the application session, and how often it requires the user to be reauthenticated with Azure AD (either silently or interactively).
