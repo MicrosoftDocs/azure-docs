@@ -1,5 +1,5 @@
 ﻿---
-title: Azure Quick start - Create a Key Vault PowerShell | Microsoft Docs
+title: Azure Quickstart - Create a Key Vault PowerShell | Microsoft Docs
 description: 
 services: key-vault
 author: barclayn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/06/2017
+ms.date: 04/16/2018
 ms.author: barclayn
-
+#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Create an Azure Key Vault using PowerShell
 
-Azure Key Vaults may be created and managed through PowerShell. In this quickstart you will use PowerShell to create a Key Vault. You will then store a secret in the newly created vault.
+Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates and other secrets. For more information on Key Vault you may review the [Overview](key-vault-overview.md). In this quickstart you will use PowerShell to create a key vault. You will then store a secret in the newly created vault.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -49,23 +49,22 @@ New-AzureRmResourceGroup -Name ContosoResourceGroup -Location EastUS
 
 Next you will create the Key Vault in the resource group created in the previous step. When performing this step you will need to provide some information:
 
->[!NOTE]
-Although we use “ContosoKeyVault” as the name for our Key Vault throughout this quickstart, you must use a unique name. We suggest “KeyVault” + your initials (e.g., “KeyVaultMSB”).
+Although we use “Contoso KeyVault2” as the name for our Key Vault throughout this quickstart, you must use a unique name.
 
-- **Vault name** ContosoKeyVault.
+- **Vault name** Contoso-Vault2.
 - **Resource group name** ContosoResourceGroup.
 - **Location** East US.
 
 ```azurepowershell-interactive
-New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
+New-AzureRmKeyVault -VaultName 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
 
-The output of this cmdlet shows properties of the newly created Key Vault. Take note of the two properties listed below:
+The output of this cmdlet shows properties of the newly created key vault. Take note of the two properties listed below:
 
-* **Vault Name**: In the example, this is **ContosoKeyVault**. You will use this name for other Key Vault cmdlets.
+* **Vault Name**: In the example, this is **Contoso-Vault2**. You will use this name for other Key Vault cmdlets.
 * **Vault URI**: In the example, this is https://contosokeyvault.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
-Your Azure account is the only account authorized to perform any operations on this new Key Vault.
+Your Azure account is the only account authorized to perform any operations on this new vault.
 
 ![Output after Key Vault creation command completes](./media/quick-create-powershell/output-after-creating-keyvault.png)
 
@@ -110,4 +109,4 @@ In this quickstart you have created a Key Vault and stored a software key in it.
 
 > [!div class="nextstepaction"]
 > [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md)
-> [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md)
+> To learn how to read a secret from Key Vault using a web application using [managed service identity](/active-directory/managed-service-identity/overview.md), continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md)

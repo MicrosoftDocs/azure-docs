@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/12/2018
+ms.date: 04/16/2018
 ms.author: barclayn
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Key Vault is and if it offers anything that could be used in my organization.
 
@@ -22,7 +22,7 @@ ms.author: barclayn
 
 Azure Key Vault is a cloud service that works as a secure secrets store.
 
-You have passwords, connection strings and other pieces of information that are needed to keep your applications working. You want to make sure that this information is available but that it is secured. This is where Azure Key Vault can help. Azure Key Vault can help you securely store and manage application secrets.
+You have passwords, connection strings, and other pieces of information that are needed to keep your applications working. You want to make sure that this information is available but that it is secured. This is where Azure Key Vault can help. Azure Key Vault can help you securely store and manage application secrets.
 
 Key Vault allows you to create multiple secure containers, called vaults. These vaults are backed by hardware security modules (HSMs). Vaults help reduce the chances of accidental loss of security information by centralizing the storage of application secrets. Key Vaults also control and log the access to anything stored in them. Azure Key Vault can handle requesting and renewing Transport Layer Security (TLS) certificates, providing the features required for a robust certificate lifecycle management solution.
 
@@ -70,7 +70,7 @@ When storing valuable data, you must take several steps. Security information mu
 - Providing standards Azure administration options via the portal, Azure CLI and PowerShell.
 - Automating certain tasks on certificates that you purchase from Public CAs, such as enroll and renew.
 
-In addition, Azure Key Vaults allow you to segregate application secrets. Applications may access only the vault that they are allowed to access, and they may only perform the actions that the application identity has been allowed to perform. You can create an Azure Key Vault per application and restrict the secrets stored in a Key Vault to a specific application and team of developers.
+In addition, Azure Key Vaults allow you to segregate application secrets. Applications may access only the vault that they are allowed to access, and they be limited to only perform specific operations. You can create an Azure Key Vault per application and restrict the secrets stored in a Key Vault to a specific application and team of developers.
 
 ### Integrate with other Azure services
 
