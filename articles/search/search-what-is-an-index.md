@@ -1,19 +1,13 @@
 ---
 title: Indexes in Azure Search | Microsoft Docs
 description: Learn about index concepts in Azure Search and how indexes are used.
-services: search
-documentationcenter: ''
-author: ashmaka
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 
-ms.assetid: a395e166-bf2e-4fca-8bfc-116a46c5f7b1
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/08/2017
-ms.author: ashmaka
-
 ---
 # Indexes in Azure Search
 > [!div class="op_single_selector"]
