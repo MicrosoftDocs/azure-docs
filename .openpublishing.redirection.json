@@ -18104,6 +18104,31 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi",
             "redirect_document_id": false
-		}
+		},
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-add-outputs.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-portal#configure-output-to-the-job",
+            "redirect_document_id": false
+		},
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-create-a-job.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-release-notes.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-comparison-storm.md",
+            "redirect_url": "/azure/stream-analytics/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-troubleshoot-visualization.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-job-diagram-with-metrics",
+            "redirect_document_id": false
+        }
     ]
 }
