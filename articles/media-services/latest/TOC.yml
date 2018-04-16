@@ -8,7 +8,7 @@
   expanded: true
   items:
   - name: Stream video files
-    items:
+    items: 
     - name: .NET with Visual Studio
       href: stream-files-dotnet-quickstart.md
 - name: Tutorials
@@ -24,7 +24,11 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=media-services
+    items:
+    - name: Azure code samples
+      href: https://azure.microsoft.com/resources/samples/?service=media-services
+    - name: Azure CLI
+      href: cli-samples.md
 - name: Concepts
   items:
   - name: Storage accounts
@@ -41,7 +45,7 @@
     href: create-account-cli-how-to.md  
   - name: Access APIs - CLI
     href: access-api-cli-how-to.md
-  - name: Create job input - .NET
+  - name: Upload content - .NET
     items:
     - name: From HTTP(s)
       href: job-input-from-http-how-to.md
