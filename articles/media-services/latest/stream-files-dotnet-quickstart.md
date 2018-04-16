@@ -113,21 +113,19 @@ To run the app and access the Media Services APIs, you need to specify the corre
 3. In the Solution Explorer, unfold the *EncodeAndStreamFiles* project.
 4. Set this project as the start up project.
 5. Open App.config.
-6. Replace settings values with the values that you got in the [previous](#create-an-azure-ad-application-and-service-principal) step.
+6. Replace the appSettings values with the values that you got in the previous step.
 
  ```xml
-<appSettings>
-  <add key="Region" value="value" />
-  <add key="ResourceGroup" value="value" />
-  <add key="AadEndpoint" value="value" />
-  <add key="AccountName" value="value" />
-  <add key="SubscriptionId" value="value" />
-  <add key="ArmAadAudience" value="value" />
-  <add key="AadTenantId" value="value" />
-  <add key="AadSecret" value="value" />
-  <add key="AadClientId" value="value" />
-  <add key="ArmEndpoint" value="value" />
-</appSettings>
+ <add key="Region" value="value" />
+ <add key="ResourceGroup" value="value" />
+ <add key="AadEndpoint" value="value" />
+ <add key="AccountName" value="value" />
+ <add key="SubscriptionId" value="value" />
+ <add key="ArmAadAudience" value="value" />
+ <add key="AadTenantId" value="value" />
+ <add key="AadSecret" value="value" />
+ <add key="AadClientId" value="value" />
+ <add key="ArmEndpoint" value="value" />
  ```    
  
 7. Press Ctrl+Shift+B to build the solution.
