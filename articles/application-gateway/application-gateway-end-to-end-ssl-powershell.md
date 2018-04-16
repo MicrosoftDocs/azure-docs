@@ -155,6 +155,8 @@ All configuration items are set before creating the application gateway. The fol
    5. Configure the certificate for the application gateway. This certificate is used to decrypt and reencrypt the traffic on the application gateway.
 
    ```powershell
+   // These changes are mine, please take a look at https://github.com/MicrosoftDocs/azure-docs/pull/5339
+   // If the credit is going to be to other person, please remove the changes, I tryed to contact using other wasys, sorry.
    $password = ConvertTo-SecureString  <password for certificate file> -AsPlainText -Force 
    $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $password 
    ```
