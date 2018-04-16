@@ -189,7 +189,10 @@ Click the **Output** tile to see job stream of the runbook responsible for manag
 
 Click **Errors** to see detailed information about any errors from the deployment.
 
-Once your update deploy
+Once your update deployment is successful, an email similar to the following image is sent to show success of the deployment.
+
+![Configure email action group](./media/automation-tutorial-update-management/email-notification.png)
+
 ## Next Steps
 
 In this tutorial, you learned how to:
