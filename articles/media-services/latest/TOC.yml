@@ -23,12 +23,10 @@
       href: analyze-videos-tutorial.md
 - name: Samples
   items:
-  - name: Code samples
-    items:
-    - name: Azure code samples
-      href: https://azure.microsoft.com/resources/samples/?service=media-services
-    - name: Azure CLI
-      href: cli-samples.md
+  - name: Azure code samples
+    href: https://azure.microsoft.com/resources/samples/?service=media-services
+  - name: Azure CLI
+    href: cli-samples.md
 - name: Concepts
   items:
   - name: Storage accounts
