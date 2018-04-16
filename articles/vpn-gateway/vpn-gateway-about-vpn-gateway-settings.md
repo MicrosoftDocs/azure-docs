@@ -76,9 +76,9 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
 
-###  <a name="resizechange"></a>Resizing vs. changing a SKU
+###  <a name="resizechange"></a>Resizing or changing a SKU
 
-Resizing a gateway SKU is fairly easy. You will have very little downtime as the gateway resizes. However, there are rules regarding resizing:
+If you have a VPN gateway and you want to use a different gateway SKU, your options are to either resize your gateway SKU, or to change to another SKU. When you change to another gateway SKU, you delete the existing gateway entirely and build a new one. This could take up to 45 minutes to build. In comparison, when you resize a gateway SKU, you will have very little downtime because you do not have to delete and rebuild the gateway. If you have the option to resize your gateway SKU, rather than change it, you will want to do that. However, there are rules regarding resizing:
 
 1. You can resize between VpnGw1, VpnGw2, and VpnGw3 SKUs.
 2. When working with the old gateway SKUs, you can resize between Basic, Standard, and HighPerformance SKUs.

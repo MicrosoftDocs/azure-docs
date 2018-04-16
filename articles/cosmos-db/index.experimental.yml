@@ -7,7 +7,7 @@ metadata:
   description: Learn how to use Azure Cosmos DB to build globally distributed multi-model databases. Tutorials show you how to build and query document, key/value, and graph databases.
   services: cosmos-db
   author: mimig1
-  manager: jhubbard
+  manager: kfile
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -85,7 +85,7 @@ sections:
         - image:
             src: media/index.experimental/logo_gremlin.svg
         - image:
-            src: media/index.experimental/logo_golang.png
+            src: https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg
         - image:
             src: media/index.experimental/logo_xamarin.svg
       rows:
@@ -97,7 +97,7 @@ sections:
           - href: /azure/cosmos-db/create-sql-api-python
           - href:
           - href:
-          - href: /azure/cosmos-b/create-sql-api-xamarin-dotnet
+          - href: /azure/cosmos-db/create-sql-api-xamarin-dotnet
         - title: MongoDB API
           values:
             - href: /azure/cosmos-db/create-mongodb-java

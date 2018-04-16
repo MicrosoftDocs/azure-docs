@@ -4,7 +4,7 @@ description: Learn how to use infrastructure automation tools such as PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 

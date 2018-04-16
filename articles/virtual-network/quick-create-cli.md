@@ -1,33 +1,34 @@
 ---
-title: Create an Azure Virtual Network - Azure CLI | Microsoft Docs
-description: Quickly learn to create a virtual network using the Azure CLI. A virtual network enables Azure resources, such as virtual machines, to communicate privately with each other, and with the internet.
+title: Create a virtual network - quickstart - Azure CLI | Microsoft Docs
+description: In this quickstart, you learn to create a virtual network using the Azure portal. A virtual network enables Azure resources, such as virtual machines, to communicate privately with each other, and with the internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: 
+ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom:
+ms.custom: mvc
 ---
 
-# Create a virtual network using the Azure CLI
+# Quickstart: Create a virtual network using the Azure CLI
 
-A virtual network enables Azure resources, such as virtual machines (VM), to communicate privately with each other and with the Internet. In this article, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to one VM from the internet, and communicate privately with the other VM.
+A virtual network enables Azure resources, such as virtual machines (VM), to communicate privately with each other and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to one VM from the internet, and communicate privately with the other VM.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.28 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.28 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 
 ## Create a virtual network
@@ -89,7 +90,7 @@ The VM takes a few minutes to create. After the VM is created, the Azure CLI ret
 }
 ```
 
-Take note of the **publicIpAddress**. This address is used to connect to the VM from the Internet in the next step.
+Take note of the **publicIpAddress**. This address is used to connect to the VM from the internet in the next step.
 
 ## Connect to a VM from the internet
 
@@ -99,7 +100,7 @@ Replace `<publicIpAddress>` with the public IP address of your *myVm2* VM in the
 ssh <publicIpAddress>
 ```
 
-## Communicate privately between VMs
+## Communicate between VMs
 
 To confirm private communication between the *myVm2* and *myVm1* VMs, enter the following command:
 
@@ -121,9 +122,6 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-In this article, you created a default virtual network and two VMs. You connected to one VM from the Internet and communicated privately between the VM and another VM. To learn more about virtual network settings, see [Manage a virtual network](manage-virtual-network.md). 
+In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and communicated privately between the VM and another VM. To learn more about virtual network settings, see [Manage a virtual network](manage-virtual-network.md). 
 
-By default, Azure allows unrestricted private communication between virtual machines, but only allows inbound SSH sessions to Linux VMs from the Internet. To learn how to allow or restrict different types of network communication to and from VMs, advance to the next tutorial.
-
-> [!div class="nextstepaction"]
-> [Filter network traffic](tutorial-filter-network-traffic-cli.md)
+By default, Azure allows unrestricted private communication between virtual machines, but only allows inbound remote desktop connections to Windows VMs from the internet. To learn how to allow or restrict different types of network communication to and from VMs, see [Filter network traffic](tutorial-filter-network-traffic.md).

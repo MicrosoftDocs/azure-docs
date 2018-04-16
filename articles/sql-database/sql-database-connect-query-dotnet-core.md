@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/07/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 ---
 # Use .NET Core (C#) to query an Azure SQL database

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: carlrab
 
 ---
@@ -43,7 +43,7 @@ An Azure Database logical server:
 - Is the parent resource for databases, elastic pools, and data warehouses
 - Provides a namespace for databases, elastic pools, and data warehouses
 - Is a logical container with strong lifetime semantics - delete a server and it deletes the contained databases, elastic pools, and data warehouses
-- Participates in [Azure role-based access control (RBAC)](/active-directory/role-based-access-control-what-is) - databases, elastic pools, and data warehouses within a server inherit access rights from the server
+- Participates in [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) - databases, elastic pools, and data warehouses within a server inherit access rights from the server
 - Is a high-order element of the identity of databases, elastic pools, and data warehouses for Azure resource management purposes (see the URL scheme for databases and pools)
 - Collocates resources in a region
 - Provides a connection endpoint for database access (<serverName>.database.windows.net)
@@ -76,9 +76,8 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.co
 
 > [!IMPORTANT]
 > For information on selecting the pricing tier for your database, see [Service tiers](sql-database-service-tiers.md).
->
 
-To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md)
+To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md)
 
 ### Manage an existing SQL server
 

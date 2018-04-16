@@ -35,8 +35,8 @@ In this section, you create a public Basic Load Balancer using the  portal. The 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Create a load balancer** page enter these values for the load balancer:
     - *myLoadBalancer* - for the name of the load balancer.
-    - **Public** - for the type of the load balancer.'s fonrt 
-     - *myPublicIP* - for the Public IP that you must create with SKU as **Basic**, and **Assignment** set as **Dynamic**.
+    - **Public** - for the type of the load balancer.
+    - *myPublicIP* - for the Public IP that you must create with SKU as **Basic**, and **Assignment** set as **Dynamic**.
     - *myResourceGroupLB* - for the name of the new resource group that you create.
 3. Click **Create** to create the load balancer.
    

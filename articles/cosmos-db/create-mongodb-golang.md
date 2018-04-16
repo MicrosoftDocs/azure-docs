@@ -3,13 +3,12 @@ title: "Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azu
 description: Presents a Golang code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
 author: Durgaprasad-Budhwani
-manager: jhubbard
-editor: mimig1
+manager: kfile
 
 ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 07/21/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
 ---
 
@@ -77,7 +76,9 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Review the code
 
-Let's make a quick review of what's happening in the main.go file. 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Run the app](#run-the-app). 
+
+The following snippets are all taken from the main.go file.
 
 ### Connecting the Go app to Azure Cosmos DB
 
@@ -232,10 +233,7 @@ Go back to the Azure portal to see your document in Data Explorer.
 
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
