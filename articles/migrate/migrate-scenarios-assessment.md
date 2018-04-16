@@ -1,20 +1,23 @@
 ---
-title: Assess on-premises workloads for migration to Azure | Microsoft Docs
-description: Learn how to prepare Azure for migration of on-premises machines using Azure Migrate, the Database Migration Service, and Azure Site Recovery
+title: Assess on-premises workloads for migration to Azure with DMS and Azure Migrate | Microsoft Docs
+description: Learn how to prepare Azure for migration of on-premises machines using the Data Migration Assistant (DMA), and the Azure Migrate service.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/14/2018
+ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
 
 ---
 # Scenario 1: Assess on-premises workloads for migration to Azure
 
-As they consider migration to Azure, Contoso company would like to run a technical assessment to figure out whether their on-premises workloads are suitable for migration to the cloud. In particular, they want to assess machine and database compatibility for migration, and estimate capacity and costs for running their resources in Azure.
+As they consider migration to Azure, Contoso company would like to run a technical and cost assessment to figure out whether their on-premises workloads are suitable for migration to the cloud. In particular, they want to assess machine and database compatibility for migration, and estimate capacity and costs for running their resources in Azure.
 
-To get their feet wet and better understand the technologies involved, they're assessing and migrating a small on-premises app.
+To get their feet wet and better understand the technologies involved, they're assessing and migrating a small on-premises travel app. The app is two-tier, with a web app running on one VM, a SQL Server database on the second VM. The application is deployed in VMware, and the environment is managed by a vCenter server. They'll perform the assessment using the Data Migration Assistant (DMA), and the Azure Migrate service.
+
+- [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) enables you to upgrade to a modern data platform by detecting compatibility issues that can impact database functionality in your new version of Azure SQL Database. DMA recommends performance and reliability improvements for your target environment, and allows you to move your schema, data, and uncontained objects from your source server to your target server.
+- [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) service helps you to assess your on-premises resources for migration to Azure. It assesses the migration suitability of on-premises machines, and provides performance-based sizing and cost estimations for running in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration Service, to migrate the machines to Azure.
 
 
 ## Architecture
@@ -26,14 +29,14 @@ In this scenario:
 - On-premises domain controller: **contosodc1**
 - VMware ESXi host: contosohost1.contoso.com
 - vCenter VM: **vcenter**
-- Internal travel apptiered across two VMs - **WEBVM** and **SQLVM**.
+- Internal travel app tiered across two VMs - **WEBVM** and **SQLVM**.
 
 ## Azure services and technologies
 
 **Technology** | **Description** | **Costs**
 --- | --- | ---
-Databse Migration Assistant | The [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) assesses on-premises SQL Servers for compatibility issues before you migrate to Azure. The Assistant assesses feature parity between your migration source and target and recommends improvements where appropriate. | Downloadable tool free of charge. 
-Azure Migrate service | The [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) service assesses on-premises machines for migration to Azure. It verifies migration suitability of machines, performance-based sizing, and provides cost estimations for running in Azure. | There's currently no charge for using the Azure Migrate service.
+DMA | DMA aassesses compatibility and feature parity between your SQL Server source and target, and recommends improvements where appropriate. | Downloadable tool free of charge. 
+Azure Migrate service | Currently, the service can assess on-premises VMware VMs for migration to Azure. | There's currently no charge for using the Azure Migrate service.
 Service Map | Azure Migrate uses Service Map to show dependencies between machines you want to migrate. | [Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) is part of Azure Log Analytics. It can currently be used for 180 days without incurring charges.
 
 
@@ -48,6 +51,8 @@ If you want to deploy this scenario, here's what you should have:
 - At least two on-premises VMware VMs, one running a SQL Server database.
     - You should have permissions to install Azure Migrate agents on each VM.
     - The VMs should have direct internet connectivity.
+        - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).
+        - If you have machines with no internet connectivity, you need to download and install [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) on them.
 
 
 ## Scenario overview
@@ -57,11 +62,11 @@ Here's what we're going to do:
 
 > [!div class="checklist"]
 > * **Step 1: Prepare Azure**. All we need is an Azure subscription.
-> * **Step 2: Prepare for database assessment**: Make sure that the external links to the SQL Server machine are allowed.
+> * **Step 2: Prepare for database assessment**: Make sure that external connections to the SQL Server machine are allowed.
 > * **Step 3: Prepare for VM assessment**: Set up on-premises accounts, and tweak VMware settings.
 > * **Step 4: Discover on-premises VMs**: Create an Azure Migrate collector VM. Then, run the collector to discover VMs for assessment.
 > * **Step 5: Prepare for dependency analysis**: Install Azure Migrate agents on the VMs, so that we can see the dependency mapping between VMs.
-> * **Step 6: Download and install Database Migration Assistant**: Set up the Database Migration Assistant, to assess the on-premises SQL Server database.
+> * **Step 6: Download and install DMA**: Prepare DMA for assessment of the on-premises SQL Server database.
 > * **Step 7: Assess the database**: Run and analyze the database assessment.
 > * **Step 8: Assess the VMs**: Check dependencies, group the VMs, and run the assessment. AFter the assessment is ready, analyze it in preparation for migration.
 
@@ -76,7 +81,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Step 2: Prepare for database assessment
 
 1.	Note the FQDN of the VM running the SQL Server instance. You need this when you connect for database assessment.
-2.	Check that the Windows firewall running on the SQL Server machine allows external connections on TCP port 1433 (default), os that the  Database Migration Assistant can connect.
+2.	Check that the Windows firewall running on the SQL Server machine allows external connections on TCP port 1433 (default), so that the DMA can connect.
 
 ## Step 3: Prepare for VM  assessment
 
@@ -84,7 +89,7 @@ Create a VMware account that Azure Migrate will use to automatically discover VM
 
 ### Set up a VMware account
 
- Create a VMware account with the following properties:
+ You need a read-only account in vCenter. If you don't have one, create a VMware account with the following properties:
 
 - User type: At least a read-only user.
 - Permissions: Data Center object –> Propagate to Child Object, role=Read-only.
@@ -97,16 +102,22 @@ Check you have permissions to create a VM by importing a file in .OVA format. [L
 
 ### Verify ports
 
-To assess machines with Azure Migrate, we use dependency mapping. For this feature, you need to install an agent on the VMs you want to assess. The agent on the VM must be able to connect to Azure Log Analytics from port TCP 443.
+In this scenario we're going to configure dependency mapping. For this feature we will install an agent on the VMs you're assessing. That agent needs to be able to connect to Azure from TCP port 443 on each VM. [Learn more](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid)  about connection requirements.
 
 
 ### Set statistics settings
 
-Before you start deployment, the statistics settings for the vCenter Server should be set to level 3. If the level higher than 3, the assessment will work, but performance data for storage and network isn't collected.
-    - Disk recommendations aren’t based on utilization, and Azure Migrate recommends standard disks without considering disk throughput.
-    - The size recommendations will be done based on performance data for CPU and memory, and configuration data for disk and network adapters.
+Before you start deployment, the statistics settings for the vCenter Server should be set to level 3. Note that:
+- After you set the level, you need to wait at least a day before you run the assessment. Otherwise it might not work as expected.
+- If the level higher than 3, the assessment will work, but will use the "on-premises sizing" option:
+    - Performance data for disks and networking won't be collected.
+    - For storage, Azure Migrate recommends a standard disk in Azure, with the same size as the on-premises disk.
+    - For networking, for each on-premises network adapter, a network adapter will be recommended in Azure.
+    - For compute, Azure Migrate will look at the VM cores and memory size, and recommends an Azure VM with the same configuration. If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
+    
+When level 3 is set, Azure Migrate assesses based on "performance-based sizing". [Learn more](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing)
 
-Configure the level as follows:
+Set the level as follows:
 
 1. In the vSphere Web Client, open the vCenter server instance.
 2. Select the **Manage** tab, and under **Settings**, click **General**.
@@ -233,13 +244,14 @@ After collection completes, check that the VMs appear in the portal.
 	![Discovered machines](./media/migrate-scenarios-assessment/machines-no-agent.png)
 
 
+
 ## Step 5: Prepare for dependency analysis
 
 To view dependencies between VMs we want to assess, we download and install agents on the web app VMs – WEBVM and SQLVM.
 
 ### Take a snapshot
 
-Take a snapshot of the VMs before you install the agents.
+If you want to have a copy of your VM before modifying it, take a snapshot before you install the agents.
 
 ![Machine snapshot](./media/migrate-scenarios-assessment/snapshot-vm.png) 
 
@@ -252,8 +264,7 @@ Take a snapshot of the VMs before you install the agents.
 
     ![Agent download](./media/migrate-scenarios-assessment/download-agents.png) 
 
- > [!NOTE]
-    > If you have machines with no internet connectivity, you need to download and install [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) on them.
+ 
 
 #### Install the Dependency agent
 
@@ -277,19 +288,11 @@ Take a snapshot of the VMs before you install the agents.
 
 6. In **Ready to Install**, install the MMA.
 
-### Rerun the collector
 
 
-1.	After agents have been installed, on the collector VM, you need to collect metadata again.
+## Step 6: Download and install the DMA
 
-     ![Rerun collector](./media/migrate-scenarios-assessment/rerun-collector.png) 
-
-2. After metadata has been collected, go back to the portal. In the **Machines** page, the **Dependencies** column now shows that you can view dependencies for the VMs that have the agents installed.
-
-
-## Step 6: Download and install Database Migration Assistant
-
-1. Download the Database Migration Assistant from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595).
+1. Download the DMA from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595).
     - You can install the Assistant on any machine that can connect to the SQL instance. You don't need to run it on the SQL Server machine.
     - You shouldn't run it on the SQL Server host machine.
 2. Double-click the downloaded setup file (DownloadMigrationAssistant.msi) to start the installation.
@@ -305,7 +308,7 @@ Run an assessment to analyze your source SQL Server instance, against a specifie
     ![Select source](./media/migrate-scenarios-assessment/dma-assessment-1.png)
 
     > [!NOTE]
-      At present Database Migration Assistant doesn't support assessment for migrating to a SQL Managed Instance. As a workaround, we're using SQL Server on Azure VM as our supposed target for the assessment.
+      At present DMA doesn't support assessment for migrating to a SQL Managed Instance. As a workaround, we're using SQL Server on Azure VM as our supposed target for the assessment.
 
 1.  In **Select Target Version**, specify the target version of SQL Server that you want to run in Azure, and what you want to discover in the assessment:
     - **Compatibility Issues** tells you about changes that might break migration, or that require a minor adjustment before migration. It also tells you about any features you're currently using that have been deprecated. Issues are organized by compatibility level. 
@@ -356,9 +359,9 @@ If you're running a larger scale assessment:
        
 ## Step 8: Run and analyze the VM assessment
 
-Verify machine dependencies, create a group, and run the assessment.
+Verify machine dependencies and create a group. Then, run the assessment.
 
-### Verify dependencies
+### Verify dependencies and create a group.
 
 1.	On the **Machines** page, for the VMs you want to analyze, click **View Dependencies**.
 
@@ -369,24 +372,23 @@ Verify machine dependencies, create a group, and run the assessment.
     - Inbound (client) and outbound (server) TCP connections to and from all dependent machines.
     - Dependent machines with the Azure Migrate agents installed are shown as separate boxes
     - Machines without the agents installed show port and IP address information.
- 3. For machines with the agent installed, click on the machine box to view more information, including FQDN, operating aystem, MAC address. 
+ 3. For machines with the agent installed (WEBVM), click on the machine box to view more information, including FQDN, operating aystem, MAC address. 
 
     ![View group dependencies](./media/migrate-scenarios-assessment/sqlvm-dependencies.png)
 
-4. Repeat the process for the WEBVM.
+4. Now, select the VMs you want to add to the group (SQLVM and WEBVM).  Use CTRL+click to select multiple VMs.
+5. Click **Create Group**.
 
 > [!NOTE]
     > To view more granular dependencies, you can expand the time range, /ou can select a specific duration, or start/end dates. 
 
 
-### Group VMs and run an assessment
+### Run an assessment
 
 After you've verified dependencies, you're ready to group the VMs, and run an assessment. 
 
-1. On the **Machines** page, click **+Create assessment**.
-2. On the **Create Assessment** page, select **Create New**.
-3. In **Add machines to the group**, add the VMs (SQLVM and WEBVM).
-4. Click **Create assessment**. This creates the group and runs an assessment for it. 
+1. On the **Groups** page, open the group (smarthotelapp)
+1. Click **Create assessment**.
 
     ![Create an assessment](./media/migrate-scenarios-assessment/run-vm-assessment.png)
 
@@ -454,7 +456,7 @@ This view shows the total compute and storage cost of running the VMs in Azure, 
 In this scenario we've:
 
 > [!div class="checklist"]
-> * Assessed our on-premises database with the Database Migration Assistant tool.
+> * Assessed our on-premises database with the DMA tool.
 > * Assessed our on-premises VMs, using dependency mapping, with the Azure Migrate service.
 > * Reviewed the assessments to make sure our on-premises resources are ready for migration to Azure.
 
