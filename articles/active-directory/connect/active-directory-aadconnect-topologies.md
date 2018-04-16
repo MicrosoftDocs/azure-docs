@@ -33,7 +33,7 @@ Here's the legend for pictures in the article:
 
 
 > [!IMPORTANT]
-> Microsoft doesn't support modifying or operating Azure AD Connect sync outside of theconfigurations or actions that are formally documented. Any of these configurations or actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
+> Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the configurations or actions that are formally documented. Any of these configurations or actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
 
 
 ## Single forest, single Azure AD tenant
