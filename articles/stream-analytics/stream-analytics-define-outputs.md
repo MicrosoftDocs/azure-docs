@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
+ms.date: 04/16/2018
 ---
 # Stream Analytics outputs: Options for storage and analysis
 When authoring a Stream Analytics job, consider how the resulting data is consumed. How can you view the results of the Stream Analytics job and where can you store it?
@@ -323,7 +323,7 @@ The following table describes the properties for creating an Azure Cosmos DB out
 | Partition Key | Optional. This is only needed if you are using a {partition} token in your collection name pattern.<br/> The partition key is the name of the field in output events used to specify the key for partitioning output across collections.<br/> For single collection output, any arbitrary output column can be used for example, PartitionId. |
 | Document ID |Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
 
-## Azure Functions (in preview)
+## Azure Functions
 Azure Functions is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. It lets you implement code that is triggered by events occurring in Azure or third-party services.  This ability of Azure Functions to respond to triggers makes it a natural output for an Azure Stream Analytics. This output adapter allows users to connect Stream Analytics to Azure Functions, and run a script or piece of code in response to a variety of events.
 
 Azure Stream Analytics invokes Azure Functions via HTTP triggers. The new Azure Function Output adapter is available with the following configurable properties:
