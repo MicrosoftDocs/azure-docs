@@ -236,7 +236,6 @@ $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SEC
 $accessToken = $tokenResponse.access_token
 ```
 
-<a name="next"></a>
 ## Next steps
 
 > [!div class="nextstepaction"]

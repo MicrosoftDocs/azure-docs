@@ -32,7 +32,7 @@ What you learn how to:
 
 ## Prerequisites
 
-This section continues where you left off in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). Your data-driven CRUD app should be running live in Azure already. If not, follow that tutorial first.
+This article continues where you left off in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). If not, follow that tutorial first. Alternatively, you can adapt the steps for your own ASP.NET app with SQL Database.
 
 ![app running in App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
@@ -40,7 +40,7 @@ This section continues where you left off in [Tutorial: Build an ASP.NET app in 
 
 ## Enable managed service identity
 
-To enable a service identity for your Azure app, use the [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az_webapp_identity_assign) command in the Cloud Shell. In the following command, replace *\<app name>*.
+To enable a service identity for your Azure app, use the [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az_webapp_identity_assign) command in the Cloud Shell. In the following command, replace *\<app name>*.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -48,7 +48,7 @@ az webapp identity assign --resource-group myResourceGroup --name <app name>
 
 Here's an example of the output after the identity is created in Azure Active Directory:
 
-```
+```json
 {
   "additionalProperties": {},
   "principalId": "21dfa71c-9e6f-4d17-9e90-1d28801c9735",
@@ -57,7 +57,11 @@ Here's an example of the output after the identity is created in Azure Active Di
 }
 ```
 
-You'll use the value of `principalId` in the next step. If you want to see the details of the new identity in Azure Active Directory, run `az ad sp show --id <principalid>` with the value of `principalId`.
+You'll use the value of `principalId` in the next step. If you want to see the details of the new identity in Azure Active Directory, run the following optional command with the value of `principalId`:
+
+```azurecli-interactive
+az ad sp show --id <principalid>`
+```
 
 ## Grant database access to identity
 
@@ -190,7 +194,6 @@ ALTER ROLE db_datawriter ADD MEMBER [myAzureSQLDBAccessGroup];
 GO
 ```
 
-<a name="next"></a>
 ## Next steps
 
 What you learned:
