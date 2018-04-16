@@ -85,26 +85,33 @@ After the namespace and queue are created, and you have the necessary credential
 To run the code, do the following:
 
 1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
+
    ```shell
    git clone https://github.com/Azure/azure-service-bus.git
    ```
+
 3. Navigate to the sample folder `\azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
+
 4. If you have not done so already, obtain the connection string using the following PowerShell cmdlet. Be sure to replace `<resource_group_name>` and `<namespace_name>` with your specific values: 
 
    ```azurepowershell
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
+
 5.	At the PowerShell prompt, type the following command:
 
    ```shell
    dotnet build
    ```
+
 6.	Navigate to the `bin\Debug\netcoreapp2.0` folder.
+
 7.	Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
    ``` 
+
 8. Observe 10 messages being sent to the queue, and subsequently received from the queue:
 
    ![program output](./media/service-bus-quickstart-powershell/dotnet.png)
