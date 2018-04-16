@@ -1,18 +1,13 @@
 ---
 title: Indexing JSON blobs with Azure Search blob indexer
 description: Indexing JSON blobs with Azure Search blob indexer
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
+manager: jlembicz
 
-ms.assetid: 57e32e51-9286-46da-9d59-31884650ba99
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: eugenesh
 ---

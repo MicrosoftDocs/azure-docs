@@ -1,21 +1,17 @@
 ---
 title: Upgrading to the Azure Search .NET Management SDK version 2 | Microsoft Docs
 description: Upgrading to the Azure Search .NET Management SDK version 2
-services: search
-documentationcenter: ''
 author: brjohnstmsft
-manager: pablocas
-editor: ''
+manager: jlembicz
+ms.author: brjohnst
 
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: brjohnst
-
 ---
+
 # Upgrading to the Azure Search .NET Management SDK version 2
 If you're using version 1.0.2 or older of the [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk), this article will help you upgrade your application to use version 2.
 

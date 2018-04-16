@@ -1,21 +1,16 @@
 ﻿---
 title: Manage Azure Search with Powershell scripts | Microsoft Docs
 description: Manage your Azure Search service with PowerShell scripts. Create or update an Azure Search service and manage Azure Search admin keys
-services: search
-documentationcenter: ''
-author: seansaleh
-manager: mblythe
-editor: ''
+author: HeidiSteen
+manager: cgronlun
 tags: azure-resource-manager
 
-ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
 ms.service: search
-ms.devlang: na
+ms.devlang: powershell
 ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: powershell
+ms.topic: conceptual
 ms.date: 08/15/2016
-ms.author: seasa
+ms.author: heidist
 
 ---
 # Manage your Azure Search service with PowerShell

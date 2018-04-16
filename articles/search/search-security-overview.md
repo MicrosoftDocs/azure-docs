@@ -1,18 +1,13 @@
 ---
 title: Secure data and operations in Azure Search | Microsoft Docs
 description: Azure Search security is based on SOC 2 compliance, encryption, authentication, and identity access through user and group security identifiers in Azure Search filters.
-services: search
-documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: ''
 
-ms.assetid: 
 ms.service: search
 ms.devlang: 
 ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: heidist
 

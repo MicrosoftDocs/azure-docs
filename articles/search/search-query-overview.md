@@ -1,19 +1,15 @@
 ---
 title: Queries in Azure Search | Microsoft Docs
 description: Build a search query in Azure search and use search parameters to filter and sort search results.
-services: search
-manager: jhubbard
-documentationcenter: ''
-author: ashmaka
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 
-ms.assetid: 69205d7a-363f-4b92-a53f-6ca818a3d2c7
 ms.service: search
 ms.devlang: na
 ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/13/2017
-ms.author: ashmaka
 
 ---
 # Queries in Azure Search

@@ -1,17 +1,13 @@
 ---
 title: Modeling Multitenancy in Azure Search | Microsoft Docs
 description: Learn about common design patterns for multitenant SaaS applications while using Azure Search.
-services: search
-manager: jhubbard
+manager: jlembicz
 author: ashmaka
-documentationcenter: ''
 
-ms.assetid: 72e9696a-553b-47dc-9e05-a82db0ebf094
 ms.service: search
 ms.devlang: NA
 ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: ashmaka
 

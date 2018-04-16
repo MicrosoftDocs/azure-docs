@@ -1,16 +1,13 @@
 ---
 title: "Create an index (portal - Azure Search) | Microsoft Docs"
 description: Create an index using the Azure Portal.
-services: search
-manager: jhubbard
+manager: cgronlun
 author: heidisteen
-documentationcenter: ''
 
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
 ms.workload: search
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.date: 06/20/2017
 ms.author: heidist

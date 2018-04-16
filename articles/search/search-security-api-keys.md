@@ -1,19 +1,14 @@
 ---
 title: Create, manage, and secure admin and query api-keys for Azure Search | Microsoft Docs
 description: api-keys control access to the service endpoint. Admin keys grant write access. Query keys can be created for read-only access.
-services: search
-documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: ''
 tags: azure-portal
 
-ms.assetid: 
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist
 

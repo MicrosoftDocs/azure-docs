@@ -1,19 +1,14 @@
 ---
 title: "Query an index (REST API - Azure Search) | Microsoft Docs"
 description: Build a search query in Azure search and use search parameters to filter and sort search results.
-services: search
-documentationcenter: ''
-manager: jhubbard
-author: ashmaka
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 
-ms.assetid: 8b3ca890-2f5f-44b6-a140-6cb676fc2c9c
 ms.service: search
-ms.devlang: na
 ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 01/12/2017
-ms.author: ashmaka
 ---
 
 # Query your Azure Search index using the REST API
