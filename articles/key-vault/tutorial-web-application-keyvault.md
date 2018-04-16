@@ -10,7 +10,7 @@ ms.assetid:
 ms.service: key-vault
 ms.workload: identity
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 04/16/2018
 ms.author: barclayn
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
@@ -23,7 +23,7 @@ In this tutorial, you go over the necessary steps to get an Azure web applicatio
 > * Create a Key Vault.
 > * Store a secret in Key Vault.
 > * Create an Azure Web Application.
-> * [Enable managed service identities](../active-directory/msi-overview.md)
+> * Enable managed service identities
 > * Grant the required permissions for the application to read data from Key vault.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -32,7 +32,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 To log in to the Azure using the CLI, you can type:
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
@@ -42,7 +42,7 @@ Create a resource group with the [az group create](/cli/azure/group#az_group_cre
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli-interactive 
+```azurecli
 az group create --name ContosoResourceGroup --location eastus
 ```
 
@@ -59,7 +59,7 @@ Next you create a Key Vault in the resource group created in the previous step. 
 * Resource group name **ContosoResourceGroup**.
 * The location **East US**.
 
-```azurecli-interactive 
+```azurecli
 az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
 ```
 
@@ -75,17 +75,17 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 ## Add a secret to Key vault
 
-This password could be used by an application. The password will be called **AppSecret** and will store the value of **MySecret** in it.
+We are adding a secret to help illustrate how this work. You could be storing a SQL connection string or any other information that you need to keep securely but make available to your application. In this tutorial the password will be called **AppSecret** and will store the value of **MySecret** in it.
 
 Type the commands below to create a secret in Key Vault called **AppSecret** that will store the value **MySecret:
 
-```azurecli-interactive 
+```azurecli
 az keyvault secret set --vault-name '<YourKeyVaultName>' --name 'AppSecret' --value 'MySecret'
 ```
 
 To view the value contained in the secret as plain text:
 
-```azurecli-interactive
+```azurecli
 az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
 ```
 
@@ -113,11 +113,7 @@ In this section you create an ASP.NET MVC application and deploy it in Azure as 
 
 6. Once the ASP.NET Core project is created, the ASP.NET Core welcome page is displayed, providing numerous links to resources to help you get started.
 
-    ![Welcome Page](media/tutorial-web-application-keyvault/aspnet-core-welcome-page.png)
-
 7. From the menu, select **Debug > Start without Debugging** to run the web app locally.
-
-    ![Run app locally](./media/tutorial-web-application-keyvault/razor-web-app-running-locally.png)
 
 ## Make modifications to the default web app
 
@@ -209,20 +205,22 @@ There are two NuGet packages that your web application needs to have installed. 
 
 ## Publishing the web application to Azure
 
-1. Above the editor click on **WebKeyVault**.
-2. Click on **Publish**.
-3. Click on **Publish** again.
-4. Click on **Create**.
+1. Above the editor select **WebKeyVault**.
+2. select **Publish**.
+3. select **Publish** again.
+4. select **Create**.
 
 >[!IMPORTANT]
 > A browser window opens and you will see a 502.5 - Process Failure message. This is expected. You will need to grant the application identity rights to read secrets from Key Vault.
 
 ## Enable Managed Service Identity
 
+Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
+
 1. Return to the Azure CLI
 2. Run the assign-identity command to create the identity for this application:
 
-```azurecli-interactive
+```azurecli
 az webapp assign-identity --name WebKeyVault --resource-group ContosoResourcegroup
 ```
 
@@ -235,17 +233,17 @@ Using the Azure portal, go to the Key Vault's access policies, and grant yoursel
 
 * Search for your Key Vault in the **Search Resources** dialog box in the Azure portal.
 * Select **Access policies**.
-* Click on **Add New**, in the **Secret permissions** section select **Get** and **List**.
-* Click on **Select Principal**, and add the application identity. It will have the same name as the application.
-* Click **Ok**
+* Select **Add New**, in the **Secret permissions** section select **Get** and **List**.
+* Select **Select Principal**, and add the application identity. It will have the same name as the application.
+* Choose **Ok**
 
-Now your account in Azure and the application identity have rights to read information from Key Vault. If you refresh the page you should see the landing page of the site. If you click on **About**. You see the value you stored in Key Vault.
+Now your account in Azure and the application identity have rights to read information from Key Vault. If you refresh the page you should see the landing page of the site. If you select **About**. You see the value you stored in Key Vault.
 
 ## Delete the resource group
 
 To delete a resource group and all its resources, use the **az group delete** command.
 
-  ```azurecli-interactive
+  ```azurecli
   az group delete -n ContosoResourceGroup
   ```
 
