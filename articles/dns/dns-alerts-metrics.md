@@ -29,7 +29,7 @@ Azure DNS provides the following metrics via Azure Monitor for your DNS zones.  
 •	RecordSetCapacityUtilization
 
 >[!NOTE]
-> At this time, these metrics are only available for Public DNS zones hosted in Azure DNS. If you have Private Zones hosted in Azure DNS, these metrics will not provide data for those zones. We will support metrics for private zones at GA for Private Zones feature. 
+> At this time, these metrics are only available for Public DNS zones hosted in Azure DNS. If you have Private Zones hosted in Azure DNS, these metrics will not provide data for those zones. 
 
 The granular level of dimension for these metrics is DNS Zone.
 
