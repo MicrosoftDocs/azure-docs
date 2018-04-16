@@ -38,7 +38,7 @@ CREATE SCHEMA wwi;
 To show the organization of the tables in SQL Data Warehouse, you could use fact, dim, and int as prefixes to the table names. The following table shows some of the schema and table names for WideWorldImportersDW. It compares the names in SQL Server with names in SQL Data Warehouse. 
 
 | WideWorldImportersDW table  | Table type | SQL Server | SQL Data Warehouse |
-|:-----|:-----|:------|
+|:-----|:-----|:------|:-----|
 | City | Dimension | Dimension.City | wwi.DimCity |
 | Order | Fact | Fact.Order | wwi.FactOrder |
 
