@@ -1,19 +1,12 @@
 ---
 title: Service administration for Azure Search in the Azure portal
 description: Manage Azure Search, a hosted cloud search service on Microsoft Azure, using the Azure portal.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
+manager: cgronlun
 tags: azure-portal
 
-ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
 
