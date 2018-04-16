@@ -31,7 +31,7 @@
           href: tutorial-windows-vm-access-nonaad.md
         - name: Access Azure Cosmos DB
           href: tutorial-windows-vm-access-cosmos-db.md
-        - name: Access Azure Resource Manager with a user-assigned MSI
+        - name: Access Azure Resource Manager with a user assigned MSI
           href: tutorial-windows-vm-ua-arm.md
       - name: Linux VM/VMSS
         items:
@@ -48,7 +48,7 @@
           href: tutorial-linux-vm-access-nonaad.md
         - name: Access Azure Cosmos DB
           href: tutorial-linux-vm-access-cosmos-db.md
-        - name: Access Azure Resource Manager with a user-assigned MSI
+        - name: Access Azure Resource Manager with a user assigned MSI
           href: msi-tutorial-linux-vm-access-arm.md
       - name: Azure Service Bus
         href: /azure/service-bus-messaging/service-bus-managed-service-identity
@@ -91,41 +91,22 @@
         - name: Ruby
         - name: Node.js
         - name: Go
-      - name: Acquire an access token
+      - name: Use a VM MSI
         items:
-        - name: PowerShell
-          href: how-to-acquire-vm-access-token-powershell.md
-        - name: Curl
-          href: how-to-acquire-vm-access-token-curl.md
-        - name: .NET
-          href: how-to-acquire-vm-access-token-csharp.md
-        - name: HTTP
-          href: how-to-acquire-vm-access-token-http.md
-        - name: Java
-          href: how-to-acquire-vm-access-token-java.md
-        - name: Python
-        - name: Ruby
-        - name: Node.js
-        - name: Go
-          href: how-to-acquire-vm-access-token-go.md
-      - name: Sign-in to PowerShell and CLI using Managed Identity
-        items:
-        - name: CLI
-          href: how-to-sign-in-cli.md
-        - name: Powershell
-          href: how-to-sign-in-powershell.md
+        - name: Acquire an access token
+          href: how-to-use-vm-token.md
+        - name: Sign to Powersheel and CLI using Managed Identity
+          href: how-to-use-vm-sign-in
+        - name: Use with Azure SDKs
+          href: how-to-use-vm-sdk.md    
       - name: Manage user-assigned identities
         items:
         - name: Portal
+          href: how-to-manage-ua-identity-portal.md
         - name: CLI
+          href: how-to-manage-ua-identity-cli.md
         - name: PowerShell
         - name: Azure Resource Manager Template
-        - name: .NET
-        - name: Java
-        - name: Python
-        - name: Ruby
-        - name: Node.js
-        - name: Go
     - name: Reference
       items:
       - name: CLI

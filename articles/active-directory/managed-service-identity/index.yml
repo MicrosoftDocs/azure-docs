@@ -37,6 +37,15 @@ sections:
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm">Access Azure Resource Manager from a Linux Azure Virtual Machine</a>
 
 - title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to use MSI to securly access Azure resources
+    text: Windows VM
+    - type: table
+      style: dataMatrix
+      columns:
+      - title: Access Azure Data Lake Store
+        href: tutorial-windows-vm-access-datalake.md
   
 - title: Samples
   
