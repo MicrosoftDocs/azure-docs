@@ -46,7 +46,7 @@ The following table describes the high-level differences between Azure Stack and
 | Available services | See the list of [Azure products](https://azure.microsoft.com/services/?b=17.04b). Available services vary by Azure region. | Azure Stack supports a subset of Azure services. Actual services will vary based on what your organization or service provider chooses to offer.
 | Azure Resource Manager endpoint* | https://management.azure.com | For an Azure Stack integrated system, use the endpoint that your Azure Stack operator provided.<br><br>For the development kit, use: https://management.local.azurestack.external
 | Portal URL* | [https://portal.azure.com](https://portal.azure.com) | For an Azure Stack integrated system, go to the URL that your Azure Stack operator provided.<br><br>For the development kit, use: https://portal.local.azurestack.external
-| Region | You can select which region you want to deploy to. | For an Azure Stack integrated system, use the region that's available on your system.<br><br>For the development kit, region will always be **local**.
+| Region | You can select which region you want to deploy to. | For an  Azure Stack integrated system, use the region that's available on your system.<br><br>For the development kit, region will always be **local**.
 | Resource groups | A resource group can span regions. | For both integrated systems and the development kit, there is only one region.
 |Supported namespaces, resource types, and API versions | The latest (or earlier versions that are not yet deprecated). | Azure Stack supports specific versions. See the "Version requirements" section of this article.
 | | |
