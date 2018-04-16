@@ -82,7 +82,7 @@ Open Cloud Shell using the button on the top right-hand corner of the Azure port
 
 Specify subscription (if not done already)
 ```azurecli-interactive
-az account set -s SUBSCRIBTION_NAME
+az account set -s SUBSCRIPTION_NAME
 ```
 
 Use the [az aks get-credentials][az-aks-get-credentials] command to configure kubectl to connect to your Kubernetes cluster.
