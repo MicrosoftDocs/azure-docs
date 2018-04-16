@@ -134,7 +134,7 @@ The following images show the use of self-hosted integration runtime for moving 
 
 ![IPSec VPN with gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### Firewall configurations and whitelisting IP addresses
+### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a> Firewall configurations and whitelisting IP addresses
 
 #### Firewall requirements for on-premises/private network	
 In an enterprise, a corporate firewall runs on the central router of the organization. Windows Firewall runs as a daemon on the local machine in which the self-hosted integration runtime is installed. 

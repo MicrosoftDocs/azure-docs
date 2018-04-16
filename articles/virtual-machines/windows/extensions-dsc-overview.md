@@ -4,7 +4,7 @@ description: Learn how to use the Microsoft Azure extension handler for PowerShe
 services: virtual-machines-windows
 documentationcenter: ''
 author: mgreenegit
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: 'dsc'

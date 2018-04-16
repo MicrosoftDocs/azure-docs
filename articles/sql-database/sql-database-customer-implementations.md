@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 
 ---

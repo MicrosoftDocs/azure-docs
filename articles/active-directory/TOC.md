@@ -56,6 +56,7 @@
 #### [Invitation email](active-directory-b2b-invitation-email.md)
 #### [Invitation redemption](active-directory-b2b-redemption-experience.md)
 #### [Add B2B users without an invitation](active-directory-b2b-add-user-without-invite.md)
+#### [Allow or block invitations](active-directory-b2b-allow-deny-list.md)
 #### [Conditional access for B2B](active-directory-b2b-mfa-instructions.md)
 #### [B2B sharing policies](active-directory-b2b-delegate-invitations.md)
 #### [Add a B2B user to a role](active-directory-b2b-add-guest-to-role.md)
@@ -215,11 +216,12 @@
 ##### [Custom home page](application-proxy-office365-app-launcher.md)
 ##### [Translate inline links](application-proxy-link-translation.md)
 ##### [Wildcard applications](active-directory-application-proxy-wildcard.md)
-##### [Azure AD Application Proxy and Qlik Sense](active-directory-application-proxy-qlik.md) 
+
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+##### [Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
@@ -326,9 +328,6 @@
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [FAQs](active-directory-conditional-faqs.md)
 
-### Windows Hello
-#### [Authenticate without passwords](active-directory-azureadjoin-passport.md)
-#### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
