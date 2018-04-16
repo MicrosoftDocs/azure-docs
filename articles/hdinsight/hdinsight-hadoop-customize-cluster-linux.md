@@ -11,10 +11,8 @@ tags: azure-portal
 ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: larryfr
 
@@ -47,8 +45,8 @@ Additionally, if you are creating an HDInsight cluster, someone with at least **
 
 For more information on working with access management, see the following documents:
 
-* [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md)
-* [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md)
+* [Get started with access management in the Azure portal](../role-based-access-control/overview.md)
+* [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md)
 
 ## Understanding script actions
 

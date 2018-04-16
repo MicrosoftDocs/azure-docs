@@ -110,7 +110,7 @@ The response includes the details of the system-assigned MSI (note the principal
 ```
 ## Grant your Linux VM MSI access to the Cosmos DB account access keys
 
-Cosmos DB does not natively support Azure AD authentication.  However, you can use an MSI to retrieve a Cosmos DB access key from the Resource Manager, then use the key to access Cosmos DB.  In this step, you grant your system assigned MSI access to the keys to the Cosmos DB account.
+Cosmos DB does not natively support Azure AD authentication. However, you can use an MSI to retrieve a Cosmos DB access key from the Resource Manager, then use the key to access Cosmos DB. In this step, you grant your MSI access to the keys to the Cosmos DB account.
 
 To grant the MSI identity access to the Cosmos DB account in Azure Resource Manager using the Azure CLI, update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Replace `<MSI PRINCIPALID>` with the `principalId` property returned by the `az resource show` command in [Retrieve the principalID of the Linux VM's MSI](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account:
 

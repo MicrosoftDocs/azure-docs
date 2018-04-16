@@ -1,21 +1,14 @@
 ---
 title: "Upload data (REST API - Azure Search) | Microsoft Docs"
 description: Learn how to upload data to an index in Azure Search using the REST API.
-services: search
-documentationcenter: ''
-author: ashmaka
-manager: jhubbard
-editor: ''
-tags: ''
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 
-ms.assetid: 8d0749fb-6e08-4a17-8cd3-1a215138abc6
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 12/08/2016
-ms.author: ashmaka
 ---
 
 # Upload data to Azure Search using the REST API

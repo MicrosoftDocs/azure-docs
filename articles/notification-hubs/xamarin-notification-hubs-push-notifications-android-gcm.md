@@ -92,6 +92,20 @@ First, you create a new project.
 3. Search for **Xamarin.Firebase.Messaging** and add it to the project.
 
 ### Set up notification hubs in your project
+
+#### Registering with Firebase Cloud Messaging
+
+Open the **AndroidManifest.xml** file and insert the following `<receiver>` elements into the `<application>` element:
+
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+          <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+            <category android:name="${applicationId}" />
+          </intent-filter>
+        </receiver>
+
 1. Gather the following information for your Android app and notification hub:
    
    * **Listen connection string**: On the dashboard in the [Azure portal], choose **View connection strings**. Copy the *DefaultListenSharedAccessSignature* connection string for this value.
