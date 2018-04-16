@@ -3,7 +3,7 @@ title: Azure Service Fabric Event Analysis with OMS | Microsoft Docs
 description: Learn about visualizing and analyzing events using OMS for monitoring and diagnostics of Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
+ms.date: 04/16/2018
+ms.author: dekapur; srrengar
 
 ---
 
