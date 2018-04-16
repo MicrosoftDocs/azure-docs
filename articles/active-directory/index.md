@@ -206,7 +206,9 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                     <div class="cardText">
                         <h3>Reference</h3>
                         <p>
-                        <a href="/powershell/module/azurerm.resources#active_directory">PowerShell</a><br/>
+                        <a href="/powershell/module/azurerm.resources#active_directory">Azure RM PowerShell</a><br/>
+                        <a href="/powershell/azure/active-directory/overview">Azure AD PowerShell</a><br/>
+                        <a href="/cli/azure/ad">Azure CLI</a><br/>
                         <a href="/dotnet/api/overview/azure/activedirectory">.NET</a><br/>
                         <a href="/java/api/overview/azure/activedirectory">Java</a>
                         </p>
