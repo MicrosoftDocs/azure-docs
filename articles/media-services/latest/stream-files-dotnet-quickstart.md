@@ -87,7 +87,7 @@ To connect to the latest version of Azure Media Services APIs, you use the Azure
 Before running the script, replace the `amsaccountname` placeholder. `amsaccountname` is the name of the Azure Media Services account where to attach the service principal. <br/>The command that follows uses the `xml` option that returns an xml that you can paste in your app.config. If you omit the `xml` option, the response will be in `json`.
 
 ```azurecli-interactive
-az ams sp create --account-name <amsaccountname> --resource-group amsResourcegroup --xml
+az ams account sp create --account-name <amsaccountname> --resource-group amsResourcegroup --xml
 ```
 
 This command will produce a response similar to this:
