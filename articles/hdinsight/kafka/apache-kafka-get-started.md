@@ -14,7 +14,7 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/29/2018
+ms.date: 04/16/2018
 ms.author: larryfr
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
@@ -25,6 +25,11 @@ Kafka is an open-source, distributed streaming platform. It's often used as a me
 In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apache.org) cluster using the Azure portal. You also learn how to use included utilities to send and receive messages using Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+
+> [!IMPORTANT]
+> The Kafka API can only be accessed by resources inside the same virtual network. In this quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Kafka, you must first create a virtual network and then create the resources within the network.
+>
+> For more information, see the [Connect to Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
 
 ## Prerequisites
 
@@ -42,33 +47,6 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
     > The steps in this document assume that you are using one of the SSH clients mentioned above. If you are using a different SSH client and encounter problems, please consult the documentation for your SSH client.
     >
     > For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
-
-## Log in to Azure
-
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-
-## Create an Azure virtual network
-
-The Kafka API can only be accessed by resources inside the same virtual network. To connect other services, networks, or virtual machines to Kafka, first create a virtual network and then create the Kafka cluster.
-
-To create a new Azure Virtual Network, use the following steps:
-
-1. From the upper, left of the [Azure portal](https://portal.azure.com), select __+ Create a resource__.
-
-2. Select __Networking__, and then select __Virtual network__.
-
-    ![Image of the resource creation page](./media/apache-kafka-get-started/create-resource.png)
-
-3. Use the following information to configurate the network, and then select __Create__:
-
-    | Setting | Value |
-    | --- | --- |
-    | Name | A unique name for this virtual network. |
-    | Subscription | Select your subscription.
-    | Resource group | Select __Create new__ and enter a unique name for the resource group. |
-    | Location | Select the Azure region to create this resource in. |
-
-    ![Image of the virtual network creation page](./media/apache-kafka-get-started/create-virtual-network.png)
 
 ## Create a Kafka cluster
 
@@ -107,8 +85,8 @@ To create a Kafka on HDInsight cluster, use the following steps:
     | Cluster login username | The login name when accessing web services or REST APIs hosted on the cluster. Keep the default value (admin). |
     | Cluster login password | The login password when accessing web services or REST APIs hosted on the cluster. |
     | Secure Shell (SSH) username | The login used when accessing the cluster over SSH. By default the password is the same as the cluster login password. |
-    | Resource Group | The resource group to create the cluster in. Use the same resource group as the virtual network created earlier. |
-    | Location | The Azure region to create the cluster in. Use the same region as the virtual network created earlier. |
+    | Resource Group | The resource group to create the cluster in. |
+    | Location | The Azure region to create the cluster in. |
 
     > [!TIP]
     > Each Azure region (location) provides _fault domains_. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
@@ -135,16 +113,7 @@ To create a Kafka on HDInsight cluster, use the following steps:
 
     ![Set the Kafka cluster size](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
-8. From __Advanced settings__, select the following values:
-
-    | Setting | Value |
-    | --- | --- |
-    | Virtual network | Select the virtual network created earlier. |
-    | Subnet | Default |
-
-    ![Advanced configuration dialog for the cluster](./media/apache-kafka-get-started/kafka-advanced-configuration.png)
-
-    Select __Next__ to continue.
+8. From __Advanced settings__, select __Next__ to continue with the default settings.
 
 9. From the **Summary**, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the__Create__ button to create the cluster.
    
@@ -337,10 +306,6 @@ To store records into the test topic you created earlier, and then read them usi
 4. Use __Ctrl + C__ to stop the consumer.
 
 You can also programmatically create producers and consumers. For an example of using this API, see the [Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) document.
-
-## Troubleshoot
-
-If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## Clean up resources
 
