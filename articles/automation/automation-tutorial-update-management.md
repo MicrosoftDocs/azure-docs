@@ -21,9 +21,9 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Onboard a VM for update management
 > * View an update assessment
+> * Configure alerting
 > * Schedule an update deployment
 > * View the results of a deployment
-> * Configure alerting
 
 ## Prerequisites
 
@@ -200,6 +200,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Onboard a VM for update management
 > * View an update assessment
+> * Configure alerting
 > * Schedule an update deployment
 > * View the results of a deployment
 
