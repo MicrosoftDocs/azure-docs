@@ -26,19 +26,19 @@ You can open a support request if you can't find the information you're looking 
 6. Under Subscription, choose any listed subscription. The subscription that you choose isn't used for issue routing.
 7. Under Service, select **All Services** and then select **Cloudyn** from the list.
 8. Under Support plan, select your Azure Support Plan and then click **Next**.  
-    ![New support request - Basics area](./media/support-request/support-request01.png)
+    ![New support request - Basics area](./media/support-request-cost-mgt/support-request01.png)
 9. In the Problem area, select a **Severity** level to help determine response time.
 10. Select a **Problem type**, and then select a **Category**.
 11. In the **Title** box, enter a title that describes your request.
 12. In the **Details** box, type additional information.
 13. For **When did the problem start**, select an approximate date and time for and then click **Next**.  
-    ![New support request - Problem area](./media/support-request/support-request02.png)
+    ![New support request - Problem area](./media/support-request-cost-mgt/support-request02.png)
 14. In the **Contact information** area, select your preferred contact method and provide your contact information, then click **Create**.  
-    ![New support request - contact area](./media/support-request/support-request03.png)
+    ![New support request - contact area](./media/support-request-cost-mgt/support-request03.png)
 
 When the support ticket is created, it is added to the support queue. Response time varies, based on the Support Plan and Severity (business impact) of the issue. For more information, see [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/).
 
-To check status of an Incident you have filed, see [Manage support requests](../azure-supportability/how-to-create-azure-support-request#manage-support-requests).
+To check status of an Incident you have filed, see [Manage support requests](../azure-supportability/how-to-create-azure-support-request.md#manage-support-requests).
 
 
 ## Next steps
