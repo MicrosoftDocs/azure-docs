@@ -15,7 +15,28 @@ ms.author: nepeters
 
 ## Deploy Jenkins server
 
+In the Azure portal, select **Create a resource** and search for Jenkins. Select the Jenkins offering with a publisher of **Microsoft** and click **create**.
+
+Enter the following information in the basics for:
+
+- Name - name for the Jenkins deployment.
+- User name - this user name is used as the admin use for the Jenkins virtual machine.
+- Authentication type - SSH public key is recommended. If selected, copy in an SSH public key to be used when logging into the Jenkins virtual machine.
+- Subscription - select an Azure subscription.
+- Resource group - create a new or select an existing resource group.
+- Location - select a location for the Jenkins server.
+
 ![Jenkins portal deployment basic settings](./media/container-instances-jenkins/jenkins-portal-01.png)
+
+On the additional settings for, complete the following:
+
+- Size - Select the appropriate sizing option for your Jenkins virtual machine.
+- VM disk type - Specify either HDD (hard-disk drive) or SSD (solid-state drive) for the Jenkins server.
+- Virtual network - (Optional) Select Virtual network to modify the default settings.
+- Subnets - Select Subnets, verify the information, and select OK.
+- Public IP address - Selecting the Public IP address allows you to give it a custom name, configure SKU, and assignment method.
+- Domain name label - Specify the value for the fully qualified URL to the Jenkins virtual machine.
+- Jenkins release type - Select the desired release type from the options: LTS, Weekly build, or Azure Verified.
 
 ![Jenkins portal deployment additional settings](./media/container-instances-jenkins/jenkins-portal-02.png)
 
