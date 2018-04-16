@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 
 ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 04/16/2018
 ms.author: jeedes
 
 ---
@@ -99,7 +99,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Single sign-on dialog box](./media/active-directory-saas-clever-tutorial/tutorial_clever_samlbase.png)
 
 3. On the **Clever Domain and URLs** section, perform the following steps:
@@ -121,15 +121,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	The following screenshot shows an example for this.
 
-	![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_clever_07.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_clever_07.png)
 
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 	
 	| Attribute Name  | Attribute Value |
-	| --------------- | -------------------- |    
+	| --------------- | -------------------- |
 	| clever.student.credentials.district\_username  | user.userprincipalname |
 	| Firstname  | user.givenname |
-	| Lastname  | user.surname |	
+	| Lastname  | user.surname |
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -143,31 +143,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Leave the **Namespace** textbox blank.
 	
-	d. Click **Ok**.	 
+	d. Click **Ok**.
 
-5. Click **Save** button.
+7. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_metadataurl.png)
+     
+8. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-clever-tutorial/tutorial_general_400.png)
-
-8. To generate the **Metadata** url, perform the following steps:
-
-    a. Click **App registrations**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_clever_appregistrations.png)
-   
-    b. Click **Endpoints** to open **Endpoints** dialog box.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpointicon.png)
-
-    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpoint.png)
-     
-    d. Now go to the property page of **Clever** and copy the **Application Id** using **Copy** button and paste it into notepad.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_clever_appid.png)
-
-    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`	
 
 9. In a different web browser window, log in to your Clever company site as an administrator.
 
@@ -186,7 +170,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	  
 	  b. As **Identity System**, select **ADFS**.
 
-	  c. Type the **Metadata URL** in the **Metadata URL** textbox.
+	  c. In the **Metadata Url** textbox, paste **App Federation Metadata Url**value which you have copied from the Azure portal.
 	  
 	  d. Click **Save**.
 
