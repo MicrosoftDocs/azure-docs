@@ -12,16 +12,16 @@ There are many compelling reasons why you should join Microsoft’s cloud market
 *   **List your consulting services offerings** Business users are looking for experienced partners to help them get started with confidence by offering quality consulting services designed to deliver predictable outcomes. List your consulting services offerings to help business users find the offers to help them get started quickly.
 *   **Get started with confidence** The Microsoft AppSource team is here to provide a seamless onboarding experience. They are here to help you every step of the way—whether it’s working on the trial or test drive experience, helping you meet the listing criteria and more.
 *   **Customize your app listing page** You have flexibility when it comes to deciding how you’d like to market your apps on AppSource. Provide a video, data sheets, documentation, and detailed description—we’ll work with you to present your app on AppSource in a compelling way.
-*   **Get actionable insights** Get insights on the performance of your listings via the Cloud Partner Portal or the Office app publishing process. Track how many visitors your app listing gets, and how many of those try your app. Learn details about the performance of your marketing campaigns and which content performs best.
+*   **Get actionable insights** Get insights on the performance of your listings via the Cloud Partner Portal or the Office app publishing process. Track how many visitors your app listing gets, and how many try your app. Learn details about the performance of your marketing campaigns and which content performs best.
 
 ## How to grow your business with AppSource
-Following best practices in marketing your offers on AppSource helps you maximize your business benefits and set you up for success with Go-to-Market and Microsoft Co-Sell initiatives. The [Microsoft Partner Network (MPN)](https://partner.microsoft.com/en-us/membership) is your gateway for all non-Marketplace related marketing and programmatic resources. 
+Following best practices in marketing your offers on AppSource helps you maximize your business benefits and set you up for success with Go-to-Market and Microsoft Co-Sell initiatives. The [Microsoft Partner Network (MPN)](https://partner.microsoft.com/en-us/membership) is your gateway for all non-Marketplace-related marketing and programmatic resources. 
 
 The quality of your app publication and commitment to customer-centric demand generation and partner engagement help drive customer growth for your business. 
 
 The following checklist provides marketing best practices and resources to consider when creating offers to be published on AppSource:
-* **Be aware of Microsoft Trademark & Brand Guidelines.** When naming your app and referring to Microsoft trademarks and the names of Microsoft software, products, and services, follow the [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) as well as relevant product specific guidelines. 
-* **Enable a get it now experience, free trial offer or test drive experience for your app.** Business users want to experience your app first hand. 
+* **Be aware of Microsoft Trademark & Brand Guidelines.** When naming your app and referring to Microsoft trademarks and the names of Microsoft software, products, and services, follow the [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) as well as relevant product-specific guidelines. 
+* **Enable a get it now experience, free trial offer, or test drive experience for your app.** Business users want to experience your app first hand. 
 * **Build a strong value proposition.** Identify who your potential customer is and what your solution does that is different from how the user is currently doing something.
 * **Make your app listing stand out.** Your app landing page is the first impression that a business user gets. Based on your app listing, they’ll decide if they want to learn more and try your apps. 
 * **Optimize your listing to help boost search engine rankings.** Make sure you incorporate search keywords in your app name, summary and listing, and include them in the three search keywords.
@@ -39,14 +39,14 @@ Here are some basic things you can do to provide a great first impression.
 
 ![First Impression](./media/marketplace-appsource/appsourcefirstimpression.png)
 
-The next section walks you through the different steps required to submit your marketplace listing. Please read through it carefully as it includes best practices that can help your app stand out and improve search engine rankings. 
+The next section walks you through the different steps required to submit your marketplace listing. Read through it carefully as it includes best practices that can help your app stand out and improve search engine rankings. 
 
 The following tables detail each step of filling out your offer listing.
 
 **Offer identity**
 | Offer setting       | Best practices          | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Name**    | **Naming your offer**. Choosing a name for your app is a key decision. Benefit-based names can are more effective than descriptive names. Your app name should communicate the core value customers will receive. Including search keywords in your app title can also help your app to be ranked higher in search engine results. Please follow the [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) as well as relevant product-specific guidelines when refering to Microsoft trademarks and the names of Microsoft, software, products and services. |
+| **Name**    | **Naming your offer**. Choosing a name for your app is a key decision. Benefit-based names are more effective than descriptive names. Your app name should communicate the core value customers receive. Including search keywords in your app title can also help your app to be ranked higher in search engine results. Follow the [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) as well as relevant product-specific guidelines when referring to Microsoft trademarks and the names of Microsoft, software, products and services. |
 
 **Storefront details - Offer details**
 | Storefront settings       | Best practices          | 
@@ -69,8 +69,8 @@ The following tables detail each step of filling out your offer listing.
 | **Offer logo (.png format, 58x48)**    | Your logo should be designed and optimized for a digital medium.<br>Upload logo in PNG format for the offer’s search page. |
 | **Offer logo (.png. 216 x 216)**     | Your logo should be designed and optimized for a digital medium. <br>Upload logo in PNG format for the offer’s app details listing page. |
 | **Learn more**   | Include supporting sales and marketing assets under “Learn more,” for example, white papers, brochures, checklists, PowerPoints, and so on. All files should be in PDF format. Don’t sell, educate the prospect. <br>Add the link to your app landing page to all your documents and add URL parameters to help you track visitors and trials. |
-| **Videos**       | Upload at least one video, up to four videos are permitted. Your video should communicate the value of your offer. Make sure the prospect is the hero of the story, not your company. Your video should speak to the principal challenges and goals of your core decisionmaker persona. <br>Recommended length: 60-90 seconds. Incorporate you key search words in the name of the videos.<br>Consider adding additional videos such as a how-to video; a getting started video, or a customer testimonial video. |
-| **Screenshots**     | Add up to five screenshots, incorporate key searchwords in the names. |
+| **Videos**       | Upload at least one video, up to four videos are permitted. Your video should communicate the value of your offer. Make sure the prospect is the hero of the story, not your company. Your video should speak to the principal challenges and goals of your core decision maker persona. <br>Recommended length: 60-90 seconds. Incorporate you key search words in the name of the videos.<br>Consider adding additional videos such as a how-to video; a getting started video, or a customer testimonial video. |
+| **Screenshots**     | Add up to five screenshots, incorporate key search words in the names. |
 
 ### Promote your offer’s availability on AppSource
 
@@ -81,7 +81,7 @@ Adding this badge to your site promotes that your offer on AppSource, and you ca
 #### Linking to your app listing page on AppSource from your website 
 When you link from the AppSource badge on your site to your listing on AppSource, you must include the following query parameters at the end of the URL:
 * **src** — Include the source from where the traffic is routed to AppSource. For example, website, LinkedIn, Facebook, etc.
-* **mktcmpid** — Your marketing campaign ID, which can include up to 16 characters using any combonation of letter, number, underscore, and hyphen. For example, blogpost_12 
+* **mktcmpid** — Your marketing campaign ID, which can include up to 16 characters using any combination of letter, number, underscore, and hyphen. For example, blogpost_12 
 
 The following example shows a URL that includes the two query parameters:
 
@@ -112,7 +112,7 @@ However, AppSource leads are different from Microsoft seller-qualified leads tha
 #### Promote Your Business Through Microsoft Programs 
 There are many people and teams within Microsoft whose goal is to support our partners and reduce any friction you have in selling with us. By listing in our marketplace, you open access to our marketplace programs and resources. 
 
-If you haven’t already signed up to the [Microsoft Partner Network (MPN)](https://partner.microsoft.com/en-US/), this should be your first step. MPN offers guidance for navigating Microsoft – from new business opportunities and connecting with teams or partners, to information about solutions and training to help grow your skillset. 
+If you haven’t already signed up to the [Microsoft Partner Network (MPN)](https://partner.microsoft.com/en-US/), this should be your first step. MPN offers guidance for navigating Microsoft – from new business opportunities and connecting with teams or partners, to information about solutions and training to help grow your skill set. 
 
 Additional steps you can take to open access to even more partner benefits and resources are to do the following. 
 1. **Leverage your Core Benefits** - As part of our Microsoft Partner Network, you receive a set of [Core Benefits](https://partner.microsoft.com/en-US/membership/core-benefits) that can help you save time and money while you strengthen your capabilities, better serve customers and build connections to reach your full business potential. 
@@ -129,5 +129,5 @@ You can influence the ranking of your offer in search engine results. Partner wi
 
 #### Merchandising 
 Microsoft Gold Partners can become eligible to have their app featured, when providing an app trial experience (free app, free trial, or Test Drive) on AppSource. Apps can be featured by category or industry, and are typically promoted for a minimum of two weeks. 
-For more information on how featured apps fit in the context of your Go-To-Market benefits, please review the Marketplace GTM Benefits section of this guide.   
+For more information on how featured apps fit in the context of your Go-To-Market benefits, review the Marketplace GTM Benefits section of this guide.   
 
