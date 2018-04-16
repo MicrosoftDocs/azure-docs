@@ -1,5 +1,5 @@
 ---
-title:  Privileged Identity Management for Azure resources - Complete access review for Azure resources| Microsoft Docs
+title:  Complete an access review for Azure resources by using Privileged Identity Management | Microsoft Docs
 description: Describes how to complete an access review for Azure resources.
 services: active-directory
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.author: billmath
 ms.custom: pim
 ---
 
-# Privileged Identity Management: Resource roles and access reviews
+# Complete an access review for Azure resources by using Privileged Identity Management
 Privileged role administrators can review privileged access after a [security review has been started](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) for Azure resources automatically sends an email that prompts users to review their access. If a user doesn't receive an email, you can send them the instructions for [how to perform a security review](pim-resource-roles-perform-access-review.md).
 
 After the security review period is over, or after all the users have finished their self-review, follow the steps in this article to manage the review and see the results.
@@ -35,7 +35,7 @@ On the detail blade of the access review, there are a number of options for mana
 ![Options for managing a review](media/azure-pim-resource-rbac/rbac-access-review-menu.png)
 
 ### Stop
-All access reviews have an end date, but you can use the **Stop** button to finish it early. All users haven't finished their review by this time won't be able to finish it after you stop the review. You can't restart a review after it's been stopped.
+All access reviews have an end date, but you can use the **Stop** button to finish it early. All users who haven't finished their review by this time won't be able to finish it after you stop the review. You can't restart a review after it's been stopped.
 
 ### Reset
 You can reset an access review to remove all decisions that are made on it. After you've reset an access review, all users are marked as unreviewed again. 
