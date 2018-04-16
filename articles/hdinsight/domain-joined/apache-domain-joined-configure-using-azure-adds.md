@@ -11,9 +11,7 @@ tags: ''
 
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: bhanupr
 

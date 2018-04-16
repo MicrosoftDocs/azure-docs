@@ -49,7 +49,7 @@ The following script demonstrates how to:
 2. Call Azure Resource Manager and get the VM's service principal ID. CLI takes care of managing token acquisition/use for you automatically. Be sure to substitute your virtual machine name for `<VM-NAME>`.  
 
    ```azurecli
-   az login --msi
+   az login --identity
    
    spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    echo The MSI service principal ID is $spID
