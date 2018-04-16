@@ -4,7 +4,7 @@ description: This topic shows how to create a job input from an HTTP(s) URL.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: cfowler
 editor: ''
 
 ms.service: media-services
@@ -16,9 +16,7 @@ ms.author: juliako
 
 # Create a job input from an HTTP(s) URL
 
-In Media Services v3, when you submit Jobs to process your videos, you have to tell Media Services where to find the input video. The input video can be stored as a Media Service Asset, in which case you create an input asset based on a file (stored locally or in Azure Blob storage). You can also specify an HTTPS URL (for example, a SAS URL) as a job input.
-
-This topic shows how to create a job with an HTTPS URL input. For a full example, see this [github sample](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/MediaServicesV3Quickstarts/MediaServicesV3Quickstarts/EncodeAndStreamFiles/Program.cs).
+In Media Services v3, when you submit Jobs to process your videos, you have to tell Media Services where to find the input video. One of the options is to specify an HTTP(s) URL as a job input (as shown in this example). For a full example, see this [github sample](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
 ## .Net sample
 
