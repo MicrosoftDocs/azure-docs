@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/06/2016
+ms.date: 04/01/2018
 ms.author: carlrab
 
 ---

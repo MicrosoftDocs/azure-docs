@@ -127,7 +127,7 @@ thumbnailId|For example, 616468f0-1636-4efa-94e7-262f2e575059.
 description|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the description is **null**.
 title|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the title is **null**.
 imageUrl|This URL points to an image that is taken from the source video.  
-confidence|
+confidence|The confidence score (higher is better).
 knownPersonId|The id of a known person (for example, celebrity). If a person is not known, the id contains zeros. For example, e3eaff5f-ee1b-4eac-80ce-ebac47aadf64.
 
 ## topics
@@ -146,13 +146,13 @@ isTranscript|True, if found in a transcript. False, if found in an OCR.
 
 **topics** that appear under **breakdowns**, describe details about each topic found in the video.
 
-Attribute | Description 
----|---
-id|
-name|
-stem|
-words|
-rank|
+|Attribute | Description |
+|---|---|
+|id|Unique topic id.|
+|name|The topic name.|
+|stem|Currently, this attribute is not used.|
+|words|Currently, this attribute is not used.|
+|rank|Relevance score (higher is better).|
 
 ## sentiments
 
@@ -192,11 +192,12 @@ pictureUrl|The **pictureUrl** attribute is reserved for future use.
 
 Attribute | Description 
 ---|---
-adultClassifierValue|
-bannedWordsCount|
-bannedWordsRatio|
-isSuspectedAsAdult|
-isAdult|
+adultClassifierValue|The confidence level that the video has adult content.
+racyClassifierValue|The confidence level that the video has racy content.
+bannedWordsCount|Number of profanity words. 
+bannedWordsRatio|Ratio of profanity words from the total number of words.
+reviewRecommended|Boolean value indicating if the video should be manually reviewed.
+isAdult|Boolean values indicating if the video is considered an adult video after manual review.
 
 ## audioEffectsCategories
 
@@ -218,7 +219,7 @@ faces|May contain one or more [faces](#faces).
 ocrs|May contain one or more [ocrs](#ocrs).
 audioEffectInstances|May contain one or more [audioEffectInstances](#audioEffectInstances).
 scenes|May contain one or more [scenes](#scenes).
-annotations|May contain zero or more **annotations**.
+annotations|May contain zero or more [annotations](#annotations).
 
 ## ocrs
 
@@ -252,11 +253,11 @@ isIncluded| In base breakdowns always true. In derived playlists, the lines that
 Attribute | Description 
 ---|---
 id|The OCR id.
-width|
-height|
+width|Currently, this attribute is not used.
+height|Currently, this attribute is not used.
 language|The OCR language.
 textData|The OCR text.
-confidence|
+confidence|The confidence score (higher is better).
 
 ## scenes
 
@@ -279,7 +280,7 @@ keyFrame|The time of the key frame.
 
 Attribute | Description 
 ---|---
-type|
+type|The index of the audio event: Laughter = 1, HandClaps = 2, Music = 3, Speech = 4, Silence = 5
 ranges|May contain one or more [ranges](#ranges).
 
 ## ranges
@@ -290,6 +291,16 @@ Attribute | Description
 ---|---
 timeRange|The time range in the original video.
 adjustedTimeRange|AdjustedTimeRange is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a one hour video and use just one line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjustedTimeRange is 00:00-00:15.
+
+## annotations
+
+Returns tags based on recognizable objects, living beings, scenery, actions and visual patterns.
+
+|Attribute|Description|
+|---|---|
+|id|The id of the annotation.|
+|Name|The name of the annotation (for example, Person, Athletic game, Black Frames).|
+|Appearances|May contain one or more appearances.|
 
 ## brands
 

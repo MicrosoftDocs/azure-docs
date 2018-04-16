@@ -3,10 +3,14 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Machine Learning?
+  - name: About Azure Machine Learning
     href: overview-what-is-azure-ml.md
   - name: Model Management overview
     href: model-management-overview.md
+  - name: Other ML products
+    href: overview-more-machine-learning.md    
+  - name: What's new
+    href: azure-machine-learning-release-notes.md    
 - name: Quickstarts
   items:
   - name: Install and start
@@ -98,6 +102,8 @@
       href: how-to-setup-ssl-on-mlc.md
     - name: Deploy a web service
       href: model-management-service-deploy.md
+    - name: Customize a container
+      href: model-management-custom-container.md
     - name: Deploy to an IoT Edge device 
       href: deploy-to-iot-edge-device.md 
     - name: Consume a web service
@@ -180,18 +186,6 @@
       href: model-management-cli-reference.md
     - name: Model data collection API
       href: model-data-collection-api-reference.md
-  - name: Release notes
-    items:
-    - name: Sprint 0 - October 2017
-      href: release-notes-sprint-0.md
-    - name: Sprint 1 - November 2017
-      href: release-notes-sprint-1.md
-    - name: Sprint 2 - December 2017
-      href: release-notes-sprint-2.md
-    - name: Sprint 2 QFE - December 2017
-      href: release-notes-sprint-2.1.md
-    - name: Sprint 3 - January 2018
-      href: release-notes-sprint-3.md
 - name: Resources
   items:  
   - name: Frequently asked questions
@@ -203,7 +197,7 @@
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
-    href: aml-services-pricing.md
+    href: aml-pricing.md
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Team Data Science Process

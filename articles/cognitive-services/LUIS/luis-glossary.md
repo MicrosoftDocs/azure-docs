@@ -80,6 +80,7 @@ An example endpoint looks like:
 |appID | LUIS app ID |
 |subscriptionID | LUIS subscription key created in Azure portal |
 |q | utterance |
+|timezoneOffset| minutes|
 
 ## <a name="entity"></a>Entity
 
@@ -167,6 +168,9 @@ The endpoint includes timezoneOffset. This is the number in minutes you want to 
 |:--|--|
 |-120|subtract 2 hours|
 |30|add 30 minutes|
+
+## <a name="token"></a>Token
+A token is the smallest unit that can be labeled in an entity. Tokenization is based on the application's [culture](luis-supported-languages.md#tokenization).
 
 ## <a name="train"></a>Train
 

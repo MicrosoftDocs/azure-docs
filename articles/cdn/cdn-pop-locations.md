@@ -1,10 +1,10 @@
 ---
-title: Azure CDN POP Locations | Microsoft Docs
-description: This article lists Azure CDN point-of-presence locations.
+title: Azure CDN POP locations by region | Microsoft Docs
+description: This article lists Azure CDN POP locations, sorted by region, for Azure CDN from Verizon and Azure CDN from Akamai.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: dksimpson
+manager: akucer
 editor: ''
 
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -13,18 +13,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 03/20/2018
 ms.author: mazha
 
 ---
-# Azure CDN POP Locations
-This article lists current point-of-presence (POP) locations for **Azure CDN from Verizon** and **Azure CDN from Akamai**.
+# Azure CDN POP locations by region
+> [!div class="op_single_selector"]
+> * [POP locations by region](cdn-pop-locations.md)
+> * [POP locations by abbreviation](cdn-pop-abbreviations.md)
+> 
+
+
+This article lists current point-of-presence (POP) locations, sorted by region, for **Azure CDN from Verizon** and **Azure CDN from Akamai**.
 
 > [!IMPORTANT]
 > POP city locations for **Azure CDN from Akamai** are not individually disclosed.  
 > 
-> Both providers have distinct ways of building their CDN infrastructures.  We recommend against using POP locations to decide which Azure CDN product to use, and instead consider features and end-user performance.  Test the performance with both providers to choose the right Azure CDN product for your users. 
-> 
+> Because both providers have distinct ways of building their CDN infrastructures, we recommend against using POP locations to decide which Azure CDN product to use. Instead, consider their features and end-user performance. Test the performance with both providers to choose the right Azure CDN product for your users. 
 > 
 
 | Region | Verizon | Akamai |
@@ -38,6 +43,7 @@ This article lists current point-of-presence (POP) locations for **Azure CDN fro
 | Middle East | Muscat, Oman<br />Fujirah, United Arab Emirates | Qatar |
 | Asia | Hong Kong<br />Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India<br />New Delhi, India<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hong Kong<br />India<br />Indonesia<br />Japan<br />Malaysia<br />Philippines<br />Singapore<br />Taiwan<br />Thailand<br />Vietnam |
 | Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Australia<br />New Zealand |
+
 
 ## See Also
 * [Azure CDN Edge Nodes API to get latest IP addresses for whitelisting](https://docs.microsoft.com/rest/api/cdn/edgenodes)

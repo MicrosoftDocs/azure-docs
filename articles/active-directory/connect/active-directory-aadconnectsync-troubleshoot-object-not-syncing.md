@@ -106,7 +106,7 @@ You can inspect the object and which rule applied for a particular attribute flo
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### Log
-The Log page is used to see the password sync status and history. For more information, see [Troubleshoot password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+The Log page is used to see the password sync status and history. For more information, see [Troubleshoot password hash synchronization](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 
 ## Metaverse object properties
 It is usually better to start searching from the source Active Directory [connector space](#connector-space). But you can also start searching from the metaverse.

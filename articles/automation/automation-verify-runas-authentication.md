@@ -1,20 +1,13 @@
 ---
-title: Validate Azure Automation account configuration | Microsoft Docs
+title: Validate Azure Automation account configuration
 description: This article describes how to confirm the configuration of your Automation account is setup correctly.  
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: ''
-
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/07/2017
-ms.author: magoedte
+manager: carmonm
 ---
 
 # Test Azure Automation Run As account authentication

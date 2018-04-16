@@ -15,9 +15,11 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 03/13/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
+experimental: true  
+experiment_id: 23113853-34f2-4f
 
 ---
 # Create your first function using Visual Studio
@@ -34,11 +36,13 @@ This topic includes [a video](#watch-the-video) that demonstrates the same basic
 
 To complete this tutorial:
 
-* Install [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/) or a later version, including the **Azure development** workload.
+* Install [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) or a later version, including the **Azure development** workload.
 
     ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-* Make sure you have updated to the most recent version of Azure Functions and WebJobs Tools. Do this under **Updates** > **Visual Studio Marketplace** in **Extensions and Updates**.
+    If you have already installed Visual Studio, make sure you have installed any pending updates. 
+
+* If you installed the Azure development workload with Visual Studio 2017 version 15.4 or earlier, you may also need to [update your Azure Functions tools](functions-develop-vs.md#check-your-tools-version). 
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
@@ -50,7 +54,7 @@ Visual Studio creates a project and in it a class that contains boilerplate code
 
 ![Function code file](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
-Now that you have created your function project and an HTTP-triggered function, you can test it on your local computer.
+Now that you've created your function project and an HTTP-triggered function, you can test it on your local computer.
 
 ## Test the function locally
 

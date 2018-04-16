@@ -18,6 +18,10 @@ ms.author: piyushjo;ricksal
 
 ---
 # Location Reporting for Azure Mobile Engagement Android SDK
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 > [!div class="op_single_selector"]
 > * [Android](mobile-engagement-android-integrate-engagement.md)
 > 

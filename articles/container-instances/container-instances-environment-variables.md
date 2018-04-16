@@ -14,9 +14,7 @@ ms.author: dastanfo
 
 Setting environment variables in your container instances allows you to provide dynamic configuration of the application or script run by the container.
 
-You're currently able to set environment variables from the CLI and PowerShell. In both cases, you would use a flag on the commands to set the environment variables. Setting environment variables in ACI is similar to the `--env` command-line argument to `docker run`.
-
-For example, if you use the microsoft/aci-wordcount container you can modify the behavior by specifying the following environment variables:
+You're currently able to set environment variables from the CLI and PowerShell. In both cases, you would use a flag on the commands to set the environment variables. Setting environment variables in ACI is similar to the `--env` command-line argument to `docker run`. For example, if you use the microsoft/aci-wordcount container image you can modify the behavior by specifying the following environment variables:
 
 *NumWords*: The number of words sent to STDOUT.
 
@@ -66,9 +64,7 @@ az container create \
 By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should display different output.
 
 ```azurepowershell-interactive
-$envVars = @{}
-$envVars.Add("NumWords", 5)
-$envVars.Add("MinLength", 8)
+$envVars = @{NumWord=5;MinLength=8}
 New-AzureRmContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer2 `
@@ -112,7 +108,9 @@ Get-AzureRmContainerInstanceLog `
 
 ## Next steps
 
-Now that you know how to customize the input to your container, learn how to persist the output of containers that run to completion. See [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
+Now that you know how to customize the input to your container, learn how to persist the output of containers that run to completion.
+> [!div class="nextstepaction"]
+> [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md)
 
 <!-- LINKS Internal -->
 [azure-cloud-shell]: ../cloud-shell/overview.md

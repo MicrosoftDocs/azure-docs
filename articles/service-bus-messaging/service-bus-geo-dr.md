@@ -84,12 +84,13 @@ If you have a scenario in which you cannot change the connections of producers a
 
 ## Samples
 
-The [samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) show how to set up and initiate a failover. These samples demonstrate the following concepts:
+The [samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) show how to set up and initiate a failover. These samples demonstrate the following concepts:
 
-- Settings required in Azure Active Directory to use Azure Resource Manager with Service Bus. 
-- Steps required to execute the sample code. 
-- Send and receive from the current primary namespace. 
+- A .Net sample and settings required in Azure Active Directory to use Azure Resource Manager with Service Bus to setup and enable Geo-disaster recovery.
+- Steps required to execute the sample code.
 - How to use an existing namespace as alias.
+- Steps to alternatively enable Geo-disaster recovery via PowerShell or CLI.
+- [Send and receive](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) from the current primary or secondary namespace using the alias.
 
 ## Considerations
 

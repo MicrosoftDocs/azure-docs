@@ -3,8 +3,8 @@ title: Use Azure Active Directory to authenticate Batch Management solutions | M
 description: Applications built with Azure resource manager and the Batch resource provider authenticate with Azure AD.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -12,10 +12,10 @@ ms.assetid:
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: tamram
+ms.author: danlep
 ---
 
 # Authenticate Batch Management solutions with Active Directory

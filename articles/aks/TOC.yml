@@ -59,6 +59,8 @@
     items:
     - name: Static IP address
       href: static-ip.md
+    - name: Internal load balancer
+      href: internal-lb.md
     - name: Ingress and TLS
       href: ingress.md
   - name: Security and authentication
@@ -79,6 +81,10 @@
       href: jenkins-continuous-deployment.md
     - name: Using OpenFaaS with AKS
       href: openfaas.md
+    - name: Run Spark jobs on AKS
+      href: spark-job.md
+    - name: Using GPUs on AKS
+      href: gpu-cluster.md
   - name: Kubernetes basics
     items:
     - name: Use Kubernetes dashboard
