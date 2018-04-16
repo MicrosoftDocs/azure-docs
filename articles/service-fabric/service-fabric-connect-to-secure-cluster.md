@@ -25,7 +25,7 @@ When a client connects to a Service Fabric cluster node, the client can be authe
 
 ## Connect to a secure cluster using Service Fabric CLI (sfctl)
 
-There are a few different ways to connect to a secure cluster using Service Fabric CLI (sfctl). When using a client
+There are a few different ways to connect to a secure cluster using the Service Fabric CLI (sfctl). When using a client
 certificate for authentication, the certificate details must match a certificate deployed to the cluster nodes. If your
 certificate has Certificate Authorities (CAs), you need to additionally specify the trusted CAs.
 
