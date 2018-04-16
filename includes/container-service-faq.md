@@ -92,9 +92,9 @@ ssh userName@masterFQDN –A –p 22 
 
 For more information, see [Connect to an Azure Container Service cluster](../articles/container-service/kubernetes/container-service-connect.md).
 
-### My DNS name resolution isn't working. What should I do?
+### My DNS name resolution isn't working on Windows. What should I do?
 
-There are some known DNS issues whose fixes are still actively being phased out. Please ensure you are using the most updated acs-engine and Windows version (with [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) and [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installed) so that your environment can benefit from this. Otherwise, see the table below for mitigation steps in:
+There are some known DNS issues on Windows whose fixes are still actively being phased out. Please ensure you are using the most updated acs-engine and Windows version (with [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) and [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installed) so that your environment can benefit from this. Otherwise, please see the table below for mitigation steps:
 
 | DNS Symptom | Workaround  |
 |-------------|-------------|
