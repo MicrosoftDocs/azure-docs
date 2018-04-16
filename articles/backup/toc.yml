@@ -201,6 +201,8 @@
     href: /cli/azure/backup?view=azure-cli-latest
   - name: Azure PowerShell
     href: /powershell/module/azurerm.recoveryservices.backup
+  - name: Azure quickstart Templates for Recovery Services
+    href: /resources/templates/?resourceType=Microsoft.Recoveryservices
   - name: REST APIs for Backup
     href: /rest/api/backup/
   - name: REST APIs for Recovery Services vault
