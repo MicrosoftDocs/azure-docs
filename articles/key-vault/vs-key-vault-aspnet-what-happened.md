@@ -14,8 +14,8 @@ ms.author: ghogen
 # What happened to my ASP.NET project (Visual Studio Key Vault connected service)?
 
 > [!div class="op_single_selector"]
-> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
-> - [What Happened](vs-active-directory-dotnet-what-happened.md)
+> - [Getting Started](vs-key-vault-aspnet-getting-started.md)
+> - [What Happened](vs-key-vault-aspnet-what-happened.md)
 
 This article identifies the exact changes made to am ASP.NE project when adding the [Key Vault connected service using Visual Studio](vs-key-vault-add-connected-service.md).
 
@@ -28,10 +28,18 @@ Affects the project file *.NET references and `packages.config` (NuGet reference
 | Type | Reference |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
+| .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |
+| .NET; NuGet | Microsoft.Rest.ClientRuntime |
+| .NET; NuGet | Microsoft.Rest.ClientRuntime.Azure |
+
+## Added files
+
+- ConnectedService.json added, which records some information about the Connected Service provider, version, and a link the documentation.
 
 ## Project file changes
 
-- Set the property `x` to y.
+- Added the Connected Services ItemGroup and ConnectedServices.json file.
+- References to the .NET assemblies described in the [Added references](#added-references) section.
 
 ## web.config or app.config changes
 
