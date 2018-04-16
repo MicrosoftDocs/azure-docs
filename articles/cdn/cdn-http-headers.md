@@ -41,7 +41,7 @@ X-Host | Indicates the request's hostname. | cdn.mydomain.com
 X-Midgress | Indicates whether the request was proxied through an additional CDN server (for example, POP server-to-origin shield server or POP server-to-ADN gateway server). <br />This header is added to the request only when midgress traffic takes place. In this case, the header is set to 1 to indicate that the request was proxied through an additional CDN server.| 1
 [Host](#host-request-header) | Identifies the host and the port where the requested content may be found. | marketing.mydomain.com:80
 [X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifies the failover list of ADN Gateway servers assigned to a customer origin. <br />Origin shield: Indicates the set of origin shield servers assigned to a customer origin. | icn1,hhp1,hnd1
-X-EC-_&lt;name&gt;_ | Request headers that begin with *X-EC* (for example, X-EC-Tag, [X-EC-Debug](#x-ec-debug-headers)) are reserved for use by the CDN.| waf-production
+X-EC-_&lt;name&gt;_ | Request headers that begin with *X-EC* (for example, X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)) are reserved for use by the CDN.| waf-production
 
 ### Via request header
 The format through which the `Via` request header identifies a POP server is specified by the following syntax:
