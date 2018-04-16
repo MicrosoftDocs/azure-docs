@@ -83,14 +83,14 @@ Adding the Microsoft Authenticator app to your new iOS device won't automaticall
 If you have a device that is registered with your organization, you may need to complete an extra step to remove your account. On these devices, the Microsoft Authenticator app is automatically registered as a device administrator. If you want to completely uninstall the app, you need to first unregister the app in the app settings.
 
 ### Why does the app request so many permissions?
-Here is a full list of permissions we may ask for, and how they are used in the app. The specific permissions you see depend on the type of phone you have.
+Here is a full list of permissions that can be asked for, and how they are used in the app. The specific permissions you see depend on the type of phone you have.
 
-* **Camera**: We use your camera to scan QR codes when you add a work, school, or non-Microsoft account.
-* **Contacts and phone**: When you sign in with your personal Microsoft account, we try to simplify the process by finding existing accounts that you use on your phone.
-* **SMS**: When you sign in with your personal Microsoft account for the first time, we have to make sure that your phone number matches the one we have on record. We send a text message to the phone where you downloaded the app. The message contains a 6-8 digit verification code. Instead of asking you to find this code and enter it in the app, we find it in the text message for you.
-* **Draw over other apps**: When you receive a notification to verify your identity, we display that notification over any other app that might be running.
+* **Camera**: Used to scan QR codes when you add a work, school, or non-Microsoft account.
+* **Contacts and phone**: Used to simplify the process by finding existing accounts on your phone when you sign in with your personal Microsoft account.
+* **SMS**: Used to make sure your phone number matches the number on record. When you sign in with your personal Microsoft account for the first time.  We send a text message to the phone where you downloaded the app that includes a 6-8 digit verification code. Instead of asking you to find this code and enter it in the app, it's found in the text message for you.
+* **Draw over other apps**: The notification you get that verifies your identity is also displayed on any other app that might be running.
 * **Receive data from the internet**: This permission is required for sending notifications.
-* **Prevent phone from sleeping**: If you register your device with your organization, they can change this policy on your phone.
+* **Prevent phone from sleeping**: If you register your device with your organization, your organization can change this policy on your phone.
 * **Control vibration**: You can choose whether you would like a vibration whenever you receive a notification to verify your identity.
 * **Use fingerprint hardware**: Some work and school accounts require an additional PIN whenever you verify your identity. TO make the process easier, we allow you to use your fingerprint instead of entering the PIN.
 * **View network connections**: When you add a Microsoft account, the app requires network/internet connection.
