@@ -19,7 +19,7 @@ ms.author: douglasl
 This article describes how to run an SSIS package from an Azure Data Factory pipeline by using an SSIS activity. 
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. The SSIS Activity is not available in version 1 of the Data Factory service, which is generally available (GA). For an alternative method to runan SSIS package with version 1 of the Data Factory service, see [Invoke SSIS packages using stored procedure activity in version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. The SSIS Activity is not available in version 1 of the Data Factory service, which is generally available (GA). For an alternative method to run an SSIS package with version 1 of the Data Factory service, see [Run SSIS packages using stored procedure activity in version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ The walkthrough in this article uses an Azure SQL database that hosts the SSIS c
 Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## Data Factory UI (Azure portal)
-In this section, you use Data Factory UI to create a Data Factory pipeline with an SSIS activity that invokes an SSIS package.
+In this section, you use Data Factory UI to create a Data Factory pipeline with an SSIS activity that runs an SSIS package.
 
 ### Create a data factory
 First step is to create a data factory by using the Azure portal. 
@@ -164,7 +164,7 @@ Note the following points:
 ### Create a pipeline with an SSIS activity 
 In this step, you create a pipeline with an SSIS activity. The activity runs your SSIS package. 
 
-1. Create a JSON file named **RunSSISPackagePipeline.json** in the **C:\ADF\RunSSISPackage** folder with content similar to the following:
+1. Create a JSON file named **RunSSISPackagePipeline.json** in the **C:\ADF\RunSSISPackage** folder with content similar to the following example:
 
     > [!IMPORTANT]
 	> Replace object names, descriptions, and paths, property and parameter values, passwords, and other variable values before saving the file. 
@@ -293,7 +293,7 @@ while ($True) {
 ```
 
 ### Create a trigger
-In the previous step, you invoked the pipeline on-demand. You can also create a schedule trigger to run the pipeline on a schedule (hourly, daily, etc.).
+In the previous step, you ran the pipeline on-demand. You can also create a schedule trigger to run the pipeline on a schedule (hourly, daily, etc.).
 
 1. Create a JSON file named **MyTrigger.json** in **C:\ADF\RunSSISPackage** folder with the following content: 
 
