@@ -4071,10 +4071,7 @@ featureFlags:
                                                     <a href="/cli/azure">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure/install-azure-cli">Download Azure CLI</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/cli/azure">Reference</a>
+                                                    <a href="/cli/azurereference-index">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4094,9 +4091,6 @@ featureFlags:
                                                 <h3>Azure PowerShell</h3>
                                                 <p>
                                                     <a href="/powershell/azure/get-started-azureps">Get Started</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/powershell/azure/install-azurerm-ps">Download Azure PowerShell</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">Reference</a>
