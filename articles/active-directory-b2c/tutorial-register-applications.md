@@ -1,23 +1,61 @@
 ---
-title: Application registration - Azure Active Directory B2C 
-description: How to register your application with Azure Active Directory B2C
+title: Tutorial - Register an application to enable sign-up and sign-in using Azure Active Directory B2C | Microsoft Docs
+description: Use the Azure portal to create an Azure AD B2C tenant and register an application with it.
 services: active-directory-b2c
+documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
+editor: patricka
 
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.topic: get-started-article
-ms.date: 6/13/2017
+ms.topic: article
+ms.date: 03/08/2018
 ms.author: davidmu
+
 ---
+# Tutorial: Register an application to enable sign-up and sign-in using Azure Active Directory B2C
 
-# Azure Active Directory B2C: Register your application
+This tutorial helps you create a Microsoft Azure Active Directory (Azure AD) B2C tenant and register an application with it in just a few minutes.
 
-This Quickstart helps you register an application in a Microsoft Azure Active Directory (Azure AD) B2C tenant in a few minutes. When you're finished, your application is registered for use in the Azure AD B2C tenant.
+In this article, you learn how to:
 
-## Prerequisites
+> [!div class="checklist"]
+> * Create an Azure AD B2C tenant
+> * Link your tenant to your subscription
+> * Register your application
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Log in to Azure
+
+Log in to the [Azure portal](https://portal.azure.com/).
+
+## Create an Azure AD B2C tenant
+
+B2C features can't be enabled in your existing tenants. You need to create an Azure AD B2C tenant.
+
+[!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
+
+Congratulations, you have created an Azure Active Directory B2C tenant. You are a Global Administrator of the tenant. You can add other Global Administrators as required. To switch to your new tenant, click the *manage your new tenant link*.
+
+![Manage your new tenant link](./media/active-directory-b2c-get-started/manage-new-b2c-tenant-link.png)
+
+> [!IMPORTANT]
+> If you are planning to use a B2C tenant for a production app, read the article on [production-scale vs. preview B2C tenants](active-directory-b2c-reference-tenant-type.md). There are known issues when you delete an existing B2C tenant and re-create it with the same domain name. You need to create a B2C tenant with a different domain name.
+>
+>
+
+## Link your tenant to your subscription
+
+You need to link your Azure AD B2C tenant to your Azure subscription to enable all B2C functionality and pay for usage charges. To learn more, read [this article](active-directory-b2c-how-to-enable-billing.md). If you don't link your Azure AD B2C tenant to your Azure subscription, some functionality is blocked and, you see a warning message ("No Subscription linked to this B2C tenant or the Subscription needs your attention.") in the B2C settings. It is important that you take this step before you ship your apps into production.
+
+
+[!INCLUDE [active-directory-b2c-find-service-settings](../../includes/active-directory-b2c-find-service-settings.md)]
+
+You can also access the blade by entering `Azure AD B2C` in **Search resources** at the top of the portal. In the results list, select **Azure AD B2C** to access the B2C settings blade.
+
+## Register your application
 
 To build an application that accepts consumer sign-up and sign-in, you first need to register the application with an Azure Active Directory B2C tenant. Get your own tenant by using the steps outlined in [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md).
 
@@ -25,7 +63,7 @@ Applications created in the Azure portal must be managed from the same location.
 
 This article uses examples that will help you get started with our samples. You can learn more about these samples in the subsequent articles.
 
-## Navigate to B2C settings
+### Navigate to B2C settings
 
 Log in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant. 
 
@@ -33,7 +71,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the Global Administra
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 
-## Choose next steps based on your application type
+### Choose next steps based on your application type
 
 * [Register a web application](#register-a-web-app)
 * [Register a web API](#register-a-web-api)
@@ -68,8 +106,6 @@ Click **Published scopes** to add more scopes as necessary. By default, the "use
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 
 [Jump to **next steps**](#next-steps)
-
-## Limitations
 
 ### Choosing a web app or api reply URL
 
@@ -128,7 +164,12 @@ To delete the app, go to the [Application Registration Portal](https://apps.dev.
 
 ## Next steps
 
-Now that you have an application registered with Azure AD B2C, you can complete one of [the quickstart tutorials](active-directory-b2c-overview.md) to get up and running.
+In this article, you learned how to:
+
+> [!div class="checklist"]
+> * Create an Azure AD B2C tenant
+> * Link your tenant to your subscription
+> * Register your application
 
 > [!div class="nextstepaction"]
-> [Create an ASP.NET web app with sign-up, sign-in, and password reset](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+> [Enable a web application to authenticate with accounts](active-directory-b2c-app-registration.md)
