@@ -1,20 +1,13 @@
 ---
 title: Add a service principle to Azure Analysis Services server admin role | Microsoft Docs
 description: Learn how to add an automation service principle to the server admin role
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 
