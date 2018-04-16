@@ -358,11 +358,13 @@ This example displays URLs that can be used to play back the video using differe
 
 ## Test the streaming URL
 
-To test the stream, this article uses Azure Media Player. Azure Media Player can be used for testing but should not be used in a production environment. 
+To test the stream, this article uses Azure Media Player. 
 
 1. Open a web browser and navigate to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. In the **URL:** box, paste one of the streaming URL values you got when you ran the application. 
 3. Press **Update Player**.
+
+Azure Media Player can be used for testing but should not be used in a production environment. 
 
 ## Clean up resources
 
