@@ -17,22 +17,24 @@ ms.author: bwren
 
 ---
 # Data collection details for management solutions in Azure
+This article includes a list of [management solutions](monitoring-solutions.md) available from Microsoft with links to their detailed documentation.  It also provides information on their method and frequency of data collection into Log Analytics.  You can use the information in this article to identify the different solutions available and to understand the data flow and connection requirements for different management solutions. 
 
-The following table lists the [management solutions](monitoring-solutions.md) in Azure provided by Microsoft. It also includes information on the frequency and method of data collection for each solution. You can use this information to determine the data flow and connection requirements for different management solutions. Follow the link for each one to its detailed documentation for more information.
-
-The table at the bottom of the page describes the columns in this table.
+## Explanation of columns
+The following table describes the columns in the [list](#list-of-management-solutions) that describe different the aspects of data collection.
 
 | Column | Description |
 |:---|:---|
 | Management Solution | The management solution collecting the data. |
 | Platform | Platform that the solution is collecting from. If it collects from an agent, then this is the operating system the agent is installed on. |
-| Microsoft monitoring agent | Agent used on Windows and Linux to run managements pack from SCOM and management solutions from Azure. In this configuration, the agent is connected directly to Log Analytics without being connected to a SCOM management group. |
-| Operations Manager     | Identical agent as Microsoft monitoring agent. In this configuration, it's [connected to a SCOM management group](../log-analytics/log-analytics-om-agents.md) that's connected to Log Analytics. |
+| Microsoft monitoring agent | Agent used on Windows and Linux to run managements pack from SCOM and management solutions from Azure. In this configuration, the agent is connected directly to Log Analytics without being connected to an Operations Manager management group. |
+| Operations Manager | Identical agent as Microsoft monitoring agent. In this configuration, it's [connected to an Operations Manager management group](../log-analytics/log-analytics-om-agents.md) that's connected to Log Analytics. |
 | Azure Storage | Solution collects data from an Azure storage account. |
-| Operations Manager required? | A connected SCOM management group is required for data collection by the management solution. |
+| Operations Manager required? | A connected Operations Manager management group is required for data collection by the management solution. |
 | Operations Manager agent data sent via management group | If the agent is [connected to a SCOM management group](../log-analytics/log-analytics-om-agents.md), then data is sent to Log Analytics from the management server. In this case, the agent doesn't need to connect directly to Log Analytics. If this box isn't selected, then data is sent from the agent directly to Log Analytics even if the agent is connected to a SCOM management group. it will either need to be able to communicate to Log Analytics through an [OMS gateway](../log-analytics/log-analytics-oms-gateway.md).
 | Collection frequency| Specifies the frequency that data is collected by the management solution. |
 
+## List of management solutions
+The following table lists the [management solutions](monitoring-solutions.md) in Azure provided by Microsoft. An entry in the column means that the solution collects data into Log Analytics using that method.  If a solution has no columns selected, then it writes directly to Log Analytics from another Azure service. Follow the link for each one to its detailed documentation for more information.
 
 | Management solution | Platform | Microsoft monitoring agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -76,19 +78,8 @@ The table at the bottom of the page describes the columns in this table.
 - Windows security event logs
 - Windows firewall logs
 - Windows event logs
+ 
 
-The following table describes the columns above.
-
-| Column | Description |
-|:---|:---|
-| Management Solution | The management solution collecting the data. |
-| Platform | Platform that the solution is collecting from. If it collects from an agent, then this is the operating system the agent is installed on. |
-| Microsoft monitoring agent | Agent used on Windows and Linux to run managements pack from SCOM and management solutions from Azure. In this configuration, the agent is connected directly to Log Analytics without being connected to a SCOM management group. |
-| Operations Manager     | Identical agent as Microsoft monitoring agent. In this configuration, it's [connected to a SCOM management group](../log-analytics/log-analytics-om-agents.md) that's connected to Log Analytics. |
-| Azure Storage | Solution collects data from an Azure storage account. |
-| Operations Manager required? | A connected SCOM management group is required for data collection by the management solution. |
-| Operations Manager agent data sent via management group | If the agent is [connected to a SCOM management group](../log-analytics/log-analytics-om-agents.md), then data is sent to Log Analytics from the management server. In this case, the agent doesn't need to connect directly to Log Analytics. If this box isn't selected, then data is sent from the agent directly to Log Analytics even if the agent is connected to a SCOM management group. it will either need to be able to communicate to Log Analytics through an [OMS gateway](../log-analytics/log-analytics-oms-gateway.md).
-| Collection frequency| Specifies the frequency that data is collected by the management solution. |
 
 ## Next steps
 * [Search logs](../log-analytics/log-analytics-log-searches.md) to view detailed information gathered by management solutions.
