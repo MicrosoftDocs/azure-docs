@@ -101,7 +101,7 @@ Before you can submit scripts to HDInsight clusters from VS Code, you need to ei
     - Submit PySpark batch scripts
     - Set configurations
 
-**To link a cluster**
+<a id="linkcluster"></a>**To link a cluster**
 
 You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com).
 1. Open the command palette by selecting **CTRL+SHIFT+P**, and then enter **HDInsight: Link a cluster**.

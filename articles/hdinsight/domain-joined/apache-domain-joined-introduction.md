@@ -51,17 +51,11 @@ Along with protecting the HDInsight cluster resources from unauthorized users, a
 ### Encryption
 Protecting data is important for meeting organizational security and compliance requirements, and along with restricting access to data from unauthorized employees, it should also be secured by encrypting it. Both the data stores for HDInsight clusters, Azure Storage Blob, and Azure Data Lake Storage support transparent server-side [encryption of data](../../storage/common/storage-service-encryption.md) at rest. Secure HDInsight clusters will seamlessly work with this server side encryption of data at rest capability.
 
-### Test tooling
-1. Test tooling in Secure Hadoop Cluster.
-	1. Update Secure Hadoop Cluster document. 
-	2. Add storage support in secure Hadoop scenario.
-2. VSCode: Use Python parameter in livy configuration file, and Spark 2.2 does not support PySpark 3.
-
 ## Next steps
 * For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md).
 * For managing a Domain-joined HDInsight cluster, see [Manage Domain-joined HDInsight clusters](apache-domain-joined-manage.md).
 * For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md).
 * For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-* For using VSCode to link to domain joined cluster, see [Use VSCode to link to domain joined cluster](../hdinsight-for-vscode.md).
-* For using IntelliJ to link to domain joined cluster, see [Use IntelliJ to link to domain joined cluster](../spark/apache-spark-intellij-tool-plugin).
-* For using Eclipse to link to domain joined cluster, see [Use Eclipse to link to domain joined cluster](../spark/apache-spark-eclipse-tool-plugin).
+* For using VSCode to link to domain joined cluster, see [Link to domain joined cluster with VSCode](../hdinsight-for-vscode.md#linkcluster).
+* For using IntelliJ to link to domain joined cluster, see [Link to domain joined cluster with IntelliJ](../spark/apache-spark-intellij-tool-plugin.md#linkcluster).
+* For using Eclipse to link to domain joined cluster, see [Link to domain joined cluster with Eclipse](../spark/apache-spark-eclipse-tool-plugin.md#linkcluster).

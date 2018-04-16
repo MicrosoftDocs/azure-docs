@@ -17,9 +17,9 @@
   - name: Use VSCode to link to domain joined cluster
     href: ../hdinsight-for-vscode.md
   - name: Use IntelliJ to link to domain joined cluster
-    href: ../spark/apache-spark-intellij-tool-plugin
+    href: ../spark/apache-spark-intellij-tool-plugin.md
   - name: Use Eclipse to link to domain joined cluster
-    href: ../spark/apache-spark-eclipse-tool-plugin
+    href: ../spark/apache-spark-eclipse-tool-plugin.md
 - name: Securing data
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true
