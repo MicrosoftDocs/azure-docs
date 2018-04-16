@@ -81,7 +81,7 @@ To get the list of outbound IP addresses for your web app:
 
 The list of outbound IP addresses appears.
 
-If your website is hosted in App Service Environment for PowerApps, to learn how to get your outbound IP address, see [Outbound network addresses](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
+To learn how to get the outbound IP address if your website is hosted in an App Service Environment, see [Outbound network addresses](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
 
 ## How do I get a reserved or dedicated inbound IP address for my web app?
 

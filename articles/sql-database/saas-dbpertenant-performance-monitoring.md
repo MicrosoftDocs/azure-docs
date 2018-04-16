@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 04/01/2018
 ms.author: sstein
 ---
 # Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app

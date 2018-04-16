@@ -104,7 +104,7 @@ A SKU appears under the parent offer in the marketplace. It appears as its own p
 
 You can add multiple authorizations. We recommend that you create an AD user group and specify its ID in **PrincipalId**. This way, you can add more users to the user group without the need to update the SKU.
 
-For more information about RBAC, see [Get started with RBAC in the Azure portal](../active-directory/role-based-access-control-what-is.md).
+For more information about RBAC, see [Get started with RBAC in the Azure portal](../role-based-access-control/overview.md).
 
 ## Marketplace form
 

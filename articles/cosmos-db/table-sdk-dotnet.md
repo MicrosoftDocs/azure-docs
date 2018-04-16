@@ -4,8 +4,7 @@ description: Learn all about the Azure Cosmos DB Table API including release dat
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
-editor: cgronlun
+manager: kfile
 
 ms.assetid: 
 ms.service: cosmos-db
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: mimig
+ms.author: rnagpal
 
 ---
 # Azure Cosmos DB Table .NET API: Download and release notes
