@@ -1,6 +1,6 @@
 ---
 title: Service Fabric CLI Script Sample - Update an application on a cluster
-description: Service Fabric CLI Script Sample - Update an application with a new version. This example also upgrades a deployed application with the new bits.
+description: Service Fabric CLI Script Sample - Update an application with a new version. This example also upgrades a deployed application with new bits.
 services: service-fabric
 documentationcenter: 
 author: Thraka
@@ -13,14 +13,14 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 04/13/2018
 ms.author: adegeo
 ms.custom: 
 ---
 
 # Add an application certificate to a Service Fabric cluster
 
-This sample script uploads a new version of an existing application, and then upgrades a deployed application with the new bits.
+This sample script uploads a new version of an existing application and then upgrades a deployed application with the new bits.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../../includes/service-fabric-sfctl.md)]
 

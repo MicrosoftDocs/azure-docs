@@ -154,7 +154,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 ```
 
 ## Connect to the secure cluster
-Connect to the cluster using the Service Fabric CLI `sfctl cluster select` command using your key.  Note, only use the **--no-verify** option for a self-signed certificate.
+Connect to the cluster using the Service Fabric CLI command `sfctl cluster select` with your key.  Note, only use the **--no-verify** option for a self-signed certificate.
 
 ```azurecli
 sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \

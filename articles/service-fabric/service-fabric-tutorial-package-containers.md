@@ -232,7 +232,7 @@ For information about creating your own cluster, see [Create a Service Fabric cl
 ## Build and deploy the application to the cluster
 You can deploy the application the Azure cluster using the Service Fabric CLI. If Service Fabric CLI is not installed on your machine, follow instructions [here](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) to install it. 
 
-Connect to the Service Fabric cluster in Azure. Replace the placeholder endpoint with your own. The endpoint must be a full URL similar to the one below.
+Connect to the Service Fabric cluster in Azure. Replace the sample endpoint with your own. The endpoint must be a full URL similar to the one below.
 
 ```bash
 sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify

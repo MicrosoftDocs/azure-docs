@@ -13,14 +13,14 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 04/13/2018
 ms.author: adegeo
 ms.custom: 
 ---
 
 # List applications running in a Service Fabric cluster
 
-This sample script connects to a Service Fabric cluster and lists all of the provisioned applications.
+This sample script connects to a Service Fabric cluster and then lists all of the provisioned applications.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../../includes/service-fabric-sfctl.md)]
 

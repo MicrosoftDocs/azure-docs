@@ -21,7 +21,7 @@ The Azure Service Fabric command-line interface (CLI) is a command-line utility 
 
 Prior to installation, make sure your environment has both Python and pip installed. For more information, see the [pip quickstart documentation](https://pip.pypa.io/en/latest/quickstart/) and the official [Python installation documentation](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-The CLI supports Python versions 2.7, 3.5 and 3.6. Python 3.6 is the recommended version, since Python 2.7 will reach end of support soon.
+The CLI supports Python versions 2.7, 3.5, and 3.6. Python 3.6 is the recommended version, since Python 2.7 will reach end of support soon.
 
 ### Service Fabric target runtime
 
@@ -66,7 +66,7 @@ python --version
 pip --version
 ```
 
-Then run the following command to install the Service Fabric CLI:
+Then run the following command to install the Service Fabric CLI and view the CLI help page:
 
 ```bat
 pip install sfctl
@@ -117,7 +117,7 @@ sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
 
-For testing the installation you can refer to the steps mentioned in **Ubuntu and Windows subsystem for Linux** section
+For testing the installation, you can refer to the steps mentioned in **Ubuntu and Windows subsystem for Linux** section
 
 <a name = "cli-mac"></a>
 ### MacOS
@@ -229,13 +229,13 @@ For more information, see the [OpenSSL documentation](https://www.openssl.org/do
 
 Some operations might generate the following message:
 
-`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+`Failed to establish a new connection: `
 
 Verify that the specified cluster endpoint is available and listening. Also, verify that the Service Fabric Explorer UI is available at that host and port. To update the endpoint, use `sfctl cluster select`.
 
 ### Detailed logs
 
-Detailed logs often are helpful when you debug or report a problem. A global `--debug` flag increases the verbosity of log files.
+Detailed logs often are helpful when you debug or report a problem. A global `--debug` flag increases the verbosity of outputted error messages.
 
 ### Command help and syntax
 

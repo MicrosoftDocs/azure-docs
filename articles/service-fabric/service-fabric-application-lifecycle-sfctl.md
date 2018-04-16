@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: service-fabric
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 04/13/2018
 ms.author: bikang
 ---
 # Manage an Azure Service Fabric application by using Azure Service Fabric CLI
