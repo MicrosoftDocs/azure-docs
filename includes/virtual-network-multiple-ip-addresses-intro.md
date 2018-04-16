@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-network
+ author: jimdial
+ ms.service: virtual-network
+ ms.topic: include
+ ms.date: 04/09/2018
+ ms.author: jdial
+ ms.custom: include file
+
+---
+
 > [!div class="op_single_selector"]
 > * [Azure portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
