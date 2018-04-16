@@ -22,7 +22,7 @@ This quickstart guides you through adding the Application Insights SDK to an exi
 
 To complete this quickstart:
 
-- Install Oracle JRE 1.6 or later, or Zulu JRE 1.6 or later
+- Install JRE 1.7 or 1.8
 - Install [Free Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). This quickstart uses Eclipse Oxygen (4.7)
 - You will need an Azure Subscription and an existing Java Dynamic Web Project
  

@@ -1,6 +1,6 @@
 ---
-title: Configure HTTPS on an Azure CDN custom domain | Microsoft Docs
-description: Learn how to enable or disable HTTPS on your Azure CDN endpoint custom domain.
+title: Tutorial - Configure HTTPS on an Azure CDN custom domain | Microsoft Docs
+description: In this tutorial, you learn how to enable and disable HTTPS on your Azure CDN endpoint custom domain.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -12,18 +12,20 @@ ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/22/2018
-ms.author: rli; v-deasim
+ms.topic: tutorial
+ms.date: 04/12/2018
+ms.author: rli
+ms.custom: mvc
+# As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
 
 ---
-# Configure HTTPS on an Azure CDN custom domain
+# Tutorial: Configure HTTPS on an Azure CDN custom domain
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Azure Content Delivery Network (CDN) supports the HTTPS protocol for a custom domain on a CDN  endpoint. By using the HTTPS protocol on your custom domain, you ensure that your sensitive data is delivered securely via SSL encryption when it is sent across the internet. HTTPS provides trust, authentication, and protects your web applications from attacks. In addition, you deliver the secure content by using your own domain name (for example, https:\//www.contoso.com). The workflow to enable HTTPS is simplified via one-click enablement and complete certificate management, all with no additional cost.
+This tutorial shows how to enable the HTTP protocol for a custom domain that is associated with an Azure Content Delivery Network (CDN) endpoint. By using the HTTPS protocol on your custom domain (for example, https:\//www.contoso.com), you ensure that your sensitive data is delivered securely via SSL encryption when it is sent across the internet. HTTPS provides trust, authentication, and protects your web applications from attacks. The workflow to enable HTTPS is simplified via one-click enablement and complete certificate management, all with no additional cost.
 
-Azure CDN also supports HTTPS on a CDN endpoint hostname, by default. For example, if you create a CDN endpoint (such as https:\//contoso.azureedge.net), HTTPS is automatically enabled.  
+Azure CDN supports HTTPS on a CDN endpoint hostname, by default. For example, if you create a CDN endpoint (such as https:\//contoso.azureedge.net), HTTPS is automatically enabled.  
 
 Some of the key attributes of the HTTPS feature are:
 
@@ -33,36 +35,49 @@ Some of the key attributes of the HTTPS feature are:
 
 - Complete certificate management: All certificate procurement and management is handled for you. Certificates are automatically provisioned and renewed prior to expiration, which removes the risks of service interruption due to a certificate expiring.
 
->[!NOTE] 
->Prior to enabling HTTPS support, you must have already established an [Azure CDN custom domain](./cdn-map-content-to-custom-domain.md).
+In this tutorial, you learn how to:
+> [!div class="checklist"]
+> - Enable the HTTPS protocol on your custom domain
+> - Validate the domain
+> - Disable the HTTPS protocol on your custom domain
 
-## Enabling HTTPS
+## Prerequisites
+
+Before you can complete the steps in this tutorial, you must first create a CDN profile and at least one CDN endpoint. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
+
+In addition, you must associate an Azure CDN custom domain on your CDN endpoint. For more information, see [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
+
+## Enable the HTTPS feature
 
 To enable HTTPS on a custom domain, follow these steps:
 
-### Step 1: Enable the feature 
-
 1. In the [Azure portal](https://portal.azure.com), browse to your **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** CDN profile.
 
-2. In the list of endpoints, click the endpoint containing your custom domain.
+2. In the list of CDN endpoints, select the endpoint containing your custom domain.
 
-3. Click the custom domain for which you want to enable HTTPS.
+    ![Endpoints list](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
+
+    The **Endpoint** page appears.
+
+3. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
 
     ![Custom domains list](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
-4. Click **On** to enable HTTPS, then click **Apply**.
+    The **Custom domain** page appears.
+
+4. Select **On** to enable HTTPS, then select **Apply**.
 
     ![Custom domain HTTPS status](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
 
 
-### Step 2: Validate domain
+## Validate the domain
 
->[!NOTE]
->If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. A CAA record allows domain owners to specify with their DNS providers which CAs are authorized to issue certificates for their domain. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
+If you already have a custom domain in use that is mapped to your custom endpoint with a CNAME record, proceed to  
+[Custom domain is mapped to your CDN endpoint](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). Otherwise, if the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, proceed to [Custom domain is not mapped to your CDN endpoint](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
 
-#### Custom domain is mapped to CDN endpoint
+### Custom domain is mapped to your CDN endpoint by a CNAME record
 
-When you added a custom domain to your endpoint, you created a CNAME record in the DNS table of your domain registrar to map to your CDN endpoint hostname. If that CNAME record still exists and does not contain the cdnverify subdomain, the DigiCert certificate authority (CA) uses it to validate ownership of your custom domain. 
+When you added a custom domain to your endpoint, you created a CNAME record in the DNS table of your domain registrar to map it to your CDN endpoint hostname. If that CNAME record still exists and does not contain the cdnverify subdomain, the DigiCert certificate authority (CA) uses it to validate ownership of your custom domain. 
 
 Your CNAME record should be in the following format, where *Name* is your custom domain name and *Value* is your CDN endpoint hostname:
 
@@ -70,13 +85,16 @@ Your CNAME record should be in the following format, where *Name* is your custom
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 
-For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#step-2-create-the-cname-dns-records).
+For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
 
-If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and adds it to the Subject Alternative Names (SAN) certificate. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Step 3: Wait for propagation](#step-3-wait-for-propagation). 
+If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and adds it to the Subject Alternative Names (SAN) certificate. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
 
 The automatic validation typically takes a few mins. If you don’t see your domain validated within an hour, open a support ticket.
 
-#### CNAME record is not mapped to CDN endpoint
+>[!NOTE]
+>If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. A CAA record allows domain owners to specify with their DNS providers which CAs are authorized to issue certificates for their domain. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
+
+### Custom domain is not mapped to your CDN endpoint
 
 If the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, follow the rest of the instructions in this step.
 
@@ -108,7 +126,7 @@ Follow the instructions on the form; you have two verification options:
 
 After approval, DigiCert adds your custom domain name to the SAN certificate. The certificate is valid for one year and will be auto-renewed before it's expired.
 
-### Step 3: Wait for propagation
+## Wait for propagation
 
 After the domain name is validated, it can take up to 6-8 hours for the custom domain HTTPS feature to be activated. When the process is complete, the custom HTTPS status in the Azure portal is set to **Enabled** and the four operation steps in the custom domain dialog are marked as complete. Your custom domain is now ready to use HTTPS.
 
@@ -134,18 +152,17 @@ The following table shows the operation progress that occurs when you enable HTT
 
 \* This message does not appear unless an error has occurred. 
 
-
 If an error occurs before the request is submitted, the following error message is displayed:
 
 <code>
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
-## Disabling HTTPS
+## Clean up resources - disable HTTPS
 
-After you have enabled HTTPS on a custom domain, you can later disable it. To disable HTTPS, follow these steps:
+In the preceding steps, you enabled the HTTPS protocol on your custom domain. If you no longer want to use your custom domain with HTTPS, you can disable HTTPS by performing theses steps:
 
-### Step 1: Disable the feature 
+### Disable the HTTPS feature 
 
 1. In the [Azure portal](https://portal.azure.com), browse to your **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** CDN profile.
 
@@ -159,13 +176,13 @@ After you have enabled HTTPS on a custom domain, you can later disable it. To di
 
     ![Custom HTTPS dialog](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 
-### Step 2: Wait for propagation
+### Wait for propagation
 
 After the custom domain HTTPS feature is disabled, it can take up to 6-8 hours for it to take effect. When the process is complete, the custom HTTPS status in the Azure portal is set to **Disabled** and the three operation steps in the custom domain dialog are marked as complete. Your custom domain can no longer use HTTPS.
 
 ![Disable HTTPS dialog](./media/cdn-custom-ssl/cdn-disable-custom-ssl-complete.png)
 
-### Operation progress
+#### Operation progress
 
 The following table shows the operation progress that occurs when you disable HTTPS. After you disable HTTPS, three operation steps appear in the Custom domain dialog. As each step becomes active, additional details appear under the step. After a step successfully completes, a green check mark appears next to it. 
 
@@ -204,6 +221,15 @@ The following table shows the operation progress that occurs when you disable HT
 
 ## Next steps
 
-- Learn how to set up a [custom domain on your Azure CDN endpoint](./cdn-map-content-to-custom-domain.md)
+What you learned:
 
+> [!div class="checklist"]
+> - Enabled the HTTPS protocol on your custom domain
+> - Validated the domain
+> - Disabled the HTTPS protocol on your custom domain
+
+Advance to the next tutorial to learn how to configure caching on your CDN endpoint.
+
+> [!div class="nextstepaction"]
+> [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md)
 
