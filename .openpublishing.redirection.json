@@ -18041,11 +18041,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/location-based-services/index.yml",
-            "redirect_url": "/azure/azure-maps/index",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/location-based-services/quick-demo-map-app.md",
             "redirect_url": "/azure/azure-maps/quick-demo-map-app",
             "redirect_document_id": true
