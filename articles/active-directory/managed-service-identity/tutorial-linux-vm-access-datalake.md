@@ -55,16 +55,13 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 
 ## Enable MSI on your VM
 
-You can use MSI for a virtual machine to get access tokens from Azure AD without needing to put credentials in your code. Enabling MSI installs the MSI VM extension on your VM, and it enables MSI in Azure Resource Manager.  
+A VM MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling Managed Service Identity on a VM, does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
 
 1. For **Virtual Machine**, select the virtual machine that you want to enable MSI on.
 2. In the left pane, select **Configuration**.
 3. You see **Managed service identity**. To register and enable MSI, select **Yes**. If you want to disable it, select **No**.
    !["Register with Azure Active Directory" selection](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Select **Save**.
-5. If you want to check which extensions are on this Linux VM, select **Extensions**. If MSI is enabled, **ManagedIdentityExtensionforLinux** appears in the list.
-
-   ![List of extensions](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## Grant your VM access to Azure Data Lake Store
 
@@ -102,7 +99,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 3. In the terminal window, by using cURL, make a request to the local MSI endpoint to get an access token for the Data Lake Store file system. The resource identifier for Data Lake Store is "https://datalake.azure.net/".  It's important to include the trailing slash in the resource identifier.
     
    ```bash
-   curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   
+   curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -H Metadata:true   
    ```
     
    A successful response returns the access token that you use to authenticate to Data Lake Store:

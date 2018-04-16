@@ -111,6 +111,8 @@ To configure single sign-on for an application, follow these steps:
 
 11. Additionally, you can also provide credentials on behalf of the user by selecting the rows of the users and clicking on **Update Credentials** and entering the username and password on behalf of the users. Otherwise, users be prompted to enter the credentials themselves upon launch.
 
+12. **Optional:** For certain social media applications like Twitter and Facebook, there is also the option to enable automatic rollover of the password for the application at a selected frequency. To enable this select **I want Azure AD to automatically manage this user or group's password** while entering credentials on behalf of a user or group. Then select the **Rollover frequency (in weeks)**.
+
 ## Assign a user to an application directly
 
 To assign one or more users to an application directly, follow these steps:
