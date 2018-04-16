@@ -8,7 +8,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 05/07/2018
 ms.author: v-geberr;
 ---
 
@@ -416,6 +416,33 @@ Another example utterance, using a synonym for Paris:
     }
   ]
 }
+```
+
+
+## Sentiment analysis
+If Sentiment analysis is configured, the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) documentation.
+
+### Sentiment data
+Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data.
+
+<!-- TBD: verify JSON-->
+```JSON
+{
+    "score": 0.9999237060546875,
+    "id": "1"
+}
+```
+
+### Key phrase extraction entity data
+The key phrase extraction entity returns key phrases in the utterance, provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+
+<!-- TBD: verify JSON-->
+```JSON
+"keyPhrases": [
+    "places",
+    "beautiful views",
+    "favorite trail"
+]
 ```
 
 ## Data matching multiple entities
