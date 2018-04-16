@@ -17,7 +17,7 @@ ms.date: 04/14/2018
 ms.author: parakhj
 
 ---
-# Azure Active Directory B2C: Allow users to sign into a multi-tenant Azure AD identity provider using custom policies
+# Azure Active Directory B2C: Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
