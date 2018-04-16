@@ -4,7 +4,7 @@ description: This topic shows how to create a job input from a local file.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: cfowler
 editor: ''
 
 ms.service: media-services
@@ -16,9 +16,7 @@ ms.author: juliako
 
 # Create a job input from a local file
 
-In Media Services v3, when you submit Jobs to process your videos, you have to tell Media Services where to find the input video. The input video can be stored as a Media Service Asset, in which case you create an input asset based on a file (stored locally or in Azure Blob storage). You can also specify an HTTPS URL (for example, a SAS URL) as a job input.
-
-This topic shows how to create a job input from a local file. For a full example, see this [github sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/MediaServicesV3Tutorials/MediaServicesV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
+In Media Services v3, when you submit Jobs to process your videos, you have to tell Media Services where to find the input video. The input video can be stored as a Media Service Asset, in which case you create an input asset based on a file (stored locally or in Azure Blob storage). This topic shows how to create a job input from a local file. For a full example, see this [github sample](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
 ## .Net sample
 
