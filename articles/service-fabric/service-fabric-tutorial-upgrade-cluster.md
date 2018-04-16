@@ -94,7 +94,7 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 > [!IMPORTANT]
 > The cluster runtime upgrade may take a long time to complete. PowerShell is blocked while the upgrade is running. You can use another PowerShell session to check the status of the upgrade.
 
-The status of the upgrade can be monitored with either PowerShell or the `sfctl` CLI.
+The status of the upgrade can be monitored with either PowerShell or the Service Fabric CLI (sfctl).
 
 First connect to the cluster with the SSL certificate created in the first part of the tutorial. Use the `Connect-ServiceFabricCluster` cmdlet or `sfctl cluster upgrade-status`.
 

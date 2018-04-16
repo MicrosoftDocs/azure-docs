@@ -34,6 +34,7 @@ We have recently moved Service Fabric Java binaries from the Service Fabric Java
  sudo apt-get install openjdk-8-jdk-headless
  sudo apt-get install gradle
  ```
+ 
 4. Update the install/uninstall scripts of your application to use the new Service Fabric CLI following the steps mentioned [here](service-fabric-application-lifecycle-sfctl.md). You can refer to our getting-started [examples](https://github.com/Azure-Samples/service-fabric-java-getting-started) for reference.
 
 >[!TIP]

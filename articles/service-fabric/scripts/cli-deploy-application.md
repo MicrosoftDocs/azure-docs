@@ -1,6 +1,6 @@
 ﻿---
-title: Azure Service Fabric CLI Script Deploy Sample
-description: Deploy an application to an Azure Service Fabric cluster using the Azure Service Fabric CLI
+title: Service Fabric CLI Script Deploy Sample
+description: Deploy an application to an Azure Service Fabric cluster using the Service Fabric CLI
 services: service-fabric
 documentationcenter: 
 author: Thraka
@@ -13,7 +13,7 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 12/06/2017
+ms.date: 04/16/2018
 ms.author: adegeo
 ms.custom: mvc
 ---

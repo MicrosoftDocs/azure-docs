@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric CLI- sfctl compose| Microsoft Docs
+title: Service Fabric CLI- sfctl compose| Microsoft Docs
 description: Describes the Service Fabric CLI sfctl compose commands.
 services: service-fabric
 documentationcenter: na

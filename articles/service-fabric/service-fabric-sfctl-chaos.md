@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric CLI- sfctl choas| Microsoft Docs
+title: Service Fabric CLI- sfctl choas| Microsoft Docs
 description: Describes the Service Fabric CLI sfctl chaos commands.
 services: service-fabric
 documentationcenter: na

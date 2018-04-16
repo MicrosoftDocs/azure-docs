@@ -23,15 +23,15 @@ When a client connects to a Service Fabric cluster node, the client can be authe
 
 <a id="connectsecureclustercli"></a> 
 
-## Connect to a secure cluster using Azure Service Fabric CLI (sfctl)
+## Connect to a secure cluster using Service Fabric CLI (sfctl)
 
-There are a few different ways to connect to a secure cluster using the Service Fabric CLI (sfctl). When using a client
+There are a few different ways to connect to a secure cluster using Service Fabric CLI (sfctl). When using a client
 certificate for authentication, the certificate details must match a certificate deployed to the cluster nodes. If your
 certificate has Certificate Authorities (CAs), you need to additionally specify the trusted CAs.
 
 You can connect to a cluster using the `sfctl cluster select` command.
 
-Client certificates can be specified in two different fashions, either as a cert and key pair, or as a single pem
+Client certificates can be specified in two different ways, either as a cert and key pair, or as a single pem
 file. For password protected `pem` files, you will be prompted automatically to enter the password.
 
 To specify the client certificate as a pem file, specify the file path in the `--pem` argument. For example:
