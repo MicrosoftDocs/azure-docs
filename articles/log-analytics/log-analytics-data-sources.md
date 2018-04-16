@@ -27,7 +27,7 @@ collecting data, solutions typically include log searches and views to help you 
 
 
 ## Summary of data sources
-The following table lists the data sources that are currently available in Log Analytics.  Each has a link to a separate article providing detail for that data source.   It also provides information on their method and frequency of data collection into Log Analytics.  You can use the information in this article to identify the different solutions available and to understand the data flow and connection requirements for different management solutions. For explanations of the columns, see [Data collection details for management solutions in Azure](monitoring-solutions-inventory.md#explanation-of-columns).
+The following table lists the data sources that are currently available in Log Analytics.  Each has a link to a separate article providing detail for that data source.   It also provides information on their method and frequency of data collection into Log Analytics.  You can use the information in this article to identify the different solutions available and to understand the data flow and connection requirements for different management solutions. For explanations of the columns, see [Data collection details for management solutions in Azure](../monitoring/monitoring-solutions-inventory.md#explanation-of-columns).
 
 
 | Data source | Platform | Microsoft monitoring agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
