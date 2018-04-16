@@ -38,7 +38,7 @@ You can open a support request if you can't find the information you're looking 
 
 When the support ticket is created, it is added to the support queue. Response time varies, based on the Support Plan and Severity (business impact) of the issue. For more information, see [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/).
 
-To check the status of an incident that you've filed, see [All support requests requests](../azure-supportability/how-to-create-azure-support-request.md#all-support-requests).
+To check the status of an incident that you've filed, see [All support requests](../azure-supportability/how-to-create-azure-support-request.md#all-support-requests).
 
 
 ## Next steps
