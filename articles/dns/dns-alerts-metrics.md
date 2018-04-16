@@ -63,7 +63,7 @@ To view this metric, select Metrics (preview) explorer experience from the Monit
 
 ## Alerts in Azure DNS
 Azure Monitor provides the capability to alert against available metric values. The DNS metrics are available in the new Alert configuration experience. As described in detail in the [Azure Monitor alerts documentation](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), you can select DNS Zone as the resource, choose the Metric signal type, and configure the alert logic and other parameters such as **Period** and **Frequency**. You can further define an [Action Group](../monitoring-and-diagnostics/monitoring-action-groups.md) for when the alert condition is met, whereby the alert will be delivered via the chosen actions. 
-For more information on how to configure alerting for Azure Monitor metrics, see [Create, view, and manage alerts using Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)]. 
+For more information on how to configure alerting for Azure Monitor metrics, see [Create, view, and manage alerts using Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
 ## Next steps
 - Learn more about [Azure DNS](dns-overview.md).
