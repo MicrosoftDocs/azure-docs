@@ -186,7 +186,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 ```
 
 > [!TIP] 
-> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md#find-outbound-ips?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
 ### Connect to production MySQL server locally
