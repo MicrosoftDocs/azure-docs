@@ -1,6 +1,6 @@
 ﻿---
 title: Configure an Azure web application to read a secret from Key vault | Microsoft Docs
-description: Tutorial - Configure an application to read a secret from Key vault
+description: Tutorial - Configure an ASP.Net core application to read a secret from Key vault
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -26,9 +26,11 @@ In this tutorial, you go over the necessary steps to get an Azure web applicatio
 > * Enable managed service identities
 > * Grant the required permissions for the application to read data from Key vault.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 To log in to the Azure using the CLI, you can type:
 
@@ -249,3 +251,5 @@ To delete a resource group and all its resources, use the **az group delete** co
 
 ## Next steps
 
+* For information on how to connect to Key Vault from a web application using the previous way to authenticate to Key Vault review [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md)
+* For an Overview of Azure Key Vault capabilities read [Azure Key Vault Overview](key-vault-overview.md)
