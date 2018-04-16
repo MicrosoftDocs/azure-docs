@@ -1,18 +1,13 @@
 ---
 title: Analyzers in Azure Search | Microsoft Docs
 description: Assign analyzers to searchable text fields in an index to replace default standard Lucene with custom, predefined or language-specific alternatives.
-services: search
-manager: jhubbard
-author: HeidiSteen
-documentationcenter: ''
 
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: heidist
+manager: cgronlun
+author: HeidiSteen
 ---
 
 # Analyzers in Azure Search
