@@ -119,6 +119,8 @@ An on-premises network gateway can exchange routes with an Azure virtual network
 - **VPN**: You can, optionally use BGP. For details, see [BGP with site-to-site VPN connections](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 When you exchange routes with Azure using BGP, a separate route is added to the route table of all subnets in a virtual network for each advertised prefix. The route is added with *Virtual network gateway* listed as the source and next hop type. 
+
+BGP route propagation can be disabled on a given subnet using an specific property on the route table resource, when you exchange routes with Azure using BGP, routes will not be added to the route table of all subnets with BGP propagation disabled. Connectivity with VPN connections can be achieved using [custom routes](#custom-routes) with next hop type VPN. For details, see [How to disable BGP route propagation](/manage-route-table#create-a-route-table.md).
  
 ## How Azure selects a route
 
