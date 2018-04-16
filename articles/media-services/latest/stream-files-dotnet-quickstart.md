@@ -132,17 +132,21 @@ To run the app and access the Media Services APIs, you need to specify the corre
 
 ## Run the sample app
 
-When you run the app, a URL that can be used to playback the video using the Apple's **HLS** protocol will be displayed:
+When you run the app, URLs that can be used to playback the video using different protocols are displayed. 
 
 1. Press Ctrl+F5 to run the *EncodeAndStreamFiles* application.
-2. Copy the streaming URL from the console.
+2. Choose the Apple's **HLS** protocol (ends with *manifest(format=m3u8-aapl)*) and copy the streaming URL from the console.
+
+![Output](./media/stream-files-tutorial-with-api/output.png)
 
 In the sample's [source code](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs), you can see how the URL is built. To build it, you need to concatenate the streaming endpoint's host name and the streaming locator path.  
 
 ## Test with Azure Media Player
 
-1. Open a web browser and browse to https://aka.ms/azuremediaplayer/.
-2. In the **URL:** box, paste the streaming URL value you got when you ran the application.  
+To test the stream, this article uses Azure Media Player. 
+
+1. Open a web browser and navigate to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+2. In the **URL:** box, paste one of the streaming URL values you got when you ran the application. 
 3. Press **Update Player**.
 
 Azure Media Player can be used for testing but should not be used in a production environment. 
