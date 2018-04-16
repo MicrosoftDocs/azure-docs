@@ -115,6 +115,8 @@
     items: 
     - name: Altering data
       href: luis-concept-data-alteration.md
+    - name: Converting data
+      href: luis-concept-data-conversion.md
     - name: Extracting data
       href: luis-concept-data-extraction.md
     - name: Data Storage

@@ -35,6 +35,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [Utterances][utterances] | 15,000|
 | [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanum and period (.) |
 
+
 ## Intent and entity naming
 Do not use the following characters in intent and entity names:
 
@@ -54,6 +55,7 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 |Authoring/Starter|1 million/month, 5/second|1 thousand/month, 5/second|Authoring your LUIS app|
 |[Subscription][pricing] - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
 |[Subscription][pricing] - S0 - Basic tier|invalid|50/second|Querying your LUIS endpoint|
+|[Speech-to-intent][speech-to-intent-pricing]|invalid|<!-- TBD: ? -->|Convert spoken utterance to text utterance and return LUIS results|
 
 ## Keyboard controls
 
@@ -72,3 +74,5 @@ Your sign in access is for **60 minutes**. After this time period, you will get 
 [utterances]:luis-concept-utterance.md
 [luis-how-to-manage-versions]:luis-how-to-manage-versions.md
 [pricing]:https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
+<!-- TBD: fix this link -->
+[speech-to-intent-pricing]:http://azure.microsoft.com/pricing/details/cognitive-services/speech-to-intent
