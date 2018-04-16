@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/16/2018
 ms.author: danlep
 
 ---
@@ -45,14 +45,23 @@ To create the keys, a preferred command is `ssh-keygen`, which is available with
 
 SSH keys are by default kept in the `~/.ssh` directory.  If you do not have a `~/.ssh` directory, the `ssh-keygen` command creates it for you with the correct permissions.
 
-The following command creates a passphrase-secured (encrypted) SSH key pair using 2048-bit RSA, and it is commented for easy identification. If an SSH key pair exists in the current location, those files are overwritten. 
+### Basic example
+
+The following `ssh-keygen` command generates 2048-bit SSH RSA public and private key files by default in the `~/.ssh` directory. If an SSH key pair exists in the current location, those files are overwritten.
+
+```bash
+ssh-keygen -t rsa -b 2048
+```
+
+### Detailed example
+The following example shows additional command options to create an SSH RSA key pair. If an SSH key pair exists in the current location, those files are overwritten. 
 
 ```bash
 ssh-keygen \
     -t rsa \
-    -b 2048 \
+    -b 4096 \
     -C "azureuser@myserver" \
-    -f ~/.ssh/id_rsa \
+    -f ~/.ssh/mykeys/myprivatekey \
     -N mypassphrase
 ```
 
@@ -60,11 +69,15 @@ ssh-keygen \
 
 `ssh-keygen` = the program used to create the keys
 
-`-t rsa` = type of key to create which is the RSA format
+`-t rsa` = type of key to create, in this case in the RSA format
 
-`-b 2048` = the number of bits in the key
+`-b 4096` = the number of bits in the key, in this case 4096
 
-`-C "azureuser@myserver"` = a comment appended to the end of the public key file to easily identify it. Normally an email is used as the comment, but use whatever works best for your infrastructure.
+`-C "azureuser@myserver"` = a comment appended to the end of the public key file to easily identify it. Normally an email address is used as the comment, but use whatever works best for your infrastructure.
+
+`-f ~/.ssh/mykeys/myprivatekey` = the filename of the private key file, if you choose not to use the default name. A corresponding public key file appended with `.pub` is generated in the same directory. The directory must exist.
+
+`-N mypassphrase` = an additional passphrase used to access the private key file. 
 
 ### Example of ssh-keygen
 
@@ -114,7 +127,7 @@ It is *strongly* recommended to add a passphrase to your private key. Without a 
 
 ## Generate keys automatically during deployment
 
-If you use the [Azure CLI 2.0](/cli/azure) to create your VM, you can optionally generate SSH public and private key files (if they don't already exist) by running the [az vm create](/cli/azure/vm#az_vm_create) command with the `--generate-ssh-keys` option. The keys are stored in the ~/.ssh directory. 
+If you use the [Azure CLI 2.0](/cli/azure) to create your VM, you can optionally generate SSH public and private key files by running the [az vm create](/cli/azure/vm#az_vm_create) command with the `--generate-ssh-keys` option. The keys are stored in the ~/.ssh directory. Note that this command option does not overwrite keys if they already exist in that location.
 
 ## Provide SSH public key when deploying a VM
 
@@ -176,14 +189,14 @@ The private key passphrase is now stored in `ssh-agent`.
 If you have already created a VM, you can install the new SSH public key to your Linux VM with a command similar to the following:
 
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub ahmet@myserver
+ssh-copy-id -i ~/.ssh/id_rsa.pub azureuser@myserver
 ```
 
 ## Create and configure an SSH config file
 
-We recommend that you create and configure an `~/.ssh/config` file to speed up log-ins and to optimize your SSH client behavior.
+You can create and configure an SSH config file (`~/.ssh/config`) to speed up log-ins and to optimize your SSH client behavior. 
 
-The following example shows a standard configuration.
+The following example shows a simple configuration that you can use to quickly log in as a user to a specific VM using the default SSH private key. 
 
 ### Create the file
 
@@ -199,51 +212,29 @@ vim ~/.ssh/config
 
 ### Example configuration
 
-Add the following configuration settings to the file.
+Add configuration settings appropriate for your host VM.
 
 ```bash
 # Azure Keys
-Host fedora22
+Host myvm
   Hostname 102.160.203.241
-  User ahmet
+  User azureuser
 # ./Azure Keys
-# Default Settings
-Host *
-  PubkeyAuthentication=yes
-  IdentitiesOnly=yes
-  ServerAliveInterval=60
-  ServerAliveCountMax=30
-  ControlMaster auto
-  ControlPath ~/.ssh/SSHConnections/ssh-%r@%h:%p
-  ControlPersist 4h
-  IdentityFile ~/.ssh/id_rsa
 ```
 
-This SSH config gives you sections for each server to enable each to have its own dedicated key pair. The default settings (`Host *`) are for any hosts that do not match any of the specific hosts higher up in the config file.
-
-### Config file explained
-
-`Host` = the name of the host being called on the terminal. `ssh fedora22` tells `SSH` to use the values in the settings block labeled `Host fedora22`.  The label associated with `Host` can be any value that is logical for your usage and does not represent the actual hostname of any server.
-
-`Hostname 102.160.203.241` = the IP address or DNS name for the server being accessed.
-
-`User ahmet` = the remote user account to use when logging in to the server.
-
-`PubKeyAuthentication yes` = tells SSH you want to use an SSH key to log in.
-
-`IdentityFile /home/ahmet/.ssh/id_id_rsa` = the SSH private key and corresponding public key to use for authentication.
+You can add configurations for additional hosts to enable each to use its own dedicated key pair. See [SSH config file](https://www.ssh.com/ssh/config/) for more advanced configuration options.
 
 ## SSH into Linux without a password
 
 Now that you have an SSH key pair and a configured SSH config file, you are able to log in to your Linux VM quickly and securely. The first time you log in to a server using an SSH key, the command prompts you for the passphrase for that key file.
 
 ```bash
-ssh fedora22
+ssh myvm
 ```
 
 ### Command explained
 
-When `ssh fedora22` is executed, SSH first locates and loads any settings from the `Host fedora22` block, and then loads the remaining settings from the last block, `Host *`.
+When `ssh my vm` is executed, SSH locates and loads any settings from the `Host myvm` block in the SSH config file.
 
 ## Next steps
 
