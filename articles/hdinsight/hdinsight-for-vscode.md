@@ -312,7 +312,6 @@ We support Livy configuration, that could be set at the project settings in work
     | conf | Spark configuration properties | Map of key=val |
 
     Response Body   
-
     The created Batch object.
 
     | name | description | type | 
