@@ -73,7 +73,7 @@ In order to run sync from PowerShell, [update to the latest](https://github.com/
 
 ## Connections
 
-On your server's Overview page, there are two server names. If you haven't yet configured scale-out for a server, both server names work the same. Once you configure scale-out for a server, you will need to specify the appropriate server name depending on the connection type. 
+On your server's Overview page, there are two server names. If you haven't yet configured scale-out for a server, both server names work the same. Once you configure scale-out for a server, you need to specify the appropriate server name depending on the connection type. 
 
 For end-user client connections like Power BI Desktop, Excel, and custom apps, use **Server name**. 
 
