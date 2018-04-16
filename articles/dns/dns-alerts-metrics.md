@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/15/2018
+ms.date: 04/17/2018
 ms.author: kumud
 ---
 
@@ -23,11 +23,13 @@ Azure DNS is a hosting service for DNS domains that provides name resolution usi
 ## Azure DNS Metrics
 
 Azure DNS provides metrics for customers to enable them to monitor specific aspects of their DNS ones hosted in the service. In addition, with Azure DNS metrics, you can configure and receive alerts based on conditions of interest. The metrics are provided via the [Azure Monitor service](../monitoring-and-diagnostics/index.yml). 
-Azure DNS provides the following metrics via Azure Monitor for your DNS zones.  You can also see the [definition of these metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkdnszones) on the Azure Monitor documentation page. 
-•	QueryVolume
-•	RecordSetCount
-•	RecordSetCapacityUtilization
+Azure DNS provides the following metrics via Azure Monitor for your DNS zones:
 
+-	QueryVolume
+-	RecordSetCount
+-	RecordSetCapacityUtilization
+
+You can also see the [definition of these metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkdnszones) on the Azure Monitor documentation page.
 >[!NOTE]
 > At this time, these metrics are only available for Public DNS zones hosted in Azure DNS. If you have Private Zones hosted in Azure DNS, these metrics will not provide data for those zones. 
 
