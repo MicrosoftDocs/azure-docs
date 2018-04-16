@@ -55,3 +55,5 @@
     href: https://azure.microsoft.com/en-us/regions/services/
   - name: FAQ
     href: cost-mgt-faq.md
+  - name: Contact support
+    href: support-request-cost-mgt.md
