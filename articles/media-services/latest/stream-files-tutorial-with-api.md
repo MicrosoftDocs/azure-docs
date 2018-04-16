@@ -350,9 +350,9 @@ static void CleanUp(IAzureMediaServicesClient client, string resourceGroupName, 
 ## Run the sample app
 
 1. Press Ctrl+F5 to run the *EncodeAndStreamFiles* application.
-2. Copy the streaming URL from the console.
+2. Copy one of the streaming URLs from the console.
 
-This example displays URLs that can be used to play back the video using different protocol:
+This example displays URLs that can be used to play back the video using different protocols:
 
 ![Output](./media/stream-files-tutorial-with-api/output.png)
 
