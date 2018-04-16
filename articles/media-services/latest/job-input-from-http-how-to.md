@@ -4,7 +4,7 @@ description: This topic shows how to create a job input from an HTTP(s) URL.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: cfowler
 editor: ''
 
 ms.service: media-services
