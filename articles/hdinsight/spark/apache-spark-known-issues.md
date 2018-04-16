@@ -49,7 +49,7 @@ Spark History Server is not started automatically after a cluster is created.
 Manually start the history server from Ambari.
 
 ## Permission issue in Spark log directory
-When hdiuser submits a job with spark-submit, there is an error java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied) and the driver log is not written. 
+When hdiuser submits a job with spark-submit, there is an error, java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied), and the driver log is not written. 
 
 **Mitigation:**
 
@@ -60,7 +60,7 @@ When hdiuser submits a job with spark-submit, there is an error java.io.FileNotF
 
 ## Spark-Phoenix connector is not supported
 
-Currently, the Spark-Phoenix connector is not supported with an HDInsight Spark cluster.
+The Spark-Phoenix connector is not supported by HDInsight Spark clusters.
 
 **Mitigation:**
 

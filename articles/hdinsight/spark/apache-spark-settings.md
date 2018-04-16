@@ -52,7 +52,7 @@ When you select a particular version of Spark, your cluster includes the default
     spark.sql.files.openCostInBytes 1099511627776
 ```
 
-The example shown above overrides several default values for five Spark configuration parameters.  These are the compression codec, Hadoop mapreduce split minimum size and parquet block sizes, and also the Spar SQL partition and open file sizes default values.  These configuration changes are chosen because the associated data and jobs (in this example, genomic data) have particular characteristics which will perform better using these custom configuration settings.
+The example shown above overrides several default values for five Spark configuration parameters.  These are the compression codec, Hadoop mapreduce split minimum size and parquet block sizes, and also the Spar SQL partition and open file sizes default values.  These configuration changes are chosen because the associated data and jobs (in this example, genomic data) have particular characteristics, which will perform better using these custom configuration settings.
 
 ---
 
@@ -121,7 +121,7 @@ YARN controls the maximum sum of memory used by the containers on each Spark nod
 
 ## Change parameters for an application running in Jupyter notebook
 
-Spark clusters in HDInsight include a number of components by default. Each of these components includes default configuration values which can be overridden as needed.
+Spark clusters in HDInsight include a number of components by default. Each of these components includes default configuration values, which can be overridden as needed.
 
 * Spark Core - Spark Core, Spark SQL, Spark streaming APIs, GraphX, and MLlib
 * Anaconda - a python package manager
@@ -143,7 +143,7 @@ The code below shows how to change the configuration for an application running 
 
 ## Conclusion
 
-There are a number of core configuration settings that you need to monitor and adjust to ensure your Spark jobs run in a predictable and performant way. These settings help determine the best Spark cluster configuration for your particular workloads.  You'll also need to monitor the execution of long-running and/or resource-consuming Spark job executions.  The most common challenges center around memory pressure due to improper configurations (particularly incorrectly-sized executors), long-running operations, and tasks which result in Cartesian operations.
+There are a number of core configuration settings that you need to monitor and adjust to ensure your Spark jobs run in a predictable and performant way. These settings help determine the best Spark cluster configuration for your particular workloads.  You'll also need to monitor the execution of long-running and/or resource-consuming Spark job executions.  The most common challenges center around memory pressure due to improper configurations (particularly incorrectly-sized executors), long-running operations, and tasks, which result in Cartesian operations.
 
 ## Next steps
 
