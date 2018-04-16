@@ -308,7 +308,7 @@ If you no longer need any of the resources in your resource group, including the
 In the **CloudShell**, execute the following command:
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name amsResourceGroup
 ```
 
 ## Next steps
