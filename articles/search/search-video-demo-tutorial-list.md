@@ -1,19 +1,11 @@
 ---
 title: Videos, samples, and tutorials in Azure Search | Microsoft Docs
-description: Central list of all videos, samples, demos and tutorials created for Azure Search, a hosted cloud service on MIcrosoft Azure.
-services: search
-documentationcenter: ''
+description: Central list of all videos, samples, demos and tutorials created for Azure Search, a hosted cloud service on Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: ''
-tags: azure-portal
+manager: cgronlun
 
-ms.assetid: 4ffa17a3-9e2b-4172-ad77-30c6a1354b24
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: heidist
 
