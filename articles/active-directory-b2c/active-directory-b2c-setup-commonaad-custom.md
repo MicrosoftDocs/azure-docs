@@ -111,11 +111,11 @@ You can define Azure AD as a claims provider by adding Azure AD to the `<ClaimsP
         <Item Key="HttpBinding">POST</Item>
         <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
         
-        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. If you would like all tenants to be able to sign in, comment this line and uncomment the following line. -->
-        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
+        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. If you would like only specific tenants to be able to sign in, uncomment the line below and update the GUIDs. -->
+        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item> -->
 
-        <!-- The commented key below specifies that users from any tenant can sign-in. -->
-        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+        <!-- The commented key below specifies that users from any tenant can sign-in. Comment or remove the line below if using the line above. -->
+        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item>
       </Metadata>
       <CryptographicKeys>
       <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
@@ -151,7 +151,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the `<ClaimsP
 You may want to update the list of valid token issuers and restrict access to specific list of Azure AD tenants users can sign-in. To obtain the values, you will need to look at the metadata for each of the specific Azure AD tenants that you would like to have users sign in from. The format of the data looks like the following: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, where `yourAzureADtenant` is your Azure AD tenant name (contoso.com or any other Azure AD tenant).
 1. Open your browser and go to the metadata URL.
 1. In the browser, look for the 'issuer' object and copy its value. It should look like the following: `https://sts.windows.net/{tenantId}/`.
-1. Paste the value for the `ValidTokenIssuerPrefixes` key. You can add multiple by separating them using a comma. 
+1. Paste the value for the `ValidTokenIssuerPrefixes` key. You can add multiple by separating them using a comma. An example of this is commented in the sample XML above.
 
 > [!NOTE]
 > Using `https://sts.windows.net` as a prefix value will allow ALL Azure AD users to sign into your app.
@@ -160,17 +160,15 @@ You may want to update the list of valid token issuers and restrict access to sp
 
 ### Step 4.1 Make a copy of the user journey
 
-You now need to add the Azure AD identity provider to one of your user journeys. At this point, the identity provider has been set up, but it’s not available in any of the sign-up/sign-in screens. 
-
-> [!NOTE] if you already copied the <UserJourneys> element from the base file of your policy to the TrustFrameworkExtensions.xml extension file, you can skip this section.
+You now need to add the Azure AD identity provider to one of your user journeys. At this point, the identity provider has been set up, but it’s not available in any of the sign-up/sign-in screens.
 
 To make it available, we will create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider:
 
 1. Open the base file of your policy (for example, TrustFrameworkBase.xml).
 1. Find the `<UserJourneys>` element and copy the entire `<UserJourney>` node that includes `Id="SignUpOrSignIn"`.
-2. Open the extension file (for example, TrustFrameworkExtensions.xml) and find the `<UserJourneys>` element. If the element doesn't exist, add one.
-3. Paste the entire `<UserJourney>` node that you copied as a child of the `<UserJourneys>` element.
-
+1. Open the extension file (for example, TrustFrameworkExtensions.xml) and find the `<UserJourneys>` element. If the element doesn't exist, add one.
+1. Paste the entire `<UserJourney>` node that you copied as a child of the `<UserJourneys>` element.
+1. Rename the ID of the new user journey (for example, rename as `SignUpOrSignUsingAzureAD`). 
 
 ### Step 4.2 Display the "button"
 
@@ -200,34 +198,38 @@ Now that you have a button in place, you need to link it to an action. The actio
 1. Update `TechnicalProfileReferenceId` to the ID of the technical profile you created earlier (Common-AAD).
 
 ## Step 5: Upload the policy to your tenant
+
 1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then select **Azure AD B2C**.
-
 2. Select **Identity Experience Framework**.
-
 3. Select **All Policies**.
-
 4. Select **Upload Policy**.
-
 5. Select the **Overwrite the policy if it exists** check box.
+6. Upload the `TrustFrameworkExtensions.xml` file and ensure it passes validation.
 
-6. Upload the *TrustFrameworkBase.xml* and *TrustFrameworkExtensions.xml* files, and ensure that they pass validation.
+### Update the RP file 
+
+You now need to update the relying party (RP) file that will initiate the user journey that you just created:
+ 
+1. Make a copy of SignUpOrSignIn.xml in your working directory, and rename it (for example, rename it to SignUpOrSignInWithAAD.xml).  
+1. Open the new file and update the `PolicyId` attribute for `<TrustFrameworkPolicy>` with a unique value (for example, SignUpOrSignInWithAAD). This will be the name of your policy (for example, B2C\_1A\_SignUpOrSignInWithAAD). 
+1. Modify the `ReferenceId` attribute in `<DefaultUserJourney>` to match the ID of the new user journey that you created (SignUpOrSignUsingAzureAD). 
+1. Save your changes, and upload the file. 
 
 ## Step 6: Test the custom policy by using Run Now
-1. Select **Azure AD B2C Settings**, and then select **Identity Experience Framework**.
 
-    >[!NOTE]
-    >Run Now requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
+1. Select **Azure AD B2C Settings**, and then select **Identity Experience Framework**.
+    > [!NOTE]
+    > Run Now requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
 
 1. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.
-
 1. You should now be able to sign in by using the Azure AD account.
 
-## Step 7: (Optional) Register the Azure AD account claims provider to the Profile-Edit user journey
-You might also want to add the Azure AD account identity provider to your `ProfileEdit` user journey. To make the user journey available, repeat "Step 4." This time, select the `<UserJourney>` node that contains `Id="ProfileEdit"`. Save, upload, and test your policy.
+## (Optional) Step 7: Register the Azure AD account claims provider to the Profile-Edit user journey
 
-
+You might also want to add the Azure AD account identity provider to your `ProfileEdit` user journey. To make the user journey available, repeat Steps 4 and 5. This time, select the `<UserJourney>` node that contains `Id="ProfileEdit"`. Save, upload, and test your policy.
 
 ## Troubleshooting
+
 To diagnose problems, read about [troubleshooting](active-directory-b2c-troubleshoot-custom.md).
 
 ## Next steps
