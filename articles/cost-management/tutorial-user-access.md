@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/09/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a  [free account](https://azure.
 
 Although you already have admin access, coworkers in your organization might also need to have admin access. In the Cloudyn portal, click the gear symbol in the upper right and select **User Management**. Click **Add New User** to add a new user.
 
-Enter required information about the user. You can leave the password field empty so that the user can set a new password on first sign in. A link with sign in information gets sent to the user by e-mail from Cloudyn when you select **Notify user by email**. Choose permissions to allow User Management so that the user can create and modify other users. Recipient Lists Management to allow the user to edit recipient lists.
+Enter required information about the user. The Login ID must be a valid e-mail address. Choose permissions to allow User Management so that the user can create and modify other users. Recipient Lists Management allow the user to edit recipient lists. A link with sign in information gets sent to the user by e-mail from Cloudyn when you select **Notify user by email**. On first sign-in the user sets a password.
 
 Under **User has admin access**, the root entity of your organization is selected. Leave root selected and then save the user information. Selecting the root entity allows the user to have admin permission not only to the root entity in the tree, but also to all the entities that reside below it.  
   ![add new user with admin access](.\media\tutorial-user-access\new-admin-access.png)
@@ -61,7 +61,7 @@ As you build the tree, consider how you want or need to see their costs segregat
 
 When you registered your Azure agreement or account with Cloudyn, your Azure resource data including usage, performance, billing, and tag data from your subscriptions was copied to your Cloudyn account. However, you must manually create your entity tree. If you skipped the Azure Resource Manager registration, then only billing data and a few asset reports are available in the Cloudyn portal.
 
-In the Cloudyn portal, click **Settings** in the upper right and select **Cloud Accounts**. You start with a single entity (root) and build your entity tree under the root. Here's an example of an entity hierarchy that might resemble many IT organizations after the tree is complete:
+In the Cloudyn portal, click the gear symbol in the upper right and select **Cloud Accounts**. You start with a single entity (root) and build your entity tree under the root. Here's an example of an entity hierarchy that might resemble many IT organizations after the tree is complete:
 
 ![entity tree](.\media\tutorial-user-access\entity-tree.png)
 

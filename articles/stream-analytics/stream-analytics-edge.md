@@ -1,21 +1,14 @@
 ---
-title: 'Azure Stream Analytics on IoT Edge (preview)'
+title: Azure Stream Analytics on IoT Edge (preview)
 description: Create edge jobs in Azure Stream Analytics and deploy them to devices runnning Azure IoT Edge.
-keywords: data stream, iot, edge
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 01/16/2017
 ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 01/16/2017
 ---
 
 # Azure Stream Analytics on IoT Edge (preview)
@@ -208,7 +201,7 @@ For more information, see [Docker documentation for Windows here](https://docs.d
 * [Third-party notice for Azure Stream Analytics on IoT Edge preview](https://go.microsoft.com/fwlink/?linkid=862828).
 
 ## Get help
-For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 
 ## Next steps

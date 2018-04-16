@@ -4,7 +4,7 @@ description: This article walks through the platform-supported migration of IaaS
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

@@ -102,7 +102,7 @@ $SpeechServiceURI =
 # $OAuthToken is the authorization token returned by the token service.
 $RecoRequestHeader = @{
   'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY';
-  'Transfer-Encoding' = 'chunked'
+  'Transfer-Encoding' = 'chunked';
   'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
 }
 

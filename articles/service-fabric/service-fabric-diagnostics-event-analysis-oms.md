@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric Event Analysis with OMS | Microsoft Docs
-description: Learn about visualizing and analyzing events using OMS for monitoring and diagnostics of Azure Service Fabric clusters.
+title: Azure Service Fabric Event Analysis with Log Analytics | Microsoft Docs
+description: Learn about visualizing and analyzing events using Log Analytics for monitoring and diagnostics of Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
 author: srrengar

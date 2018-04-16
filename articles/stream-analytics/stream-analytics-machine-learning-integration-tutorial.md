@@ -1,20 +1,14 @@
 ---
-title: Azure Stream Analytics and Machine Learning integration | Microsoft Docs
-description: How to use a user-defined function and Machine Learning in a Stream Analytics job
-keywords: ''
-documentationcenter: ''
+title: Azure Stream Analytics integration with Azure Machine Learning
+description: This article describes how to quickly set up a simple Azure Stream Analytics job that integrates Azure Machine Learning, using a user defined function.
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-
-ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/01/2018
-ms.author: sngun
 ---
 
 # Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning

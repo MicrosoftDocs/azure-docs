@@ -311,7 +311,7 @@ The virtual network rule feature for Azure SQL Database became available in late
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 

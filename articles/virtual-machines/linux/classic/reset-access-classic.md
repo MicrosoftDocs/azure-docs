@@ -4,7 +4,7 @@ description: How to use the VMAccess extension from the Azure Command-Line Inter
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX

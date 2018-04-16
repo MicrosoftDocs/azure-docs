@@ -8,7 +8,7 @@ manager: "jhubbard"
 ms.service: "sql-database"
 ms.custom: "scale out apps"
 ms.topic: "article"
-ms.date: "11/08/2017"
+ms.date: 04/01/2018
 ms.author: "anjangsh; billgib; genemi"
 ---
 # Cross-tenant analytics using extracted data

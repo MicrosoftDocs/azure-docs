@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using .NET | Microsoft Docs
-description: In this quickstart, you create a storage account and a container. Then you use the storage client library for .NET to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+title: Azure Quickstart - Create a blob in object storage using .NET | Microsoft Docs
+description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for .NET to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: tamram
 ---
 
@@ -55,16 +55,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 
 This command clones the repository to your local git folder. To open the Visual Studio solution, look for the *storage-blobs-dotnet-quickstart* folder, open it, and double-click on *storage-blobs-dotnet-quickstart.sln*. 
 
-## Copy your credentials from the Azure portal
-
-The sample application needs to authenticate access to your storage account. To authenticate, you provide the application with your storage account credentials in the form of a connection string. To view your storage account credentials:
-
-1. Navigate to the [Azure portal](https://portal.azure.com).
-2. Locate your storage account.
-3. In the **Settings** section of the storage account overview, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.   
-4. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string. You will add the connection string value to an environment variable in the next step.
-
-    ![Screen shot showing how to copy a connection string from the Azure portal](media/storage-quickstart-blobs-dotnet/portal-connection-string.png)
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## Configure your storage connection string
 
