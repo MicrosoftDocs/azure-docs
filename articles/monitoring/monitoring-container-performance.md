@@ -130,5 +130,3 @@ The following table describes the information presented when you view Containers
 
 ## Search logs to analyze data
 When you're interested in looking for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally, Log Analytics can help.  Pre-defined queries are provided to immediately start using or to customize in order to return the information the way you want. 
-
-## Troubleshooting
