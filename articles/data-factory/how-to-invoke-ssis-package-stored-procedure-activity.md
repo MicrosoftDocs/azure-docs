@@ -1,6 +1,6 @@
 ---
-title: Invoke SSIS package using Azure Data Factory - Stored Procedure Activity | Microsoft Docs
-description: This article describes how to invoke a SQL Server Integration Services (SSIS) package from an Azure Data Factory pipeline using the Stored Procedure Activity.
+title: Run SSIS package using Stored Procedure Activity in Azure Data Factory | Microsoft Docs
+description: This article describes how to run a SQL Server Integration Services (SSIS) package from an Azure Data Factory pipeline using the Stored Procedure Activity.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -16,8 +16,8 @@ ms.date: 12/07/2017
 ms.author: jingwang
 
 ---
-# Invoke an SSIS package using stored procedure activity in Azure Data Factory
-This article describes how to invoke an SSIS package from an Azure Data Factory pipeline by using a stored procedure activity. 
+# Run an SSIS package using stored procedure activity in Azure Data Factory
+This article describes how to run an SSIS package from an Azure Data Factory pipeline by using a stored procedure activity. 
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Invoke SSIS packages using stored procedure activity in version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -118,7 +118,7 @@ In this section, you trigger a pipeline run and then monitor it.
 
 1. To trigger a pipeline run, click **Trigger** on the toolbar, and click **Trigger now**. 
 
-    ![Trigger now](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+    ![Trigger now](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
 2. In the **Pipeline Run** window, select **Finish**. 
 3. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
 
