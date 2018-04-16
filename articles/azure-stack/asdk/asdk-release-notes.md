@@ -56,8 +56,6 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- TBD -  IS ASDK --> You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
 
-- <!-- TBD -  IS ASDK --> In the dashboard of the admin portal, the Update tile fails to display information about updates. To resolve this issue, click on the tile to refresh it.
-
 -	<!-- TBD -  IS ASDK --> In the admin portal, you might see a critical alert for the Microsoft.Update.Admin component. The Alert name, description, and remediation all display as:  
     - *ERROR - Template for FaultType ResourceProviderTimeout is missing.*
 
@@ -96,8 +94,6 @@ This build includes the following improvements and fixes for Azure Stack.
 
 
 #### SQL and MySQL 
-- <!-- TBD -  IS ASDK --> It can take up to one hour before users can create databases in a new SQL or MySQL SKU.
-
 - <!-- TBD - ASDK --> The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
 
 #### App Service
@@ -110,13 +106,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 <!-- #### Identity -->
 
-#### Downloading Azure Stack Tools from GitHub
-- <!-- TBD -  IS ASDK --> When using the *invoke-webrequest* PowerShell cmdlet to download the Azure Stack tools from Github, you receive an error:     
-    -  *invoke-webrequest : The request was aborted: Could not create SSL/TLS secure channel.*     
 
-  This error occurs because of a recent GitHub support deprecation of the Tlsv1 and Tlsv1.1 cryptographic standards (the default for PowerShell). For more information, see [Weak cryptographic standards removal notice](https://githubengineering.com/crypto-removal-notice/).
-
-  To resolve this issue, add `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` to the top of the script to force the PowerShell console to use TLSv1.2 when downloading from GitHub repositories.
 
 
 
