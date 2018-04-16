@@ -161,7 +161,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, admin gets an error upon resolving the metadata.
 
-	a. In the **Metadata URL** textbox, paste **App Federation Metadata Url** value which you have copied from the Azure portal. and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
+	a. In the **Metadata URL** textbox, paste **App Federation Metadata Url** value which you have copied from the Azure portal and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
 
 	b. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **Confluence SAML SSO by Microsoft Domain and URLs** section on Azure portal.
 
@@ -184,10 +184,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	> [!NOTE]
 	> For more information about installation and troubleshooting, visit [MS Confluence SSO Connector Admin Guide](ms-confluence-jira-plugin-adminguide.md) and there is also [FAQ](ms-confluence-jira-plugin-faq.md) for your assistance
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
