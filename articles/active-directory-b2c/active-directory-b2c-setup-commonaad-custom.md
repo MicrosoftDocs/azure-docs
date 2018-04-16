@@ -30,6 +30,14 @@ This article shows you how to enable sign-in for users using the common endpoint
 
 Complete the steps in the [Getting started with custom policies](active-directory-b2c-get-started-custom.md) article.
 
+These steps include:
+ 	 
+1. Creating an Azure Active Directory B2C (Azure AD B2C) tenant.	+To enable sign-in for users using the multi-tenant Azure AD endpoint, you need to have a multi-tenant application registered in any of your Azure AD tenants. In this article, we will show you how to create a multi-tenant Azure AD application in your Azure AD B2C tenant. Then enable sign-in for users through the use of that multi-tenant Azure AD application.
+1. Creating an Azure AD B2C application.	
+1. Registering two policy-engine applications.	
+1. Setting up keys.	
+1. Setting up the starter pack.
+
 ## Step 1. Create a multi-tenant Azure AD app
 
 To enable sign-in for users using the multi-tenant Azure AD endpoint, you need to have a multi-tenant application registered in any of your Azure AD tenants. In this article, we will show you how to create a multi-tenant Azure AD application in your Azure AD B2C tenant. Then enable sign-in for users through the use of that multi-tenant Azure AD application.
@@ -37,14 +45,13 @@ To enable sign-in for users using the multi-tenant Azure AD endpoint, you need t
 >[!NOTE]
 > If you would like Azure AD users **and users with Microsoft accounts** to sign in, skip this section and instead register an application in the [Microsoft developer portal](https://apps.dev.microsoft.com).
 
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the top bar, select your account. From the **Directory** list, choose the Azure AD B2C tenant where you want to register Azure AD application (fabrikamb2c.onmicrosoft.com).
-1. Select **More services** in the left pane, and search for "App registrations."
-1. Select **New application registration**.
-1. Enter a name for your application (for example, `Azure AD B2C App`).
-1. Select **Web app / API** for the application type.
-1. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
+1. On the top bar, select your account. From the **Directory** list, choose the Azure AD B2C tenant to register the Azure AD application (fabrikamb2c.onmicrosoft.com).
+2. Select **More services** in the left pane, and search for "App registrations."
+3. Select **New application registration**.
+4. Enter a name for your application (for example, `Azure AD B2C App`).
+5. Select **Web app / API** for the application type.
+6. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >The value for "yourtenant" must be all lowercase in the **Sign-on URL**.
@@ -86,15 +93,15 @@ You can define Azure AD as a claims provider by adding Azure AD to the `<ClaimsP
 1. Add a new `<ClaimsProvider>` node as follows:
 
 ```XML
-    <ClaimsProvider>
-    <Domain>commonaad</Domain>
-    <DisplayName>Common AAD</DisplayName>
-    <TechnicalProfiles>
+<ClaimsProvider>
+  <Domain>commonaad</Domain>
+  <DisplayName>Common AAD</DisplayName>
+  <TechnicalProfiles>
     <TechnicalProfile Id="Common-AAD">
-        <DisplayName>Multi-Tenant AAD</DisplayName>
-        <Protocol Name="OpenIdConnect" />
-        <Metadata>
-        <!-- Update the client ID below to Application ID -->
+      <DisplayName>Multi-Tenant AAD</DisplayName>
+      <Protocol Name="OpenIdConnect" />
+      <Metadata>
+        <!-- Update the Client ID below to the Application ID -->
         <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
         <Item Key="UsePolicyInRedirectUri">0</Item>
         <Item Key="METADATA">https://login.microsoftonline.com/common/.well-known/openid-configuration</Item>
@@ -104,16 +111,17 @@ You can define Azure AD as a claims provider by adding Azure AD to the `<ClaimsP
         <Item Key="HttpBinding">POST</Item>
         <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
         
-        <!-- The key below specifies that users from any tenant can sign-in.
-        The key also allows you to specify each of the Azure AD tenants that can be used to sign in.
-        https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111 -->
-        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item>
-        </Metadata>
-        <CryptographicKeys>
-        <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
+        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. If you would like all tenants to be able to sign in, comment this line and uncomment the following line. -->
+        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
+
+        <!-- The commented key below specifies that users from any tenant can sign-in. -->
+        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+      </Metadata>
+      <CryptographicKeys>
+      <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
         <Key Id="client_secret" StorageReferenceId="B2C_1A_AADAppSecret" />
-        </CryptographicKeys>
-        <OutputClaims>
+      </CryptographicKeys>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
         <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
         <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
@@ -121,16 +129,16 @@ You can define Azure AD as a claims provider by adding Azure AD to the `<ClaimsP
         <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
         <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
         <OutputClaim ClaimTypeReferenceId="email" />
-        </OutputClaims>
-        <OutputClaimsTransformations>
+      </OutputClaims>
+      <OutputClaimsTransformations>
         <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
         <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
         <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
         <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
-        </OutputClaimsTransformations>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
+      </OutputClaimsTransformations>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
     </TechnicalProfile>
-    </TechnicalProfiles>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
@@ -159,9 +167,9 @@ You now need to add the Azure AD identity provider to one of your user journeys.
 To make it available, we will create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider:
 
 1. Open the base file of your policy (for example, TrustFrameworkBase.xml).
-1. Find the `<UserJourneys>` element and **cut** the entire `<UserJourney>` node that includes `Id="SignUpOrSignIn"`.
-1. Open the extension file (for example, TrustFrameworkExtensions.xml) and find the `<UserJourneys>` element. If the element doesn't exist, add one.
-1. Paste the entire `<UserJourney>` node that you copied as a child of the `<UserJourneys>` element.
+1. Find the `<UserJourneys>` element and copy the entire `<UserJourney>` node that includes `Id="SignUpOrSignIn"`.
+2. Open the extension file (for example, TrustFrameworkExtensions.xml) and find the `<UserJourneys>` element. If the element doesn't exist, add one.
+3. Paste the entire `<UserJourney>` node that you copied as a child of the `<UserJourneys>` element.
 
 
 ### Step 4.2 Display the "button"
