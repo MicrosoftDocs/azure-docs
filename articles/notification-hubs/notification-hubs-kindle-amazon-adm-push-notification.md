@@ -1,5 +1,5 @@
 ---
-title: Push notifications to Kindlge apps using Azure Notification Hubs | Microsoft Docs
+title: Push notifications to Kindle apps using Azure Notification Hubs | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Kindle application.
 services: notification-hubs
 documentationcenter: ''
@@ -249,6 +249,7 @@ Edit your app manifest to support ADM:
                }.execute(null, null, null);
         }
     ```
+    
 ## Add your API key to your app
 1. In Eclipse, create a new file named **api_key.txt** in the directory assets of your project.
 2. Open the file and copy the API key that you generated in the Amazon developer portal.
