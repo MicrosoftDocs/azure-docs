@@ -5,7 +5,7 @@ services: notification-hubs
 documentationcenter: android
 keywords: push notifications,push notification,android push notification
 author: spelluru
-manager: erikre
+manager: 
 editor: ''
 
 ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
@@ -250,7 +250,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
         }
     }
     ```
-2. In your `MainActivity` class, add the following `import` statements above the class declaration.
+2. In your `MainActivity` class, add the following `import` statements at the beginning of the class.
 
     ```java   
     import com.google.android.gms.common.ConnectionResult;
@@ -457,7 +457,7 @@ You can test receiving push notifications in your app by sending them via the [A
 #### Push notifications in the emulator
 If you want to test push notifications inside an emulator, make sure that your emulator image supports the Google API level that you chose for your app. If your image doesn't support native Google APIs, you end up with the **SERVICE\_NOT\_AVAILABLE** exception.
 
-In addition to the above, ensure that you have added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with GCM may result in the **AUTHENTICATION\_FAILED** exception.
+In addition, ensure that you have added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with GCM may result in the **AUTHENTICATION\_FAILED** exception.
 
 
 ## (Optional) Send push notifications directly from the app
@@ -497,7 +497,7 @@ Normally, you would send notifications using a backend server. For some cases, y
     ```java
     public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
     ```
-4. In your `MainActivity.java` file, add the following `import` statements above the `MainActivity` class.
+4. In your `MainActivity.java` file, add the following `import` statements at the beginning of the file.
    
     ```java
     import java.io.BufferedOutputStream;
