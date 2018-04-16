@@ -206,38 +206,6 @@ For example:
 5. Record the request unit charge of any custom scripts (stored procedures, triggers, user-defined functions) leveraged by the application
 6. Calculate the required request units given the estimated number of operations you anticipate to run each second.
 
-## <a id="GetLastRequestStatistics"></a>Use MongoDB API GetLastRequestStatistics command
-The MongoDB API supports a custom command, *getLastRequestStatistics*, for retrieving the request charges for a given operation.
-
-For example, in the Mongo Shell, execute the operation you want to verify the request charge for.
-```
-> db.sample.find()
-```
-
-Next, execute the command *getLastRequestStatistics*.
-```
-> db.runCommand({getLastRequestStatistics: 1})
-{
-    "_t": "GetRequestStatisticsResponse",
-    "ok": 1,
-    "CommandName": "OP_QUERY",
-    "RequestCharge": 2.48,
-    "RequestDurationInMilliSeconds" : 4.0048
-}
-```
-
-With this in mind, one method for estimating the amount of reserved throughput required by your application is to record the request unit charge associated with running typical operations against a representative item used by your application and then estimate the number of operations you anticipate to perform each second.
-
-> [!NOTE]
-> If you have item types which will differ dramatically in terms of size and the number of indexed properties, then record the applicable operation request unit charge associated with each *type* of typical item.
-> 
-> 
-
-## Use MongoDB API portal metrics
-The simplest way to get a good estimate of request unit charges for your MongoDB API database is to use the [Azure portal](https://portal.azure.com) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimate of how many request units each operation is consuming and how many request units they consume relative to one another.
-
-![MongoDB API portal metrics][6]
-
 ## A request unit estimate example
 Consider the following ~1 KB document:
 
@@ -358,4 +326,3 @@ To get started with scale and performance testing with Azure Cosmos DB, see [Per
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
-[6]: ./media/request-units/api-for-mongodb-metrics.png
