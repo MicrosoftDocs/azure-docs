@@ -18041,8 +18041,8 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/location-based-services/index.md",
-            "redirect_url": "/azure/azure-maps/",
+            "source_path": "articles/location-based-services/index.yml",
+            "redirect_url": "/azure/azure-maps/index",
             "redirect_document_id": true
         },
         {
