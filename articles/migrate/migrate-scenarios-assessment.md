@@ -109,13 +109,14 @@ In this scenario we're going to configure dependency mapping. For this feature w
 
 Before you start deployment, the statistics settings for the vCenter Server should be set to level 3. Note that:
 - After you set the level, you need to wait at least a day before you run the assessment. Otherwise it might not work as expected.
-- If the level higher than 3, the assessment will work, but will use the "on-premises sizing" option:
+- If the level higher than 3, the assessment will work, but:
     - Performance data for disks and networking won't be collected.
     - For storage, Azure Migrate recommends a standard disk in Azure, with the same size as the on-premises disk.
     - For networking, for each on-premises network adapter, a network adapter will be recommended in Azure.
     - For compute, Azure Migrate will look at the VM cores and memory size, and recommends an Azure VM with the same configuration. If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
+   
     
-When level 3 is set, Azure Migrate assesses based on "performance-based sizing". [Learn more](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing)
+[Learn more](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing) about sizing with level 3.
 
 Set the level as follows:
 
@@ -377,7 +378,7 @@ Verify machine dependencies and create a group. Then, run the assessment.
     ![View group dependencies](./media/migrate-scenarios-assessment/sqlvm-dependencies.png)
 
 4. Now, select the VMs you want to add to the group (SQLVM and WEBVM).  Use CTRL+click to select multiple VMs.
-5. Click **Create Group**.
+5. Click **Create Group**, and specify a name (smarthotelapp).
 
 > [!NOTE]
     > To view more granular dependencies, you can expand the time range, /ou can select a specific duration, or start/end dates. 
@@ -385,14 +386,13 @@ Verify machine dependencies and create a group. Then, run the assessment.
 
 ### Run an assessment
 
-After you've verified dependencies, you're ready to group the VMs, and run an assessment. 
 
 1. On the **Groups** page, open the group (smarthotelapp)
-1. Click **Create assessment**.
+2. Click **Create assessment**.
 
     ![Create an assessment](./media/migrate-scenarios-assessment/run-vm-assessment.png)
 
-5. The assessment appears in the **Manage** > **Assessments** page.
+3. The assessment appears in the **Manage** > **Assessments** page.
 
 
 ### Analyze the VM assessment
@@ -423,12 +423,11 @@ Your assessment gets a confidence rating from 1 star to 5 star (1 star being the
 
 ![Assessment readiness](./media/migrate-scenarios-assessment/azure-readiness.png)  
 
-Note that:
-- For performance-based sizing of the VM, Azure Migrate needs:
-    - Utilization data for CPU and memory.
-    - Read/write IOPS and throughput for each disk attached to the VM.
-    - Network in/out information for each network adapter attached to the VM.
--  If any of the above utilization numbers are not available in vCenter Server, size recommendations might not be reliable. 
+The assessment report shows the information summarized in the table. Note that to show performance-based sizing, Azure Migrate needs the following information. If this information can't be collected, sizing assessment might not be accurate.
+
+- Utilization data for CPU and memory.
+- Read/write IOPS and throughput for each disk attached to the VM.
+- Network in/out information for each network adapter attached to the VM.
 
 
 **Setting** | **Indication** | **Details**
