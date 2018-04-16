@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/16/2018
 ms.author: jeedes
 
 ---
@@ -99,7 +99,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Single sign-on dialog box](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_samlbase.png)
 
 3. On the **Form.com Domain and URLs** section, perform the following steps:
@@ -116,42 +116,26 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
 	| `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
 	
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL, Reply URL, and Identifier. Contact [Form.com Client support team](https://form.com/about/company/contact-us/) to get these values. 
- 
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign-On URL, Reply URL, and Identifier. Contact [Form.com Client support team](https://form.com/about/company/contact-us/) to get these values.
 
-	![The Certificate download link](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_certificate.png) 
-
-5. To generate the **Metadata URL**, perform the following steps:
-
-    a. Click **App registrations**.
+4. On the **SAML Signing Certificate** section, perform the following steps:
     
-    ![Configure appreg](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appregistrations.png)
-   
-    b. Click **Endpoints** to open **Endpoints** dialog box.  
-    
-    ![Configure Endpointcon](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpointicon.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-formcom-tutorial/tutorial_metadataurl.png)
 
-    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
-    
-    ![Configure endpoint](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpoint.png)
+	a. Click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+
+	b. Click **Certificate (Base64)** and then save the certificate file on your computer.
      
-    d. Now go to the property page of **Form.com** and copy the **Application Id** using **Copy** button and paste it into notepad.
- 
-    ![Configure appid](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appid.png)
-
-    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Click **Save** button.
+5. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-formcom-tutorial/tutorial_general_400.png)
 
-7. On the **Form.com Configuration** section, click **Configure Form.com** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **Form.com Configuration** section, click **Configure Form.com** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Form.com Configuration](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_configure.png) 
 
-8. To configure single sign-on on **Form.com** side, you need to send the downloaded **Certificate (Base64)**, **Metadata URL**, and **SAML Single Sign-On Service URL** to [Form.com support team](https://form.com/about/company/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **Form.com** side, you need to send the downloaded **Certificate (Base64)**, **App Federation Metadata Url**, and **SAML Single Sign-On Service URL** to [Form.com support team](https://form.com/about/company/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
