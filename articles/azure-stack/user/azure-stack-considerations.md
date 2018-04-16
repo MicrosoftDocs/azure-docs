@@ -19,7 +19,6 @@ ms.author: mabrigg
 ---
 # Key considerations: Using services or building apps for Azure Stack
 
-
 Before you use services or build apps for Azure Stack, you must understand the differences between Azure Stack and Azure. This article identifies the key considerations when you use Azure Stack as your hybrid cloud development environment.
 
 ## Overview
@@ -61,7 +60,7 @@ The following table describes the high-level differences between Azure Stack and
 | Recommendation | References | 
 | -------- | ------------- | 
 | Install the correct tools on your developer workstation. | - [Install PowerShell](azure-stack-powershell-install.md)<br>- [Download tools](azure-stack-powershell-download.md)<br>- [Configure PowerShell](azure-stack-powershell-configure-user.md)<br>- [Install Visual Studio](azure-stack-install-visual-studio.md) 
-| Review information about the  items:<br>- Azure Resource Manager template considerations<br>- How to find QuickStart templates<br>- Use a policy module to help you use Azure to develop for Azure Stack | [Develop for Azure Stack](azure-stack-developer.md) | 
+| Review information about the following items:<br>- Azure Resource Manager template considerations<br>- How to find QuickStart templates<br>- Use a policy module to help you use Azure to develop for Azure Stack | [Develop for Azure Stack](azure-stack-developer.md) | 
 | Review and follow the best practices for templates. | [Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
 | | |
 
