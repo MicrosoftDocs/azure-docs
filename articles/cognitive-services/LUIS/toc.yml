@@ -149,8 +149,14 @@
       href: Add-example-utterances.md
     - name: Add entities
       href: Add-entities.md
-  - name: Improve prediction accuracy using features
-    href: Add-Features.md
+  - name: Improve prediction accuracy 
+    items: 
+    - name: Review endpoint utterances
+      href: Label-Suggested-Utterances.md
+    - name: Phrase list
+      href: Add-Features.md
+    - name: Patterns
+      href: luis-how-to-model-intent-pattern.md
   - name: Train
     href: luis-how-to-train.md
   - name: Test
@@ -159,8 +165,6 @@
       href: Train-Test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
-  - name: Use active learning
-    href: Label-Suggested-Utterances.md
   - name: Publish your app
     href: PublishApp.md
   - name: Use prebuilt models

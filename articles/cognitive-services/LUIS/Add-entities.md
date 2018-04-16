@@ -9,7 +9,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/07/2018
 ms.author: v-geberr
 ---
 
@@ -117,6 +117,38 @@ You can also define relationships between entities by creating composite entitie
 
 > [!TIP]
 > Try the composite [tutorial](luis-tutorial-composite-entity.md) to learn more.
+
+## Add Pattern.any entities
+Pattern.any entities are only valid on patterns and must use the curly brace syntax to mark the entities. 
+
+1. Open the TravelAgent app by selecting its name on **My Apps** page and select **Entities** in the app's left panel.
+
+2. On the **Entities** page, select **Create new entity**. 
+
+3. In the **Add Entity** dialog box, type "BookTitle" in the **Entity name** box and select **Pattern.any** as the **Entity type**.
+ 
+    ![Add a pattern.any entity](./media/add-entities/create-pattern-any-entity.png)
+
+    Once the pattern.any entity is created, use it in an intent pattern such as "For **{BookTitle}** who is the author?".
+
+## Add role to simple or pattern.any entity
+A role is a named subtype of an entity. For example, a plane ticket has an origin city and a destination city, but both are cities. LUIS determines that both are cities and can determine origin and destination cities based on context. The syntax for a role is Entity:Role where the entity name is followed by a colon, then the role name. For example, "Book a ticket from {Location:Origin} to {Location:Destination}".
+
+Roles are available for **Pattern.any** and **Simple** entities. 
+
+1. Open the TravelAgent app by selecting its name on **My Apps** page and select **Entities** in the app's left panel.
+
+2. On the **Entities** page, select an entity with type of **Simple** or **Pattern.any**. 
+
+    ![Select simple or pattern.any entity](./media/add-entities/roles-entity-list.png)
+
+3. On **Entity** page, select **Add Roles**.
+
+    ![Select add role button](./media/add-entities/roles-add-role-button.png)
+
+4. In the textbox, enter the name of the role. As an example, a plane trip can have an origin and a destination city. The two roles are "Origin" and "Destination".
+
+    ![Enter role name](./media/add-entities/roles-enter-role-name-text.png)
 
 ## Add list entities
 A list entity is an entity that is defined by a list of all its values. 
