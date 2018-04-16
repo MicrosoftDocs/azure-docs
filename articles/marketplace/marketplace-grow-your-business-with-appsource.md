@@ -1,3 +1,26 @@
+---
+title: Grow your business with AppSource
+description: Information about using AppSource, which enables Microsoft partners to make their technology and services discoverable to customers through a Microsoft-supported online storefront.
+services: Marketplace, AppSource, Compute, Storage, Networking, Security
+documentationcenter:
+author: ellacroi
+manager: 
+editor: v-brela
+
+ms.assetid: 
+ms.service: marketplace
+ms.workload: 
+ms.tgt_pltfrm: 
+ms.devlang: 
+ms.topic: article
+ms.date: 04/12/2018
+ms.author: ellacroi
+
+---
+
+
+
+
 # Grow your business with AppSource
 Both Azure Marketplace and AppSource are the launching points for joint go-to-market activities with Microsoft and a flywheel for business growth. Using launch promotion, demand generation, and joint sales and marketing, your marketplace offer can be the centerpiece of your cloud business engine. There are no fees for participating. Microsoft customers visit our cloud marketplaces every day to find the right apps and services to help boost their business. Our goal is to connect organizations with the solutions and services from Microsoft and our partner ecosystem. 
 
