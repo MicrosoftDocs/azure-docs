@@ -77,6 +77,7 @@
 #### [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
 #### [Pricing examples](iot-hub-devguide-pricing.md)
 #### [Device and service SDKs](iot-hub-devguide-sdks.md)
+#### [Develop for mobile devices](iot-hub-how-to-develop-for-mobile-devices.md)
 #### [MQTT support](iot-hub-mqtt-support.md)
 #### [Glossary](iot-hub-devguide-glossary.md)
 ### [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
