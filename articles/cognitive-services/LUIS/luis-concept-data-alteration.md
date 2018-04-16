@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/26/2018
 ms.author: v-geberr;
 ---
 
@@ -46,13 +46,40 @@ When [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-se
 ## Change time zone of prebuilt datetimeV2 entity
 When a LUIS app uses the prebuilt datetimeV2 entity, a datetime value can be returned in the prediction response. The timezone of the request is used to determine the correct datetime to return. If the request is coming from a bot or another centralized application before getting to LUIS, correct the timezone LUIS uses. 
 
-The timezone is corrected by adding the user's timezone to the [endpoint](https://aka.ms/luis-endpoint-apis) using the `timezoneOffset` param. The value of `timezoneOffset` should be the positive or negative number, in minutes, to alter the time. It is not the UTC timezone. 
+### Endpoint querystring parameter
+The timezone is corrected by adding the user's timezone to the [endpoint](https://aka.ms/luis-endpoint-apis) using the `timezoneOffset` param. The value of `timezoneOffset` should be the positive or negative number, in minutes, to alter the time.  
 
 |Param|Value|
 |--|--|
 |`timezoneOffset`|positive or negative number, in minutes|
 
+### Daylight savings example
+If you need the returned prebuilt datetimeV2 to adjust for daylight savings time, you should use the `timezoneOffset` querystring parameter with a +/- value in minutes for the [endpoint](https://aka.ms/luis-endpoint-apis) query.
 
+Add 60 minutes: 
+
+https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
+
+Remove 60 minutes: 
+
+https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
+
+## C# code determines correct value of timezoneOffset
+The following C# code uses the [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo?view=netframework-4.7.1) class's [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=netframework-4.7.1#examples) method to determine the correct `timezoneOffset` based on system time:
+
+```CSharp
+// Get CST zone id
+TimeZoneInfo targetZone = TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time");
+
+// Get local machine's value of Now
+DateTime utcDatetime = DateTime.UtcNow;
+
+// Get Central Standard Time value of Now
+DateTime cstDatetime = TimeZoneInfo.ConvertTimeFromUtc(utcDatetime, targetZone);
+
+// Find timezoneOffset
+int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
+```
 
 ## Next steps
 

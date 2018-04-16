@@ -1,4 +1,4 @@
-﻿---
+---
 title: Enhance remote management security in Azure | Microsoft Docs
 description: "This article discusses steps for enhancing remote management security while administering Microsoft Azure environments, including cloud services, Virtual Machines, and custom applications."
 services: security
@@ -61,7 +61,7 @@ Consolidating access resources and eliminating unmanaged endpoints also simplifi
 ### Providing security for Azure remote management
 Azure provides security mechanisms to aid administrators who manage Azure cloud services and virtual machines. These mechanisms include:
 
-* Authentication and [role-based access control](../active-directory/role-based-access-control-configure.md).
+* Authentication and [role-based access control](../role-based-access-control/role-assignments-portal.md).
 * Monitoring, logging, and auditing.
 * Certificates and encrypted communications.
 * A web management portal.

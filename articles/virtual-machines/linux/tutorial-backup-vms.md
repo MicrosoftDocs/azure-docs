@@ -4,7 +4,7 @@ description: Protect your Linux VMs by backing them up using Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 

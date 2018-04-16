@@ -2,8 +2,8 @@
 title: Azure Machine Learning Model Management Setup and Configuration | Microsoft Docs
 description: This document describes the steps and concepts involved in setting up and configuring Model Management in Azure Machine Learning.
 services: machine-learning
-author: AashishB
-ms.author: AashishB
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -149,12 +149,9 @@ To use an existing account, use the following command:
 az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
 ```
 
-### Deploy your model
-You are now ready to deploy your saved model as a web service. 
-
-```azurecli
-az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
-```
+As a result of this process, the environment is ready and the model management account has been created to provide the features needed to manage and deploy Machine Learning models (see [Azure Machine Learning Model Management](model-management-overview.md) for an overview).
 
 ## Next steps
-Try one of the many samples in the Gallery.
+
+* For instructions on how to deploy web services to run on a local machine or a cluster continue on to [Deploying a Machine Learning Model as a Web Service](model-management-service-deploy.md).
+* Try one of the many samples in the Gallery.

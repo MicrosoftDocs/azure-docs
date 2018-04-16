@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm:
 ms.devlang:
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/30/2018
 ms.author: curtand
 ms.reviewer: piotrci
 
@@ -22,20 +22,16 @@ ms.custom: H1Hack27Feb2017;it-pro
 
 ---
 # Create attribute-based rules for dynamic group membership in Azure Active Directory
-In Azure Active Directory (Azure AD), you can create advanced rules to enable complex attribute-based dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules for users or devices.
+In Azure Active Directory (Azure AD), you can create advanced rules to enable complex attribute-based dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
 
 When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed.
 
 > [!NOTE]
-> You can set up a rule for dynamic membership on security groups or Office 365 groups.
->
 > This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group. It is not mandatory to actually assign licenses to users for them to be members in dynamic groups, but you do need to have the minimum number of licenses in the tenant to cover all such users. For example: if you have a total of 1,000 unique users in all dynamic groups in your tenant, you need to have at least 1,000 licenses for Azure AD Premium P1, or above, to meet the license requirement.
 >
 > You can create a dynamic group for devices or users, but you cannot create a rule that contains both user and device objects.
 > 
 > At the moment, it is not possible to create a device group based on the owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
-> 
-> Microsoft Teams does not yet support Dynamic Group Membership. You can validate the error in the logs associated with "Cannot migrate Dynamic membership group"
 
 ## To create an advanced rule
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator.
@@ -171,7 +167,7 @@ Allowed operators
 | mail |Any string value or *null* (SMTP address of the user) |(user.mail -eq "value") |
 | mailNickName |Any string value (mail alias of the user) |(user.mailNickName -eq "value") |
 | mobile |Any string value or *null* |(user.mobile -eq "value") |
-| objectId |GUID of the user object |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| objectId |GUID of the user object |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Any string value or *null* |(user.physicalDeliveryOfficeName -eq "value") |
@@ -227,9 +223,9 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 ## Use of Null values
 
-To specify a null value in a rule, you can use the *null* value. Be careful not to use quotes around the word *null* - if you do, it will be interpreted as a literal string value. The correct way to reference the null value is as follows:
+To specify a null value in a rule, you can use the *null* value. Be careful not to use quotes around the word *null* - if you do, it will be interpreted as a literal string value. The -not operator can't be used as a comparative operator for null. If you use it, you get an error whether you use null or $null. Instead, use -eq or -ne. The correct way to reference the null value is as follows:
 ```
-   user.mail –ne null
+   user.mail –ne $null
 ```
 
 ## Extension attributes and custom attributes
@@ -252,14 +248,15 @@ You can create a group containing all direct reports of a manager. When the mana
 
 > [!NOTE]
 > 1. For the rule to work, make sure the **Manager ID** property is set correctly on users in your tenant. You can check the current value for a user on their **Profile tab**.
-> 2. This rule only supports **direct** reports. It is currently not possible to create a group for a nested hierarchy, e.g. a group that includes direct reports and their reports.
+> 2. This rule only supports **direct** reports. It is currently not possible to create a group for a nested hierarchy; for example, a group that includes direct reports and their reports.
+> 3. This rule cannot be combined with any other advanced rules.
 
 **To configure the group**
 
 1. Follow steps 1-5 from section [To create the advanced rule](#to-create-the-advanced-rule), and select a **Membership type** of **Dynamic User**.
 2. On the **Dynamic membership rules** blade, enter the rule with the following syntax:
 
-    *Direct Reports for "{obectID_of_manager}"*
+    *Direct Reports for "{objectID_of_manager}"*
 
     An example of a valid rule:
 ```
@@ -294,19 +291,43 @@ You can also create a rule that selects device objects for membership in a group
 ## Changing dynamic membership to static, and vice versa
 It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
 
-We are in the process of updating the Azure portal to support this functionality. In the meantime, you can use PowerShell cmdlets as shown below.
+We've updated the Azure AD Admin center to add support this functionality. Now, customers can convert existing groups from dynamic membership to assigned membership and vice-versa either via Azure AD Admin center or PowerShell cmdlets as shown below.
 
 > [!WARNING]
 > When changing an existing static group to a dynamic group, all existing members will be removed from the group, and then the membership rule will be processed to add new members. If the group is used to control access to apps or resources, the original members may lose access until the membership rule is fully processed.
 >
-> It is a recommended practice to test the new membership rule beforehand to make sure that the new membership in the group is as expected.
+> We recommend that you test the new membership rule beforehand to make sure that the new membership in the group is as expected.
 
-**Using PowerShell to change membership management on a group**
+### Using Azure AD admin center to change membership management on a group 
+
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator in your tenant.
+2. Select **Groups**.
+3. From the **All groups** list, open the group that you want to change.
+4. Select **Properties**.
+5. On the **Properties** page for the group, select a **Membership type** of either Assigned (static), Dynamic User, or Dynamic Device, depending on your desired membership type. For dynamic membership, you can use the rule builder to select options for a simple rule or write an advanced rule yourself. 
+
+The following steps are an example of changing a group from static to dynamic membership for a group of users. 
+
+1. On the **Properties** page for your selected group, select a **Membership type** of **Dynamic User**, then select Yes on the dialog explaining the changes to the group membership to continue. 
+  
+   ![select membership type of dynamic user](./media/active-directory-groups-dynamic-membership-azure-portal/select-group-to-convert.png)
+  
+2. Select **Add dynamic query**, and then provide the rule.
+  
+   ![enter the rule](./media/active-directory-groups-dynamic-membership-azure-portal/enter-rule.png)
+  
+3. After creating the rule, select **Add query** at the bottom of the page.
+4. Select **Save** on the **Properties** page for the group to save your changes. The **Membership type** of the group is immediately updated in the group list.
+
+> [!TIP]
+> Group conversion might fail if the advanced rule you entered was incorrect. A notification is displayed in the upper-right hand corner of the portal that it contains an explanation of why the rule can't be accepted by the system. Read it carefully to understand how you can adjust the rule to make it valid.
+
+### Using PowerShell to change membership management on a group
 
 > [!NOTE]
-> To change dynamic group properties you will need to use cmdlets from **the preview version of** [Azure AD PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). You can install the preview from [here](https://www.powershellgallery.com/packages/AzureADPreview).
+> To change dynamic group properties you will need to use cmdlets from **the preview version of** [Azure AD PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). You can install the preview from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
 
-Here is an example of functions that switch membership management on an existing group. Note that care is taken to correctly manipulate the GroupTypes property and preserve any values that may exist there, unrelated to dynamic membership.
+Here is an example of functions that switch membership management on an existing group. In this example, care is taken to correctly manipulate the GroupTypes property and preserve any values that are unrelated to dynamic membership.
 
 ```
 #The moniker for dynamic groups as used in the GroupTypes property of a group object

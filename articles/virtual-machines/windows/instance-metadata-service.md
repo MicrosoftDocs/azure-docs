@@ -4,7 +4,7 @@ description: RESTful interface to get information about Windows VM's compute, ne
 services: virtual-machines-windows
 documentationcenter: ''
 author: harijayms
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -216,13 +216,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 **Request**
 
-Instance metadata can be retrieved in Windows via the PowerShell utility `curl`: 
+Instance metadata can be retrieved in Windows via the `curl` program: 
 
 ```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
-Or through the `Invoke-RestMethod` cmdlet:
+Or through the `Invoke-RestMethod` PowerShell cmdlet:
     
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 

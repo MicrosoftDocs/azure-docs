@@ -33,7 +33,7 @@ This topic:
 
 The Azure portal provides you with a central place to manage your devices. You can get to this place by either using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) or by following these manual steps:
 
-1. Sing-in to the [Azure portal](https://portal.azure.com) as administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as administrator.
 
 2. On the left navbar, click **Active Directory**.
 

@@ -127,7 +127,7 @@ Here is a small example that connects to the AMS API and lists all available Med
             }
  ```
 
-##Next steps
+## Next steps
 
 Now [you can connect to the AMS API](media-services-use-aad-auth-to-access-ams-api.md) and start [developing](media-services-dotnet-get-started.md).
 

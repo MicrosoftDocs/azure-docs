@@ -82,7 +82,7 @@ There are three options available for logging:
 
 - **Archive to a storage account**: Writes logs to a storage account.
 - **Stream to an event hub**: Allows a log receiver to pick up logs using an event hub. This enables integration with Splunk or other SIEM systems.
-- **Send to Log Analytics**: Writes logs to the Azure OMS Log Analytics service.
+- **Send to Log Analytics**: Writes logs to the Azure Log Analytics service.
 
 ## Use DDoS Protection telemetry
 

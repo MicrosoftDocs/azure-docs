@@ -11,10 +11,8 @@ tags: ''
 
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/10/2017
+ms.topic: conceptual
+ms.date: 03/20/2018
 ms.author: bhanupr
 
 ---
@@ -22,12 +20,10 @@ ms.author: bhanupr
 
 Domain-joined clusters provide the multi-user enterprise security capabilities on HDInsight. Domain-joined HDInsight clusters are connected to active directory domains, so that domain users can use their domain credentials to authenticate with the clusters and run big data jobs. 
 
-There are two ways to set up a domain controller so that a domain-joined HDInsight cluster can connect to:
-
-- Azure Active Directory Domain Services (Azure AD DS)
-- Active Directory Domain controller on Azure IaaS VMs
-
 In this article, you learn how to configure a Domain-joined HDInsight cluster using Azure Active Directory Domain Services.
+
+> [!NOTE]
+> Active Directory on Azure IaaS VMs is no longer supported.
 
 ## Create Azure ADDS
 
@@ -54,6 +50,9 @@ When you create a domain-joined HDInsight cluster, you must supply the following
 - **Organization Unit**: The distinguished name of the OU that you want to use with HDInsight cluster. For example: OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. If this OU does not exist, HDInsight cluster attempts to create this OU. 
 - **LDAPS URL**: For example, ldaps://contoso.onmicrosoft.com:636
 - **Access user group**: The security groups whose users you want to sync to the cluster. For example, HiveUsers. If you want to specify multiple user groups, separate them by comma ‘,’.
+ 
+> [!NOTE]
+> Because Apache Zeppelin uses the domain name to authenticate the administrative service account, the service account MUST have the same domain name as its UPN suffix for Apache Zeppelin to function properly.
  
 The following screenshot shows the configurations in the Azure portal:
 

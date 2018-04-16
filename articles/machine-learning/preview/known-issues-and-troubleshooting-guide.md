@@ -236,6 +236,15 @@ You generally don't need to do this. But in case you must wipe clean an installa
 - On macOS:
   - Just download and run the [macOS bash shell script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
 
+## Azure ML using a different python location than the Azure ML installed python environment
+Due to a recent change in Azure Machine Learning Workbench, users may notice that local runs may not point to the python environment installed by the Azure ML Workbench anymore. This may happen if the user have another python environment installed on their computer and the "Python" path is set to point to that environment. 
+In order to use Azure ML Workbench installed Python environment, follow these steps:
+- Go to local.compute file under your aml_config folder under your project root.
+- Change the "pythonLocation" variable to point to the physical path of Azure ML workbench installed python environment. You can get this path in two ways:
+    - Azure ML python location can be found at %localappdata%\AmlWorkbench\python\python.exe
+    - you can open cmd from Azure ML Workbench, type python on command prompt, import sys.exe, run sys.executable and get the path from there. 
+
+
 
 ## Some useful Docker commands
 

@@ -222,7 +222,7 @@ Several possible status code values can be returned.
 * **HTTP 404 (Not Found)**: The specified instance was not found.
 * **HTTP 410 (Gone)**: The specified instance has completed or failed and cannot process any raised events.
 
-Here is an example request that sends the JSON string `"incr"` to an instance waiting for an event named **operation** (taken from the [Counter](durable-functions-counter.md) sample):
+Here is an example request that sends the JSON string `"incr"` to an instance waiting for an event named **operation**:
 
 ```
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX

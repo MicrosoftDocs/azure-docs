@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2017
+ms.date: 03/21/20178
 ms.author: kumud
 ---
 
@@ -23,7 +23,7 @@ ms.author: kumud
 This article provides an example deployment of High Availability Ports on an internal load balancer. For more information on configurations specific to network virtual appliances (NVAs), see the corresponding provider websites.
 
 >[!NOTE]
-> The High Availability Ports feature is currently in preview. During the preview, the feature might not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Azure Load Balancer supports two different types: Basic and Standard. This article discusses Standard Load Balancer. For more information about Basic Load Balancer, see [Load Balancer overview](load-balancer-overview.md).
 
 The illustration shows the following configuration of the deployment example described in this article:
 
@@ -36,12 +36,6 @@ The illustration shows the following configuration of the deployment example des
 ![High Availability Ports example deployment](./media/load-balancer-configure-ha-ports/haports.png)
 
 
-## Preview sign-up
-
-To participate in the preview of the High Availability Ports feature in Standard Azure Load Balancer, register your subscription to gain access by using either Azure CLI 2.0 or PowerShell. Register your subscription for [Standard Load Balancer Preview](https://aka.ms/lbpreview#preview-sign-up).
-
->[!NOTE]
->Registration of Standard Load Balancer Preview can take up to an hour.
 
 ## Configure High Availability Ports
 

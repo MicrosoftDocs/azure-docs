@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
 ---
@@ -87,9 +87,11 @@ Use the following command, on your local machine, to create a remote desktop ses
 mstsc /v:<publicIpAddress>
 ```
 
+In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username and password you created for the for the virtual machine and then click **OK**.
+
 ## Understand VM images
 
-The Azure marketplace includes many virtual machine images that can be used to create a new virtual machine. In the previous steps, a virtual machine was created using the Windows Server 2016-Datacenter image. In this step, the PowerShell module is used to search the marketplace for other Windows images, which can also as a base for new VMs. This process consists of finding the publisher, offer, and the image name (Sku). 
+The Azure marketplace includes many virtual machine images that can be used to create a new virtual machine. In the previous steps, a virtual machine was created using the Windows Server 2016-Datacenter image. In this step, the PowerShell module is used to search the marketplace for other Windows images, which can also be used as a base for new VMs. This process consists of finding the publisher, offer, SKU, and optionally a version number to [identify](cli-ps-findimage.md#terminology) the image. 
 
 Use the [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) command to return a list of image publishers:
 
@@ -136,7 +138,7 @@ Skus                                      Offer         PublisherName          L
 2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-This information can be used to deploy a VM with a specific image. This example deploys a virtual machine using a Windows Server 2016 with Containers image.
+This information can be used to deploy a VM with a specific image. This example deploys a virtual machine using the latest version of a Windows Server 2016 with Containers image.
 
 ```azurepowershell-interactive
 New-AzureRmVm `

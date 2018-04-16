@@ -169,7 +169,7 @@ Other examples:
 
 ```
 
-[Dates and times reference](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
+[Dates and times reference](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
 ## [Project](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): select, rename, and compute columns

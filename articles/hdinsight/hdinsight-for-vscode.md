@@ -13,8 +13,6 @@ ms.assetid:
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
 ---
@@ -66,9 +64,9 @@ Create a workspace in VS Code before you can connect to Azure.
 
 4. Open **XXXX_hdi_settings.json** from **EXPLORER**, or right-click the script editor to select **Set Configuration**. You can configure login entry, default cluster, and job submission parameters as shown in the sample in the file. You also can leave the remaining parameters empty.
 
-## Connect to Azure
+## Connect to HDInsight Cluster
 
-Before you can submit scripts to HDInsight clusters from VS Code, you need connect to your Azure account.
+Before you can submit scripts to HDInsight clusters from VS Code, you need to either connect to your Azure account, or link a cluster (using Ambari username/password or domain joined account).
 
 **To connect to Azure**
 
@@ -119,7 +117,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
    ![linked cluster](./media/hdinsight-for-vscode/linked-cluster.png)
 
-4. You also can unlink a cluster by inputing **HDInsight: Unlink a cluster** from command palette.
+4. You also can unlink a cluster by inputting **HDInsight: Unlink a cluster** from command palette.
 
 ## List HDInsight clusters
 

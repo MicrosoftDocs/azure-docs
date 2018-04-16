@@ -3,13 +3,13 @@ title: C# Quickstart for Azure Cognitive Services, Microsoft Translator Text API
 description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
-author: v-jaswel
+author: Jann-Skotdal
 
 ms.service: cognitive-services
 ms.technology: translator-text
 ms.topic: article
 ms.date: 10/30/2017
-ms.author: v-jaswel
+ms.author: v-jansko
 
 ---
 # Quickstart for Microsoft Translator Text API with C# 

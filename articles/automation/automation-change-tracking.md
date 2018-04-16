@@ -1,5 +1,5 @@
 ---
-title: Track changes with Azure Automation | Microsoft Docs
+title: Track changes with Azure Automation
 description: The Change Tracking solution helps you identify software and Windows Service changes that occur in your environment.
 services: automation
 ms.service: automation
@@ -8,8 +8,6 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ---
 # Track changes in your environment with the Change Tracking solution
@@ -20,18 +18,19 @@ Changes to installed software, Windows services, Windows registry and files, and
 
 ## Enable Change Tracking and Inventory
 
-
 To begin tracking changes, you need to enable the Change Tracking and Inventory solution for your Automation Account.
 
 1. In the Azure portal, navigate to your Automation Account
 1. Select **Change Tracking** under **CONFIGURATION**.
-2. Select an existing Log analytics workspace or **Create New Workspace** and click **Enable**.
+1. Select an existing Log analytics workspace or **Create New Workspace** and click **Enable**.
 
 This enables the solution for your automation account. The solution can take up to 15 minutes to enable. The blue banner notifies you when the solution is enabled. Navigate back to the **Change Tracking** page to manage the solution.
 
 ## Configuring Change Tracking and Inventory
 
-To learn how to onboard computers to the solution visit: [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md). When you enable a new file or registry key to track, it is enabled for both Change Tracking and Inventory.
+To learn how to onboard computers to the solution visit: [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md). Once you have a machine onboarding with the Change Tracking and Inventory solution you can configure the items to track. When you enable a new file or registry key to track, it is enabled for both Change Tracking and Inventory.
+
+For tracking changes in files on both Windows and Linux, MD5 hashes of the files are used. Theses hashes are then used to detect if a change has been made since the last inventory.
 
 ### Configure Linux files to track
 
@@ -106,6 +105,7 @@ Other limitations:
 ## Known Issues
 
 The Change Tracking solution is currently experiencing the following issues:
+
 * Hotfix updates are not collected for Windows 10 Creators Update and Windows Server 2016 Core RS3 machines.
 
 ## Change Tracking data collection details
@@ -114,13 +114,13 @@ The following table shows the data collection frequency for the types of changes
 
 | **Change type** | **Frequency** |
 | --- | --- |
-| Windows registry | 50 minutes | 
-| Windows file | 30 minutes | 
-| Linux file | 15 minutes | 
-| Windows services | 30 minutes | 
+| Windows registry | 50 minutes |
+| Windows file | 30 minutes |
+| Linux file | 15 minutes |
+| Windows services | 30 minutes |
 | Linux daemons | 5 minutes |
-| Windows software | 30 minutes | 
-| Linux software | 5 minutes | 
+| Windows software | 30 minutes |
+| Linux software | 5 minutes |
 
 ### Registry key change tracking
 

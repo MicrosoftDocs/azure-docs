@@ -169,6 +169,9 @@ The endpoint includes timezoneOffset. This is the number in minutes you want to 
 |-120|subtract 2 hours|
 |30|add 30 minutes|
 
+## <a name="token"></a>Token
+A token is the smallest unit that can be labeled in an entity. Tokenization is based on the application's [culture](luis-supported-languages.md#tokenization).
+
 ## <a name="train"></a>Train
 
 Training is the process of teaching LUIS about any changes to the [active version](#active-version) since the last training.

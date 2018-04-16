@@ -4,7 +4,7 @@ description: This article provides an overview of components and architecture us
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/194/2018
 ms.author: raynew
 ---
 
@@ -25,7 +25,7 @@ The following table and graphic provide a high-level view of the components used
 **Component** | **Requirement** | **Details**
 --- | --- | ---
 **Azure** | An Azure subscription, Azure storage account, and Azure network. | Replicated data from on-premises VM workloads is stored in the storage account. Azure VMs are created with the replicated workload data when failover from your on-premises site occurs.<br/><br/> The Azure VMs connect to the Azure virtual network when they're created.
-**Hyper-V** | During Site Recovery deployment, you gather Hyper-V hosts and clusters into Hyper-V sites. You install the Azure Site Recovery Provider and Recovery Services agent on each Hyper-V machine. | The Provider orchestrates replication with Site Recovery over the internet. The Recovery Services agent handles data replication.<br/><br/> Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage is also encrypted.
+**Hyper-V** | During Site Recovery deployment, you gather Hyper-V hosts and clusters into Hyper-V sites. You install the Azure Site Recovery Provider and Recovery Services agent on each standalone Hyper-V host, or on each Hyper-V cluster node. | The Provider orchestrates replication with Site Recovery over the internet. The Recovery Services agent handles data replication.<br/><br/> Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage is also encrypted.
 **Hyper-V VMs** | One or more VMs running on Hyper-V. | Nothing needs to be explicitly installed on VMs.
 
 
@@ -43,7 +43,7 @@ The following table and graphic provide a high-level view of the components used
 --- | --- | ---
 **Azure** | An Azure subscription, Azure storage account, and Azure network. | Replicated data from on-premises VM workloads is stored in the storage account. Azure VMs are created with the replicated data when failover from your on-premises site occurs.<br/><br/> The Azure VMs connect to the Azure virtual network when they're created.
 **VMM server** | The VMM server has one or more clouds containing Hyper-V hosts. | You install the Site Recovery Provider on the VMM server, to orchestrate replication with Site Recovery, and register the server in the Recovery Services vault.
-**Hyper-V host** | One or more Hyper-V hosts/clusters managed by VMM. |  You install the Recovery Services agent on each host or cluster member.
+**Hyper-V host** | One or more Hyper-V hosts/clusters managed by VMM. |  You install the Recovery Services agent on each Hyper-V host or cluster node.
 **Hyper-V VMs** | One or VMs running on a Hyper-V host server. | Nothing needs to explicitly installed on VMs.
 **Networking** | Logical and VM networks set up on the VMM server. The VM network should be linked to a logical network that's associated with the cloud. | VM networks are mapped to Azure virtual networks. When Azure VMs are created after failover, they are added to the Azure network that's mapped to the VM network.
 
