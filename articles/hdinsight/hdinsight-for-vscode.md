@@ -322,6 +322,38 @@ We support Livy configuration, that could be set at the project settings in work
     | log | The log lines | list of strings |
     | state | 	The batch state | string |
 
+    <table class="table table-bordered">
+	    <tr>
+		    <th> name </th>
+		    <th> description </th>
+		    <th> type </th>
+	    </tr>
+	    <tr>
+		    <td> id </td>
+	    	<td> The session id </td>
+	    	<td> int </td>
+	    </tr>
+	    <tr>
+	    	<td> appId </td>
+	    	<td> The application id of this session </td>
+	    	<td> String </td>
+	    </tr>
+        	<tr>
+	    	<td> appInfo </td>
+		    <td> The detailed application info </td>
+		    <td> Map of key=val </td>
+	    </tr>
+    	    <tr>
+		    <td> log </td>
+		    <td> The log lines </td>
+	    	<td> list of strings </td>
+	    </tr>
+        	<tr>
+	    	<td> state </td>
+		    <td> The batch state </td>
+	    	<td> string </td>
+	    </tr>
+    </table>
 
 ## Additional features
 
