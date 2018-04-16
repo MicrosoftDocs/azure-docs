@@ -24,6 +24,11 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
+> [!IMPORTANT]
+> The Kafka API can only be accessed by resources inside the same virtual network. In this quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Kafka, you must first create a virtual network and then create the resources within the network.
+>
+> For more information, see the [Connect to Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
+
 ## Prerequisites
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
