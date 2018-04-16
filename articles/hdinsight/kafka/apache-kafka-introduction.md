@@ -16,8 +16,9 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/11/2018
 ms.author: larryfr
+# As a developer, I want to understand how Kafka on HDInsight is different from Kafka on other platforms.
 ---
-# Introducing Apache Kafka on HDInsight
+# What is Apache Kafka on HDInsight?
 
 [Apache Kafka](https://kafka.apache.org) is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, where you can publish and subscribe to named data streams. Kafka on HDInsight provides you with a managed, highly scalable, and highly available service in the Microsoft Azure cloud.
 
