@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: heidist
 ---
-# Cognitive search enrichment in Azure Search
+# Cognitive Search Concepts
 
 Cognitive search, currently in private preview, transforms raw, unstructured content into rich searchable content in an Azure Search index. At the heart of cognitive search is an extensible enrichment pipeline powered by a number of cognitive skills (for instance, natural language processing and computer vision capabilities) that extract structure and semantics from unstructured and non-textual data, and feeds it into a search index. 
 
-![](./media/cognitive-search-intro/cogsearch-architecture.png)
+![Component diagram of enrichment, augmentation pipeline](./media/cognitive-search-intro/cogsearch-architecture.png)
 
 ## Pipeline components
 
@@ -29,19 +29,19 @@ Underneath it all, the engine driving the pipeline is an Azure Search *indexer*.
 
 ### Source data and document cracking phase
 
-At the start of the pipeline, you have unstructured text or non-text content (such as image files, scanned document JPG files, audio files). Data must exist in an Azure data storage service that can be accessed by an indexer. Supported sources include Azure blob storage, Azure table storage, Azure SQL Database, and Azure Cosmos DB. Blobs can be image files, audio files, scanned documents, and so forth. Text-based content can be extracted from the following file types: PDFs, Word, PowerPoint, CSV files. For the full list, see [Supported formats](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
+At the start of the pipeline, you have unstructured text or non-text content (such as image files, scanned document JPG files, audio files). Data must exist in an Azure data storage service that can be accessed by an indexer. Supported sources include Azure blob storage, Azure table storage, Azure SQL Database, and Azure Cosmos DB. Blobs can be image files, audio files, scanned documents, and so forth. Text-based content can be extracted from the following file types: PDFs, Word, PowerPoint, CSV files. For the full list, see [Supported formats](https://docs.microsoft.com/en-us/azure/search/search-howto-indexing-azure-blob-storage#supported-document-formats).
 
 ### Cognitive skills and enrichment phase
 
-Enrichment is implemented as *cognitive skills* that invoke atomic transformations. For example, once you have the textual representation of a PDF file, you could apply natural language processing in the form of an entity recognition skill, a language detection skill, and a key phrase extraction skill to break up undifferentiated text into semantically rich parts, consumable in search workloads. Altogether, the entire collection of skills used in your pipeline is called a *skillset*.  
+Enrichment is implemented as *cognitive skills* that invoke atomic transformations. For example, once you have the textual representation of a PDF file, you could apply natural language processing in the form of an entity recognition skill, a language detection skill, or a key phrase extraction skill to break up undifferentiated text into semantically rich parts, consumable in search workloads. Altogether, the entire collection of skills used in your pipeline is called a *skillset*.  
 
-Cognitive search provides [predefined cognitive skills](cognitive-search-concept-skills-skillsets.md) that can be consumed out of the box. The pipeline is also extensible. You can build custom skills from the ground up, and connect it as part of the skillset. For more information, see [Create custom skills](cognitive-search-creating-custom-skills.md).
+Cognitive search provides [predefined cognitive skills](cognitive-search-predefined-skills.md) that can be consumed out of the box. The pipeline is also extensible. You can build custom skills from the ground up, and connect it as part of the skillset. For more information, see [Example: create a custom skill](cognitive-search-create-custom-skill-example.md) and [How to define a custom interface](cognitive-search-custom-skill-interface.md).
 
-A skillset can be minimal or highly complex, depending on how many iterations are needed to produce the outcome you want. A skillset determines not only the type of processing, but also the order of operations. A skillset plus the field mappings defined as part of an indexer determines the augmentation pipeline. For more information about pulling all of these pieces together, see [How to create a skillset](cognitive-search-defining-skillset.md).
+A skillset can be minimal or highly complex. A skillset determines not only the type of processing, but also the order of operations. A skillset plus the field mappings defined as part of an indexer determines the augmentation pipeline. For more information about pulling all of these pieces together, see [How to create a skillset](cognitive-search-defining-skillset.md).
 
 ### Enriched documents
 
-Internally, the pipeline generates a collection of enriched documents. You can decide which parts of the enriched documents should be mapped to indexable fields in your search index. For example, if you applied key phrases or entity recognition, the index would have fields for key phrases and entities generated by the pipeline.
+Internally, the pipeline generates a collection of enriched documents. You can decide which parts of the enriched documents should be mapped to indexable fields in your search index. For example, if you applied the key phrases extraction and the entity recognition skills, then those new fields would become part of the enriched document, and they can be mapped to fields on your index.
 
 ### Search index and query-based access
 
@@ -57,13 +57,13 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 | Concept | description|
 |---------|------------|
-| Indexer |  A crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source for document cracking. For cognitive search enrichments, the indexer invokes a predefined index, a skillset, and contains the field mappings associating enrichment output to target fields in the index. The indexer definition contains all of the instructions and references for pipeline operations, and the pipeline is invoked when you run the indexer. |
+| Indexer |  A crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source for document cracking. For cognitive search enrichments, the indexer invokes a skillset, and contains the field mappings associating enrichment output to target fields in the index. The indexer definition contains all of the instructions and references for pipeline operations, and the pipeline is invoked when you run the indexer. |
 | Data Source  | An object used by an indexer to connect to an external data source of supported types on Azure. |
 | Index | A persisted search corpus in Azure Search, built from an index schema that defines field structure and usage. |
 | Document cracking | The process of extracting or creating text content from non-text sources. Optical character recognition (OCR) and audio-to-text translation are two examples. The data source and the indexer definition with field mappings are the key factors in document cracking. |
 | Cognitive skill | An atomic transformation in an augmentation pipeline. Often, it is a component that extracts or infers structure, and therefore augments an understanding of the input data. Almost always, the output is text-based and the processing is natural language processing. Output can be mapped to a field in an index, or used as an input for a downstream enrichment. |
 | Skillset | A top-level named resource containing a collection of skills. A skillset is the augmentation pipeline. |
-| Enriched documents | A transitory internal structure, not directly accessible in code. Enriched documents are generated during processing, but only final outputs are persisted in a search index. Persistance is determined by how you map outputs to fields defined in an indexer definition. |
+| Enriched documents | A transitory internal structure, not directly accessible in code. Enriched documents are generated during processing, but only final outputs are persisted in a search index. Field mappings determine which data elements are added to the index. |
 
 
 ## API (REST only)
@@ -75,12 +75,13 @@ The following APIs are used in the cognitive search preview:
 | API | Description |
 |-----|-------------|
 | [Create Skillset](ref-create-skillset.md)  | Resource enumerating predefined and custom cognitive skills used in an augmentation pipeline during indexing.  |
-| [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Resource identifying an external data source providing source data used to create enriched documents.  |
-| [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Resource expressing an Azure Search index.  |
-| [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)  | Resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself.   |
+| [Create Data Source](ref-create-data-source.md)  | Resource identifying an external data source providing source data used to create enriched documents.  |
+| [Create Index](ref-create-index.md)  | Resource expressing an Azure Search index.  |
+| [Create Indexer](ref-create-indexer.md)  | Resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself.   |
 
 ## Next steps
 
 + [Get started with the private preview](cognitive-search-get-start-preview.md)
 + [How to create a skillset or augmentation pipeline](cognitive-search-defining-skillset.md)
-+ [How to create custom cognitive skills](cognitive-search-creating-custom-skills.md)
++ [How to define a custom interface](cognitive-search-custom-skill-interface.md)
++ [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)

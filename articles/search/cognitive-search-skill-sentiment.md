@@ -16,7 +16,7 @@ ms.date: 05/01/2018
 ms.author: luisca
 ---
 
-#	Cognitive Skills: SentimentSkill
+#	Microsoft.Skills.Text.Sentiment cognitive skill
 
 The sentiment skill evaluates unstructured text, and for each record, returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment.
 
@@ -27,7 +27,10 @@ Microsoft.Skills.Text.SentimentSkill
 The maximum size of a record should be 5000 characters as measured by String.Length. If you need to break up your data before sending it to the sentiment analyzer, you may use the Pagination Skill.
 
 
-## Parameters
+## Skill Parameters
+
+Parameters are case-sensitive.
+
 | Inputs	 | Description |
 |--------------------|-------------|
 | text | The text to be analyzed.|
@@ -67,7 +70,7 @@ The maximum size of a record should be 5000 characters as measured by String.Len
         "data":
            {
              "text": "I had a terrible time at the hotel. The staff was rude and the food was awful.",
-             "language": "en"
+             "languageCode": "en"
            }
       }
     ]
@@ -92,8 +95,13 @@ The maximum size of a record should be 5000 characters as measured by String.Len
 
 ## Notes
 
-If empty, sentiment will not be returned for those records.
+If empty, sentiment score is not returned for those records.
 
 
 ## Error cases
-If a language provided is not supported, then an error will be generated, and sentiment will not be extracted.
+If a language is not supported, an error is generated and no sentiment score is returned.
+
+## See also
+
++ [Predefined skills](cognitive-search-predefined-skills.md)
++ [How to define a skillset](cognitive-search-defining-skillset.md)

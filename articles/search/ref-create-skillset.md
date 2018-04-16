@@ -21,9 +21,9 @@ ms.author: luisca
 
 A skillset is a collection of cognitive skills used for natural language and other transformations, including entity extraction, key phrase extraction, chunking text into logical pages, among others.
 
-To use the skillset, reference it in an Azure Search indexer and then run the indexer to import data, invoke transformations, and map the output fields to an index. A skillset is high-level resource, but it is operational only within indexer processing. Typically, you define a skillset, an index, and field mappings in tandem, and then combine all parts into the indexer definition.
+To use the skillset, reference it in an Azure Search indexer and then run the indexer to import data, invoke transformations and enrichment, and map the output fields to an index. A skillset is high-level resource, but it is operational only within indexer processing. You can design a skillset once, and then reference it in multiple indexers. 
 
-A skillset is expressed in Azure Search through an HTTP PUT request. The body of the request is a JSON schema that specifies which skills are invoked. Skills are chained together through input-output associations, where the output of one transform becomes input to another.
+A skillset is expressed in Azure Search through an HTTP PUT or POST request. For PUT, the body of the request is a JSON schema that specifies which skills are invoked. Skills are chained together through input-output associations, where the output of one transform becomes input to another.
 
 A skillset must have at least one skill. There is no theoretical limit on maximum number of skills, but three to five is a common configuration.  
 
@@ -34,9 +34,9 @@ Content-Type: application/json
 ```  
 
 ## Request  
- HTTPS is required for all service requests. The **Create Skillset** request can be constructed using a PUT method,with the skillset name is part of the URL. If the skillset doesn't exist, it is created. If it already exists, it is updated to the new definition. Notice that you can only PUT one skillset at a time.  
+ HTTPS is required for all service requests. The **Create Skillset** request can be constructed using a PUT method, with the skillset name as part of the URL. If the skillset doesn't exist, it is created. If it already exists, it is updated to the new definition. Notice that you can only PUT one skillset at a time.  
 
- The skillset name must be lower case, start with a letter or number, have no slashes or dots, and be less than 128 characters. After starting the skillset name with a letter or number, the rest of the name can include any letter, number and dashes, as long as the dashes are not consecutive.  
+ The skillset name must be lower case, start and end with a letter or number, have no slashes or dots, and be fewer than 128 characters. After starting the skillset name with a letter or number, the rest of the name can include any letter, number, and dashes as long as the dashes are not consecutive.  
 
  The **api-version** parameter is required. The only available version is `2017-11-11-Preview`. See [API versions in Azure Search](https://go.microsoft.com/fwlink/?linkid=834796) for a list of all versions. 
 
@@ -54,9 +54,9 @@ Content-Type: application/json
 
 ### Request body syntax  
 
- The body of the request contains the skillset definition, consisting of one or more fully-specified skills, as well as optional name and description parameters.  
+ The body of the request contains the skillset definition, consisting of one or more fully specified skills, as well as optional name and description parameters.  
 
- The syntax for structuring the request payload is as follows. A sample request is provided further on in this topic and also in [How to define a skillset](cognitive-search-defining-skillset.md).  
+ The syntax for structuring the request payload is as follows. A sample request is provided further on in this article and also in [How to define a skillset](cognitive-search-defining-skillset.md).  
 
 ```
 {   
@@ -67,10 +67,10 @@ Content-Type: application/json
 ```
 
 ### Request example
- The following example creates an indexer that copies data from the table referenced by the `ordersds` data source to the `orders` index on a schedule that starts on Jan 1, 2015 UTC and runs hourly. Each indexer invocation will be successful if no more than 5 items fail to be indexed in each batch, and no more than 10 items fail to be indexed in total.  
+ The following example creates a skillset used for enriching a collection of financial documents.
 
 ```http
-PUT http://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT http://[servicename].search.windows.net/skillsets/financedocenricher?api-version=2017-11-11-Preview
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -79,13 +79,13 @@ The body of request is a JSON document. This particular skillset uses two skills
 
 ```json
 {
-  "name": "My Friendly SkillSet name",
+  "name": "financedocenricher",
   "description": 
   "Extract sentiment from financial records, extract company names, and then find additional information about each company mentioned.",
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Azure.Search.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
       "inputs": [
@@ -132,5 +132,6 @@ The body of request is a JSON document. This particular skillset uses two skills
 + [Get started with preview](cognitive-search-get-start-preview.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to map fields](cognitive-search-output-field-mapping.md)
-+ [How to create a custom skill](cognitive-search-creating-custom-skills.md)
-+ [Predefined sklls](cognitive-search-concept-skills-skillsets.md)
++ [How to define a custom interface](cognitive-search-custom-skill-interface.md)
++ [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)
++ [Predefined sklls](cognitive-search-predefined-skills.md)

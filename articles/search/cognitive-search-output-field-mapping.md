@@ -1,5 +1,5 @@
 ---
-title: How to create a skillset or augmentation pipeline (Azure Search) | Microsoft Docs
+title: How to map enriched fields (Azure Search) | Microsoft Docs
 description: Define a set of steps to augment and extract structured information from your data
 services: search
 manager: pablocas
@@ -16,14 +16,14 @@ ms.date: 05/01/2018
 ms.author: luisca
 ---
 
-# How to map enriched fields into your searchable index
+# How to map enriched fields to a searchable index
 
-Once you have [defined a skillset](cognitive-search-defining-skillset.md), you must map some or all of the fields so that they can be part of your search index. Field mappings are required for moving content from enriched documents into a search index.
+Once you have [defined a skillset](cognitive-search-defining-skillset.md), you must map the output fields of any skill that directly contributes values to a given field in your search index. Field mappings are required for moving content from enriched documents into the index.
 
 To map fields, add `outputFieldMappings` to your indexer definition as shown below:
 
 ```http
-PUT http://[servicename].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2017-11-11-Preview
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -61,22 +61,12 @@ The body of the request is structured as follows:
 ```
 For each output field mapping, set the name of the enriched field (sourceFieldName), and the name of the field as referenced in the index (targetFieldName).
 
-Note that the path in a sourceFieldName sometimes represents one element, but sometimes it represents several elements. In our example above ```"/document/content/sentiment"``` represents a single numeric value, but ```"/document/content/organizations/*/description"``` represents several organization descriptions.  In cases where there are several elements, they are "flattened" into an array that contains each of the elements. More concretely, for the ```"/document/content/organizations/*/description"``` example, the data in the *descriptions* field would look like a flat array of descriptions before it gets indexed:
+The path in a sourceFieldName can represent one element or multiple elements. In the example above, ```/document/content/sentiment``` represents a single numeric value, while ```/document/content/organizations/*/description``` represents several organization descriptions. In cases where there are several elements, they are "flattened" into an array that contains each of the elements. More concretely, for the ```/document/content/organizations/*/description``` example, the data in the *descriptions* field would look like a flat array of descriptions before it gets indexed:
 
 ```
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
 
-Once you have mapped your enriched fields to searchable fields, you can set the field attributes for each of the searchable fields [as part of the index definition](/search-what-is-an-index.md).
+Once you have mapped your enriched fields to searchable fields, you can set the field attributes for each of the searchable fields [as part of the index definition](https://docs.microsoft.com/azure/search/search-what-is-an-index).
 
-For more information about field mapping, see [Field mappings in Azure Search indexers](search-indexer-field-mappings.md).
-
-
-
-
-
-
-
-
-
-
+For more information about field mapping, see [Field mappings in Azure Search indexers](ref-search-indexer-field-mappings.md).

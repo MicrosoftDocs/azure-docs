@@ -16,33 +16,35 @@ ms.date: 05/01/2018
 ms.author: luisca
 ---
 
-#	Cognitive Skills: NamedEntityRecognitionSkill
+#	Microsoft.Skills.Text.NamedEntityRecognition cognitive skill
 
-The named entity recognition skill allows you to extract named entities from text. You can select the type of entities to be extracted. You can select between the following types: person, location and organization.
+The named entity recognition skill extracts named entities from text. Available entities include the following types: person, location, and organization.
 
 ## @odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
-## Parameters
+## Skill Parameters
+
+Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| categories	| Array of categories that should be extracted.  Possible category types: “Person”, “Location”, “Organization”. If no category is provided, all types will be returned.|
-|defaultLanguageCode |	Language code of the input text. The following languages are supported: ar,cs,da,de,en,es,fi,fr,he,hu,it,ko,pt-br,pt|
-| minimumPrecision	| A number between 0 and 1. If the precision is lower than this value, the entity will not be returned. The default is 0.|
+| categories	| Array of categories that should be extracted.  Possible category types: "Person", "Location", "Organization". If no category is provided, all types will be returned.|
+|defaultLanguageCode |	Language code of the input text. The following languages are supported: ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt|
+| minimumPrecision	| A number between 0 and 1. If the precision is lower than this value, the entity is not returned. The default is 0.|
 
 ## Inputs
 
-| Input name	 | Description |
-|--------------------|-------------|
-| language	| Optional. Default is English. |
-| text      | The Text to analyze. |
+| Input name	  | Description                   |
+|---------------|-------------------------------|
+| languageCode	| Optional. Default is "en".    |
+| text          | The text to analyze.          |
 
 ##	Sample definition
 
 ```json
   {
-    "@odata.type": "#Microsoft.Azure.Search.NamedEntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [
@@ -68,8 +70,8 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
         "recordId": "1",
         "data":
            {
-             "text": "This is a the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia…",
-             "language": "en"
+             "text": "This is a the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia… Ana Smith is provided as a reference.",
+             "languageCode": "en"
            }
       }
     ]
@@ -122,4 +124,9 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 
 ## Error cases
-If a language code provided is not supported, then an error will be generated, and no entities will be extracted.
+If the provided language code is not supported or if the content does not match the language specified, an error is generated and no entities are extracted.
+
+## See also
+
++ [Predefined skills](cognitive-search-predefined-skills.md)
++ [How to define a skillset](cognitive-search-defining-skillset.md)

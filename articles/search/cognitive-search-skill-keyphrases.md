@@ -15,19 +15,22 @@ ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
 ---
-#	KeyPhraseExtractionSkill cognitive search skill
+#	Microsoft.Skills.Text.KeyPhrases cognitive skill
 
 The key phrase extraction skill evaluates unstructured text, and for each record, returns a list of key phrases.
 
-This capability is useful if you need to quickly identify the main talking points in the record. For example, given input text "The food was delicious and there were wonderful staff", the service returns the main talking points: "food" and "wonderful staff".
+This capability is useful if you need to quickly identify the main talking points in the record. For example, given input text "The food was delicious and there were wonderful staff", the service returns "food" and "wonderful staff".
 
 ## @odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
 ## Data Limits
-The maximum size of a record should be 5000 characters as measured by String.Length. If you need to break up your data before sending it to the sentiment analyzer, you may use the Pagination Skill.
+The maximum size of a record should be 5000 characters as measured by String.Length. If you need to break up your data before sending it to the sentiment analyzer, consider using the [pagination skill](cognitive-search-skill-pagination.md).
 
-## Parameters
+## Skill Parameters
+
+Parameters are case-sensitive.
+
 | Inputs	 | Description |
 |--------------------|-------------|
 | text | The text to be analyzed.|
@@ -37,7 +40,7 @@ The maximum size of a record should be 5000 characters as measured by String.Len
 
 ```json
  {
-    "@odata.type": "#Microsoft.Skills.Text.KeyPhrases",
+    "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
     "inputs": [
       {
         "name": "text",
@@ -100,4 +103,9 @@ The maximum size of a record should be 5000 characters as measured by String.Len
 
 
 ## Error cases
-If a language code provided is not supported, then an error will be generated, and keyPhrases will not be extracted.
+If you provide an unsupported language code, an error is generated and key phrases are not extracted.
+
+## See also
+
++ [Predefined skills](cognitive-search-predefined-skills.md)
++ [How to define a skillset](cognitive-search-defining-skillset.md)

@@ -150,7 +150,9 @@
     - name: Map fields
       href: cognitive-search-output-field-mapping.md
     - name: Create a custom skill
-      href: cognitive-search-creating-custom-skills.md
+      href: cognitive-search-custom-skill-interface.md
+    - name: Example (create a custom skill)
+      href: cognitive-search-create-custom-skill-example.md
   - name: Full text search
     items:
     - name: Basic query construction
@@ -199,34 +201,44 @@
     href: /rest/api/searchservice
   - name: REST (Management)
     href: /rest/api/searchmanagement
-  - name: Preview APIs (REST)
+  - name: Cognitive Search Preview APIs
     items:
-    - name: 2017-11-11-Preview
+    - name: 2017-11-11-Preview (REST)
       href: search-api-2017-11-11-preview.md
       items:
       - name: Create Skillset (Preview)
         href: ref-create-skillset.md
-      - name: Predefined skills 
-        href: cognitive-search-concept-skills-skillsets.md
-        items:
-        - name: Microsoft.Skills.Text.KeyPhrase
-          href: cognitive-search-skill-keyphrases.md
-        - name: Microsoft.Skills.Text.LanguageDetection
-          href: cognitive-search-skill-language-detection.md
-        - name: Microsoft.Skills.Text.NamedEntityRecognition
-          href: cognitive-search-skill-named-entity-recognition.md
-        - name: Microsoft.Skills.Text.Pagination
-          href: cognitive-search-skill-pagination.md
-        - name: Microsoft.Skills.Text.Sentiment
-          href: cognitive-search-skill-sentiment.md
-        - name: Microsoft.Skills.Vision.ImageAnalysis
-          href: cognitive-search-skill-image-analysis.md
-        - name: Microsoft.Skills.Vision.Ocr
-          href: cognitive-search-skill-ocr.md
-        - name: Microsoft.Skills.Util.Shaper
-          href: cognitive-search-skill-shaper.md
-    - name: 2016-09-01-Preview
-      href: search-api-2016-09-01-preview.md
+      - name: Create Data Source (Preview)
+        href: ref-create-data-source.md
+      - name: Create Index (Preview)
+        href: ref-create-index.md
+      - name: Create Indexer (Preview)
+        href: ref-create-indexer.md
+      - name: Indexer data types (Preview)
+        href: ref-data-type-map-for-indexers-in-azure-search.md
+      - name: Indexer field mappings (Preview)
+        href: ref-search-indexer-field-mappings.md
+    - name: Predefined skills 
+      href: cognitive-search-predefined-skills.md
+      items:
+      - name: Microsoft.Skills.Text.KeyPhrase
+        href: cognitive-search-skill-keyphrases.md
+      - name: Microsoft.Skills.Text.LanguageDetection
+        href: cognitive-search-skill-language-detection.md
+      - name: Microsoft.Skills.Text.NamedEntityRecognition
+        href: cognitive-search-skill-named-entity-recognition.md
+      - name: Microsoft.Skills.Text.Pagination
+        href: cognitive-search-skill-pagination.md
+      - name: Microsoft.Skills.Text.Sentiment
+        href: cognitive-search-skill-sentiment.md
+      - name: Microsoft.Skills.Vision.ImageAnalysis
+        href: cognitive-search-skill-image-analysis.md
+      - name: Microsoft.Skills.Vision.Ocr
+        href: cognitive-search-skill-ocr.md
+      - name: Microsoft.Skills.Util.Shaper
+        href: cognitive-search-skill-shaper.md
+  - name: 2016-09-01-Preview
+    href: search-api-2016-09-01-preview.md
 - name: Resources
   items:
   - name: FAQ - Frequently Asked Questions

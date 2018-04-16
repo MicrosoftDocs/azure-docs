@@ -15,23 +15,25 @@ ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
 ---
-#	Cognitive Skills: PaginationSkill
+#	Microsoft.Skills.Text.Pagination cognitive skill
 
-The pagination skill is used to break text into chunks or pages of text.  It allows you to specify the desired maximum page length.
-
-This is especially useful if there are maximum text length requirements in other skills down the pipeline. 
+The pagination skill breaks text into chunks or pages of text. You can specify the desired maximum page length. This skill is especially useful if there are maximum text length requirements in other skills downstream. 
 
 ## @odata.type  
 Microsoft.Skills.Text.PaginationSkill 
 
-## Parameters
+## Skill Parameters
+
+Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| defaultLanguageCode	| One of the following: da,de,en,es, fi,fr,it,ko,pt-br,pt  |
-| maximumPageLength	| Maximum page length as measured by String.Length The minimum value is 100. |
+| defaultLanguageCode	| One of the following: da, de, en, es, fi, fr, it, ko, pt-br, pt  |
+| maximumPageLength	| Maximum page length as measured by String.Length. The minimum value is 100. |
 
 ##	Sample definition
+
+The `languageCode` input is optional. Providing it is useful if you want to avoid cutting a word in half for non-space languages such as Chinese, Japanese, and Korean.
 
 ```json
 {
@@ -43,7 +45,7 @@ Microsoft.Skills.Text.PaginationSkill
         "name": "text",
         "source": "/document/content"
       },
-      { //optional
+      { 
         "name": "languageCode",
         "source": "/document/language"
       }
@@ -95,7 +97,7 @@ Microsoft.Skills.Text.PaginationSkill
         "data" : {
                "pages": [
                  "This is the loan…", 
-                 "One the second page we…" ]
+                 "On the second page we…" ]
                 }
       },
       {
@@ -103,7 +105,7 @@ Microsoft.Skills.Text.PaginationSkill
         "data" : {
                "pages": [
                  "This is the second document...",
-                 "One the second page of the second doc…" ]
+                 "On the second page of the second doc…" ]
                 }
       }
     ]
@@ -112,4 +114,9 @@ Microsoft.Skills.Text.PaginationSkill
 
 
 ## Error cases
-If a language provided is not supported, then an error will be generated, and no output will be generated.
+If a language is not supported, an error is generated and no output is returned.
+
+## See also
+
++ [Predefined skills](cognitive-search-predefined-skills.md)
++ [How to define a skillset](cognitive-search-defining-skillset.md)
