@@ -1,6 +1,6 @@
 ---
 title: Use the Apache Kafka Producer and Consumer APIs - Azure HDInsight | Microsoft Docs
-description: Learn how to use the Apache Kafka Producer and Consumer APIs with Kafka on HDInsight. These APIs enable you to develop applications that write to and read from Apache Kafka.
+description: Learn how to use the Apache Kafka Producer and Consumer APIs with Kafka on HDInsight. In this tutorial, you learn how to use these APIs with Kafka on HDInsight from a Java application.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -12,12 +12,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 04/16/2018
 ms.author: larryfr
 #Customer intent: As a developer, I need to create an application that uses the Kafka consumer/producer API with Kafka on HDInsight
 ---
 
-# Apache Kafka Producer and Consumer APIs
+# Tutorial: Use the Apache Kafka Producer and Consumer APIs
 
 Learn how to use the Kafka Producer and Consumer APIs with Kafka on HDInsight.
 
