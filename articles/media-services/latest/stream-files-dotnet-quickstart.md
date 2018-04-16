@@ -141,9 +141,11 @@ In the sample's [source code](https://github.com/Azure-Samples/media-services-v3
 
 ## Test with Azure Media Player
 
-1. Open a web browser and browse to https://ampdemo.azureedge.net/.
+1. Open a web browser and browse to https://aka.ms/azuremediaplayer/.
 2. In the **URL:** box, paste the streaming URL value you got when you ran the application.  
 3. Press **Update Player**.
+
+Azure Media Player can be used for testing but should not be used in a production environment. 
 
 ## Clean up resources
 
