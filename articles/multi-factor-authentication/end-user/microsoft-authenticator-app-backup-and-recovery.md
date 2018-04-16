@@ -88,7 +88,8 @@ There are a few reasons why your backup might not be available:
 
 -	**Accidental deletion.** It’s possible that you deleted your backup account from your previous device or while managing your cloud storage account. In this situation, you must manually recreate your account within the app.
 
--	**Existing Microsoft Authenticator accounts.** The Microsoft Authenticator app can’t recover backed up accounts if there are accounts already set up in the app. Preventing recovery helps ensure that your account details aren't overwritten with out-of-date information. In this situation, you must remove any existing account information from the existing accounts set up in your Authenticator app before you can recover your backup.
+-	**Existing Microsoft Authenticator accounts.** 
+ If you've already set up accounts in the Microsoft Authenticator app, the app won't be able to recover your backed-up accounts. Preventing recovery helps ensure that your account details aren't overwritten with out-of-date information. In this situation, you must remove any existing account information from the existing accounts set up in your Authenticator app before you can recover your backup.
 
 ## Next steps
 Now that you've backed up and recovered your account credentials to your new device, you can continue to use the Microsoft Authenticator app to verify your identity.
