@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 04/13/2018
 
 ---
-# Troubleshooting Guide
+# Troubleshooting guide
 This overview describes strategies to address common issues when using the Microsoft Genomics service. For general FAQ, see [Common questions](frequently-asked-questions-genomics.md). 
 
 
@@ -37,7 +37,7 @@ Alternatively, you can include the path to the config file instead of directly e
 After calling `msgen status`, a user-friendly message will be displayed, describing whether the workflow succeeded or giving a reason for the job failure. 
 
 
-## How do I get more information about why my workflow did not succeed?
+## Get more information about my workflow status
 
 To get more information about why a job might not have succeeded, you can explore the log files produced during the workflow. In your output container, you should see a `[youroutputfilename].logs.zip` folder.  Unzipping this folder, you will see the following items:
 
