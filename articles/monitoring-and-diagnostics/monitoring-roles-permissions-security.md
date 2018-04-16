@@ -68,7 +68,7 @@ People assigned the Monitoring Contributor role can view all monitoring data in 
 > 
 
 ## Monitoring permissions and custom RBAC roles
-If the above built-in roles don’t meet the exact needs of your team, you can [create a custom RBAC role](../active-directory/role-based-access-control-custom-roles.md) with more granular permissions. Below are the common Azure Monitor RBAC operations with their descriptions.
+If the above built-in roles don’t meet the exact needs of your team, you can [create a custom RBAC role](../role-based-access-control/custom-roles.md) with more granular permissions. Below are the common Azure Monitor RBAC operations with their descriptions.
 
 | Operation | Description |
 | --- | --- |
@@ -122,7 +122,7 @@ All three of these data types can be stored in a storage account or streamed to 
 
 * Use a single, dedicated storage account for monitoring data. If you need to separate monitoring data into multiple storage accounts, never share usage of a storage account between monitoring and non-monitoring data, as this may inadvertently give those who only need access to monitoring data (for example, a third-party SIEM) access to non-monitoring data.
 * Use a single, dedicated Service Bus or Event Hub namespace across all diagnostic settings for the same reason as above.
-* Limit access to monitoring-related storage accounts or event hubs by keeping them in a separate resource group, and [use scope](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) on your monitoring roles to limit access to only that resource group.
+* Limit access to monitoring-related storage accounts or event hubs by keeping them in a separate resource group, and [use scope](../role-based-access-control/overview.md#basics-of-access-management-in-azure) on your monitoring roles to limit access to only that resource group.
 * Never grant the ListKeys permission for either storage accounts or event hubs at subscription scope when a user only needs access to monitoring data. Instead, give these permissions to the user at a resource or resource group (if you have a dedicated monitoring resource group) scope.
 
 ### Limiting access to monitoring-related storage accounts
@@ -175,6 +175,6 @@ A similar pattern can be followed with event hubs, but first you need to create 
    ```
 
 ## Next steps
-* [Read about RBAC and permissions in Resource Manager](../active-directory/role-based-access-control-what-is.md)
+* [Read about RBAC and permissions in Resource Manager](../role-based-access-control/overview.md)
 * [Read the overview of monitoring in Azure](monitoring-overview.md)
 

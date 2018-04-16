@@ -59,7 +59,7 @@ For example, it could be one of the following levels:
 
 For more information, see [Create an Azure service principal with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
-Also see [Manage Role-Based Access Control with the Azure command-line interface](../active-directory/role-based-access-control-manage-access-azure-cli.md). 
+Also see [Manage Role-Based Access Control with the Azure command-line interface](../role-based-access-control/role-assignments-cli.md). 
 
 ## Next steps
 

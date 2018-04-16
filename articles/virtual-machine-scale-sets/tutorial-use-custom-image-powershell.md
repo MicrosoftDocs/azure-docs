@@ -36,6 +36,10 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 
 ## Create and configure a source VM
+
+>[!NOTE]
+> This tutorial walks through the process of creating and using a generalized VM image. It is not supported to create a scale set from a specialized VM image.
+
 First, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup), then create a VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). This VM is then used as the source for a custom VM image. The following example creates a VM named *myCustomVM* in the resource group named *myResourceGroup*. When prompted, enter a username and password to be used as logon credentials for the VM:
 
 ```azurepowershell-interactive

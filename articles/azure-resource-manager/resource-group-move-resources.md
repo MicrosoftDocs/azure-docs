@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/11/2018
 ms.author: tomfitz
 
 ---
@@ -189,6 +189,8 @@ Virtual machines created from Marketplace resources with plans attached cannot b
 Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 
 ## Virtual Networks limitations
+
+When moving a virtual network, you must also move its dependent resources. For example, you must move gateways with the virtual network.
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 

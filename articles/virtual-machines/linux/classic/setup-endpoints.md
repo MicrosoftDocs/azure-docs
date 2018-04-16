@@ -4,7 +4,7 @@ description: Learn to set up endpoints for a Linux VM in the Azure portal to all
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 

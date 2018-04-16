@@ -4,7 +4,7 @@ description: Common PowerShell commands to get you started creating a virtual ne
 services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

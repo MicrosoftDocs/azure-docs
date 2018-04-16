@@ -67,7 +67,7 @@ The Service Fabric platform includes a health model, which provides extensible h
 
 ![SFX health dashboard](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-In addition to seeing latest health reports in SFX, each report is also available as an event. Health events can be collected through the operational channel (see [Event aggregation with Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)), and stored in OMS Log Analytics for alerting and querying in the future. This helps detect issues that may impact your application availability, so we recommend that you set up alerts for appropriate failure scenarios (custom alerts through OMS).
+In addition to seeing latest health reports in SFX, each report is also available as an event. Health events can be collected through the operational channel (see [Event aggregation with Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)), and stored in Log Analytics for alerting and querying in the future. This helps detect issues that may impact your application availability, so we recommend that you set up alerts for appropriate failure scenarios (custom alerts through Log Analytics).
 
 ## Other logging solutions
 
