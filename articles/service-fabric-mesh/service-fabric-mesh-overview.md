@@ -35,7 +35,29 @@ If you don't already have an Azure account, [create a free account](https://azur
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI. If you choose to install and use the CLI locally, install Azure CLI version 2.0.31 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
+You can use the Azure Cloud Shell or a local installation of the Azure CLI. If you choose to install and use the CLI locally, install Azure CLI version 2.0.31 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+
+<!--
+Test the Service Fabric Mesh extension with `az sbz -h`
+
+```azurecli
+> az sbz -h
+
+Group
+    az sbz: (PREVIEW) Manage Azure SeaBreeze Resources.
+
+Subgroups:
+    app           : Manage SeaBreeze applications.
+    codepackage   : Manage SeaBreeze service replica code packages.
+    deployment    : Manage SeaBreeze deployments.
+    network       : Manage networks.
+    service       : Manage SeaBreeze services.
+    servicereplica: Manage SeaBreeze service replicas.
+    volume        : Manage volumes.
+
+```
+-->
+
 
 ## Next steps
 
