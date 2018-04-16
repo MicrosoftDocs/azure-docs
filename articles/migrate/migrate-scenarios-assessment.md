@@ -66,7 +66,7 @@ Here's what we're going to do:
 > * **Step 1: Prepare Azure**. All we need is an Azure subscription.
 > * **Step 2: Download and install DMA**: Prepare DMA for assessment of the on-premises SQL Server database.
 > * **Step 3: Assess the database**: Run and analyze the database assessment.
-> * **Step 4: Prepare for VM assessment**: Set up on-premises accounts, and tweak VMware settings.
+> * **Step 4: Prepare for VM assessment with Azure Migrate**: Set up on-premises accounts, and tweak VMware settings.
 > * **Step 5: Discover on-premises VMs**: Create an Azure Migrate collector VM. Then, run the collector to discover VMs for assessment.
 > * **Step 6: Prepare for dependency analysis**: Install Azure Migrate agents on the VMs, so that we can see the dependency mapping between VMs.
 > * **Step 7: Assess the VMs**: Check dependencies, group the VMs, and run the assessment. AFter the assessment is ready, analyze it in preparation for migration.
