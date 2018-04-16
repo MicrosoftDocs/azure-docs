@@ -29,9 +29,15 @@ When using a Managed Service Identity on an Azure service instance, Azure create
 
 Managed Service Identity comes free with Azure Active Directory, which is the default for Azure subscriptions.
 
-## How do I enable my resources to use a Managed Service Identity?
+![Virtual Machine MSI example](../media/msi-vm-imds-example.png)
 
-There are two types of Managed Service Identities available: *System Assigned* and *User Assigned*.
+1. Azure Resource Manager receives a message to enable the Managed Service Identity (MSI) on a VM.
+2. Azure Resource Manager creates a Service Principal in Azure AD to represent the identity of the VM. The Service Principal is created in the Azure AD tenant that is trusted by this subscription.
+3. Azure Resource Manager configures the Service Principal details for the VM in the Azure Instance Metadata Service of the VM. This step includes configuring client ID and certificate used to get access tokens from Azure AD.
+4. Now that the Service Principal identity of the VM is known, it can be granted access to Azure resources. For example, if your code needs to call Azure Resource Manager, then you would assign the VM’s Service Principal the appropriate role using Role-Based Access Control (RBAC) in Azure AD.  If your code needs to call Key Vault, then you would grant your code access to the specific secret or key in Key Vault.
+5. Your code running on the VM requests a token from the Azure Instance Metadata Service (IMDS) MSI endpoint, which is only accessible from within the VM: http://169.254.169.254/metadata/identity/oauth2/token. The resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
+6. The Azure Instance Metadata requests an an access token from Azure AD, using the client ID and certificate for the VM. Azure AD returns a JSON Web Token (JWT) access token.
+7. Your code sends the access token on a call to a service that supports Azure AD authentication.
 
 - A **System Assigned** MSI is enabled directly on an Azure service instance. Through the enable process, Azure creates an identity for the service instance in the Azure AD tenant, and provisions the credentials for the identity onto the service instance. The life cycle of a system assigned MSI is directly tied to the Azure service instance it's enabled on. If the service instance is deleted, Azure automatically cleans up the credentials and the identity in Azure AD.
 
