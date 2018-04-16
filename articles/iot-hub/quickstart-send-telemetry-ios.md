@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-ms.date: 04/18/2018
+ms.date: 04/19/2018
 ms.author: kgremban
 
 # As a developer, I need to build an end-to-end IoT solution that sends telemetry from a device to an IoT hub and reads that telemetry data from the hub using a back-end application.
@@ -30,7 +30,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-- Download the code sample from [Azure samples](https://github.com/yzhong94/azure-iot-ios-sample/archive/master.zip) 
+- Download the code sample from [Azure samples](https://github.com/Azure-Samples/azure-iot-ios-sample/archive/master.zip) 
 - The latest version of [XCode](https://developer.apple.com/xcode/), running the latest version of the iOS SDK. This quickstart was tested with XCode 9.3 and iOS 11.3.
 - The latest version of [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
 - The iothub-explorer CLI utility, which reads telemetry from IoT Hub. To install, first install [Node.js](https://nodejs.org) v4.x.x or higher, then run the following command: 
@@ -103,10 +103,10 @@ The sample application runs on an iOS device, which connects to a device-specifi
 
 CocoaPods manage dependencies for iOS projects that use third-party libraries.
 
-Navigate to the Azure IoT iOS Sample folder that you downloaded in the prerequisites. Then, navigate to the sample project:
+Navigate to the Azure IoT iOS Samples folder that you downloaded in the prerequisites. Then, navigate to the sample project:
 
 ```sh
-cd ios-client-sample
+cd quickstart/sample-device
 ```
 
 This folder has the XCode project files and workspace, and a `Podfile` file that lists the pods required for the sample project. Make sure that XCode is closed, then run the following command to install the pods according to the podfile:
@@ -128,13 +128,12 @@ Your project folder now has another file named `Pods` and a second XCode workspa
 2. Expand the **MQTT Client Sample** project and then folder of the same name.  
 3. Open **ViewController.swift** for editing in XCode. 
 4. Search for the **connectionString** variable and update the value with the device connection string that you copied previously.
-5. Search for the **deviceID** variable and update the value with **myiOSdevice** or whatever ID you set when you registered your device. 
-6. Save your changes. 
-7. Run the project in the device emulator with the build and run button or the key combo **Command + r**. 
+5. Save your changes. 
+6. Run the project in the device emulator with the build and run button or the key combo **Command + r**. 
 
    ![Run the project](media/quickstart-send-telemetry-ios/run-sample.png)
 
-8. When the emulator opens, select **Start** in the sample app.
+7. When the emulator opens, select **Start** in the sample app.
 
 The following screenshot shows some example output as the application sends simulated telemetry to your IoT hub:
 
