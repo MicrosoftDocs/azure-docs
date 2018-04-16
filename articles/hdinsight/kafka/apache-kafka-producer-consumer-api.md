@@ -194,8 +194,3 @@ In this document, you learned how to use the Kafka Producer and Consumer API wit
 * [Analyze Kafka logs](apache-kafka-log-analytics-operations-management.md)
 * [Replicate data between Kafka clusters](apache-kafka-mirroring.md)
 * [Kafka Streams API with HDInsight](apache-kafka-streams-api.md)
-* [Use Apache Spark streaming (DStream) with Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Use Apache Spark Structured Streaming with Kafka on HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Use Apache Spark Structured Streaming to move data from Kafka on HDInsight to Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
-* [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)

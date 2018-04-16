@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Familiarity with creating Kafka topics. For more information, see the [Kafka on HDInsight quickstart](apache-kafka-get-started.md) document.
+* Familiarity with creating Kafka topics. For more information, see the [Kafka on HDInsight quickstart](./kafka/apache-kafka-get-started.md) document.
 
 * Familiarity with building and deploying Storm solutions (topologies). Specifically, topologies that use the Flux framework. For more information, see the [Create a Storm topology in Java](./storm/apache-storm-develop-java-topology.md) document.
 
@@ -59,7 +59,7 @@ The following environment variables may be set when you install Java and the JDK
 > 
 > For your convenience, this document links to a template that can create all the required Azure resources. 
 >
-> For more information on using HDInsight in a virtual network, see the [Extend HDInsight using a virtual network](../hdinsight-extend-hadoop-virtual-network.md) document.
+> For more information on using HDInsight in a virtual network, see the [Extend HDInsight using a virtual network](hdinsight-extend-hadoop-virtual-network.md) document.
 
 ## Storm and Kafka
 
@@ -124,7 +124,8 @@ There are two topologies provided with this tutorial:
 
 * Kafka-reader: Reads data from Kafka and then stores it to the HDFS compatible file store for the Storm cluster.
 
-    > [!WARNING] To enable the Storm to work with the HDFS compatible storage used by HDInsight, a script action is required. The script installs several jar files to the `extlib` path for Storm. The template in this tutorial automatically uses the script during cluster creation.
+    > [!WARNING] 
+    > To enable the Storm to work with the HDFS compatible storage used by HDInsight, a script action is required. The script installs several jar files to the `extlib` path for Storm. The template in this tutorial automatically uses the script during cluster creation.
     >
     > If you do not use the template in this document to create the Storm cluster, then you must manually apply the script action to your cluster.
     >
@@ -148,13 +149,13 @@ For more information on Flux topologies, see [https://storm.apache.org/releases/
 
 ### Kafka-writer
 
-In the kafka-writer topology, the Kafka bolt component takes two string values as parameters. These indicate which tuple fields the bolt sends to Kafka as __key__ and __message__ values. The key is used to partition data in Kafka. The message is the data being stored.
+In the Kafka-writer topology, the Kafka bolt component takes two string values as parameters. These parameters indicate which tuple fields the bolt sends to Kafka as __key__ and __message__ values. The key is used to partition data in Kafka. The message is the data being stored.
 
 In this example, the `com.microsoft.example.SentenceSpout` component emits a tuple that contains two fields, `key` and `message`. The Kafka bolt extracts these fields and sends the data in them to Kafka.
 
 The fields don't have to use the names `key` and `message`. These names are used in this project to make the mapping easier to understand.
 
-The following YAML is the definition for the kafka-writer component:
+The following YAML is the definition for the Kafka-writer component:
 
 ```yaml
 # kafka-writer
@@ -439,7 +440,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
     The package process creates a file named `KafkaTopology-1.0-SNAPSHOT.jar` in the `target` directory.
 
-3. Use the following commands to copy the package to your Storm on HDInsight cluster. Replace **sshuser** with the SSH user name for the cluster. Replace **stormclustername** with the name of the __Storm__ cluster.
+3. Use the following commands to copy the package to your Storm on HDInsight cluster. Replace `sshuser` with the SSH user name for the cluster. Replace `stormclustername` with the name of the __Storm__ cluster.
 
   ```bash
   scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
@@ -526,7 +527,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
 Kafka stores data into a _topic_. You must create the topic before starting the Storm topologies. To create the topology, use the following steps:
 
-1. Connect to the __Kafka__ cluster through SSH by using the following command. Replace **sshuser** with the SSH user name used when creating the cluster. Replace **kafkaclustername** with the name of the Kafka cluster:
+1. Connect to the __Kafka__ cluster through SSH by using the following command. Replace `sshuser` with the SSH user name used when creating the cluster. Replace `kafkaclustername` with the name of the Kafka cluster:
 
     ```bash
     ssh sshuser@kafkaclustername-ssh.azurehdinsight.net
@@ -546,7 +547,7 @@ Kafka stores data into a _topic_. You must create the topic before starting the 
 
 ## Start the writer
 
-1. Use the following to connect to the **Storm** cluster using SSH. Replace **sshuser** with the SSH user name used when creating the cluster. Replace **stormclustername** with the name the Storm cluster:
+1. Use the following to connect to the **Storm** cluster using SSH. Replace `sshuser` with the SSH user name used when creating the cluster. Replace `stormclustername` with the name the Storm cluster:
 
     ```bash
     ssh sshuser@stormclustername-ssh.azurehdinsight.net

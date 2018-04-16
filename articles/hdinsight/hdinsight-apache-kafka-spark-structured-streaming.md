@@ -34,18 +34,18 @@ When you are done with the steps in this document, remember to delete the cluste
 
 ## Prerequisites
 
-* Familiarity with using Jupyter Notebooks with Spark on HDInsight. For more information, see the [Load data and run queries with Spark on HDInsight](../spark/apache-spark-load-data-run-query.md) document.
+* Familiarity with using Jupyter Notebooks with Spark on HDInsight. For more information, see the [Load data and run queries with Spark on HDInsight](spark/apache-spark-load-data-run-query.md) document.
 
 * Familiarity with the [Scala](https://www.scala-lang.org/) programming language. The code used in this tutorial is written in Scala.
 
-* Familiarity with creating Kafka topics. For more information, see the [Kafka on HDInsight quickstart](apache-kafka-get-started.md) document.
+* Familiarity with creating Kafka topics. For more information, see the [Kafka on HDInsight quickstart](kafka/apache-kafka-get-started.md) document.
 
 > [!IMPORTANT]
 > The steps in this document require an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
 > 
 > For your convenience, this document links to a template that can create all the required Azure resources. 
 >
-> For more information on using HDInsight in a virtual network, see the [Extend HDInsight using a virtual network](../hdinsight-extend-hadoop-virtual-network.md) document.
+> For more information on using HDInsight in a virtual network, see the [Extend HDInsight using a virtual network](hdinsight-extend-hadoop-virtual-network.md) document.
 
 ## Structured Streaming with Kafka
 
@@ -204,7 +204,7 @@ To remove the resource group using the Azure portal:
 
 ## Next steps
 
-In this tutorial, you learned how to use Spark Structured Streaming to write and read data from Kafka on HDInsight. Use the link below to learn how to use Storm with Kafka.
+In this tutorial, you learned how to use Spark Structured Streaming to write and read data from Kafka on HDInsight. Use the following link to learn how to use Storm with Kafka.
 
 > [!div class="nextstepaction"]
 > [Use Apache Storm with Kafka](hdinsight-apache-storm-with-kafka.md)
