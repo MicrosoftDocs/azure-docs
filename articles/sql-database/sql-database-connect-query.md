@@ -14,17 +14,25 @@ ms.author: carlrab
 
 # Azure SQL Database Connect and Query Quickstarts
 
-The following table includes links to Azure examples showing how to connect and query an Azure SQL database.
+## Important TLS considerations while connecting to Azure SQL Database
+Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to Azure SQL Database. No
+special configuration is necessary. For all connections to SQL Server or to Azure SQL Database, we recommend that all applications set
+the following configurations, or their equivalents:
 
-> [!NOTE]
-> All Microsoft-supplied and supported drivers will always use TLS when connecting to Azure SQL Database without any special 
-> configuration necessary. We recommend that all applications enable the Encrypt=On and TrustServerCertificate=Off (or equivalent) 
-> keywords for all connections to SQL Server and Azure SQL Database to ensure the client driver verifies the server’s identity via its 
-> TLS certificate. Also, we recommend you disable TLS 1.1 and 1.0 on the client if you need to comply with PCI-DSS.
- 
-> Non-Microsoft drivers may not use TLS by default and may not be capable of doing so at all when connecting to Azure SQL Database. 
-> Applications with embedded drivers may not allow you to control these connection settings. We recommend carefully examining the 
-> security of such drivers and applications before using them on systems that interact with sensitive data.
+ - **Encrypt = On**
+ - **TrustServerCertificate = Off**
+
+Some systems use different yet equivalent keywords for those configuration keywords. These configurations ensure that the client driver
+verifies the identity of the TLS certificate received from the server.
+
+We also recommend that you disable TLS 1.1 and 1.0 on the client if you need to comply with Payment Card Industry - Data Security
+Standard (PCI-DSS).
+
+Non-Microsoft drivers might not use TLS by default. This can be a factor when connecting to Azure SQL Database. Applications with
+embedded drivers might not allow you to control these connection settings. We recommend that you examine the security of such drivers
+and applications before using them on systems that interact with sensitive data.
+
+The following table includes links to Azure examples showing how to connect and query an Azure SQL database.
 
 | |  |
 |---|---|
