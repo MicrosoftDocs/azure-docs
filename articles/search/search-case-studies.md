@@ -7,7 +7,6 @@ tags: azure-portal
 
 ms.service: search
 ms.devlang: NA
-ms.workload: search
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist

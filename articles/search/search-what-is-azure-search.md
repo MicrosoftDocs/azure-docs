@@ -5,8 +5,6 @@ manager: cgronlun
 author: HeidiSteen
 
 ms.service: search
-ms.devlang: NA
-ms.workload: search
 ms.topic: overview
 ms.date: 11/10/2017
 ms.author: heidist

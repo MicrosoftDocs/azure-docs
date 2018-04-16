@@ -7,7 +7,6 @@ tags: azure-resource-manager
 
 ms.service: search
 ms.devlang: powershell
-ms.workload: search
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist

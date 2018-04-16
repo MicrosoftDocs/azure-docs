@@ -4,9 +4,7 @@ description: 'Azure Search can be provisioned at these SKUs: Free, Basic, and St
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
-
 ms.service: search
-ms.workload: search
 ms.topic: conceptual
 ms.date: 10/24/2016
 ms.author: heidist

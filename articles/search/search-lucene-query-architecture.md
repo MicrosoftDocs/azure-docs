@@ -6,7 +6,6 @@ author: yahnoosh
 
 ms.service: search
 ms.devlang: NA
-ms.workload: search
 ms.topic: conceptual
 ms.date: 04/06/2017
 ms.author: jlembicz

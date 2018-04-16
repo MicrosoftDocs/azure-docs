@@ -6,8 +6,6 @@ manager: jlembicz
 tags: Lucene query analyzer syntax
 
 ms.service: search
-ms.devlang: na
-ms.workload: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: liamca

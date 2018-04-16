@@ -8,7 +8,6 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
-ms.custom: mvc
 ---
 
 # Part 2: Search semi-structured data in cloud storage

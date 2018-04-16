@@ -6,7 +6,6 @@ manager: cgronlun
 
 ms.service: search
 ms.devlang: na
-ms.workload: search
 ms.topic: tutorial
 ms.date: 11/10/2017
 ms.author: heidist

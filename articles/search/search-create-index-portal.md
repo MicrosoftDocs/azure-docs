@@ -6,9 +6,7 @@ author: heidisteen
 
 ms.service: search
 ms.devlang: NA
-ms.workload: search
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.date: 06/20/2017
 ms.author: heidist
 

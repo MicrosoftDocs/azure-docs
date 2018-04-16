@@ -7,7 +7,6 @@ ms.author: brjohnst
 
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
 ms.topic: quickstart
 ms.date: 12/08/2016
 ---

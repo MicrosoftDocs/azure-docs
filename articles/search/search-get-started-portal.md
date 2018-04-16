@@ -6,7 +6,6 @@ manager: cgronlun
 tags: azure-portal
 
 ms.service: search
-ms.workload: search
 ms.topic: tutorial
 ms.date: 12/04/2017
 ms.author: heidist

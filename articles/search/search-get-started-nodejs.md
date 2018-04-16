@@ -5,8 +5,6 @@ author: jj09
 manager: jlembicz
 
 ms.service: search
-ms.devlang: na
-ms.workload: search
 ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed

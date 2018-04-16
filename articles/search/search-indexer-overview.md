@@ -6,7 +6,6 @@ manager: cgronlun
 
 ms.service: search
 ms.devlang: na
-ms.workload: search
 ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist

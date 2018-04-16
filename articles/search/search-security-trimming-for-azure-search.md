@@ -1,7 +1,7 @@
 ---
 title: "Security filters for trimming results in Azure Search | Microsoft Docs"
 description: Access control on Azure Search content using security filters and user identities.
-ms.service: "search"
+ms.service: search
 ms.topic: conceptual
 
 ms.date: "08/07/2017"

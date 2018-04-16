@@ -4,7 +4,6 @@ description: Add the synonyms preview feature to an index in Azure Search.
 manager: cgronlun
 author: HeidiSteen
 ms.service: search
-ms.workload: search
 ms.topic: tutorial
 ms.date: 03/31/2017
 ms.author: heidist

@@ -6,7 +6,6 @@ manager: cgronlun
 tags: Azure Portal
 
 ms.service: search
-ms.workload: search
 ms.topic: quickstart
 ms.date: 05/01/2017
 ms.author: heidist

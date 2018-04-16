@@ -5,7 +5,6 @@ authors: "mhko"
 
 ms.service: "search"
 ms.devlang: "rest-api"
-ms.workload: "search"
 ms.topic: conceptual
 ms.date: "07/07/2016"
 manager: jlembicz

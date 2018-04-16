@@ -7,7 +7,6 @@ tags: azure-portal
 
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
 ms.topic: quickstart
 ms.date: 05/22/2017
 ms.author: brjohnst

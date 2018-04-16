@@ -5,7 +5,6 @@ description: How to build a hosted cloud search application on Azure using Java 
 author: jj09
 manager: jlembicz
 ms.service: search
-ms.workload: search
 ms.topic: conceptual
 ms.date: 07/14/2016
 ms.author: jjed

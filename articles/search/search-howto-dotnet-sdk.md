@@ -6,7 +6,6 @@ manager: jlembicz
 
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
 ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: brjohnst

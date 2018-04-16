@@ -7,7 +7,6 @@ manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.workload: search
 ms.date: 03/23/2018
 ms.author: eugenesh
 robot: noindex

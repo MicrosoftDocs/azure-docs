@@ -6,10 +6,8 @@ manager: cgronlun
 
 ms.service: search
 ms.workload: search
-ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
-
 ---
 
 # How to filter by language in Azure Search 

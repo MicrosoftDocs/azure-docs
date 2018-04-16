@@ -6,7 +6,6 @@ manager: jlembicz
 
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
 ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: nateko

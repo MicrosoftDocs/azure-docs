@@ -7,8 +7,6 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 
 ms.service: search
-ms.devlang: na
-ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2017
 

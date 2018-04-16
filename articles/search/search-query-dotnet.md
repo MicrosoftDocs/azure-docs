@@ -7,7 +7,6 @@ ms.author: brjohnst
 
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
 ms.topic: quickstart
 ms.date: 05/19/2017
 ---

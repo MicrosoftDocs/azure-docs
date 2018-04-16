@@ -4,10 +4,7 @@ description: Learn how to upload data to an index in Azure Search.
 author: HeidiSteen
 manager: cgronlun
 
-
 ms.service: search
-ms.devlang: NA
-ms.workload: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist

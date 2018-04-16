@@ -3,11 +3,8 @@ title: Set RBAC roles for Azure Search administrative access in the portal | Mic
 description: Role-based administrative control in the Azure portal.
 author: HeidiSteen
 manager: cgronlun
-tags: azure-portal
 
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist

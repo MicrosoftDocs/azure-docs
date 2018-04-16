@@ -6,7 +6,6 @@ manager: jlembicz
 ms.author: brjohnst
 
 ms.service: search
-ms.workload: search
 ms.topic: conceptual
 ms.date: 11/08/2017
 ---

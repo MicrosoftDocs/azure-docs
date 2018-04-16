@@ -5,7 +5,6 @@ author: HeidiSteen
 manager: cgronlun
 
 ms.service: search
-ms.workload: search
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
