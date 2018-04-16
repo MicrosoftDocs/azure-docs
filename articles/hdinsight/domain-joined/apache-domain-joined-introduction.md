@@ -62,3 +62,6 @@ Protecting data is important for meeting organizational security and compliance 
 * For managing a Domain-joined HDInsight cluster, see [Manage Domain-joined HDInsight clusters](apache-domain-joined-manage.md).
 * For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md).
 * For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* For using VSCode to link to domain joined cluster, see [Use VSCode to link to domain joined cluster](../hdinsight-for-vscode.md).
+* For using IntelliJ to link to domain joined cluster, see [Use IntelliJ to link to domain joined cluster](../spark/apache-spark-intellij-tool-plugin).
+* For using Eclipse to link to domain joined cluster, see [Use Eclipse to link to domain joined cluster](../spark/apache-spark-eclipse-tool-plugin).
