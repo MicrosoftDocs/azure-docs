@@ -51,7 +51,7 @@ using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
 ### Copy your credentials from the Azure portal
 
-The sample application needs to authenticate access to your storage account. To authenticate, you provide the application with your storage account credentials in the form of a connection string. To view your storage account credentials:
+The sample code needs to authenticate access to your storage account. To authenticate, you provide the application with your storage account credentials in the form of a connection string. To view your storage account credentials:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 2. Locate your storage account.
