@@ -15,6 +15,10 @@ ms.author: nepeters
 
 This article addresses frequent questions about Azure Container Service (AKS).
 
+> [!IMPORTANT]
+> Azure Container Service (AKS) is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+>
+
 ## Which Azure regions provide the Azure Container Service (AKS) today?
 
 - Canada Central

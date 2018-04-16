@@ -61,6 +61,9 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 |--|--|
 |Control+E|switches between tokens and entities on utterances list|
 
+## Website sign in time period
+
+Your sign in access is for **60 minutes**. After this time period, you will get this error. You need to login again.
 
 [luis-get-started-create-app]:luis-get-started-create-app.md
 [batch-testing]:luis-concept-test.md#batch-testing
