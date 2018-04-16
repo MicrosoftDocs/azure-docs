@@ -113,9 +113,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Clever Client support team](https://clever.com/about/contact/) to get these values.
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+4. On the **SAML Signing Certificate** section, perform the following steps:
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_metadataurl.png)
 
-	![The Certificate download link](./media/active-directory-saas-clever-tutorial/tutorial_clever_certificate.png)
+	a. Click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+
+	b. Click **Metadata XML** and then save the metadata file on your computer.
 
 5. The Clever application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **SAML Token Attributes** configuration.
 
@@ -144,22 +148,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	d. Leave the **Namespace** textbox blank.
 	
 	d. Click **Ok**.
-
-7. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_metadataurl.png)
-     
-8. Click **Save** button.
+7. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-clever-tutorial/tutorial_general_400.png)
 
-9. In a different web browser window, log in to your Clever company site as an administrator.
+8. In a different web browser window, log in to your Clever company site as an administrator.
 
-10. In the toolbar, click **Instant Login**.
+9. In the toolbar, click **Instant Login**.
 
 	![Instant Login](./media/active-directory-saas-clever-tutorial/ic798984.png "Instant Login")
 
-11. On the **Instant Login** page, perform the following steps:
+10. On the **Instant Login** page, perform the following steps:
       
 	  ![Instant Login](./media/active-directory-saas-clever-tutorial/ic798985.png "Instant Login")
 	  
@@ -170,7 +170,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	  
 	  b. As **Identity System**, select **ADFS**.
 
-	  c. In the **Metadata Url** textbox, paste **App Federation Metadata Url**value which you have copied from the Azure portal.
+	  c. In the **Metadata URL** textbox, paste **App Federation Metadata Url** value which you have copied from the Azure portal.
 	  
 	  d. Click **Save**.
 
