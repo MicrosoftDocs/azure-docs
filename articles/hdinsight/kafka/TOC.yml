@@ -25,7 +25,7 @@
   - name: Kafka and Storm
     href: ../hdinsight-apache-storm-with-kafka.md
     maintainContext: true
-  - name: Using Kafka Producer and Consumer API
+  - name: Kafka Producer and Consumer API
     href: apache-kafka-producer-consumer-api.md
 - name: Concepts
   items:
