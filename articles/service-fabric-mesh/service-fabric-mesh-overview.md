@@ -14,7 +14,7 @@ manager: timlt
 
 # What is Service Fabric Mesh?
 
-Service Fabric Mesh is a server-less application platform hosted and managed by Microsoft Azure. With Service Fabric Mesh, you can deploy and scale your containerized application without worrying about infrastructure needs. Service Fabric Mesh automatically allocates the infrastructure needed by your application and also handles infrastructure failures, making sure your app is always available. Also, Service Fabric Mesh handles service discovery, data-partitioning, frictionless upgrades, and other features needed by highly available hyper-scalable applications.
+Service Fabric Mesh is a server-less application platform hosted and managed by Microsoft Azure. With Service Fabric Mesh, you can deploy and scale your containerized application without worrying about infrastructure needs. Service Fabric Mesh automatically allocates the infrastructure needed by your application and also handles infrastructure failures, making sure your app is always available. Also, Service Fabric Mesh handles service discovery, data-partitioning, upgrades, and other features needed by highly available hyper-scalable applications.
 
 <!--
 NEW DIAGRAM NEEDED
