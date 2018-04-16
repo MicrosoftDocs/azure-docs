@@ -26,27 +26,27 @@ Deep learning is impacting everything from healthcare to transportation to manuf
 
 There are [many popular frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), including [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, etc. Caffe is one of the most famous non-symbolic (imperative) neural network frameworks, and widely used in many areas including computer vision. Furthermore, [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combines Caffe with Apache Spark, in which case deep learning can be easily used on an existing Hadoop cluster. You can use deep learning together with Spark ETL pipelines, reducing system complexity, and latency for complete solution learning.
 
-[HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/) is a cloud Hadoop offering that provides optimized open source analytic clusters for Spark, Hive, Hadoop, HBase, Storm, Kafka, and R Server. HDInsight is backed by a 99.9% SLA. Each of these big data technologies and ISV applications is easily deployable as managed clusters with security and monitoring for enterprises.
+[HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/) is a cloud Hadoop offering that provides optimized open-source analytic clusters for Spark, Hive, Hadoop, HBase, Storm, Kafka, and R Server. HDInsight is backed by a 99.9% SLA. Each of these big data technologies and ISV applications is easily deployable as managed clusters with security and monitoring for enterprises.
 
 This article demonstrates how to install [Caffe on Spark](https://github.com/yahoo/CaffeOnSpark) for an HDInsight cluster. This article also uses the built-in MNIST demo to show how to use Distributed Deep Learning using HDInsight Spark on CPUs.
 
-There are four major steps to get it work on HDInsight.
+There are four steps to accomplish the task:
 
 1. Install the required dependencies on all the nodes
 2. Build Caffe on Spark for HDInsight on the head node
 3. Distribute the required libraries to all the worker nodes
 4. Compose a Caffe model and run it in a distributed manner.
 
-Since HDInsight is a PaaS solution, it offers great platform features - so it is easy to perform some tasks. One of the features that we heavily use in this blog post is called [Script Action](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), with which you can execute shell commands to customize cluster nodes (head node, worker node, or edge node).
+Since HDInsight is a PaaS solution, it offers great platform features - so it is easy to perform some tasks. One of the features used in this blog post is called [Script Action](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), with which you can execute shell commands to customize cluster nodes (head node, worker node, or edge node).
 
 ## Step 1:  Install the required dependencies on all the nodes
 
-To get started, we need to install the dependencies we need. The Caffe site and [CaffeOnSpark site](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) offers some useful wiki for installing the dependencies for Spark on YARN mode. HDInsight also uses Spark on YARN mode. However, we need to add a few more dependencies for HDInsight platform. To do so, we use a script action and run it on all the head nodes and worker nodes. This script action takes about 20 minutes, as those dependencies also depend on other packages. You should put it in some location that is accessible to your HDInsight cluster, such as a GitHub location or the default BLOB storage account.
+To get started, you need to install the dependencies. The Caffe site and [CaffeOnSpark site](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) offers some useful wiki for installing the dependencies for Spark on YARN mode. HDInsight also uses Spark on YARN mode. However, you need to add a few more dependencies for HDInsight platform. To do so, you use a script action and run it on all the head nodes and worker nodes. This script action takes about 20 minutes, as those dependencies also depend on other packages. You should put it in some location that is accessible to your HDInsight cluster, such as a GitHub location or the default BLOB storage account.
 
     #!/bin/bash
     #Please be aware that installing the below will add additional 20 mins to cluster creation because of the dependencies
     #installing all dependencies, including the ones mentioned in http://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
-    #It seems numpy will only needed during compilation time, but for safety purpose we install them on all the nodes
+    #It seems numpy will only needed during compilation time, but for safety purpose you install them on all the nodes
 
     sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler maven libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev build-essential  libboost-all-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
 
@@ -62,9 +62,9 @@ To get started, we need to install the dependencies we need. The Caffe site and 
     echo "protobuf installation done"
 
 
-There are two steps in the script action. The first step is to install all the required libraries. Those libraries include the necessary libraries for both compiling Caffe(such as gflags, glog) and running Caffe (such as numpy). We are using libatlas for CPU optimization, but you can always follow the CaffeOnSpark wiki on installing other optimization libraries, such as MKL or CUDA (for GPU).
+There are two steps in the script action. The first step is to install all the required libraries. Those libraries include the necessary libraries for both compiling Caffe(such as gflags, glog) and running Caffe (such as numpy). you are using libatlas for CPU optimization, but you can always follow the CaffeOnSpark wiki on installing other optimization libraries, such as MKL or CUDA (for GPU).
 
-The second step is to download, compile, and install protobuf 2.5.0 for Caffe during runtime. Protobuf 2.5.0 [is required](https://github.com/yahoo/CaffeOnSpark/issues/87), however this version is not available as a package on Ubuntu 16, so we need to compile it from the source code. There are also a few resources on the Internet on how to compile it. For more information, see [here](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
+The second step is to download, compile, and install protobuf 2.5.0 for Caffe during runtime. Protobuf 2.5.0 [is required](https://github.com/yahoo/CaffeOnSpark/issues/87), however this version is not available as a package on Ubuntu 16, so you need to compile it from the source code. There are also a few resources on the Internet on how to compile it. For more information, see [here](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
 To get started, you can just run this script action against your cluster to all the worker nodes and head nodes (for HDInsight 3.5). You can either run the script actions on an existing cluster, or use script actions during the cluster creation. For more information on the script actions, see the documentation [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
 
@@ -150,7 +150,7 @@ You probably see a test failure when doing the final check for CaffeOnSpark. Thi
 
 ## Step 3: Distribute the required libraries to all the worker nodes
 
-The next step is to distribute the libraries (basically the libraries in CaffeOnSpark/caffe-public/distribute/lib/ and CaffeOnSpark/caffe-distri/distribute/lib/) to all the nodes. In Step 2, we put those libraries on BLOB storage, and in this step, we use script actions to copy it to all the head nodes and worker nodes.
+The next step is to distribute the libraries (basically the libraries in CaffeOnSpark/caffe-public/distribute/lib/ and CaffeOnSpark/caffe-distri/distribute/lib/) to all the nodes. In Step 2, you put those libraries on BLOB storage, and in this step, you use script actions to copy it to all the head nodes and worker nodes.
 
 To do this, run a script action as shown in the following snippet:
 
@@ -159,7 +159,7 @@ To do this, run a script action as shown in the following snippet:
 
 Make sure you need point to the right location specific to your cluster)
 
-Because in step 2, we put it on the BLOB storage, which is accessible to all the nodes, in this step we just copy it to all the nodes.
+Because in step 2, you put it on the BLOB storage, which is accessible to all the nodes, in this step you just copy it to all the nodes.
 
 ## Step 4: Compose a Caffe model and run it in a distributed manner
 
@@ -167,13 +167,13 @@ Caffe is installed after running the preceding steps. The next step is to write 
 
 Caffe is using an "expressive architecture", where for composing a model, you just need to define a configuration file, and without coding at all (in most cases). So let's take a look there. 
 
-The model we train is a sample model for MNIST training. The MNIST database of handwritten digits has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image. CaffeOnSpark has some scripts to download the dataset and convert it into the right format.
+The model that you train is a sample model for MNIST training. The MNIST database of handwritten digits has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image. CaffeOnSpark has some scripts to download the dataset and convert it into the right format.
 
 CaffeOnSpark provides some network topologies example for MNIST training. It has a nice design of splitting the network architecture (the topology of the network) and optimization. In this case, There are two files required: 
 
-the "Solver" file (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) is used for overseeing the optimization and generating parameter updates. For example, it defines whether CPU or GPU is used, what's the momentum, how many iterations are, etc. It also defines which neuron network topology should the program use (which is the second file we need). For more information about Solver, see [Caffe documentation](http://caffe.berkeleyvision.org/tutorial/solver.html).
+the "Solver" file (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) is used for overseeing the optimization and generating parameter updates. For example, it defines whether CPU or GPU is used, what's the momentum, how many iterations are, etc. It also defines which neuron network topology should the program use (which is the second file you need). For more information about Solver, see [Caffe documentation](http://caffe.berkeleyvision.org/tutorial/solver.html).
 
-For this example, since we are using CPU rather than GPU, we should change the last line to:
+For this example, since you are using CPU rather than GPU, you should change the last line to:
 
     # solver mode: CPU or GPU
     solver_mode: CPU
@@ -182,7 +182,7 @@ For this example, since we are using CPU rather than GPU, we should change the l
 
 You can change other lines as needed.
 
-The second file (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) defines how the neuron network looks like, and the relevant input and output file. We also need to update the file to reflect the training data location. Change the following part in lenet_memory_train_test.prototxt (you need to point to the right location specific to your cluster):
+The second file (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) defines how the neuron network looks like, and the relevant input and output file. you also need to update the file to reflect the training data location. Change the following part in lenet_memory_train_test.prototxt (you need to point to the right location specific to your cluster):
 
 - change the "file:/Users/mridul/bigml/demodl/mnist_train_lmdb" to "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"
 - change "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" to "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
@@ -191,7 +191,7 @@ The second file (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) define
 
 For more information on how to define the network, check the [Caffe documentation on MNIST dataset](http://caffe.berkeleyvision.org/gathered/examples/mnist.html)
 
-For the purpose of this article, we use this MNIST example. Run the following commands from the head node:
+For the purpose of this article, you use this MNIST example. Run the following commands from the head node:
 
     spark-submit --master yarn --deploy-mode cluster --num-executors 8 --files ${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt,${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt --conf spark.driver.extraLibraryPath="${LD_LIBRARY_PATH}" --conf spark.executorEnv.LD_LIBRARY_PATH="${LD_LIBRARY_PATH}" --class com.yahoo.ml.caffe.CaffeOnSpark ${CAFFE_ON_SPARK}/caffe-grid/target/caffe-grid-0.1-SNAPSHOT-jar-with-dependencies.jar -train -features accuracy,loss -label label -conf lenet_memory_solver.prototxt -devices 1 -connection ethernet -model wasb:///mnist.model -output wasb:///mnist_features_result
 
@@ -199,7 +199,7 @@ The preceding command distributes the required files (lenet_memory_solver.protot
 
 ## Monitoring and troubleshooting
 
-Since we are using YARN cluster mode, in which case the Spark driver will be scheduled to an arbitrary container (and an arbitrary worker node) you should only see in the console outputting something like:
+Since you are using YARN cluster mode, in which case the Spark driver will be scheduled to an arbitrary container (and an arbitrary worker node) you should only see in the console outputting something like:
 
     17/02/01 23:22:16 INFO Client: Application report for application_1485916338528_0015 (state: RUNNING)
 
@@ -209,7 +209,7 @@ If you want to know what happened, you usually need to get the Spark driver's lo
    
 ![YARN UI](./media/apache-spark-deep-learning-caffe/YARN-UI-1.png)
 
-You can take a look at how many resources are allocated for this particular application. You can click the "Scheduler" link, and then you will see that for this application, there are 9 containers running. We ask YARN to provide 8 executors, and another container is for driver process. 
+You can take a look at how many resources are allocated for this particular application. You can click the "Scheduler" link, and then you will see that for this application, there are nine containers running. you ask YARN to provide eight executors, and another container is for driver process. 
 
 ![YARN Scheduler](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
 
@@ -266,7 +266,7 @@ from the headnode. After checking container failure, it is caused by using GPU m
 
 ## Getting results
 
-Since we are allocating 8 executors, and the network topology is simple, it should only take around 30 minutes to run the result. From the command line, you can see that we put the model to wasb:///mnist.model, and put the results to a folder named wasb:///mnist_features_result.
+Since you are allocating 8 executors, and the network topology is simple, it should only take around 30 minutes to run the result. From the command line, you can see that you put the model to wasb:///mnist.model, and put the results to a folder named wasb:///mnist_features_result.
 
 You can get the results by running
 

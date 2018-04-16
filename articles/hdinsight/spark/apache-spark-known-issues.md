@@ -94,7 +94,7 @@ First code statement in Jupyter notebook using Spark magic could take more than 
 This happens because when the first code cell is run. In the background this initiates session configuration and Spark, SQL, and Hive contexts are set. After these contexts are set, the first statement is run and this gives the impression that the statement took a long time to complete.
 
 ### Jupyter notebook timeout in creating the session
-When Spark cluster is out of resources, the Spark and PySpark kernels in the Jupyter notebook will timeout trying to create the session. 
+When Spark cluster is out of resources, the Spark and PySpark kernels in the Jupyter notebook will time out trying to create the session. 
 
 **Mitigations:** 
 
