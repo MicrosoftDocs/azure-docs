@@ -18,7 +18,7 @@ ms.author: cephalin
 
 # Inbound and outbound IP addresses in Azure App Service
 
-[Azure App Service](app-service-web-overview.md) is a multi-tenented service, except for [App Service Environments](environment/intro.md). Apps that are not in the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/) share network infrastructure with other apps. As a result, the inbound and outbound IP addresses of an app can be different, and can even change in certain situations. 
+[Azure App Service](app-service-web-overview.md) is a multi-tenent service, except for [App Service Environments](environment/intro.md). Apps that are not in the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/) share network infrastructure with other apps. As a result, the inbound and outbound IP addresses of an app can be different, and can even change in certain situations. 
 
 [App Service Environments](environment/intro.md) use dedicated network infrastructures, so apps running in an App Service environment get static, dedicated IP addresses both for inbound and outbound connections.
 
@@ -32,11 +32,11 @@ Regardless of the number of scaled-out instances, each app has a single inbound 
 
 ## Get static inbound IP
 
-Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to configure an [IP-based SSL binding](app-service-web-tutorial-custom-ssl.md#bind-your-ssl-certificate). If you don't actually need SSL functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based SSL binding, App Service binds the certificate to the IP address itself, so it provisions a static IP address to make this happen. 
+Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to configure an [IP-based SSL binding](app-service-web-tutorial-custom-ssl.md#bind-your-ssl-certificate). If you don't actually need SSL functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based SSL binding, the certificate is bound to the IP address itself, so App Service provisions a static IP address to make it happen. 
 
 ## When outbound IPs change
 
-Regardless of the number of scaled-out instances, each app has four outbound IP address at any given time. Any outbound connection from the App Service app, such as to a back end database, uses one of the four outbound IP address as the origin IP address. You can't determine ahead of time which IP address a given app instance will use to make the outbound connection, so your back end service must open its firewall to all the outbound IP addresses of your app.
+Regardless of the number of scaled-out instances, each app has four outbound IP address at any given time. Any outbound connection from the App Service app, such as to a back-end database, uses one of the four outbound IP addresses as the origin IP address. You can't know beforehand which IP address a given app instance will use to make the outbound connection, so your back-end service must open its firewall to all the outbound IP addresses of your app.
 
 The set of outbound IP addresses for your app can change when you perform one of the following actions:
 
