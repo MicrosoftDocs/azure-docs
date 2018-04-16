@@ -3,7 +3,7 @@ title: Manage storage capacity in Azure Stack | Microsoft Docs
 description: Monitor and manage available storage space for Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
-ms.author: brenduns
+ms.date: 02/22/2017
+ms.author: mabrigg
 ms.reviewer: jiahan
 
 ---

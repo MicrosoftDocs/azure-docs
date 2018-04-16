@@ -3,7 +3,7 @@ title: Upload files from devices to Azure IoT Hub with Python | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Python. Uploaded files are stored in an Azure storage blob container.
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2018
-ms.author: v-masebo
+ms.date: 03/05/2018
+ms.author: kgremban
 
 ---
 # Upload files from your device to the cloud with IoT Hub
@@ -26,7 +26,7 @@ This tutorial follows how to use the [file upload capabilities of IoT Hub](iot-h
 - Securely provide a storage container for uploading a file.
 - Use the Python client to upload a file through your IoT hub.
 
-The [Get started with IoT Hub](iot-hub-node-node-getstarted.md) and [Send Cloud-to-Device messages with IoT Hub](iot-hub-node-node-c2d.md) tutorials show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
+The [Get started with IoT Hub](iot-hub-node-node-getstarted.md) tutorial demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
 
 > [!NOTE]
 > IoT Hub Python SDK currently only supports uploading character-based files such as **.txt** files.
@@ -73,10 +73,11 @@ In this section, you create the device app to upload a file to IoT hub.
     import os
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
 
-    CONNECTION_STRING = "{deviceConnectionString}"
+    CONNECTION_STRING = "[Device Connection String]"
     PROTOCOL = IoTHubTransportProvider.HTTP
 
-    FILENAME = 'sample.txt'
+    PATHTOFILE = "[Full path to file]"
+    FILENAME = "[File name on storage after upload]"
     ```
 
 1. Create a callback for the **upload_blob** function:
@@ -95,14 +96,17 @@ In this section, you create the device app to upload a file to IoT hub.
     def iothub_file_upload_sample_run():
         try:
             print ( "IoT Hub file upload sample, press Ctrl-C to exit" )
-		
+
             client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
 
-            client.upload_blob_async(FILENAME, FILENAME, os.path.getsize(FILENAME), blob_upload_conf_callback, 0)
-		
+            f = open(PATHTOFILE, "r")
+            content = f.read()
+
+            client.upload_blob_async(FILENAME, content, len(content), blob_upload_conf_callback, 0)
+
             print ( "" )
             print ( "File upload initiated..." )
-		
+
             while True:
                 time.sleep(30)
 
@@ -113,7 +117,7 @@ In this section, you create the device app to upload a file to IoT hub.
             print ( "IoTHubClient sample stopped" )
         except:
             print ( "generic error" )
-		
+
     if __name__ == '__main__':
         print ( "Simulating a file upload using the Azure IoT Hub Device SDK for Python" )
         print ( "    Protocol %s" % PROTOCOL )

@@ -12,9 +12,7 @@ ms.assetid: 6ce18163-63b5-4df6-9bb6-8fcbd4db05d8
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: larryfr
 
@@ -74,7 +72,8 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
     
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
-       -Credential $creds
+       -Credential $creds `
+       -UseBasicParsing
     $resp.Content
     ```
 
@@ -97,7 +96,8 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/version/hive" `
-       -Credential $creds
+       -Credential $creds `
+       -UseBasicParsing
     $resp.Content
     ```
 
@@ -119,7 +119,8 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/hive" `
        -Credential $creds `
        -Body $reqParams `
-       -Method POST
+       -Method POST `
+       -UseBasicParsing
     $jobID = (ConvertFrom-Json $resp.Content).id
     $jobID
     ```
@@ -159,7 +160,8 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
     $reqParams=@{"user.name"="admin"}
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
        -Credential $creds `
-       -Body $reqParams
+       -Body $reqParams `
+       -UseBasicParsing
     # ConvertFrom-JSON can't handle duplicate names with different case
     # So change one to prevent the error
     $fixDup=$resp.Content.Replace("jobID","job_ID")

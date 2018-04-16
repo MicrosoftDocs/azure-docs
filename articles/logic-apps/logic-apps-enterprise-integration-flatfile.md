@@ -3,7 +3,7 @@ title: Encode or decode flat files in Azure logic apps | Microsoft Docs
 description: How to use the file file encoder or decoder in the Enterprise Integration Pack in your logic apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
 editor: 
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: LADocs; mandia
+ms.author: LADocs; divswa
 
 ---
 # Overview of enterprise integration with flat files

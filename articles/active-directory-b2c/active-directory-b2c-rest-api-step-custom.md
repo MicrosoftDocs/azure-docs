@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: REST API claims exchanges as an orchestratio
 description: A topic on Azure Active Directory B2C custom policies that integrate with an API
 services: active-directory-b2c
 documentationcenter: ''
-author: rojasja
+author: davidmu1
 manager: mtillman
-editor: rojasja
+editor: ''
 
-ms.assetid:
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/24/2017
-ms.author: joroja
+ms.author: davidmu
 ---
 
 # Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step

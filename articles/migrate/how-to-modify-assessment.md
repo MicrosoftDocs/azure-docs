@@ -4,7 +4,7 @@ description: Describes how to set up and run an assessment for migrating VMware 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 02/26/2018
 ms.author: raynew
 ---
 
@@ -20,8 +20,8 @@ ms.author: raynew
 
     **Setting** | **Details** | **Default**
     --- | --- | ---
-    **Target location** | The Azure location to which you want to migrate. |  West US 2 is the default location.
-    **Storage redundancy** | The type of storage redundancy that the Azure VMs will use after migration. | [Locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) is the default value. Azure Migrate only supports managed disks-based assessments and managed disks only support LRS, hence the property currently only has the LRS option. 
+    **Target location** | The Azure location to which you want to migrate.<br/><br/> Azure Migrate currently supports 30 regions including Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China North, East Asia, East US, Germany Central, Germany Northeast, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, UK West, West Central US, West Europe, West India, West US, and West US2. |  West US 2 is the default location.
+    **Storage redundancy** | The type of storage redundancy that the Azure VMs will use after migration. | [Locally redundant storage (LRS)](../storage/common/storage-redundancy-lrs.md) is the default value. Azure Migrate only supports managed disks-based assessments and managed disks only support LRS, hence the property currently only has the LRS option. 
     **Sizing criterion** | The criterion to be used by Azure Migrate to right-size VMs for Azure. You can do either do *performance-based* sizing or size the VMs *as on-premises*, without considering the performance history. | Performance-based sizing is the default option.
     **Performance history** | The duration to consider for evaluating the performance of the VMs. This property is only applicable when sizing criterion is *performance-based sizing*. | Default is one day.
     **Percentile utilization** | The percentile value of the performance sample set to be considered for right-sizing. This property is only applicable when sizing criterion is *performance-based sizing*.  | Default is 95th percentile.

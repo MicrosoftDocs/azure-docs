@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 02/23/2018
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -36,7 +36,9 @@ This problem occurs if the client certificate is missing from **Certificates - C
 
 To resolve this problem, follow these steps:
 
-1. Make sure that the following certificates are in the correct location:
+1. Open Certificate Manager: Click **Start**, type **manage computer certificates**, and then click **manage computer certificates** in the search result.
+
+2. Make sure that the following certificates are in the correct location:
 
     | Certificate | Location |
     | ------------- | ------------- |
@@ -44,7 +46,7 @@ To resolve this problem, follow these steps:
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-2. Go to Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
+3. Go to Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
 
 For more information about how to install the client certificate, see [Generate and export certificates for point-to-site connections](vpn-gateway-certificates-point-to-site.md).
 
@@ -283,7 +285,7 @@ Point-to-site VPN client uses Azure DNS servers that are configured in the Azure
 
 ### Solution
 
-To resolve the problem, make sure that the Azure DNS servers that used on the Azure virtual network can resolve the DNS records for local resources. To do this, you can use DNS Forwarders or Conditional forwarders. For more information, see [Name resolution using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+To resolve the problem, make sure that the Azure DNS servers that used on the Azure virtual network can resolve the DNS records for local resources. To do this, you can use DNS Forwarders or Conditional forwarders. For more information, see [Name resolution using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
 
 ## The point-to-site VPN connection is established, but you still cannot connect to Azure resources 
 
@@ -331,7 +333,7 @@ The NIC driver is outdated.
 Update the NIC driver:
 
 1. Click **Start**, type **Device Manager**, and select it from the list of results. If you're prompted for an administrator password or confirmation, type the password or provide confirmation.
-2. In the **Network adapters ** categories, find the NIC that you want to update.  
+2. In the **Network adapters** categories, find the NIC that you want to update.  
 3. Double-click the device name, select **Update driver**, select **Search automatically for updated driver software**.
 4. If Windows doesn't find a new driver, you can try looking for one on the device manufacturer's website and follow their instructions.
 5. Restart the computer and try the connection again.

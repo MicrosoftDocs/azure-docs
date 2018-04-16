@@ -33,21 +33,23 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Monitor and update VMs
+  - name: 10 - Govern VMs
+    href: tutorial-govern-resources.md
+  - name: 11 - Monitor and update VMs
     href: tutorial-monitoring.md
-  - name: 11 - Manage VM security
+  - name: 12 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 12 - Deploy Jenkins
+  - name: 13 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 13 - CI/CD with Team Services
+  - name: 14 - CI/CD with Team Services
     href: tutorial-build-deploy-jenkins.md
-  - name: 14a - Create LAMP stack
+  - name: 15a - Create LAMP stack
     href: tutorial-lamp-stack.md
-  - name: 14b - Create LEMP stack
+  - name: 15b - Create LEMP stack
     href: tutorial-lemp-stack.md
-  - name: 14c - Create MEAN stack
+  - name: 15c - Create MEAN stack
     href: tutorial-mean-stack.md
-  - name: 15 - Secure web server with SSL
+  - name: 16 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -86,7 +88,9 @@
     - name: High performance compute
       href: sizes-hpc.md    
     - name: Azure compute units (ACU)
-      href: acu.md        
+      href: acu.md 
+    - name: Benchmark scores
+      href: compute-benchmark-scores.md             
   - name: Endorsed distros
     href: endorsed-distros.md
   - name: Maintenance and updates
@@ -106,6 +110,8 @@
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: Troubleshoot attached VHDs
+      href: troubleshoot-vhds.md            
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -141,7 +147,7 @@
     - name: Encrypt
       href: encrypt-disks.md
     - name: Use access controls
-      href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Use policies
       href: policy.md
     - name: Create a Key Vault
@@ -199,8 +205,6 @@
       href: maintenance-notifications.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Accelerated maintenance FAQ
-      href: accelerated-maintenance.md
     - name: Scheduled events
       href: scheduled-events.md
     - name: Monitor metadata
@@ -398,6 +402,8 @@
       href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Assign public DNS name
       href: portal-create-fqdn.md
+    - name: Find and delete unattached NICs
+      href: find-unattached-nics.md
     - name: DNS resolution
       href: azure-dns.md
       items:
@@ -417,6 +423,8 @@
       href: extensions-nwa.md
     - name: VMAccess Extension
       href: using-vmaccess-extension.md
+    - name: Restrict extension installation
+      href: extensions-rmpolicy-howto-cli.md   
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
@@ -456,10 +464,14 @@
       href: understand-vm-reboot.md
     - name: Boot diagnostics
       href: boot-diagnostics.md
+    - name: Serial console 
+      href: serial-console.md
     - name: Access to applications
       href: troubleshoot-app-connection.md
-    - name: Allocation failures
+    - name: Allocation failures 
       href: allocation-failure.md
+    - name: Allocation failures-classic VM
+      href: allocation-failure-classic.md
     - name: Deployment issues
       href: troubleshoot-deploy-vm.md
     - name: Creating a VM

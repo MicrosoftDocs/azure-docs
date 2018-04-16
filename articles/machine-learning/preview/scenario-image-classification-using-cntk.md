@@ -6,7 +6,7 @@ documentationcenter: ''
 author: PatrickBue
 ms.author: pabuehle
 manager: mwinkle
-ms.reviewer: mawah, marhamil, mldocs, garyericson, jasonwhowell
+ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
@@ -56,6 +56,7 @@ The prerequisites to run this example are as follows:
     - `pip install -U numpy`
     - `pip install bqplot`
     - `jupyter nbextension enable --py --sys-prefix bqplot`
+    - `jupyter nbextension enable --py widgetsnbextension`
 
 ### Troubleshooting / Known bugs
 - A GPU is needed for part 2, and otherwise the error "Batch normalization training on CPU is not yet implemented" is thrown when trying to refine the DNN.
@@ -211,7 +212,7 @@ We now present several ways to improve the accuracy of the model from part 1. Mo
 
 Instead of an SVM, one can do the classification directly in the neural network. This is achieved by adding a new last layer to the pre-trained DNN, which takes the 512-floats from the penultimate layer as input. The advantage of doing the classification in the DNN is that now the full network can be retrained using backpropagation. This approach often leads to much better classification accuracies compared to using the pre-trained DNN as-is, however at the expense of much longer training time (even with GPU).
 
-Training the Neural Network instead of an SVM is done by changing the variable `classifier` in `PARAMETERS.py` from `svm` to `dnn`. Then, as described in part 1, all the scripts except for data preparation (step 1) and SVM training (step 3) need to be executed again. DNN refinement requires a GPU. if no GPU was found or if the GPU is locked (for example by a previous CNTK run) then script `2_refineDNN.py` throws an error. DNN training can throw out-of-memory error on some GPUs, which can be avoided by reducing the minibatch size (variable `cntk_mb_size` in `PARAMETERS.py`).
+Training the Neural Network instead of an SVM is done by changing the variable `classifier` in `PARAMETERS.py` from `svm` to `dnn`. Then, as described in part 1, all the scripts except for data preparation (step 1) and SVM training (step 4) need to be executed again. DNN refinement requires a GPU. if no GPU was found or if the GPU is locked (for example by a previous CNTK run) then script `2_refineDNN.py` throws an error. DNN training can throw out-of-memory error on some GPUs, which can be avoided by reducing the minibatch size (variable `cntk_mb_size` in `PARAMETERS.py`).
 
 Once training completes, the refined model is saved to *DATA_DIR/proc/fashionTexture/cntk_refined.model*, and a plot drawn which shows how the training and test classification errors change during training. Note in that plot that the error on the training set is much smaller than on the test set. This so-called over-fitting behavior can be reduced, for example,  by using a higher value for the dropout rate `rf_dropoutRate`.
 <p align="center">

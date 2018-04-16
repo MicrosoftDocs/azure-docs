@@ -34,6 +34,8 @@ To learn more about each of these capabilities, see:
 * Device twin and properties: [Get started with device twins][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]
 * Direct methods: [IoT Hub developer guide - direct methods][lnk-dev-methods] and [Tutorial: Use direct methods][lnk-c2d-methods]
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 This tutorial shows you how to:
 
 * Create a device app that implements a direct method called **lockDoor** that can be called by the back-end app. The device app also receives desired property changes from the back-end app.
@@ -115,7 +117,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
             "deviceId='myDeviceId'",
             directMethod,
             DateTime.Now,
-            10);
+            (long)TimeSpan.FromMinutes(2).TotalSeconds);
 
         Console.WriteLine("Started Method Job");
     }
@@ -135,7 +137,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
             "deviceId='myDeviceId'",
             twin,
             DateTime.Now,
-            10);
+            (long)TimeSpan.FromMinutes(2).TotalSeconds);
 
         Console.WriteLine("Started Twin Update Job");
     }

@@ -34,23 +34,24 @@ The **services available in Azure Government** are listed by category, as well a
 ## Compute
 | Generally Available | Preview |
 | --- | --- |
-| [Virtual Machines](documentation-government-compute.md#virtual-machines) | [Azure Container Service**](documentation-government-compute.md#azure-container-service) |
+| [Virtual Machines](documentation-government-compute.md#virtual-machines) |  |
 | [Batch](documentation-government-compute.md#batch) | |
 | [Cloud Services](documentation-government-compute.md#cloud-services) | |
 | [Virtual Machine Scale Sets](documentation-government-compute.md#virtual-machine-scale-sets) | |
-| [Functions**](documentation-government-compute.md#azure-functions) | |
+| [Functions](documentation-government-compute.md#azure-functions) | |
 | [Service Fabric](documentation-government-compute.md#service-fabric) | |
 
 ## Networking
 | Generally Available | Preview |
 | --- | --- |
-| [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity) | [Network Watcher](documentation-government-networking.md#support-for-network-watcher) | 
+| [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity) | | 
 | [Virtual Network](documentation-government-networking.md#support-for-virtual-network) | |
 | [Load Balancer](documentation-government-networking.md#support-for-load-balancer) | |
 | [DNS](documentation-government-networking.md#support-for-dns) | |
 | [Traffic Manager](documentation-government-networking.md#support-for-traffic-manager) | |
 | [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway) | |
 | [Application Gateway](documentation-government-networking.md#support-for-application-gateway) | |
+| [Network Watcher](documentation-government-networking.md#support-for-network-watcher) | |
 
 ## Storage
 | Generally Available | Preview |
@@ -109,14 +110,14 @@ The **services available in Azure Government** are listed by category, as well a
 | Generally Available | Preview |
 | --- | --- |
 | [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory) | |
-| [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium) | |
+| [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium-p1-and-p2) | |
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | |
 | [Azure Multi-Factor Authentication](documentation-government-services-securityandidentity.md#azure-multi-factor-authentication) | |
 
 ## Monitoring + Management
 | Generally Available | Preview |
 | --- | --- |
-| [Automation](documentation-government-services-monitoringandmanagement.md#automation)| |
+| [Automation](documentation-government-services-monitoringandmanagement.md#automation)| [Advisor](documentation-government-services-monitoringandmanagement.md#advisor) |
 | [Backup](documentation-government-services-backup.md) | |
 | [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | |
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | | 
@@ -124,6 +125,11 @@ The **services available in Azure Government** are listed by category, as well a
 | [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor) | |
 | [Azure Portal](documentation-government-services-monitoringandmanagement.md#azure-portal) | |
 | [Azure Resource Manager](documentation-government-services-monitoringandmanagement.md#azure-resource-manager) | |
+
+## Developer Tools
+| Generally Available | Preview |
+| --- | --- |
+| [DevTest Labs](documentation-government-services-devtools.md#devtest-labs)| |
 
 
 ## Next steps

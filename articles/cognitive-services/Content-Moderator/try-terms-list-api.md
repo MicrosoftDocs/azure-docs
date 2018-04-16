@@ -18,7 +18,9 @@ The default global list of terms in Azure Content Moderator is sufficient for mo
 
 Use the [List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) to create custom lists of terms to use with the Text Moderation API. The **Text - Screen** operation scans your text for profanity, and also compares text against custom and shared blacklists.
 
-Use the List Management API to create and custom lists of images. This article focuses on lists of terms.
+> [!NOTE]
+> There is a maximum limit of **5 term lists** with each list to **not exceed 10,000 terms**.
+>
 
 You can use the List Management API to do the following tasks:
 - Create a list.

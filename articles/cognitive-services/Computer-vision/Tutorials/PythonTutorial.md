@@ -2,14 +2,14 @@
 title: Computer Vision API Python tutorial | Microsoft Docs
 description: Learn how to use the Computer Vision API with Python by using Jupyter notebooks in Microsoft Cognitive Services. Visualize your results using popular libraries.
 services: cognitive-services
-author: JuliaNik
-manager: ytkuo
+author: KellyDF
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
 ms.date: 02/25/2017
-ms.author: juliakuz
+ms.author: kefre
 ---
 
 # Computer Vision API Python Tutorial

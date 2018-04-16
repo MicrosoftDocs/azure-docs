@@ -1,28 +1,22 @@
 ---
-title: Table design introduction - Azure SQL Data Warehouse | Microsoft Docs
+title: Designing tables - Azure SQL Data Warehouse | Microsoft Docs
 description: Introduction to designing tables in Azure SQL Data Warehouse. 
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 01/18/2018
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/14/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
 
-# Introduction to designing tables in Azure SQL Data Warehouse
+# Designing tables in Azure SQL Data Warehouse
 
 Learn key concepts for designing tables in Azure SQL Data Warehouse. 
 
-## Determining table category 
+## Determine table category 
 
 A [star schema](https://en.wikipedia.org/wiki/Star_schema) organizes data into fact and dimension tables. Some tables are used for integration or staging data before it moves to a fact or dimension table. As you design a table, decide whether the table data belongs in a fact, dimension, or integration table. This decision informs the appropriate table structure and distribution. 
 
@@ -68,7 +62,7 @@ A temporary table only exists for the duration of the session. You can use a tem
 An external table points to data located in Azure Storage blob or Azure Data Lake Store. When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into SQL Data Warehouse. External tables are therefore useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## Data types
-SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. Minimizing the size of data types helps to improve query performance. For guidance on using data types, see [Data types](sql-data-warehouse-tables-data-types.md).
+SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. Minimizing the size of data types helps to improve query performance. For guidance on using data types, see [Data types](sql-data-warehouse-tables-data-types.md).
 
 ## Distributed tables
 A fundamental feature of SQL Data Warehouse is the way it can store and operate on tables across 60 [distributions](massively-parallel-processing-mpp-architecture.md#distributions).  The tables are distributed using a round-robin, hash, or replication method.
@@ -104,7 +98,7 @@ A partitioned table stores and performs operations on the table rows according t
 ## Columnstore indexes
 By default, SQL Data Warehouse stores a table as a clustered columnstore index. This form of data storage achieves high data compression and query performance on large tables.  The clustered columnstore index is usually the best choice, but in some cases a clustered index or a heap is the appropriate storage structure.
 
-For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-whats-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## Statistics
 The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to create statistics on individual columns, especially columns used in query joins. Creating and updating statistics does not happen automatically. [Create statistics](/sql/t-sql/statements/create-statistics-transact-sql) after creating a table. Update statistics after a significant number of rows are added or changed. For example, update statistics after a load. For more information, see [Statistics guidance](sql-data-warehouse-tables-statistics.md).
@@ -141,7 +135,7 @@ SQL Data Warehouse supports many, but not all, of the table features offered by 
 - [User-Defined Types](/sql/relational-databases/native-client/features/using-user-defined-types)
 
 ## Table size queries
-One simple way to identify space and rows consumed by a table in each of the 60 distributions, is to use [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
+One simple way to identify space and rows consumed by a table in each of the 60 distributions, is to use [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -340,4 +334,4 @@ ORDER BY    distribution_id
 ```
 
 ## Next steps
-After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data from Azure blob storage with PolyBase](load-data-from-azure-blob-storage-using-polybase.md).
+After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data to SQL Data Warehouse](load-data-wideworldimportersdw.md).

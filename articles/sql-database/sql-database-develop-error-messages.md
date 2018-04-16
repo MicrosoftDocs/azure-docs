@@ -1,27 +1,20 @@
- ---
+---
 title: SQL error codes - database connection error | Microsoft Docs
 description: 'Learn about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. '
 keywords: sql error code,access sql,database connection error,sql error codes
 services: sql-database
-documentationcenter: ''
 author: stevestein
-manager: jhubbard
-editor: ''
-
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: "Active"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/01/2018
 ms.author: sstein
 
 ---
 # SQL error codes for SQL Database client applications: Database connection errors and other issues
 
-This article lists SQL error codes for SQL Database client applications, including database connection errors, transient errors (also called transient faults), resource governance errors, database copy issues, elastic pool, and other errors. Most categories are particular to Azure SQL Database, and do not apply to Microsoft SQL Server. See also [system error messages](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx).
+This article lists SQL error codes for SQL Database client applications, including database connection errors, transient errors (also called transient faults), resource governance errors, database copy issues, elastic pool, and other errors. Most categories are particular to Azure SQL Database, and do not apply to Microsoft SQL Server. See also [system error messages](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
 ## Database connection errors, transient errors, and other temporary errors
 The following table covers the SQL error codes for connection loss errors, and other transient errors you might encounter when your application attempts to access SQL Database. For getting started tutorials on how to connect to Azure SQL Database, see [Connecting to Azure SQL Database](sql-database-libraries.md).
@@ -107,8 +100,8 @@ The following errors are related to creating and using elastic pools:
 
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| 1132 |EX_RESOURCE |The elastic pool has reached its storage limit. The storage usage for the elastic pool cannot exceed (%d) MBs. |Elastic pool space limit in MBs. |Attempting to write data to a database when the storage limit of the elastic pool has been reached. |Consider increasing the DTUs of the elastic pool if possible in order to increase its storage limit, reduce the storage used by individual databases within the elastic pool, or remove databases from the elastic pool. |
-| 10929 |EX_USER |The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) for assistance. Otherwise, please try again later. |DTU min per database; DTU max per database |The total number of concurrent workers (requests) across all databases in the elastic pool attempted to exceed the pool limit. |Consider increasing the DTUs of the elastic pool if possible in order to increase its worker limit, or remove databases from the elastic pool. |
+| 1132 |EX_RESOURCE |The elastic pool has reached its storage limit. The storage usage for the elastic pool cannot exceed (%d) MBs. |Elastic pool space limit in MBs. |Attempting to write data to a database when the storage limit of the elastic pool has been reached. |Consider increasing the DTUs of and/or adding storage to the elastic pool if possible in order to increase its storage limit, reduce the storage used by individual databases within the elastic pool, or remove databases from the elastic pool. |
+| 10929 |EX_USER |The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) for assistance. Otherwise, please try again later. |DTU / vCore min per database; DTU / vCore max per database |The total number of concurrent workers (requests) across all databases in the elastic pool attempted to exceed the pool limit. |Consider increasing the DTUs or vCores of the elastic pool if possible in order to increase its worker limit, or remove databases from the elastic pool. |
 | 40844 |EX_USER |Database '%ls' on Server '%ls' is a '%ls' edition database in an elastic pool and cannot have a continuous copy relationship. |database name, database edition, server name |A StartDatabaseCopy command is issued for a non-premium db in an elastic pool. |Coming soon |
 | 40857 |EX_USER |Elastic pool not found for server: '%ls', elastic pool name: '%ls'. |name of server; elastic pool name |Specified elastic pool does not exist in the specified server. |Provide a valid elastic pool name. |
 | 40858 |EX_USER |Elastic pool '%ls' already exists in server: '%ls' |elastic pool name, server name |Specified elastic pool already exists in the specified logical server. |Provide new elastic pool name. |

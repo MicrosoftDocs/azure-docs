@@ -89,7 +89,7 @@ When you're deleting a service instance, be aware of the following:
 
 [//]: # (Start of RBAC section)
 ## Manage access with Role-Based Access Control
-[Role-Based Access Control (RBAC)](../role-based-access-control-configure.md) for Azure AD Connect Health provides access to users and groups other than global administrators. RBAC assigns roles to the intended users and groups, and provides a mechanism to limit the global administrators within your directory.
+[Role-Based Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) for Azure AD Connect Health provides access to users and groups other than global administrators. RBAC assigns roles to the intended users and groups, and provides a mechanism to limit the global administrators within your directory.
 
 ### Roles
 Azure AD Connect Health supports the following built-in roles:
@@ -136,7 +136,7 @@ Now the listed users and groups have access, according to their assigned roles.
 >
 
 #### Step 3: Share the blade location with users or groups
-1. After you assign permissions, a user can access Azure AD Connect Health by going [here](http://aka.ms/aadconnecthealth).
+1. After you assign permissions, a user can access Azure AD Connect Health by going [here](https://aka.ms/aadconnecthealth).
 2. On the blade, the user can pin the blade, or different parts of it, to the dashboard. Simply click the **Pin to dashboard** icon.<br>
    ![Screenshot of Azure AD Connect Health RBAC pin blade, with pin icon highlighted](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 

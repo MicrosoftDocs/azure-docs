@@ -4,7 +4,7 @@ description: Learn how to create a Linux VM with multiple NICs attached to it us
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid:
@@ -140,6 +140,8 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
+When you add multiple NICs to a Linux VM, you need to create routing rules. These rules allow the VM to send and receive traffic that belongs to a specific NIC. Otherwise, traffic that belongs to eth1, for example, cannot be processed correctly by the defined default route. To correct this routing issue, see [Configure guest OS for multiple NICs](multiple-nics.md#configure-guest-os-for-multiple-nics).
+
 ## Create multiple NICs using Resource Manager templates
 Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
 
@@ -159,6 +161,8 @@ You can also use a `copyIndex()` to then append a number to a resource name, whi
 ```
 
 You can read a complete example of [creating multiple NICs using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+When you add multiple NICs to a Linux VM, you need to create routing rules. These rules allow the VM to send and receive traffic that belongs to a specific NIC. Otherwise, traffic that belongs to eth1, for example, cannot be processed correctly by the defined default route. To correct this routing issue, see [Configure guest OS for multiple NICs](multiple-nics.md#configure-guest-os-for-multiple-nics).
 
 ## Next steps
 Make sure to review [Linux VM sizes](sizes.md) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. 

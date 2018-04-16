@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/06/2018
+ms.date: 03/16/2018
 ms.author: gsacavdm
 
 ---
@@ -42,7 +42,7 @@ Select-Object -ExpandProperty Entry | `
 Out-File vm-images.md
 -->
 
-The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of February 6, 2018.
+The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of March 16, 2018.
 
 |Publisher|Offer|SKU|
 | --- | --- | --- |
@@ -54,6 +54,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | alertlogic | alert-logic-wsm | 20216000100-wsmpbyl |
 | altamira-corporation | lumify | lumify |
 | asigra | asigra-on-azure | asigra-evaluation-vm |
+| avepoint | 84104b82-160c-44c6-830d-2c0c03344ddb | 3-5-1 |
 | barracudanetworks | barracuda-app-sec-control-center | byol |
 | barracudanetworks | barracuda-email-security-gateway | byol |
 | barracudanetworks | barracuda-message-archiver | byol |
@@ -239,6 +240,8 @@ The table below contains a snapshot of the list of virtual machine images availa
 | cisco | cisco-csr-1000v | 16_7 |
 | cisco | cisco-csr-1000v | 3_16 |
 | cisco | cisco-csr-1000v | csr-azure-byol |
+| cisco | cisco-ftdv | ftdv-azure-byol |
+| citrix | netscaler-sd-wan | netscalersd-wanstandardedition |
 | citrix | netscalervpx-120 | netscalerbyol |
 | citrix | netscalervpx110-6531 | netscalerbyol |
 | citrix | netscalervpx111 | netscalerbyol |
@@ -287,6 +290,9 @@ The table below contains a snapshot of the list of virtual machine images availa
 | f5-networks | f5-big-ip | f5-bigip-virtual-edition-best-byol |
 | f5-networks | f5-big-ip | f5-bigip-virtual-edition-better-byol |
 | f5-networks | f5-big-ip | f5-bigip-virtual-edition-good-byol |
+| f5-networks | f5-big-ip-best | f5-bigip-virtual-edition-best-byol |
+| f5-networks | f5-big-ip-better | f5-bigip-virtual-edition-better-byol |
+| f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-good-byol |
 | flashgrid-inc | flashgrid-ol7-g | fg-17-05-ol74-g |
 | flashgrid-inc | flashgrid-ol7-g | fg-rh-gc |
 | fortinet | fortinet-fortianalyzer | fortinet-fortianalyzer |
@@ -295,6 +301,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | fortinet | fortinet_fortimail | fortinet_fortimail |
 | fortinet | fortinet_fortiweb-vm_v5 | fortinet_fw-vm |
 | hanu | hanu-insightv2 | hanu-insight-v2-enterprise-byol |
+| hanu | hanu-insightv2 | hanu-insight-v2-standard-byol |
 | infoblox | infoblox-vnios-te-v1420 | vnios-cp-v1400 |
 | infoblox | infoblox-vnios-te-v1420 | vnios-cp-v2200 |
 | infoblox | infoblox-vnios-te-v1420 | vnios-cp-v800 |
@@ -302,13 +309,18 @@ The table below contains a snapshot of the list of virtual machine images availa
 | infoblox | infoblox-vnios-te-v1420 | vnios-te-v2220 |
 | infoblox | infoblox-vnios-te-v1420 | vnios-te-v820 |
 | infoblox | infoblox-vnios-te-v1420 | vsot |
+| jamcracker | 4632d5b4-feb0-4332-8452-f2e66133672f | jamcracker_cloud_control_appliance_version5 |
 | jamcracker | jamcracker-cloudanalytics-version4 | jamcracker-cloud-analytics-version4 |
+| jamcracker | jamcracker-cloudanalytics-version5 | jamcracker-cloudanalytics-version5 |
+| jamcracker | jamcracker-csb-serviceprovider | jc-csbsp-version5 |
+| jamcracker | jamcracker-csb-standard | jamcracker-csb-standard-version5 |
 | jamcracker | jamcracker-csb-standard-v3 | jamcracker-csb-standard-v3 |
 | jamcracker | jamcracker-csb-standard-version4 | jamcracker-csb-standard-version4 |
 | jamcracker | jamcracker-hybrid-cloud-management-version4 | jamcracker-hybrid-cloud-management-version4 |
 | jamcracker | jamcracker_cloud_control_appliance_version4 | jamcracker-cloud-control-appliance-version4 |
 | jamcracker | jsdnapp_csb_serviceprovider-version4 | jc-csbsp-version4 |
-| jamcracker | jsdnapp_hybrid_v3 | jsdnapp_hybrid_v3 |
+| jamcracker | jsdnapp_hybrid_v3 | jamcracker-hybrid-cloud-management-version5 |
+| juniper-networks | vmx-services-gateway-byol | vmx-services-gateway-byol |
 | juniper-networks | vsrx-next-generation-firewall | vsrx-byol-azure-image |
 | juniper-networks | vsrx-next-generation-firewall-solution-template | vsrx-byol-azure-image-solution-template |
 | kemptech | kemp360central-byol | kemp360central-byol |
@@ -401,8 +413,10 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-29-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-291-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Ent-VSU3-AzureSDK-29-WS2012R2 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-Latest-Preview-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-Latest-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-Latest-Preview-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-Latest-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-WS2016 |
 | MicrosoftWindowsDesktop | Windows-10 | RS2-Pro |
@@ -429,13 +443,13 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-with-Containers-smalldisk |
 | MicrosoftWindowsServerRemoteDesktop | WindowsServer | RDSH-Office365P |
 | MicrosoftWindowsServerRemoteDesktop | WindowsServer | Remote-Desktop-Session-Host |
-| naaraaadvertising | naaraahosting | partyhard |
 | netapp | netapp-oncommand-cloud-manager | occm-byol |
 | netapp | netapp-ontap-cloud | ontap_cloud_byol |
 | noobaa | noobaa-hybrid-s3-archive-05 | pay-per-usage |
 | nuxeo | nuxeo-6-lts | nuxeo-6-lts |
 | nuxeo | nuxeo-lts | nuxeo-lts-2015 |
 | nuxeo | nuxeo-lts | nuxeo-lts-2016 |
+| onyx-point-inc | op-dfi-v1 | dfiv1 |
 | OpenLogic | CentOS | 6.7 |
 | OpenLogic | CentOS | 6.8 |
 | OpenLogic | CentOS | 6.9 |
@@ -443,6 +457,8 @@ The table below contains a snapshot of the list of virtual machine images availa
 | OpenLogic | CentOS | 7.2n |
 | OpenLogic | CentOS | 7.3 |
 | OpenLogic | CentOS | 7.4 |
+| OpenLogic | CentOS-CI | 7-CI |
+| OpenLogic | CentOS-LVM | 7-LVM |
 | opentext | opentext-content-server-16 | ot-cs16 |
 | Oracle | Oracle-Database-Ee | 12.1.0.2 |
 | Oracle | Oracle-Database-Se | 12.1.0.2 |
@@ -453,6 +469,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | paloaltonetworks | vmseries1 | byol |
 | panzura-file-system | panzura-cloud-filer | fd-vm-azure-byol |
 | panzura-file-system | panzura-freedom-filer-v7020 | fd-vm-azure-byol |
+| pivotal | bosh-windows-server | 2012r2gov |
 | pivotal | pivotal-ops-manager | pivotal-ops-manager |
 | qlik | qlik-sense | qliksense |
 | qualysguard | qualys-virtual-scanner-v23b | qvsa-23 |
@@ -509,6 +526,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | tableau | tableau-server | bring-your-own-license |
 | talon | talon-fast | talon-azure-byol |
 | tenable | tenable-nessus-6-byol | tenable-nessus-byol |
+| veeam | veeam-backup-replication | veeam-backup-replication-95 |
 | veeam | veeam-cloud-connect-enterprise | veeamcloudcconnectenterprise |
 | veeam | veeamcloudconnect | veeambackup |
 | velocitydb-inc | velocitydb | velocitydb |
@@ -523,6 +541,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | wowza | wowzastreamingengine | windows-byol |
 | zerto | zerto-cloud-appliance-50 | zerto55u2zca |
 | zerto | zerto-cloud-appliance-50 | zerto55u3zca |
+| zerto | zerto-cloud-appliance-50 | zerto60ga |
 
 ## Next steps
 * [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)

@@ -89,7 +89,7 @@ and any errors that happened for that step. For example:
    > All runtime details and events are encrypted within the Logic Apps service. 
    > They are decrypted only when a user requests to view that data. 
    > You can also control access to these events with 
-   > [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md).
+   > [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md).
 
 6. To get details about a specific trigger event, 
 go back to the **Overview** pane. Under **Trigger history**, 
@@ -105,12 +105,12 @@ for example:
 For richer debugging with runtime details and events, 
 you can set up diagnostics logging with 
 [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
-Log Analytics is a service in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
+Log Analytics is a service in Azure 
 that monitors your cloud and on-premises environments 
 to help you maintain their availability and performance. 
 
-Before you start, you need to have an OMS workspace. Learn 
-[how to create an OMS workspace](../log-analytics/log-analytics-get-started.md).
+Before you start, you need to have a Log Analytics workspace. Learn 
+[how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. In the [Azure portal](https://portal.azure.com), 
 find and select your logic app. 
@@ -124,17 +124,17 @@ choose **Diagnostics** > **Diagnostic Settings**.
 
    ![Turn on diagnostic logs](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Now select the OMS workspace and event category for logging as shown:
+4. Now select the Log Analytics workspace and event category for logging as shown:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **OMS Workspaces**, select the OMS workspace 
+   3. Under **OMS Workspaces**, select the Log Analytics workspace 
    to use for logging.
    4. Under **Log**, select the **WorkflowRuntime** category.
    5. Choose the metric interval.
    6. When you're done, choose **Save**.
 
-   ![Select OMS workspace and data for logging](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Select Log Analytics workspace and data for logging](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 Now, you can find events and other data for trigger events, 
 run events, and action events.
@@ -152,27 +152,27 @@ Search for "log analytics", then choose **Log Analytics** as shown here:
 
    ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. Under **Log Analytics**, find and select your OMS workspace. 
+2. Under **Log Analytics**, find and select your Log Analytics workspace. 
 
-   ![Select your OMS workspace](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Select your Log Analytics workspace](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
 3. Under **Management**, choose **OMS Portal**.
 
    ![Choose "OMS Portal"](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
 
-4. On your OMS home page, choose **Log Search**.
+4. On your home page, choose **Log Search**.
 
-   ![On your OMS home page, choose "Log Search"](media/logic-apps-monitor-your-logic-apps/logsearch.png)
+   ![On your home page, choose "Log Search"](media/logic-apps-monitor-your-logic-apps/logsearch.png)
 
    -or-
 
-   ![On the OMS menu, choose "Log Search"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
+   ![On the menu, choose "Log Search"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
 5. In the search box, specify a field that you want to find, and press **Enter**. 
-When you start typing, OMS shows you possible matches and operations that you can use. 
+When you start typing, you see possible matches and operations that you can use. 
 
    For example, to find the top 10 events that happened, 
-   enter and select this search query: **Category=WorkflowRuntime |top 10**
+   enter and select this search query: **search Category == "WorkflowRuntime" | limit 10**
 
    ![Enter search string](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
@@ -279,7 +279,7 @@ choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 Each diagnostic event has details about your logic app and that event, 
 for example, the status, start time, end time, and so on. 
 To programmatically set up monitoring, tracking, and logging, 
-ou can use these details with the 
+you can use these details with the 
 [REST API for Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) 
 and the [REST API for Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
 

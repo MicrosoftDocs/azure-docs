@@ -8,19 +8,21 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/26/2018
 ms.author: v-geberr;
 ---
 
 # Data extraction
 LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action.
 
+In the following sections, learn what data is returned from intents and entities with examples of JSON. The hardest data to extract is the machine-learned data because it is not an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you are confident you receive the data you expect. 
+
 ## Data location and key usage
-LUIS provides the data from the published endpoint. The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments. You do not have to URL-encode utterances at the endpoint. 
+LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint). The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments. You do not have to URL-encode utterances at the endpoint. 
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you are editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you are learning LUIS, it is important to change the subscription key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits).
+The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you are editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you are learning LUIS, it is important to change the subscription key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits). The `timezoneOffset` unit is minutes.
 
 The **HTTPS response** contains all the intent and entity information LUIS can determine based on the current published model of either the staging or production endpoint. The endpoint URL is found on the [LUIS][LUIS] website **Publish** page. 
 
@@ -133,9 +135,14 @@ All entities are returned in the **entities** array of the response from the end
 ]
 ```
 
+## Tokenized entity returned
+Several [cultures](luis-supported-languages.md#tokenization) return the entity object with the `entity` value [tokenized](luis-glossary.md#token). The startIndex and endIndex returned by LUIS in the entity object do not map to the new, tokenized value but instead to the original query in order for you to extract the raw entity programmatically. 
+
+For example, in German, the word `das Bauernbrot` is tokenized into `das bauern brot`. The tokenized value, `das bauern brot`, is returned and the original value can be programmatically determined from the startIndex and endIndex of the original query, giving you `das Bauernbrot`.
+
 ## Simple entity data
 
-A simple entity is a machine-learned value. It can be a word or phrase. 
+A [simple entity](luis-concept-entity-types.md) is a machine-learned value. It can be a word or phrase. 
 
 `Bob Jones wants 3 meatball pho`
 
@@ -161,7 +168,7 @@ The data returned from the endpoint includes the entity name, the discovered tex
 
 ## Hierarchical entity data
 
-Hierarchical entities are machine-learned and can include a word or phrase. Children are identified by context. If you are looking for a parent-child relationship with exact text match, use a [List](#list-entity-data) entity. 
+[Hierarchical](luis-concept-entity-types.md) entities are machine-learned and can include a word or phrase. Children are identified by context. If you are looking for a parent-child relationship with exact text match, use a [List](#list-entity-data) entity. 
 
 `book 2 tickets to paris`
 
@@ -186,7 +193,7 @@ The data returned from the endpoint includes the entity name and child name, the
 |Hierarchical Entity|Location|ToLocation|"paris"|
 
 ## Composite entity data
-Composite entities are machine-learned and can include a word or phrase. For example, consider a composite entity of prebuilt `number` and `Location::ToLocation` with the following utterance:
+[Composite](luis-concept-entity-types.md) entities are machine-learned and can include a word or phrase. For example, consider a composite entity of prebuilt `number` and `Location::ToLocation` with the following utterance:
 
 `book 2 tickets to paris`
 
@@ -247,7 +254,7 @@ Composite entities are returned in a `compositeEntities` array and all entities 
 
 ## List entity data
 
-A list entity is not machine-learned. It is an exact text match. A list represents items in the list along with synonyms for those items. LUIS marks any match to an item in any list as an entity in the response. A synonym can be in more than one list. 
+A [list](luis-concept-entity-types.md) entity is not machine-learned. It is an exact text match. A list represents items in the list along with synonyms for those items. LUIS marks any match to an item in any list as an entity in the response. A synonym can be in more than one list. 
 
 Suppose the app has a list, named `Cities`, allowing for variations of city names including city of airport (Sea-tac), airport code (SEA), postal zip code (98101), and phone area code (206). 
 
@@ -297,7 +304,7 @@ Another example utterance, using a synonym for Paris:
 ```
 
 ## Prebuilt entity data
-Prebuilt entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`. The following is an example utterance with the returned prebuilt entities:
+[Prebuilt](luis-concept-entity-types.md) entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`. The following is an example utterance with the returned prebuilt entities:
 
 `Dec 5th send to +1 360-555-1212`
 
@@ -379,6 +386,37 @@ Prebuilt entities are discovered based on a regular expression match using the o
     }
   ]
 ``` 
+
+## Regular expression entity data
+[Regular expression](luis-concept-entity-types.md) entities are discovered based on a regular expression match using an expression you provide when you create the entity. When using `kb[0-9]{6}` as the regular expression entity definition, the following is an example utterance with the returned regular expression entities for the query `When was kb123456 published?`:
+
+```JSON
+{
+  "query": "when was kb123456 published?",
+  "topScoringIntent": {
+    "intent": "FindKBArticle",
+    "score": 0.933641255
+  },
+  "intents": [
+    {
+      "intent": "FindKBArticle",
+      "score": 0.933641255
+    },
+    {
+      "intent": "None",
+      "score": 0.04397359
+    }
+  ],
+  "entities": [
+    {
+      "entity": "kb123456",
+      "type": "KB number",
+      "startIndex": 9,
+      "endIndex": 16
+    }
+  ]
+}
+```
 
 ## Data matching multiple entities
 LUIS returns all entities discovered in the utterance. As a result, your chat bot may need to make decision based on the results. An utterance can have many entities in an utterance:

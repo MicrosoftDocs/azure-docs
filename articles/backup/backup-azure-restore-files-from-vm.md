@@ -22,6 +22,7 @@ ms.author: pullabhk;markgal
 Azure Backup provides the capability to restore [Azure virtual machines (VMs) and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups, also known as restore points. This article explains how to recover files and folders from an Azure VM backup. Restoring files and folders is available only for Azure VMs deployed using the Resource Manager model and protected to a Recovery services vault.
 
 > [!Note]
+> This feature is available for Azure VMs deployed using the Resource Manager model and protected to a Recovery Services vault.
 > File recovery from an encrypted VM backup is not supported.
 >
 

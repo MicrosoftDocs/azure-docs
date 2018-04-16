@@ -37,8 +37,6 @@
         href: log-analytics-log-search-faq.md
   - name: Log Analytics FAQ
     href: log-analytics-faq.md
-  - name: Data consumption
-    href: log-analytics-usage.md
   - name: Data security
     href: log-analytics-data-security.md
   - name: Manage access
@@ -50,7 +48,7 @@
   - name: Log Search
     items:
        - name: Log searches overview
-         href: log-analytics-log-search-new.md   
+         href: log-analytics-log-search.md   
        - name: Log Search portals
          href: log-analytics-log-search-portals.md   
 - name: How-to guides
@@ -63,6 +61,10 @@
       items:
       - name: Windows agents
         href: log-analytics-agent-windows.md
+      - name: VM Extension for Windows
+        href: ../virtual-machines/windows/extensions-oms.md
+      - name: VM Extension for Linux
+        href: ../virtual-machines/linux/extensions-oms.md
       - name: Azure resources
         href: log-analytics-azure-storage.md
       - name: Azure PaaS resources
@@ -107,7 +109,7 @@
       href: https://docs.loganalytics.io
     - name: Transition from legacy language
       href: log-analytics-log-search-transition.md
-    - name: Cross-workspace searches
+    - name: Cross-resource searches
       href: log-analytics-cross-workspace-search.md
     - name: Take action from search results
       href: log-analytics-log-search-takeaction.md
@@ -117,20 +119,6 @@
       href: log-analytics-flow-tutorial.md
     - name: Log Search API
       href: https://dev.loganalytics.io/
-  - name: Legacy log search
-    items:
-    - name: Log searches overview
-      href: log-analytics-log-searches.md
-    - name: Search reference
-      href: log-analytics-search-reference.md
-      items:
-      - name: Regular expressions
-        href: log-analytics-log-searches-regex.md
-    - name: Log Search API
-      href: log-analytics-log-search-api.md
-      items:
-      - name: Python
-        href: log-analytics-log-search-api-python.md
   - name: Analyze data
     items:
     - name: Dashboards
@@ -170,7 +158,11 @@
     - name: Agent management
       href: log-analytics-agent-manage.md
     - name: Manage workspace cost
-      href: log-analytics-manage-cost-storage.md
+      items:
+      - name: Data volume and retention
+        href: log-analytics-manage-cost-storage.md
+      - name: Monitor usage
+        href: log-analytics-usage.md
     - name: Delete a workspace
       href: log-analytics-manage-del-workspace.md
   - name: Troubleshoot
@@ -231,7 +223,17 @@
     - name: Networking Analytics
       href: log-analytics-azure-networking-analytics.md
     - name: Network Performance Monitor
-      href: log-analytics-network-performance-monitor.md
+      items:
+      - name: Solution overview
+        href: log-analytics-network-performance-monitor.md
+      - name: Performance Monitor
+        href: log-analytics-network-performance-monitor-performance-monitor.md
+      - name: Service Endpoint
+        href: log-analytics-network-performance-monitor-service-endpoint.md
+      - name: ExpressRoute
+        href: log-analytics-network-performance-monitor-expressroute.md
+      - name: Pricing
+        href: log-analytics-network-performance-monitor-pricing-faq.md
     - name: Office 365
       href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
     - name: SCOM Health Check

@@ -77,7 +77,7 @@ If you do not find the object you are looking for, then it might have been filte
 
 Another useful search is to select the Azure AD Connector, in **Scope** select **Pending Import**, and select the **Add** checkbox. This search gives you all synchronized objects in Azure AD that cannot be associated with an on-premises object.  
 ![Connector Space search orphan](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Those objects have been created by another sync engine or a sync engine with a different filtering configuration. This view is a list of **orphan** objects no longer managed. You should review this list and consider removing these objects using the [Azure AD PowerShell](http://aka.ms/aadposh) cmdlets.
+Those objects have been created by another sync engine or a sync engine with a different filtering configuration. This view is a list of **orphan** objects no longer managed. You should review this list and consider removing these objects using the [Azure AD PowerShell](https://aka.ms/aadposh) cmdlets.
 
 ### CS Import
 When you open a cs object, there are several tabs at the top. The **Import** tab shows the data that is staged after an import.  
@@ -106,7 +106,7 @@ You can inspect the object and which rule applied for a particular attribute flo
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### Log
-The Log page is used to see the password sync status and history. For more information, see [Troubleshoot password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+The Log page is used to see the password sync status and history. For more information, see [Troubleshoot password hash synchronization](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 
 ## Metaverse object properties
 It is usually better to start searching from the source Active Directory [connector space](#connector-space). But you can also start searching from the metaverse.

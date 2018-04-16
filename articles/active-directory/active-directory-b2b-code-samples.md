@@ -3,7 +3,7 @@ title: Azure Active Directory B2B collaboration code and PowerShell samples | Mi
 description: Code and PowerShell samples for Azure Active Directory B2B collaboration
 services: active-directory
 documentationcenter: ''
-author: sasubram
+author: twooley
 manager: mtillman
 editor: ''
 tags: ''
@@ -15,6 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: twooley
+ms.reviewer: twooley
 ms.reviewer: sasubram
 
 ---
@@ -102,7 +103,7 @@ namespace SampleInviteApp
         /// <summary>
         /// Client secret of the application.
         /// </summary>
-        private static readonly string TestAppClientSecret = @"
+        private static readonly string TestAppClientSecret = @"";
  
         /// <summary>
         /// This is the email address of the user you want to invite.

@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 11/30/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -23,7 +23,7 @@ This article shows different options for setting up a service principal for your
 
 To create an Azure AD service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. If you don't have the necessary permissions, you might need to ask your Azure AD or subscription administrator to assign the necessary permissions, or pre-create a service principal for the Kubernetes cluster.
 
-You also need the Azure CLI version 2.0.21 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You also need the Azure CLI version 2.0.27 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Create SP with AKS cluster
 
@@ -77,11 +77,10 @@ When working with AKS and Azure AD service principals, keep the following in min
 
 * The service principal for Kubernetes is a part of the cluster configuration. However, don't use the identity to deploy the cluster.
 * Every service principal is associated with an Azure AD application. The service principal for a Kubernetes cluster can be associated with any valid Azure AD application name (for example: `https://www.contoso.org/example`). The URL for the application doesn't have to be a real endpoint.
-* When specifying the service principal **Client ID**, you can use the value of the `appId` (as shown in this article) or the corresponding service principal `name` (for example,`https://www.contoso.org/example`).
+* When specifying the service principal **Client ID**, use the value of the `appId` (as shown in this article) or the corresponding service principal `name` (for example,`https://www.contoso.org/example`).
 * On the master and node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`.
 * When you use the `az aks create` command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/acsServicePrincipal.json` on the machine used to run the command.
-* When you use the `az aks create` command to generate the service principal automatically, the service principal can also authenticate with an [Azure container registry][acr-intro] created in the same subscription.
-* When deleting an AKS cluster which was created by `az aks create`, the service principal which was created automatically will not be deleted. You can use `az ad sp delete --id $clientID` to delete it.
+* When deleting an AKS cluster which was created by `az aks create`, the service principal which was created automatically will not be deleted. Use `az ad sp delete --id $clientID` to delete it.
 
 ## Next steps
 

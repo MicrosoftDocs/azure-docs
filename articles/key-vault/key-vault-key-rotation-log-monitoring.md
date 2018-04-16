@@ -13,13 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: jodehavi;stgriffi
+ms.date: 03/01/2018
+ms.author: stgriffi
 
 ---
 # Set up Azure Key Vault with end-to-end key rotation and auditing
 ## Introduction
 After creating your key vault, you will be able to start using that vault to store your keys and secrets. Your applications no longer need to persist your keys or secrets, but rather will request them from the key vault as needed. This allows you to update keys and secrets without affecting the behavior of your application, which opens up a breadth of possibilities around your key and secret management.
+
+>[!IMPORTANT]
+> The examples in this article are provided for illustration purposes only. They are not intended for production use. 
 
 This article walks through an example of using Azure Key Vault to store a secret, in this case an Azure Storage Account key that is accessed by an application. It also demonstrates implementation of a scheduled rotation of that storage account key. Finally, it walks through a demonstration of how to monitor the key vault audit logs and raise alerts when unexpected requests are made.
 

@@ -2,14 +2,14 @@
 title: Understand features in LUIS apps in Azure | Microsoft Docs
 description: Learn about features, which help improve a LUIS app's performance. Features include phrase lists and patterns for recognizing regular expressions.
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 02/09/2018
-ms.author: v-demak
+ms.author: v-geberr;
 ---
 # Phrase list features in LUIS
 
@@ -24,7 +24,7 @@ LUIS offers the following type of features:
 
 | Type          | Description           |
 | ------------- |-----------------------|
-| Phrase list      | A phrase list includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well.|
+| Phrase list      | A phrase list includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well. This is not a white list of matched words.|
 
 
 ## How to use phrase lists

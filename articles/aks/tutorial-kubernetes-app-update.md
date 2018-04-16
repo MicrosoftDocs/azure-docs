@@ -7,12 +7,12 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Update an application in Azure Container Service (AKS)
+# Tutorial: Update an application in Azure Container Service (AKS)
 
 After an application has been deployed in Kubernetes, it can be updated by specifying a new container image or image version. When doing so, the update is staged so that only a portion of the deployment is concurrently updated. This staged update enables the application to keep running during the update. It also provides a rollback mechanism if a deployment failure occurs. 
 
@@ -24,7 +24,7 @@ In this tutorial, part six of eight, the sample Azure Vote app is updated. Tasks
 > * Pushing the container image to Azure Container Registry
 > * Deploying the updated container image
 
-In subsequent tutorials, Operations Management Suite is configured to monitor the Kubernetes cluster.
+In subsequent tutorials, Log Analytics is configured to monitor the Kubernetes cluster.
 
 ## Before you begin
 
@@ -86,7 +86,7 @@ Use [docker tag][docker-tag] to tag the image. Replace `<acrLoginServer>` with y
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Use [docker push][docker-push] to upload the image to your registry. Replace `<acrLoginServer>` with your Azure Container Registry login server name.
+Use [docker push][docker-push] to upload the image to your registry. Replace `<acrLoginServer>` with your Azure Container Registry login server name. If you experience issues pushing to your ACR registry, ensure that you have run the [az acr login][az-acr-login] command.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -132,11 +132,11 @@ kubectl get pod
 Output:
 
 ```
-NAME                               READY     STATUS    RESTARTS   AGE
-azure-vote-back-2978095810-gq9g0   1/1       Running   0          5m
-azure-vote-front-1297194256-tpjlg   1/1       Running   0         1m
-azure-vote-front-1297194256-tptnx   1/1       Running   0         5m
-azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
+NAME                               READY     STATUS        RESTARTS   AGE
+azure-vote-back-2978095810-gq9g0   1/1       Running       0          5m
+azure-vote-front-1297194256-tpjlg  1/1       Running       0          1m
+azure-vote-front-1297194256-tptnx  1/1       Running       0          5m
+azure-vote-front-1297194256-zktw9  1/1       Terminating   0          1m
 ```
 
 ## Test updated application
@@ -161,7 +161,7 @@ In this tutorial, you updated an application and rolled out this update to a Kub
 > * Pushed the container image to Azure Container Registry
 > * Deployed the updated application
 
-Advance to the next tutorial to learn about how to monitor Kubernetes with Operations Management Suite.
+Advance to the next tutorial to learn about how to monitor Kubernetes with Log Analytics.
 
 > [!div class="nextstepaction"]
 > [Monitor Kubernetes with Log Analytics][aks-tutorial-monitor]
@@ -176,3 +176,4 @@ Advance to the next tutorial to learn about how to monitor Kubernetes with Opera
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

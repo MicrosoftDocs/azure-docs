@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 03/20/2018
 ms.author: femila
 
 ---
@@ -48,7 +48,7 @@ You may download and run the [Azure Virtual Machine Readiness Assessment](https:
 
 We recommend that you also first review the tutorials, guides, and videos that cover the following topics:
 
-* [Configure a Cloud-Only Virtual Network in the Azure Portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* [Configure a Cloud-Only Virtual Network in the Azure Portal](../virtual-network/quick-create-portal.md)
 * [Configure a Site-to-Site VPN in the Azure Portal](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Install a new Active Directory forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)
 * [Install a replica Active Directory domain controller on Azure](active-directory-install-replica-active-directory-domain-controller.md)
@@ -68,8 +68,10 @@ See [Virtual Network](http://azure.microsoft.com/documentation/services/virtual-
 > 
 > 
 
-### Static IP addresses must be configured with Azure PowerShell.
-Dynamic addresses are allocated by default, but use the Set-AzureStaticVNetIP cmdlet to assign a static IP address instead. That sets a static IP address that will persist through service healing and VM shutdown/restart. For more information, see [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
+### Static IP addresses can be configured with Azure PowerShell
+Dynamic addresses are allocated by default, but use the Set-AzureStaticVNetIP cmdlet if you want to assign a static IP address instead. That cmdlet sets a static IP address that will persist through service healing and VM shutdown/restart. For more information, see [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/). You can also configure a static IP address while creating your VM in the Azure portal, as shown below. For more information, see [Create a VM with a static public IP address using the Azure portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md).
+
+![screenshot of step to add static IP address when creating a VM](media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>Terms and definitions
 The following is a non-exhaustive list of terms for various Azure technologies which will be referenced in this article.
@@ -430,7 +432,7 @@ Do not use SYSPREP to deploy or clone DCs. The ability to clone DCs is only avai
 Select where to locate the Windows Server AD DS database, logs, and SYSVOL. They must be deployed on Azure Data disks.
 
 > [!NOTE]
-> Azure Data disks are constrained to 4 TB.
+> Azure data disks are limited to 4 TB.
 > 
 > 
 

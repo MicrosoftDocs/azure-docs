@@ -27,7 +27,7 @@
     href: policy-definition.md
 - name: How-to guides
   items:
-  - name: Create policies with REST API
+  - name: Programmatically create policies
     href: policy-insights.md
 - name: Reference
   items:
