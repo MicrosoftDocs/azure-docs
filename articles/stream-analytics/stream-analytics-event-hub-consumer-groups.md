@@ -1,21 +1,14 @@
 ---
-title: Debug Azure Stream Analytics with event hub receivers | Microsoft Docs
+title: Troubleshoot event hub receivers in Azure Stream Analytics
 description: Query best practices for considering Event Hubs consumer groups in Stream Analytics jobs.
-keywords: event hub limit, consumer group
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
 ---
 
 # Debug Azure Stream Analytics with event hub receivers

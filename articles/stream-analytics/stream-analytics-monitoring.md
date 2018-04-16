@@ -1,21 +1,14 @@
 ---
-title: Understanding Stream Analytics Job Monitoring | Microsoft Docs
-description: Understanding Stream Analytics Job Monitoring
-keywords: query monitor
+title: Understand job monitoring in Azure Stream Analytics
+description: This article describes how to monitor jobs in Azure Stream Analytics
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-
-ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
 ---
 # Understand Stream Analytics job monitoring and how to monitor queries
 

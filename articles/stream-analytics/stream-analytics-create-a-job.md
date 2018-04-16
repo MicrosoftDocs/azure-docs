@@ -1,21 +1,14 @@
 ---
-title: How to create a data analytics processing job for Stream Analytics | Microsoft Docs
+title: How to create a data analytics processing job for Azure Stream Analytics
 description: Create a data analytics processing job for Stream Analytics | learning path segment.
-keywords: data analytics processing
-documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: ryanw
-
-ms.assetid: e825fbcf-69e9-443f-b402-3b7a4568f415
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
 ---
 # How to create a data analytics processing job for Stream Analytics
 The top-level resource in Azure Stream Analytics is a Stream Analytics Job.  It consists of one or more input data sources, a query expressing the data transformation, and one or more output targets that results are written to. Together these enable the user to perform data analytics processing for streaming data scenarios.

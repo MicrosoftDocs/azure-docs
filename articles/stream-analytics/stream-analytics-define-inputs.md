@@ -1,21 +1,14 @@
 ---
-title: 'Data connection: Data stream inputs from an event stream | Microsoft Docs'
-description: Learn about setting up a data connection to Stream Analytics called 'inputs'. Inputs include a data stream from events, and also reference data.
-keywords: data stream, data connection, event stream
+title: Data stream inputs from an event stream in Azure Stream Analytics
+description: Learn about setting up a data connection in Azure Stream Analytics. Inputs include a data stream from events, and also reference data.
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-
-ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: sngun
-
 ---
 # Data connection: Learn about data stream inputs from events to Stream Analytics
 The data connection to a Stream Analytics job is a stream of events from a data source, which is referred to as the job's *input*. Stream Analytics has first-class integration with Azure data stream sources, including [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), and [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). These input sources can be from the same Azure subscription as your analytics job, or from a different subscription.
