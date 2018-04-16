@@ -3,8 +3,8 @@ title: Migrate an Azure virtual network (classic) from an affinity group to a re
 description: Learn how to migrate a virtual network (classic) from an affinity group to a region.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: ''
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
+ms.author: genli
 
 ---
 # Migrate a virtual network (classic) from an affinity group to a region
