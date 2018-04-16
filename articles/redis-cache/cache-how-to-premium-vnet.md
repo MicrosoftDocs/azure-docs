@@ -166,19 +166,19 @@ Once the port requirements are configured as described in the previous section, 
 
 When trying to connect to a Redis cache in a VNET, you see a certificate validation error such as this:
 
-    {"No connection is available to service this operation: SET mykey; The remote certificate is invalid according to the validation procedure.; …"}
+`{"No connection is available to service this operation: SET mykey; The remote certificate is invalid according to the validation procedure.; …"}`
 
 The cause could be you are connecting to the host by the IP address. We recommend using the hostname. In other words, use the following:     
 
-    [mycachename].redis.windows.net:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False
+`[mycachename].redis.windows.net:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
 Avoid using the IP address similar to the following connection string:
 
-    10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
 If you are unable to resolve the DNS name, some client libraries include configuration options like `sslHost` which is provided by the StackExchange.Redis client. This allows you to override the hostname used for certificate validation. For example:
 
-    10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 
 ### Can I use VNets with a standard or basic cache?
 VNets can only be used with premium caches.
