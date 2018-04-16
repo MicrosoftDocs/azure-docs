@@ -27,7 +27,7 @@ The Microsoft Authenticator app backs up your account credentials and related ap
 > You need one personal Microsoft account and one iCloud account for each backup storage location. But within that storage location, you can back up several accounts. For example, you can have a personal account, a school account, and a third-party account like Facebook, Google, and so on.<br><br>Only your account credentials are stored, which includes your user name and the 8-digit account verification code that's required to prove your identity with the Microsoft Authenticator app. We don’t store any other information associated with your accounts, including emails or files. We also don’t associate or share your accounts in any way or with any other product or service. And finally, your IT admin won’t get any information about any of these accounts.
 
 ## Back up your account credentials
-Before you can back up your credentials, you’ll need both:
+Before you can back up your credentials, must have both:
 
 - A personal [Microsoft account](https://account.microsoft.com/account) to act as your recovery account.
 
@@ -54,10 +54,10 @@ You can recover your account credentials from your iCloud account, using the sam
 
     Your account credentials are recovered to the new device.
 
-After you finish your recovery, you might notice that your personal Microsoft account verification codes in the Microsoft Authenticator app are different between your old and new phones. The codes are different because each device has its own unique credential, but both are valid and will work if you try to sign in using the associated phone.
+After you finish your recovery, you might notice that your personal Microsoft account verification codes in the Microsoft Authenticator app are different between your old and new phones. The codes are different because each device has its own unique credential, but both are valid and work while signing in using the associated phone.
 
 ## Recover additional accounts requiring more verification
-If you use push notifications with your personal, work, or school accounts, you’ll get an on-screen alert that says you must provide additional verification before you can recover your information. Because push notifications require using a credential that’s tied to your specific device and never sent over the network, you must prove your identity before the credential is created on your device.
+If you use push notifications with your personal, work, or school accounts, you'll get an on-screen alert that says you must provide additional verification before you can recover your information. Because push notifications require using a credential that’s tied to your specific device and never sent over the network, you must prove your identity before the credential is created on your device.
 
 For personal Microsoft accounts, you can prove your identity by entering your password along with an alternate email or phone number. For work or school accounts, you must scan a QR code given to you by your account provider.
 
