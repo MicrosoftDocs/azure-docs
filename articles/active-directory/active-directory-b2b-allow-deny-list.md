@@ -23,7 +23,7 @@ ms.reviewer: sasubram
 
 # Allow or block invitations to B2B users from specific organizations
 
-You can use an allow list or a deny list to allow or block invitations to B2B users from specific organizations. For example, if you want to block personal email address domains, you can set up a deny list that contains domains like Gmail.com and Outlook.com. Or, if your business has a partnership with other businesses like Contoso.com, Fabrikam.com, and Litware.com, and you want to restrict invitations to only these organizations, you can add Contoso.com, Fabrikam.com and Litware.com to your allow list.
+You can use an allow list or a deny list to allow or block invitations to B2B users from specific organizations. For example, if you want to block personal email address domains, you can set up a deny list that contains domains like Gmail.com and Outlook.com. Or, if your business has a partnership with other businesses like Contoso.com, Fabrikam.com, and Litware.com, and you want to restrict invitations to only these organizations, you can add Contoso.com, Fabrikam.com, and Litware.com to your allow list.
   
 > [!NOTE]
 > Currently, you can only use deny lists. The ability to use allow lists is coming very soon.
@@ -64,7 +64,7 @@ After you set the policy, if you try to invite a user from a blocked domain, you
 
 This is a more restrictive configuration, where you can set specific domains in the allow list and restrict invitations to any other organizations or domains that aren't mentioned. 
 
-If you want to use an allow list, make sure that you spend time to fully evaluate what your business needs. If you make this policy too restrictive, your users may choose to send documents over email, or find other non-IT sanctioned ways of collaborating.
+If you want to use an allow list, make sure that you spend time to fully evaluate what your business needs are. If you make this policy too restrictive, your users may choose to send documents over email, or find other non-IT sanctioned ways of collaborating.
 
 ### Switch from allow to deny list and vice versa 
 

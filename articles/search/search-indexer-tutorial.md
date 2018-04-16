@@ -1,19 +1,12 @@
 ---
 title: Tutorial for indexing Azure SQL databases in Azure Search | Microsoft Docs
 description: Crawl Azure SQL database to extract searchable data and populate an Azure Search index.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
-tags: 
+manager: cgronlun
 
-ms.assetid: 
 ms.service: search
 ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 11/10/2017
 ms.author: heidist
 ---
