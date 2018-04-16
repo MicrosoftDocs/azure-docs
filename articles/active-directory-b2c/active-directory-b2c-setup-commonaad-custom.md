@@ -32,11 +32,11 @@ Complete the steps in the [Getting started with custom policies](active-director
 
 These steps include:
  	 
-1. Creating an Azure Active Directory B2C (Azure AD B2C) tenant.	+To enable sign-in for users using the multi-tenant Azure AD endpoint, you need to have a multi-tenant application registered in any of your Azure AD tenants. In this article, we will show you how to create a multi-tenant Azure AD application in your Azure AD B2C tenant. Then enable sign-in for users through the use of that multi-tenant Azure AD application.
-1. Creating an Azure AD B2C application.	
-1. Registering two policy-engine applications.	
-1. Setting up keys.	
-1. Setting up the starter pack.
+1. Creating an Azure Active Directory B2C (Azure AD B2C) tenant.
+2. Creating an Azure AD B2C application.	
+3. Registering two policy-engine applications.	
+4. Setting up keys.	
+5. Setting up the starter pack.
 
 ## Step 1. Create a multi-tenant Azure AD app
 
@@ -197,16 +197,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 1. Update `Id` to the same value as that of `TargetClaimsExchangeId` in the preceding section.
 1. Update `TechnicalProfileReferenceId` to the ID of the technical profile you created earlier (Common-AAD).
 
-## Step 5: Upload the policy to your tenant
-
-1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then select **Azure AD B2C**.
-2. Select **Identity Experience Framework**.
-3. Select **All Policies**.
-4. Select **Upload Policy**.
-5. Select the **Overwrite the policy if it exists** check box.
-6. Upload the `TrustFrameworkExtensions.xml` file and ensure it passes validation.
-
-### Update the RP file 
+## Step 5: Create a new RP policy
 
 You now need to update the relying party (RP) file that will initiate the user journey that you just created:
  
@@ -215,18 +206,27 @@ You now need to update the relying party (RP) file that will initiate the user j
 1. Modify the `ReferenceId` attribute in `<DefaultUserJourney>` to match the ID of the new user journey that you created (SignUpOrSignUsingAzureAD). 
 1. Save your changes, and upload the file. 
 
-## Step 6: Test the custom policy by using Run Now
+## Step 6: Upload the policy to your tenant
+
+1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then select **Azure AD B2C**.
+2. Select **Identity Experience Framework**.
+3. Select **All Policies**.
+4. Select **Upload Policy**.
+5. Select the **Overwrite the policy if it exists** check box.
+6. Upload the `TrustFrameworkExtensions.xml` file and the RP file (e.g. `SignUpOrSignInWithAAD.xml`) and ensure they pass validation.
+
+## Step 7: Test the custom policy by using Run Now
 
 1. Select **Azure AD B2C Settings**, and then select **Identity Experience Framework**.
     > [!NOTE]
     > Run Now requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
 
-1. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.
+1. Open the relying party (RP) custom policy that you uploaded (*B2C\_1A\_SignUpOrSignInWithAAD*), and then select **Run now**.
 1. You should now be able to sign in by using the Azure AD account.
 
-## (Optional) Step 7: Register the Azure AD account claims provider to the Profile-Edit user journey
+## (Optional) Step 8: Register the Azure AD account claims provider to the Profile-Edit user journey
 
-You might also want to add the Azure AD account identity provider to your `ProfileEdit` user journey. To make the user journey available, repeat Steps 4 and 5. This time, select the `<UserJourney>` node that contains `Id="ProfileEdit"`. Save, upload, and test your policy.
+You might also want to add the Azure AD account identity provider to your `ProfileEdit` user journey. To make the user journey available, repeat Steps 4 through 6. This time, select the `<UserJourney>` node that contains `Id="ProfileEdit"`. Save, upload, and test your policy.
 
 ## Troubleshooting
 
