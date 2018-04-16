@@ -64,11 +64,11 @@ Here's what we're going to do:
 
 > [!div class="checklist"]
 > * **Step 1: Prepare Azure**. All we need is an Azure subscription.
-> * **Step 2: Prepare for VM assessment**: Set up on-premises accounts, and tweak VMware settings.
-> * **Step 3: Discover on-premises VMs**: Create an Azure Migrate collector VM. Then, run the collector to discover VMs for assessment.
-> * **Step 4: Prepare for dependency analysis**: Install Azure Migrate agents on the VMs, so that we can see the dependency mapping between VMs.
-> * **Step 5: Download and install DMA**: Prepare DMA for assessment of the on-premises SQL Server database.
-> * **Step 6: Assess the database**: Run and analyze the database assessment.
+> * **Step 2: Download and install DMA**: Prepare DMA for assessment of the on-premises SQL Server database.
+> * **Step 3: Assess the database**: Run and analyze the database assessment.
+> * **Step 4: Prepare for VM assessment**: Set up on-premises accounts, and tweak VMware settings.
+> * **Step 5: Discover on-premises VMs**: Create an Azure Migrate collector VM. Then, run the collector to discover VMs for assessment.
+> * **Step 6: Prepare for dependency analysis**: Install Azure Migrate agents on the VMs, so that we can see the dependency mapping between VMs.
 > * **Step 7: Assess the VMs**: Check dependencies, group the VMs, and run the assessment. AFter the assessment is ready, analyze it in preparation for migration.
 
 
@@ -80,7 +80,73 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - If you use an existing subscription and you're not the administrator, you need to work with the admin to assign you Owner or Contributor permissions for the subscription, or for the resource group you use for this scenario.
 
 
-## Step 2: Prepare for VM assessment
+## Step 2: Download and install the DMA
+
+1. Download the DMA from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595).
+    - You can install the Assistant on any machine that can connect to the SQL instance. You don't need to run it on the SQL Server machine.
+    - You shouldn't run it on the SQL Server host machine.
+2. Double-click the downloaded setup file (DownloadMigrationAssistant.msi) to start the installation.
+3. On the **Finish** page, make sure that **Launch Microsoft Data Migration Assistant** is selected, and click **Finish**.
+
+## Step 3: Run the and analyze database assessment
+
+Run an assessment to analyze your source SQL Server instance, against a specified target.
+
+1. In **New**, select **Assesment**, and give the assessment a project name.
+2. In **Source server type**, select **SQL Server**. In **Target server type**, select **SQL Server on Azure Virtual Machines**.
+
+    ![Select source](./media/migrate-scenarios-assessment/dma-assessment-1.png)
+
+    > [!NOTE]
+      At present DMA doesn't support assessment for migrating to a SQL Managed Instance. As a workaround, we're using SQL Server on Azure VM as our supposed target for the assessment.
+
+1.  In **Select Target Version**, specify the target version of SQL Server that you want to run in Azure, and what you want to discover in the assessment:
+    - **Compatibility Issues** tells you about changes that might break migration, or that require a minor adjustment before migration. It also tells you about any features you're currently using that have been deprecated. Issues are organized by compatibility level. 
+    - **New features' recommendation** let's you know about new features in the target SQL Server platform that can be used for your database after migration. These are organized by Performance, Security, and Storage. 
+
+    ![Select target](./media/migrate-scenarios-assessment/dma-assessment-2.png)
+
+2. In **Connect to a server**, specify the name of the machine running the SQL Server instance, the authentication type, and connection details. Then click **Connect**.
+
+    ![Select target](./media/migrate-scenarios-assessment/dma-assessment-3.png)
+    
+3. In **Add source**, select the database you want to assess, and click **Add**.
+4. An assessment with the name you specified is created.
+
+    ![Create assessment](./media/migrate-scenarios-assessment/dma-assessment-4.png)
+
+5.  **Next** to start the assessment.
+6. In **Review Results**, you'll see results for the assessment tests you enabled.
+
+
+### Analyze the database assessment
+
+Results are displayed in the Assistant as soon as they're available. 
+
+1. In the **Compatibility Issues** report, check whether your database has issues for each compatibility level, and if so,  how to fix them. Compatability levels map to SQL Server versions as follows:
+    - 100: SQL Server 2008/Azure SQL Database
+    - 110: SQL Server 2012/Azure SQL Database
+    - 120: SQL Server 2014/Azure SQL Database
+    - 130: SQL Server 2016/Azure SQL Database
+    - 140: SQL Server 2017/Azure SQL Database
+
+    ![Compatibility issues](./media/migrate-scenarios-assessment/dma-assessment-5.png)
+
+2. In the **Feature recommendations** report, view performance, security, and storage features that the assessment recommends you should configure after migration. A variety of features are recommended, including In-Memory OLTP and Columnstore, Stretch Database, Always Encrypted, Dynamic Data Masking, and Transparent Data Encryption.
+
+    ![Feature recommendations](./media/migrate-scenarios-assessment/dma-assessment-6.png)
+
+3. If fix any issues, click **Restart Assessment** to rerun it. 
+4. Click **Export report** to get the assessment report in JSON or CSV format.
+
+If you're running a larger scale assessment:
+
+- You can run multiple assessments concurrently and view the state of the assessments by opening the **All Assessments** page.
+- You can [consolidate assessments into a SQL Server database](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017#import-assessment-results-into-a-sql-server-database).
+- You can [consolidate assessments into a PowerBI report](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
+
+
+## Step 4: Prepare for VM assessment with Azure Migrate
 
 Create a VMware account that Azure Migrate will use to automatically discover VMs for assessment, verify that you have permissions to create a VM, note the ports that must be open, and set the statistics settings level.
 
@@ -125,7 +191,7 @@ Set the level as follows:
 
 
 
-## Step 3: Discover VMs
+## Step 5: Discover VMs
 
 Create an Azure Migrate project, download and set up the collector VM. Then, run the collector to discover your VMs.
 
@@ -243,7 +309,7 @@ After collection completes, check that the VMs appear in the portal.
 
 
 
-## Step 4: Prepare for dependency analysis
+## Step 6: Prepare for dependency analysis
 
 To view dependencies between VMs we want to assess, we download and install agents on the web app VMs – WEBVM and SQLVM.
 
@@ -288,70 +354,7 @@ If you want to have a copy of your VM before modifying it, take a snapshot befor
 
 
 
-## Step 5: Download and install the DMA
 
-1. Download the DMA from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595).
-    - You can install the Assistant on any machine that can connect to the SQL instance. You don't need to run it on the SQL Server machine.
-    - You shouldn't run it on the SQL Server host machine.
-2. Double-click the downloaded setup file (DownloadMigrationAssistant.msi) to start the installation.
-3. On the **Finish** page, make sure that **Launch Microsoft Data Migration Assistant** is selected, and click **Finish**.
-
-## Step 6: Run the and analyze database assessment
-
-Run an assessment to analyze your source SQL Server instance, against a specified target.
-
-1. In **New**, select **Assesment**, and give the assessment a project name.
-2. In **Source server type**, select **SQL Server**. In **Target server type**, select **SQL Server on Azure Virtual Machines**.
-
-    ![Select source](./media/migrate-scenarios-assessment/dma-assessment-1.png)
-
-    > [!NOTE]
-      At present DMA doesn't support assessment for migrating to a SQL Managed Instance. As a workaround, we're using SQL Server on Azure VM as our supposed target for the assessment.
-
-1.  In **Select Target Version**, specify the target version of SQL Server that you want to run in Azure, and what you want to discover in the assessment:
-    - **Compatibility Issues** tells you about changes that might break migration, or that require a minor adjustment before migration. It also tells you about any features you're currently using that have been deprecated. Issues are organized by compatibility level. 
-    - **New features' recommendation** let's you know about new features in the target SQL Server platform that can be used for your database after migration. These are organized by Performance, Security, and Storage. 
-
-    ![Select target](./media/migrate-scenarios-assessment/dma-assessment-2.png)
-
-2. In **Connect to a server**, specify the name of the machine running the SQL Server instance, the authentication type, and connection details. Then click **Connect**.
-
-    ![Select target](./media/migrate-scenarios-assessment/dma-assessment-3.png)
-    
-3. In **Add source**, select the database you want to assess, and click **Add**.
-4. An assessment with the name you specified is created.
-
-    ![Create assessment](./media/migrate-scenarios-assessment/dma-assessment-4.png)
-
-5.  **Next** to start the assessment.
-6. In **Review Results**, you'll see results for the assessment tests you enabled.
-
-
-### Analyze the database assessment
-
-Results are displayed in the Assistant as soon as they're available. 
-
-1. In the **Compatibility Issues** report, check whether your database has issues for each compatibility level, and if so,  how to fix them. Compatability levels map to SQL Server versions as follows:
-    - 100: SQL Server 2008/Azure SQL Database
-    - 110: SQL Server 2012/Azure SQL Database
-    - 120: SQL Server 2014/Azure SQL Database
-    - 130: SQL Server 2016/Azure SQL Database
-    - 140: SQL Server 2017/Azure SQL Database
-
-    ![Compatibility issues](./media/migrate-scenarios-assessment/dma-assessment-5.png)
-
-2. In the **Feature recommendations** report, view performance, security, and storage features that the assessment recommends you should configure after migration. A variety of features are recommended, including In-Memory OLTP and Columnstore, Stretch Database, Always Encrypted, Dynamic Data Masking, and Transparent Data Encryption.
-
-    ![Feature recommendations](./media/migrate-scenarios-assessment/dma-assessment-6.png)
-
-3. If fix any issues, click **Restart Assessment** to rerun it. 
-4. Click **Export report** to get the assessment report in JSON or CSV format.
-
-If you're running a larger scale assessment:
-
-- You can run multiple assessments concurrently and view the state of the assessments by opening the **All Assessments** page.
-- You can [consolidate assessments into a SQL Server database](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017#import-assessment-results-into-a-sql-server-database).
-- You can [consolidate assessments into a PowerBI report](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
 
 
        
