@@ -29,7 +29,7 @@ When you enable Managed Service Identity on an Azure service, Azure automaticall
 
 Here's an example of how Managed Service Identity works with Azure Virtual Machines.
 
-![Virtual Machine MSI example](../media/msi-vm-example.png)
+![Virtual Machine MSI example](../media/msi-vm-imds-example.png)
 
 1. Azure Resource Manager receives a message to enable the Managed Service Identity (MSI) on a VM.
 2. Azure Resource Manager creates a Service Principal in Azure AD to represent the identity of the VM. The Service Principal is created in the Azure AD tenant that is trusted by this subscription.
