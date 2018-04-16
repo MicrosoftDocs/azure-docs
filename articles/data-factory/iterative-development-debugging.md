@@ -4,7 +4,7 @@ description: Learn how to develop and debug Data Factory pipelines iteratively i
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/016/2018
+ms.date: 04/16/2018
 ms.topic: article
 ms.service: data-factory
 
