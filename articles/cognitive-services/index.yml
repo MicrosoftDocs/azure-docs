@@ -73,7 +73,7 @@ sections:
     - title: Speech
       html: <ul class="noBullet">
                 <li>
-                    <a class="barLink" href="/azure/cognitive-services/speech/home"><img src="../media/index/API_Bing_Speech.svg" alt="" />Bing Speech Service</a>
+                    <a class="barLink" href="/azure/cognitive-services/speech/home"><img src="../media/index/API_Bing_Speech.svg" alt="" />Speech Service</a>
                 </li>
                 <li>
                     <a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="../media/index/API_Custom_Speech.svg" alt="" /><span>Custom Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>

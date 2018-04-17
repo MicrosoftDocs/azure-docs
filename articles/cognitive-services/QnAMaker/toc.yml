@@ -1,5 +1,5 @@
 - name: QnAMaker API Documentation
-  href: ../index.md
+  href: ../index.yml
 - name: Overview
   items:
   - name: Learn about QnAMaker
