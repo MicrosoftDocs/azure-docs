@@ -41,9 +41,9 @@ sections:
   - type: paragraph
     text: Learn how to use MSI to securly access Azure resources
   - type: table
-    style: dataMatrix
     columns:
-      - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Access Azure Resource Manager from a Windows Azure Virtual Machine</a>
+      - title: Access
+
       
   
 - title: Samples
