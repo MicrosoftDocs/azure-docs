@@ -36,9 +36,9 @@ Request header | Description | Example
 X-Forwarded-For | Indicates the requester's IP address.| 10.10.10.10
 X-Forwarded-Proto | Indicates the request's protocol. | http
 X-Host | Indicates the request's hostname. | cdn.mydomain.com
-X-Midgress | Indicates whether the request was proxied through an additional CDN server (for example, a POP server-to-origin shield server or a POP server-to-ADN gateway server). <br />This header is added to the request only when midgress traffic takes place. In this case, the header is set to 1 to indicate that the request was proxied through an additional CDN server.| 1
+X-Midgress | Indicates whether the request was proxied through an additional CDN server. For example, a POP server-to-origin shield server or a POP server-to-ADN gateway server. <br />This header is added to the request only when midgress traffic takes place. In this case, the header is set to 1 to indicate that the request was proxied through an additional CDN server.| 1
 [Host](#host-request-header) | Identifies the host and the port where the requested content may be found. | marketing.mydomain.com:80
-[X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifies the failover list of ADN Gateway servers assigned to a customer origin. <br />Origin shield: Indicates the set of origin shield servers assigned to a customer origin. | icn1,hhp1,hnd1
+[X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifies the failover list of ADN Gateway servers assigned to a customer origin. <br />Origin shield: Indicates the set of origin shield servers assigned to a customer origin. | `icn1,hhp1,hnd1`
 X-EC-_&lt;name&gt;_ | Request headers that begin with *X-EC* (for example, X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)) are reserved for use by the CDN.| waf-production
 
 ## Via request header
@@ -70,7 +70,7 @@ The POP servers will overwrite the `Host` header when both of the following cond
 - The corresponding customer origin's HTTP Host Header option is not blank.
 
 The `Host` request header will be overwritten to reflect the value defined in the HTTP Host Header option.
-If the customer origin's HTTP Host Header option is set to blank, then the `Host` request header submitted by the requester will be forwarded to that customer's origin server.
+If the customer origin's HTTP Host Header option is set to blank, then the `Host` request header that is submitted by the requester will be forwarded to the customer's origin server.
 
 ## X-Gateway-List request header
 A POP server will add/overwrite the `X-Gateway-List request header when either of the following conditions are met:
