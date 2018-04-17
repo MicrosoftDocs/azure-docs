@@ -28,7 +28,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Co
 
 ## Prerequisites
 
-The scenario outlined in this tutorial assumes that you already have the following:
+The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 *   An Azure AD tenant
 *   A Cornerstone OnDemand tenant
@@ -113,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/TestConnection.png)
 
-7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
+7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
 	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/EmailNotification.png)
 
@@ -123,9 +123,14 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/UserMapping.png)
 
+
 10. Review the user attributes that are synchronized from Azure AD to Cornerstone OnDemand in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cornerstone OnDemand for update operations. Select the **Save** button to commit any changes.
 
 	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/UserMappingAttributes.png)
+
+>[!NOTE]
+>The Cornerstone **Postion** Attribute expects value corresponding to the Cornerstone Portal which can be assigned using extension attributes/expressions.
+
 
 11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters.md).
 
