@@ -73,8 +73,6 @@ Description      : Lets you manage everything except access to resources.
 Actions          : {*}
 NotActions       : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
                    Microsoft.Authorization/elevateAccess/Action}
-DataActions      : {}
-NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
@@ -102,12 +100,6 @@ PS C:\> Get-AzureRmRoleDefinition "Contributor" | ConvertTo-Json
                        "Microsoft.Authorization/*/Write",
                        "Microsoft.Authorization/elevateAccess/Action"
                    ],
-    "DataActions":  [
-
-                    ],
-    "NotDataActions":  [
-
-                       ],
     "AssignableScopes":  [
                              "/"
                          ]
@@ -193,9 +185,13 @@ RoleDefinitionName : BizTalk Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
 ```
 
-To list all the roles that are assigned to a specified user and the roles that are assigned to the groups to which the user belongs, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) `-SignInName <user email> -ExpandPrincipalGroups`.
+To list all the roles that are assigned to a specified user and the roles that are assigned to the groups to which the user belongs, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
+Get-AzureRmRoleAssignment -SignInName <user email> -ExpandPrincipalGroups
+```
+
+```Example
 Get-AzureRmRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
@@ -480,8 +476,6 @@ Description      : Can monitor and restart virtual machines.
 Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
                    Microsoft.Compute/virtualMachines/start/action...}
 NotActions       : {}
-DataActions      : {}
-NotDataActions   : {}
 AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/11111111-1111-1111-1111-111111111111}
 ```
@@ -515,8 +509,6 @@ Description      : Can monitor and restart virtual machines.
 Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
                    Microsoft.Compute/virtualMachines/start/action...}
 NotActions       : {}
-DataActions      : {}
-NotDataActions   : {}
 AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/11111111-1111-1111-1111-111111111111,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
@@ -574,8 +566,6 @@ Description      : Can monitor and restart virtual machines.
 Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
                    Microsoft.Compute/virtualMachines/start/action...}
 NotActions       : {}
-DataActions      : {}
-NotDataActions   : {}
 AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/11111111-1111-1111-1111-111111111111}
 
