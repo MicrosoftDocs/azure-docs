@@ -15,42 +15,38 @@ ms.author: nepeters
 
 ## Deploy Jenkins server
 
-In the Azure portal, select **Create a resource** and search for Jenkins. Select the Jenkins offering with a publisher of **Microsoft** and click **create**.
+In the Azure portal, select **Create a resource** and search for **Jenkins**. Select the Jenkins offering with a publisher of **Microsoft** and click **create**.
 
-Enter the following information in the basics for and click *OK* when done.
+Enter the following information in the basics for and click **OK** when done.
 
-- Name - name for the Jenkins deployment.
-- User name - this user name is used as the admin use for the Jenkins virtual machine.
-- Authentication type - SSH public key is recommended. If selected, copy in an SSH public key to be used when logging into the Jenkins server.
-- Subscription - select an Azure subscription.
-- Resource group - create a new or select an existing resource group.
-- Location - select a location for the Jenkins server.
+- **Name** - name for the Jenkins deployment.
+- **User name** - this user name is used as the admin user for the Jenkins virtual machine.
+- **Authentication type** - SSH public key is recommended. If selected, copy in an SSH public key to be used when logging into the Jenkins virtual machine.
+- **Subscription** - select an Azure subscription.
+- **Resource group** - create a new or select an existing resource group.
+- **Location** - select a location for the Jenkins server.
 
 ![Jenkins portal deployment basic settings](./media/container-instances-jenkins/jenkins-portal-01.png)
 
 On the additional settings form, complete the following items:
 
-- Size - Select the appropriate sizing option for your Jenkins virtual machine.
-- VM disk type - Specify either HDD (hard-disk drive) or SSD (solid-state drive) for the Jenkins server.
-- Virtual network - (Optional) Select Virtual network to modify the default settings.
-- Subnets - Select Subnets, verify the information, and select OK.
-- Public IP address - Selecting the Public IP address allows you to give it a custom name, configure SKU, and assignment method.
-- Domain name label - Specify the value for the fully qualified URL to the Jenkins virtual machine.
-- Jenkins release type - Select the desired release type from the options: LTS, Weekly build, or Azure Verified.
+- **Size** - Select the appropriate sizing option for your Jenkins virtual machine.
+- **VM disk type** - Specify either HDD (hard-disk drive) or SSD (solid-state drive) for the Jenkins server.
+- **Virtual network** - (Optional) Select Virtual network to modify the default settings.
+- **Subnets** - Select Subnets, verify the information, and select OK.
+- **Public IP address** - Selecting the Public IP address allows you to give it a custom name, configure SKU, and assignment method.
+- **Domain name label** - Specify the value for the fully qualified URL to the Jenkins virtual machine.
+- **Jenkins release type** - Select the desired release type from the options: LTS, Weekly build, or Azure Verified.
 
 ![Jenkins portal deployment additional settings](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-For service principal integration, select Auto(MSI) to have Azure Managed Service Identity create auto create an authentication identity. Select Manual to provider your own service principal credentials.
+For service principal integration, select **Auto(MSI)** to have Azure Managed Service Identity auto create an authentication identity for the Jenkins instance. Select Manual to provider your own service principal credentials.
 
-Cloud agents you to configure a build agent platform for Jenkins build jobs.
-
-- ACI: Each build job is run in an Azure Container Instance. For more information on using ACI as a build platform, see.
-- VM: Each build job is run in an Azure Container Instance.
-- None: Each build job is run on the Jenkins instance itself. This configuration is not recommended.
-
-Once done with the integration settings, click ok, and then OK again on the validation summary. The Jenkins server takes a few minutes to deploy.
+Cloud agents allow you to configure a build agent platform for Jenkins build jobs. For the sake of this document, select ACI. With the ACI cloud agent, each Jenkins build job is run in an Azure Container Instance.
 
 ![Jenkins portal deployment cloud integration settings](./media/container-instances-jenkins/jenkins-portal-03.png)
+
+Once done with the integration settings, click **OK**, and then **OK** again on the validation summary. Click **Create** on the Terms of use summary. The Jenkins server takes a few minutes to deploy.
 
 ## Configure Jenkins
 
@@ -82,15 +78,17 @@ Create a new admin user account. This account is used for logging into and worki
 
 ![Create Jenkins user](./media/container-instances-jenkins/jenkins-portal-07.png)
 
+Select **Save and Finish** when done, and then **Start using Jenkins** to complete the configuration.
+
 ## Create build job
 
 Jenkins is now configured and ready to build and deploy code. For this example, a simple Java application is used to demonstrate Jenkins builds on Azure Container Instances.
 
-Select **Manage Jenkins** > **Configure System** > scroll down to the **Cloud** section. Update the Docker image to `microsoft/java-on-azure-jenkins-slave`. Once done, click **Apply** and then return to the Jenkins admin dashboard.
+Select **Manage Jenkins** > **Configure System** > scroll down to the **Cloud** section. Update the Docker image to `microsoft/java-on-azure-jenkins-slave`. Once done, click **Save** to return to the Jenkins dashboard.
 
 ![Jenkins cloud configuration](./media/container-instances-jenkins/jenkins-aci-image.png)
 
-Now create a Jenkins build job. Select **New Item**, give the build project a name such as `aci-java-demo`, and select **Freestyle Projet**. Click **OK** when done.
+Now create a Jenkins build job. Select **New Item**, give the build project a name such as `aci-java-demo`, select **Freestyle Projet**, and click **OK** when done.
 
 ![Create Jenkins job](./media/container-instances-jenkins/jenkins-new-job.png)
 
@@ -102,9 +100,11 @@ Under source code management, select `git` and enter `https://github.com/spring-
 
 ![Add source code to Jenkins job](./media/container-instances-jenkins/jenkins-job-02.png)
 
-Under Build, add the build step named `Invoke top-level Maven targets`, and enter `package` as the goal. Select **Save** when done.
+Under Build, select **add a build step** and select `Invoke top-level Maven targets`. Enter `package` as the build step goal.
 
 ![Add Jenkins build step](./media/container-instances-jenkins/jenkins-job-03.png)
+
+Select **Save** when done.
 
 ## Run the build job
 
@@ -116,7 +116,7 @@ While the job is running, open up the Azure portal and look at the Jenkins resou
 
 ![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci.png)
 
-As Jenkins beings to run more jobs than the configured number of executors (default 2), multiple Azure Container Instances are created.
+As Jenkins beings to run more jobs than the configured number of Jenkins executors (default 2), multiple Azure Container Instances are created.
 
 ![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci-multi.png)
 
