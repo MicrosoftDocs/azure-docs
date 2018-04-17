@@ -23,7 +23,7 @@ An asset is mapped to a blob container in the [Azure Storage account](storage-ac
 
 Azure Media Services supports Blob tiers when the account uses General-purpose v2 (GPv2) storage. With GPv2, you can move files to cool or cold storage. Cold storage is suitable for archiving mezzanine files when no longer needed (for example, after they have been encoded.)
 
-To create an input asset that can be used as an input for your job, [Create a job input from a local file](job-input-from-local-file-how-to.md).
+In Media Services v3, the job input can be created from assets or from HTTP(s) URLs. To create an asset that can be used as an input for your job, see [Create a job input from a local file](job-input-from-local-file-how-to.md).
 
 Also, read about [storage accounts in Media Services](storage-account-concept.md) and [transforms and jobs](transform-concept.md).
 
