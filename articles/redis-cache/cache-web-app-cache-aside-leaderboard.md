@@ -43,6 +43,7 @@ To complete this tutorial, you must have the following prerequisites:
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
     * ASP.NET and web development
     * Azure Development
+    * .NET desktop development with SQL Server Express LocalDB
 * You need an Azure account to complete the quickstart. You can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
 
 ## Add a leaderboard to the project
@@ -156,6 +157,8 @@ For more information about this package, see the [EntityFramework](https://www.n
     ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
 
 6. Add the following `connectionStrings` section inside the `configuration` section. The name of the connection string must match the name of the Entity Framework database context class, which is `TeamContext`.
+
+    This connection string assumes you have met the [Prerequisites](#Prerequisites) and installed SQL Server Express LocalDB, which is part of the *.NET desktop development* workload installed with Visual Studio 2017.
 
 	```xml
 	<connectionStrings>
