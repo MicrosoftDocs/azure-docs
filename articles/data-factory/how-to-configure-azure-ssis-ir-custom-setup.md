@@ -33,7 +33,7 @@ You can install both free or unlicensed components, and paid or licensed compone
 
 -   You cannot directly call `gacutil.exe` to install assemblies in the Global Assembly Cache (GAC) at this time. As a workaround, use `gacinstall.cmd` (provided in the Public Preview container).
 
--   If you need to join your Azure-SSIS IR with custom setup to a VNet, only Azure Resource Manager (ARM) VNet is supported. Classic VNet is not supported.
+-   If you need to join your Azure-SSIS IR with custom setup to a VNet, only Azure Resource Manager VNet is supported. Classic VNet is not supported.
 
 ## Prerequisites
 
