@@ -52,7 +52,7 @@ For this tutorial, we create a new Windows VM.  You can also enable MSI on an ex
 
 ## Enable MSI on your VM 
 
-A VM MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your VM. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM, and it enables MSI in Azure Resource Manager.
+A VM MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your VM. Under the covers, enabling MSI does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
 
 1. Select the **Virtual Machine** that you want to enable MSI on.  
 2. On the left navigation bar click **Configuration**. 
@@ -99,7 +99,7 @@ In this tutorial, you authenticate to the Data Lake Store filesystem REST API us
 4. Using PowerShell’s `Invoke-WebRequest`, make a request to the local MSI endpoint to get an access token for Azure Data Lake Store.  The resource identifier for Data Lake Store is "https://datalake.azure.net/".  Data Lake does an exact match on the resource identifier and the trailing slash is important.
 
    ```powershell
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://datalake.azure.net/"} -Headers @{Metadata="true"}
+   $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -Method GET -Headers @{Metadata="true"}
    ```
     
    Convert the response from a JSON object to a PowerShell object. 

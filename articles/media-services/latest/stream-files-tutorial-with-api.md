@@ -58,10 +58,10 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure your .NET app, as shown in the script that follows.
 
-Before running the script, replace the `amsaccountname` placeholder.  `amsaccountname` is the name of the Azure Media Services account where to attach the service principal.
+Before running the script, you can replace `amsaccountname` (the name of the Azure Media Services account where to attach the service principal) and `amsResourcegroup` (your resource group).
 
 ```azurecli-interactive
-az ams sp create --account-name <amsaccountname> --resource-group amsResourcegroup
+az ams sp create --account-name amsaccountname --resource-group amsResourcegroup
 ```
 
 This command produces a response similar to this:
@@ -112,7 +112,7 @@ To run the app and access the Media Services APIs, you need to specify the corre
 
 ## Examine the code
 
-This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/MediaServicesV3Tutorials/MediaServicesV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) file of the *UploadEncodeAndStreamFiles* project.
+This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) file of the *UploadEncodeAndStreamFiles* project.
 
 ### Start using Media Services APIs with .NET SDK
 
@@ -289,7 +289,6 @@ private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient
             new StreamingLocator()
             {
                 AssetName = assetName,
-                EndTime = DateTime.UtcNow.AddDays(5),
                 StreamingPolicyName = clearPolicyName,
 
             });
@@ -333,7 +332,7 @@ static IList<string> GetStreamingURLs(
 }
 ```
 
-### Clean up resource in your account
+### Clean up resource in your Media Services account
 
 Generally, you should clean up everything except objects that you are planning to reuse (commonly, you want to reuse a transform). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes jobs.
 
@@ -350,23 +349,25 @@ static void CleanUp(IAzureMediaServicesClient client, string resourceGroupName, 
 ## Run the sample app
 
 1. Press Ctrl+F5 to run the *EncodeAndStreamFiles* application.
-2. Copy the streaming URL from the console.
+2. Copy one of the streaming URLs from the console.
 
-This example displays URLs that can be used to play back the video using different protocol:
+This example displays URLs that can be used to play back the video using different protocols:
 
 ![Output](./media/stream-files-tutorial-with-api/output.png)
 
 ## Test the streaming URL
 
-To test the stream, this article uses Azure Media Player.
+To test the stream, this article uses Azure Media Player. 
 
-1. Open a web browser and navigate to https://ampdemo.azureedge.net/.
+1. Open a web browser and navigate to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. In the **URL:** box, paste one of the streaming URL values you got when you ran the application. 
 3. Press **Update Player**.
 
+Azure Media Player can be used for testing but should not be used in a production environment. 
+
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group. You can use the **CloudShell** tool.
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier. You can use the **CloudShell** tool.
 
 In the **CloudShell**, execute the following command:
 

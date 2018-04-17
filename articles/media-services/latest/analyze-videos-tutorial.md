@@ -56,10 +56,10 @@ Clone a GitHub repository that contains the .NET sample to your machine using th
 
 The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure you .NET app, as shown in the following step.
 
-Before running the script, replace the `amsaccountname` placeholder.  `amsaccountname` is the name of the Azure Media Services account where to attach the service principal.
+Before running the script, you can replace `amsaccountname` (the name of your Azure Media Services account where to attach the service principal) and `amsResourceGroup` (your resource group).
 
 ```azurecli-interactive
-az ams sp create --account-name <amsaccountname> --resource-group amsResourcegroup
+az ams sp create --account-name amsaccountname --resource-group amsResourceGroup
 ```
 
 This command will produce a response similar to this:
@@ -74,7 +74,7 @@ This command will produce a response similar to this:
   "ArmAadAudience": "https://management.core.windows.net/",
   "ArmEndpoint": "https://management.azure.com/",
   "Region": "West US",
-  "ResourceGroup": "amsResourcegroup",
+  "ResourceGroup": "amsResourceGroup",
   "SubscriptionId": "42345678-1234-1234-1234-111111111111"
 }
 ```
@@ -94,7 +94,7 @@ To run the app and access the Media Services APIs, you need to specify the corre
  <appSettings>
    <add key="SubscriptionId" value ="42345678-1234-1234-1234-111111111111" />
    <add key="Region" value ="West US" />      
-   <add key="ResourceGroup" value ="amsResourcegroup" />
+   <add key="ResourceGroup" value ="amsResourceGroup" />
    <add key="AccountName" value ="amsaccountname" />
    <add key="AadTenantId" value ="32345678-1234-1234-1234-111111111111" />
    <add key="AadClientId" value ="12345678-1234-1234-1234-111111111111" />
@@ -109,7 +109,7 @@ To run the app and access the Media Services APIs, you need to specify the corre
 
 ## Examine the code in detail
 
-This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/MediaServicesV3Tutorials/MediaServicesV3Tutorials/AnalyzeVideos/Program.cs) file of the *AnalyzeVideos* project.
+This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) file of the *AnalyzeVideos* project.
 
 ### Start using Media Services APIs with .NET SDK
 
@@ -277,7 +277,7 @@ private static void DownloadResults(IAzureMediaServicesClient client, string res
 }
 ```
 
-### Clean up resource in your account
+### Clean up resource in your Media Services account
 
 Generally, you should clean up everything except objects that you are planning to reuse (commonly, you will want to reuse a transform). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes jobs.
 
@@ -303,7 +303,7 @@ Media Services v3 uses **Video Indexer** to produce the insights.json. You can f
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group. You can use the **CloudShell** tool.
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier. You can use the **CloudShell** tool.
 
 In the **CloudShell**, execute the following command:
 

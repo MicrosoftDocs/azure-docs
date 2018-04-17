@@ -22,9 +22,9 @@ ms.author: daveba
 
 ## Frequently Asked Questions (FAQs)
 
-### Is there a private preview available, for additional features?
+### Is there a private preview program available for upcoming MSI features and integrations?
 
-Yes. If you would like to be considered for enrollment in the private preview, [visit our sign-up page](https://aka.ms/azuremsiprivatepreview).
+Yes. If you would like to be considered for enrollment in the private preview program, [visit our sign-up page](https://aka.ms/azuremsiprivatepreview).
 
 ### Does MSI work with Azure Cloud Services?
 
@@ -40,8 +40,9 @@ The security boundary of the identity is the resource to which it is attached to
 
 ### What are the supported Linux distributions?
 
-The following Linux distributions support MSI: 
+All Linux distributions supported by Azure IaaS can be used with MSI, via the IMDS endpoint. 
 
+Note: The MSI VM Extension only supports the following Linux distributions:
 - CoreOS Stable
 - CentOS 7.1
 - RedHat 7.2
