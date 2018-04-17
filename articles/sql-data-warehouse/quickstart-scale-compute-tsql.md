@@ -12,7 +12,6 @@ ms.author: elbutter
 ms.reviewer: jrj
 ---
 
----
 # Quickstart: Scale compute in Azure SQL Data Warehouse using T-SQL
 
 Scale compute in Azure SQL Data Warehouse using T-SQL and SQL Server Management Studio (SSMS). [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
