@@ -175,7 +175,7 @@ Internal load balancing is similar to external load balancing and uses the same 
 
 We recommend that you use internal load balancing for scenarios that benefit from this capability, such as when you need to load balance connections to SQL Servers or internal web servers.
 
-To learn more about how Azure Internal Load Balancing works and how you can deploy it, please read the article [Get Started Creating an Internal Load Balancer using PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md#update-an-existing-load-balancer).
+To learn more about how Azure Internal Load Balancing works and how you can deploy it, please read the article [Get Started Creating an Internal Load Balancer using PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
 
 ## Use global load balancing
 Public cloud computing makes it possible to deploy globally distributed applications that have components located in datacenters all over the world. This is possible on Microsoft Azure due to Azure’s global datacenter presence. In contrast to the load balancing technologies mentioned earlier, global load balancing makes it possible to make services available even when entire datacenters might become unavailable.
