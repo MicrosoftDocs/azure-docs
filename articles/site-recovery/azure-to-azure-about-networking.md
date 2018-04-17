@@ -65,7 +65,6 @@ If you are using an IP-based firewall proxy, or NSG rules to control outbound co
 
 Site Recovery IP address ranges are as follows:
 
->
    **Target** | **Site Recovery IP** |  **Site Recovery monitoring IP**
    --- | --- | ---
    East Asia | 52.175.17.132 | 13.94.47.61
@@ -109,7 +108,9 @@ This example shows how to configure NSG rules for a VM to replicate.
 ### NSG rules - East US
 
 1. Create an outbound HTTPS (443) security rule for "Storage.EastUS" on the NSG as shown in the screenshot below.
+
       ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+      
 2. Create outbound HTTPS (443) rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the target location:
 
