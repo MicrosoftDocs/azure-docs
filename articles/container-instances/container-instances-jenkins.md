@@ -110,7 +110,7 @@ Under Build, add the build step named `Invoke top-level Maven targets`, and ente
 
 Select **Build Now** to start a build job.
 
-![Add Jenkins build step](./media/container-instances-jenkins/jenkins-job-03.png)
+![Add Jenkins build step](./media/container-instances-jenkins/jenkins-job-status.png)
 
 While the job is running, open up the Azure portal and look at the Jenkins resource group. You should see that an Azure Container Instance has been created. It is inside of this instance that the Jenkins job is running.
 
