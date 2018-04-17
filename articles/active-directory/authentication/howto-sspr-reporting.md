@@ -28,7 +28,7 @@ After deployment, many organizations want to know how or if self-service passwor
 The following questions can be answered by the reports that exist in the [Azure portal] (https://portal.azure.com/):
 
 > [!NOTE]
-> You must be [a global administrator](active-directory-assign-admin-roles-azure-portal.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
+> You must be [a global administrator](../active-directory-assign-admin-roles-azure-portal.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
 >
 
 * How many people have registered for password reset?
@@ -42,7 +42,7 @@ The following questions can be answered by the reports that exist in the [Azure 
 
 ## Power BI content pack
 
-If you're a Power BI user, there is a content pack for Azure AD that includes easy-to-use reporting for SSPR. For more information on how to use and deploy the content pack, see [How to use the Azure Active Directory Power BI content pack](active-directory-reporting-power-bi-content-pack-how-to.md). With the content pack, you can create your own dashboards and share them with others in your organization.
+If you're a Power BI user, there is a content pack for Azure AD that includes easy-to-use reporting for SSPR. For more information on how to use and deploy the content pack, see [How to use the Azure Active Directory Power BI content pack](../active-directory-reporting-power-bi-content-pack-how-to.md). With the content pack, you can create your own dashboards and share them with others in your organization.
 
 ## How to view password management reports in the Azure portal
 
@@ -194,15 +194,15 @@ The following list explains this activity in detail:
 
 ## Next steps
 
-* [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
-* [Reset or change your password](active-directory-passwords-update-your-own-password.md).
-* [Register for self-service password reset](active-directory-passwords-reset-register.md).
-* [Do you have a licensing question?](active-directory-passwords-licensing.md)
-* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
-* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [What are the policy options with SSPR?](active-directory-passwords-policy.md)
-* [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
-* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
+* [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
+* [Reset or change your password](../active-directory-passwords-update-your-own-password.md).
+* [Register for self-service password reset](../active-directory-passwords-reset-register.md).
+* [Do you have a licensing question?](concept-sspr-licensing.md)
+* [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
+* [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
+* [What are the policy options with SSPR?](concept-sspr-policy.md)
+* [What is password writeback and why do I care about it?](../active-directory-passwords-writeback.md)
+* [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
