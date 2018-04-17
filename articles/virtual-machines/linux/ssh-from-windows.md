@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 04/17/2018
 ms.author: danlep
 
 ---
 # How to use SSH keys with Windows on Azure
 
-This article introduces ways to generate and use SSH keys on a Windows computer to create and connect to a Linux virtual machine (VM) in Azure. To use SSH keys from a Linux or macOS client, see the [quick](mac-create-ssh-keys.md) or [detailed](create-ssh-keys-detailed.md) guidance.
+This article introduces ways to generate and use secure shell (SSH) keys on a Windows computer to create and connect to a Linux virtual machine (VM) in Azure. To use SSH keys from a Linux or macOS client, see the [quick](mac-create-ssh-keys.md) or [detailed](create-ssh-keys-detailed.md) guidance.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -40,14 +40,15 @@ If you wish to use something other than Bash for Windows, common Windows SSH cli
 
 Another option is to use the SSH utilities available in Bash in the [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-* Access Cloud Shell in your web browser at [https://shell.azure.com](https://shell.azure.com ) or in the [Azure portal](https://portal.azure.com). 
+* Access Cloud Shell in your web browser at [https://shell.azure.com](https://shell.azure.com) or in the [Azure portal](https://portal.azure.com). 
 * Access Cloud Shell as a terminal from within Visual Studio Code by installing the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## Create an SSH key pair
+This section shows you two options to create an SSH key pair on Windows.
 
 ### Create SSH keys with ssh-keygen
 
-If you can run a command shell as Bash for Windows or GitBash (or Bash in Azure Cloud Shell), create an SSH key pair using the `ssh-keygen` command. Type the following command, and answer the prompts. If an SSH key pair exists in the current location, those files are overwritten. 
+If you can run a command shell such as Bash for Windows or GitBash (or Bash in Azure Cloud Shell), create an SSH key pair using the `ssh-keygen` command. Type the following command, and answer the prompts. If an SSH key pair exists in the current location, those files are overwritten. 
 
 ```bash
 ssh-keygen -t rsa -b 2048
@@ -72,6 +73,7 @@ To create an SSH RSA key pair with PuTTYgen:
 6. The public key is displayed at the top of the window. You copy and paste this one-line format public key into the Azure portal or an Azure Resource Manager template when you create a Linux VM. You can also click **Save public key** to save a copy to your computer:
 
     ![Save PuTTY public key file](./media/ssh-from-windows/save-public-key.png)
+
 7. Optionally, to save the private key in PuTTy private key format (.ppk file), click **Save private key**. You need the .ppk file of you want to use PuTTY later to make an SSH connection to the VM.
 
     ![Save PuTTY private key file](./media/ssh-from-windows/save-ppk-file.png)
@@ -89,7 +91,7 @@ The following example shows how you would copy and paste this public key into th
 
 ## Connect to your VM
 
-Make an SSH connection to your Linux VM from Windows using an SSH client. This is the preferred method if you have an SSH client installed on your Windows system, or you use SSH tools in Bash in Azure Cloud Shell. If you prefer a GUI-based tool, you can connect with PuTTY.  
+One way to make an SSH connection to your Linux VM from Windows is to use an SSH client. This is the preferred method if you have an SSH client installed on your Windows system, or you use SSH tools in Bash in Azure Cloud Shell. If you prefer a GUI-based tool, you can connect with PuTTY.  
 
 ### Use an SSH client
 With the public key deployed on your Azure VM, and the private key on your local system, SSH to your VM using the IP address or DNS name of your VM. Replace *azureuser* and *myvm.westus.cloudapp.azure.com* in the following command with the administrator user name and the fully qualified domain name (or IP address):
@@ -120,6 +122,6 @@ If you installed the [PuTTY download package](http://www.chiark.greenend.org.uk/
 
 * For detailed steps, options, and advanced examples of working with SSH keys, see [detailed steps to create SSH key pairs](create-ssh-keys-detailed.md).
 
-* You can also generate SSH keys and make SSH connections to Linux VMs using PowerShell in Azure Cloud Shell. See the [PowerShell quickstart](../../cloud-shell/quickstart-powershell.md#ssh).
+* You can also use PowerShell in Azure Cloud Shell to generate SSH keys and make SSH connections to Linux VMs. See the [PowerShell quickstart](../../cloud-shell/quickstart-powershell.md#ssh).
 
 * If you have trouble using SSH to connect to your Linux VMs, see [Troubleshoot SSH connections to an Azure Linux VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
