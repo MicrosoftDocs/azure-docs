@@ -2,22 +2,16 @@
 title: SQL Data Warehouse data integration partners | Microsoft Docs
 description: Lists of third-party partners with data integration solutions that support Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: ''
-
-ms.assetid: 450730a8-87df-4b8f-917b-debe3c906283
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: partners
-ms.date: 01/30/2017
-ms.author: kevin;barbkess
-
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
+
 # SQL Data Warehouse data integration partners
 To create your end-to-end data warehouse solution, choose from a wide variety of industry-leading tools. This article highlights Microsoft partner companies with data integration solutions supporting Azure SQL Data Warehouse.
 
