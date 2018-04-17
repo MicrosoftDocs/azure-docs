@@ -2,13 +2,13 @@
 title: What is Azure SQL Data Warehouse? | Microsoft Docs
 description: Enterprise-class distributed database capable of processing petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds.
 services: sql-data-warehouse
-author: ronortloff
+author: igorstanko
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.component: design
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: igorstan
 ms.reviewer: igorstan
 ---
 
