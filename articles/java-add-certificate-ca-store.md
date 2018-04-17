@@ -1,11 +1,10 @@
 ---
-title: Add a certificate to the Java CA store | Microsoft Docs
+title: Add a certificate to the Java CA store
 description: Learn how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store for Twilio service or Azure Service Bus.
 services: ''
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: ''
+manager: mbaldwin
 
 ms.assetid: d3699b0a-835c-43fb-844d-9c25344e5cda
 ms.service: multiple
@@ -13,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 
 ---
