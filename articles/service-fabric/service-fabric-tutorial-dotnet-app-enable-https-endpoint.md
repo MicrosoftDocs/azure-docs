@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 # Tutorial: Add an HTTPS endpoint to an ASP.NET Core Web API front-end service
-This tutorial is part three of a series.  You will learn how to enable HTTPS in an ASP.NET Core service running on Service Fabric. When you're finished, you have a voting application with an HTTPS-enabled ASP.NET Core web front-end. If you don't want to manually create the voting application in [Build a .NET Service Fabric application](service-fabric-tutorial-deploy-app-to-party-cluster.md), you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application.
+This tutorial is part three of a series.  You will learn how to enable HTTPS in an ASP.NET Core service running on Service Fabric. When you're finished, you have a voting application with an HTTPS-enabled ASP.NET Core web front-end listening on port 443. If you don't want to manually create the voting application in [Build a .NET Service Fabric application](service-fabric-tutorial-deploy-app-to-party-cluster.md), you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application.
 
 In part three of the series, you learn how to:
 
@@ -98,9 +98,6 @@ Launch Visual Studio as an **administrator** and open the Voting solution. In So
 
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
       <Endpoint Protocol="https" Name="EndpointHttps" Type="Input" Port="443" />
     </Endpoints>
   </Resources>
@@ -330,10 +327,15 @@ Next, in the VotingWebPkg **ServiceManifestImport** section, configure a **RunAs
 ## Run the application locally
 In Solution Explorer, select the **Voting** application and set the **Application URL** property to "https://localhost:443".
 
-Save all files and hit F5 to run the application locally.
+Save all files and hit F5 to run the application locally.  After the application deploys, a web browser opens to [https://localhost:443](https://localhost:443). If you are using a self-signed certificate, you see a warning that your PC doesn't trust this website's security.  Continue on to the web page.
+
+![Voting application][image2] 
 
 ## Install certificate on cluster nodes
-Before deploying the application to the Azure, install the certificate into the Cert:\LocalMachine\My store of the cluster nodes using the Add-AzureRmServiceFabricApplicationCertificate cmdlet.
+Before deploying the application to the Azure, install the certificate into the Cert:\LocalMachine\My store of the cluster nodes using the [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) cmdlet.
+
+> [!Warning]
+> A self-signed certificate is sufficient for development and testing applications. For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).
 
 ```powershell
 Connect-AzureRmAccount
@@ -397,8 +399,11 @@ $slb | Set-AzureRmLoadBalancer
 ```
 
 ## Deploy the application to Azure
+Save all files, switch from Debug to Release, and hit F6 to rebuild.  In Solution Explorer, right-click on **Voting** and select **Publish**. Select the connection endpoint of the cluster created in , or select another cluster.  Click **Publish** to publish the application to the remote cluster.
 
-Right-click, publish app to remote cluster.
+When the application deploys, open a web browser and navigate to [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) (update the URL with the connection endpoint for your cluster). If you are using a self-signed certificate, you see a warning that your PC doesn't trust this website's security.  Continue on to the web page.
+
+![Voting application][image3]
 
 ## Next steps
 In this part of the tutorial, you learned how to:
@@ -416,3 +421,5 @@ Advance to the next tutorial:
 > [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 [image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
+[image2]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png
+[image3]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppAzure.png
