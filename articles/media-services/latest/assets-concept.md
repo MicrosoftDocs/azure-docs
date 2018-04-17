@@ -19,18 +19,13 @@ ms.author: juliako
 
 An **Asset** contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.
 
-This article gives an explanation of what assets are, and how they are used by Azure Media Services.
+An asset is mapped to a blob container in the [Azure Storage account](storage-account-concept.md) and the files in the asset are stored as block blobs in that container. You can interact with the Asset files in the containers using the Storage SDK clients.
 
-## Overview
+Azure Media Services supports Blob tiers when the account uses General-purpose v2 (GPv2) storage. With GPv2, you can move files to cool or cold storage. Cold storage is suitable for archiving mezzanine files when no longer needed (for example, after they have been encoded.)
 
-An asset is mapped to a blob container in the [Azure Storage account](storage-account-concept.md) and the files in the asset are stored as block blobs in that container. Page blobs are not supported by Azure Media Services.
+To create an input asset that can be used as an input for your job, [Create a job input from a local file](job-input-from-local-file-how-to.md).
 
-When deciding what media content to upload and store in an asset, the following considerations apply:
-
-* An asset should contain only a single, unique instance of media content. For example, a single edit of a TV episode, movie, or advertisement.
-* An asset should not contain multiple renditions or edits of an audiovisual file. 
-    
-    One example of an improper usage of an Asset would be attempting to store more than one TV episode, advertisement, or multiple camera angles from a single production inside an asset. Storing multiple renditions or edits of an audiovisual file in an asset can result in difficulties submitting encoding jobs, streaming and securing the delivery of the asset later in the workflow. 
+Also, read about [storage accounts in Media Services](storage-account-concept.md) and [transforms and jobs](transform-concept.md).
 
 ## Next steps
 
