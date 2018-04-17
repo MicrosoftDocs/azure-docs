@@ -17,7 +17,7 @@ ms.author: sngun
 
 ---
 
-# Set throughput for Azure Cosmos DB containers
+# Set and get throughput for Azure Cosmos DB containers
 
 You can set throughput for your Azure Cosmos DB containers in the Azure portal or by using the client SDKs. 
 
