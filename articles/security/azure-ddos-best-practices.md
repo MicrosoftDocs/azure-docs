@@ -19,13 +19,13 @@ ms.author: barclayn
 ---
 # Azure DDoS Protection: Best Practices & Reference Architecture
 
-This document is targeted at IT decision makers and security personnel. Familiarity with Azure, and basic concepts in networking & security are expected.
+This document is targeted at IT decision makers and security personnel. Familiarity with Azure, networking, and security are expected.
 
-Designing for distributed denial of service (DDoS) resiliency requires planning and designing for a variety of failure modes. This document provides best practices for designing applications for resiliency against DDoS attacks in Azure.
+Designing for distributed denial of service (DDoS) resiliency requires planning and designing for a variety of failure modes. This document provides best practices for designing applications in Azure for resiliency against DDoS attacks.
 
 ## Types of attacks
 
-Distributed denial of service is a type of attack where an attacker sends more requests to an application than the application is capable of handling. The resulting effect is resources being depleted, affecting the application’s availability and ability to service its customers. Over the past few years, the industry has seen an increase in attacks. Attacks are becoming more sophisticated and larger in size and impact. DDoS attacks can be targeted at any endpoint that is publicly reachable through the Internet.
+DDoS is a type of attack used in an effort to exhaust application resources. The goal is to affect the application’s availability and ability to handle legitimate requests. Attacks are becoming more sophisticated and larger in size and impact. DDoS attacks can be targeted at any endpoint that is publicly reachable through the Internet.
 
 Azure provides continuous protection against DDoS attacks. This protection is integrated into the Azure platform by default and at no additional cost. In addition to the core DDoS protection provided in the platform, we also have a new offering named “[Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection/)”, which provides advanced DDoS mitigation capabilities against network attacks and is automatically tuned to protect your specific Azure resources. Protection is simple to enable during the creation of new virtual networks. It can also be done after initial creation and requires no application or resource changes.
 
@@ -141,17 +141,17 @@ If the public IP address is under attack, the metric ‘under DDoS attack or not
 
 We recommend configuring an alert on this metric, to be notified when there’s an active DDoS mitigation performed on your public IP address.
 
-For more details, refer to [Manage Azure DDoS Protection Standard using the Azure portal](https://docs.microsoft.com/azure/virtual-network/ddos-protection-manage-portal).
+For more information, see [Manage Azure DDoS Protection Standard using the Azure portal](https://docs.microsoft.com/azure/virtual-network/ddos-protection-manage-portal).
 
 #### Resource attacks
 
-Specific to resource attacks at application layer, customers should configure Web Application Firewall (WAF ) which helps secure web applications by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, DDoS, and other layer 7 attacks. Azure provides [WAF as a feature of Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) for centralized protection of your web applications from common exploits and vulnerabilities. There are varieties of WAF offerings available from Azure partners that might be more suitable for your needs via the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
+Specific to resource attacks at the application layer, customers should configure Web Application Firewall (WAF ) to help secure web applications. WAF inspects inbound web traffic to block SQL injections, Cross-Site Scripting, DDoS, and other layer 7 attacks. Azure provides [WAF as a feature of Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) for centralized protection of your web applications from common exploits and vulnerabilities. There are varieties of WAF offerings available from Azure partners that might be more suitable for your needs via the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
 
 Even Web Application Firewalls are susceptible to volumetric & state exhaustion attacks. We strongly recommend turning on DDoS Standard protection on the WAF Virtual Network to protect from volumetric & protocol attacks. For more information, see the reference architecture section.
 
 ### Protection planning
 
-Planning and preparing for a DDoS attack is crucial in understanding the reliability of the systems during an actual event, and in establishing a well vetted DDoS incident management response plan.
+Planning and preparation are crucial to understand how a system will perform during a DDoS attack. This planning and preparation will also help you design an incident management response plan.
 
 Customers should plan for periodic discovery of Internet facing endpoints and ensure that DDoS Protection Standard is enabled on the virtual network of those endpoints. Configuring DDoS alerts aids to keep a constant watchful eye on any potential attacks on your infrastructure. Further customers should monitor their applications independently; to understand the normal behavior and take necessary actions if during a DDoS attack the application is not behaving as expected.
 
