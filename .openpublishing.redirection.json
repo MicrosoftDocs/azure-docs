@@ -171,9 +171,19 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-storage-sas.md",
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-vm-windows-access-storage.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-linux-vm-access-storage.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-storage-sas.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-storage.md",
@@ -7566,6 +7576,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/ddos-protection-manage-portal.md",
+            "redirect_url": "/azure/virtual-network/manage-ddos-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/ddos-protection-manage-ps.md",
+            "redirect_url": "/azure/virtual-network/manage-ddos-protection",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/virtual-network-manage-nsg-arm-cli.md",
             "redirect_url": "/azure/virtual-network/manage-network-security-group",
             "redirect_document_id": false
@@ -7618,6 +7638,36 @@
         {
             "source_path": "articles/load-balancer/load-balancer-internal-overview.md",
             "redirect_url": "/azure/load-balancer/load-balancer-overview#internalloadbalancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-get-started-internet-arm-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-get-started-internet-arm-ps.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-get-started-internet-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-standard-public-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+            "redirect_document_id": false
+        },       
+        {
+            "source_path": "articles/load-balancer/load-balancer-standard-public-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-standard-public-availability-zones-portal.md",
+            "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal",
             "redirect_document_id": false
         },
         {
