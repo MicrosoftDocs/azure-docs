@@ -18101,6 +18101,16 @@
             "redirect_document_id": true
         },
 		{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-provision-powershell.md",
+            "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-powershell",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-create-database-tsql.md",
+            "redirect_url": "/sql/t-sql/statements/create-database-azure-sql-data-warehouse",
+            "redirect_document_id": true
+        },
+		{
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-integrate-azure-data-factory.md",
             "redirect_url": "/azure/sql-data-warehouse/design-elt-data-loading",
             "redirect_document_id": false
