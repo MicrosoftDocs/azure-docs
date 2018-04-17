@@ -38,6 +38,7 @@ To run the CLI script examples in this tutorial, you have two options:
    ```azurecli
    az login
    ```
+
 ## Create a user assigned MSI 
 
 To create a user assigned MSI, use the [az identity create](/cli/azure/identity#az-identity-create) command. The `-g` parameter specifies the resource group where to create the MSI, and the `-n` parameter specifies its name. Replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
