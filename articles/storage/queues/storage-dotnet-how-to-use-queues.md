@@ -2,18 +2,13 @@
 title: Get started with Azure Queue storage using .NET | Microsoft Docs
 description: Azure Queues provide reliable, asynchronous messaging between application components. Cloud messaging enables your application components to scale independently.
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid: c0f82537-a613-4f01-b2ed-fc82e5eea2a7
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 04/16/2018
 ms.author: tamram
 ---
 
@@ -53,6 +48,17 @@ using Microsoft.Azure; // Namespace for CloudConfigurationManager
 using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 ```
+
+### Copy your credentials from the Azure portal
+
+The sample code needs to authenticate access to your storage account. To authenticate, you provide the application with your storage account credentials in the form of a connection string. To view your storage account credentials:
+
+1. Navigate to the [Azure portal](https://portal.azure.com).
+2. Locate your storage account.
+3. In the **Settings** section of the storage account overview, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.   
+4. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string. You will add the connection string value to an environment variable in the next step.
+
+    ![Screen shot showing how to copy a connection string from the Azure portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
 ### Parse the connection string
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]

@@ -39,8 +39,6 @@ The following table outlines key differences and envisioned usage scenarios betw
 |SQL IaaS virtual machine|For customers needing to customize the operating system or the database server, as well as customers having specific requirements in terms of running third-party apps by side with SQL Server (on the same VM), propose SQL VMs / IaaS as the optimal solution|
 |||
 
-<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
-
 ## How to programmatically identify a Managed Instance
 
 The following table shows several properties, accessible through Transact SQL, that you can use to detect that your application is working with Managed Instance and retrieve important properties.
