@@ -45,6 +45,9 @@
 ### [Using multiple IP configurations (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configure High Availability Ports for Internal Load Balancer](load-balancer-configure-ha-ports.md)
+## Samples
+### [Azure CLI](cli-samples.md)
+### [Azure PowerShell](powershell-samples.md)
 
 ## Troubleshoot
 ### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md)
