@@ -42,7 +42,7 @@ To create the web app that you'll work with, follow the [static HTML quickstart]
 
 ### Have a custom domain ready
 
-To complete the custom domain step of this tutorial, you need to own a custom domain and have access to your DNS registry for your domain provider (such as GoDaddy). For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must have access to configure the DNS settings for the `contoso.com` root domain.
+To complete the custom domain step of this tutorial, you need to own a custom domain and have access to your DNS registry for your domain provider. For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must have access to configure the DNS settings for the `contoso.com` root domain.
 
 If you don't already have a domain name, consider following the [App Service domain tutorial](custom-dns-web-site-buydomains-web-app.md) to purchase a domain using the Azure portal. 
 

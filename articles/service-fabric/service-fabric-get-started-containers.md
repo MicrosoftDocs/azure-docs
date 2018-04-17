@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿---
 title: Create an Azure Service Fabric container application | Microsoft Docs
 description: Create your first Windows container application on Azure Service Fabric.  Build a Docker image with a Python application, push the image to a container registry, build and deploy a Service Fabric container application.
@@ -611,6 +612,8 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
 [4]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
 [5]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png
 =======
+=======
+>>>>>>> 56da3636888f080ba275cbf0343b80f376c0133a
 ﻿---
 title: Create an Azure Service Fabric container application | Microsoft Docs
 description: Create your first Windows container application on Azure Service Fabric.  Build a Docker image with a Python application, push the image to a container registry, build and deploy a Service Fabric container application.
@@ -1206,4 +1209,7 @@ Any containers retained using this feature must be manually removed.
 [3]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
 [4]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
 [5]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png
+<<<<<<< HEAD
 >>>>>>> f8ce3d46eba025f3bce03e3c1f6e8cd2d8b6c6ae
+=======
+>>>>>>> 56da3636888f080ba275cbf0343b80f376c0133a
