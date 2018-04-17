@@ -62,16 +62,12 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 
 ## Enable MSI on your VM
 
-A Virtual Machine MSI enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling MSI on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and installs the MSI VM extension.
+A Virtual Machine MSI enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling MSI on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and configures the identity on the VM.
 
 1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
 2. Under the "Settings" category on the left navigation, click on  Configuration.
 3. To enable the MSI, select Yes. To disable, choose No.
 4. Click Save, to apply the configuration. 
-5. If you want to check which extensions are on this Linux VM, select **Extensions**. If MSI is enabled, **ManagedIdentityExtensionforLinux** appears in the list.
-
-   ![List of extensions](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
-
 
 ## Create a storage account 
 
@@ -157,7 +153,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for Azure Storage.
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://storage.azure.com/" -H Metadata:true
+    curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fstorage.azure.com%2F -H Metadata:true
     ```
 4. Now use the access token to access Azure Storage, for example to read the contents of the sample file which you previously uploaded to the container. Replace the values of `<STORAGE ACCOUNT>`, `<CONTAINER NAME>`, and `<FILE NAME>` with the values you specified earlier, and `<ACCESS TOKEN>` with the token returned in the previous step.
 
