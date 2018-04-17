@@ -32,6 +32,7 @@ First, populate the `volumes` array in the container group `properties` section 
 
 For example, the following Resource Manager template creates a container group consisting of a single container. The container mounts a *secret* volume consisting of two Base64-encoded secrets.
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
 To see an example of container instance deployment with an Azure Resource Manager template, see [Deploy multi-container groups in Azure Container Instances](container-instances-multi-container-group.md).
