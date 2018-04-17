@@ -103,7 +103,7 @@ ms.author: jdial
 
 14. Can I configure traffic analytics using PowerShell or an Azure Resource Manager template?
 
-        No, traffic analytics can only be configured using the Azure portal.
+    No, traffic analytics can only be configured using the Azure portal.
 
 15.  How is traffic analytics priced?
 
