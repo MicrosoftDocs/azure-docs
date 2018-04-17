@@ -24,8 +24,6 @@ For small to medium solutions, a single template is easier to understand and mai
 
 When using linked template, you create a main template that receives the parameter values during deployment. The main template contains all the linked templates and passes values to those templates as needed.
 
-![linked templates](./media/resource-group-linked-templates/nestedTemplateDesign.png)
-
 ## Link or nest a template
 
 To link to another template, add a **deployments** resource to your main template.
@@ -444,7 +442,7 @@ The following example shows how to pass a SAS token when linking to a template:
 }
 ```
 
-In PowerShell, you get a token for the container and deploy the templates with:
+In PowerShell, you get a token for the container and deploy the templates with the following commands. Notice that the **containerSasToken** parameter is defined in the template. It is not a parameter in the **New-AzureRmResourceGroupDeployment** command.
 
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates

@@ -12,8 +12,6 @@ documentationcenter: ''
 ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
@@ -75,7 +73,7 @@ The following tables list the versions of HDInsight. The HDP versions that corre
 
 ### Available versions
 
-The following table lists the versions of HDInsight that are available in the Azure Portal as well as other deployement methods like PowerShell and .NET SDK.
+The following table lists the versions of HDInsight that are available in the Azure Portal as well as other deployment methods like PowerShell and .NET SDK.
 
 | HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability on the Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -106,7 +104,7 @@ The following table lists the versions of HDInsight that are **not** available i
 
 ## Enterprise Security Package for HDInsight
 
-Azure HDInsight is an optional package that you can add on your HDInsight cluster as part of create cluster workflow. The Enterprise Security Package supports:
+Enterprise Security is an optional package that you can add on your HDInsight cluster as part of create cluster workflow. The Enterprise Security Package supports:
 
 - Integration with Active Directory for authentication.
 

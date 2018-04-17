@@ -37,6 +37,8 @@ To complete this tutorial:
 
     ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
+If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
+
 ## Create an ASP.NET web app
 
 In Visual Studio, create a project by selecting **File > New > Project**. 

@@ -2,22 +2,17 @@
 title: Restore an Azure SQL Data Warehouse  (PowerShell) | Microsoft Docs
 description: PowerShell tasks for restoring an Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
-
-ms.assetid: ac62f154-c8b0-4c33-9c42-f480808aa1d2
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: backup-restore
-ms.date: 12/06/2017
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
+
+
 # Restore an Azure SQL Data Warehouse (PowerShell)
 > [!div class="op_single_selector"]
 > * [Overview][Overview]
@@ -71,7 +66,7 @@ $Database = Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -Server
 $PointInTime="<RestorePointCreationDate>"  
 
 # Restore database from a restore point
-$RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.$ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
+$RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -122,6 +117,11 @@ $RestoredDatabase.status
 ## Restore from an Azure geographical region
 To recover a database, use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet.
 
+> [!NOTE]
+> You can perform a geo-restore to the Optimized for Compute performance tier! To do so, specify an Optimized for Compute ServiceObjectiveName as an optional parameter. 
+>
+> 
+
 1. Open Windows PowerShell.
 2. Connect to your Azure account and list all the subscriptions associated with your account.
 3. Select the subscription that contains the database to be restored.
@@ -138,7 +138,7 @@ Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 $GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
+$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>"
 
 # Verify that the geo-restored database is online
 $GeoRestoredDatabase.status

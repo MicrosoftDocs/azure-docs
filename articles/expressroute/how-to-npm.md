@@ -1,9 +1,9 @@
 ---
-title: 'Configure Network Performance Monitor for Azure ExpressRoute circuits (Preview) | Microsoft Docs'
-description: Configure NPM for Azure ExpressRoute circuits. (Preview)
+title: 'Configure Network Performance Monitor for Azure ExpressRoute circuits | Microsoft Docs'
+description: Configure cloud-based network monitoring for Azure ExpressRoute circuits.
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: ajaycode
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
+ms.date: 02/14/2018
+ms.author: agummadi
 
 ---
-# Configure Network Performance Monitor for ExpressRoute (Preview)
+# Configure Network Performance Monitor for ExpressRoute
 
-Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Microsoft Operations Management Suite (OMS). NPM now offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use Private Peering. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate.
+Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Log Analytics. NPM now offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use Private Peering. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate.
 
 You can:
 
@@ -40,10 +40,15 @@ You can:
 
 You can monitor ExpressRoute circuits in any part of the world by using a workspace that is hosted in one of the following regions:
 
-* West Europe 
+* West Europe
+* West Central US
 * East US 
 * South East Asia 
 * South East Australia
+
+>[!NOTE]
+>Support for monitoring of ExpressRoute circuits connected to VNETs in Azure Government cloud is planned for Q2 2018.   
+>
 
 ## <a name="workflow"></a>Workflow
 
@@ -54,16 +59,21 @@ Monitoring agents are installed on multiple servers, both on-premises and in Azu
     * Install monitoring agents on the on-premises servers and the Azure VMs.
     * Configure settings on the monitoring agent servers to allow the monitoring agents to communicate. (Open firewall ports, etc.)
 3. Configure network security group (NSG) rules to allow the monitoring agent installed on Azure VMs to communicate with on-premises monitoring agents.
-4. Request to whitelist your NPM Workspace.
-5. Set up monitoring: Auto-Discover and manage which networks are visible in NPM.
+4. Set up monitoring: Auto-Discover and manage which networks are visible in NPM.
 
 If you are already using Network Performance Monitor to monitor other objects or services, and you already have Workspace in one of the supported regions, you can skip Step 1 and Step 2, and begin your configuration with Step 3.
 
 ## <a name="configure"></a>Step 1: Create a Workspace
 
-1. In the [Azure portal](https://portal.azure.com), search the list of services in the **Marketplace** for 'Network Performance Monitor'. In the return, click to open the **Network Performance Monitor** page.
+Create a workspace in the subscription that has the VNets link to the ExpressRoute circuit(s).
 
-  ![portal](.\media\how-to-npm\3.png)<br><br>
+1. In the [Azure portal](https://portal.azure.com), select the Subscription that has the VNETs peered to your ExpressRoute circuit. Then search the list of services in the **Marketplace** for 'Network Performance Monitor'. In the return, click to open the **Network Performance Monitor** page.
+
+   >[!NOTE]
+   >You may create a new workspace or use an existing workspace.  If you wish to use an existing workspace, you must ensure that the workspace has been migrated to the new query language. [More information...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >
+
+   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. At the bottom of the main **Network Performance Monitor** page, click **Create** to open **Network Performance Monitor - Create new solution** page. Click **OMS Workspace - select a workspace** to open the Workspaces page. Click **+ Create New Workspace** to open the Workspace page.
 3. On the **OMS Workspace** page, select **Create New** and configure the following settings:
 
@@ -73,47 +83,50 @@ If you are already using Network Performance Monitor to monitor other objects or
   * Location - You must select a [supported region](#regions).
   * Pricing tier - Select 'Free'
   
-  >[!NOTE]
-  >The ExpressRoute circuit could be anywhere in the world and does not have to be in the same region as the Workspace.
-  >
-
-
-  ![workspace](.\media\how-to-npm\4.png)<br><br>
+    >[!NOTE]
+    >The ExpressRoute circuit could be anywhere in the world and does not have to be in the same region as the Workspace.
+    >
+  
+    ![workspace](.\media\how-to-npm\4.png)<br><br>
 4. Click **OK** to save and deploy the settings template. Once the template validates, click **Create** to deploy the Workspace.
 5. After the Workspace has been deployed, navigate to the **NetworkMonitoring(name)** resource that you created. Validate the settings, then click **Solution requires additional configuration**.
 
-  ![additional configuration](.\media\how-to-npm\5.png)
-6. On the **Welcome to Network Performance Monitor** page, select **Use TCP for synthetic transactions**, then click **Submit**. The TCP transactions are used only to make and break the connection. No data is sent over these TCP connections.
-
-  ![TCP for synthetic transactions](.\media\how-to-npm\6.png)
+   ![additional configuration](.\media\how-to-npm\5.png)
 
 ## <a name="agents"></a>Step 2: Install and configure agents
 
 ### <a name="download"></a>2.1: Download the agent setup file
 
-1. On the **Network Performance Monitor Configuration - TCP Setup page** for your resource, in the **Install OMS Agents** section, click the agent that corresponds to your server's processor and download the setup file.
+1. Go to the **Common Settings** tab of the **Network Performance Monitor Configuration** page for your resource. Click the agent that corresponds to your server's processor from the **Install OMS Agents** section and download the setup file.
 
+ 
+2. Next, copy the **Workspace ID** and **Primary Key** to Notepad.
+3. From the **Configure OMS Agents for monitoring using TCP protocol** section, download the Powershell Script. The PowerShell script helps you open the relevant firewall port for the TCP transactions.
+
+  ![PowerShell script](.\media\how-to-npm\7.png)
+
+### <a name="installagent"></a>2.2: Install a monitoring agent on each monitoring server (on each VNET that you want to monitor)
+
+We recommend that you install at least two agents on each side of the ExpressRoute connection (i.e., on-premises, Azure VNETs) for redundancy. Use the following steps to install agents:
+  
   >[!NOTE]
   >The agent must be installed on a Windows Server (2008 SP1 or later). 
   >Monitoring of ExpressRoute circuits using Windows Desktop OS and Linux OS is not supported. 
   >
   >
-2. Next, copy the **Workspace ID** and **Primary Key** to Notepad.
-3. In the **Configure Agents** section, download the Powershell Script. The PowerShell script helps you open the relevant firewall port for the TCP transactions.
-
-  ![PowerShell script](.\media\how-to-npm\7.png)
-
-### <a name="installagent"></a>2.2: Install a monitoring agent on each monitoring server
-
-We recommend that you install at least two agents on each side of the ExpressRoute connection (i.e., on-premises, Azure VNETs) for redundancy. Use the following steps to install agents:
+  
+  >[!NOTE]
+  >Agents pushed by SCOM (includes [MMA](https://technet.microsoft.com/en-us/library/dn465154(v=sc.12).aspx)) may not be able to consistently detect their location, if they are hosted in Azure.  We recommend that you do not use these agents in Azure VNETs to monitor ExpressRoute.
+  >
+  >
 
 1. Run **Setup** to install the agent on each server that you want to use for monitoring ExpressRoute. The server you use for monitoring can either be a VM, or on-premises and must have Internet access. You need to install at least one agent on-premises, and one agent on each network segment that you want to monitor in Azure.
 2. On the **Welcome** page, click **Next**.
 3. On the **License Terms** page, read the license, and then click **I Agree**.
 4. On the **Destination Folder** page, change or keep the default installation folder, and then click **Next**.
-5. On the **Agent Setup Options** page, you can choose to connect the agent to Azure Log Analytics (OMS) or Operations Manager. Or, you can leave the choices blank if you want to configure the agent later. After making your selection(s), click **Next**.
+5. On the **Agent Setup Options** page, you can choose to connect the agent to Azure Log Analytics or Operations Manager. Or, you can leave the choices blank if you want to configure the agent later. After making your selection(s), click **Next**.
 
-  * If you chose to connect to **Azure Log Analytics (OMS)**, paste the **Workspace ID** and **Workspace Key** (Primary Key) that you copied into Notepad in the previous section. Then, click **Next**.
+  * If you chose to connect to **Azure Log Analytics**, paste the **Workspace ID** and **Workspace Key** (Primary Key) that you copied into Notepad in the previous section. Then, click **Next**.
 
     ![ID and Key](.\media\how-to-npm\8.png)
   * If you chose to connect to **Operations Manager**, on the **Management Group Configuration** page, type the **Management Group Name**, **Management Server**, and the **Management Server Port**. Then, click **Next**.
@@ -124,7 +137,9 @@ We recommend that you install at least two agents on each side of the ExpressRou
     ![Account](.\media\how-to-npm\10.png)
 6. On the **Ready to Install** page, review your choices, and then click **Install**.
 7. On the **Configuration completed successfully** page, click **Finish**.
-8. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration there, and verify that the agent is connected to Operational Insights (OMS). When connected to OMS, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.
+8. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration there, and verify that the agent is connected to Azure Log Analytics (OMS). When connected, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.
+
+9. Please repeat this for each VNET that you need to be monitored.
 
 ### <a name="proxy"></a>2.3: Configure proxy settings (optional)
 
@@ -145,8 +160,8 @@ You can easily verify whether your agents are communicating.
 
 1. On a server with the monitoring agent, open the **Control Panel**.
 2. Open the **Microsoft Monitoring Agent**.
-3. Click the **Azure Log Analytics (OMS)** tab.
-4. In the **Status** column, you should see that the agent connected successfully to the Operations Management Suite service.
+3. Click the **Azure Log Analytics** tab.
+4. In the **Status** column, you should see that the agent connected successfully to Log Analytics.
 
   ![status](.\media\how-to-npm\12.png)
 
@@ -163,7 +178,7 @@ Port 8084 is opened by default. You can use a custom port by providing the param
 >
 >
 
-On the agent servers, open a PowerShell window with administrative privileges. Run the [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) PowerShell script (which you downloaded earlier). Don't use any parameters.
+On the agent servers, open a PowerShell window with administrative privileges. Run the [EnableRules](https://aka.ms/npmpowershellscript) PowerShell script (which you downloaded earlier). Don't use any parameters.
 
   ![PowerShell_Script](.\media\how-to-npm\script.png)
 
@@ -181,12 +196,7 @@ For more information about NSG, see [Network Security Groups](../virtual-network
 
 ## <a name="setupmonitor"></a>Step 4: Configure NPM for ExpressRoute monitoring
 
->[!WARNING]
->Do not proceed further until your Workspace has been whitelisted and you receive a confirmation email.
->
->
-
-After you complete the previous sections and verify that you have been whitelisted, you can set up monitoring.
+After you complete the previous sections, you can set up monitoring.
 
 1. Navigate to the Network Performance Monitor overview tile by going to the **All Resources** page, and clicking on the whitelisted NPM Workspace.
 
@@ -212,13 +222,13 @@ The NPM page contains a page for ExpressRoute that shows an overview of the heal
 
   ![Dashboard](.\media\how-to-npm\dashboard.png)
 
-### <a name="circuits"></a>Circuits list
+### <a name="circuits"></a>List of circuits
 
 To see a list of all monitored ExpressRoute circuits, click on the **ExpressRoute circuits** tile. You can select a circuit and view its health state, trend charts for packet loss, bandwidth utilization, and latency. The charts are interactive. You can select a custom time window for plotting the charts. You can drag the mouse over an area on the chart to zoom in and see fine-grained data points.
 
   ![circuit_list](.\media\how-to-npm\circuits.png)
 
-#### <a name="trend"></a>Trend of Loss, Latency, and Throughput
+#### <a name="trend"></a>Trend of Loss, Latency and Throughput
 
 The bandwidth, latency, and loss charts are interactive. You can zoom into any section of these charts, using mouse controls. You can also see the bandwidth, latency, and loss data for other intervals by clicking **Date/Time**, located below the Actions button on the upper left.
 

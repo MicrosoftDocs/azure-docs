@@ -6,16 +6,14 @@ documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: ''
-
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 02/27/2018
 ms.author: billmath
-
 ---
 # Topologies for Azure AD Connect
 This article describes various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect sync as the key integration solution. This article includes both supported and unsupported configurations.
@@ -32,6 +30,11 @@ Here's the legend for pictures in the article:
 | Azure AD Connect sync server, detailed |![Azure AD Connect sync server, detailed](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
 | Azure AD |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | Unsupported scenario |![Unsupported scenario](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
+
+
+> [!IMPORTANT]
+> Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the configurations or actions that are formally documented. Any of these configurations or actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
+
 
 ## Single forest, single Azure AD tenant
 ![Topology for a single forest and a single tenant](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
@@ -111,7 +114,7 @@ Some Office 365 workloads have certain restrictions on supported topologies:
 | Exchange Online | For more information about hybrid topologies supported by Exchange Online, see [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype for Business | When you're using multiple on-premises forests, only the account-resource forest topology is supported. For more information, see [Environmental requirements for Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
-If you are a larger organization, then you should consider to use the [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) feature. It allows you to define in which datacenter region the user's resocues are located.
+If you are a larger organization, then you should consider to use the [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) feature. It allows you to define in which datacenter region the user's resources are located.
 
 ## Staging server
 ![Staging server in a topology](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -141,7 +144,9 @@ In this topology, one Azure AD Connect sync server is connected to each Azure AD
 
 A DNS domain can be registered in only a single Azure AD tenant. The UPNs of the users in the on-premises Active Directory instance must also use separate namespaces. For example, in the preceding picture, three separate UPN suffixes are registered in the on-premises Active Directory instance: contoso.com, fabrikam.com, and wingtiptoys.com. The users in each on-premises Active Directory domain use a different namespace.
 
-There is no GALSync between the Azure AD tenant instances. The address book in Exchange Online and Skype for Business shows only users in the same tenant.
+>[!NOTE]
+>Global Address List Synchronization (GalSync) is not done automatically in this topology and requires an additional custom MIM implementation to ensure each tenant has a complete Global Address List (GAL) in Exchange Online and Skype for Business Online.
+
 
 This topology has the following restrictions on otherwise supported scenarios:
 

@@ -3,7 +3,7 @@ title: How to configure a user-assigned MSI for an Azure VM using Azure CLI
 description: Step by step instructions for configuring a user-assigned Managed Service Identity (MSI) for an Azure VM, using Azure CLI.
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -32,7 +32,7 @@ In this article, you will learn how to enable and remove a user-assigned MSI for
 To run the CLI script examples in this tutorial, you have two options:
 
 - Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) either from the Azure portal, or via the "Try It" button, located in the top right corner of each code block.
-- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 or later) if you prefer to use a local CLI console. Then sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the user-assigned MSI and VM:
+- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 or later) if you prefer to use a local CLI console. Then sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the user-assigned MSI and VM:
 
    ```azurecli
    az login

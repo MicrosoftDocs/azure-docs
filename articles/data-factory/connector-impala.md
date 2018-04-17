@@ -4,15 +4,15 @@ description: Learn how to copy data from Impala to supported sink data stores by
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -49,7 +49,7 @@ The following properties are supported for Impala linked service.
 | port | The TCP port that the Impala server uses to listen for client connections. The default value is 21050.  | No |
 | authenticationType | The authentication type to use. <br/>Allowed values are **Anonymous**, **SASLUsername**, and **UsernameAndPassword**. | Yes |
 | username | The user name used to access the Impala server. The default value is anonymous when you use SASLUsername.  | No |
-| password | The password that corresponds to the user name when you use UsernameAndPassword. You can mark this field as SecureString to store it securely in Data Factory. You also can store the password in Azure Key Vault and let the copy activity pull from there when you perform data copy. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password that corresponds to the user name when you use UsernameAndPassword. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifies whether the connections to the server are encrypted by using SSL. The default value is **false**.  | No |
 | trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over SSL. This property can be set only when you use SSL on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is **false**.  | No |

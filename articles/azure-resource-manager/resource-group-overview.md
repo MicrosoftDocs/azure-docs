@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
 
 ---
@@ -56,8 +56,6 @@ The following suggestions help you take full advantage of Resource Manager when 
 2. Define all deployment and configuration steps in the template. You should have no manual steps for setting up your solution.
 3. Run imperative commands to manage your resources, such as to start or stop an app or machine.
 4. Arrange resources with the same lifecycle in a resource group. Use tags for all other organizing of resources.
-
-For recommendations about templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
 
 For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 
@@ -134,7 +132,7 @@ If you envision your tiers having separate lifecycles, you can deploy your three
 
 ![tier template](./media/resource-group-overview/tier-templates.png)
 
-For more suggestions about designing your templates, see [Patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md). For information about nested templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+For information about nested templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
 Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. If one resource relies on a value from another resource (such as a virtual machine needing a storage account for disks), you set a dependency. For more information, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
 
@@ -214,7 +212,7 @@ Azure also provides several resource-specific roles. Some common ones are:
 4. SQL Server Contributor - Can manage SQL servers and databases, but not their security-related policies
 5. Website Contributor - Can manage websites, but not the web plans to which they are connected
 
-For the full list of roles and permitted actions, see [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md). For more information about role-based access control, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md). 
+For the full list of roles and permitted actions, see [RBAC: Built in Roles](../role-based-access-control/built-in-roles.md). For more information about role-based access control, see [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md). 
 
 In some cases, you want to run code or script that accesses resources, but you do not want to run it under a user’s credentials. Instead, you want to create an identity called a service principal for the application and assign the appropriate role for the service principal. Resource Manager enables you to create credentials for the application and programmatically authenticate the application. To learn about creating service principals, see one of following topics:
 

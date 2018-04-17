@@ -1,19 +1,12 @@
 ---
 title: Import data into Azure Search in the portal | Microsoft Docs
 description: Use the Azure Search Import Data Wizard in the Azure Portal to crawl Azure data from NoSQL Azure Cosmos DB, Blob storage, table storage, SQL Database, and SQL Server on Azure VMs.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
+manager: cgronlun
 tags: Azure Portal
 
-ms.assetid: f40fe07a-0536-485d-8dfa-8226eb72e2cd
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 05/01/2017
 ms.author: heidist
 
@@ -46,7 +39,7 @@ The Import Data wizard supports the following data sources:
 A flattened dataset is a required input. You can only import from a single table, database view, or equivalent data structure. You should create this data structure before running the wizard.
 
 ## Connect to your data
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the service dashboard. You can click **More services** in the jump bar to search for existing "search services" in the current subscription. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the service dashboard. You can click **All services** in the jump bar to search for existing "search services" in the current subscription. 
 2. Click **Import Data** on the command bar to slide open the Import Data blade.  
 3. Click **Connect to your data** to specify a data source definition used by an indexer. For intra-subscription data sources, the wizard can usually detect and read connection information, minimizing overall configuration requirements.
 

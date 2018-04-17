@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2018
+ms.date: 04/17/2018
 ms.author: markvi
-ms.reviewer: nigu
+ms.reviewer: calebb
 
 ---
 # Location conditions in Azure Active Directory conditional access 
@@ -40,7 +40,14 @@ A location is a label for a network location that either represents a named loca
 
 With named locations, you can create logical groupings of IP address ranges, countries and regions. 
 
- A name location has the following components:
+You can access your named locations in the **Manage** section of the conditional access page.
+
+![Locations](./media/active-directory-conditional-access-locations/02.png)
+
+ 
+
+
+A named location has the following components:
 
 ![Locations](./media/active-directory-conditional-access-locations/42.png)
 
@@ -117,9 +124,12 @@ With this option, you can select one or more named locations. For a policy with 
 
 Conditional access policies are evaluated when: 
 
-- A user initially signs in 
+- A user initially signs in to a web app, mobile or desktop application. 
 
-- Azure AD issues a token for the cloud app the conditional access policy has been set on. 
+- A mobile or desktop application that uses modern authentication, uses a refresh token to acquire a new access token. By default this is once an hour. 
+
+This means for mobile and desktop applications using modern authentication, a change in location would be detected within an hour of changing the network location. For mobile and desktop applications that don’t use modern authentication, the policy is applied on each token request. The frequency of the request can vary based on the application. Similarly, for web applications, the policy is applied at initial sign-in and is good for the lifetime of the session at the web application. Due to differences in session lifetimes across applications, the time between policy evaluation will also vary. Each time the application requests a new sign-in token, the  policy is applied.
+
 
 By default, Azure AD issues a token on an hourly basis. After moving off the corporate network, within an hour the policy is enforced for applications using modern authentication.
 

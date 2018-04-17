@@ -15,12 +15,6 @@ metadata:
   ms.author: routlaw
 abstract:
   description: Use Terraform to reliably version and create infrastructure on Azure. Learn how to create resources, use Azure Terraform modules, and maintain your infrastructure with code using our Quickstarts and tutorials.
-  aside:
-    image:
-      alt: Terraform logo.
-      height: 110
-      src: media/Terraform_VerticalLogo_FullColor.svg
-      width: 250  
 sections:
 - title: Quickstarts
   items:
@@ -44,6 +38,7 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: <a href="/azure/terraform/terraform-vm-msi">Create a Terraform VM with MSI authentication enabled using an Azure Marketplace image</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Create a load balanced VM cluster using Azure Terraform modules</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Create a load balanced VM cluster in the Azure Cloud Shell</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Configure a VM scale set with networking and storage.</a>

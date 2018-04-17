@@ -4,8 +4,8 @@ description: 'This tutorial provides step-by-step instructions for transforming 
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -66,6 +66,8 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 4. Upload the **hivescript.hql** file to the **hivescripts** subfolder.
 
 ## Create a data factory
+
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Log in to the [Azure portal](https://portal.azure.com/).    
 2. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
@@ -108,7 +110,7 @@ As the Hadoop cluster is inside a virtual network, you need to install a self-ho
 2. In the **Integration Runtime Setup** window, Select **Perform data movement and dispatch activities to external computes** option, and click **Next**. 
 
    ![Select perform data movement and dispatch activities option](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png)
-3. Select **Public Network**, and click **Next**.
+3. Select **Private Network**, and click **Next**.
     
    ![Select private network](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
 4. Enter **MySelfHostedIR** for **Name**, and click **Next**. 

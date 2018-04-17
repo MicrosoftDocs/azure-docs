@@ -2,14 +2,14 @@
 title: Use Cortana prebuilt app from LUIS | Microsoft Docs
 description: Use Cortana personal assistant, a prebuilt application from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: cahann
+ms.author: v-geberr
 ---
 
 # Cortana Prebuilt App

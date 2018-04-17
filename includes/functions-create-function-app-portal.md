@@ -1,4 +1,4 @@
-1. Click the **New** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**. 
+1. Select the **New** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**. 
 
     ![Create a function app in the Azure portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
@@ -16,8 +16,14 @@
     | **Location** | West Europe | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
     | **[Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Globally unique name |  Name of the new storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account. |
 
-1. Click **Create** to provision and deploy the new function app. You can monitor the status of the deployment by clicking the Notification icon in the upper-right corner of the portal. 
+3. Select **Create** to provision and deploy the function app. 
+
+4. Select the Notification icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message. 
 
     ![Define new function app settings](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-    Clicking **Go to resource** takes you to your new function app.
+4. Select **Go to resource** to view your new function app.
+
+>[!TIP]
+>Having trouble finding your function apps in the portal, try [adding Function Apps to your favorites in the Azure portal](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite).   
+

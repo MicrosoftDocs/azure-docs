@@ -4,7 +4,7 @@ description: Export Resource Manager templates that include virtual machine exte
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

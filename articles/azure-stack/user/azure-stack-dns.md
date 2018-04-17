@@ -3,9 +3,8 @@ title: DNS in Azure Stack | Microsoft Docs
 description: DNS in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: ScottNapolitan
-manager: byronr
-editor: ''
+author: mattbriggs
+manager: femila
 
 ms.assetid:
 ms.service: azure-stack
@@ -13,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
-ms.author: victorh
+ms.date: 02/28/2018
+ms.author: mabrigg
 
 ---
 # DNS in Azure Stack

@@ -3,8 +3,8 @@ title: Create a Service Principal for Azure Stack | Microsoft Docs
 description: Describes how to create a new service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 
 
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
-ms.author: helaw
+ms.date: 03/15/2018
+ms.author: mabrigg
 
 ---
 # Provide applications access to Azure Stack
@@ -49,14 +49,14 @@ In this section, you create an application (service principal) in Azure AD that 
 You have created a service principal for your application.
 
 ### Get credentials
-When programmatically logging in, you use the ID for your application and an authentication key. To get those values, use the following steps:
+When programmatically logging in, you use the ID for your application, and for a Web app / API, an authentication key. To get those values, use the following steps:
 
 1. From **App registrations** in Active Directory, select your application.
 
 2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client ID.
 
      ![client id](./media/azure-stack-create-service-principal/image12.png)
-3. To generate an authentication key, select **Keys**.
+3. To generate an authentication key for a Web app / API, select **Settings** > **Keys**. 
 
 4. Provide a description of the key, and a duration for the key. When done, select **Save**.
 
@@ -134,7 +134,7 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 ```
 
 ## Assign role to service principal
-To access resources in your subscription, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md).
+To access resources in your subscription, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../role-based-access-control/built-in-roles.md).
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
 

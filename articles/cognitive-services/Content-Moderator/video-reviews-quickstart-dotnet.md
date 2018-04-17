@@ -536,4 +536,8 @@ Finally, you see the video review in your Content Moderator review tool account 
 
 ## Next steps
 
-[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
+Learn how to add [transcript moderation](video-transcript-moderation-review-tutorial-dotnet.md) to the video review. 
+
+Check out the detailed tutorial on how to develop a [complete video moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).
+
+[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET.

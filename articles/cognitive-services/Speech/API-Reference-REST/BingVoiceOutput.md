@@ -132,48 +132,42 @@ Voice name not supported
 
 ## <a name="ChangeSSML"></a>Changing voice output via SSML
 
-This section shows examples of changing certain characteristics of generated voice output like speaking rate, pronunciation etc. by using SSML tags.
+Microsoft Text-to-Speech API supports SSML 1.0 as defined in W3C [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). This section shows examples of changing certain characteristics of generated voice output like speaking rate, pronunciation etc. by using SSML tags.
 
 1. Adding break
 
   ```
-  <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">Welcome to use Microsoft Text to speech voice<break time="100ms" /> in cognitive service.</speak>
+  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
   ```
 
 2. Change speaking rate
 
   ```
-    <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><prosody rate="+30.00%">Welcome to use Microsoft Text to speech voice in cognitive service.</prosody></speak>
+  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
 3. Pronunciation
 
   ```
-  <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><sub alias="World Wide Web Consortium">W3C</sub> </speak>• <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></speak>
+  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
   ```
 
 4. Change volume
 
   ```
-  <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><prosody volume="+20.00%">Welcome to use Microsoft Text to speech voice in cognitive service.</prosody></speak>
+  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
 5. Change pitch
 
   ```
-  <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">Welcome to use <prosody pitch="high">Microsoft Text to speech voice </prosody>in cognitive service.</speak>
+  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
 6. Change prosody contour
 
   ```
-  <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></speak>
-  ```
-
-7. Insert recorded audio
-
-  ```
-  <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><mstts:audiosegment data = "aQdcsdfAsf7sfskAAACUSIIFEasaqKcqEqksk10Nr9zZWIGXigsiS18y..."> Welcome to use Microsoft Text to Speech Voice</mstts:audiosegment></speak>
+  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
   ```
 
 > [!NOTE]

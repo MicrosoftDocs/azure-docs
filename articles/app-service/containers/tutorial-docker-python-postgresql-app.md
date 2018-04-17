@@ -23,12 +23,12 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a PostgreSQL database in Azure
-> * Connect a Python app to MySQL
+> * Connect a Python app to PostgreSQL
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Manage the app in the Azure portal
 
-You can follow the steps below on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
+You can follow the steps in this article on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -83,7 +83,7 @@ This sample repository contains a [Flask](http://flask.pocoo.org/) application.
 ### Run the application
 
 > [!NOTE] 
-> In a later step you simplify this process by building a Docker container to use with the production database.
+> In a later step, you simplify this process by building a Docker container to use with the production database.
 
 Install the required packages and start the application.
 
@@ -125,7 +125,7 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### Create an Azure Database for PostgreSQL server
 
@@ -165,19 +165,19 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
 
 ### Create a firewall rule for the Azure Database for PostgreSQL server
 
-Run the following Azure CLI command to allow access to the database from all IP addresses.
+Run the following Azure CLI command to allow access to the database from all IP addresses. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=255.255.255.255 --name AllowAllIPs
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs
 ```
 
 The Azure CLI confirms the firewall rule creation with output similar to the following example:
 
 ```json
 {
-  "endIpAddress": "255.255.255.255",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAllIPs",
-  "name": "AllowAllIPs",
+  "endIpAddress": "0.0.0.0",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAzureIPs",
+  "name": "AllowAzureIPs",
   "resourceGroup": "myResourceGroup",
   "startIpAddress": "0.0.0.0",
   "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
@@ -338,7 +338,7 @@ You see two passwords. Make note of the user name and the first password.
 
 ### Upload your Docker container to Azure Container Registry
 
-Log in to your registry. When prompted, supply the password you just retrieved.
+Log in to your registry. When prompted, supply the password you retrieved.
 
 ```bash
 docker login <registry_name>.azurecr.io -u <registry_name>

@@ -131,7 +131,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	![Configure Single Sign-On Add](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
-	a. To assign the role to any user, select the new role and click on **Assign** button in the bottom of the page.
+	 To assign the role to any user, select the new role and click on **Assign** button in the bottom of the page.
 
 	![Configure Single Sign-On Add](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 

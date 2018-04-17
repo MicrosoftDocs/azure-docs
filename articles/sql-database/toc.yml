@@ -16,9 +16,12 @@
   - name: Create DB - Azure PowerShell
     href: sql-database-get-started-powershell.md
   - name: Connect & query
+    href: sql-database-connect-query.md
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
+    - name: SQL Operations Studio
+      href: https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
     - name: Azure portal
       href: sql-database-connect-query-portal.md
     - name: VS Code
@@ -45,12 +48,18 @@
     href: sql-database-design-first-database.md
   - name: 1 - Design DB using .NET
     href: sql-database-design-first-database-csharp.md
-  - name: 2 - Migrate SQL Server DB
+  - name: 2 - Migrate to SQL Server DB using DMS
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Secure your SQL DB
     href: sql-database-security-tutorial.md
   - name: 4 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
+  - name: 5 - Create Managed Instance
+    href: sql-database-managed-instance-create-tutorial-portal.md
+  - name: 6 - Restore a backup to a Managed Instance
+    href: sql-database-managed-instance-restore-from-backup-tutorial.md
+  - name: 7 - Migrate to a Managed Instance using DMS
+    href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Samples
   items:
   - name: Code samples
@@ -61,26 +70,30 @@
     href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
-  - name: Database service   
-    items:
-    - name: Servers and databases
-      href: sql-database-servers-databases.md
-    - name: Service tiers
-      href: sql-database-service-tiers.md
-    - name: Resource limits
-      href: sql-database-resource-limits.md  
-    - name: Single databases
-      href: sql-database-single-database-resources.md
-    - name: Elastic pools
-      href: sql-database-elastic-pool.md
-    - name: Connectivity architecture
-      href: sql-database-connectivity-architecture.md 
-    - name: DTUs and eDTUs
-      href: sql-database-what-is-a-dtu.md
-    - name: DTU benchmark
-      href: sql-database-benchmark-overview.md
-    - name: SQL Server common features
-      href: sql-database-features.md
+  - name: Servers and databases
+    href: sql-database-servers-databases.md
+  - name: Managed instance
+    href: sql-database-managed-instance.md
+  - name: Service tiers
+    href: sql-database-service-tiers.md
+  - name: Read Scale-Out
+    href: sql-database-read-scale-out.md
+  - name: DTU-based resource limits
+    href: sql-database-dtu-resource-limits.md  
+  - name: vCore-based resource limits
+    href: sql-database-vcore-resource-limits.md  
+  - name: Single databases
+    href: sql-database-single-database-resources.md
+  - name: Elastic pools
+    href: sql-database-elastic-pool.md
+  - name: Connectivity architecture
+    href: sql-database-connectivity-architecture.md 
+  - name: DTUs and eDTUs
+    href: sql-database-what-is-a-dtu.md
+  - name: DTU benchmark
+    href: sql-database-benchmark-overview.md
+  - name: SQL Server common features
+    href: sql-database-features.md
   - name: High availability
     href: sql-database-high-availability.md  
   - name: Security   
@@ -99,10 +112,14 @@
       href: sql-database-manage-logins.md
     - name: Multi-factor auth
       href: sql-database-ssms-mfa-authentication.md
-    - name: Auditing
+    - name: Auditing - SQL Database
       href: sql-database-auditing.md
-    - name: Threat detection
+    - name: Auditing - Managed Instance
+      href: sql-database-managed-instance-auditing.md
+    - name: Threat detection - SQL Database
       href: sql-database-threat-detection.md
+    - name: Threat detection - Managed Instance
+      href: sql-database-managed-instance-threat-detection.md
     - name: Table auditing & TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Dynamic data masking
@@ -117,7 +134,7 @@
       href: sql-database-business-continuity.md
     - name: Database backups
       href: sql-database-automated-backups.md
-    - name: Backup retention
+    - name: Long-term backup retention
       href: sql-database-long-term-retention.md
     - name: Failover groups
       href: sql-database-geo-replication-overview.md
@@ -137,11 +154,15 @@
       href: sql-database-disaster-recovery-drills.md
   - name: Migrate to SQL Database
     items:
-    - name: Overview
+    - name: Migrate to SQL Database
       href: sql-database-cloud-migrate.md
-    - name: T-SQL changes
+    - name: Migrate to Managed Instance
+      href: sql-database-managed-instance-migrate.md
+    - name: SQL Database T-SQL details
       href: sql-database-transact-sql-information.md
-    - name: Manage database after migration
+    - name: Managed Instance T-SQL details
+      href: sql-database-managed-instance-transact-sql-information.md
+    - name: Manage SQL Database after migration
       href: sql-database-manage-after-migration.md
   - name: Load & move data
     items:
@@ -237,6 +258,10 @@
       href: sql-database-use-batching-to-improve-performance.md
     - name: Connectivity guidance
       href: sql-database-connectivity-issues.md
+    - name: DNS alias overview
+      href: dns-alias-overview.md
+    - name: DNS alias PowerShell
+      href: dns-alias-powershell.md
     - name: Ports - ADO.NET
       href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: How-to guides
@@ -261,6 +286,16 @@
       href: sql-database-elastic-query-horizontal-partitioning.md
     - name: Query across tables with different schemas
       href: sql-database-elastic-query-vertical-partitioning.md
+  - name: Managed Instance
+    items:
+    - name: VNet configuration
+      href: sql-database-managed-instance-vnet-configuration.md
+    - name: Custom DNS
+      href: sql-database-managed-instance-custom-dns.md
+    - name: Connect applications
+      href: sql-database-managed-instance-connect-app.md
+    - name: Sync network configuration
+      href: sql-database-managed-instance-sync-network-configuration.md
   - name: Security
     items:
     - name: Configure Azure AD auth
@@ -279,10 +314,12 @@
       href: sql-database-vnet-service-endpoint-rule-powershell.md
   - name: Business continuity
     items:
-    - name: Configure vault - backups
-      href: sql-database-long-term-backup-retention-configure.md
     - name: Geo-replicate - Portal
       href: sql-database-geo-replication-portal.md
+    - name: Configure long-term backup retention - SQL storage
+      href: sql-database-long-term-backup-retention-configure.md
+    - name: Configure long-term backup retention - Azure vault
+      href: sql-database-long-term-backup-retention-configure-vault.md
   - name: Load & move data
     items:
     - name: Load data with BCP
@@ -355,8 +392,9 @@
       items:
       - name: Deploy example app
         href: saas-standaloneapp-get-started-deploy.md
+      - name: Provision tenants
+        href: saas-standaloneapp-provision-and-catalog.md
     - name: Database per tenant
-      href: saas-dbpertenant-wingtip-app-overview.md
       items:
       - name: Tutorial intro
         href: saas-dbpertenant-wingtip-app-overview.md
@@ -372,10 +410,14 @@
         href: saas-dbpertenant-restore-single-tenant.md
       - name: Manage tenant schema
         href: saas-tenancy-schema-management.md
-      - name: Run ad-hoc queries
-        href: saas-tenancy-adhoc-analytics.md
-      - name: ETL for analysis
+      - name: Cross-tenant reporting
+        href: saas-tenancy-cross-tenant-reporting.md
+      - name: ETL for analytics
         href: saas-tenancy-tenant-analytics.md
+      - name: Disaster recovery using geo-restore
+        href: saas-dbpertenant-dr-geo-restore.md
+      - name: Disaster recovery using database geo-replication
+        href: saas-dbpertenant-dr-geo-replication.md
     - name: Multi-tenant database
       items:
       - name: Deploy example app
@@ -388,7 +430,7 @@
         href: saas-multitenantdb-adhoc-reporting.md
       - name: Manage tenant schema
         href: saas-multitenantdb-schema-management.md
-      - name: ETL for analysis
+      - name: ETL for analytics
         href: saas-multitenantdb-tenant-analytics.md
   - name: Develop apps
     items:
@@ -466,4 +508,4 @@
   - name: Architecture center
     href: /azure/architecture/
   - name: Customer stories
-    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+    href: https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc

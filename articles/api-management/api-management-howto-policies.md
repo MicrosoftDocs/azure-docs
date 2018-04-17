@@ -110,12 +110,6 @@ To limit inbound requests and accept only those from an IP address of 1.2.3.4 mo
 </ip-filter>
 ```
 
-## Video
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
-
 ## Next steps
 
 For more information working with policies, see:

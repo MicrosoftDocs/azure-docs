@@ -3,9 +3,8 @@ title: Distribute data globally with Azure Cosmos DB | Microsoft Docs
 description: Learn about planet-scale geo-replication, failover, and data recovery using global databases from Azure Cosmos DB, a globally-distributed, mutli-model database service.
 services: cosmos-db
 documentationcenter: ''
-author: arramac
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
@@ -13,8 +12,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
-ms.author: arramac
+ms.date: 03/26/2018
+ms.author: sngun
 
 ---
 # How to distribute data globally with Azure Cosmos DB
@@ -33,7 +32,12 @@ With Azure Cosmos DB's turnkey global distribution, developers do not have to bu
 In this article, we provide an overview of Azure Cosmos DB's global distribution capabilities. We also describe Azure Cosmos DB's unique approach to providing comprehensive SLAs. 
 
 ## <a id="EnableGlobalDistribution"></a>Enabling turnkey global distribution
-Azure Cosmos DB provides the following capabilities to enable you to easily write planet scale applications. These capabilities are available via the Azure Cosmos DB's resource provider-based [REST APIs](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) as well as the Azure portal.
+Azure Cosmos DB provides the following capabilities to enable you to easily write planet scale applications. These capabilities are available via the Azure Cosmos DB's resource provider-based [REST APIs](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) as well as the Azure portal.
+
+In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates the turnkey global distribution features.
+
+> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ### <a id="RegionalPresence"></a>Ubiquitous regional presence 
 Azure is constantly growing its geographical presence by bringing [new regions](https://azure.microsoft.com/regions/) online. Azure Cosmos DB is available in all new Azure regions by default. This allows you to associate a geographical region with your Azure Cosmos DB database account as soon as Azure opens the new region for business.

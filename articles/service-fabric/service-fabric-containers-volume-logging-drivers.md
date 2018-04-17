@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
 ---
 
@@ -38,7 +38,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter does not support mapping SMB mounts to containers ([That is only supported on Windows Server version 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). This prevents network volume mapping and Azure Files volume drivers on versions older than 1709. 
+> Windows Server 2016 Datacenter does not support mapping SMB mounts to containers ([That is only supported on Windows Server version 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). This constraint prevents network volume mapping and Azure Files volume drivers on versions older than 1709. 
 >   
 
 
@@ -50,8 +50,9 @@ The plug-ins are specified in the application manifest as follows:
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Description>Calculator Application</Description>
     <Parameters>
-        <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
       <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
     </Parameters>
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
@@ -63,7 +64,7 @@ The plug-ins are specified in the application manifest as follows:
           <DriverOption Name="test" Value="vale"/>
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
-        <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
+        <Volume Source="[MyStorageVar]" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
         <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
         </Volume>
@@ -80,6 +81,8 @@ The plug-ins are specified in the application manifest as follows:
 
 The **Source** tag for the **Volume** element refers to the source folder. The source folder can be a folder in the VM that hosts the containers or a persistent remote store. The **Destination** tag is the location that the **Source** is mapped to within the running container. Thus, your destination can't be a location that already exists within your container.
 
+Application parameters are supported for volumes as shown in the preceding manifest snippet (look for `MyStoreVar` for an example use).
+
 When specifying a volume plug-in, Service Fabric automatically creates the volume by using the specified parameters. The **Source** tag is the name of the volume and the **Driver** tag specifies the volume driver plug-in. Options can be specified by using the **DriverOption** tag as follows:
 
 ```xml
@@ -90,4 +93,4 @@ When specifying a volume plug-in, Service Fabric automatically creates the volum
 If a Docker log driver is specified, you have to deploy agents (or containers) to handle the logs in the cluster. The **DriverOption** tag can be used to specify options for the log driver.
 
 ## Next steps
-To deploy containers to a Service Fabric cluster, see [Deploy a container on Service Fabric](service-fabric-deploy-container.md).
+To deploy containers to a Service Fabric cluster, refer the article [Deploy a container on Service Fabric](service-fabric-deploy-container.md).

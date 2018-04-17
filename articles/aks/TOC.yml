@@ -35,28 +35,66 @@
     href: container-service-quotas.md
 - name: How-to guides
   items:
-  - name: Scale an AKS cluster
-    href: scale-cluster.md
-  - name: Upgrade an AKS cluster
-    href: upgrade-cluster.md
-  - name: Authenticate with ACR
-    href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
-  - name: Run applications with Helm
-    href: kubernetes-helm.md
-  - name: Develop applications with Draft
-    href: kubernetes-draft.md
-  - name: Integrate with Azure using OSBA
-    href: integrate-azure.md
-  - name: Use Kubernetes dashboard
-    href: kubernetes-dashboard.md
-  - name: Create service principal
-    href: kubernetes-service-principal.md
+  - name: Cluster operations
+    items:
+    - name: Create an AKS cluster
+      href: create-cluster.md
+    - name: Scale an AKS cluster
+      href: scale-cluster.md
+    - name: Upgrade an AKS cluster
+      href: upgrade-cluster.md
+    - name: Delete an AKS cluster
+      href: delete-cluster.md
   - name: Configure data volumes
     items:
-    - name: Azure Disks - Persistent Volume
+    - name: Kubernetes Volume - Disks
+      href: azure-disk-volume.md
+    - name: Kubernetes Volume - Files
+      href: azure-files-volume.md
+    - name: Persistent Volume - Disks
       href: azure-disks-dynamic-pv.md
-    - name: Azure Files - Persistent Volume
+    - name: Persistent Volume - Files
       href: azure-files-dynamic-pv.md
+  - name: Configure networking
+    items:
+    - name: Static IP address
+      href: static-ip.md
+    - name: Internal load balancer
+      href: internal-lb.md
+    - name: Ingress and TLS
+      href: ingress.md
+  - name: Security and authentication
+    items:
+    - name: Create service principal
+      href: kubernetes-service-principal.md
+    - name: Authenticate with ACR
+      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+  - name: Develop and run applications
+    items:
+    - name: Run applications with Helm
+      href: kubernetes-helm.md
+    - name: Develop applications with Draft
+      href: kubernetes-draft.md
+    - name: Open Service Broker for Azure
+      href: integrate-azure.md
+    - name: Jenkins continuous deployment
+      href: jenkins-continuous-deployment.md
+    - name: Using OpenFaaS with AKS
+      href: openfaas.md
+    - name: Run Spark jobs on AKS
+      href: spark-job.md
+    - name: Using GPUs on AKS
+      href: gpu-cluster.md
+  - name: Kubernetes basics
+    items:
+    - name: Use Kubernetes dashboard
+      href: kubernetes-dashboard.md
+  - name: Troubleshoot
+    items:
+    - name: SSH node access
+      href: aks-ssh.md
+    - name: Get kubelet logs
+      href: kubelet-logs.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -77,3 +115,5 @@
     href: http://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
+  - name: FAQ
+    href: faq.md

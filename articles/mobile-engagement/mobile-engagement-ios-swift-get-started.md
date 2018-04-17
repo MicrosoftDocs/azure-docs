@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Get Started with Azure Mobile Engagement for iOS Apps in Swift
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users to an iOS application.

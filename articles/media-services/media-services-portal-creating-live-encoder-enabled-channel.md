@@ -36,7 +36,7 @@ This tutorial walks you through the steps of creating a **Channel** that receive
 The following are general steps involved in creating common live streaming applications.
 
 > [!NOTE]
-> Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived at Microsoft.com if you need to run a Channel for longer periods of time.
+> Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived@microsoft.com if you need to run a Channel for longer periods of time.
 > 
 > 
 
@@ -190,7 +190,7 @@ To manage your assets, select **Setting** and click **Assets**.
 ![Assets](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## Considerations
-* Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft.com if you need to run a Channel for longer periods of time.
+* Currently, the max recommended duration of a live event is 8 hours. Please contact amslived@microsoft.com if you need to run a Channel for longer periods of time.
 * Make sure the streaming endpoint from which you want to stream  your content is in the **Running** state.
 
 ## Next step

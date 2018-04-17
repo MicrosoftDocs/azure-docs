@@ -1,27 +1,22 @@
 ---
-title: SQL Data Warehouse system views | Microsoft Docs
-description: Links to system views content for SQL Data Warehouse.
+title: System views - Azure SQL Data Warehouse | Microsoft Docs
+description: Links to the documentation for system views supported in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-
-ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 01/22/2018
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/14/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
-# System views
+
+# System views supported in Azure SQL Data Warehouse
+Links to the documentation for T-SQL statements supported in Azure SQL Data Warehouse.
+
 ## SQL Data Warehouse catalog views
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
-* [sys.pdw_database_mappings](http://msdn.microsoft.com/library/mt203891.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
 * [sys.pdw_index_mappings](http://msdn.microsoft.com/library/mt203912.aspx)
 * [sys.pdw_loader_backup_run_details](https://msdn.microsoft.com/library/mt203877.aspx)
@@ -206,6 +201,8 @@ SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW)
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
 ## SQL Server 2016 PolyBase DMVs available in SQL Data Warehouse
+The following DMVs are applicable to SQL Data Warehouse, but must be executed by connecting to the **master** database.
+
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
 * [sys.dm_exec_compute_nodes](https://msdn.microsoft.com/library/mt130700.aspx)
@@ -229,14 +226,4 @@ SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW)
 * [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Next steps
-For more reference information, see [SQL Data Warehouse reference overview][SQL Data Warehouse reference overview].
-
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-
-<!--MSDN references-->
-
-
-<!--Other Web references-->
+For more reference information, see [T-SQL statements in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), and [T-SQL language elements in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).

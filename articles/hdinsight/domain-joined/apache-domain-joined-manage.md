@@ -12,9 +12,7 @@ ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: bhanupr
 
@@ -48,7 +46,7 @@ Using the standard APIs helps from security perspective. In addition, you get th
 Install Beeline on your machine, and connect over the public internet, use the following parameters: 
 
 ```
-- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Connection string: -u 'jdbc:hive2://<clustername>.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
 - Cluster login name: -n admin
 - Cluster login password -p 'password'
 ```

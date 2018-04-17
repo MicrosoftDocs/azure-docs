@@ -3,8 +3,8 @@ title: Create a Windows VM from a template in Azure | Microsoft Docs
 description: Use a Resource Manager template and PowerShell to easily create a new Windows VM.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: davidmu
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -28,9 +28,9 @@ For a detailed description of the virtual machine resource, see [Virtual machine
 
 It should take about five minutes to do the steps in this article.
 
-## Install Azure PowerShell
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-See [How to install and configure Azure PowerShell](../../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.3 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -64,7 +64,7 @@ In this step, you create a template file that deploys the resources and a parame
       },
       "variables": {
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]", 
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]", 
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]" 
       },
       "resources": [
         {

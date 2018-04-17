@@ -13,8 +13,8 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: larryfr
 
 ---
@@ -98,6 +98,12 @@ Use the following steps to build and deploy the project to your Kafka on HDInsig
     * Start a producer that writes to the `test` topic.
     * Start a consumer so that you can see the output written to the `wordcounts` topic
 
+    > [!NOTE]
+    > You need to verify that the `auto.create.topics.enable` property is set to `true` in the Kafka Broker config file. This property can be viewed and modified in the Advanced Kafka Broker Configuration file by using the Ambari Web UI. Otherwise, you need to create the intermediate topic `RekeyedIntermediateTopic` manually before running this example using the following command:
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
+    ```
+    
     You could accomplish these operations by opening three SSH sessions. But you then have to set `$KAFKABROKERS` and `$KAFKAZKHOSTS` for each by running step 4 from this section in each SSH session. An easier solution is to use the `tmux` utility, which can split the current SSH display into multiple sections. To start the stream, producer, and consumer using `tmux`, use the following command:
 
     ```bash

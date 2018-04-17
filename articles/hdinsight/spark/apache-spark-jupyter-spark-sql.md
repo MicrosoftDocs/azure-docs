@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 03/01/2018
 ms.author: jgao
 
 ---
@@ -44,8 +44,8 @@ Create an HDInsight Spark cluster using an [Azure Resource Manager template](../
 	* **Resource group**: Create a resource group or select an existing one. Resource group is used to manage Azure resources for your projects.
 	* **Location**: Select a location for the resource group. The template uses this location for creating the cluster as well as for the default cluster storage.
 	* **ClusterName**: Enter a name for the HDInsight cluster that you want to create.
-	* **Cluster login name and password**: The default login name is admin.
-	* **SSH user name and password**.
+	* **Cluster login name and password**: The default login name is admin. Choose a password for the cluster login.
+	* **SSH user name and password**. Choose a password for the SSH user.
 
 3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**. You can see a new tile titled **Deploying Template deployment**. It takes about 20 minutes to create the cluster.
 
@@ -100,16 +100,17 @@ For an example of reading data from a csv file instead of a Hive table, see [Run
 
     ![Hive query in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Hive query in HDInsight Spark")
 
-2. When the kernel is ready, paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. The output should list a `hivesampletable` that is available on the cluster, by default.
+2. When the kernel is ready, paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. The command lists the Hive tables on the cluster:
 
     ```PySpark
 	%%sql
     SHOW TABLES
     ```
+    When you use a Jupyter Notebook with your HDInsight Spark cluster, you get a preset `sqlContext` that you can use to run Hive queries using Spark SQL. `%%sql` tells Jupyter Notebook to use the preset `sqlContext` to run the Hive query. The query retrieves the top 10 rows from a Hive table (**hivesampletable**) that comes with all HDInsight clusters by default. It takes about 30 seconds to get the results. The output looks like: 
 
     ![Hive query in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Hive query in HDInsight Spark")
 
-    When you use a Jupyter Notebook with your HDInsight Spark cluster, you get a preset `sqlContext` that you can use to run Hive queries using Spark SQL. `%%sql` tells Jupyter Notebook to use the preset `sqlContext` to run the Hive query. The query retrieves the top 10 rows from a Hive table (**hivesampletable**) that comes with all HDInsight clusters by default. For more information on the `%%sql` magic and the preset contexts, see [Jupyter kernels available for an HDInsight cluster](apache-spark-jupyter-notebook-kernels.md).
+    For more information on the `%%sql` magic and the preset contexts, see [Jupyter kernels available for an HDInsight cluster](apache-spark-jupyter-notebook-kernels.md).
 
     Every time you run a query in Jupyter, your web browser window title shows a **(Busy)** status along with the notebook title. You also see a solid circle next to the **PySpark** text in the top-right corner.
     

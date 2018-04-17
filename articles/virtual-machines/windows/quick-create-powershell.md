@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Quick Start - Create Windows VM PowerShell | Microsoft Docs
 description: Quickly learn to create a Windows virtual machines with PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/29/2017
-ms.author: nepeters
+ms.date: 02/12/2018
+ms.author: cynthn
 ms.custom: mvc
 ---
 
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.3.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 
 
@@ -49,7 +49,7 @@ When running this step, you are prompted for credentials. The values that you en
 ```azurepowershell-interactive
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
-    -Name "myVM$(Get-Random)" `
+    -Name "myVM" `
     -Location "East US" `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `

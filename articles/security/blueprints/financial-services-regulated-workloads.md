@@ -1,7 +1,7 @@
 ---
 
-title: Azure Blueprint Automation - Financial Services for Regulated Workloads
-description: Financial Services Blueprint for Regulated Workloads
+title: Azure Security and Compliance Blueprint - FFIEC Financial Services Regulated Workloads
+description: Azure Security and Compliance Blueprint - FFIEC Financial Services Regulated Workloads
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
 
 ---
 
-# Azure Blueprint Automation: Financial Services Blueprint for Regulated Workloads
+# Azure Security and Compliance Blueprint - FFIEC Financial Services Regulated Workloads
 
 ## Overview
 
-Financial Services Blueprint for Regulated Workloads helps deploy a secure and compliant platform as a service (PaaS) web application designed to handle sensitive data in the cloud. The blueprint consists of automated scripts and guidance that showcase a simple reference architecture and a design that helps simplify the adoption of Microsoft Azure solutions. This blueprint illustrates an end-to-end solution to meet the needs of organizations seeking ways to reduce the burden and cost of deploying in the cloud.
+Azure Security and Compliance Blueprint - FFIEC Financial Services Regulated Workloads helps deploy a secure and compliant platform as a service (PaaS) web application designed to handle sensitive data in the cloud. The blueprint consists of automated scripts and guidance that showcase a simple reference architecture and a design that helps simplify the adoption of Microsoft Azure solutions. This blueprint illustrates an end-to-end solution to meet the needs of organizations seeking ways to reduce the burden and cost of deploying in the cloud.
 
 This blueprint is designed to meet the requirements of stringent compliant standards set by the American Institute of Certified Public Accountants such as - SOC 1, SOC 2, the Payment Card Industry Data Security Standards council's DSS 3.2, and FFIEC for the collection, storage, and retrieval of sensitive financial data. It demonstrates the proper handling of such data by deploying a solution that manages financial data in a secure, compliant, multi-tier environment. The solution is deployed as an end-to-end Azure-based PaaS solution. 
 
@@ -51,7 +51,7 @@ The architecture is comprised of the following components and uses the deploymen
 
 The blueprint addresses the following  the use case below.
 
-> This scenario illustrates how a fictitious webstore moved sensitive data into a PaaS cloud Azure-based solution. The example solution illustrates the handling and collection of basic user information and selected sensitive data. This work borrows from the Azure Blueprint Automation: Payment Processing for PCI DSS-compliant environments for payment card processing. For more information, on expanding on this work ["Review and Guidance for Implementation"](https://aka.ms/pciblueprintprocessingoverview) paper provides a review of the PCI DSS-compliant environments.
+> This scenario illustrates how a fictitious webstore moved sensitive data into a PaaS cloud Azure-based solution. The example solution illustrates the handling and collection of basic user information and selected sensitive data. This work borrows from the Azure Security and Compliance Blueprint - PCI DSS-compliant Payment Processing environments. For more information, on expanding on this work ["Review and Guidance for Implementation"](https://aka.ms/pciblueprintprocessingoverview) paper provides a review of the PCI DSS-compliant environments.
 
 ### Use case
 A small webstore called *Contoso Webstore* is ready to move financial data that includes customer payment information to the cloud. 
@@ -110,7 +110,7 @@ Edna Benson is the receptionist and business manager. She is responsible for ens
 - Edna can overwrite financial information.
 - Edna account cannot view unfiltered financial information.
 
-> In the Contoso Webstore, the user is automatically the **Edna** user for testing the capabilities of the deployed environment.
+
 
 ### Contoso Webstore - Estimated pricing
 
@@ -121,7 +121,7 @@ This solution used the following Azure services. Details of the deployment archi
 >- Application Gateway
 >- Azure Active Directory
 >- App Service Environment v2
->- OMS Log Analytics
+>- Log Analytics
 >- Azure Key Vault
 >- Network Security Groups
 >- Azure SQL DB
@@ -171,12 +171,12 @@ Each of the network tiers has a dedicated network security group (NSG):
 - An NSG for management jumpbox (bastion host)
 - An NSG for the app service environment
 
-Each of the NSGs have specific ports and protocols opened for the secure and correct operation of the solution. For more information, see [PCI Guidance - Network Security Groups](#network-security-groups).
+Each of the NSGs have specific ports and protocols opened for the secure and correct operation of the solution. 
 
 In addition, the following configurations are enabled for each NSG:
 
 - Enabled [diagnostic logs and events](/azure/virtual-network/virtual-network-nsg-manage-log) are stored in storage account 
-- Connected OMS Log Analytics to the [NSG's diagnostics](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Connected Log Analytics to the [NSG's diagnostics](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
  
 #### Subnets
@@ -207,12 +207,12 @@ The Azure SQL Database instance uses the following database security measures:
 
 ### Logging and auditing
 
-[Operations Management Suite (OMS)](/azure/operations-management-suite/) can provide the Contoso Webstore with extensive logging of all system and user activity, include financial data logging. Changes can be reviewed and verified for accuracy. 
+[Log Analytics](https://azure.microsoft.com/services/log-analytics) can provide the Contoso Webstore with extensive logging of all system and user activity, include financial data logging. Changes can be reviewed and verified for accuracy. 
 
 - **Activity logs.**  [Activity logs](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into the operations that were performed on resources in your subscription.
 - **Diagnostic logs.**  [Diagnostic logs](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) are all logs emitted by every resource. These logs include Windows event system logs, Azure Blob storage logs, tables, and queue logs.
 - **Firewall logs.**  The Application Gateway provides full diagnostic and access logs. Firewall logs are available for Application Gateway resources that have WAF enabled.
-- **Log archiving.**  All diagnostic logs are configured to write to a centralized and encrypted Azure Storage account for archival with a defined retention period (2 days). Logs are then connected to Azure Log Analytics for processing, storing, and dashboarding. [Log Analytics](https://azure.microsoft.com/services/log-analytics) is an OMS service that helps collect and analyze data generated by resources in your cloud and on-premises environments.
+- **Log archiving.**  All diagnostic logs are configured to write to a centralized and encrypted Azure Storage account for archival with a defined retention period (2 days). Logs are then connected to Azure Log Analytics for processing, storing, and dashboarding. [Log Analytics](https://azure.microsoft.com/services/log-analytics) is a service that helps collect and analyze data generated by resources in your cloud and on-premises environments.
 
 ### Encryption and secrets management
 
@@ -229,7 +229,7 @@ The following technologies provide identity management capabilities in the Azure
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) is the Microsoft multi-tenant cloud-based directory and identity management service. All users for the solution were created in Azure Active Directory, including users accessing the SQL Database.
 - Authentication to the application is performed using Azure AD. For more information, see [Integrating applications with Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications). In addition, the database column encryption also uses Azure AD to authenticate the application to Azure SQL Database. For more information, see [Always Encrypted: Protect sensitive data in SQL Database](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
 - [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) detects potential vulnerabilities that could affect your organization's identities, configures automated responses to detected suspicious actions related to your organization's identities, and investigates suspicious incidents and takes appropriate action to resolve them.
-- [Azure Role-based Access Control (RBAC)](/azure/active-directory/role-based-access-control-configure) enables precisely focused access management for Azure. Subscription access is limited to the subscription administrator, and Azure Key Vault access is restricted to all users.
+- [Azure Role-based Access Control (RBAC)](/azure/role-based-access-control/role-assignments-portal) enables precisely focused access management for Azure. Subscription access is limited to the subscription administrator, and Azure Key Vault access is restricted to all users.
 
 To learn more about using the security features of Azure SQL Database, see the [Contoso Clinic Demo Application](https://github.com/Microsoft/azure-sql-security-sample) sample.
    
@@ -262,7 +262,7 @@ Because the App Service Environment is secured and locked down, there needs to b
 A virtual machine was created as a jumpbox (bastion host) with the following configurations:
 
 -   [Antimalware extension](/azure/security/azure-security-antimalware)
--   [OMS extension](/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [Log Analytics extension](/azure/virtual-machines/virtual-machines-windows-extensions-oms)
 -   [Azure Diagnostics extension](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk Encryption](/azure/security/azure-security-disk-encryption) using Azure Key Vault 
 -   An [auto-shutdown policy](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) to reduce consumption of virtual machine resources when not in use
@@ -284,11 +284,11 @@ Use [Application Insights](https://azure.microsoft.com/services/application-insi
 
 #### Log analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) is a service in Operations Management Suite (OMS) that helps you collect and analyze data generated by resources in your cloud and on-premises environments.
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) is a service that helps you collect and analyze data generated by resources in your cloud and on-premises environments.
 
-#### OMS solutions
+#### Managment solutions
 
-These additional OMS solutions should be considered and configured: 
+These additional management solutions should be considered and configured: 
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure Networking Analytics](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -305,7 +305,7 @@ Default deployment is intended to provide a baseline of Security Center recommen
 
 ## Deploy the solution
 
-The components for deploying this solution are available in the [Payment Processing Blueprint code repository][code-repo]. The deployment of the foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
+The components for deploying this solution are available in the [Blueprint code repository][code-repo]. The deployment of the foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
 
 The scripts add domain users to the Azure AD tenant that you specify. Microsoft recommends creating a new Azure AD tenant to use as a test.
 
@@ -344,9 +344,9 @@ Microsoft highly recommends that a clean installation of PowerShell be used to d
     
     For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. OMS logging and monitoring. When the solution is deployed a [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) workspace can be opened, and the sample templates provided in the solution repository can be used to illustrate how a monitoring dashboard can be configured. For the sample OMS templates, refer to the [omsDashboards folder](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Note that data must be collected in OMS for templates to deploy correctly. This can take up to an hour or more depending on site activity.
+3. Log Analytics logging and monitoring. When the solution is deployed, a Log Analytics workspace can be opened, and the sample templates provided in the solution repository can be used to illustrate how a monitoring dashboard can be configured. For the sample templates, refer to the [omsDashboards folder](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Note that data must be collected in Log Analytics for templates to deploy correctly. This can take up to an hour or more depending on site activity.
  
-    When setting up your OMS logging, consider including these resources:
+    When setting up your Log Analytics logging, consider including these resources:
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups
@@ -361,7 +361,7 @@ Microsoft highly recommends that a clean installation of PowerShell be used to d
     
 ## Threat model
 
-A data flow diagram (DFD) and sample threat model for the Contoso Webstore [Payment Processing Blueprint Threat Model](https://aka.ms/pciblueprintthreatmodel).
+A data flow diagram (DFD) and sample threat model for the Contoso Webstore [Blueprint Threat Model](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 

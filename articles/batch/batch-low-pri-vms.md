@@ -3,41 +3,28 @@ title: Run Azure Batch workloads on cost-effective low-priority VMs | Microsoft 
 description: Learn how to provision low-priority VMs to reduce the cost of Azure Batch workloads.
 services: batch
 author: mscurrell
-manager: timlt
+manager: jeconnoc
 
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 03/19/2018
 ms.author: markscu
 
 ---
 
 # Use low-priority VMs with Batch
 
-Azure Batch offers low-priority virtual machines (VMs) to reduce the cost of
-Batch workloads. Low-priority VMs make new types of Batch workloads possible by
-providing a large amount of compute power that is also economical.
-
-Low-priority VMs take advantage of surplus capacity in Azure. When you specify
-low-priority VMs in your pools, Azure Batch can automatically use this surplus
-when available.
-
-The tradeoff for using low-priority VMs is that those VMs may be preempted when
-no surplus capacity is available in Azure. For this reason, low-priority VMs are
-most suitable for certain types of workloads. Use low-priority VMs for batch and
-asynchronous processing workloads where the job completion time is flexible and
-the work is distributed across many VMs.
-
-Low-priority VMs are offered at a significantly reduced price compared with dedicated VMs. For pricing details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
-
-
-> [!IMPORTANT]
-> Low-priority VMs are currently available only for workloads running in Batch. 
->
->
+Azure Batch offers low-priority virtual machines (VMs) to reduce the cost of Batch workloads. Low-priority VMs make new types of Batch workloads possible by enabling a large amount of compute power to be used for a very low cost.
+ 
+Low-priority VMs take advantage of surplus capacity in Azure. When you specify low-priority VMs in your pools, Azure Batch can use this surplus, when available.
+ 
+The tradeoff for using low-priority VMs is that those VMs may not be available to be allocated or may be preempted at any time, depending on available capacity. For this reason, low-priority VMs are most suitable for certain types of workloads. Use low-priority VMs for batch and asynchronous processing workloads where the job completion time is flexible and the work is distributed across many VMs.
+ 
+Low-priority VMs are offered at a significantly reduced price compared with dedicated VMs. For pricing details, 
+ see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
 ## Use cases for low-priority VMs
 

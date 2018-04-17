@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Cost Management by Cloudyn | Microsoft Docs
-description: Azure Cost Management by Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources.
+title: Overview of Azure Cost Management | Microsoft Docs
+description: Azure Cost Management is a multi-cloud cost management solution that helps you use Azure and other cloud resources.
 services: cost-management
 keywords:
 author: bandersmsft
@@ -14,9 +14,9 @@ ms.custom: mvc
 
 # What is Azure Cost Management?
 
-Azure Cost Management by Cloudyn allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Cost Management helps optimize your cloud spending by identifying underutilized resources that you can then manage and adjust.
+Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary, allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Cost Management helps optimize your cloud spending by identifying underutilized resources that you can then manage and adjust.
 
-To watch an introductory video, see [Introduction to Azure Cost Management by Cloudyn](https://youtu.be/NWIRny6Wpsk).
+To watch an introductory video, see [Introduction to Azure Cost Management](https://azure.microsoft.com/en-us/resources/videos/azure-cost-management-overview-and-demo).
 
 ## Monitor usage and spending
 

@@ -106,7 +106,7 @@ The following snippet shows the different kinds of resources that can be managed
       },
       "serviceName": {
         "type": "string",
-        "defaultValue": "Service1",
+        "defaultValue": "Application1~Service1",
         "metadata": {
           "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
@@ -120,7 +120,7 @@ The following snippet shows the different kinds of resources that can be managed
       },
       "serviceName2": {
         "type": "string",
-        "defaultValue": "Service2",
+        "defaultValue": "Application1~Service2",
         "metadata": {
           "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }

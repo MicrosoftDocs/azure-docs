@@ -22,6 +22,15 @@ ms.custom: mvc
 
 [Web App for Containers](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. Web App for Containers uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom Docker image and deploy it to Web App for Containers. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Deploy a custom Docker image to Azure
+> * Configure environment variables to run the container
+> * Update the Docker image and redeploy it
+> * Connect to the container using SSH
+> * Deploy a private Docker image to Azure
+
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
@@ -72,7 +81,7 @@ EXPOSE 8000 2222
 ENTRYPOINT ["init.sh"]
 ```
 
-To build the Docker image, run the `docker build` command, and provide a name, `mydockerimage`, and tag, `v1.0.0`. Replace `<docker-id>` with your Docker Hub account ID.
+To build the Docker image, run the `docker build` command, and provide a name, _mydockerimage_, and tag, _v1.0.0_. Replace _\<docker-id>_ with your Docker Hub account ID.
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
@@ -103,7 +112,7 @@ Successfully built e7cf08275692
 Successfully tagged cephalin/mydockerimage:v1.0.0
 ```
 
-Test that the build works by running the Docker container. Issue the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. Be sure to specify the port using the `-p` argument.
+Test that the build works by running the Docker container. Issue the [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. Be sure to specify the port using the `-p` argument.
 
 ```bash
 docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
@@ -124,19 +133,19 @@ A registry is an application that hosts images and provides services image and c
 
 <!--## [Docker Hub](#tab/docker-hub)-->
 
-Docker Hub is a registry for Docker images that allows you to host your own repositories, either public or private. To push a custom Docker image to the public Docker Hub, use the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command and provide a full image name and tag. A full image name and tag looks like the following sample:
+Docker Hub is a registry for Docker images that allows you to host your own repositories, either public or private. To push a custom Docker image to the public Docker Hub, use the [`docker push`](https://docs.docker.com/engine/reference/commandline/push/) command and provide a full image name and tag. A full image name and tag looks like the following sample:
 
 ```
 <docker-id>/image-name:tag
 ```
 
-If you haven't logged in to Docker Hub, do so using the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command before attempting to push an image.
+Before you can push an image, you must sign in to Docker Hub using the [`docker login`](https://docs.docker.com/engine/reference/commandline/login/) command. Replace _\<docker-id>_ with your account name and type in your password into the console at the prompt.
 
 ```bash
-docker login --username <docker-id> --password <docker-hub-password>
+docker login --username <docker-id>
 ```
 
-A "login succeeded" message confirms that you are logged in. Once logged in, you can push the image to Docker Hub using the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command.
+A "login succeeded" message confirms that you are logged in. Once logged in, you can push the image to Docker Hub using the [`docker push`](https://docs.docker.com/engine/reference/commandline/push/) command.
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0
@@ -180,7 +189,7 @@ You can host native Linux applications in the cloud by using Azure Web Apps. To 
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### Create a Linux App Service plan
 
@@ -188,7 +197,7 @@ You can host native Linux applications in the cloud by using Azure Web Apps. To 
 
 ### Create a web app
 
-In the Cloud Shell, create a [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace `<app_name>` with a unique app name, and <docker-ID> with your Docker ID.
+In the Cloud Shell, create a [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _<appname>_ with a unique app name, and _\<docker-ID>_ with your Docker ID.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -224,7 +233,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry, such as Azure Container Registry. Select the appropriate tab for your scenario below: -->
 
 > [!NOTE]
-> Deploying from a Private Docker Registry? See the optional instructions to [Configure Web App to use Docker container from a Private Registry](#configure-web-app-to-use-docker-container-from-a-private-registry-optional).
+> Deploying from a Private Docker Registry? See the optional instructions to [Use a Docker image from any private registry](#use-a-docker-image-from-any-private-registry-optional).
 
 <!-- # [Docker Hub](#tab/docker-hub)-->
 
@@ -336,7 +345,7 @@ Congratulations! You've configured a custom Docker image for a Web App for Conta
 
 In [Create a web app](#create-a-web-app), you specified an image on Docker Hub in the `az webapp create` command. This is good enough for a public image. To use a private image, you need to configure your Docker account ID and password in your Azure web app.
 
-In the Cloud Shell, follow the `az webapp create` command with [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Replace *\<app_name>*, and also _<docker-id>_ and _<password>_ with your Docker ID and password.
+In the Cloud Shell, follow the `az webapp create` command with [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Replace *\<app_name>*, and also _\<docker-id>_ and _\<password>_ with your Docker ID and password.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
@@ -438,10 +447,10 @@ The command reveals two passwords that can be used with the user name.
 }
 ```
 
-From your local terminal window, log in to the Azure Container Registry using the `docker login` command. The server name is required to log in. Use the format `{azure-container-registry-name>.azurecr.io`.
+From your local terminal window, log in to the Azure Container Registry using the `docker login` command. The server name is required to log in. Use the format `{azure-container-registry-name>.azurecr.io`. Type in your password into the console at the prompt.
 
 ```bash
-docker login <azure-container-registry-name>.azurecr.io --username <registry-username> --password <password> 
+docker login <azure-container-registry-name>.azurecr.io --username <registry-username>
 ```
 
 Confirm that the login succeeded. 

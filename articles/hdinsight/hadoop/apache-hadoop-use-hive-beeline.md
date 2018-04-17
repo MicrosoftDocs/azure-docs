@@ -13,10 +13,8 @@ ms.assetid: 3adfb1ba-8924-4a13-98db-10a67ab24fca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/01/2017
+ms.topic: conceptual
+ms.date: 03/26/2018
 ms.author: larryfr
 
 ---
@@ -41,7 +39,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 ## <a id="prereq"></a>Prerequisites
 
-* A Linux-based Hadoop on HDInsight cluster.
+* A Linux-based Hadoop on HDInsight cluster version 3.4 or greater.
 
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -50,7 +48,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
     For more information on using SSH, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="beeline"></a>Use Beeline
+## <a id="beeline"></a>Run a Hive query
 
 1. When starting Beeline, you must provide a connection string for HiveServer2 on your HDInsight cluster:
 
@@ -107,16 +105,25 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
         | sessionpagevieworder  | bigint     |          |
         +-----------------------+------------+----------+--+
 
-    This information describes the columns in the table. While we could perform some queries against this data, let's instead create a brand new table to demonstrate how to load data into Hive and apply a schema.
+    This information describes the columns in the table.
 
 4. Enter the following statements to create a table named **log4jLogs** by using sample data provided with the HDInsight cluster:
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+        GROUP BY t4;
     ```
 
     These statements perform the following actions:
@@ -131,7 +138,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
     * `SELECT` - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This query returns a value of **3** as there are three rows that contain this value.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` - Hive attempts to apply the schema to all files in the directory. In this case, the directory contains files that do not match the schema. To prevent garbage data in the results, this statement tells Hive that we should only return data from files ending in .log.
+    * `INPUT__FILE__NAME LIKE '%.log'` - Hive attempts to apply the schema to all files in the directory. In this case, the directory contains files that do not match the schema. To prevent garbage data in the results, this statement tells Hive that it should only return data from files ending in .log.
 
   > [!NOTE]
   > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or a MapReduce operation.
@@ -164,7 +171,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 5. To exit Beeline, use `!exit`.
 
-## <a id="file"></a>Use Beeline to run a HiveQL file
+### <a id="file"></a>Use Beeline to run a HiveQL file
 
 Use the following steps to create a file, then run it using Beeline.
 

@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 1/12/2018
+ms.date: 02/24/2018
 ms.author: nepeters
 ---
 

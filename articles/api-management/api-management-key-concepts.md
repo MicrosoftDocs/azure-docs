@@ -21,12 +21,6 @@ ms.custom: mvc
 
 API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. You can use Azure API Management to take any backend and launch a full-fledged API program based on it.
 
-Watch the following video for an overview of Azure API Management and learn how to use API Management to add many features to your API, including access control, rate limiting, monitoring, event logging, and response caching, with minimal work on your part.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-API-Management-Overview/player]
-> 
-> 
-
 This article provides an overview of common scenarios that involve APIM.  It also gives a brief overview of the APIM system's main components. The article, then, gives a more detailed overview of each component.
 
 ## Overview

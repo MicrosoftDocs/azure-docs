@@ -11,10 +11,10 @@ tags: azure-resource-manager, azure-service-management
 ms.assetid: ba449333-2716-4b7f-9889-ecc521e4d616
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 03/29/2018
 ms.author: yushwang
 
 ---
@@ -54,6 +54,7 @@ To help configure your VPN device, refer to the links that correspond to appropr
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Configuration guide*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Configuration samples**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |Meraki |N/A |Not compatible |Not compatible |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 and above |[Configuration guide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Not compatible |
 | F5 |BIG-IP series |12.0 |[Configuration guide](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Configuration guide](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[Configuration guide](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
@@ -68,6 +69,7 @@ To help configure your VPN device, refer to the links that correspond to appropr
 | ShareTech | Next Generation UTM (NU series) | 9.0.1.3 | Not compatible | [Configuration guide](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ Series, NSA Series<br>SuperMassive Series<br>E-Class NSA Series |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Not compatible |[Configuration guide](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG Next Gen Firewall | XG v17 | | [Configuration guide](https://community.sophos.com/kb/127546) |
+| Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [BGP over IKEv2/IPsec](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012374708&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=2EF5KFljZwtAGQDSm8%2FF2f6DqI2bkmA2qKG4u0rPgbQ%3D&reserved=0)<br><br>[VTI over IKEv2/IPsec](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012305347&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=ycgiDJCOQYTPN7sAEBSigphzC6mBaADz%2FgdCOm7TsXA%3D&reserved=0)
 | WatchGuard |All |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Configuration guide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Configuration guide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 > [!NOTE]
@@ -75,6 +77,14 @@ To help configure your VPN device, refer to the links that correspond to appropr
 > (*) Cisco ASA versions 8.4+ add IKEv2 support, can connect to Azure VPN gateway using custom IPsec/IKE policy with "UsePolicyBasedTrafficSelectors" option. Refer to this [how-to article](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 >
 > (**) ISR 7200 Series routers only support PolicyBased VPNs.
+
+## <a name="configscripts"></a>Download VPN device configuration scripts from Azure
+
+For certain devices, you can download configuration scripts directly from Azure. For more information and download instructions, see [Download VPN device configuration scripts](vpn-gateway-download-vpndevicescript.md).
+
+### Devices with available configuration scripts
+
+[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
 ## <a name="additionaldevices"></a>Non-validated VPN devices
 

@@ -133,6 +133,8 @@
        href: functions-run-local.md
      - name: Visual Studio development
        href: functions-develop-vs.md
+     - name: Error handling
+       href: functions-bindings-error-pages.md 
   - name: Deploy
     items:
     - name: Continuous deployment
@@ -173,10 +175,12 @@
       href: durable-functions-sequence.md
     - name: Fan-out/fan-in 
       href: durable-functions-cloud-backup.md
-    - name: Stateful singleton 
-      href: durable-functions-counter.md
+    - name: Monitors
+      href: durable-functions-monitor.md
     - name: Human interaction 
       href: durable-functions-phone-verification.md
+    - name: Unit testing
+      href: durable-functions-unit-testing.md
 - name: Reference
   items:
   - name: Bindings
@@ -212,9 +216,9 @@
     - name: Timer
       href: functions-bindings-timer.md
     - name: Twilio
-      href: functions-bindings-twilio.md
+      href: functions-bindings-twilio.md    
   - name: host.json reference
-    href: functions-host-json.md     
+    href: functions-host-json.md  
   - name: App settings reference
     href: functions-app-settings.md     
   - name: OpenAPI reference

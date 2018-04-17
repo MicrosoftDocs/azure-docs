@@ -1,6 +1,6 @@
 ---
 title: Integrate Azure Service Fabric with API Management | Microsoft Docs
-description: Learn how to quickly get started with Azure API Management and Service Fabric.
+description: In this tutorial, you learn how to quickly get started with Azure API Management and Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,12 +13,12 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/26/2018
+ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
 ---
 
-# Deploy API Management with Service Fabric
+# Tutorial: deploy API Management with Service Fabric
 This tutorial is part four of a series.  Deploying Azure API Management with Service Fabric is an advanced scenario.  API Management is useful when you need to publish APIs with a rich set of routing rules for your back-end Service Fabric services. Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. In Service Fabric, a gateway can be any stateless service designed for traffic ingress such as an ASP.NET Core application, Event Hubs, IoT Hub, or Azure API Management. 
 
 This tutorial shows you how to set up [Azure API Management](../api-management/api-management-key-concepts.md) with Service Fabric to route traffic to a back-end service in Service Fabric.  When you're finished, you have deployed API Management to a VNET, configured an API operation to send traffic to back-end stateless services. To learn more about Azure API Management scenarios with Service Fabric, see the [overview](service-fabric-api-management-overview.md) article.
@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure using a template
-> * [Scale a cluster in or out](/service-fabric-tutorial-scale-cluster.md)
+> * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
 > * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * Deploy API Management with Service Fabric
 
@@ -113,7 +113,7 @@ For this tutorial deploy a basic web server, which echoes messages back to the u
 
    ```bash
    git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-   cd service-fabric-java-getting-started
+   cd service-fabric-java-getting-started/reliable-services-actor-sample
    ```
 
 2. Edit *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Update the endpoint so the service listens on port 8081.
@@ -133,7 +133,7 @@ For this tutorial deploy a basic web server, which echoes messages back to the u
 
    ```bash
    cd Scripts
-   sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+   sfctl cluster select --endpoint https://mycluster.southcentralus.cloudapp.azure.com:19080 --pem <full_path_to_pem_on_dev_machine> --no-verify
    ./install.sh
    ```
 

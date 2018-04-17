@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/08/2018
 ms.author: maheshu
 
 ---
@@ -50,6 +50,7 @@ The following guidelines help you select a virtual network to use with Azure AD 
 * Do not apply NSGs to the dedicated subnet for your managed domain. If you must apply NSGs to the dedicated subnet, ensure you **do not block the ports required to service and manage your domain**.
 * Do not overly restrict the number of IP addresses available within the dedicated subnet for your managed domain. This restriction prevents the service from making two domain controllers available for your managed domain.
 * **Do not enable Azure AD Domain Services in the gateway subnet** of your virtual network.
+* Do not block outbound access from the subnet in which your managed domain is enabled.
 
 > [!WARNING]
 > When you associate an NSG with a subnet in which Azure AD Domain Services is enabled, you may disrupt Microsoft's ability to service and manage the domain. Additionally, synchronization between your Azure AD tenant and your managed domain is disrupted. **The SLA does not apply to deployments where an NSG has been applied that blocks Azure AD Domain Services from updating and managing your domain.**
@@ -69,7 +70,7 @@ The following ports are required for Azure AD Domain Services to service and mai
 **Port 443 (Synchronization with Azure AD)**
 * It is used to synchronize your Azure AD directory with your managed domain.
 * It is mandatory to allow access to this port in your NSG. Without access to this port, your managed domain is not in sync with your Azure AD directory. Users may not be able to sign in as changes to their passwords are not synchronized to your managed domain.
-* You can restrict inbound access to this port to IP addresses belonging to the Azure IP address range.
+* You can restrict inbound access to this port to IP addresses belonging to the Azure IP address range. Note that the Azure IP address range is a different range than the PowerShell range shown in the rule below.
 
 **Port 5986 (PowerShell remoting)**
 * It is used to perform management tasks using PowerShell remoting on your managed domain.
@@ -86,6 +87,9 @@ The following ports are required for Azure AD Domain Services to service and mai
 * It is used to enable secure LDAP access to your managed domain over the internet.
 * Opening this port through your NSG is optional. Open the port only if you have secure LDAP access over the internet enabled.
 * You can restrict inbound access to this port to the source IP addresses from which you expect to connect over secure LDAP.
+
+**Outbound access**
+AAD Domain Services needs outbound access to various other Azure services in order to manage, backup & monitor your managed domain. Do not block outbound access from the dedicated subnet in which your managed domain is enabled.
 
 
 ## Network Security Groups

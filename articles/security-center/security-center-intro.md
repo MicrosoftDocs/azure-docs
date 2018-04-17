@@ -10,10 +10,11 @@ editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/15/2018
 ms.author: terrylan
 
 ---

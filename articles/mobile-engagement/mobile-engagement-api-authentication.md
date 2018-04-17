@@ -18,6 +18,9 @@ ms.author: wesmc;ricksal
 
 ---
 # Authenticate with Mobile Engagement REST APIs
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
 
 ## Overview
 

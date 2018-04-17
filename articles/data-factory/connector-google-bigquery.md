@@ -1,30 +1,27 @@
 ---
-title: Copy data from Google BigQuery by using Azure Data Factory (beta) | Microsoft Docs
+title: Copy data from Google BigQuery by using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in a data factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/12/2018
 ms.author: jingwang
 
 ---
-# Copy data from Google BigQuery by using Azure Data Factory (beta)
+# Copy data from Google BigQuery by using Azure Data Factory
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of the Data Factory service, which is generally available, see [Copy activity in version 1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> This connector is currently in beta. You can try it out and give us feedback. Do not use it in production environments.
 
 ## Supported capabilities
 
@@ -48,12 +45,17 @@ The following properties are supported for the Google BigQuery linked service.
 | project | The project ID of the default BigQuery project to query against.  | Yes |
 | additionalProjects | A comma-separated list of project IDs of public BigQuery projects to access.  | No |
 | requestGoogleDriveScope | Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is **false**.  | No |
-| authenticationType | The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can be used only on Self-hosted Integration Runtime. <br/>Allowed values are **ServiceAuthentication** and **UserAuthentication**. | Yes |
-| refreshToken | The refresh token obtained from Google used to authorize access to BigQuery for UserAuthentication. You can mark this field as SecureString to store it securely in Data Factory. You also can store the password in Azure Key Vault and let the copy activity pull from there when you perform data copy. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
-| email | The service account email ID that is used for ServiceAuthentication. It can be used only on Self-hosted Integration Runtime.  | No |
-| keyFilePath | The full path to the .p12 key file that is used to authenticate the service account email address. It can be used only on Self-hosted Integration Runtime.  | No |
-| trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over SSL. This property can be set only when you use SSL on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
-| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified .pem file. The default value is **false**.  | No |
+| authenticationType | The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can be used only on Self-hosted Integration Runtime. <br/>Allowed values are **UserAuthentication** and **ServiceAuthentication**. Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
+
+### Using user authentication
+
+Set "authenticationType" property to **UserAuthentication**, and specify the following properties along with generic properties described in the previous section:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| clientId | ID of the application used to generate the refresh token. | No |
+| clientSecret | Secret of the application used to generate the refresh token. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| refreshToken | The refresh token obtained from Google used to authorize access to BigQuery. Learn how to get one from [Obtaining OAuth 2.0 access tokens](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 
 **Example:**
 
@@ -67,6 +69,11 @@ The following properties are supported for the Google BigQuery linked service.
             "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
+            "clientId": "<id of the application used to generate the refresh token>",
+            "clientSecret": {
+                "type": "SecureString",
+                "value":"<secret of the application used to generate the refresh token>"
+            },
             "refreshToken": {
                  "type": "SecureString",
                  "value": "<refresh token>"
@@ -74,6 +81,39 @@ The following properties are supported for the Google BigQuery linked service.
         }
     }
 }
+```
+
+### Using service authentication
+
+Set "authenticationType" property to **ServiceAuthentication**, and specify the following properties along with generic properties described in the previous section. This authentication type can be used only on Self-hosted Integration Runtime.
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| email | The service account email ID that is used for ServiceAuthentication. It can be used only on Self-hosted Integration Runtime.  | No |
+| keyFilePath | The full path to the .p12 key file that is used to authenticate the service account email address. | No |
+| trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over SSL. This property can be set only when you use SSL on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
+| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified .pem file. The default value is **false**.  | No |
+
+**Example:**
+
+```json
+{
+    "name": "GoogleBigQueryLinkedService",
+    "properties": {
+        "type": "GoogleBigQuery",
+        "typeProperties": {
+            "project" : "<project id>",
+            "requestGoogleDriveScope" : true,
+            "authenticationType" : "ServiceAuthentication",
+            "email": "<email>",
+	        "keyFilePath": "<.p12 key path on the IR machine>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Self-hosted Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+} 
 ```
 
 ## Dataset properties

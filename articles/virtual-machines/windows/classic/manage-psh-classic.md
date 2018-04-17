@@ -4,7 +4,7 @@ description: Learn commands that you can use to automate tasks in managing your 
 services: virtual-machines-windows
 documentationcenter: windows
 author: singhkays
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX

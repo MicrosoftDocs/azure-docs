@@ -62,7 +62,7 @@ DDoS Protection Standard features include: 
 - **Layer 3 to layer 7 protection:** Provides full stack DDoS protection, when used with an application gateway.
 - **Extensive mitigation scale:** Over 60 different attack types can be mitigated, with global capacity, to protect against the largest known DDoS attacks. 
 - **Attack metrics:** Summarized metrics from each attack are accessible through Azure Monitor.
-- **Attack alerting:** Alerts can be configured at the start and stop of an attack, and over the attack’s duration, using built-in attack metrics. Alerts integrate into your operational software like Microsoft Operations Management Suite, Splunk, Azure Storage, Email, and the Azure portal.
+- **Attack alerting:** Alerts can be configured at the start and stop of an attack, and over the attack’s duration, using built-in attack metrics. Alerts integrate into your operational software like Microsoft Azure Log Analytics, Splunk, Azure Storage, Email, and the Azure portal.
 - **Cost guarantee:** Data-transfer and application scale-out service credits for documented DDoS attacks.
 
 ## DDoS Protection Standard mitigation

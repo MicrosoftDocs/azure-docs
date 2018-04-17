@@ -324,10 +324,6 @@ The following shows an example that includes an image's `provider` field and con
   
 ![Media attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)  
 
-
-### United States-Based queries only  
-
-Entity Search API is intended for use only within the United States. Partners must use reasonable and best effort to ensure that all users for whom they are originating calls to the API are physically located within the United States. If the user is not physically located within the United States, then do not call this API.  
   
 ### Search or search-like experience  
 

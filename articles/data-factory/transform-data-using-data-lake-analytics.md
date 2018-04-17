@@ -4,8 +4,8 @@ description: Learn how to process or transform data by running U-SQL scripts on 
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -44,9 +44,12 @@ The following table provides descriptions for the generic properties used in the
 
 ### Service principal authentication
 The Azure Data Lake Analytics linked service requires a service principal authentication to connect to the Azure Data Lake Analytics service. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the access to both the Data Lake Analytics and the Data Lake Store it uses. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
+
 * Application ID
 * Application key 
 * Tenant ID
+
+Grant service principal permission to your Azure Data Lake Anatlyics using the [Add User Wizard](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
 Use service principal authentication by specifying the following properties:
 

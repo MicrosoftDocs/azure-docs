@@ -3,7 +3,7 @@ title: FAQ and known issues with Managed Service Identity (MSI) for Azure Active
 description: Known issues with Managed Service Identity for Azure Active Directory.
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -124,5 +124,4 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
 - The VMAgent on Windows does not currently support User Assigned MSI. 
-- Assigning a role to an MSI to access a resource currently doesn't require special permissions. 
 - When a VM has a user assigned MSI but no system assigned MSI, the portal UI will show MSI as enabled. To enable the system assigned MSI, use an Azure Resource Manager template, an Azure CLI, or an SDK.

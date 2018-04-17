@@ -20,7 +20,7 @@ ms.author: dastrock
 
 # Migrate from the Azure Access Control service
 
-Azure Access Control, a service of Azure Active Directory (Azure AD), will be retired in November 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
+Azure Access Control, a service of Azure Active Directory (Azure AD), will be retired on November 7, 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
 
 
 ## Overview
@@ -52,11 +52,9 @@ To use these components, you must create one or more Access Control namespaces. 
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-All communication with the STS and management operations are done at this URL. You use different paths for different purposes. To determine whether your applications or services use Access Control, monitor for any traffic to https://\<namespace\>.accesscontrol.windows.net. Any traffic to this URL is handled by Access Control, and needs to be discontinued. 
+All communication with the STS and management operations are done at this URL. You use different paths for different purposes. To determine whether your applications or services use Access Control, monitor for any traffic to https://<namespace>.accesscontrol.windows.net. Any traffic to this URL is handled by Access Control, and needs to be discontinued. 
 
-The exception to this is any traffic to https://accounts.accesscontrol.windows.net. Traffic to this URL is already handled by a different service and is not affected by the Access Control deprecation. 
-
-You should also sign in to the Azure classic portal and check for any Access Control namespaces in the subscriptions that you own. Access Control namespaces are listed on the **Access Control Namespaces** tab, under the **Active Directory** service.
+The exception to this is any traffic to `https://accounts.accesscontrol.windows.net`. Traffic to this URL is already handled by a different service and **is not** affected by the Access Control deprecation. 
 
 For more information about Access Control, see [Access Control Service 2.0 (archived)](https://msdn.microsoft.com/library/hh147631.aspx).
 
@@ -66,9 +64,9 @@ As of November 2017, all Access Control components are fully supported and opera
 
 Here's the schedule for deprecating Access Control components:
 
-- **November 2017**:  The Azure AD admin experience in the Azure classic portal [is retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for Access Control is available at a new, dedicated URL: http://manage.windowsazure.com?restoreClassic=true. Use this URl to view your existing namespaces, enable and disable namespaces, and to delete namespaces, if you choose to.
-- **April 2018**: Access Control namespace management is no longer available at the http://manage.windowsazure.com?restoreClassic=true dedicated URL. At this point, you can't disable or enable, delete, or enumerate your Access Control namespaces. However, the Access Control management portal will be fully functional and located at https://\<namespace\>.accesscontrol.windows.net. All other components of Access Control continue to operate normally.
-- **November 2018**: All Access Control components are permanently shut down. This includes the Access Control management portal, the management service, STS, and the token transformation rule engine. At this point, any requests sent to Access Control (located at \<namespace\>.accesscontrol.windows.net) fail. You should have migrated all existing apps and services to other technologies well before this time.
+- **November 2017**:  The Azure AD admin experience in the Azure classic portal [is retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for Access Control is available at a new, dedicated URL: `http://manage.windowsazure.com?restoreClassic=true`. Use this URl to view your existing namespaces, enable and disable namespaces, and to delete namespaces, if you choose to.
+- **April 2, 2018**: The Azure classic portal is completely retired, meaning Access Control namespace management is no longer available via any URL. At this point, you can't disable or enable, delete, or enumerate your Access Control namespaces. However, the Access Control management portal will be fully functional and located at `https://\<namespace\>.accesscontrol.windows.net`. All other components of Access Control continue to operate normally.
+- **November 7, 2018**: All Access Control components are permanently shut down. This includes the Access Control management portal, the management service, STS, and the token transformation rule engine. At this point, any requests sent to Access Control (located at \<namespace\>.accesscontrol.windows.net) fail. You should have migrated all existing apps and services to other technologies well before this time.
 
 
 ## Migration strategies
@@ -96,6 +94,17 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
 
+
+### SharePoint customers
+
+SharePoint 2013, 2016, and SharePoint Online customers have long used ACS for authentication purposes in cloud, on-prem, and hybrid scenarios. Some SharePoint features and use cases will be affected by ACS retirement, while others will not. The below table summarizes migration guidance for some of the most popular SharePoint feature that leverage ACS:
+
+| Feature | Guidance |
+| ------- | -------- |
+| Authenticating users from Azure AD | Previously, Azure AD did not support SAML 1.1 tokens required by SharePoint for authentication, and ACS was used as an intermediary that made SharePoint compatibile with Azure AD token formats. Now, you can [connect SharePoint directly to Azure AD using token issuance policies](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| [App authentication & server-to-server authentication in SharePoint on-prem](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Not affected by ACS retirement; no changes necessary. | 
+| [Low trust authorization for SharePoint add-ins (provider hosted and SharePoint hosted)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Not affected by ACS retirement; no changes necessary. |
+| [SharePoint cloud hybrid search](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Not affected by ACS retirement; no changes necessary. |
 
 ### Web applications that use passive authentication
 
@@ -178,7 +187,7 @@ An alternative approach is to follow [this code sample](https://github.com/Azure
 
 If you choose this approach, you need to understand [signing key rollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes.
 
-If you can integrate with Azure AD via the OpenID Connect or OAuth protocols, we recommend doing so. We have extensive documentation and guidance about how to integrate Azure AD into your web application available in our [Azure AD developer guide](http://aka.ms/aaddev).
+If you can integrate with Azure AD via the OpenID Connect or OAuth protocols, we recommend doing so. We have extensive documentation and guidance about how to integrate Azure AD into your web application available in our [Azure AD developer guide](https://aka.ms/aaddev).
 
 <!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
@@ -229,7 +238,7 @@ If you decide that Azure AD B2C is the best migration path for your applications
 In some cases, you might find that Azure AD and Azure AD B2C aren't sufficient to replace Access Control in your web applications without making major code changes. Some common examples might include:
 
 - Web applications that use WIF or WS-Federation for sign-in with social identity providers such as Google or Facebook.
-- Web applications that perform direct federation to an enterprise identify provider over the WS-Federation protocol.
+- Web applications that perform direct federation to an enterprise identity provider over the WS-Federation protocol.
 - Web applications that require the access token issued by a social identity provider (such as Google or Facebook) as a claim in the tokens issued by Access Control.
 - Web applications with complex token transformation rules that Azure AD or Azure AD B2C can't reproduce.
 - Multi-tenant web applications that use ACS to centrally manage federation to many different identity providers
@@ -241,7 +250,7 @@ In these cases, you might want to consider migrating your web application to ano
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on-prem identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on-prem identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products.  |
 
 Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
 
@@ -303,7 +312,7 @@ In these cases, you might consider migrating your web application to another clo
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on-prem identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on-prem identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products.  |
 
 Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
 

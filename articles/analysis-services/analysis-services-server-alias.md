@@ -1,21 +1,13 @@
 ---
 title: Azure Analysis Services alias server names | Microsoft Docs
 description: Describes how to create and use server name aliases.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-
+ms.reviewer: minewiskan
 ---
 
 # Alias server names
