@@ -3,7 +3,7 @@ title: Azure Service Fabric Performance Monitoring | Microsoft Docs
 description: Learn about performance counters for monitoring and diagnostics of Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
+ms.date: 04/16/2018
+ms.author: dekapur; srrengar
 ---
 
 # Performance metrics
@@ -72,7 +72,7 @@ Service Fabric generates a substantial amount of custom performance counters. If
 
 In the applications you are deploying to your cluster, if you are using Reliable Actors, add countes from `Service Fabric Actor` and `Service Fabric Actor Method` categories (see [Service Fabric Reliable Actors Diagnostics](service-fabric-reliable-actors-diagnostics.md)).
 
-If you use Service Remoting, we similarly have `Service Fabric Service` and `Service Fabric Service Method` counter categories that you should collect counters from. 
+If you use Reliable Services, we similarly have `Service Fabric Service` and `Service Fabric Service Method` counter categories that you should collect counters from. 
 
 If you use Reliable Collections, we recommend adding the `Avg. Transaction ms/Commit` from the `Service Fabric Transactional Replicator` to collect the average commit latency per transaction metric.
 
@@ -80,4 +80,4 @@ If you use Reliable Collections, we recommend adding the `Avg. Transaction ms/Co
 ## Next steps
 
 * Learn more about [event generation at the platform level](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
-* Collect performance metrics through [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)
+* Collect performance metrics through [OMS Agent](service-fabric-diagnostics-oms-agent.md)
