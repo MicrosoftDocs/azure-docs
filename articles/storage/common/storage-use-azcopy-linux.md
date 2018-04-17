@@ -21,14 +21,28 @@ ms.author: seguler
 
 AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob and File storage, using simple commands designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 
-There are two versions of AzCopy that you can download. AzCopy on Linux which targets Linux platforms offering POSIX style command-line options. [AzCopy on Windows](../storage-use-azcopy.md) offers Windows style command-line options. This article covers AzCopy on Linux. 
+There are two versions of AzCopy that you can download. AzCopy on Linux targets Linux platforms offering POSIX style command-line options. [AzCopy on Windows](../storage-use-azcopy.md) offers Windows style command-line options. This article covers AzCopy on Linux. 
 
 > [!NOTE]  
-> Starting in AzCopy 7.2 version, the .NET Core dependencies are packaged with the AzCopy package. If you use 7.2 version or late, you no longer need to install .NET Core as a pre-requisite.
+> Starting in AzCopy 7.2 version, the .NET Core dependencies are packaged with the AzCopy package. If you use 7.2 version or later, you no longer need to install .NET Core as a pre-requisite.
+
 ## Download and install AzCopy
+### Supported Linux distributions
+
+AzCopy on Linux is supported on the following Linux 64-bit (x86_64 or amd64) distributions/versions: 
+
+* RHEL 6 and 7
+* CentOS 6 and 7
+* Oracle Linux 7
+* Fedora 26 and 27
+* Debian 8.7 and 9 or later
+* Linux Mint 17 and 18
+* openSUSE 42.3 or later versions
+* SLES 12 Service Pack 2 or later. 
+
 ### Installation on Linux
 
-Installing AzCopy on Linux (v7.2 or later) is as easy as extracting a tar package and running the install script. AzCopy on Linux is supported on the following Linux 64-bit (x86_64 or amd64) distributions/versions: RHEL 6 and 7, CentOS 6 and 7, Oracle Linux 7, Fedora 26 and 27, Debian 8.7 and 9 or later, Linux Mint 17 and 18, openSUSE 42.3 or later versions, SLES 12 Service Pack 2 or later. 
+Installing AzCopy on Linux (v7.2 or later) is as easy as extracting a tar package and running the install script. 
 
 ```bash
 wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
