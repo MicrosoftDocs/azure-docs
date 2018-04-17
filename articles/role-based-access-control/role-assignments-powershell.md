@@ -29,7 +29,7 @@ With role-based access control (RBAC), you define access for users, groups, and 
 Before you can use PowerShell to manage RBAC, you need one of the following:
 
 * [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview)
-* [Azure PowerShell 5.3.0 or later](/powershell/azure/install-azurerm-ps)
+* [Azure PowerShell 5.1.0 or later](/powershell/azure/install-azurerm-ps)
 
 ## List roles
 
