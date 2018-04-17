@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: heidist
 ---
-# Cognitive Search Concepts
+# Cognitive Search concepts
 
 Cognitive search, currently in private preview, transforms raw, unstructured content into rich searchable content in an Azure Search index. At the heart of cognitive search is an extensible enrichment pipeline powered by a number of cognitive skills (for instance, natural language processing and computer vision capabilities) that extract structure and semantics from unstructured and non-textual data, and feeds it into a search index. 
 
@@ -65,23 +65,67 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 | Skillset | A top-level named resource containing a collection of skills. A skillset is the augmentation pipeline. |
 | Enriched documents | A transitory internal structure, not directly accessible in code. Enriched documents are generated during processing, but only final outputs are persisted in a search index. Field mappings determine which data elements are added to the index. |
 
+## Resources for ramping up
 
-## API (REST only)
+**Step 1: Create a service in a region providing the APIs** 
+
++ South Central US
++ West Europe
+
+**Step 2: Hands-on experience through these exercises**
+
++ [Quickstart (portal)](cognitive-search-quickstart-blob.md)
++ [Tutorial (HTTP requests)](cognitive-search-tutorial-blob.md)
++ [Example custom skills (C#)](cognitive-search-create-custom-skill-example.md)
+
+**Documentation**
+
+The following articles are the complete documentation for cognitive search.
+
+[Cognitive search overview](cognitive-search-concept-intro.md)
+[Quickstart: Try cognitive search (Portal)](cognitive-search-quickstart-blob.md)
+[Tutorial: Enriched indexing of Azure blobs](cognitive-search-tutorial-blob.md)
+[How to define a skillset](cognitive-search-defining-skillset.md)
+[How to map fields](cognitive-search-output-field-mapping.md)
+[How to define a custom skills interface](cognitive-search-custom-skill-interface.md)
+[Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)
+
+[Predefined skills reference](cognitive-search-predefined-skills.md)
+  - [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
+  - [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
+  - [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
+  - [Microsoft.Skills.Text.PaginationSkill](cognitive-search-skill-pagination.md)
+  - [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
+  - [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
+  - [Microsoft.Skills.Vision.OcrSkill]( cognitive-search-skill-ocr.md)
+  - [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
+
+Reference (REST APIs)
+  - [Create Skillset](ref-create-skillset.md)
+  - [Create Data Source](ref-create-data-source.md)
+  - [Create Index](ref-create-index.md)
+  - [Create Indexer](ref-create-indexer.md)
+  - [Data type map for indexers](ref-data-type-map-for-indexers-in-azure-search.md)
+  - [Field mappings in Azure Search indexers](ref-search-indexer-field-mappings.md)
+
+### API (REST only)
 
 Currently, only REST is available, but the .NET SDK is expected to follow shortly after the feature officially moves into public preview. Support for .NET will be announced as a service update. It will also be announced on this page if you want to check back later.
 
-The following APIs are used in the cognitive search preview:
+Use `api-version=2017-11-11-Preview` on all requests. Use the following APIs to build a cognitive search solution.
 
 | API | Description |
 |-----|-------------|
-| [Create Skillset](ref-create-skillset.md)  | Resource enumerating predefined and custom cognitive skills used in an augmentation pipeline during indexing.  |
-| [Create Data Source](ref-create-data-source.md)  | Resource identifying an external data source providing source data used to create enriched documents.  |
-| [Create Index](ref-create-index.md)  | Resource expressing an Azure Search index.  |
-| [Create Indexer](ref-create-indexer.md)  | Resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself.   |
+| [Create Data Source](ref-create-data-source.md)  | A resource identifying an external data source providing source data used to create enriched documents.  |
+| [Create Skillset](ref-create-skillset.md)  | A resource coordinating the use of [predefined skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
+| [Create Index](ref-create-index.md)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
+| [Create Indexer](ref-create-indexer.md)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search corpus based on the index schema, populated with source data, enriched through skillsets.  |
+| [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) | A command for rebuilding an index. Because pipeline development is an iterative process, plan for frequent index rebuilds.
 
 ## Next steps
 
-+ [Get started with the private preview](cognitive-search-get-start-preview.md)
++ [Quickstart: Try cognitive search](cognitive-search-quickstart-blob.md)
++ [Tutorial: Enriched indexing of Azure blob content](cognitive-search-tutorial-blob.md)
++ [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)
 + [How to create a skillset or augmentation pipeline](cognitive-search-defining-skillset.md)
 + [How to define a custom interface](cognitive-search-custom-skill-interface.md)
-+ [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)

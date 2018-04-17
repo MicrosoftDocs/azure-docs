@@ -128,8 +128,9 @@ The body of request is a JSON document. This particular skillset uses two skills
 
 ## See also
 
-+ [Cognitive search (Preview)](cognitive-search-concept-intro.md)
-+ [Get started with preview](cognitive-search-get-start-preview.md)
++ [Cognitive search overview](cognitive-search-concept-intro.md)
++ [Quickstart: Try cognitive search](cognitive-search-quickstart-blob.md)
++ [Tutorial: Enriched indexing of Azure blobs](cognitive-search-tutorial-blob.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to map fields](cognitive-search-output-field-mapping.md)
 + [How to define a custom interface](cognitive-search-custom-skill-interface.md)
