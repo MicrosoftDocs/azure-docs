@@ -82,4 +82,4 @@ Microsoft has partnered with [BreakingPoint Cloud](https://www.ixiacom.com/produ
 
 ## Next steps
 
-- Learn more about configuring DDoS Protection Standard using the [Azure portal](manage-ddos-protection.md).
+- [Configure DDoS Protection Standard](manage-ddos-protection.md)
