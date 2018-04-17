@@ -1,18 +1,11 @@
 ---
 title: SQL VM connection to Azure Search | Microsoft Docs
 description: Enable encrypted connections and configure the firewall to allow connections to SQL Server on an Azure virtual machine (VM) from an indexer on Azure Search.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: pablocas
-editor: ''
+manager: cgronlun
 
-ms.assetid: 46e42e0e-c8de-4fec-b11a-ed132db7e7bc
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
 

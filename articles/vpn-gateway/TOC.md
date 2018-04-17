@@ -19,6 +19,7 @@
 ## [About BGP and VPN Gateway](vpn-gateway-bgp-overview.md)
 ## [About highly available connections](vpn-gateway-highlyavailable.md)
 ## [About Point-to-Site connections](point-to-site-about.md)
+## [About Point-to-Site routing](vpn-gateway-about-point-to-site-routing.md)
 
 # How To
 ## Configure Site-to-Site connections

@@ -95,7 +95,7 @@ For other tasks which can be automated with PowerShell, see [Azure SQL Database 
 
 <!--Article references-->
 [How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[Create a SQL Data Warehouse using PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
+[Create a SQL Data Warehouse using PowerShell]: ./create-data-warehouse-powershell.md
 [Database restore]: ./sql-data-warehouse-restore-database-powershell.md
 [Manage scalability with REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 

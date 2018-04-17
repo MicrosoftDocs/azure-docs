@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Call a LUIS app using C#
