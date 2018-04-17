@@ -2,22 +2,16 @@
 title: PowerShell cmdlets for Azure SQL Data Warehouse
 description: Find the top PowerShell cmdlets for Azure SQL Data Warehouse including how to pause and resume a database.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: ''
-
-ms.assetid: 6f0d5772-f05f-4cc8-9749-4adb153dfd50
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
+
 # PowerShell cmdlets and REST APIs for SQL Data Warehouse
 Many SQL Data Warehouse administration tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your SQL Data Warehouse.  For some good REST examples, see the article [Manage scalability with REST][Manage scalability with REST].
 
@@ -95,7 +89,7 @@ For other tasks which can be automated with PowerShell, see [Azure SQL Database 
 
 <!--Article references-->
 [How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[Create a SQL Data Warehouse using PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
+[Create a SQL Data Warehouse using PowerShell]: ./create-data-warehouse-powershell.md
 [Database restore]: ./sql-data-warehouse-restore-database-powershell.md
 [Manage scalability with REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 

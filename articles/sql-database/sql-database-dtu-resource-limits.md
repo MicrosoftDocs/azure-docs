@@ -35,7 +35,7 @@ For single databases, the following tables show the resources available for a si
 ### Standard service tier
 | **Performance level** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| Max DTUs** | 10 | 20 | 50 | 100 |
+| Max DTUs | 10 | 20 | 50 | 100 |
 | Included storage (GB) | 250 | 250 | 250 | 250 |
 | Max storage choices (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |
@@ -47,7 +47,7 @@ For single databases, the following tables show the resources available for a si
 ### Standard service tier (continued)
 | **Performance level** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| Max DTUs** | 200 | 400 | 800 | 1600 | 3000 |
+| Max DTUs | 200 | 400 | 800 | 1600 | 3000 |
 | Included storage (GB) | 250 | 250 | 250 | 250 | 250 |
 | Max storage choices (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |N/A |
@@ -74,8 +74,6 @@ For single databases, the following tables show the resources available for a si
 >
 >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
->\*\* Max DTUs per database starting at 200 DTUs and higher in Standard are in preview.
->
 
 
 ## Single database: Change storage size

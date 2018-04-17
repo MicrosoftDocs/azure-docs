@@ -2,22 +2,16 @@
 title: What is Azure SQL Data Warehouse? | Microsoft Docs
 description: Enterprise-class distributed database capable of processing petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jenniehubbard
-editor: ''
-
-ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: overview
-ms.date: 10/23/2017
-ms.author: jrj
-
+ms.topic: overview
+ms.component: design
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
+
 # What is Azure SQL Data Warehouse?
 
 SQL Data Warehouse is a cloud-based Enterprise Data Warehouse (EDW) that leverages Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. Use SQL Data Warehouse as a key component of a big data solution. Import big data into SQL Data Warehouse with simple PolyBase T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, the data warehouse will become the single version of truth your business can count on for insights.  
