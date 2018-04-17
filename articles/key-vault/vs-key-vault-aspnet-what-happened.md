@@ -34,7 +34,7 @@ Affects the project file *.NET references and `packages.config` (NuGet reference
 
 ## Added files
 
-- ConnectedService.json added, which records some information about the Connected Service provider, version, and a link the documentation.
+- ConnectedService.json added, which records some information about the Connected Service provider, version, and a link to the documentation.
 
 ## Project file changes
 
@@ -54,7 +54,7 @@ Affects the project file *.NET references and `packages.config` (NuGet reference
 
 ## Changes on Azure
 
-- Created a resource group (or used an existing one)
+- Created a resource group (or used an existing one).
 - Created a Key Vault in the specified resource group.
 
 [Learn more about Azure Key Vault](index.md).

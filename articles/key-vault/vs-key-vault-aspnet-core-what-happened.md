@@ -13,9 +13,9 @@ ms.author: ghogen
 ---
 # What happened to my ASP.NET Core project (Visual Studio Key Vault connected service)?
 
-> [!div class="op_single_selector"]
-> - [Getting Started](vs-key-vault-aspnet-core-get-started.md)
-> - [What Happened](vs-key-vault-aspnet-core-what-happened.md)
+[//]: # (> [!div class="op_single_selector"])
+[//]: # (> - [Getting Started](vs-key-vault-aspnet-core-get-started.md))
+[//]: # ()> - [What Happened](vs-key-vault-aspnet-core-what-happened.md))
 
 This article identifies the exact changes made to am ASP.NE project when adding the [Key Vault connected service using Visual Studio](vs-key-vault-add-connected-service.md).
 
@@ -58,7 +58,7 @@ Affects the project file *.NET references and NuGet package references.
 
 ## Changes on Azure
 
-- Created a resource group (or used an existing one)
+- Created a resource group (or used an existing one).
 - Created a Key Vault in the specified resource group.
 
 [Learn more about Azure Key Vault](index.md).
