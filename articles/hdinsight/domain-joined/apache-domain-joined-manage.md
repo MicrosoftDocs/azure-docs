@@ -1,20 +1,17 @@
 ---
-title: Manage Domain-joined HDInsight clusters - Azure | Microsoft Docs
+title: Manage Domain-joined HDInsight clusters - Azure
 description: Learn how to manage Domain-joined HDInsight clusters
 services: hdinsight
-documentationcenter: ''
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
-tags: ''
 
 ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.author: bhanupr
+ms.date: 04/17/2018
+ms.author: omidm
 
 ---
 # Manage Domain-joined HDInsight clusters
