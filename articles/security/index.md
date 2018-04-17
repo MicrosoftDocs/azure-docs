@@ -51,7 +51,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
         </a>
     </li>
     <li>
-        <a href="v">
+        <a href="http://aka.ms/sharedresponsibility">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -303,7 +303,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
         <a href="/azure/security/manage-personal-data-azure">
             <div class="cardSize">
                 <div class="cardPadding">
-                    <div class="card">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
                             <p style="font-size: 1.12rem;">GDPR</p>
                         </div>
@@ -316,7 +316,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
         <a href="/azure/security/blueprints/fedramp">
             <div class="cardSize">
                 <div class="cardPadding">
-                    <div class="card">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
                             <p style="font-size: 1.12rem;">FEDRAMP</p>
                         </div>
@@ -403,7 +403,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
         <a href="/azure/security/azure-security-pen-testing">
             <div class="cardSize">
                 <div class="cardPadding">
-                    <div class="card">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
                             <p style="font-size: 1.12rem;">Pen testing</p>
                         </div>
@@ -416,7 +416,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
         <a href="/azure/security-center/">
             <div class="cardSize">
                 <div class="cardPadding">
-                    <div class="card">
+                    <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
                             <p style="font-size: 1.12rem;">Azure Security Center</p>
                         </div>
@@ -431,7 +431,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p>Azure Key Vault</p>
+                            <p style="font-size: 1.12rem;">Azure Key Vault</p>
                         </div>
                     </div>
                 </div>
@@ -444,7 +444,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p>Disk Encryption</p>
+                            <p style="font-size: 1.12rem;">Disk Encryption</p>
                         </div>
                     </div>
                 </div>
