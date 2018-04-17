@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Create a Ruby App in App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
+[Azure App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic [Ruby on Rails](rubyonrails.org/) application that can then be deployed to Azure as a Web App on Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -41,7 +41,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## Run the application locally
 
-Run the rails server in order for the application to work. Change to the *hello-world* directory, and the `rails server` command starts the server.
+The rails server needs to be running in order for the application to work. Change to the `hello-world` directory, and use the `rails server` command to start the server.
 
 ```bash
 cd hello-world\bin
@@ -54,7 +54,7 @@ Using your web browser, navigate to `http://localhost:3000` to test the app loca
 
 ## Modify app to display welcome message
 
-Modify the application so it displays a welcome message. First, you must set up a route by modifying the *~/workspace/ruby-docs-hello-world/config/routes.rb* file to include a route named `hello`.
+Modify the application so it displays a welcome message. First, you must set up a route by modifying the `~/workspace/ruby-docs-hello-world/config/routes.rb` file to include a route named `hello`.
 
   ```ruby
   Rails.application.routes.draw do
@@ -65,7 +65,7 @@ Modify the application so it displays a welcome message. First, you must set up 
 
 Change the application's controller so it returns the message as HTML to the browser. 
 
-Open *~/workspace/hello-world/app/controllers/application_controller.rb* for editing. Modify the `ApplicationController` class to look like the following code sample:
+Open `~/workspace/hello-world/app/controllers/application_controller.rb` for editing. Modify the `ApplicationController` class to look like the following code sample:
 
   ```ruby
   class ApplicationController > ActionController :: base
@@ -76,7 +76,7 @@ Open *~/workspace/hello-world/app/controllers/application_controller.rb* for edi
   end
   ```
 
-Your app is now configured. Using your web browser, navigate to `http://localhost:3000` to confirm the root landing page.
+Your app is now configured. Using a web browser, navigate to `http://localhost:3000` to confirm the root landing page.
 
 ![Hello World configured](./media/quickstart-ruby/hello-world-configured.png)
 
