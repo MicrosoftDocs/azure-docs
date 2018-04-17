@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
+            "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-vscode-develop-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/search/search-howto-index-documentdb.md",
             "redirect_url": "/azure/search/search-howto-index-cosmosdb",
             "redirect_document_id": true
@@ -18096,6 +18106,16 @@
             "redirect_document_id": true
         },
 		{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-provision-powershell.md",
+            "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-powershell",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-create-database-tsql.md",
+            "redirect_url": "/sql/t-sql/statements/create-database-azure-sql-data-warehouse",
+            "redirect_document_id": true
+        },
+		{
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-integrate-azure-data-factory.md",
             "redirect_url": "/azure/sql-data-warehouse/design-elt-data-loading",
             "redirect_document_id": false
@@ -18109,6 +18129,31 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi",
             "redirect_document_id": false
-		}
+		},
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-add-outputs.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-portal#configure-output-to-the-job",
+            "redirect_document_id": false
+		},
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-create-a-job.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-release-notes.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-comparison-storm.md",
+            "redirect_url": "/azure/stream-analytics/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-troubleshoot-visualization.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-job-diagram-with-metrics",
+            "redirect_document_id": false
+        }
     ]
 }

@@ -12,7 +12,6 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ---
 
----
 # Assigning variables in Azure SQL Data Warehouse
 Tips for assigning T-SQL variables in Azure SQL Data Warehouse for developing solutions.
 
