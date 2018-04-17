@@ -239,7 +239,7 @@ In this architecture, a workload is distributed across multiple VM instances. Th
 The load balancer distributes incoming Internet requests to the VM instances. VM scale sets allow the number of VMs to be scaled in or out manually, or automatically based on predefined rules. This is important if the resource is under DDoS attack. Refer to this
 [article](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm), for more information on this reference architecture.
 
-#### Applications running on Windows N-tier in multi-region setup
+#### Applications running on Windows N-tier 
 
 There are many ways to implement an N-tier architecture. This architecture builds on the above load balanced VMs architecture. The diagram shows a typical 3-tier web application distributed across 2 regions -primary & secondary to achieve high availability. Secondary region is for failover.
 
