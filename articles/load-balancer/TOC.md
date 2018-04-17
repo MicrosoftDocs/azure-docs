@@ -12,15 +12,15 @@
 ## [Standard Load Balancer metrics and diagnostics](load-balancer-standard-diagnostics.md)
 
 # Get Started
-## [Create Basic Load Balancer](quick-create-load-balancer-basic-portal.md)
-### [Create Basic Load Balancer (CLI)](quick-create-load-balancer-basic-cli.md)
-### [Create Basic Load Balancer (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-## [Create Standard Load Balancer](load-balancer-standard-public-portal.md)
-### [Create a Standard Load Balancer (CLI)](load-balancer-standard-public-cli.md)
+## [Create Basic Load Balancer](quickstart-create-basic-load-balancer-portal.md)
+### [Create Basic Load Balancer (CLI)](quickstart-create-basic-load-balancer-cli.md)
+### [Create Basic Load Balancer (PowerShell)](quickstart-create-basic-load-balancer-powershell.md)
+## [Create Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md)
+### [Create a Standard Load Balancer (CLI)](quickstart-load-balancer-standard-public-cli.md)
 
 # How to
 
-## [Create a zone redundant public Standard Load Balancer](load-balancer-get-started-internet-az-portal.md)
+## [Create a zone redundant public Standard Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 ### [Create a zone redundant public Standard Load Balancer (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Create a zone redundant public Standard Load Balancer (CLI)](load-balancer-get-started-internet-az-cli.md)
 ## [Create a zonal public Standard Load Balancer](load-balancer-get-started-internet-availability-zones-zonal-portal.md)

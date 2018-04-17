@@ -24,7 +24,7 @@ These are manual methods because you need to decide what [service tiers](sql-dat
 
 ## Increasing performance tier of your database
 
-Azure SQL Database offers two purchasing models, a vCore-based purchasing model and a v-Core-based purchasing model. Each model has multiple [service tiers](sql-database-service-tiers.md) that you can choose from. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
+Azure SQL Database offers two purchasing models, a DTU-based purchasing model and a v-Core-based purchasing model. Each model has multiple [service tiers](sql-database-service-tiers.md) that you can choose from. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
 
 > [!NOTE]
 > This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic pool, and get similar performance benefits.
