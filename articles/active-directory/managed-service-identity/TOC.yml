@@ -20,7 +20,7 @@
         - name: Access Azure Data Lake Store
           href: tutorial-windows-vm-access-datalake.md
         - name: Access Azure Storage
-          href: tutorial-windowsvm-access-storage.md
+          href: tutorial-vm-windows-access-storage.md
         - name: Access Azure Storage using an access key
           href: tutorial-windows-vm-access-storage.md
         - name: Access Azure Storage using SAS
@@ -96,7 +96,7 @@
         - name: Acquire an access token
           href: how-to-use-vm-token.md
         - name: Sign to Powersheel and CLI using Managed Identity
-          href: how-to-use-vm-sign-in
+          href: how-to-use-vm-sign-in.md
         - name: Use with Azure SDKs
           href: how-to-use-vm-sdk.md    
       - name: Manage user assigned identities
