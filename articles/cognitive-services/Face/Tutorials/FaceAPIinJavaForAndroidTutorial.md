@@ -138,7 +138,7 @@ The Face API is a cloud API which you can invoke using HTTPS requests. For a mor
 
 Follow the instructions below to configure the client library: 
 
-1. Locate the top-level **build.gradle** file of your project from the Project panel shown in the example. Note that there are several other **build.gradle** files in your project tree, and you need to open the top-level **build.gradl**e file at first. 		 
+1. Locate the top-level **build.gradle** file of your project from the Project panel shown in the example. Note that there are several other **build.gradle** files in your project tree, and you need to open the top-level **build.gradle** file at first. 		 
 2. Add **mavenCentral()** to your projects' repositories. You can also use jcenter(), which is the default repository of Android Studio, since jcenter() is a superset of mavenCentral().  
 
 		allprojects {
