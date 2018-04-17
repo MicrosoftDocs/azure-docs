@@ -25,7 +25,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /media/logos/logo_NET.svg
+        src: http://docs.microsoft.com/en-us/media/logos/logo_NET.svg
       text: .NET
       href: /azure/azure-signalr/
 - title: Step-by-Step Tutorials
