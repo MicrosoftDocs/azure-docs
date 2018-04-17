@@ -51,11 +51,7 @@ To access your web app on the Internet, you need a public IP address for the loa
 
 ## Create Azure load balancer
 
-This section details how you can create and configure the following components of the load balancer:
-  - a frontend IP pool that receives the incoming network traffic on the load balancer.
-  - a backend IP pool where the frontend pool sends the load balanced network traffic.
-  - a health probe that determines health of the backend VM instances.
-  - a load balancer rule that defines how traffic is distributed to the VMs.
+This section details how you can create the load balancer and configure the frontend IP, the backend pool, the load balancer rule, and the health probe for load balancer.
 
 ### Create the load balancer
 
@@ -162,11 +158,11 @@ done
 
 ## Create backend servers
 
-In this example, you create three virtual machines to be used as backend servers for the load balancer. To verify that the load balancer was successfully created, you also install NGINX on the virtual machines .
+In this example, you create two virtual machines to be used as backend servers for the load balancer. To verify that the load balancer was successfully created, you also install NGINX on the virtual machines.
 
 ### Create an Availability set
 
-Create an availability set with [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
+Create an availability set with [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create) to ensure high availability of the VMs that serve as backend servers for the load balancer.
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -174,7 +170,7 @@ Create an availability set with [az vm availabilityset create](/cli/azure/networ
     --name myAvailabilitySet
 ```
 
-### Create two virtual machines
+### Create the cloud-init file
 
 You can use a cloud-init configuration file to install NGINX and run a 'Hello World' Node.js app on a Linux virtual machine. In your current shell, create a file named cloud-init.txt and copy and paste the following configuration into the shell. Make sure that you copy the whole cloud-init file correctly, especially the first line:
 
@@ -219,8 +215,9 @@ runcmd:
   - npm install express -y
   - nodejs index.js
 ``` 
- 
-Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
+ ### Create the backend VMs
+
+Create the two virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -235,7 +232,7 @@ for i in `seq 1 2`; do
     --no-wait
     done
 ```
-It may take a few minutes for the VMs to get deployed.
+It may take several minutes for the VMs to get deployed.
 
 ## Test the load balancer
 
@@ -260,4 +257,4 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az_gro
 
 
 ## Next steps
-In this quickstart, you created load balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about load balancers and their associated resources, continue to the how-to articles.
+In this quickstart, you created load balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. Next, learn how to load balance VMs across all zones [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
