@@ -11,9 +11,9 @@ ms.date: 04/12/2018
 ms.author: rortloff
 ms.reviewer: igorstan
 ---
+
 # Views in Azure SQL Data Warehouse
 Tips for using T-SQL views in Azure SQL Data Warehouse for developing solutions. 
-
 
 ## Why use views?
 Views can be used in a number of different ways to improve the quality of your solution.  This article highlights a few examples of how to enrich your solution with views, as well as the limitations that need to be considered.
