@@ -13,13 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2018
+ms.date: 04/16/2018
 ms.author: barclayn
 
 ---
-# Azure DDoS Protection : Best Practices & Reference Architecture
+# Azure DDoS Protection: Best Practices & Reference Architecture
 
-This document is targeted at IT decision makers and security personnel who are familiar with Azure, and basic concepts in networking & security. Designing for distributed denial of service (DDoS) resiliency requires planning and designing for a variety of failure modes that could occur when under attack. This document provides best practices for designing applications for resiliency against DDoS attacks in Azure.
+This document is targeted at IT decision makers and security personnel. Familiarity with Azure, and basic concepts in networking & security are expected.
+
+Designing for distributed denial of service (DDoS) resiliency requires planning and designing for a variety of failure modes. This document provides best practices for designing applications for resiliency against DDoS attacks in Azure.
 
 ## Types of attacks
 
@@ -39,13 +41,13 @@ The most commonly used network layer DDoS attacks are TCP SYN flooding, ICMP ech
 
 ### Protocol attacks
 
-Protocol attacks target application protocols. They attempt to use up all the available resources in infrastructure devices such as firewalls, application servers & load balancers. Protocol attacks use packets that are malformed or contain protocol abnormalities and operate by sending larger numbers of open requests, servers and other communication devices answer and wait for a packet response. The target attempts to respond to the open requests eventually causing the targeted system to crash.
+Protocol attacks target application protocols. They try to use up all the available resources in infrastructure devices such as firewalls, application servers & load balancers. Protocol attacks use packets that are malformed or contain protocol abnormalities. These attacks operate by sending larger numbers of open requests, servers and other communication devices answer and wait for a packet response. The target attempts to respond to the open requests eventually causing the targeted system to crash.
 
 The most common example of a protocol-based DDoS attack is TCP SYN Flood. In this attack, a succession of TCP SYN requests is directed towards a target and can be used to overwhelm it. The goal is to make the target unresponsive. The 2016 Dyn outage, apart from being an application-layer attack also consisted of TCP SYN floods targeting port 53 of Dyn’s DNS servers.
 
 ### Resource attacks
 
-Resource attacks target the application layer. They trigger back-end processes to overwhelm resources on the target system. Resource attacks abuse legitimately formed traffic and carries CPU-intensive queries to the server, so they can’t process further requests. The volume of traffic needed to exhaust resources is comparatively lower than that of the other type, that is, a network layer attack. The traffic in a resource attack is indistinguishable from legitimate traffic, making it difficult to detect. The most common resource attacks are on HTTP/HTTPS & DNS services.
+Resource attacks target the application layer. They trigger back-end processes in an effort to overwhelm the target system. Resource attacks abuse legitimately formed traffic that carries CPU-intensive queries to the server, so that it can’t process additional requests. The volume of traffic needed to exhaust resources is comparatively lower than that of the other type, that is, a network layer attack. The traffic in a resource attack is indistinguishable from legitimate traffic, making it difficult to detect. The most common resource attacks are on HTTP/HTTPS & DNS services.
 
 ## Shared responsibility in the cloud
 
@@ -105,11 +107,11 @@ Azure’s DDoS Protection Basic service is targeted at infrastructure protection
 
 ### Azure DDoS standard protection
 
-Standard protection provides enhanced DDoS mitigation capabilities and is automatically tuned to protect your specific Azure resources in a Virtual Network. Protection is simple to enable on any new or existing Virtual Network and requires no application or resource changes. It has several advantages over the basic service including logging, alerting and telemetry. Outlined below are the key differentiators of Azure DDoS Protection Standard service.
+Standard protection provides enhanced DDoS mitigation capabilities and is automatically tuned to protect your specific Azure resources in a Virtual Network. Protection is simple to enable on any new or existing Virtual Network and requires no application or resource changes. It has several advantages over the basic service including logging, alerting, and telemetry. Outlined below are the key differentiators of Azure DDoS Protection Standard service.
 
 #### Adaptive realtime tuning
 
-While the Azure DDoS Protection Basic service has been proven to help protect our customers, it only protects customers at a rate so significant that it may impact other customers. For example, if a service is provisioned for a typical volume of legitimate incoming traffic that is significantly smaller than the *trigger rate* of the infrastructure-wide DDoS protection policy, a DDoS attack on that customer’s resources may successfully fly under the radar. More generally, the complex nature of recent attacks (e.g., multi-vector DDoS) as well as the  application-specific behaviors of tenants call for per-customer, customized protection policies.
+While the Azure DDoS Protection Basic service has been proven to help protect our customers, it only protects customers at a rate so significant that it may impact other customers. For example, if a service is provisioned for a typical volume of legitimate incoming traffic that is smaller than the *trigger rate* of the infrastructure-wide DDoS protection policy, a DDoS attack on that customer’s resources may go unnoticed. More generally, the complex nature of recent attacks (for example, multi-vector DDoS) as well as the  application-specific behaviors of tenants call for per-customer, customized protection policies.
 This is accomplished using two insights:
 
 1. Automatic learning of per-customer (per-IP) layer 3/4 traffic patterns, and
