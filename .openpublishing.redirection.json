@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
+            "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-vscode-develop-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/search/search-howto-index-documentdb.md",
             "redirect_url": "/azure/search/search-howto-index-cosmosdb",
             "redirect_document_id": true
