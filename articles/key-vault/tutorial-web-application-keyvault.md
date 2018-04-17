@@ -77,7 +77,7 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 ## Add a secret to Key vault
 
-We are adding a secret to help illustrate how this work. You could be storing a SQL connection string or any other information that you need to keep securely but make available to your application. In this tutorial the password will be called **AppSecret** and will store the value of **MySecret** in it.
+We are adding a secret to help illustrate how this works. You could be storing a SQL connection string or any other information that you need to keep securely but make available to your application. In this tutorial the password will be called **AppSecret** and will store the value of **MySecret** in it.
 
 Type the commands below to create a secret in Key Vault called **AppSecret** that will store the value **MySecret:
 
@@ -163,7 +163,8 @@ There are two NuGet packages that your web application needs to have installed. 
                         builder.AddAzureKeyVault(
                             keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
                     }
-                })
+                }
+             )
                 .UseStartup<Startup>()
                 .Build();
     
