@@ -13,13 +13,13 @@ ms.author: ghogen
 ---
 # What happened to my ASP.NET project (Visual Studio Key Vault connected service)?
 
-> [!div class="op_single_selector"]
-> - [Getting Started](vs-key-vault-aspnet-getting-started.md)
-> - [What Happened](vs-key-vault-aspnet-what-happened.md)
+[//]: # (> [!div class="op_single_selector"])
+[//]: # ()> - [Getting Started](vs-key-vault-aspnet-get-started.md))
+[//]: # ()> - [What Happened](vs-key-vault-aspnet-what-happened.md))
 
-This article identifies the exact changes made to am ASP.NE project when adding the [Key Vault connected service using Visual Studio](vs-key-vault-add-connected-service.md).
+This article identifies the exact changes made to am ASP.NET project when adding the [Key Vault connected service using Visual Studio](vs-key-vault-add-connected-service.md).
 
-For information on working with the connected service, see [Getting Started](vs-key-vault-aspnet-getting-started.md).
+For information on working with the connected service, see [Getting Started](vs-key-vault-aspnet-get-started.md).
 
 ## Added references
 
