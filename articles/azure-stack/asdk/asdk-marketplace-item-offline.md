@@ -11,10 +11,10 @@ ms.assetid:
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 04/20/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---

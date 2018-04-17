@@ -6,13 +6,12 @@ author: brenduns
 manager: femila
 editor: ''
 
-ms.assetid:
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: anajod
-keywords:
+ms.reviewer: kivenkat
+
 ---
 
 # Make virtual machine scale sets available in Azure Stack
@@ -42,7 +41,7 @@ On Azure Stack, virtual machine scale sets don't support auto-scale. You can add
 
    If you haven’t added an operating system image to your Azure Stack Marketplace, see [Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md).
 
-   For Linux support, download Ubuntu Server 16.04 and add it using ```Add-AzsVMImage``` with the following parameters: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+   For Linux support, download Ubuntu Server 16.04 and add it using ```Add-AzsPlatformImage``` with the following parameters: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
 
 ## Add the virtual machine scale set

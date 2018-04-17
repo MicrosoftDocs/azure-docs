@@ -15,7 +15,7 @@ ms.devlang: PowerShell
 ms.topic: get-started-article
 ms.date: 04/20/2018
 ms.author: mabrigg
-ms.author: kivenkat
+ms.reviewer: kivenkat
 
 ---
 # Make a virtual machine image available in Azure Stack
@@ -75,6 +75,9 @@ In Azure Stack, you can make virtual machine images available to your users. The
   ````
 
   How is this associated with the VM image?
+
+  note from the call: $datadisk = New-DataDiskObject -Lun 2 -Uri ““https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd” 
+Add-AzsPlatformimage -Publisher "Canonical" -Offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0” -OSType "Linux" -OSUri “https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd”  -datadisks $datadisk
 
 6. Open PowerShell with an elevated prompt, and run:
 
