@@ -14,7 +14,7 @@ ms.author: v-geberr;
 ---
 
 # LUIS API response codes
-The authoring and endpoint APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general. 
+The [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general. 
 
 ## Common status codes
 The following table lists some of the most common HTTP response status codes for the [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs:
