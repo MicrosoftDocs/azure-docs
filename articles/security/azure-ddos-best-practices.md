@@ -153,11 +153,11 @@ Even Web Application Firewalls are susceptible to volumetric & state exhaustion 
 
 Planning and preparation are crucial to understand how a system will perform during a DDoS attack. This planning and preparation will also help you design an incident management response plan.
 
-Customers should plan for periodic discovery of Internet facing endpoints. They should ensure that DDoS Protection Standard is enabled on the virtual network of those endpoints. Configuring DDoS alerts helps keep a constant watchful eye on any potential attacks on your infrastructure. Customers should monitor their applications independently. They need to understand the normal behavior of the application and take necessary actions if during a DDoS attack the application is not behaving as expected.
+Customers should ensure that DDoS Protection Standard is enabled on the virtual network of internet facing endpoints. Configuring DDoS alerts helps keep a constant watchful eye on any potential attacks on your infrastructure. Customers should monitor their applications independently. They need to understand the normal behavior of the application. Steps must be taken if  the application is not behaving as expected during a DDoS attack.
 
 #### DDoS Attacks Orchestration
 
-It’s a good practice to test your assumptions about how your services respond to an attack, even before it happens by conducting periodic simulations. During testing, validate that services and applications continues to function as expected and there’s no disruption to the end user experience. Identify gaps from both a technology & process standpoint and incorporate in the DDoS response strategy. A general recommendation is to perform such tests in staging environments or during non-peak hours to minimize impact to production environment.
+It’s a good practice to test your assumptions about how your services respond to an attack, even before it happens by conducting periodic simulations. During testing, validate that continue to function as expected and there’s no disruption to the end-user experience. Identify gaps from both a technology & process standpoint and incorporate in the DDoS response strategy. A general recommendation is to perform such tests in staging environments or during non-peak hours to minimize impact to production environment.
 
 We have partnered with [BreakingPoint Cloud](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.ixiacom.com%2Fproducts%2Fbreakingpoint-cloud& data=04%7C01%7CAnupam.Vij%40microsoft.com%7C9b4d455cd7b542794c1708d57e190303%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636553568338379119%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwifQ%3D%3D%7C-1&sdata=3feKulXRkOmC%2FnVW5F9XLBI1gKQtI91ZY0lgukA219c%3D&reserved=0) to build an interface where Azure customers can generate traffic against DDoS Protection enabled public endpoints for simulations. [BreakPoint Cloud](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.ixiacom.com%2Fproducts%2Fbreakingpoint-cloud&data=04%7C01%7CAnupam.Vij%40microsoft.com%7C9b4d455cd7b542794c1708d57e190303%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636553568338379119%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwifQ%3D%3D%7C-1&sdata=3feKulXRkOmC%2FnVW5F9XLBI1gKQtI91ZY0lgukA219c%3D&reserved=0) simulation will allow you to:
 
@@ -169,15 +169,15 @@ We have partnered with [BreakingPoint Cloud](https://na01.safelinks.protection.o
 
 - Train your network security teams
 
-Cybersecurity is a relentless battle requiring constant innovation in defense. Azure’s DDoS Standard protection is a state of the art offering to provide our customers with an effective solution to mitigate increasingly complex DDoS attacks.
+Cybersecurity is a relentless battle requiring constant innovation in defense. Azure’s DDoS Standard protection is a state of the art offering tstate-of-the-artstomers with an effective solution to mitigate increasingly complex DDoS attacks.
 
 ## Components of a DDoS response strategy
 
-In most of the cases when a DDoS attack is targeted at your Azure resources, there’s minimal intervention required from an end user standpoint. Still, incorporating DDoS mitigation as part of the organization’s incident response strategy will ensure minimal impact to the business continuity.
+In most of the cases when a DDoS attack is targeted at your Azure resources, there’s minimal intervention required from an end-user standpoint. Still, incorporating DDoS mitigation as part of the organization’s incident response strategy will ensure minimal impact to the business continuity.
 
 ### Microsoft threat intelligence
 
-Microsoft has an extensive threat intelligence network that leverages the collective knowledge of an extended security community that supports Microsoft’s online services, Microsoft partners and extensive relationships within the Internet security community. As a critical infrastructure provider, Microsoft receives early warnings about threats, takes threat intelligence learned from other Microsoft online services and from Microsoft’s global customer base. All of Microsoft’s diverse threat intelligence is incorporated back into its Azure DDoS Protection products.
+Microsoft has an extensive threat intelligence network that uses the collective knowledge of an extended security community that supports Microsoft’s online services, Microsoft partners, and relationships within the Internet security community. As a critical infrastructure provider, Microsoft receives early warnings about threats, takes threat intelligence learned from other Microsoft online services and from Microsoft’s global customer base. All of Microsoft’s threat intelligence is incorporated back into its Azure DDoS Protection products.
 
 In addition to this, Microsoft’s Digital Crimes Unit (DCU) performs offensive strategies against botnets, a common source of command and control for DDoS attacks.
 
@@ -199,11 +199,11 @@ Azure DDoS Protection Standard will identify and mitigate DDoS attacks without a
 
 - If during a DDoS attack you find that the performance of the protected resource is severely degraded, or the resource is not available.
 
-- If you think the DDoS Protection service is not behaving expectedly. DDoS Protection service will only initiate mitigation if the below criteria is met:
+- If you think the DDoS Protection service is not behaving as expected. DDoS Protection service will only initiate mitigation if the below criteria is met:
 
     - The metric value ‘Policy to trigger DDoS mitigation (TCP/TCP SYN/UDP) is lower than the traffic received on the protected Public IP resource.
 
-- If you know you are going to have a planned viral event that will lead to significant increase in your network traffic.
+- If you know, you are going to have a planned viral event that will lead to significant increase in your network traffic.
 
 - If an actor has threatened to launch a DDoS attack against your resources.
 
@@ -213,13 +213,13 @@ For critical business impacting issues, create a severity-A [support ticket](htt
 
 It’s always a good strategy to do a postmortem after an attack and readjust the DDoS response strategy as needed. Things to consider:
 
-- Was there any disruption to the service or end user experience due to lack of scalable architecture?
+- Was there any disruption to the service or end-user experience due to lack of scalable architecture?
 
 - Which applications or services suffered the most?
 
 - How effective was the DDoS response strategy and how could it be improved further?
 
-If you suspect you have been or were under a DDoS attack and experienced an impact, please escalate through your normal Azure Support channel.
+If you suspect you are under a DDoS attack please escalate through your normal Azure Support channels.
 
 ## DDoS protection reference architectures
 
@@ -236,7 +236,7 @@ This reference architecture shows a set of proven practices for running multiple
 
 In this architecture, a workload is distributed across multiple VM instances. There is a single public IP address, and Internet traffic is distributed to the VMs using a load balancer. DDoS Protection Standard is enabled on the Virtual Network of the Azure (internet) load balancer that has the public IP associated with it.
 
-The load balancer distributes incoming Internet requests to the VM instances. VM scale sets allow the number of VMs to be scaled in or out manually, or automatically based on predefined rules. This is particularly important if the resource is under DDoS attack. Refer to this
+The load balancer distributes incoming Internet requests to the VM instances. VM scale sets allow the number of VMs to be scaled in or out manually, or automatically based on predefined rules. This is important if the resource is under DDoS attack. Refer to this
 [article](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm), for more information on this reference architecture.
 
 #### Applications running on Windows N-tier in multi-region setup
@@ -253,7 +253,7 @@ In the above architecture, DDoS Protection Standard is enabled on both the Prima
 #### PaaS web application
 
 This reference architecture shows running an Azure App Service application in a single region. This architecture shows set of proven practices for a web application that uses  [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) and [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
- Standby region is setup for failover scenarios.
+ Standby region is set up for failover scenarios.
 
 ![](media/azure-ddos-best-practices/image11.png)
 
