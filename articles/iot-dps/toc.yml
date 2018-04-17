@@ -113,8 +113,6 @@
     href: use-hsm-with-sdk.md
   - name: Use SDK tools for development
     href: how-to-use-sdk-tools.md
-  - name: Connect to MXChip IoT DevKit
-    href: how-to-connect-mxchip-iot-devkit.md
 - name: Reference
   items:
   - name: REST
