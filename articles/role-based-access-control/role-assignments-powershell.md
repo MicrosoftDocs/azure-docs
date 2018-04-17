@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2018
+ms.date: 04/17/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ---
@@ -304,6 +304,41 @@ Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role nam
 Remove-AzureRmRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales-projectforecast
 ```
 
+## List custom roles
+
+To list the roles that are available for assignment at a scope, use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command.
+
+The following example lists all roles that are available for assignment in the selected subscription.
+
+```azurepowershell
+Get-AzureRmRoleDefinition | FT Name, IsCustom
+```
+
+```Output
+Name                                              IsCustom
+----                                              --------
+Virtual Machine Operator                              True
+AcrImageSigner                                       False
+AcrQuarantineReader                                  False
+AcrQuarantineWriter                                  False
+API Management Service Contributor                   False
+...
+```
+
+The following example lists just the custom roles that are available for assignment in the selected subscription.
+
+```azurepowershell
+Get-AzureRmRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+```
+
+```Output
+Name                     IsCustom
+----                     --------
+Virtual Machine Operator     True
+```
+
+If the selected subscription isn't in the `AssignableScopes` of the role, the custom role won't be listed.
+
 ## Create a custom role
 
 To create a custom role, use the [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) command. There are two methods of structuring the role, using `PSRoleDefinition` object or a JSON template. 
@@ -537,42 +572,7 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-## List custom roles
-
-To list the roles that are available for assignment at a scope, use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command.
-
-The following example lists all roles that are available for assignment in the selected subscription.
-
-```azurepowershell
-Get-AzureRmRoleDefinition | FT Name, IsCustom
-```
-
-```Output
-Name                                              IsCustom
-----                                              --------
-Virtual Machine Operator                              True
-AcrImageSigner                                       False
-AcrQuarantineReader                                  False
-AcrQuarantineWriter                                  False
-API Management Service Contributor                   False
-...
-```
-
-The following example lists just the custom roles that are available for assignment in the selected subscription.
-
-```azurepowershell
-Get-AzureRmRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
-```
-
-```Output
-Name                     IsCustom
-----                     --------
-Virtual Machine Operator     True
-```
-
-If the selected subscription isn't in the `AssignableScopes` of the role, the custom role won't be listed.
-
 ## See also
 
 * [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
-  [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+[!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
