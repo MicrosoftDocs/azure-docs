@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/01/2018
+ms.date: 04/16/2018
 ---
 
 # Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning
@@ -153,7 +153,7 @@ The job sends results to the same blob storage where it gets input.
 
    |Field  |Value  |
    |---------|---------|
-   |**Output alias** | Use the name `datainput` and select **Select blob storage from your subscription**       |
+   |**Output alias** | Use the name `datamloutput` and select **Select blob storage from your subscription**       |
    |**Storage account**  |  Select the storage account you created earlier.  |
    |**Container**  | Select the container you created earlier (`azuresamldemoblob`)        |
    |**Event serialization format**  |  Select **CSV**       |
@@ -196,12 +196,13 @@ Stream Analytics uses a declarative, SQL-based query to examine the input and pr
 
     ```
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result from datainput  
+    SELECT text, sentiment(text) as result 
+    FROM datainput  
     )  
 
-    Select text, result.[Score]  
-    Into datamloutput
-    From sentiment  
+    SELECT text, result.[Score]  
+    INTO datamloutput
+    FROM sentiment  
     ```    
 
     The query invokes the function you created earlier (`sentiment`) in order to perform sentiment analysis on each tweet in the input. 
