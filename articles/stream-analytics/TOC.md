@@ -25,6 +25,7 @@
 ## [Compatibility level](stream-analytics-compatibility-level.md)
 ## [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
 ## [Event ordering considerations](stream-analytics-out-of-order-and-late-events.md)
+## [Checkpoint and replay](stream-analytics-concepts-checkpoint-replay.md)
 
 # How-to-guides
 
@@ -68,7 +69,7 @@
 
 ## Troubleshoot
 ### [Troubleshooting steps](stream-analytics-troubleshooting-guide.md)
-### [Common troubleshooting issues](stream-analytics-common-troubleshooting-issues.md)
+### [Common issues](stream-analytics-common-troubleshooting-issues.md)
 ### [Job diagram](stream-analytics-job-diagram-with-metrics.md)
 ### [Diagnostic logs](stream-analytics-job-diagnostic-logs.md)
 ### [Check resource health](stream-analytics-resource-health.md)
@@ -101,9 +102,3 @@
 ## [Customer case studies](https://azure.microsoft.com/case-studies/?service=stream-analytics)
 ## [Whitepaper - Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
 ## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
-
-
-
-
-
-
