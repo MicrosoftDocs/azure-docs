@@ -54,11 +54,11 @@ login.microsoftonline.com | Required for authorization and authentication to the
 If you are using an IP-based firewall proxy, or NSG rules to control outbound connectivity, these IP ranges need to be allowed.
 
 - All IP address ranges that correspond to the storage accounts in source region
-    - You need to create a (Storage service tag)[../virtual-network/security-overview.md#service-tags] based NSG rule for the source region.
+    - You need to create a [Storage service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for the source region.
     - You need to allow these addresses so that data can be written to the cache storage account, from the VM.
 - All IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
     - If new address are added to the Office 365 ranges in the future, you need to create new NSG rules.
-- Site Recovery service endpoint IP addresses. These are available in an [XML file](https://aka.ms/site-recovery-public-ips),and depend on your target location.
+- Site Recovery service endpoint IP addresses. These are available in an [XML file](https://aka.ms/site-recovery-public-ips) and depend on your target location.
 -  You can [download and use this script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702), to automatically create the required rules on the NSG.
 - We recommend that you create the required NSG rules on a test NSG, and verify that there are no problems before you create the rules on a production NSG.
 
@@ -111,7 +111,7 @@ This example shows how to configure NSG rules for a VM to replicate.
 1. Create an outbound HTTPS (443) security rule for "Storage.EastUS" on the NSG as shown in the screenshot below.
       ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
 2. Create outbound HTTPS (443) rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-3. Create outbound HTTPS (443) rules for the IPs that correspond to the target location:
+3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the target location:
 
    **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
     --- | --- | ---
@@ -125,7 +125,7 @@ These rules are required so that replication can be enabled from the target regi
 
 2. Create outbound HTTPS (443) rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
-3. Create outbound HTTPS (443) rules for the IPs that correspond to the source location:
+3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the source location:
 
    **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
     --- | --- | ---
