@@ -22,7 +22,7 @@ ms.author: nitinme
 This document keeps track of all the known issues for the HDInsight Spark public preview.  
 
 ## Livy leaks interactive session
-When Livy is restarted (from Ambari or due to headnode 0 virtual machine reboot) with an interactive session still alive, an interactive job session is leaked. Because of this, new jobs can be stuck in the Accepted state, and cannot be started.
+When Livy restarts (from Ambari or because of headnode 0 virtual machine reboot) with an interactive session still alive, an interactive job session is leaked. As a result, new jobs can be stuck in the Accepted state.
 
 **Mitigation:**
 
@@ -49,7 +49,12 @@ Spark History Server is not started automatically after a cluster is created.
 Manually start the history server from Ambari.
 
 ## Permission issue in Spark log directory
-When hdiuser submits a job with spark-submit, there is an error, java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied), and the driver log is not written. 
+hdiuser gets the following error when submitting a job using spark-submit:
+
+```
+java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
+```
+And no driver log is written. 
 
 **Mitigation:**
 
@@ -60,7 +65,7 @@ When hdiuser submits a job with spark-submit, there is an error, java.io.FileNot
 
 ## Spark-Phoenix connector is not supported
 
-The Spark-Phoenix connector is not supported by HDInsight Spark clusters.
+HDInsight Spark clusters do not support the Spark-Phoenix connector.
 
 **Mitigation:**
 
@@ -70,7 +75,7 @@ You must use the Spark-HBase connector instead. For the instructions, see [How t
 Following are some known issues related to Jupyter notebooks.
 
 ### Notebooks with non-ASCII characters in filenames
-Jupyter notebooks that can be used in Spark HDInsight clusters should not have non-ASCII characters in filenames. If you try to upload a file through the Jupyter UI, which has a non-ASCII filename, it fails silently (that is, Jupyter does not let you upload the file, but it does not throw a visible error either). 
+Do not use non-ASCII characters in Jupyter notebook filenames. If you try to upload a file through the Jupyter UI, which has a non-ASCII filename, it fails without any error message. Jupyter does not let you upload the file, but it does not throw a visible error either.
 
 ### Error while loading notebooks of larger sizes
 You might see an error **`Error loading notebook`** when you load notebooks that are larger in size.  
