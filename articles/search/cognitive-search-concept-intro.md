@@ -78,11 +78,12 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 1. Subset your Azure source data into a representative sample. Indexing takes time so start with a small, representative data set and then build it up incrementally as your solution matures.
 2. Create a data source object in Azure Search to provide the connection string.
 3. Create a skillset with enrichment steps.
-4. Define the index schema. The fields collection includes fields from source data. Stub out additional fields to hold generated values for fields created during enrichment.
-5. Define the indexer referencing the data source, skillset, and index. Add *outputFieldMappings* in the indexer definition. This section of the indexer maps outputs from the skillset (per step 3) to the inputs fields in the index schema (per step 4).
-6. Send an HTTP request to create and run the indexer to invoke the pipeline.
-7. Evaluate results and modify code to update skillsets, schema, or indexer configuraiton.
-8. Reset the indexer before rebuilding the pipeline.
+4. Define the index schema. The Fields collection includes fields from source data. You should also stub out additional fields to hold generated values for content created during enrichment.
+5. Define the indexer referencing the data source, skillset, and index. 
+6. Within the indexer, add *outputFieldMappings*. This section maps output from the skillset (per step 3) to the inputs fields in the index schema (per step 4).
+7. Send Create Indexer (POST request with indexer definition in the request body) to create and run the indexer, invoking the pipeline.
+8. Evaluate results and modify code to update skillsets, schema, or indexer configuration.
+9. Reset the indexer before rebuilding the pipeline.
 
 **Documentation**
 

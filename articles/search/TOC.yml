@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Cognitive search
+  - name: Try cognitive skills
     href: cognitive-search-quickstart-blob.md
   - name: Create a service
     href: search-create-service-portal.md
@@ -39,7 +39,7 @@
       href: search-fiddler.md
 - name: Tutorials
   items:
-  - name: Rich indexing (Cognitive Search)
+  - name: Add cognitive skills to indexing
     href: cognitive-search-tutorial-blob.md
   - name: Index Azure SQL Database
     href: search-indexer-tutorial.md
@@ -145,7 +145,7 @@
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
     - name: Field mappings in indexers
       href: search-indexer-field-mappings.md
-  - name: Enriched indexing pipeline (Cognitive%20Search%20Preview)
+  - name: Enriched indexing (Preview)
     items:
     - name: Define a skillset
       href: cognitive-search-defining-skillset.md
@@ -206,7 +206,7 @@
       href: search-api-2016-09-01-preview.md
   - name: REST (Management)
     href: /rest/api/searchmanagement
-  - name: Cognitive Search Preview APIs
+  - name: Cognitive Skills Preview APIs
     items:
     - name: 2017-11-11-Preview (REST)
       href: search-api-2017-11-11-preview.md

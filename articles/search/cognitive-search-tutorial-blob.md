@@ -9,25 +9,35 @@ ms.topic: tuorial
 ms.date: 05/01/2018
 ms.author: luisca
 ---
-# Tutorial: Cognitive search preview
+# Tutorial: Enrich indexing with cognitive skills (Preview)
 
-This article provides a roadmap for developers creating a cognitive search solution in Azure Search, including how to provision resources, learning the basic workflow, and testing your work.
+Learn how adding enrichment steps, called *cognitive skills*, to an Azure Search indexing pipeline can help you extract more information from raw content. By attaching a *skillset* to an Azure Search indexer, you can integrate named entity recognition, natural language processing, and image processing for pulling text out of images. The output is a searchable index, which you can further augment with scoring profiles, synonyms, and other Azure Search functionality.
 
-This exercise creates multiple objects: an Azure blob data source, a skillset, an index. All objects are pulled together in an indexer definition, executing as an end-to-end pipeline that pulls data from its source, enriches the data, and deposits it into an Azure Search index.
+In this tutorial, you will learn how to do the following tasks:
+
+> [!div class="checklist"]
+> * Create resources used in an enriched indexing pipeline
+> * Assemble a skillset composed of predefined skills
+> * Map inputs to outputs
+> * Run code and review results
+> * Reset the index and indexers for further development
+
+> [!Note]
+> Enrichment is a preview feature with limited availability. Be sure to create a search service in one of the data regions providing this feature.
 
 ## Prerequisites
 
-To perform each step, you can use a REST test tool such as Telerik Fiddler or Postman to formulate HTTP REST calls. For guidance, see [Explore Azure Search REST APIs using Fiddler or Postman](https://docs.microsoft.com/azure/search/search-fiddler).
+To issue REST calls to Azure Search, you can use a web test tool such as Telerik Fiddler or Postman to formulate HTTP calls. If these tools are new to you, see [Explore Azure Search REST APIs using Fiddler or Postman](https://docs.microsoft.com/azure/search/search-fiddler).
 
 Use the [Azure portal](https://portal.azure.com/) to create services used in an end-to-end workflow. 
 
  ![Dashboard portal](./media/cognitive-search-get-start-preview/create-service-full-portal.png)
 
-## 1 - Set up Azure Search
+### Set up Azure Search
 
-First, sign up for the Azure Search service.
+First, sign up for the Azure Search service. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-1. Go to the [Azure portal]() and sign in by using your Azure account.
+1. Go to the [Azure portal](https://portal.azure.com) and sign in by using your Azure account.
 
 1. Click **Create a resource**, search for Azure Search, and click **Create**. See [Create a service in the portal](search-create-service-portal.md) if you are setting up a search service for the first time.
 
@@ -47,7 +57,7 @@ After the service is created, collect the following information once the search 
 
   ![Endpoint and key information in the portal](./media/cognitive-search-get-start-preview/create-search-collect-info.png)
 
-## 2 - Set up Azure Blob service and load sample data
+### Set up Azure Blob service and load sample data
 
 The enrichment pipeline pulls from Azure data sources. Source data must originate from a [supported data source type](https://docs.microsoft.com/azure/search/search-indexer-overview). For this exercise, we use blob storage to showcase multiple content types.
 
@@ -65,7 +75,7 @@ DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y5NIlE4
 
 There are several ways to specify the connection string, for instance you could provide a shared access signature instead. To learn more about data source credentials, see [Indexing Azure Blob Storage](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage).
 
-## 3 - Create a data source
+## 1 - Create a data source
 
 Now that your services and source files are prepared, create the [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) used by Azure Search to retrieve source data. The data source is a resource in Azure Search service.
 
@@ -94,7 +104,7 @@ api-key: [admin key]
 For the reference documentation, see [Create Data Source (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 
-## 4 - Create a skillset
+## 2 - Create a skillset
 
 In this step, define a set of enrichment steps that you want to apply to your data. We call each enrichment step a *skill*, and the set of enrichment steps a *skillset*. You can use [built-in cognitive skills](cognitive-search-predefined-skills.md) or create custom skills and hook them up to the enrichment pipeline.
 
@@ -203,7 +213,7 @@ Notice how the key phrase extraction skill is applied for each page. By setting 
 
 For more information about skillset fundamentals, see [How to define a skillset](cognitive-search-defining-skillset.md).
 
-## 5 - Create an index
+## 3 - Create an index
 
 Now let's define what fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using whatever field naming conventions make sense for your search application.
 
@@ -274,7 +284,7 @@ Content-Type: application/json
 To learn more about defining an index, see [Create an Azure Search Index](ref-create-index.md).
 
 
-## 6 - Create an indexer, map fields, and execute transformations
+## 4 - Create an indexer, map fields, and execute transformations
 
 So far, you have created a data source, a skillset, and an index. All become part of an [indexer](search-indexer-overview.md) that pulls each piece together into a single multi-phased operation. That said, you need to add a bit of glue between these components before you can run it. In this step, you define field mappings, which are part of the indexer definition, and execute the transformations when you submit the request.
 
@@ -358,7 +368,7 @@ Content-Type: application/json
 
 The response tells you whether the indexer is running. After indexing is finished, GET STATUS reports any errors and warnings that occurred during enrichment.  
  
-## 7 - Verify content
+## 5 - Verify content
 
 To check your work, run queries that return the contents of individual fields. By default, Azure Search returns the top 50 results. The sample data is small so the defaults work fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Search](https://docs.microsoft.com/azure/search/search-pagination-page-layout).
 
