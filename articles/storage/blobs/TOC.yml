@@ -85,7 +85,7 @@
     items:
     - name: Storage account overview
       href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Authenticate access to a storage account
+    - name: Authentication
       items:
       - name: Authentication overview
         href: ../common/storage-authentication.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -105,7 +105,7 @@
         href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Geo-redundant storage
         href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Hot, cool, and archive tiers
+    - name: Access tiers
       href: storage-blob-storage-tiers.md
     - name: Performance tiers for Disks
       items:
