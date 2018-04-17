@@ -80,9 +80,9 @@ Clicking anywhere else on the update opens the **Log Search** window for the sel
 
 ## Configure alerting
 
-In this step you configure an alert to let you know when updates have been successfully deployed. The alert you create is based on a Log Analytics query, because any custom query can be written, other alerts can be created to cover many different scenarios. In the Azure portal, navigate to **Monitor**. Click **Create Alert**, this opens the **Create rule** page.
+In this step, you configure an alert to let you know when updates have been successfully deployed. The alert you create is based on a Log Analytics query, because any custom query can be written, other alerts can be created to cover many different scenarios. In the Azure portal, navigate to **Monitor**. Click **Create Alert**, this opens the **Create rule** page.
 
-Under **1. Define alert condition** click **+  Select target**. Under **Filter by resource type** select **Log Analytics**.  Choose your Log Analytics workspace and click **Done**.
+Under **1. Define alert condition**, click **+  Select target**. Under **Filter by resource type**, select **Log Analytics**. Choose your Log Analytics workspace and click **Done**.
 
 ![create alert](./media/automation-tutorial-update-management/create-alert.png)
 
@@ -119,7 +119,7 @@ You can customize the subject of the email sent by clicking **Email subject** un
 
 ## Schedule an update deployment
 
-Now that alerting is setup, to install updates, schedule a deployment that follows your release schedule and service window.
+Now that alerting is set up, to install updates, schedule a deployment that follows your release schedule and service window.
 You can choose which update types to include in the deployment.
 For example, you can include critical or security updates and exclude update rollups.
 
@@ -138,11 +138,10 @@ In the **New update deployment** screen, specify the following information:
 
   The classification types are:
 
-
-|OS  |Type  |
-|---------|---------|
-|Windows     |   * Critical updates<br>* Security updates<br>* Update rollups<br>* Feature packs<br>* Service packs<br>* Definition updates<br>* Tools<br>* Updates        |
-|Linux     | * Critical and security updates<br>* Other updates       |
+   |OS  |Type  |
+   |---------|---------|
+   |Windows     | Critical updates<br>Security updates<br>Update rollups<br>Feature packs<br>Service packs<br>Definition updates<br>Tools<br>Updates        |
+   |Linux     | Critical and security updates<br>Other updates       |
 
 * **Schedule settings** - This opens the Schedule Settings page. The default start time is 30 minutes after the current time. It can be set any time from 10 minutes in the future.
 
