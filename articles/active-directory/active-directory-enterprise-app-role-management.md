@@ -99,17 +99,6 @@ If your application expects custom roles to be passed in SAML response, you need
             "allowedMemberTypes": [
                 "User"
             ],
-            "description": "User",
-            "displayName": "User",
-            "id": "18d14569-c3bd-439b-9a66-3a2aee01d14f",
-            "isEnabled": true,
-            "origin": "Application",
-            "value": null
-        },
-        {
-            "allowedMemberTypes": [
-                "User"
-            ],
             "description": "msiam_access",
             "displayName": "msiam_access",
             "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
@@ -134,7 +123,7 @@ If your application expects custom roles to be passed in SAML response, you need
 	> [Note]
 	> You can only add new roles after the **msiam_access** for the patch operation. Also, you can add as many roles as you want per your Organization need. Azure AD will send the **value** of these roles as the claim value in SAML response.
 	
-	g. Go back to your Graph Explorer and change the method from **GET** to **PATCH**. Patch the service principal object to have desired roles by updating appRoles property similar to the one shown above in the example. Click **Run Query** to execute the patch operation. A success message confirms the creation of the role.
+	j. Go back to your Graph Explorer and change the method from **GET** to **PATCH**. Patch the service principal object to have desired roles by updating appRoles property similar to the one shown above in the example. Click **Run Query** to execute the patch operation. A success message confirms the creation of the role.
 
 	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
