@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Container Service health | Microsoft Docs
+title: Monitor Azure Container Service Health | Microsoft Docs
 description: This article describes how you can easily review the performance of your AKS container to quickly understand the utilization of your hosted Kubernetes environment.
 services: log-analytics
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2018
+ms.date: 04/17/2018
 ms.author: magoedte
 ---
 
@@ -65,7 +65,7 @@ When you open Container Health, the page immediately presents the performance ut
 
 The row hierarchy follows the Kubernetes object model starting with a node in your cluster.  Expand the node and you see one or more pods running on the node, and if there is more than one container grouped to a pod, they will be shown as the last row in the hierarchy.<br><br> ![Example Kubernetes Node hierarchy in the performance view](./media/monitoring-container-performance/container-performance-and-health-view-03.png)
 
-You can select controllers or containers from the top of the page and review the status and resource utilization for those objects.  You can scope the results by filtering on Namespace, Service, and Node and they update to reflect your filter accordingly.  If you  instead want to review memory utilization, from the **Metric** drop-down list select **Memory RSS** or **Memory working set**.
+You can select controllers or containers from the top of the page and review the status and resource utilization for those objects.  Use the dropdown boxes at the top of the screen to filter by namespace, service, and node.  The results will reflect your selection accordingly.  If instead you want to review memory utilization, from the **Metric** drop-down list select **Memory RSS** or **Memory working set**.
 
 ![Container performance nodes performance view](./media/monitoring-container-performance/container-performance-and-health-view-04.png)
 
@@ -130,3 +130,7 @@ The following table describes the information presented when you view Containers
 
 ## Search logs to analyze data
 When you're interested in looking for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally, Log Analytics can help.  Pre-defined queries are provided to immediately start using or to customize in order to return the information the way you want. 
+
+## Troubleshooting
+
+## Next steps
