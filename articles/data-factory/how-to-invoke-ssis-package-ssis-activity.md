@@ -104,7 +104,7 @@ In this section, you trigger a pipeline run and then monitor it.
 
     ![Activity runs](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 
-4.You can run the following **query** against the SSISDB database in your Azure SQL server to verify that the package executed. 
+4. You can run the following **query** against the SSISDB database in your Azure SQL server to verify that the package executed. 
 
     ```sql
     select * from catalog.executions

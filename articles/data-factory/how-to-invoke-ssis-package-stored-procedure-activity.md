@@ -120,14 +120,17 @@ In this section, you trigger a pipeline run and then monitor it.
 1. To trigger a pipeline run, click **Trigger** on the toolbar, and click **Trigger now**. 
 
     ![Trigger now](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+
 2. In the **Pipeline Run** window, select **Finish**. 
 3. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
 
     ![Pipeline runs](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+
 3. Click **View Activity Runs** link in the **Actions** column. You see only one activity run as the pipeline has only one activity (stored procedure activity).
 
     ![Activity runs](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
-4.You can run the following **query** against the SSISDB database in your Azure SQL server to verify that the package executed. 
+
+4. You can run the following **query** against the SSISDB database in your Azure SQL server to verify that the package executed. 
 
     ```sql
     select * from catalog.executions
