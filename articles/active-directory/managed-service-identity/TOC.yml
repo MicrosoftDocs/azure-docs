@@ -39,7 +39,6 @@
           href: tutorial-linux-vm-access-datalake.md
         - name: Access Azure Storage
           href: tutorial-linux-vm-access-storage.md
-          href: tutorial-linux-vm-access-storage.md
         - name: Access Azure Storage using an access key
           href: tutorial-linux-vm-access-storage-access-key.md
         - name: Access Azure Storage using SAS
