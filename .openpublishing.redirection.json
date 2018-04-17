@@ -17087,11 +17087,6 @@
             "source_path": "articles/python-how-to-install.md",
             "redirect_url": "/python/azure/python-sdk-azure-install",
             "redirect_document_id": false
-    },
-    {
-        "source_path": "articles/active-directory/active-directory-saas-successcenter-provisioning-tutorial.md",
-        "redirect_url": "/azure/active-directory/aactive-directory-saas-successcenter-provisioning-tutorial",
-        "redirect_document_id": false
     }
    ]
 }
