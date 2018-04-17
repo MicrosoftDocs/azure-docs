@@ -130,7 +130,37 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
    The command-line prompt opens in your current project folder location **c:\temp\myIris>**.
 
-2. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.
+2. Make sure the Azure resource provider **Microsoft.ContainerRegistry** is registered in your subscription. You must register this resource provider before you can create      an environment in step 3. You can check to see if it's already registered by using the following command:
+   ``` 
+   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
+   ``` 
+
+   You should see output like this: 
+   ```
+   Provider                                  Status 
+   --------                                  ------
+   Microsoft.Authorization                   Registered 
+   Microsoft.ContainerRegistry               Registered 
+   microsoft.insights                        Registered 
+   Microsoft.MachineLearningExperimentation  Registered 
+   ... 
+   ```
+   
+   If **Microsoft.ContainerRegistry** is not registered, you can register it by using the following command:
+   ``` 
+   az provider register --namespace Microsoft.ContainerRegistry 
+   ```
+   Registration can take a few minutes. You can check on its status by using the previous **az provider list** command or the following command:
+   ``` 
+   az provider show -n Microsoft.ContainerRegistry 
+   ``` 
+
+   The third line of the output displays **"registrationState": "Registering"**. Wait a few moments and repeat the **show** command until the output displays **"registrationState": "Registered"**.
+
+   >[!NOTE] 
+   If you are deploying to an ACS cluster, you need register the **Microsoft.ContainerService** resource provider as well using the exact same approach.
+
+3. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.
 
    Note that the following setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command using `-g` the flag. 
 
@@ -165,7 +195,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
 5. Set the environment.
 
-   After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 2. Use the same resource group name that was output in the command window when the setup process finished.
+   After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 3. Use the same resource group name that was output in the command window when the setup process finished.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
