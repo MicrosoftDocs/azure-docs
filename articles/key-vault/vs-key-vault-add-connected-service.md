@@ -28,17 +28,24 @@ For details on the changes that Connected Services makes in your project to enab
 1. In **Solution Explorer**, choose **Add** > **Connected Service**.
    The Connected Service page appears with services you can add to your project.
 1. In the menu of available services, choose **Secure Secrets With Azure Key Vault**.
+
    ![Choose "Secure Secrets With Azure Key Vault"](media/key-vault-visual-studio-connected-service/KeyVaultConnectedService1.PNG)
+
    If you've signed into Visual Studio, and have an Azure subscription associated with your account, a page appears with a dropdown list with your subscriptions.
 1. Select the subscription you want to use, and then choose a new or existing Key Vault, or choose the Edit link to modify the automatically generated name.
+
    ![Select your subscription](media/key-vault-visual-studio-connected-service/KeyVaultConnectedService3.PNG)
+
 1. Type the name you want to use for the Key Vault.
+
    ![Rename the Key Vault and choose a resource group](media/key-vault-visual-studio-connected-service/KeyVaultConnectedService-Edit.PNG)
+
 1. Select an existing Resource Group, or choose to create a new one with an automatically generated unqiue name.  If you want to create a new group with a different name, you can use the [Azure Portal](https://portal.azure.com), and then close the page and restart to reload the list of resource groups.
-1. Choose the region in which to create the Key Vault. If your web application is hosted in Azure, choose the region that hosts the web application for optimum performance.
-1. Choose a pricing model. For details, see [Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/).
-1. Choose OK to accept the configuration choices.
-1. Choose **Add** to create the Key Vault. The create process might fail if you choose a name that was already used.  If that happens, use the **Edit** link to rename the Key Vault and try again.
+2. Choose the region in which to create the Key Vault. If your web application is hosted in Azure, choose the region that hosts the web application for optimum performance.
+3. Choose a pricing model. For details, see [Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/).
+4. Choose OK to accept the configuration choices.
+5. Choose **Add** to create the Key Vault. The create process might fail if you choose a name that was already used.  If that happens, use the **Edit** link to rename the Key Vault and try again.
+
    ![Adding connected service to project](media/key-vault-visual-studio-connected-service/KeyVaultConnectedService4.PNG)
 
 ## Next steps
