@@ -58,10 +58,10 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure your .NET app, as shown in the script that follows.
 
-Before running the script, replace the `amsaccountname` placeholder.  `amsaccountname` is the name of the Azure Media Services account where to attach the service principal.
+Before running the script, you can replace `amsaccountname` (the name of the Azure Media Services account where to attach the service principal) and `amsResourcegroup` (your resource group).
 
 ```azurecli-interactive
-az ams sp create --account-name <amsaccountname> --resource-group amsResourcegroup
+az ams sp create --account-name amsaccountname --resource-group amsResourcegroup
 ```
 
 This command produces a response similar to this:
@@ -289,7 +289,6 @@ private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient
             new StreamingLocator()
             {
                 AssetName = assetName,
-                EndTime = DateTime.UtcNow.AddDays(5),
                 StreamingPolicyName = clearPolicyName,
 
             });
@@ -333,7 +332,7 @@ static IList<string> GetStreamingURLs(
 }
 ```
 
-### Clean up resource in your account
+### Clean up resource in your Media Services account
 
 Generally, you should clean up everything except objects that you are planning to reuse (commonly, you want to reuse a transform). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes jobs.
 
@@ -368,7 +367,7 @@ Azure Media Player can be used for testing but should not be used in a productio
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group. You can use the **CloudShell** tool.
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier. You can use the **CloudShell** tool.
 
 In the **CloudShell**, execute the following command:
 
