@@ -1,6 +1,6 @@
 ---
-title: How to perform an access review in Privileged Identity Management for Azure Resources | Microsoft Docs
-description: This document describes how to perform and access review in PIM for Azure Resources.
+title: Perform an access review in Privileged Identity Management for Azure resources | Microsoft Docs
+description: This document describes how to perform an access review in PIM for Azure resources, according to resource role.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,30 +17,31 @@ ms.custom: pim
 ---
 
 
-# Privileged Identity Management - Resource role - Perform access review
-Privileged Identity Management for Azure Resources simplifies how enterprises manage privileged access to resources in Azure. 
+# Perform an access review in PIM, according to resource role
+Privileged Identity Management (PIM) for Azure resources simplifies how enterprises manage privileged access to resources in Azure. 
 
-If you are assigned to an administrative role, your organization's privileged role administrator may ask you to regularly confirm that you still need that role for your job. You might get an email that includes a link, or you can go straight to the [Azure portal](https://portal.azure.com). Follow the steps in this article to perform a self-review of your assigned roles.
+If you are assigned to an administrative role, your organization's privileged role administrator might ask you to regularly confirm that you still need that role for your job. You might get an email that includes a link, or you can go straight to the [Azure portal](https://portal.azure.com). Follow the steps in this article to perform a self-review of your assigned roles.
 
 If you're a privileged role administrator interested in access reviews, get more details at [How to start an access review](pim-resource-roles-start-access-review.md).
 
 ## Add the Privileged Identity Management application
-You can use the Azure AD Privileged Identity Management (PIM) application in the [Azure portal](https://portal.azure.com/) to perform your review.  If you don't have the Azure AD Privileged Identity Management application on your portal, follow these steps to get started.
+You can use the Azure Active Directory (Azure AD) PIM application in the [Azure portal](https://portal.azure.com/) to perform your review. If you don't have the application in your portal, follow these steps to get started.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select your username in the upper right-hand corner of the Azure portal, and select the directory where you will you be operating.
-3. Select **All services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
-4. Check **Pin to dashboard** and then click **Create**. The Privileged Identity Management application will open.
+2. Select your user name in the upper right-hand corner of the Azure portal, and select the directory where you will you be operating.
+3. Select **All services**, and use the **Filter** box to search for *Azure AD Privileged Identity Management*.
+4. Check **Pin to dashboard**, and then select **Create**. The PIM application opens.
 
 ## Approve or deny access
-When you approve or deny access, you're just telling the reviewer whether you still use this role or not. Choose **Approve** if you want to stay in the role, or **Deny** if you don't need the access anymore. Your status won't change right away, until the reviewer applies the results.
+When you approve or deny access, you're just telling the reviewer whether you still use this role or not. Choose **Approve** if you want to stay in the role, or **Deny** if you don't need the access anymore. Your status changes only when the reviewer applies the results.
+
 Follow these steps to find and complete the access review:
-1. Navigate to the Azure AD Privileged Identity Management application.
-2. Select the Review access blade
+1. Browse to the Azure AD PIM application.
+2. Select the **Review access** blade.
 
-![](media/azure-pim-resource-rbac/rbac-access-review-complete.png)
+![Screenshot of PIM application, with Review access blade selected](media/azure-pim-resource-rbac/rbac-access-review-complete.png)
 
-3. Select the review you would like to complete. 
-4. Choose either **Approve** or **Deny**. You may need to include a reason for your decision in the **Provide a reason** text box.
+3. Select the review you want to complete. 
+4. Choose either **Approve** or **Deny**. In the **Provide a reason box**, you might need to include a reason for your decision.
 
-![](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+![Screenshot of Review details page](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
