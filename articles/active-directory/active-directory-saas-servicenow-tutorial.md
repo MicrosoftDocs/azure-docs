@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 04/17/2018
 ms.author: jeedes
 
 ---
@@ -247,7 +247,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Select **URL** option in **Import Identity Provider Metadata** dialogue box.
 
-	b. Enter the **App Federation Metadata Url** generated from Azure portal.
+	b. Enter the **App Federation Metadata Url** which you have copied from Azure portal.
 
 	c. Click **Import**.
 
