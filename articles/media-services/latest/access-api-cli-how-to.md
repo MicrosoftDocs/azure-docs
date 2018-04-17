@@ -38,30 +38,7 @@ Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** 
 
 If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## Create an Azure AD application and service principal
-
-To connect to the Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure you .NET app, as shown in the following step.
-
-Before running the script, replace the `amsresourcegroup` and `amsaccountname` placeholders. `amsaccountname` is the name of the Azure Media Services account where to attach the service principal. <br/>The command that follows uses the `xml` option that returns an xml that you can paste in your app.config. If you omit the `xml` option, the response will be in `json`.
-
-```azurecli-interactive
-az ams account sp create --account-name "amsaccountname"  --resource-group "amsresourcegroup" --xml
-```
-
-This command will produce a response similar to this:
-
-``` 
-<add key="Region" value="value" />
-<add key="ResourceGroup" value="value" />
-<add key="AadEndpoint" value="value" />
-<add key="AccountName" value="value" />
-<add key="SubscriptionId" value="value" />
-<add key="ArmAadAudience" value="value" />
-<add key="AadTenantId" value="value" />
-<add key="AadSecret" value="value" />
-<add key="AadClientId" value="value" />
-<add key="ArmEndpoint" value="value" />
-```
+[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
 ## Next steps
 
