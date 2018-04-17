@@ -19,9 +19,11 @@ ms.date: 04/13/2018
 ms.author: kumud
 ms.custom: mvc
 ---
-# Quickstart: Create a Basic Load Balancer to load balance VMs using the Azure CLI
+# Quickstart: Create a Load Balancer to load balance VMs using the Azure CLI
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. You can use the Azure portal to create a load balancer to load balance internet traffic to virtual machines. This quickstart shows you how to create network resources, backend servers, and a basic Load Balancer that helps distribute internet traffic across the backend servers.
+This quickstart shows you how to create network resources, backend servers, and a basic Load Balancer that helps distribute internet traffic across the backend servers. You can use the Azure CLI to create a load balancer to load balance internet traffic to virtual machines.
+
+Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. Azure Load Balancer is available in two different SKUs: Basic and Standard. This article discusses how to create a Basic Load Balancer. For more information about the differences between Basic vs Standard Load Balancer, see [Load Balancer Overview](load-balancer-overview.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
