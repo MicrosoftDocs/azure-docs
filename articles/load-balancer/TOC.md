@@ -2,6 +2,23 @@
 
 # Overview
 ## [What is Load Balancer?](load-balancer-overview.md)
+
+# Quickstart
+## [Create Basic Load Balancer](quickstart-create-basic-load-balancer-portal.md)
+## [Create Basic Load Balancer (CLI)](quickstart-create-basic-load-balancer-cli.md)
+## [Create Basic Load Balancer (PowerShell)](quickstart-create-basic-load-balancer-powershell.md)
+## [Create Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md)
+## [Create a Standard Load Balancer (CLI)](quickstart-load-balancer-standard-public-cli.md)
+
+#Samples
+## [Azure CLI](cli-samples.md)
+## [Azure PowerShell](powershell-samples.md)
+
+#Tutorials
+## [Load balance VMs across availability zones](load-balancer-standard-public-availability-zones-portal.md)
+
+
+#Concepts
 ## [What is Load Balancer Standard?](load-balancer-standard-overview.md)
 ## [Load Balancer probes](load-balancer-custom-probe-overview.md)
 ## [High Availability ports](load-balancer-ha-ports-overview.md)
@@ -11,23 +28,14 @@
 ## [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md)
 ## [Standard Load Balancer metrics and diagnostics](load-balancer-standard-diagnostics.md)
 
-# Get Started
-## [Create Basic Load Balancer](quickstart-create-basic-load-balancer-portal.md)
-### [Create Basic Load Balancer (CLI)](quickstart-create-basic-load-balancer-cli.md)
-### [Create Basic Load Balancer (PowerShell)](quickstart-create-basic-load-balancer-powershell.md)
-## [Create Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md)
-### [Create a Standard Load Balancer (CLI)](quickstart-load-balancer-standard-public-cli.md)
-
 # How to
-
 ## [Create a zone redundant public Standard Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 ### [Create a zone redundant public Standard Load Balancer (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Create a zone redundant public Standard Load Balancer (CLI)](load-balancer-get-started-internet-az-cli.md)
 ## [Create a zonal public Standard Load Balancer](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
 ### [Create a zonal public Standard Load Balancer (PowerShell)](load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
 ### [Create a zonal redundant public Standard Load Balancer (CLI)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)
-## [Load balance VMs across availability zones](load-balancer-standard-public-availability-zones-portal.md)
-###  [Load balance VMs across availability zones (CLI)](load-balancer-standard-public-zone-redundant-cli.md)
+##  [Load balance VMs across availability zones (CLI)](load-balancer-standard-public-zone-redundant-cli.md)
 ##  [Load balance VMs within a zone (CLI)](load-balancer-standard-public-zonal-cli.md)   
 ## [Create Basic Load Balancer (Template)](load-balancer-get-started-internet-arm-template.md)
 ## [Create public Load Balancer with IPv6](load-balancer-ipv6-internet-ps.md)
@@ -45,9 +53,6 @@
 ### [Using multiple IP configurations (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configure High Availability Ports for Internal Load Balancer](load-balancer-configure-ha-ports.md)
-## Samples
-### [Azure CLI](cli-samples.md)
-### [Azure PowerShell](powershell-samples.md)
 
 ## Troubleshoot
 ### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md)
