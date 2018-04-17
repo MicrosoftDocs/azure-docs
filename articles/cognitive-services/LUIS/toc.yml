@@ -169,6 +169,10 @@
     href: Label-Suggested-Utterances.md
   - name: Publish your app
     href: PublishApp.md
+  - name: Integrate 
+    items:
+    - name: Speech
+      href: luis-how-to-integrate-speech.md
   - name: Use prebuilt models
     items: 
     - name: Use prebuilt entities
