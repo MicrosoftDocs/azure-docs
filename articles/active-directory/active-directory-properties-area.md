@@ -47,4 +47,10 @@ We strongly recommend you add both your global privacy contact and your organiza
 
 4.	Select **Save**.
 
+## See also
 
+- [Info about Data Protection Impact Assessments (DPIAs)](https://servicetrust.microsoft.com/ViewPage/GDPRDPIA)
+
+- [Info about Data Subject Requests (DSRs)](https://servicetrust.microsoft.com/ViewPage/GDPRDSR)
+ 
+- [Info about data breach notifications](https://servicetrust.microsoft.com/ViewPage/GDPRBreach)
