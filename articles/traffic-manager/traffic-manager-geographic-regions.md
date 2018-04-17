@@ -63,14 +63,6 @@ This article lists the countries and regions used by the **Geographic**  traffic
 
 		- GB(United Kingdom)
 
-			- GB-ENG(England)
-
-			- GB-NIR(Northern Ireland)
-
-			- GB-SCT(Scotland)
-
-			- GB-WLS(Wales)
-
 		- GG(Guernsey)
 
 		- GI(Gibraltar)

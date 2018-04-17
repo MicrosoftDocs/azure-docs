@@ -4,8 +4,8 @@ description: Learn how Azure Data Factory is used to create a data-driven workfl
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: e07d55cf-8051-4203-9966-bdfa1035104b
 ms.service: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 
 robots: noindex

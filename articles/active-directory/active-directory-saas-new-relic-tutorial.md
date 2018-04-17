@@ -106,12 +106,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![New Relic Domain and URLs single sign-on information](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.newrelic.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` - Be sure to substitute your own New Relic Account ID.
 
 	b. In the **Identifier** textbox, type the value: `rpm.newrelic.com`
-
-	> [!NOTE] 
-	> Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [New Relic Client support team](https://support.newrelic.com/) to get this value. 
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 

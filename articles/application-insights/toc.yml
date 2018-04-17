@@ -121,6 +121,10 @@
         href: app-insights-configuration-with-applicationinsights-config.md
       - name: Snapshot Debugger
         href: app-insights-snapshot-debugger.md
+    - name: ASP.NET Core
+      items:
+      - name: Profiler for Linux App services
+        href: app-insights-profiler-aspnetcore-linux.md
     - name: J2EE
       items:
       - name: Log traces
@@ -170,6 +174,8 @@
         href: app-insights-live-stream.md
       - name: Application Map
         href: app-insights-app-map.md
+      - name: Transaction diagnostics
+        href: app-insights-transaction-diagnostics.md
       - name: HockeyApp data
         href: app-insights-hockeyapp-bridge-app.md
     - name: Visual Studio
@@ -190,6 +196,10 @@
         href: app-insights-usage-segmentation.md
       - name: Funnels
         href: usage-funnels.md
+      - name: Cohorts
+        href: app-insights-usage-cohorts.md
+      - name: Impact
+        href: app-insights-usage-impact.md
       - name: Retention
         href: app-insights-usage-retention.md
       - name: User Flows
@@ -230,6 +240,9 @@
     items:
     - name: Manage pricing and data volume
       href: app-insights-pricing.md
+      items:
+      - name: Enterprise plan details
+        href: app-insights-pricing-enterprise-details.md
     - name: Application Performance Monitoring using Application Insights for SCOM
       href: app-insights-scom.md
   - name: Export
@@ -242,7 +255,7 @@
         - name: Export to SQL using Stream Analytics
           href: app-insights-code-sample-export-sql-stream-analytics.md
         - name: Export to Stream Analytics
-          href: app-insights-export-stream-analytics.md         
+          href: app-insights-export-stream-analytics.md
     - name: Export data model
       href: app-insights-export-data-model.md
     - name: Export to Power BI
@@ -265,6 +278,8 @@
       href: app-insights-analytics-troubleshooting.md
     - name: Java
       href: app-insights-java-troubleshoot.md
+    - name: Usage analytics
+      href: app-insights-usage-troubleshoot.md
 - name: Samples
   items:
   - name: Code samples

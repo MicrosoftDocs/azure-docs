@@ -4,7 +4,7 @@ description: Troubleshoot deploying Windows virtual machine issues in Azurethe R
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -124,7 +124,7 @@ Choose a size that is supported on the availability set's cluster. It is recomme
 
 ## Can I add an existing Classic VM to an availability set?
 
-Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](classic/configure-availability.md#addmachine).
+Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](classic/configure-availability-classic.md#addmachine).
 
 
 ## Next steps

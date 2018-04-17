@@ -16,7 +16,8 @@ ms.author: sajagtap
 
 This article provides information and code samples to help you get started using 
 the Content Moderator SDK for .NET to:
-- Detect potential profanity in text
+- Detect potential profanity in text with term-based filtering
+- Use machine-learning-based models to [classify the text](text-moderation-api.md#classification-preview) into three categories.
 - Detect personally identifiable information (PII) such as US and UK phone numbers, email addresses, and US mailing addresses.
 - Normalize text and autocorrect typos
 
@@ -45,7 +46,6 @@ Install the following NuGet packages:
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
-
 
 ### Update the program's using statements
 
@@ -80,8 +80,12 @@ Add the following static fields to the **Program** class in Program.cs.
 
 We used the following text to generate the output for this quickstart:
 
-	Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-	Crap is the profanity here. Is this information PII? phone 3144444444
+> [!NOTE]
+> The invalid social security number in the following sample text is intentional. The purpose is to convey the sample input and output format.
+
+	Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
+	These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 
+	0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
 
 ## Add code to load and evaluate the input text
 
@@ -97,14 +101,14 @@ Add the following code to the **Main** method.
     	// Create a Content Moderator client and evaluate the text.
     	using (var client = Clients.NewClient())
     	{
-        	// Screen the input text: check for profanity, 
-            // do autocorrect text, and check for personally identifying 
-            // information (PII)
-        	outputWriter.WriteLine("Normalize text and autocorrect typos.");
-        		var screenResult =
-            client.TextModeration.ScreenText("eng", "text/plain", text, true, false);
-        		outputWriter.WriteLine(
-            JsonConvert.SerializeObject(screenResult, Formatting.Indented));
+        	// Screen the input text: check for profanity, classify the text into three categories
+                // do autocorrect text, and check for personally identifying 
+                // information (PII)
+                outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
+                var screenResult =
+                	client.TextModeration.ScreenText("eng", "text/plain", text, true, true, null, true);
+                outputWriter.WriteLine(
+                        JsonConvert.SerializeObject(screenResult, Formatting.Indented));
     	}
     	outputWriter.Flush();
     	outputWriter.Close();
@@ -120,65 +124,89 @@ Add the following code to the **Main** method.
 
 The sample output for the program, as written to the log file, is:
 
-	Normalize text and autocorrect typos.
+	Autocorrect typos, check for matching terms, PII, and classify.
 	{
-		"OriginalText": "\"Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052. Crap is the profanity here. Is this information PII? phone 3144444444\"",
-		"NormalizedText": "\" Is this a garbage email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. Crap is the profanity here. Is this information PII? phone 3144444444\"",
-		"AutoCorrectedText": "\" Is this a garbage email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. Crap is the profanity here. Is this information PII? phone 3144444444\"",
-		"Misrepresentation": null,
-		"Classification": null,
-		"Status": {
-    		"Code": 3000,
-    		"Description": "OK",
-    		"Exception": null
-		},
-		"PII": {
-			"Email": [
-				{
-        			"Detected": "abcdef@abcd.com",
-        			"SubType": "Regular",
-        			"Text": "abcdef@abcd.com",
-        			"Index": 25
+	"OriginalText": "\"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).\"",
+  	"NormalizedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",
+  	"AutoCorrectedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",
+  	"Misrepresentation": null,
+  	
+	"Classification": {
+    		"Category1": {
+      		"Score": 1.5113095059859916E-06
+    		},
+    		"Category2": {
+      		"Score": 0.12747249007225037
+    		},
+    		"Category3": {
+      		"Score": 0.98799997568130493
+    		},
+    		"ReviewRecommended": true
+  	},
+  	"Status": {
+    	"Code": 3000,
+    	"Description": "OK",
+    	"Exception": null
+  	},
+  	"PII": {
+    		"Email": [
+      			{
+        		"Detected": "abcdef@abcd.com",
+        		"SubType": "Regular",
+        		"Text": "abcdef@abcd.com",
+        		"Index": 33
       			}
-    		],
-    	"IPA": [
-      		{
+    			],
+    		"IPA": [
+      			{
         		"SubType": "IPV4",
         		"Text": "255.255.255.255",
-        		"Index": 65
-      		}
-    		],
-    	"Phone": [
-      		{
+        		"Index": 73
+      			}
+    			],
+    		"Phone": [
+      			{
         		"CountryCode": "US",
         		"Text": "6657789887",
-        		"Index": 49
-      		},
-      		{
+        		"Index": 57
+      			},
+      			{
         		"CountryCode": "US",
-        		"Text": "3144444444",
-        		"Index": 177
-      		}
-    		],
-    		"Address": [
-      		{
-        		"Text": "1 Microsoft Way, Redmond, WA 98052",
-        		"Index": 82
-      		}
-    		]
-		},
-	"Language": "eng",
-	"Terms": [
-    {
-      "Index": 118,
-      "OriginalIndex": 118,
-      "ListId": 0,
-      "Term": "crap"
-    }
-	],
-	"TrackingId": "dd91ede4-de1c-4a8f-9f1e-56381696a527"
+        		"Text": "870 608 4000",
+        		"Index": 211
+      			},
+      			{
+        		"CountryCode": "UK",
+        		"Text": "+44 870 608 4000",
+        		"Index": 207
+      			},
+      			{
+        		"CountryCode": "UK",
+        		"Text": "0344 800 2400",
+        		"Index": 227
+      			},
+      			{
+        	"	CountryCode": "UK",
+        		"Text": "0800 820 3300",
+        		"Index": 244
+      			}
+    			],
+    		 "Address": [{
+     			 "Text": "1 Microsoft Way, Redmond, WA 98052",
+      			 "Index": 89
+    		        }]
+  		},
+  	"Language": "eng",
+  	"Terms": [
+    	{
+      		"Index": 22,
+      		"OriginalIndex": 22,
+      		"ListId": 0,
+      		"Term": "crap"
+    	}
+  	],
+  	"TrackingId": "9392c53c-d11a-441d-a874-eb2b93d978d3"
 	}
-
 
 ## Next steps
 

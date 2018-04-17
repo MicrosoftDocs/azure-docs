@@ -155,11 +155,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Adobe Creative Cloud Configuration](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
 	
-10. In a different web browser window, sign-on to your Adobe Creative Cloud tenant as an administrator.
+10. In a different web browser window, sign-in to [Adobe Admin Console](https://adminconsole.adobe.com) as an administrator.
 
-11. Go to **Identity** on the left navigation pane and click your domain. Then perform the following steps on **Single Sign On Configuration Required** section.
+11. Go to **Settings** on the top navigation bar and then choose **Identity**. The list of domains opens. Click **Configure** link against your domain. Then perform the following steps on **Single Sign On Configuration Required** section. For more information, see [Setup a domain](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 
-	![Settings](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "Settings")
+	![Settings](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "Settings")
 	
 	a. Click **Browse** to upload the downloaded certificate from Azure AD to **IDP Certificate**.
 	
@@ -174,8 +174,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	f. Click **Save** button.
 
 12. The dashboard will now present the XML **"Download Metadata"** file. It contains Adobe’s EntityDescriptor URL and AssertionConsumerService URL. Please open the file and configure them in the Azure AD application.
-
-	![Configure Single Sign-On On App Side](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_002.png)
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
@@ -224,11 +222,9 @@ In order to enable Azure AD users to log into Adobe Creative Cloud, they must be
 
 ### To provision a user accounts, perform the following steps:
 
-1. Log in to your Adobe Creative Cloud company site as an administrator.
+1. Sign in to [Adobe Admin Console](https://adminconsole.adobe.com) site as an administrator.
 
-2. Add the user within Adobe’s console as Federated ID and assign them to a group for entitlement
-
-	![The Adobe Creative Cloud link in the Applications list](./media/active-directory-saas-adobe-creative-cloud-tutorial/users.png)  
+2. Add the user within Adobe’s console as Federated ID and assign them to a Product Profile. For detailed information on adding users, see [Add users in Adobe Admin Console](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. At this point, type your email address/upn into the Adobe signin form, press tab, and you should be federated back to Azure AD:
 	* Web access: www.adobe.com > sign-in
@@ -276,6 +272,8 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Set up a domain (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+* [Configure Azure for use with Adobe SSO (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 
 <!--Image references-->
 

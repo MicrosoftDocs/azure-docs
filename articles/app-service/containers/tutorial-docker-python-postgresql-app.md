@@ -4,13 +4,13 @@ description: Learn how to get a Docker Python app working in Azure, with connect
 services: app-service\web
 documentationcenter: python
 author: berndverst
-manager: erikre
+manager: cfowler
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/29/2017
-ms.author: beverst
+ms.date: 01/28/2018
+ms.author: beverst;cephalin
 ms.custom: mvc
 ---
 # Build a Docker Python and PostgreSQL web app in Azure
@@ -19,8 +19,19 @@ Web App for Containers provides a highly scalable, self-patching web hosting ser
 
 ![Docker Python Flask app in App Service on Linux](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
-You can follow the steps below on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a PostgreSQL database in Azure
+> * Connect a Python app to PostgreSQL
+> * Deploy the app to Azure
+> * Update the data model and redeploy the app
+> * Manage the app in the Azure portal
+
+You can follow the steps in this article on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
  
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this tutorial:
@@ -30,18 +41,12 @@ To complete this tutorial:
 1. [Install and run PostgreSQL](https://www.postgresql.org/download/)
 1. [Install Docker Community Edition](https://www.docker.com/community-edition)
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
 ## Test local PostgreSQL installation and create a database
 
-Open the terminal window and run `psql postgres` to connect to your local PostgreSQL server.
+Open the terminal window and run `psql` to connect to your local PostgreSQL server.
 
 ```bash
-psql postgres
+sudo -u postgres psql
 ```
 
 If your connection is successful, your PostgreSQL database is running. If not, make sure that your local PostgresQL database is started by following the steps at [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
@@ -53,7 +58,7 @@ CREATE DATABASE eventregistration;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
-Type *\q* to exit the PostgreSQL client. 
+Type `\q` to exit the PostgreSQL client. 
 
 <a name="step2"></a>
 
@@ -78,7 +83,7 @@ This sample repository contains a [Flask](http://flask.pocoo.org/) application.
 ### Run the application
 
 > [!NOTE] 
-> In a later step you simplify this process by building a Docker container to use with the production database.
+> In a later step, you simplify this process by building a Docker container to use with the production database.
 
 Install the required packages and start the application.
 
@@ -102,7 +107,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Navigate to `http://127.0.0.1:5000` in a browser. Click **Register!** and create a test user.
+Navigate to `http://localhost:5000` in a browser. Click **Register!** and create a test user.
 
 ![Python Flask application running locally](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -110,40 +115,26 @@ The Flask sample application stores user data in the database. If you are succes
 
 To stop the Flask server at anytime, type Ctrl+C in the terminal. 
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## Create a production PostgreSQL database
 
 In this step, you create a PostgreSQL database in Azure. When your app is deployed to Azure, it uses this cloud database.
 
-### Log in to Azure
-
-You are now going to use the Azure CLI 2.0 to create the resources needed to host your Python application in Web App for Containers.  Log in to your Azure subscription with the [az login](/cli/azure/?view=azure-cli-latest#az_login) command and follow the on-screen directions.
-
-```azurecli
-az login
-```
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ### Create a resource group
 
-Create a [resource group](../../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
-
-[!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
-
-The following example creates a resource group in the West US region:
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West US"
-```
-
-Use the [az appservice list-locations](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) Azure CLI command to list available locations.
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### Create an Azure Database for PostgreSQL server
 
-Create a PostgreSQL server with the [az postgres server create](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) command.
+Create a PostgreSQL server with the [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) command.
 
 In the following command, substitute a unique server name for the *\<postgresql_name>* placeholder and a user name for the *\<admin_username>* placeholder. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure. The user name is for the initial database admin user account. You are prompted to pick a password for this user.
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>
+az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>  --storage-size 51200
 ```
 
 When the Azure Database for PostgreSQL server is created, the Azure CLI shows information similar to the following example:
@@ -174,19 +165,19 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
 
 ### Create a firewall rule for the Azure Database for PostgreSQL server
 
-Run the following Azure CLI command to allow access to the database from all IP addresses.
+Run the following Azure CLI command to allow access to the database from all IP addresses. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=255.255.255.255 --name AllowAllIPs
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs
 ```
 
 The Azure CLI confirms the firewall rule creation with output similar to the following example:
 
 ```json
 {
-  "endIpAddress": "255.255.255.255",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAllIPs",
-  "name": "AllowAllIPs",
+  "endIpAddress": "0.0.0.0",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAzureIPs",
+  "name": "AllowAzureIPs",
   "resourceGroup": "myResourceGroup",
   "startIpAddress": "0.0.0.0",
   "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
@@ -215,7 +206,7 @@ CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
 
-Type *\q* to exit the PostgreSQL client.
+Type `\q` to exit the PostgreSQL client.
 
 ### Test the application locally against the Azure PostgreSQL database
 
@@ -236,7 +227,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Navigate to http://127.0.0.1:5000 in a browser. Click **Register!** and create a test registration. You are now writing data to the database in Azure.
+Navigate to http://localhost:5000 in a browser. Click **Register!** and create a test registration. You are now writing data to the database in Azure.
 
 ![Python Flask application running locally](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -255,13 +246,13 @@ Docker displays a confirmation that it successfully created the container.
 Successfully built 7548f983a36b
 ```
 
-Add database environment variables to an environment variable file *db.env*. The app connects to the Azure Database for PostgreSQL production database.
+In the repository root, add an environment variable file called _db.env_, and then add the following database environment variables to it. The app connects to the Azure Database for PostgreSQL production database.
 
 ```text
-DBHOST="<postgresql_name>.postgres.database.azure.com"
-DBUSER="manager@<postgresql_name>"
-DBNAME="eventregistration"
-DBPASS="supersecretpass"
+DBHOST=<postgresql_name>.postgres.database.azure.com
+DBUSER=manager@<postgresql_name>
+DBNAME=eventregistration
+DBPASS=supersecretpass
 ```
 
 Run the app from within the Docker container. The following command specifies the environment variable file and maps the default Flask port 5000 to local port 5000.
@@ -347,8 +338,15 @@ You see two passwords. Make note of the user name and the first password.
 
 ### Upload your Docker container to Azure Container Registry
 
+Log in to your registry. When prompted, supply the password you retrieved.
+
 ```bash
-docker login <registry_name>.azurecr.io -u <registry_name> -p "<registry_password>"
+docker login <registry_name>.azurecr.io -u <registry_name>
+```
+
+Push your docker image to the registry.
+
+```bash
 docker tag flask-postgresql-sample <registry_name>.azurecr.io/flask-postgresql-sample
 docker push <registry_name>.azurecr.io/flask-postgresql-sample
 ```
@@ -359,64 +357,18 @@ In this step, you deploy your Docker container-based Python Flask application to
 
 ### Create an App Service plan
 
-Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
-
-[!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
-
-The following example creates a Linux-based App Service plan named *myAppServicePlan* using the S1 pricing tier:
-
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
-```
-
-When the App Service plan is created, the Azure CLI shows information similar to the following example:
-
-```json
-{
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "West US",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-  "kind": "linux",
-  "location": "West US",
-  "maximumNumberOfWorkers": 10,
-  "name": "myAppServicePlan",
-  "numberOfSites": 0,
-  "perSiteScaling": false,
-  "provisioningState": "Succeeded",
-  "reserved": true,
-  "resourceGroup": "myResourceGroup",
-  "sku": {
-    "capabilities": null,
-    "capacity": 1,
-    "family": "S",
-    "locations": null,
-    "name": "S1",
-    "size": "S1",
-    "skuCapacity": null,
-    "tier": "Standard"
-  },
-  "status": "Ready",
-  "subscription": "00000000-0000-0000-0000-000000000000",
-  "tags": null,
-  "targetWorkerCount": 0,
-  "targetWorkerSizeId": 0,
-  "type": "Microsoft.Web/serverfarms",
-  "workerTierName": null
-}
-```
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ### Create a web app
 
-Create a web app in the *myAppServicePlan* App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command.
+Create a web app in the *myAppServicePlan* App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command.
 
 The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use  to create the web app.
 
 In the following command, replace the *\<app_name>* placeholder with a unique app name. This name is part of the default URL for the web app, so the name needs to be unique across all apps in Azure App Service.
 
 ```azurecli
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-container-image-name "<registry_name>.azurecr.io/flask-postgresql-sample"
 ```
 
 When the web app has been created, the Azure CLI shows information similar to the following example:
@@ -440,7 +392,7 @@ When the web app has been created, the Azure CLI shows information similar to th
 
 Earlier in the tutorial, you defined environment variables to connect to your PostgreSQL database.
 
-In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command.
+In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command.
 
 The following example specifies the database connection details as app settings. It also uses the *PORT* variable to map PORT 5000 from your Docker Container to receive HTTP traffic on PORT 80.
 
@@ -453,7 +405,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 AppService can automatically download and run a Docker container.
 
 ```azurecli
-az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-custom-image-name "<registry_name>.azurecr.io/flask-postgresql-sample" --docker-registry-server-url "https://<registry_name>.azurecr.io"
+az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-registry-server-url "https://<registry_name>.azurecr.io"
 ```
 
 Whenever you update the Docker container or change the settings, restart the app. Restarting ensures that all settings are applied and the latest container is pulled from the registry.
@@ -498,7 +450,6 @@ git diff 0.1-initialapp 0.2-migration
 
 Run the following commands to test your changes locally by running the flask server.
 
-Mac / Linux:
 ```bash
 source venv/bin/activate
 cd app
@@ -506,7 +457,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Navigate to http://127.0.0.1:5000 in your browser to view the changes. Create a test registration.
+Navigate to http://localhost:5000 in your browser to view the changes. Create a test registration.
 
 ![Docker container-based Python Flask application running locally](./media/tutorial-docker-python-postgresql-app/local-app-v2.png)
 
@@ -515,6 +466,7 @@ Navigate to http://127.0.0.1:5000 in your browser to view the changes. Create a 
 Build the new docker image, push it to the container registry, and restart the app.
 
 ```bash
+cd ..
 docker build -t flask-postgresql-sample .
 docker tag flask-postgresql-sample <registry_name>.azurecr.io/flask-postgresql-sample
 docker push <registry_name>.azurecr.io/flask-postgresql-sample

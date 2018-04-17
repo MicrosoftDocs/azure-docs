@@ -4,15 +4,15 @@ description: Learn how to copy data from Phoenix to supported sink data stores b
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2017
 ms.author: jingwang
 
 ---
@@ -31,7 +31,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Phoenix connector.
 
@@ -47,7 +47,7 @@ The following properties are supported for Phoenix linked service:
 | httpPath | The partial URL corresponding to the Phoenix server. (that is, /gateway/sandbox/phoenix/version). The default value is `hbasephoenix` if using WindowsAzureHDInsightService.  | No |
 | authenticationType | The authentication mechanism used to connect to the Phoenix server. <br/>Allowed values are: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | username | The user name used to connect to the Phoenix server.  | No |
-| password | The password corresponding to the user name. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password corresponding to the user name. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using SSL. The default value is false.  | No |
 | trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.  | No |

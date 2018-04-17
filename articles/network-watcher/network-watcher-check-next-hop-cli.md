@@ -48,7 +48,7 @@ The scenario covered in this article uses Next Hop, a feature of Network Watcher
 
 To get the next hop we call the `az network watcher show-next-hop` cmdlet. We pass the cmdlet the Network Watcher resource group, the NetworkWatcher, virtual machine Id, source IP address, and destination IP address. In this example, the destination IP address is to a VM in another virtual network. There is a virtual network gateway between the two virtual networks.
 
-If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). Then run the following command:
+If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login). Then run the following command:
 
 ```azurecli
 az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>

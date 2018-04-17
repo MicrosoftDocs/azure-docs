@@ -3,9 +3,8 @@ title: Connect a MongoDB app to Azure Cosmos DB by using Node.js | Microsoft Doc
 description: Learn how to connect an existing Node.js MongoDB app to Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 
 ms.service: cosmos-db
@@ -15,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
-ms.author: mimig
+ms.author: sngun
 
 ---
 # Azure Cosmos DB: Migrate an existing Node.js MongoDB web app 
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to use an existing [MongoDB](mongodb-introduction.md) app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections. In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
+This quickstart demonstrates how to use an existing MongoDB app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections by using the [MongoDB API](mongodb-introduction.md). In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
 
 When you are done, you will have a MEAN application (MongoDB, Express, Angular, and Node.js) running on [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
@@ -43,13 +42,25 @@ You should have working knowledge of Node.js. This quickstart is not intended to
 
 ## Clone the sample application
 
-Open a git terminal window, such as git bash, and `cd` to a working directory.  
+Run the following commands to clone the sample repository. This sample repository contains the default [MEAN.js](http://meanjs.org/) application.
 
-Run the following commands to clone the sample repository. This sample repository contains the default [MEAN.js](http://meanjs.org/) application. 
+1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
-```bash
-git clone https://github.com/prashanthmadi/mean
-```
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
+
+    ```bash
+    git clone https://github.com/prashanthmadi/mean
+    ```
 
 ## Run the application
 
@@ -64,7 +75,7 @@ The application will try to connect to a MongoDB source and fail, go ahead and e
 
 ## Log in to Azure
 
-If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
+If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/reference-index#az_login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
 
 ```azurecli
 az login 
@@ -78,7 +89,7 @@ If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI 2.0]( /c
 
 ## Create a resource group
 
-Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
+Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#az_group_create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
 
 The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
 
@@ -90,7 +101,7 @@ az group create --name myResourceGroup --location "West Europe"
 
 ## Create an Azure Cosmos DB account
 
-Create an Azure Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb#create) command.
+Create an Azure Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command.
 
 In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<cosmosdb-name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb-name>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
 
@@ -230,10 +241,7 @@ git commit -m "configured MongoDB connection string"
 ```
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

@@ -3,8 +3,8 @@ title: Search with Azure Location Based Services | Microsoft Docs
 description: Search nearby point of interest using Azure Location Based Services
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
+author: kgremban
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: tutorial
 ms.service: location-based-services
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Search nearby point of interest using Azure Location Based Services
+# Search nearby points of interest using Azure Location Based Services
 
 This tutorial shows how to set up an account with Azure Location Based Services, and then use the provided APIs to search for a point of interest. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an account with Azure Location Based Services
-> * Get the subscription key for your account
-> * Create new web page using Map Control API
-> * Use Search Service to find nearby point of interest
+> * Know the primary key for your Azure Location Based Services account
+> * Create a new web page using the Map Control API
+> * Use Search Service to find a nearby point of interest
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-# Log in to the Azure portal
+## Log in to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com).
 
 <a id="createaccount"></a>
@@ -52,7 +52,7 @@ Follow these steps to create a new Location Based Services account.
 
 <a id="getkey"></a>
 
-## Get the subscription key for your account
+## Get the primary key for your account
 
 Once your Location Based Services account is successfully created, follow the steps to link it to its map search APIs:
 
@@ -110,16 +110,16 @@ Azure Map Control API is a convenient client library that allows you to easily i
     ``` 
     Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. Note the *script* segment added to the *body* of the HTML file. This segment will contain the inline JavaScript code to access the Azure Location Based Service's APIs.
  
-3.  Add the following JavaScript code to the *script* block of the HTML file. Replace the placeholder *<insert-key>* with your Location Based Services account's primary key. 
+3.  Add the following JavaScript code to the *script* block of the HTML file. Use the primary key from your Location Based Services account in the script. 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    This segment initiates the Map Control API for your subscription key. **Atlas** is the namespace that contains the Azure Map Control API and related visual components. **atlas.Map** provides the control for a visual and interactive web map. You may observe how the map looks like by opening the HTML page in the browser. 
+    This segment initiates the Map Control API for your Azure Location Based Services account key. **Atlas** is the namespace that contains the Azure Map Control API and related visual components. **atlas.Map** provides the control for a visual and interactive web map. You may observe how the map looks like by opening the HTML page in the browser. 
 
 4. Add the following JavaScript code to the *script* block, to add a layer of search pins to the Map Control:
 
@@ -190,7 +190,7 @@ This section shows how to use the Azure Location Based Services' Search Service 
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&lat=47.6292";
     url += "&lon=-122.2337";
     url += "&radius=100000";
@@ -198,7 +198,7 @@ This section shows how to use the Azure Location Based Services' Search Service 
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    This snippet uses the basic search API of the Search Service, called the **Fuzzy Search**. It handles the most fuzzy of inputs handling any combination of address or *POI* tokens. It searches for the nearby **gasoline station**, for the given address in latitude and longitude, and within the specified radius. It uses your account's subscription key provided earlier in the sample file, to make the call to the Location Based Services. It returns the results as latitude/longitude pairs for the locations found. You may observe the search pins by opening the HTML page in the browser. 
+    This snippet uses the basic search API of the Search Service, called the **Fuzzy Search**. It handles the most fuzzy of inputs handling any combination of address or *POI* tokens. It searches for the nearby **gasoline station**, for the given address in latitude and longitude, and within the specified radius. It uses your account's primary key provided earlier in the sample file, to make the call to the Location Based Services. It returns the results as latitude/longitude pairs for the locations found. You may observe the search pins by opening the HTML page in the browser. 
 
 3. Add the following lines to the *script* block, to create pop-ups for the points of interest returned by the Search Service:
 
@@ -241,7 +241,7 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create an account with Azure Location Based Services
-> * Get the subscription key for your account
+> * Get the primary key for your account
 > * Create new web page using Map Control API
 > * Use Search Service to find nearby point of interest
 

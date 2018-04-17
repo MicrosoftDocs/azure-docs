@@ -2,20 +2,12 @@
 title: Secure your Azure SQL database | Microsoft Docs
 description: Learn about techniques and features to secure your Azure SQL database.
 services: sql-database
-documentationcenter: ''
 author: DRediske
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
-ms.date: 06/28/2017
+ms.date: 04/01/2018
 ms.author: daredis
 
 ---
@@ -184,7 +176,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 5. Click **Save**.
 
 > [!IMPORTANT]
-> If you want to customize the audited events, you can do this via PowerShell or REST API - see [SQL database auditing](sql-database-auditing.md) for more details.
+> If you want to customize the audited events, you can do this via PowerShell or REST API - see [SQL database auditing](sql-database-auditing.md) for more information.
 >
 
 ## Enable SQL Database threat detection
@@ -213,7 +205,7 @@ For example, Threat Detection detects certain anomalous database activities indi
 
     ![Audit records](./media/sql-database-threat-detection-get-started/5_td_audit_records.png)
 
-7. Click on the audit records to view more details on the suspicious database activities such as SQL statement, failure reason and client IP.
+7. Click on the audit records to view more information on the suspicious database activities such as SQL statement, failure reason and client IP.
 
     ![Record details](./media/sql-database-security-tutorial/6_td_audit_record_details.png)
 

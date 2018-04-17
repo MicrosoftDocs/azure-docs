@@ -66,7 +66,7 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 * Add an OWIN Startup class to the TodoListService project called `Startup.cs`.  Right click on the project --> **Add** --> **New Item** --> Search for “OWIN”.  The OWIN middleware will invoke the `Configuration(…)` method when your app starts.
 * Change the class declaration to `public partial class Startup` - we’ve already implemented part of this class for you in another file.  In the `Configuration(…)` method, make a call to ConfgureAuth(…) to set up authentication for your web app.
 
-```C#
+```csharp
 public partial class Startup
 {
     public void Configuration(IAppBuilder app)
@@ -78,7 +78,7 @@ public partial class Startup
 
 * Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(…)` method, which will set up the Web API to accept tokens from the v2.0 endpoint.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
         var tvps = new TokenValidationParameters
@@ -115,7 +115,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 * Now you can use `[Authorize]` attributes to protect your controllers and actions with OAuth 2.0 bearer authentication.  Decorate the `Controllers\TodoListController.cs` class with an authorize tag.  This will force the user to sign in before accessing that page.
 
-```C#
+```csharp
 [Authorize]
 public class TodoListController : ApiController
 {
@@ -123,7 +123,7 @@ public class TodoListController : ApiController
 
 * When an authorized caller successfully invokes one of the `TodoListController` APIs, the action might need access to information about the caller.  OWIN provides access to the claims inside the bearer token via the `ClaimsPrincipal` object.  
 
-```C#
+```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the

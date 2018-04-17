@@ -3,8 +3,8 @@ title: Enable multi-tenancy in Azure Stack | Microsoft Docs
 description: Learn how to support multiple Azure Active Directory directories in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: HeathL17
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.service: azure-stack
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
+ms.date: 02/28/2018
+ms.author: mabrigg
 
 ---
 
@@ -57,10 +57,14 @@ $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
 ## Replace the value below with the guest tenant directory. 
 $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
 
+## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
+$ResourceGroupName = "system.local"
+
 Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
  -DirectoryTenantName $azureStackDirectoryTenant `
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
- -Location "local"
+ -Location "local" `
+ -ResourceGroupName $ResourceGroupName
 ````
 
 
@@ -79,13 +83,13 @@ $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
 
 Register-AzSWithMyDirectoryTenant `
  -TenantResourceManagerEndpoint $tenantARMEndpoint `
- -DirectoryTenantName $guestDirectoryTenantName ` 
+ -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
 ````
 ## Direct users to sign in
 Now that you and Mary have completed the steps to onboard Mary's directory, Mary can direct Fabrikam users to sign in.  Fabrikam users (that is, users with the fabrikam.onmicrosoft.com suffix) sign in by visiting https://portal.local.azurestack.external.  
 
-Mary will direct any [foreign principals](../active-directory/active-directory-understanding-resource-access.md) in the Fabrikam directory (that is, users in the Fabrikam directory without the suffix of fabrikam.onmicrosoft.com) to sign in using https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  If they do not use this URL, they are sent to their default directory (Fabrikam) and receive an error that says their admin has not consented.
+Mary will direct any [foreign principals](../role-based-access-control/rbac-and-directory-admin-roles.md) in the Fabrikam directory (that is, users in the Fabrikam directory without the suffix of fabrikam.onmicrosoft.com) to sign in using https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  If they do not use this URL, they are sent to their default directory (Fabrikam) and receive an error that says their admin has not consented.
 
 ## Next Steps
 

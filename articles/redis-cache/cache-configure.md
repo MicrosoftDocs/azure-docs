@@ -3,8 +3,8 @@ title: How to configure Azure Redis Cache | Microsoft Docs
 description: Understand the default Redis configuration for Azure Redis Cache and learn how to configure your Azure Redis Cache instances
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: sdanie
+ms.author: wesmc
 
 ---
 # How to configure Azure Redis Cache
-This topic describes how to review and update the configuration for your Azure Redis Cache instances, and covers the default Redis server configuration for Azure Redis Cache instances.
+This topic describes the configurations available for your Azure Redis Cache instances. This topic also covers the default Redis server configuration for Azure Redis Cache instances.
 
 > [!NOTE]
 > For more information on configuring and using premium cache features, see [How to configure persistence](cache-how-to-premium-persistence.md), [How to configure clustering](cache-how-to-premium-clustering.md), and [How to configure Virtual Network support](cache-how-to-premium-vnet.md).
@@ -76,7 +76,7 @@ Click **Activity log** to view actions performed on your cache. You can also use
 
 ### Access control (IAM)
 
-The **Access control (IAM)** section provides support for role-based access control (RBAC) in the Azure portal to help organizations meet their access management requirements simply and precisely. For more information, see [Role-based access control in the Azure portal](../active-directory/role-based-access-control-configure.md).
+The **Access control (IAM)** section provides support for role-based access control (RBAC) in the Azure portal. This configuration helps organizations meet their access management requirements simply and precisely. For more information, see [Role-based access control in the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ### Tags
 
@@ -133,7 +133,7 @@ The **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-r
 
 **Maxmemory policy** configures the eviction policy for the cache and allows you to choose from the following eviction policies:
 
-* `volatile-lru` - this is the default.
+* `volatile-lru` - This is the default eviction policy.
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
@@ -142,11 +142,11 @@ The **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-r
 
 For more information about `maxmemory` policies, see [Eviction policies](http://redis.io/topics/lru-cache#eviction-policies).
 
-The **maxmemory-reserved** setting configures the amount of memory in MB that is reserved for non-cache operations such as replication during failover. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that are write heavy. When memory is reserved for such operations, it is unavailable for storage of cached data.
+The **maxmemory-reserved** setting configures the amount of memory, in MB, that is reserved for non-cache operations, such as replication during failover. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that are write heavy. When memory is reserved for such operations, it is unavailable for storage of cached data.
 
-The **maxfragmentationmemory-reserved** setting configures the amount of memory in MB that is reserved to accommodate for memory fragmentation. Setting this value allows you to have a more consistent Redis server experience when the cache is full or close to full and the fragmentation ratio is also high. When memory is reserved for such operations, it is unavailable for storage of cached data.
+The **maxfragmentationmemory-reserved** setting configures the amount of memory in MB that is reserved to accommodate for memory fragmentation. Setting this value allows you to have a more consistent Redis server experience when the cache is full or close to full and the fragmentation ratio is high. When memory is reserved for such operations, it is unavailable for storage of cached data.
 
-One thing to consider when choosing a new memory reservation value (**maxmemory-reserved** or **maxfragmentationmemory-reserved**) is how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53 GB cache with 49 GB of data, then change the reservation value to 8 GB, this will drop the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system will have to evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Available metrics and reporting intervals](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+One thing to consider when choosing a new memory reservation value (**maxmemory-reserved** or **maxfragmentationmemory-reserved**) is how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53 GB cache with 49 GB of data, then change the reservation value to 8 GB, this change will drop the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system will have to evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Available metrics and reporting intervals](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 > [!IMPORTANT]
 > The **maxmemory-reserved** and **maxfragmentationmemory-reserved** settings are only available for Standard and Premium caches.
@@ -266,16 +266,16 @@ The **Virtual Network** section allows you to configure the virtual network sett
 
 ### Firewall
 
-Click **Firewall** to view and configure firewall rules for your Premium Azure Redis Cache.
+Firewall rules configuration is available for all Azure Redis Cache tiers.
+
+Click **Firewall** to view and configure firewall rules for cache.
 
 ![Firewall](./media/cache-configure/redis-firewall-rules.png)
 
-You can specify firewall rules with a start and end IP address range. When firewall rules are configured, only client connections from the specified IP address ranges can connect to the cache. When a firewall rule is saved there is a short delay before the rule is effective. This delay is typically less than one minute.
+You can specify firewall rules with a start and end IP address range. When firewall rules are configured, only client connections from the specified IP address ranges can connect to the cache. When a firewall rule is saved, there is a short delay before the rule is effective. This delay is typically less than one minute.
 
 > [!IMPORTANT]
 > Connections from Azure Redis Cache monitoring systems are always permitted, even if firewall rules are configured.
-> 
-> Firewall rules are only available for Premium tier caches.
 > 
 > 
 
@@ -381,10 +381,10 @@ Click **New support request** to open a support request for your cache.
 
 
 ## Default Redis server configuration
-New Azure Redis Cache instances are configured with the following default Redis configuration values.
+New Azure Redis Cache instances are configured with the following default Redis configuration values:
 
 > [!NOTE]
-> The settings in this section cannot be changed using the `StackExchange.Redis.IServer.ConfigSet` method. If this method is called with one of the commands in this section, an exception similar to the following is thrown:  
+> The settings in this section cannot be changed using the `StackExchange.Redis.IServer.ConfigSet` method. If this method is called with one of the commands in this section, an exception similar to the following example is thrown:  
 > 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 > 
@@ -395,7 +395,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 | Setting | Default value | Description |
 | --- | --- | --- |
 | `databases` |16 |The default number of databases is 16 but you can configure a different number based on the pricing tier.<sup>1</sup> The default database is DB 0, you can select a different one on a per-connection basis using `connection.GetDatabase(dbid)` where `dbid` is a number between `0` and `databases - 1`. |
-| `maxclients` |Depends on the pricing tier<sup>2</sup> |This is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis closes all the new connections, returning a 'max number of clients reached' error. |
+| `maxclients` |Depends on the pricing tier<sup>2</sup> |This value is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis closes all the new connections, returning a 'max number of clients reached' error. |
 | `maxmemory-policy` |`volatile-lru` |Maxmemory policy is the setting for how Redis selects what to remove when `maxmemory` (the size of the cache offering you selected when you created the cache) is reached. With Azure Redis Cache the default setting is `volatile-lru`, which removes the keys with an expiration set using an LRU algorithm. This setting can be configured in the Azure portal. For more information, see [Memory policies](#memory-policies). |
 | `maxmemory-samples` |3 |To save memory, LRU and minimal TTL algorithms are approximated algorithms instead of precise algorithms. By default Redis checks three keys and picks the one that was used less recently. |
 | `lua-time-limit` |5,000 |Max execution time of a Lua script in milliseconds. If the maximum execution time is reached, Redis logs that a script is still in execution after the maximum allowed time, and starts to reply to queries with an error. |
@@ -493,7 +493,7 @@ When using the Redis Console with a premium clustered cache, you can issue comma
 
 ![Redis console](./media/cache-configure/redis-console-premium-cluster.png)
 
-If you attempt to access a key that is stored in a different shard than the connected shard, you receive an error message similar to the following message.
+If you attempt to access a key that is stored in a different shard than the connected shard, you receive an error message similar to the following message:
 
 ```
 shard1>get myKey

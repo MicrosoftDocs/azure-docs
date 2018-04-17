@@ -1,10 +1,11 @@
-- name: Azure IoT Edge documentation
+- name: Azure IoT Edge Documentation
   href: index.yml
 - name: Overview
   items:
   - name: About Azure IoT Edge
     href: how-iot-edge-works.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Deploy to the edge - Linux/Mac
     href: quickstart-linux.md
@@ -16,8 +17,12 @@
     href: tutorial-simulate-device-linux.md
   - name: Simulate an Edge device - Windows
     href: tutorial-simulate-device-windows.md
-  - name: Develop a C# module
-    href: tutorial-csharp-module.md
+  - name: Deploy code in a module
+    items:
+    - name: C#
+      href: tutorial-csharp-module.md
+    - name: Python
+      href: tutorial-python-module.md
   - name: Deploy Azure Stream Analytics
     href: tutorial-deploy-stream-analytics.md
   - name: Deploy Azure Machine Learning
@@ -32,20 +37,22 @@
       href: how-to-create-transparent-gateway.md
     - name: Modbus gateway
       href: deploy-modbus-gateway.md
+  - name: Use the IoT extension for Azure CLI 2.0
+    href: tutorial-create-deployment-with-cli-iot-extension.md
   - name: Deploy and monitor at scale
     href: how-to-deploy-monitor.md
   - name: Provision an IoT Core device
     href: how-to-install-iot-core.md
   - name: Use VS Code to develop IoT Edge solutions
     items:
-      - name: Develop and deploy C# module
-        href: how-to-vscode-develop-csharp-module.md
+      - name: Work with multiple modules
+        href: tutorial-multiple-modules-in-vscode.md
       - name: Debug C# module
         href: how-to-vscode-debug-csharp-module.md
-      - name: Develop and deploy Azure Functions
-        href: how-to-vscode-develop-azure-function.md
       - name: Debug Azure Functions
         href: how-to-vscode-debug-azure-function.md
+  - name: Store data at the edge
+    href: sql-storage.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Concepts
@@ -57,6 +64,8 @@
       href: module-development.md
     - name: Composition
       href: module-composition.md
+    - name: Edge agent and hub properties
+      href: module-edgeagent-edgehub.md
   - name: IoT Edge runtime
     href: iot-edge-runtime.md
   - name: Deployments
@@ -84,7 +93,7 @@
   - name: Learning path
     href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/iot-hub/
   - name: Pricing calculator

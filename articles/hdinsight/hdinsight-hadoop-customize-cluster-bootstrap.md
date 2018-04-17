@@ -11,10 +11,8 @@ tags: azure-portal
 ms.assetid: ab2ebf0c-e961-4e95-8151-9724ee22d769
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
 
@@ -83,7 +81,7 @@ A complete working PowerShell script can be found in [Appendix](#appendix-powers
 **To verify the change:**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. From the left menu, click **HDInsight clusters**. If you don't see it, click **More services** first.
+2. From the left menu, click **HDInsight clusters**. If you don't see it, click **All services** first.
 3. Click the cluster you just created using the PowerShell script.
 4. Click **Dashboard** from the top of the blade to open the Ambari UI.
 5. Click **Hive** from the left menu.

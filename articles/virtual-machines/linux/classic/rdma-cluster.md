@@ -4,7 +4,7 @@ description: Create a Linux cluster of size H16r, H16mr, A8, or A9 VMs to use th
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -148,7 +148,7 @@ To capture the image, first run the following command on the Linux VM. This comm
 sudo waagent -deprovision
 ```
 
-From your client computer, run the following Azure CLI commands to capture the image. For more information, see [How to capture a classic Linux virtual machine as an image](capture-image.md).  
+From your client computer, run the following Azure CLI commands to capture the image. For more information, see [How to capture a classic Linux virtual machine as an image](capture-image-classic.md).  
 
 ```
 azure vm shutdown <vm-name>

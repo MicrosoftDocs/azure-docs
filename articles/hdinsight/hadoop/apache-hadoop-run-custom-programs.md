@@ -12,8 +12,6 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
 
@@ -74,7 +72,7 @@ The most common MapReduce programs are written in Java and compiled to a jar fil
 
     This command submits the MapReduce job to YARN. The input file is `/example/data/sample.log`, and the output directory is `/example/data/logoutput`. The input file and any output files are stored to the default storage for the cluster.
 
-## See also
+## Next steps
 
 * [Use C# with MapReduce streaming on Hadoop in HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [Develop Java MapReduce programs for Hadoop on HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

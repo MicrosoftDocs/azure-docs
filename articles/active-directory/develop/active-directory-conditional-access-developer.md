@@ -105,7 +105,7 @@ The claims challenge is inside the ```WWW-Authenticate``` header, which can be p
 
 The ```WWW-Authenticate``` header does have a unique structure and is not trivial to parse in order to extract values.  Here's a short method to help.
 
-```C#
+```csharp
         /// <summary>
         /// This method extracts the claims value from the 403 error response from MS Graph. 
         /// </summary>

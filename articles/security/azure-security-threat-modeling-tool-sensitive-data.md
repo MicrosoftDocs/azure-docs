@@ -94,7 +94,7 @@ ms.author: rodsan
 
 ### Example
 This may be implemented through a filter. Following example may be used: 
-```C#
+```csharp
 public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (filterContext == null || (filterContext.HttpContext != null && filterContext.HttpContext.Response != null && filterContext.HttpContext.Response.IsRequestBeingRedirected))
@@ -142,7 +142,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Steps** | The autocomplete attribute specifies whether a form should have autocomplete on or off. When autocomplete is on, the browser automatically complete values based on values that the user has entered before. For example, when a new name and password is entered in a form and the form is submitted, the browser asks if the password should be saved.Thereafter when the form is displayed, the name and password are filled in automatically or are completed as the name is entered. An attacker with local access could obtain the clear text password from the browser cache. By default autocomplete is enabled, and it must explicitly be disabled. |
 
 ### Example
-```C#
+```csharp
 <form action="Login.aspx" method="post " autocomplete="off" >
       Social Security Number: <input type="text" name="ssn" />
       <input type="submit" value="Submit" />    
@@ -351,7 +351,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ### Example
 Intune can be configured with following security policies to safeguard sensitive data: 
-```C#
+```csharp
 Require encryption on mobile device    
 Require encryption on storage cards
 Allow screen capture
@@ -359,7 +359,7 @@ Allow screen capture
 
 ### Example
 If the application is not an enterprise application, then use platform provided keystore, keychains to store encryption keys, using which cryptographic operation may be performed on the file system. Following code snippet shows how to access key from keychain using xamarin: 
-```C#
+```csharp
         protected static string EncryptionKey
         {
             get

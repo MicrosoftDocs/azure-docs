@@ -33,8 +33,7 @@ An Azure storage account provides storage for the operating system disk and any 
 ## Which virtual hard disk types can I use?
 Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDX that you want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.
 
-* For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-* For Windows instructions, see [Create and upload a Windows Server VHD to Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## Are these virtual machines the same as Hyper-V virtual machines?
 In many ways they’re similar to “Generation 1” Hyper-V VMs, but they’re not exactly the same. Both types provide virtualized hardware, and the VHD-format virtual hard disks are compatible. This means you can move them between Hyper-V and Azure. Three key differences that sometimes surprise Hyper-V users are:

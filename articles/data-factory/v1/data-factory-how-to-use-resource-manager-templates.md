@@ -4,7 +4,7 @@ description: Learn how to create and use Azure Resource Manager templates to cre
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.assetid: 37724021-f55f-4e85-9206-6d4a48bda3d8
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 
 robots: noindex

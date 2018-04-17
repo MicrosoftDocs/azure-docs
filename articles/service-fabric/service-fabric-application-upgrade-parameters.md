@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
 
 ---
@@ -49,7 +49,7 @@ The health evaluation criteria are optional. If the health evaluation criteria a
 | MaxPercentUnhealthyServices |Default and recommended value is 0. Specify the maximum number of services in the application instance that can be unhealthy before the application is considered unhealthy and fails the upgrade. |
 | MaxPercentUnhealthyPartitionsPerService |Default and recommended value is 0. Specify the maximum number of partitions in a service that can be unhealthy before the service is considered unhealthy. |
 | MaxPercentUnhealthyReplicasPerPartition |Default and recommended value is 0. Specify the maximum number of replicas in partition that can be unhealthy before the partition is considered unhealthy. |
-| UpgradeReplicaSetCheckTimeout |**Stateless service**--Within a single upgrade domain, Service Fabric tries to ensure that additional instances of the service are available. If the target instance count is more than one, Service Fabric waits for more than one instance to be available, up to a maximum time-out value. This time-out is specified by using the UpgradeReplicaSetCheckTimeout property. If the time-out expires, Service Fabric proceeds with the upgrade, regardless of the number of service instances. If the target instance count is one, Service Fabric does not wait, and immediately proceeds with the upgrade. **Stateful service**--Within a single upgrade domain, Service Fabric tries to ensure that the replica set has a quorum. Service Fabric waits for a quorum to be available, up to a maximum time-out value (specified by the UpgradeReplicaSetCheckTimeout property). If the time-out expires, Service Fabric proceeds with the upgrade, regardless of quorum. This setting is set as never (infinite) when rolling forward, and 900 seconds when rolling back. |
+| UpgradeReplicaSetCheckTimeout |<p>**Stateless service**--Within a single upgrade domain, Service Fabric tries to ensure that additional instances of the service are available. If the target instance count is more than one, Service Fabric waits for more than one instance to be available, up to a maximum time-out value. This time-out is specified by using the UpgradeReplicaSetCheckTimeout property. If the time-out expires, Service Fabric proceeds with the upgrade, regardless of the number of service instances. If the target instance count is one, Service Fabric does not wait, and immediately proceeds with the upgrade.</p><p>**Stateful service**--Within a single upgrade domain, Service Fabric tries to ensure that the replica set has a quorum. Service Fabric waits for a quorum to be available, up to a maximum time-out value (specified by the UpgradeReplicaSetCheckTimeout property). If the time-out expires, Service Fabric proceeds with the upgrade, regardless of quorum. This setting is set as never (infinite) when rolling forward, and 1200 seconds when rolling back.</p> |
 | ForceRestart |If you update a configuration or data package without updating the service code, the service is restarted only if the ForceRestart property is set to true. When the update is complete, Service Fabric notifies the service that a new configuration package or data package is available. The service is responsible for applying the changes. If necessary, the service can restart itself. |
 
 <br>

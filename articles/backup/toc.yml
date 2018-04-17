@@ -79,11 +79,17 @@
         href: backup-mabs-system-state-and-bmr.md
     - name: Recover data from Azure Backup Server
       href: backup-azure-alternate-dpm-server.md
+  - name: Azure File shares
+    items:
+    - name: Back up Azure File shares
+      href: backup-azure-files.md
+    - name: Back up Azure File shares FAQ
+      href: backup-azure-files-faq.md
   - name: Azure VMs
     items:
     - name: Prepare the VM
       items:
-      - name: Prepare Resource Manager-deployed virtual machines
+      - name: Prepare Resource Manager-deployed VMs
         href: backup-azure-arm-vms-prepare.md
       - name: Application consistent backups of Linux VMs
         href: backup-azure-linux-app-consistent.md
@@ -93,23 +99,27 @@
         href: backup-azure-vms-introduction.md
     - name: Back up VMs
       items:
-      - name: Back up Azure virtual machines to a Recovery Services vault
+      - name: Back up Azure VMs to Recovery Services vault
         href: backup-azure-arm-vms.md
-      - name: Back up encrypted virtual machines
+      - name: Back up encrypted VMs
         href: backup-azure-vms-encryption.md
+      - name: Enable VM backup during VM creation
+        href: backup-during-vm-creation.md
+      - name: Upgrade to VM backup stack V2
+        href: backup-upgrade-to-vm-backup-stack-v2.md
     - name: Manage and monitor VMs
       items:
       - name: Manage Azure VM backups in Azure portal
         href: backup-azure-manage-vms.md
-      - name: Monitor alerts for Azure VM backups in Azure portal
+      - name: Monitor alerts for Azure VM backups
         href: backup-azure-monitor-vms.md
     - name: Restore data from VMs
       items:
       - name: Recover files from Azure VM backups
         href: backup-azure-restore-files-from-vm.md
-      - name: Restore Resource Manager-deployed VMs in Azure portal
+      - name: Restore VMs in Azure portal
         href: backup-azure-arm-restore-vms.md
-      - name: Restore encrypted virtual machines
+      - name: Restore encrypted VMs
         href: backup-azure-vms-encryption.md
       - name: Restore Key Vault key and secret for encrypted VMs
         href: backup-azure-restore-key-secret.md
@@ -125,9 +135,9 @@
     items:
     - name: Prepare DPM workloads in Azure portal
       href: backup-azure-dpm-introduction.md
-    - name: Use System Center DPM to back up Exchange server
+    - name: Use DPM to back up Exchange server
       href: backup-azure-backup-exchange-server.md
-    - name: Recover data to an alternate DPM server
+    - name: Recover data to alternate DPM server
       href: backup-azure-alternate-dpm-server.md
     - name: Use DPM to back up SQL Server workloads
       href: backup-azure-backup-sql.md
@@ -143,14 +153,10 @@
       href: backup-client-automation.md
   - name: Azure SQL Database
     items:
-    - name: Configure long-term backup retention
-      href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-    - name: View backups in a Recovery Services vault
-      href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
-    - name: Restore from long-term backup retention
-      href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-    - name: Delete long-term Azure SQL backups
-      href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+    - name: Configure and restore SQL Database backups - SQL storage
+      href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
+    - name: Configure and restore SQL Database backups - Recovery Services vault
+      href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
   - name: Windows Server
     items:
     - name: Back up Windows Server files and folders
@@ -173,22 +179,32 @@
       href: backup-azure-delete-vault.md
   - name: Troubleshoot
     items:
-    - name: Azure VM backup problems in Azure portal
+    - name: Azure VM
       href: backup-azure-vms-troubleshoot.md
-    - name: 'Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out'
+    - name: Azure Backup agent or VM extension timed out
       href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-    - name: Slow backup of files and folders in Azure Backup
+    - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-    - name: Troubleshoot Azure Backup Server
+    - name: Azure Backup Server
       href: backup-azure-mabs-troubleshoot.md
-    - name: Troubleshoot Azure Backup Agent
+    - name: System Center DPM
+      href: backup-azure-scdpm-troubleshooting.md
+    - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
+    - name: Azure File share
+      href: troubleshoot-azure-files.md
 - name: Reference
   items:
-  - name: Azure PowerShell
-    href: /powershell/module/azurerm.recoveryservices.backup
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+  - name: Azure CLI 2.0
+    href: /cli/azure/backup?view=azure-cli-latest
+  - name: PowerShell
+    href: /powershell/module/azurerm.recoveryservices.backup
+  - name: REST - Backup
+    href: /rest/api/backup/
+  - name: REST - Recovery Services vault
+    href: /rest/api/recoveryservices/
 - name: Resources
   items:
   - name: Azure Roadmap

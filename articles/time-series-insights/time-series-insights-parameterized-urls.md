@@ -58,14 +58,16 @@ Accepted values correspond to the Time Series Insights explorer **quick time** m
 
 The `timeSeriesDefinitions=<collection of term objects>` parameter specifies the terms of a Time Series Insights view, where:
 
-- `name=<string>`
+- "name":"<string>"
   - The name of the *term*.
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - The column name to *split by*.
-- `measureName=<string>`
+- "measureName":"<string>"
   - The column name of *measure*.
-- `predicate=<string>`
+- "predicate":"<string>"
   - The *where* clause for server-side filtering.
+-  "useSum":"true"
+  - This is an optional parameter that specifies using sum for your measure.  Note, if "Events" is the selected measure, count is selected by default.  If "Events" is not selected, average is selected by default.  
 
 The 'multiChartStack=<true/false>' parameter enables stacking in the chart and the 'multiChartSameScale=<true/false>' parameter enables the same Y-axis scale across terms within an optional parameter.  
 

@@ -2,7 +2,7 @@
 title: Supported countries and languages for Bing Image Search API on Azure | Microsoft Docs
 description: Find out which countries and languages are supported by the Bing Image Search API.
 services: cognitive-services
-author: jerrykindall
+author: v-jerkin
 manager: jhubbard
 
 ms.service: cognitive-services

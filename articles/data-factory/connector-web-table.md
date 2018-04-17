@@ -4,8 +4,8 @@ description: Learn about Web Table Connector of Azure Data Factory that lets you
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -38,7 +38,7 @@ To use this Web table connector, you need to set up a Self-hosted Integration Ru
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Web table connector.
 
@@ -140,6 +140,8 @@ To copy data from Web table, set the source type in the copy activity to **WebSo
 ```
 
 ## Get index of a table in an HTML page
+
+To get the index of a table which you need to configure in [dataset properties](#dataset-properties), you can use e.g. Excel 2016 as the tool as follows:
 
 1. Launch **Excel 2016** and switch to the **Data** tab.
 2. Click **New Query** on the toolbar, point to **From Other Sources** and click **From Web**.

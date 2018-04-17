@@ -50,6 +50,8 @@ The command to enable flow logs is shown in the following example:
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
+The storage account that you specify cannot have network rules configured for it that restrict network access to only Microsoft services or specific virtual networks.
+
 ## Disable Network Security Group Flow logs
 
 Use the following example to disable flow logs:

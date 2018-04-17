@@ -3,7 +3,7 @@ title: Add the Yammer Connector in your Azure Logic Apps | Microsoft Docs
 description: Overview of the Yammer Connector with REST API parameters
 services: logic-apps
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the Yammer connector
@@ -25,7 +25,7 @@ Connect to Yammer to access conversations in your enterprise network. With Yamme
 * Use triggers for when there is a new message in a group, or a feed your following.
 * Use actions to post a message, get all messages, and more. These actions get a response, and then make the output available for other actions. For example, when a new message appears, you can send an email using Office 365.
 
-Get started by creating a logic app now; see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+Get started by creating a logic app now; see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to Yammer
 To use the Yammer connector, you first create a **connection** then provide the details for these properties: 

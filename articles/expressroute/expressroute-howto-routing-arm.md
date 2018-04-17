@@ -58,8 +58,6 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 ### To create Microsoft peering
 
-[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
-
 1. Import the PowerShell module for ExpressRoute.
 
   You must install the latest PowerShell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
@@ -290,7 +288,7 @@ You can get configuration details by using the following example:
 ```powershell
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
+Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="updateprivate"></a>To update Azure private peering configuration

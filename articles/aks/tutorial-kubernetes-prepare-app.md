@@ -7,12 +7,12 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Prepare application for Azure Container Service (AKS)
+# Tutorial: Prepare application for Azure Container Service (AKS)
 
 In this tutorial, part one of eight, a multi-container application is prepared for use in Kubernetes. Steps completed include:  
 

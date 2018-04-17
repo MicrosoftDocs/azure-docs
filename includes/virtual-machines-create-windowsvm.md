@@ -1,6 +1,18 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: cynthn
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 03/09/2018
+ ms.author: cynthn
+ ms.custom: include file
+---
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Starting in the upper left, click **New > Compute > Windows Server 2016 Datacenter**.
+2. Starting in the upper left, click **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
 
     ![Navigate to the Azure VM images in the portal](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 

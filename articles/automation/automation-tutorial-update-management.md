@@ -1,19 +1,11 @@
 ---
-title: Manage updates and patches for your Azure Windows VMs | Microsoft Docs
+title: Manage updates and patches for your Azure Windows VMs
 description: This article provides an overview of how to use Azure Automation - Update management to manage updates and patches for your Azure Windows VMs.
 services: automation
-documentationcenter: ''
 author: zjalexander
-manager: jwhit
-editor: ''
-
-ms.assetid:
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
 ---
@@ -59,16 +51,12 @@ A [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fauto
 The workspace provides a single location to review and analyze data from multiple sources.
 To perform additional actions on VMs that require updates, Azure Automation allows you to run runbooks against VMs, such as download and apply updates.
 
-The validation process also checks to see if the VM is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker.
-This agent is used to communicate with the VM and obtain information about the update status.
 The validation process also checks to see if the VM is provisioned with the Microsoft Monitoring Agent (MMA) and Automation hybrid runbook worker.
+This agent is used to communicate with the VM and obtain information about the update status.
 
-If these prerequisites aren't met, a banner appears that gives you the option to enable the solution.
+Choose the Log analytics workspace and automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
-![Update Management onboard configuration banner](./media/automation-tutorial-update-management/manageupdates-onboard-solution-banner.png)
-
-To enable the solution, click the banner.
-If any of the following prerequisites were found to be missing after the validation, they're automatically added:
+If any of the following prerequisites were found to be missing during onboarding, they're automatically added:
 
 * [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) workspace
 * [Automation](./automation-offering-get-started.md)

@@ -4,7 +4,7 @@ description: Azure Virtual Machine Agent Overview
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -20,7 +20,7 @@ ms.author: danis
 ---
 # Azure Virtual Machine Agent overview
 
-The Microsoft Azure Virtual Machine Agent (AM Agent) is a secured, lightweight process that manages VM interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions. VM Extensions enabling post deployment configuration of virtual machines, such as installing and configuring software. Virtual machine extensions also enable recovery features such as resetting the administrative password of a virtual machine. Without the Azure VM Agent, virtual machine extensions cannot be run.
+The Microsoft Azure Virtual Machine Agent (VM Agent) is a secured, lightweight process that manages VM interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions. VM Extensions enabling post deployment configuration of virtual machines, such as installing and configuring software. Virtual machine extensions also enable recovery features such as resetting the administrative password of a virtual machine. Without the Azure VM Agent, virtual machine extensions cannot be run.
 
 This document details installation, detection, and removal of the Azure Virtual Machine Agent.
 

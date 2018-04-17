@@ -3,7 +3,7 @@ title: Filtering and preprocessing in the Azure Application Insights SDK | Micro
 description: Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 services: application-insights
 documentationcenter: ''
-author: beckylino
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: borooji;mbullwin
+ms.author: mbullwin; borooji
 
 ---
 # Filtering and preprocessing telemetry in the Application Insights SDK
@@ -119,7 +119,7 @@ You can pass string values from the .config file by providing public named prope
 
 **Alternatively,** you can initialize the filter in code. In a suitable initialization class - for example AppStart in Global.asax.cs - insert your processor into the chain:
 
-```C#
+```csharp
 
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -163,7 +163,7 @@ Filter out bots and web tests. Although Metrics Explorer gives you the option to
 #### Failed authentication
 Filter out requests with a "401" response.
 
-```C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -215,13 +215,13 @@ Use telemetry initializers to define global properties that are sent with all te
 
 For example, the Application Insights for Web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code >= 400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the Success property.
 
-If you provide a telemetry initializer, it is called whenever any of the Track*() methods is called. This includes methods called by the standard telemetry modules. By convention, these modules do not set any property that has already been set by an initializer.
+If you provide a telemetry initializer, it is called whenever any of the Track*() methods are called. This includes methods called by the standard telemetry modules. By convention, these modules do not set any property that has already been set by an initializer.
 
 **Define your initializer**
 
 *C#*
 
-```C#
+```csharp
 
     using System;
     using Microsoft.ApplicationInsights.Channel;
@@ -272,7 +272,7 @@ In ApplicationInsights.config:
 
 *Alternatively,* you can instantiate the initializer in code, for example in Global.aspx.cs:
 
-```C#
+```csharp
     protected void Application_Start()
     {
         // ...

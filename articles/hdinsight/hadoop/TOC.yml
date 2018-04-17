@@ -4,6 +4,9 @@
   items:
   - name: Overview
     href: apache-hadoop-introduction.md
+  - name: Hadoop architecture in HDInsight
+    href: ../hdinsight-hadoop-architecture.md
+    maintainContext: true
   - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
@@ -38,7 +41,7 @@
         href: apache-hadoop-use-hive-ambari-view.md
       - name: Use Beeline
         href: apache-hadoop-use-hive-beeline.md
-      - name: Use cURL
+      - name: Use REST API
         href: apache-hadoop-use-hive-curl.md
       - name: Use Azure PowerShell
         href: apache-hadoop-use-hive-powershell.md
@@ -153,6 +156,12 @@
       maintainContext: true
     - name: Advanced analytics for HDInsight
       href: apache-hadoop-deep-dive-advanced-analytics.md
+    - name: Machine learning in HDInsight
+      href: ../hdinsight-machine-learning-overview.md
+      maintainContext: true
+    - name: Streaming at scale in HDInsight
+      href: ../hdinsight-streaming-at-scale-overview.md
+      maintainContext: true
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap
@@ -197,6 +206,21 @@
         href: https://msdn.microsoft.com/library/mt706515.aspx
       - name: Publish HDInsight apps to Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
+        maintainContext: true
+      - name: Install published app - Cask Data Application Platform (CDAP)
+        href: ../hdinsight-apps-install-cask.md
+        maintainContext: true
+      - name: Install published app - Dataiku
+        href: ../hdinsight-apps-install-dataiku.md
+        maintainContext: true
+      - name: Install published app - Datameer
+        href: ../hdinsight-apps-install-datameer.md
+        maintainContext: true
+      - name: Install published app - H2O
+        href: ../hdinsight-apps-install-h2o.md
+        maintainContext: true
+      - name: Install published app - Streamsets
+        href: ../hdinsight-apps-install-streamsets.md
         maintainContext: true
   - name: Secure
     items:
@@ -262,6 +286,12 @@
       - name: Use Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+    - name: Scale an HDInsight cluster
+      href: ../hdinsight-scaling-best-practices.md
+      maintainContext: true
+    - name: Use external metadata stores
+      href: ../hdinsight-use-external-metadata-stores.md
+      maintainContext: true      
     - name: Manage logs for an HDInsight cluster
       href: ../hdinsight-log-management.md
       maintainContext: true

@@ -12,10 +12,8 @@ ms.assetid: fa11d49a-328c-47e7-b16d-e7ed2a453195
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/08/2017
+ms.topic: conceptual
+ms.date: 01/29/2018
 ms.author: larryfr
 
 ---
@@ -67,7 +65,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
     using Microsoft.Azure.Management.HDInsight.Job.Models;
     using Hyak.Common;
 
-    namespace SubmitHDInsightJobDotNet
+    namespace SubmitPigJob
     {
         class Program
         {

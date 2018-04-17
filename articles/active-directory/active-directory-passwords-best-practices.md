@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
+ms.custom: it-pro;seohack1
 
 ---
 # How to successfully roll out self-service password reset
@@ -45,7 +45,7 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
 
 ## Email-based rollout
 
-Many customers find that the easiest way to get users to use SSPR is with an email campaign that includes simple-to-use instructions. [We have created three simple emails that you can use as templates to help in your rollout](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16):
+Many customers find that the easiest way to get users to use SSPR is with an email campaign that includes simple-to-use instructions. [We have created three simple emails that you can use as templates to help in your rollout](https://www.microsoft.com/download/details.aspx?id=56768):
 
 * **Coming soon**: An email template that you use in the weeks or days before the rollout to let users know they need to do something.
 * **Available now**: An email template that you use the day of the program launch to drive users to register and confirm their authentication data. If users register now, they have SSPR available when they need it.
@@ -58,7 +58,7 @@ Many customers find that the easiest way to get users to use SSPR is with an ema
 Many customers choose to host a webpage and create a root DNS entry, like https://passwords.contoso.com. They populate this page with links to the following information:
 
 * [Azure AD password reset portal - https://aka.ms/sspr](https://aka.ms/sspr)
-* [Azure AD password reset registration portal - http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Azure AD password reset registration portal - https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
 * [Azure AD password change portal - https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Other organization-specific information
 

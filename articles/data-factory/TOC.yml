@@ -9,94 +9,100 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create data factory
-    items:
-    - name: User Interface (UI)
-      href: quickstart-create-data-factory-portal.md      
-    - name: Copy Data tool   
-      href: quickstart-create-data-factory-copy-data-tool.md            
-    - name: PowerShell
-      href: quickstart-create-data-factory-powershell.md
-    - name: .NET
-      href: quickstart-create-data-factory-dot-net.md
-    - name: Python
-      href: quickstart-create-data-factory-python.md
-    - name: REST
-      href: quickstart-create-data-factory-rest-api.md
-    - name: Resource Manager template
-      href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Create data factory - User interface (UI)
+    href: quickstart-create-data-factory-portal.md      
+  - name: Create data factory - Copy Data tool   
+    href: quickstart-create-data-factory-copy-data-tool.md            
+  - name: Create data factory - Azure PowerShell
+    href: quickstart-create-data-factory-powershell.md
+  - name: Create data factory - .NET
+    href: quickstart-create-data-factory-dot-net.md
+  - name: Create data factory - Python
+    href: quickstart-create-data-factory-python.md
+  - name: Create data factory - REST
+    href: quickstart-create-data-factory-rest-api.md
+  - name: Create data factory - Resource Manager template
+    href: quickstart-create-data-factory-resource-manager-template.md
 - name: Tutorials
   items:
   - name: 1 - Deploy SSIS packages to Azure
     items:
-    - name: User Interface (UI)
-      href: tutorial-create-azure-ssis-runtime-portal.md
-    - name: PowerShell
-      href: tutorial-deploy-ssis-packages-azure.md    
+    - name: User interface (UI)
+      href: tutorial-deploy-ssis-packages-azure.md
+    - name: Azure PowerShell
+      href: tutorial-deploy-ssis-packages-azure-powershell.md    
   - name: 2 - Copy data in cloud
     items:
     - name: Copy Data tool
       href: tutorial-copy-data-tool.md
-    - name: User Interface (UI)
+    - name: User interface (UI)
       href: tutorial-copy-data-portal.md    
-    - name: PowerShell
+    - name: .NET
       href: tutorial-copy-data-dot-net.md
   - name: 3 - Copy on-premises data to cloud
     items:
     - name: Copy Data tool
       href: tutorial-hybrid-copy-data-tool.md    
-    - name: User Interface (UI)
+    - name: User interface (UI)
       href: tutorial-hybrid-copy-portal.md          
-    - name: PowerShell
+    - name: Azure PowerShell
       href: tutorial-hybrid-copy-powershell.md
   - name: 4 - Copy data in bulk
     items:
-    - name: User Interface (UI)
+    - name: User interface (UI)
       href: tutorial-bulk-copy-portal.md    
-    - name: PowerShell
+    - name: Azure PowerShell
       href: tutorial-bulk-copy.md
   - name: 5 - Copy data incrementally
     href: tutorial-incremental-copy-overview.md
     items:
     - name: 5.1 - Copy from one table
       items: 
-      - name: User Interface (UI)
+      - name: User interface (UI)
         href: tutorial-incremental-copy-portal.md      
-      - name: PowerShell
+      - name: Azure PowerShell
         href: tutorial-incremental-copy-powershell.md
     - name: 5.2 - Copy from multiple tables 
       items:
-      - name: PowerShell
+      - name: User interface (UI)
+        href: tutorial-incremental-copy-multiple-tables-portal.md     
+      - name: Azure PowerShell
         href: tutorial-incremental-copy-multiple-tables-powershell.md
     - name: 5.3 - Use change tracking feature 
       items:
-      - name: User Interface (UI)
+      - name: User interface (UI)
         href: tutorial-incremental-copy-change-tracking-feature-portal.md      
-      - name: PowerShell
+      - name: Azure PowerShell
         href: tutorial-incremental-copy-change-tracking-feature-powershell.md
   - name: 6 - Transform data in cloud
-    items: 
-    - name: User Interface (UI)
-      href: tutorial-transform-data-spark-portal.md   
-    - name: PowerShell
-      href: tutorial-transform-data-spark-powershell.md
+    items:
+    - name: HDInsight Spark
+      items: 
+      - name: User interface (UI)
+        href: tutorial-transform-data-spark-portal.md   
+      - name: Azure PowerShell
+        href: tutorial-transform-data-spark-powershell.md
+    - name: Databricks Notebook
+      items:
+      - name: User interface (UI)
+        href: transform-data-using-databricks-notebook.md
   - name: 7 - Transform data in virtual network
     items: 
-    - name: User Interface (UI)
+    - name: User interface (UI)
       href: tutorial-transform-data-hive-virtual-network-portal.md          
-    - name: PowerShell
+    - name: Azure PowerShell
       href: tutorial-transform-data-hive-virtual-network.md       
   - name: 8 - Control flow
     items:
-    - name: User Interface (UI)
+    - name: User interface (UI)
       href: tutorial-control-flow-portal.md    
-    - name: PowerShell
+    - name: .NET
       href: tutorial-control-flow.md    
 - name: Samples
   items:
   - name: Code samples
     href: https://azure.microsoft.com/en-us/resources/samples/?service=data-factory
-  - name: PowerShell
+  - name: Azure PowerShell
     href: samples-powershell.md
 - name: Concepts
   items:
@@ -110,14 +116,25 @@
     href: concepts-integration-runtime.md
 - name: How-to guides
   items:
-  - name: Visually author data factories
-    href: author-visually.md
+  - name: Author
+    items:
+    - name: Visually author data factories
+      href: author-visually.md
+    - name: Continuous integration and deployment
+      href: continuous-integration-deployment.md
+    - name: Iterative development and debugging
+      href: iterative-development-debugging.md
   - name: Copy data
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
     - name: Copy Data tool
       href: copy-data-tool.md  
+      items:
+      - name: Load Data Lake Store
+        href: load-azure-data-lake-store.md    
+      - name: Load SQL Data Warehouse
+        href: load-azure-sql-data-warehouse.md
     - name: Read or write partitioned data
       href: how-to-read-write-partitioned-data.md
     - name: Connectors
@@ -134,9 +151,6 @@
         href: connector-azure-cosmos-db.md
       - name: Azure Data Lake Store
         href: connector-azure-data-lake-store.md
-        items:
-        - name: Load Data Lake Store
-          href: load-azure-data-lake-store.md    
       - name: Azure Database for MySQL
         href: connector-azure-database-for-mysql.md
       - name: Azure Database for PostgreSQL
@@ -149,13 +163,12 @@
         href: connector-azure-sql-database.md
       - name: Azure SQL Data Warehouse
         href: connector-azure-sql-data-warehouse.md
-        items:
-        - name: Load SQL Data Warehouse
-          href: load-azure-sql-data-warehouse.md
       - name: Azure Table Storage
         href: connector-azure-table-storage.md
       - name: Cassandra
         href: connector-cassandra.md
+      - name: Common Data Service for Apps
+        href: connector-dynamics-crm-office-365.md
       - name: Concur
         href: connector-concur.md
       - name: Couchbase
@@ -206,6 +219,8 @@
         href: connector-mongodb.md
       - name: MySQL
         href: connector-mysql.md
+      - name: Netezza
+        href: connector-netezza.md
       - name: OData
         href: connector-odata.md
       - name: ODBC
@@ -232,6 +247,8 @@
         href: connector-sap-business-warehouse.md
       - name: SAP Cloud for Customer
         href: connector-sap-cloud-for-customer.md
+      - name: SAP ECC
+        href: connector-sap-ecc.md
       - name: SAP HANA
         href: connector-sap-hana.md
       - name: ServiceNow
@@ -250,6 +267,8 @@
         href: connector-sybase.md
       - name: Teradata
         href: connector-teradata.md
+      - name: Vertica
+        href: connector-vertica.md
       - name: Web Table
         href: connector-web-table.md
       - name: Xero
@@ -285,6 +304,8 @@
       href: transform-data-using-stored-procedure.md
     - name: Data Lake U-SQL Activity
       href: transform-data-using-data-lake-analytics.md
+    - name: Databricks Notebook Activity
+      href: transform-data-databricks-notebook.md
     - name: Custom activity
       href: transform-data-using-dotnet-custom-activity.md
     - name: Compute linked services
@@ -343,14 +364,24 @@
       href: create-azure-ssis-integration-runtime.md
   - name: Run SSIS packages in Azure
     items:
+    - name: Custom setup for Azure-SSIS integration runtime
+      href: how-to-configure-azure-ssis-ir-custom-setup.md
+    - name: Provision Enterprise Edition for Azure-SSIS integration runtime
+      href: how-to-configure-azure-ssis-ir-enterprise-edition.md
     - name: Join Azure-SSIS integration runtime to a VNET
       href: join-azure-ssis-integration-runtime-virtual-network.md
     - name: Manage Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md
     - name: Configure performance settings of Azure-SSIS integration runtime
       href: configure-azure-ssis-integration-runtime-performance.md
-    - name: Invoke SSIS packages using stored procedure activity
+    - name: Run SSIS packages using SSIS activity
+      href: how-to-invoke-ssis-package-ssis-activity.md
+    - name: Run SSIS packages using stored procedure activity
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
+    - name: Schedule Azure-SSIS integration runtime
+      href: how-to-schedule-azure-ssis-integration-runtime.md
+    - name: Develop licensed components for Azure-SSIS integration runtime
+      href: how-to-develop-azure-ssis-ir-licensed-components.md
   - name: Create triggers
     items:
     - name: Create a schedule trigger

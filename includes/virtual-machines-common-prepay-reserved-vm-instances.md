@@ -8,7 +8,7 @@ You can buy Reserved Virtual Machine Instances in the [Azure portal](https://por
 
 ## Buy a Reserved Virtual Machine Instance
 1. Log in to the [Azure portal](https://portal.azure.com).
-2. Select **More Services** > **Reservations**.
+2. Select **All services** > **Reservations**.
 3. Select **Add** to purchase a new reservation.
 4. Fill in the required fields. Running VM instances that match the attributes you select qualify to get the reservation discount. The actual number of your VM instances that get the discount depend on the scope and quantity selected.
 
@@ -30,8 +30,15 @@ You can buy Reserved Virtual Machine Instances in the [Azure portal](https://por
 
     ![Screenshot before submitting reservation purchase](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## Next steps after buying a reservation
+## Next steps 
 The reservation discount is applied automatically to the number of running virtual machines that match the reservation scope and attributes. You can update the scope of the reservation through [Azure portal](https://portal.azure.com), PowerShell, CLI or through the API. 
 
 To learn how to manage a reservation, see [Manage Azure Reserved Virtual Machine Instances](../articles/billing/billing-manage-reserved-vm-instance.md).
 
+To learn more about Reserved Virtual Machine Instances, see the following articles.
+
+- [Save money on virtual machines with Reserved Virtual Machine Instances](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Understand how the Reserved Virtual Machine Instance discount is applied](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Understand Reserved Instance usage for your Pay-As-You-Go subscription](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Understand Reserved Instance usage for your Enterprise enrollment](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Windows software costs not included with Reserved Instances](../articles/billing/billing-reserved-instance-windows-software-costs.md)

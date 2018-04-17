@@ -4,15 +4,15 @@ description: Learn how to copy data from a cloud or on-premises HTTP source to s
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -37,6 +37,9 @@ Specifically, this HTTP connector supports:
 - Copying the HTTP response as-is or parsing it with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 The difference between this connector and the [Web table connector](connector-web-table.md) is that the latter is used to extract table content from web HTML page.
+
+>[!TIP]
+>To test HTTP request for data retrieving before configuring HTTP connector in ADF, you can learn from the API spec on header and body requirements, and use tools like Postman or web browser to validate.
 
 ## Getting started
 
@@ -63,7 +66,7 @@ Set "authenticationType" property to **Basic**, **Digest**, or **Windows**, and 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | User name to access the HTTP endpoint. | Yes |
-| password | Password for the user (userName). Mark this field as SecureString. | Yes |
+| password | Password for the user (userName). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Example**
 
@@ -97,7 +100,7 @@ To use ClientCertificate authentication, set "authenticationType" property to **
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 encoded certificate data. | Specify either the `embeddedCertData` or `certThumbprint`. |
 | certThumbprint | The thumbprint of the certificate that is installed on your Self-hosted Integration Runtime machine's cert store. Applies only when Self-hosted type of Integration Runtime is specified in connectVia. | Specify either the `embeddedCertData` or `certThumbprint`. |
-| password | Password associated with the certificate. Mark this field as SecureString. | No |
+| password | Password associated with the certificate. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 
 If you use "certThumbprint" for authentication and the certificate is installed in the personal store of the local computer, you need to grant the read permission to the Self-hosted Integration Runtime:
 

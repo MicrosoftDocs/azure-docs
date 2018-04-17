@@ -4,15 +4,15 @@ description: 'Learn how to control flow of data in Azure Data Factory by branchi
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shlo
 ---
 # Branching and chaining activities in a Data Factory pipeline
@@ -289,7 +289,7 @@ In your C# project, create a class named **EmailRequest**. This defines what pro
     }
 ```
 ## Create email workflow endpoints
-To trigger sending an email, you use [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) to define the workflow. For details on creating a Logic App workflow, see [How to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). 
+To trigger sending an email, you use [Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Logic App workflow, see [How to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### Success email workflow 
 Create a Logic App workflow named `CopySuccessEmail`. Define the workflow trigger as `When an HTTP request is received`, and add an action of `Office 365 Outlook – Send an email`.

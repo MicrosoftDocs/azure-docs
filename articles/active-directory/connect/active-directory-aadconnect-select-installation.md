@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Select your installation type | Microsoft Docs'
 description: This topic walks you through how to select the installation type to use for Azure AD Connect
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 
@@ -31,7 +31,7 @@ It assumes:
 
 You get:
 
-- [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) from on-premises to Azure AD for single sign-on.
+- [Password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) from on-premises to Azure AD for single sign-on.
 - A configuration that synchronizes [users, groups, contacts, and Windows 10 computers](active-directory-aadconnectsync-understanding-default-configuration.md).
 - Synchronization of all eligible objects in all domains and all OUs.
 - [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) is enabled to make sure you always use the latest available version.

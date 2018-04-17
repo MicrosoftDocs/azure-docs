@@ -11,11 +11,9 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/22/2017
+ms.topic: conceptual
+ms.date: 02/22/2018
 ms.author: jgao
 
 ---
@@ -61,7 +59,7 @@ You must specify an Azure subscription when you create an HDInsight cluster. The
     1. Sign in to the [Azure portal](https://portal.azure.com).
     2. Click **Subscription** from the left menu. It has a yellow key icon. You shall see a list of subscriptions.
     3. Click the subscription that you use to create clusters. 
-    4. Click **My permissions**.  It shows your [role](../active-directory/role-based-access-control-what-is.md#built-in-roles) on the subscription. You need at least Contributor access to create HDInsight cluster.
+    4. Click **My permissions**.  It shows your [role](../role-based-access-control/overview.md#built-in-roles) on the subscription. You need at least Contributor access to create HDInsight cluster.
 
 - To use an existing resource group:
 
@@ -80,15 +78,15 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
 
     ![Azure portal HDInsight cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
     **Overview menu:**
-    * **Dashboard**: Opens the cluster dashboard, which is Ambari Web for Linux-based clusters.
+    * **Dashboard**: Opens the Ambari web UI for the cluster.
     * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
     * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
-    * **Move**: Move the cluster to antoher resource group or subscription.
+    * **Move**: Moves the cluster to another resource group or to another subscription.
     * **Delete**: Deletes the cluster.
 
     **Left menu:**
     * **Activity logs**: Show and query activity logs.
-    * **Access control (IAM)**: Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
+    * **Access control (IAM)**: Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
     * **Tags**: Allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
     * **Diagnose and solve problems**: Display troubleshooting information.
     * **Locks**: Add a lock to prevent the cluster being modified or deleted.
@@ -97,12 +95,12 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
     * **Tools for HDInsight**: Help information for HDInsight related tools.
     * **Subscription Core Usage**: Display the used and available cores for your subscription.
     * **Scale Cluster**: Increase and decrease the number of cluster worker nodes. See[Scale clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **SSH + Cluster login**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md), and reset cluster login credential.
+    * **SSH + Cluster login**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
     * **HDInsight Partner**: Add/remove the current HDInsight Partner.
     * **External Metastores**: View the Hive and Oozie metastores. The metastores can only be configured during the cluster creation process. See [use Hive/Oozie metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Script Actions**: Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
     * **Applications**: Add/remove HDInsight applications.  See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
-    * **Monitoring**: Monitor the cluster in Azure Operations Management Suite and Azure Log Analytics.
+    * **Monitoring**: Monitor the cluster in Azure Log Analytics.
     * **Properties**: View the cluster properties.
     * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
     * **Data Lake Store access**: Configure access Data Lake Stores.  See [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -224,6 +222,21 @@ You can move an HDInsight cluster to another Azure resource group or another sub
 ## Upgrade clusters
 
 See [Upgrade HDInsight cluster to a newer version](./hdinsight-upgrade-cluster.md).
+
+## Open the Ambari web UI
+
+Ambari provides an intuitive, easy-to-use Hadoop management web UI backed by its RESTful APIs. Ambari enables system administrators to manage and monitor Hadoop clusters.
+
+1. Open an HDInsight cluster from the Azure portal.  See [List and show clusters](#list-and-show-clusters).
+2. Click **Cluster Dashboard**.
+
+    ![HDInsight Hadoop cluster menu](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+
+1. Enter the cluster username and password.  The default cluster username is _admin_. The Ambari web UI looks like:
+
+    ![HDInsight Hadoop Ambari Web UI](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+
+For more information, see [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
 ## Change passwords
 An HDInsight cluster can have two user accounts. The HDInsight cluster user account (A.K.A. HTTP user account) and the SSH user account are created during the creation process. You can use the Ambari web UI to change the cluster user account username and password, and script actions to change the SSH user account

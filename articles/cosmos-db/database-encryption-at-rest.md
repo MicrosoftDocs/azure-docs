@@ -3,8 +3,7 @@ title: 'Database encryption at rest: Azure Cosmos DB | Microsoft Docs'
 description: Learn how Azure Cosmos DB provides default encryption of all data.
 services: cosmos-db
 author: voellm
-manager: jhubbard
-editor: mimig
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
@@ -24,7 +23,7 @@ Encryption at rest is a phrase that commonly refers to the encryption of data on
 
 As a PaaS service, Cosmos DB is very easy to use. Because all user data stored in Cosmos DB is encrypted at rest and in transport, you don't have to take any action. Another way to put this is that encryption at rest is "on" by default. There are no controls to turn it off or on. We provide this feature while we continue to meet our [availability and performance SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
-## Implement encryption at rest
+## Implementation of encryption at rest for Azure Cosmos DB
 
 Encryption at rest is implemented by using a number of security technologies, including secure key storage systems, encrypted networks, and cryptographic APIs. Systems that decrypt and process data have to communicate with systems that manage keys. The diagram shows how storage of encrypted data and the management of keys is separated. 
 
@@ -51,7 +50,6 @@ A: Microsoft has a set of internal guidelines for encryption key rotation, which
 
 ### Q: Can I use my own encryption keys?
 A: Cosmos DB is a PaaS service, and we worked hard to keep the service easy to use. We've noticed this question is often asked as a proxy question for meeting a compliance requirement like PCI-DSS. As part of building this feature, we worked with compliance auditors to ensure that customers who use Cosmos DB meet their requirements without the need to manage keys themselves.
-As a result, we currently do not offer users the option to burden themselves with key management.
 
 ### Q: What regions have encryption turned on?
 A: All Azure Cosmos DB regions have encryption turned on for all user data.

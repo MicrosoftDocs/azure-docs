@@ -11,17 +11,15 @@ tags: azure-portal
 ms.assetid: 59af05a7-2bd9-44b0-b55f-2438d294198b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jgao
 
 ---
 # Debug Apache Spark jobs running on Azure HDInsight
 
-In this article, you learn how to track and debug Spark jobs running on HDInsight clusters using the YARN UI, Spark UI, and the Spark History Server. For this article, we start a Spark job using a notebook available with the Spark cluster, **Machine learning: Predictive analysis on food inspection data using MLLib**. You can use the steps below to track an application that you submitted using any other approach as well, for example, **spark-submit**.
+In this article, you learn how to track and debug Spark jobs running on HDInsight clusters using the YARN UI, Spark UI, and the Spark History Server. You start a Spark job using a notebook available with the Spark cluster, **Machine learning: Predictive analysis on food inspection data using MLLib**. You can use the following steps to track an application that you submitted using any other approach as well, for example, **spark-submit**.
 
 ## Prerequisites
 You must have the following:
@@ -31,12 +29,12 @@ You must have the following:
 * You should have started running the notebook, **[Machine learning: Predictive analysis on food inspection data using MLLib](apache-spark-machine-learning-mllib-ipython.md)**. For instructions on how to run this notebook, follow the link.  
 
 ## Track an application in the YARN UI
-1. Launch the YARN UI. From the cluster blade, click **Cluster Dashboard**, and then click **YARN**.
+1. Launch the YARN UI. Click **Cluster Dashboard**, and then click **YARN**.
    
     ![Launch YARN UI](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
    > [!TIP]
-   > Alternatively, you can also launch the YARN UI from the Ambari UI. To launch the Ambari UI, from the cluster blade, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**. From the Ambari UI, click **YARN**, click **Quick Links**, click the active resource manager, and then click **ResourceManager UI**.    
+   > Alternatively, you can also launch the YARN UI from the Ambari UI. To launch the Ambari UI, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**. From the Ambari UI, click **YARN**, click **Quick Links**, click the active Resource Manager, and then click **Resource Manager UI**.    
    > 
    > 
 2. Because you started the Spark job using Jupyter notebooks, the application has the name **remotesparkmagics** (this is the name for all applications that are started from the notebooks). Click the application ID against the application name to get more information about the job. This launches the application view.
@@ -99,7 +97,7 @@ Once a job is completed, the information about the job is persisted in the Spark
    > Alternatively, you can also launch the Spark History Server UI from the Ambari UI. To launch the Ambari UI, from the cluster blade, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**. From the Ambari UI, click **Spark**, click **Quick Links**, and then click **Spark History Server UI**.
    > 
    > 
-2. You will see all the completed applications listed. Click an application ID to drill down into an application for more info.
+2. You see all the completed applications listed. Click an application ID to drill down into an application for more info.
    
     ![Launch Spark History Server](./media/apache-spark-job-debugging/view-completed-applications.png)
 
@@ -119,7 +117,6 @@ Once a job is completed, the information about the job is persisted in the Spark
 * [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
 * [Run jobs remotely on a Spark cluster using Livy](apache-spark-livy-rest-interface.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)

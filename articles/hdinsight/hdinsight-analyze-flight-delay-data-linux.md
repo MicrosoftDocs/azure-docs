@@ -10,11 +10,9 @@ tags: azure-portal
 
 ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/24/2017
+ms.topic: conceptual
+ms.date: 01/19/2018
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -197,9 +195,7 @@ If you don't already have a SQL database, use the information in [Create an Azur
 > There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
 
 
-1. Use SSH to connect to the Linux-based HDInsight cluster, and run the following steps from the SSH session.
-
-2. Use the following command to install FreeTDS:
+1. To install FreeTDS, use the following command from an SSH connection to the cluster:
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -208,8 +204,10 @@ If you don't already have a SQL database, use the information in [Create an Azur
 3. After the installation finishes, use the following command to connect to the SQL Database server. Replace **serverName** with the SQL Database server name. Replace **adminLogin** and **adminPassword** with the login for SQL Database. Replace **databaseName** with the database name.
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
+
+    When prompted, enter the password for the SQL Database admin login.
 
     You receive output similar to the following text:
 

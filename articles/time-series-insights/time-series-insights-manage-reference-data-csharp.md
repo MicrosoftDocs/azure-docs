@@ -7,16 +7,17 @@ author: venkatgct
 ms.author: venkatja
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 03/23/2018
 ---
 # Manage reference data for an Azure Time Series Insights environment by using C#
 
-This topic describes the C# sample code you can compile to manage reference data for an Azure Time Series Insights environment.
+This article describes an example C# project you can compile to manage reference data for an Azure Time Series Insights environment.
 
+## Prerequistes
 Complete the following steps before you compile and run the sample code:
 1. [Create a reference data set](time-series-insights-add-reference-data-set.md).
 
@@ -25,6 +26,11 @@ Complete the following steps before you compile and run the sample code:
    For information about how to set up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
 
 3. Edit the sample code to replace the example constants, designated at **#DUMMY#**, near the beginning of the code. 
+
+This example code is also available at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+
+## Project References
+Add NuGet packages `Microsoft.IdentityModel.Clients.ActiveDirectory` and `Newtonsoft.Json` for this example. 
 
 ## C# sample code 
 ```csharp

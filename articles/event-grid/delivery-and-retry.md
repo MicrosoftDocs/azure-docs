@@ -2,13 +2,13 @@
 title: Azure Event Grid delivery and retry
 description: Describes how Azure Event Grid delivers events and how it handles undelivered messages.
 services: event-grid
-author: djrosanova
+author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/10/2018
-ms.author: darosa
+ms.date: 04/16/2018
+ms.author: tomfitz
 ---
 
 # Event Grid message delivery and retry 
@@ -36,6 +36,7 @@ The following HTTP response codes indicate that an event delivery attempt failed
 - 401 Unauthorized
 - 404 Not Found
 - 408 Request timeout
+- 413 Payload Too Large
 - 414 URI Too Long
 - 500 Internal Server Error
 - 503 Service Unavailable
@@ -55,11 +56,11 @@ Event Grid uses an exponential backoff retry policy for event delivery. If your 
 6. 30 minutes
 7. 1 hour
 
-Event Grid adds a small randomization to all retry intervals.
+Event Grid adds a small randomization to all retry intervals. After one hour, event delivery is retried once an hour.
 
 ## Retry duration
 
-During the preview, Azure Event Grid expires all events that are not delivered within two hours.
+Azure Event Grid expires all events that are not delivered within 24 hours.
 
 ## Next steps
 

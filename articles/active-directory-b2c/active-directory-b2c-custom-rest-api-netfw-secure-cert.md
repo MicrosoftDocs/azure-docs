@@ -1,23 +1,23 @@
-﻿---
+---
 title: 'Azure Active Directory B2C: Secure your RESTful service by using client certificates'
 description: Secure your custom REST API claims exchanges in your Azure AD B2C by using client certificates
 services: active-directory-b2c
 documentationcenter: ''
-author: yoelhor
+author: davidmu1
 manager: mtillman
-editor: 
+editor: ''
 
-ms.assetid:
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/25/2017
-ms.author: yoelh
+ms.author: davidmu
 ---
 
 # Secure your RESTful service by using client certificates
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 In a related article, you [create a RESTful service](active-directory-b2c-custom-rest-api-netfw.md) that interacts with Azure Active Directory B2C (Azure AD B2C).
 
 In this article, you learn how to restrict access to your Azure web app (RESTful API) by using a client certificate. This mechanism is called TLS mutual authentication, or *client certificate authentication*. Only services that have proper certificates, such as Azure AD B2C, can access your service.
@@ -178,7 +178,7 @@ Replace the certificate's **Subject name**, **Issuer name**, and **Certificate t
 ### 6.2 Add the IsValidClientCertificate function
 Open the *Controllers\IdentityController.cs* file, and then add to the `Identity` controller class the following function: 
 
-```C#
+```csharp
 private bool IsValidClientCertificate()
 {
     string ClientCertificateSubject = ConfigurationManager.AppSettings["ClientCertificate:Subject"];
@@ -280,7 +280,7 @@ In the preceding sample code, we accept the certificate as valid only if all the
 ### 6.3 Call the IsValidClientCertificate function
 Open the *Controllers\IdentityController.cs* file and then, at the beginning of the `SignUp()` function, add the following code snippet: 
 
-```C#
+```csharp
 if (IsValidClientCertificate() == false)
 {
     return Content(HttpStatusCode.Conflict, new B2CResponseContent("Your client certificate is not valid", HttpStatusCode.Conflict));

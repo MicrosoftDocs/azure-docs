@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/15/2017
+ms.date: 03/27/2017
 ms.author: iainfou
 ms.custom: mvc
 ---
@@ -36,7 +36,7 @@ To automate the build and test phase of application development, you can use a c
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.22 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Create Jenkins instance
-In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. Jenkins is a popular open source automation server that integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD). For more tutorials on how to use Jenkins, see the [Jenkins in Azure hub](https://docs.microsoft.com/azure/jenkins/).
+In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. Jenkins is a popular open-source automation server that integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD). For more tutorials on how to use Jenkins, see the [Jenkins in Azure hub](https://docs.microsoft.com/azure/jenkins/).
 
 In your current shell, create a file named *cloud-init-jenkins.txt* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. Enter `sensible-editor cloud-init-jenkins.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
@@ -64,13 +64,13 @@ runcmd:
   - service jenkins restart
 ```
 
-Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupJenkins* in the *eastus* location:
+Before you can create a VM, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupJenkins* in the *eastus* location:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Now create a VM with [az vm create](/cli/azure/vm#create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
+Now create a VM with [az vm create](/cli/azure/vm#az_vm_create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -83,7 +83,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 It takes a few minutes for the VM to be created and configured.
 
-To allow web traffic to reach your VM, use [az vm open-port](/cli/azure/vm#open-port) to open port *8080* for Jenkins traffic and port *1337* for the Node.js app that is used to run a sample app:
+To allow web traffic to reach your VM, use [az vm open-port](/cli/azure/vm#az_vm_open_port) to open port *8080* for Jenkins traffic and port *1337* for the Node.js app that is used to run a sample app:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -114,10 +114,13 @@ If the file isn't available yet, wait a couple more minutes for cloud-init to co
 
 Now open a web browser and go to `http://<publicIps>:8080`. Complete the initial Jenkins setup as follows:
 
-- Enter the username **admin**, then provide the *initialAdminPassword* obtained from the VM in the previous step.
-- Select **Manage Jenkins**, then **Manage plugins**.
-- Choose **Available**, then search for *GitHub* in the text box across the top. Check the box for *GitHub plugin*, then select **Download now and install after restart**.
-- Check the box for **Restart Jenkins when installation is complete and no jobs are running**, then wait until the plugin install process is finished.
+- Choose **Select plugins to install**
+- Search for *GitHub* in the text box across the top. Check the box for *GitHub*, then select **Install**
+- Create the first admin user. Enter a username, such as **admin**, then provide your own secure password. Finally, type a full name and e-mail address.
+- Select **Save and Finish**
+- Once Jenkins is ready, select **Start using Jenkins**
+  - If your web browser displays a blank page when you start using Jenkins, restart the Jenkins service. From your SSH session, type `sudo service jenkins restart`, then refresh you web browser.
+- Log in to Jenkins with the username and password you created.
 
 
 ## Create GitHub webhook
@@ -135,12 +138,12 @@ Create a webhook inside the fork you created:
 
 
 ## Create Jenkins job
-To have Jenkins respond to an event in GitHub such as committing code, create a Jenkins job. 
+To have Jenkins respond to an event in GitHub such as committing code, create a Jenkins job. Use the URLs for your own GitHub fork.
 
 In your Jenkins website, select **Create new jobs** from the home page:
 
 - Enter *HelloWorld* as job name. Choose **Freestyle project**, then select **OK**.
-- Under the **General** section, select **GitHub** project and enter your forked repo URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world*
+- Under the **General** section, select **GitHub project** and enter your forked repo URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**.
 - Under the **Build** section, choose **Add build step**. Select **Execute shell**, then enter `echo "Testing"` in the command window.

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 03/28/2018
 ms.author: ganesr
 
 ---
@@ -104,7 +104,7 @@ Make sure that your IP address and AS number are registered to you in one of the
 
 If your prefixes and AS number are not assigned to you in the preceding registries, you need to open a support case for manual validation of your prefixes and ASN. Support requires documentation, such as a Letter of Authorization, that proves you are allowed to use the resources.
 
-A Private AS Number is allowed with Microsoft Peering, but will also require manual validation.
+A Private AS Number is allowed with Microsoft Peering, but will also require manual validation. In addition, we remove private AS numbers in the AS PATH for the received prefixes. As a result, you can't append private AS numbers in the AS PATH to [influence routing for Microsoft Peering](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
 > Public IP addresses advertised to Microsoft over ExpressRoute must not be advertised to the Internet. This may break connectivity to other Microsoft services. However, Public IP addresses used by servers in your network that communicate with O365 endpoints within Microsoft may be advertised over ExpressRoute. 
@@ -115,7 +115,7 @@ A Private AS Number is allowed with Microsoft Peering, but will also require man
 Routing exchange will be over eBGP protocol. EBGP sessions are established between the MSEEs and your routers. Authentication of BGP sessions is not a requirement. If required, an MD5 hash can be configured. See the [Configure routing](expressroute-howto-routing-classic.md) and [Circuit provisioning workflows and circuit states](expressroute-workflows.md) for information about configuring BGP sessions.
 
 ## Autonomous System numbers
-Microsoft uses AS 12076 for Azure public, Azure private, and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported.
+Microsoft uses AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported.
 
 There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging you. Route metrics are not required to be identical.
 
@@ -180,6 +180,8 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | Japan East | 12076:51012 |
 | Japan West | 12076:51013 |
 | **Australia** | |
+| Australia Central | 12076:51032 |
+| Australia Central 2 | 12076:51033 |
 | Australia East | 12076:51015 |
 | Australia Southeast | 12076:51016 |
 | **India** | |
@@ -194,7 +196,7 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
 > [!IMPORTANT]
-> Global prefixes are tagged with an appropriate community value and will be advertised only when ExpressRoute premium add-on is enabled.
+> Global prefixes are tagged with an appropriate community value.
 > 
 > 
 

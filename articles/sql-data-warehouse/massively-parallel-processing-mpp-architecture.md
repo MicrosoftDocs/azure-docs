@@ -1,30 +1,26 @@
 ---
-title: MPP architecture - Azure SQL Data Warehouse? | Microsoft Docs
+title: Azure SQL Data Warehouse - MPP architecture | Microsoft Docs
 description: Learn how Azure SQL Data Warehouse combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: ''
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: architecture
-ms.date: 11/15/2017
-ms.author: jrj;barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
+
 # Azure SQL Data Warehouse - Massively parallel processing (MPP) architecture
 Learn how Azure SQL Data Warehouse combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
 
-## MPP Architecture components
-SQL Data Warehouse leverages a scale out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a data warehouse unit. SQL Data Warehouse separates compute from storage which enables you as the user to scale compute independently of the data in your system.
+## MPP architecture components
+SQL Data Warehouse leverages a scale out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a data warehouse unit. SQL Data Warehouse separates compute from storage which enables you to scale compute independently of the data in your system.
 
 ![SQL Data Warehouse Architecture](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Data Warehouse uses a node based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for the data warehouse. The Control node runs the MPP engine which optimizes queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel. The Compute nodes store all user data in Azure Storage and run the parallel queries. The Data Movement Service (DMS) is a system-level internal service that moves data across the nodes as necessary to run queries in parallel and return accurate results. 
+SQL Data Warehouse uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for the data warehouse. The Control node runs the MPP engine which optimizes queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel. The Compute nodes store all user data in Azure Storage and run the parallel queries. The Data Movement Service (DMS) is a system-level internal service that moves data across the nodes as necessary to run queries in parallel and return accurate results. 
 
 With decoupled storage and compute, SQL Data Warehouse can:
 

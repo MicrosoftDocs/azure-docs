@@ -1,19 +1,12 @@
 ---
 title: Tutorial for indexing Azure SQL databases in Azure Search | Microsoft Docs
 description: Crawl Azure SQL database to extract searchable data and populate an Azure Search index.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
-tags: 
+manager: cgronlun
 
-ms.assetid: 
 ms.service: search
 ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 11/10/2017
 ms.author: heidist
 ---
@@ -118,7 +111,7 @@ The following exercise assumes no existing server or database, and instructs you
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 
-2. Click **New** > **SQL Database** to create a database, server, and resource group. You can use defaults and the lowest level pricing tier. One advantage to creating a server is that you can specify an administrator user name and password, necessary for creating and loading tables in a later step.
+2. Click **Create a resource** > **SQL Database** to create a database, server, and resource group. You can use defaults and the lowest level pricing tier. One advantage to creating a server is that you can specify an administrator user name and password, necessary for creating and loading tables in a later step.
 
    ![New database page](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 

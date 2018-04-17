@@ -31,7 +31,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "mystorageaccount" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage `
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 ```

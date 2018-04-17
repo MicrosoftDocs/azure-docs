@@ -4,16 +4,16 @@ description: Learn how to use lookup activity to look up a value from an externa
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: shlo
+manager: craigg
+editor: 
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: spelluru
+ms.date: 03/27/2018
+ms.author: shlo
 
 ---
 # Lookup activity in Azure Data Factory
@@ -27,12 +27,25 @@ Lookup activity is helpful when you want to dynamically retrieve a list of files
 ## Supported capabilities
 
 The following data sources are currently supported for lookup:
-- JSON file in Azure Blob storage
-- JSON file in File System
-- Azure SQL Database (JSON data converted from query)
-- Azure SQL Data Warehouse (JSON data converted from query)
-- SQL Server (JSON data converted from query)
-- Azure Table storage (JSON data converted from query)
+
+- Amazon Redshift
+- Azure Blob storage
+- Azure Cosmos DB
+- Azure Data Lake Store
+- Azure File storage
+- Azure SQL Database
+- Azure SQL Data Warehouse
+- Azure Table storage
+- Dynamics 365
+- Dynamics CRM
+- File System
+- PostgreSQL
+- Salesforce
+- Salesforce Service Cloud
+- SFTP
+- SQL Server
+
+The maximum number of rows returned by Lookup activity is **5000**, and up to **10MB** in size.
 
 ## Syntax
 
@@ -57,9 +70,14 @@ The following data sources are currently supported for lookup:
 ## Type properties
 Name | Description | Type | Required?
 ---- | ----------- | ---- | --------
-dataset | Provides the dataset reference for the lookup. Currently, the supported dataset types are:<ul><li>`AzureBlobDataset` for [Azure Blob storage](connector-azure-blob-storage.md#dataset-properties) as source</li><li>`FileShareDataset` for [File System](connector-file-system.md#dataset-properties) as source</li><li>`AzureSqlTableDataset` for [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) or [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) as source</li><li>`SqlServerTable` for [SQL Server](connector-sql-server.md#dataset-properties) as source</li><li>`AzureTableDataset` for [Azure Table storage](connector-azure-table-storage.md#dataset-properties) as source</li> | Key/value pair | Yes
+dataset | Provides the dataset reference for the lookup. Get details from the "Dataset properties" section in each corresponding connector article. | Key/value pair | Yes
 source | Contains dataset-specific source properties, the same as the copy activity source. Get details from the "Copy activity properties" section in each corresponding connector article. | Key/value pair | Yes
 firstRowOnly | Indicates whether to return only the first row or all rows. | Boolean | No. Default is `true`.
+
+Note the following points:
+
+1. Source column with ByteArray type is not supported.
+2. Structure is not supported in dataset definition. For text format files specifically, you can use the header row to provide the column name.
 
 ## Use the lookup activity result in a subsequent activity
 

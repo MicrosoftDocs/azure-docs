@@ -3,7 +3,7 @@ title: Azure Stack 1711 Update | Microsoft Docs
 description: Learn about what's in the 1711 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
 documentationcenter: ''
-author: andredm7
+author: brenduns
 manager: femila
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
-ms.author: andredm
-
+ms.date: 03/22/2018
+ms.author: brenduns
+ms.reviewer: justini
 ---
 
 # Azure Stack 1711 update
@@ -35,7 +35,13 @@ The Azure Stack 1711 update build number is **171201.3**.
 
 ### Prerequisites
 
-You must first install the Azure Stack [1710 Update](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) before applying this update.
+- You must first install the Azure Stack [1710 Update](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) before applying this update.
+
+- Review use of **CloudAdmin** as an account name before installing update 1711. Beginning with version 1711, *CloudAdmin* is a reserved account name and should not   be manually specified. When you update to version 1711, the update removes existing instances of the deployment account (typically called AzureStackAdmin). If you      named the deployment account *CloudAdmin*, updating to 1711 deletes it. 
+
+  *CloudAdmin* is the built-in account to connect to the [*privileged endpoint*](azure-stack-privileged-endpoint.md) (PEP). The deletion of this account can result in a lockout of the PEP unless there is already another user account that is a member of the CloudAdmin group. 
+
+  If you used CloudAdmin as name of the deployment account, add a new CloudAdmin user to your PEP before you start the update to 1711 to avoid being locked out of Azure Stack. To add a new CloudAdmin user, run the cmdlet **New-CloudAdminUser** on the PEP.
 
 ### New features and fixes
 
@@ -60,7 +66,7 @@ This update includes the following improvements and fixes for Azure Stack.
 #### Windows Server 2016 new features and fixes
 
 - [November 14, 2017—KB4048953 (OS Build 14393.1884) ](https://support.microsoft.com/help/4048953)
- 
+
 ### Known issues with the update process
 
 This section contains known issues that you may encounter during the 1711 update installation.
@@ -74,11 +80,11 @@ This section contains known issues that you may encounter during the 1711 update
 	1. **Cause:** This issue is caused when resuming an update from the portal that was previously resumed using a Privileged End Point (PEP).
 	2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
 <br><br>
-3. **Symptom:**Azure Stack operators may see the following error during the update process:*"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for <machineName>-ACS01 produced the following errors.\nThere was an error getting VM information from hosts. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c".*
+3. **Symptom:** Azure Stack operators may see the following error during the update process:*"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for <machineName>-ACS01 produced the following errors.\nThere was an error getting VM information from hosts. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c".*
 	1. **Cause:** This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates.
 	2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
 <br><br>
-4. **Symptom:**Azure Stack operators may see the following error during the update process:*"Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262"*
+4. **Symptom:** Azure Stack operators may see the following error during the update process:*"Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262"*
 	1. **Cause:** This issue is caused by a failed or incomplete background download of Windows Defender definition updates.
 	2. **Resolution:** Please attempt to resume the update after up to 8 hours have passed since the first update try.
 
@@ -95,13 +101,14 @@ This section contains post-installation known issues with build **20171201.3**.
 
    - You may see a blank row at the top of the list. You should still be able to select an item as expected.
    - If the list of items in the drop-down list is short, you may not be able to view any of the item names.
-   - If you have multiple user subscriptions, the resource group drop-down list may be empty. 
+   - If you have multiple user subscriptions, the resource group drop-down list may be empty.
 
 		> [!NOTE]
 		> To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 - You are not able to view permissions to your subscription using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
+- The **Service Health** blade fails to load. When you open the Service Health blade in either the admin or user portal, Azure Stack displays an error and does not load information. This is expected behavior. Although you can select and open Service Health, this feature is not yet available but will be implemented in a future version of Azure Stack.
 
 #### Health and monitoring
 
@@ -116,18 +123,18 @@ This section contains post-installation known issues with build **20171201.3**.
 - You can configure a virtual machine availability set only with a fault domain of one, and an update domain of one.
 - There is no marketplace experience to create virtual machine scale sets. You can create a scale set by using a template.
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
- 
+
 #### Networking
 - You can't create a load balancer with a public IP address by using the portal. As a workaround, you can use PowerShell to create the load balancer.
 - You must create a network address translation (NAT) rule when you create a network load balancer. If you don't, you'll receive an error when you try to add a NAT rule after the load balancer is created.
 - You can't disassociate a public IP address from a virtual machine (VM) after the VM has been created and associated with that IP address. Disassociation will appear to work, but the previously assigned public IP address remains associated with the original VM. This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one. Currently, you must only use new public IP addresses for new VM creation.
 - Azure Stack operators may be unable to deploy, delete, modify VNETs or Network Security Groups. This issue is primarily seen on subsequent update attempts of the same package. This is caused by a packaging issue with an update which is currently under investigation.
 - Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs which breaks Linux instances.
- 
+
 #### SQL/MySQL
-- It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
+- It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU.
 - Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in a mismatched state.
- 
+
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
 
@@ -147,7 +154,7 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 - **Enabling infrastructure backup on ASDK is for testing purposes only.**  
   Infrastructure backups can be used to restore multi-node solutions. You can enable infrastructure backup on ASDK but there is no way to test recovery.
 
-For more information see [Backup and data recovery for Azure Stack with the Infrastructure Backup Service](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+For more information, see [Backup and data recovery for Azure Stack with the Infrastructure Backup Service](azure-stack-backup-infrastructure-backup.md).
 
 ## Download the update
 

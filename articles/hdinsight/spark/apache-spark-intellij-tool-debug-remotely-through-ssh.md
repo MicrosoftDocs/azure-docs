@@ -12,10 +12,8 @@ tags: azure-portal
 ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: 
 ms.devlang: 
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: jejiang
 
@@ -167,7 +165,6 @@ To resolve this error, [download the executable](http://public-repo-1.hortonwork
 * [Spark with BI: Perform interactive data analysis by using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to analyze building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight to build real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications

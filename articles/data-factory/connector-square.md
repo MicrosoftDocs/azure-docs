@@ -4,15 +4,15 @@ description: Learn how to copy data from Square to supported sink data stores by
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -34,7 +34,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Square connector.
 
@@ -47,7 +47,7 @@ The following properties are supported for Square linked service:
 | type | The type property must be set to: **Square** | Yes |
 | host | The URL of the Square instance. (i.e. mystore.mysquare.com)  | Yes |
 | clientId | The client ID associated with your Square application.  | Yes |
-| clientSecret | The client secret associated with your Square application. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| clientSecret | The client secret associated with your Square application. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | redirectUri | The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)  | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |

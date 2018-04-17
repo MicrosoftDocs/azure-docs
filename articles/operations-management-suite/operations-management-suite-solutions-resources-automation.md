@@ -1,6 +1,6 @@
 ---
-title: Azure Automation resources in OMS solutions | Microsoft Docs
-description: Solutions in OMS will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  This article describes how to include runbooks and their related resources in a solution.
+title: Azure Automation resources in management solutions | Microsoft Docs
+description: Management solutions will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  This article describes how to include runbooks and their related resources in a solution.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -19,15 +19,15 @@ ms.author: bwren
 ms.custom: H1Hack27Feb2017
 
 ---
-# Adding Azure Automation resources to an OMS management solution (Preview)
+# Adding Azure Automation resources to a management solution (Preview)
 > [!NOTE]
-> This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.   
+> This is preliminary documentation for creating management solutions which are currently in preview. Any schema described below is subject to change.   
 
 
-[Management solutions in OMS](operations-management-suite-solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a solution.
+[Management solutions](operations-management-suite-solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a solution.
 
 > [!NOTE]
-> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
+> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure ](operations-management-suite-solutions-creating.md) 
 
 
 ## Prerequisites
@@ -38,7 +38,7 @@ This article assumes that you're already familiar with the following information
 - How to [author Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Automation account
-All resources in Azure Automation are contained in an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  As described in [OMS workspace and Automation account](operations-management-suite-solutions.md#oms-workspace-and-automation-account) the Automation account isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
+All resources in Azure Automation are contained in an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  As described in [og Analytics workspace and Automation account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) the Automation account isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
 
 The name of each Automation resource includes the name of its Automation account.  This is done in the solution with the **accountName** parameter as in the following example of a runbook resource.
 
@@ -116,7 +116,7 @@ The properties for automation jobs are described in the following table.
 
 The job includes the runbook name and any parameter values to be sent to the runbook.  The job should [depend on](operations-management-suite-solutions-solution-file.md#resources) the runbook that it's starting since the runbook must be created before the job.  If you have multiple runbooks that should be started you can define their order by having a job depend on any other jobs that should be run first.
 
-The name of a job resource must contain a GUID which is typically assigned by a parameter.  You can read more about GUID parameters in [Creating solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-solution-file.md#parameters).  
+The name of a job resource must contain a GUID which is typically assigned by a parameter.  You can read more about GUID parameters in [Creating a management solution file in Azure](operations-management-suite-solutions-solution-file.md#parameters).  
 
 
 ## Certificates

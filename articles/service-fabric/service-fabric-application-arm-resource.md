@@ -63,7 +63,7 @@ The following snippet shows the different kinds of resources that can be managed
 1. Prepare your cluster's Resource Manager template for deployment. See [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) for more information on this.
 2. Think about some of the applications you plan on deploying in the cluster. Are there any that will always be running that other applications may take dependencies on? Do you plan on deploying any cluster governance or setup applications? These sorts of applications are best managed via a Resource Manager template, as discussed above. 
 3. Once you have figured out what applications you want to be deployed this way, the applications have to be packaged, zipped, and put on a file share. The share needs to be accessible through a REST endpoint for Azure Resource Manager to consume during deployment.
-4. In your Resource Manager template, below your cluster declaration, describe each application's properties. These properties include replica or instance count and any dependency chains between resources (other applications or services). For a list of comprehensive properties, see the [REST API Swagger Spec](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicefabric/resource-manager/Microsoft.ServiceFabric/2017-07-01-preview/servicefabric.json). Note that this does not replace the Application or Service manifests, but rather describes some of what is in them as part of the cluster's Resource Manager template. Here is a sample template that includes deploying a stateless service *Service1* and a stateful service *Service2* as part of *Application1*:
+4. In your Resource Manager template, below your cluster declaration, describe each application's properties. These properties include replica or instance count and any dependency chains between resources (other applications or services). For a list of comprehensive properties, see the [REST API Swagger Spec](https://aka.ms/sfrpswaggerspec). Note that this does not replace the Application or Service manifests, but rather describes some of what is in them as part of the cluster's Resource Manager template. Here is a sample template that includes deploying a stateless service *Service1* and a stateful service *Service2* as part of *Application1*:
 
   ```json
   {
@@ -74,62 +74,62 @@ The following snippet shows the different kinds of resources that can be managed
         "type": "string",
         "defaultValue": "Cluster",
         "metadata": {
-          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only"
+          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only."
         }
       },
       "applicationTypeName": {
         "type": "string",
         "defaultValue": "ApplicationType",
         "metadata": {
-          "description": "The application type name"
+          "description": "The application type name."
         }
       },
       "applicationTypeVersion": {
         "type": "string",
         "defaultValue": "1",
         "metadata": {
-          "description": "The application type version"
+          "description": "The application type version."
         }
       },
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package sfpkg file"
+          "description": "The URL to the application package sfpkg file."
         }
       },
       "applicationName": {
         "type": "string",
         "defaultValue": "Application1",
         "metadata": {
-          "description": "The application name"
+          "description": "The name of the application resource."
         }
       },
       "serviceName": {
         "type": "string",
-        "defaultValue": "Service1",
+        "defaultValue": "Application1~Service1",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName": {
         "type": "string",
         "defaultValue": "Service1Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       },
       "serviceName2": {
         "type": "string",
-        "defaultValue": "Service2",
+        "defaultValue": "Application1~Service2",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName2": {
         "type": "string",
         "defaultValue": "Service2Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       }
     },

@@ -1,3 +1,15 @@
+--- 
+title: Real-time fraud detection using Azure Stream Analytics
+description: Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing. 
+services: stream-analytics 
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile 
+ms.reviewer: jasonh
+ms.service: stream-analytics 
+ms.topic: conceptual 
+ms.date: 03/28/2017 
+--- 
 # Get started using Azure Stream Analytics: Real-time fraud detection
 
 This tutorial provides an end-to-end illustration of how to use Azure Stream Analytics. You learn how to: 
@@ -8,7 +20,7 @@ This tutorial provides an end-to-end illustration of how to use Azure Stream Ana
 
 * Send the results to an output sink (storage) that you can analyze for additional insights. In this case, you'll send the suspicious call data to Azure Blob storage.
 
-In  this tutorial, we use the example of real-time fraud detection based on phone-call data. But the technique we illustrate is also suited for other types of fraud detection, such as credit card fraud or identity theft. 
+In this tutorial, we use the example of real-time fraud detection based on phone-call data. But the technique we illustrate is also suited for other types of fraud detection, such as credit card fraud or identity theft. 
 
 ## Scenario: Telecommunications and SIM fraud detection in real time
 
@@ -38,7 +50,7 @@ To analyze a data stream, you *ingest* it into Azure. A typical way to ingest da
 ### Create a namespace and event hub
 In this procedure, you first create an event hub namespace, and then you add an event hub to that namespace. Event hub namespaces are used to logically group related event bus instances. 
 
-1. Log  in to the Azure portal and click **New** > **Internet of Things** > **Event Hub**. 
+1. Log  in to the Azure portal and click **Create a resource** > **Internet of Things** > **Event Hub**. 
 
 2. In the **Create namespace** pane, enter a namespace name such as `<yourname>-eh-ns-demo`. You can use any name for the namespace, but the name must be valid for a URL and it must be unique across Azure. 
     
@@ -142,7 +154,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
 
 ### Create the job 
 
-1. In the Azure portal, click **New** > **Internet of Things** > **Stream Analytics job**.
+1. In the Azure portal, click **Create a resource** > **Internet of Things** > **Stream Analytics job**.
 
 2. Name the job `sa_frauddetection_job_demo`, specify a subscription, resource group, and location.
 
@@ -383,7 +395,7 @@ However, if you're done and you don't need the resources you've created, you can
 
 ## Get support
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 

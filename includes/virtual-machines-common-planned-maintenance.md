@@ -1,6 +1,18 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: cynthn
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 03/09/2018
+ ms.author: cynthn
+ ms.custom: include file
+---
+
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (like operating system, hypervisor, and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
 
-- If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated.
+- If a reboot-less update is possible, Azure uses memory preserving maintenance to pause the VM while the host is updated or the VM is moved to an already updated host altogether.
 
 - If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you'll also be given a time window where you can start the maintenance yourself, at a time that works for you.
 
@@ -8,15 +20,15 @@ This page describes how Microsoft Azure performs both types of maintenance. For 
 
 Applications running in a virtual machine can gather information about upcoming updates by using the Azure Metadata Service for [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) or [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
 
-For "how-to" information on managing planned maintence, see "Handling planned maintenance notifications" for [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+For "how-to" information on managing planned maintenance, see "Handling planned maintenance notifications" for [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## In-place VM migration
+## Memory preserving maintenance
 
-When updates don't require a full reboot, an in-place live migration is used. During the update the virtual machine is paused for about 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized.
+When updates don't require a full reboot, memory preserving maintenance mechanisms are used to limit the impact to the virtual machine. The virtual machine is paused for up to 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches, or moves the VM to an already updated host. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized. 
 
 For VMs in availability sets, update domains are updated one at a time. All VMs in one update domain (UD) are paused, updated and then resumed before planned maintenance moves on to the next UD.
 
-Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? --> 
+Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? --> In case the VM is being move to a different host, some sensitive workloads might notice a slight performance degradation in the few minutes leading up to the Virtual Machine pause. 
 
 
 ## Maintenance requiring a reboot
@@ -31,9 +43,11 @@ If you start self-service maintenance and there is an error during the process, 
 
 When the self-service window has passed, the **scheduled maintenance window** begins. During this time window, you can still query for the maintenance window, but no longer be able to start the maintenance yourself.
 
+For information on managing maintenance requiring a reboot, see "Handling planned maintenance notifications" for [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
+
 ## Availability Considerations during Planned Maintenance 
 
-If you decide to wait until the planned maintenance window, there are a few things to consider for maintaining the highest availabilty of your VMs. 
+If you decide to wait until the planned maintenance window, there are a few things to consider for maintaining the highest availability of your VMs. 
 
 ### Paired Regions
 

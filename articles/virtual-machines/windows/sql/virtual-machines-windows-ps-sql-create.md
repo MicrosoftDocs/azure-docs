@@ -1,30 +1,29 @@
 ---
-title: How to create SQL Server VMs with Azure PowerShell | Microsoft Docs
+title: Provisioning guide for SQL Server VMs with Azure PowerShell | Microsoft Docs
 description: Provides steps and PowerShell commands for creating an Azure VM with SQL Server virtual machine gallery images.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-resource-manager
-
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/29/2017
+ms.date: 02/15/2018
 ms.author: jroth
 
 ---
-# How to create SQL Server virtual machines with Azure PowerShell
+# How to provision SQL Server virtual machines with Azure PowerShell
 
 This guide explains your options to create Windows SQL Server VMs with Azure PowerShell. For a streamlined Azure PowerShell example with more default values, see the [SQL VM Azure PowerShell quickstart](quickstart-sql-vm-create-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This article requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Configure your subscription
 
@@ -243,7 +242,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### Set the operating system properties for the virtual machine
-Now we are ready to set the virtual machine's operating system properties with [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet to set the type of operating system as Windows, require the [virtual machine agent](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to be installed, specify that the cmdlet enables auto update and set the virtual machine name, the computer name, and the credential using the variables that you previously initialized.
+Now we are ready to set the virtual machine's operating system properties with [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet to set the type of operating system as Windows, require the [virtual machine agent](../agent-user-guide.md) to be installed, specify that the cmdlet enables auto update and set the virtual machine name, the computer name, and the credential using the variables that you previously initialized.
 
 Execute the following cmdlet to set the operating system properties for your virtual machine.
 
@@ -304,7 +303,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 The virtual machine is created.
 
 > [!NOTE]
-> You can ignore the error about the bot diagnostics. A standard storage account is created for boot diagnostics, because the specified storage account for the virtual machine's disk is a premium storage account.
+> You can ignore the error about the boot diagnostics. A standard storage account is created for boot diagnostics, because the specified storage account for the virtual machine's disk is a premium storage account.
 
 ## Install the SQL Iaas Agent
 SQL Server virtual machines support automated management features with the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To install the agent on the new VM, run the following command after it is created.

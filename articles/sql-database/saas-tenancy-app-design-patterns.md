@@ -3,19 +3,12 @@ title: "Multi-tenant SaaS patterns - Azure SQL Database | Microsoft Docs"
 description: "Learn about the requirements and common data architecture patterns of multi-tenant software as a service (SaaS) database applications that run in the Azure cloud environment."
 keywords: "sql database tutorial"
 services: "sql-database"
-documentationcenter: ""
 author: "billgib"
 manager: "craigg"
-editor: 'MightyPen,srinia'
-
-ms.assetid: "1dd20c6b-ddbb-40ef-ad34-609d398d008a"
 ms.service: "sql-database"
 ms.custom: "scale out apps"
-ms.workload: "Active"
-ms.tgt_pltfrm: "na"
-ms.devlang: "na"
 ms.topic: "article"
-ms.date: "11/12/2017"
+ms.date: 04/01/2018
 ms.author: "billgib"
 ---
 # Multi-tenant SaaS database tenancy patterns
@@ -92,7 +85,7 @@ Azure SQL Database provides the tools necessary to configure, monitor, and manag
 
 The Azure SQL Database platform has many management features designed to management large numbers of databases at scale, such as well over 100,000 databases.  These features make the database-per-tenant pattern plausible.
 
-For example, suppose a system has a 1000-tenant database as its only one database.  The database might have 20 indexes.  If the system converts to having 1000 single-tenant databases, the quatity of indexes rises to 20,000.  In SQL Database as part of [Automatic tuning][docu-sql-db-automatic-tuning-771a], the automatic indexing features are enabled by default.  Automatic indexing manages for you all 20,000 indexes and their ongoing create and drop optimizations.  These automated actions occur within an individual database, and they are not coordinated or restricted by similar actions in other databases.  Automatic indexing treats indexes differently in a busy database than in a less busy database.  This type of index management customization would be impractical at the database-per-tenant scale if this huge management task had to be done manually.
+For example, suppose a system has a 1000-tenant database as its only one database.  The database might have 20 indexes.  If the system converts to having 1000 single-tenant databases, the quantity of indexes rises to 20,000.  In SQL Database as part of [Automatic tuning][docu-sql-db-automatic-tuning-771a], the automatic indexing features are enabled by default.  Automatic indexing manages for you all 20,000 indexes and their ongoing create and drop optimizations.  These automated actions occur within an individual database, and they are not coordinated or restricted by similar actions in other databases.  Automatic indexing treats indexes differently in a busy database than in a less busy database.  This type of index management customization would be impractical at the database-per-tenant scale if this huge management task had to be done manually.
 
 Other management features that scale well include the following:
 

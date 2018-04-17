@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuring Slack for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Slack for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Slack.
 services: active-directory
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
 
 ---
 
-# Tutorial: Configuring Slack for Automatic User Provisioning
+# Tutorial: Configure Slack for automatic user provisioning
 
 
 The objective of this tutorial is to show you the steps you need to perform in Slack and Azure AD to automatically provision and de-provision user accounts from Azure AD to Slack. 
@@ -105,7 +105,9 @@ Optionally, you can enable the provisioning of group objects from Azure AD to Sl
 
 4) Click **Save**.
 
-This result in any group objects assigned to Slack in the **Users and Groups** section being fully synchronized from Azure AD to Slack. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your Slack app.
+This result in any group objects assigned to Slack in the **Users and Groups** section being fully synchronized from Azure AD to Slack. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Slack app.
+
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 
 
 ## Additional Resources

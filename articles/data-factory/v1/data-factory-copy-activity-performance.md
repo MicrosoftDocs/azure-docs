@@ -4,8 +4,8 @@ description: Learn about key factors that affect the performance of data movemen
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
@@ -13,12 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Copy Activity performance and tuning guide
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](data-factory-copy-activity-performance.md)
+> * [Version 2 - Preview](../copy-activity-performance.md)
+
 > [!NOTE]
 > This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Copy activity performance and tuning guide for Data Factory version 2](../copy-activity-performance.md).
 

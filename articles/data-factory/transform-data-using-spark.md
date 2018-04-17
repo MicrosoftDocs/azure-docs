@@ -4,15 +4,15 @@ description: Learn how to transform data by running Spark programs from an Azure
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/16/2018
 ms.author: shengc
 
 ---
@@ -68,7 +68,7 @@ The following table describes the JSON properties used in the JSON definition:
 | description           | Text describing what the activity does.  | No       |
 | type                  | For Spark Activity, the activity type is HDInsightSpark. | Yes      |
 | linkedServiceName     | Name of the HDInsight Spark Linked Service on which the Spark program runs. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
-| SparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. | No       |
+| SparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. The value of this property can only be an Azure Storage linked service. | No       |
 | rootPath              | The Azure Blob container and folder that contains the Spark file. The file name is case-sensitive. Refer to folder structure section (next section) for details about the structure of this folder. | Yes      |
 | entryFilePath         | Relative path to the root folder of the Spark code/package. | Yes      |
 | className             | Application's Java/Spark main class      | No       |

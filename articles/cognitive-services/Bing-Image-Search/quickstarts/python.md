@@ -2,172 +2,88 @@
 title: Call and response - Python Quickstart for Azure Cognitive Services, Bing Image Search API | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Bing Image Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
-author: jerrykindall
-
+author: v-jerkin
 ms.service: cognitive-services
 ms.technology: bing-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-
 ---
+
 # Call and response: your first Bing Image Search query in Python
 
 The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
 
-This article includes a simple console application that performs a Bing Image Search API query and displays the returned raw search results, which are in JSON format. While this application is written in Python, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+This walkthrough demonstrates a simple example of calling into the Bing Image Search API and post-processing the resulting JSON object. For more information, see [Bing Image Search documentation](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference).
+
+You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
 
 ## Prerequisites
 
-You will need [Python 3.x](https://www.python.org/downloads/) to run this code.
-
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
-## Running the application
+## Running the walkthrough
+To continue with the walkthrough, set `subscription_key` to your API key for the Bing API service.
 
-To run this application, follow these steps.
-
-1. Create a new Python project in your favorite IDE or editor.
-2. Add the provided code.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
 
 ```python
-# -*- coding: utf-8 -*-
-
-import http.client, urllib.parse, json
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = "enter key here"
-
-# Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-# search APIs.  In the future, regional endpoints may be available.  If you
-# encounter unexpected authorization errors, double-check this value against
-# the endpoint for your Bing search instance in your Azure dashboard.
-host = "api.cognitive.microsoft.com"
-path = "/bing/v7.0/images/search"
-
-term = "puppies"
-
-def BingImageSearch(search):
-	"Performs a Bing image search and returns the results."
-
-	headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-	conn = http.client.HTTPSConnection(host)
-	query = urllib.parse.quote(search)
-	conn.request("GET", path + "?q=" + query, headers=headers)
-	response = conn.getresponse()
-	headers = [k + ": " + v for (k, v) in response.getheaders()
-                   if k.startswith("BingAPIs-") or k.startswith("X-MSEdge-")]
-	return headers, response.read().decode("utf8")
-
-if len(subscriptionKey) == 32:
-
-    print('Searching images for: ', term)
-    
-    headers, result = BingImageSearch(term)
-    print("\nRelevant HTTP Headers:\n")
-    print("\n".join(headers))
-    print("\nJSON Response:\n")
-    print(json.dumps(json.loads(result), indent=4))
-
-else:
-    
-    print("Invalid Bing Search API subscription key!")
-    print("Please paste yours into the source code.")
+subscription_key = None
+assert subscription_key
 ```
 
-## JSON response
+Next, verify that the `search_url` endpoint is correct. At this writing, only one endpoint is used for Bing search APIs. If you encounter authorization errors, double-check this value against the Bing search endpoint in your Azure dashboard.
 
-A sample response follows. To limit the length of the JSON, only a single result is shown, and other parts of the response have been truncated. 
 
-```json
-{
-  "_type": "Images",
-  "instrumentation": {},
-  "readLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=puppies",
-  "webSearchUrl": "https://www.bing.com/images/search?q=puppies&FORM=OIIARP",
-  "totalEstimatedMatches": 955,
-  "nextOffset": 1,
-  "value": [
-    {
-      "webSearchUrl": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&q=puppies&id=F68CC526226E163FD1EA659747ADCB8F9FA3CD96&simid=608055280844016271",
-      "name": "So cute - Puppies Wallpaper (14749028) - Fanpop",
-      "thumbnailUrl": "https://tse3.mm.bing.net/th?id=OIP.jHrihoDNkXGS1t5e89jNfwEsDh&pid=Api",
-      "datePublished": "2014-02-01T21:55:00.0000000Z",
-      "contentUrl": "http://images4.fanpop.com/image/photos/14700000/So-cute-puppies-14749028-1600-1200.jpg",
-      "hostPageUrl": "http://www.fanpop.com/clubs/puppies/images/14749028/title/cute-wallpaper",
-      "contentSize": "394455 B",
-      "encodingFormat": "jpeg",
-      "hostPageDisplayUrl": "www.fanpop.com/clubs/puppies/images/14749028/title/cute-wallpaper",
-      "width": 1600,
-      "height": 1200,
-      "thumbnail": {
-        "width": 300,
-        "height": 225
-      },
-      "imageInsightsToken": "ccid_jHrihoDN*mid_F68CC526226E163FD1EA659747ADCB8F9FA3CD96*simid_608055280844016271*thid_OIP.jHrihoDNkXGS1t5e89jNfwEsDh",
-      "insightsMetadata": {
-        "recipeSourcesCount": 0
-      },
-      "imageId": "F68CC526226E163FD1EA659747ADCB8F9FA3CD96",
-      "accentColor": "8D613E"
-    }
-  ],
-  "queryExpansions": [
-    {
-      "text": "Shih Tzu Puppies",
-      "displayText": "Shih Tzu",
-      "webSearchUrl": "https://www.bing.com/images/search?q=Shih+Tzu+Puppies&tq=%7b%22pq%22%3a%22puppies%22%2c%22qs%22%3a%5b%7b%22cv%22%3a%22puppies%22%2c%22pv%22%3a%22puppies%22%2c%22hps%22%3atrue%2c%22iqp%22%3afalse%7d%2c%7b%22cv%22%3a%22Shih+Tzu%22%2c%22pv%22%3a%22%22%2c%22hps%22%3afalse%2c%22iqp%22%3atrue%7d%5d%7d&FORM=IRPATC",
-      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Shih+Tzu+Puppies&tq=%7b%22pq%22%3a%22puppies%22%2c%22qs%22%3a%5b%7b%22cv%22%3a%22puppies%22%2c%22pv%22%3a%22puppies%22%2c%22hps%22%3atrue%2c%22iqp%22%3afalse%7d%2c%7b%22cv%22%3a%22Shih+Tzu%22%2c%22pv%22%3a%22%22%2c%22hps%22%3afalse%2c%22iqp%22%3atrue%7d%5d%7d",
-      "thumbnail": {
-        "thumbnailUrl": "https://tse2.mm.bing.net/th?q=Shih+Tzu+Puppies&pid=Api&mkt=en-US&adlt=moderate&t=1"
-      }
-    }
-  ],
-  "pivotSuggestions": [
-    {
-      "pivot": "puppies",
-      "suggestions": [
-        {
-          "text": "Dog",
-          "displayText": "Dog",
-          "webSearchUrl": "https://www.bing.com/images/search?q=Dog&tq=%7b%22pq%22%3a%22puppies%22%2c%22qs%22%3a%5b%7b%22cv%22%3a%22puppies%22%2c%22pv%22%3a%22puppies%22%2c%22hps%22%3atrue%2c%22iqp%22%3afalse%7d%2c%7b%22cv%22%3a%22Dog%22%2c%22pv%22%3a%22%22%2c%22hps%22%3afalse%2c%22iqp%22%3atrue%7d%5d%7d&FORM=IRQBPS",
-          "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Dog&tq=%7b%22pq%22%3a%22puppies%22%2c%22qs%22%3a%5b%7b%22cv%22%3a%22puppies%22%2c%22pv%22%3a%22puppies%22%2c%22hps%22%3atrue%2c%22iqp%22%3afalse%7d%2c%7b%22cv%22%3a%22Dog%22%2c%22pv%22%3a%22%22%2c%22hps%22%3afalse%2c%22iqp%22%3atrue%7d%5d%7d",
-          "thumbnail": {
-            "thumbnailUrl": "https://tse1.mm.bing.net/th?q=Dog&pid=Api&mkt=en-US&adlt=moderate&t=1"
-          }
-        }
-      ]
-    }
-  ],
-  "similarTerms": [
-    {
-      "text": "cute",
-      "displayText": "cute",
-      "webSearchUrl": "https://www.bing.com/images/search?q=cute&FORM=IDINTS",
-      "thumbnail": {
-        "url": "https://tse2.mm.bing.net/th?q=cute&pid=Api&mkt=en-US&adlt=moderate"
-      }
-    }
-  ],
-  "relatedSearches": [
-    {
-      "text": "Cute Puppies",
-      "displayText": "Cute Puppies",
-      "webSearchUrl": "https://www.bing.com/images/search?q=Cute+Puppies&FORM=IRPATC",
-      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Cute+Puppies",
-      "thumbnail": {
-        "thumbnailUrl": "https://tse4.mm.bing.net/th?q=Cute+Puppies&pid=Api&mkt=en-US&adlt=moderate&t=1"
-      }
-    }
-  ]
-}
+```python
+search_url = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
+```
+
+Set `search_term` to look for images of puppies.
+
+
+```python
+search_term = "puppies"
+```
+
+The following block uses the `requests` library in Python to call out to the Bing search APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, refer to the [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference) documentation.
+
+
+```python
+import requests
+
+headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
+params  = {"q": search_term, "license": "public", "imageType": "photo"}
+response = requests.get(search_url, headers=headers, params=params)
+response.raise_for_status()
+search_results = response.json()
+```
+
+The `search_results` object contains the actual images along with rich metadata such as related items. For example, the following line of code can extract the thumbnail URLS for the first 16 results.
+
+
+```python
+thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
+```
+
+Then, we can use the `PIL` library to download the thumbnail images and the `matplotlib` library to render them on a $4 \times 4$ grid.
+
+
+```python
+%matplotlib inline
+import matplotlib.pyplot as plt
+from PIL import Image
+from io import BytesIO
+
+f, axes = plt.subplots(4, 4)
+for i in range(4):
+    for j in range(4):
+        image_data = requests.get(thumbnail_urls[i+4*j])
+        image_data.raise_for_status()
+        image = Image.open(BytesIO(image_data.content))        
+        axes[i][j].imshow(image)
+        axes[i][j].axis("off")
 ```
 
 ## Next steps

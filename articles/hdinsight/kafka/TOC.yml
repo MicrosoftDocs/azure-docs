@@ -34,14 +34,25 @@
     - name: Kafka and Spark (Structured Streaming)
       href: ../hdinsight-apache-kafka-spark-structured-streaming.md
       maintainContext: true
+    - name: Structured streaming from Kafka to Azure Cosmos DB
+      href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
+      maintainContext: true
     - name: Kafka and Spark (DStream)
       href: ../hdinsight-apache-spark-with-kafka.md
       maintainContext: true
     - name: Kafka and Storm
       href: ../hdinsight-apache-storm-with-kafka.md
       maintainContext: true
+    - name: Use Kafka with Azure Container Service
+      href: apache-kafka-azure-container-services.md
+    - name: Kafka and Azure Functions
+      href: apache-kafka-azure-functions.md
   - name: Develop
     items:
+    - name: Using Kafka Producer and Consumer API
+      href: apache-kafka-producer-consumer-api.md
+    - name: Using Kafka Streams API
+      href: apache-kafka-streams-api.md
     - name: Use empty edge nodes
       href: ../hdinsight-apps-use-edge-node.md
       maintainContext: true
@@ -65,6 +76,21 @@
         href: https://msdn.microsoft.com/library/mt706515.aspx
       - name: Publish HDInsight apps to Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
+        maintainContext: true
+      - name: Install published app - Cask Data Application Platform (CDAP)
+        href: ../hdinsight-apps-install-cask.md
+        maintainContext: true
+      - name: Install published app - Dataiku
+        href: ../hdinsight-apps-install-dataiku.md
+        maintainContext: true
+      - name: Install published app - Datameer
+        href: ../hdinsight-apps-install-datameer.md
+        maintainContext: true
+      - name: Install published app - H2O
+        href: ../hdinsight-apps-install-h2o.md
+        maintainContext: true
+      - name: Install published app - Streamsets
+        href: ../hdinsight-apps-install-streamsets.md
         maintainContext: true
   - name: Secure
     items:

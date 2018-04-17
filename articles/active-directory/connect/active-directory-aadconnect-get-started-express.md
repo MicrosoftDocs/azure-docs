@@ -2,23 +2,21 @@
 title: 'Azure AD Connect: Getting Started using express settings | Microsoft Docs'
 description: Learn how to download, install and run the setup wizard for Azure AD Connect.
 services: active-directory
-documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: curtand
-
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2018
+ms.date: 03/27/2018
 ms.author: billmath
 
 ---
 # Getting started with Azure AD Connect using express settings
-Azure AD Connect **Express Settings** is used when you have a single-forest topology and [password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) for authentication. **Express Settings** is the default option and is used for the most commonly deployed scenario. You are only a few short clicks away to extend your on-premises directory to the cloud.
+Azure AD Connect **Express Settings** is used when you have a single-forest topology and [password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) for authentication. **Express Settings** is the default option and is used for the most commonly deployed scenario. You are only a few short clicks away to extend your on-premises directory to the cloud.
 
 Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md).
 
@@ -42,6 +40,7 @@ You can see these steps in action in the [videos](#videos) section.
    If you see this page, then review every domain marked **Not Added** and **Not Verified**. Make sure those domains you use have been verified in Azure AD. Click the Refresh symbol when you have verified your domains.
 8. On the Ready to configure screen, click **Install**.
    * Optionally on the Ready to configure page, you can unselect the **Start the synchronization process as soon as configuration completes** checkbox. You should unselect this checkbox if you want to do additional configuration, such as [filtering](active-directory-aadconnectsync-configure-filtering.md). If you unselect this option, the wizard configures sync but leaves the scheduler disabled. It does not run until you enable it manually by [rerunning the installation wizard](active-directory-aadconnectsync-installation-wizard.md).
+   * Leaving the **Start the synchronization process as soon as configuration completes** checkbox enabled will immediately trigger a full synchronization to Azure AD of all users, groups, and contacts. 
    * If you have Exchange in your on-premises Active Directory, then you also have an option to enable [**Exchange Hybrid deployment**](https://technet.microsoft.com/library/jj200581.aspx). Enable this option if you plan to have Exchange mailboxes both in the cloud and on-premises at the same time.
      ![Ready to configure Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 9. When the installation completes, click **Exit**.

@@ -8,7 +8,8 @@
       href: web-search-endpoints.md
     - name: Supported countries and markets
       href: supported-countries-markets.md
-- name: Quickstarts
+- name: API Quickstarts
+  expanded: true
   items:
   - name: First query in C#
     href: quickstarts/csharp.md
@@ -18,10 +19,20 @@
     href: quickstarts/nodejs.md
   - name: First query in Python
     href: quickstarts/python.md
+  - name: First query in Go
+    href: quickstarts/go.md
   - name: First query in PHP
     href: quickstarts/php.md
   - name: First query in Ruby
     href: quickstarts/ruby.md
+- name: Tutorials
+  items:
+  - name: Single-page Web app
+    href: tutorial-bing-web-search-single-page-app.md
+  - name: Single-page Web app (source code)
+    href: tutorial-bing-web-search-single-page-app-source.md
+  - name: Visual Search mobile app
+    href: computer-vision-web-search-tutorial.md
 - name: How To Guides
   items:
   - name: Use and display results
@@ -38,20 +49,25 @@
     href: resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7
     href: bing-web-upgrade-guide-v5-to-v7.md  
-- name: Tutorials
-  items:
-  - name: Single-page Web app
-    href: tutorial-bing-web-search-single-page-app.md
-  - name: Single-page Web app (source code)
-    href: tutorial-bing-web-search-single-page-app-source.md
-  - name: Visual Search mobile app
-    href: computer-vision-web-search-tutorial.md
 - name: Reference
+  expanded: true
   items:
   - name: REST v7 API
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
+  - name: SDK
+    items:
+    - name: SDK samples overview 
+      href: sdk.md
+    - name: Web Search SDK C# quickstart
+      href: web-search-sdk-quickstart.md 
+    - name: Web Search SDK Node.js quickstart (preview)
+      href: web-search-sdk-node-quickstart.md 
+    - name: Web Search SDK Python quickstart (preview)
+      href: web-sdk-python-quickstart.md
+    - name: Web Search SDK Java quickstart (preview)
+      href: web-sdk-java-quickstart.md
   - name: REST v5 API (old version)
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference    
 - name: Resources
   items:
   - name: Frequently asked questions
@@ -64,3 +80,5 @@
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: User Voice
     href: https://cognitive.uservoice.com/forums/555907-bing-search
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest

@@ -59,7 +59,7 @@ An Azure credential is needed to execute Azure CLI.
 
 ## Create an Azure App Service for deploying the Java web app
 
-Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps. 
+Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -118,7 +118,7 @@ When the web app definition is ready, the Azure CLI shows information similar to
 
 ### Configure Java 
 
-Set up the Java runtime configuration that your app needs with the  [az appservice web config update](/cli/azure/appservice/web/config#update) command.
+Set up the Java runtime configuration that your app needs with the  [az appservice web config update](/cli/azure/appservice/web/config#az_appservice_web_config_update) command.
 
 The following command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 

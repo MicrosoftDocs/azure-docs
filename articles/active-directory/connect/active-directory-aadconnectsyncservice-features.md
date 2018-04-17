@@ -3,7 +3,7 @@ title: Azure AD Connect sync service features and configuration | Microsoft Docs
 description: Describes service side features for Azure AD Connect sync service.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 
@@ -25,7 +25,7 @@ The synchronization feature of Azure AD Connect has two components:
 
 This topic explains how the following features of the **Azure AD Connect sync service** work and how you can configure them using Windows PowerShell.
 
-These settings are configured by the [Azure Active Directory Module for Windows PowerShell](http://aka.ms/aadposh). Download and install it separately from Azure AD Connect. The cmdlets documented in this topic were introduced in the [2016 March release (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). If you do not have the cmdlets documented in this topic or they do not produce the same result, then make sure you run the latest version.
+These settings are configured by the [Azure Active Directory Module for Windows PowerShell](https://aka.ms/aadposh). Download and install it separately from Azure AD Connect. The cmdlets documented in this topic were introduced in the [2016 March release (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). If you do not have the cmdlets documented in this topic or they do not produce the same result, then make sure you run the latest version.
 
 To see the configuration in your Azure AD directory, run `Get-MsolDirSyncFeatures`.  
 ![Get-MsolDirSyncFeatures result](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
@@ -53,7 +53,7 @@ The following settings are configured by Azure AD Connect and cannot be modified
 | DeviceWriteback |[Azure AD Connect: Enabling device writeback](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect sync: Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Allows an attribute to be quarantined when it is a duplicate of another object rather than failing the entire object during export. |
-| PasswordSync |[Implementing password synchronization with Azure AD Connect sync](active-directory-aadconnectsync-implement-password-synchronization.md) |
+| PasswordSync |[Implementing password synchronization with Azure AD Connect sync](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[Preview: Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Not currently supported. |
 

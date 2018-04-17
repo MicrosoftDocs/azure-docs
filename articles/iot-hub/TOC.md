@@ -1,3 +1,5 @@
+# [IoT Hub Documentation](index.md)
+
 # Overview
 ## [Azure and IoT](iot-hub-what-is-azure-iot.md)
 ## [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
@@ -24,9 +26,9 @@
 #### [Intel Edison with Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison with C](iot-hub-intel-edison-kit-c-get-started.md)
 
-#### [Adafruit Feather HUZZAH ESP8266 with Arduino IDE](iot-hub-arduino-huzzah-esp8266-get-started.md)
-#### [Sparkfun ESP8266 Thing Dev with Arduino IDE](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
-#### [Adafruit Feather M0 with Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+#### [Adafruit Feather HUZZAH ESP8266 with Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Sparkfun ESP8266 Thing Dev with Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Adafruit Feather M0 with Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 ## Extended IoT scenarios
 ### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -35,14 +37,23 @@
 ### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 ### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
 ### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+### [Device management with IoT extension for Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Remote monitoring and notifications with ​Logic ​Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+
+## Use MXChip IoT DevKit
+### [Translate voice message with Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
+### [Retrieve a Twitter message with Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+### [Send messages to an MQTT server using Eclipse Paho APIs](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
+### [Monitor the magnetic sensor and send email notifications with Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
+### [Control MXChip IoT DevKit RGB LED using Azure device twins](iot-hub-arduino-iot-devkit-az3166-devkit-state.md)
 
 # How-to guides
 ## Plan
-### [Comparison of IoT Hub to Event Hubs](iot-hub-compare-event-hubs.md)
-### [Scale your solution](iot-hub-scaling.md)
+### [Compare IoT Hub and Event Hubs](iot-hub-compare-event-hubs.md)
+### [Choose the right tier](iot-hub-scaling.md)
 ### [High availability and disaster recovery](iot-hub-ha-dr.md)
 ### [Supporting additional protocols](iot-hub-protocol-gateway.md)
+### [Compare message and event routing](iot-hub-event-grid-routing-comparison.md)
 ## [Develop](iot-hub-how-to.md)
 ### [Developer guide](iot-hub-devguide.md)
 #### [Device-to-cloud feature guide](iot-hub-devguide-d2c-guidance.md)
@@ -50,6 +61,7 @@
 #### [Send and receive messages](iot-hub-devguide-messaging.md)
 ##### [Send device-to-cloud messages to IoT Hub](iot-hub-devguide-messages-d2c.md)
 ##### [Read device-to-cloud messages from the built-in endpoint](iot-hub-devguide-messages-read-builtin.md)
+##### [React to IoT Hub events](iot-hub-event-grid.md)
 ##### [Use custom endpoints and routing rules for device-to-cloud messages](iot-hub-devguide-messages-read-custom.md)
 ##### [Send cloud-to-device messages from IoT Hub](iot-hub-devguide-messages-c2d.md)
 ##### [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md)
@@ -74,43 +86,53 @@
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Python](iot-hub-python-python-process-d2c.md)
 ### Send cloud-to-device messages
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
+#### [Python](iot-hub-python-python-c2d.md)
 ### Upload files from devices
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 #### [Node.js](iot-hub-node-node-file-upload.md)
+#### [Python](iot-hub-python-python-file-upload.md)
 ### Get started with device twins
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-getstarted.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java back end/Java device](iot-hub-java-java-twin-getstarted.md)
+#### [Python back end/Python device](iot-hub-python-twin-getstarted.md)
 ### Use direct methods
 #### [Node.js back end/Node.js device](iot-hub-node-node-direct-methods.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java back end/Java device](iot-hub-java-java-direct-methods.md)
+#### [Python back end/Python device](iot-hub-python-python-direct-methods.md)
 ### Get started with device management
 #### [Node.js back end/Node.js device](iot-hub-node-node-device-management-get-started.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-device-management-get-started.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java back end/Java device](iot-hub-java-java-device-management-getstarted.md)
+#### [Python back end/Python device](iot-hub-python-python-device-management-get-started.md)
 ### How to use twin properties
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java back end/Java device](iot-hub-java-java-twin-how-to-configure.md)
+#### [Python back end/Python device](iot-hub-python-python-twin-how-to-configure.md)
 ### Use device jobs to update device firmware
 #### [Node back end/Node device](iot-hub-node-node-firmware-update.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-firmware-update.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java back end/Java device](iot-hub-java-java-firmware-update.md)
+#### [Python back end/Python device](iot-hub-python-python-firmware-update.md)
 ### Schedule and broadcast jobs
 #### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
-#### [Java](iot-hub-java-java-schedule-jobs.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-schedule-jobs.md)
+#### [Java back end/Java device](iot-hub-java-java-schedule-jobs.md)
+#### [Python back end/Python device](iot-hub-python-python-schedule-jobs.md)
 
 ## Manage
 ### Create an IoT hub 
@@ -128,6 +150,7 @@
 ### [Monitor with diagnostics](iot-hub-monitor-resource-health.md)
 #### [Migrate to diagnostics settings](iot-hub-migrate-to-diagnostics-settings.md)
 #### [Operations monitoring](iot-hub-operations-monitoring.md)
+### [Upgrade an IoT hub](iot-hub-upgrade.md)
 ### [Usage metrics](iot-hub-metrics.md)
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Configure IP filtering](iot-hub-ip-filtering.md)
@@ -151,7 +174,7 @@
 ## [Java (Service)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Devices)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Node.js (Devices)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
-## [Node.js (Service)](https://docs.microsoft.com/javascript/api/azure-iothub)
+## [Node.js (Service)](https://docs.microsoft.com/javascript/api/azure-iothub/)
 ## [C device SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

@@ -69,7 +69,7 @@ Incident response and forensics investigation scenarios will directly benefit fr
 
 When you click on this tile, the **Search** blade will open, showing a query result for **Security Events** (Type=SecurityEvents) with data based on the last seven days, as shown below:
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 

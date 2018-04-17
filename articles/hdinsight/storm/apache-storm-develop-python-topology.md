@@ -12,10 +12,8 @@ ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: python
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/02/2017
+ms.topic: conceptual
+ms.date: 01/22/2018
 ms.author: larryfr
 
 ---

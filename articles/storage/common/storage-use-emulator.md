@@ -24,7 +24,7 @@ The Microsoft Azure storage emulator provides a local environment that emulates 
 ## Get the storage emulator
 The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator by using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (direct download). To install the storage emulator, you must have administrative privileges on your computer.
 
-The storage emulator currently runs only on Windows. For those considering a storage emulator for Linux, one option is the community maintained, open source storage emulator [Azurite](https://github.com/arafato/azurite).
+The storage emulator currently runs only on Windows. For those considering a storage emulator for Linux, one option is the community maintained, open source storage emulator [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, we recommended that you store that data in an Azure storage account, rather than in the storage emulator.
@@ -41,6 +41,14 @@ The storage emulator connects to SQL Server or LocalDB using Windows authenticat
 Some differences in functionality exist between the storage emulator and Azure storage services. For more information about these differences, see the [Differences between the storage emulator and Azure Storage](#differences-between-the-storage-emulator-and-azure-storage) section later in this article.
 
 ## Start and initialize the storage emulator
+
+### [Run the Azure storage emulator in Docker](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
+```
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
+```
+
+### Using SDK
+
 To start the Azure storage emulator:
 1. Select the **Start** button or press the **Windows** key.
 1. Begin typing `Azure Storage Emulator`.

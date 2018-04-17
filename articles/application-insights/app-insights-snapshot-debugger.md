@@ -39,7 +39,7 @@ The following environments are supported:
 
 1. [Enable Application Insights in your web app](app-insights-asp-net.md), if you haven't done it yet.
 
-2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app. 
+2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
 3. Review the default options that the package added to [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
@@ -57,10 +57,20 @@ The following environments are supported:
         <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
         <!-- The maximum number of problems that we can be tracking at any time. -->
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
+        <!-- How often we reconnect to the stamp. The default value is 15 minutes.-->
+        <ReconnectInterval>00:15:00</ReconnectInterval>
         <!-- How often to reset problem counters. -->
-        <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
+        <ProblemCounterResetInterval>24:00:00</ProblemCounterResetInterval>
+        <!-- The maximum number of snapshots allowed in ten minutes.The default value is 1. -->
+        <SnapshotsPerTenMinutesLimit>1</SnapshotsPerTenMinutesLimit>
         <!-- The maximum number of snapshots allowed per day. -->
-        <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
+        <SnapshotsPerDayLimit>30</SnapshotsPerDayLimit>
+        <!-- Whether or not to collect snapshot in low IO priority thread. The default value is true. -->
+        <SnapshotInLowPriorityThread>true</SnapshotInLowPriorityThread>
+        <!-- Agree to send anonymous data to Microsoft to make this product better. -->
+        <ProvideAnonymousTelemetry>true</ProvideAnonymousTelemetry>
+        <!-- The limit on the number of failed requests to request snapshots before the telemetry processor is disabled. -->
+        <FailedRequestLimit>3</FailedRequestLimit>
         </Add>
     </TelemetryProcessors>
     ```
@@ -79,10 +89,18 @@ The following environments are supported:
 
 3. Modify your application's `Startup` class to add and configure the Snapshot Collector's telemetry processor.
 
-   ```C#
+    Add the following using statements to `Startup.cs`
+
+   ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
-   ...
+   using Microsoft.ApplicationInsights.AspNetCore;
+   using Microsoft.ApplicationInsights.Extensibility;
+   ```
+
+   Add the following `SnapshotCollectorTelemetryProcessorFactory` class to `Startup` class.
+
+   ```csharp
    class Startup
    {
        private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
@@ -98,11 +116,11 @@ The following environments are supported:
                return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
            }
        }
+       ...
+    ```
+    Add the `SnapshotCollectorConfiguration` and `SnapshotCollectorTelemetryProcessorFactory` services to the startup pipeline:
 
-       public Startup(IConfiguration configuration) => Configuration = configuration;
-
-       public IConfiguration Configuration { get; }
-
+    ```csharp
        // This method gets called by the runtime. Use this method to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
@@ -125,7 +143,17 @@ The following environments are supported:
        "InstrumentationKey": "<your instrumentation key>"
      },
      "SnapshotCollectorConfiguration": {
-       "IsEnabledInDeveloperMode": true
+       "IsEnabledInDeveloperMode": true,
+       "ThresholdForSnapshotting": 5,
+       "MaximumSnapshotsRequired": 3,
+       "MaximumCollectionPlanSize": 50,
+       "ReconnectInterval": "00:15:00",
+       "ProblemCounterResetInterval":"24:00:00",
+       "SnapshotsPerTenMinutesLimit": 1,
+       "SnapshotsPerDayLimit": 30,
+       "SnapshotInLowPriorityThread": true,
+       "ProvideAnonymousTelemetry": true,
+       "FailedRequestLimit": 3
      }
    }
    ```
@@ -137,7 +165,7 @@ The following environments are supported:
 2. Add the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
 3. Snapshots are collected only on exceptions that are reported to Application Insights. You may need to modify your code to report them. The exception handling code depends on the structure of your application, but an example is below:
-    ```C#
+    ```csharp
    TelemetryClient _telemetryClient = new TelemetryClient();
 
    void ExampleRequest()
@@ -155,7 +183,7 @@ The following environments are supported:
         }
    }
     ```
-    
+
 ## Grant permissions
 
 Owners of the Azure subscription can inspect snapshots. Other users must be granted permission by an owner.
@@ -185,7 +213,7 @@ In the Debug Snapshot view, you see a call stack and a variables pane. When you 
 Snapshots might contain sensitive information, and by default they are not viewable. To view snapshots, you must have the `Application Insights Snapshot Debugger` role assigned to you.
 
 ## Debug snapshots with Visual Studio 2017 Enterprise
-1. Click the **Download Snapshot** button to download a `.diagsession` file, which can be opened by Visual Studio 2017 Enterprise. 
+1. Click the **Download Snapshot** button to download a `.diagsession` file, which can be opened by Visual Studio 2017 Enterprise.
 
 2. To open the `.diagsession` file, you must first [download and install the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger).
 
@@ -223,7 +251,7 @@ Make sure that you're using the correct instrumentation key in your published ap
 
 ### Check the uploader logs
 
-After a snapshot is created, a minidump file (.dmp) is created on disk. A separate uploader process takes that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. After the minidump has uploaded successfully, it is deleted from disk. The log files for the minidump uploader are retained on disk. In an App Service environment, you can find these logs in `D:\Home\LogFiles\Uploader_*.log`. Use the Kudu management site for App Service to find these log files.
+After a snapshot is created, a minidump file (.dmp) is created on disk. A separate uploader process takes that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. After the minidump has uploaded successfully, it is deleted from disk. The log files for the uploader process are retained on disk. In an App Service environment, you can find these logs in `D:\Home\LogFiles`. Use the Kudu management site for App Service to find these log files.
 
 1. Open your App Service application in the Azure portal.
 
@@ -232,25 +260,36 @@ After a snapshot is created, a minidump file (.dmp) is created on disk. A separa
 4. In the **Debug console** drop-down list box, select **CMD**.
 5. Click **LogFiles**.
 
-You should see at least one file with a name that begins with `Uploader_` and a `.log` extension. Click the appropriate icon to download any log files or open them in a browser.
-The file name includes the machine name. If your App Service instance is hosted on more than one machine, there are separate log files for each machine. When the uploader detects a new minidump file, it is recorded in the log file. Here's an example of a successful upload:
+You should see at least one file with a name that begins with `Uploader_` or `SnapshotUploader_` and a `.log` extension. Click the appropriate icon to download any log files or open them in a browser.
+The file name includes a unique suffix that identifies the App Service instance. If your App Service instance is hosted on more than one machine, there are separate log files for each machine. When the uploader detects a new minidump file, it is recorded in the log file. Here's an example of a successful snapshot and upload:
 
 ```
-MinidumpUploader.exe Information: 0 : Dump available 139e411a23934dc0b9ea08a626db16c5.dmp
-    DateTime=2017-05-25T14:25:08.0349846Z
-MinidumpUploader.exe Information: 0 : Uploading D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp, 329.12 MB
-    DateTime=2017-05-25T14:25:16.0145444Z
-MinidumpUploader.exe Information: 0 : Upload successful.
-    DateTime=2017-05-25T14:25:42.9164120Z
-MinidumpUploader.exe Information: 0 : Extracting PDB info from D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp.
-    DateTime=2017-05-25T14:25:42.9164120Z
-MinidumpUploader.exe Information: 0 : Matched 2 PDB(s) with local files.
-    DateTime=2017-05-25T14:25:44.2310982Z
-MinidumpUploader.exe Information: 0 : Stamp does not want any of our matched PDBs.
-    DateTime=2017-05-25T14:25:44.5435948Z
-MinidumpUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp
-    DateTime=2017-05-25T14:25:44.6095821Z
+SnapshotUploader.exe Information: 0 : Received Fork request ID 139e411a23934dc0b9ea08a626db16c5 from process 6368 (Low pri)
+    DateTime=2018-03-09T01:42:41.8571711Z
+SnapshotUploader.exe Information: 0 : Creating minidump from Fork request ID 139e411a23934dc0b9ea08a626db16c5 from process 6368 (Low pri)
+    DateTime=2018-03-09T01:42:41.8571711Z
+SnapshotUploader.exe Information: 0 : Dump placeholder file created: 139e411a23934dc0b9ea08a626db16c5.dm_
+    DateTime=2018-03-09T01:42:41.8728496Z
+SnapshotUploader.exe Information: 0 : Dump available 139e411a23934dc0b9ea08a626db16c5.dmp
+    DateTime=2018-03-09T01:42:45.7525022Z
+SnapshotUploader.exe Information: 0 : Successfully wrote minidump to D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp
+    DateTime=2018-03-09T01:42:45.7681360Z
+SnapshotUploader.exe Information: 0 : Uploading D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp, 214.42 MB (uncompressed)
+    DateTime=2018-03-09T01:42:45.7681360Z
+SnapshotUploader.exe Information: 0 : Upload successful. Compressed size 86.56 MB
+    DateTime=2018-03-09T01:42:59.6184651Z
+SnapshotUploader.exe Information: 0 : Extracting PDB info from D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp.
+    DateTime=2018-03-09T01:42:59.6184651Z
+SnapshotUploader.exe Information: 0 : Matched 2 PDB(s) with local files.
+    DateTime=2018-03-09T01:42:59.6809606Z
+SnapshotUploader.exe Information: 0 : Stamp does not want any of our matched PDBs.
+    DateTime=2018-03-09T01:42:59.8059929Z
+SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp
+    DateTime=2018-03-09T01:42:59.8530649Z
 ```
+
+> [!NOTE]
+> The example above is from version 1.2.0 of the Microsoft.ApplicationInsights.SnapshotCollector Nuget package. In earlier versions, the uploader process is called `MinidumpUploader.exe` and the log is less detailed.
 
 In the previous example, the instrumentation key is `c12a605e73c44346a984e00000000000`. This value should match the instrumentation key for your application.
 The minidump is associated with a snapshot with the ID `139e411a23934dc0b9ea08a626db16c5`. You can use this ID later to locate the associated exception telemetry in Application Insights Analytics.
@@ -258,16 +297,14 @@ The minidump is associated with a snapshot with the ID `139e411a23934dc0b9ea08a6
 The uploader scans for new PDBs about once every 15 minutes. Here's an example:
 
 ```
-MinidumpUploader.exe Information: 0 : PDB rescan requested.
-    DateTime=2017-05-25T15:11:38.8003886Z
-MinidumpUploader.exe Information: 0 : Scanning D:\home\site\wwwroot\ for local PDBs.
-    DateTime=2017-05-25T15:11:38.8003886Z
-MinidumpUploader.exe Information: 0 : Scanning D:\local\Temporary ASP.NET Files\root\a6554c94\e3ad6f22\assembly\dl3\81d5008b\00b93cc8_dec5d201 for local PDBs.
-    DateTime=2017-05-25T15:11:38.8160276Z
-MinidumpUploader.exe Information: 0 : Local PDB scan complete. Found 2 PDB(s).
-    DateTime=2017-05-25T15:11:38.8316450Z
-MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\.pdbscan.
-    DateTime=2017-05-25T15:11:38.8316450Z
+SnapshotUploader.exe Information: 0 : PDB rescan requested.
+    DateTime=2018-03-09T01:47:19.4457768Z
+SnapshotUploader.exe Information: 0 : Scanning D:\home\site\wwwroot for local PDBs.
+    DateTime=2018-03-09T01:47:19.4457768Z
+SnapshotUploader.exe Information: 0 : Local PDB scan complete. Found 2 PDB(s).
+    DateTime=2018-03-09T01:47:19.4614027Z
+SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\6368.pdbscan
+    DateTime=2018-03-09T01:47:19.4614027Z
 ```
 
 For applications that are _not_ hosted in App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
@@ -280,32 +317,49 @@ You should allow for at least two concurrent snapshots.
 For example, if your application uses 1 GB of total working set, you should ensure that there is at least 2 GB of disk space to store snapshots.
 Follow these steps to configure your Cloud Service role with a dedicated local resource for snapshots.
 
-1. Add a new local resource to your Cloud Service by editing the Cloud Service definition (.csdf) file. The following example defines a resource called `SnapshotStore` with a size of 5 GB.
-```xml
+1. Add a new local resource to your Cloud Service by editing the Cloud Service definition (.csdef) file. The following example defines a resource called `SnapshotStore` with a size of 5 GB.
+   ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
    </LocalResources>
-```
+   ```
 
-2. Modify your role's `OnStart` method to add an environment variable that points to the `SnapshotStore` local resource.
-```C#
+2. Modify your role's startup code to add an environment variable that points to the `SnapshotStore` local resource. For Worker Roles, the code should be added to your role's `OnStart` method:
+   ```csharp
    public override bool OnStart()
    {
        Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
        return base.OnStart();
    }
-```
+   ```
+   For Web Roles (ASP.NET), the code should be added to your web application's `Application_Start` method:
+   ```csharp
+   using Microsoft.WindowsAzure.ServiceRuntime;
+   using System;
+
+   namespace MyWebRoleApp
+   {
+       public class MyMvcApplication : System.Web.HttpApplication
+       {
+          protected void Application_Start()
+          {
+             Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
+             // TODO: The rest of your application startup code
+          }
+       }
+   }
+   ```
 
 3. Update your role's ApplicationInsights.config file to override the temporary folder location used by `SnapshotCollector`
-```xml
-  <TelemetryProcessors>
+   ```xml
+   <TelemetryProcessors>
     <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
       <!-- Use the SnapshotStore local resource for snapshots -->
       <TempFolder>%SNAPSHOTSTORE%</TempFolder>
       <!-- Other SnapshotCollector configuration options -->
     </Add>
-  </TelemetryProcessors>
-```
+   </TelemetryProcessors>
+   ```
 
 ### Use Application Insights search to find exceptions with snapshots
 
@@ -330,5 +384,5 @@ If you still don't see an exception with that snapshot ID, then the exception te
 ## Next steps
 
 * [Set snappoints in your code](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) to get snapshots without waiting for an exception.
-* [Diagnose exceptions in your web apps](app-insights-asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights. 
+* [Diagnose exceptions in your web apps](app-insights-asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights.
 * [Smart Detection](app-insights-proactive-diagnostics.md) automatically discovers performance anomalies.

@@ -4,8 +4,8 @@ description: Learn about how to move data from MongoDB database using Azure Data
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 10ca7d9a-7715-4446-bf59-2d2876584550
 ms.service: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 04/13/2018
 ms.author: jingwang
 
 robots: noindex
@@ -34,7 +34,7 @@ You can copy data from an on-premises MongoDB data store to any supported sink d
 ## Prerequisites
 For the Azure Data Factory service to be able to connect to your on-premises MongoDB database, you must install the following components:
 
-- Supported MongoDB versions are:  2.4, 2.6, 3.0, and 3.2.
+- Supported MongoDB versions are:  2.4, 2.6, 3.0, 3.2, 3.4 and 3.6.
 - Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources to cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway. See [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data.
 
     When you install the gateway, it automatically installs a Microsoft MongoDB ODBC driver used to connect to MongoDB.

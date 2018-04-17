@@ -1,21 +1,13 @@
 ﻿---
 title: Create an Azure Analysis Services server by using PowerShell | Microsoft Docs
 description: Learn how to create an Azure Analysis Services server by using PowerShell
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 11/01/2017
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.custom: mvc
+ms.reviewer: minewiskan
 
 ---
 
@@ -28,7 +20,7 @@ This task requires Azure PowerShell module version 4.0 or later. To find the ver
 > [!NOTE]
 > Creating a server might result in a new billable service. To learn more, see [Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
 
-## Prerequisites
+## Before you begin
 To complete this quickstart, you need:
 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.

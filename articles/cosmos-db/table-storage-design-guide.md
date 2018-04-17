@@ -3,18 +3,17 @@ title: Azure Storage Table Design Guide | Microsoft Docs
 description: Design Scalable and Performant Tables in Azure Table Storage
 services: cosmos-db
 documentationcenter: na
-author: mimig1
-manager: tadb
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: storage
+ms.workload: data-services
 ms.date: 11/03/2017
-ms.author: mimig
+ms.author: sngun
 
 ---
 # Azure Storage Table Design Guide: Designing Scalable and Performant Tables
@@ -235,7 +234,7 @@ For examples of client-side code that can handle multiple entity types stored in
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
 
 ### Choosing an appropriate PartitionKey
-Your choice of **PartitionKey** should balance the need to enables the use of EGTs (to ensure consistency) against the requirement to distribute your entities across multiple partitions (to ensure a scalable solution).  
+Your choice of **PartitionKey** should balance the need to enable the use of EGTs (to ensure consistency) against the requirement to distribute your entities across multiple partitions (to ensure a scalable solution).  
 
 At one extreme, you could store all your entities in a single partition, but this may limit the scalability of your solution and would prevent the table service from being able to load-balance requests. At the other extreme, you could store one entity per partition, which would be highly scalable and which enables the table service to load-balance requests, but which would prevent you from using entity group transactions.  
 

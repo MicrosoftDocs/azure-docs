@@ -12,23 +12,20 @@ tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
+ms.topic: conceptual
+ms.date: 02/14/2018
 ms.author: jgao
 
 ---
 # Apache Spark BI using data visualization tools with Azure HDInsight
 
-Learn how to use [Microsoft Power BI](http://powerbi.microsoft.com) and [Tableau](http://www.tableau.com) to visualize data in Apache Spark cluster on Azure HDInsight.
+Learn how to use [Microsoft Power BI](http://powerbi.microsoft.com) to visualize data in Apache Spark cluster on Azure HDInsight.
 
 ## Prerequisites
 
-* **Complete [Run interactive queries on Spark clusters in HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Complete the article [Run interactive queries on Spark clusters in HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) and [Power BI trial subscription](https://app.powerbi.com/signupredirect?pbi_source=web) (optional).
-* **Tableau**: [Tableau Desktop](http://www.tableau.com/products/desktop) and [Microsoft Spark ODBC driver](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 
 ## <a name="hivetable"></a>Verify the data
@@ -106,7 +103,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 
     ![Spark cluster user name and password](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark cluster user name and password")
 
-    Power BI Desktop has the information it needs to connect to the Spark cluster and load data from the `hvac` table. The table and its columns are displayed in the **Fields** pane.  See the following screenshot.
+    Power BI Desktop has the information it needs to connect to the Spark cluster and load data from the `hvac` table. The table and its columns are displayed in the **Fields** pane.  See the following screenshot:
 
 6. Visualize the variance between target temperature and actual temperature for each building: 
 
@@ -180,6 +177,7 @@ The Power BI service allows you to share reports and dashboards across your orga
 
 Your visual is pinned to the dashboard - you can add other visuals to the report and pin them to the same dashboard. For more information about reports and dashboards, see [Reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)and [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
+<!--
 ## <a name="tableau"></a>Use Tableau Desktop 
 
 > [!NOTE]
@@ -209,11 +207,11 @@ Your visual is pinned to the dashboard - you can add other visuals to the report
 6. Click the **Sheet1** tab at the bottom left. Make a visualization that shows the average target and actual temperatures for all buildings for each date. Drag **Date** and **Building ID** to **Columns** and **Actual Temp**/**Target Temp** to **Rows**. Under **Marks**, select **Area** to use an area map for Spark data visualization.
 
      ![Add fields for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Add fields for Spark data visualization")
-7. By default, the temperature fields are shown as aggregate. If you want to show the average temperatures instead, you can do so from the drop-down, as shown in the following screenshot.
+7. By default, the temperature fields are shown as aggregate. If you want to show the average temperatures instead, you can do so from the drop-down, as shown in the following screenshot:
 
     ![Take average of temperature for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Take average of temperature for Spark data visualization")
 
-8. You can also super-impose one temperature map over the other to get a better feel of difference between target and actual temperatures. Move the mouse to the corner of the lower area map till you see the handle shape highlighted in a red circle. Drag the map to the other map on the top and release the mouse when you see the shape highlighted in red rectangle.
+8. You can also super-impose one temperature map over the other to get a better feel of difference between target and actual temperatures. Move the mouse to the corner of the lower area map until you see the handle shape highlighted in a red circle. Drag the map to the other map on the top and release the mouse when you see the shape highlighted in red rectangle.
 
     ![Merge maps for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "Merge maps for Spark data visualization")
 
@@ -221,6 +219,7 @@ Your visual is pinned to the dashboard - you can add other visuals to the report
 
     ![Tableau output for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau output for Spark data visualization")
 9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
+-->
 
 ## Next steps
 

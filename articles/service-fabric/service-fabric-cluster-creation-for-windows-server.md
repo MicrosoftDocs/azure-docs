@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: chackdan;maburlik;dekapur
+ms.author: dekapur;chackdan;maburlik
 
 ---
 # Create a standalone cluster running on Windows Server

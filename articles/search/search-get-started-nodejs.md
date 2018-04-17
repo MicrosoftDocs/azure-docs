@@ -1,20 +1,13 @@
 ---
 title: Get started with Azure Search in Node.js | Microsoft Docs
 description: Walk through building a search application on a hosted cloud search service on Azure using Node.js as your programming language.
-services: search
-documentationcenter: ''
-author: EvanBoyle
-manager: pablocas
-editor: v-lincan
+author: jj09
+manager: jlembicz
 
-ms.assetid: 0625dc1b-9db6-40d5-ba9a-4738b75cbe19
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/26/2017
-ms.author: evboyle
+ms.author: jjed
 
 ---
 # Get started with Azure Search in Node.js
@@ -54,7 +47,7 @@ After you create the service, return to the portal to get the URL or `api-key`. 
 ## Download the sample files
 Use either one of the following approaches to download the sample.
 
-1. Go to [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo).
+1. Go to [search-node-indexer-demo](https://github.com/Azure-Samples/search-node-indexer-demo).
 2. Click **Download ZIP**, save the .zip file, and then extract all the files it contains.
 
 All subsequent file modifications and run statements are made against files in this folder.

@@ -3,14 +3,13 @@ title: Azure managed applications in the Marketplace | Microsoft Docs
 description: Describes Azure managed applications that are available through the Marketplace.
 services: azure-resource-manager
 author: tfitzmac
-manager: rjmax
-
+manager: timlt
 
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/08/2017
+ms.date: 03/15/2018
 ms.author: tomfitz
 ---
 
@@ -34,26 +33,18 @@ In addition, there are several business prerequisites. They are:
 * Agree to the terms of the Azure Marketplace Participation Policies and Publisher Agreement.
 * Agree to comply with the Terms of Use, Microsoft Privacy Statement, and Microsoft Azure Certified Program Agreement.
 
-## Set up your account for publishing portal
+## Become a publisher
 
-The publishing portal is used to publish and manage your offer(s). To publish a marketplace application, you must have an approved Microsoft Developer for the Azure Marketplace. If you have not registered for an approved account, see [Create a Microsoft Developer account](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+To become a publisher in the Azure Marketplace, you must:
 
-If you have an approved **Microsoft Developer Center** account, but have not previously used the [Azure Publishing Portal](https://cloudpartner.azure.com/), you must register for the publishing portal.
-
-1. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you're not signed in to a personal account.
-2. Go to [https://cloudpartner.azure.com/](https://cloudpartner.azure.com/).
-3. If you are a new user and signing in to the Publishing portal for the first time, then you must sign in with the same email ID as your developer center account. Now, developer center account and publishing portal account are linked.
-
-You can later add the other members of the company as a [co-admin](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md#4-steps-to-add-a-co-admin-in-the-publishing-portal) in the publishing portal. If you are added as a co-admin in the publishing portal, you can sign in with your co-admin account.
-
-> [!TIP]
-> The participation policies are described on the [Azure website](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
->
->
+1. Create a Microsoft ID - Create your Microsoft account using an email address that belongs to your company's domain, but not to a single individual. This email address is used for both the Microsoft Developer Center and Cloud Partner Portal. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
+1. Submit [Azure Marketplace Nomination Form](https://aka.ms/ampnomination) - For **Solution that you intend to publish?**, select **Managed Application**. Once the form is submitted, the Marketplace Onboarding team reviews the application and validates the request. The approval process can take one to three days. When your nomination is approved, you receive a promotional code to waive the registration fee for the developer center. If you do **not** complete the Marketplace Nomination Form, you are asked to pay a $99 registration fee.
+1. Register in [Developer Center](http://dev.windows.com/registration?accountprogram=azure) - Microsoft validates that your organization is a valid legal entity with a valid TAX ID for the country in which it is registered. The approval process can take 5 to 10 days. To avoid the registration fee, use the promotional code you received in email from the nomination process. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
+1. Log in to [Cloud Partner Portal](https://cloudpartner.azure.com) - In the publisher profile, associate your Developer Center account with the Marketplace Publisher Profile. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
 
 ## Create a new Azure application offer
 
-After you meet the prerequisites, you're ready to create your managed application offer.
+After creating your partner portal account, you're ready to create your managed application offer.
 
 ### Set up an offer
 
@@ -63,11 +54,7 @@ The offer for a managed application corresponds to a class of product offering f
 
 1. In the navigation pane on the left, select **+ New offer** > **Azure Applications**.
 
-   ![New offer](./media/publish-marketplace-app/newOffer.png)
-
 1. In the **Editor** view, you see the required forms. Each form is described later in this article.
-
-   ![Offer settings](./media/publish-marketplace-app/newOffer_OfferSettings.png)
 
 ## Offer Settings form
 
@@ -93,13 +80,9 @@ A SKU appears under the parent offer in the marketplace. It appears as its own p
 
 1. Select **SKUs** > **New SKU**.
 
-   ![Select new SKU](./media/publish-marketplace-app/newOffer_skus.png)
-
 1. Enter a **SKU ID**. A SKU ID is a unique identifier for the SKU within an offer. This ID is visible in product URLs, Resource Manager templates, and billing reports. It can only be composed of lowercase alphanumeric characters or dashes (-). The ID can't end in a dash, and it's limited to a maximum of 50 characters. After an offer goes live, this field is locked. You can have multiple SKUs within an offer. You need a SKU for each image you plan to publish.
 
 1. Fill out the **SKU Details** section on the following form:
-
-   ![Provide new SKU](./media/publish-marketplace-app/sku-settings.png)
 
    Fill out the following fields:
 
@@ -108,14 +91,9 @@ A SKU appears under the parent offer in the marketplace. It appears as its own p
    * **Description**: Enter a detailed description about the SKU.
    * **SKU Type**: The allowed values are *Managed Application* and *Solution Templates*. For this case, select *Managed Application*.
    * **Country/Region availability**: Select the countries where the managed application is available.
-
-      ![Select countries](./media/publish-marketplace-app/select-country.png)
-
    * **Pricing**: Provide a price for management of the application. Select the available countries before setting the price.
 
 1. Add a new package. Fill out the **Package Details** section on the following form:
-
-   ![Package](./media/publish-marketplace-app/new-package.png)
 
    Fill out the following fields:
 
@@ -126,7 +104,7 @@ A SKU appears under the parent offer in the marketplace. It appears as its own p
 
 You can add multiple authorizations. We recommend that you create an AD user group and specify its ID in **PrincipalId**. This way, you can add more users to the user group without the need to update the SKU.
 
-For more information about RBAC, see [Get started with RBAC in the Azure portal](../active-directory/role-based-access-control-what-is.md).
+For more information about RBAC, see [Get started with RBAC in the Azure portal](../role-based-access-control/overview.md).
 
 ## Marketplace form
 

@@ -26,7 +26,7 @@ ms.author: juliako
 ## Overview
 Azure Media Services Analytics is a collection of speech and vision components (at enterprise scale, compliance, security and global reach) that make it easier for organizations and enterprises to derive actionable insights from their video files. For more detailed overview of Azure Media Services Analytics see [this](media-services-analytics-overview.md) topic. 
 
-This topic discusses how to process your media with Media Analytics media processors (MPs) using the Azure portal. Media Analytics MPs produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage. 
+This topic discusses how to process your media with Media Analytics media processors (MPs) using the Azure portal. Media Analytics MPs produce MP4 files or JSON files. If a media processor produced an MP4 file, you progressively download the file. If a media processor produced a JSON file, you download the file from the Azure blob storage. 
 
 ## Choose an asset that you want to analyze
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
@@ -42,7 +42,7 @@ This topic discusses how to process your media with Media Analytics media proces
 5. Press **Create** to the start a job.
 
 ## Azure Media Indexer
-The **Azure Media Indexer** media processor enables you to make media files and content searchable, as well as generate closed captioning tracks. This sections gives some details about options that you can specify for this MP.
+The **Azure Media Indexer** media processor enables you to make media files and content searchable, as well as generate closed captioning tracks. This section gives some details about options that you specify for this MP.
 
 ![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
@@ -71,7 +71,7 @@ A friendly name that lets you identify the job. [This](media-services-portal-che
 A friendly name that lets you identify the output content. 
 
 ## Azure Media Hyperlapse
-Azure Media Hyperlapse is an MP that creates smooth time-lapsed videos from first-person or action-camera content.  For more information, see [this](media-services-hyperlapse-content.md) topic. This sections gives some details about options that you can specify for this MP.
+Azure Media Hyperlapse is an MP that creates smooth time-lapsed videos from first-person or action-camera content.  For more information, see [this](media-services-hyperlapse-content.md) topic. This section gives some details about options that you specify for this MP.
 
 ![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
@@ -132,6 +132,17 @@ A friendly name that lets you identify the job. [This](media-services-portal-che
 ### Output file
 A friendly name that lets you identify the output content. 
 
+## Azure Media Content Moderator
+This processor helps you detect potential adult and racy content in videos. The processor automatically detects shots and keyframes in the video. It scores the keyframes for possible adult or racy content, and suggests reviews based on default thresholds. For detailed information and examples, see [Use Azure Media Content Moderator to moderate videos](media-services-content-moderation.md)
+
+![Moderate videos](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
+
+### Version 
+Use "2.0".
+
+### Mode
+The 2.0 version ignore the `Mode` setting.
+
 ## Next steps
 View Media Services learning paths.
 
@@ -139,4 +150,3 @@ View Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

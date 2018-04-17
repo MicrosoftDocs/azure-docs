@@ -4,15 +4,15 @@ description: Learn how to create a predictive pipeline by using Azure Machine Le
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 01/16/2018
 ms.author: shengc
 
 ---
@@ -25,7 +25,7 @@ ms.author: shengc
 
 1. **Create a training experiment**. You do this step by using the Azure ML Studio. The ML studio is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
 2. **Convert it to a predictive experiment**. Once your model has been trained with existing data and you are ready to use it to score new data, you prepare and streamline your experiment for scoring.
-3. **Deploy it as a web service**. You can publish your scoring experiment as an Azure web service. You can send data to your model via this web service end point and receive result predictions fro the model.  
+3. **Deploy it as a web service**. You can publish your scoring experiment as an Azure web service. You can send data to your model via this web service end point and receive result predictions from the model.  
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Machine Learning Batch Execution Activity in V1](v1/data-factory-azure-ml-batch-execution-activity.md).
@@ -48,7 +48,9 @@ You create an **Azure Machine Learning** linked service to link an Azure Machine
 
 ```JSON
 {
+    "type" : "linkedServices",
     "name": "AzureMLLinkedService",
+    "apiVersion" : "2017-09-01-preview",
     "properties": {
         "type": "AzureML",
         "typeProperties": {
@@ -72,7 +74,7 @@ Azure Machine Learning support both Classic Web Services and New Web Services fo
 
 ![Azure Machine Learning Web Services](./media/transform-data-using-machine-learning/web-services.png)
 
-##Azure Machine Learning Batch Execution activity
+## Azure Machine Learning Batch Execution activity
 
 The following JSON snippet defines an Azure Machine Learning Batch Execution activity. The activity definition has a reference to the Azure Machine Learning linked service you created earlier. 
 

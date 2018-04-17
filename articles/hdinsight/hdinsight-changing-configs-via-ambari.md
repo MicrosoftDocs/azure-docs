@@ -11,8 +11,6 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
 
@@ -231,7 +229,7 @@ Speculative execution launches a certain number of duplicate tasks in order to d
 
 Speculative execution shouldn’t be turned on for long-running MapReduce tasks with large amounts of input.
 
-1. To enable speculative execution, navigate to the Hive **Configs** tab, and then set the `hive.mapred.reduce.tasks.speculative.execution` parameter to true. The default value is false.
+* To enable speculative execution, navigate to the Hive **Configs** tab, and then set the `hive.mapred.reduce.tasks.speculative.execution` parameter to true. The default value is false.
 
     ![Hive mapred reduce tasks speculative execution](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -453,7 +451,7 @@ Memstore local allocation buffer usage is determined by the property `hbase.hreg
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## See also
+## Next steps
 
 * [Manage HDInsight clusters with the Ambari web UI](hdinsight-hadoop-manage-ambari.md)
 * [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

@@ -7,12 +7,12 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Upgrade Kubernetes in Azure Container Service (AKS)
+# Tutorial: Upgrade Kubernetes in Azure Container Service (AKS)
 
 An Azure Container Service (AKS) cluster can be upgraded using the Azure CLI. During the upgrade process, Kubernetes nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.
 
@@ -32,35 +32,35 @@ If you have not done these steps, and would like to follow along, return to the 
 
 ## Get cluster versions
 
-Before upgrading a cluster, use the `az aks get-versions` command to check which Kubernetes releases are available for upgrade.
+Before upgrading a cluster, use the `az aks get-upgrades` command to check which Kubernetes releases are available for upgrade.
 
-```azurecli-interactive
-az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
+```azurecli
+az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-Here you can see that the current node version is `1.7.7` and that version `1.7.9`, `1.8.1`, and `1.8.2` are available.
+In this example, the current node version is `1.7.9` and the available upgrade versions under the upgrades column.
 
 ```
-Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion     NodePoolUpgrades
--------  ---------------  ---------------  -------------------  ------------------  -------------------
-default  myAKSCluster     1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
+Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
+-------  ---------------  ---------------  -----------------  ----------------------------------
+default  myResourceGroup  1.7.9            1.7.9              1.7.12, 1.8.1, 1.8.2, 1.8.6, 1.8.7
 ```
 
 ## Upgrade cluster
 
 Use the `az aks upgrade` command to upgrade the cluster nodes. The following examples updates the cluster to version `1.8.2`.
 
-```azurecli-interactive
-az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
+```azurecli
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
 Output:
 
 ```json
 {
-  "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
+  "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
   "location": "eastus",
-  "name": "myK8sCluster",
+  "name": "myAKSCluster",
   "properties": {
     "accessProfiles": {
       "clusterAdmin": {
@@ -75,7 +75,7 @@ Output:
         "count": 1,
         "dnsPrefix": null,
         "fqdn": null,
-        "name": "myK8sCluster",
+        "name": "myAKSCluster",
         "osDiskSizeGb": null,
         "osType": "Linux",
         "ports": null,
@@ -112,10 +112,10 @@ Output:
 
 ## Validate upgrade
 
-You can now confirm the upgrade was successful with the `az aks show` command.
+Confirm that the upgrade was successful with the `az aks show` command.
 
-```azurecli-interactive
-az aks show --name myK8sCluster --resource-group myResourceGroup --output table
+```azurecli
+az aks show --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
 Output:
@@ -123,7 +123,7 @@ Output:
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
+myAKSCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
 ```
 
 ## Next steps

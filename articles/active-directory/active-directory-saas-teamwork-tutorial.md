@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 04/04/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with [Teamwork.com](https://www.teamwork.com/projects)
+# Tutorial: Azure Active Directory integration with Teamwork.com
 
 In this tutorial, you learn how to integrate Teamwork.com with Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Teamwork.com, you need the following items:
 
 - An Azure AD subscription
-- A [Teamwork.com](https://www.teamwork.com/projects) subscription on the Pro plan or higher
+- A Teamwork.com single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -106,10 +106,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Teamwork.com Domain and URLs single sign-on information](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company name>.teamwork.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company name>.teamwork.com`
+
+	b. In the **Identifier** textbox, type the URL:
+
+	|||
+	|-|-|
+	| `https://teamwork.com/saml`|
+	| `https://eu.teamwork.com/saml`|
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Teamwork.com support team](mailto:support@teamwork.com) to get this value. 
+	> This  Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Teamwork.com support team](mailto:support@teamwork.com) to get this value. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -120,10 +127,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On Save button](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
 
 6. To configure single sign-on on **Teamwork.com** side, you need to send the downloaded **Metadata XML** to [Teamwork.com support team](mailto:support@teamwork.com). They set this setting to have the SAML SSO connection set properly on both sides.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Create an Azure AD test user
 
@@ -202,8 +205,6 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

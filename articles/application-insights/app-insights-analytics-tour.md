@@ -169,7 +169,7 @@ Other examples:
 
 ```
 
-[Dates and times reference](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
+[Dates and times reference](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
 ## [Project](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): select, rename, and compute columns
@@ -537,10 +537,10 @@ If your application attaches [custom dimensions (properties) and custom measurem
 
 For example, if your app includes:
 
-```C#
+```csharp
 
     var dimensions = new Dictionary<string, string>
-                     {{"p1", "v1"},{"p2", "v2"}};
+                     {{"p1", "v1"},{"p2.d2", "v2"}};
     var measurements = new Dictionary<string, double>
                      {{"m1", 42.0}, {"m2", 43.2}};
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
@@ -553,7 +553,6 @@ To extract these values in Analytics:
     customEvents
     | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
-
 ```
 
 To verify whether a custom dimension is of a particular type:
@@ -564,6 +563,18 @@ To verify whether a custom dimension is of a particular type:
     | extend p1 = customDimensions.p1,
       iff(notnull(todouble(customMeasurements.m1)), ...
 ```
+
+### Special Characters
+
+For identifiers with special characters or langauge keywords in their names, you need to access them via `['` and `']` or using `["` and `"]`.
+
+```AIQL
+
+    customEvents
+    | extend p2d2 = customDimensions.['p2.d2'], ...
+```
+
+[Identifier naming rules reference](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
 
 ## Dashboards
 You can pin your results to a dashboard in order to bring together all your most important charts and tables.
@@ -610,7 +621,7 @@ If you use [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) 
 
 Let's take an example where your app code contains these lines:
 
-```C#
+```csharp
 
     telemetry.TrackEvent("Query",
        new Dictionary<string,string> {{"query", sqlCmd}},

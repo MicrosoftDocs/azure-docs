@@ -43,7 +43,7 @@ string sentence;   // transformed text
 
 ## Example 
 
-```C#
+```csharp
 using System;
 using System.Text;
 using System.Net;

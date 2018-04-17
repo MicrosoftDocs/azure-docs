@@ -4,7 +4,7 @@ description: Learn how you can use Web Activity, one of the control flow activit
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
 
 ---
@@ -66,7 +66,7 @@ Property | Description | Allowed values | Required
 name | Name of the web activity | String | Yes
 type | Must be set to **WebActivity**. | String | Yes
 method | Rest API method for the target endpoint. | String. <br/><br/>Supported Types: "GET", "POST", "PUT" | Yes
-url | Target endpoint and path | String (or expression with resultType of string) | Yes
+url | Target endpoint and path | String (or expression with resultType of string). The activity will timeout at 1 minute with an error if it does not receive a response from the endpoint. | Yes
 headers | Headers that are sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | String (or expression with resultType of string) | Yes, Content-type header is required. `"headers":{ "Content-Type":"application/json"}`
 body | Represents the payload that is sent to the endpoint. Required for POST/PUT methods.  | String (or expression with resultType of string). <br/><br/>See the schema of the request payload in [Request payload schema](#request-payload-schema) section. | No
 authentication | Authentication method used for calling the endpoint. Supported Types are "Basic, or ClientCertificate." For more information, see [Authentication](#authentication) section. If authentication is not required, exclude this property. | String (or expression with resultType of string) | No
@@ -74,7 +74,7 @@ datasets | List of datasets passed to the endpoint. | Array of dataset reference
 linkedServices | List of linked services passed to endpoint. | Array of linked service references. Can be an empty array. | Yes
 
 > [!NOTE]
-> REST endpoints that the web activity invokes must return a response of type JSON.
+> REST endpoints that the web activity invokes must return a response of type JSON. The activity will timeout at 1 minute with an error if it does not receive a response from the endpoint.
 
 ## Authentication
 

@@ -4,15 +4,15 @@ description: Learn how to copy data from supported source data stores to Azure C
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -51,7 +51,7 @@ The following properties are supported for Azure Cosmos DB linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **CosmosDb**. | Yes |
-| connectionString |Specify information needed to connect to Azure Cosmos DB database. Note you need to specify database info in the connection string as below sample. Mark this field as a SecureString. |Yes |
+| connectionString |Specify information needed to connect to Azure Cosmos DB database. Note you need to specify database info in the connection string as below sample. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -159,7 +159,7 @@ To copy data from Azure Cosmos DB, set the source type in the copy activity to *
 
 ### Azure Cosmos DB as sink
 
-To copy data from Azure Cosmos DB, set the sink type in the copy activity to **DocumentDbCollectionSink**. The following properties are supported in the copy activity **source** section:
+To copy data to Azure Cosmos DB, set the sink type in the copy activity to **DocumentDbCollectionSink**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

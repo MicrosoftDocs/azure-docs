@@ -3,7 +3,7 @@ title: Call and response - C# Quickstart for Azure Cognitive Services, Bing Web 
 description: Get information and code samples to help you quickly get started using the Bing Web Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
-author: jerrykindall
+author: v-jerkin
 
 ms.service: cognitive-services
 ms.technology: bing-search
@@ -35,7 +35,7 @@ To run this application, follow these steps.
 3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Run the program.
 
-```c#
+```csharp
 using System;
 using System.Text;
 using System.Net;

@@ -11,9 +11,7 @@ ms.assetid:
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
 
@@ -36,7 +34,7 @@ Microsoft .NET driver for Apache Phoenix Query Server is provided as a NuGet pac
 
 To begin using the library, instantiate a new `PhoenixClient` object, passing in `ClusterCredentials` containing the `Uri` to your cluster and the cluster's Hadoop user name and password.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
 client = new PhoenixClient(credentials);
 ```
@@ -47,7 +45,7 @@ Replace CLUSTERNAME with your HDInsight HBase cluster name, and USERNAME and PAS
 
 To send one or more requests to PQS, you need to include a unique connection identifier to associate the request(s) with the connection.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 ```
 
@@ -57,7 +55,7 @@ Each example first makes a call to the `OpenConnectionRequestAsync` method, pass
 
 To call  `ConnectionSyncRequestAsync`,  pass in a `ConnectionProperties` object.
 
-```c#
+```csharp
 ConnectionProperties connProperties = new ConnectionProperties
 {
     HasAutoCommit = true,
@@ -99,7 +97,7 @@ HBase, like any other RDBMS, stores data in tables. Phoenix uses standard SQL qu
 
 This example and all subsequent examples, use the instantiated `PhoenixClient` object as defined in [Instantiate a new PhoenixClient object](#instantiate-new-phoenixclient-object).
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 
@@ -169,13 +167,13 @@ The preceding example creates a new table named `Customers` using the `IF NOT EX
 
 This example shows an individual data insert, referencing a `List<string>` collection of American state and territory abbreviations:
 
-```c#
+```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
 The table's `StateProvince` column value will be used in a subsequent select operation.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -286,7 +284,7 @@ The structure for executing an insert statement is similar to creating a new tab
 
 The following code is nearly identical to the code for inserting data individually. This example uses the `UpdateBatch` object in a call to `ExecuteBatchRequestAsync`, rather than repeatedly calling `ExecuteRequestAsync` with a prepared statement.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -404,7 +402,7 @@ This example shows how to reuse one connection to execute multiple queries:
 2. Use a total row count select statement to retrieve the single scalar result.
 3. Execute a select statement that returns the total number of customers per state or territory.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 
@@ -540,6 +538,7 @@ MH: 6
 FM: 5
 ```
 
-<!-- ## Next steps -->
-<!-- * [Phoenix in HDInsight](hdinsight-phoenix-in-hdinsight.md)  -->
-<!-- * [Using the HBase REST SDK](hdinsight-using-hbase-rest-sdk.md)  -->
+## Next steps 
+
+* [Phoenix in HDInsight](../hdinsight-phoenix-in-hdinsight.md)
+* [Using the HBase REST SDK](apache-hbase-rest-sdk.md)

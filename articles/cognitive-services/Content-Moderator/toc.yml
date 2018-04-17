@@ -40,11 +40,23 @@
       href: try-review-api-review.md
     - name: Reviews - .NET
       href: moderation-reviews-quickstart-dotnet.md
+    - name: Video reviews - .NET
+      href: video-reviews-quickstart-dotnet.md
+    - name: Video transcript reviews - .NET
+      href: video-transcript-reviews-quickstart-dotnet.md
     - name: Workflows - API console
       href: try-review-api-workflow.md
+- name: Tutorials
+  items:
+  - name: Facebook content moderation
+    href: facebook-post-moderation.md
+  - name: eCommerce image moderation
+    href: ecommerce-retail-catalog-moderation.md
+  - name: Video and trancript moderation
+    href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: Samples
   items:
-  - name: .NET
+  - name: All samples
     href: samples-dotnet.md
 - name: Concepts
   items: 
@@ -54,8 +66,12 @@
     href: text-moderation-api.md
   - name: Text moderation - languages
     href: Text-Moderation-API-Languages.md
-  - name: Review APIs
+  - name: Video moderation
+    href: video-moderation-human-review.md
+  - name: Jobs and reviews
     href: review-api.md
+  - name: Workflows
+    href: workflow-api.md
 - name: How-to guides
   items:
   - name: Review tool
@@ -80,12 +96,6 @@
       href: Review-Tool-User-Guide/Workflows.md
     - name: View dashboard
       href: Review-Tool-User-Guide/View-Dashboard.md
-- name: Tutorials
-  items:
-  - name: Facebook content moderation
-    href: facebook-post-moderation.md
-  - name: eCommerce catalog moderation
-    href: ecommerce-retail-catalog-moderation.md
 - name: API References
   items: 
   - name: All APIs  
@@ -98,3 +108,5 @@
     href: sdk-and-samples.md 
   - name: FAQ
     href: FAQs.md
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator

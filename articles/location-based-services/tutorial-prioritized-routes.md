@@ -3,8 +3,8 @@ title: Multiple routes with Azure Location Based Services | Microsoft Docs
 description: Find routes for different modes of travel using Azure Location Based Services
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
+author: kgremban
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: tutorial
 ms.service: location-based-services
@@ -25,7 +25,7 @@ This tutorial shows how to use your Azure Location Based Services account and th
 
 ## Prerequisites
 
-Before you proceed, make sure to [create your Azure Location Based Services account](./tutorial-search-location.md#createaccount), and [get the subscription key for your account](./tutorial-search-location.md#getkey). You may also observe how to use the Map Control and Search Service APIs as discussed in the tutorial [Search nearby point of interest using Azure Location Based Services](./tutorial-search-location.md), as well as learn the basic usage of the Route Service APIs as discussed in the tutorial [Route to a point of interest using Azure Location Based Services](./tutorial-route-location.md).
+Before you proceed, make sure to [create your Azure Location Based Services account](./tutorial-search-location.md#createaccount), and [get a key from your account](./tutorial-search-location.md#getkey). You may also observe how to use the Map Control and Search Service APIs as discussed in the tutorial [Search nearby point of interest using Azure Location Based Services](./tutorial-search-location.md), as well as learn the basic usage of the Route Service APIs as discussed in the tutorial [Route to a point of interest using Azure Location Based Services](./tutorial-route-location.md).
 
 
 <a id="queryroutes"></a>
@@ -77,9 +77,9 @@ Use the following steps to create a static HTML page embedded with the Location 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
@@ -192,7 +192,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
 
     var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&subscription-key=" + LBSAccountKey;
     truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
     truckRouteUrl += "&travelMode=truck";
@@ -206,10 +206,10 @@ This section shows how to use the Azure Location Based Services' Route Service A
     ```
     This code snippet creates an [XMLHttpRequest](https://xhr.spec.whatwg.org/), and adds an event handler to parse the incoming response. For a successful response, it creates an array of coordinates for the route returned, and adds it the map's `truckRouteLayerName` layer. 
     
-    This code snippet also sends the query to the Route Service, to get the route for specified start and end point, for your account's subscription key. The following optional parameters are used to indicate the route for a heavy truck:
-        - The parameter `travelMode=truck` specifies the mode of travel as *truck*. Other modes of travel supported are *taxi*, *bus*, *van*, *motorcycle*, and the default *car*.  
-        - The parameters `vehicleWidth`, `vehicleHeight`, and `vehicleLength` specify the dimensions of the vehicle in meters, and are considered only if the mode of travel is *truck*.  
-        - The `vehicleLoadType` classifies the cargo as hazardous and restricted on some roads. This is also currently considered only for the *truck* mode.  
+    This code snippet also sends the query to the Route Service, to get the route for specified start and end point, for your account key. The following optional parameters are used to indicate the route for a heavy truck:
+   - The parameter `travelMode=truck` specifies the mode of travel as *truck*. Other modes of travel supported are *taxi*, *bus*, *van*, *motorcycle*, and the default *car*.
+   - The parameters `vehicleWidth`, `vehicleHeight`, and `vehicleLength` specify the dimensions of the vehicle in meters, and are considered only if the mode of travel is *truck*.
+   - The `vehicleLoadType` classifies the cargo as hazardous and restricted on some roads. This is also currently considered only for the *truck* mode.
 
 2. Add the following JavaScript code to get the route for a car using the Route Service:
 
@@ -236,7 +236,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
 
     var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&subscription-key=" + LBSAccountKey;
     carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
@@ -245,7 +245,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
     ```
     This code snippet creates another [XMLHttpRequest](https://xhr.spec.whatwg.org/), and adds an event handler to parse the incoming response. For a successful response, it creates an array of coordinates for the route returned, and adds it the map's `carRouteLayerName` layer. 
     
-    This code snippet also sends the query to the Route Service, to get the route for the specified start and end point, for your account's subscription key. Since no other parameters are used, the route for the default mode of travel *car* is returned. 
+    This code snippet also sends the query to the Route Service, to get the route for the specified start and end point, for your account key. Since no other parameters are used, the route for the default mode of travel *car* is returned. 
 
 3. Save the **MapTruckRoute.html** file locally, then open it in a web browser of your choice and observe the result. For a successful connection with the Location Based Services' APIs, you should see a map similar to the following. 
 

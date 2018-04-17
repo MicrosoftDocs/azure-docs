@@ -1,20 +1,13 @@
 ---
 title: Get started with Azure Search in Java | Microsoft Docs
 description: How to build a hosted cloud search application on Azure using Java as your programming language.
-services: search
-documentationcenter: ''
-author: EvanBoyle
-manager: pablocas
-editor: v-lincan
 
-ms.assetid: 8b4df3c9-3ae5-4e3a-b4bb-74b516a91c8e
+author: jj09
+manager: jlembicz
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/14/2016
-ms.author: evboyle
+ms.author: jjed
 
 ---
 # Get started with Azure Search in Java
@@ -69,7 +62,7 @@ All REST API calls into Azure Search require that you provide the service URL an
 5. Copy the service URL and an admin key. You will need them later, when you add them to the **config.properties** file.
 
 ## Download the sample files
-1. Go to [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) on GitHub.
+1. Go to [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) on GitHub.
 2. Click **Download ZIP**, save the .zip file to disk, and then extract all the files it contains. Consider extracting the files into your Java workspace to make it easier to find the project later.
 3. The sample files are read-only. Right-click folder properties and clear the read-only attribute.
 

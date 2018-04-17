@@ -1,3 +1,5 @@
+# [Data Lake Analytics Documentation](index.md)
+
 # Overview
 ## [What is Data Lake Analytics?](data-lake-analytics-overview.md)
 
@@ -61,3 +63,4 @@
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Videos](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)

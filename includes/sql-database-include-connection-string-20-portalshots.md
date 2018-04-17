@@ -11,7 +11,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### Obtain the connection string from the Azure portal
 Use the [Azure portal](https://portal.azure.com/) to obtain the connection string that's necessary for your client program to interact with Azure SQL Database. 
 
-1. Select **BROWSE ALL** > **SQL databases**.
+1. Select **All services** > **SQL databases**.
 
 2. Enter the name of your database into the filter text box near the upper left of the **SQL databases** blade.
 
@@ -19,7 +19,6 @@ Use the [Azure portal](https://portal.azure.com/) to obtain the connection strin
 
 4. After the blade appears for your database, for visual convenience select the **Minimize** buttons to collapse the blades you used for browsing and database filtering. 
    
-    ![Filter to isolate your database][10-FilterDatabase]
 5. On the blade for your database, select **Show database connection strings**.
 
 6. If you intend to use the ADO.NET connection library, copy the string labeled **ADO**. 
@@ -31,7 +30,7 @@ For more information, see [Connection strings and configuration files](http://ms
 
 <!-- Image references. -->
 
-[10-FilterDatabase]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-a.png
+
 
 [20-CopyAdoConnectionString]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-b.png
 
