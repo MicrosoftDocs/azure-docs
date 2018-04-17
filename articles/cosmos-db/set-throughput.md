@@ -94,7 +94,7 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## Get the throughput by using MongoDB API's GetLastRequestStatistics command
+## <a id="GetLastRequestStatistics"></a>Get throughput by using MongoDB API's GetLastRequestStatistics command
 
 The MongoDB API supports a custom command, *getLastRequestStatistics*, for retrieving the request charges for a given operation.
 
@@ -122,7 +122,7 @@ With this in mind, one method for estimating the amount of reserved throughput r
 > 
 > 
 
-## Get the throughput by using MongoDB API portal metrics
+## Get throughput by using MongoDB API portal metrics
 
 The simplest way to get a good estimate of request unit charges for your MongoDB API database is to use the [Azure portal](https://portal.azure.com) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimate of how many request units each operation is consuming and how many request units they consume relative to one another.
 
