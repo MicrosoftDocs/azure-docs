@@ -1,5 +1,5 @@
 - name: Azure Machine Learning Documentation (Preview)
-  href: ../desktop-workbench/index.yml
+  href: index.yml
 - name: Overview
   expanded: true
   items:
