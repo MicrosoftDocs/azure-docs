@@ -54,9 +54,23 @@ Once done with the integration settings, click ok, and then OK again on the vali
 
 ## Configure Jenkins
 
+Browse to the Jenkins Resource Group, select the Jenkins virtual machine, and take note of the DNS name.
+
+![Jenkins login instructions](./media/container-instances-jenkins/jenkins-portal-fqdn.png)
+
+Browser to the DNS name of the Jenkins VM and copy the returned SSH string.
+
 ![Jenkins login instructions](./media/container-instances-jenkins/jenkins-portal-04.png)
 
-Paste the initial admin password into the field as seen below.
+Open up a terminal session on your development system, and paste in the SSH string from the last step. Update the username to the username specified when deploying the Jenkins server.
+
+Once connected, run the following command to retrieve the initial admin password.
+
+```
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+Leave the SSH session and tunnel running, and navigate to http://localhost:8080 in your browser. Paste the initial admin password into the field as seen below. Select **Continue** when done.
 
 ![Unlock Jenkins](./media/container-instances-jenkins/jenkins-portal-05.png)
 
@@ -72,7 +86,13 @@ Create a new admin user account. This account is used for logging into and worki
 
 Jenkins is now configured and ready to build and deploy code. For this example, a simple Java application is used to demonstrate Jenkins builds on Azure Container Instances.
 
-Select **New Item**, give the build project a name such as `aci-java-demo`, and select **Freestyle Projet**.
+Select **Manage Jenkins** > **Configure System** > scroll down to the **Cloud** section. Update the Docker image to `microsoft/java-on-azure-jenkins-slave`. Once done, click **Apply** and then return to the Jenkins admin dashboard.
+
+![Jenkins cloud configuration](./media/container-instances-jenkins/jenkins-aci-image.png)
+
+Now create a Jenkins buidl job. Select **New Item**, give the build project a name such as `aci-java-demo`, and select **Freestyle Projet**. Click **OK** when done.
+
+![Create Jenkins job](./media/container-instances-jenkins/jenkins-new-job.png)
 
 Under **General**, ensure that Restrict where this project can be run is selected, and enter `linux` for the Label Expression. This configuration ensures that this build job runs on the ACI cloud.
 
@@ -82,8 +102,13 @@ Under source code management, select `git` and enter `https://github.com/spring-
 
 ![Add source code to Jenkins job](./media/container-instances-jenkins/jenkins-job-02.png)
 
-Under Build, add the build step named `Invoke top-level Maven targets`, and enter `package` as the goal.
+Under Build, add the build step named `Invoke top-level Maven targets`, and enter `package` as the goal. Select **Save** when done.
 
 ![Add Jenkins build step](./media/container-instances-jenkins/jenkins-job-03.png)
 
 ## Run the build job
+
+Select **Build Now** to start a build job.
+
+![Jenkins build in ACI](./media/container-instances-jenkins/jenkins-aci.png)
+
