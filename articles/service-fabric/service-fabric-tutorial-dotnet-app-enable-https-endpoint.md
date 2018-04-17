@@ -47,13 +47,13 @@ Before you begin this tutorial:
 - [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 ## Obtain a certificate or create a self-signed development certificate
-In order to enable HTTPS you need a digital certificate.  For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority). For development and test purposes, you can create and use a self-signed certificate. The Service Fabric SDK provides the *CertSetup.ps1* script, which creates a self-signed certificate and imports it into the Cert:\LocalMachine\My certificate store. Open a command prompt as administrator and run the following command to create a cert with the subject "CN=localhost":
+, you need a digital certificate.  For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority). For development and test purposes, you can create and use a self-signed certificate. The Service Fabric SDK provides the *CertSetup.ps1* script, which creates a self-signed certificate and imports it into the `Cert:\LocalMachine\My` certificate store. Open a command prompt as administrator and run the following command to create a cert with the subject "CN=localhost":
 
 ```powershell
 PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost
 ```
 
-If you already have a certificate PFX file, run the following to import the certifcate into the "Cert:\LocalMachine\My" certificate store: 
+If you already have a certificate PFX file, run the following to import the certificate into the `Cert:\LocalMachine\My` certificate store: 
 ```powershell
 PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysslcertificate.pfx -CertStoreLocation Cert:\LocalMachine\My -Password (ConvertTo-SecureString "!Passw0rd321" -AsPlainText -Force)
 
@@ -100,7 +100,7 @@ Launch Visual Studio as an **administrator** and open the Voting solution. In So
 
 
 ## Configure Kestrel to use HTTPS
-In Solution Explorer, open the *VotingWeb/VotingWeb.cs* file.  Configure Kestrel to use HTTPS and lookup the certificate in the Cert:\LocalMachine\My store. Add the following using statements: 
+In Solution Explorer, open the *VotingWeb/VotingWeb.cs* file.  Configure Kestrel to use HTTPS and lookup the certificate in the `Cert:\LocalMachine\My` store. Add the following using statements: 
 ```csharp
 using System.Net;
 using Microsoft.Extensions.Configuration;
@@ -146,7 +146,7 @@ serviceContext =>
         }))
 ```
 
-Also add the following method so that Kestrel can find the certificate using the subject in the Cert:\LocalMachine\My store.  Replace "&lt;your_CN_value&gt;" with "localhost" if you created a self-signed certificate with the previous PowerShell command, or use the CN of your certificate.
+Also add the following method so that Kestrel can find the certificate in the `Cert:\LocalMachine\My` store using the subject.  Replace "&lt;your_CN_value&gt;" with "localhost" if you created a self-signed certificate with the previous PowerShell command, or use the CN of your certificate.
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -167,10 +167,10 @@ private X509Certificate2 GetCertificateFromStore()
 ```
 
 ## Give NETWORK SERVICE access to the certificate's private key
-In a previous step, you imported the certificate into the Cert:\LocalMachine\My store on the development computer.  You must also explicitly give the account running the service (NETWORK SERVICE, by default) access to the certificate's private key. You can do this manually (using the certlm.msc tool), but it's better to automatically run a PowerShell script by [configuring a startup script](service-fabric-run-script-at-service-startup.md) in the **SetupEntryPoint** of the service manifest.   
+In a previous step, you imported the certificate into the `Cert:\LocalMachine\My` store on the development computer.  You must also explicitly give the account running the service (NETWORK SERVICE, by default) access to the certificate's private key. You can do this manually (using the certlm.msc tool), but it's better to automatically run a PowerShell script by [configuring a startup script](service-fabric-run-script-at-service-startup.md) in the **SetupEntryPoint** of the service manifest.   
 
 ## Configure the service setup entry point
-In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*.  In the **CodePackage** section, add **SetupEntryPoint** node and then a **ExeHost** node.  In **ExeHost**, set **Program** to "Setup.bat" and **WorkingFolder** to "CodePackage".  When the VotingWeb service starts, the Setup.bat scrip executes in the CodePackage folder before VotingWeb.exe starts.
+In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*.  In the **CodePackage** section, add **SetupEntryPoint** node and then a **ExeHost** node.  In **ExeHost**, set **Program** to "Setup.bat" and **WorkingFolder** to "CodePackage".  When the VotingWeb service starts, the Setup.bat script executes in the CodePackage folder before VotingWeb.exe starts.
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="VotingWebPkg"
@@ -209,7 +209,7 @@ In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*.  In the 
 ```
 
 ## Add the batch and PowerShell setup scripts
-To run PowerShell from the **SetupEntryPoint** point, you can run PowerShell.exe in a batch file that points to a PowerShell file. First, add the batch file the service project.  In Solution Explorer, right-click **VotingWeb** and select **Add**->**New Item** and add a new file named "Setup.bat".  Edit the *Setup.bat* file and add the following:
+To run PowerShell from the **SetupEntryPoint** point, you can run PowerShell.exe in a batch file that points to a PowerShell file. First, add the batch file the service project.  In Solution Explorer, right-click **VotingWeb** and select **Add**->**New Item** and add a new file named "Setup.bat".  Edit the *Setup.bat* file and add the following command:
 
 ```bat
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
@@ -218,7 +218,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 Modify the *Setup.bat* file properties to set **Copy to Output Directory** to "Copy if newer".
 ![Set file properties][image1]
 
-In Solution Explorer, right-click **VotingWeb** and select **Add**->**New Item** and add a new file named "SetCertAccess.ps1".  Edit the *SetCertAccess.ps1* file and add the following:
+In Solution Explorer, right-click **VotingWeb** and select **Add**->**New Item** and add a new file named "SetCertAccess.ps1".  Edit the *SetCertAccess.ps1* file and add the following script:
 
 ```powershell
 $subject="localhost"
@@ -272,7 +272,7 @@ Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory
 By default, the service setup entry point executable runs under the same credentials as Service Fabric (typically the NetworkService account). The *SetCertAccess.ps1* requires administrator privileges. In the application manifest, you can change the security permissions to run the startup script under a local administrator account.  
 
 In Solution Explorer, open *Voting/ApplicationPackageRoot/ManifestManifest.xml*. First, create a **Principals** section and add a new user (for example, "SetupAdminUser". Add the SetupAdminUser user account to the Administrators system group.
-Next, in the VotingWebPkg **ServiceManifestImport** section, configure a **RunAsPolicy** to apply the SetupAdminUser principal to the setup entry point. This policy tells Service Fabric that the Setup.bat file runs as SetupAdminUser ( with administrator privileges). 
+Next, in the VotingWebPkg **ServiceManifestImport** section, configure a **RunAsPolicy** to apply the SetupAdminUser principal to the setup entry point. This policy tells Service Fabric that the Setup.bat file runs as SetupAdminUser (with administrator privileges). 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -326,7 +326,7 @@ Save all files and hit F5 to run the application locally.  After the application
 ![Voting application][image2] 
 
 ## Install certificate on cluster nodes
-Before deploying the application to the Azure, install the certificate into the Cert:\LocalMachine\My store of the cluster nodes using the [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) cmdlet.
+Before deploying the application to the Azure, install the certificate into the `Cert:\LocalMachine\My` store of the cluster nodes using the [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) cmdlet.
 
 > [!Warning]
 > A self-signed certificate is sufficient for development and testing applications. For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).
@@ -393,7 +393,7 @@ $slb | Set-AzureRmLoadBalancer
 ```
 
 ## Deploy the application to Azure
-Save all files, switch from Debug to Release, and hit F6 to rebuild.  In Solution Explorer, right-click on **Voting** and select **Publish**. Select the connection endpoint of the cluster created in , or select another cluster.  Click **Publish** to publish the application to the remote cluster.
+Save all files, switch from Debug to Release, and hit F6 to rebuild.  In Solution Explorer, right-click on **Voting** and select **Publish**. Select the connection endpoint of the cluster created in [Deploy an application to a cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md), or select another cluster.  Click **Publish** to publish the application to the remote cluster.
 
 When the application deploys, open a web browser and navigate to [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) (update the URL with the connection endpoint for your cluster). If you are using a self-signed certificate, you see a warning that your PC doesn't trust this website's security.  Continue on to the web page.
 
