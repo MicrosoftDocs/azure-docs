@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/16/2018
 ms.author: richrund
 
 ---
@@ -121,7 +121,7 @@ The following parameters set a default value:
 
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:<br><br> ![Example result when deployment is complete](./media/log-analytics-template-workspace-configuration/template-output-01.png)
 
-## Create and configure a Log Analytics workspace
+## Configure a Log Analytics workspace
 The following template sample illustrates how to:
 
 1. Add solutions to the workspace

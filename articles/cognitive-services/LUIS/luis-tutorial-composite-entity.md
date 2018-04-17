@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 03/28/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 --- 
 
 # Use composite entity to extract complex data
