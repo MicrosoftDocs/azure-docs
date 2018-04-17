@@ -21,66 +21,31 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Enable the Infrastructure Backup Service with Windows PowerShell so that Azure Stack can be restored if there is a failure. You can access the PowerShell cmdlets to enable backup, start backup, and get backup information via the operator management endpoint.
+Enable the Infrastructure Backup Service with Windows PowerShell so take periodic backups of:
+* Internal identity service and root certificate
+* User plans, offers, subscriptions
+* Keyvault secrets
+* User RBAC roles and policies
 
-## Download Azure Stack Tools
+You can access the PowerShell cmdlets to enable backup, start backup, and get backup information via the operator management endpoint.
+
+## Prepare PowerShell environment
+
+DESCRIPTION OF NEW PROCESS AND LINK TO NEW CONTENT
+
+## Generate a new encryption key
 
 Install and configured PowerShell for Azure Stack and the Azure Stack tools. See [Get up and running with PowerShell in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
 
 ##  Load the Connect and Infrastructure modules
 
 Open Windows PowerShell with an elevated prompt, and run the following commands:
-
+   
    ```powershell
-    cd C:\tools\AzureStack-Tools-master\Connect
-    Import-Module .\AzureStack.Connect.psm1
-    
     cd C:\tools\AzureStack-Tools-master\Infrastructure
     Import-Module .\AzureStack.Infra.psm1 
-    
    ```
-
-##  Setup Rm environment and log into the operator management endpoint
-
-In the same PowerShell session, Edit the following PowerShell script by adding the variables for your environment. Run the updated script to set up the RM environment and log into the operator management endpoint.
-
-| Variable    | Description |
-|---          |---          |
-| $TenantName | Azure Active Directory tenant name. |
-| Operator account name        | Your Azure Stack operator account name. |
-| Azure Resource Manager Endpoint | URL to the Azure Resource Manager. |
-
-   ```powershell
-   # Specify Azure Active Directory tenant name
-    $TenantName = "contoso.onmicrosoft.com"
-    
-    # Set the module repository and the execution policy
-    Set-PSRepository `
-      -Name "PSGallery" `
-      -InstallationPolicy Trusted
-    
-    Set-ExecutionPolicy RemoteSigned `
-      -force
-    
-    # Configure the Azure Stack operator’s PowerShell environment.
-    Add-AzureRMEnvironment `
-      -Name "AzureStackAdmin" `
-      -ArmEndpoint "https://adminmanagement.seattle.contoso.com"
-    
-    Set-AzureRmEnvironment `
-      -Name "AzureStackAdmin" `
-      -GraphAudience "https://graph.windows.net/"
-    
-    $TenantID = Get-AzsDirectoryTenantId `
-      -AADTenantName $TenantName `
-      -EnvironmentName AzureStackAdmin
-    
-    # Sign-in to the operator's console.
-    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
-    
-   ```
-## Generate a new encryption key
-
+   
 In the same PowerShell session, run the following commands:
 
    ```powershell
