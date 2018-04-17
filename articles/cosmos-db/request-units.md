@@ -309,9 +309,6 @@ If you are using the .NET Client SDK and LINQ queries, then most of the time you
 
 If you have more than one client cumulatively operating above the request rate, the default retry behavior may not suffice, and the client will throw a `DocumentClientException` with status code 429 to the application. In cases like this, you may want to consider handling the retry behavior and logic in your application's error handling routines or increase the provisioned throughput for the container.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in the MongoDB API
-Applications that exceed the provisioned throughput for a container will be rate-limited until the consumption rate drops below the provisioned throughput rate. When a rate-limitation occurs, the backend will preemptively end the request with a `16500` error code - `Too Many Requests`. By default, the MongoDB API automatically retries up to 10 times before returning a `Too Many Requests` error code. If you are receiving many `Too Many Requests` error codes, you may want to consider either adding a retry logic in your application's error handling routines or [increase provisioned throughput for the container](set-throughput.md).
-
 ## Next steps
 To learn more about reserved throughput with Azure Cosmos DB databases, explore these resources:
 
