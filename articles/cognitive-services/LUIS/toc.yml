@@ -63,6 +63,10 @@
       href: luis-nodejs-tutorial-build-bot-framework-sample.md
     - name: C#
       href: luis-csharp-tutorial-build-bot-framework-sample.md
+  - name: Integrate LUIS with Speech
+    items:
+    - name: C# 
+      href: luis-tutorial-speech-to-text-integration.md
   - name: Gain Application Insights with a bot 
     items: 
     - name: Node.js
