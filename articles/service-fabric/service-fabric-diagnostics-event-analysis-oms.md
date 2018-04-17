@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.author: dekapur; srrengar
 
 ---
@@ -22,15 +22,15 @@ ms.author: dekapur; srrengar
 
 Log Analytics, also known as OMS (Operations Management Suite), is a collection of management services that help with monitoring and diagnostics for applications and services hosted in the cloud. This article will show you how to run queries in Log Analytics to gain insights and troubleshoot what is happening in your cluster. The following common questions will be addressed
 
-* How do I troubleshoot health events
-* How do I know when a node goes down
-* How do I know if my application's services have started or stopped
+* How do I troubleshoot health events?
+* How do I know when a node goes down?
+* How do I know if my application's services have started or stopped?
 
 ## Log Analytics workspace
 
 Log Analytics collects data from managed resources, including an Azure storage table or an agent, and maintains it in a central repository. The data can then be used for analysis, alerting, and visualization, or further exporting. Log Analytics supports events, performance data, or any other custom data. Check out [steps to configure the diagnostics extension to aggregate events](service-fabric-diagnostics-event-aggregation-wad.md) and [steps to create a Log Analytics workspace to read from the events in storage](service-fabric-diagnostics-oms-setup.md) to make sure data is flowing into Log Analytics.
 
-After data is received by Log Analytics, OMS has several *Management Solutions* that are prepackaged solutions to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters. This article will show how to use the Service Fabric Analytics solution which we created before with the workspace.
+After data is received by Log Analytics, Azure has several *Management Solutions* that are prepackaged solutions to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters. This article will show how to use the Service Fabric Analytics solution which we created before with the workspace.
 
 ## Access the Service Fabric Analytics solution
 
