@@ -55,10 +55,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    * Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
    * For **Resource Group**, you can create a new resource group or select an existing one.
    * Select a **Location**. Currently, the only locations available are **Australia Southeast**, **Canada Central**, **Central India**, **East US**, **Japan East**, **Southeast Asia**, **UK South**, and **West Europe**.
-   * Select a **Pricing tier**. The solution offers two tiers: **Free** and **Per Node (OMS)**. The Free tier has a limit on the amount of data collected daily, the retention period, and the runbook job runtime minutes. The Per Node tier does not have a limit on the amount of data collected daily.
-
-        > [!NOTE]
-        > Although the Per GB (Standalone) paid tier is displayed as an option, it is not applicable. If you select it and proceed with the creation of this solution in your subscription, it fails. This will be addressed when this solution is officially released. This solution only uses automation job minutes and log ingestion. It does not add additional nodes to your environment.
+   * Select a **Pricing tier**. Choose the **Per GB (Standalone)**, Log Analytics recently updated their [pricing](https://azure.microsoft.com/pricing/details/log-analytics/) and the Per GB tier is the only option.
 
 1. After providing the required information on the **OMS workspace** page, click **Create**. You can track its progress under **Notifications** from the menu, which returns you to the **Add Solution** page when done.
 1. On the **Add Solution** page, select **Automation account**. If you're creating a new Log Analytics workspace, you need to also create a new Automation account to be associated with it. Select **Create an Automation account**, and on the **Add Automation account** page, provide the following:
