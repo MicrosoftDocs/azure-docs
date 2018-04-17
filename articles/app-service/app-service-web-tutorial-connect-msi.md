@@ -1,6 +1,6 @@
 ---
-title: Access SQL Database securely from Azure App Service using managed service identity | Microsoft Docs 
-description: Learn how to make secure get a .NET Core app working in Azure App Service, with connection to a SQL Database.
+title: Secure Azure SQL Database connection from App Service using managed service identity | Microsoft Docs 
+description: Learn how to make database connectivity more secure by using a managed service identity, and also how to apply this to other Azure services.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/12/2018
+ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Tutorial: Access SQL Database securely from Azure App Service using managed service identity
+# Tutorial: Secure SQL Database connection with managed service identity
 
-[App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed service identity](app-service-managed-service-identity.md) for your app, which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed service identities in App Service make your app more secure by eliminating secrets, such as credentials in the connection strings, completely from your app. This tutorial shows how it's done. When you're finished, your sample ASP.NET web app connects to SQL Database securely without the need of username and passwords.
+[App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed service identity](app-service-managed-service-identity.md) for your app, which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed service identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. In this tutorial, you will add managed service identity to the sample ASP.NET web app you built in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). When you're finished, your sample app will connect to SQL Database securely without the need of username and passwords.
 
 What you learn how to:
 
@@ -32,9 +32,9 @@ What you learn how to:
 
 ## Prerequisites
 
-This article continues where you left off in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). If not, follow that tutorial first. Alternatively, you can adapt the steps for your own ASP.NET app with SQL Database.
+This article continues where you left off in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). If you haven't already, follow that tutorial first. Alternatively, you can adapt the steps for your own ASP.NET app with SQL Database.
 
-![app running in App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
+<!-- ![app running in App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png) -->
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -124,17 +124,21 @@ private MyDatabaseContext db;
 
 public TodosController()
 {
-    db = new MyDatabaseContext(new SqlConnection());
+    if (Environment.GetEnvironmentVariable("MSI_SECRET") != null)
+        db = new MyDatabaseContext(new SqlConnection());
+    else db = new MyDatabaseContext();
 }
 ```
 
-> [!NOTE]
-> You can't test your changes locally. The new code uses the REST endpoints provided by the managed service identity in Azure App Service, which don't run on your local development environment.
->
+This code checks if one of the variables injected by App Service is present. If yes, then create a database context using Azure Active Directory authentication. Otherwise, the code is running in your local development environment, so just use the default constructor for the database context.
 
 ### Publish your changes
 
 All that's left now is to publish your changes to Azure.
+
+In the **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
+
+![Publish from Solution Explorer](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
 In the publish page, click **Publish**. When the new webpage shows your to-do list, your app is connecting to the database using the managed service identity.
 
@@ -146,7 +150,7 @@ You should now be able to edit the to-do list as before.
 
 ## Grant minimal privileges to identity
 
-During the earlier steps, you probably noticed your managed service identity is connected to SQL Server as the Azure AD administrator. To grant minimal privileges to your managed service identity, you need to log into the Azure SQL Database server as the Azure AD administrator, and then add an Azure Active Directory group that contains the service identity. 
+During the earlier steps, you probably noticed your managed service identity is connected to SQL Server as the Azure AD administrator. To grant minimal privileges to your managed service identity, you need to sign in to the Azure SQL Database server as the Azure AD administrator, and then add an Azure Active Directory group that contains the service identity. 
 
 ### Add managed service identity to an Azure Active Directory group
 
@@ -159,15 +163,15 @@ az ad group member add --group $groupid --member-id $msiid
 az ad group member list -g $groupid
 ```
 
-To get the full JSON output for each command, drop the parameters `--query objectId --output tsv`.
+If you want to see the full JSON output for each command, drop the parameters `--query objectId --output tsv`.
 
 ### Reconfigure Azure AD administrator
 
-Previously, you assigned the managed service identity as the Azure AD administrator. You can't use this identity to log in to SQL Server Management Studio later, so you need to add your real Azure AD user. To add your Azure AD user, follow the steps at [Provision an Azure Active Directory administrator for your Azure SQL Database Server](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server). 
+Previously, you assigned the managed service identity as the Azure AD administrator for your SQL Database. You can't use this identity for interactive sign-in (to add database users), so you need to use your real Azure AD user. To add your Azure AD user, follow the steps at [Provision an Azure Active Directory administrator for your Azure SQL Database Server](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server). 
 
 ### Grant permissions to Azure Active Directory group
 
-In the Cloud Shell, sign in to SQL Database by using SQLCMD. Replace _\<servername>_ with your SQL Database server name, and replace _\<AADusername>_ and _\<AADpassword>_ with your Azure AD user's credentials.
+In the Cloud Shell, sign in to SQL Database by using the SQLCMD command. Replace _\<servername>_ with your SQL Database server name, and replace _\<AADusername>_ and _\<AADpassword>_ with your Azure AD user's credentials.
 
 ```azurecli-interactive
 sqlcmd -S <server_name>.database.windows.net -U <AADuser_name> -P "<AADpassword>" -G -l 30
