@@ -42,10 +42,11 @@ The Azure Stack 1803 update build number is **20180329.1**.
 
 
 ### Post-update steps
-After the installation of 1803, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).
+- After the installation of 1803, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).
 
-- [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/en-us/help/4103348)
 
+- After installing this update, review your firewall configuration to ensure [necessary ports](azure-stack-integrate-endpoints.md) are open. For example, this update introduces Azure Monitor which includes a change of Audit logs to Activity logs. With this change, port 13012 is now used and must also be open.  
 
 ### New features 
 This update includes the following improvements and fixes for Azure Stack.
