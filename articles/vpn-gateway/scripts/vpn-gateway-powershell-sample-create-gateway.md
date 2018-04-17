@@ -1,21 +1,20 @@
 ---
-title: 'Create a VPN Gatewway
-authentication: PowerShell | Microsoft Docs'
-description: Connect Windows and Mac OS X clients securely to Azure virtual network using P2S and self-signed or CA issued certificates. This article uses PowerShell.
+title: 'Azure PowerShell script sample - Create a VPN Gatewway | Microsoft Docs'
+description: Create a VPN gateway using powershell.
 services: vpn-gateway
-documentationcenter: na
+documentationcenter: vpn-gateway
 author: cherylmc
 manager: jpconnock
 editor: ''
-tags: azure-resource-manager
+tags:
 
-ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
+ms.assetid:
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/16/2018
+ms.devlang: powershell
+ms.topic: sample
+ms.tgt_pltfrm: 
+ms.workload: infrastructure
+ms.date: 04/17/2018
 ms.author: anzaman
 ---
 
