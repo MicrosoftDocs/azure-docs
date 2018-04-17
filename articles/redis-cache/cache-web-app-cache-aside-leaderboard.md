@@ -158,7 +158,7 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 6. Add the following `connectionStrings` section inside the `configuration` section. The name of the connection string must match the name of the Entity Framework database context class, which is `TeamContext`.
 
-    This connection string assumes you have met the [Prerequisites](#Prerequisites) and installed SQL Server Express LocalDB, which is part of the *.NET desktop development* workload installed with Visual Studio 2017.
+    This connection string assumes you have met the [Prerequisites](#prerequisites) and installed SQL Server Express LocalDB, which is part of the *.NET desktop development* workload installed with Visual Studio 2017.
 
 	```xml
 	<connectionStrings>
