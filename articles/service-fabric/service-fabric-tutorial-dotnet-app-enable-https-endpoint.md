@@ -47,19 +47,13 @@ Before you begin this tutorial:
 - [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 ## Obtain a certificate or create a self-signed development certificate
-In order to enable HTTPS you need a digital certificate.  For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority). For development and test purposes, you can create and use a self-signed certificate. Open a command prompt as administrator and use the New-SelfSignedCertificate Powershell cmdlet to generate a self-signed certificate and import it into the Cert:\LocalMachine\My certificate store:
+In order to enable HTTPS you need a digital certificate.  For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority). For development and test purposes, you can create and use a self-signed certificate. The Service Fabric SDK provides the *CertSetup.ps1* script, which creates a self-signed certificate and imports it into the Cert:\LocalMachine\My certificate store. Open a command prompt as administrator and run the following command to create a cert with the subject "CN=localhost":
 
 ```powershell
-PS C:\Users\sfuser>New-SelfSignedCertificate -NotBefore (Get-Date) -NotAfter (Get-Date).AddYears(1) -Subject "localhost" -KeyAlgorithm "RSA" -KeyLength 2048 -HashAlgorithm "SHA256" -CertStoreLocation "Cert:\LocalMachine\My" -KeyUsage KeyEncipherment -FriendlyName "HTTPS development certificate" -TextExtension @("2.5.29.19={critical}{text}","2.5.29.37={critical}{text}1.3.6.1.5.5.7.3.1","2.5.29.17={critical}{text}DNS=localhost")
-
-   PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\My
-
-Thumbprint                                Subject
-----------                                -------
-A2A3C6529DC9BE3C667B7833E519F51DE6F04994  CN=localhost
+PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost
 ```
 
-If you already have a certificate, run the following to import the certifcate into the "Cert:\LocalMachine\My" certificate store: 
+If you already have a certificate PFX file, run the following to import the certifcate into the "Cert:\LocalMachine\My" certificate store: 
 ```powershell
 PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysslcertificate.pfx -CertStoreLocation Cert:\LocalMachine\My -Password (ConvertTo-SecureString "!Passw0rd321" -AsPlainText -Force)
 
