@@ -4,7 +4,7 @@ description: Learn all about the SQL .NET Core API and SDK including release dat
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: f899b314-26ac-4ddb-86b2-bfdf05c2abf2

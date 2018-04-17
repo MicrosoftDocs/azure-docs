@@ -4,7 +4,7 @@ description: Learn how to develop with Azure Cosmos DB's SQL API using .NET
 services: cosmos-db
 documentationcenter: ''
 author: rafats
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: ''
 
@@ -19,7 +19,7 @@ ms.author: rafats
 ms.custom: mvc
 ---
 
-# Azure CosmosDB: Develop with the SQL API in .NET
+# Azure Cosmos DB: Develop with the SQL API in .NET
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
@@ -40,11 +40,11 @@ This tutorial covers the following tasks by using the [SQL .NET API](sql-api-sdk
 ## Prerequisites
 Before starting, make sure you have the following:
 
-* Access to a CosmosDB account
+* Access to an Azure Cosmos DB account
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-  You can also use your own Azure subscription by signing up for a [free Azure account](https://azure.microsoft.com/free/). From then on, you can [Create a CosmosDB account](create-sql-api-dotnet.md#create-a-database-account).
+  You can also use your own Azure subscription by signing up for a [free Azure account](https://azure.microsoft.com/free/). From then on, you can [Create an Azure Cosmos DB account](create-sql-api-dotnet.md#create-a-database-account).
 
 * If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 

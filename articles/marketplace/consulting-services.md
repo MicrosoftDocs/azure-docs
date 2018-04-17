@@ -47,6 +47,9 @@ Except for the *Briefing* service type, consulting services can be offered in-pe
 
 For more information, see [competencies through Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
 
+>[!TIP]
+>This information is for Azure Marketplace services only. To publish to the Azure Marketplace storefront, you will make this selection by choosing "Azure" from the "Primary Product" drop-down menu in the Cloud Partner Portal. To publish to AppSource, you will make this selection by choosing "Dynamics 365," "Power BI," or "Power Apps" from the "Primary Product" drop-down menu in the Cloud Partner Portal. 
+
 ## Supported countries
 
 SI partners can submit consulting-service offerings for the following 18 countries. 
@@ -93,3 +96,31 @@ Listing your consulting-service offer on the Azure Marketplace involves the foll
 4. **Review**: Our marketing and editorial team reviews your submission and optimizes it for readability, grammar, and effectiveness. 
 5. **Staging**: Your submission is staged for your review. 
 6. **Publishing**: When you and Microsoft are satisfied with the staged content, your listing is ready to go live on the Azure Marketplace. The go-live date for your listing depends on the country that's specified in your offering. If the catalog for your selected country is already live on the Azure Marketplace, your listing will appear within a few hours. Otherwise, the listing will appear as soon as the catalog goes live.
+
+## Content review criteria
+
+Once you have configured the required elements listed above, the content review team will validate that your offer description is informative and complete for your target audience. 
+
+Note that the title field has a 50-character limit and must transmit the duration and service type of the offer. This is to maximize search engine optimization. The required format is as follows: NAME : DURATION TYPE
+
+Examples:
+
+
+|Sample Title  |Correct Format  |
+|---------|---------|
+|Getting Started with Azure IoT in Manufacturing    |   Manufacturing IoT: 2-Day Assessment      |
+|Workshop on Smart Toasters        |  Smart Toasters: 1-Wk Workshop       |
+|  SQL Server Migration PoC    | SQL Migration: 3-Wk Proof of Concept        |
+
+ 
+When reviewing Offer Descriptions and Offer Summaries, the team will apply the following criteria:
+
+|Offer Type  |Required |Recommended  |
+|---------|---------|---------|
+|Assessment    |   Include a detailed agenda for multi-day or multi-week assessments, and articulate what deliverable the customer can expect      |    Optimize your offer summary with your top Search Engine Optimization keywords     |
+|Briefing    |   Articulate what deliverable the customer can expect. Please remember that Briefings must also be offered in person. If you are providing a virtual service, please choose a different offer type    |  Optimize your offer summary with your top Search Engine Optimization keywords       |
+|Implementation    |  Include a detailed agenda for multi-day or multi-week implementations, and articulate what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement       |    Optimize your offer summary with your top Search Engine Optimization keywords     |
+|Proof of Concept    |    Articulate what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement     | Optimize your offer summary with your top Search Engine Optimization keywords        |
+|Workshop    |   Include a detailed agenda daily, weekly, or monthly, depending on the chosen duration of your offering. Articulate what the learning goals or other deliverables are of your workshop     |   Optimize your offer summary with your top Search Engine optimization keywords      |
+
+Within Cloud Partner Portal, you can add formatting to your listing by using [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). This is a lightweight design language that will help add polish to your listing. 

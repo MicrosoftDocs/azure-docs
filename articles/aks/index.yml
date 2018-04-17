@@ -15,7 +15,7 @@ metadata:
   ms.date: 07-21-2017
   ms.author: carolz
 abstract:
-  description: Azure Container Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.
+  description: 'Azure Container Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.<div class="IMPORTANT alert"><p>Important</p><p>Azure Container Service (AKS) is currently in <strong>preview</strong>. Previews are made available to you on the condition that you agree to the <a href="https://azure.microsoft.com/support/legal/preview-supplemental-terms/">supplemental terms of use</a>. Some aspects of this feature may change prior to general availability (GA).</p></div>'
 sections:
 - title: 5-Minute Quickstarts
   items:

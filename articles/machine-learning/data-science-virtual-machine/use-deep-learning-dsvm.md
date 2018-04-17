@@ -5,14 +5,14 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 

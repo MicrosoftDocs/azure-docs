@@ -23,12 +23,10 @@ ms.custom: H1Hack27Feb2017
 # Azure Write Accelerator for SAP deployments
 Azure Write Accelerator is a functionality that is getting rolled out for M-Series VMs exclusively. The Azure Write Accelerator is not available with any other VM-Series in Azure, except the M-Series. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure Premium Storage. 
 
->[!NOTE]
-> At this point, the Azure Write Accelerator is in public preview and requires white-listing of your Azure subscription ID
-
 The Azure Write Accelerator functionality is available for M-Series deployment as public preview in:
 
 - West US2
+- East US2
 - Western Europe
 - Southeast Asia
 
@@ -42,8 +40,15 @@ Azure Write Accelerator only works in conjunction with [Azure managed disks](htt
 
 There are limits of Azure Premium Storage VHDs per VM that can be supported by Azure Write Accelerator. The current limits are:
 
-- 16 VHDs for an M128xx VM
-- 8 VHDs for an M64xx VM
+
+| VM SKU | Number of Write Accelerator disks | Write Accelerator IOPS per VM |
+| --- | --- | --- |
+| M128ms | 16 | 8000 |
+| M128s | 16 | 8000 |
+| M64ms | 8 | 4000 |
+| M64s | 8 | 4000 | 
+
+
 
 > [!IMPORTANT]
 > If you want to enable or disable Azure Write Accelerator for an existing volume that is built out of multiple Azure Premium Storage disks and striped using Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM or MDADM, all disks building the volume must be enabled or disabled for Write Accelerator in separate steps. **Before enabling or disabling Write Accelerator in such a configuration, shut down the Azure VM**. 

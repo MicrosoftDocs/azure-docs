@@ -35,8 +35,6 @@
     items:
     - name: MPP architecture
       href: massively-parallel-processing-mpp-architecture.md
-    - name: Performance tiers
-      href: performance-tiers.md
     - name: Data warehouse units
       href: what-is-a-data-warehouse-unit-dwu-cdwu.md
     - name: Scale-out, pause, resume
@@ -79,8 +77,10 @@
       href: how-to-use-elastic-query-with-sql-data-warehouse.md
   - name: Query performance
     items:
-    - name: Resource classes
+    - name: Resource classes & workload management
       href: resource-classes-for-workload-management.md
+    - name: Memory & concurrency limits
+      href: memory-and-concurrency-limits.md
     - name: Columnstore compression
       href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
   - name: Monitor
@@ -172,9 +172,7 @@
     - name: BCP
       href: sql-data-warehouse-load-with-bcp.md
     - name: Data Factory
-      href: sql-data-warehouse-load-with-data-factory.md
-    - name: AzCopy
-      href: sql-data-warehouse-load-from-sql-server-with-polybase.md
+      href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
     - name: RedGate
       href: sql-data-warehouse-load-with-redgate.md
     - name: SSIS
