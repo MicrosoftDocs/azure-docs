@@ -102,4 +102,4 @@ In this tutorial, you learned how to:
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Set up continuous integration using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [Enable HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
