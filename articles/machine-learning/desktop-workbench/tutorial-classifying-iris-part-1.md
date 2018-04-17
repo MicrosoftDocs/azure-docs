@@ -47,7 +47,7 @@ If you followed the steps in the [Quickstart: Install and start](../service/quic
 
 1. Select the plus sign (+) in the **PROJECTS** pane and choose **New Project**.  
 
-   ![New workspace](media/tutorial-classifying-iris/new_ws.png)
+   ![New workspace](./media/tutorial-classifying-iris/new_ws.png)
 
 1. Fill out of the form fields and select the **Create** button to create a new project in the Workbench.
 
