@@ -109,4 +109,6 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
 8.  Submit the **.REQ** file generated to your CA (either internal or public).  The output directory of **Start-AzsReadinessChecker** contains the CSR(s) necessary to submit to a Certificate Authority.  It also contains a child directory containing the INF file(s) used during certificate request generation, as a reference. Be sure that your CA generates certificates using your generated request that meet the [Azure Stack PKI Requirements](azure-stack-pki-certs.md).
 
 ## Next steps
+
 [Prepare Azure Stack PKI certificates](azure-stack-prepare-pki-certs.md)
+
