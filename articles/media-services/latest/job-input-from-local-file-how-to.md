@@ -23,6 +23,29 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 The following code shows how to create an input asset and use it as the input for the job.
 
 ```csharp
+private static Asset CreateInputAsset(IAzureMediaServicesClient client, string assetName, string fileToUpload)
+{
+    Asset asset = client.Assets.CreateOrUpdate(assetName, new Asset());
+
+    ListContainerSasInput sasInput = new ListContainerSasInput()
+    {
+        Permissions = AssetContainerPermission.ReadWrite,
+        ExpiryTime = DateTimeOffset.Now.AddHours(4)
+    };
+
+    var response = client.Assets.ListContainerSasAsync(assetName, sasInput).Result;
+
+    string uploadSasUrl = response.AssetContainerSasUrls.First();
+
+    string filename = Path.GetFileName(fileToUpload);
+    var sasUri = new Uri(uploadSasUrl);
+    CloudBlobContainer container = new CloudBlobContainer(sasUri);
+    var blob = container.GetBlockBlobReference(filename);
+    blob.UploadFromFile(fileToUpload);
+
+    return asset;
+}
+
 private static Job SubmitJob(IAzureMediaServicesClient client, string transformName, string jobName, string outputAssetName)
 {
     string inputAssetName = Guid.NewGuid().ToString() + "-input";
@@ -45,29 +68,6 @@ private static Job SubmitJob(IAzureMediaServicesClient client, string transformN
         });
 
     return job;
-}
-
-private static Asset CreateInputAsset(IAzureMediaServicesClient client, string assetName, string fileToUpload)
-{
-    Asset asset = client.Assets.CreateOrUpdate(assetName, new Asset());
-
-    ListContainerSasInput sasInput = new ListContainerSasInput()
-    {
-        Permissions = AssetContainerPermission.ReadWrite,
-        ExpiryTime = DateTimeOffset.Now.AddHours(1)
-    };
-
-    var response = client.Assets.ListContainerSasAsync(assetName, sasInput).Result;
-
-    string uploadSasUrl = response.AssetContainerSasUrls.First();
-
-    string filename = Path.GetFileName(fileToUpload);
-    var sasUri = new Uri(uploadSasUrl);
-    CloudBlobContainer container = new CloudBlobContainer(sasUri);
-    var blob = container.GetBlockBlobReference(filename);
-    blob.UploadFromFile(fileToUpload);
-
-    return asset;
 }
 ```
 
