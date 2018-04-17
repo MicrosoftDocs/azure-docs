@@ -195,10 +195,10 @@
   - name: Support and training
     href: ../desktop-workbench/support-for-aml-services.md
   - name: Azure roadmap
-    href: ../desktop-workbench/https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: ../desktop-workbench/aml-pricing.md
   - name: Region availability
-    href: ../desktop-workbench/https://azure.microsoft.com/regions/services/
+    href: https://azure.microsoft.com/regions/services/
   - name: Team Data Science Process
-    href: ../desktop-workbench/../team-data-science-process/overview.md
+    href: ../team-data-science-process/overview.md
