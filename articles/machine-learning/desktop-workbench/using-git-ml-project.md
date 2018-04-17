@@ -35,7 +35,7 @@ To get started using a remote Git repo, complete the steps that are described in
 > Currently, Azure Machine Learning supports Git repositories only on Team Services accounts. Support for general Git repos, like GitHub, is planned for the future.
 
 ## Step 1. Create a Machine Learning Experimentation account
-Create a Machine Learning Experimentation account and install the Azure Machine Learning Workbench app. For more information, see [Install and create Quickstart](quickstart-installation.md).
+Create a Machine Learning Experimentation account and install the Azure Machine Learning Workbench app. For more information, see [Install and create Quickstart](../service/quickstart-installation.md).
 
 ## Step 2. Create a team project or use an existing team project
 In the [Azure portal](https://portal.azure.com/), create a new team project:

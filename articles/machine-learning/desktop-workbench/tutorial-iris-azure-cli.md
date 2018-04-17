@@ -30,7 +30,7 @@ To complete this tutorial, you need:
   
   If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Azure Machine Learning Workbench application installed as described in [Quickstart: Install and start Azure Machine Learning services](quickstart-installation.md). 
+- Azure Machine Learning Workbench application installed as described in [Quickstart: Install and start Azure Machine Learning services](../service/quickstart-installation.md). 
 
   >[!IMPORTANT]
   >Do not create the Azure Machine Learning service accounts since you will do that using the CLI in this article.

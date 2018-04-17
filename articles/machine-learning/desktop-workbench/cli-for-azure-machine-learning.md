@@ -196,7 +196,7 @@ az ml env set -n <environment name> -g <resource group name>​
 ## Next steps
 
 Get started with one of these articles: ​
-+ [Install and start using Azure Machine Learning](quickstart-installation.md)
++ [Install and start using Azure Machine Learning](../service/quickstart-installation.md)
 + [Classifying Iris Data Tutorial: Part 1](tutorial-classifying-iris-part-1.md)
 
 Dig deeper with one of these articles:
