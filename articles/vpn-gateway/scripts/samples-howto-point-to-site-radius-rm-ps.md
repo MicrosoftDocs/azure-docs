@@ -112,5 +112,3 @@ This script uses the following commands to create the deployment. Each item in t
 ## Next steps
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
-
-Additional VPN gateway PowerShell script samples can be found in the [Azure VPN gateway documentation](../windows/powershell-samples.md?toc=).
