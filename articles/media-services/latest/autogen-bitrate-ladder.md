@@ -24,15 +24,13 @@ This article explains how to auto-generate a bitrate ladder (bitrate-resolution 
 
 ### Encoding for streaming only
 
-If your intent is to encode your source video only for streaming, then you should use the "Adaptive Streaming" preset when creating an encoding task. When using the **Adaptive Streaming** preset, Media Services built-in standard encoder will intelligently cap a bitrate ladder. However, you will not be able to control the encoding costs, since the service determines how many layers to use and at what resolution. You can see examples of output layers produced by the encoder as a result of encoding with the **Adaptive Streaming** preset at the end of this article. The output Asset contains MP4 files where audio and video is not interleaved.
+If your intent is to encode your source video only for streaming, then you should use the **AdaptiveStreaming** preset when creating an encoding transform. When using the **AdaptiveStreaming** preset, Media Services built-in standard encoder intelligently caps a bitrate ladder. However, you will not be able to control the encoding costs, since the service determines how many layers to use and at what resolution. The output Asset contains MP4 files where audio and video is not interleaved.
 
-### Encoding for streaming and progressive download
+To see an example of how this preset is used, see [Stream a file](stream-files-dotnet-quickstart.md).
 
-If your intent is to encode your source video for streaming as well as to produce MP4 files for progressive download, then you should use the "Content Adaptive Multiple Bitrate MP4" preset when creating an encoding task. When using the **Content Adaptive Multiple Bitrate MP4** preset, the  encoder applies the same encoding logic as above, but now the output asset will contain MP4 files where audio and video is interleaved. You can use one of these MP4 files (for example, the highest bitrate version) as a progressive download file.
+## Output
 
-## <a id="output"></a>Output
-
-This section shows three examples of output layers produced by the Media Services encoder as a result of encoding with the **Adaptive Streaming** preset. 
+This section shows three examples of output layers produced by the Media Services encoder as a result of encoding with the **AdaptiveStreaming** preset. 
 
 ### Example 1
 Source with height "1080" and framerate "29.970" produces 6 video layers:
