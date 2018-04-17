@@ -90,7 +90,7 @@ Select **Manage Jenkins** > **Configure System** > scroll down to the **Cloud** 
 
 ![Jenkins cloud configuration](./media/container-instances-jenkins/jenkins-aci-image.png)
 
-Now create a Jenkins buidl job. Select **New Item**, give the build project a name such as `aci-java-demo`, and select **Freestyle Projet**. Click **OK** when done.
+Now create a Jenkins build job. Select **New Item**, give the build project a name such as `aci-java-demo`, and select **Freestyle Projet**. Click **OK** when done.
 
 ![Create Jenkins job](./media/container-instances-jenkins/jenkins-new-job.png)
 
@@ -110,5 +110,17 @@ Under Build, add the build step named `Invoke top-level Maven targets`, and ente
 
 Select **Build Now** to start a build job.
 
-![Jenkins build in ACI](./media/container-instances-jenkins/jenkins-aci.png)
+![Add Jenkins build step](./media/container-instances-jenkins/jenkins-job-03.png)
+
+While the job is running, open up the Azure portal and look at the Jenkins resource group. You should see that an Azure Container Instance has been created. It is inside of this instance that the Jenkins job is running.
+
+![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci.png)
+
+As Jenkins beings to run more jobs than the configured number of executors (default 2), multiple Azure Container Instances are created.
+
+![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci-multi.png)
+
+Once all build jobs have been completed, the Azure Container Instances are removed.
+
+![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci-none.png)
 
