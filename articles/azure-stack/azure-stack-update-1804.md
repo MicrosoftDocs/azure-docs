@@ -87,8 +87,6 @@ The following are post-installation known issues for build  **201804xx.x**.
 
   This alert can be safely ignored. 
 
-<!-- #### Health and monitoring --> 
-<!-- #### Marketplace --> 
 
 #### Compute
 - <!-- TBD - IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
@@ -211,11 +209,12 @@ The following are post-installation known issues for build  **201804xx.x**.
 
 
 <!-- #### Identity -->
-
+<!-- #### Health and monitoring --> 
+<!-- #### Marketplace --> 
 
 
 ## Download the update
-You can download the Azure Stack 1803 update package from [here](https://aka.ms/azurestackupdatedownload).
+You can download the Azure Stack 1804 update package from [here](https://aka.ms/azurestackupdatedownload).
 
 
 ## See also
