@@ -56,7 +56,7 @@ The semantics for partition keys are slightly different to match the semantics o
 
 | API | Partition key | Row key |
 | --- | --- | --- |
-| Azure Cosmos DB | Custom partition key path | Fixed `id` | 
+| SQL | Custom partition key path | Fixed `id` | 
 | MongoDB | Custom shared key  | Fixed `_id` | 
 | Gremlin | Custom partition key property | Fixed `id` | 
 | Table | Fixed `PartitionKey` | Fixed `RowKey` | 
@@ -97,7 +97,7 @@ Azure Cosmos DB is designed for predictable performance. When you create a conta
 You can use the Azure portal or Azure CLI to create containers and scale them at any time. This section shows how to create containers and specify the provisioned throughput and partition key using each API.
 
 
-### Azure Cosmos DB API
+### SQL API
 The following sample shows how to create a container (a collection) using SQL API. 
 
 ```csharp
