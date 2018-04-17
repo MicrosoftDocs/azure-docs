@@ -38,9 +38,20 @@ No, MSI is not yet integrated with ADAL or MSAL. For details on acquiring an MSI
 
 The security boundary of the identity is the resource to which it is attached to. For example, the security boundary for a Virtual Machine MSI, is the Virtual Machine. Any code running on that VM, is able to call the MSI endpoint and request tokens. It is the similar experience with other resources that support MSI.
 
+### Should I use the MSI VM IMDS endpoint or the MSI VM extension endpoint?
+
+When using MSI with VMs, we encourage using the MSI IMDS endpoint. The Azure Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the Azure Resource Manager. Some of the benefits of using MSI over IMDS are:
+
+1. All Azure IaaS supported operating systems can use MSI over IMDS. 
+2. No longer need to install an extension on your VM to enable MSI. 
+3. The certificates used by MSI are no longer present in the VM. 
+4. The IMDS iendpoint is a well-known non-routable IP address, only available from within the VM. 
+
+For more information on Azure Instance Metada Service, see [IMDS documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+
 ### What are the supported Linux distributions?
 
-All Linux distributions supported by Azure IaaS can be used with MSI, via the IMDS endpoint. 
+All Linux distributions supported by Azure IaaS can be used with MSI via the IMDS endpoint. 
 
 Note: The MSI VM Extension only supports the following Linux distributions:
 - CoreOS Stable
