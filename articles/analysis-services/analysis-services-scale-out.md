@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -69,7 +69,13 @@ Use the **sync** operation.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### PowerShell
-In order to run sync from PowerShell, [update to the latest](https://github.com/Azure/azure-powershell/releases) 5.01 or higher AzureRM module. Use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Before using PowerShell, [install or update the latest AzureRM module](https://github.com/Azure/azure-powershell/releases). 
+
+To set the number of query replicas, use [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Specify the optional `-ReadonlyReplicaCount` parameter.
+
+To run sync, use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+
+
 
 ## Connections
 
