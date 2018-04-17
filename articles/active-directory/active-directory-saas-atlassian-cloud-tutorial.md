@@ -128,7 +128,7 @@ To configure Azure AD single sign-on with Atlassian Cloud, do the following:
 
 9. In the **Quick Reference** section, copy the **SAML Entity ID** and **SAML Single Sign-On Service URL**.
 
-	![Atlassian Cloud configuration](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_configure.png) 
+	![Atlassian Cloud configuration](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_configure.png)
 
 10. To get SSO configured for your application, sign in to the Atlassian portal with administrator credentials.
 
