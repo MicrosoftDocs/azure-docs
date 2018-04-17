@@ -128,6 +128,9 @@ The simplest way to get a good estimate of request unit charges for your MongoDB
 
 ![MongoDB API portal metrics][1]
 
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in the MongoDB API
+Applications that exceed the provisioned throughput for a container will be rate-limited until the consumption rate drops below the provisioned throughput rate. When a rate-limitation occurs, the backend will preemptively end the request with a `16500` error code - `Too Many Requests`. By default, the MongoDB API automatically retries up to 10 times before returning a `Too Many Requests` error code. If you are receiving many `Too Many Requests` error codes, you may want to consider either adding a retry logic in your application's error handling routines or [increase provisioned throughput for the container](set-throughput.md).
+
 ## Throughput FAQ
 
 **Can I set my throughput to less than 400 RU/s?**
