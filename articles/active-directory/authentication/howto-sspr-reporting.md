@@ -69,7 +69,7 @@ The Azure AD Reports and Events API supports the retrieval of all the informatio
 
 ### How to get started with the reporting API
 
-To access this data, you need to write a small application or script to retrieve it from our servers. For more information, see [Get started with the Azure AD reporting API](active-directory-reporting-api-getting-started.md).
+To access this data, you need to write a small application or script to retrieve it from our servers. For more information, see [Get started with the Azure AD reporting API](../active-directory-reporting-api-getting-started-azure-portal.md).
 
 After you have a working script, you'll want to examine the password reset and registration events that you can retrieve to meet your scenarios:
 
