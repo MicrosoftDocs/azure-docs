@@ -43,14 +43,14 @@ az group create --name myResourceGroup --location eastus
 
 Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. 
 
-The following example creates a VM named *myVM*, adds a user account named *azureuser*, and generates SSH keys if they do not already exist in a default key location (*~/.ssh*). To use a specific set of keys, use the `--ssh-key-value` option:
+The following example creates a VM named *myVM*, adds a user account named *azureuser*, and generates SSH keys if they do not already exist in the default key location (*~/.ssh*). To use a specific set of keys, use the `--ssh-key-value` option:
 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
   --image UbuntuLTS \
-  --admin-username \
+  --admin-username azureuser \
   --generate-ssh-keys
 ```
 
