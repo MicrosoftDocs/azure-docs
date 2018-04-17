@@ -109,13 +109,13 @@ sections:
     - title: Knowledge
       html: <ul class="noBullet">
                 <li>
-                    <a class="barLink" href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview"><img src="media/index/API_Custom_Decision_Service.svg" alt="" /><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                    <a class="barLink" href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview"><img src="../media/index/API_Custom_Decision_Service.svg" alt="" /><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                 </li>
                 <li>
-                    <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="media/index/API_QnAMaker.svg" alt="" /><span>QnAMaker&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                    <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="../media/index/API_QnAMaker.svg" alt="" /><span>QnAMaker&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                 </li>
                 <li>
-                    <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>Recommendations&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                    <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="../media/index/API_Recommendations.svg" alt="" /><span>Recommendations&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                 </li>
             </ul>
     - title: Search
