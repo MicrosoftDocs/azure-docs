@@ -28,7 +28,7 @@ The [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) s
 In this scenario:
 - Contoso has an on-premises datacenter (**contoso-datacenter**), with an on-premises domain controller ( **contosodc1**).
 - The internal travel app is tiered across two VMs, **WEBVM** and **SQLVM**, and located on VMware ESXi host **contosohost1.contoso.com**.
-- The VMware environment is managed by vCenter Server (**vcenter**) running on a VM.
+- The VMware environment is managed by vCenter Server (**vcenter.contoso.com**) running on a VM.
 
 
 ## Azure services and technologies
@@ -54,7 +54,7 @@ Here's what you need to deploy this scenario:
         - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).
         - If you have machines with no internet connectivity, you need to download and install [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) on them.
 - The FQDN of the VM running the SQL Server instance, for database assessment.
-- Windows Fireall running on the SQL Server VM should allow external connections on TCP port 1433 (default), so that the DMA can connect.
+- Windows Firewall running on the SQL Server VM should allow external connections on TCP port 1433 (default), so that the DMA can connect.
 
 
 ## Scenario overview
@@ -69,7 +69,7 @@ Here's what we're going to do:
 > * **Step 4: Prepare for VM assessment with Azure Migrate**: Set up on-premises accounts, and tweak VMware settings.
 > * **Step 5: Discover on-premises VMs**: Create an Azure Migrate collector VM. Then, run the collector to discover VMs for assessment.
 > * **Step 6: Prepare for dependency analysis**: Install Azure Migrate agents on the VMs, so that we can see the dependency mapping between VMs.
-> * **Step 7: Assess the VMs**: Check dependencies, group the VMs, and run the assessment. AFter the assessment is ready, analyze it in preparation for migration.
+> * **Step 7: Assess the VMs**: Check dependencies, group the VMs, and run the assessment. After the assessment is ready, analyze it in preparation for migration.
 
 
 ## Step 1: Prepare Azure
@@ -92,7 +92,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Run an assessment to analyze your source SQL Server instance, against a specified target.
 
-1. In **New**, select **Assesment**, and give the assessment a project name.
+1. In **New**, select **Assessment**, and give the assessment a project name.
 2. In **Source server type**, select **SQL Server**. In **Target server type**, select **SQL Server on Azure Virtual Machines**.
 
     ![Select source](./media/migrate-scenarios-assessment/dma-assessment-1.png)
@@ -123,7 +123,7 @@ Run an assessment to analyze your source SQL Server instance, against a specifie
 
 Results are displayed in the Assistant as soon as they're available. 
 
-1. In the **Compatibility Issues** report, check whether your database has issues for each compatibility level, and if so,  how to fix them. Compatability levels map to SQL Server versions as follows:
+1. In the **Compatibility Issues** report, check whether your database has issues for each compatibility level, and if so,  how to fix them. Compatibility levels map to SQL Server versions as follows:
     - 100: SQL Server 2008/Azure SQL Database
     - 110: SQL Server 2012/Azure SQL Database
     - 120: SQL Server 2014/Azure SQL Database
@@ -170,9 +170,9 @@ In this scenario we're going to configure dependency mapping. This feature requi
 
 ### Set statistics settings
 
-Before you start deployment, the statistics settings for the vCenter Server should be set to level 3. Note that:
+Before you start the deployment, the statistics settings for the vCenter Server should be set to level 3. Note that:
 - After you set the level, you need to wait at least a day before you run the assessment. Otherwise it might not work as expected.
-- If the level higher than 3, the assessment will work, but:
+- If the level is higher than 3, the assessment will work, but:
     - Performance data for disks and networking won't be collected.
     - For storage, Azure Migrate recommends a standard disk in Azure, with the same size as the on-premises disk.
     - For networking, for each on-premises network adapter, a network adapter will be recommended in Azure.
@@ -247,13 +247,13 @@ Import the downloaded file to the vCenter Server.
 
     ![Deploy OVF](./media/migrate-scenarios-assessment/vcenter-wizard.png) 
 
-2. In the Deploy OVF Template Wizard > **Source**, specify the location of the .ova file, and click **Next**.
+2. In the Deploy OVF Template Wizard > **Source**, specify the location of the .OVA file, and click **Next**.
 3. In **OVF Template Details**, click **Next**. In **End User License Agreement**, click **Accept** to accept the agreement, and click **Next**.
 4. In **Name and Location**, specify a friendly name for the collector VM, and the inventory location in which the VM will be hosted, and click **Next**. Specify the host or cluster on which the collector appliance will run.
 5. In **Storage**, specify where you want to store files for the appliance, and click **Next**.
 6. In **Disk Format**, specify how you want to provision the storage.
 7. In **Network Mapping**, specify the network to which the collector VM will connect. The network needs internet connectivity, to send metadata to Azure. 
-8. In **Ready to Complete**, review the settings, select **POwer on after deployment**, and then click **Finish**.
+8. In **Ready to Complete**, review the settings, select **Power on after deployment**, and then click **Finish**.
 
 A message confirming successful completion is issued after the appliance is created.
 
@@ -328,15 +328,6 @@ If you want to have a copy of your VM before modifying it, take a snapshot befor
 
     ![Agent download](./media/migrate-scenarios-assessment/download-agents.png) 
 
- 
-
-#### Install the Dependency agent
-
-1.	Double-click the downloaded Dependency agent.
-2.	On the **License Terms** page, click **I Agree to accept the license**.
-3.	In **Installing**, wait for the installation to finish. Then click **Next**.
-
-    ![Dependency agent](./media/migrate-scenarios-assessment/dependency-agent.png) 
 
 
 #### Install the MMA
@@ -354,7 +345,13 @@ If you want to have a copy of your VM before modifying it, take a snapshot befor
 
 
 
+#### Install the Dependency agent
 
+1.	Double-click the downloaded Dependency agent.
+2.	On the **License Terms** page, click **I Agree to accept the license**.
+3.	In **Installing**, wait for the installation to finish. Then click **Next**.
+
+    ![Dependency agent](./media/migrate-scenarios-assessment/dependency-agent.png) 
 
 
        
@@ -373,7 +370,7 @@ Verify machine dependencies and create a group. Then, run the assessment.
     - Inbound (client) and outbound (server) TCP connections to and from all dependent machines.
     - Dependent machines with the Azure Migrate agents installed are shown as separate boxes
     - Machines without the agents installed show port and IP address information.
- 3. For machines with the agent installed (WEBVM), click on the machine box to view more information, including FQDN, operating aystem, MAC address. 
+ 3. For machines with the agent installed (WEBVM), click on the machine box to view more information, including FQDN, operating system, MAC address. 
 
     ![View group dependencies](./media/migrate-scenarios-assessment/sqlvm-dependencies.png)
 
@@ -381,7 +378,7 @@ Verify machine dependencies and create a group. Then, run the assessment.
 5. Click **Create Group**, and specify a name (smarthotelapp).
 
 > [!NOTE]
-    > To view more granular dependencies, you can expand the time range, /ou can select a specific duration, or start/end dates. 
+    > To view more granular dependencies, you can expand the time range. You can select a specific duration, or start and end dates. 
 
 
 ### Run an assessment
@@ -393,6 +390,30 @@ Verify machine dependencies and create a group. Then, run the assessment.
     ![Create an assessment](./media/migrate-scenarios-assessment/run-vm-assessment.png)
 
 3. The assessment appears in the **Manage** > **Assessments** page.
+
+
+### Modify assessment settings
+
+For this tutorial we've used the default assessment settings, but you can customize settings, as follows:
+
+1. In the **Assessments** page of the migration project, select the assessment, and click **Edit properties**.
+2. Modify the properties in accordance with the following table:
+
+    **Setting** | **Details** | **Default**
+    --- | --- | ---
+    **Target location** | The Azure location to which you want to migrate | No default.
+    **Storage redundancy** | The type of storage redundancy that the Azure VMs will use after migration. | [Locally redundant storage (LRS)](../storage/common/storage-redundancy-lrs.md) is the default value. Azure Migrate only supports managed disks-based assessments and managed disks only support LRS, hence the LRS option. 
+    **Sizing criterion** | The criterion to be used by Azure Migrate to right-size VMs for Azure. You can do either do *performance-based* sizing or size the VMs *as on-premises*, without considering the performance history. | Performance-based sizing is the default option.
+    **Performance history** | The duration to consider for evaluating the performance of the VMs. This property is only applicable when sizing criterion is *performance-based sizing*. | Default is one day.
+    **Percentile utilization** | The percentile value of the performance sample set to be considered for right-sizing. This property is only applicable when sizing criterion is *performance-based sizing*.  | Default is 95th percentile.
+    **Pricing tier** | You can specify the [pricing tier (Basic/Standard)](../virtual-machines/windows/sizes-general.md) for the target Azure VMs. For example, if you are planning to migrate a production environment, you would like to consider the Standard tier, which provides VMs with low latency but may cost more. On the other hand, if you have a Dev-Test environment, you may want to consider the Basic tier that has VMs with higher latency and lower costs. | By default the [Standard](../virtual-machines/windows/sizes-general.md) tier is used.
+    **Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. | Default setting is 1.3x.
+    **Offer** | [Azure Offer](https://azure.microsoft.com/support/legal/offer-details/) that you are enrolled to. | [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) is the default.
+    **Currency** | Billing currency. | Default is US dollars.
+    **Discount (%)** | Any subscription-specific discount you receive on top of the Azure offer. | The default setting is 0%.
+    **Azure Hybrid Benefit** | Specify if you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If set to Yes, non-Windows Azure prices are considered for Windows VMs. | Default is Yes.
+
+3. Click **Save** to update the assessment settings.
 
 
 ### Analyze the VM assessment
