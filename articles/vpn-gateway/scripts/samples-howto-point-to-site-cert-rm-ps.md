@@ -8,14 +8,14 @@ manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
+ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
-ms.author: cherylmc
+ms.date: 04/17/2018
+ms.author: anzaman
 
 ---
 
