@@ -1,5 +1,5 @@
 ---
-title: What is AppSourceand and how does it work with Azure
+title: What is AppSource and and how does it work with Azure
 description: Overview of AppSource, which enables Microsoft partners to make their technology and services discoverable to customers through a Microsoft-supported online storefront.
 services: Marketplace, AppSource, Compute, Storage, Networking, Security, SaaS
 documentationcenter:
@@ -61,7 +61,7 @@ If you offer services to help customers facilitate digital transformation or imp
 ### Cortana Intelligence
 [Cortana Intelligence AppSource Publishing guide](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide "Cortana Intelligence AppSource - Publishing guide")
 
-### Azure Active Directory Integration
+## Azure Active Directory Integration
 Some AppSource storefront applications are required to integrate with Azure Active Directory (Azure AD) to be published. Application integration with Azure AD is well documented; Microsoft provides multiple SDKs and additional resources to meet your requirements. 
 
 | Offering name | Requires Azure AD Integration | Notes |
