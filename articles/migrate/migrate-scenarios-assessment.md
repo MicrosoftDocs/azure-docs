@@ -1,5 +1,5 @@
 ---
-title: Assess on-premises workloads for migration to Azure with DMS and Azure Migrate | Microsoft Docs
+title: Assess on-premises workloads for migration to Azure with DMA and Azure Migrate | Microsoft Docs
 description: Learn how to prepare Azure for migration of on-premises machines using the Data Migration Assistant (DMA), and the Azure Migrate service.
 services: site-recovery
 author: rayne-wiselman
@@ -24,8 +24,8 @@ To get their feet wet and better understand the technologies involved, they're a
 
 In this scenario, we'll download and run the DMA to assess the on-premises SQL Server database for our travel app. We'll use Azure migrate with dependency mapping to assess the app VMs, before we migrate them to Azure.
 
-- **NOTE**: For this scenario our assessment target for the database will be "SQL Server on an Azure VM". However, in our next scenario article, we will run the migration to an Azure SQL Managed Instance. We're using this approach since DMA doesn't currently support assessment to an Azure SQL Managed Instance target.
-
+> [!NOTE]
+> For this scenario our assessment target for the database will be "SQL Server on an Azure VM". However, in our next scenario article, we will run the migration to an Azure SQL Managed Instance. We're using this approach since DMA doesn't currently support assessment to an Azure SQL Managed Instance target.
 
 ## Architecture
 
@@ -89,7 +89,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 2. Double-click the downloaded setup file (DownloadMigrationAssistant.msi) to start the installation.
 3. On the **Finish** page, make sure that **Launch Microsoft Data Migration Assistant** is selected, and click **Finish**.
 
-## Step 3: Run the and analyze database assessment
+## Step 3: Run and analyze the database assessment
 
 Run an assessment to analyze your source SQL Server instance, against a specified target.
 
@@ -367,10 +367,12 @@ Verify machine dependencies and create a group. Then, run the assessment.
     ![View machine dependencies](./media/migrate-scenarios-assessment/view-machine-dependencies.png) 
 
 2. For the SQLVM, the dependency map shows the following details:
+
     - Process groups/processes with active network connections running on SQLVM, during the specified time period (an hour by default)
     - Inbound (client) and outbound (server) TCP connections to and from all dependent machines.
     - Dependent machines with the Azure Migrate agents installed are shown as separate boxes
     - Machines without the agents installed show port and IP address information.
+    
  3. For machines with the agent installed (WEBVM), click on the machine box to view more information, including FQDN, operating system, MAC address. 
 
     ![View group dependencies](./media/migrate-scenarios-assessment/sqlvm-dependencies.png)
