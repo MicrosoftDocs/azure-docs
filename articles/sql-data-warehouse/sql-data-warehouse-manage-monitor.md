@@ -2,21 +2,16 @@
 title: Monitor your workload using DMVs | Microsoft Docs
 description: Learn how to monitor your workload using DMVs.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: ''
-
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: joeyong;barbkess;kevin
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
+
 # Monitor your workload using DMVs
 This article describes how to use Dynamic Management Views (DMVs) to monitor your workload. This includes investigating query execution in Azure SQL Data Warehouse.
 
