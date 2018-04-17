@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 04/08/2018
+ms.date: 04/16/2018
 ms.topic: hero-article
 ms.service: iot-dps
 
@@ -49,7 +49,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     cd cmake
     ```
 
-6. The code sample uses a Windows TPM simulator. Run the following command to enable the SAS token authentication. It also generates a Visual Studio solution for the simulated device.
+6. The code sample uses a Windows TPM simulator to provide attestation via SAS Token authentication. Run the following command to build a version of the SDK specific to your development client platform and [attestation mechanism](concepts-security.md#attestation-mechanism) (TPM Simulator). It also generates a Visual Studio solution for the simulated device.
 
     ```cmd/sh
     cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
