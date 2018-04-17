@@ -157,4 +157,4 @@ In today’s world, threats are present 24 hours a day and come from everywhere.
 
 [Get started](https://docs.microsoft.com/en-us/azure/active-directory/get-started-azure-ad) with Azure AD and deploy the right authentication solution for your organization.
 
-If you are considering migrating from federated to cloud authentication, learn more [about the changing the sign in method](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). To help you plan and implement the migration, you can use [these project plans to assist you](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/tree/master/PTA).
+If you are considering migrating from federated to cloud authentication, learn more [about the changing the sign in method](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). To help you plan and implement the migration, you can use [these project plans to assist you](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/tree/master/Authentication).
