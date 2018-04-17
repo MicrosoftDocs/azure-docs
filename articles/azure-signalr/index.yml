@@ -20,7 +20,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to deploy your first web application that using Azure SignalR for real-time communications:'
+    text: 'Learn how to deploy your first web application using Azure SignalR for real-time communications:'
   - type: list
     style: icon48
     items: 
