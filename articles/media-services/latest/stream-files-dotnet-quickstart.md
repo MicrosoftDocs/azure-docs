@@ -139,6 +139,10 @@ For explanations about what each function in the sample does, examine the code a
 
 The [upload, encode, and stream files](stream-files-tutorial-with-api.md) tutorial gives you a more advanced streaming example with detailed explanations. 
 
+## Multithreading
+
+The Azure Media Services v3 SDKs are not thread-safe. When working with multi-threaded application, you should generate a new  AzureMediaServicesClient object per thread.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
