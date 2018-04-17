@@ -85,7 +85,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-	> [Note]
+	> [!Note]
 	> If you are using the custom (non-gallery) app, you see the two default roles - User and msiam_access. In case of gallery app, msiam_access is the only default role. You do not need to make any changes in the default roles.
 
 	h. You now need to generate new roles for your application. 
@@ -120,7 +120,7 @@ If your application expects custom roles to be passed in SAML response, you need
     ],
 	}
 	```
-	> [Note]
+	> [!Note]
 	> You can only add new roles after the **msiam_access** for the patch operation. Also, you can add as many roles as you want per your Organization need. Azure AD will send the **value** of these roles as the claim value in SAML response.
 	
 	j. Go back to your Graph Explorer and change the method from **GET** to **PATCH**. Patch the service principal object to have desired roles by updating appRoles property similar to the one shown above in the example. Click **Run Query** to execute the patch operation. A success message confirms the creation of the role.
@@ -135,7 +135,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	![Configure Single Sign-On Add](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
-	> [Note]
+	> [!Note]
 	> Please note that you need to refresh your session in Azure portal to see new roles.
 
 8. After assigning roles to the users, we need to update **Attributes** table to define customized mapping of **role** claim.
