@@ -16,12 +16,18 @@ As they consider migration to Azure, Contoso company want to run a technical and
 
 To get their feet wet and better understand the technologies involved, they're assessing and migrating a small on-premises travel app. It's a two-tier app, with a web app running on one VM, and a SQL Server database on the second VM. The application is deployed in VMware, and the environment is managed by a vCenter Server. They'll perform the assessment using the Data Migration Assistant (DMA), and the Azure Migrate service.
 
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) assesses and detects compatibility issues that can impact database functionality in Azure. It recommends performance and reliability improvements for your target environment.
+**Technology** | **Description** | **Cost**
+--- | --- | ---
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA assesses and detects compatibility issues that can impact database functionality in Azure. In addition it assesses and feature parity between your SQL Server source and target, and recommends performance and reliability improvements for your target environment. | It's a downloadable tool free of charge. 
+[Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | The  service helps you to assess on-premises machines for migration to Azure. It assesses the migration suitability of the machines, and provides sizing and cost estimations for running in Azure. Currently, the Azure Migrate service can assess on-premises VMware VMs for migration to Azure. | There's currently (April 2018) no charge for using this service.
+[Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate uses Service Map to show dependencies between machines you want to migrate. |  Service Map is part of Azure Log Analytics. It can currently be used for 180 days without incurring charges. 
 
-The [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) service helps you to assess on-premises machines for migration to Azure. It assesses the migration suitability of the machines, and provides sizing and cost estimations for running in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration, to migrate the machines to Azure.
+In this scenario, we'll download and run the DMA to assess the on-premises SQL Server database for our travel app. We'll use Azure migrate with dependency mapping to assess the app VMs, before we migrate them to Azure.
 
 
 ## Architecture
+
+In this scenario, we're going to set up 
 
  ![Migration assessment architecture](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
 
@@ -31,13 +37,6 @@ In this scenario:
 - The VMware environment is managed by vCenter Server (**vcenter.contoso.com**) running on a VM.
 
 
-## Azure services and technologies
-
-**Technology** | **Description** | **Costs**
---- | --- | ---
-**DMA** | DMA assesses compatibility and feature parity between your SQL Server source and target, and recommends improvements where appropriate. | Downloadable tool free of charge. 
-**Azure Migrate** | Currently, the Azure Migrate service can assess on-premises VMware VMs for migration to Azure. | Right now (April 2018) there's no charge for using the Azure Migrate service.
-**Service Map** | Azure Migrate uses Service Map to show dependencies between machines you want to migrate. | [Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) is part of Azure Log Analytics. It can currently be used for 180 days without incurring charges.
 
 
 ## Prerequisites
