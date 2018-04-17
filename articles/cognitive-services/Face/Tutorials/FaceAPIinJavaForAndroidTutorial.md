@@ -141,31 +141,36 @@ Follow the instructions below to configure the client library:
 1. Locate the top-level **build.gradle** file of your project from the Project panel shown in the example. Note that there are several other **build.gradle** files in your project tree, and you need to open the top-level **build.gradle** file at first. 		 
 2. Add **mavenCentral()** to your projects' repositories. You can also use jcenter(), which is the default repository of Android Studio, since jcenter() is a superset of mavenCentral().  
 
-		allprojects {
-		    repositories {
-		        ...
-		        mavenCentral()
-		    }
+```
+	allprojects {
+		repositories {
+			...
+			mavenCentral()
 		}
+	}
+```
 
 3. Open the **build.gradle** file in your 'app' project.
 4. Add a dependency for our client library stored in the Maven Central Repository:
 
-		dependencies {  
-		    ...  
-		    compile 'com.microsoft.projectoxford:face:1.2.5'  
-		}  
+```
+	dependencies {  
+		...  
+		compile 'com.microsoft.projectoxford:face:1.4.2'  
+	}
+```
 
 5. Open **MainActivity.java** in your 'app' project and insert the following import directives: 
 	
-		import com.microsoft.projectoxford.face.*;  
-		import com.microsoft.projectoxford.face.contract.*;  
+	```java
+	import com.microsoft.projectoxford.face.*;  
+	import com.microsoft.projectoxford.face.contract.*;  
+	```
 	
    Then, insert the following code in the class:
 
 	```java
-	    private FaceServiceClient faceServiceClient =  
-	                new FaceServiceRestClient("your API endpoint", "<Subscription Key>");
+	private FaceServiceClient faceServiceClient = new FaceServiceRestClient("your API endpoint", "<Subscription Key>");
 	```
 
    Replace the first parameter above with the API endpoint that was assigned to your key in step 1. For example:
