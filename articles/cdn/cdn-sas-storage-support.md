@@ -1,6 +1,6 @@
 ---
 title: Using Azure CDN with SAS | Microsoft Docs
-description: ''
+description: Azure CDN supports the use of Shared Access Signature (SAS) to grant limited access to private storage containers.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -61,7 +61,7 @@ This option is the simplest and uses only a single SAS token, which is passed fr
    https://demoendpoint.azureedge.net/test/demo.jpg/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    
-3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin. Because the CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the CDN origin server after the SAS expiration time has elapsed. If this occurs, and you want to make your cached file inaccessible, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on the CDN, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
+3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin. Because the CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the CDN origin server after the SAS expiration time has elapsed. If this situation occurs, and you want to make your cached file inaccessible, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on the CDN, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
 
 ### Option 2: Hidden CDN security token using rewrite rule
  
@@ -91,7 +91,7 @@ With this option, you can secure the origin blob storage without requiring a SAS
        
    Note that anyone, regardless of whether they are using a SAS token, can access a CDN endpoint. 
 
-3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin. Because the CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the CDN origin server after the SAS expiration time has elapsed. If this occurs, and you want to make your cached file inaccessible, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on the CDN, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
+3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin. Because the CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the CDN origin server after the SAS expiration time has elapsed. If this situation occurs, and you want to make your cached file inaccessible, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on the CDN, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
 
 ### Option 3: Using CDN security token authentication with a rewrite rule
 
@@ -99,12 +99,12 @@ This option is the most secure and customizable. To use CDN security token authe
 
 1. [Create a CDN security token](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) and activate it by using the rules engine for the CDN endpoint and path where your users can access the file.
 
-   A SAS URL has the following format:   
-   `https://<endpoint>.azureedge.net/<folder>/<file>?sv=<SAS_TOKEN>`
+   A security token URL has the following format:   
+   `https://<endpoint>.azureedge.net/<folder>/<file>?<security_token>`
  
    For example:   
    ```
-   https://demoendpoint.azureedge.net/test/demo.jpg?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   https://demoendpoint.azureedge.net/test/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
        
    The parameter options for a CDN security token authentication are different than the parameter options for a SAS token. If you choose to use an expiration time when you create a CDN security token, set it to the same value as the expiration time for the SAS token. Doing so ensures that the expiration time is predictable. 
