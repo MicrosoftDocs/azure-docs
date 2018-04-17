@@ -1,6 +1,6 @@
 ---
 title: "Run a Databricks Notebook with the Databricks Notebook activity in Azure Data Factory"
-description: "Learn how you can use the Databricks Notebook Activity in an Azure data factory to run a Databricks Notebook against the databricks jobs cluster."
+description: "Learn how you can use the Databricks Notebook Activity in an Azure data factory to run a Databricks notebook against the databricks jobs cluster."
 services: data-factory
 documentationcenter: ""
 author: nabhishek 
@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/12/2018
+ms.date: "03/12/2018"
 ms.author: abnarain
 ms.reviewer: douglasl
 ---
-# Run a Databricks Notebook with the Databricks Notebook activity in Azure Data Factory
+# Run a Databricks notebook with the Databricks Notebook Activity in Azure Data Factory
 
-In this tutorial, you use the Azure portal to create an Azure Data Factory pipeline that executes a Databricks Notebook against the databricks jobs cluster. It also passes Azure Data Factory parameters to the Databricks Notebook during execution.
+In this tutorial, you use the Azure portal to create an Azure Data Factory pipeline that executes a Databricks notebook against the Databricks jobs cluster. It also passes Azure Data Factory parameters to the Databricks notebook during execution.
 
 You perform the following steps in this tutorial:
 
   - Create a data factory.
 
-  - Create a pipeline that uses Databricks Notebook activity.
+  - Create a pipeline that uses Databricks Notebook Activity.
 
   - Trigger a pipeline run.
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.
 
 ## Prerequisites
 
-  - **Azure Databricks workspace**. [Create a databricks workspace](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) or use an existing one. You create a Python Notebook in your Azure Databricks workspace. Then you execute the Notebook and pass parameters to it using Azure Data Factory.
+  - **Azure Databricks workspace**. [Create a Databricks workspace](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) or use an existing one. You create a Python notebook in your Azure Databricks workspace. Then you execute the notebook and pass parameters to it using Azure Data Factory.
 
 ## Create a data factory
 
@@ -121,7 +121,7 @@ In this section, you author a Databricks linked service. This linked service con
 
     ![Buttons for creating a new pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
-2.  Create a **parameter** to be used in the **Pipeline**. Later you pass this parameter to the Databricks Notebook activity. In the empty pipeline, click on the **Parameters** tab, then **New** and name it as '**name**'.
+2.  Create a **parameter** to be used in the **Pipeline**. Later you pass this parameter to the Databricks Notebook Activity. In the empty pipeline, click on the **Parameters** tab, then **New** and name it as '**name**'.
 
     ![Create a new parameter](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image10.png)
 
@@ -145,13 +145,13 @@ In this section, you author a Databricks linked service. This linked service con
 
           ![Create a new folder](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       3. [Create a new Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), let’s call it **mynotebook** under **adftutorial** Folder**,** click **Create.**
+       3. [Create a new notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), let’s call it **mynotebook** under **adftutorial** Folder**,** click **Create.**
 
-          ![Create a new Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
+          ![Create a new notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
-          ![Set the properties of the new Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
+          ![Set the properties of the new notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
-       4. In the newly created Notebook "mynotebook'" add the following code:
+       4. In the newly created notebook "mynotebook'" add the following code:
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters

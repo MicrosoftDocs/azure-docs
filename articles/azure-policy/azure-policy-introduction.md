@@ -4,8 +4,9 @@ description: Azure Policy is a service in Azure, that you use to create, assign 
 services: azure-policy
 keywords:
 author: bandersmsft
-ms.author: banders; nini
-ms.date: 03/14/2018
+ms.author: banders
+ms.reviewer: nini
+ms.date: 03/29/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm

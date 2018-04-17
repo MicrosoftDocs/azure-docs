@@ -1,22 +1,14 @@
 ---
 title: Create Azure AD User Account
 description: This article describes how to create an Azure AD User account credential for runbooks in Azure Automation to authenticate in Azure.
-services: automation
-documentationcenter: ''
-author: georgewallace
-manager: jwhit
-editor: tysonn
 keywords: azure active directory user, azure service management, azure ad user account
-
-ms.assetid: fcfe266d-b22e-4dfb-8272-adcab09fc0cf
+services: automation
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/13/2017
-ms.author: magoedte
-
+manager: carmonm
 ---
 # Authenticate Runbooks with Azure classic deployment and Resource Manager
 This article describes the steps you must perform to configure an Azure AD User account for Azure Automation runbooks running against Azure classic deployment model or Azure Resource Manager resources. While this continues to be a supported authentication identity for your Azure Resource Manager based runbooks, the recommended method is to use an Azure Run As account.       

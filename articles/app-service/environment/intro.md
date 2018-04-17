@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure App Service environments
-description: Brief overview of Azure App Service environments
+title: Introduction to Azure App Service Environments
+description: Brief overview of Azure App Service Environments
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
 ---
-# Introduction to App Service environments #
+# Introduction to the App Service Environments #
  
 ## Overview ##
 
-Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your web apps, [mobile apps][mobileapps], API apps, and [functions][Functions].
+The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your web apps, [mobile apps][mobileapps], API apps, and [functions][Functions].
 
 App Service environments (ASEs) are appropriate for application workloads that require:
 
@@ -39,7 +39,7 @@ ASEs are isolated to running only a single customer's applications and are alway
 
 ## Dedicated environment ##
 
-An ASE is dedicated exclusively to a single subscription and can host 100 instances. The range can span 100 instances in a single App Service plan to 100 single-instance App Service plans, and everything in between.
+An ASE is dedicated exclusively to a single subscription and can host 100 App Service Plan instances. The range can span 100 instances in a single App Service plan to 100 single-instance App Service plans, and everything in between.
 
 An ASE is composed of front ends and workers. Front ends are responsible for HTTP/HTTPS termination and automatic load balancing of app requests within an ASE. Front ends are automatically added as the App Service plans in the ASE are scaled out.
 

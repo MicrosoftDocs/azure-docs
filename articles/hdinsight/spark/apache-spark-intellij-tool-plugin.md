@@ -42,6 +42,10 @@ To create your project, view the [Create Spark Applications with the Azure Toolk
 ## Install Azure Toolkit for IntelliJ
 For installation instructions, see [Install Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
 
+## Get Started
+User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscription), or [link a HDInsight cluster](#link-a-cluster) using Ambari username/password or domain joined credential to start.
+
+
 ## Sign in to your Azure subscription
 
 1. Start the IntelliJ IDE, and open Azure Explorer. On the **View** menu, select **Tool Windows**, and then select **Azure Explorer**.
@@ -72,12 +76,14 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
    ![link cluster context menu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Enter **Cluster Name**, **Storage Account**, **Storage Key**, then select a container from **Storage Container**, at last, input Username and Password. You need to check the username and password if get the authentication failure.
+2. Enter **Cluster Name**, **User Name** and **Password**. You need to check the username and password if got the authentication failure. Optionally, add Storage Account, Storage Key, then select a container from Storage Container. Storage information is for storage explorer in the left tree
    
    ![link cluster dialog](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
 
    > [!NOTE]
-   > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster. 
+   > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
+   > ![storage explorer in IntelliJ](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
+
    
 3. You can see a Linked cluster in **HDInsight** node if the input information are right. Now you can submit an application to this linked cluster.
 

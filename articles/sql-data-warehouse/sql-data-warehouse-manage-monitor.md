@@ -286,7 +286,6 @@ For more information about DMVs, see [System views][System views].
 <!--Image references-->
 
 <!--Article references-->
-[Manage overview]: ./sql-data-warehouse-overview-manage.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md

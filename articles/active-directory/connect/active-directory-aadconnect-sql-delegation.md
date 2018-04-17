@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
 ---
 
@@ -47,6 +47,8 @@ To provision the database out of band and install Azure AD Connect with database
 
 ## Additional information
 Once the database is provisioned, the Azure AD Connect administrator can install and configure on-premises synchronization at their convenience.  
+
+The **/UseExistingDatabase** flag is required when using a pre-created database.  It is not only used in recovery situations.
 
 In addition to supporting new installations of Azure AD Connect, this feature also enables delegation for any scenario related to the **/UseExistingDatabase** flag.  For more information on installing Azure AD Connect with an existing database, see [Install Azure AD Connect using an existing ADSync database](active-directory-aadconnect-existing-database.md)
 

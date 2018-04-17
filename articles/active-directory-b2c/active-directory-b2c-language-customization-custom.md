@@ -3,15 +3,15 @@ title: 'Azure Active Directory B2C:Language customization in custom policies | M
 description: Learn how to use localize content in custom policies for multiple languages
 services: active-directory-b2c
 documentationcenter: ''
-author: sammak
+author: davidmu1
+manager: mtillman
+editor: ''
 
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 11/13/2017
-ms.author: sama
+ms.author: davidmu
 
 ---
 

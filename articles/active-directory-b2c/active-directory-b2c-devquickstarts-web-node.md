@@ -2,18 +2,15 @@
 title: Add sign-in to a Node.js web app - Azure Active Directory B2C
 description: How to build a Node.js web app that signs in users with Azure Active Directory B2C.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: dstrockis
+editor: ''
 
-ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: javascript
 ms.topic: article
 ms.date: 03/10/2017
-ms.author: xerners
+ms.author: davidmu
 ---
 
 # Azure AD B2C: Add sign-in to a Node.js web app

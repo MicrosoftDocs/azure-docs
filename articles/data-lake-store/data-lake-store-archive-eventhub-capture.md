@@ -55,6 +55,9 @@ In this section, you create a folder within the account where you want to captur
 
     c. Under **Assign Permissions**, click **Select Permissions**. Set **Permissions** to **Execute**. Set **Add to** to **This folder and all children**. Set **Add as** to **An access permission entry and a default permission entry**.
 
+> [!IMPORTANT]
+> When creating a new folder heirarchy for capturing data received by Azure Event Hubs, this is an easy way to ensure access to the destination folder.  However, adding permissions to all children of a top level folder with many child files and folders may take a long time.  If your root folder contains a large number of files and folders, it may be faster to add **Execute** permissions for `Microsoft.EventHubs` individually to each folder in the path to your final destination folder. 
+
     ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
 
     Click **OK**.

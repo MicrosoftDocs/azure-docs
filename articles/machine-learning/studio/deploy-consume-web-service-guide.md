@@ -3,9 +3,10 @@ title: 'Azure Machine Learning Web Services: Deployment and consumption | Micros
 description: Resources for deploying and consuming web services.
 services: machine-learning
 documentationcenter: ''
-author: aashishb
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
-editor: ''
+editor: cgronlun
 
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -14,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: aashishb
 
 ---
 # Azure Machine Learning Web Services: Deployment and consumption

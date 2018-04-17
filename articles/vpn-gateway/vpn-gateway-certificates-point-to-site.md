@@ -4,7 +4,7 @@ description: Create a self-signed root certificate, export the public key, and g
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/23/2018
+ms.date: 04/12/2018
 ms.author: cherylmc
 
 ---
-# Generate and export certificates for Point-to-Site connections using PowerShell on Windows 10 or Windows Server 2016
+# Generate and export certificates for Point-to-Site using PowerShell
 
 Point-to-Site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using PowerShell on Windows 10 or Windows Server 2016. If you are looking for Point-to-Site configuration steps, such as how to upload root certificates, select one of the 'Configure Point-to-Site' articles from the following list:
 

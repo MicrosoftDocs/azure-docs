@@ -3,6 +3,8 @@
 
 * The conversion is not reversible. 
 
+* Be aware that any users with the [Virtual Machine Contributor](../articles/role-based-access-control/built-in-roles.md#virtual-machine-contributor) role will not be able to change the VM size (as they could pre-conversion). This is because VMs with managed disks require the user to have the Microsoft.Compute/disks/write permission on the OS disks.
+
 * Be sure to test the conversion. Migrate a test virtual machine before you perform the migration in production.
 
 * During the conversion, you deallocate the VM. The VM receives a new IP address when it is started after the conversion. If needed, you can [assign a static IP address](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) to the VM.

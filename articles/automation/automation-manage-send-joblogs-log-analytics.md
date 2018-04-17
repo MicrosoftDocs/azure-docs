@@ -1,6 +1,6 @@
 ---
-title: Forward Azure Automation job data to OMS Log Analytics
-description: This article demonstrates how to send job status and runbook job streams to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management.
+title: Forward Azure Automation job data to Log Analytics
+description: This article demonstrates how to send job status and runbook job streams to Azure Log Analytics to deliver additional insight and management.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -10,8 +10,8 @@ ms.topic: article
 manager: carmonm
 ---
 
-# Forward job status and job streams from Automation to Log Analytics (OMS)
-Automation can send runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace. Job logs and job streams are visible in the Azure portal, or with PowerShell, for individual jobs and this allows you to perform simple investigations. Now with Log Analytics you can:
+# Forward job status and job streams from Automation to Log Analytics
+Automation can send runbook job status and job streams to your Log Analytics workspace. Job logs and job streams are visible in the Azure portal, or with PowerShell, for individual jobs and this allows you to perform simple investigations. Now with Log Analytics you can:
 
 * Get insight on your Automation jobs.
 * Trigger an email or alert based on your runbook job status (for example, failed or suspended).
@@ -153,7 +153,7 @@ When you're debugging a job, you may also want to look into the job streams. The
 Finally, you may want to visualize your job history over time. You can use this query to search for the status of your jobs over time.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
-<br> ![OMS Historical Job Status Chart](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+<br> ![Log Analytics Historical Job Status Chart](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## Summary
 By sending your Automation job status and stream data to Log Analytics, you can get better insight into the status of your Automation jobs by:
@@ -166,4 +166,4 @@ Log Analytics provides greater operational visibility to your Automation jobs an
 * To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * To understand how to create and retrieve output and error messages from runbooks, see [Runbook output and messages](automation-runbook-output-and-messages.md).
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md).
-* To learn more about OMS Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md).
+* To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md).

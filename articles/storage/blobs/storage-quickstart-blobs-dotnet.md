@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using .NET | Microsoft Docs
-description: In this quickstart, you create a storage account and a container. Then you use the storage client library for .NET to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+title: Azure Quickstart - Create a blob in object storage using .NET | Microsoft Docs
+description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for .NET to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: tamram
 ---
 
@@ -53,11 +53,15 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-This command clones the repository to your local git folder. To open the Visual Studio solution, look for the storage-blobs-dotnet-quickstart folder, open it, and double-click on storage-blobs-dotnet-quickstart.sln. 
+This command clones the repository to your local git folder. To open the Visual Studio solution, look for the *storage-blobs-dotnet-quickstart* folder, open it, and double-click on *storage-blobs-dotnet-quickstart.sln*. 
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## Configure your storage connection string
 
-To run the application, you must provide the connection string for your storage account. You can store this connection string within an environment variable on the local machine running the application. Create the environment variable using one of the following commands, depending on your operating system. Replace `<yourconnectionstring>` with the actual connection string.
+To run the application, you must provide the connection string for your storage account. The sample application reads the connection string from an environment variable and uses it to authenticate requests to Azure Storage.
+
+After you have copied your connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string:
 
 # [Windows](#tab/windows)
 
@@ -65,21 +69,25 @@ To run the application, you must provide the connection string for your storage 
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the sample. 
+
 # [Linux](#tab/linux)
 
 ```bash
 export storageconnectionstring=<yourconnectionstring>
 ```
 
+After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
+
 # [macOS](#tab/macos)
 
 Edit your .bash_profile, and add the environment variable:
 
-```
-export STORAGE_CONNECTION_STRING=
+```bash
+export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 ```
 
-After you add the environment variable, log out and back in to make the changes effective. Alternately, you can type "source .bash_profile" from your terminal.
+After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
 
 ---
 
@@ -87,23 +95,50 @@ After you add the environment variable, log out and back in to make the changes 
 
 This sample creates a test file in your local **MyDocuments** folder and uploads it to Blob storage. The sample then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files. 
 
+# [Windows](#tab/windows)
+
+If you are using Visual Studio as your editor, you can press **F5** to run. 
+
+Otherwise, navigate to your application directory and run the application with the `dotnet run` command.
+
+```
+dotnet run
+```
+
+# [Linux](#tab/linux)
+
 Navigate to your application directory and run the application with the `dotnet run` command.
 
 ```
 dotnet run
 ```
 
-The output shown is similar to the following example:
+# [macOS](#tab/macos)
+
+Navigate to your application directory and run the application with the `dotnet run` command.
 
 ```
-Azure Blob storage quick start sample
-Temp file = /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Uploading to Blob storage as blob 'QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt'
-List blobs in container.
-https://mystorageaccount.blob.core.windows.net/quickstartblobs/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Downloading blob to /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374_DOWNLOADED.txt
-The program has completed successfully.
-Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
+dotnet run
+```
+
+---
+
+The output of the sample application is similar to the following example:
+
+```
+Azure Blob storage - .NET Quickstart sample
+
+Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
+
+Temp file = C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+Uploading to Blob storage as blob 'QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt'
+
+Listing blobs in container.
+https://storagesamples.blob.core.windows.net/quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f/QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+
+Downloading blob to C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db_DOWNLOADED.txt
+
+Press any key to delete the sample files and example container.
 ```
 
 When you press the **Enter** key, the application deletes the storage container and the files. Before you delete them, check your **MyDocuments** folder for the two files. You can open them and observe that they are identical. Copy the blob's URL from the console window and paste it into a browser to view the contents of the blob.
@@ -122,8 +157,8 @@ The first thing that the sample does is to check that the environment variable c
 // Retrieve the connection string for use with the application. The storage connection string is stored
 // in an environment variable on the machine running the application called storageconnectionstring.
 // If the environment variable is created after the application is launched in a console or with Visual
-// Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring", EnvironmentVariableTarget.User);
+// Studio, the shell or application needs to be closed and reloaded to take the environment variable into account.
+string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))

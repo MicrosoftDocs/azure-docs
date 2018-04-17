@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
-ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.author: devtiw
 
 ---
 # Azure Disk Encryption for Windows and Linux IaaS VMs
@@ -194,7 +194,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 * To configure disk-encryption prerequisites using the Azure CLI, see [this Bash script](https://github.com/ejarvi/ade-cli-getting-started).
 * To use the Azure Backup service to back up and restore encrypted VMs, when encryption is enabled with Azure Disk Encryption, encrypt your VMs by using the Azure Disk Encryption key configuration. The Backup service supports VMs that are encrypted using no-KEK or KEK configurations. See [How to back up and restore encrypted virtual machines with Azure Backup  encryption](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* When encrypting a Linux OS volume, note that a VM restart is currently required at the end of the process. This can be done via the portal, powershell, or CLI.   To track the progress of encryption, periodically poll the status message returned by Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Once encryption is complete, the the status message returned by this command will indicate this.  For example, "ProgressMessage: OS disk successfully encrypted, please reboot the VM"  At this point the VM can be restarted and used.  
+* When encrypting a Linux OS volume, note that a VM restart is currently required at the end of the process. This can be done via the portal, powershell, or CLI.   To track the progress of encryption, periodically poll the status message returned by Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Once encryption is complete, the status message returned by this command will indicate this. For example, "ProgressMessage: OS disk successfully encrypted, please reboot the VM"  At this point the VM can be restarted and used.  
 
 * Azure Disk Encryption for Linux requires data disks to have a mounted file system in Linux prior to encryption
 
@@ -783,14 +783,10 @@ Use the [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) comm
 > Prepare the VM with a separate data/resource VHD for getting the external key by using BitLocker.
 
 #### Encrypting an OS drive on a running Linux VM
-Encryption of an OS drive on a running Linux VM is supported on the following distributions:
-
-* RHEL 7.2
-* CentOS 7.2
-* Ubuntu 16.04
 
 ##### Prerequisites for OS disk encryption
 
+* The VM must be using a distribution compatible with OS disk encryption as listed in the [Azure Disk Encryption FAQ](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * The VM must be created from the Marketplace image in Azure Resource Manager.
 * Azure VM with at least 4 GB of RAM (recommended size is 7 GB).
 * (For RHEL and CentOS) Disable SELinux. To disable SELinux, see "4.4.2. Disabling SELinux" in the [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) on the VM.

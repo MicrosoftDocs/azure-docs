@@ -50,6 +50,8 @@ Get-AzureRmNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $ns
 Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true
 ```
 
+The storage account you specify cannot have network rules configured for it that restrict network access to only Microsoft services or specific virtual networks.
+
 ## Disable Network Security Group Flow logs
 
 Use the following example to disable flow logs:

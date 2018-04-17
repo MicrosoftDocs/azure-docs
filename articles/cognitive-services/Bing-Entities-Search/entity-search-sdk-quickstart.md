@@ -20,7 +20,7 @@ The Bing Entity Search API contains the functionality of the REST API for entity
 
 To set up a console application using the Bing Entity Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.EntitySearch` package.
 
-Installing the [NuGet Entity Search package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.1.0-preview) will also install dependencies, including the following assemblies:
+Installing the [NuGet Entity Search package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0) will also install dependencies, including the following assemblies:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json

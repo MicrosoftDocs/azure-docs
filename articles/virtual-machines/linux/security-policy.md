@@ -4,7 +4,7 @@ description: Learn about security and policies for Linux and virtual machines in
 services: virtual-machines-linux
 documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 

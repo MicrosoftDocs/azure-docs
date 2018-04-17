@@ -65,8 +65,8 @@ The most common protection scheme for VM-based applications is to use backup sof
  
 Recovering the application requires restoring one or more VMs to the same cloud or to a new cloud. You can target a cloud in your datacenter or the public cloud. Which cloud you target is completely within your control and is based on your data privacy and sovereignty requirements. 
  
- - RTO: Downtime measured in seconds 
- - RPO: Minimal data loss
+ - RTO: Downtime measured in hours 
+ - RPO: Variable data loss (depending on backup frequency)
  - Deployment topology: Active/passive 
 
 #### Planning your backup strategy
@@ -92,8 +92,8 @@ With this approach, the application is only deployed in one cloud. The VM is the
 
 ![Replication-manual failover](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
- - RTO: Downtime in minutes 
- - RPO: Variable data loss
+ - RTO: Downtime measured in minutes 
+ - RPO: Variable data loss (depending on replication frequency)
  - Deployment topology: Active/passive stand-by
  
 ### High availability/automatic failover

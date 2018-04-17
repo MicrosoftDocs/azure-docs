@@ -2,7 +2,7 @@
 title: Python Quickstart for Azure Cognitive Services, Bing News Search API | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Bing News Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-author: jerrykindall
+author: v-jerkin
 ms.service: cognitive-services
 ms.technology: bing-search
 ms.topic: article

@@ -1,22 +1,14 @@
 ---
-title: Add a data input to your Stream Analytics jobs | Microsoft Docs
+title: Add a data input to your Azure Stream Analytics jobs
 description: Learn how to hook up a data source to your Stream Analytics job as streaming data input from Event Hubs or reference data from Blog storage.
-keywords: data input, streaming data
-documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: 
-
-ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/28/2017
-ms.author: samacha
-
 ---
 # Add a streaming data input or reference data to a Stream Analytics job
 Learn how to hook up a data source to your Stream Analytics job as streaming data input from Event Hubs or reference data from Blob storage.
@@ -59,7 +51,7 @@ To add an input to your Stream Analytics job:
     ![Add event hub data input](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)  
 5. Specify the serialization settings for the input data:
    
-   * To make sure your queries work the way you expect, specify the **Event Serialization Format** of incoming data.  Supported serialization formats are JSON, CSV, and Avro.
+   * To make sure your queries work the way you expect, specify the **Event Serialization Format** of incoming data.  Supported serialization formats are JSON, CSV, and Avro. Please ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers.
    * Verify the **Encoding** for the data.  UTF-8 is the only supported encoding format at this time.
      
      ![Data serialization settings for the data input](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
@@ -72,7 +64,7 @@ To add an input to your Stream Analytics job:
     ![Test connection of the streaming data input](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## Get help with streaming data inputs
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

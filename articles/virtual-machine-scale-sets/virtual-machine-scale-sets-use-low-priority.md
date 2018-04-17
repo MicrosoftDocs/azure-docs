@@ -47,7 +47,7 @@ To deploy low-priority VMs on scale sets, you can set the new *Priority* flag to
 
 ## Use the Azure CLI 2.0
 
-The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-cli.md). Just add the '--Priority' parameter to the cli call and set it to *Low* as shown in the example below:
+The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](quick-create-cli.md). Just add the '--Priority' parameter to the cli call and set it to *Low* as shown in the example below:
 
 ```azurecli
 az vmss create \
@@ -62,7 +62,7 @@ az vmss create \
 
 ## Use Azure PowerShell
 
-The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-powershell.md).
+The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](quick-create-powershell.md).
 Just add the '-Priority' parameter to the [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) and set it to *Low* as shown in the example below:
 
 ```powershell
@@ -76,7 +76,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## Use Azure Resource Manager Templates
 
-The process to create a scale set that uses low-priority VMs is the same as detailed in the getting started article for [Linux](virtual-machine-scale-sets-create-template-linux.md) or [Windows](virtual-machine-scale-sets-create-template-windows.md). Add the 'priority' property to the *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resource type in your template and specify *Low* as the value. Be sure to use *2017-10-30-preview* API version or higher. 
+The process to create a scale set that uses low-priority VMs is the same as detailed in the getting started article for [Linux](quick-create-template-linux.md) or [Windows](quick-create-template-windows.md). Add the 'priority' property to the *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resource type in your template and specify *Low* as the value. Be sure to use *2017-10-30-preview* API version or higher. 
 
 In order to set the eviction policy to deletion, add the 'evictionPolicy' parameter and set it to *delete*.
 
