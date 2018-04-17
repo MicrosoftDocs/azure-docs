@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 04/17/2018
 ms.author: jingwang
 
 ---
@@ -82,12 +82,13 @@ In this step, you use the Data Factory UI to create a pipeline. You add a stored
 4. In the **New Linked Service** window, do the following steps: 
 
     1. Select **Azure SQL Database** for **Type**.
-    2. Select your Azure SQL server that hosts the SSISDB database for the **Server name** field.
-    3. Select **SSISDB** for **Database name**.
-    4. For **User name**, enter the name of user who has access to the database.
-    5. For **Password**, enter the password of the user. 
-    6. Test the connection to the database by clicking **Test connection** button.
-    7. Save the linked service by clicking the **Save** button. 
+    2. Select the **Default** Azure-SSIS Integration Runtime to connect to the Azure SQL Database that hosts the `SSISDB` database.
+    3. Select the Azure SQL Database that hosts the SSISDB database for the **Server name** field.
+    4. Select **SSISDB** for **Database name**.
+    5. For **User name**, enter the name of user who has access to the database.
+    6. For **Password**, enter the password of the user. 
+    7. Test the connection to the database by clicking **Test connection** button.
+    8. Save the linked service by clicking the **Save** button. 
 
         ![Azure SQL Database linked service](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. In the properties window, switch to the **Stored Procedure** tab from the **SQL Account** tab, and do the following steps: 

@@ -94,13 +94,16 @@ In this section, you trigger a pipeline run and then monitor it.
 1. To trigger a pipeline run, click **Trigger** on the toolbar, and click **Trigger now**. 
 
     ![Trigger now](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
+
 2. In the **Pipeline Run** window, select **Finish**. 
 3. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
 
     ![Pipeline runs](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+
 3. Click **View Activity Runs** link in the **Actions** column. You see only one activity run as the pipeline has only one activity (the SSIS activity).
 
     ![Activity runs](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
+
 4.You can run the following **query** against the SSISDB database in your Azure SQL server to verify that the package executed. 
 
     ```sql
@@ -159,7 +162,7 @@ Note the following points:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * To create Data Factory instances, the user account you use to log in to Azure must be a member of **contributor** or **owner** roles, or an **administrator** of the Azure subscription.
-* Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+* Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, West Europe, and Southeast Asia regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
 ### Create a pipeline with an SSIS activity 
 In this step, you create a pipeline with an SSIS activity. The activity runs your SSIS package. 
@@ -241,7 +244,9 @@ In this step, you create a pipeline with an SSIS activity. The activity runs you
     }
     ```
 
-2. To create the pipeline: **RunSSISPackagePipeline**, Run the **Set-AzureRmDataFactoryV2Pipeline** cmdlet.
+2.  In Azure PowerShell, switch to the `C:\ADF\RunSSISPackage` folder.
+
+3. To create the pipeline **RunSSISPackagePipeline**, run the **Set-AzureRmDataFactoryV2Pipeline** cmdlet.
 
     ```powershell
     $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
