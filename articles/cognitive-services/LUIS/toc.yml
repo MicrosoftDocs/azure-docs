@@ -125,6 +125,10 @@
       href: luis-concept-test.md
     - name: Batch testing
       href: luis-concept-batch-test.md
+  - name: Integration
+    items:
+    - name: Text Analytics
+      href: luis-concept-integration-text-analytics.md
   - name: Enterprise
     items:
     - name: Design strategies
