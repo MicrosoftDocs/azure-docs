@@ -297,7 +297,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	}
 	```
 
-	> [Note]
+	> [!Note]
 	> You can only add new roles after the **msiam_access** for the patch operation. Also, you can add as many roles as you want per your Organization need. Azure AD will send the **value** of these roles as the claim value in SAML response.
 	
 	j. Go back to your Graph Explorer and change the method from **GET** to **PATCH**. Patch the Service Principal object to have desired roles by updating appRoles property similar to the one shown above in the example. Click **Run Query** to execute the patch operation. A success message confirms the creation of the role for your Amazon Web Services application.
@@ -316,7 +316,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Add](./media/active-directory-saas-aws-multi-accounts-tutorial/graph-explorer-new6.png)
 
-> [Note]
+> [!Note]
 > Please note that you need to refresh your session in Azure portal to see new roles.
 
 ### Test single sign-on
