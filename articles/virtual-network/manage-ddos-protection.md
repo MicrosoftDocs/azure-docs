@@ -27,7 +27,7 @@ Before completing any steps in this tutorial, log in to the Azure portal at http
 
 ## Create a DDoS protection plan
 
-A DDoS protection plan defines a set of virtual networks that have DDoS protection standard enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan. The DDoS Protection Plan itself is also associated with a subscription, that you select during the creation of the plan. The subscription the plan is associated to incurs the monthly recurring bill for the plan, as well as overage charges, in case the number of protected public IP addresses exceed 100. For more information on DDoS pricing, refer to [pricing details](https://azure.microsoft.com/pricing/details/ddos-protection/).
+A DDoS protection plan defines a set of virtual networks that have DDoS protection standard enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan. The DDoS Protection Plan itself is also associated with a subscription, that you select during the creation of the plan. The subscription the plan is associated to incurs the monthly recurring bill for the plan, as well as overage charges, in case the number of protected public IP addresses exceed 100. For more information on DDoS pricing, see [pricing details](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
 Creation of more than one plan is not required for most organizations. A plan cannot be moved between subscriptions. If you want to change the subscription a plan is in, you have to [delete the existing plan](#work-with-ddos-protection-plans) and create a new one.
  
@@ -128,7 +128,7 @@ To simulate a DDoS attack to validate logging, see [Validate DDoS detection](#va
 
 ## Use DDoS Protection telemetry
 
-Telemetry for an attack is provided through Azure Monitor in real time. The telemetry is available only for the duration that a public IP address is under mitigation. You don't not see telemetry before or after an attack is mitigated.
+Telemetry for an attack is provided through Azure Monitor in real time. The telemetry is available only for the duration that a public IP address is under mitigation. You don't see telemetry before or after an attack is mitigated.
 
 1. Select **All services** on the top, left of the portal.
 2. Enter *Monitor* in the **Filter** box. When **Monitor** appears in the results, select it.
