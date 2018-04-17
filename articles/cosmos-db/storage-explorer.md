@@ -20,7 +20,7 @@ ms.date: 03/20/2018
 ms.author: jejiang 
 
 ---
-# Manage Azure Cosmos DB in Azure Storage Explorer (Preview)
+# Manage Azure Cosmos DB in Azure Storage Explorer
 
 Using Azure Cosmos DB in Azure Storage Explorer enables users to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues. Now you can use the same tool to manage your different Azure entities in one place. At this time, Azure Storage Explorer supports SQL, MongoDB, Graph, and Table accounts.
 
@@ -312,5 +312,5 @@ If none of the solutions work for you, send email to Azure Cosmos DB Dev Tooling
 ## Next steps
 
 * Watch the following video to see how to use Azure Cosmos DB in Azure Storage Explorer: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Learn more about Storage Explorer and connect more services in [Get started with Storage Explorer (Preview)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Learn more about Storage Explorer and connect more services in [Get started with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

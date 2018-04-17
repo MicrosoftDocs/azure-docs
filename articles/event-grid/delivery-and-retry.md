@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/16/2018
 ms.author: tomfitz
 ---
 
@@ -36,6 +36,7 @@ The following HTTP response codes indicate that an event delivery attempt failed
 - 401 Unauthorized
 - 404 Not Found
 - 408 Request timeout
+- 413 Payload Too Large
 - 414 URI Too Long
 - 500 Internal Server Error
 - 503 Service Unavailable

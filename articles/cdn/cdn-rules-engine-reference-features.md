@@ -1,9 +1,9 @@
 ---
 title: Azure CDN rules engine features | Microsoft Docs
-description: Reference documentation for Azure CDN rules engine match conditions and features.
+description: Reference documentation for Azure CDN rules engine features.
 services: cdn
 documentationcenter: ''
-author: Lichard
+author: dksimpson
 manager: akucer
 editor: ''
 
@@ -13,15 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: rli
+ms.date: 04/10/2018
+ms.author: v-deasim
 
 ---
 
 # Azure CDN rules engine features
 This article lists detailed descriptions of the available features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
-The third part of a rule is the feature. A feature defines the type of action that is applied to the request type identified by a set of match conditions.
+The third part of a rule is the feature. A feature defines the type of action that is applied to the request type that is identified by a set of match conditions.
 
 ## Access features
 
@@ -31,7 +31,7 @@ Name | Purpose
 -----|--------
 [Deny Access (403)](#deny-access-403) | Determines whether all requests are rejected with a 403 Forbidden response.
 [Token Auth](#token-auth) | Determines whether Token-Based Authentication is applied to a request.
-[Token Auth Denial Code](#token-auth-denial-code) | Determines the type of response that is returned to a user when a request is denied due to Token-Based Authentication.
+[Token Auth Denial Code](#token-auth-denial-code) | Determines the type of response that is returned to a user when a request is denied due to token-based authentication.
 [Token Auth Ignore URL Case](#token-auth-ignore-url-case) | Determines whether URL comparisons made by Token-Based Authentication are case-sensitive.
 [Token Auth Parameter](#token-auth-parameter) | Determines whether the Token-Based Authentication query string parameter should be renamed.
 
@@ -426,14 +426,32 @@ A partial cache miss typically occurs after a user aborts a download or for asse
 
 Keep the default configuration for the HTTP Large platform, because it reduces the load on your customer origin server and increases the speed at which your customers download your content.
 
-Due to the manner in which cache settings are tracked, this feature cannot be associated with the following Match conditions: Edge Cname, Request Header Literal, Request Header Wildcard, URL Query Literal, and URL Query Wildcard.
-
 Value|Result
 --|--
 Enabled|Restores the default behavior. The default behavior is to force the POP to initiate a background fetch of the asset from the origin server. After which, the asset will be in the POP's local cache.
 Disabled|Prevents a POP from performing a background fetch for the asset. The result is that the next request for that asset from that region causes a POP to request it from the customer origin server.
 
 **Default Behavior:** Enabled.
+
+#### Compatibility
+Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
+- AS Number
+- Client IP Address
+- Cookie Parameter
+- Cookie Parameter Regex
+- Country
+- Device
+- Edge Cname
+- Referring Domain
+- Request Header Literal
+- Request Header Regex
+- Request Header Wildcard
+- Request Method
+- Request Scheme
+- URL Query Literal
+- URL Query Regex
+- URL Query Wildcard
+- URL Query Parameter
 
 [Back to top](#azure-cdn-rules-engine-features)
 
@@ -495,16 +513,16 @@ Key information:
 
 ---
 ### Debug Cache Response Headers
-**Purpose:** Determines whether a response can include the X-EC-Debug response header, which provides information on the cache policy for the requested asset.
+**Purpose:** Determines whether a response can include [X-EC-Debug response headers](cdn-http-debug-headers.md), which provides information on the cache policy for the requested asset.
 
 Debug cache response headers will be included in the response when both of the following are true:
 
-- The Debug Cache Response Headers Feature has been enabled on the desired request.
-- The above request defines the set of debug cache response headers that will be included in the response.
+- The Debug Cache Response Headers feature has been enabled on the specified request.
+- The specified request defines the set of debug cache response headers that will be included in the response.
 
-Debug cache response headers may be requested by including the following header and the desired directives in the request:
+Debug cache response headers may be requested by including the following header and the specified directives in the request:
 
-X-EC-Debug: _Directive1_,_Directive2_,_DirectiveN_
+`X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
 
 **Example:**
 
@@ -536,16 +554,28 @@ Key information:
     - Specifying an integer value and then selecting the desired time unit (for example, seconds, minutes, hours, etc.). This value defines the default internal max-age interval.
 
 - Setting the time unit to "Off" will assign a default internal max-age interval of 7 days for requests that have not been assigned a max-age indication in their `Cache-Control` or `Expires` header.
-- Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
-    - Edge 
-	- Cname
-    - Request Header Literal
-    - Request Header Wildcard
-    - Request Method
-    - URL Query Literal
-    - URL Query Wildcard
 
 **Default Value:** 7 days
+
+#### Compatibility
+Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
+- AS Number
+- Client IP Address
+- Cookie Parameter
+- Cookie Parameter Regex
+- Country
+- Device
+- Edge Cname
+- Referring Domain
+- Request Header Literal
+- Request Header Regex
+- Request Header Wildcard
+- Request Method
+- Request Scheme
+- URL Query Literal
+- URL Query Regex
+- URL Query Wildcard
+- URL Query Parameter
 
 [Back to top](#azure-cdn-rules-engine-features)
 
@@ -592,7 +622,7 @@ Remove| Ensures that an `Expires` header is not included with the header respo
 ### External Max-Age
 **Purpose:** Determines the max-age interval for browser to POP cache revalidation. In other words, the amount of time that will pass before a browser can check for a new version of an asset from a POP.
 
-Enabling this feature will generate `Cache-Control: max-age` and `Expires` headers from the POPs and send them to the HTTP client. By default, these headers will overwrite those created by the origin server. However, the Cache-Control Header Treatment and the Expires Header Treatment features may be used to alter this behavior.
+Enabling this feature will generate `Cache-Control: max-age` and `Expires` headers from the POPs and send them to the HTTP client. By default, these headers will overwrite those headers created by the origin server. However, the Cache-Control Header Treatment and the Expires Header Treatment features may be used to alter this behavior.
 
 Key information:
 
@@ -641,16 +671,28 @@ Key information:
     - Specifying an integer value and selecting the desired time unit (for example, seconds, minutes, hours, etc.). This value defines the request's max-age interval.
 
 - Setting the time unit to "Off" disables this feature. An internal max-age interval will not be assigned to requested assets. If the original header does not contain caching instructions, then the asset will be cached according to the active setting in the Default Internal Max-Age feature.
-- Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
-    - Edge 
-	- Cname
-    - Request Header Literal
-    - Request Header Wildcard
-    - Request Method
-    - URL Query Literal
-    - URL Query Wildcard
 
 **Default Behavior:** Off
+
+#### Compatibility
+Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
+- AS Number
+- Client IP Address
+- Cookie Parameter
+- Cookie Parameter Regex
+- Country
+- Device
+- Edge Cname
+- Referring Domain
+- Request Header Literal
+- Request Header Regex
+- Request Header Wildcard
+- Request Method
+- Request Scheme
+- URL Query Literal
+- URL Query Regex
+- URL Query Wildcard
+- URL Query Parameter
 
 [Back to top](#azure-cdn-rules-engine-features)
 
@@ -663,7 +705,7 @@ Key information:
 Key information:
 
 - Define a space-delimited set of allowed H.264 filename extensions in the File Extensions option. The File Extensions option will override the default behavior. Maintain MP4 and F4V support by including those filename extensions when setting this option. 
-- Be sure to include a period when specifying each filename extension (for example, .mp4 .f4v).
+- Include a period when you specify each filename extension (for example, _.mp4_, _.f4v_).
 
 **Default Behavior:** HTTP Progressive Download supports MP4 and F4V media by default.
 
@@ -684,7 +726,7 @@ Disabled|Restores the default behavior. The default behavior is to prevent no-ca
 
 For all production traffic, it is highly recommended to leave this feature in its default disabled state. Otherwise, origin servers will not be shielded from end users who may inadvertently trigger many no-cache requests when refreshing web pages, or from the many popular media players that are coded to send a no-cache header with every video request. Nevertheless, this feature can be useful to apply to certain non-production staging or testing directories, in order to allow fresh content to be pulled on-demand from the origin server.
 
-The cache status that will be reported for a request that is allowed to be forwarded to an origin server due to this feature is TCP_Client_Refresh_Miss. The Cache Statuses report, which is available in the Core reporting module, provides statistical information by cache status. This allows you to track the number and percentage of requests that are being forwarded to an origin server due to this feature.
+The cache status that is reported for a request that can be forwarded to an origin server due to this feature is `TCP_Client_Refresh_Miss`. The Cache Statuses report, which is available in the Core reporting module, provides statistical information by cache status. This report allows you to track the number and percentage of requests that are being forwarded to an origin server due to this feature.
 
 **Default Behavior:** Disabled.
 
@@ -706,16 +748,28 @@ Key information:
 - Configure this feature by defining a space-delimited list of status codes for which the above directives will be ignored.
 - The set of valid status codes for this feature are: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, and 505.
 - Disable this feature by setting it to a blank value.
-- Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
-    - Edge 
-	- Cname
-    - Request Header Literal
-    - Request Header Wildcard
-    - Request Method
-    - URL Query Literal
-    - URL Query Wildcard
 
 **Default Behavior:** The default behavior is to honor the above directives.
+
+#### Compatibility
+Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
+- AS Number
+- Client IP Address
+- Cookie Parameter
+- Cookie Parameter Regex
+- Country
+- Device
+- Edge Cname
+- Referring Domain
+- Request Header Literal
+- Request Header Regex
+- Request Header Wildcard
+- Request Method
+- Request Scheme
+- URL Query Literal
+- URL Query Regex
+- URL Query Wildcard
+- URL Query Parameter
 
 [Back to top](#azure-cdn-rules-engine-features)
 
@@ -757,16 +811,28 @@ Key information:
     - Specifying an integer value and then selecting the desired time unit (for example, seconds, minutes, hours, etc.). This value defines the internal max-stale that will be applied.
 
 - Setting the time unit to "Off" will disable this feature. A cached asset will not be served beyond its normal expiration time.
-- Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
-    - Edge 
-	- Cname
-    - Request Header Literal
-    - Request Header Wildcard
-    - Request Method
-    - URL Query Literal
-    - URL Query Wildcard
 
 **Default Behavior:** Two minutes
+
+#### Compatibility
+Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
+- AS Number
+- Client IP Address
+- Cookie Parameter
+- Cookie Parameter Regex
+- Country
+- Device
+- Edge Cname
+- Referring Domain
+- Request Header Literal
+- Request Header Regex
+- Request Header Wildcard
+- Request Method
+- Request Scheme
+- URL Query Literal
+- URL Query Regex
+- URL Query Wildcard
+- URL Query Parameter
 
 [Back to top](#azure-cdn-rules-engine-features)
 
@@ -791,7 +857,7 @@ Disabled|Restores the default behavior. The default behavior is to ignore query 
 ### Maximum Keep-Alive Requests
 **Purpose:** Defines the maximum number of requests for a Keep-Alive connection before it is closed.
 
-Setting the maximum number of requests to a low value is strongly discouraged and may result in performance degradation.
+Setting the maximum number of requests to a low value is discouraged and may result in performance degradation.
 
 Key information:
 
@@ -923,12 +989,22 @@ Key information:
 
 ---
 ### Proxy Special Headers
-**Purpose:** Defines the set of CDN-specific request headers that will be forwarded from a POP to an origin server.
+**Purpose:** Defines the set of [Verizon-specific HTTP request headers](cdn-verizon-http-headers.md) that will be forwarded from a POP to an origin server.
 
 Key information:
 
-- Each CDN-specific request header defined in this feature will be forwarded to an origin server.
-- Prevent a CDN-specific request header from being forwarded to an origin server by removing it from this list.
+- Each CDN-specific request header defined in this feature is forwarded to an origin server. Excluded headers are not forwarded.
+- To prevent a CDN-specific request header from being forwarded, remove it from space-separated list in the header list field.
+
+The following HTTP headers are included in the default list:
+- Via
+- X-Forwarded-For
+- X-Forwarded-Proto
+- X-Host
+- X-Midgress
+- X-Gateway-List
+- X-EC-Name
+- Host
 
 **Default Behavior:** All CDN-specific request headers will be forwarded to the origin server.
 
@@ -1040,12 +1116,17 @@ If Token-Based Authentication is enabled, then only requests that provide an enc
 
 The encryption key that is used to encrypt and decrypt token values is determined by the Primary Key and the Backup Key options on the Token Auth page. Keep in mind that encryption keys are platform-specific.
 
+**Default Behavior:** Disabled.
+
+This feature takes precedence over most features with the exception of the URL Rewrite feature.
+
 Value | Result
 ------|---------
 Enabled | Protects the requested content with Token-Based Authentication. Only requests from clients that provide a valid token and meet its requirements will be honored. FTP transactions are excluded from Token-Based Authentication.
 Disabled| Restores the default behavior. The default behavior is to allow your Token-Based Authentication configuration to determine whether a request will be secured.
 
-**Default Behavior:** Disabled.
+#### Compatibility
+Do not use Token Auth with an Always match condition. 
 
 [Back to top](#azure-cdn-rules-engine-features)
 
@@ -1055,8 +1136,6 @@ Disabled| Restores the default behavior. The default behavior is to allow your T
 ### Token Auth Denial Code
 **Purpose:** Determines the type of response that will be returned to a user when a request is denied due to token-based authentication.
 
-Token Auth Denial Code cannot be used with an Always match condition. Instead, use the **Custom Denial Handling** section in the **Token Auth** page of the **Manage** portal. For more information, see [Securing Azure CDN assets with token authentication](cdn-token-auth.md).
-
 The available response codes are listed in the following table.
 
 Response Code|Response Name|Description
@@ -1065,8 +1144,11 @@ Response Code|Response Name|Description
 302|Found|This status code redirects unauthorized users to the URL specified in the Location header. This status code is the industry standard method of performing a redirect.
 307|Temporary Redirect|This status code redirects unauthorized users to the URL specified in the Location header.
 401|Unauthorized|Combining this status code with the WWW-Authenticate response header allows you to prompt a user for authentication.
-403|Forbidden|This is the standard 403 Forbidden status message that an unauthorized user will see when trying to access protected content.
+403|Forbidden|This message is the standard 403 Forbidden status message that an unauthorized user will see when trying to access protected content.
 404|File Not Found|This status code indicates that the HTTP client was able to communicate with the server, but the requested content was not found.
+
+#### Compatibility
+Do not use Token Auth Denial Code with an Always match condition. Instead, use the **Custom Denial Handling** section in the **Token Auth** page of the **Manage** portal. For more information, see [Securing Azure CDN assets with token authentication](cdn-token-auth.md).
 
 #### URL Redirection
 
@@ -1151,7 +1233,7 @@ The configuration of this feature requires setting the following options:
 Option|Description
 -|-
 Code|Select the response code that will be returned to the requester.
-Source & Pattern| These settings define a request URI pattern that identifies the type of requests that may be redirected. Only requests whose URL satisfies both of the following criteria will be redirected: <br/> <br/> **Source (or content access point):** Select a relative path that identifies an origin server. This is the  "/XXXX/" section and your endpoint name. <br/> **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> - Ensure that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any match conditions defined for this feature. <br/> - Specify a pattern; if you use a blank value as the pattern, all strings are matched.
+Source & Pattern| These settings define a request URI pattern that identifies the type of requests that may be redirected. Only requests whose URL satisfies both of the following criteria will be redirected: <br/> <br/> **Source (or content access point):** Select a relative path that identifies an origin server. This path is the  _/XXXX/_ section and your endpoint name. <br/> **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> - Ensure that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any match conditions defined for this feature. <br/> - Specify a pattern; if you use a blank value as the pattern, all strings are matched.
 Destination| Define the URL to which the above requests will be redirected. <br/> Dynamically construct this URL using: <br/> - A regular expression pattern <br/>- HTTP variables <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. <br/> 
 It is highly recommended to use an absolute URL. The use of a relative URL may redirect CDN URLs to an invalid path.
 
@@ -1179,7 +1261,7 @@ This URL redirection may be achieved through the following configuration:
 	- Sample scenario #3: 
 		- Sample request (Edge CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
 		- Request URL (after redirect): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
-- The Request Scheme (%{scheme}) variable was leveraged in the Destination option. This ensures that the request's scheme remains unchanged after redirection.
+- The Request Scheme (%{scheme}) variable is leveraged in the Destination option, which ensures that the request's scheme remains unchanged after redirection.
 - The URL segments that were captured from the request are appended to the new URL via "$1."
 
 [Back to top](#azure-cdn-rules-engine-features)
@@ -1196,9 +1278,9 @@ Key information:
 
 Option|Description
 -|-
- Source & Pattern | These settings define a request URI pattern that identifies the type of requests that may be rewritten. Only requests whose URL satisfies both of the following criteria will be rewritten: <br/>     - **Source (or content access point):** Select a relative path that identifies an origin server. This is the  "/XXXX/" section and your endpoint name. <br/> - **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> Verify that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any of the match conditions defined for this feature. Specify a pattern; if you use a blank value as the pattern, all strings are matched. 
+ Source & Pattern | These settings define a request URI pattern that identifies the type of requests that may be rewritten. Only requests whose URL satisfies both of the following criteria will be rewritten: <br/>     - **Source (or content access point):** Select a relative path that identifies an origin server. This path is the  _/XXXX/_ section and your endpoint name. <br/> - **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> Verify that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any of the match conditions defined for this feature. Specify a pattern; if you use a blank value as the pattern, all strings are matched. 
  Destination  |Define the relative URL to which the above requests will be rewritten by: <br/>    1. Selecting a content access point that identifies an origin server. <br/>    2. Defining a relative path using: <br/>        - A regular expression pattern <br/>        - HTTP variables <br/> <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. 
- This feature allows the POPs to rewrite the URL without performing a traditional redirect. This means that the requester will receive the same response code as if the rewritten URL had been requested.
+ This feature allows the POPs to rewrite the URL without performing a traditional redirect. That is, the requester receives the same response code as if the rewritten URL had been requested.
 
 **Sample Scenario 1**
 
@@ -1226,7 +1308,6 @@ This URL redirection may be achieved through the following configuration:
 - The URL segments that were captured from the request are appended to the new URL via "$1."
 
 #### Compatibility
-
 This feature includes matching criteria that must be met before it can be applied to a request. In order to prevent setting up conflicting match criteria, this feature is incompatible with the following match conditions:
 
 - AS Number
