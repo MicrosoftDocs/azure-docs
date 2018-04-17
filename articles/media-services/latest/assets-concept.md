@@ -21,7 +21,7 @@ An **Asset** contains digital files (including video, audio, images, thumbnail c
 
 An asset is mapped to a blob container in the [Azure Storage account](storage-account-concept.md) and the files in the asset are stored as block blobs in that container. You can interact with the Asset files in the containers using the Storage SDK clients.
 
-Azure Media Services supports Blob tiers if the account is using  General-purpose v2 (GPv2) storage, so you can move files to cool or cold storage. Cold storage is sutable for archiving mezzanine files when no longer needed (for example, after they have been encoded.)
+Azure Media Services supports Blob tiers when the account uses General-purpose v2 (GPv2) storage. With GPv2, you can move files to cool or cold storage. Cold storage is suitable for archiving mezzanine files when no longer needed (for example, after they have been encoded.)
 
 To create an input asset that can be used as an input for your job, [Create a job input from a local file](job-input-from-local-file-how-to.md).
 
