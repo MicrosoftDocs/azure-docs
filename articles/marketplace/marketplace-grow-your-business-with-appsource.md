@@ -1,5 +1,5 @@
 ---
-title: Grow your business with AppSource
+title: Grow your business in Azure with AppSource
 description: Information about using AppSource, which enables Microsoft partners to make their technology and services discoverable to customers through a Microsoft-supported online storefront.
 services: Marketplace, AppSource, Compute, Storage, Networking, Security
 documentationcenter:
