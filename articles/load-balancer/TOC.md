@@ -12,9 +12,9 @@
 ## [Standard Load Balancer metrics and diagnostics](load-balancer-standard-diagnostics.md)
 
 # Get Started
-## [Create Basic Load Balancer](quickstart-create-basic-load -balancer-portal.md)
-### [Create Basic Load Balancer (CLI)](quickstart-create-basic-load -balancer-cli.md)
-### [Create Basic Load Balancer (PowerShell)](quickstart-create-basic-load -balancer-powershell.md)
+## [Create Basic Load Balancer](quickstart-create-basic-load-balancer-portal.md)
+### [Create Basic Load Balancer (CLI)](quickstart-create-basic-load-balancer-cli.md)
+### [Create Basic Load Balancer (PowerShell)](quickstart-create-basic-load-balancer-powershell.md)
 ## [Create Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md)
 ### [Create a Standard Load Balancer (CLI)](quickstart-load-balancer-standard-public-cli.md)
 
