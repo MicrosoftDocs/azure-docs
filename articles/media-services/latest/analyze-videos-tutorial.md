@@ -109,7 +109,7 @@ To run the app and access the Media Services APIs, you need to specify the corre
 
 ## Examine the code in detail
 
-This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/MediaServicesV3Tutorials/MediaServicesV3Tutorials/AnalyzeVideos/Program.cs) file of the *AnalyzeVideos* project.
+This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) file of the *AnalyzeVideos* project.
 
 ### Start using Media Services APIs with .NET SDK
 
