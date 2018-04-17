@@ -82,7 +82,7 @@ for autoscaling capabilities.
 
 The idea behind defense in depth is to manage risk with diverse defensive strategies. Layering security defenses in an application reduces the chance of a successful attack. We recommend that customers implement secure designs for their applications via the built-in capabilities of the Azure platform.
 
-For example, the risk of attack increases with the size or surface area of the application. Surface area reduction is recommended through whitelisting to close down the exposed IP address space & listening ports that are not needed on the load balancers ([ALB](../load-balancer/load-balancer-get-started-internet-portal.md)/[App Gateway](../application-gateway/application-gateway-create-probe-porta.md)) or via [Network Security Groups (NSG).](../virtual-network/virtual-networks-nsg.md)
+For example, the risk of attack increases with the size or surface area of the application. Surface area reduction is recommended through whitelisting to close down the exposed IP address space & listening ports that are not needed on the load balancers ([ALB](../load-balancer/load-balancer-get-started-internet-portal.md)/[App Gateway](../application-gateway/application-gateway-create-probe-portal.md)) or via [Network Security Groups (NSG).](../virtual-network/virtual-networks-nsg.md)
 You can use [service tags](/virtual-network/security-overview.md) and [application security groups](/virtual-network/security-overview.md) to minimize complexity for security rule creation and configure network security as a natural extension of an application’s structure.
 
 Customers should deploy Azure services in a [virtual network](../virtual-network/virtual-networks-overview.md) whenever possible. This allows service resources to communicate through private IP addresses. Azure service traffic from a virtual network uses public IP addresses as source IP addresses by default. Using [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) will switch service traffic to use virtual network private addresses as the source IP addresses when accessing the Azure service from a virtual network.
@@ -266,7 +266,7 @@ Refer to [this](https://docs.microsoft.com/azure/architecture/reference-architec
 
 #### HDInsight on Azure
 
-This reference architecture shows configuring DDoS Protection Std. for [HDInsight cluster](../hdinsight/) on Azure. You need to make sure that HDInsight cluster is linked to a virtual network and DDoS Protection is enabled on that Virtual Network.
+This reference architecture shows configuring DDoS Protection Std. for [HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/) on Azure. You need to make sure that HDInsight cluster is linked to a virtual network and DDoS Protection is enabled on that Virtual Network.
 
 ![](media/azure-ddos-best-practices/image12.png)
 
