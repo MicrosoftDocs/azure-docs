@@ -13,8 +13,6 @@ ms.custom: MVC
 # Migrating your on-premises workloads to Azure
 
 
-## Introduction
-
 Microsoft Azure provides access to a comprehensive set of cloud services that, as developers and IT professionals, you use to build, deploy, and manage applications on a range of tools and frameworks, through a global network of datacenters. As your business faces challenges associated with the digital shift, the Azure cloud helps you to figure out how to optimize resources and operations, engage with your customers and employees, and transform your products.
 
 However, Azure recognizes that even with all the advantages that the cloud provides in terms of speed and flexibility, minimized costs, performance, and reliability, many organizations are going to need to run on-premises datacenters for some time to come. In response to cloud adoption barriers, Azure provides a hybrid cloud strategy that builds bridges between your on-premises datacenters, and the Azure public cloud. For example, using Azure cloud resources like backup to protect on-premises resources, or using Azure analytics to gain insights into on-premises workloads. 
