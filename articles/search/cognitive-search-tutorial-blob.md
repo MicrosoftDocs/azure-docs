@@ -75,7 +75,7 @@ DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y5NIlE4
 
 There are several ways to specify the connection string, for instance you could provide a shared access signature instead. To learn more about data source credentials, see [Indexing Azure Blob Storage](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage).
 
-## 1 - Create a data source
+## Create a data source
 
 Now that your services and source files are prepared, create the [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) used by Azure Search to retrieve source data. The data source is a resource in Azure Search service.
 
@@ -104,7 +104,7 @@ api-key: [admin key]
 For the reference documentation, see [Create Data Source (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 
-## 2 - Create a skillset
+## Create a skillset
 
 In this step, define a set of enrichment steps that you want to apply to your data. We call each enrichment step a *skill*, and the set of enrichment steps a *skillset*. You can use [built-in cognitive skills](cognitive-search-predefined-skills.md) or create custom skills and hook them up to the enrichment pipeline.
 
@@ -213,7 +213,7 @@ Notice how the key phrase extraction skill is applied for each page. By setting 
 
 For more information about skillset fundamentals, see [How to define a skillset](cognitive-search-defining-skillset.md).
 
-## 3 - Create an index
+## Create an index
 
 Now let's define what fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using whatever field naming conventions make sense for your search application.
 
@@ -284,7 +284,7 @@ Content-Type: application/json
 To learn more about defining an index, see [Create an Azure Search Index](ref-create-index.md).
 
 
-## 4 - Create an indexer, map fields, and execute transformations
+## Create an indexer, map fields, and execute transformations
 
 So far, you have created a data source, a skillset, and an index. All become part of an [indexer](search-indexer-overview.md) that pulls each piece together into a single multi-phased operation. That said, you need to add a bit of glue between these components before you can run it. In this step, you define field mappings, which are part of the indexer definition, and execute the transformations when you submit the request.
 
@@ -356,9 +356,9 @@ When content is extracted, you can set ```ImageAction``` to extract text from im
 
 In this preview, ```"embedTextInContentField"``` is the only valid value for ```"ImageAction"```.
 
-### Check indexer status
+## Check indexer status
 
-Once the indexer is defined, it runs automatically when you submit the request. Send the following request to check the indexer status.
+Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer is still runing, send the following request to check the indexer status.
 
 ```http
 GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
@@ -368,9 +368,9 @@ Content-Type: application/json
 
 The response tells you whether the indexer is running. After indexing is finished, GET STATUS reports any errors and warnings that occurred during enrichment.  
  
-## 5 - Verify content
+## Verify content
 
-To check your work, run queries that return the contents of individual fields. By default, Azure Search returns the top 50 results. The sample data is small so the defaults work fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Search](https://docs.microsoft.com/azure/search/search-pagination-page-layout).
+After indexing is finished, run queries that return the contents of individual fields. By default, Azure Search returns the top 50 results. The sample data is small so the defaults work fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Search](https://docs.microsoft.com/azure/search/search-pagination-page-layout).
 
 As a verification step, query for "*" to return all contents of a single field.
 
@@ -384,9 +384,7 @@ The syntax can also be scoped to a single field: content, language, keyphrases, 
 
 You can use GET or POST, depending on query string complexity and length. For more information, see [Query using the REST API](https://docs.microsoft.com/azure/search/search-query-rest-api).
 
-## Testing the user experience
 
-Run representative queries to determine whether additional features are necessary for improving the user experience. Depending on the change, you might need to rebuild the index by rerunning the indexer. For more information and examples, see [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 
 ## Accessing the enriched document
@@ -456,16 +454,22 @@ Repeat the previous exercise, including an `enriched` field to capture the conte
 }
 ```
 
-## Creating custom skills
 
-This exercise does not walk you through custom skill definition, but if you plan to create a custom skill at some point, or if you want to step through the [custom skill example](cognitive-search-create-custom-skill-example.md), one approach for providing the skill is using an [Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-overview). Use of an Azure Function comes at an additional cost. See the [pricing page](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview#pricing) for details.
 
 ## Clean up
 
+The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Search service and Azure Blob service. Assuming you put both services in the same group, delete the resource group now to permanently delete services and any stored content.
+
 ## Next steps
+
+Learn more about core tasks covered in this tutorial:
 
 + [How to map fields into your index](cognitive-search-output-field-mapping.md)
 + [How to create a skillset or augmentation pipeline](cognitive-search-defining-skillset.md)
 + [Predefined skills](cognitive-search-predefined-skills.md)
-+ [How to define a custom interface](cognitive-search-custom-skill-interface.md)
-+ [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)
+
+An enriched indexing pipeline creates a searchable index supporting the full range of features in Azure Search. Once you are happy with the enrichment aspect of indexing, run representative queries to determine whether additional features are necessary for improving the user experience. For example, you might want to boost search rank scores, add synonym support, or add lexical analyzers for further text processing. For more information and examples on how to search an index, see [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+
+Lastly, consider exploring pipeline extensiblity through custom skills. This exercise does not walk you through custom skill definition, but if you want to create a custom skill, one approach for providing the skill is using an [Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-overview). Step through an [example](cognitive-search-create-custom-skill-example.md) or see [How to define a custom interface](cognitive-search-custom-skill-interface.md) to learn more.
+
+
