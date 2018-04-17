@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Lab Services (formerly DevTest Labs) Preview Documentation
 metadata:
   title: Azure Lab Services Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Learn how to use Azure Lab Services (formerly Azure DevTest Labs) to quickly create classroom labs, custom labs, and more. The custom labs you can create with Azure Lab Services are exactly same as the ones you could create with Azure DevTest Labs. Azure Tutorials, samples, and more show you how to create, manage, and secure labs.
+  description: Learn how to use Azure Lab Services (formerly Azure DevTest Labs) to quickly create classroom labs, custom labs, and more. The custom labs that you create with Azure Lab Services are the same as those you created with Azure DevTest Labs. Azure Tutorials, samples, and more show you how to create, manage, and secure labs.
   services: lab-services
   author: spelluru
   manager: 
@@ -14,7 +14,7 @@ metadata:
   ms.date: 04/06/2018
   ms.author: spelluru
 abstract:
-  description: Learn how to use Azure Lab Services (formerly Azure DevTest Labs) to quickly create classroom labs, custom labs, and more. The custom labs you can create with Azure Lab Services are exactly same as the ones you could create with Azure DevTest Labs. Azure Tutorials, samples, and more show you how to create, manage, and secure labs.
+  description: Learn how to use Azure Lab Services (formerly Azure DevTest Labs) to quickly create classroom labs, custom labs, and more. The custom labs that you create with Azure Lab Services are the same as those you created with Azure DevTest Labs. Azure Tutorials, samples, and more show you how to create, manage, and secure labs.
 sections:
 - title: Step-by-Step Tutorials
   text: 'Learn how to create a lab using Lab Services:'
