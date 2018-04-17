@@ -3,7 +3,7 @@ title: Azure CDN rules engine features | Microsoft Docs
 description: Reference documentation for Azure CDN rules engine features.
 services: cdn
 documentationcenter: ''
-author: Lichard
+author: dksimpson
 manager: akucer
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
-ms.author: rli
+ms.author: v-deasim
 
 ---
 
@@ -989,7 +989,7 @@ Key information:
 
 ---
 ### Proxy Special Headers
-**Purpose:** Defines the set of [Verizon-specific HTTP request headers](cdn-http-headers.md#verizon-specific-http-request-headers) that will be forwarded from a POP to an origin server.
+**Purpose:** Defines the set of [Verizon-specific HTTP request headers](cdn-verizon-http-headers.md) that will be forwarded from a POP to an origin server.
 
 Key information:
 

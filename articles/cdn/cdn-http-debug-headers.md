@@ -1,24 +1,24 @@
 ---
-title: X-EC-Debug headers | Microsoft Docs
+title:  X-EC-Debug HTTP headers for Azure CDN rules engine | Microsoft Docs
 description: The X-EC-Debug debug cache request header provides additional information about the cache policy that is applied to the requested asset. These headers are specific to Verizon.
 services: cdn
 documentationcenter: ''
-author: SyntaxC4
-manager: 
+author: dksimpson
+manager: akucer
 editor: ''
 
 ms.assetid: 
 ms.service: cdn
-ms.workload: tbd
+ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
-ms.author: cfowler
+ms.author: v-deasim
 
 ---
-# X-EC-Debug Verizon-specific headers
-The debug cache request header, `X-EC-Debug`, provides additional information about the cache policy that is applied to the requested asset. These headers are specific to Verizon.
+# X-EC-Debug HTTP headers for Azure CDN rules engine
+The debug cache request header, `X-EC-Debug`, provides additional information about the cache policy that is applied to the requested asset. These headers are specific to **Azure CDN Premium from Verizon** products.
 
 ## Usage
 The response sent from the POP servers to a user includes the `X-EC-Debug` header only when the following conditions are met:
@@ -43,7 +43,7 @@ Debug cache response headers may be requested by including the following header 
 
 `X-EC-Debug: Directive1,Directive2,DirectiveN`
 
-### Example
+### Sample X-EC-Debug header
 
 `X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state`
 
@@ -55,7 +55,7 @@ Header | Description
 X-EC-Debug: x-ec-cache | This header is reported whenever content is routed through the CDN. It identifies the POP server that fulfilled the request.
 X-EC-Debug: x-ec-cache-remote | This header is reported only when the requested content was cached on an origin shield server or an ADN gateway server.
 
-## Response header format
+### Response header format
 
 The X-EC-Debug header reports cache status code information in the following format:
 
@@ -78,13 +78,13 @@ The terms used in the above response header syntax are defined as follows:
 
 - POP: Indicates the [POP](cdn-pop-abbreviations.md) that handled the request. 
 
-## Sample response headers
+### Sample response headers
 
 The following sample headers provide cache status code information for a request:
 
 - `X-EC-Debug: x-ec-cache: TCP_HIT from ECD (lga/0FE8)`
 
-- `X-EC-Debug: X-ec-cache-remote: TCP_HIT from ECD (dca/EF00)`
+- `X-EC-Debug: x-ec-cache-remote: TCP_HIT from ECD (dca/EF00)`
 
 ## Cacheable response header
 The `X-EC-Debug: x-ec-check-cacheable` response header indicates whether the requested content could have been cached.

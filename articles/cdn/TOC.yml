@@ -40,8 +40,6 @@
         href: cdn-sas-storage-support.md
     - name: Cross-origin resource sharing
       href: cdn-cors.md
-    - name: Add a custom domain to your CDN endpoint
-      href: cdn-map-content-to-custom-domain.md
   - name: Optimize content
     items:
     - name: Optimization overview
@@ -137,8 +135,8 @@
       href: cdn-rules-engine-reference-match-conditions.md
     - name: Rules engine features
       href: cdn-rules-engine-reference-features.md
-  - name: HTTP headers
-    href: cdn-http-headers.md
+  - name: Verizon-specific HTTP headers
+    href: cdn-verizon-http-headers.md
     items:
       - name: X-EC-Debug headers
         href: cdn-http-debug-headers.md    
