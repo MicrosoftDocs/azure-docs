@@ -68,7 +68,7 @@ GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01
 | `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
 | `Metadata` | An HTTP request header field, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.
 
-Sample request using the MSI VM Extension Endpoint *(upcoming deprectation)*:
+Sample request using the MSI VM Extension Endpoint *(upcoming deprectation plan)*:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1

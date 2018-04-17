@@ -2,22 +2,16 @@
 title: Using T-SQL loops in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips for using T-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: ''
-
-ms.assetid: f3384b81-b943-431b-bc73-90e47e4c195f
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
+
 # Using T-SQL loops in SQL Data Warehouse
 Tips for using T-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions.
 
