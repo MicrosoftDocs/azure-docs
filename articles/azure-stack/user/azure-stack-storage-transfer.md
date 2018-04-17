@@ -37,7 +37,7 @@ The tool that works best for you depends on your requirements:
 
     An open-source, cross-platform tool that provides a set of commands for working with the Azure and Azure Stack platforms.
 
-* [Microsoft Storage Explorer (Preview)](#microsoft-azure-storage-explorer)
+* [Microsoft Storage Explorer](#microsoft-azure-storage-explorer)
 
     An easy to use stand-alone app with a user interface.
 
@@ -227,11 +227,11 @@ echo "Done"
 Microsoft Azure Storage Explorer is a standalone app from Microsoft. It allows you to easily work with both Azure Storage and Azure Stack Storage data on Windows, macOS and Linux. If you want an easy way to manage your Azure Stack Storage data, then consider using Microsoft Azure Storage Explorer.
 
  - To learn more about configuring Azure Storage Explorer to work with Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md).
- - To learn more about Microsoft Azure Storage Explorer, see [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+ - To learn more about Microsoft Azure Storage Explorer, see [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## Next steps
 * [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md)
-* [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
 * [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 
