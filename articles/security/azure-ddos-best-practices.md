@@ -27,7 +27,7 @@ Designing for distributed denial of service (DDoS) resiliency requires planning 
 
 Distributed denial of service is a type of attack where an attacker sends more requests to an application than the application is capable of handling. The resulting effect is resources being depleted, affecting the application’s availability and ability to service its customers. Over the past few years, the industry has seen an increase in attacks. Attacks are becoming more sophisticated and larger in size and impact. DDoS attacks can be targeted at any endpoint that is publicly reachable through the Internet.
 
-Azure provides continuous protection against DDoS attacks. This protection is integrated into the Azure platform by default and at no additional cost. In addition to the core DDoS protection provided in the platform, we also have a new offering named “[Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection/)”, which provides advanced DDoS mitigation capabilities against network attacks and is automatically tuned to protect your specific Azure resources. Protection is simple to enable during the creation of new or modification of existing Virtual Networks and requires no application or resource changes.
+Azure provides continuous protection against DDoS attacks. This protection is integrated into the Azure platform by default and at no additional cost. In addition to the core DDoS protection provided in the platform, we also have a new offering named “[Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection/)”, which provides advanced DDoS mitigation capabilities against network attacks and is automatically tuned to protect your specific Azure resources. Protection is simple to enable during the creation of new virtual networks. It can also be done after initial creation and requires no application or resource changes.
 
 ![](media/azure-ddos-best-practices/image1.png)
 
@@ -35,7 +35,7 @@ DDoS attacks can be broadly classified into three (3) different categories
 
 ### Volumetric attacks
 
-Volumetric attacks are the most common types of DDoS attack. Volumetric attacks are brute-force assaults that target the network & transport layer. They attempt to exhaust resources such as the bandwidth of the links that carry traffic to the target. These attacks commonly use multiple infected systems—which are often part of a botnet– to flood the network layers with a substantial amount of seemingly legitimate traffic. Different network layer protocols such as Internet Control Message Protocol (ICMP), User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) are used in such an attack.
+Volumetric attacks are the most common types of DDoS attack. Volumetric attacks are brute-force assaults that target the network and transport layers. They attempt to exhaust resources such network links. These attacks commonly use multiple infected systems to flood the network layers with a substantial amounts of seemingly legitimate traffic. Different network layer protocols such as Internet Control Message Protocol (ICMP), User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) are used in this type of attack.
 
 The most commonly used network layer DDoS attacks are TCP SYN flooding, ICMP echo, UDP flooding, DNS, and NTP amplification attack. This type of attack can be used not only to disrupt service, but also as a smokescreen for more nefarious and targeted network intrusion. An example of a recent volumetric attack is the [Memcached exploit](https://www.wired.com/story/github-ddos-memcached/) that impacted GitHub. This attack targeted UDP port 11211 and generated 1.35 Tb/s of attack volume.
 
@@ -65,7 +65,7 @@ DDoS attacks are and on the rise. The following section provides prescriptive gu
 ### Design for security
 
 Customers should ensure security is a priority throughout the entire lifecycle of an application, from design and implementation to deployment and operations. Applications can have bugs that allow a relatively low volume of crafted requests to use an inordinate amount of resources,  resulting in a service outage. To protect a service running on Microsoft Azure, customers should have a good understanding of their application architecture and must focus on the [5 pillars of software quality](https://docs.microsoft.com/azure/architecture/guide/pillars).
-Customers should know typical traffic volumes, the connectivity model between the application and other applications and what service endpoints are exposed to the public Internet.
+Customers should know typical traffic volumes, the connectivity model between the application and other applications, and the service endpoints exposed to the public Internet.
 
 Additionally, ensuring an application is resilient enough to handle a denial of service targeted at the application itself is of paramount importance. Security and privacy are built right into the Azure platform, beginning with the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). The SDL addresses security at every development phase and ensures that Azure is continually updated to make it even more secure.
 
@@ -87,31 +87,31 @@ You can chose to use [service tags](https://docs.microsoft.com/azure/virtual-net
 
 Customer should deploy Azure services in a [virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) whenever possible, which allows service resources to communicate through private IP addresses. Azure service traffic from a virtual network uses public IP addresses as source IP addresses by default. Using [service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) will switch service traffic to use virtual network private addresses as the source IP addresses when accessing the Azure service from a virtual network.
 
-We often see customer’s on-premises resources getting attacked alongside their resources in Azure. If you are connecting an on-premises environment to Azure, we recommend that you minimize exposure of on-premises resources to the public Internet where applicable. You can use the leading scale and advanced DDoS Protection capabilities of Azure by deploying your well-known public entities in Azure. Since these publicly accessible entities are often a target for DDoS attacks, putting them in Azure reducing the impact on your on-premises resources.
+We often see customer’s on-premises resources getting attacked alongside their resources in Azure. If you are connecting an on-premises environment to Azure, we recommend that you minimize exposure of on-premises resources to the public Internet. You can use the scale and advanced DDoS Protection capabilities of Azure by deploying your well-known public entities in Azure. Since these publicly accessible entities are often a target for DDoS attacks, putting them in Azure reduces the impact on your on-premises resources.
 
-## Azure DDoS protection 
+## Azure DDoS protection
 
 Azure has two DDoS service offerings that provide protection from Network attacks (Layer 3 & 4) -DDoS basic protection and DDoS standard protection. 
 
 ### Azure DDoS basic protection 
 
-Basic protection is integrated into the Azure platform by default and at no additional cost. The full scale and capacity of Azure’s globally deployed network provides defense against common network layer attacks through always on traffic monitoring and real-time mitigation. DDoS Basic protection requires no user configuration or application changes. All Azure services including PaaS services like Azure DNS are protected by DDoS Basic Protection.
+Basic protection is integrated into the Azure by default at no additional cost. The full scale and capacity of Azure’s globally deployed network provides defense against common network layer attacks through always on traffic monitoring and real-time mitigation. DDoS Basic protection requires no user configuration or application changes. All Azure services including PaaS services like Azure DNS are protected by DDoS Basic Protection.
 
 ![](media/azure-ddos-best-practices/image3.png)
 
 Azure’s basic DDoS protection consists of both software and hardware components. A software control plane decides when, where, and what type of traffic should be steered through hardware appliances that analyze and remove attack traffic. The control plane makes this decision based on an infrastructure-wide DDoS Protection *policy*, which is statically set and universally applied to all Azure customers.
 
-For example, the DDoS Protection policy specifies at what traffic volume the protection should be *triggered* (i.e., the tenant’s traffic should be routed through scrubbing appliances), and subsequently, how the scrubbing appliances should *mitigate* the attack.
+For example, the DDoS Protection policy specifies at what traffic volume the protection should be *triggered* (that is, the tenant’s traffic should be routed through scrubbing appliances), and subsequently, how the scrubbing appliances should *mitigate* the attack.
 
 Azure’s DDoS Protection Basic service is targeted at infrastructure protection and protection of the Azure platform. It mitigates traffic when it exceeds a rate that is so significant that it may impact multiple customers in a multi-tenant environment. It doesn’t provide alerting or per-customer customized policies.
 
 ### Azure DDoS standard protection
 
-Standard protection provides enhanced DDoS mitigation capabilities and is automatically tuned to protect your specific Azure resources in a Virtual Network. Protection is simple to enable on any new or existing Virtual Network and requires no application or resource changes. It has several advantages over the basic service including logging, alerting, and telemetry. Outlined below are the key differentiators of Azure DDoS Protection Standard service.
+Standard protection provides enhanced DDoS mitigation features and is automatically tuned to protect your specific Azure resources in a Virtual Network. Protection is simple to enable on any new or existing Virtual Network and requires no application or resource changes. It has several advantages over the basic service including logging, alerting, and telemetry. Outlined below are the key differentiators of Azure DDoS Protection Standard service.
 
 #### Adaptive realtime tuning
 
-While the Azure DDoS Protection Basic service has been proven to help protect our customers, it only protects customers at a rate so significant that it may impact other customers. For example, if a service is provisioned for a typical volume of legitimate incoming traffic that is smaller than the *trigger rate* of the infrastructure-wide DDoS protection policy, a DDoS attack on that customer’s resources may go unnoticed. More generally, the complex nature of recent attacks (for example, multi-vector DDoS) as well as the  application-specific behaviors of tenants call for per-customer, customized protection policies.
+Azure DDoS Protection Basic service helps protect our customers but it only protects them as preventing impacting other customers. For example, if a service is provisioned for a typical volume of legitimate incoming traffic that is smaller than the *trigger rate* of the infrastructure-wide DDoS protection policy, a DDoS attack on that customer’s resources may go unnoticed. More generally, the complex nature of recent attacks (for example, multi-vector DDoS) as well as the  application-specific behaviors of tenants call for per-customer, customized protection policies.
 This is accomplished using two insights:
 
 1. Automatic learning of per-customer (per-IP) layer 3/4 traffic patterns, and
@@ -121,13 +121,13 @@ This is accomplished using two insights:
 
 #### DDoS protection telemetry, monitoring & alerting
 
-With DDoS Protection Standard, we expose rich telemetry via [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with Splunk (Azure Event Hubs), Azure Log Analytics and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+With DDoS Protection Standard, we expose rich telemetry via [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with Splunk (Azure Event Hubs), Azure Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 ##### DDoS mitigation policies
 
-In the Azure Portal, click **Monitor** \> **Metrics**. On the **Metrics** screen, select the resource group, resource type of Public IP Address, and your Azure public IP address. DDoS metrics will be visible under the available metrics pane.
+In the Azure portal, click **Monitor** \> **Metrics**. On the **Metrics** screen, select the resource group, resource type of Public IP Address, and your Azure public IP address. DDoS metrics will be visible under the available metrics pane.
 
-DDoS Protection Standard applies **3 autotuned mitigation policies (TCP SYN, TCP & UDP)** for each public IP of the protected resource, in the VNET that has DDoS enabled. You can view the policy thresholds by selecting the metric **‘Inbound packets to trigger DDoS mitigation’**.
+DDoS Protection Standard applies **three autotuned mitigation policies (TCP SYN, TCP & UDP)** for each public IP of the protected resource, in the VNET that has DDoS enabled. You can view the policy thresholds by selecting the metric **‘Inbound packets to trigger DDoS mitigation’**.
 
 ![](media/azure-ddos-best-practices/image7.png)
 
@@ -141,13 +141,13 @@ If the public IP address is under attack, the metric ‘under DDoS attack or not
 
 We recommend configuring an alert on this metric, to be notified when there’s an active DDoS mitigation performed on your public IP address.
 
-For more details refer to [Manage Azure DDoS Protection Standard using the Azure portal](https://docs.microsoft.com/azure/virtual-network/ddos-protection-manage-portal).
+For more details, refer to [Manage Azure DDoS Protection Standard using the Azure portal](https://docs.microsoft.com/azure/virtual-network/ddos-protection-manage-portal).
 
 #### Resource attacks
 
-Specific to resource attacks at application layer, customers should configure Web Application Firewall (WAF ) which helps secure web applications by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, DDoS and other layer 7 attacks. Azure provides [WAF as a feature of Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) for centralized protection of your web applications from common exploits and vulnerabilities. There are variety of WAF offerings available from Azure partners that might be more suitable for your needs via the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
+Specific to resource attacks at application layer, customers should configure Web Application Firewall (WAF ) which helps secure web applications by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, DDoS, and other layer 7 attacks. Azure provides [WAF as a feature of Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) for centralized protection of your web applications from common exploits and vulnerabilities. There are varieties of WAF offerings available from Azure partners that might be more suitable for your needs via the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
 
-Even Web Application Firewalls are susceptible to volumetric & state exhaustion attacks. We strongly recommend turning on DDoS Standard protection on the WAF Virtual Network to protect from volumetric & protocol attacks. Refer to the reference architecture section for more details.
+Even Web Application Firewalls are susceptible to volumetric & state exhaustion attacks. We strongly recommend turning on DDoS Standard protection on the WAF Virtual Network to protect from volumetric & protocol attacks. For more information, see the reference architecture section.
 
 ### Protection planning
 
