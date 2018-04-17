@@ -49,63 +49,7 @@ Clone a GitHub repository that contains the .NET sample to your machine using th
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
-## Access the Media Services API
-
-> [!Tip]
-> To connect to Azure Media Services APIs, you use the Azure AD service principal authentication. 
-
-The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure you .NET app, as shown in the following step.
-
-Before running the script, you can replace `amsaccountname` (the name of your Azure Media Services account where to attach the service principal) and `amsResourceGroup` (your resource group).
-
-```azurecli-interactive
-az ams sp create --account-name amsaccountname --resource-group amsResourceGroup
-```
-
-This command will produce a response similar to this:
-
-```json
-{
-  "AadClientId": "12345678-1234-1234-1234-111111111111",
-  "AadEndpoint": "https://login.microsoftonline.com",
-  "AadSecret": "22345678-1234-1234-1234-111111111111",
-  "AadTenantId": "32345678-1234-1234-1234-111111111111",
-  "AccountName": "amsaccountname",
-  "ArmAadAudience": "https://management.core.windows.net/",
-  "ArmEndpoint": "https://management.azure.com/",
-  "Region": "West US",
-  "ResourceGroup": "amsResourceGroup",
-  "SubscriptionId": "42345678-1234-1234-1234-111111111111"
-}
-```
-
-## Configure the sample app
-
-To run the app and access the Media Services APIs, you need to specify the correct access values in App.config. 
-
-1. Open Visual Studio.
-2. Browse to the solution that you cloned.
-3. In the Solution Explorer, unfold the *AnalyzeVideos* project.
-4. Set this project as the start up project.
-5. Open App.config.
-6. Replace settings values with the values that you got in the [previous](#create-an-azure-ad-application-and-service-principal) step.
-
- ```xml
- <appSettings>
-   <add key="SubscriptionId" value ="42345678-1234-1234-1234-111111111111" />
-   <add key="Region" value ="West US" />      
-   <add key="ResourceGroup" value ="amsResourceGroup" />
-   <add key="AccountName" value ="amsaccountname" />
-   <add key="AadTenantId" value ="32345678-1234-1234-1234-111111111111" />
-   <add key="AadClientId" value ="12345678-1234-1234-1234-111111111111" />
-   <add key="AadSecret" value ="22345678-1234-1234-1234-111111111111" />
-   <add key="ArmAadAudience" value ="https://management.core.windows.net/" />
-   <add key="AadEndpoint" value ="https://login.microsoftonline.com" />
-   <add key="ArmEndpoint" value ="https://management.azure.com/" />
- </appSettings>
- ```    
-
-7. Press Ctrl+Shift+B to build the solution.
+[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
 ## Examine the code in detail
 
@@ -146,7 +90,7 @@ When processing content in Media Services, it is a common pattern to set up the 
 
 #### Transform
 
-When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, we use **VideoAnalyzerPreset**. This preset analyzes videos using **Video Indexer**.  
+When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, the **VideoAnalyzerPreset** preset is used. This preset analyzes videos using **Video Indexer**.  
 
 When creating a **Transform**, you should first check if one already exists using the **Get** method., as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist.
 
@@ -173,7 +117,9 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
 
 #### Job
 
-As mentioned above, the **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. In this example, the input video is uploaded from a specified HTTP URL. In Media Services v3, the job input can be created from HTTP(s) URLs, SAS URLs, AWS S3 Token URLs, or paths to files located in Azure Blob storage.  
+As mentioned above, the **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTP(s) URLs, SAS URLs, AWS S3 Token URLs, or a path to files located locally or in Azure Blob storage. The content can also be specified using [Google Cloud Storage signed URLs](https://cloud.google.com/storage/docs/access-control/signed-urls).
+
+In this example, the input video is uploaded from a specified HTTP(s) URL.  
 
 ```csharp
 private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, string jobName, string outputAssetName)
@@ -205,8 +151,9 @@ private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGr
 
 The job takes some time to complete and when it does you want to be notified. There are different options to get notified about the job completion. The simplest option (that is shown here) is to use polling. 
 
-> [!Note]
-> Polling is not a recommended best practice for production applications. Developers should instead use Event Grid.
+Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid.
+
+Event Grid is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you will get the **Error** state. If the job is in the process of being canceled, you will get **Canceling** and **Canceled** when it is done.
 
@@ -310,6 +257,10 @@ In the **CloudShell**, execute the following command:
 ```azurecli-interactive
 az group delete --name amsResourceGroup
 ```
+
+## Multithreading
+
+The Azure Media Services v3 SDKs are not thread-safe. When working with multi-threaded application, you should generate a new  AzureMediaServicesClient object per thread.
 
 ## Next steps
 

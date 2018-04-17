@@ -21,7 +21,7 @@ ms.author: juliako
 
 The latest version of the Azure Media Services REST API (v3) introduces a new templated encoding and video AI workflow resource called a **Transform**. **Transforms** can be used to configure common tasks for encoding or video AI extraction. Each **Transform** provides a simple workflow of tasks to be processed on your video or audio files. 
 
-Jobs can now be submitted directly to a Transform with an input content located at: a HTTP(s) URL, SAS URL, S3 URL, or a path to files located in Azure Blob storage. The content can also be specified using [Google Cloud Storage signed URLs](https://cloud.google.com/storage/docs/access-control/signed-urls).
+The **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTP(s) URLs, SAS URLs, AWS S3 Token URLs, or a path to files located locally or in Azure Blob storage. The content can also be specified using [Google Cloud Storage signed URLs](https://cloud.google.com/storage/docs/access-control/signed-urls).
 
 Notifications have also been enhanced to integrate directly with the Azure Event Grid notification system. Customers can easily subscribe to events on several resources in Azure Media Services, such as Job states and encoding progress. Since the new API is driven by Azure Resource Manager, customers can now use Resource Manager templates to create and deploy Transforms. 
 
