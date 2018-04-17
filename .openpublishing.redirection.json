@@ -172,12 +172,12 @@
         },
         {
             "source_path": "articles/active-directory/managed-service-identity/tutorial-vm-windows-access-storage.md",
-            "redirect_url": "/azure/acitve-directory/managed-service-identity/tutorial-windows-vm-access-storage",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/managed-service-identity/tutorial-linux-vm-access-storage.md",
-            "redirect_url": "/azure/acitve-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
             "redirect_document_id": true
         },
         {
