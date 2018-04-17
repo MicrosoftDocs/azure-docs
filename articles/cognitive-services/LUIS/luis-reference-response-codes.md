@@ -1,7 +1,7 @@
 ---
 title: Language Understanding (LUIS) API HTTP response codes - Azure | Microsoft Docs
 titleSuffix: Azure
-description:  Understand when the HTTP response codes are returned
+description:  Understand what HTTP response codes are returned from the LUIS Authoring and Endpoint APIs
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -13,7 +13,7 @@ ms.date: 04/16/2018
 ms.author: v-geberr;
 ---
 
-# LUIS API response codes
+# LUIS API HTTP response codes
 The [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general. 
 
 ## Common status codes
