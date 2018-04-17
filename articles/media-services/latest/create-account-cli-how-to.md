@@ -38,38 +38,9 @@ In the following command, provide the Azure subscription ID that you want to use
 ```azurecli-interactive
 az account set --subscription mySubscriptionId
 ```
-
-## Create an Azure Resource Group
-
-The following command creates a resource group in which you want to have the Storage and Media Services account. Substitute *amsResourceGroup* with the name you want to use for your resource group.
-
-```azurecli-interactive
-az group create -n amsResourceGroup -l westus2
-```
-
-## Create an Azure Storage account
-
-When creating a Media Services account, you need to supply the ID of an Azure Storage account resource. The specified storage account is attached to your Media Services account. 
-
-You must have one **Primary** storage account and you can have  any number of **Secondary** storage accounts associated with your Media Services account. Media Services supports **General-purpose v2** (GPv2) or **General-purpose v1** (GPv1) accounts. Blob only accounts are not allowed as **Primary**. If you want to learn more about storage accounts, see [Azure Storage account options](../../storage/common/storage-account-options.md). 
-
-The following command creates the Storage account that is going to be associated with the Media Services Account. In the script below, you can substitute *storageaccountforams*.  
-
-```azurecli-interactive
-az storage account create -n storageaccountforams -g amsResourceGroup
-```
-
-## Create an Azure Media Services account
-
-Below you can find the Azure CLI command that creates a new Media Services account. You can replace the following values:
-
-* *amsaccount*
-* *amsResourceGroup*
-* *storageaccountforams*
-
-```azurecli-interactive
-az ams account create -n amsaccount -g amsResourceGroup --storage-account storageaccountforams
-```
+ 
+[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
+ 
 
 ## Next steps
 
