@@ -19,7 +19,7 @@ ms.author: ghogen
 
 This article identifies the exact changes made to am ASP.NE project when adding the [Key Vault connected service using Visual Studio](vs-key-vault-add-connected-service.md).
 
-For information on working with the connected service, see [Getting Started](vs-key-vault-dotnet-getting-started.md).
+For information on working with the connected service, see [Getting Started](vs-key-vault-aspnet-getting-started.md).
 
 ## Added references
 
