@@ -14,7 +14,7 @@ ms.custom: MVC
 
 The Contoso company are considering migration to Azure. To try this out, they want to assess and migrate a small on-premises travel app to Azure. It's a two-tier travel app, with a web app running on one VM, and a SQL Server database on the second VM. The application is deployed in VMware, and the environment is managed by a vCenter Server. 
 
-In [Scenario 1: Assess migration to Azure](migrate-scenarios-assessment.md), they used the Database Migration Assistant to assess the SQL Server database for the app. In addition they used the Azure Migrate service to assess the app VMs. In this scenario, after successfully completing the assessment, they want to migrate the database to an Azure SQL Managed instance using the Azure Database Migration Service (DMS), and on-premises machines to Azure VMs using the Azure Site Recovery service.
+In Scenario 1: Assess migration to Azure, they used the Database Migration Assistant to assess the SQL Server database for the app. In addition they used the Azure Migrate service to assess the app VMs. In this scenario, after successfully completing the assessment, they want to migrate the database to an Azure SQL Managed instance using the Azure Database Migration Service (DMS), and on-premises machines to Azure VMs using the Azure Site Recovery service.
 
 
 **Service** | **Description** | **Cost**
@@ -392,8 +392,6 @@ To set up the source environment, you need a single, highly available, on-premis
 
 To set up the configuration server as a highly available VMware VM, download a prepared Open Virtualization Format (OVF) template and import the template into VMware to create the VM. After you set up the configuration server, register it in the vault. After registration, Site Recovery discovers on-premises VMware VMs.
 
-> [!TIP]
-> This tutorial uses an OVF template to create the configuration server VMware VM. If you're unable to do this, you can run [manual Setup](physical-manage-configuration-server.md) to do this. 
 
 
 #### Download the VM template
