@@ -38,50 +38,48 @@ Establish the number of node types your cluster needs to start out with.  Each n
 * Since you cannot predict the future, go with facts you know of and decide on the number of node types that your applications need to start with. You can always add or remove node types later. A Service Fabric cluster must have at least one node type.
 
 ## The properties of each node type
-The **node type** can be seen as equivalent to roles in Cloud Services. Node types define the VM sizes, the number of VMs, and their properties. Every node type that is defined in a Service Fabric cluster is set up as a separate virtual machine scale set. 
-Virtual machine scale set is an Azure compute resource used to deploy and manage a collection of virtual machines as a set. Each node type is a distinct scale set and can be scaled up or down independently, have different sets of ports open, and have different capacity metrics.
+The **node type** can be seen as equivalent to roles in Cloud Services. Node types define the VM sizes, the number of VMs, and their properties. Every node type that is defined in a Service Fabric cluster maps to a [virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).  
+Each node type is a distinct scale set and can be scaled up or down independently, have different sets of ports open, and have different capacity metrics. For more details on the relationships between node types and virtual machine scale sets, how to RDP into one of the instances, open new ports etc, refer to [this document](service-fabric-cluster-nodetypes.md).
 
-Read [this document](service-fabric-cluster-nodetypes.md) for more details on the relationship of node types to virtual machine scale sets, how to RDP into one of the instances, open new ports etc.
-
-Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs for clusters used for production workloads (or at least three VMs for test clusters). If you are creating the cluster using a Resource Manager template, then look for **is Primary** attribute under the node type definition. The primary node type is the node type where Service Fabric system services are placed.  
+A Service Fabric cluster can consist of more than one node type. In that event, the cluster will be comprised of one primary node type and one or more non-primary node types.
 
 ### Primary node type
-For a cluster with multiple node types, you need to choose one of them to be primary. Here are the characteristics of a primary node type:
 
-* The **minimum size of VMs** for the primary node type is determined by the **durability tier** you choose. The default for the durability tier is Bronze. Scroll down for details on what the durability tier is and the values it can take.  
-* The **minimum number of VMs** for the primary node type is determined by the **reliability tier** you choose. The default for the reliability tier is Silver. Scroll down for details on what the reliability tier is and the values it can take. 
+The Service Fabric system services (eg, the Cluster Manager service or Image Store service) are placed on the primary node type. 
 
+![Screen shot of a cluster that has two Node Types][SystemServices]
 
-* The Service Fabric system services (for example, the Cluster Manager service or Image Store service) are placed on the primary node type and so the reliability and durability of the cluster is determined by the reliability tier value and durability tier value you select for the primary node type.
+* The **minimum size of VMs** for the primary node type is determined by the **durability tier** you choose. The default durability tier is Bronze. See [below](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) for more details.  
+* The **minimum number of VMs** for the primary node type is determined by the **reliability tier** you choose. The default reliability tier is Silver. See [below](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) for more details.  
 
-![Screen shot of a cluster that has two Node Types ][SystemServices]
+If you are creating the cluster using a Resource Manager template, then look for is Primary attribute under the node type definition. 
 
 ### Non-primary node type
-For a cluster with multiple node types, there is one primary node type and the rest of them are non-primary. Here are the characteristics of a non-primary node type:
 
-* The minimum size of VMs for this node type is determined by the durability tier you choose. The default for the durability tier is Bronze. Scroll down for details on what the durability tier is and the values it can take.  
-* The minimum number of VMs for this node type can be one. However you should choose this number based on the number of replicas of the application/services that you would like to run in this node type. The number of VMs in a node type can be increased after you have deployed the cluster.
+In a cluster with multiple node types, there is one primary node type and the rest are non-primary.
+
+* The **minimum size of VMs** for non-primary node types is determined by the **durability tier** you choose. The default durability tier is Bronze. See [below](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) for more details.  
+* The **minimum number of VMs** for non-primary node types is one. However you should choose this number based on the number of replicas of the application/services that you would like to run in this node type. The number of VMs in a node type can be increased after you have deployed the cluster.
 
 ## The durability characteristics of the cluster
 The durability tier is used to indicate to the system the privileges that your VMs have with the underlying Azure infrastructure. In the primary node type, this privilege allows Service Fabric to pause any VM level infrastructure request (such as a VM reboot, VM reimage, or VM migration) that impact the quorum requirements for the system services and your stateful services. In the non-primary node types, this privilege allows Service Fabric to pause any VM level infrastructure requests (such as VM reboot, VM reimage, and VM migration) that impact the quorum requirements for your stateful services.
 
-This privilege is expressed in the following values:
+| Durability Tier  | Privilege       |  Required Minimum Number of VMs | VM Skus  | 
+| ---------------- | --------------- | ---------------------- | -----------|
+| Gold             | Infrastructure jobs can be paused for a duration of 2 hours per UD 	| 5 | Full-node skus dedicated to a single customer (eg. L32s, GS5, G5, DS15_v2, D15_v2) |
+| Silver           | Infrastructure jobs can be paused for a duration of 10 minutes per UD	| 5 | VMs of single core or above 
+| Bronze           | No privileges.    								| 1 | All
 
-* Gold - The infrastructure jobs can be paused for a duration of two hours per UD. Gold durability can be enabled only on full-node VM SKUs like L32s, GS5, G5, DS15_v2, D15_v2. In general, all the VM Sizes listed at http://aka.ms/vmspecs that are marked as 'Instance is isolated to hardware dedicated to a single customer' in the note, are full-node VMs.
-* Silver - The infrastructure Jobs can be paused for a duration of 10 minutes per UD and is available on all standard VMs of single core and above.
-* Bronze - No privileges. This is the default. Only use this durability level for Node Types that run _only_ stateless workloads. 
 
 > [!WARNING]
-> NodeTypes running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed. It is possible that such jobs can still impact your workloads, causing downtime or other issues. For any sort of production workload, running with at least Silver is recommended. You must maintain a minimum count of five nodes for any node-type that has a durability of Gold or Silver. 
-> 
-
-You get to choose durability level for each of your node-types.You can choose one node-type to have a durability level of Gold or silver and the other have Bronze in the same cluster. **You must maintain a minimum count of five nodes for any node-type that has a durability of Gold or silver**. 
+> NodeTypes running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed which may impact your workloads. Only use Bronze for NodeTypes that run only stateless workloads. For production workloads, running Silver or above is recommended. 
+>
 
 **Advantages of using Silver or Gold durability levels**
  
 - Reduces the number of required steps in a scale-in operation (that is, node deactivation and Remove-ServiceFabricNodeState is called automatically)
 - Reduces the risk of data loss due to a customer-initiated in-place VM SKU change operation or Azure infrastructure operations.
-	 
+
 **Disadvantages of using Silver or Gold durability levels**
  
 - Deployments to your virtual machine scale set and other related Azure resources) can be delayed, can time out, or can be blocked entirely by problems in your cluster or at the infrastructure level. 
