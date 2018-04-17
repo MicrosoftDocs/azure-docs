@@ -24,6 +24,8 @@ To get their feet wet and better understand the technologies involved, they're a
 
 In this scenario, we'll download and run the DMA to assess the on-premises SQL Server database for our travel app. We'll use Azure migrate with dependency mapping to assess the app VMs, before we migrate them to Azure.
 
+- **NOTE**: For this scenario our assessment target for the database will be "SQL Server on an Azure VM". However, in our next scenario article, we will run the migration to an Azure SQL Managed Instance. We're using this approach since DMA doesn't currently support assessment to an Azure SQL Managed Instance target.
+
 
 ## Architecture
 
