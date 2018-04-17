@@ -22,11 +22,11 @@ Things in the Internet of Things may refer to a wide range of devices with varyi
 
 ## Develop for native iOS platform
 
-Azure IoT Hub SDKs provide native iOS platform support through Azure IoT Hub C SDK.  You can think of this as an iOS SDK that you can incorporate in your Swift or Objective C XCode project.  There are two ways to use the C SDK on iOS: 
+Azure IoT Hub SDKs provide native iOS platform support through Azure IoT Hub C SDK.  You can think of it as an iOS SDK that you can incorporate in your Swift or Objective C XCode project.  There are two ways to use the C SDK on iOS:
 - Use the CocoaPod libraries in XCode project directly
 - Download the source code for C SDK and build for iOS platform following the [build instruction][lnk-c-devbox] for MacOS.
 
-The interface for iOS SDK is very similar to the interface for Azure IoT Hub C SDK, written in C99 for maximum portability to various platforms.  The porting process involves writing a thin adoption layer for the platform specific components, which can be found here for [iOS][lnk-ios-pal].  All the features in the C SDK can be leveraged on iOS platform directly, including the Azure IoT Hub features supported, as well as SDK specific features such as retry policy for network reliability. 
+Azure IoT Hub C SDK is written in C99 for maximum portability to various platforms.  The porting process involves writing a thin adoption layer for the platform-specific components, which can be found here for [iOS][lnk-ios-pal].  All the features in the C SDK can be leveraged on iOS platform directly, including the Azure IoT Hub primitives supported, as well as SDK-specific features such as retry policy for network reliability.  The interface for iOS SDK is also similar to the interface for Azure IoT Hub C SDK.
 
 These documentations walk through how to develop a device application or service application on an iOS device:
 - [Quickstart: Send telemetry from a device to an IoT hub][lnk-device-ios-quickstart]
