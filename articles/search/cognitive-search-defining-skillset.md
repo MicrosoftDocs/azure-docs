@@ -1,17 +1,11 @@
 ---
 title: How to create a skillset or augmentation pipeline (Azure Search) | Microsoft Docs
 description: Define a set of steps to augment and extract structured information from your data
-services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ---

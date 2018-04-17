@@ -1,21 +1,16 @@
 ---
 title: Cognitive search in Azure Search | Microsoft Docs
 description: Cognitive search is a collection of features in Azure Search for transforming unstructured data into searchable content.
-services: search
 manager: cgronlun
 author: HeidiSteen
-documentationcenter: ''
 
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
 ---
-# Cognitive Search concepts
+# Cognitive Search overview
 
 Cognitive search, currently in private preview, transforms raw, unstructured content into rich searchable content in an Azure Search index. At the heart of cognitive search is an extensible enrichment pipeline powered by a number of cognitive skills (for instance, natural language processing and computer vision capabilities) that extract structure and semantics from unstructured and non-textual data, and feeds it into a search index. 
 
@@ -78,6 +73,17 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 + [Tutorial (HTTP requests)](cognitive-search-tutorial-blob.md)
 + [Example custom skills (C#)](cognitive-search-create-custom-skill-example.md)
 
+**Step 3: Apply what you learned (typical workflow)**
+
+1. Subset your Azure source data into a representative sample. Indexing takes time so start with a small, representative data set and then build it up incrementally as your solution matures.
+2. Create a data source object in Azure Search to provide the connection string.
+3. Create a skillset with enrichment steps.
+4. Define the index schema. The fields collection includes fields from source data. Stub out additional fields to hold generated values for fields created during enrichment.
+5. Define the indexer referencing the data source, skillset, and index. Add *outputFieldMappings* in the indexer definition. This section of the indexer maps outputs from the skillset (per step 3) to the inputs fields in the index schema (per step 4).
+6. Send an HTTP request to create and run the indexer to invoke the pipeline.
+7. Evaluate results and modify code to update skillsets, schema, or indexer configuraiton.
+8. Reset the indexer before rebuilding the pipeline.
+
 **Documentation**
 
 The following articles are the complete documentation for cognitive search.
@@ -90,7 +96,7 @@ The following articles are the complete documentation for cognitive search.
 [How to define a custom skills interface](cognitive-search-custom-skill-interface.md)
 [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)
 
-[Predefined skills reference](cognitive-search-predefined-skills.md)
+[Predefined skills](cognitive-search-predefined-skills.md)
   - [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
   - [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
   - [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
@@ -108,7 +114,7 @@ Reference (REST APIs)
   - [Data type map for indexers](ref-data-type-map-for-indexers-in-azure-search.md)
   - [Field mappings in Azure Search indexers](ref-search-indexer-field-mappings.md)
 
-### API (REST only)
+## API (REST only)
 
 Currently, only REST is available, but the .NET SDK is expected to follow shortly after the feature officially moves into public preview. Support for .NET will be announced as a service update. It will also be announced on this page if you want to check back later.
 

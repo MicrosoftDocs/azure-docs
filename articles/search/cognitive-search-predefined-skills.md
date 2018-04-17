@@ -1,17 +1,11 @@
 ---
 title: Predefined skills for content enrichment (Azure Search) | Microsoft Docs
 description: Skills add semantics and structure to raw content.
-services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ---

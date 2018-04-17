@@ -1,17 +1,11 @@
 ---
 title: Interface defintion for custom skills for an augmentation pipeline (Azure Search) | Microsoft Docs
 description: Explanation of interface between custom web-api custom skill and Azure Search.
-services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ---

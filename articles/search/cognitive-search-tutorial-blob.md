@@ -1,21 +1,15 @@
 ---
-title: Get started with cognitive search preview in Azure Search | Microsoft Docs
-description: Roadmap for design and development of a cognitive search solution in Azure Search, transforming unstructured data into searchable content.
-services: search
-manager: cgronlun
-author: HeidiSteen
-documentationcenter: ''
-
-ms.assetid: 
+title: Tutorial for cognitive search preview in Azure Search | Microsoft Docs
+description: Learn how to use artifical intelligence AI-powered pretrained models for transforming unstructured data into searchable content during indexing. Build a cognitive search solution in Azure Search. 
+manager: pablocas
+author: luiscabrer
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: tuorial
 ms.date: 05/01/2018
-ms.author: heidist
+ms.author: luisca
 ---
-# Get started with cognitive search preview
+# Tutorial: Cognitive search preview
 
 This article provides a roadmap for developers creating a cognitive search solution in Azure Search, including how to provision resources, learning the basic workflow, and testing your work.
 

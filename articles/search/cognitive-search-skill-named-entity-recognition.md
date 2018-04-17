@@ -1,17 +1,11 @@
 ---
 title: Microsoft.Skills.Text.NamedEntityRecognition cognitive search skill (Azure Search) | Microsoft Docs
 description: Extract named entities for person, location and organization from text in an Azure Search augmentation pipeline.
-services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: reference
 ms.date: 05/01/2018
 ms.author: luisca
 ---
