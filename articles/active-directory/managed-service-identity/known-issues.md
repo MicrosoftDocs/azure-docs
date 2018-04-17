@@ -45,7 +45,9 @@ When using MSI with VMs, we encourage using the MSI IMDS endpoint. The Azure Ins
 1. All Azure IaaS supported operating systems can use MSI over IMDS. 
 2. No longer need to install an extension on your VM to enable MSI. 
 3. The certificates used by MSI are no longer present in the VM. 
-4. The IMDS iendpoint is a well-known non-routable IP address, only available from within the VM. 
+4. The IMDS endpoint is a well-known non-routable IP address, only available from within the VM. 
+
+The MSI VM extension is still availble to be used today; however, moving forward we will default to using the IMDS endpoint. The MSI VM extension will start on a deprecation plan soon. 
 
 For more information on Azure Instance Metada Service, see [IMDS documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
 
