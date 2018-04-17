@@ -19,14 +19,13 @@ ms.author: trinadhk, sogup
 The virtual machine (VM) backup stack Resource Manager deployment model upgrade provides the following feature enhancements:
 * Ability to see snapshots taken as part of a backup job that's available for recovery without waiting for data transfer to complete. It reduces the wait time for snapshots to copy to the vault before triggering restore. Also, this ability eliminates the additional storage requirement for backing up premium VMs, except for the first backup.  
 
-* Reduction in backup and restore times by retaining snapshots locally for seven-days. 
+* Reduction in backup and restore times by retaining snapshots locally for seven days.
 
-* Support for disk sizes up to 4 TB. 
+* Support for disk sizes up to 4 TB.
 
 * Ability to use original storage accounts when doing a restore of an unmanaged VM. This ability exists even when VM has disks that are distributed across storage accounts. It makes restores faster for a wide variety of VM configurations.
     > [!NOTE] 
     > This ability is not the same as overriding the original VM. 
-    > 
     >
 
 ## What's changing in the new stack?
@@ -41,7 +40,7 @@ A recovery point is considered created only after phases 1 and 2 are done. As pa
 By default, snapshots are kept for seven days. This feature allows the restore to be completed faster from these snapshots. It reduces the time that's required to copy data back from the vault to the customer storage account. 
 
 ## Considerations before upgrade
-* The upgrade of the VM backup stack is one directional. Therefore, all backups go into this flow. Because it's enabled at the subscription level, all VMs go onto this flow. All new feature additions are based on the same stack.
+* The upgrade of the VM backup stack is one directional. So all backups go into this flow. Because it's enabled at the subscription level, all VMs go onto this flow. All new feature additions are based on the same stack.
 
 * For VMs with premium disks, during and until the first backup completes, make sure there's enough storage space in the storage account. It should be equal to the size of the VM.
 
@@ -90,7 +89,4 @@ From an elevated PowerShell terminal, run the following cmdlet:
 Get-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-If it says Registered, then your subscription is upgraded to VM backup stack Resource Manager deployment model. 
-
-
-
+If it says "Registered," then your subscription is upgraded to VM backup stack Resource Manager deployment model.
