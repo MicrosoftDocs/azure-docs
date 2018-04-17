@@ -28,13 +28,13 @@ We recommend that you use GPv2, so you can take advantage of choosing between ho
 
 ## Assets in a storage account
 
-In Media Services v3, the Storage APIs are used to upload files. The following .NET snippet shows how to use the Storage APIs with Media Services to upload your input files. You can also ingest remotely hosted content over HTTP(s), for more information, [Ingest from HTTP(s)](job-input-from-http-how-to.md). In this case, you do not need to create an input asset.
+In Media Services v3, the Storage APIs are used to upload files. The following .NET snippet shows how to use the Storage APIs with Media Services to upload your input files. 
 
 The following function performs these actions:
 
-*	Creates the Asset 
-*	Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the Asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
-*	Uploads the file into the container in storage using the SAS URL
+* Creates the Asset 
+* Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the Asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
+* Uploads the file into the container in storage using the SAS URL
 
 ```csharp
 private static Asset CreateInputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName, string fileToUpload)

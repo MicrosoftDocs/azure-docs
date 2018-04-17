@@ -51,64 +51,7 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
-## Access the Media Services API
-
->[!Tip]
-> To connect to Azure Media Services APIs, you use the Azure AD service principal authentication. 
-
-The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure your .NET app, as shown in the script that follows.
-
-Before running the script, you can replace `amsaccountname` (the name of the Azure Media Services account where to attach the service principal) and `amsResourcegroup` (your resource group).
-
-```azurecli-interactive
-az ams sp create --account-name amsaccountname --resource-group amsResourcegroup
-```
-
-This command produces a response similar to this:
-
-```json
-{
-  "AadClientId": "12345678-1234-1234-1234-111111111111",
-  "AadEndpoint": "https://login.microsoftonline.com",
-  "AadSecret": "22345678-1234-1234-1234-111111111111",
-  "AadTenantId": "32345678-1234-1234-1234-111111111111",
-  "AccountName": "amsaccountname",
-  "ArmAadAudience": "https://management.core.windows.net/",
-  "ArmEndpoint": "https://management.azure.com/",
-  "Region": "West US",
-  "ResourceGroup": "amsResourcegroup",
-  "SubscriptionId": "42345678-1234-1234-1234-111111111111"
-}
-```
-
-## Configure the sample app
-
-To run the app and access the Media Services APIs, you need to specify the correct access values in App.config. 
-
-1. Open Visual Studio.
-2. Browse to the solution that you cloned.
-3. In the Solution Explorer, unfold the *UploadEncodeAndStreamFiles* project.
-4. Set this project as the start up project.
-5. Open App.config.
-6. Replace settings values with the values that you got in the [previous](#create-an-azure-ad-application-and-service-principal) step.
-
-    ```xml
-    <appSettings>
-        <add key="SubscriptionId" value ="42345678-1234-1234-1234-111111111111" />
-        <add key="Region" value ="West US" />      
-        <add key="ResourceGroup" value ="amsResourcegroup" />
-        <add key="AccountName" value ="amsaccountname" />
-        <add key="AadTenantId" value ="32345678-1234-1234-1234-111111111111" />
-        <add key="AadClientId" value ="12345678-1234-1234-1234-111111111111" />
-        <add key="AadSecret" value ="22345678-1234-1234-1234-111111111111" />
-        <add key="ArmAadAudience" value ="https://management.core.windows.net/" />
-        <add key="AadEndpoint" value ="https://login.microsoftonline.com" />
-        <add key="ArmEndpoint" value ="https://management.azure.com/" />
-    </appSettings>
-    ```    
-
-7. Click the right mouse button the solution and select "Restore NuGet packages".
-8. Press Ctrl+Shift+B to build the solution.
+[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
 ## Examine the code
 
@@ -134,11 +77,13 @@ private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper
 
 The **CreateInputAsset** function creates an input asset and uploads the specified local video file into it. This asset is used as the input to your encoding job. In Media Services v3, the job input can be created from HTTP(s) URLs, SAS URLs, AWS S3 Token URLs, or paths to files located in Azure Blob storage. If you want to learn how to create a job input from an HTTP(s) URL, see [this](job-input-from-http-how-to.md) article.  
 
+In Media Services v3, the Storage APIs are used to upload files. The following .NET snippet shows how to use the Storage APIs with Media Services to upload your input files. You can also ingest remotely hosted content over HTTP(s), for more information, [Ingest from HTTP(s)](job-input-from-http-how-to.md). 
+
 The following function performs these actions:
 
--	Creates the Asset
--	Gets a SAS URL
--	Uploads the file to Blob storage using the SAS URL
+* Creates the Asset 
+* Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the Asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
+* Uploads the file into the container in storage using the SAS URL
 
 ```csharp
 private static Asset CreateInputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName, string fileToUpload)
@@ -148,7 +93,7 @@ private static Asset CreateInputAsset(IAzureMediaServicesClient client, string r
     var response = client.Assets.ListContainerSas(resourceGroupName, accountName, assetName, new ListContainerSasInput()
     {
         Permissions = AssetContainerPermission.ReadWrite,
-        ExpiryTime = DateTimeOffset.Now.AddHours(1)
+        ExpiryTime = DateTimeOffset.Now.AddHours(4)
     });
 
     var sasUri = new Uri(response.AssetContainerSasUrls.First());
@@ -181,6 +126,8 @@ When encoding or processing content in Media Services, it is a common pattern to
 
 When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article, uses a built-in Preset called **AdaptiveStreaming**. The Preset auto-generates a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about, see [auto-generating bitrate ladder](autogen-bitrate-ladder.md).
 
+You can use other built-in EncoderNamedPreset or use custom presets. 
+
 When creating a **Transform**, you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist.
 
 ```csharp
@@ -212,7 +159,9 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
 
 #### Job
 
-As mentioned above, the **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. In this example, the input video is uploaded from your local machine. In Media Services v3, the job input can be created from HTTP(s) URLs, SAS URLs, AWS S3 Token URLs, or paths to files located in Azure Blob storage. If you want to learn how to create a job input from an HTTP(s) URL, see [this](job-input-from-http-how-to.md) article.  
+As mentioned above, the **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTP(s) URLs, SAS URLs, S3 URLs, or a path to files located locally or in Azure Blob storage. The content can also be specified using [Google Cloud Storage signed URLs](https://cloud.google.com/storage/docs/access-control/signed-urls).
+
+In this example, the input video is uploaded from your local machine. If you want to learn how to create a job input from an HTTP(s) URL, see [this](job-input-from-http-how-to.md) article.  
 
 ```csharp
 private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, string jobName, JobInput jobInput, string outputAssetName)
@@ -239,10 +188,9 @@ private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGr
 
 ### Wait for the job to complete
 
-The job takes some time to complete and when it does you want to be notified. There are different options to get notified about the job completion. The simplest option (that is shown here) is to use polling. 
+Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid.
 
-> [!Note]
-> Polling is not a recommended best practice for production applications. Developers should instead use Event Grid.
+Event Grid is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
@@ -372,8 +320,12 @@ If you no longer need any of the resources in your resource group, including the
 In the **CloudShell**, execute the following command:
 
 ```azurecli-interactive
-az group delete --name amsResourcegroup
+az group delete --name amsResourceGroup
 ```
+
+## Multithreading
+
+The Azure Media Services v3 SDKs are not thread-safe. When working with multi-threaded application, you should generate a new  AzureMediaServicesClient object per thread.
 
 ## Next steps
 
