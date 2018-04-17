@@ -12,7 +12,7 @@ ms.custom: mvc
 # Manage Windows updates with Azure Automation
 
 Update management allows you to manage updates and patches for your virtual machines.
-In this tutorial, you learn how to assess the status of available updates quickly, schedule installation of required updates, and review deployment results to verify updates apply successfully.
+In this tutorial, you learn how to assess the status of available updates quickly, schedule installation of required updates, review deployment results, and create an alert to verify updates apply successfully.
 
 For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/)
 
@@ -39,10 +39,10 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Enable Update management
 
-First you need to enable Update management for your VM for this tutorial. If you have previously enabled another automation solution for a VM, this step is not necessary.
+First you need to enable Update management on your VM for this tutorial. If you have previously enabled another automation solution for a VM, this step is not necessary.
 
-1. On the left menu, select **Virtual machines** and select a VM from the list
-2. On the left menu, under the **Operations** section, click **Update management**. The **Enable Update Management** page opens.
+1. From the Azure portal, on the left menu, select **Virtual machines** and select a VM from the list
+2. From the VM page, click **Update management** under the **Operations** section. The **Enable Update Management** page opens.
 
 Validation is performed to determine if Update management is enabled for this VM.
 The validation includes checks for a Log Analytics workspace and linked Automation account, and if the solution is in the workspace.
