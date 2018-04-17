@@ -31,7 +31,7 @@
   items:
   - name: Storage accounts
     href: storage-account-concept.md
-  - name: Transforms
+  - name: Transforms and jobs
     href: transform-concept.md
   - name: Assets
     href: assets-concept.md
