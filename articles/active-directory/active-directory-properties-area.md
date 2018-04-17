@@ -17,10 +17,10 @@ ms.reviewer: bpham
 ms.custom: it-pro
 ---
 
-# How-to: Add privacy info to the Properties area in Azure AD
+# How-to: Add privacy info to the Properties area in Azure Active Directory
 This article explains how a tenant admin can add privacy-related info to an organization’s Azure Active Directory (Azure AD) tenant, through the Azure portal.
 
-We strongly recommend you add both your global privacy contact and your organization’s privacy statement so your internal employees and external guests can review your policies. For info about what to include in your privacy statement, see the … article. 
+We strongly recommend you add both your global privacy contact and your organization’s privacy statement so your internal employees and external guests can review your policies. For info about what to include in your privacy statement, see the <!--need link--> article. 
 
 [!INCLUDE [active-directory-gdpr-note](../../includes/active-directory-gdpr-note.md)]
 
@@ -32,7 +32,7 @@ We strongly recommend you add both your global privacy contact and your organiza
 
     The **Properties** area appears.
 
-    ![Azure AD Properties area highlighting the privacy info area](/media/active-directory-properties-area/properties-area.png)
+    ![Azure AD Properties area highlighting the privacy info area](./media/active-directory-properties-area/properties-area.png)
 
 3.	Add your privacy info for your employees:
 
@@ -42,8 +42,8 @@ We strongly recommend you add both your global privacy contact and your organiza
 
     - **Privacy statement URL.** Type the link to your organization’s document that describes how your organization handles both internal and external guests data privacy.
 
-    >[!Important]
-    >If you don’t include your own privacy statement, your internal employees and external guests see text in the **Review Permissions** box that says, **<_your org name_> has not provided links to their terms for you to review**.
+        >[!Important]
+        >If you don’t include your own privacy statement, your internal employees and external guests see text in the **Review Permissions** box that says, **<_your org name_> has not provided links to their terms for you to review**.
 
 4.	Select **Save**.
 
