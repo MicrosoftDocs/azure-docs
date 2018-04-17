@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 04/17/2018
 ms.author: jeedes
 
 ---
@@ -123,26 +123,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [FreshGrade Client support team](mailTo:support@freshgrade.com) to get these values.
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
-
-	![Configure Single Sign-On](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_certificate.png) 
-
-5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+4. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
     
     ![Configure Single Sign-On](./media/active-directory-saas-freshgrade-tutorial/tutorial_metadataurl.png)
      
-6. Click **Save** button.
+5. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-freshgrade-tutorial/tutorial_general_400.png)
 
-7. On the **FreshGrade Configuration** section, click **Configure FreshGrade** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **FreshGrade Configuration** section, click **Configure FreshGrade** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_configure.png)
 
-8. To configure single sign-on on **FreshGrade** side, you need to send the **App Federation Metadata Url** and **SAML Single Sign-On Service URL** to [FreshGrade support team](mailTo:support@freshgrade.com). They set this setting to have the SAML SSO connection set properly on both sides.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. To configure single sign-on on **FreshGrade** side, you need to send the **App Federation Metadata Url** and **SAML Single Sign-On Service URL** to [FreshGrade support team](mailTo:support@freshgrade.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
