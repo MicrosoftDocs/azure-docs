@@ -206,4 +206,4 @@ The following list explains this activity in detail:
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
-[Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Example of SSPR activity audit logs in Azure AD"
+[Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Example of SSPR activity audit logs in Azure AD"

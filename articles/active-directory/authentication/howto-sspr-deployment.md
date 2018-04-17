@@ -93,4 +93,4 @@ It's easy to disable self-service password reset. Open your Azure AD tenant and 
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
-[Email]: ./media/active-directory-passwords-best-practices/sspr-emailtemplates.png "Customize these email templates to fit your organizational requirements"
+[Email]: ./media/howto-sspr-deployment/sspr-emailtemplates.png "Customize these email templates to fit your organizational requirements"

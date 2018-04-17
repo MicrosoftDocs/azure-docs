@@ -260,5 +260,5 @@ The following articles provide additional information regarding password reset t
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
-[Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Azure AD authentication methods available and quantity required"
-[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "On-premises integration password writeback configuration and troubleshooting information"
+[Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "Azure AD authentication methods available and quantity required"
+[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-writeback-running.png "On-premises integration password writeback configuration and troubleshooting information"

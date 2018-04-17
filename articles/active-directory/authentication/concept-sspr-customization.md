@@ -95,4 +95,4 @@ You can change the directory name attribute under **Azure Active Directory** > *
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
-[Contact]: ./media/active-directory-passwords-customize/sspr-contact-admin.png "Contact your administrator for help resetting your password email example"
+[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contact your administrator for help resetting your password email example"
