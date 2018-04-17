@@ -34,6 +34,7 @@ This command will produce a response similar to this:
 <add key="AadClientId" value="44444444-0000-2222-3333-55555555555" />
 <add key="ArmEndpoint" value="https://management.azure.com/" />
 ```
+
 ### Configure the sample app
 
 To run the app and access the Media Services APIs, you need to specify the correct access values in App.config. 
