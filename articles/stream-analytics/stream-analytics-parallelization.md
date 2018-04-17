@@ -30,7 +30,7 @@ All Azure Stream Analytics input can take advantage of partitioning:
 
 ### Outputs
 
-When you work with Stream Analytics, you can take advantage of partitioning for most output sinks. More information about output partitioning is available on the [Output types for a job page](https://review.docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs?branch=master#partitioning).
+When you work with Stream Analytics, you can take advantage of partitioning for most output sinks. More information about output partitioning is available on the [partitioning section of the output page](https://review.docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs?branch=master#partitioning).
 
 PowerBI, SQL, and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
 
