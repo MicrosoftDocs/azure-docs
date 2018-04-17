@@ -50,24 +50,40 @@ Cloud agents you to configure a build agent platform for Jenkins build jobs.
 
 Once done with the integration settings, click ok, and then OK again on the validation summary. The Jenkins server takes a few minutes to deploy.
 
-## Configure Jenkins
-
 ![Jenkins portal deployment cloud integration settings](./media/container-instances-jenkins/jenkins-portal-03.png)
+
+## Configure Jenkins
 
 ![Jenkins login instructions](./media/container-instances-jenkins/jenkins-portal-04.png)
 
+Paste the initial admin password into the field as seen below.
+
 ![Unlock Jenkins](./media/container-instances-jenkins/jenkins-portal-05.png)
 
+Select **Install suggested plugins** to install all recommended Jenkins plugins.
+
 ![Install Jenkins plugin](./media/container-instances-jenkins/jenkins-portal-06.png)
+
+Create a new admin user account. This account is used for logging into and working with your Jenkins instance.
 
 ![Create Jenkins user](./media/container-instances-jenkins/jenkins-portal-07.png)
 
 ## Create build job
 
+Jenkins is now configured and ready to build and deploy code. For this example, a simple Java application is used to demonstrate Jenkins builds on Azure Container Instances.
+
+Select **New Item**, give the build project a name such as `aci-java-demo`, and select **Freestyle Projet**.
+
+Under **General**, ensure that Restrict where this project can be run is selected, and enter `linux` for the Label Expression. This configuration ensures that this build job runs on the ACI cloud.
+
 ![Create Jenkins job](./media/container-instances-jenkins/jenkins-job-01.png)
+
+Under source code management, select `git` and enter `https://github.com/spring-projects/spring-petclinic.git` for the repository URL.
 
 ![Add source code to Jenkins job](./media/container-instances-jenkins/jenkins-job-02.png)
 
+Under Build, add the build step named `Invoke top-level Maven targets`, and enter `package` as the goal.
+
 ![Add Jenkins build step](./media/container-instances-jenkins/jenkins-job-03.png)
 
-
+## Run the build job
