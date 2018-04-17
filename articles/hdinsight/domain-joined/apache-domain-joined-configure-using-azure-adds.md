@@ -3,7 +3,7 @@ title: Configure Domain-joined HDInsight clusters using Azure Active Directory D
 description: Learn how to set up and configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services
 services: hdinsight
 documentationcenter: ''
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: ''
