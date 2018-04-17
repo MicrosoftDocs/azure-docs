@@ -27,7 +27,7 @@ The Azure Machine Learning Model Management Account API implements the following
 You can use this image to create a web service either locally or on a remote Azure Container Service cluster or another Docker-supported environment of your choice.
 
 ## Prerequisites
-Make sure you have gone through the installation steps in the [Install and create Quickstart](quickstart-installation.md) document.
+Make sure you have gone through the installation steps in the [Install and create Quickstart](../service/quickstart-installation.md) document.
 
 The following are required before you proceed:
 1. Model Management account provisioning

@@ -67,12 +67,12 @@ When you are working in Azure ML Workbench, you can also send us a frown (or a s
 ## Known service limits
 - Max allowed project folder size: 25 MB.
     >[!NOTE]
-    >This limit doesn't apply to `.git`, `docs` and `outputs` folders. These folder names are case-sensitive. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](how-to-read-write-files.md).
+    >This limit doesn't apply to `.git`, `docs` and `outputs` folders. These folder names are case-sensitive. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](../desktop-workbench/how-to-read-write-files.md).
 
 - Max allowed experiment execution time: seven days
 
 - Max size of tracked file in `outputs` folder after a run: 512 MB
-  - This means if your script produces a file larger than 512 MB in the outputs folder, it is not collected there. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](how-to-read-write-files.md).
+  - This means if your script produces a file larger than 512 MB in the outputs folder, it is not collected there. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](../desktop-workbench/how-to-read-write-files.md).
 
 - SSH keys are not supported when connecting to a remote machine or Spark cluster over SSH. Only username/password mode is currently supported.
 

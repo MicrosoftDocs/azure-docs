@@ -20,8 +20,8 @@ This article describes how to make effective use of these features to increase t
 
 ## Prerequisites
 To step through this how-to guide, you need to:
-* [Create and Install Azure Machine Learning](quickstart-installation.md)
-- [Create a Project](quickstart-installation.md)
+* [Create and Install Azure Machine Learning](../service/quickstart-installation.md)
+- [Create a Project](../service/quickstart-installation.md)
 
 
 ## Azure ML Logging API Overview
@@ -45,7 +45,7 @@ logger.log("all values", [5, 6, 7])
 It is easy to use the logger within your Azure ML Workbench projects, and this article shows you how to do so.
 
 ## Create a Project in Azure ML Workbench
-If you don't already have a project, you can create one from the [Create and Install Quickstart](quickstart-installation.md)
+If you don't already have a project, you can create one from the [Create and Install Quickstart](../service/quickstart-installation.md)
 From the **Project Dashboard**, you can open the **iris_sklearn.py** script (as shown.)
 
 ![accessing a script from the files tab](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)

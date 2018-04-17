@@ -29,7 +29,7 @@ The main components of Azure Machine Learning are:
 
 Together, these applications and services help significantly accelerate your data science project development and deployment. 
 
-![Azure Machine Learning Concepts](media/overview-what-is-azure-ml/aml-concepts.png)
+![Azure Machine Learning Concepts](./media/overview-what-is-azure-ml/aml-concepts.png)
 
 
 ## Open source compatible
@@ -87,12 +87,12 @@ Here are the core functionalities offered by Azure Machine Learning Workbench:
 - Integration with popular Python IDEs.
 
 For more information, reference the following articles:
-- [Data Preparation User Guide](data-prep-user-guide.md)
-- [Using Git with Azure Machine Learning](using-git-ml-project.md)
-- [Using Jupyter Notebook in Azure Machine Learning](how-to-use-jupyter-notebooks.md)
+- [Data Preparation User Guide](../desktop-workbench/data-prep-user-guide.md)
+- [Using Git with Azure Machine Learning](../desktop-workbench/using-git-ml-project.md)
+- [Using Jupyter Notebook in Azure Machine Learning](../desktop-workbench/how-to-use-jupyter-notebooks.md)
 - Roaming and Sharing
-- [Run History Guide](how-to-use-run-history-model-metrics.md)
-- [IDE Integration](how-to-configure-your-IDE.md)
+- [Run History Guide](../desktop-workbench/how-to-use-run-history-model-metrics.md)
+- [IDE Integration](../desktop-workbench/how-to-configure-your-ide.md)
 
 ## Azure Machine Learning Experimentation Service
 The Experimentation Service handles the execution of machine learning experiments. It also supports the Workbench by providing project management, Git integration, access control, roaming, and sharing. 
@@ -106,7 +106,7 @@ Through easy configuration, you can execute your experiments across a range of c
 
 The Experimentation Service constructs virtual environments to ensure that your script can be executed in isolation with reproducible results. It records run history information and presents the history to you visually. You can easily select the best model out of your experiment runs. 
 
-For more information, please reference [Experimentation Service Configuration](experimentation-service-configuration.md).
+For more information, please reference [Experimentation Service Configuration](../desktop-workbench/experimentation-service-configuration.md).
 
 ## Azure Machine Learning Model Management Service
 
@@ -121,7 +121,7 @@ Using simple CLI commands, you can containerize your model, scoring scripts and 
 
 Kubernetes running in the Azure Container Service (ACS) is used for cloud scale-out deployment. Model execution telemetry is captured in AppInsights for visual analysis. 
 
-For more information on Model Management Service, reference [Model Management Overview](model-management-overview.md)
+For more information on Model Management Service, reference [Model Management Overview](../desktop-workbench/model-management-overview.md)
 
 
 ## Microsoft Machine Learning Library for Apache Spark
@@ -137,7 +137,7 @@ The [MMLSpark](https://github.com/Azure/mmlspark)(Microsoft Machine Learning Lib
 - Train classification and regression models easily via implicit featurization of data
 - Compute a rich set of evaluation metrics including per-instance metrics
 
-For more information, reference [Using MMLSpark in Azure Machine Learning](how-to-use-mmlspark.md).
+For more information, reference [Using MMLSpark in Azure Machine Learning](../desktop-workbench/how-to-use-mmlspark.md).
 
 ## Visual Studio Code Tools for AI
 Visual Studio Code Tools for AI is an extension in Visual Studio Code to build, test, and deploy Deep Learning and AI solutions. It features many integration points with Azure Machine Learning, including:
@@ -147,7 +147,7 @@ Visual Studio Code Tools for AI is an extension in Visual Studio Code to build, 
  
 
 ## What are the machine learning options from Microsoft?
-Besides Azure Machine Learning, there are a wide variety of options in Azure to build, deploy, and manage machine learning models. [Learn about them here.](overview-more-machine-learning.md)
+Besides Azure Machine Learning, there are a wide variety of options in Azure to build, deploy, and manage machine learning models. [Learn about them here.](../desktop-workbench/overview-more-machine-learning.md)
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

@@ -37,19 +37,19 @@ Additionally, you must have adequate permissions to create assets such as Resour
 Use the Azure portal to provision your Azure Machine Learning accounts: 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using the credentials for the Azure subscription you'll use. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now. 
 
-   ![Azure portal](media/quickstart-installation/portal-dashboard.png)
+   ![Azure portal](./media/quickstart-installation/portal-dashboard.png)
 
 1. Select the **Create a resource** button (+) in the upper-left corner of the portal.
 
-   ![Create a resource in Azure portal](media/quickstart-installation/portal-create-a-resource.png)
+   ![Create a resource in Azure portal](./media/quickstart-installation/portal-create-a-resource.png)
 
 1. Enter **Machine Learning** in the search bar. Select the search result named **Machine Learning Experimentation**. 
 
-   ![Azure Machine Learning search](media/quickstart-installation/portal-more-services.png)
+   ![Azure Machine Learning search](./media/quickstart-installation/portal-more-services.png)
 
 1. In the **Machine Learning Experimentation** pane, scroll to the bottom and select **Create** to begin defining your experimentation account.  
 
-   ![Azure Machine Learning - create experimentation account](media/quickstart-installation/portal-create-account.png)
+   ![Azure Machine Learning - create experimentation account](./media/quickstart-installation/portal-create-account.png)
 
 1. In the **ML Experimentation** pane, configure your Machine Learning Experimentation account. 
 
@@ -68,15 +68,15 @@ Use the Azure portal to provision your Azure Machine Learning accounts:
    Model Management pricing tier | **DEVTEST** | Select **No pricing tier selected** to specify the pricing tier for your new Model Management account. For cost savings, select the **DEVTEST** pricing tier if it's available on your subscription (limited availability). Otherwise, select the S1 pricing tier. Click **Select** to save the pricing tier selection. 
    Pin to dashboard | _check_ | Select the **Pin to dashboard** option to allow easy tracking of your Machine Learning Experimentation account on the front dashboard page of the Azure portal.
 
-   ![Machine Learning Experimentation account configuration](media/quickstart-installation/portal-create-experimentation.png)
+   ![Machine Learning Experimentation account configuration](./media/quickstart-installation/portal-create-experimentation.png)
 
 5. Select **Create** to begin the creation process of the Experimentation account along with the Model Management account.
 
-   ![Machine Learning Experimentation account configuration](media/quickstart-installation/portal-create-experimentation-button.png)
+   ![Machine Learning Experimentation account configuration](./media/quickstart-installation/portal-create-experimentation-button.png)
 
    It can take a few moments to create an account. You can check on the status of the deployment process by clicking the Notifications icon (bell) on the Azure portal toolbar.
    
-   ![Azure portal notifications](media/quickstart-installation/portal-notification.png)
+   ![Azure portal notifications](./media/quickstart-installation/portal-notification.png)
 
 
 ## Install and log in to Workbench
@@ -132,7 +132,7 @@ Here, we are creating a new Workbench project using a template that includes the
 
 1. With Azure Machine Learning Workbench open, select the plus sign (+) in the **PROJECTS** pane and choose **New Project**.  
 
-   ![New workspace](media/tutorial-classifying-iris/new_ws.png)
+   ![New workspace](./media/quickstart-installation/new_ws.png)
 
 1. Fill out of the form fields and select the **Create** button to create a new project in the Workbench.
 
@@ -145,12 +145,12 @@ Here, we are creating a new Workbench project using a template that includes the
    Selected workspace | IrisGarden (if it exists) | Choose a workspace that you have created for your Experimentation account in the Azure portal. <br/>If you followed the Quickstart, you should have a workspace by the name IrisGarden. If not, select the one you created when you created your Experimentation account or any other you want to use.
    Project template | Classifying Iris | Templates contain scripts and data you can use to explore the product. This template contains the scripts and data you need for this quickstart and other tutorials in this documentation site. 
 
-   ![New project](media/tutorial-classifying-iris/new_project.png)
+   ![New project](./media/quickstart-installation/new_project.png)
  
  A new project is created and the project dashboard opens with that project. At this point, you can explore the project home page, data sources, notebooks, and source code files. 
 
 >[!TIP]
->You can configure Workbench to work with a Python IDE for a smooth data science development experience. Then, you can interact with your project in the IDE. [Learn how](how-to-configure-your-IDE.md). 
+>You can configure Workbench to work with a Python IDE for a smooth data science development experience. Then, you can interact with your project in the IDE. [Learn how](../desktop-workbench/how-to-configure-your-ide.md). 
 
 ## Run a Python script
 
@@ -160,7 +160,7 @@ Now, you can run the **iris_sklearn.py** script on your local computer. This scr
 
    There are other files included in the sample that you can check out later, but for this quickstart we are only interested in **iris_sklearn.py**. 
 
-   ![Command bar](media/quickstart-installation/run_control.png)
+   ![Command bar](./media/quickstart-installation/run_control.png)
 
 1. In the **Arguments** text box, enter **0.01**. This number corresponds to the regularization rate, and is used in the script to configure the logistic regression model. 
 
@@ -172,19 +172,19 @@ Now, you can run the **iris_sklearn.py** script on your local computer. This scr
 
 1. Inspect the run history by selecting the **Runs** view and then **iris_sklearn.py** in the Runs list. 
 
-   ![Run history dashboard](media/quickstart-installation/run_view.png)
+   ![Run history dashboard](./media/quickstart-installation/run_view.png)
 
    This view shows every run that was executed on **iris_sklearn.py**. The run history dashboard also displays the top metrics, a set of default graphs, and a list of metrics for each run. 
 
 1. You can customize this view by sorting, filtering, and adjusting the configurations using the gear and filter icons.
 
-   ![Metrics and graphs](media/quickstart-installation/run_dashboard.png)
+   ![Metrics and graphs](./media/quickstart-installation/run_dashboard.png)
 
 3. Select a completed run in the Jobs pane to see a detailed view for that specific execution. Details include additional metrics, the files that it produced, and other potentially useful logs.
 
 ## Start the CLI
 
-The Azure Machine Learning command-line interface (CLI) is also installed. The CLI interface allows you to access and interact with your Azure Machine Learning services using the `az` commands to perform all tasks required for an end-to-end data science workflow. [Learn more.](tutorial-iris-azure-cli.md)
+The Azure Machine Learning command-line interface (CLI) is also installed. The CLI interface allows you to access and interact with your Azure Machine Learning services using the `az` commands to perform all tasks required for an end-to-end data science workflow. [Learn more.](../desktop-workbench/tutorial-iris-azure-cli.md)
 
 You can launch the Azure Machine Learning CLI from the Workbench's toolbar using **File → Open Command Prompt**.
 
@@ -199,10 +199,10 @@ You can get help on commands in the Azure Machine Learning CLI using the --help 
 ## Next steps
 You have now created the necessary Azure Machine Learning accounts and installed the Azure Machine Learning Workbench application. You have also created a project, ran a script, and explored the run history of the script.
 
-For a more in-depth experience of this workflow, including how to deploy your Iris model as a web service, follow the full-length *Classifying Iris* tutorial. The tutorial contains detailed steps for [data preparation](tutorial-classifying-iris-part-1.md), [experimentation](tutorial-classifying-iris-part-2.md), and [model management](tutorial-classifying-iris-part-3.md). 
+For a more in-depth experience of this workflow, including how to deploy your Iris model as a web service, follow the full-length *Classifying Iris* tutorial. The tutorial contains detailed steps for [data preparation](../desktop-workbench/tutorial-classifying-iris-part-1.md), [experimentation](../desktop-workbench/tutorial-classifying-iris-part-2.md), and [model management](../desktop-workbench/tutorial-classifying-iris-part-3.md). 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Classifying Iris (Part 1)](tutorial-classifying-iris-part-1.md)
+> [Tutorial: Classifying Iris (Part 1)](../desktop-workbench/tutorial-classifying-iris-part-1.md)
 
 >[!NOTE]
-> While you have created your model management account, your environment is not set up for deploying web services yet. Learn how to set up your [deployment environment](deployment-setup-configuration.md).
+> While you have created your model management account, your environment is not set up for deploying web services yet. Learn how to set up your [deployment environment](../desktop-workbench/deployment-setup-configuration.md).

@@ -34,11 +34,11 @@ To complete this tutorial, you must have:
 - An Azure Machine Learning Experimentation account
 - Azure Machine Learning Workbench installed
 
-If you don't have these prerequisites already, follow the steps in the [Quickstart: Install and start](quickstart-installation.md) article to set up your accounts and install the Azure Machine Learning Workbench application. 
+If you don't have these prerequisites already, follow the steps in the [Quickstart: Install and start](../service/quickstart-installation.md) article to set up your accounts and install the Azure Machine Learning Workbench application. 
 
 ## Create a new project in Workbench
 
-If you followed the steps in the [Quickstart: Install and start](quickstart-installation.md) article you should already have this project and can skip to the next section.
+If you followed the steps in the [Quickstart: Install and start](../service/quickstart-installation.md) article you should already have this project and can skip to the next section.
 
 1. Open the Azure Machine Learning Workbench app, and log in if needed. 
    

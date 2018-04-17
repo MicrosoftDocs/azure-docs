@@ -319,5 +319,5 @@ az ml experiment prepare -c remotevm
 ```
 
 ## Next steps
-* [Create and Install Azure Machine Learning](quickstart-installation.md)
+* [Create and Install Azure Machine Learning](../service/quickstart-installation.md)
 * [Model Management](model-management-overview.md)

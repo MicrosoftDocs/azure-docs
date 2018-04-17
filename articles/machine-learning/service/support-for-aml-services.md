@@ -17,7 +17,7 @@ This article provides information on how to learn more about Azure Machine Learn
 
 ## Learn more about Azure Machine Learning
 
-The [Azure Machine Learning Documentation Center](./overview-what-is-azure-ml.md) hosts video tutorials and how-to guides. These step-by-step guides introduce the services and explain the data science life cycle. We add new material to the Machine Learning Center on an ongoing basis. 
+The [Azure Machine Learning Documentation Center](../desktop-workbench/overview-what-is-azure-ml.md) hosts video tutorials and how-to guides. These step-by-step guides introduce the services and explain the data science life cycle. We add new material to the Machine Learning Center on an ongoing basis. 
 
 Additionally, there are [videos you can watch to learn more](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 
