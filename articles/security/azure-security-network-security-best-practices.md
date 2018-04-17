@@ -20,9 +20,9 @@ ms.author: TomSh
 # Azure Network Security Best Practices
 Microsoft Azure enables you to connect virtual machines and appliances to other networked devices by placing them on Azure Virtual Networks. An Azure Virtual Network is a construct that allows you to connect virtual network interface cards to a virtual network to allow TCP/IP-based communications between network enabled devices. Azure Virtual Machines connected to an Azure Virtual Network are able to connect to devices on the same Azure Virtual Network, different Azure Virtual Networks, on the Internet or even on your own on-premises networks.
 
-In this article we will discuss a collection of Azure network security best practices. These best practices are derived from our experience with Azure networking and the experiences of customers like yourself.
+This article discusses a collection of Azure network security best practices. These best practices are derived from our experience with Azure networking and the experiences of customers like yourself.
 
-For each best practice, we’ll explain:
+For each best practice, this article explains:
 
 * What the best practice is
 * Why you want to enable that best practice
@@ -61,10 +61,10 @@ Using NSGs for network access control between subnets enables you to put resourc
 * Application logic virtual machines can only initiate connections with database tier and can only accept connections from the web tier
 * Database tier virtual machines cannot initiate connection with anything outside of their own subnet and can only accept connections from the application logic tier
 
-To learn more about Network Security Groups and how you can use them to logically segment your Azure Virtual Networks, please read the article [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md) (NSG).
+To learn more about Network Security Groups and how you can use them to logically segment your Azure Virtual Networks, see [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md) (NSG).
 
 ## Control routing behavior
-When you put a virtual machine on an Azure Virtual Network, you’ll notice that the virtual machine can connect to any other virtual machine on the same Azure Virtual Network, even if the other virtual machines are on different subnets. The reason why this is possible is that there is a collection of system routes that are enabled by default that allow this type of communication. These default routes allow virtual machines on the same Azure Virtual Network to initiate connections with each other, and with the Internet (for outbound communications to the Internet only).
+When you put a virtual machine on an Azure Virtual Network, you’ll notice that the virtual machine can connect to any other virtual machine on the same Azure Virtual Network, even if the other virtual machines are on different subnets. This is possible because there is a collection of system routes that are enabled by default that allow this type of communication. These default routes allow virtual machines on the same Azure Virtual Network to initiate connections with each other, and with the Internet (for outbound communications to the Internet only).
 
 While the default system routes are useful for many deployment scenarios, there are times when you want to customize the routing configuration for your deployments. These customizations will allow you to configure the next hop address to reach specific destinations.
 
@@ -88,12 +88,12 @@ For this reason, we recommend that you enable forced tunneling on your virtual m
 
 If you do not have a cross premises connection, make sure you take advantage of Network Security Groups (discussed earlier) or Azure virtual network security appliances (discussed next) to prevent outbound connections to the Internet from your Azure Virtual Machines.
 
-To learn more about forced tunneling and how to enable it, please read the article [Configure Forced Tunneling using PowerShell and Azure Resource Manager](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md).
+To learn more about forced tunneling and how to enable it, see [Configure Forced Tunneling using PowerShell and Azure Resource Manager](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md).
 
 ## Use virtual network appliances
 While Network Security Groups and User Defined Routing can provide a certain measure of network security at the network and transport layers of the [OSI model](https://en.wikipedia.org/wiki/OSI_model), there are going to be situations where you’ll want or need to enable security at high levels of the stack. In such situations, we recommend that you deploy virtual network security appliances provided by Azure partners.
 
-Azure network security appliances can deliver significantly enhanced levels of security over what is provided by network level controls. Some of the network security capabilities provided by virtual network security appliances include:
+Azure network security appliances can deliver enhanced levels of security over what is provided by network level controls. Some of the network security capabilities provided by virtual network security appliances include:
 
 * Firewalling
 * Intrusion detection/Intrusion Prevention
@@ -106,7 +106,7 @@ Azure network security appliances can deliver significantly enhanced levels of s
 
 If you require a higher level of network security than you can obtain with network level access controls, then we recommend that you investigate and deploy Azure virtual network security appliances.
 
-To learn about what Azure virtual network security appliances are available, and about their capabilities, please visit the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and search for “security” and “network security”.
+To learn about what Azure virtual network security appliances are available, and about their capabilities, visit the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and search for “security” and “network security”.
 
 ## Deploy DMZs for security zoning
 A DMZ or “perimeter network” is a physical or logical network segment that is designed to provide an additional layer of security between your assets and the Internet. The intent of the DMZ is to place specialized network access control devices on the edge of the DMZ network so that only desired traffic is allowed past the network security device and into your Azure Virtual Network.
@@ -117,7 +117,7 @@ While this is the basic design of a DMZ, there are many different DMZ designs, s
 
 We recommend for all high security deployments that you consider deploying a DMZ to enhance the level of network security for your Azure resources.
 
-To learn more about DMZs and how to deploy them in Azure, please read the article [Microsoft Cloud Services and Network Security](../best-practices-network-security.md).
+To learn more about DMZs and how to deploy them in Azure, see [Microsoft Cloud Services and Network Security](../best-practices-network-security.md).
 
 ## Avoid exposure to the Internet with dedicated WAN links
 Many organizations have chosen the Hybrid IT route. In hybrid IT, some of the company’s information assets are in Azure, while others remain on-premises. In many cases some components of a service will be running in Azure while other components remain on-premises.
@@ -133,7 +133,7 @@ While site-to-site VPN is a trusted, reliable, and established technology, traff
 
 If you require an exceptional level of security or performance for your cross-premises connections, we recommend that you use Azure ExpressRoute for your cross-premises connectivity. ExpressRoute is a dedicated WAN link between your on-premises location or an Exchange hosting provider. Because this is a telco connection, your data doesn’t travel over the Internet and therefore is not exposed to the potential risks inherent in Internet communications.
 
-To learn more about how Azure ExpressRoute works and how to deploy, please read the article [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md).
+To learn more about how Azure ExpressRoute works and how to deploy, see [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md).
 
 ## Optimize uptime and performance
 Confidentiality, integrity and availability (CIA) comprise the triad of today’s most influential security model. Confidentiality is about encryption and privacy, integrity is about making sure that data is not changed by unauthorized personnel, and availability is about making sure that authorized individuals are able to access the information they are authorized to access. Failure in any one of these areas represents a potential breach in security.
@@ -159,7 +159,7 @@ We recommend that you us Azure Application Gateway when:
 * Applications that want to free web server farms from SSL termination overhead by taking advantage of Application Gateway’s [SSL offload](https://f5.com/glossary/ssl-offloading) feature.
 * Applications, such as a content delivery network, that require multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 
-To learn more about how Azure Application Gateway works and how you can use it in your deployments, read the article [Application Gateway Overview](../application-gateway/application-gateway-introduction.md).
+To learn more about how Azure Application Gateway works and how you can use it in your deployments, see [Application Gateway Overview](../application-gateway/application-gateway-introduction.md).
 
 ## External Load Balancing
 External load balancing takes place when incoming connections from the Internet are load balanced among your servers located in an Azure Virtual Network. The Azure External Load balancer can provide you this capability and we recommend that you use it when you don’t require the sticky sessions or SSL offload.
@@ -168,14 +168,14 @@ In contrast to HTTP-based load balancing, the External Load Balancer uses inform
 
 We recommend that you use External Load Balancing whenever you have [stateless applications](http://whatis.techtarget.com/definition/stateless-app) accepting incoming requests from the Internet.
 
-To learn more about how the Azure External Load Balancer works and how you can deploy it, please read the article [Get Started Creating an Internet Facing Load Balancer in Resource Manager using PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+To learn more about how the Azure External Load Balancer works and how you can deploy it, see [Get Started Creating an Internet Facing Load Balancer in Resource Manager using PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## Internal Load Balancing
 Internal load balancing is similar to external load balancing and uses the same mechanism to load balance connections to the servers behind them. The only difference is that the load balancer in this case is accepting connections from virtual machines that are not on the Internet. In most cases, the connections that are accepted for load balancing are initiated by devices on an Azure Virtual Network.
 
 We recommend that you use internal load balancing for scenarios that benefit from this capability, such as when you need to load balance connections to SQL Servers or internal web servers.
 
-To learn more about how Azure Internal Load Balancing works and how you can deploy it, please read the article [Get Started Creating an Internal Load Balancer using PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
+To learn more about how Azure Internal Load Balancing works and how you can deploy it, see [Get Started Creating an Internal Load Balancer using PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
 
 ## Use global load balancing
 Public cloud computing makes it possible to deploy globally distributed applications that have components located in datacenters all over the world. This is possible on Microsoft Azure due to Azure’s global datacenter presence. In contrast to the load balancing technologies mentioned earlier, global load balancing makes it possible to make services available even when entire datacenters might become unavailable.
@@ -190,7 +190,7 @@ For example, if an Azure datacenter should become unavailable due to environment
 
 We recommend that you use Traffic Manager for any cloud solution you develop that has a widely distributed scope across multiple regions and requires the highest level of uptime possible.
 
-To learn more about Azure Traffic Manager and how to deploy it, please read the article [What is Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+To learn more about Azure Traffic Manager and how to deploy it, see [What is Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
 ## Disable RDP/SSH Access to Azure Virtual Machines
 It is possible to reach Azure Virtual Machines using the [Remote Desktop Protocol](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP)and the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocols. These protocols make it possible to manage virtual machines from remote locations and are standard in datacenter computing.
@@ -222,7 +222,7 @@ Azure Security Center helps you optimize and monitor network security by:
 
 We highly recommend that you enable Azure Security Center for all of your Azure deployments.
 
-To learn more about Azure Security Center and how to enable it for your deployments, please read the article [Introduction to Azure Security Center](../security-center/security-center-intro.md).
+To learn more about Azure Security Center and how to enable it for your deployments, see [Introduction to Azure Security Center](../security-center/security-center-intro.md).
 
 ## Securely extend your datacenter into Azure
 Many enterprise IT organizations are looking to expand into the cloud instead of growing their on-premises datacenters. This expansion represents an extension of existing IT infrastructure into the public cloud. By taking advantage of cross-premises connectivity options it’s possible to treat your Azure Virtual Networks as just another subnet on your on-premises network infrastructure.
@@ -231,4 +231,4 @@ However, there is a lot of planning and design issues that need to be addressed 
 
 Microsoft has created the [Datacenter Extension Reference Architecture Diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) and supporting collateral to help you understand what such a datacenter extension would look like. This provides an example reference implementation that you can use to plan and design a secure enterprise datacenter extension to the cloud. We recommend that you review this document to get an idea of the key components of a secure solution.
 
-To learn more about how to securely extend your datacenter into Azure, please view the video [Extending Your Datacenter to Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
+To learn more about how to securely extend your datacenter into Azure, view the video [Extending Your Datacenter to Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
