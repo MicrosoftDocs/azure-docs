@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2018
+ms.date: 04/17/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 
@@ -22,16 +22,16 @@ ms.reviewer: xiaofmao
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Microsoft Azure Stack provides a set of the storage services for disks, blobs, tables, queues, and account management functions. You can use a set of Azure Storage tools if you want to manage or move data to or from Azure Stack Storage. This article provides a quick overview of the tools available.
+Microsoft Azure Stack provides a set of the storage services for disks, blobs, tables, queues, and account management functions. You can use a set of Azure Storage tools if you want to manage or move data to or from Azure Stack Storage. This article provides a quick overview of the available tools.
 
 The tool that works best for you depends on your requirements:
 * [AzCopy](#azcopy)
 
-    A storage-specific command-line utility that you can download to copy data from one object to another within your storage account, or between storage accounts.
+    A storage-specific, command-line utility that you can download to copy data from one object to another object within your storage account, or between storage accounts.
 
 * [Azure PowerShell](#azure-powershell)
 
-    A task-based command-line shell and scripting language designed especially for system administration.
+    A task-based, command-line shell and scripting language designed especially for system administration.
 
 * [Azure CLI](#azure-cli)
 
@@ -39,57 +39,67 @@ The tool that works best for you depends on your requirements:
 
 * [Microsoft Storage Explorer](#microsoft-azure-storage-explorer)
 
-    An easy to use stand-alone app with a user interface.
+    An easy-to-use stand-alone app with a user interface.
 
-Due to the Storage services differences between Azure and Azure Stack, there might be some specific requirements for each tool described in the following sections. For a comparison between Azure Stack storage and Azure storage, see [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md).
+Due to the storage services differences between Azure and Azure Stack, there might be some specific requirements for each tool described in the following sections. For a comparison between Azure Stack storage and Azure storage, see [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md).
 
 
 ## AzCopy
-AzCopy is a command-line utility designed to copy data to and from Microsoft Azure Blob and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts. There are two versions of the AzCopy: AzCopy on Windows and AzCopy on Linux. Azure Stack only supports the Windows version. 
+AzCopy is a command-line utility designed to copy data to and from Microsoft Azure blob and table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts. There are two versions of the AzCopy utility: AzCopy on Windows and AzCopy on Linux. Azure Stack only supports the Windows version. 
  
 ### Download and install AzCopy 
 
-[Download](https://aka.ms/azcopyforazurestack) the supported Windows version of AzCopy of Azure Stack. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../../storage/common/storage-use-azcopy.md). 
+[Download](https://aka.ms/azcopyforazurestack) the supported Windows version of AzCopy for Azure Stack. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../../storage/common/storage-use-azcopy.md). 
 
- - For 1802 the update or newer versions, [download AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
+ - For the 1802 update or newer versions, [download AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
  - For previous version, [download AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20150405).
 
 ### AzCopy command examples for data transfer
-The following examples demonstrate a few typical scenarios for copying data to and from Azure Stack blobs. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../../storage/storage-use-azcopy.md). 
+
+The following examples demonstrate a typical scenarios for copying data to and from Azure Stack blobs. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../../storage/storage-use-azcopy.md). 
+
 #### Download all blobs to local disk
-```azcopy
+
+```azcopy  
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
 ```
+
 #### Upload single file to virtual directory 
-```azcopy
+```azcopy  
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
+
 #### Move data between Azure and Azure Stack Storage 
 Asynchronous data transfer between Azure Storage and Azure Stack is not supported. you need to specify the transfer with the **/SyncCopy** option. 
-```azcopy 
+
+```azcopy  
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
 ```
-
 ### Azcopy Known issues
-* Any AzCopy operation on File storage is not available because File Storage is not yet available in Azure Stack.
-* Asynchronous data transfer between Azure Storage and Azure Stack is not supported. You can specify the transfer with the **/SyncCopy** option to copy the data.
-* The Linux version of Azcopy is not supported for Azure Stack Storage. 
+
+ - Any AzCopy operation on a file store is not available because file storage is not yet available in Azure Stack.
+ - Asynchronous data transfer between Azure Storage and Azure Stack is not supported. You can specify the transfer with the **/SyncCopy** option to copy the data.
+ - The Linux version of Azcopy is not supported for Azure Stack Storage. 
 
 ## Azure PowerShell
-Azure PowerShell is a module that provides cmdlets for managing services on both Azure and Azure Stack. It's a task-based command-line shell and scripting language designed especially for system administration.
+
+Azure PowerShell is a module that provides cmdlets for managing services on both Azure and Azure Stack. It's a task-based, command-line shell and scripting language designed especially for system administration.
 
 ### Install and Configure PowerShell for Azure Stack
+
 Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) and [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) to learn more.
 
 ### PowerShell Sample script for Azure Stack 
-This sample assume you have successfully [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). This script will help you complete the configuration and ask your Azure Stack tenant credentials to add your account to the local PowerShell environment. Then, the script will set the default Azure subscription, create a new storage account in Azure, create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will create a new destination directory in your local computer and download the image file.
+
+This sample assume you have successfully [Installed PowerShell for Azure Stack](azure-stack-powershell-install.md). This script will help you complete the configuration and ask your Azure Stack tenant credentials to add your account to the local PowerShell environment. Then, the script will set the default Azure subscription, create a new storage account in Azure, create a new container in this new storage account, and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will create a new destination directory on your local computer and download the image file.
 
 1. Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
 2. Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
 3. Open **Windows PowerShell ISE** and **Run as Administrator**, click **File** > **New** to create a new script file.
 4. Copy the script below and paste to the new script file.
 5. Update the script variables based on your configuration settings. 
-6. Note: this script has to be run under the root of downloaded **AzureStack_Tools**. 
+  > ![note]  
+  > This script has to be run at the root directory for **AzureStack_Tools**. 
 
 ```PowerShell 
 # begin
@@ -101,7 +111,7 @@ $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
 
 $SubscriptionName = "basic" # Update with the name of your subscription.
 $ResourceGroupName = "myTestRG" # Give a name to your new resource group.
-$StorageAccountName = "azsblobcontainer" # Give a name to your new storage account. It must be lowercase!
+$StorageAccountName = "azsblobcontainer" # Give a name to your new storage account. It must be lowercase.
 $Location = "Local" # Choose "Local" as an example.
 $ContainerName = "photo" # Give a name to your new container.
 $ImageToUpload = "C:\temp\Hello.jpg" # Prepare an image file and a source directory in your local computer.
@@ -116,7 +126,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 Add-AzureRmEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
 
 # Set the GraphEndpointResourceId value
-Set-AzureRmEnvironment -Name $ARMEvnName -GraphEndpoint $GraphAudiance
+Set-AzureRmEnvironment -Name $ARMEvnName -GraphEndpoint $GraphAudience
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
@@ -157,9 +167,9 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 ```
 
 ### PowerShell known issues 
-The current compatible Azure PowerShell module version for Azure Stack is 1.2.10. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
+The current compatible Azure PowerShell module version for Azure Stack is 1.2.12. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
 
-* The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.10 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
+* The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.12 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
    ```
    # This command gets a specific key for a Storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
@@ -185,7 +195,7 @@ Azure Stack requires Azure CLI version 2.0. For more information about installin
 Once you complete the CLI installation and configuration, you can try the following steps to work with a small shell sample script to interact with Azure Stack Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container, lists all blobs in the container, and finally, downloads the file to a destination on your local computer that you specify. Before you run this script, make sure you successfully connect and login to the target Azure Stack. 
 1. Open your favorite text editor, then copy and paste the preceding script into the editor.
 2. Update the script's variables to reflect your configuration settings. 
-3. After you've updated the necessary variables, save the script and exit your editor. The next steps assume you've named your script my_storage_sample.sh.
+3. After you've updated the necessary variables, save the script, and exit your editor. The next steps assume you've named your script **my_storage_sample.sh**.
 4. Mark the script as executable, if necessary: `chmod +x my_storage_sample.sh`
 5. Execute the script. For example, in Bash: `./my_storage_sample.sh`
 
