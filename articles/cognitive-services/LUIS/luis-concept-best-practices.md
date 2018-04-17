@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 03/15/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 # Best practices
 Use these best practices along with using the [authoring cycle](luis-concept-app-iteration.md) when using LUIS.

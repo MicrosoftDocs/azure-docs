@@ -24,8 +24,8 @@ Scaling a Stream Analytics job takes advantage of partitions in the input or out
 
 ### Inputs
 All Azure Stream Analytics input can take advantage of partitioning:
--	EventHub (need to set the partition key explicitly)
--	IoT Hub  (need to set the partition key explicitly)
+-	EventHub (need to set the partition key explicitly with PARTITION BY keyword)
+-	IoT Hub  (need to set the partition key explicitly with PARTITION BY keyword)
 -	Blob storage
 
 ### Outputs
@@ -51,7 +51,7 @@ For more information about partitions, see the following articles:
 ## Embarrassingly parallel jobs
 An *embarrassingly parallel* job is the most scalable scenario we have in Azure Stream Analytics. It connects one partition of the input to one instance of the query to one partition of the output. This parallelism has the following requirements:
 
-1. If your query logic depends on the same key being processed by the same query instance, you must make sure that the events go to the same partition of your input. For event hubs, this means that the event data must have the **PartitionKey** value set. Alternatively, you can use partitioned senders. For blob storage, this means that the events are sent to the same partition folder. If your query logic does not require the same key to be processed by the same query instance, you can ignore this requirement. An example of this logic would be a simple select-project-filter query.  
+1. If your query logic depends on the same key being processed by the same query instance, you must make sure that the events go to the same partition of your input. For Event Hubs or IoT Hub, this means that the event data must have the **PartitionKey** value set. Alternatively, you can use partitioned senders. For blob storage, this means that the events are sent to the same partition folder. If your query logic does not require the same key to be processed by the same query instance, you can ignore this requirement. An example of this logic would be a simple select-project-filter query.  
 
 2. Once the data is laid out on the input side, you must make sure that your query is partitioned. This requires you to use **PARTITION BY** in all the steps. Multiple steps are allowed, but they all must be partitioned by the same key. Currently, the partitioning key must be set to **PartitionId** in order for the job to be fully parallel.  
 
