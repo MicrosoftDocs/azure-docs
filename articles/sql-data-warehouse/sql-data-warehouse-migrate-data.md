@@ -2,13 +2,13 @@
 title: Migrate your data to SQL Data Warehouse | Microsoft Docs
 description: Tips for migrating your data to Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-author: ronortloff
+author: jrowlandjones
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: jrj
 ms.reviewer: igorstan
 ---
 
