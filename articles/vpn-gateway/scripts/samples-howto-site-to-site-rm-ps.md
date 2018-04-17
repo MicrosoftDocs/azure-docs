@@ -1,21 +1,21 @@
 ---
-title: 'Configure a site-to-site VPN : PowerShell | Microsoft Docs'
-description: Configure site-to-site VPN . This article uses PowerShell.
+title: 'Azure PowerShell script sample - Configure a site-to-site VPN | Microsoft Docs'
+description: Configure site-to-site VPN.
 services: vpn-gateway
-documentationcenter: na
+documentationcenter: vpn-gateway
 author: cherylmc
 manager: jpconnock
 editor: ''
-tags: azure-resource-manager
+tags: 
 
-ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
+ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/12/2018
-ms.author: cherylmc
+ms.devlang: powershell
+ms.topic: sample
+ms.tgt_pltfrm:
+ms.workload: infrastructure
+ms.date: 04/17/2018
+ms.author: anzaman
 
 ---
 
