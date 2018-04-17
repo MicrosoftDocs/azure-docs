@@ -72,7 +72,7 @@ book me 2 adult business tickets to Paris tomorrow on Air France
     > * For a single word, just select it. 
     > * For a set of two or more words, select at the beginning and then at the end of the set.
 
-2. In the entity drop-down box that appears, you can either select an existing entity, or add a new entity. To add a new entity, type its name in the text box and select **Create new entity**. To create the simple entity "Airline," type "Airline" in the text box and then select **Done**.
+2. In the entity drop-down box that appears, you can either select an existing entity or add a new entity. To add a new entity, type its name in the text box, and then select **Create new entity**. To create the simple entity "Airline," type "Airline" in the text box and then select **Done**.
  
     ![Screenshot of Intents details page, with simple entity labeling option highlighted](./media/add-example-utterances/create-airline-simple-entity.png)
 
@@ -156,7 +156,7 @@ The composite entity contains three child entities: number (of tickets), Seat, a
 
 2. Follow these [steps](#add-hierarchical-entity-and-label) to create a **Category** hierarchical entity, with values of Adult, Child, and Infant. Label the word "adult" as a Category entity. At this point, all three words should be labeled with the blue background. 
 
-3. Select on the left-most word of the phrase, "2", labeled as number.
+3. Select **number**.
 
     ![Screenshot of BookFlight Intent page, with number highlighted](./media/add-example-utterances/composite-wrap-1.png)
 
