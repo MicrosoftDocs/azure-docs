@@ -224,17 +224,13 @@ Host myvm
 
 You can add configurations for additional hosts to enable each to use its own dedicated key pair. See [SSH config file](https://www.ssh.com/ssh/config/) for more advanced configuration options.
 
-## SSH into Linux without a password
-
-Now that you have an SSH key pair and a configured SSH config file, you are able to log in to your Linux VM quickly and securely. The first time you log in to a server using an SSH key, the command prompts you for the passphrase for that key file.
+Now that you have an SSH key pair and a configured SSH config file, you are able to log in to your Linux VM quickly and securely. When you run the following command, SSH locates and loads any settings from the `Host myvm` block in the SSH config file.
 
 ```bash
 ssh myvm
 ```
 
-### Command explained
-
-When `ssh my vm` is executed, SSH locates and loads any settings from the `Host myvm` block in the SSH config file.
+The first time you log in to a server using an SSH key, the command prompts you for the passphrase for that key file.
 
 ## Next steps
 
