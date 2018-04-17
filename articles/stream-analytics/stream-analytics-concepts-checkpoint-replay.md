@@ -29,9 +29,7 @@ Each time a Stream Analytics job runs, internally it is scaled out to do work ac
 
 At times, a given worker node may fail, or an Operating System upgrade can occur for that worker node. To recover automatically, Stream Analytics acquires a new healthy node, and the prior worker node's state is restored from the latest available checkpoint. To resume the work, a small amount of replay is necessary to restore the state from the time when the checkpoint is taken. Usually, the restore gap is only a few minutes. When enough Streaming Units are selected for the job, the replay should be completed quickly. 
 
-Stream Analytics uses a separate worker node for every six streaming units that are configured in the job. In a fully parallel query, the number of processing partitions is the number of configured Streaming Units divided by six. 
-
-The time it takes to catch up after a worker node failure is proportional to:
+In a fully parallel query, the time it takes to catch up after a worker node failure is proportional to:
 
 [the input event rate] x [the gap length] / [number of processing partitions]
 
