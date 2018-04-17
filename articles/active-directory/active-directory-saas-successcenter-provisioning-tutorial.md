@@ -123,14 +123,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/UserMapping.png)
 
-
 10. Review the user attributes that are synchronized from Azure AD to Cornerstone OnDemand in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cornerstone OnDemand for update operations. Select the **Save** button to commit any changes.
 
 	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/UserMappingAttributes.png)
 
 >[!NOTE]
 >The Cornerstone **Postion** Attribute expects value corresponding to the Cornerstone Portal which can be assigned using extension attributes/expressions.
-
 
 11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters.md).
 
