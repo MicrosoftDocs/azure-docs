@@ -3,8 +3,8 @@ title: Create and manage claimable VMs in a lab in Azure DevTest Labs | Microsof
 description: Learn how to add a claimable virtual machine to a lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
+author: spelluru
+manager: 
 editor: ''
 
 ms.assetid: f671e66e-9630-4e30-a131-a6bad9ed9c11
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
-ms.author: v-craic
+ms.date: 04/01/2018
+ms.author: spelluru
 
 ---
 # Create and manage claimable VMs in Azure DevTest Labs

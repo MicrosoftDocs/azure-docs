@@ -3,8 +3,8 @@ title: Create custom artifacts for your DevTest Labs virtual machine | Microsoft
 description: Learn how to author your own artifacts to use with Azure DevTest Labs.
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
+author: spelluru
+manager: 
 editor: ''
 
 ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2017
-ms.author: v-craic
+ms.date: 04/17/2018
+ms.author: spelluru
 
 ---
 # Create custom artifacts for your DevTest Labs virtual machine
@@ -88,12 +88,12 @@ Allowed types are:
 ## Artifact expressions and functions
 You can use expressions and functions to construct the artifact install command.
 Expressions are enclosed with brackets ([ and ]), and are evaluated when the artifact is installed. Expressions can appear anywhere in a JSON string value. Expressions always return another JSON value. If you need to use a literal string that starts with a bracket ([), you must use two brackets ([[).
-Typically, you use expressions with functions to construct a value. Just like in JavaScript, function calls are formatted as **functionName(arg1,arg2,arg3)**.
+Typically, you use expressions with functions to construct a value. Just like in JavaScript, function calls are formatted as **functionName(arg1, arg2, arg3)**.
 
 The following list shows common functions:
 
 * **parameters(parameterName)**: Returns a parameter value that is provided when the artifact command is run.
-* **concat(arg1,arg2,arg3, …..)**: Combines multiple string values. This function can take a variety of arguments.
+* **concat(arg1, arg2, arg3,….. )**: Combines multiple string values. This function can take a variety of arguments.
 
 The following example shows how to use expressions and functions to construct a value:
 

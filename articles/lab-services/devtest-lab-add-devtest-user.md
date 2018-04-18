@@ -3,8 +3,8 @@ title: Add owners and users in Azure DevTest Labs| Microsoft Docs
 description: Add owners and users in Azure DevTest Labs using either the Azure portal or PowerShell
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
+author: spelluru
+manager: 
 editor: ''
 
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
-ms.author: v-craic
+ms.date: 04/17/2018
+ms.author: spelluru
 
 ---
 # Add owners and users in Azure DevTest Labs
@@ -132,7 +132,7 @@ To add an owner to an Azure subscription, follow these steps:
 8. Select the located user name.
 9. Select **Select**.
 10. Select **OK** to close the **Add access** blade.
-11. When you return to the **Users** blade, the user has been added as an owner. This user is now an owner of any labs created under this subscription, and thus be able to perform owner tasks. 
+11. When you return to the **Users** blade, the user has been added as an owner. This user is now an owner of any labs created under this subscription, and thus is able to perform owner tasks. 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

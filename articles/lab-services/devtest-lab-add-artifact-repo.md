@@ -3,8 +3,8 @@ title: Add a Git repository to a lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to add a GitHub or Visual Studio Team Services Git repository for your custom artifacts source in Azure DevTest Labs.
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
+author: spelluru
+manager: 
 editor: ''
 
 ms.assetid: 01b459f7-eaf2-45a8-b4b5-2c0a821b33c8
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
-ms.author: v-craic
+ms.date: 04/17/2018
+ms.author: spelluru
 
 ---
 # Add a Git repository to store custom artifacts and Resource Manager templates
@@ -44,7 +44,7 @@ To add a repository to your lab, first, get key information from your repository
 5. In the **Personal settings** menu on the left, select **Personal access tokens**.
 6. Select **Generate new token**.
 7. On the **New personal access token** page, under **Token description**, enter a description. Accept the default items under **Select scopes**, and then select **Generate Token**.
-8. Save the generated token. You'll use the token later.
+8. Save the generated token. You use the token later.
 9. Close GitHub.   
 10. Continue to the [Connect your lab to the repository](#connect-your-lab-to-the-repository) section.
 
@@ -53,7 +53,7 @@ To add a repository to your lab, first, get key information from your repository
 1. Go to the home page of your team collection (for example, https://contoso-web-team.visualstudio.com), and then select your project.
 2. On the project home page, select **Code**.
 3. To view the clone URL, on the project **Code** page, select **Clone**.
-4. Save the URL. You'll use the URL later.
+4. Save the URL. You use the URL later.
 5. To create a personal access token, in the user account drop-down menu, select **My profile**.
 6. On the profile information page, select **Security**.
 7. On the **Security** tab, select **Add**.
