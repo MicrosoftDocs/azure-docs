@@ -21,8 +21,6 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## Before you begin
 
 Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
-
-This assumes you have completed [Quickstart: create and Connect - portal](create-data-warehouse-portal.md).
  
 ## Create a data warehouse
 
@@ -139,7 +137,7 @@ FROM
 WHERE
 	resource_type_desc = 'Database'
 AND 
-	major_resource_id = 'MySQLDW'
+	major_resource_id = 'MySampleDataWarehouse'
 ```
 
 
