@@ -20,7 +20,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
 <ul class="cardsFTitle panelContent">
     <li style="-ms-flex: 0 1 100%; flex: 0 1 100%">
         <div class="cardSize">
-            <div class="cardPadding">
+            <div class="cardPadding" style="padding-bottom: 0;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
@@ -206,9 +206,6 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-service-fabric-security-best-practices">Service Fabric security</a>
                             </li>
-			                <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-global-admin">Securing the Azure Admin accounts (MFA)</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -243,7 +240,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
 <ul class="cardsFTitle panelContent">
     <li style="-ms-flex: 0 1 100%; flex: 0 1 100%">
         <div class="cardSize">
-            <div class="cardPadding">
+            <div class="cardPadding" style="padding-bottom: 0;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
@@ -343,7 +340,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
 <ul class="cardsFTitle panelContent">
     <li style="-ms-flex: 0 1 100%; flex: 0 1 100%">
         <div class="cardSize">
-            <div class="cardPadding">
+            <div class="cardPadding" style="padding-bottom: 0;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
