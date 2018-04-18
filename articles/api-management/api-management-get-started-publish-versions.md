@@ -17,10 +17,9 @@ ms.date: 11/19/2017
 ms.author: apimpm
 
 ---
-
 # Publish multiple versions of your API 
 
-There are times when it is impractical to have all callers to your API use exactly the same version. Sometimes you want to publish new or different API features to some users, while others want to stick with the API that currently works for them. When callers want to upgrade to a later version, they want to be able to do this using an easy to understand approach.  We can do this using **versions** in Azure API Management. For more information, see [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/).
+There are times when it is impractical to have all callers to your API use exactly the same version. When callers want to upgrade to a later version, they want to be able to do this using an easy to understand approach. It is possible to do this using **versions** in Azure API Management. For more information, see [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/).
 
 In this tutorial, you learn how to:
 
@@ -50,7 +49,7 @@ In this tutorial, you learn how to:
 
 ## Choose a versioning scheme
 
-Azure API Management allows you to choose the way in which you allow callers to specify which version of your API they want. You do this by choosing a **versioning scheme**. This scheme can be either **path, header or query string**. In our example, we use path.
+Azure API Management allows you to choose the way in which you allow callers to specify which version of your API they want. You specify which API version to use by selecting a **versioning scheme**. This scheme can be either **path, header or query string**. In the following example, path is used to select the versioning scheme.
 
 ![Add version screen](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
@@ -67,20 +66,20 @@ Azure API Management allows you to choose the way in which you allow callers to 
     ![Versions listed under an API in the Azure portal](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
-    > If you add a version to a non-versioned API, we always create an **Original** for you - responding on the default URL. This ensures that any existing callers are not broken by the process of adding a version. If you create a new API with versions enabled at the start, an Original is not created.
+    > If you add a version to a non-versioned API, an **Original** will be automatically created - responding on the default URL. This ensures that any existing callers are not broken by the process of adding a version. If you create a new API with versions enabled at the start, an Original is not created.
 
 6. You can now edit and configure **v1** as an API that is separate to **Original**. Changes to one version do not affect another.
 
 ## Add the version to a product
 
-For callers to see your new version, it must be added to a **product** (products are not inherited from parent versions).
+In order for callers to see the new version, it must be added to a **product**.
 
-1. Select **Products** from the service management page.
+1. Select **Products** from the classic deployment model page.
 2. Select **Unlimited**.
 3. Select **APIs**.
 4. Select **Add**.
 5. Select **Conference API, Version v1**.
-6. Return to the service management page and select **APIs**.
+6. Navigate to the service management page and select **APIs**.
 
 ## Browse the developer portal to see the version
 
@@ -89,7 +88,7 @@ For callers to see your new version, it must be added to a **product** (products
 3. Select **v1**.
 4. Notice the **Request URL** of the first operation in the list. It shows that the API URL path includes **v1**.
 
-	![API Context menu - add version](media/api-management-getstarted-publish-versions/developer_portal.png)
+    ![API Context menu - add version](media/api-management-getstarted-publish-versions/developer_portal.png)
 
 ## Next steps
 
