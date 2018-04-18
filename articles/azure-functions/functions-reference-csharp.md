@@ -230,7 +230,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 ## Async
 
-To make a function asynchronous, use the `async` keyword and return a `Task` object.
+To make a function [asynchronous](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
