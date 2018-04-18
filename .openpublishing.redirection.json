@@ -25,6 +25,11 @@
             "redirect_url": "/azure/active-directory/active-directory-saas-zwayam-tutorial",
             "redirect_document_id": true
 	},
+	{
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-univ.md",
+            "redirect_url": "https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2",
+            "redirect_document_id": false
+	},
         {
             "source_path": "articles/machine-learning/preview/release-notes-sprint-0.md",
             "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-1",
