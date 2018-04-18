@@ -38,7 +38,7 @@ This script creates a route-based VPN Gateway and adds point-to-site configurati
   $RG = "TestRG1"
   $Location = "East US"
   $GWName = "VNet1GW"
-  $GWIPName = "VNet1GWPIP"
+  $GWIPName = "VNet1GWIP"
   $GWIPconfName = "gwipconf"
 # Create a resource group
 New-AzureRmResourceGroup -Name TestRG1 -Location EastUS
