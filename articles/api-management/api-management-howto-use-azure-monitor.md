@@ -16,9 +16,7 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-
 ---
-
 # Monitor published APIs
 
 Azure Monitor is an Azure service that provides a single source for monitoring all your Azure resources. With Azure Monitor, you can visualize, query, route, archive, and take actions on the metrics and logs coming from Azure resources such as API Management. 
@@ -59,7 +57,7 @@ To access metrics:
 
 1. Select **Metrics** from the menu near the bottom of the page.
 2. From the drop-down, select metrics you are interested in (you can add multiple metrics). 
-    
+
     For example, select **Total Gateway Requests** and **Failed Gateway Requests** from the list of available metrics.
 3. The chart shows the total number of API calls. It also shows the number of API calls that failed. 
 
@@ -115,15 +113,15 @@ API Management currently provides diagnostics logs (batched hourly) about indivi
 ```json
 {  
     "isRequestSuccess" : "",
-    "time": "",   
-    "operationName": "",      
-    "category": "",   
-    "durationMs": ,   
-    "callerIpAddress": "",   
-    "correlationId": "",   
-    "location": "",      
-    "httpStatusCodeCategory": "",      
-    "resourceId": "",      
+    "time": "",
+    "operationName": "",
+    "category": "",
+    "durationMs": ,
+    "callerIpAddress": "",
+    "correlationId": "",
+    "location": "",
+    "httpStatusCodeCategory": "",
+    "resourceId": "",
     "properties": {   
         "method": "", 
         "url": "", 
