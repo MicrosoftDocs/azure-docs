@@ -44,8 +44,16 @@ AzCopy on Linux is supported on the following Linux 64-bit (x86_64 or amd64) dis
 
 Installing AzCopy on Linux (v7.2 or later) is as easy as extracting a tar package and running the install script. 
 
+**RHEL 6 based distributions**: [download link](https://aka.ms/downloadazcopylinuxrhel6)
 ```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinuxrhel6
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
+
+**All other Linux distributions**: [download link](https://aka.ms/downloadazcopylinux64)
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinuxrhel6
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
@@ -55,13 +63,6 @@ You can remove the extracted files once AzCopy on Linux is installed. Alternativ
 ### Alternative Installation on Ubuntu
 
 **Ubuntu 14.04**
-
-Add apt source for .Net Core:
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
 
 Add apt source for Microsoft Linux product repository and install AzCopy:
 
@@ -78,13 +79,6 @@ sudo apt-get install azcopy
 ```
 
 **Ubuntu 16.04**
-
-Add apt source for .Net Core:
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
 
 Add apt source for Microsoft Linux product repository and install AzCopy:
 
