@@ -1,3 +1,4 @@
+---
 title: Azure SQL Database Connect and Query quickstarts | Microsoft Docs
 description: Azure SQL Database quickstarts showing you how to connect to and query an Azure SQL database. 
 services: sql-database
