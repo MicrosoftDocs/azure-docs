@@ -20,26 +20,20 @@ ms.custom:
 # The collection of PaaS/SaaS technologies and solutions available for building an Azure IoT solution
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The Azure IoT product portfolio is an overview of the available PaaS/SaaS technologies and solutions. It presents the two paths that are available for building your own solution:
-- Platform as a Service (PaaS): build your application using IoT solution accelerators, which are enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions.
-- Software as a Service (SaaS): get started fast with the new SaaS solution to develop IoT applications without being exposed to the complexity of IoT solution. If your organization lacks the resources to build your own IoT solution, IoT Central is a codeless IoT solution that can create device models, dashboards, and rules in minutes.
+- Platform as a Service (PaaS): build your application using Azure IoT Suite, a collection of enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions.
+- Software as a Service (SaaS): get started fast with the new SaaS solution to develop IoT applications without being exposed to the complexity of IoT solution. If your organization lacks the resources to build your own IoT solution, Azure IoT Central is a codeless IoT solution that can create device models, dashboards, and rules in minutes.
 
 ![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
 ## Solutions
 
-Get started quickly with solution accelerators and SaaS offerings. Choose from preconfigured solutions that enable common IoT scenarios, such as remote monitoring, predictive maintenance, and connected factory, to create a fully customizable solution. Or use Azure IoT Central, a fully managed, end-to-end solution that enables powerful IoT scenarios without requiring cloud-solution expertise.
+Get started quickly with Azure IoT Suite and SaaS offerings. Choose from preconfigured solutions that enable common IoT scenarios, such as remote monitoring, predictive maintenance, and connected factory, to create a fully customizable solution. Or use Azure IoT Central, a fully managed, end-to-end solution that enables powerful IoT scenarios without requiring cloud-solution expertise.
 
-### Videos
+### Azure IoT Suite (PaaS)
 
-| Introduction to Azure IoT services and solutions. (4:07) | Codeless IoT Solutions. (11:08) | 
-|-|-|
-| [![Introduction to Azure IoT services and solutions][img-video-contoso-hvac-iot-part1]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player) | [![Codeless IoT Solutions][img-video-contoso-hvac-iot-part8]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player) | 
+Azure IoT Suite is an enterprise-grade collection of customizable PaaS solutions that provide a high level of control over your IoT solution. If your business is implementing IoT for connected operations or has specific customization requirements for connected products, Azure IoT Suite provides the control you need. 
 
-### Azure IoT solution accelerators (PaaS)
-
-Azure IoT solution accelerators are customizable PaaS solutions that provide a high level of control over your IoT solution. If your business is implementing IoT for connected operations or has specific customization requirements for connected products, Azure IoT solution accelerators provide the control you need. 
-
-Organizations with a large number of devices or device models, and manufacturers seeking connected factory solutions, are examples of companies that can benefit from IoT solution accelerators. Creating highly customizable solutions tailored to complex needs, IoT solution accelerators provide:
+Organizations with a large number of devices or device models, and manufacturers seeking connected factory solutions, are examples of companies that can benefit from Azure IoT Suite. Creating highly customizable solutions tailored to complex needs, IoT Suite provides:
 
 - Preconfigured solutions
     - Remote monitoring
@@ -74,11 +68,11 @@ Connect all your devices to Azure IoT using the open-source [device SDKs](/azure
 Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end. The Azure IoT Hub Device Provisioning Service is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, enabling customers to provision millions of devices in a secure and scalable manner.
 
 ### Edge
-Azure IoT Edge is an Internet of Things (IoT) service. This service is meant for customers who want to analyze data on devices, a.k.a. "at the edge", instead of in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to changes in status. Bring intelligence of the cloud to the edge with Azure IoT Edge.
+Azure IoT Edge is an Internet of Things (IoT) service. This service is meant for customers who want to analyze data on devices, a.k.a. "at the edge". By moving parts of your workload to the edge, you will experience reduced latency and have the option for off-line scenarios.
 
 
 ### Data and analytics
-Take the advantage of an array of Azure data and analytics PaaS offerings in your IoT solution, from bringing cloud intelligence to the edge with Azure Machine Learning, to storing IoT device data in a cost-effective way with Azure Data Lake, to visualizing huge amount of data from IoT devices with Azure Time Series Insights.
+Take advantage of an array of Azure data and analytics PaaS offerings in your IoT solution, from bringing cloud intelligence to the edge with Azure Machine Learning, to storing IoT device data in a cost-effective way with Azure Data Lake, to visualizing huge amount of data from IoT devices with Azure Time Series Insights.
 
 ### Visualization and integration
 Microsoft Azure offers a complete cloud solution, one that combines a constantly growing collection of integrated cloud services with an industry-leading commitment to the protection and privacy of your data. Find out more about [Microsoft Azure](https://azure.microsoft.com/en-us/).
