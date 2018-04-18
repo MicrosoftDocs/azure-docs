@@ -50,20 +50,20 @@ Additional licensing information, including costs, can be found on the following
 
 ## Enable group or user-based licensing
 
-Azure AD now supports group-based licensing. Administrators can assign licenses in bulk to a group of users, rather than assigning them one at a time. For more information, see [Assign, verify, and resolve problems with licenses](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).
+Azure AD now supports group-based licensing. Administrators can assign licenses in bulk to a group of users, rather than assigning them one at a time. For more information, see [Assign, verify, and resolve problems with licenses](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).
 
 Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator must specify the **Usage location** property on the user. Assignment of licenses can be done under the **User** > **Profile** > **Settings** section in the Azure portal. *When you use group license assignment, any users without a usage location specified inherit the location of the directory.*
 
 ## Next steps
 
-* [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
-* [Reset or change your password](active-directory-passwords-update-your-own-password.md)
-* [Register for self-service password reset](active-directory-passwords-reset-register.md)
-* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
-* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [What are the policy options with SSPR?](active-directory-passwords-policy.md)
-* [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
-* [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
-* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
+* [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
+* [Reset or change your password](../active-directory-passwords-update-your-own-password.md)
+* [Register for self-service password reset](../active-directory-passwords-reset-register.md)
+* [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
+* [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
+* [What are the policy options with SSPR?](concept-sspr-policy.md)
+* [What is password writeback and why do I care about it?](../active-directory-passwords-writeback.md)
+* [How do I report on activity in SSPR?](howto-sspr-reporting.md)
+* [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)

@@ -23,25 +23,25 @@ ms.custom: it-pro;seohack1
 
 To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service password reset (SSPR) functionality, most customers complete the following steps:
 
-1. [Enable password reset in your directory](active-directory-passwords-getting-started.md).
-2. [Configure on-premises Active Directory permissions for password writeback](active-directory-passwords-writeback.md#active-directory-permissions).
-3. [Configure password writeback](active-directory-passwords-writeback.md#configure-password-writeback) to write passwords from Azure AD back to your on-premises directory.
-4. [Assign and verify the required licenses](active-directory-passwords-licensing.md).
+1. [Enable password reset in your directory](../active-directory-passwords-getting-started.md).
+2. [Configure on-premises Active Directory permissions for password writeback](../active-directory-passwords-writeback.md#active-directory-permissions).
+3. [Configure password writeback](../active-directory-passwords-writeback.md#configure-password-writeback) to write passwords from Azure AD back to your on-premises directory.
+4. [Assign and verify the required licenses](concept-sspr-licensing.md).
 5. Determine if you want to do a gradual rollout. If you want to roll out SSPR gradually, you can limit access to a group of users so you can pilot the program with a specific group. To roll out to a specific group, set the **Self Service Password Reset Enabled** switch to **Selected** and select the security group you want to  be able use password reset. 
-6. Populate the [authentication data](active-directory-passwords-data.md) needed for your users to register, such as their office phone, mobile phone, and alternate email address.
-7. [Customize the Azure AD sign-in experience to include your company branding](active-directory-passwords-customize.md).
+6. Populate the [authentication data](howto-sspr-authenticationdata.md) needed for your users to register, such as their office phone, mobile phone, and alternate email address.
+7. [Customize the Azure AD sign-in experience to include your company branding](concept-sspr-customization.md).
 8. Teach your users how to use SSPR. Send them instructions to show them how to register and how to reset their passwords.
 9. Determine when you want to enforce registration. You can choose to enforce registration at any point. You can also require users to reconfirm their authentication information after a certain period of time.
-10. Use the reporting capability. Over time, you can review the users registration and usage with the [reporting capability that Azure AD provides](active-directory-passwords-reporting.md).
+10. Use the reporting capability. Over time, you can review the users registration and usage with the [reporting capability that Azure AD provides](howto-sspr-reporting.md).
 11. Enable password reset. When you're ready, enable password reset for all users by setting the **Self Service Password Reset Enabled** switch to **All**. 
 
    > [!NOTE]
    > Changing this option from a selected group to everyone does not invalidate existing authentication data that a user has registered as part of a test group. Users who are configured and have valid authentication data registered continue to function.
 
-12. [Enable Windows 10 users to reset their password at the login screen](active-directory-passwords-login.md).
+12. [Enable Windows 10 users to reset their password at the login screen](../active-directory-passwords-login.md).
 
    > [!IMPORTANT]
-   > Test SSPR with a user, rather than an administrator, as Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](active-directory-passwords-policy.md#administrator-password-policy-differences) article.
+   > Test SSPR with a user, rather than an administrator, as Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](concept-sspr-policy.md#administrator-password-policy-differences) article.
 
 ## Email-based rollout
 
@@ -74,7 +74,7 @@ After you enable this option, when users sign in they see a message that says th
 
 ## Populate authentication data
 
-You should [populate the authentication data for your users](active-directory-passwords-data.md). That way users don't need to register for password reset before they are able to use SSPR. As long as users have provided the authentication data that meets the password reset policy you have defined, they are able to reset their passwords.
+You should [populate the authentication data for your users](howto-sspr-authenticationdata.md). That way users don't need to register for password reset before they are able to use SSPR. As long as users have provided the authentication data that meets the password reset policy you have defined, they are able to reset their passwords.
 
 ## Disable self-service password reset
 
@@ -82,15 +82,15 @@ It's easy to disable self-service password reset. Open your Azure AD tenant and 
 
 ## Next steps
 
-* [Reset or change your password](active-directory-passwords-update-your-own-password.md)
-* [Register for self-service password reset](active-directory-passwords-reset-register.md)
-* [Do you have a licensing question?](active-directory-passwords-licensing.md)
-* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
-* [What are the policy options with SSPR?](active-directory-passwords-policy.md)
-* [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
-* [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
-* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
+* [Reset or change your password](../active-directory-passwords-update-your-own-password.md)
+* [Register for self-service password reset](../active-directory-passwords-reset-register.md)
+* [Do you have a licensing question?](concept-sspr-licensing.md)
+* [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
+* [What are the policy options with SSPR?](concept-sspr-policy.md)
+* [What is password writeback and why do I care about it?](../active-directory-passwords-writeback.md)
+* [How do I report on activity in SSPR?](howto-sspr-reporting.md)
+* [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
-[Email]: ./media/active-directory-passwords-best-practices/sspr-emailtemplates.png "Customize these email templates to fit your organizational requirements"
+[Email]: ./media/howto-sspr-deployment/sspr-emailtemplates.png "Customize these email templates to fit your organizational requirements"
