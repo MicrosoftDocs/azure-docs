@@ -1,20 +1,20 @@
 ---
 title: Restart a VM in a lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to restart a virtual machine in Azure DevTest Labs
-services: devtest-lab,virtual-machines
+services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
+author: spelluru
+manager: femila
 editor: ''
 
 ms.assetid: 8460f09e-482f-48ba-a57a-c95fe8afa001
-ms.service: devtest-lab
+ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
-ms.author: v-craic
+ms.date: 04/17/2018
+ms.author: spelluru
 
 ---
 # Restart a VM in a lab in Azure DevTest Labs

@@ -1,22 +1,20 @@
 ---
 title: Manage formulas in Azure DevTest Labs to create VMs | Microsoft Docs
 description: Learn how to update and remove Azure DevTest Labs formulas
-services: devtest-lab,virtual-machines
+services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
+author: spelluru
+manager: femila
 editor: ''
 
 ms.assetid: 841dd95a-657f-4d80-ba26-59a9b5104fe4
-ms.service: devtest-lab
+ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
-ms.author: v-craic
-
-ms.custom: H1Hack27Feb2017
+ms.date: 04/17/2018
+ms.author: spelluru
 
 ---
 # Manage Azure DevTest Labs formulas
