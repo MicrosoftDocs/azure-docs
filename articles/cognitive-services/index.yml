@@ -48,7 +48,7 @@ sections:
     items:
     - html: <a href="/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page">Build a Custom Search webpage </a>
     - html: <a href="/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample">Use Language Understanding (LUIS) in a bot </a> 
-    - html: <a href="/azure/cognitive-services/luis/luis-tutorial-batch-testing">Improve intent accuracy for home automation commands (LUIS) </a>
+    - html: <a href="/azure/cognitive-services/luis/luis-tutorial-batch-testing">Improve intent accuracy for home automation commands </a>
 - title: Cognitive Services APIs
   items: 
   - type: list

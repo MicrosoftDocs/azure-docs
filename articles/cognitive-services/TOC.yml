@@ -10,16 +10,20 @@
   items:
   - name: Create an account
     href: cognitive-services-apis-create-account.md
-  - name: Create an app with QNAMaker
-    href: /qnamaker/quickstart.md
-  - name: Use Text Analytics API with C#
-    href: /text-analytics/quickstarts/csharp.md
+  - name: Build an image classifier
+    href: /custom-vision-service/getting-started-build-a-classifier.md
+  - name: Build a home automation app
+    href: /luis/luis-get-started-create-app.md
+  - name: Create a .NET text analytics app
+    href: /text-analytics/quickstarts/csharp.md    
 - name: Tutorials
   items:
   - name: Custom search webpage
     href: /bing-custom-search/tutorials/custom-search-web-page.md
-  - name: Use Language Understanding
+  - name: Language Understanding app
     href: /luis/luis-nodejs-tutorial-build-bot-framework-sample.md
+  - name: Improve intent accuracy for commands 
+    href: /luis/luis-tutorial-batch-testing.md    
 - name: Resources
   items:
   - name: Azure Roadmap
