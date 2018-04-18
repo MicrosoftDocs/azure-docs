@@ -181,6 +181,19 @@ To deploy App Service in a disconnected environment, you must first create an of
 2. In the overview under status, check to see that the **Status** shows **All roles are ready**.
 
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> If you chose to deploy into an existing virtual network and a internal IP address to conenct to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+> * Source: Any
+> * Source port range: *
+> * Destination: IP Addresses
+> * Destination IP address range: Range of IPs for your fileserver
+> * Destination port range: 445
+> * Protocol: TCP
+> * Action: Allow
+> * Priority: 700
+> * Name: Outbound_Allow_SMB445
+>
 
 ## Test drive App Service on Azure Stack
 
