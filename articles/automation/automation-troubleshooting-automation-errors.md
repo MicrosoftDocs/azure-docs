@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshooting common Azure Automation issues | Microsoft Docs
 description: This article provides information to help troubleshoot and fix common Azure Automation errors.
 services: automation
@@ -17,7 +17,7 @@ This article provides help troubleshooting common errors you might experience in
 ## Authentication errors when working with Azure Automation runbooks
 ### Scenario: Sign in to Azure Account failed
 **Error:**
-You receive the error "Unknown_user_type: Unknown User Type" when working with the Add-AzureAccount or Login-AzureRmAccount cmdlets.
+You receive the error "Unknown_user_type: Unknown User Type" when working with the Add-AzureAccount or Connect-AzureRmAccount cmdlets.
 
 **Reason for the error:**
 This error occurs if the credential asset name is not valid or if the username and password that you used to set up the Automation credential asset are not valid.
@@ -32,7 +32,7 @@ In order to determine what's wrong, take the following steps:
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount –Credential $Cred
+        Connect-AzureRmAccount –Credential $Cred
 3. If your authentication fails locally, this means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.  
 
 ### Scenario: Unable to find the Azure subscription

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure DevTest Labs FAQ | Microsoft Docs
 description: Find answers to common questions about Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
@@ -156,7 +156,7 @@ You can delete VMs from your lab in the Azure portal. You also can delete all th
     $labName = "<Enter lab name here>"
 
     # Sign in to your Azure account.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     # Select the Azure subscription that has the lab. This step is optional
     # if you have only one subscription.

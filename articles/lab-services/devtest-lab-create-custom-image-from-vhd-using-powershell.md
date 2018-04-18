@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an Azure DevTest Labs custom image from a VHD file using PowerShell | Microsoft Docs
 description: Automate creation of a custom image in Azure DevTest Labs from a VHD file using PowerShell
 services: devtest-lab,virtual-machines,lab-services
@@ -29,10 +29,10 @@ ms.author: spelluru
 
 The following steps walk you through creating a custom image from a VHD file using PowerShell:
 
-1. At a PowerShell prompt, log in to your Azure account with the following call to the **Login-AzureRmAccount** cmdlet.  
+1. At a PowerShell prompt, log in to your Azure account with the following call to the **Connect-AzureRmAccount** cmdlet.  
 	
 	```PowerShell
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```
 
 1.	Select the desired Azure subscription by calling the **Select-AzureRmSubscription** cmdlet. Replace the following placeholder for the **$subscriptionId** variable with a valid Azure subscription ID. 
@@ -80,7 +80,7 @@ The following PowerShell script can be used to create a custom image from a VHD 
 
 ```PowerShell
 # Log in to your Azure account.  
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Select the desired Azure subscription. 
 $subscriptionId = '<Specify your subscription ID here>'
