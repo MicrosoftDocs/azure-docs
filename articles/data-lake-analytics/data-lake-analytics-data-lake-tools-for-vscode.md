@@ -4,7 +4,7 @@ description: 'Learn how to use Azure Data Lake Tools for Visual Studio Code to c
 Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
 documentationcenter: ''
-author: jejiang
+author: Jejiang
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -353,13 +353,13 @@ The status displays on the bottom of the status bar when completed downloading a
 
 **Azure Integration** 
 
-- Before login to Azure, you can always expand **DATALAKE EXPLORER**, then click **Sign in to Azur** to login to Azure. After login, you will see all the subscriptions under your Azure account are listed in the left panel of the **DATALAKE EXPLORER**. 
+- Before login to Azure, you can always expand **AZURE DATALAKE**, then click **Sign in to Azure** to login to Azure. After login, you will see all the subscriptions under your Azure account are listed in the left panel of the **AZURE DATALAKE**. 
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**ADLA Metadata Navigation** 
+**ADLA Metadata Navigation**
 
 - Expand your Azure subscription, you can navigate your U-SQL database, view the **Schemas**, **Credentials**, **Assemblies**, **Table**, **Index**, and so on, under the U-SQL Databases node.
 
@@ -379,11 +379,31 @@ The status displays on the bottom of the status bar when completed downloading a
 
 **ADLS Integration** 
 
- - Navigate to **Storage Account**, you can **Preview**, **Download**, **Delete**, **Copy Relative Path**, **Copy Full Path** by the context menu on the file node. You can **Refresh**, **Upload**, **Upload Folder**, **Delete** by right-clicking the context menu on the folder node.
+Navigate to **Data Lake Store**
+
+ - On the folder node, you can **Refresh**, **Delete**, **Upload**, **Upload Folder**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu.
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
+ - On the file node, you can **Download**, **Preview**, **Delete**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu. 
+
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+**WASB Integration**
+
+Navigate to **Blob Storage**
+
+- On the blob container node, you can **Refresh**, **Delete Blob Container**, **Upload Blob** in the right-click context menu.
+
+    ![Blob Storage blob container node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+
+- On the folder node, you can **Refresh**, **Upload Blob** in the right-click context menu.
+
+    ![Blob Storage folder node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
+
+- On the file node, you can **Preview/Edit**, **Download**, **Delete**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu.
+
+    ![Blob Storage file node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
 
 ## Open ADL storage explorer in portal
 1. Select Ctrl+Shift+P to open the command palette.
