@@ -87,7 +87,6 @@ With this option, you can secure the origin blob storage without requiring an Az
 
    ![CDN URL Rewrite rule](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
 
- 
 2. After the new rule becomes active, you can access the file on Azure CDN without using a SAS token in the URL, in the following format:
    `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
