@@ -1,19 +1,12 @@
 ---
 title: Azure Search tutorial on indexing, query, and filtering using the portal | Microsoft Docs
 description: In the Azure portal, use predefined sample data to generate an index in Azure Search. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
+manager: cgronlun
 tags: azure-portal
 
-ms.assetid: 
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 12/04/2017
 ms.author: heidist
 

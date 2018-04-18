@@ -8,7 +8,7 @@ manager: onano
 ms.service: cognitive-services
 ms.technology: custom-speech-service
 ms.topic: article
-ms.date: 23/11/2017
+ms.date: 11/23/2017
 ms.author: panosper
 ---
 
