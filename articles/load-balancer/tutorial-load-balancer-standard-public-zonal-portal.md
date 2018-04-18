@@ -202,4 +202,5 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 ## Next steps
 
-Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
+- Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
+- [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
