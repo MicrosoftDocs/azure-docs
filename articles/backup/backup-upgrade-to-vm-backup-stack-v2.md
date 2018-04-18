@@ -1,4 +1,4 @@
----  
+﻿---  
 title: Upgrade to Azure VM backup stack V2 | Microsoft Docs 
 description: Upgrade process and FAQs for VM backup stack V2 
 services: backup, virtual-machines 
@@ -64,7 +64,7 @@ Execute the following cmdlets from an elevated PowerShell terminal:
 1.	Sign in to your Azure account. 
 
 ```
-PS C:> Login-AzureRmAccount
+PS C:> Connect-AzureRmAccount
 ```
 
 2.	Select the subscription that you want to register for preview:
