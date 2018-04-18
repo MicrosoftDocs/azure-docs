@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 4/24/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ---
@@ -157,6 +157,8 @@ You can specify these parameters in the command line. If you do not, or if any p
 | **Uninstall** | Removes the resource provider and all associated resources (see the following notes). | No |
 | **DebugMode** | Prevents automatic cleanup on failure. | No |
 
+>[!NOTE]
+> SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is created.
 
 ## Verify the deployment using the Azure Stack portal
 
