@@ -30,7 +30,7 @@ When the intent and entities of the utterance are identified, LUIS is done. The 
 
 4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
 
-        [![](media/luis-quickstart-primary-and-secondary-data/intents-list.png "Screenshot of LUIS Intents page with None intent")](media/luis-quickstart-primary-and-secondary-data/intents-list.png#lightbox)
+    [![](media/luis-quickstart-primary-and-secondary-data/intents-list.png "Screenshot of LUIS Intents page with None intent")](media/luis-quickstart-primary-and-secondary-data/intents-list.png#lightbox)
 
 ## Create a new intent
 
