@@ -126,7 +126,7 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
 1. Login to PowerShell
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Check the subscriptions for the account.
