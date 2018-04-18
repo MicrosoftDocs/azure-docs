@@ -25,9 +25,7 @@ Azure Event Hubs is a highly scalable data streaming platform and ingestion serv
 
 ## Prerequisites
 
-To complete this tutorial, make sure you have:
-
-1. An Azure subscription. If you don't have one, [create a free subscription][] before you begin.
+To complete this tutorial, make sure you have an Azure subscription. If you don't have one, [create a free subscription][] before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
