@@ -11,6 +11,8 @@
   items:
   - name: Create and connect - portal
     href: create-data-warehouse-portal.md
+  - name: Create - PowerShell
+    href: create-data-warehouse-powershell.md
   - name: Pause and resume compute
     items:
     - name: Portal
