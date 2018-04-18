@@ -47,7 +47,7 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
 
 1. Select **Create a resource** > **Internet of Things** > **IoT Hub**. 
 
-   ![Select to install IoT Hub](media/quickstart-send-telemetry-node/selectiothub.png)
+   ![Select to install IoT Hub](media/quickstart-send-telemetry-ios/selectiothub.png)
 
 1. To create your IoT hub, use the values in the following table:
 
@@ -64,7 +64,7 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
 
 1. Click **Create**.  
 
-   ![Hub settings](media/quickstart-send-telemetry-node/hubdefinition.png)
+   ![Hub settings](media/quickstart-send-telemetry-ios/hubdefinition.png)
 
 1. Make a note of your IoT hub and resource group names. You use these values later in this quickstart.
 
@@ -72,28 +72,28 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure CLI to register a simulated device.
 
-Add the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with a name for your IoT hub:
+1. Add the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with a name for your IoT hub:
 
-    ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
-    ```
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
+   ```
 
-Run the following command to get the _device connection string_ for the device you just registered:
+1. Run the following command to get the _device connection string_ for the device you just registered:
 
-    ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myiOSdevice --output table
-    ```
+   ```azurecli-interactive
+   az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myiOSdevice --output table
+   ```
 
-    Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the article.
+   Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the article.
 
-You also need a _service connection string_ to enable back-end applications to connect to your IoT hub and retrieve device-to-cloud messages. The following command retrieves the service connection string for your IoT hub:
+1. You also need a _service connection string_ to enable back-end applications to connect to your IoT hub and retrieve device-to-cloud messages. The following command retrieves the service connection string for your IoT hub:
 
-    ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-    ```
+   ```azurecli-interactive
+   az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+   ```
 
-    Make a note of the service connection string, which looks like `Hostname=...=`. You use this value later in the article.
+   Make a note of the service connection string, which looks like `Hostname=...=`. You use this value later in the article.
 
 ## Send simulated telemetry
 
@@ -109,7 +109,7 @@ Navigate to the Azure IoT iOS Samples folder that you downloaded in the prerequi
 cd quickstart/sample-device
 ```
 
-This folder has the XCode project files and workspace, and a `Podfile` file that lists the pods required for the sample project. Make sure that XCode is closed, then run the following command to install the pods according to the podfile:
+Make sure that XCode is closed, then run the following command to install the pods that are declared in the **podfile** file:
 
 ```sh
 pod install
@@ -125,11 +125,11 @@ Your project folder now has another file named `Pods` and a second XCode workspa
    open "MQTT Client Sample WS.xcworkspace"
    ```
 
-2. Expand the **MQTT Client Sample** project and then folder of the same name.  
+2. Expand the **MQTT Client Sample** project and then expand the folder of the same name.  
 3. Open **ViewController.swift** for editing in XCode. 
 4. Search for the **connectionString** variable and update the value with the device connection string that you copied previously.
 5. Save your changes. 
-6. Run the project in the device emulator with the build and run button or the key combo **Command + r**. 
+6. Run the project in the device emulator with the **build and run** button or the key combo **Command + r**. 
 
    ![Run the project](media/quickstart-send-telemetry-ios/run-sample.png)
 
@@ -148,6 +148,8 @@ Open a new terminal window. Run the following command replacing {your hub servic
     ```sh
     iothub-explorer monitor-events myiOSdevice --login "{your hub service connection string}"
     ```
+
+The following shows the type of telemetry that you see in your terminal window:
 
 ![View telemetry](media/quickstart-send-telemetry-ios/view-telemetry.png)
 
