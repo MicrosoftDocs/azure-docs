@@ -189,7 +189,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
 					    <h3>Best practices</h3>
                         <ul class="noBullet">
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-database-security-checklist">Network security</a>
+                                <a class="barLink" href="/azure/security/azure-security-network-security-best-practices">Network security</a>
                             </li>
 						    <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-security-data-encryption-best-practices">Data security</a>
