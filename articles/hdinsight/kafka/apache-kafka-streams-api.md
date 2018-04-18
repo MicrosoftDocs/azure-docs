@@ -19,7 +19,9 @@ ms.author: larryfr
 
 # Tutorial: Apache Kafka streams API
 
-Learn how to create an application that uses the Kafka Streams API and run it with Kafka on HDInsight. The application used in this tutorial is a streaming word count. The application reads text data from a Kafka topic, extracts individual words, and then stores the word and count into another Kafka topic.
+Learn how to create an application that uses the Kafka Streams API and run it with Kafka on HDInsight. 
+
+The application used in this tutorial is a streaming word count. It reads text data from a Kafka topic, extracts individual words, and then stores the word and count into another Kafka topic.
 
 > [!NOTE]
 > Kafka stream processing is often done using Apache Spark or Storm. Kafka version 0.10.0 (in HDInsight 3.5 and 3.6) introduced the Kafka Streams API. This API allows you to transform data streams between input and output topics, using an application that runs on Kafka. In some cases, this may be an alternative to creating a Spark or Storm streaming solution. 
@@ -39,7 +41,7 @@ In this tutorial, you learn how to:
 
 * A Kafka on HDInsight 3.6 cluster. To learn how to create a Kafka on HDInsight cluster, see the [Start with Kafka on HDInsight](apache-kafka-get-started.md) document.
 
-* You must complete the steps in the [Kafka Consumer and Producer API](apache-kafka-producer-consumer-api) document. The steps in this document use the example application and topics created in this tutorial.
+* Complete the steps in the [Kafka Consumer and Producer API](apache-kafka-producer-consumer-api.md) document. The steps in this document use the example application and topics created in this tutorial.
 
 ## Set up your development environment
 
@@ -78,7 +80,7 @@ The important things to understand in the `pom.xml` file are:
 
 * Plugins: Maven plugins provide various capabilities. In this project, the following plugins are used:
 
-    * `maven-compiler-plugin`: Used to set the Java version used by the project to 8. This is the version of Java used by HDInsight 3.6.
+    * `maven-compiler-plugin`: Used to set the Java version used by the project to 8. Java 8 is required by HDInsight 3.6.
     * `maven-shade-plugin`: Used to generate an uber jar that contains this application as well as any dependencies. It is also used to set the entry point of the application, so that you can directly run the Jar file without having to specify the main class.
 
 ### Stream.java
@@ -137,7 +139,7 @@ public class Stream
 
 ## Build and deploy the example
 
-Use the following steps to build and deploy the project to your Kafka on HDInsight cluster.
+To build and deploy the project to your Kafka on HDInsight cluster, use the following steps:
 
 1. Download the examples from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
@@ -147,7 +149,7 @@ Use the following steps to build and deploy the project to your Kafka on HDInsig
     mvn clean package
     ```
 
-    This command creates a directory named `target`, which contains a file named `kafka-streaming-1.0-SNAPSHOT.jar`.
+    This command creates the package at `target/kafka-streaming-1.0-SNAPSHOT.jar`.
 
 3. Use the following command to copy the `kafka-streaming-1.0-SNAPSHOT.jar` file to your HDInsight cluster:
    
@@ -198,10 +200,10 @@ Use the following steps to build and deploy the project to your Kafka on HDInsig
 
     The topics are used for the following purposes:
 
-    * `test`: This is where records are received. The streaming application reads from here.
-    * `wordcounts`: This is where the streaming application stores its output. This contains the words and counts.
-    * `RekeyedIntermediateTopic`: This is used to repartition data as the count is updated by the `countByKey` operator.
-    * `wordcount-example-Counts-changelog`: This is a state store used by the `countByKey` operation
+    * `test`: This topic is where records are received. The streaming application reads from here.
+    * `wordcounts`: This topic is where the streaming application stores its output.
+    * `RekeyedIntermediateTopic`: This topic is used to repartition data as the count is updated by the `countByKey` operator.
+    * `wordcount-example-Counts-changelog`: This topic is a state store used by the `countByKey` operation
 
     > [!IMPORTANT]
     > Kafka on HDInsight can also be configured to automatically create topics. For more information, see the [Configure automatic topic creation](apache-kafka-auto-create-topics.md) document.
@@ -248,7 +250,7 @@ Use the following steps to build and deploy the project to your Kafka on HDInsig
         jumped  13641
    
     > [!NOTE]
-    > The parameter `--from-beggining` configures the consumer to start at the beginning of the messages stored in the topic. The count increments each time a word is encountered, so the topic contains multiple entries for each word, with an increasing count.
+    > The parameter `--from-beggining` configures the consumer to start at the beginning of the records stored in the topic. The count increments each time a word is encountered, so the topic contains multiple entries for each word, with an increasing count.
 
 7. Use the __Ctrl + C__ to exit the producer. Continue using __Ctrl + C__ to exit the application and the consumer.
 
@@ -258,9 +260,3 @@ In this document, you learned how to use the Kafka Streams API with Kafka on HDI
 
 * [Analyze Kafka logs](apache-kafka-log-analytics-operations-management.md)
 * [Replicate data between Kafka clusters](apache-kafka-mirroring.md)
-* [Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md)
-* [Use Apache Spark streaming (DStream) with Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Use Apache Spark Structured Streaming with Kafka on HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Use Apache Spark Structured Streaming to move data from Kafka on HDInsight to Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
-* [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
