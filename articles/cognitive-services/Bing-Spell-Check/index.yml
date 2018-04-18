@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Bing Spell Check Documentation - Azure Cognitive Services
+title: Bing Spell Check Documentation 
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: Bing Spell Check Documentation - Tutorials, API Reference
+  title: Bing Spell Check Documentation - Tutorials, API Reference - Azure Cognitive Services
   description: Learn how to use Bing Spell Check API to obtain suggested corrections for text documents. Tutorials show you how to build apps that use the service.
   services: cognitive-services
   author: v-jaswel

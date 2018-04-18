@@ -52,8 +52,8 @@ sections:
 - title: Cognitive Services APIs
   items: 
   - type: list
+    style: cards
     class: cardsL panelContent singlePanelContent 
-    style: display:flex!important;
     items:
     - title: Vision
       html: <ul class="noBullet">
