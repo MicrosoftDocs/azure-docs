@@ -180,7 +180,7 @@ items:
             href: sql-api-sql-query-metrics.md
         - name: Index
           href: indexing-policies.md
-        - name: Partition data
+        - name: SQL data partitioning
           href: sql-api-partition-data.md
         - name: Stored procedures, triggers, and UDFs
           href: programming.md
@@ -346,6 +346,8 @@ items:
           href: tutorial-global-distribution-graph.md
       - name: How To Guides
         items:
+        - name: Graph partitioning
+          href: graph-partitioning.md
         - name: Integrate
           items:
           - name: Connect to Spark GraphX

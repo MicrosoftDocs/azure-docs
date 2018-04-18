@@ -15,7 +15,7 @@ ms.author: v-jaswel
 # Quickstart for Bing Spell Check API with Ruby 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) with Ruby. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world".
+This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) with Ruby. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!" The suggested replacements are "Hello" and "world."
 
 ## Prerequisites
 
@@ -37,17 +37,16 @@ require 'json'
 
 uri = 'https://api.cognitive.microsoft.com'
 path = '/bing/v7.0/spellcheck?'
+params = 'mkt=en-us&mode=proof'
 
-uri = URI(uri + path)
+uri = URI(uri + path + params)
 uri.query = URI.encode_www_form({
     # Request parameters
-    'mode' => 'proof',
-    'mkt' => 'en-US',
-	'text' => 'Hollo, wrld!',
+	'text' => 'Hollo, wrld!'
 })
 
 # NOTE: Replace this example key with a valid subscription key.
-key = 'enter key here'
+key = 'ENTER KEY HERE'
 
 # The headers in the following example 
 # are optional but should be considered as required:
@@ -67,8 +66,8 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
     http.request(request)
 end
 
-puts request.method
-puts response.body
+result = JSON.pretty_generate(JSON.parse(response.body))
+puts result
 ```
 
 **Response**

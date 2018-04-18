@@ -4,7 +4,7 @@ description: Learn all about the SQL Python API and SDK including release dates,
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: 3ac344a9-b2fa-4a3f-a4cc-02d287e05469

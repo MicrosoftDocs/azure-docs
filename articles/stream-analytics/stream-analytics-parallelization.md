@@ -24,21 +24,13 @@ Scaling a Stream Analytics job takes advantage of partitions in the input or out
 
 ### Inputs
 All Azure Stream Analytics input can take advantage of partitioning:
--	EventHub (need to set the partition key explicitly)
--	IoT Hub  (need to set the partition key explicitly)
+-	EventHub (need to set the partition key explicitly with PARTITION BY keyword)
+-	IoT Hub  (need to set the partition key explicitly with PARTITION BY keyword)
 -	Blob storage
 
 ### Outputs
 
-When you work with Stream Analytics, you can take advantage of partitioning in the outputs:
--	Azure Data Lake Storage
--	Azure Functions
--	Azure Table
--	Blob storage
--	CosmosDB  (need to set the partition key explicitly)
--	EventHub (need to set the partition key explicitly)
--	IoT Hub  (need to set the partition key explicitly)
--	Service Bus
+When you work with Stream Analytics, you can take advantage of partitioning for most output sinks. More information about output partitioning is available on the [partitioning section of the output page](https://review.docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs?branch=master#partitioning).
 
 PowerBI, SQL, and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
 
@@ -51,7 +43,7 @@ For more information about partitions, see the following articles:
 ## Embarrassingly parallel jobs
 An *embarrassingly parallel* job is the most scalable scenario we have in Azure Stream Analytics. It connects one partition of the input to one instance of the query to one partition of the output. This parallelism has the following requirements:
 
-1. If your query logic depends on the same key being processed by the same query instance, you must make sure that the events go to the same partition of your input. For event hubs, this means that the event data must have the **PartitionKey** value set. Alternatively, you can use partitioned senders. For blob storage, this means that the events are sent to the same partition folder. If your query logic does not require the same key to be processed by the same query instance, you can ignore this requirement. An example of this logic would be a simple select-project-filter query.  
+1. If your query logic depends on the same key being processed by the same query instance, you must make sure that the events go to the same partition of your input. For Event Hubs or IoT Hub, this means that the event data must have the **PartitionKey** value set. Alternatively, you can use partitioned senders. For blob storage, this means that the events are sent to the same partition folder. If your query logic does not require the same key to be processed by the same query instance, you can ignore this requirement. An example of this logic would be a simple select-project-filter query.  
 
 2. Once the data is laid out on the input side, you must make sure that your query is partitioned. This requires you to use **PARTITION BY** in all the steps. Multiple steps are allowed, but they all must be partitioned by the same key. Currently, the partitioning key must be set to **PartitionId** in order for the job to be fully parallel.  
 
@@ -61,6 +53,7 @@ An *embarrassingly parallel* job is the most scalable scenario we have in Azure 
 
    * 8 event hub input partitions and 8 event hub output partitions
    * 8 event hub input partitions and blob storage output  
+   * 8 Iot hub input partitions and 8 event hub output partitions
    * 8 blob storage input partitions and blob storage output  
    * 8 blob storage input partitions and 8 event hub output partitions  
 

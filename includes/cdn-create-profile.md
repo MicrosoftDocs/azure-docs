@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: cdn
-author: dksimpson
+author: SyntaxC4
 ms.service: cdn
 ms.topic: include
-ms.date: 04/04/2018
-ms.author: rli; v-deasim
+ms.date: 04/13/2018
+ms.author: cfowler
 ms.custom: include file
 ---
 
@@ -18,7 +18,7 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
     
     The **New** pane appears.
    
-2. Select **Web + Mobile**, then **CDN**.
+2. Select **Web + Mobile**, then select **CDN**.
    
     ![Select CDN resource](./media/cdn-create-profile/cdn-new-resource.png)
 
