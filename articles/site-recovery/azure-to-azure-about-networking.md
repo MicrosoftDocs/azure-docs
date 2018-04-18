@@ -135,9 +135,25 @@ These rules are required so that replication can be enabled from the target regi
 
 If you have an ExpressRoute or VPN connection between on-premises and Azure location, follow the guidelines in this section.
 
-### Forced tunneling
+### Forced tunneling and Network virtual appliances
 
-Typically, you define a default route (0.0.0.0/0) that forces outbound Internet traffic to flow through the on-premises location. We do not recommend this. The replication traffic and Site Recovery service communication should not leave the Azure boundary. The solution is to add user-defined routes (UDRs) for [these IP ranges](#outbound-connectivity-for-azure-site-recovery-ip-ranges) so that the replication traffic doesn’t go on-premises.
+Typically, you define a default route (0.0.0.0/0) that forces outbound Internet traffic to flow through the on-premises location or. We do not recommend this. The replication traffic should not leave the Azure boundary.
+
+If you redirect your outbound network traffic from VMs to network virtual appliances (NVAs), we recommend to bypass NVAs for 
+
+You can create a network service endpoint in your virtual network for "Storage" so that the replication traffic does not leave Azure boundary.
+
+- Select your Azure virtual network and click on 'Service endpoints'
+    ![storage-endpoint](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
+- Click 'Add' and 'Add service endpoints' tab opens
+- Select 'Microsoft.Storage' under 'Service' and the required subnets under 'Subnets' field and click 'Add'
+
+### Network virtual appliance
+
+
+
+>[!NOTE]
+>Do not restrict virtual network access to your storage accounts used for ASR. You should allow access from 'All networks'
 
 ### Connectivity
 
