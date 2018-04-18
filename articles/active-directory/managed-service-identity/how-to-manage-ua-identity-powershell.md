@@ -36,7 +36,7 @@ If you choose to install and use PowerShell locally, this tutorial requires the 
 
 To create a user assigned MSI, use the [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) command. The `ResourceGroupName` parameter specifies the resource group where to create the MSI, and the `-Name` parameter specifies its name. Replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
 
- ```azurpowershell-interactive
+ ```azurepowershell-interactive
 New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <MSI NAME>
 ```
 ## List user assigned MSIs
@@ -44,8 +44,7 @@ New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <MSI NA
 To list managed service identities, use the [Get-AzureRmUserAssigned](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity) command.  The `-ResourceGroupName` parameter specifies the resource group where the MSI was created.  Replace the `<RESOURCE GROUP>` with your own value:
 
 ```azurepowershell-interactive
-Get-AzureRmUserAssignedIdentity -ResourceGroupName PSRG
- <RESOURCE GROUP>
+Get-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP>
 ```
 In the response, user assigned identities have `"Microsoft.ManagedIdentity/userAssignedIdentities"` value returned for key, `Type`.
 

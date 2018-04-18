@@ -98,7 +98,7 @@ If you have a Virtual Machine that no longer needs an MSI:
 
 In this section, you will learn how to enable and remove a user assigned MSI using Azure CLI.
 
-### Enable MSI during creation of an Azure VM
+### Assign a user assigned MSI during the creation of an Azure VM
 
 This section walks you through creation of the VM and assignment of the user assigned MSI to the VM. If you already have a VM you want to use, skip this section and proceed to the next.
 
@@ -136,7 +136,7 @@ The response contains details for the user assigned MSI created, similar to the 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
    ```
 
-### Enable MSI on an existing Azure VM
+### Assign a user assigned MSI to an existing Azure VM
 
 1. Create a user assigned MSI using [az identity create](/cli/azure/identity#az_identity_create).  The `-g` parameter specifies the resource group where the MSI is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
 
@@ -166,7 +166,7 @@ The response contains details for the user assigned MSI created, similar to the 
     az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI ID>
     ```
 
-### Remove MSI from an Azure VM
+### Remove a user assigned MSI from an Azure VM
 
 1. Remove the user assigned MSI from your VM using [az vm remove-identity](/cli/azure/vm#az_vm_remove_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI NAME>` will be the user assigned MSI's `name` property, as given during the `az identity create` command (see examples in the previous sections):
 
@@ -178,11 +178,9 @@ The response contains details for the user assigned MSI created, similar to the 
 
 - [Managed Service Identity overview](overview.md)
 - For the full Azure VM creation Quickstarts, see: 
-
   - [Create a Windows virtual machine with CLI](../../virtual-machines/windows/quick-create-cli.md)  
   - [Create a Linux virtual machine with CLI](../../virtual-machines/linux/quick-create-cli.md) 
 
-Use the following comments section to provide feedback and help us refine and shape our content.
 
 
 
