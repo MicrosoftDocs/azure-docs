@@ -17,106 +17,182 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ---
-# Create custom roles for Azure Role-Based Access Control
-Create a custom role in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using [Azure PowerShell](role-assignments-powershell.md), [Azure Command-Line Interface](role-assignments-cli.md) (CLI), and the [REST API](role-assignments-rest.md). Just like built-in roles, you can assign custom roles to users, groups, and applications at subscription, resource group, and resource scopes. Custom roles are stored in an Azure AD tenant and can be shared across subscriptions.
 
-Each tenant can create up to 2000 custom roles. 
+# Create custom roles in Azure
 
-The following example shows a custom role for monitoring and restarting virtual machines:
+If the [built-in roles](built-in-roles.md) don't meet your specific access needs, you can create your own custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes. Custom roles are stored in an Azure AD tenant and can be shared across subscriptions. Custom roles can be created using Azure PowerShell, Azure CLI, or the REST API. This article describes an example of how to get started creating custom roles using PowerShell and Azure CLI.
+
+## Create a custom role to open support requests using PowerShell
+
+To create a custom role, you can start with a built-in role, edit it, and then create a new role. For this example, the built-in [Reader](built-in-roles.md#reader) role has been customized to allow the user the option of opening support requests.
+
+In PowerShell, use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command to export the [Reader](built-in-roles.md#reader) role in JSON format.
+
+```azurepowershell
+Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
+```
+
+The following shows the JSON output for the [Reader](built-in-roles.md#reader) role.
 
 ```json
 {
-  "Name": "Virtual Machine Operator",
-  "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Insights/diagnosticSettings/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
+    "Name":  "Reader",
+    "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "IsCustom":  false,
+    "Description":  "Lets you view everything, but not make any changes.",
+    "Actions":  [
+                    "*/read"
+                ],
+    "NotActions":  [
 
-  ],
-  "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624",
-    "/subscriptions/34370e90-ac4a-4bf9-821f-85eeedeae1a2"
-  ]
+                   ],
+    "DataActions":  [
+
+                    ],
+    "NotDataActions":  [
+
+                       ],
+    "AssignableScopes":  [
+                             "/"
+                         ]
 }
 ```
-## Actions
-The **Actions** property of a custom role specifies the Azure operations to which the role grants access. It is a collection of operation strings that identify securable operations of Azure resource providers. Operation strings follow the format of `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Operation strings that contain wildcards (\*) grant access to all operations that match the operation string. For instance:
 
-* `*/read` grants access to read operations for all resource types of all Azure resource providers.
-* `Microsoft.Compute/*` grants access to all operations for all resource types in the Microsoft.Compute resource provider.
-* `Microsoft.Network/*/read` grants access to read operations for all resource types in the Microsoft.Network resource provider of Azure.
-* `Microsoft.Compute/virtualMachines/*` grants access to all operations of virtual machines and its child resource types.
-* `Microsoft.Web/sites/restart/Action` grants access to restart websites.
+Next, you edit the JSON output to create your custom role.
 
-Use `Get-AzureRmProviderOperation` (in PowerShell) or `azure provider operations show` (in Azure CLI) to list operations of Azure resource providers. You may also use these commands to verify that an operation string is valid, and to expand wildcard operation strings.
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
 
-```powershell
-Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
+                   ],
+    "DataActions":  [
 
-Get-AzureRMProviderOperation Microsoft.Network/*
+                    ],
+    "NotDataActions":  [
+
+                       ],
+    "AssignableScopes":  [
+                             "/subscriptions/11111111-1111-1111-1111-111111111111"
+                         ]
+}
 ```
 
-![PowerShell screenshot - Get-AzureRMProviderOperation](./media/custom-roles/1-get-azurermprovideroperation-1.png)
+A typical role is composed of three main sections, `Actions`, `NotActions`, and `AssignableScopes`. A role can also optionally include `DataActions` and `NotDataActions` (currently in preview).
+
+The `Actions` section lists all the permitted operations for the role. In this case, to create support tickets, the `Microsoft.Support/*` operation must be added. To exclude operations from `Actions`, you add them to `NotActions`. The effective permissions is computed by subtracting the `NotActions` operations from the `Actions` operations.
+
+Each operation is made available from a resource provider. To get a list of the operations for a resource provider, you can use the [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) command or see [Azure Resource Manager resource provider operations](resource-provider-operations.md).
+
+It's mandatory that the role contains the explicit subscription IDs where it is used. The subscription IDs are listed under `AssignableScopes`, otherwise you will not be allowed to import the role into your subscription.
+
+Finally, you must set the `IsCustom` property to `true` to specify that this is a custom role.
+
+To create the new custom role, you use the [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) command and provide the updated JSON role definition file.
+
+```azurepowershell
+New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
+```
+
+In this example, the name for this custom role is "Reader support tickets access level". It allows the user to view everything in the subscription and also open support requests.
+
+> [!NOTE]
+> The only two built-in roles that allow a user to open support requests are [Owner](built-in-roles.md#owner) and [Contributor](built-in-roles.md#contributor). For a user to be able to open support requests, he must be assigned a role at the subscription scope, because all support requests are created based on an Azure subscription.
+
+After running [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition), the new custom role is available in the Azure portal and can be assigned to users.
+
+![screenshot of custom role imported in the Azure portal](./media/custom-roles/18.png)
+
+![screenshot of assigning custom imported role to user in the same directory](./media/custom-roles/19.png)
+
+![screenshot of permissions for custom imported role](./media/custom-roles/20.png)
+
+Users with this custom role can create new support requests.
+
+![screenshot of custom role creating support requests](./media/custom-roles/21.png)
+
+Users with this custom role cannot perform other actions, such as create VMs or create resource groups.
+
+![screenshot of custom role not able to create VMs](./media/custom-roles/22.png)
+
+![screenshot of custom role not able to create new RGs](./media/custom-roles/23.png)
+
+## Create a custom role to open support requests using Azure CLI
+
+The steps to create a custom role using Azure CLI are similar to using PowerShell, except that the JSON output is different.
+
+For this example, you can start with the built-in [Reader](built-in-roles.md#reader) role. To list the actions of the [Reader](built-in-roles.md#reader) role, use the [az role definition list](/cli/azure/role/definition#az_role_definition_list) command.
 
 ```azurecli
-azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
-
-azure provider operations show "Microsoft.Network/*"
+az role definition list --name "Reader" --output json
 ```
 
-![Azure CLI screenshot - azure provider operations show "Microsoft.Compute/virtualMachines/\*/action" ](./media/custom-roles/1-azure-provider-operations-show.png)
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Lets you view everything, but not make any changes.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "permissions": [
+      {
+        "actions": [
+          "*/read"
+        ],
+        "additionalProperties": {},
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Reader",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
 
-## NotActions
-Use the **NotActions** property if the set of operations that you wish to allow is more easily defined by excluding restricted operations. The access granted by a custom role is computed by subtracting the **NotActions** operations from the **Actions** operations.
+Create a JSON file with the following format. The `Microsoft.Support/*` operation has been added in the `Actions` sections so that this user can open support requests while continuing to be a reader. You must add the subscription ID where this role will be used in the `AssignableScopes` section.
 
-> [!NOTE]
-> If a user is assigned a role that excludes an operation in **NotActions**, and is assigned a second role that grants access to the same operation, the user is allowed to perform that operation. **NotActions** is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
->
->
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
 
-## AssignableScopes
-The **AssignableScopes** property of the custom role specifies the scopes (subscriptions, resource groups, or resources) within which the custom role is available for assignment. You can make the custom role available for assignment in only the subscriptions or resource groups that require it, and not clutter user experience for the rest of the subscriptions or resource groups.
+                   ],
+    "AssignableScopes": [
+                            "/subscriptions/11111111-1111-1111-1111-111111111111"
+                        ]
+}
+```
 
-Examples of valid assignable scopes include:
+To create the new custom role, use the [az role definition create](/cli/azure/role/definition#az_role_definition_create) command.
 
-* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624” - makes the role available for assignment in two subscriptions.
-* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e” - makes the role available for assignment in a single subscription.
-* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network” - makes the role available for assignment only in the Network resource group.
+```azurecli
+az role definition create --role-definition ~/roles/rbacrole1.json
+```
 
-> [!NOTE]
-> You must use at least one subscription, resource group, or resource ID.
->
->
+The new custom role is now available in the Azure portal and the process to use this role is the same as in the previous PowerShell section.
 
-## Custom roles access control
-The **AssignableScopes** property of the custom role also controls who can view, modify, and delete the role.
+![Azure portal screenshot of custom role created using CLI 1.0](./media/custom-roles/26.png)
 
-* Who can create a custom role?
-    Owners (and User Access Administrators) of subscriptions, resource groups, and resources can create custom roles for use in those scopes.
-    The user creating the role needs to be able to perform `Microsoft.Authorization/roleDefinition/write` operation on all the **AssignableScopes** of the role.
-* Who can modify a custom role?
-    Owners (and User Access Administrators) of subscriptions, resource groups, and resources can modify custom roles in those scopes. Users need to be able to perform the `Microsoft.Authorization/roleDefinition/write` operation on all the **AssignableScopes** of a custom role.
-* Who can view custom roles?
-    All built-in roles in Azure RBAC allow viewing of roles that are available for assignment. Users who can perform the `Microsoft.Authorization/roleDefinition/read` operation at a scope can view the RBAC roles that are available for assignment at that scope.
 
 ## See also
-* [Role Based Access Control](role-assignments-portal.md): Get started with RBAC in the Azure portal.
-* For a list of available operations, see [Azure Resource Manager Resource Provider operations](resource-provider-operations.md).
-* Learn how to manage access with:
-  * [PowerShell](role-assignments-powershell.md)
-  * [Azure CLI](role-assignments-cli.md)
-  * [REST API](role-assignments-rest.md)
-* [Built-in roles](built-in-roles.md): Get details about the roles that come standard in RBAC.
+* [Manage role-based access control with AzurePowerShell](role-assignments-powershell.md)
+* [Manage role-based access control with Azure CLI](role-assignments-cli.md)
+* [Manage role-based access control with the REST API](role-assignments-rest.md)
