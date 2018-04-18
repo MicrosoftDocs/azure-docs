@@ -1,4 +1,4 @@
----
+﻿---
 title: App Service on Azure Stack update 1 release notes | Microsoft Docs
 description: Learn about what's in update one for App Service on Azure Stack, the known issues, and where to download the update.
 services: azure-stack
@@ -121,7 +121,7 @@ Site slot swap is broken in this release.  To restore functionality, complete th
 1. Modify the ControllersNSG Network Security Group to **Allow** remote desktop connections to the App Service controller instances.  Replace AppService.local with the name of the resource group you deployed App Service in.
 
     ```powershell
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
 
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -172,7 +172,7 @@ Site slot swap is broken in this release.  To restore functionality, complete th
 
     ```powershell
 
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
 
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
