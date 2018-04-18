@@ -107,7 +107,7 @@ To poll for the service object change status:
         WHERE 
             1=1
             AND resource_type_desc = 'Database'
-            AND major_resource_id = 'DemoDW'
+            AND major_resource_id = 'MySampleDataWarehouse'
             AND operation = 'ALTER DATABASE'
         ORDER BY
             start_time DESC
