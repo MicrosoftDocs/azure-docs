@@ -120,6 +120,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![BlueJeans Provisioning](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansMapping.png)
 
+	> [!NOTE]
+	> Bluejeans does not allow Usernames exceeding 30 characters.
+
 10. Review the user attributes that are synchronized from Azure AD to BlueJeans in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in BlueJeans for update operations. Select the **Save** button to commit any changes.
 
 	![BlueJeans Provisioning](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
