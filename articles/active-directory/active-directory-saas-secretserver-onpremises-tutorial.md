@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 04/18/2018
 ms.author: jeedes
 
 ---
@@ -70,7 +70,7 @@ To configure the integration of Secret Server (On-Premises) into Azure AD, you n
 
 4. In the search box, type **Secret Server (On-Premises)**, select **Secret Server (On-Premises)** from result panel then click **Add** button to add the application.
 
-	![Secret Server (On-Premises) in the results list](./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_secretserver_addfromgallery.png)
+	![Secret Server (On-Premises) in the results list](./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_secretserver_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -98,11 +98,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
 
-	![Single sign-on dialog box](./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_secretserver_samlbase.png)
+	![Single sign-on dialog box](./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_secretserver_samlbase.png)
 
 3. On the **Secret Server (On-Premises) Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-	![Secret Server (On-Premises) Domain and URLs single sign-on information](./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_secretserver_url.png)
+	![Secret Server (On-Premises) Domain and URLs single sign-on information](./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_secretserver_url.png)
 
     a. In the **Identifier** textbox, enter the user chosen value as an example: `https://secretserveronpremises.azure`
 
@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Secret Server (On-Premises) Domain and URLs single sign-on information](./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_secretserver_url1.png)
+	![Secret Server (On-Premises) Domain and URLs single sign-on information](./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_secretserver_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SecretServerURL>/login.aspx`
 	 
@@ -122,19 +122,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_secretserver_certificate.png)
+	![The Certificate download link](./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_secretserver_certificate.png)
 
 6. Check **Show advanced certificate signing settings** and select **Signing Option** as **Sign SAML response and assertion**.
 
-	![Signing options](./media/active-directory-saas-secretserver(on-premises)-tutorial/signing.png)
+	![Signing options](./media/active-directory-saas-secretserver-onpremises-tutorial/signing.png)
 
 7. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_general_400.png)
+	![Configure Single Sign-On Save button](./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_general_400.png)
 	
 8. On the **Secret Server (On-Premises) Configuration** section, click **Configure Secret Server (On-Premises)** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Secret Server (On-Premises) Configuration](./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_secretserver_configure.png)
+	![Secret Server (On-Premises) Configuration](./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_secretserver_configure.png)
 
 9. To configure single sign-on on **Secret Server (On-Premises)** side, you need to send the downloaded **Certificate(Base64), Sign-Out URL, SAML Single Sign-On Service URL**, and **SAML Entity ID** to [Secret Server (On-Premises) support team](https://thycotic.force.com/support/s/). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -148,19 +148,19 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
 
-    ![The Azure Active Directory button](./media/active-directory-saas-secretserver(on-premises)-tutorial/create_aaduser_01.png)
+    ![The Azure Active Directory button](./media/active-directory-saas-secretserver-onpremises-tutorial/create_aaduser_01.png)
 
 2. To display the list of users, go to **Users and groups**, and then click **All users**.
 
-    ![The "Users and groups" and "All users" links](./media/active-directory-saas-secretserver(on-premises)-tutorial/create_aaduser_02.png)
+    ![The "Users and groups" and "All users" links](./media/active-directory-saas-secretserver-onpremises-tutorial/create_aaduser_02.png)
 
 3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
-    ![The Add button](./media/active-directory-saas-secretserver(on-premises)-tutorial/create_aaduser_03.png)
+    ![The Add button](./media/active-directory-saas-secretserver-onpremises-tutorial/create_aaduser_03.png)
 
 4. In the **User** dialog box, perform the following steps:
 
-    ![The User dialog box](./media/active-directory-saas-secretserver(on-premises)-tutorial/create_aaduser_04.png)
+    ![The User dialog box](./media/active-directory-saas-secretserver-onpremises-tutorial/create_aaduser_04.png)
 
     a. In the **Name** box, type **BrittaSimon**.
 
@@ -188,7 +188,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **Secret Server (On-Premises)**.
 
-	![The Secret Server (On-Premises) link in the Applications list](./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_secretserver_app.png)
+	![The Secret Server (On-Premises) link in the Applications list](./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_secretserver_app.png)
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -219,15 +219,15 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-secretserver(on-premises)-tutorial/tutorial_general_203.png
+[200]: ./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-secretserver-onpremises-tutorial/tutorial_general_203.png
 
