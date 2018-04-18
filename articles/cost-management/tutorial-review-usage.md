@@ -36,7 +36,7 @@ You review all usage and costs in the Cloudyn portal. Open the Cloudyn portal fr
 
 ## Track usage and cost trends
 
-You track actual money spent for usage and costs with Over Time reports to identify trends. To start looking at trends, use the Actual Cost Over Time report. On the menu at the top of the portal, click **Cost** > **Cost Analysis** > **Actual Cost Over Time**. When you first open the report, no groups or filters are applied to it.
+You track actual money spent for usage and costs with Over Time reports to identify trends. To start looking at trends, use the Actual Cost Over Time report. On the menu at the top of the portal, click **Costs** > **Cost Analysis** > **Actual Cost Over Time**. When you first open the report, no groups or filters are applied to it.
 
 Here is an example report:
 
