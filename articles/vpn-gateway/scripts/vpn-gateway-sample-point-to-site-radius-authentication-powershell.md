@@ -1,25 +1,25 @@
 ---
-title: 'Configure a site-to-site VPN : PowerShell | Microsoft Docs'
-description: Configure site-to-site VPN . This article uses PowerShell.
+title: 'Azure PowerShell script sample - Configure point-to-site VPN with RADIUS username/password authentication | Microsoft Docs'
+description: Configure point-to-site VPN with RADIUS username/password authentication. This article uses PowerShell.
 services: vpn-gateway
-documentationcenter: na
+documentationcenter: vpn-gateway
 author: cherylmc
 manager: jpconnock
 editor: ''
-tags: azure-resource-manager
+tags:
 
-ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
+ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/12/2018
-ms.author: cherylmc
+ms.devlang: powershell
+ms.topic: sample
+ms.tgt_pltfrm:
+ms.workload: infrastructure
+ms.date: 04/17/2018
+ms.author: anzaman
 
 ---
 
-# Create a VPN Gateway and add a site-to-site connection using PowerShell
+# Create a VPN Gateway and add point-to-site configuration using PowerShell
 
 This script creates a route-based VPN Gateway and adds point-to-site configuration using RADIUS username/password authentication
 
@@ -71,16 +71,14 @@ $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -Subnet
 New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
  -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
  -VpnType RouteBased -GatewaySku VpnGw1
-# Create the local network gateway
-New-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
- -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
-# Configure your on-premises VPN device
-# Create the VPN connection
-$gateway1 = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-$local = Get-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
-New-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
- -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
- -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+# Create a secure string for the RADIUS secret
+$Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
+
+# Add the VPN client address pool and the RADIUS server information
+$Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+ -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
+ -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
 ```
 
 ## Clean up resources
@@ -99,8 +97,7 @@ This script uses the following commands to create the deployment. Each item in t
 |---|---|
 | [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) | Adds a subnet configuration. This configuration is used with the virtual network creation process. |
 | [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork) | Gets a virtual network details. |
-| [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway) | Gets virtual network gateway details. |
-| [Get-AzureRmLocalNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway) | Gets local network gateway details. |
+| [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway) | Gets a virtual network gateway details. |
 | [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig) | Gets the virtual network subnet configuration details. |
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | Creates a subnet configuration. This configuration is used with the virtual network creation process. |
@@ -108,8 +105,6 @@ This script uses the following commands to create the deployment. Each item in t
 | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Creates a public IP address. |
 | [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) | Creates a new gateway ip configuration. |
 | [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.resources/new-azurermvirtualnetworkgateway) | Creates a VPN gateway. |
-| [New-AzureRmLocalNetworkGateway](/powershell/module/azurerm.resources/new-azurermlocalnetworkgateway) | Creates a local network gateway. |
-| [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/ new-azurermvirtualnetworkgatewayconnection) | Creates a site-to-site connection. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Removes a resource group and all resources contained within. |
 | [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) | Sets the subnet configuration for the virtual network. |
 | [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) | Sets the configuration for the VPN gateway. |
@@ -117,5 +112,3 @@ This script uses the following commands to create the deployment. Each item in t
 ## Next steps
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
-
-Additional VPN gateway PowerShell script samples can be found in the [Azure VPN gateway documentation](../windows/powershell-samples.md?toc=).
