@@ -230,16 +230,21 @@ private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string r
 In Media Services, a locator provides an entry point to access the files contained in an Asset. It also defines duration that a client has access to a given asset. One of the arguments that you need to pass is a **StreamingPolicyName**. In this example, you are streaming non-encrypted content, so the predefined clear streaming policy name can be passed.
 
 ```csharp
-private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client, string resourceGroup, string accountName, string assetName, string clearPolicyName, string streamingLocatorName)
+private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client,
+                                                        string resourceGroup,
+                                                        string accountName,
+                                                        string assetName,
+                                                        string locatorName)
 {
     StreamingLocator locator =
-        client.StreamingLocators.Create(resourceGroup, accountName, streamingLocatorName,
-            new StreamingLocator()
-            {
-                AssetName = assetName,
-                StreamingPolicyName = clearPolicyName,
-
-            });
+        client.StreamingLocators.Create(resourceGroup,
+        accountName,
+        locatorName,
+        new StreamingLocator()
+        {
+            AssetName = assetName,
+            StreamingPolicyName = PredefinedClearStreamingOnly,
+        });
 
     return locator;
 }
@@ -254,26 +259,25 @@ static IList<string> GetStreamingURLs(
     IAzureMediaServicesClient client,
     string resourceGroupName,
     string accountName,
-    StreamingPolicy policy, 
-    StreamingLocator locator)
+    String locatorName)
 {
     IList<string> streamingURLs = new List<string>();
 
-    String streamingUrlPrefx = "";
+    string streamingUrlPrefx = "";
 
     StreamingEndpoint streamingEndpoint = client.StreamingEndpoints.Get(resourceGroupName, accountName, "default");
 
     if (streamingEndpoint != null)
     {
-        client.StreamingEndpoints.Start(resourceGroupName, accountName, "default");
         streamingUrlPrefx = streamingEndpoint.HostName;
+
+        if (streamingEndpoint.ResourceState != StreamingEndpointResourceState.Running)
+            client.StreamingEndpoints.Start(resourceGroupName, accountName, "default");
     }
 
-    foreach (var path in client.StreamingLocators.ListPaths(resourceGroupName, accountName, locator.Name).StreamingPaths)
+    foreach (var path in client.StreamingLocators.ListPaths(resourceGroupName, accountName, locatorName).StreamingPaths)
     {
-        String url = "http://" + streamingUrlPrefx + path.Paths[0].ToString();
-        streamingURLs.Add(url);
-        Console.WriteLine(url);
+        streamingURLs.Add("http://" + streamingUrlPrefx + path.Paths[0].ToString());
     }
 
     return streamingURLs;
