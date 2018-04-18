@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 04/18/2018
 ms.author: jeedes
 
 ---
@@ -98,7 +98,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
 
 	![Single sign-on dialog box](./media/active-directory-saas-clever-tutorial/tutorial_clever_samlbase.png)
 
@@ -110,16 +110,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://clever.com/<companyname>`
 
-	> [!NOTE] 
+	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Clever Client support team](https://clever.com/about/contact/) to get these values.
 
-4. On the **SAML Signing Certificate** section, perform the following steps:
+4. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
     
     ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_metadataurl.png)
-
-	a. Click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
-
-	b. Click **Metadata XML** and then save the metadata file on your computer.
 
 5. The Clever application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **SAML Token Attributes** configuration.
 
@@ -205,12 +201,12 @@ The objective of this section is to create a test user in the Azure portal calle
     c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
     d. Click **Create**.
- 
+
 ### Create a Clever test user
 
 To enable Azure AD users to log in to Clever, they must be provisioned into Clever.
 
-In case of Clever, Work with [Clever Client support team](https://clever.com/about/contact/) to add the users in the Clever platform. Users must be created and activated before you use single sign-on. 
+In case of Clever, Work with [Clever Client support team](https://clever.com/about/contact/) to add the users in the Clever platform. Users must be created and activated before you use single sign-on.
 
 >[!NOTE]
 >You can use any other Clever user account creation tools or APIs provided by Clever to provision Azure AD user accounts.
@@ -219,17 +215,17 @@ In case of Clever, Work with [Clever Client support team](https://clever.com/ab
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Clever.
 
-![Assign the user role][200] 
+![Assign the user role][200]
 
 **To assign Britta Simon to Clever, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
 2. In the applications list, select **Clever**.
 
-	![The Clever link in the Applications list](./media/active-directory-saas-clever-tutorial/tutorial_clever_app.png)  
+	![The Clever link in the Applications list](./media/active-directory-saas-clever-tutorial/tutorial_clever_app.png)
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -244,13 +240,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Clever tile in the Access Panel, you should get automatically signed-on to your Clever application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
