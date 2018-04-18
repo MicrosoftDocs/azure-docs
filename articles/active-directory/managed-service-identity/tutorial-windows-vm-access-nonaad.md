@@ -55,7 +55,7 @@ For this tutorial, we create a new Windows VM. You can also enable MSI on an exi
 
 ## Enable MSI on your VM 
 
-A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your Virtual Machine. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM, and it enables MSI in Azure Resource Manager.
+A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your Virtual Machine. Under the covers, enabling MSI does two things: registers your VM with Azure Active Directory to create its managed identity, and configures the identity on the VM.
 
 1.	Select the **Virtual Machine** that you want to enable MSI on.  
 2.	On the left navigation bar click **Configuration**. 
@@ -63,10 +63,6 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 4.	Ensure you click **Save** to save the configuration.  
 
     ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. If you wish to check and verify which extensions are on this VM, click **Extensions**. If MSI is enabled, then **ManagedIdentityExtensionforWindows** appears in the list.
-
-    ![Alt image text](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## Grant your VM access to a Secret stored in a Key Vault 
  
@@ -109,7 +105,7 @@ First, we use the VM’s MSI to get an access token to authenticate to Key Vault
     The PowerShell request:
     
     ```powershell
-    PS C:\> $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://vault.azure.net"} -Headers @{Metadata="true"} 
+    PS C:\> $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net -Method GET -Headers @{Metadata="true"} 
     ```
     
     Next, extract the full response which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object.  

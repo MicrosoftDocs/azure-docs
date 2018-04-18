@@ -46,10 +46,10 @@ To get detailed help for any cmdlet that you see in this tutorial, use the **Get
 Get-Help <cmdlet-name> -Detailed
 ```
     
-For example, to get help for the **Login-AzureRmAccount** cmdlet, type:
+For example, to get help for the **Connect-AzureRmAccount** cmdlet, type:
 
 ```PowerShell
-Get-Help Login-AzureRmAccount -Detailed
+Get-Help Connect-AzureRmAccount -Detailed
 ```
 
 You can also read the following articles to get familiar with Azure Resource Manager deployment model in Azure PowerShell:
@@ -61,13 +61,13 @@ You can also read the following articles to get familiar with Azure Resource Man
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 >[!NOTE]
  If you are using a specific instance of Azure use the -Environment parameter. For example: 
  ```powershell
- Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+ Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell gets all the subscriptions that are associated with this account and by default, uses the first one.
@@ -239,8 +239,10 @@ You must select the same directory that contains the Azure subscription with whi
 10. You will use the **Application ID** and the **Key** information in the next step to set permissions on your vault.
 
 ## <a id="authorize"></a>Authorize the application to use the key or secret
-To authorize the application to access the key or secret in the vault, use the
- [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet.
+There are two ways to authorize the application to access the key or secret in the vault.
+
+### Using PowerShell
+To use PowerShell, use the [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet.
 
 For example, if your vault name is **ContosoKeyVault** and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, run the following:
 
@@ -253,6 +255,13 @@ If you want to authorize that same application to read secrets in your vault, ru
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
+### Using the Azure portal
+To change the authorization of an application to use keys or secrets:
+1. Select **Access Policies** from the Key Vault resource blade
+2. Click the [+ Add new] button at the top of the blade
+3. Click **Select Principal** to select the application you created earlier
+4. From the **Key permissions** drop down, select "Decrypt" and "Sign" to authorize the application to decrypt and sign with keys in your vault
+5. From the **Secret permissions** drop-down, select "Get" to allow the application to read secrets in the vault
 
 ## <a id="HSM"></a>Working with a hardware security module (HSM)
 For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete).

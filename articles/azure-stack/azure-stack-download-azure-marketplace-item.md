@@ -1,4 +1,4 @@
----
+﻿---
 title: Download marketplace items from Azure | Microsoft Docs
 description: I can download marketplace items from Azure to my Azure Stack deployment.
 services: azure-stack
@@ -58,7 +58,7 @@ From the machine that has internet connectivity, use the following steps to down
 
 1. Open a PowerShell console as an administrator and [install Azure Stack specific PowerShell modules](azure-stack-powershell-install.md). Make sure that you install **PowerShell version 1.2.11 or higher**.  
 
-2. Add the Azure account that you have used to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet without any parameters. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.  
+2. Add the Azure account that you have used to register Azure Stack. To add the account, run the **Connect-AzureRmAccount** cmdlet without any parameters. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.  
 
 3. If you have multiple subscriptions, run the following command to select the one you have used for registration:  
 

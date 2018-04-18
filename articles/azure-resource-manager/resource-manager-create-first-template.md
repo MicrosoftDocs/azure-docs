@@ -1,4 +1,4 @@
----
+﻿---
 title: Create first Azure Resource Manager template | Microsoft Docs
 description: A step-by-step guide to creating your first Azure Resource Manager template. It shows you how to use the template reference for a storage account to create the template.
 services: azure-resource-manager
@@ -76,7 +76,7 @@ You are ready to deploy this template. You use either PowerShell or Azure CLI to
 * For PowerShell, use the following commands from the folder containing the template:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    
    New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json
