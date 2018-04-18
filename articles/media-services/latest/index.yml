@@ -26,10 +26,6 @@ sections:
     items: 
     - image: 
         src: media/index/media-services.svg
-      text: Create an account
-      href: /azure/media-services/latest/create-account-cli-quickstart
-    - image: 
-        src: media/index/media-services.svg
       text: Stream video files
       href: /azure/media-services/latest/stream-files-dotnet-quickstart
 - title: Step-by-Step Tutorials
