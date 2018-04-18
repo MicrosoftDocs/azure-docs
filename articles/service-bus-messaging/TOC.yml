@@ -14,8 +14,8 @@
     href: service-bus-quickstart-cli.md
 - name: Tutorials
   items:
-  - name: Update inventory system
-    href: tutorial-update-inventory.md
+  - name: Publish/subscribe channels and filters
+    href: service-bus-tutorial-topics-subscriptions-portal.md
 - name: Samples
   items:
   - name: Service Bus samples
