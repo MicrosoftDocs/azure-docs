@@ -2,14 +2,14 @@
 title: "Quickstart: Scale out compute in Azure SQL Data Warehouse - T-SQL | Microsoft Docs"
 description: Scale compute in Azure SQL Data Warehouse using T-SQL and SQL Server Management Studio (SSMS). Scale out compute for better performance, or scale back compute to save costs. 
 services: sql-data-warehouse
-author: hirokib
+author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.component: implement
-ms.date: 04/11/2018
-ms.author: elbutter
-ms.reviewer: jrj
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
 ---
 
 # Quickstart: Scale compute in Azure SQL Data Warehouse using T-SQL

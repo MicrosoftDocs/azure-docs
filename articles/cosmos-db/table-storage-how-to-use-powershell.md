@@ -1,4 +1,4 @@
----
+﻿---
 title: Perform Azure Table storage operations with PowerShell | Microsoft Docs
 description: Perform Azure Table storage operations with PowerShell
 services: cosmos-db
@@ -44,10 +44,10 @@ Install-Module AzureRmStorageTable
 
 ## Sign in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## Retrieve list of locations
