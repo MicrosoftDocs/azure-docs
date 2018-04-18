@@ -27,11 +27,11 @@ With the new Windows 10 Fall Creators Update, users with Azure AD joined devices
 
 To enable users to reset their Azure AD password from the Windows 10 login screen, the following requirements need to be met:
 
-* Windows 10, version 1709, or newer client that is [Azure AD joined](device-management-azure-portal.md).
+* Windows 10, version 1709, or newer client that is [Azure AD joined](../device-management-azure-portal.md).
 * Azure AD self-service password reset must be enabled.
 * Configure and deploy the setting to enable the Reset password link via one of the following methods:
-   * [Intune device configuration profile](active-directory-passwords-login.md#configure-reset-password-link-using-intune)
-   * [Registry key](active-directory-passwords-login.md#configure-reset-password-link-using-the-registry)
+   * [Intune device configuration profile](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
+   * [Registry key](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## Configure Reset password link using Intune
 
@@ -68,7 +68,7 @@ To enable users to reset their Azure AD password from the Windows 10 login scree
    * Click **Select**
 4. Click **Create**
 
-More information on creating groups can be found in the article [Manage access to resources with Azure Active Directory groups](active-directory-manage-groups.md).
+More information on creating groups can be found in the article [Manage access to resources with Azure Active Directory groups](../active-directory-manage-groups.md).
 
 #### Assign device configuration policy to device group
 
@@ -101,7 +101,7 @@ Now that the policy is configured and assigned, what changes for the user? How d
 
 When users attempt to log in, they now see a Reset password link that opens the self-service password reset experience at the logon screen. This functionality allows users to reset their password without having to use another device to access a web browser.
 
-Your users will find guidance for using this feature in [Reset your work or school password](active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
+Your users will find guidance for using this feature in [Reset your work or school password](../active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
 ## Common issues
 
@@ -116,7 +116,7 @@ When testing this functionality using Remote Desktop, the "Reset password" link 
 ## Next steps
 The following links provide additional information regarding password reset using Azure AD
 
-* [How do I deploy SSPR?](authentication/howto-sspr-deployment.md)
+* [How do I deploy SSPR?](howto-sspr-deployment.md)
 * [How do I enable PIN reset from the login screen?](https://docs.microsoft.com/intune/device-windows-pin-reset)
 * [More information about MDM authentication policies](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-authentication)
 
