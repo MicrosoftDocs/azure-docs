@@ -101,7 +101,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Admin Username**, **Secret Token**, and **Domain** of your Zendesk's account. Examples of these values are:
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Zendesk Tenant. Example: admin@contoso.com.
+	*   In the **Admin Username** field, populate the username of the admin account on your Zendesk tenant. Example: admin@contoso.com.
 
 	*   In the **Secret Token** field, populate the secret token as described in Step 6.
 
