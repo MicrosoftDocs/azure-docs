@@ -28,7 +28,7 @@ These commands parallel the management options available in the [Azure Search Ma
 
 First, you must login to Azure with this command:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Specify the email address of your Azure account and its password in the Microsoft Azure login dialog.
 
