@@ -18339,7 +18339,7 @@
             "source_path": "articles/active-directory/active-directory-passwords-troubleshoot.md",
             "redirect_url": "/azure/active-directory/authentication/active-directory-passwords-troubleshoot",
             "redirect_document_id": true
-        }
+        },
         {
             "source_path": "articles/multi-factor-authentication/nps-extension-vpn.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-nps-extension-vpn",
