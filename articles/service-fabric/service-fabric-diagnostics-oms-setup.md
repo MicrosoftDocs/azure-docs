@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Service Fabric - Set up monitoring with Log Analytics | Microsoft Docs
 description: Learn how to set up Log Analytics for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
 services: service-fabric
@@ -198,7 +198,7 @@ $WorkspaceName = "<OMS Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId $SubID 
 
 # Create the resource group if needed

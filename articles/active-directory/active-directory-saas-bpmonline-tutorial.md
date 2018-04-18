@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 
 ms.assetid: 052db91d-ccff-4098-8ae3-2f76eca90539
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 04/16/2018
 ms.author: jeedes
 
 ---
@@ -98,8 +98,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Single sign-on dialog box](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_samlbase.png)
 
 3. On the **Bpm’online Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
@@ -116,37 +116,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<client site name>.bpmonline.com/`
 	 
-	> [!NOTE] 
+	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Bpm’online Client support team](mailto:support@bpmonline.com) to get these values. 
 
-5. To generate the **Metadata** url, perform the following steps:
-
-    a. Click **App registrations**.
+5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appregistrations.png)
-   
-    b. Click **Endpoints** to open **Endpoints** dialog box.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpointicon.png)
-
-    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpoint.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_metadataurl.png)
      
-    d. Now go to the property page of **Bpm’online** and copy the **Application ID** using **Copy** button and paste it into notepad.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appid.png)
-
-     e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
-
 6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-bpmonline-tutorial/tutorial_general_400.png)
 	
-8. To configure single sign-on on **Bpm’online** side, you need to send the **Metadata URL** to [Bpm’online support team](mailto:support@bpmonline.com). They set this setting to have the SAML SSO connection set properly on both sides.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. To configure single sign-on on **Bpm’online** side, you need to send the **App Federation Metadata Url** to [Bpm’online support team](mailto:support@bpmonline.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 

@@ -4,7 +4,7 @@ description: Learn how to create on-demand Hadoop clusters in HDInsight using Az
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: spelluru
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: spelluru
+ms.author: nitinme
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
 
 ---
@@ -77,7 +77,12 @@ $destContainerName = "adfgetstarted" # don't change this value.
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+<<<<<<< HEAD
 Login-AzureRmAccount
+=======
+try{Get-AzureRmContext}
+catch{Connect-AzureRmAccount}
+>>>>>>> refs/remotes/MicrosoftDocs/release-build-hdinsight-2018
 #endregion
 
 ####################################

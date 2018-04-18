@@ -12,7 +12,7 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/29/2018
+ms.date: 04/16/2018
 ms.author: larryfr
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
@@ -23,6 +23,11 @@ Kafka is an open-source, distributed streaming platform. It's often used as a me
 In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apache.org) cluster using Azure PowerShell. You also learn how to use included utilities to send and receive messages using Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+
+> [!IMPORTANT]
+> The Kafka API can only be accessed by resources inside the same virtual network. In this quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Kafka, you must first create a virtual network and then create the resources within the network.
+>
+> For more information, see the [Connect to Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
 
 ## Prerequisites
 
@@ -60,35 +65,6 @@ $resourceGroup = Read-Input -Prompt "Enter the resource group name"
 $location = Read-Input -Prompt "Enter the Azure region to use"
 
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
-```
-
-## Create a virtual network
-
-Create a virtual network with [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). The following example prompts you for the network name, and then creates it in the resource group:
-
-```powershell
-$networkName = Read-Input -Prompt "Enter the virtual network name"
-
-$virtualNetwork = New-AzureRmVirtualNetwork `
-  -ResourceGroupName $resourceGroup `
-  -Location $location `
-  -Name $networkName `
-  -AddressPrefix 10.0.0.0/16
-```
-
-Azure resources are deployed to a subnet within a virtual network, so you need to create a subnet. Create a subnet configuration with [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). 
-
-```powershell
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
-  -Name default `
-  -AddressPrefix 10.0.0.0/24 `
-  -VirtualNetwork $virtualNetwork
-```
-
-Write the subnet configuration to the virtual network with [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork). This command creates the subnet within the virtual network:
-
-```powershell
-$virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
 ## Create a storage account

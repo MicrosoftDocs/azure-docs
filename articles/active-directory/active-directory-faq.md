@@ -116,11 +116,11 @@ For more information, see [Getting started with password management](active-dire
 
 **A:** Yes, if you have password write-back enabled, the password operations performed by an admin are written back to your on-premises environment.  
 
-For more answers to password-related questions, see [Password management frequently asked questions](active-directory-passwords-faq.md).
+For more answers to password-related questions, see [Password management frequently asked questions](authentication/active-directory-passwords-faq.md).
 - - -
 **Q:  What can I do if I can't remember my existing Office 365/Azure AD password while trying to change my password?**
 
-**A:** For this type of situation, there are a couple of options.  Use self-service password reset (SSPR) if it's available.  Whether SSPR works depends on how it's configured.  For more information, see [How does the password reset portal work](active-directory-passwords-best-practices.md).
+**A:** For this type of situation, there are a couple of options.  Use self-service password reset (SSPR) if it's available.  Whether SSPR works depends on how it's configured.  For more information, see [How does the password reset portal work](authentication/howto-sspr-deployment.md).
 
 For Office 365 users, your admin can reset the password by using the steps outlined in [Reset user passwords](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 

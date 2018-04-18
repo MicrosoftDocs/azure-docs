@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/17/2018
+ms.date: 04/18/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom:
@@ -63,7 +63,7 @@ All Azure Policy template samples are at [Templates for Azure Policy](json-sampl
 ## Mode
 
 The **mode** determines which resource types will be evaluated for a policy. The supported modes are:
-* `all`: evaluate resource groups and all resource types 
+* `all`: evaluate resource groups and all resource types
 * `indexed`: only evaluate resource types that support tags and location
 
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you need to specify the **mode** parameter manually. If the policy definition does not contain a **mode** value it defaults to `indexed` for backwards compatibility.
