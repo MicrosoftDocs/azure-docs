@@ -60,16 +60,55 @@ The Java solution currently uses the .NET authentication, simulation, and revers
 
 The following sections describe options to customize the presentation and visualizations layer in the remote monitoring solution:
 
-### Customize the map
+### Modify the UI
 
-See the [Customize map](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) page in GitHub for details of the map components in the solution.
+The remote monitoring PCS UI code is implemented using the React.js framework. You can find the source code in the [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) GitHub repository.
 
-<!--
-### Connect an external visualization tool
+To make changes to the UI, you can run a copy of it locally. The local copy connects to a deployed instance of the solution to perform actions such as retrieving telemetry.
 
-See the [Connect an external visualization tool](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to connect an external visualization tool.
+The following steps outline the process to set up a local environment for UI development:
 
--->
+1. Deploy a **basic** instance of the preconfigured solution using the `pcs` CLI. Make a note of the name of your deployment and the credentials you provided for the virtual machine. For more information, see [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md).
+
+1. Use the Azure portal or the [az](../cli/azure/?view=azure-cli-latest) CLI to enable SSH access to the virtual machine that hosts the microservices in your solution. For example:
+
+    ```sh
+    az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
+    ```
+
+1. Use the Azure portal or the [az](../cli/azure/?view=azure-cli-latest) CLI to find the name and public IP address of your virtual machine. For example:
+
+    ```sh
+    az resource list --resource-group {your solution name} -o table
+    az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
+    ```
+
+1. Use SSH to connect to your virtual machine using the IP address from the previous step, and the credentials you provided when you ran `pcs` to deploy the solution.
+
+1. To allow the local UX to connect, run the following commands at the bash shell in the virtual machine:
+
+    ```sh
+    cd /app
+    sudo ./start.sh --unsafe
+    ```
+
+1. After you see the message `WARNING! Starting services in UNSAFE mode!`, you can disconnect from the virtual machine.
+
+1. In your local copy of the [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) repository, edit the **.env** file to add the URL of your deployed solution:
+
+    ```config
+    NODE_PATH = src/
+    REACT_APP_BASE_SERVICE_URL=https://{your solution name}.azurewebsites.net/
+    ```
+
+1. At a command prompt in your local copy of the `azure-iot-pcs-remote-monitoring-webui` folder, run the following commands to install the required libraries and run the UI locally:
+
+    ```cmd/sh
+    npm install
+    npm start
+    ```
+
+1. The previous command runs the UI locally at http://localhost:3000/dashboard. You can edit the code while the site is running and see it update dynamically.
 
 ### Duplicate an existing control
 
@@ -301,6 +340,17 @@ You have now finished the changes in the `src/components/pages/dashboard/dashboa
 The **Dashboard** page now displays the new KPI value:
 
 ![Warning KPI](media/iot-suite-remote-monitoring-customize/new-kpi.png)
+
+### Customize the map
+
+See the [Customize map](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) page in GitHub for details of the map components in the solution.
+
+<!--
+### Connect an external visualization tool
+
+See the [Connect an external visualization tool](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to connect an external visualization tool.
+
+-->
 
 ### Other customization options
 
