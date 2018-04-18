@@ -1,4 +1,4 @@
----
+﻿---
 title: Install and configure PowerShell for Azure Stack quickstart  | Microsoft Docs
 description: Learn about installing and configuring PowerShell for Azure Stack.
 services: azure-stack
@@ -90,7 +90,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-  Login-AzureRmAccount `
+  Connect-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
     -TenantId $TenantID 
 ```
@@ -156,7 +156,7 @@ $TenantID = Get-AzsDirectoryTenantId `
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-Login-AzureRmAccount `
+Connect-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
     -TenantId $TenantID
 ```
