@@ -18349,6 +18349,21 @@
             "source_path": "articles/multi-factor-authentication/nps-extension-remote-desktop-gateway.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-nps-extension-rdg",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-getting-started.md",
+            "redirect_url": "/azure/active-directory/authentication/quickstart-sspr",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-login.md",
+            "redirect_url": "/azure/active-directory/authentication/tutorial-sspr-windows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-writeback.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-sspr-writeback",
+            "redirect_document_id": true
         }
     ]
 }
