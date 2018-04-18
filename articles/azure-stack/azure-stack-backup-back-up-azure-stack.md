@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 4/20/2017
 ms.author: mabrigg
+ms.reviewer: hectorl
 
 ---
 # Back up Azure Stack
@@ -24,19 +25,13 @@ ms.author: mabrigg
 Perform an on-demand backup on Azure Stack with backup in place. If you need to enable the Infrastructure Backup Service, see [Enable Backup for Azure Stack from the administration portal](azure-stack-backup-enable-backup-console.md).
 
 > [!Note]  
->  Azure Stack Tools contain the **Start-AzSBackup** cmdlet. For instructions on installing the tools, see [Get up and running with PowerShell in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+>  For instructions on configuring the PowerShell environment, see [Install PowerShell for Azure Stack ](azure-stack-powershell-install.md).
 
 ## Start Azure Stack backup
 
 Open Windows PowerShell with an elevated prompt in the operator management environment, and run the following commands:
 
 ```powershell
-    cd C:\tools\AzureStack-Tools-master\Connect
-    Import-Module .\AzureStack.Connect.psm1
-
-    cd C:\tools\AzureStack-Tools-master\Infrastructure
-    Import-Module .\AzureStack.Infra.psm1 
-    
     Start-AzSBackup -Location $location.Name
 ```
 

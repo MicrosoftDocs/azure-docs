@@ -13,8 +13,9 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 4/20/2017
 ms.author: mabrigg
+ms.reviewer: hectorl
 
 ---
 # Enable backup for Azure Stack from the administration portal
