@@ -1,4 +1,4 @@
----
+﻿---
 title: Create HDInsight clusters with Data Lake Store as default storage by using PowerShell | Microsoft Docs'
 description: Use Azure PowerShell to create and use HDInsight clusters with Azure Data Lake Store
 services: data-lake-store,hdinsight
@@ -52,7 +52,7 @@ To create a Data Lake Store account, do the following:
 1. From your desktop, open a PowerShell window, and then enter the snippets below. When you are prompted to sign in, sign in as one of the subscription administrators or owners. 
 
         # Sign in to your Azure account
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
         # List all the subscriptions associated to your account
         Get-AzureRmSubscription
