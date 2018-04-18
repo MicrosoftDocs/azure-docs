@@ -85,7 +85,7 @@ Follow the steps in the checklist to enable and configure the Azure Active Direc
 | Complete part two of "Enabling device writeback in Azure AD Connect." After you finish it, return to this guide. |[Enabling device writeback in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
 ## [Optional] Part 4: Enable Multi-Factor Authentication
-We strongly recommended that you configure one of the several options for Multi-Factor Authentication. If you want to require Multi-Factor Authentication, see [Choose the Multi-Factor Authentication security solution for you](../multi-factor-authentication/multi-factor-authentication-get-started.md). It includes a description of each solution, and links to help you configure the solution of your choice.
+We strongly recommended that you configure one of the several options for Multi-Factor Authentication. If you want to require Multi-Factor Authentication, see [Choose the Multi-Factor Authentication security solution for you](authentication/concept-mfa-whichversion.md). It includes a description of each solution, and links to help you configure the solution of your choice.
 
 ## Part 5: Verification
 The deployment is now complete, and you can try out some scenarios. Use the following links to experiment with the service and become familiar with its features.

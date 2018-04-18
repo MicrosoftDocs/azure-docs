@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure registration for Azure Stack integrated systems | Microsoft Docs
 description: Describes the Azure registration process for multi-node Azure Stack Azure-connected deployments.
 services: azure-stack
@@ -56,10 +56,10 @@ Connected environments can access the internet and Azure. For these environments
 ### Register the Azure Stack resource provider
 To register the Azure Stack resource provider with Azure, start PowerShell ISE as an administrator and use the following PowerShell commands with the **EnvironmentName** parameter set to the appropriate Azure subscription type (see parameters below). 
 
-1. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure global administrator account credentials and you may have to use 2-factor authentication based on your account’s configuration.
+1. Add the Azure account that you use to register Azure Stack. To add the account, run the **Connect-AzureRmAccount** cmdlet. You are prompted to enter your Azure global administrator account credentials and you may have to use 2-factor authentication based on your account’s configuration.
 
    ```PowerShell
-      Add-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
+      Connect-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
    ```
 
    | Parameter | Description |  
@@ -91,7 +91,7 @@ Use these steps to register Azure Stack with Azure using the pay-as-you-use bill
 2. Next, in the same PowerShell session, ensure you are logged in to the correct Azure PowerShell Context. This is the azure account that was used to register the Azure Stack resource provider above. Powershell to run: 
 
   ```powershell 
-  Login-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
+  Connect-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
   ``` 
 
 3. In the same PowerShell session, run the **Set-AzsRegistration** cmdlet. PowerShell to run:  
