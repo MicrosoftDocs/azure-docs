@@ -3,7 +3,7 @@ title: Azure Linux VM Agent Overview | Microsoft Docs
 description: Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: danis
 manager: timlt
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
-ms.author: szark
+ms.author: danis
 ms.custom: H1Hack27Feb2017
 ---
 # Understanding and using the Azure Linux Agent
@@ -46,7 +46,7 @@ The Microsoft Azure Linux Agent (waagent) manages Linux & FreeBSD provisioning, 
   * Ensures the stability of the network interface name
 * **Kernel**
   
-  * Configures virtual NUMA (disable for kernel <'2.6.37')
+  * Configures virtual NUMA (disable for kernel <`2.6.37`)
   * Consumes Hyper-V entropy for /dev/random
   * Configures SCSI timeouts for the root device (which could be remote)
 * **Diagnostics**
@@ -271,7 +271,7 @@ This specifies the path at which the resource disk is mounted. The resource disk
 Type: String  
 Default: None
 ```
-Specifies disk mount options to be passed to the mount -o command. This is a comma separated list of values, ex. 'nodev,nosuid'. See mount(8) for details.
+Specifies disk mount options to be passed to the mount -o command. This is a comma-separated list of values, ex. 'nodev,nosuid'. See mount(8) for details.
 
 **ResourceDisk.EnableSwap:**  
 ```
