@@ -1,4 +1,4 @@
----
+﻿---
 title: "PowerShell for Virtual Network service endpoints and rules in SQL | Microsoft Docs"
 description: "Provides PowerShell scripts to create and manage Virtual Service endpoints for your Azure SQL Database."
 services: sql-database
@@ -74,7 +74,7 @@ This first PowerShell script assigns values to variables. The subsequent scripts
 ###########################################################
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 ###########################################################
 ##  Assignments to variables used by the later scripts.  ##
@@ -514,7 +514,7 @@ This PowerShell script does not update anything, unless you respond yes if is as
 ### 1. LOG into to your Azure account, needed only once per PS session.  Assign variables.
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 # Assignments to variables used by the later scripts.
 # You can EDIT these values, if necessary.

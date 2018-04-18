@@ -1,4 +1,4 @@
----
+﻿---
 title: Replicate and fail over VMware VMs to Azure using PowerShell in Azure Site Recovery | Microsoft Docs
 description: Learn how to set up replication and failover to Azure for VMware VMs using PowerShell in Azure Site Recovery.
 services: site-recovery
@@ -39,10 +39,10 @@ Before you start:
 
 ## Log in to your Microsoft Azure subscription
 
-Log in to your Azure subscription using the Login-AzureRmAccount cmdlet
+Log in to your Azure subscription using the Connect-AzureRmAccount cmdlet
 
 ```azurepowershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 Select the Azure subscription you want to replicate your VMware virtual machines to. Use the Get-AzureRmSubscription cmdlet to get the list of Azure subscriptions you have access to. Select the Azure subscription to work with using the Select-AzureRmSubscription cmdlet.
 

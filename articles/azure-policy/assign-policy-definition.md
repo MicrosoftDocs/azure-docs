@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/10/2018
+ms.date: 04/18/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -67,15 +67,14 @@ If there are any existing resources that are not compliant with this new assignm
 
 When a condition is evaluated against your existing resources and found true, then those resources are marked as non-compliant with the policy. The preceding example image displays non-compliant resources. The following table shows how different policy actions work with the condition evaluation for the resulting compliance state. Although you don’t see the evaluation logic in the Azure portal, the compliance state results are shown. The compliance state result is either compliant or non-compliant.
 
-|Resource  |If Condition in the Policy Evaluates to  |Action in the Policy   |Compliance State  |
-|-----------|---------|---------|---------|
-|Exists     |True     |Deny     |Non-compliant |
-|Exists     |False    |Deny     |Compliant     |
-|Exists     |True     |Append   |Non-compliant |
-|Exists     |False    |Append   |Compliant     |
-|Exists     |True     |Audit    |Non-compliant |
-|Exists     |False    |Audit    |Non-compliant |
+| **Resource State** | **Action** | **Policy Evaluation** | **Compliance State** |
+| --- | --- | --- | --- |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non-Compliant |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compliant |
+| New | Audit, AuditIfNotExist\* | True | Non-Compliant |
+| New | Audit, AuditIfNotExist\* | False | Compliant |
 
+\* The Append, DeployIfNotExist, and AuditIfNotExist actions require the IF statement to be TRUE. The actions also require the existence condition to be FALSE to be non-compliant. When TRUE, the IF condition triggers evaluation of the existence condition for the related resources.
 ## Clean up resources
 
 Other guides in this collection build upon this quickstart. If you plan to continue to work with subsequent tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.

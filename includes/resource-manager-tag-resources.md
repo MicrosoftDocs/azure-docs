@@ -22,3 +22,10 @@
 7. You can select the pinned tag from the dashboard to see the resources with that tag.
 
      ![Pin tags to the dashboard](./media/resource-manager-tag-resources/show-pinned-tag.png)
+
+
+To bulk assign tags to multiple resources:
+1. From any list of resources (e.g. All Resources, Resource Group oveview);
+2. Select checkbox for the resources you want to assign the tag;
+3. Select Assign tags option;
+4. Add name(s) and value(s) and select Assign.
