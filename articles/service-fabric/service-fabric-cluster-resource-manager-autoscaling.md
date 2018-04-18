@@ -3,7 +3,7 @@ title: Azure Service Fabric Auto Scaling Services and Containers | Microsoft Doc
 description: Azure Service Fabric allows you to set auto scaling policies for services and containers.
 services: service-fabric
 documentationcenter: .net
-author: 
+author: radicmilos
 manager: 
 editor: ''
 
