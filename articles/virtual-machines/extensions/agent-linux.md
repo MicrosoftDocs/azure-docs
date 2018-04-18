@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 The Microsoft Azure Linux Agent (waagent) manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller. In addition to the Linux Agent providing provisioning functionality, Azure also provides the option of using cloud-init for some Linux OSes. The Linux Agent provides the following functionality for Linux and FreeBSD IaaS deployments:
 
 > [!NOTE]
-> See the Azure Linux agent [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md) for additional details.
+> For more information see the [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md) for additional details.
 > 
 > 
 
@@ -185,7 +185,7 @@ If set, the root password in the /etc/shadow file is erased during the provision
 Type: Boolean  
 Default: y
 
-If set, all SSH host key pairs (ecdsa, dsa and rsa) are deleted during the provisioning process from /etc/ssh/. And a single fresh key pair is generated.
+If set, all SSH host key pairs (ecdsa, dsa, and rsa) are deleted during the provisioning process from /etc/ssh/. And a single fresh key pair is generated.
 
 The encryption type for the fresh key pair is configurable by the Provisioning.SshHostKeyPairType entry. Some distributions re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted (for example, upon a reboot).
 
@@ -193,7 +193,7 @@ The encryption type for the fresh key pair is configurable by the Provisioning.S
 Type: String  
 Default: rsa
 
-This can be set to an encryption algorithm type that is supported by the SSH daemon on the virtual machine. The typically supported values are "rsa", "dsa" and "ecdsa". "putty.exe" on Windows does not support "ecdsa". So, if you intend to use putty.exe on Windows to connect to a Linux deployment, please use "rsa" or "dsa".
+This can be set to an encryption algorithm type that is supported by the SSH daemon on the virtual machine. The typically supported values are "rsa", "dsa" and "ecdsa". "putty.exe" on Windows does not support "ecdsa". So, if you intend to use putty.exe on Windows to connect to a Linux deployment, use "rsa" or "dsa".
 
 **Provisioning.MonitorHostName:**  
 Type: Boolean  
