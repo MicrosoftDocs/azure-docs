@@ -21,10 +21,9 @@ ms.author: kgremban
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 
-## Introduction
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to an IoT hub] article shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
 
-This article builds on [Get started with IoT Hub]. It shows you how to:
+This article shows you how to:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
 * Receive cloud-to-device messages on a device.
@@ -34,7 +33,7 @@ You can find more information on cloud-to-device messages in the [IoT Hub develo
 
 At the end of this article, you run two Swift iOS projects:
 
-* **sample-device**, the same app created in [Get started with IoT Hub], which connects to your IoT hub and receives cloud-to-device messages.
+* **sample-device**, the same app created in [Send telemetry from a device to an IoT hub], which connects to your IoT hub and receives cloud-to-device messages.
 * **sample-service**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgement.
 
 > [!NOTE]
@@ -44,31 +43,33 @@ To complete this tutorial, you need the following:
 
 - An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 - An active IoT hub in Azure. 
-- Download the code sample from [Azure samples](https://github.com/Azure-Samples/azure-iot-ios-sample/archive/master.zip) 
+- The code sample from [Azure samples](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) .
 - The latest version of [XCode](https://developer.apple.com/xcode/), running the latest version of the iOS SDK. This quickstart was tested with XCode 9.3 and iOS 11.3.
 - The latest version of [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
 
 
-## Simulate a client device
-In this section, you simulate an iOS device with a Swift app to receive cloud-to-device messages from the IoT hub. 
+## Simulate an IoT device
+In this section, you simulate an iOS device running a Swift application to receive cloud-to-device messages from the IoT hub. 
+
+This is the sample sample device that you create in the article [Send telemetry from a device to an IoT hub]. If you already have that running, you can skip this section.
 
 ### Install CocoaPods
 
 CocoaPods manage dependencies for iOS projects that use third-party libraries.
 
-Navigate to the Azure IoT iOS Samples folder that you downloaded in the prerequisites. Then, navigate to the sample device project:
+In a terminal window, navigate to the Azure-IoT-Samples-iOS folder that you downloaded in the prerequisites. Then, navigate to the sample project:
 
 ```sh
 cd quickstart/sample-device
 ```
 
-This folder has the XCode project files and workspace, and a `Podfile` file that lists the pods required for the sample project. Make sure that XCode is closed, then run the following command to install the pods according to the podfile:
+Make sure that XCode is closed, then run the following command to install the CocoaPods that are declared in the **podfile** file:
 
 ```sh
 pod install
 ```
 
-Your project folder now has another file named `Pods` and a second XCode workspace file. 
+Along with installing the pods required for your project, the installation command also created an XCode workspace file that is already configured to use the pods for dependencies. 
 
 ### Run the sample device application 
 
@@ -81,21 +82,21 @@ Your project folder now has another file named `Pods` and a second XCode workspa
 1. Open the sample workspace in XCode.
 
    ```sh
-   open "MQTT Client Sample WS.xcworkspace"
+   open "MQTT Client Sample.xcworkspace"
    ```
 
 2. Expand the **MQTT Client Sample** project and then folder of the same name.  
 3. Open **ViewController.swift** for editing in XCode. 
-4. Search for the **connectionString** variable and update the value with the device connection string that you copied previously.
+4. Search for the **connectionString** variable and update the value with the device connection string that you copied in the first step.
 5. Save your changes. 
-6. Run the project in the device emulator with the **build and run** button or the key combo **Command + r**. 
+6. Run the project in the device emulator with the **Build and run** button or the key combo **command + r**. 
 
    ![Run the project](media/quickstart-send-telemetry-ios/run-sample.png)
 
 
 ## Simulate a service device
 
-In this section, you simulate a second iOS device with a Swift app that sends cloud-to-device messages through the IoT hub. 
+In this section, you simulate a second iOS device with a Swift app that sends cloud-to-device messages through the IoT hub. This configuration is useful for IoT scenarios where there is one iPhone or iPad functioning as a controller for other iOS devices connected to an IoT hub. 
 
 ### Install CocoaPods
 
@@ -107,13 +108,13 @@ Navigate to the Azure IoT iOS Samples folder that you downloaded in the prerequi
 cd quickstart/sample-service
 ```
 
-This folder has the XCode project files and workspace, and a `Podfile` file that lists the pods required for the sample project. Make sure that XCode is closed, then run the following command to install the pods according to the podfile:
+Make sure that XCode is closed, then run the following command to install the CocoaPods that are declared in the **podfile** file:
 
 ```sh
 pod install
 ```
 
-Your project folder now has another file named `Pods` and a second XCode workspace file. 
+Along with installing the pods required for your project, the installation command also created an XCode workspace file that is already configured to use the pods for dependencies.
 
 ### Run the sample service application
 
@@ -126,14 +127,14 @@ Your project folder now has another file named `Pods` and a second XCode workspa
 2. Open the sample workspace in XCode.
 
    ```sh
-   open AzureIoTServiceSampleWorkspace.xcworkspace
+   open AzureIoTServiceSample.xcworkspace
    ```
 
 3. Expand the **AzureIoTServiceSample** project and then expand the folder of the same name.  
 4. Open **ViewController.swift** for editing in XCode. 
 5. Search for the **connectionString** variable and update the value with the service connection string that you copied previously.
 6. Save your changes. 
-7. In Xcode, change the emulator settings to a different iOS device than you used to run the device sample. XCode cannot run multiple emulators of the same type. 
+7. In Xcode, change the emulator settings to a different iOS device than you used to run the IoT device. XCode cannot run multiple emulators of the same type. 
 
    ![Change the emulator device](media/iot-hub-ios-swift-c2d/change-device.png)
 
@@ -172,13 +173,8 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [img-message-recieved]: media/iot-hub-python-python-c2d/message-recieved.png
 
 <!-- Links -->
-[Send telemetry from a device to an IoT hub]: iot-hub-node-node-getstarted.md
+[Send telemetry from a device to an IoT hub]: quickstart-send-telemetry-ios.md
 
-
-[lnk-python-download]: https://www.python.org/downloads/
-[lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
-[lnk-node-download]: https://nodejs.org/en/download/
-[lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IoT Hub developer guide]: iot-hub-devguide.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot

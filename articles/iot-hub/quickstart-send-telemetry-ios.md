@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-ms.date: 04/19/2018
+ms.date: 04/20//2018
 ms.author: kgremban
 
 # As a developer, I need to build an end-to-end IoT solution that sends telemetry from a device to an IoT hub and reads that telemetry data from the hub using a back-end application.
@@ -30,7 +30,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-- Download the code sample from [Azure samples](https://github.com/Azure-Samples/azure-iot-ios-sample/archive/master.zip) 
+- Download the code sample from [Azure samples](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) 
 - The latest version of [XCode](https://developer.apple.com/xcode/), running the latest version of the iOS SDK. This quickstart was tested with XCode 9.3 and iOS 11.3.
 - The latest version of [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
 - The iothub-explorer CLI utility, which reads telemetry from IoT Hub. To install, first install [Node.js](https://nodejs.org) v4.x.x or higher, then run the following command: 
@@ -103,33 +103,33 @@ The sample application runs on an iOS device, which connects to a device-specifi
 
 CocoaPods manage dependencies for iOS projects that use third-party libraries.
 
-Navigate to the Azure IoT iOS Samples folder that you downloaded in the prerequisites. Then, navigate to the sample project:
+In a terminal window, navigate to the Azure-IoT-Samples-iOS folder that you downloaded in the prerequisites. Then, navigate to the sample project:
 
 ```sh
 cd quickstart/sample-device
 ```
 
-Make sure that XCode is closed, then run the following command to install the pods that are declared in the **podfile** file:
+Make sure that XCode is closed, then run the following command to install the CocoaPods that are declared in the **podfile** file:
 
 ```sh
 pod install
 ```
 
-Your project folder now has another file named `Pods` and a second XCode workspace file. 
+Along with installing the pods required for your project, the installation command also created an XCode workspace file that is already configured to use the pods for dependencies. 
 
 ### Run the sample application 
 
 1. Open the sample workspace in XCode.
 
    ```sh
-   open "MQTT Client Sample WS.xcworkspace"
+   open "MQTT Client Sample.xcworkspace"
    ```
 
 2. Expand the **MQTT Client Sample** project and then expand the folder of the same name.  
 3. Open **ViewController.swift** for editing in XCode. 
-4. Search for the **connectionString** variable and update the value with the device connection string that you copied previously.
+4. Search for the **connectionString** variable and update the value with the device connection string that you made a note of previously.
 5. Save your changes. 
-6. Run the project in the device emulator with the **build and run** button or the key combo **Command + r**. 
+6. Run the project in the device emulator with the **Build and run** button or the key combo **command + r**. 
 
    ![Run the project](media/quickstart-send-telemetry-ios/run-sample.png)
 
@@ -137,7 +137,7 @@ Your project folder now has another file named `Pods` and a second XCode workspa
 
 The following screenshot shows some example output as the application sends simulated telemetry to your IoT hub:
 
-![Run the simulated device](media/quickstart-send-telemetry-ios/view-results.png)
+   ![Run the simulated device](media/quickstart-send-telemetry-ios/view-d2c.png)
 
 ## Read the telemetry from your hub
 
@@ -145,17 +145,19 @@ The sample app that you ran on the XCode emulator shows data about messages sent
 
 Open a new terminal window. Run the following command replacing {your hub service connection string} with the service connection string that you retrieved at the beginning of this article:
 
-    ```sh
-    iothub-explorer monitor-events myiOSdevice --login "{your hub service connection string}"
-    ```
+```sh
+iothub-explorer monitor-events myiOSdevice --login "{your hub service connection string}"
+```
 
-The following shows the type of telemetry that you see in your terminal window:
+The following screenshot shows the type of telemetry that you see in your terminal window:
 
 ![View telemetry](media/quickstart-send-telemetry-ios/view-telemetry.png)
 
+If you get an error when you run the iothub-explorer command, double check that you're using the *service connection string* for your IoT hub, rather than the *device connection string* for your IoT device. Both connection strings start with **Hostname={iothubname}** but the service connection string contains the **SharedAccessKeyName** property while the device connection string contains **DeviceID**. 
+
 ## Clean up resources
 
-If you plan to complete the next quickstart, leave the resource group and IoT hub and reuse them later.
+If you plan to continue testing IoT Hub with other articles, leave the your resource group and IoT hub and reuse them later.
 
 If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the resource group that contains your IoT hub and click **Delete**.
 
@@ -163,13 +165,7 @@ If you don't need the IoT hub any longer, delete it and the resource group in th
 
 In this article, you set up an IoT hub, registered a device, sent simulated telemetry to the hub from an iOS device, and read the telemetry from the hub. 
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
-
-* [Connecting your device][lnk-connect-device]
-* [Getting started with device management][lnk-device-management]
-* [Getting started with IoT Edge][lnk-iot-edge]
-
-To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
+To continue learning about how iOS devices can work with IoT Hub, see [Send cloud-to-device messages with iOS (Swift)](iot-hub-ios-swift-c2d.md)
 
 <!-- Links -->
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
