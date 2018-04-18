@@ -1,4 +1,4 @@
----
+﻿---
 title: Create Azure Service Bus resources using Resource Manager templates | Microsoft Docs
 description: Use Azure Resource Manager templates to automate the creation of Service Bus resources
 services: service-bus-messaging
@@ -160,7 +160,7 @@ For more information, see the [Parameters](../azure-resource-manager/resource-gr
 From a PowerShell prompt, run the following command:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 You are prompted to log on to your Azure account. After logging on, run the following command to view your available subscriptions:
