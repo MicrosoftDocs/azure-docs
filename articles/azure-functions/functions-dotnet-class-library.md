@@ -62,7 +62,7 @@ The `FunctionName` attribute marks the method as a function entry point. The nam
 
 The trigger attribute specifies the trigger type and binds input data to a method parameter. The example function is triggered by a queue message, and the queue message is passed to the method in the `myQueueItem` parameter.
 
-The method signature may contain other parameters in addition to one decorated by a trigger attribute. For example, you can include an `ILogger` or `TraceWriter` parameter for logging, or a `CancellationToken` parameter for graceful shutdown. Parameters for input and output bindings can be added and marked as such by decorating them with attributes. This article and the [triggers and bindings article](functions-triggers-bindings.md) tell you which parameters you can add that aren't specific to a given binding type, and the binding ref docs ([Storage queues](functions-binding-storage-queue.md), for example) explain the binding-specific ones.
+The method signature may contain other parameters in addition to one decorated by a trigger attribute. For example, you can include an `ILogger` or `TraceWriter` parameter for logging, or a `CancellationToken` parameter for graceful shutdown. Parameters for input and output bindings can be added and marked as such by decorating them with attributes. This article and the [triggers and bindings article](functions-triggers-bindings.md) tell you which parameters you can add that aren't specific to a given binding type, and the binding ref docs ([Storage queues](functions-bindings-storage-queue.md), for example) explain the binding-specific ones.
 
 ### Additional binding attributes
 
