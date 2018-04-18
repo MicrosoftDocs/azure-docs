@@ -40,7 +40,7 @@
 #### [Federation Services](multi-factor-authentication-get-started-adfs.md)
 ##### [Use AD FS](../active-directory/authentication/howto-mfa-adfs.md)
 ##### [Use AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
-##### [Use Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
+##### [Use Windows Server 2012 R2 AD FS](../active-directory/authentication/howto-mfaserver-adfs-2012.md)
 #### Directories
 ##### [LDAP Authentication](multi-factor-authentication-get-started-server-ldap.md)
 ##### [RADIUS Authentication](multi-factor-authentication-get-started-server-radius.md)
