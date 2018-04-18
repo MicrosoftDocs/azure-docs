@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2018
+ms.date: 04/18/2018
 ms.author: hirsin
 ms.custom: aaddev
 
@@ -57,13 +57,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter             |             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-----------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | tenant                | required    | The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers.  For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints).                                                                                                                                                                                                                                                                                                                      |
-| client_id             | required    | The Application D that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) assigned your app.                                                                                                                                                                                                                                                                                                                                                                                                |
-| response_type         | required    | Must include `code` for the authorization code flow.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| redirect_uri          | recommended | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded.  For native & mobile apps, you should use the default value of `https://login.microsoftonline.com/common/oauth2/nativeclient`.                                                                                                                                                                                                                                                              |
-| scope                 | required    | A space-separated list of [scopes](active-directory-v2-scopes.md) that you want the user to consent to.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| response_mode         | recommended | Specifies the method that should be used to send the resulting token back to your app.  Can be `query` or `form_post`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| state                 | recommended | A value included in the request that will also be returned in the token response.  It can be a string of any content that you wish.  A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](http://tools.ietf.org/html/rfc6749#section-10.12).  The value can also encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on.                                                                                                                                          |
-| prompt                | optional    | Indicates the type of user interaction that is required.  The only valid values at this time are 'login', 'none', and 'consent'.  `prompt=login` will force the user to enter their credentials on that request, negating single-sign on.  `prompt=none` is the opposite - it will ensure that the user is not presented with any interactive prompt whatsoever.  If the request cannot be completed silently via single-sign on, the v2.0 endpoint will return an error.  `prompt=consent` will trigger the OAuth consent dialog after the user signs in, asking the user to grant permissions to the app. |
+| client_id             | required    | The Application ID that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) assigned your app.    |
+| response_type         | required    | Must include `code` for the authorization code flow.         |
+| redirect_uri          | recommended | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded.  For native & mobile apps, you should use the default value of `https://login.microsoftonline.com/common/oauth2/nativeclient`.     |
+| scope                 | required    | A space-separated list of [scopes](active-directory-v2-scopes.md) that you want the user to consent to.             |
+| response_mode         | recommended | Specifies the method that should be used to send the resulting token back to your app.  Can be `query` or `form_post`.     |
+| state                 | recommended | A value included in the request that will also be returned in the token response.  It can be a string of any content that you wish.  A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](http://tools.ietf.org/html/rfc6749#section-10.12).  The value can also encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on.  |
+| prompt                | optional    | Indicates the type of user interaction that is required.  The only valid values at this time are 'login', 'none', and 'consent'.  `prompt=login` will force the user to enter their credentials on that request, negating single-sign on.  `prompt=none` is the opposite - it will ensure that the user is not presented with any interactive prompt whatsoever.  If the request cannot be completed silently via single-sign on, the v2.0 endpoint will return an `interaction_required` error.  `prompt=consent` will trigger the OAuth consent dialog after the user signs in, asking the user to grant permissions to the app. |
 | login_hint            | optional    | Can be used to pre-fill the username/email address field of the sign-in page for the user, if you know their username ahead of time.  Often apps will use this parameter during re-authentication, having already extracted the username from a previous sign-in using the `preferred_username` claim.                                                                                                                                                                                                                                                                                                      |
 | domain_hint           | optional    | Can be one of `consumers` or `organizations`.  If included, it will skip the email-based discovery process that user goes through on the v2.0 sign-in page, leading to a slightly more streamlined user experience.  Often apps will use this parameter during re-authentication, by extracting the `tid` from a previous sign-in.  If the `tid` claim value is `9188040d-6c67-4c5b-b112-36a304b66dad`, you should use `domain_hint=consumers`.  Otherwise, use `domain_hint=organizations`.                                                                                                                |
 | code_challenge_method | optional    | The method used to encode the `code_verifier` for the `code_challenge` parameter. Can be one of `plain` or `S256`.  If excluded, `code_challenge` is assumed to be plaintext if `code_challenge` is included.  Azure AAD v2.0 supports both `plain` and `S256`. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
@@ -113,6 +113,8 @@ The following table describes the various error codes that can be returned in th
 | server_error              | The server encountered an unexpected error.                                                                           | Retry the request. These errors can result from temporary conditions. The client application might explain to the user that its response is delayed  to a temporary error.                                                                  |
 | temporarily_unavailable   | The server is temporarily too busy to handle the request.                                                             | Retry the request. The client application might explain to the user that its response is delayed due to a temporary condition.                                                                                                                 |
 | invalid_resource          | The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured. | This error indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD.                                            |
+|login_required             | Too many or no users found | The client requested silent authentication (`prompt=none`), but a single user could not found.  This may mean there are multiple users active in the session, or no users.  This takes into account the tenant chosen (for example, if there are 2 AAD accounts active and one MSA, and `consumers` is chosen, silent authentication will work). |
+|interaction_required       | The request requires user interaction.  | An additional authentication step or consent is required. Retry the request without `prompt=none`.  |
 
 ## Request an access token
 Now that you've acquired an authorization_code and have been granted permission by the user, you can redeem the `code` for an `access_token` to the desired resource. Do this by sending a `POST` request to the `/token` endpoint:
@@ -151,7 +153,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 #### Successful response
 A successful token response will look like:
 
-```
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
     "token_type": "Bearer",
@@ -172,7 +174,7 @@ A successful token response will look like:
 #### Error response
 Error responses will look like:
 
-```
+```json
 {
   "error": "invalid_scope",
   "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://foo.microsoft.com/mail.read is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
@@ -258,7 +260,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 #### Successful response
 A successful token response will look like:
 
-```
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
     "token_type": "Bearer",
@@ -278,7 +280,8 @@ A successful token response will look like:
 | id_token      | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens, see the [v2.0 endpoint token reference](active-directory-v2-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
 
 #### Error response
-```
+
+```json
 {
   "error": "invalid_scope",
   "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://foo.microsoft.com/mail.read is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
@@ -301,4 +304,3 @@ A successful token response will look like:
 | correlation_id |A unique identifier for the request that can help in diagnostics across components. |
 
 For a description of the error codes and the recommended client action, see [Error codes for token endpoint errors](#error-codes-for-token-endpoint-errors).
-

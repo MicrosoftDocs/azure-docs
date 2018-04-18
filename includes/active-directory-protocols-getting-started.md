@@ -27,4 +27,4 @@ First, you need to register your application with your Azure Active Directory (A
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * For Native Applications provide a **Redirect URI**, which Azure AD will use to return token responses. Enter a value specific to your application, .e.g `http://MyFirstAADApp`
 * Once you've completed registration, Azure AD will assign your application a unique client identifier, the **Application ID**. You need this value in the next sections, so copy it from the application page.
-* To find your application in the Azure Portal, click **App registrations**, and then click **View all applications**. 
+* To find your application in the Azure portal, click **App registrations**, and then click **View all applications**.
