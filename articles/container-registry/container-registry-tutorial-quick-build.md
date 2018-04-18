@@ -19,6 +19,8 @@ ms.custom: mvc
 
 **ACR Build** is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *Quick Build* feature of ACR Build. Quick Build extends your development "inner loop" to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
 
+All of your Dockerfile expertise is directly transferrable to ACR Build. You don't have to change your Dockerfiles to build in the cloud with ACR build, just the command you run to build the images.
+
 In this tutorial, part one of a series:
 
 > [!div class="checklist"]
@@ -27,7 +29,7 @@ In this tutorial, part one of a series:
 > * Build a container image in Azure
 > * Deploy a container to Azure Container Instances
 
-In subsequent tutorials, you learn to use ACR Build's build tasks for automated container image builds.
+In subsequent tutorials, you learn to use ACR Build's build tasks for automated container image builds on code commit and base image update.
 
 > [!IMPORTANT]
 > ACR Build is in currently in preview, and is supported only by Azure container registries in the **EastUS** region. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -42,31 +44,33 @@ If you'd like to use the Azure CLI locally, you must have Azure CLI version 2.0.
 
 While ACR Build is in preview, you must manually install the **acrbuildext** Azure CLI extension using the following steps.
 
-1. Uninstall any previous version of the extension:
+Uninstall any previous version of the extension:
 
-   `az extension remove -n acrbuildext`
+```azurecli-interactive
+az extension remove -n acrbuildext
+```
 
-1. Install the current version of the extension:
+Install the current version of the extension:
 
-   `az extension add --source https://acrbuild.blob.core.windows.net/cli/acrbuildext-0.0.4-py2.py3-none-any.whl -y`
+```azurecli-interactive
+az extension add --source https://acrbuild.blob.core.windows.net/cli/acrbuildext-0.0.4-py2.py3-none-any.whl -y`
+```
 
-1. Execute `az acr build --help` to verify successful installation:
+Execute `az acr build --help` to verify successful installation:
 
-  ```console
-  $ az acr build --help
-  This command is from the following extension: acrbuildext
-
-  Command
-      az acr build: Queues a new build based on the specified parameters.
-
-  Arguments
-      --context -c  [Required]: The local source code directory path (eg, './src') or the url to a git
-                                repository (eg, 'https://github.com/docker/rootfs.git') or a remote
-                                tarball (eg, 'http://server/context.tar.gz').
-      --registry -r [Required]: The name of the container registry. You can configure the default
-                                registry name using `az configure --defaults acr=<registry name>`.
-  [...]
-  ```
+```console
+$ az acr build --help
+This command is from the following extension: acrbuildex
+tCommand
+    az acr build: Queues a new build based on the specified parameters
+.Arguments
+    --context -c  [Required]: The local source code directory path (eg, './src') or the url to a git
+                              repository (eg, 'https://github.com/docker/rootfs.git') or a remote
+                              tarball (eg, 'http://server/context.tar.gz').
+    --registry -r [Required]: The name of the container registry. You can configure the default
+                              registry name using `az configure --defaults acr=<registry name>`.
+[...]
+```
 
 ### GitHub account
 
@@ -84,17 +88,17 @@ Fork this repository: https://github.com/Azure-Samples/acr-build-helloworld-node
 
 Once you've forked the repo, clone your fork and enter the directory containing your local clone.
 
-1. Clone the repo with `git`, replace **\<your-github-username\>** with your GitHub username:
+Clone the repo with `git`, replace **\<your-github-username\>** with your GitHub username:
 
-    ```azurecli-interactive
-    git clone https://github.com/<your-github-username>/acr-build-helloworld-node
-    ```
+```azurecli-interactive
+git clone https://github.com/<your-github-username>/acr-build-helloworld-node
+```
 
-1. Enter the directory containing the source code:
+Enter the directory containing the source code:
 
-    ```azurecli-interactive
-    cd acr-build-helloworld-node
-    ```
+```azurecli-interactive
+cd acr-build-helloworld-node
+```
 
 ## Build in Azure with ACR Build
 
@@ -105,38 +109,67 @@ The following example commands create an Azure container registry named **mycont
 > [!NOTE]
 > ACR Build is currently supported only by registries in **EastUS**. Do not change the location of the resource group.
 
-1. Create an Azure container registry:
+Create an Azure container registry:
 
-    ```azurecli-interactive
-    ACR_NAME=mycontainerregistry # Registry name - must be *unique* within Azure
-    RES_GROUP=$ACR_NAME # Resource Group name
+```azurecli-interactive
+ACR_NAME=mycontainerregistry # Registry name - must be *unique* within Azure
+RES_GROUP=$ACR_NAME # Resource Group name
 
-    az group create --resource-group $RES_GROUP --location eastus
-    az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard
-    ```
+az group create --resource-group $RES_GROUP --location eastus
+az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard
+```
 
-1. Build a container image from the sample code with ACR Build.
+Build a container image from the sample code with ACR Build.
 
-    ```azurecli-interactive
-    az acr build --registry $ACR_NAME --image helloacrbuild:v1 --context .
-    ```
+```azurecli-interactive
+az acr build --registry $ACR_NAME --image helloacrbuild:v1 --context .
+```
 
-    Shown here truncated, output from the [az acr build][az-acr-build] command is similar to the following. You can see the upload of the source code (the "context") to Azure, and the details of the `docker build` operation that ACR Build runs in the cloud.
+Output from the [az acr build][az-acr-build] command is similar to the following. You can see the upload of the source code (the "context") to Azure, and the details of the `docker build` operation that ACR Build runs in the cloud. Because ACR Build uses `docker build` to build your images just like you do, no changes to your Dockerfiles are required to start using ACR Build immediately.
 
-    ```console
-    $ az acr build --registry $ACR_NAME --image helloacrbuild:v1 --context .
-    Sending build context ( 34.189 KiB) to ACR Build as Id: eastus-1
-    time="2018-04-16T22:54:47Z" level=info msg="Running command docker login -u 00000000-0000-0000-0000-000000000000 --password-stdin mycontainerregistry.azurecr.io"
-    Login Succeeded
-    time="2018-04-16T22:54:53Z" level=info msg="Running command docker build --pull -f Dockerfile -t mycontainerregistry.azurecr.io/helloacrbuild:v1 ."
-    Sending build context to Docker daemon  157.7kB
-    Step 1/5 : FROM node:9
+```console
+$ az acr build --registry $ACR_NAME --image helloacrbuild:v1 --context .
+Sending build context (41.042 KiB) to ACR
+Queued a build with ID: eastus-1
+Sending build context to Docker daemon  191.5kB
+Step 1/5 : FROM node:9-alpine
+9-alpine: Pulling from library/node
+605ce1bd3f31: Pulling fs layer
+f10758dcda1f: Pulling fs layer
+4cbe43d669e5: Pulling fs layer
 
-    [...]
+[...]
 
-    Build complete
-    Build ID: eastus-1 was successful after 1m33.850111822s
-    ```
+Removing intermediate container 2dbac02fb0e6
+ ---> 670bbc77128d
+Step 4/5 : EXPOSE 80
+ ---> Running in 1d09ee337a47
+Removing intermediate container 1d09ee337a47
+ ---> f0739d333913
+Step 5/5 : CMD ["node", "/src/server.js"]
+ ---> Running in 1f019c4e4b24
+Removing intermediate container 1f019c4e4b24
+fbd7c8b9c17e: Preparing
+26b0c207c4a9: Preparing
+917e7cdebc8b: Preparing
+9dfa40a0da3b: Preparing
+7d7224b439b3: Pushed
+9dfa40a0da3b: Pushed
+fbd7c8b9c17e: Pushed
+26b0c207c4a9: Pushed
+917e7cdebc8b: Pushed
+v1: digest: sha256:60d78f0a336a387ba93f04ecf22538d01bca985a277ac77d3813ce360aba0cb1 size: 1367
+time="2018-04-18T18:28:29Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" acr22818.azurecr.io/helloacrbuild:v1"
+"["acr22818.azurecr.io/helloacrbuild@sha256:60d78f0a336a387ba93f04ecf22538d01bca985a277ac77d3813ce360aba0cb1"]"
+time="2018-04-18T18:28:30Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" node:9-alpine"
+"["node@sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3"]"
+ACR Builder discovered the following dependencies:
+[{"image":{"registry":"acr22818.azurecr.io","repository":"helloacrbuild","tag":"v1","digest":"sha256:60d78f0a336a387ba93f04ecf22538d01bca985a277ac77d3813ce360aba0cb1"},"runtime-dependency":{"registry":"registry.hub.docker.com","repository":"node","tag":"9-alpine","digest":"sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3"},"buildtime-dependency":null}]
+Build complete
+Build ID: eastus-1 was successful after 38.116951381s
+```
+
+Near the bottom of the output, ACR Build displays the dependencies it's discovered for your image. This enables ACR Build to automate image builds on base image updates, such as for OS and framework patching. You learn about triggering builds on base image updates later in the tutorial series.
 
 ## Deploy to Azure Container Instances
 
@@ -212,16 +245,30 @@ az container create \
     --registry-login-server $ACR_NAME.azurecr.io \
     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
-    --dns-name-label acr-build-$RANDOM \
-    --query ipAddress.fqdn
+    --dns-name-label acr-build-$ACR_NAME \
+    --query "{FQDN:ipAddress.fqdn}" \
+    --output table
 ```
 
-The `--dns-name-label` value must be unique within Azure, so the preceding command appends a random number to the container's DNS name label. The output from the command displays the container's fully qualified domain name (FQDN), for example:
+The `--dns-name-label` value must be unique within Azure, so the preceding command appends your container registry's name to the container's DNS name label. The output from the command displays the container's fully qualified domain name (FQDN), for example:
 
 ```console
-$ az container create --resource-group $RES_GROUP --name acr-build --image $ACR_NAME.azurecr.io/aci-helloacrbuild:v1 --registry-login-server $ACR_NAME.azurecr.io --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) --dns-name-label acr-build-$RANDOM --query ipAddress.fqdn
-"acr-build-1157.eastus.azurecontainer.io"
+$ az container create \
+>     --resource-group $RES_GROUP \
+>     --name acr-build \
+>     --image $ACR_NAME.azurecr.io/helloacrbuild:v1 \
+>     --registry-login-server $ACR_NAME.azurecr.io \
+>     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
+>     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
+>     --dns-name-label acr-build-$ACR_NAME \
+>     --query "{FQDN:ipAddress.fqdn}" \
+>     --output table
+FQDN
+-------------------------------------------
+acr-build-1175.eastus.azurecontainer.io
 ```
+
+Take note of the container's FQDN, you'll use it in the next section.
 
 ### Verify deployment
 
@@ -246,13 +293,21 @@ Start streaming logs:
 Server running at http://localhost:80
 ```
 
-When you see `Server running at http://localhost:80`, which is output from the container's STDOUT, the application has started and you can navigate to the container's FQDN to view it. To detach your console from the container, hit `Control+C`.
+When `Server running at http://localhost:80` appears, navigate to the container's FQDN in your brower to see the running application:
 
 ![Screenshot of sample application rendered in browser][quick-build-02-browser]
 
+To detach your console from the container, hit `Control+C`.
+
 ## Clean up resources
 
-To remove all resources you've created in this tutorial, including the container, container registry, key vault, and service principal, issue the following commands. These resources are used in the [next tutorial](container-registry-tutorial-build-task.md) in the series, however, so you might want to keep them if you move on directly to the next tutorial.
+Stop the container instance with the [az container delete][az-container-delete] command:
+
+```azurecli-interactive
+az container delete --resource-group $RES_GROUP --name acr-build
+```
+
+To remove *all* resources you've created in this tutorial, including the container registry, key vault, and service principal, issue the following commands. These resources are used in the [next tutorial](container-registry-tutorial-build-task.md) in the series, however, so you might want to keep them if you move on directly to the next tutorial.
 
 ```azurecli-interactive
 az group delete --resource-group $RES_GROUP
@@ -276,6 +331,7 @@ Now that you've tested your inner loop with a quick build, configure a **build t
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-container-attach]: /cli/azure/container#az-container-attach
 [az-container-create]: /cli/azure/container#az-container-create
+[az-container-delete]: /cli/azure/container#az-container-delete
 [az-keyvault-create]: /cli/azure/keyvault/secret#az-keyvault-create
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
 [service-principal-auth]: container-registry-auth-service-principal.md
