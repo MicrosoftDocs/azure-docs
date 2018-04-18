@@ -64,7 +64,7 @@ After vault creation your Azure account is the only account allowed to do anythi
 
 ## Adding a secret to Key Vault
 
-To add a secret to the vault, you just need to take a couple of steps. In this case, we will add a password that could be used by an application. The password will be called **ExamplePassword** and we will store the value of **Pa$$w0rd** in it.
+To add a secret to the vault, you just need to take a couple of steps. In this case, we will add a password that could be used by an application. The password will be called **ExamplePassword** and we will store the value of '''**Pa$$w0rd**''' in it.
 
 First convert the value of Pa$$w0rd to a secure string by typing:
 
@@ -88,10 +88,9 @@ Now, you have created a Key Vault, stored a secret, and retrieved it.
 
 ## Clean up resources
 
-When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, Key Vault, and all related resources.
+ Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with other quickstarts and tutorials, you may want to leave these resources in place.
 
->[!IMPORTANT]
-> Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
+When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, Key Vault, and all related resources.
 
 ```azurepowershell
 Remove-AzureRmResourceGroup -Name ContosoResourceGroup
