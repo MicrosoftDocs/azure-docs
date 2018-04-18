@@ -17,10 +17,6 @@ ms.custom: mvc
 
 Microsoft Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. This tutorial shows how to use Service Bus topics and subscriptions with publish/subscribe channels.
 
-An example of this scenario is an inventory assortment update for multiple retail stores. In this scenario, each store, or set of stores, gets messages intended for them to update their assortments. This tutorial shows how to implement this scenario using subscriptions and filters. First, you create a topic with 3 subscriptions, add some rules and filters, and then send and receive messages from the topic and subscriptions.
-
-![topic](./media/service-bus-tutorial-topics-subscriptions-portal/about-service-bus-topic.png)
-
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a Service Bus topic and one or more subscriptions to that topic
@@ -28,6 +24,10 @@ In this tutorial, you learn how to:
 > * Create two messages with different content
 > * Send the messages and verify they arrived in the expected subscriptions
 > * Receive messages from the subscriptions
+
+An example of this scenario is an inventory assortment update for multiple retail stores. In this scenario, each store, or set of stores, gets messages intended for them to update their assortments. This tutorial shows how to implement this scenario using subscriptions and filters. First, you create a topic with 3 subscriptions, add some rules and filters, and then send and receive messages from the topic and subscriptions.
+
+![topic](./media/service-bus-tutorial-topics-subscriptions-portal/about-service-bus-topic.png)
 
 If you don't have an Azure subscription, you can create a [free account][] before you begin.
 
