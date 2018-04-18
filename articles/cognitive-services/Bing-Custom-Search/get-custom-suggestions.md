@@ -1,12 +1,12 @@
 ---
-title: "Bing Custom Search: Get custom Autosuggest suggestions | Microsoft Docs"
+title: "Bing Custom Search: Get Custom Autosuggest suggestions | Microsoft Docs"
 description: Describes how to retrieve custom Autosuggest suggestions
 services: cognitive-services
 author: brapel
 manager: ehansen
 
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.technology: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel

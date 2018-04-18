@@ -6,7 +6,7 @@ author: brapel
 manager: ehansen
 
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.technology: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
@@ -116,7 +116,7 @@ Changes you make to a Custom Search instance are made in the **Configure** tab s
 If you decide that you don't want to keep the changes you've made, click **Revert to Live State**. When you revert your changes, the live state configuration is unchanged and the Configure tab is reverted to match the live state.
 
 ## View statistics
-If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/bing-custom-search/)), a **Statistics** tab is added to your production instances. The statistics tab shows details about how your Custom Search endpoints are used, including call volume and most frequent queries. You can filter details using the provided controls.
+If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), a **Statistics** tab is added to your production instances. The statistics tab shows details about how your Custom Search endpoints are used, including call volume and most frequent queries. You can filter details using the provided controls.
 
 ## Understanding Quota
 - For each custom search instance, the maximum number of ranking adjustments that you may make to **Active** and **Blocked** slices is limited to 400.

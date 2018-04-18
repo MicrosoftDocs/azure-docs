@@ -27,7 +27,7 @@ The following image shows the simplicity of the custom search integration.
 ![picture alt](./media/bcs-overview.png "How Bing Custom Search works.")
 
 ## Customize search suggestions
-If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/bing-custom-search/)), you can customize the search suggestions made in your Custom Search experience. The Autosuggest API returns a list of suggested queries based on a partial query string that the user enters in the search box. With Custom Autosuggest, you add suggestions that appear before the suggestions that Autosuggest provides. 
+If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), you can customize the search suggestions made in your Custom Search experience. The Autosuggest API returns a list of suggested queries based on a partial query string that the user enters in the search box. With Custom Autosuggest, you add suggestions that appear before the suggestions that Autosuggest provides. 
 
 
 ## Next steps
