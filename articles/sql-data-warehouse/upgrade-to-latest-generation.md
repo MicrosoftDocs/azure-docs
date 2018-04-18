@@ -4,10 +4,10 @@ description: Upgrade Azure SQL Data Warehouse to latest generation of Azure hard
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
-ms.services: sql-data-warehouse
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/16/2018
+ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ---
