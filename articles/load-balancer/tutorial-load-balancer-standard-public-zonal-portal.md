@@ -21,13 +21,9 @@ ms.author: kumud
 # Load balance VMs within an availability zone with a Standard Load Balancer using the Azure portal
 
 This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address using the Azure portal. In this scenario, you specify a particular zone for your front-end and back-end instances, to align your data path and resources with a specific zone.
-
-If you prefer, you can complete this tutorial using the [Azure CLI](load-balancer-standard-public-zonal-cli.md).
-
 For more information about using Availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 
-> [!NOTE]
-> Support for Availability Zones is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview).
+If you prefer, you can complete this tutorial using the [Azure CLI](load-balancer-standard-public-zonal-cli.md).
 
 ## Log in to Azure
 
@@ -69,7 +65,7 @@ In this section, you create a virtual network, create two virtual machines in sa
     - *myNetworkSecurityGroup*  - for the name of the network security group.
     - *myResourceGroupLBAZ* - for the name of the existing resource group.
    
-![Create a virtual network](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
+    ![Create a virtual network](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 
 ### Create NSG rules
 
@@ -129,10 +125,11 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
 3. Log into the VM with the user name and password that you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
 4. On the server desktop, navigate to **Windows Administrative Tools**>**Windows PowerShell**.
 6. In the PowerShell Window, run the following commands to install the IIS server, remove the  default.htm file, add a new with default.htm file that displays the name of the VM:
-     ```powershell
+
+   ```powershell
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    remove-item  C:\inetpub\wwwroot\iisstart.htm
-    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
    ```
 8. Close the RDP session with *myVM1*
 9. Repeat steps 1 to 8 to install IIS on *myVM2*.
