@@ -52,7 +52,8 @@ sections:
 - title: Cognitive Services APIs
   items: 
   - type: list
-    style: unordered
+    style: cards
+    className: nobullet
     items:
     - title: Vision
       html: <ul class="noBullet">
