@@ -1,5 +1,5 @@
 ---
-title: Partitioning tables in SQL Data Warehouse | Microsoft Docs
+title: Partitioning tables in Azure SQL Data Warehouse | Microsoft Docs
 description: Recommendations and examples for using table partitions in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,7 +7,7 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/14/2018
+ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
 ---
@@ -255,43 +255,41 @@ To avoid your table definition from **rusting** in your source control system, y
 
 1. Create the table as a partitioned table but with no partition values
 
-```sql
-CREATE TABLE [dbo].[FactInternetSales]
-(
-    [ProductKey]            int          NOT NULL
-,   [OrderDateKey]          int          NOT NULL
-,   [CustomerKey]           int          NOT NULL
-,   [PromotionKey]          int          NOT NULL
-,   [SalesOrderNumber]      nvarchar(20) NOT NULL
-,   [OrderQuantity]         smallint     NOT NULL
-,   [UnitPrice]             money        NOT NULL
-,   [SalesAmount]           money        NOT NULL
-)
-WITH
-(   CLUSTERED COLUMNSTORE INDEX
-,   DISTRIBUTION = HASH([ProductKey])
-,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                    ()
-                )
-)
-;
-```
+    ```sql
+    CREATE TABLE [dbo].[FactInternetSales]
+    (
+        [ProductKey]            int          NOT NULL
+    ,   [OrderDateKey]          int          NOT NULL
+    ,   [CustomerKey]           int          NOT NULL
+    ,   [PromotionKey]          int          NOT NULL
+    ,   [SalesOrderNumber]      nvarchar(20) NOT NULL
+    ,   [OrderQuantity]         smallint     NOT NULL
+    ,   [UnitPrice]             money        NOT NULL
+    ,   [SalesAmount]           money        NOT NULL
+    )
+    WITH
+    (   CLUSTERED COLUMNSTORE INDEX
+    ,   DISTRIBUTION = HASH([ProductKey])
+    ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES () )
+    )
+    ;
+    ```
 
 1. `SPLIT` the table as part of the deployment process:
 
-```sql
--- Create a table containing the partition boundaries
+    ```sql
+     -- Create a table containing the partition boundaries
 
-CREATE TABLE #partitions
-WITH
-(
-    LOCATION = USER_DB
-,   DISTRIBUTION = HASH(ptn_no)
-)
-AS
-SELECT  ptn_no
-,       ROW_NUMBER() OVER (ORDER BY (ptn_no)) as seq_no
-FROM    (
+    CREATE TABLE #partitions
+    WITH
+    (
+        LOCATION = USER_DB
+    ,   DISTRIBUTION = HASH(ptn_no)
+    )
+    AS
+    SELECT  ptn_no
+    ,       ROW_NUMBER() OVER (ORDER BY (ptn_no)) as seq_no
+    FROM    (
         SELECT CAST(20000101 AS INT) ptn_no
         UNION ALL
         SELECT CAST(20010101 AS INT)
@@ -301,34 +299,33 @@ FROM    (
         SELECT CAST(20030101 AS INT)
         UNION ALL
         SELECT CAST(20040101 AS INT)
-        ) a
-;
+    ) a
+    ;
 
--- Iterate over the partition boundaries and split the table
+     -- Iterate over the partition boundaries and split the table
 
-DECLARE @c INT = (SELECT COUNT(*) FROM #partitions)
-,       @i INT = 1                                 --iterator for while loop
-,       @q NVARCHAR(4000)                          --query
-,       @p NVARCHAR(20)     = N''                  --partition_number
-,       @s NVARCHAR(128)    = N'dbo'               --schema
-,       @t NVARCHAR(128)    = N'FactInternetSales' --table
-;
+    DECLARE @c INT = (SELECT COUNT(*) FROM #partitions)
+    ,       @i INT = 1                                 --iterator for while loop
+    ,       @q NVARCHAR(4000)                          --query
+    ,       @p NVARCHAR(20)     = N''                  --partition_number
+    ,       @s NVARCHAR(128)    = N'dbo'               --schema
+    ,       @t NVARCHAR(128)    = N'FactInternetSales' --table
+    ;
 
-WHILE @i <= @c
-BEGIN
-    SET @p = (SELECT ptn_no FROM #partitions WHERE seq_no = @i);
-    SET @q = (SELECT N'ALTER TABLE '+@s+N'.'+@t+N' SPLIT RANGE ('+@p+N');');
+    WHILE @i <= @c
+    BEGIN
+        SET @p = (SELECT ptn_no FROM #partitions WHERE seq_no = @i);
+        SET @q = (SELECT N'ALTER TABLE '+@s+N'.'+@t+N' SPLIT RANGE ('+@p+N');');
 
-    -- PRINT @q;
-    EXECUTE sp_executesql @q;
+        -- PRINT @q;
+        EXECUTE sp_executesql @q;
+        SET @i+=1;
+    END
 
-    SET @i+=1;
-END
+     -- Code clean-up
 
--- Code clean-up
-
-DROP TABLE #partitions;
-```
+    DROP TABLE #partitions;
+    ```
 
 With this approach the code in source control remains static and the partitioning boundary values are allowed to be dynamic; evolving with the warehouse over time.
 
