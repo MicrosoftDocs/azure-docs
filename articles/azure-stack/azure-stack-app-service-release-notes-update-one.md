@@ -195,7 +195,7 @@ Site slot swap is broken in this release.  To restore functionality, complete th
     ```
 - Workers are unable to reach file server when App Service is deployed in an existing virtual network and the fileserver is only available on the private network.
  
-If you chose to deploy into an existing virtual network and a internal IP address to conenct to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+If you chose to deploy into an existing virtual network and a internal IP address to connect to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the fileserver. To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
  * Source: Any
  * Source port range: *
  * Destination: IP Addresses
