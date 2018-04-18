@@ -46,7 +46,7 @@ On the additional settings form, complete the following items:
 
 For service principal integration, select **Auto(MSI)** to have [Azure Managed Service Identity][managed-service-identity] auto create an authentication identity for the Jenkins instance. Select Manual to provider your own service principal credentials.
 
-Cloud agents configure a cloud based platform for Jenkins build jobs. For the sake of this document, select ACI. With the ACI cloud agent, each Jenkins build job is run in an Azure Container Instance.
+Cloud agents configure a cloud-based platform for Jenkins build jobs. For the sake of this document, select ACI. With the ACI cloud agent, each Jenkins build job is run in an Azure Container Instance.
 
 ![Jenkins portal deployment cloud integration settings](./media/container-instances-jenkins/jenkins-portal-03.png)
 
@@ -70,7 +70,7 @@ Once connected, run the following command to retrieve the initial admin password
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
-Leave the SSH session and tunnel running, and navigate to http://localhost:8080 in a browser. Paste the initial admin password into the field as seen below. Select **Continue** when done.
+Leave the SSH session and tunnel running, and navigate to http://localhost:8080 in a browser. Paste the initial admin password into the field as seen in the following image. Select **Continue** when done.
 
 ![Unlock Jenkins](./media/container-instances-jenkins/jenkins-portal-05.png)
 
@@ -124,7 +124,7 @@ While the job is running, open up the Azure portal and look at the Jenkins resou
 
 ![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci.png)
 
-As Jenkins runs ore jobs than the configured number of Jenkins executors (default 2), multiple Azure Container Instances are created.
+As Jenkins runs more jobs then the configured number of Jenkins executors (default 2), multiple Azure Container Instances are created.
 
 ![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci-multi.png)
 
