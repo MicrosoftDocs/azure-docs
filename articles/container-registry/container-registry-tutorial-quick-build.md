@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want to quickly build
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 **ACR Build** is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *Quick Build* feature of ACR Build. Quick Build extends your development "inner loop" to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
 
-All of your Dockerfile expertise is directly transferrable to ACR Build. You don't have to change your Dockerfiles to build in the cloud with ACR build, just the command you run to build the images.
+All your Dockerfile expertise is directly transferrable to ACR Build. You don't have to change your Dockerfiles to build in the cloud with ACR build, just the command you run.
 
 In this tutorial, part one of a series:
 
@@ -53,7 +53,7 @@ az extension remove -n acrbuildext
 Install the current version of the extension:
 
 ```azurecli-interactive
-az extension add --source https://acrbuild.blob.core.windows.net/cli/acrbuildext-0.0.4-py2.py3-none-any.whl -y`
+az extension add --source https://acrbuild.blob.core.windows.net/cli/acrbuildext-0.0.4-py2.py3-none-any.whl -y
 ```
 
 Execute `az acr build --help` to verify successful installation:
@@ -119,7 +119,7 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard
 ```
 
-Build a container image from the sample code with ACR Build.
+Use ACR Build to build a container image from the sample code:
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrbuild:v1 --context .
