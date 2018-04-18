@@ -32,6 +32,10 @@
       href: search-your-custom-view.md
     - name: Configure hosted UI
       href: hosted-ui.md
+    - name: Define custom suggestions
+      href: define-custom-suggestions.md
+    - name: Get custom suggestions
+      href: get-custom-suggestions.md 
     - name: Handle hit highlighting
       href: hit-highlighting.md
     - name: Page webpages
