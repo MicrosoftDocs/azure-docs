@@ -1,4 +1,4 @@
----
+﻿---
 title: Create, change, or delete an Azure virtual network peering | Microsoft Docs
 description: Learn how to create, change, or delete a virtual network peering.
 services: virtual-network
@@ -28,7 +28,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 - If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
 - If using the portal, open https://portal.azure.com, and log in with an account that has the [necessary permissions](#permissions) to work with peerings.
-- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.5.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` with an account that has the [necessary permissions](#permissions) to work with peering, to create a connection with Azure.
+- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.5.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` with an account that has the [necessary permissions](#permissions) to work with peering, to create a connection with Azure.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.29 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` with an account that has the [necessary permissions](#permissions) to work with peering, to create a connection with Azure.
 
 ## Create a peering
