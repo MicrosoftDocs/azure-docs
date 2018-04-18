@@ -1,20 +1,20 @@
 ---
 title: About Azure DevTest Labs | Microsoft Docs
 description: Learn how DevTest Labs can make it easy to create, manage, and monitor Azure virtual machines
-services: devtest-lab,virtual-machines
+services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
+author: spelluru
+manager: femila
 editor: ''
 
 ms.assetid: 1b9eed3b-c69a-4c49-a36e-f388efea6f39
-ms.service: devtest-lab
+ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
-ms.author: v-craic
+ms.date: 04/17/2018
+ms.author: spelluru
 
 ---
 # About Azure DevTest Labs

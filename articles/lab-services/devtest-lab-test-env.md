@@ -1,20 +1,19 @@
 ---
 title: Use Azure DevTest Labs for VM and PaaS test environments | Microsoft Docs
 description: Learn how to use Azure DevTest Labs for VM and PaaS test environment scenarios.
-services: devtest-lab,virtual-machines
+services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
-editor: ''
+author: spelluru
+manager: femila
 
 ms.assetid: d4e2c334-643a-40c9-9051-625b8f39fc86
-ms.service: devtest-lab
+ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: v-craic
+ms.date: 04/17/2018
+ms.author: spelluru
 
 ---
 # Use Azure DevTest Labs for VM and PaaS test environments

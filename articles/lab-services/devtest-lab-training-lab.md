@@ -1,20 +1,19 @@
 ---
 title: Use Azure DevTest Labs for training | Microsoft Docs
 description: Learn how to use Azure DevTest Labs for training scenarios.
-services: devtest-lab,virtual-machines
+services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
-editor: ''
+author: spelluru
+manager: femila
 
 ms.assetid: 57ff4e30-7e33-453f-9867-e19b3fdb9fe2
-ms.service: devtest-lab
+ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
-ms.author: v-craic
+ms.date: 04/17/2018
+ms.author: spelluru
 
 ---
 # Use Azure DevTest Labs for training
