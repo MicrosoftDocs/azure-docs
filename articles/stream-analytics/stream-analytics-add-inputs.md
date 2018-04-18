@@ -46,12 +46,12 @@ To add an input to your Stream Analytics job:
     ![Add data stream data input](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)  
 4. Provide a friendly name for this input in the Input Alias box.  This name will be used in your job's query later on to refer to the input.
    
-    Fill in the rest of the required connection properties to connect to your data source. These fields vary by type of input and source type and are defined in detail [here](stream-analytics-create-a-job.md).  
+    Fill in the rest of the required connection properties to connect to your data source. 
    
     ![Add event hub data input](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)  
 5. Specify the serialization settings for the input data:
    
-   * To make sure your queries work the way you expect, specify the **Event Serialization Format** of incoming data.  Supported serialization formats are JSON, CSV, and Avro.
+   * To make sure your queries work the way you expect, specify the **Event Serialization Format** of incoming data.  Supported serialization formats are JSON, CSV, and Avro. Please ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers.
    * Verify the **Encoding** for the data.  UTF-8 is the only supported encoding format at this time.
      
      ![Data serialization settings for the data input](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
