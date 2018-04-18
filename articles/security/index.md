@@ -206,6 +206,9 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-service-fabric-security-best-practices">Service Fabric security</a>
                             </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/azure-security-global-admin">Securing the Azure Admin accounts</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
