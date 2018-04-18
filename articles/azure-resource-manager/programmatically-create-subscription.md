@@ -194,7 +194,7 @@ To see a full list of all parameters, see [New-AzureRmSubscription](/powershell/
 
 To use this preview extension, install it by running `az extension add --name subscription` first.
 
-Use the [az account create](/cli/azure/ext/subscription/account) along with `enrollmentAccount` name as the `enrollment_account_name` parameter to create a new subscription.
+Use the [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) along with `enrollmentAccount` name as the `enrollment_account_name` parameter to create a new subscription.
 
 ```azurecli-interactive 
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-name "<enrollmentAccountId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
@@ -208,7 +208,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `upn`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`.|
 | `spn` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`.| 
 
-To see a full list of all parameters, see [az account create](/cli/azure/account).
+To see a full list of all parameters, see [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 
 ----
 

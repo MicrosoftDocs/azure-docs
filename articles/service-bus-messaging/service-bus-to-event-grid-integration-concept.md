@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Service Bus to Event Grid integration overview | Microsoft Docs
 description: Description of Service Bus messaging and Event Grid integration
 services: service-bus-messaging
@@ -154,7 +154,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 Make sure you have Azure PowerShell installed. [Download the installer](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Select **Windows + X**, and then open a new PowerShell console with Administrator permissions. Alternatively, you can use a command shell within the Azure portal.
 
 ```PowerShell-interactive
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
 
