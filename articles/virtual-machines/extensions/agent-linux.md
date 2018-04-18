@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 The Microsoft Azure Linux Agent (waagent) manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller. In addition to the Linux Agent providing provisioning functionality, Azure also provides the option of using cloud-init for some Linux OSes. The Linux Agent provides the following functionality for Linux and FreeBSD IaaS deployments:
 
 > [!NOTE]
-> For more information see the [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md) for additional details.
+> For more information see the [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 > 
 > 
 
@@ -111,7 +111,7 @@ Refer to the documentation in the [Azure Linux Agent repo on GitHub](https://git
 
 ### Commands
 * help: Lists the supported commands and flags.
-* deprovision: Attempt to clean the system and make it suitable for re-provisioning. This operation deleted the following:
+* deprovision: Attempt to clean the system and make it suitable for reprovisioning. The following operation deletes:
   
   * All SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)
   * Nameserver configuration in /etc/resolv.conf
@@ -124,7 +124,7 @@ Refer to the documentation in the [Azure Linux Agent repo on GitHub](https://git
 > 
 > 
 
-* deprovision+user: Performs everything under -deprovision (above) and also deletes the last provisioned user account (obtained from /var/lib/waagent) and associated data. This parameter is when de-provisioning an image that was previously provisioning on Azure so it may be captured and re-used.
+* deprovision+user: Performs everything under -deprovision (above) and also deletes the last provisioned user account (obtained from /var/lib/waagent) and associated data. This parameter is when de-provisioning an image that was previously provisioning on Azure so it may be captured and reused.
 * version: Displays the version of waagent
 * serialconsole: Configures GRUB to mark ttyS0 (the first serial port) as
    the boot console. This ensures that kernel bootup logs are sent to the
@@ -134,7 +134,7 @@ Refer to the documentation in the [Azure Linux Agent repo on GitHub](https://git
 
 ## Configuration
 A configuration file (/etc/waagent.conf) controls the actions of waagent. 
-The following sample configuration file is shown below:
+The following shows a sample configuration file:
 
     ```
     Provisioning.Enabled=y
@@ -162,7 +162,7 @@ The following sample configuration file is shown below:
     AutoUpdate.Enabled=y
     ```
 
-The following various configuration options are described in detail below. Configuration options are of three types; Boolean, String, or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as the following details.
+The following various configuration options are described. Configuration options are of three types; Boolean, String, or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as the following details:
 
 **Provisioning.Enabled:**  
 Type: Boolean  
