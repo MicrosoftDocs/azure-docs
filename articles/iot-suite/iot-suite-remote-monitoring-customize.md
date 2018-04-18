@@ -73,11 +73,11 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 ### Duplicate an existing control
 
-Each page in the remote monitoring solution is composed of a set of controls, known as a *panels* in the source code. For example, the **Dashboard** page is made up of five panels: Overview, Map, Alarms, Telemetry, and KPIs. You can find the source code that defines each page and its panels in the [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub repository. For example, the code that defines the **Dashboard** page, its layout, and the panels on the page is located in the [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) folder.
+Each page in the remote monitoring solution is composed of a set of controls, referred to as *panels* in the source code. For example, the **Dashboard** page is made up of five panels: Overview, Map, Alarms, Telemetry, and KPIs. You can find the source code that defines each page and its panels in the [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub repository. For example, the code that defines the **Dashboard** page, its layout, and the panels on the page is located in the [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) folder.
 
 The following steps outline how to duplicate and existing panel, modify it, and use the modified version. The steps use the **alarms** panel as an example:
 
-1. In your local copy of the repository, make a copy of the the **alarms** folder in the `src/components/pages/dashboard/panels` folder. Name the new copy **cust_alarms**.
+1. In your local copy of the repository, make a copy of the **alarms** folder in the `src/components/pages/dashboard/panels` folder. Name the new copy **cust_alarms**.
 
 1. In the **alarmsPanel.js** file in the **cust_alarms** folder, edit the name of the class to be **CustAlarmsPanel**:
 
@@ -142,9 +142,9 @@ The following screenshot shows the new version of the **Alarms** panel:
 
 ### Customize the telemetry chart
 
-The telemetry chart on the **Dashboard** page is defined by the files in the `src/components/pages/dashboard/panels/telemtry` folder. The UI retrieves the telelemtry from the solution back end in the `src/services/telemetryService.js` file. The following steps show you how to change the time period displayed on the telemtry chart from fifteen minutes to five minutes:
+The telemetry chart on the **Dashboard** page is defined by the files in the `src/components/pages/dashboard/panels/telemtry` folder. The UI retrieves the telemetry from the solution back end in the `src/services/telemetryService.js` file. The following steps show you how to change the time period displayed on the telemetry chart from 15 minutes to five minutes:
 
-1. In the `src/services/telemetryService.js` file, locate the function called **getTelemetryByDeviceIdP15M**. Make a copy of this fuction and modify the copy as follows:
+1. In the `src/services/telemetryService.js` file, locate the function called **getTelemetryByDeviceIdP15M**. Make a copy of this function and modify the copy as follows:
 
     ```nodejs
     static getTelemetryByDeviceIdP5M(devices = []) {
@@ -202,7 +202,7 @@ The **Dashboard** page displays KPIs in the **System KPIs** panel. These KPIs ar
     };
     ```
 
-1. Calculate the new KPI. Find the calculation for the critical alrms count. Duplicate the code and modify the copy as follows:
+1. Calculate the new KPI. Find the calculation for the critical alarms count. Duplicate the code and modify the copy as follows:
 
     ```nodejs
     // ================== Warning Alarms Count - START
