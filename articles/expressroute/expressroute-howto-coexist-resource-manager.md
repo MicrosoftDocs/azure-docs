@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Configure ExpressRoute and Site-to-Site VPN connections that can coexist: Resource Manager: Azure | Microsoft Docs'
 description: This article walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist for Resource Manager model.
 documentationcenter: na
@@ -79,7 +79,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
 2. Log in to your account and set up the environment.
 
   ```powershell
-  login-AzureRmAccount
+  Connect-AzureRmAccount
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
