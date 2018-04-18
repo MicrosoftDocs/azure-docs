@@ -130,31 +130,31 @@ The Time Series Insights explorer is a web app that helps you create visualizati
 
 1. Select Temperature and Split By ID
 
-![Imported Script](media/iot-suite-time-series-insights/07_Visual2.png "Visualize Data")
+![Visualize Data](media/iot-suite-time-series-insights/07_Visual2.png)
 
 1. Right Click to Explore events
 
-![Imported Script](media/iot-suite-time-series-insights/08_Visual3.png "Visualize Data")
+![Visualize Data](media/iot-suite-time-series-insights/08_Visual3.png)
 
 1. Explore Events in Tabular format
 
-![Imported Script](media/iot-suite-time-series-insights/09_Visual09.png "Visualize Data")
+![Visualize Data](media/iot-suite-time-series-insights/09_Visual09.png)
 
 1. Create a perspective with various charts
 
-![Imported Script](media/iot-suite-time-series-insights/10_visual10.png "Visualize Data")
+![Visualize Data](media/iot-suite-time-series-insights/10_visual10.png)
 
 1. Select Humidity and ID
 
-![Imported Script](media/iot-suite-time-series-insights/11_visual11.png "Visualize Data")
+![Visualize Data](media/iot-suite-time-series-insights/11_visual11.png)
 
 1. Create a chart by selecting a timeframe with drag feature
 
-![Imported Script](media/iot-suite-time-series-insights/12_Visual12.png "Visualize Data")
+![Visualize Data](media/iot-suite-time-series-insights/12_Visual12.png)
 
 1. Create 3rd Chart by adding a predicate
 
-![Imported Script](media/iot-suite-time-series-insights/13_Visual13.png "Visualize Data")
+![Visualize Data](media/iot-suite-time-series-insights/13_Visual13.png)
 
 1. Perspective with 4 different charts
 
