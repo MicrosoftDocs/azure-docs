@@ -114,13 +114,16 @@ When the pattern list is filtered, the entity or intent name appears below the t
 
 The filter is removed and all patterns display.
 
-## Syntax to add an entity to a pattern template
+## Entity syntax in patterns
+Entities in patterns are surrounded by curly brackets. Patterns can include entities, and entities with roles. Pattern.any is an entity only used in patterns. The syntax for each of these is explained in the following sections.
+
+### Syntax to add an entity to a pattern template
 To add an entity into the pattern template, surround the entity name with curly braces, such as `Who does {Employee} manage?`. 
 
-## Syntax to add an entity and role to a pattern template
+### Syntax to add an entity and role to a pattern template
 An entity role is denoted as `{entity:role}` with the entity name followed by a colon, then the role name. To add an entity with a role into the pattern template, surround the entity role name with curly braces, such as `Book a ticket from {Location.Origin} to {Location.Destination}`. 
 
-## Syntax to add a pattern.any to pattern template
+### Syntax to add a pattern.any to pattern template
 The Pattern.any entity allows you to add an entity of varying length to the pattern. As long as the pattern template is followed, the pattern.any can be any length. 
 
 To add a **Pattern.any** entity into the pattern template, surround the Pattern.any entity with the curly braces, such as `How much does {Booktitle} cost and what format is it available in?`.  

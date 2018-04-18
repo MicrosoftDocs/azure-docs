@@ -119,7 +119,7 @@ You can also define relationships between entities by creating composite entitie
 > Try the composite [tutorial](luis-tutorial-composite-entity.md) to learn more.
 
 ## Add Pattern.any entities
-Pattern.any entities are only valid on patterns and must use the curly brace syntax to mark the entities. 
+[Pattern.any](luis-concept-entity-types.md) entities are only valid on patterns and must use the curly brace [syntax](luis-how-to-model-intent-pattern.md#entity-syntax-in-patterns) to mark the entities. 
 
 1. Open the TravelAgent app by selecting its name on **My Apps** page and select **Entities** in the app's left panel.
 
@@ -129,12 +129,14 @@ Pattern.any entities are only valid on patterns and must use the curly brace syn
  
     ![Add a pattern.any entity](./media/add-entities/create-pattern-any-entity.png)
 
-    Once the pattern.any entity is created, use it in an intent pattern such as "For **{BookTitle}** who is the author?".
+    To use the pattern.any entity, add a [pattern](luis-how-to-model-intent-pattern.md#add-patterns) on the **Patterns** page under **Review endpoint utterances** with the correct curly brace syntax, such as "For **{BookTitle}** who is the author?".
 
-## Add role to simple or pattern.any entity
-A role is a named subtype of an entity. For example, a plane ticket has an origin city and a destination city, but both are cities. LUIS determines that both are cities and can determine origin and destination cities based on context. The syntax for a role is Entity:Role where the entity name is followed by a colon, then the role name. For example, "Book a ticket from {Location:Origin} to {Location:Destination}".
+## Add role to entity used in patterns
+A role is a named subtype of an entity. It is only available in a pattern. LUIS determines a role based on context.
 
-Roles are available for **Pattern.any** and **Simple** entities. 
+For example, a plane ticket has an *origin city* and a *destination city*, but both are cities. LUIS determines that both are cities and can determine origin and destination cities based on context. 
+
+The syntax for a role is **{Entity:Role}** where the entity name is followed by a colon, then the role name. For example, "Book a ticket from {Location:Origin} to {Location:Destination}".
 
 1. Open the TravelAgent app by selecting its name on **My Apps** page and select **Entities** in the app's left panel.
 
