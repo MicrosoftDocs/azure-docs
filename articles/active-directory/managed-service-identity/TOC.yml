@@ -78,7 +78,7 @@
         items:
         - name: Acquire an access token
           href: how-to-use-vm-token.md
-        - name: Sign to Powersheel and CLI using Managed Identity
+        - name: Sign to Powershell and CLI using Managed Identity
           href: how-to-use-vm-sign-in.md
         - name: Use with Azure SDKs
           href: how-to-use-vm-sdk.md    

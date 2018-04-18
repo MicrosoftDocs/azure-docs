@@ -24,6 +24,9 @@ Managed Service Identity provides Azure services with an automatically managed i
 
 In this article, you will learn how to enable and remove MSI for an Azure VM, using the Azure portal.
 
+> [!NOTE]
+> Currently, it is not supported to enable or remove a user assigned managed identity on an Azure VM using the Azure portal. Check back for updates. 
+
 ## Prerequisites
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
