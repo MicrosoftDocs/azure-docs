@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure the Azure Stack operator's PowerShell environment | Microsoft Docs
 description: Learn how to Configure the Azure Stack operator's PowerShell environment.
 services: azure-stack
@@ -46,7 +46,7 @@ $TenantID = Get-AzsDirectoryTenantId -AADTenantName "<mydirectorytenant>.onmicro
 
 # After registering the AzureRM environment, cmdlets can be 
 # easily targeted at your Azure Stack instance.
-Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
+Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
 ````
 
 
@@ -61,7 +61,7 @@ $TenantID = Get-AzsDirectoryTenantId -ADFS -EnvironmentName AzureStackAdmin
 
 # After registering the AzureRM environment, cmdlets can be 
 # easily targeted at your Azure Stack instance.
-Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
+Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
 ````
 
 ## Test the connectivity
