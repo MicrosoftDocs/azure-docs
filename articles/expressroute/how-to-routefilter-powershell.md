@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Configure route filters for Azure ExpressRoute Microsoft peering: PowerShell | Microsoft Docs'
 description: This article describes how to configure route filters for Microsoft Peering using PowerShell
 documentationcenter: na
@@ -88,7 +88,7 @@ Before beginning this configuration, you must log in to your Azure account. The 
 Open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 If you have multiple Azure subscriptions, check the subscriptions for the account.
