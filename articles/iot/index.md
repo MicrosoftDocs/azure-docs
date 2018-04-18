@@ -27,8 +27,8 @@ Azure IoT technologies and solutions are designed to facilitate the end-to-end d
                 <div class="card">
                     <div class="cardText">
                         <h3>Fundamentals</h3>
-                        <a href="/azure/iot-fundamentals/iot-introduction.md">Introduction to Azure IoT</a><br/>
-                        <a href="/azure/iot-fundamentals/iot-services-and-technologies.md">Azure IoT services and technologies</a>
+                        <a href="/azure/iot-fundamentals/iot-introduction">Introduction to Azure IoT</a><br/>
+                        <a href="/azure/iot-fundamentals/iot-services-and-technologies">Azure IoT services and technologies</a>
                     </div>
                 </div>
             </div>
