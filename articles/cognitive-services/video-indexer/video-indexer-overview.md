@@ -14,7 +14,7 @@ ms.author: juliako;
 ---
 # Video Indexer (preview)
 
-Video Indexer is a cloud service that enables you to extract the following insights from your videos using artificial intelligence technologies:
+Video Indexer is a cloud application that enables you to extract the following insights from your videos using artificial intelligence technologies:
 
 - **Audio Transcription**: Video Indexer has speech-to-text functionality, which enables customers to get a transcript of the spoken words. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Portuguese (Brazilian), Japanese and Russian (with many more to come in the future). 
 - **Face tracking and identification**: Face technologies enable detection of faces in a video. The detected faces are matched against a celebrity database to evaluate which celebrities are present in the video. Customers can also label faces that do not match a celebrity. Video Indexer builds a face model based on those labels and can recognize those faces in videos submitted in the future.
