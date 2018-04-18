@@ -27,6 +27,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up your development environment
+> * Set up your deployment environment
 > * Understand the code
 > * Build and deploy the application
 > * Run the application on the cluster
@@ -54,6 +55,10 @@ The following environment variables may be set when you install Java and the JDK
     * `JAVA_HOME\bin` (or the equivalent path).
     * The directory where Maven is installed.
 
+## Set up your deployment environment
+
+This tutorial requires Kafka on HDInsight 3.6. To learn how to create a Kafka on HDInsight cluster, see the [Start with Kafka on HDInsight](apache-kafka-get-started.md) document.
+
 ## Understand the code
 
 The example application is located at [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), in the `Producer-Consumer` subdirectory. The application consists primarily of four files:
@@ -67,7 +72,7 @@ The example application is located at [https://github.com/Azure-Samples/hdinsigh
 
 The important things to understand in the `pom.xml` file are:
 
-* Dependencies: This project relies on the Kafka producer and consumer APIs, which are provided by the `kafka-clients` project. The following XML code defines this dependency:
+* Dependencies: This project relies on the Kafka producer and consumer APIs, which are provided by the `kafka-clients` package. The following XML code defines this dependency:
 
     ```xml
     <!-- Kafka client for producer/consumer operations -->
@@ -88,7 +93,160 @@ The important things to understand in the `pom.xml` file are:
 
 ### Producer.java
 
+The producer communicates with the Kafka broker hosts (worker nodes) to store data into a Kafka topic. The following code snippet from is from the `Producer.java` file:
 
+```java
+package com.microsoft.example;
+
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import java.util.Properties;
+import java.util.Random;
+import java.io.IOException;
+
+public class Producer
+{
+    public static void produce(String brokers) throws IOException
+    {
+
+        // Set properties used to configure the producer
+        Properties properties = new Properties();
+        // Set the brokers (bootstrap servers)
+        properties.setProperty("bootstrap.servers", brokers);
+        // Set how to serialize key/value pairs
+        properties.setProperty("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
+        properties.setProperty("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
+        KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
+
+        // So we can generate random sentences
+        Random random = new Random();
+        String[] sentences = new String[] {
+                "the cow jumped over the moon",
+                "an apple a day keeps the doctor away",
+                "four score and seven years ago",
+                "snow white and the seven dwarfs",
+                "i am at two with nature"
+        };
+
+        String progressAnimation = "|/-\\";
+        // Produce a bunch of records
+        for(int i = 0; i < 1000000; i++) {
+            // Pick a sentence at random
+            String sentence = sentences[random.nextInt(sentences.length)];
+            // Send the sentence to the test topic
+            producer.send(new ProducerRecord<String, String>("test", sentence));
+            String progressBar = "\r" + progressAnimation.charAt(i % progressAnimation.length()) + " " + i;
+            System.out.write(progressBar.getBytes());
+        }
+    }
+}
+```
+
+This code connects to the Kafka broker hosts (worker nodes), and then sends 1,000,000 sentences to Kafka using the Producer API.
+
+### Consumer.java
+
+The consumer communicates with the Kafka broker hosts (worker nodes), and reads records in a loop. The following code snippet is from the `Consumer.java` file:
+
+```java
+package com.microsoft.example;
+
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import java.util.Properties;
+import java.util.Arrays;
+
+public class Consumer {
+    public static void consume(String brokers, String groupId) {
+        // Create a consumer
+        KafkaConsumer<String, String> consumer;
+        // Configure the consumer
+        Properties properties = new Properties();
+        // Point it to the brokers
+        properties.setProperty("bootstrap.servers", brokers);
+        // Set the consumer group (all consumers must belong to a group).
+        properties.setProperty("group.id", groupId);
+        // Set how to serialize key/value pairs
+        properties.setProperty("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+        properties.setProperty("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+        // When a group is first created, it has no offset stored to start reading from. This tells it to start
+        // with the earliest record in the stream.
+        properties.setProperty("auto.offset.reset","earliest");
+        consumer = new KafkaConsumer<>(properties);
+
+        // Subscribe to the 'test' topic
+        consumer.subscribe(Arrays.asList("test"));
+
+        // Loop until ctrl + c
+        int count = 0;
+        while(true) {
+            // Poll for records
+            ConsumerRecords<String, String> records = consumer.poll(200);
+            // Did we get any?
+            if (records.count() == 0) {
+                // timeout/nothing to read
+            } else {
+                // Yes, loop over records
+                for(ConsumerRecord<String, String> record: records) {
+                    // Display record and count
+                    count += 1;
+                    System.out.println( count + ": " + record.value());
+                }
+            }
+        }
+    }
+}
+```
+
+In this code, the consumer is configured to read from the start of the topic (`auto.offset.reset` is set to `earliest`.)
+
+### Run.java
+
+The `Run.java` file provides a command line interface that runs either the producer or consumer code. You must provide the Kafka broker host information as a parameter. You can optionally include a group id value, which is used by the consumer process. If you create multiple consumer instances using the same group id, they will load balance reading from the topic.
+
+```java
+package com.microsoft.example;
+
+import java.io.IOException;
+import java.util.UUID;
+
+// Handle starting producer or consumer
+public class Run {
+    public static void main(String[] args) throws IOException {
+        if(args.length < 2) {
+            usage();
+        }
+
+        // Get the brokers
+        String brokers = args[1];
+        switch(args[0].toLowerCase()) {
+            case "producer":
+                Producer.produce(brokers);
+                break;
+            case "consumer":
+                // Either a groupId was passed in, or we need a random one
+                String groupId;
+                if(args.length == 3) {
+                    groupId = args[2];
+                } else {
+                    groupId = UUID.randomUUID().toString();
+                }
+                Consumer.consume(brokers, groupId);
+                break;
+            default:
+                usage();
+        }
+        System.exit(0);
+    }
+    // Display usage
+    public static void usage() {
+        System.out.println("Usage:");
+        System.out.println("kafka-example.jar <producer|consumer> brokerhosts [groupid]");
+        System.exit(1);
+    }
+}
+```
 
 ## Build and deploy the example
 
@@ -120,24 +278,27 @@ The important things to understand in the `pom.xml` file are:
 
     Replace **SSHUSER** with the SSH user for your cluster, and replace **CLUSTERNAME** with the name of your cluster. If prompted, enter the password for the SSH user account. For more information on using `scp` with HDInsight, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. To create the Kafka topics that are used by this example, use the following commands:
+2. To create the Kafka topics that are used by this example, use the following steps:
 
-    ```bash
-    sudo apt -y install jq
+    1. To save the cluster name to a variable and install a JSON parsing utility (`jq`), use the following commands. When prompted, enter the Kafka cluster name:
+    
+        ```bash
+        sudo apt -y install jq
+        read -p 'Enter your Kafka cluster name:' CLUSTERNAME
+        ```
+    
+    2. To get the Kafka broker hosts and the Zookeeper hosts, use the following commands. When prompted, enter the password for the cluster login (admin) account.
+    
+        ```bash
+        export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
+        export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
+        ```
 
-    CLUSTERNAME='your cluster name'
+    3. To create the `test` topic, use the following command:
 
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
-
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
-    ```
-
-    Replace __your cluster name__ with the name of your HDInsight cluster. When prompted, enter the password for the HDInsight cluster login account.
-
-    > [!NOTE]
-    > If your cluster login is different than the default value of `admin`, replace the `admin` value in the previous commands with your cluster login name.
+        ```bash
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
+        ```
 
 3. To run the producer and write data to the topic, use the following command:
 
@@ -165,22 +326,16 @@ The consumer application accepts a parameter that is used as the group ID. For e
 java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
 ```
 
-To see this process in action, use the following steps
+To see this process in action, use the following command:
 
-1. Repeat steps 1 and 2 in the [Run the example](#run) section to open a new SSH session.
+```bash
+tmux new-session 'java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup' \; split-w
+indow -h 'java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup' \; attach
+```
 
-2. In both SSH sessions, enter the following command:
+This command uses `tmux` to split the terminal into two columns. A consumer is started in each column, with the same group ID value. Once the consumers finish reading, notice that each read only a portion of the records. Use __Ctrl + C __ twice to exit `tmux`.
 
-    ```bash
-    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
-    ```
-    
-    > [!IMPORTANT]
-    > Enter both commands simultaneously, so that they are both running at the same time.
-
-    Notice that the count of messages read is not the same as the previous section, where you had only one consumer. Instead, the messages read is split between the instances.
-
-Consumption by clients within the same group is handled through the partitions for the topic. For the `test` topic created earlier, it has eight partitions. If you open eight SSH sessions and launch a consumer in all sessions, each consumer reads records from a single partition for the topic.
+Consumption by clients within the same group is handled through the partitions for the topic. For the `test` topic created earlier, it has eight partitions. If you start eight consumers, each consumer reads records from a single partition for the topic.
 
 > [!IMPORTANT]
 > There cannot be more consumer instances in a consumer group than partitions. In this example, one consumer group can contain up to eight consumers since that is the number of partitions in the topic. Or you can have multiple consumer groups, each with no more than eight consumers.

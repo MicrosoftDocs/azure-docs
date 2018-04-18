@@ -38,6 +38,8 @@
     href: apache-kafka-high-availability.md
 - name: How to
   items:
+  - name: Enable auto topic creation
+    href: apache-kafka-auto-create-topics.md
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
     maintainContext: true
