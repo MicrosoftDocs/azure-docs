@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 04/16/2018
 ms.author: jeedes
 
 ---
@@ -99,7 +99,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Single sign-on dialog box](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
 3. On the **Compliance ELF Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
@@ -117,34 +117,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> This value is not real. Update this values with the actual Sign-on URL. Contact [Compliance ELF support team](mailto:support@complianceelf.com) to get this value.
 
-5. Click **Save** button.
+5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_metadataurl.png)
+     
+6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-complianceelf-tutorial/tutorial_general_400.png)
 
-6. To generate the **Metadata** url, perform the following steps:
-
-    a. Click **App registrations**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appregistrations.png)
-   
-    b. Click **Endpoints** to open **Endpoints** dialog box.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpointicon.png)
-
-    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpoint.png)
-     
-    d. Now go to the property page of **Compliance ELF** and copy the **Application Id** using **Copy** button and paste it into notepad.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appid.png)
-
-    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. To configure single sign-on on **Compliance ELF** side, you need to send the **Metadata URL** to [Compliance ELF support team](mailto:support@complianceelf.com). They set this setting to have the SAML SSO connection set properly on both sides.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. To configure single sign-on on **Compliance ELF** side, you need to send the **App Federation Metadata Url** to [Compliance ELF support team](mailto:support@complianceelf.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
