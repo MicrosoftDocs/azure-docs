@@ -88,11 +88,42 @@ To change data warehouse units:
 1. Right-click **master** and select **New Query**.
 2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL statement to modify the service objective. Run the following query to change the service objective to DW300. 
 
-```Sql
-ALTER DATABASE mySampleDataWarehouse
-MODIFY (SERVICE_OBJECTIVE = 'DW300')
-;
-```
+    ```Sql
+    ALTER DATABASE mySampleDataWarehouse
+    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    ;
+    ```
+
+## Monitor scale change request
+To see the progress of the previous change request, you can use the `WAITFORDELAY` T-SQL syntax to poll the sys.dm_operation_status dynamic management view (DMV).
+
+To poll for the service object change status:
+
+1. Right-click **master** and select **New Query**.
+2. Run the following query to poll the sys.dm_operation_status DMV.
+
+    ```sql
+    WHILE 
+    (
+        SELECT TOP 1 state_desc
+        FROM sys.dm_operation_status
+        WHERE 
+            1=1
+            AND resource_type_desc = 'Database'
+            AND major_resource_id = 'DemoDW'
+            AND operation = 'ALTER DATABASE'
+        ORDER BY
+            start_time DESC
+    ) = 'IN_PROGRESS'
+    BEGIN
+        RAISERROR('Scale operation in progress',0,0) WITH NOWAIT;
+        WAITFOR DELAY '00:00:05';
+    END
+    PRINT 'Complete';
+    ```
+3. The resulting output shows a log of the polling of the status.
+
+    ![Operation status](media/quickstart-scale-compute-tsql/polling-output.png)
 
 ## Check data warehouse state
 
