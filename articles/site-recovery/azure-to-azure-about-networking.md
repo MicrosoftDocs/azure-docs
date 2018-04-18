@@ -110,7 +110,7 @@ This example shows how to configure NSG rules for a VM to replicate.
 1. Create an outbound HTTPS (443) security rule for "Storage.EastUS" on the NSG as shown in the screenshot below.
 
       ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
-      
+
 2. Create outbound HTTPS (443) rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the target location:
 
@@ -132,16 +132,11 @@ These rules are required so that replication can be enabled from the target regi
     --- | --- | ---
    Central US | 13.82.88.226 | 104.45.147.24
 
-## ExpressRoute/VPN
+## Network virtual appliance
 
-If you have an ExpressRoute or VPN connection between on-premises and Azure location, follow the guidelines in this section.
+If you are using network virtual appliances (NVAs) to control outbound network traffic from VMs, the appliance might get throttled if all the replication traffic passes through the NVA. We recommend you to create a network service endpoint in your virtual network for "Storage" so that the replication traffic does not go to the NVA.
 
-### Forced tunneling and Network virtual appliances
-
-Typically, you define a default route (0.0.0.0/0) that forces outbound Internet traffic to flow through the on-premises location or. We do not recommend this. The replication traffic should not leave the Azure boundary.
-
-If you redirect your outbound network traffic from VMs to network virtual appliances (NVAs), we recommend to bypass NVAs for 
-
+## Create network service endpoint for Storage
 You can create a network service endpoint in your virtual network for "Storage" so that the replication traffic does not leave Azure boundary.
 
 - Select your Azure virtual network and click on 'Service endpoints'
@@ -149,12 +144,19 @@ You can create a network service endpoint in your virtual network for "Storage" 
 - Click 'Add' and 'Add service endpoints' tab opens
 - Select 'Microsoft.Storage' under 'Service' and the required subnets under 'Subnets' field and click 'Add'
 
-### Network virtual appliance
-
-
-
 >[!NOTE]
 >Do not restrict virtual network access to your storage accounts used for ASR. You should allow access from 'All networks'
+
+## ExpressRoute/VPN
+
+If you have an ExpressRoute or VPN connection between on-premises and Azure location, follow the guidelines in this section.
+
+### Forced tunneling
+
+Typically, you define a default route (0.0.0.0/0) that forces outbound Internet traffic to flow through the on-premises location or. We do not recommend this. The replication traffic should not leave the Azure boundary.
+
+You can [create a network service endpoint](#create-network-service-endpoint-for -Storage) in your virtual network for "Storage" so that the replication traffic does not leave Azure boundary.
+
 
 ### Connectivity
 
