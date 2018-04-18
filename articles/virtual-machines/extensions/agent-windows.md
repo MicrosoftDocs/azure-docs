@@ -31,8 +31,8 @@ The Azure VM Agent is installed by default on any Windows VM deployed from an Az
 
 The Windows Guest Agent Package is broken into two parts:
 
-- the Provisioning Agent (PA), and
-- the Windows Guest Agent (WinGA)
+- Provisioning Agent (PA)
+- Windows Guest Agent (WinGA)
 
 To boot a VM you must have the PA installed on the VM, however the WinGA does not need to be installed. At VM deploy time, you can select not to install the WinGA. The following example shows how to select the *provisionVmAgent* option with an Azure Resource Manager template:
 

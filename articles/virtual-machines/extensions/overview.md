@@ -23,23 +23,23 @@ Azure virtual machine (VM) extensions are small applications that provide post-d
 
 The Azure platform hosts many extensions that range from VM configuration, monitoring, security, and utility applications. Publishers take an application, then wrap it into an extension, and simplify the installation, so all you need to do is provide mandatory parameters. 
 
-Whilst there is a large choice of first and third party extensions, if the application in the extension repository does not exist, then you can use the Custom Script extension and configure your VM with your own scripts and commands.
+ There is a large choice of first and third party extensions, if the application in the extension repository does not exist, then you can use the Custom Script extension and configure your VM with your own scripts and commands.
 
-These are some key scenarios that extensions are used for:
-* VM configuration, you can use DSC, Chef, Puppet or the Custom Script Extension to install VM configuration agents and configure your VM. 
+Examples of key scenarios that extensions are used for:
+* VM configuration, you can use Powershell DSC (Desired State Configuration), Chef, Puppet and Custom Script Extensions to install VM configuration agents and configure your VM. 
 * AV products, such as Symantec, ESET.
 * VM vulnerability tool, such as Qualys, Rapid7, HPE.
-* VM and App monitoring tooling, such as DynaTrace, Azure Network Watcher, Site24x7 and Stackify.
+* VM and App monitoring tooling, such as DynaTrace, Azure Network Watcher, Site24x7, and Stackify.
 
 Extensions can be bundled with a new VM deployment. For example, they can be part of a larger deployment, configuring applications on VM provision, or run against any supported extension operated systems post deployment.
 
 ## How can I find What extensions are available?
-You can view available extensions in the VM blade in the Portal, under extensions, but this represents just a small amount, if you want to see the full list, you can use the CLI tools, see [Discovering VM Extensions for Linux](features-linux.md) and [Discovering VM Extensions for Windows](features-windows.md).
+You can view available extensions in the VM blade in the Portal, under extensions, this represents just a small amount, for the full list, you can use the CLI tools, see [Discovering VM Extensions for Linux](features-linux.md) and [Discovering VM Extensions for Windows](features-windows.md).
 
 ## How can I install an extension?
-Azure VM extensions can be managed using either the Azure CLI 2.0, Azure PowerShell, Azure Resource Manager templates, and the Azure portal. If you want to test quickly, you can go to the Azure Portal, select the Custom Script Extension, then pass in a command / script and run the extensions, it is as easy as that.
+Azure VM extensions can be managed using either the Azure CLI 2.0, Azure PowerShell, Azure Resource Manager templates, and the Azure portal. To try an extension, you can go to the Azure portal, select the Custom Script Extension, then pass in a command / script and run the extensions.
 
-If you want to same extension you added in the the portal by CLI or ARM template, see different extension documentation, such as [Windows Custom Script Extension](custom-script-windows.md) and [Linux Custom Script Extension](custom-script-linux.md).
+If you want to same extension you added in the the portal by CLI or Resource Manager template, see different extension documentation, such as [Windows Custom Script Extension](custom-script-windows.md) and [Linux Custom Script Extension](custom-script-linux.md).
 
 ## How do I manage extension application lifecycle?
 You do not need to connect to a VM directly to install or delete the extension. As the Azure extension application lifecycle is managed outside of the VM and integrated into the Azure platform, you also get integrated status of the extension.
