@@ -77,4 +77,4 @@ To configure the RADIUS client, use the guidelines:
 
 ## Next steps
 
-Learn how to [integrate with RADIUS authentication](multi-factor-authentication-nps-extension.md) if you have Azure Multi-Factor Authentication in the cloud. 
+Learn how to [integrate with RADIUS authentication](../active-directory/authentication/howto-mfa-nps-extension.md) if you have Azure Multi-Factor Authentication in the cloud. 

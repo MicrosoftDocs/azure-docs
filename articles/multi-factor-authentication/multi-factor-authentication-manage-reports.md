@@ -50,4 +50,4 @@ Identify users who have not registered for MFA using the PowerShell that follows
 ## Next steps
 
 * [For Users](end-user/multi-factor-authentication-end-user.md)
-* [Where to deploy](multi-factor-authentication-get-started.md)
+* [Where to deploy](../active-directory/authentication/concept-mfa-whichversion.md)
