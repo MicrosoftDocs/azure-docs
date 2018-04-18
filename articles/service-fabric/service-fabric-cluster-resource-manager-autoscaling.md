@@ -28,7 +28,6 @@ A common scenario where auto-scaling is useful is when the load on a particular 
 Auto scaling is supported for both containers and regular Service Fabric services. The rest of this article describes the scaling policies, ways to enable or to disable auto scaling, and gives examples on how to use this feature.
 
 ## Describing auto scaling
-
 Auto scaling policies can be defined for each service in a Service Fabric cluster. Each scaling policy consists of two parts:
 * **Scaling trigger** describes when scaling of the service will be performed. Conditions that are defined in the trigger are checked periodically to determine if a service should be scaled or not.
 
@@ -42,7 +41,6 @@ There are two mechanisms that are currently supported for auto scaling. The firs
 > Currently there is support for only one scaling policy per service.
 
 ## Average partition load trigger with instance based scaling
-
 The first type of trigger is based on the load of instances in a stateless service partition. Metric loads are first smoothed to obtain the load for every instance of a partition, and then these values are averaged across all instances of the partition. There are three factors that determine when the service will be scaled:
 
 * _Lower load threshold_ is a value that determines when the service will be **scaled in**. If the average load of all instances of the partitions is lower than this value, then the service will be scaled in.
@@ -60,15 +58,15 @@ The only mechanism that can be used with this trigger is PartitionInstanceCountS
 
 ### Using application manifest
 ``` xml
-      <LoadMetrics>
-        <LoadMetric Name="MetricB" Weight="High"/>
-      </LoadMetrics>
-      <ServiceScalingPolicies>
-        <ScalingPolicy>
-            <AveragePartitionLoadScalingTrigger MetricName="MetricB" LowerLoadThreshold="1" UpperLoadThreshold="2" ScaleIntervalInSeconds="100"/>
-            <InstanceCountScalingMechanism MinInstanceCount="3" MaxInstanceCount="4" ScaleIncrement="1"/>
-        </ScalingPolicy>
-      </ServiceScalingPolicies>
+<LoadMetrics>
+<LoadMetric Name="MetricB" Weight="High"/>
+</LoadMetrics>
+<ServiceScalingPolicies>
+<ScalingPolicy>
+    <AveragePartitionLoadScalingTrigger MetricName="MetricB" LowerLoadThreshold="1" UpperLoadThreshold="2" ScaleIntervalInSeconds="100"/>
+    <InstanceCountScalingMechanism MinInstanceCount="3" MaxInstanceCount="4" ScaleIncrement="1"/>
+</ScalingPolicy>
+</ServiceScalingPolicies>
 ```
 ### Using C# APIs
 ```csharp
@@ -113,7 +111,6 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 ```
 
 ## Average service load trigger with partition based scaling
-
 The second trigger is based on the load of all partitions of one service. Metric loads are first smoothed to obtain the load for every replica or instance of a partition. For stateful services, the load of the partition is considered to be the load of the primary replica, while for stateless services the load of the partition is the average load of all instances of the partition. These values are averaged across all partitions of the service, and this value is used to trigger the auto scaling. Same as in previous mechanism, there are three factors that determine when the service will be scaled:
 
 * _Lower load threshold_ is a value that determines when the service will be **scaled in**. If the average load of all partitions of the service is lower than this value, then the service will be scaled in.
@@ -140,12 +137,12 @@ Same as with mechanism that uses scaling by adding or removing instances, there 
 
 ### Using application manifest
 ``` xml
-        <ServiceScalingPolicies>
-            <ScalingPolicy>
-                <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>
-                <AddRemoveIncrementalNamedParitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
-            </ScalingPolicy>
-        </ServiceScalingPolicies>
+<ServiceScalingPolicies>
+    <ScalingPolicy>
+        <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>
+        <AddRemoveIncrementalNamedParitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
+    </ScalingPolicy>
+</ServiceScalingPolicies>
 ```
 ### Using C# APIs
 ```csharp
@@ -192,12 +189,12 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 In order to enable the resource monitor service to scale based on actual resources
 
 ``` json
-        "fabricSettings": [
-        ...      
-        ],
-        "addonFeatures": [
-            "ResourceMonitorService"
-        ],
+"fabricSettings": [
+...      
+],
+"addonFeatures": [
+    "ResourceMonitorService"
+],
 ```
 There are two metrics that represent actual physical resources. One of them is servicefabric:/_CpuCores which represent the actual cpu usage (so 0.5 represents half a core) and the other being servicefabric:/_MemoryInMB which represents the memory usage in MBs.
 ResourceMonitorService is responsible for tracking cpu and memory usage of user services. This service will apply weighted moving average in order to account for potential short-lived spikes. Resource monitoring is supported for both containerized and non-containerized applications on Windows and for containerized ones on Linux. Auto scaling on resources is only enabled for services activated in [exclusive process model](service-fabric-hosting-model.md#exclusive-process-model).
