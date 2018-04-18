@@ -1,20 +1,20 @@
 ---
 title: DevTest Labs concepts | Microsoft Docs
 description: Learn the basic concepts of DevTest Labs, and how it can make it easy to create, manage, and monitor Azure virtual machines
-services: devtest-lab,virtual-machines
+services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
+author: spelluru
+manager: femila
 editor: ''
 
 ms.assetid: 105919e8-3617-4ce3-a29f-a289fa608fb2
-ms.service: devtest-lab
+ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
-ms.author: v-craic
+ms.date: 04/05/2018
+ms.author: spelluru
 
 ---
 # DevTest Labs concepts
