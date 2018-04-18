@@ -1,11 +1,10 @@
 ---
-title: Configure PHP in Azure App Service Web Apps | Microsoft Docs
+title: Configure PHP in Azure App Service Web Apps
 description: Learn how to configure the default PHP installation or add a custom PHP installation for Web Apps in Azure App Service.
 services: app-service
 documentationcenter: php
-author: cephalin
+author: msangapu
 manager: cfowler
-editor: ''
 
 ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
 ms.service: app-service
@@ -13,8 +12,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: cephalin
+ms.date: 04/11/2018
+ms.author: msangapu
 
 ---
 # Configure PHP in Azure App Service Web Apps
