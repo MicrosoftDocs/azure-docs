@@ -1,4 +1,4 @@
----
+﻿---
 title: Automated script to create Service Manager Web app to connect with IT Service Management Connector in Azure | Microsoft Docs
 description: Create a Service Manager Web app using an automated script to connect with IT Service Management Connector in Azure, and centrally monitor and manage the ITSM work items.  
 services: log-analytics
@@ -123,7 +123,7 @@ if(!$siteNamePrefix)
     $siteNamePrefix = "smoc"
 }
 
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 $context = Set-AzureRmContext -SubscriptionName $azureSubscriptionName -WarningAction SilentlyContinue
 
