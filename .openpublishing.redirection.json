@@ -7576,6 +7576,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/ddos-protection-manage-portal.md",
+            "redirect_url": "/azure/virtual-network/manage-ddos-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/ddos-protection-manage-ps.md",
+            "redirect_url": "/azure/virtual-network/manage-ddos-protection",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/virtual-network-manage-nsg-arm-cli.md",
             "redirect_url": "/azure/virtual-network/manage-network-security-group",
             "redirect_document_id": false

@@ -2,13 +2,13 @@
 title: Analyze data with Azure Machine Learning | Microsoft Docs
 description: Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: kavithaj
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.component: consume
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: kavithaj
 ms.reviewer: igorstan
 ---
 
