@@ -134,7 +134,7 @@ Refer to the documentation in the [Azure Linux Agent repo on GitHub](https://git
 
 ## Configuration
 A configuration file (/etc/waagent.conf) controls the actions of waagent. 
-A sample configuration file is shown below:
+The following sample configuration file is shown below:
 
     ```
     Provisioning.Enabled=y
@@ -162,7 +162,7 @@ A sample configuration file is shown below:
     AutoUpdate.Enabled=y
     ```
 
-The various configuration options are described in detail below. Configuration options are of three types; Boolean, String or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as detailed below.
+The following various configuration options are described in detail below. Configuration options are of three types; Boolean, String, or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as the following details.
 
 **Provisioning.Enabled:**  
 Type: Boolean  
