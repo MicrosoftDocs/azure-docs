@@ -1,4 +1,4 @@
----
+﻿---
 title: Allow applications to retrieve Azure Stack Key Vault secrets | Microsoft Docs
 description: Use a sample app to work with Azure Stack Key Vault
 services: azure-stack
@@ -70,7 +70,7 @@ $TenantID = Get-AzsDirectoryTenantId `
   -EnvironmentName AzureStackUser
 
 # Sign in to the user portal.
-Login-AzureRmAccount `
+Connect-AzureRmAccount `
   -EnvironmentName "AzureStackUser" `
   -TenantId $TenantID `
   

@@ -7,7 +7,7 @@ author: jdial
 manager: jeconnoc
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -19,7 +19,7 @@ ms.author: jimdial
 ---
 # Create a Windows virtual machine with Accelerated Networking
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Virtual machines must be created with Accelerated Networking enabled. This feature cannot be enabled on existing virtual machines. Complete the following steps to enable accelerated networking:
 >   1. Delete the virtual machine
 >   2. Recreate the virtual machine with accelerated networking enabled
@@ -49,7 +49,7 @@ Accelerated Networking is supported on most general purpose and compute-optimize
 For more information on VM instances, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Regions
-Available in all public Azure regions and Azure Government Cloud. 
+Available in all public Azure regions and Azure Government Cloud.
 
 ## Limitations
 The following limitations exist when using this capability:
@@ -62,7 +62,7 @@ Though this article provides steps to create a virtual machine with accelerated 
 
 ## Create a virtual network
 
-Install [Azure PowerShell](/powershell/azure/install-azurerm-ps) version 5.1.1 or later. To find your currently installed version, run `Get-Module -ListAvailable AzureRM`. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM). In a PowerShell session, log in to an Azure account using [Add-AzureRmAccount](/powershell/module/AzureRM.Profile/Add-AzureRmAccount).
+Install [Azure PowerShell](/powershell/azure/install-azurerm-ps) version 5.1.1 or later. To find your currently installed version, run `Get-Module -ListAvailable AzureRM`. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM). In a PowerShell session, log in to an Azure account using [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVM*.
 
@@ -197,13 +197,13 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "cent
 
 ## Confirm the driver is installed in the operating system
 
-Once you create the VM in Azure, connect to the VM and confirm that the driver is installed in Windows. 
+Once you create the VM in Azure, connect to the VM and confirm that the driver is installed in Windows.
 
 1. From an Internet browser, open the Azure [portal](https://portal.azure.com) and sign in with your Azure account.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *myVm*. When **myVm** appears in the search results, click it. If **Creating** is visible under the **Connect** button, Azure has not yet finished creating the VM. Click **Connect** in the top left corner of the overview only after you no longer see **Creating** under the **Connect** button.
 3. Enter the username and password you entered in [Create the virtual machine](#create-the-virtual-machine). If you've never connected to a Windows VM in Azure, see [Connect to virtual machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 4. Right-click the Windows Start button and click **Device Manager**. Expand the **Network adapters** node. Confirm that the **Mellanox ConnectX-3 Virtual Function Ethernet Adapter** appears, as shown in the following picture:
-   
+
     ![Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
 
 Accelerated Networking is now enabled for your VM.
