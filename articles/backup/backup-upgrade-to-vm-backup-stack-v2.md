@@ -1,4 +1,4 @@
----  
+﻿---  
 title: Upgrade to Azure VM backup stack V2 | Microsoft Docs 
 description: Upgrade process and FAQs for VM backup stack V2 
 services: backup, virtual-machines 
@@ -64,7 +64,7 @@ Execute the following cmdlets from an elevated PowerShell terminal:
 1.	Sign in to your Azure account. 
 
 ```
-PS C:> Login-AzureRmAccount
+PS C:> Connect-AzureRmAccount
 ```
 
 2.	Select the subscription that you want to register for preview:
@@ -76,14 +76,14 @@ PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select
 3.	Register this subscription for private preview:
 
 ```
-PS C:>  Register-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” –ProviderNamespace Microsoft.RecoveryServices
+PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
 ## Verify whether the upgrade is complete
 From an elevated PowerShell terminal, run the following cmdlet:
 
 ```
-Get-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” –ProviderNamespace Microsoft.RecoveryServices
+Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
 If it says Registered, then your subscription is upgraded to VM backup stack V2. 
