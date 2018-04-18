@@ -57,13 +57,13 @@ Before configuring Cornerstone OnDemand for automatic user provisioning with Azu
 
 4. In the search box, type **Cornerstone OnDemand**.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/AppSearch.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/AppSearch.png)
 
 5. In the results panel, select **Cornerstone OnDemand**, and then click the **Add** button to add Cornerstone OnDemand to your list of SaaS applications.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/AppSearchResults.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/AppSearchResults.png)
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/AppCreation.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/AppCreation.png)
 
 ## Assigning users to Cornerstone OnDemand
 
@@ -91,58 +91,55 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 2. Select Cornerstone OnDemand from your list of SaaS applications.
  
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/Successcenter2.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/Successcenter2.png)
 
 3. Select the **Provisioning** tab.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/ProvisioningTab.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/ProvisioningTab.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/ProvisioningCredentials.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/ProvisioningCredentials.png)
 
 5. Under the **Admin Credentials** section, input the **Admin Username**, **Admin Password**, and **Domain** of your Cornerstone OnDemand's account.
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Cornerstone OnDemand  Tenant. Example: admin.
+	*   In the **Admin Username** field, populate the username of the admin account on your Cornerstone OnDemand tenant. Example: admin.
 
 	*   In the **Admin Password** field, populate the password corresponding to the admin username.
 
-	*   In the **Domain** field, populate the webservice URL of the cornerstone. Example: The service is located at `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, for Contoso the domain is `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`.
+	*   In the **Domain** field, populate the webservice URL of the Cornerstone OnDemand tenant. Example: The service is located at `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, for Contoso the domain is `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Refer to [Help](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf)for further information, which is available to tenant users upon successful login.
 
 6. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Cornerstone OnDemand. If the connection fails, ensure your Cornerstone OnDemand account has Admin permissions and try again.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/TestConnection.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/TestConnection.png)
 
 7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/EmailNotification.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/EmailNotification.png)
 
 8. Click **Save**.
 
 9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Cornerstone OnDemand**.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/UserMapping.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/UserMapping.png)
 
 10. Review the user attributes that are synchronized from Azure AD to Cornerstone OnDemand in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cornerstone OnDemand for update operations. Select the **Save** button to commit any changes.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/UserMappingAttributes.png)
-
->[!NOTE]
->The Cornerstone **Postion** Attribute expects value corresponding to the Cornerstone Portal which can be assigned using extension attributes/expressions.
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/UserMappingAttributes.png)
 
 11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters.md).
 
 12. To enable the Azure AD provisioning service for Cornerstone OnDemand, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/ProvisioningStatus.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/ProvisioningStatus.png)
 
 13. Define the users and/or groups that you would like to provision to Cornerstone OnDemand by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/SyncScope.png)
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/SyncScope.png)
 
 14. When you are ready to provision, click **Save**.
 
-	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-successcenter-provisioning-tutorial/Save.png) 
+	![Cornerstone OnDemand Provisioning](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/Save.png)
 
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Cornerstone OnDemand.
@@ -153,11 +150,18 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 * [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
+## Connector Limitations
+
+* The Cornerstone OnDemand **Position** attribute expects a value that corresponds to the roles on the Cornerstone OnDemand Portal. The list of valid **Position** values can be obtained by clicking on **Edit User Record/Organization Structure/Position**
+	![Cornerstone OnDemand Provisioning Edit User](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/UserEdit.png)
+	![Cornerstone OnDemand Provisioning Position](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/UserPosition.png)
+	![Cornerstone OnDemand Provisioning Positions List](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/PostionId.png)
+
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saas-successcenter-provisioning-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-successcenter-provisioning-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-successcenter-provisioning-tutorial/tutorial_general_03.png
+[1]: ./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/tutorial_general_03.png
