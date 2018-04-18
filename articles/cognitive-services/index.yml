@@ -28,22 +28,27 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: ../media/index/API_QnAMaker.svg
-      text: Create an app with QNAMaker
-      href: /azure/cognitive-services/qnamaker/quickstart
+        src: ../media/index/API_Custom_Vision.svg
+      text: Build an image classifier 
+      href: /azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier
+    - image: 
+        src: ../media/index/API_Luis.svg
+      text: Build a home automation app 
+      href: /azure/cognitive-services/luis/luis-get-started-create-app
     - image: 
         src: ../media/index/API_TextAnalytics.svg
-      text: Use Text Analytics API with C#
+      text:  Build a .NET app with text analytics
       href: /azure/cognitive-services/text-analytics/quickstarts/csharp
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Placeholder text describing tutorials - to be replaced:'
+    text: 'Learn how to build intelligent apps or bots:'
   - type: list
     style: unordered
     items:
-    - html: <a href"/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page">Build a Custom Search Webpage </a>
-    - html: <a href="/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample">Use Language Understanding (LUIS) </a> 
+    - html: <a href"/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page">Build a Custom Search webpage </a>
+    - html: <a href="/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample">Use Language Understanding (LUIS) in a bot </a> 
+    - html: <a href="/azure/cognitive-services/luis/luis-tutorial-batch-testing">Improve intent accuracy for home automation commands (LUIS) </a>
 - title: Cognitive Services APIs
   items: 
   - type: list
