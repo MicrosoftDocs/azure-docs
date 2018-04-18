@@ -19,8 +19,8 @@ ms.author: hrushib
 ---
 # Periodic backup and restore in Azure Service Fabric (Preview)
 > [!div class="op_single_selector"]
-> * [Cluster in Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
-> * [Standalone Cluster](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
+> * [Clusters on Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
+> * [Standalone Clusters](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
 > 
 
 Service Fabric is a distributed systems platform that makes it easy to develop and manage reliable, distributed, microservices based cloud applications. It allows running of both stateless and stateful micro services. Stateful services can maintain mutable, authoritative state beyond the request and response or a complete transaction. If a Stateful service goes down for a long time or loses information due to a disaster, it may need to be restored to some recent backup of its state in order to continue providing service after it comes back up.
