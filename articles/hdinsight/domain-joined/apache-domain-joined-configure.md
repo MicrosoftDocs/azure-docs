@@ -4,7 +4,7 @@ description: Learn how to set up and configure Domain-joined HDInsight clusters
 services: hdinsight
 documentationcenter: ''
 author: saurinsh
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: ''
 
@@ -14,29 +14,83 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/15/2017
+ms.date: 02/15/2018
 ms.author: saurinsh
 
 ---
 # Configure Domain-joined HDInsight sandbox environment
 
-Learn how to set up an Azure HDInsight cluster with standalone Active Directory and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role-based access control (RBAC) policies. For more information, see [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md).
+Learn how to set up an Azure HDInsight cluster with standalone Active Directory and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role-based access control (RBAC) policies. For more information, see [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md). 
+
+> [!IMPORTANT]
+> By default, this set up can only be used with using Azure Storage accounts. To use with Azure Data Lake Store, sync Active Directory to a new Azure Active Directory.
 
 Without domain joined HDInsight cluster, each cluster can only have a Hadoop HTTP users account, and an SSH user account.  The multi-user authentication can be achieved using:
 
--	A standalone Active Directory running on Azure IaaS
--	Azure Active Directory
--	Active Directory running on the customer on-premises environment.
+-	A standalone Active Directory running on Azure IaaS.
+-	Azure Active Directory.
 
-Using a standalone Active Directory running on Azure IaaS is covered in this article. It is the simplest architecture a customer can follow to get multi-user support on HDInsight. 
+Using a standalone Active Directory running on Azure IaaS is covered in this article. It is the simplest architecture a customer can follow to get multi-user support on HDInsight. This article cover two approaches for this configuration:
+
+- Option 1: Use one Azure resource management template to create both the standalone active directory and the HDInsight cluster.
+- Option 2: The whole process is broken into the following steps:
+    - Create an Active Directory using a template.
+    - Setup LDAPS.
+    - Create AD users and groups
+    - Create HDInsight cluster
 
 > [!IMPORTANT]
+> 
 > Oozie is not enabled on domain-joined HDInsight.
 
 ## Prerequisite
 * Azure subscription
 
-## Create an Active Directory
+## Option 1: one-step approach
+In this section, you open an Azure resource management template from the Azure portal. The template is used to create a standalone Active Directory, and an HDInsight cluster. Currently you can create domain-joined Hadoop cluster, Spark cluster, and Interactive Query cluster.
+
+1. Click the following image to open the template in the Azure portal. The template is located in [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/).
+   
+    To create a Spark cluster:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fspark%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    To create an Interactive Query cluster:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Finteractivequery%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    To create a Hadoop cluster:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fhadoop%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+2. Enter the values, select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**. Hover your mouse cursor over the explanation sign next to the fields to see the descriptions. Most of the values have been populated. You can use either the default values, or your own values.
+
+    - **Resource group**: Enter an Azure resource group name.
+    - **Location**: Choose a location that is close to you.
+    - **New Storage Account Name**: Enter an Azure Storage account name. This new storage account is used by the PDC, the BDC, and the HDInsight cluster as the default storage account.
+    - **Admin Username**: Enter the domain administrator username.
+    - **Admin Password**: Enter the domain administrator password.
+    - **Domain Name**: The default name is *contoso.com*.  If you change the domain name, you must also update the **Secure LDAP Certificate** field and the **Organizational Unit DN** field.
+    - **DNS Prefix**: Enter the DNS prefix for the public IP address used by the Load Balancer.
+    - **Cluster Name**: Enter the HDInsight cluster name.
+    - **Cluster Type**: Don't change this value. If you want to change the cluster type, use the specific template in the last step.
+    - **Secure Ldap Certificate Password**: Use the default value unless you change the Secure LDAP certificate field.
+    Some of the values are hard-coded in the template, for example, the worker node instance count is two.  To change the hard-coded values, click **Edit template**.
+
+    ![HDInsight domain-joined cluster edit template](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)
+
+After the template is completed successfully, there are 23 resources created in the resource group.
+
+## Option 2: multi-step approach
+
+There are four steps in this section:
+
+1. Create an Active Directory using a template.
+2. Setup LDAPS.
+3. Create AD users and groups
+4. Create HDInsight cluster
+
+### Create an Active Directory
 
 Azure Resource Manager template makes it easier to create Azure resources. In this section, you use an [Azure QuickStart template](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) to create a new forest and domain with two virtual machines. The two virtual machines serve as a primary domain controller and a backup domain controller.
 
@@ -66,7 +120,7 @@ Azure Resource Manager template makes it easier to create Azure resources. In th
 
 It takes about 20 minutes to create the resources.
 
-## Setup LDAPS
+### Setup LDAPS
 
 The Lightweight Directory Access Protocol (LDAP) is used to read from and write to AD.
 
@@ -99,11 +153,11 @@ The Lightweight Directory Access Protocol (LDAP) is used to read from and write 
 
     ![HDInsight domain joined configure AD certificate](./media/apache-domain-joined-configure/hdinsight-domain-joined-configure-ad-certificate.png)
 
-2. Click **role Services on the left, select **Certification Authority**, and then click **Next**.
+2. Click **Role Services** on the left, select **Certification Authority**, and then click **Next**.
 3. Follow the wizard, use the default settings for the rest of the procedure (click **Configure** at the last step).
 4. Click **Close** to close the wizard.
 
-## (Optional) Create AD users and groups
+### (Optional) Create AD users and groups
 
 **To create users and groups in the AD**
 1. Connect to the PDC using remote desktop
@@ -119,7 +173,7 @@ The Lightweight Directory Access Protocol (LDAP) is used to read from and write 
 > [!IMPORTANT]
 > You must reboot the PDC virtual machine before creating a domain-joined HDInsight cluster.
 
-## Create an HDInsight cluster in the VNet
+### Create an HDInsight cluster in the VNet
 
 In this section, you use the Azure portal to add an HDInsight cluster into the virtual network you created using the Resource Manager template earlier in the tutorial. This article only covers the specific information for domain-joined cluster configuration.  For the general information, see [Create Linux-based clusters in HDInsight using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).  
 

@@ -1,5 +1,6 @@
 ---
-title: Face API Java quick start | Microsoft Docs
+title: Face API Java QuickStarts | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Get information and code samples to help you quickly get started using the Face API with Java in Cognitive Services.
 services: cognitive-services
 author: v-royhar
@@ -8,26 +9,26 @@ manager: yutkuo
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 03/01/2018
 ms.author: anroth
 ---
 
-# Face API Java Quick Starts
-This article provides information and code samples to help you quickly get started using the Face API with Java to accomplish the following tasks: 
-* [Detect Faces in Images](#Detect) 
-* [Create a Person Group](#Create)
+# Face API Java Quickstarts
+This article provides information and code samples to help you quickly get started using the Face API with Java to accomplish the following tasks:
+* [Detect Faces in Images](#Detect)
+* [Create a PersonGroup](#Create)
 
 ## Prerequisites
 * Get the Microsoft Face API Android SDK [here](https://github.com/Microsoft/Cognitive-face-android)
 * Learn more about obtaining free subscription keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
 
 ## Detect faces in images with Face API using Java <a name="Detect"> </a>
-Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
-to detect faces in an image and return face attributes including:
-* Face ID: Unique ID used in several Face API scenarios. 
+Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+method to detect faces in an image and return face attributes including:
+* Face ID: Unique ID used in several Face API scenarios.
 * Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
 * Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
-* Facial attributes including age, gender, smile intensity, head pose, and facial hair. 
+* Facial attributes including age, gender, smile intensity, head pose, and facial hair.
 
 #### Face Detect Java example request
 
@@ -65,7 +66,7 @@ public class Main
     // **********************************************
 
     // Replace the subscriptionKey string value with your valid subscription key.
-    public static final String subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
+    public static final String subscriptionKey = "<Subscription Key>";
 
     // Replace or verify the region.
     //
@@ -136,7 +137,7 @@ public class Main
 
 #### Face Detect response
 
-A successful response is returned in JSON. The following is an example of a successful response: 
+A successful response is returned in JSON. The following is an example of a successful response:
 
 ```json
 REST Response:
@@ -232,12 +233,12 @@ REST Response:
 Process finished with exit code 0
 ```
 
-## Create a Person Group with Face API using Java <a name="Create"> </a>
+## Create a PersonGroup with Face API using Java <a name="Create"> </a>
 
-Use the [Person Group - Create a Person Group method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) 
-to create a person group with specified personGroupId, name, and user-provided userData. A person group is one of the most important parameters for the Face - Identify API. The Identify API searches for persons' faces in a specified person group.
+Use the [PersonGroup - Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)
+method to create a PersonGroup with specified personGroupId, name, and user-provided userData. A PersonGroup is one of the most important parameters for the Face - Identify API. The Identify API searches for persons' faces in a specified PersonGroup.
 
-#### Person Group - create a Person Group example
+#### PersonGroup - Create example
 
 Change the REST URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
 
@@ -266,7 +267,7 @@ public class Main
             String personGroupId = "example-group-00";
 
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the
             //   URL below with "westus".
             URIBuilder builder = new URIBuilder("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/" +
                                                 personGroupId);
@@ -276,11 +277,11 @@ public class Main
 
             // Request headers. Replace the example key with your valid subscription key.
             request.setHeader("Content-Type", "application/json");
-            request.setHeader("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
+            request.setHeader("Ocp-Apim-Subscription-Key", "<Subscription Key>");
 
             // Request body. The name field is the display name you want for the group (must be under 128 characters).
             // The size limit for what you want to include in the userData field is 16KB.
-            String body = "{ \"name\":\"My Group\",\"userData\":\"User-provided data attached to the person group.\" }";
+            String body = "{ \"name\":\"My Group\",\"userData\":\"User-provided data attached to the PersonGroup.\" }";
 
             StringEntity reqEntity = new StringEntity(body);
             request.setEntity(reqEntity);

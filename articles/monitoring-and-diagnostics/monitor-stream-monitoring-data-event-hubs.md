@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 3/05/2018
 ms.author: johnkem
 
 ---
@@ -33,7 +33,18 @@ Within your Azure environment, there are several 'tiers' of monitoring data, and
 
 Data from any tier can be sent into an event hub, where it can be pulled into a partner tool. The next sections describe how you can configure data from each tier to be streamed to an event hub. The steps assume that you already have assets at that tier to be monitored.
 
-Before you begin, you need to [create an Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md). This namespace and event hub is the destination for all of your monitoring data.
+## Set up an Event Hubs namespace
+
+Before you begin, you need to [create an Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md). This namespace and event hub is the destination for all of your monitoring data. An Event Hubs namespace is a logical grouping of event hubs that share the same access policy, much like a storage account has individual blobs within that storage account. Please note a few details about the event hubs namespace and event hubs that you create:
+* We recommend using a Standard Event Hubs namespace.
+* Typically, only one throughput unit is necessary. If you need to scale up as your log usage increases, you can always manually increase the number of throughput units for the namespace later or enable auto inflation.
+* The number of throughput units allows you to increase throughput scale for your event hubs. The number of partitions allows you to parallelize consumption across many consumers. A single partition can do up to 20MBps, or approximately 20,000 messages per second. Depending on the tool consuming the data, it may or may not support consuming from multiple partitions. If you're not sure about the number of partitions to set, we recommend starting with four partitions.
+* We recommend that you set message retention on your event hub to 7 days. If your consuming tool goes down for more than a day, this ensures that the tool can pick up where it left off (for events up to 7 days old).
+* We recommend using the default consumer group for your event hub. There is no need to create other consumer groups or use a separate consumer group unless you plan to have two different tools consume the same data from the same event hub.
+* For the Azure Activity Log, you pick an Event Hubs namespace and Azure Monitor creates an event hub within that namespace called 'insights-logs-operationallogs.' For other log types, you can either choose an existing event hub (allowing you to reuse the same insights-logs-operationallogs event hub) or have Azure Monitor create an event hub per log category.
+* Typically, port 5671 and 5672 must be opened on the machine consuming data from the event hub.
+
+Please also see the [Azure Event Hubs FAQ](../event-hubs/event-hubs-faq.md).
 
 ## How do I set up Azure platform monitoring data to be streamed to an event hub?
 
@@ -89,8 +100,10 @@ Application monitoring data requires that your code is instrumented with an SDK,
 
 Routing your monitoring data to an event hub with Azure Monitor enables you to easily integrate with partner SIEM and monitoring tools. Most tools require the event hub connection string and certain permissions to your Azure subscription to read data from the event hub. Here is a non-exhaustive list of tools with Azure Monitor integration:
 
-* **IBM QRadar** - The QRadar connector for event hubs is currently in beta. It will soon be available to install manually from IBM Fix Central or automatically through QRadar's auto update process.
-* **Splunk** - [The Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) is available in Splunkbase and an open source project. [Documentation is here](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+* **IBM QRadar** - The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from [the IBM support website](http://www.ibm.com/support). You can [learn more about the integration with Azure here](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+* **Splunk** - Depending on your Splunk setup, there are two approaches:
+    1. [The Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) is available in Splunkbase and an open source project. [Documentation is here](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+    2. If you cannot install an add-on in your Splunk instance (eg. if using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector using [this Function which is triggered by new messages in the event hub](https://github.com/sebastus/AzureFunctionForSplunkVS).
 * **SumoLogic** - Instructions for setting up SumoLogic to consume data from an event hub are [available here](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 
 ## Next Steps

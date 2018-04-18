@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: fashah;garye;bradsev
+ms.author: garye;bradsev
 
 ---
 # <a name="heading"></a>Sample data in Azure blob containers, SQL Server, and Hive tables

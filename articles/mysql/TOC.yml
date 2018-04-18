@@ -66,9 +66,7 @@
   - name: Resources
     items:
     - name: Pricing tiers
-      href: concepts-service-tiers.md
-    - name: Compute units
-      href: concepts-compute-unit-and-storage.md
+      href: concepts-pricing-tiers.md
     - name: Limits
       href: concepts-limits.md
   - name: Data access & security
@@ -76,7 +74,13 @@
     - name: Firewall rules
       href: concepts-firewall-rules.md
     - name: Configuring SSL
-      href: concepts-ssl-connection-security.md
+      href: concepts-ssl-connection-security.md 
+  - name: Business continuity
+    items:
+    - name: Overview
+      href: concepts-business-continuity.md
+    - name: Backup and restore
+      href: concepts-backup.md
   - name: Monitor
     href: concepts-monitoring.md
   - name: Development
@@ -109,7 +113,7 @@
       href: concepts-migrate-dump-restore.md
     - name: Import & export
       href: concepts-migrate-import-export.md
-    - name: Minimal downtime migration
+    - name: Minimal-downtime migration
       href: howto-migrate-online.md
   - name: Connect applications
     items:
@@ -137,6 +141,12 @@
     items:
     - name: Create alerts on metrics
       href: howto-alert-on-metric.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot query performance
+      href: howto-troubleshoot-query-performance.md
+    - name: How to use views in sys schema
+      href: howto-troubleshoot-sys-schema.md
 - name: Reference
   items:
   - name: Azure CLI

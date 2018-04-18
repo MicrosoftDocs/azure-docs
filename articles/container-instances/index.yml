@@ -31,6 +31,10 @@ sections:
         src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure Portal
       href: /azure/container-instances/container-instances-quickstart-portal
+    - image:
+        src: /azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/container-instances/container-instances-quickstart-powershell
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

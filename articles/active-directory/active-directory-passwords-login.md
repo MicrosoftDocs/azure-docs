@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
 

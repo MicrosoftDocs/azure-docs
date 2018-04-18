@@ -30,7 +30,7 @@ To view and apply performance recommendations, you need the correct [role-based 
 Use the following steps to find performance recommendations on Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Go to **More services** > **SQL databases**, and select your database.
+2. Go to **All services** > **SQL databases**, and select your database.
 3. Navigate to **Performance recommendation** to view available recommendations for the selected database.
 
 Performance recommendations are shown in the table similar to the one shown on the following figure:

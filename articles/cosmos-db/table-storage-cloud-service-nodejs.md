@@ -9,7 +9,7 @@ editor: tysonn
 
 ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article

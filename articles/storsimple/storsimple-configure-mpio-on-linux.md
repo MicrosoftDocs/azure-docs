@@ -4,7 +4,7 @@ description: Configure MPIO on StorSimple connected to a Linux host running Cent
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/09/2018
 ms.author: alkohli
 
 ---
@@ -23,9 +23,8 @@ This article explains the steps required to configure Multipathing IO (MPIO) on 
 This procedure is applicable to all the models of StorSimple 8000 series devices.
 
 > [!NOTE]
-> This procedure cannot be used for a StorSimple virtual device. For more information, see how to configure host servers for your virtual device.
-> 
-> 
+> This procedure cannot be used for a StorSimple Cloud Appliance. For more information, see how to configure host servers for your cloud appliance.
+
 
 ## About multipathing
 The multipathing feature allows you to configure multiple I/O paths between a host server and a storage device. These I/O paths are physical SAN connections that can include separate cables, switches, network interfaces, and controllers. Multipathing aggregates the I/O paths, to configure a new device that is associated with all of the aggregated paths.
@@ -295,7 +294,7 @@ This load-balancing algorithm uses all the available multipaths to the active co
 
     If you see only one host interface and two paths here, then you need to enable both the interfaces on host for iSCSI. You can follow the [detailed instructions in Linux documentation](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-2. A volume is exposed to the CentOS server from the StorSimple device. For more information, see [Step 6: Create a volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via the Azure classic portal on your StorSimple device.
+2. A volume is exposed to the CentOS server from the StorSimple device. For more information, see [Step 6: Create a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via the Azure portal on your StorSimple device.
 
 3. Verify the available paths. Type:
 
@@ -338,7 +337,7 @@ A. If you have made any changes to the `multipath.conf` file, you will need to r
 
 Q. I have enabled two network interfaces on the StorSimple device and two network interfaces on the host. When I list the available paths, I see only two paths. I expected to see four available paths.
 
-A. Make sure that the two paths are on the same subnet and routable. If the network interfaces are on different vLANs and not routable, you will see only two paths. One way to verify this is to make sure that you can reach both the host interfaces from a network interface on the StorSimple device. You will need to [contact Microsoft Support](storsimple-contact-microsoft-support.md) as this verification can only be done via a support session.
+A. Make sure that the two paths are on the same subnet and routable. If the network interfaces are on different vLANs and not routable, you will see only two paths. One way to verify this is to make sure that you can reach both the host interfaces from a network interface on the StorSimple device. You will need to [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) as this verification can only be done via a support session.
 
 Q. When I list available paths, I do not see any output.
 

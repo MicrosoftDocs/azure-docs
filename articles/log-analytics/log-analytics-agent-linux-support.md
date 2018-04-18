@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/17/2017
+ms.date: 01/24/2018
 ms.author: magoedte
 ---
 
@@ -30,7 +30,7 @@ This article provides help troubleshooting errors you might experience with the 
 1. Reonboard to the Log Analytics service with the OMS Agent for Linux by using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to the OMS Service. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Review the section [Configuring the agent for use with a proxy server or OMS Gateway](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) to verify you have properly configured the agent to communicate through a proxy server.    
+2. Review the section [Update proxy settings](log-analytics-agent-manage.md#update-proxy-settings) to verify you have properly configured the agent to communicate through a proxy server.    
 * Double check that the following Log Analytics service endpoints are whitelisted:
 
     |Agent Resource| Ports |  

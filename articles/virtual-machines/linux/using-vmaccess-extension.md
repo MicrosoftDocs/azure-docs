@@ -30,7 +30,7 @@ There are two ways that you can use the VMAccess Extension on your Linux VMs:
 * Use the Azure CLI 2.0 and the required parameters.
 * [Use raw JSON files that the VMAccess Extension process](#use-json-files-and-the-vmaccess-extension) and then act on.
 
-The following examples use [az vm user](/cli/azure/vm/user) commands. To perform these steps, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
+The following examples use [az vm user](/cli/azure/vm/user) commands. To perform these steps, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#az_login).
 
 ## Reset SSH key
 The following example resets the SSH key for the user `azureuser` on the VM named `myVM`:
@@ -88,7 +88,7 @@ az vm user delete \
 
 
 ## Use JSON files and the VMAccess Extension
-The following examples use raw JSON files. Use [az vm extension set](/cli/azure/vm/extension#set) to then call your JSON files. These JSON files can also be called from Azure templates. 
+The following examples use raw JSON files. Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to then call your JSON files. These JSON files can also be called from Azure templates. 
 
 ### Reset user access
 If you have lost access to root on your Linux VM, you can launch a VMAccess script to reset a user's SSH key or password.

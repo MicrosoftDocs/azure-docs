@@ -2,7 +2,7 @@
 title: "Monitor Azure SQL Data Sync with OMS Log Analytics | Microsoft Docs"
 description: "Learn how to monitor Azure SQL Data Sync by using OMS log analytics"
 services: sql-database
-ms.date: "11/7/2017"
+ms.date: "11/07/2017"
 ms.topic: "article"
 ms.service: "sql-database"
 author: "douglaslMS"

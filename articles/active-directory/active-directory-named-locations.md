@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -23,7 +23,7 @@ With named locations, you can label trusted IP address ranges in your organizati
 
 - The detection of [risk events](active-directory-reporting-risk-events.md) to reduce the number of reported false positives.  
 
-- [Location-based conditional access](active-directory-conditional-access-azure-portal.md#locations).
+- [Location-based conditional access](active-directory-conditional-access-locations.md).
 
 
 This article explains, how you can configure named locations in your environment.

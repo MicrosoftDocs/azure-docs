@@ -26,7 +26,7 @@ Network Watcher is a regional service that enables you to monitor and diagnose c
 
 ## Create a Network Watcher in the portal
 
-Navigate to **More Services** > **Networking** > **Network Watcher**. You can select all the subscriptions you want to enable Network Watcher for. This action creates a Network Watcher in every region that is available.
+Navigate to **All Services** > **Networking** > **Network Watcher**. You can select all the subscriptions you want to enable Network Watcher for. This action creates a Network Watcher in every region that is available.
 
 ![create a network watcher][1]
 

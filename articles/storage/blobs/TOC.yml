@@ -8,10 +8,10 @@
     href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Quickstarts
   items:
-  - name: Create a storage account - PowerShell
-    href: ../common/storage-quickstart-create-storage-account-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Create a storage account - CLI
-    href: ../common/storage-quickstart-create-storage-account-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Create a storage account
+    href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Work with blobs - Azure portal
+    href: storage-quickstart-blobs-portal.md
   - name: Work with blobs - PowerShell
     href: storage-quickstart-blobs-powershell.md
   - name: Work with blobs - CLI
@@ -22,6 +22,8 @@
     href: storage-quickstart-blobs-java.md
   - name: Work with blobs - Python 
     href: storage-quickstart-blobs-python.md
+  - name: Work with blobs - Go 
+    href: storage-quickstart-blobs-go.md
   - name: Work with blobs - Ruby 
     href: storage-quickstart-blobs-ruby.md
   - name: Work with blobs - Node.js
@@ -42,9 +44,9 @@
         href: storage-monitor-troubleshoot-storage-application.md
   - name: Design for high availability in cloud storage
     items:
-      - name: Make your application highly available
+      - name: 1 - Make your application highly available
         href: storage-create-geo-redundant-storage.md
-      - name: Simulate a failure with RA-GRS storage
+      - name: 2 - Simulate a failure with RA-GRS storage
         href: storage-simulate-failure-ragrs-account-app.md
   - name: Migrate on-premises data to cloud with AzCopy
     href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json    
@@ -52,13 +54,13 @@
     href: storage-unstructured-search.md
   - name: Optimize storage application performance and scalability
     items:
-      - name: Create a VM and storage account
+      - name: 1 - Create a VM and storage account
         href: storage-blob-scalable-app-create-vm.md
-      - name: Upload large data to an Azure storage account
+      - name: 2 - Upload large data to an Azure storage account
         href: storage-blob-scalable-app-upload-files.md
-      - name: Download large data from a Azure storage account
+      - name: 3- Download large data from a Azure storage account
         href: storage-blob-scalable-app-download-files.md
-      - name: Verify throughput and latency metrics
+      - name: 4 - Verify throughput and latency metrics
         href: storage-blob-scalable-app-verify-metrics.md
 - name: Samples
   items:
@@ -70,6 +72,7 @@
     href: storage-samples-blobs-powershell.md 
   - name: Azure CLI 
     href: storage-samples-blobs-cli.md
+    
 - name: Concepts
   items:
   - name: Plan and design
@@ -92,18 +95,36 @@
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Move data to and from Storage
       href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Page blob features
+      href: storage-blob-pageblob-overview.md
     - name: Premium Storage
       items:
-        - name: High-performance Premium Storage for VM Disks
-          href: ../common/storage-premium-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Migrating to Premium Storage using Azure Site Recovery
-          href: ../common/storage-migrate-to-premium-storage-using-azure-site-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Design for high performance
-          href: ../common/storage-premium-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Linux
+          items: 
+            - name: High-performance Premium Storage for VM Disks
+              href: https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage
+            - name: Migrating to Premium Storage using Azure Site Recovery
+              href: https://docs.microsoft.com/azure/virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery
+            - name: Design for high performance
+              href: https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage-performance
+        - name: Windows
+          items: 
+            - name: High-performance Premium Storage for VM Disks
+              href: https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage
+            - name: Migrating to Premium Storage using Azure Site Recovery
+              href: https://docs.microsoft.com/azure/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery
+            - name: Design for high performance
+              href: https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance
     - name: Standard Storage 
       items:
-        - name: Cost-effective Standard Storage and unmanaged and managed VM Disks
-          href: ../common/storage-standard-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Linux
+          items: 
+            - name: Standard Storage for VM Disks
+              href: https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage
+        - name: Windows
+          items: 
+            - name: Standard Storage for VM Disks
+              href: https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage
   - name: Secure
     items:
     - name: Security guide
@@ -130,8 +151,6 @@
       href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Monitor, diagnose, and troubleshoot
       href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Troubleshoot error deleting storage account 
-      href: ../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Metrics and logging
       items:
       - name: Azure Storage metrics in Azure Monitor
@@ -146,6 +165,8 @@
     href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Develop
     items:
+    - name: REST
+      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: .NET
       href: storage-dotnet-how-to-use-blobs.md
     - name: Java
@@ -168,12 +189,8 @@
       href: storage-how-to-use-blobs-powershell.md 
     - name: Azure CLI 2.0
       href: storage-how-to-use-blobs-cli.md      
-    - name: REST
-      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Manage
     items:
-    - name: PowerShell for Azure Blobs
-      href: storage-how-to-use-blobs-powershell.md 
     - name: PowerShell for Azure Storage
       href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: PowerShell for China, Government, and German clouds
@@ -216,6 +233,8 @@
       href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: AzCopy on Linux
       href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Mount Blob storage as a file system on Linux
+      href: storage-how-to-mount-container-linux.md
     - name: Using the Import/Export service
       href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Using the Import/Export Tool
@@ -365,6 +384,8 @@
       href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Troubleshoot Storage Explorer
       href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Storage Explorer accessibility
+      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json 
   - name: NuGet packages
     items:
     - name: Azure Storage Client Library for .NET

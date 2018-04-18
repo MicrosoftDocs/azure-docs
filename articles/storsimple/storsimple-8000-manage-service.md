@@ -25,6 +25,10 @@ The StorSimple Device Manager service runs in Microsoft Azure and connects to mu
 
 This tutorial describes the steps required for the creation, deletion, migration of the service and the management of the service registration key. The information contained in this article is applicable only to StorSimple 8000 series devices. For more information on StorSimple Virtual Arrays, go to [deploy a StorSimple Device Manager service for your StorSimple Virtual Array](storsimple-virtual-array-manage-service.md).
 
+> [!NOTE]
+> All classic StorSimple device managers were automatically moved to the new Azure portal. If you have any questions, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md). The Azure Service Management (ASM) PowerShell cmdlets are not supported after the move to the new Azure portal. Update the scripts to manage your devices, and then go to the [Use Azure Resource Manager SDK-based scripts to manage StorSimple devices](storsimple-8000-automation-azurerm-scripts.md) for more information. 
+> The new Azure portal supports devices running Update 5.0 or later. If your device is not up to date, install Update 5 immediately. For more information, go to [Install Update 5](storsimple-8000-install-update-5.md). If you're using a StorSimple Cloud Appliance (8010/8020), you cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance with Update 5.0,  and then fail over to the new cloud appliance created. All devices running Update 4.0 or earlier will experience [reduced management functionality](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+
 ## Create a service
 To create a StorSimple Device Manager service, you need to have:
 
@@ -54,87 +58,6 @@ For each StorSimple Device Manager service, the following attributes exist:
 * **Status** – The status of the service, which can be **Active**, **Creating**, or **Online**.
 * **Location** – The geographical location in which the StorSimple device will be deployed.
 * **Subscription** – The billing subscription that is associated with your service.
-
-## Move a service to Azure portal
-StorSimple 8000 series can be now managed in the Azure portal. If you have an existing service to manage the StorSimple devices, we recommend that you move your service to the Azure portal. The Azure classic portal for the StorSimple Manager service is not supported after September 30, 2017. If you want to move to the new Azure portal, refer [Considerations for transition](#considerations-for-transition). 
-
-> [!NOTE]
-> Starting October 5, 2017, your classic StorSimple device managers will automatically move to the new Azure portal. This is a phased rollout, and we will update you about the move via email and portal notifications. If you have any questions, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
-
-### Considerations for transition
-
-Review the impact of migrating to the new Azure portal before you move the service.
-
-> [!NOTE]
-> The existing Azure Service Management (ASM) PowerShell cmdlets are not supported after you move to the new Azure portal. Update the scripts to manage your devices through the Azure Resource Manager SDK. For more information, go to the [Use Azure Resource Manager SDK-based scripts to manage StorSimple devices](storsimple-8000-automation-azurerm-scripts.md).
-> The new Azure portal supports devices running Update 3.0 or later. If your device is not up to date, we strongly recommend that you apply Update 5 as soon as possible.
-
-#### Before you transition
-
-* Your device is running Update 3.0 or later. If your device is running an older version, we strongly recommend that you install Update 5 via the hotfix method. For more information, go to [Install Update 5](storsimple-8000-install-update-5.md). If using a StorSimple Cloud Appliance (8010/8020), you cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance with Update 5.0 and then fail over to the new cloud appliance created.
-
-* Once you are transitioned to the new Azure portal, you cannot use the Azure classic portal to manage your StorSimple device.
-
-* The transition is non-disruptive and there is no downtime for the device.
-
-* All the StorSimple Device Managers under the specified subscription are transitioned.
-
-#### During the transition
-
-* You cannot manage your device from the portal.
-* Operations such as tiering and scheduled backups continue to occur.
-* Do not delete the old StorSimple Device Managers while the transition is in progress.
-
-#### After the transition
-
-* You can no longer manage your devices from the classic portal.
-
-* The existing Azure Service Management (ASM) PowerShell cmdlets are not supported. Update the scripts to manage your devices through the Azure Resource Manager. For sample scripts using Resource Manager SDK, refer the [storsimpledevicemgmttools github](https://github.com/anoobbacker/storsimpledevicemgmttools).
-
-* Your service and device configuration are retained. All your volumes and backups are also transitioned to the Azure portal.
-
-### Begin transition
-
-Perform the following steps to transition your service to the Azure portal.
-
-1. Go to your existing StorSimple Manager service in the new Azure portal.
-    ![More services](./media/storsimple-8000-manage-service/service-browse01.png)
-    ![Select device manager](./media/storsimple-8000-manage-service/service-browse02.png)
-
-2. You see a notification that informs you that the StorSimple Device Manager service is now available in the Azure portal. In the Azure portal, the service is referred to as the StorSimple Device Manager service.
-    ![Migration notification](./media/storsimple-8000-manage-service/service-transition1.jpg)
-    
-    1. Ensure that you have reviewed the full impact of migration.
-    2. Review the list of StorSimple Device Managers that will be moved from the classic portal.
-
-3. Click **Migrate**. The transition begins and takes a few minutes to complete.
-
-Once the transition is complete, you can manage your devices via the StorSimple Device Manager service in the Azure portal. If you do not see an option to migrate to Azure portal but you want to move, you can [submit a request](https://aka.ms/ss8000-cx-signup).
-
-## Supported operations on devices running versions prior to Update 3.0
-In the Azure portal, only the StorSimple devices running Update 3.0 and higher are supported. The devices that are running older versions have limited support. After you have migrated to the Azure portal, use the following table to understand which operations are supported on devices running versions prior to Update 3.0.
-
-| Operation                                                                                                                       | Supported      |
-|---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Register a device                                                                                                               | Yes            |
-| Configure device settings such as general, network, and security                                                                | Yes            |
-| Scan, download, and install updates                                                                                             | Yes            |
-| Deactivate device                                                                                                               | Yes            |
-| Delete device                                                                                                                   | Yes            |
-| Create, modify, and delete a volume container                                                                                   | No             |
-| Create, modify, and delete a volume                                                                                             | No             |
-| Create, modify, and delete a backup policy                                                                                      | No             |
-| Take a manual backup                                                                                                            | No             |
-| Take a scheduled backup                                                                                                         | Not applicable |
-| Restore from a backupset                                                                                                        | No             |
-| Clone to a device running Update 3.0 and later <br> The source device is running version prior to Update 3.0.                                | Yes            |
-| Clone to a device running versions prior to Update 3.0                                                                          | No             |
-| Failover as source device <br> (from a device running version prior to Update 3.0 to a device running Update 3.0 and later)                                                               | Yes            |
-| Failover as target device <br> (to a device running software version prior to Update 3.0)                                                                                   | No             |
-| Clear an alert                                                                                                                  | Yes            |
-| View backup policies, backup catalog, volumes, volume containers, monitoring charts, jobs, and alerts created in classic portal | Yes            |
-| Turn on and off device controllers                                                                                              | Yes            |
-
 
 ## Delete a service
 
@@ -262,6 +185,31 @@ Perform the following steps to update the service data encryption on your device
     `Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 This script will ensure that service data encryption key is set on all the 8010/8020 cloud appliances under the device manager.
+
+## Supported operations on devices running versions prior to Update 5.0
+In the Azure portal, only the StorSimple devices running Update 5.0 and higher are supported. The devices that are running older versions have limited support. After you have migrated to the Azure portal, use the following table to understand which operations are supported on devices running versions prior to Update 5.0.
+
+| Operation                                                                                                                       | Supported      |
+|---------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Register a device                                                                                                               | Yes            |
+| Configure device settings such as general, network, and security                                                                | Yes            |
+| Scan, download, and install updates                                                                                             | Yes            |
+| Deactivate device                                                                                                               | Yes            |
+| Delete device                                                                                                                   | Yes            |
+| Create, modify, and delete a volume container                                                                                   | No             |
+| Create, modify, and delete a volume                                                                                             | No             |
+| Create, modify, and delete a backup policy                                                                                      | No             |
+| Take a manual backup                                                                                                            | No             |
+| Take a scheduled backup                                                                                                         | Not applicable |
+| Restore from a backupset                                                                                                        | No             |
+| Clone to a device running Update 3.0 and later <br> The source device is running version prior to Update 3.0.                                | Yes            |
+| Clone to a device running versions prior to Update 3.0                                                                          | No             |
+| Failover as source device <br> (from a device running version prior to Update 3.0 to a device running Update 3.0 and later)                                                               | Yes            |
+| Failover as target device <br> (to a device running software version prior to Update 3.0)                                                                                   | No             |
+| Clear an alert                                                                                                                  | Yes            |
+| View backup policies, backup catalog, volumes, volume containers, monitoring charts, jobs, and alerts created in classic portal | Yes            |
+| Turn on and off device controllers                                                                                              | Yes            |
+
 
 ## Next steps
 * Learn more about the [StorSimple deployment process](storsimple-8000-deployment-walkthrough-u2.md).

@@ -1,6 +1,6 @@
 ---
 title: Create a .NET Service Fabric application in Azure | Microsoft Docs
-description: Create a .NET application for Azure using the Service Fabric quick start sample.
+description: In this quickstart, you create a .NET application for Azure using the Service Fabric reliable services sample application.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -13,13 +13,13 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/02/2018
+ms.date: 01/25/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
 
 ---
 
-# Create a .NET Service Fabric application in Azure
+# Quickstart: create a .NET Service Fabric application in Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
 This quickstart shows how to deploy your first .NET application to Service Fabric. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster.
@@ -45,6 +45,10 @@ To complete this quickstart:
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
+
+>[!NOTE]
+> The sample application in this quickstart uses features that are not available on Windows 7.
+>
 
 ## Download the sample
 In a command window, run the following command to clone the sample app repository to your local machine.
@@ -88,9 +92,9 @@ When you vote in the application the following events occur:
 When debugging application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, data is stored in back-end service using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
 
 To look at what happens in the code, complete the following steps:
-1. Open the **/VotingWeb/Controllers/VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 47) - You can search for the file in the Solution Explorer in Visual Studio.
+1. Open the **/VotingWeb/Controllers/VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 69) - You can search for the file in the Solution Explorer in Visual Studio.
 
-2. Open the **/VotingData/Controllers/VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 50).
+2. Open the **/VotingData/Controllers/VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 54).
 
 3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
     - This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
@@ -117,9 +121,27 @@ To stop the debugging session, press **Shift+F5**.
 To deploy the application to Azure, you need a Service Fabric cluster which runs the application. 
 
 ### Join a Party cluster
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. 
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. The cluster uses a single self-signed certificate for-node-to node as well as client-to-node security. 
 
-Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Remember the **Connection endpoint** value, which is used in following steps.
+Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. The certificate and the **Connection endpoint** value are used in following steps.
+
+![PFX and connection endpoint](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
+
+On Windows machine, install the PFX in *CurrentUser\My* certificate store.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Remember the thumbprint for a following step.
 
 > [!Note]
 > By default, the web front-end service is configured to listen on port 8080 for incoming traffic. Port 8080 is open in the Party Cluster.  If you need to change the application port, change it to one of the ports that are open in the Party Cluster.
@@ -130,24 +152,29 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
 1. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
-    ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field and click **Publish**. For example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in a previous step. 
+
+    ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
     Each application in the cluster must have a unique name.  Party clusters are a public, shared environment however and there may be a conflict with an existing application.  If there is a name conflict, rename the Visual Studio project and deploy again.
 
-3. Open a browser and type in the cluster address followed by ':8080' to get to the application in the cluster - for example, `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. You should now see the application running in the cluster in Azure.
+3. Click **Publish**.
+
+4. Open a browser and type in the cluster address followed by ':8080' to get to the application in the cluster - for example, `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. You should now see the application running in the cluster in Azure.
 
 ![Application front-end](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## Scale applications and services in a cluster
 Service Fabric services can easily be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from PowerShell or Service Fabric CLI (sfctl). In this example, use Service Fabric Explorer.
 
-Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser, by browsing to the clusters HTTP management port (19080), for example, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser, by browsing to the clusters HTTP management port (19080), for example, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+
+You may receive a browser warning that the location is not trusted. This is because the certificate is self-signed. You may choose to ignore the warning and proceed. When prompted by the browser, select the installed certificate to connect. 
 
 To scale the web front-end service, do the following steps:
 
-1. Open Service Fabric Explorer in your cluster - for example,`http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+1. Open Service Fabric Explorer in your cluster - for example,`http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 2. Click on the ellipsis (three dots) next to the **fabric:/Voting/VotingWeb** node in the treeview and choose **Scale Service**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
@@ -179,7 +206,7 @@ To upgrade the application, do the following:
 7. In the **Publish Service Fabric Application** dialog, check the Upgrade the Application checkbox, and click **Publish**.
 
     ![Publish Dialog Upgrade Setting](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
-8. Open your browser and browse to the cluster address on port 19080 - for example, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+8. Open your browser and browse to the cluster address on port 19080 - for example, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 9. Click on the **Applications** node in the tree view, and then **Upgrades in Progress** in the right-hand pane. You see how the upgrade rolls through the upgrade domains in your cluster, making sure each domain is healthy before proceeding to the next. An upgrade domain in the progress bar appears green when the health of the domain has been verified.
     ![Upgrade View in Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 

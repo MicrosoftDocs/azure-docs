@@ -43,8 +43,12 @@
         href: azure-stack-compute-overview.md
       - name: VM considerations
         href: azure-stack-vm-considerations.md
+      - name: VM sizes
+        href: azure-stack-vm-sizes.md
       - name: Manage VM disks
         href: azure-stack-manage-vm-disks.md
+      - name: Protect VMs
+        href: azure-stack-manage-vm-backup.md
     - name: Storage
       items:
       - name: Overview
@@ -127,11 +131,15 @@
     href: /azure/azure-stack/
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack
+  - name: Azure Stack roadmap
+    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
+  - name: Azure Stack MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack
+  - name: Azure Stack Documentation feedback
+    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
   - name: Pricing information
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-stack
+  - name: Training and certification
+    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 
 robots: noindex
@@ -21,6 +21,9 @@ robots: noindex
 # Data Management Gateway
 > [!NOTE]
 > This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [self-hosted integration runtime in version 2](../create-self-hosted-integration-runtime.md). 
+
+> [!NOTE]
+> Data Management Gateway has now been rebranded as Self-hosted Integration Runtime.  
 
 The Data management gateway is a client agent that you must install in your on-premises environment to copy data between cloud and on-premises data stores. The on-premises data stores supported by Data Factory are listed in the [Supported data sources](data-factory-data-movement-activities.md#supported-data-stores-and-formats) section.
 

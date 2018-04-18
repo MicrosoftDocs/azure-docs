@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 
 robots: noindex
@@ -52,7 +52,7 @@ Before you begin this walkthrough, you must have the following prerequisites:
 In this step, you use the Azure portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**.
 
 1. Log in to the [Azure portal](https://portal.azure.com).
-2. Click **+ NEW**, click **Intelligence + analytics**, and click **Data Factory**.
+2. Click **Create a resource**, click **Intelligence + analytics**, and click **Data Factory**.
 
    ![New->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
 3. In the **New data factory** page, enter **ADFTutorialOnPremDF** for the Name.

@@ -9,6 +9,7 @@
   - name: Supported languages
     href: bing-autosuggest-supported-languages.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: C#
     href: quickstarts/csharp.md

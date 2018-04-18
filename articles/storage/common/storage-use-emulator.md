@@ -41,6 +41,14 @@ The storage emulator connects to SQL Server or LocalDB using Windows authenticat
 Some differences in functionality exist between the storage emulator and Azure storage services. For more information about these differences, see the [Differences between the storage emulator and Azure Storage](#differences-between-the-storage-emulator-and-azure-storage) section later in this article.
 
 ## Start and initialize the storage emulator
+
+### [Run the Azure storage emulator in Docker](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
+```
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
+```
+
+### Using SDK
+
 To start the Azure storage emulator:
 1. Select the **Start** button or press the **Windows** key.
 1. Begin typing `Azure Storage Emulator`.

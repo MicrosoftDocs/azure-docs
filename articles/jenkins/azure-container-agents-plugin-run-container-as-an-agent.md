@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: tarcher
 ms.custom: jenkins
 ---
@@ -326,4 +326,4 @@ az group delete -n <resourceGroup>
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Visit the Jenkins on Azure hub to see the latest articles and samples](https://docs.microsoft.com/en-us/azure/jenkins/)
+> [Visit the Jenkins on Azure hub to see the latest articles and samples](https://docs.microsoft.com/azure/jenkins/)

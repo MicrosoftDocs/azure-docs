@@ -42,7 +42,7 @@ Reliable Services can also be stateful, exclusive to Service Fabric, where state
 ## ASP.NET Core
 ASP.NET Core is a new open-source and cross-platform framework for building modern cloud-based Internet-connected applications, such as web apps, IoT apps, and mobile backends. Service Fabric integrates with ASP.NET Core so you can write both stateless and stateful ASP.NET Core applications that take advantage of Reliable Collections and Service Fabric's advanced orchestration capabilities.
 
-[Learn more about ASP.NET Core in Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) or get started by [writing your first ASP.NET Core Service Fabric application](service-fabric-add-a-web-frontend.md).
+[Learn more about ASP.NET Core in Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) or get started by [writing your first ASP.NET Core Service Fabric application](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## Reliable Actors
 Built on top of Reliable Services, the Reliable Actor framework is an application framework that implements the Virtual Actor pattern, based on the actor design pattern. The Reliable Actor framework uses independent units of compute and state with single-threaded execution called actors. The Reliable Actor framework provides built-in communication for actors and pre-set state persistence and scale-out configurations.
@@ -52,7 +52,7 @@ As Reliable Actors itself is an application framework built on Reliable Services
 [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md) or get started by [writing your first Reliable Actor service](service-fabric-reliable-actors-get-started.md)
 
 
-[Build a front end service using ASP.NET Core](service-fabric-add-a-web-frontend.md)
+[Build a front end service using ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 ## Next steps
 [Service Fabric and containers overview](service-fabric-containers-overview.md)

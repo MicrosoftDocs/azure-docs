@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: garye;haining
+ms.author: haining
 
 ---
 # Create many Machine Learning models and web service endpoints from one experiment using PowerShell

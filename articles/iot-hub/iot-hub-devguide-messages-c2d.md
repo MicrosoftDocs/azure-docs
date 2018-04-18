@@ -38,12 +38,12 @@ When the IoT Hub service sends a message to a device, the service sets the messa
 
 A device can also choose to:
 
-* *Reject* the message, which causes IoT Hub to set it to the **Deadlettered** state. Devices that connect over the MQTT protocol cannot reject cloud-to-device messages.
+* *Reject* the message, which causes IoT Hub to set it to the **Dead lettered** state. Devices that connect over the MQTT protocol cannot reject cloud-to-device messages.
 * *Abandon* the message, which causes IoT Hub to put the message back in the queue, with the state set to **Enqueued**. Devices that connect over the MQTT protocol cannot abandon cloud-to-device messages.
 
 A thread could fail to process a message without notifying IoT Hub. In this case, messages automatically transition from the **Invisible** state back to the **Enqueued** state after a *visibility (or lock) timeout*. The default value of this timeout is one minute.
 
-The **max delivery count** property on IoT Hub determines the maximum number of times a message can transition between the **Enqueued** and **Invisible** states. After that number of transitions, IoT Hub sets the state of the message to **Deadlettered**. Similarly, IoT Hub sets the state of a message to **Deadlettered** after its expiration time (see [Time to live][lnk-ttl]).
+The **max delivery count** property on IoT Hub determines the maximum number of times a message can transition between the **Enqueued** and **Invisible** states. After that number of transitions, IoT Hub sets the state of the message to **Dead lettered**. Similarly, IoT Hub sets the state of a message to **Dead lettered** after its expiration time (see [Time to live][lnk-ttl]).
 
 The [How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial] shows you how to send cloud-to-device messages from the cloud and receive them on a device.
 
@@ -73,7 +73,7 @@ When you send a cloud-to-device message, the service can request the delivery of
 | Ack property | Behavior |
 | ------------ | -------- |
 | **positive** | If the cloud-to-device message reaches the **Completed** state, IoT Hub generates a feedback message. |
-| **negative** | If the cloud-to-device message reaches the **Deadlettered** state, IoT Hub generates a feedback message. |
+| **negative** | If the cloud-to-device message reaches the **Dead lettered** state, IoT Hub generates a feedback message. |
 | **full**     | IoT Hub generates a feedback message in either case. |
 
 If **Ack** is **full**, and you don't receive a feedback message, it means that the feedback message expired. The service can't know what happened to the original message. In practice, a service should ensure that it can process the feedback before it expires. The maximum expiry time is two days, which leaves time to get the service running again if a failure occurs.

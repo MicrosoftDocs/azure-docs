@@ -60,9 +60,17 @@ Application Insights collects performance details for the different operations i
 
 	![Operation details](media/app-insights-tutorial-performance/operation-details.png)
 
+	> [!NOTE]
+	Enable the "Unified details: E2E Transaction Diagnostics" [preview experience](app-insights-previews.md) to see all related server-side telemetry like requests, dependencies, exceptions, traces, events etc. in a single full screen view. 
+
+	With the preview enabled, you can see the time spent in dependency calls, along with any failures or exceptions in a unified experience. For cross-component transactions, the Gantt chart along with the details pane can help you quickly diagnose the root-cause component, dependency or exception. You can expand the bottom section to see time-sequence of any traces or events collected for the selected component-operation. [Learn more about the new experience](app-insights-transaction-diagnostics.md)  
+
+	![Transaction diagnostics](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
+
+
 6.  The information that you've gathered so far only confirms that there is slow performance, but it does little to get to the root cause.  The **Profiler** helps with this by showing the actual code that ran for the operation and the time required for each step. Some operations may not have a trace since the profiler runs periodically.  Over time, more operations should have traces.  To start the profiler for the operation, click **Profiler traces**.
 5.  The trace shows the individual events for each operation so you can diagnose the root cause for the duration of the overall operation.  Click one of the top examples, which have the longest duration.
-6.  Click **Show Hot Path** to highlight the specific path of events that most contribute to the total duration of the operation.  In this example, you can see that the slowest call is from *FabrikamFiberAzureStorage.GetStorageTableData* method. The part that takes most time is the *CloudTable.CreateIfNotExist* method. If this line of code is executed every time the function gets called, unnecessary network call and CPU resource will be consumed. The best way to fix your code is to put this line in some startup method that only execute for once. 
+6.  Click **Show Hot Path** to highlight the specific path of events that most contribute to the total duration of the operation.  In this example, you can see that the slowest call is from *FabrikamFiberAzureStorage.GetStorageTableData* method. The part that takes most time is the *CloudTable.CreateIfNotExist* method. If this line of code is executed every time the function gets called, unnecessary network call and CPU resource will be consumed. The best way to fix your code is to put this line in some startup method that only executes once. 
 
 	![Profiler details](media/app-insights-tutorial-performance/profiler-details.png)
 

@@ -3,7 +3,7 @@ title: Manage access and permissions with RBAC - Azure RBAC | Microsoft Docs
 description: Get started in access management with Azure role-based access control in the Azure Portal. Use role assignments to assign permissions in your directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/02/2018
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: rqureshi
 ---
 
@@ -55,7 +55,7 @@ Access that you grant at parent scopes is inherited at child scopes. For example
 ## Azure RBAC vs. classic subscription administrators
 [Classic subscription administrators and co-admins](../billing/billing-add-change-azure-subscription-administrator.md) have full access to the Azure subscription. They can manage resources using the [Azure portal](https://portal.azure.com), Azure Resource Manager APIs, and the classic deployment model APIs. In the RBAC model, classic administrators are assigned the Owner role at the subscription scope.
 
-Only the Azure portal and the new Azure Resource Manager APIs support Azure RBAC. Users and applications that are assigned RBAC roles cannot use the the Azure classic deployment model APIs.
+Only the Azure portal and the new Azure Resource Manager APIs support Azure RBAC. Users and applications that are assigned RBAC roles cannot use the Azure classic deployment model APIs.
 
 ## Authorization for management vs. data operations
 Azure RBAC only supports management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. It cannot authorize all data level operations for Azure resources. For example, you can authorize someone to manage Storage Accounts, but not to the blobs or tables within a Storage Account. Similarly, a SQL database can be managed, but not the tables within it.

@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/19/2018
 ms.author: damaerte
 ---
 
@@ -38,7 +38,7 @@ This document details how to use the PowerShell in Cloud Shell in the [Azure por
 
 Run regular PowerShell commands in the Cloud Shell, such as:
 
-```Powershell
+```PowerShell
 PS Azure:\> Get-Date
 Monday, September 25, 2017 08:55:09 AM
 
@@ -55,13 +55,13 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
  1. List your subscriptions
 
-    ``` Powershell
+    ``` PowerShell
     PS Azure:\> dir
     ```
 
  2. `cd` to your preferred subscription
 
-    ``` Powershell
+    ``` PowerShell
     PS Azure:\> cd MySubscriptionName
     PS Azure:\MySubscriptionName>
     ```
@@ -181,20 +181,20 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
  > [!WARNING]
  > Please refer to [Troubleshooting remote management of Azure VMs](troubleshooting.md#powershell-resolutions).
 
-  Assuming you have a VM, MyVM1, let's use `Invoke-AzureRmVMCommand` to invoke a PowerShell scriptblock on the remote machine.
+  Assuming you have a VM, MyVM1, let's use `Invoke-AzureRmVMCommand` to invoke a PowerShell script block on the remote machine.
 
   ``` Powershell
   Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
-  You can also navigate to the virtualMachines directory first and run `Invoke-AzureRmVMCommand` as follows.
+  You can also navigate to the VirtualMachines directory first and run `Invoke-AzureRmVMCommand` as follows.
 
-  ``` Powershell
+  ``` PowerShell
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
   PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock{Get-ComputerInfo}
   ```
   You see output similar to the following:
 
-  ``` Powershell
+  ``` PowerShell
   PSComputerName                                          : 65.52.28.207
   RunspaceId                                              : 2c2b60da-f9b9-4f42-a282-93316cb06fe1
   WindowsBuildLabEx                                       : 14393.1066.amd64fre.rs1_release_sec.170327-1835
@@ -212,13 +212,13 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 You can use `Enter-AzureRmVM` to interactively log into a VM running in Azure.
 
-  ``` Powershell
+  ``` PowerShell
   Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
-You can also navigate to the `virtualMachines` directory first and run `Enter-AzureRmVM` as follows
+You can also navigate to the `VirtualMachines` directory first and run `Enter-AzureRmVM` as follows
 
-  ``` Powershell
+  ``` PowerShell
  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
  ```
 
@@ -261,6 +261,64 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ```
 
+## SSH
+
+[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) is available in PowerShell Cloud Shell.
+To authenticate to servers or VMs using SSH, generate the public-private key pair in Cloud Shell and
+publish the public key to `authorized_keys` on the remote machine, such as `/home/user/.ssh/authorized_keys`.
+
+> [!NOTE]
+> You can create SSH private-public keys using `ssh-keygen` and publish them to `$env:USERPROFILE\.ssh` in Cloud Shell.
+
+### Using a custom profile to persist GIT and SSH settings
+
+Since sessions do not persist upon sign-out, save your `$env:USERPROFILE\.ssh` folder to `CloudDrive` or create a symlink when Cloud Shell gets launched.
+Add following code snippet in your profile.ps1 to create a symlink to CloudDrive.
+
+``` PowerShell
+# Check if the .ssh folder exists
+if( -not (Test-Path $home\CloudDrive\.ssh)){
+    mkdir $home\CloudDrive\.ssh
+}
+
+# .ssh path relative to this script
+$script:sshFolderPath = Join-Path $PSScriptRoot .ssh
+
+# Create a symlink to .ssh in user's $home
+if(Test-Path $script:sshFolderPath){
+   if(-not (Test-Path (Join-Path $HOME .ssh ))){
+        New-Item -ItemType SymbolicLink -Path $HOME -Name .ssh -Value $script:sshFolderPath
+   }
+}
+
+```
+
+### Using SSH
+
+Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) to create a new VM configuration using AzureRM cmdlets.
+Before calling into `New-AzureRmVM` to kick-off the deployment, add SSH public key to the VM configuration.
+The newly created VM will contain the public key in the `~\.ssh\authorized_keys` location, thereby enabling credential-free SSH session to the VM.
+
+``` PowerShell
+
+# Create VM config object - $vmConfig using instructions on linked page above
+
+# Generate SSH keys in Cloud Shell
+ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa 
+
+# Ensure VM config is updated with SSH keys
+$sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
+Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
+
+# Create a virtual machine
+New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
+
+# SSH to the VM
+ssh azureuser@MyVM.Domain.Com
+
+```
+
+
 ## List available commands
 
 Under `Azure` drive, type `Get-AzureRmCommand` to get context-specific Azure commands.
@@ -275,13 +333,13 @@ You can run `Install-Module` to install modules from the [PowerShell Gallery][ga
 
 Type `Get-Help` to get information about PowerShell in Azure Cloud Shell.
 
-``` Powershell
+``` PowerShell
 PS Azure:\> Get-Help
 ```
 
-For a specific command, you can still do Get-Help followed by a cmdlet.
+For a specific command, you can still do `Get-Help` followed by a cmdlet.
 
-``` Powershell
+``` PowerShell
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
@@ -289,7 +347,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 You can create a script, say `helloworld.ps1`, and save it to your `CloudDrive` to use it across shell sessions.
 
-``` Powershell
+``` PowerShell
 cd C:\users\ContainerAdministrator\CloudDrive
 PS C:\users\ContainerAdministrator\CloudDrive> vim .\helloworld.ps1
 # Add the content, such as 'Hello World!'
@@ -307,7 +365,7 @@ For how to create a profile, refer to [About Profiles][profile].
 
 ## Use Git
 
-To clone a git repo in the Cloud Shell, you need to create a [personal access token][githubtoken] and use it as the username. Once you have your token, clone the repository as follows:
+To clone a Git repo in the Cloud Shell, you need to create a [personal access token][githubtoken] and use it as the username. Once you have your token, clone the repository as follows:
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
@@ -323,7 +381,7 @@ $script:gitconfigPath = Join-Path $PSScriptRoot .gitconfig
 # Create a symlink to .gitconfig in user's $home
 if(Test-Path $script:gitconfigPath){
 
-    if(-not (Test-Path (Join-Path $Home .gitconfig ))){
+    if(-not (Test-Path (Join-Path $home .gitconfig ))){
          New-Item -ItemType SymbolicLink -Path $home -Name .gitconfig -Value $script:gitconfigPath
     }
 }

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/22/2018
 ms.author: magoedte
 ---
 
@@ -22,28 +22,28 @@ In order to monitor and manage virtual machines or physical computers in your lo
 
 On a monitored Windows computer, the agent is listed as the Microsoft Monitoring Agent service. The Microsoft Monitoring Agent service collects events from log files and Windows event log, performance data, and other telemetry. Even when the agent is unable to communicate with the Log Analytics service it reports to, the agent continues to run and queues the collected data on the disk of the monitored computer. When the connection is restored, the Microsoft Monitoring Agent service sends collected data to the service.
 
-The agent may be installed by using one of the following methods. Most installations use a combination of these methods to install different sets of computers, as appropriate.
+The agent may be installed by using one of the following methods. Most installations use a combination of these methods to install different sets of computers, as appropriate.  Details on using each method are provided later in the article.
 
 * Manual installation. Setup is manually run on the computer using the setup wizard, from the command line, or deployed using an existing software distribution tool.
 * Azure Automation Desired State Configuration (DSC). Using DSC in Azure Automation with a script for Windows computers already deployed in your environment.  
 * PowerShell script.
 * Resource Manager template for virtual machines running Windows on-premise in Azure Stack.  
 
-To understand the network and system requirements to deploy the Windows agent, review [Collect data from your environment with Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites).
+To understand the network and system requirements to deploy the Windows agent, review [Prerequisites for Windows computers](log-analytics-concept-hybrid.md#prerequisites).
 
 ## Obtain workspace ID and key
-Before installing the Microsoft Monitoring Agent for Windows, you need the workspace ID and key for your Log Analytics workspace.  This information is required during setup from each installation method to properly configure the agent and ensure it can successfully communicate with Log Analytics.  
+Before installing the Microsoft Monitoring Agent for Windows, you need the workspace ID and key for your Log Analytics workspace.  This information is required during setup from each installation method to properly configure the agent and ensure it can successfully communicate with Log Analytics in Azure commercial and US Government cloud.  
 
-1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select the workspace you intend on configuring the agent to report to.
 3. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Select **Connected Sources**, and then select **Windows Servers**.   
-5. The value to the right of **Workspace ID** and **Primary Key**. Copy and paste both into your favorite editor.   
+5. Copy and paste into your favorite editor, the **Workspace ID** and **Primary Key**.    
    
-## Install the agent using setup
-The following steps install and configure the agent for Log Analytics in Azure and Azure Government cloud using setup for the Microsoft Monitoring Agent on your computer.  The setup program for the agent is contained within the downloaded file and must be extracted in order to 
+## Install the agent using setup wizard
+The following steps install and configure the agent for Log Analytics in Azure and Azure Government cloud by using the setup wizard for the Microsoft Monitoring Agent on your computer.  
 
-1. On the **Windows Servers** page, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.
+1. In your Log Analyics workspace, from the **Windows Servers** page you navigated to earlier, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.   
 2. Run Setup to install the agent on your computer.
 2. On the **Welcome** page, click **Next**.
 3. On the **License Terms** page, read the license and then click **I Agree**.
@@ -59,7 +59,7 @@ The following steps install and configure the agent for Log Analytics in Azure a
 When complete, the **Microsoft Monitoring Agent** appears in **Control Panel**. To confirm it is reporting to Log Analytics, review [Verify agent connectivity to Log Analytics](#verify-agent-connectivity-to-log-analytics). 
 
 ## Install the agent using the command line
-The downloaded file for the agent is a self-contained installation package created with IExpress.  The setup program for the agent and supporting files are contained in the package and need to be extracted in order to properly install using the command line shown in the following examples.  This method supports configuring the agent to report to Azure commercial and US Government cloud.  
+The downloaded file for the agent is a self-contained installation package created with IExpress.  The setup program for the agent and supporting files are contained in the package and need to be extracted in order to properly install using the command line shown in the following examples.    
 
 >[!NOTE]
 >If you want to upgrade an agent, you need to use the Log Analytics scripting API. See the topic [Managing and maintaining the Log Analytics agent for Windows and Linux](log-analytics-agent-manage.md) for further information.
@@ -80,13 +80,13 @@ The following table highlights the specific Log Analytics parameters supported b
 2. To silently install the agent and configure it to report to a workspace in Azure commercial cloud, from the folder you extracted the setup files to type: 
    
      ```dos
-    setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
    or to configure the agent to report to Azure US Government cloud, type: 
 
      ```dos
-    setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
 ## Install the agent using DSC in Azure Automation
@@ -118,6 +118,7 @@ To retrieve the product code from the agent install package directly, you can us
 	    $OPSINSIGHTS_WS_KEY = Get-AutomationVariable -Name "OPSINSIGHTS_WS_KEY"
 
 	    Import-DscResource -ModuleName xPSDesiredStateConfiguration
+        Import-DscResource –ModuleName PSDesiredStateConfiguration
 
 	    Node OMSnode {
 		    Service OIService
@@ -137,7 +138,7 @@ To retrieve the product code from the agent install package directly, you can us
 			    Path  = $OIPackageLocalPath
 			    Name = "Microsoft Monitoring Agent"
 			    ProductId = "8A7F2C51-4C7D-4BFD-9014-91D11F24AAE2"
-			    Arguments = '/C:Deploy"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
+			    Arguments = '/C:"setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
 			    DependsOn = "[xRemoteFile]OIPackage"
 		    }
 	    }
@@ -150,13 +151,13 @@ To retrieve the product code from the agent install package directly, you can us
 
 ## Verify agent connectivity to Log Analytics
 
-Once instalaltion of the agent is complete, verifying it is successfully connected and reporting can be accomplished in two ways.  
+Once installation of the agent is complete, verifying it is successfully connected and reporting can be accomplished in two ways.  
 
 From the computer in **Control Panel**, find the item **Microsoft Monitoring Agent**.  Select it and on the **Azure Log Analytics (OMS)** tab, the agent should display a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.**<br><br> ![MMA connection status to Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 You can also perform a simple log search in the Azure portal.  
 
-1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.  
+1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.  
 2. On the Log Analytics workspace page, select the target workspace and then select the **Log Search** tile. 
 2. On the Log Search pane, in the query field type:  
 

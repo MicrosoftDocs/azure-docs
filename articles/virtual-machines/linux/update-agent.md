@@ -1,6 +1,6 @@
 ---
 title: Update the Azure Linux Agent from GitHub | Microsoft Docs
-description: Learn how to update Azure Linux Agent for your Linux VM in Azure to the latest version from GitHub
+description: Learn how to update Azure Linux Agent for your Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: SuperScottz
@@ -26,6 +26,9 @@ To update your [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) on a L
 - A connection to that Linux VM using SSH.
 
 You should always check for a package in the Linux distro repository first. It is possible the package available may not be the latest version, however, enabling autoupdate will ensure the Linux Agent will always get the latest update. Should you have issues installing from the package managers, you should seek support from the distro vendor.
+
+## Minimum virtual machine agent support in Azure
+Verify the [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) before proceeding.
 
 ## Updating the Azure Linux Agent
 

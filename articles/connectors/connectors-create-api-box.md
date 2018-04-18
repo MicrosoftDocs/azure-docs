@@ -25,7 +25,7 @@ Connect to Box and create files, delete files, and more. With Box, you can:
 * Use triggers when a file is created or updated.
 * Use actions that copy a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a file is changed on Box, you can take that file and email it using Office 365.
 
-You can get started by creating a logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+You can get started by creating a logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Connector-specific details
 

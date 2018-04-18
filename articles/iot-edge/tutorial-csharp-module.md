@@ -76,6 +76,14 @@ The following steps show you how to create an IoT Edge module based on .NET core
 
    ![Open Program.cs][1]
 
+6. At the top of the **FilterModule** namespace, add three `using` statements for types used later on:
+
+    ```csharp
+    using System.Collections.Generic;     // for KeyValuePair<>
+    using Microsoft.Azure.Devices.Shared; // for TwinCollection
+    using Newtonsoft.Json;                // for JsonConvert
+    ```
+
 6. Add the `temperatureThreshold` variable to the **Program** class. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub. 
 
     ```csharp
@@ -160,13 +168,13 @@ The following steps show you how to create an IoT Edge module based on .NET core
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
     {
-        int counterValue = Interlocked.Increment(ref counter);
+        var counterValue = Interlocked.Increment(ref counter);
 
         try {
             DeviceClient deviceClient = (DeviceClient)userContext;
 
-            byte[] messageBytes = message.GetBytes();
-            string messageString = Encoding.UTF8.GetString(messageBytes);
+            var messageBytes = message.GetBytes();
+            var messageString = Encoding.UTF8.GetString(messageBytes);
             Console.WriteLine($"Received message {counterValue}: [{messageString}]");
 
             // Get message body
@@ -197,7 +205,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
                 Console.WriteLine("Error in sample: {0}", exception);
             }
             // Indicate that the message treatment is not completed
-            DeviceClient deviceClient = (DeviceClient)userContext;
+            var deviceClient = (DeviceClient)userContext;
             return MessageResponse.Abandoned;
         }
         catch (Exception ex)

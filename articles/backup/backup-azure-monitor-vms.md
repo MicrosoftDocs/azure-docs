@@ -1,6 +1,6 @@
 ---
-title: Monitor Resource Manager-deployed virtual machine backups | Microsoft Docs
-description: Monitor events and alerts from Resource Manager-deployed virtual machine backups. Send email based on alerts.
+title: Monitor backup alerts for Azure virtual machines | Microsoft Docs
+description: Monitor events and alerts from Azure virtual machine backup jobs. Send email based on alerts.
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2016
+ms.date: 02/23/2018
 ms.author: markgal;trinadhk;giridham;
 
 ---
@@ -67,9 +67,9 @@ To set up email notifications for alerts
    ### What alert types are available for Azure IaaS VM backup?
    | Alert Level | Alerts sent |
    | --- | --- |
-   | Critical |Backup failure, recovery failure |
-   | Warning |None |
-   | Informational |None |
+   | Critical | for Backup failure, recovery failure |
+   | Warning | for Backup jobs succeeded with warnings ( eg: some writers failed while creating a snapshot) |
+   | Informational | currently, no informational alerts are available for Azure VM backup |
 
 ### Are there situations where email isn't sent even if notifications are configured?
 There are situations where an alert is not sent, even though the notifications have been properly configured. In the following situations email notifications are not sent to avoid alert noise:

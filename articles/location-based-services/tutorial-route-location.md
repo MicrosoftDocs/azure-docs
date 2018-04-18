@@ -74,13 +74,13 @@ Use the following steps to create a static HTML page embedded with the Location 
     ```
     Note how the HTML header embeds the resource locations for CSS and JavaScript files for the Azure Location Based Services library. Notice also the *script* segment in the body of the HTML file, that will contain the inline JavaScript code to access the Azure Location Based Service's APIs.
 
-3. Add the following JavaScript code to the *script* block of the HTML file. Replace the placeholder *<insert-key>* with your Location Based Services account's primary key.
+3. Add the following JavaScript code to the *script* block of the HTML file. Use the primary key from your Location Based Services account in the script.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
@@ -176,14 +176,14 @@ This section shows how to use the Azure Location Based Services' Route Service A
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    The request above shows the required parameters, which are your account's subscription key, and the coordinates for the start and end points, in the given order. 
+    The request above shows the required parameters, which are your account key and the coordinates for the start and end points, in the given order. 
 
 3. Save the **MapRoute.html** file locally, then open it in a web browser of your choice and observe the result. For a successful connection with the Location Based Services' APIs, you should see a map similar to the following. 
 

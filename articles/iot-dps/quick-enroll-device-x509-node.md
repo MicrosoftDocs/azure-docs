@@ -16,9 +16,9 @@ ms.custom: mvc
 ---
  
 # Enroll X.509 devices to IoT Hub Device Provisioning Service using Node.js service SDK
-> [!div class="op_single_selector"]
-> * [Java](quick-enroll-device-x509-java.md)
-> * [Node.js](quick-enroll-device-x509-node.md)
+
+[!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
+
 
 These steps show how to programmatically create an enrollment group for an intermediate or root CA X.509 certificate using the [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node) and a Node.js sample. Although these steps work on both Windows and Linux machines, this article uses a Windows development machine.
  

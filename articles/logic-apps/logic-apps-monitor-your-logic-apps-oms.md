@@ -45,7 +45,7 @@ Learn [how to create an OMS workspace](../log-analytics/log-analytics-get-starte
 ## Turn on diagnostics logging when creating logic apps
 
 1. In [Azure portal](https://portal.azure.com), create a logic app. 
-Choose **New** > **Enterprise Integration** > **Logic App** > **Create**.
+Choose **Create a resource** > **Enterprise Integration** > **Logic App**.
 
    ![Create a logic app](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
 

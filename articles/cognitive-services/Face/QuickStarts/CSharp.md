@@ -1,5 +1,6 @@
 ---
-title: Face API C# quick start | Microsoft Docs
+title: Face API C# QuickStarts | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Get information and code samples to help you quickly get started using the Face API with C# in Cognitive Services.
 services: cognitive-services
 author: v-royhar
@@ -8,22 +9,22 @@ manager: yutkuo
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 03/01/2018
 ms.author: anroth
 ---
 
-# Face API C# Quick Starts
+# Face API C# QuickStarts
 This article provides information and code samples to help you quickly get started using the Face API with C# to accomplish the following tasks: 
 * [Detect Faces in Images](#Detect) 
-* [Create a Person Group](#Create)
+* [Create a PersonGroup](#Create)
 
 ## Prerequisites
 * Get the Microsoft Face API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/)
 * Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
 
 ## Detect Faces in images with Face API using C# <a name="Detect"> </a>
-Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
-to detect faces in an image and return face attributes including:
+Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+method to detect faces in an image and return face attributes including:
 * Face ID: Unique ID used in several Face API scenarios. 
 * Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
 * Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
@@ -40,7 +41,7 @@ The sample is written in C# using the Face API client library.
 1. Run the program.
 1. Enter the path to an image on your hard drive.
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Net.Http;
@@ -56,7 +57,7 @@ namespace CSHttpClientSample
 		// **********************************************
 
 		// Replace the subscriptionKey string value with your valid subscription key.
-		const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
+		const string subscriptionKey = "<Subscription Key>";
 
 		// Replace or verify the region.
 		//
@@ -73,7 +74,7 @@ namespace CSHttpClientSample
 		{
 			// Get the path and filename to process from the user.
 			Console.WriteLine("Detect faces:");
-			Console.Write("Enter the path to an image with faces that you wish to analzye: ");
+			Console.Write("Enter the path to an image with faces that you wish to analyze: ");
 			string imageFilePath = Console.ReadLine();
 
 			// Execute the REST API call.
@@ -306,16 +307,16 @@ Response:
    }
 ]
 ```
-## Create a Person Group with Face API using C# <a name="Create"> </a>
+## Create a PersonGroup with Face API using C# <a name="Create"> </a>
 
-Use the [Person Group - Create a Person Group method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) to
-create a person group with specified personGroupId, name, and user-provided userData.
+Use the [PersonGroup - Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)
+method to create a PersonGroup with specified personGroupId, name, and user-provided userData.
 
-#### Person Group - create a Person Group C# example request
+#### PersonGroup - Create C# example request
 
 Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `string uri` to use the region where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
 
-```c#
+```csharp
 using System;
 using System.Net.Http.Headers;
 using System.Net.Http;
@@ -342,7 +343,7 @@ namespace CSHttpClientSample
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "6726adbabb494773a28a7a5a21d5974a");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<Subscription Key>");
 
             // Request URI string.
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.

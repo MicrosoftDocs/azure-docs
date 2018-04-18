@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: owend
 
 ---
@@ -23,14 +23,25 @@ ms.author: owend
 
 Client libraries are necessary for client applications and tools to connect to Analysis Services servers. 
 
-## Download the latest client libraries  
+## Download the latest client libraries (Windows Installer)  
 
-|Download  |Version  | 
+|Download  |Product version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    14.0.801.241      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    14.0.801.241      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   14.0.800.117      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    14.0.801.241      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.208      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.208      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2     |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2     |
+
+## AMO and ADOMD (NuGet packages)
+
+Analysis Services Management Objects (AMO) and ADOMD client libraries are available as installable packages from [NuGet.org](https://www.nuget.org/). It's recommended you migrate to NuGet references instead of using Windows Installer. 
+
+|Package  | Product version  | 
+|---------|---------|
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2.0      |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2.0      |
+
+NuGet package assemblies AssemblyVersion follow semantic versioning: MAJOR.MINOR.PATCH. NuGet references load the expected version even if there is a different version in the GAC (resulting from MSI install). PATCH is incremented for each release. AMO and ADOMD versions are kept in-sync.
 
 ## Understanding client libraries
 
@@ -52,9 +63,7 @@ Client libraries for client connections are different from data providers requir
 
 ### AMO  
 
- AMO is a managed client library used for server administration and data definition. It's installed and used by tools and client applications. For example, SQL Server Management Studio (SSMS) uses AMO to connect to Analysis Services.  
-  
- A connection using AMO is typically minimal, consisting of `“data source=\<servername>”`. After a connection is established, you use the API to work with database collections and major objects. Both SSDT and SSMS use AMO to connect to an Analysis Services instance.  
+ AMO is a managed client library used for server administration and data definition. It's installed and used by tools and client applications. For example, SQL Server Management Studio (SSMS) uses AMO to connect to Analysis Services. A connection using AMO is typically minimal, consisting of `“data source=\<servername>”`. After a connection is established, you use the API to work with database collections and major objects. Both SSDT and SSMS use AMO to connect to an Analysis Services instance.  
 
   
 ### ADOMD
@@ -68,20 +77,21 @@ Client libraries for client connections are different from data providers requir
   
 ### OLEDDB (MSOLAP)  
   
-1.  Go to `C:\Program Files\Microsoft Analysis Services\AS OLEDB\140`. If you have more than one folder, choose the higher number.
+1.  Go to `C:\Program Files\Microsoft Analysis Services\AS OLEDB\. If you have more than one folder, choose the higher number.
   
-2.  Right-click **msolap140.dll** > **Properties** > **Details**.  
+2.  Right-click **msolap.dll** > **Properties** > **Details**. If the filename is msolap140.dll, it's older than latest version and should be upgraded.
     
     ![Client library details](media/analysis-services-data-providers/aas-msolap-details.png)
+    
   
 ### AMO
 
-1. Go to `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\v4.0_14.0.0.0__89845dcd8080cc91`.
+1. Go to `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`. If you have more than one folder, choose the higher number.
 2. Right-click **Microsoft.AnalysisServices** > **Properties** > **Details**.  
 
 ### ADOMD
 
-1. Go to `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\v4.0_14.0.0.0__89845dcd8080cc91`.
+1. Go to `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`. If you have more than one folder, choose the higher number.
 2. Right-click **Microsoft.AnalysisServices.AdomdClient** > **Properties** > **Details**.  
 
 

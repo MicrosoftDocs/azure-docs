@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 02/27/2018
 ms.author: mabrigg
 
 ---
@@ -47,7 +47,7 @@ Set-ExecutionPolicy RemoteSigned `
   -force
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions, and then run the following command:
-Get-Module -ListAvailable | `
+Get-Module -ListAvailable -Name Azure* | `
   Uninstall-Module
 
 # Install PowerShell for Azure Stack.
@@ -66,7 +66,7 @@ Install-Module `
 
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
-
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -136,6 +136,7 @@ Install-Module `
 
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip

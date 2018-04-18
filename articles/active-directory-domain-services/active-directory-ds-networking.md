@@ -71,15 +71,15 @@ The following ports are required for Azure AD Domain Services to service and mai
 * It is mandatory to allow access to this port in your NSG. Without access to this port, your managed domain is not in sync with your Azure AD directory. Users may not be able to sign in as changes to their passwords are not synchronized to your managed domain.
 * You can restrict inbound access to this port to IP addresses belonging to the Azure IP address range.
 
-**Port 5986 (PowerShell remoting)** 
+**Port 5986 (PowerShell remoting)**
 * It is used to perform management tasks using PowerShell remoting on your managed domain.
 * It is mandatory to allow access through this port in your NSG. Without access to this port, your managed domain cannot be updated, configured, backed-up, or monitored.
-* You can restrict inbound access to this port to the following source IP addresses: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 
+* You can restrict inbound access to this port to the following source IP addresses: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
 * The domain controllers for your managed domain do not usually listen on this port. The service opens this port on managed domain controllers only when a management or maintenance operation needs to be performed for the managed domain. As soon as the operation completes, the service shuts down this port on the managed domain controllers.
 
-**Port 3389 (Remote desktop)** 
-* It is used for remote desktop connections to domain controllers for your managed domain. 
-* Opening this port through your NSG is optional. 
+**Port 3389 (Remote desktop)**
+* It is used for remote desktop connections to domain controllers for your managed domain.
+* Opening this port through your NSG is optional.
 * This port also remains largely turned off on your managed domain. This mechanism is not used on an ongoing basis since management and monitoring tasks are performed using PowerShell remoting. This port is used only in the rare event that Microsoft needs to connect remotely to your managed domain for advanced troubleshooting. The port is closed as soon as the troubleshooting operation is complete.
 
 **Port 636 (Secure LDAP)**
@@ -96,7 +96,7 @@ The following table illustrates a sample NSG you can configure for a virtual net
 
 Additionally, the NSG also illustrates how to lock down secure LDAP access over the internet. Skip this rule if you have not enabled secure LDAP access to your managed domain over the internet. The NSG contains a set of rules that allow inbound LDAPS access over TCP port 636 only from a specified set of IP addresses. The NSG rule to allow LDAPS access over the internet from specified IP addresses has a higher priority than the DenyAll NSG rule.
 
-![Sample NSG to secure LDAPS access over the internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![Sample NSG to secure LDAPS access over the internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 **More information** - [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
@@ -123,7 +123,7 @@ You can connect a Resource Manager-based virtual network to the Azure classic vi
     ![Virtual network connectivity using peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [More information - virtual network peering](../virtual-network/virtual-network-peering-overview.md)
-    
+
 * **VNet-to-VNet connections using site-to-site VPN connections**: Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE.
 
     ![Virtual network connectivity using VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)

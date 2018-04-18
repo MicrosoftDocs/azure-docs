@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: rest-api
 ms.topic: hero-article
-ms.date: 09/26/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 
 ---

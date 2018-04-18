@@ -60,4 +60,4 @@ The simplest way to access a testing console is from the **Credentials** window.
 
 ## Next steps
 
-* Learn how to [define moderation workflows](try-review-api-workflow.md).
+Use the REST API in your code or start with the [Reviews .NET quickstart](moderation-reviews-quickstart-dotnet.md) to integrate with your application.

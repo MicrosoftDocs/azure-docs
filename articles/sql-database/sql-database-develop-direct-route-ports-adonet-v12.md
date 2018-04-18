@@ -32,7 +32,7 @@ For connections to Azure SQL Database, we must first ask whether your client pro
 Port 1433 is the only port that must be open on your desktop computer that hosts your SQL Database client application.
 
 #### *Inside:* Client runs on Azure
-When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no middleware proxy.
+When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no Azure SQL Database Gateway.
 
 The sequence is as follows:
 

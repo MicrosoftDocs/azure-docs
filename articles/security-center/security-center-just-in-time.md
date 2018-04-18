@@ -1,6 +1,6 @@
 ﻿---
 title: Just in time virtual machine access in Azure Security Center | Microsoft Docs
-description: This document walks you through how just in time VM access in Azure Security Center helps you control access to your Azure virtual machines.
+description: This document demonstrates how just in time VM access in Azure Security Center helps you control access to your Azure virtual machines.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 01/26/2018
 ms.author: terrylan
 
 ---
@@ -47,11 +47,13 @@ When a user requests access to a VM, Security Center checks that the user has [R
 
 ## Using just in time access
 
-The **Just in time VM access** tile under **Security Center** shows the number of VMs configured for just in time access and the number of approved access requests made in the last week.
+1. Open the **Security Center** dashboard.
+
+2. In the left pane, select **Just in time VM access**.
 
 ![Just in time VM access tile][2]
 
-Select the **Just in time VM access** tile and **Just in time VM access** opens.
+The **Just in time VM access** window opens.
 
 ![Just in time VM access tile][10]
 

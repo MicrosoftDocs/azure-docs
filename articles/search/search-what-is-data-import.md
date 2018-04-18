@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: ashmaka
 
 ---
-# Data import in Azure Search
+# Indexing in Azure Search
 > [!div class="op_single_selector"]
 > * [Overview](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)

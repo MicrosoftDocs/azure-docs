@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -49,12 +49,26 @@ The manifest file has been pre-created with a login server name of `microsoft`. 
 vi azure-vote-all-in-one-redis.yaml
 ```
 
+Alternatively, if you are working in Windows, you can use Visual Studio Code.
+
+```console
+code azure-vote-all-in-one-redis.yaml
+```
+
 Replace `microsoft` with the ACR login server name. This value is found on line **47** of the manifest file.
 
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:redis-v1
+  image: microsoft/azure-vote-front:v1
+```
+
+The above code then becomes.
+
+```yaml
+containers:
+- name: azure-vote-front
+  image: <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Save and close the file.
@@ -101,6 +115,10 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 To see the application, browse to the external IP address.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
+
+If the application did not load, it might be due to an authorization problem with your image registry.
+
+Please follow these steps to [allow access via a Kubernetes secret](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
 
 ## Next steps
 

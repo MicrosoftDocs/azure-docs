@@ -21,7 +21,7 @@ ms.author: mandia; ladocs
 # Get started with the OneDrive for Business connector
 Connect to OneDrive for Business to manage your files. You can perform various actions such as upload, update, get, and delete on files.
 
-You can get started by creating a logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+You can get started by creating a logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to OneDrive for Business
 To create Logic apps with OneDrive for Business, you must first create a **connection** then provide the details for the following properties:

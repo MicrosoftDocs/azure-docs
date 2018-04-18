@@ -1,8 +1,11 @@
+# [Azure Resource Manager Documentation](index.md)
+
 # Overview
 ## [What is Resource Manager?](resource-group-overview.md)
 ## [Resource providers and types](resource-manager-supported-services.md)
 ## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
 ## [Subscription governance](resource-manager-subscription-governance.md)
+## [Organize resources with management groups](management-groups-overview.md)
 
 # Get started
 ## [Create and deploy template](resource-manager-create-first-template.md)
@@ -16,12 +19,10 @@
 #### [Variables](resource-manager-templates-variables.md)
 #### [Resources](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
-### [Link to other templates](resource-group-linked-templates.md)
+### [Linked and nested templates](resource-group-linked-templates.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Create multiple instances](resource-group-create-multiple.md)
 ### [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
-
 
 ## Deploy
 ### Azure PowerShell
@@ -44,12 +45,11 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
 ### [Azure portal](resource-group-portal.md)
-### [REST API](resource-manager-rest-api.md)
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
-### [Organize subscriptions with management groups](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Create management groups](management-groups-create.md)
+### [Manage your management groups](management-groups-manage.md)
 ### [Governance examples](resource-manager-subscription-examples.md)
-### [Managed applications](../managed-applications/overview.md)
 
 ## Control Access
 ### Create service principal

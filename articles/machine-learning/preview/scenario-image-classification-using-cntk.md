@@ -6,7 +6,7 @@ documentationcenter: ''
 author: PatrickBue
 ms.author: pabuehle
 manager: mwinkle
-ms.reviewer: mawah, marhamil, mldocs, garyericson, jasonwhowell
+ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
@@ -56,6 +56,7 @@ The prerequisites to run this example are as follows:
     - `pip install -U numpy`
     - `pip install bqplot`
     - `jupyter nbextension enable --py --sys-prefix bqplot`
+    - `jupyter nbextension enable --py widgetsnbextension`
 
 ### Troubleshooting / Known bugs
 - A GPU is needed for part 2, and otherwise the error "Batch normalization training on CPU is not yet implemented" is thrown when trying to refine the DNN.
@@ -190,7 +191,7 @@ Finally, the notebook `showResults.py` is provided to scroll through the test im
 ### Step 6: Deployment
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-The trained system can now be published as a REST API. Deployment is explained in the notebook `deploy.ipynb`, and based on functionality within the Azure Machine Learning Workbench (remember to set as kernel the local project kernel with name "PROJECTNAME local"). See also the excellent deployment section of the [IRIS tutorial](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) for more deployment related information.
+The trained system can now be published as a REST API. Deployment is explained in the notebook `deploy.ipynb`, and based on functionality within the Azure Machine Learning Workbench (remember to set as kernel the local project kernel with name "PROJECTNAME local"). See also the excellent deployment section of the [IRIS tutorial](tutorial-classifying-iris-part-3.md) for more deployment related information.
 
 Once deployed, the web service can be called using the script `6_callWebservice.py`. Note that the IP address (either local or on the cloud) of the web service needs to be set first in the script. The notebook `deploy.ipynb` explains how to find this IP address.
 
@@ -225,7 +226,7 @@ As can be seen in the plot below, the accuracy using DNN refinement on the provi
 
 ### Run history tracking
 
-The Azure Machine Learning Workbench stores the history of each run on Azure to allow comparison of two or more runs that are even weeks apart. This is explained in detail in the [Iris tutorial](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2). It is also illustrated in the following screenshots where we compare two runs of the script `5_evaluate.py`, using either DNN refinement that is, `classifier = "dnn"`(run number 148) or SVM training that is, `classifier = "svm"` (run number 150).
+The Azure Machine Learning Workbench stores the history of each run on Azure to allow comparison of two or more runs that are even weeks apart. This is explained in detail in the [Iris tutorial](tutorial-classifying-iris-part-2.md). It is also illustrated in the following screenshots where we compare two runs of the script `5_evaluate.py`, using either DNN refinement that is, `classifier = "dnn"`(run number 148) or SVM training that is, `classifier = "svm"` (run number 150).
 
 In the first screenshot, the DNN refinement leads to better accuracies than SVM training for all classes. The second screenshot shows all metrics that are being tracked, including what the classifier was. This tracking is done in the script `5_evaluate.py` by calling the Azure Machine Learning Workbench logger. In addition, the script also saves the ROC curve and confusion matrix to the *outputs* folder. This *outputs* folder is special in that its content is also tracked by the Workbench history feature and hence the output files can be accessed at any time, regardless of whether local copies have been overwritten.
 

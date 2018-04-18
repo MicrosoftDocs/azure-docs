@@ -4,8 +4,8 @@ description: Azure Machine Learning Model Data Collection API reference.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc

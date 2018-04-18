@@ -131,6 +131,8 @@
     href: cli-samples.md
   - name: PowerShell
     href: powershell-samples.md
+  - name: Azure Resource Manager templates
+    href: https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1
 - name: Concepts
   items:
   - name: Serverless database
@@ -227,6 +229,8 @@
         items:
         - name: .NET samples
           href: sql-api-dotnet-samples.md
+        - name: Java samples
+          href: sql-api-java-samples.md
         - name: Node.js samples
           href: sql-api-nodejs-samples.md
         - name: Python samples
@@ -235,8 +239,6 @@
         items:
         - name: SQL grammar cheat sheet
           href: sql-api-sql-query-cheat-sheet.md
-        - name: Stack Overflow
-          href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
         - name: Videos
           href: https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
         - name: Service updates
@@ -250,12 +252,14 @@
       items:
       - name: Connect to your MongoDB account
         href: connect-mongodb-account.md
-      - name: Using MongoChef
+      - name: Using Studio 3T
         href: mongodb-mongochef.md
       - name: Using Robomongo
         href: mongodb-robomongo.md
       - name: Using Mongoose
         href: mongodb-mongoose.md
+      - name: Using Read Preference
+        href: mongodb-readpreference.md
       - name: MongoDB feature support
         href: mongodb-feature-support.md
       - name: Angular tutorial series
@@ -342,8 +346,10 @@
       href: logging.md
     - name: Manage keys and consistency
       href: manage-account.md
+    - name: Access control
+      href: access-control.md
     - name: Azure Storage Explorer
-      href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+      href: storage-explorer.md
     - name: Security
       items:
       - name: Encryption at rest
@@ -354,18 +360,21 @@
         href: secure-access-to-data.md
   - name: Integrate
     items:
+    - name: Implement a lambda architecture with HDInsight
+      href: lambda-architecture.md
     - name: Connect to Spark
       href: spark-connector.md
     - name: Connect to Spark GraphX
-      href: spark-connector-graph.md      
+      href: spark-connector-graph.md
+    - name: Streaming with Kafka and Spark on HDInsight
+      href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+      maintainContext: true
     - name: Deploy a website with Azure App Service
       href: create-website.md
     - name: Application logging with Logic Apps
       href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
     - name: Bind to Azure Functions
       href: ../azure-functions/functions-bindings-documentdb.md
-    - name: Analyze data with Hadoop
-      href: run-hadoop-with-hdinsight.md
     - name: Integrate with Azure Search
       href: ../search/search-howto-index-documentdb.md
     - name: Move data with Azure Data Factory
@@ -388,6 +397,8 @@
     href: https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db
   - name: SQL APIs
     items:
+    - name: Async Java
+      href: sql-api-sdk-async-java.md
     - name: Java
       href: sql-api-sdk-java.md
     - name: .NET
@@ -430,7 +441,5 @@
     href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: FAQ
     href: faq.md
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
   - name: Data consistency explained through baseball
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913

@@ -1,5 +1,6 @@
 ---
 title: Real-time video analysis with the Face API | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Use the Face API in Cognitive Services to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
 author: v-royhar
@@ -8,7 +9,7 @@ manager: yutkuo
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 03/01/2018
 ms.author: anroth
 ---
 
@@ -139,7 +140,7 @@ namespace VideoFrameConsoleApplication
 			FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
 			
 			// Create Face API Client. Insert your Face API key here.
-			FaceServiceClient faceClient = new FaceServiceClient("<subscription key>");
+			FaceServiceClient faceClient = new FaceServiceClient("<Subscription Key>");
 
 			// Set up our Face API call.
 			grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));

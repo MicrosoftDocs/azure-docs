@@ -108,7 +108,7 @@ double-click one of the run instances.
 
 ## Next steps
 
-* [Create your first logic app](logic-apps-create-a-logic-app.md)
+* [Create your first logic app](quickstart-create-first-logic-app-workflow.md)
 * [Design, build, and deploy logic apps in Visual Studio](logic-apps-deploy-from-vs.md)
 * [View common examples and scenarios](logic-apps-examples-and-scenarios.md)
 * [Video: Automate business processes with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)

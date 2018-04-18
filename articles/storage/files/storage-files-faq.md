@@ -70,7 +70,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="redundancy-options"></a>
 **What storage redundancy options are supported by Azure Files?**  
-    Currently, Azure Files supports only locally redundant storage (LRS) and geo-redundant storage (GRS). We plan to support zone-redundant storage (ZRS) and read-access geo-redundant (RA-GRS) storage in the future, but we don't have timelines to share at this time.
+    Currently, Azure Files supports locally redundant storage (LRS), zone redundant storage (ZRS), and geo-redundant storage (GRS). We plan to support read-access geo-redundant (RA-GRS) storage in the future, but we don't have timelines to share at this time.
 
 * <a id="tier-options"></a>
 **What storage tiers are supported in Azure Files?**  
@@ -87,7 +87,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-region-availability"></a>
 **What regions are supported for Azure File Sync (preview)?**  
-    Currently, Azure File Sync is available in East US, West US, West Europe, Australia East, and Southeast Asia. Support for more regions will be added as we work toward general availability. For more information, see [Region availability](storage-sync-files-planning.md#region-availability).
+    Currently, Azure File Sync is available in Australia East, Canada Central, East US, Southeast Asia, UK South, West Europe and West US. Support for more regions will be added as we work toward general availability. For more information, see [Region availability](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **Can I have domain-joined and non-domain-joined servers in the same sync group?**  

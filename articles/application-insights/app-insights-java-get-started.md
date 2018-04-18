@@ -67,12 +67,12 @@ Then, refresh the project dependencies to get the binaries downloaded.
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[1.0,)</version>
+        <version>[2.0,)</version>
       </dependency>
     </dependencies>
 ```
 
-* *Build or checksum validation errors?* Try using a specific version, such as: `<version>1.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Build or checksum validation errors?* Try using a specific version, such as: `<version>2.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Need to update to a new SDK?* Refresh your project's dependencies.
 
 #### If you're using Gradle...
@@ -87,19 +87,19 @@ Then refresh the project dependencies to get the binaries downloaded.
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '2.+'
       // or applicationinsights-core for bare API
     }
 ```
 
-* *Build or checksum validation errors? Try using a specific version, such as:* `version:'1.0.n'`. *You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Build or checksum validation errors? Try using a specific version, such as:* `version:'2.0.n'`. *You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *To update to a new SDK*
   * Refresh your project's dependencies.
 
 #### Otherwise ...
 Manually add the SDK:
 
-1. Download the [Application Insights SDK for Java](https://aka.ms/aijavasdk).
+1. Download the [Application Insights SDK for Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
 2. Extract the binaries from the zip file and add them to your project.
 
 ### Questions...
@@ -109,7 +109,7 @@ Manually add the SDK:
   * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this component if you don't want this telemetry automatically collected. For example, if you want to write your own.
 * *To update the SDK when we publish changes*
 
-  * Download the latest [Application Insights SDK for Java](https://aka.ms/qqkaq6) and replace the old ones.
+  * Download the latest [Application Insights SDK for Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and replace the old ones.
   * Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## 3. Add an Application Insights .xml file

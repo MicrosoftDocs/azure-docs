@@ -36,8 +36,11 @@ You can use SQL database auditing to:
 
 You can configure auditing for different types of event categories, as explained in the [Set up auditing for your database](#subheading-2) section.
 
-Audit logs are written to Azure Blob storage on your Azure subscription.
-
+> [!IMPORTANT]
+> Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
+>
+> * **Premium Storage** is currently **not supported** by Append Blobs.
+> * **Storage in VNet** is currently **not supported**.
 
 ## <a id="subheading-8"></a>Define server-level vs. database-level auditing policy
 
@@ -79,7 +82,7 @@ The following section describes the configuration of auditing using the Azure po
 
     <a id="storage-screenshot"></a>
     ![Navigation pane][4]
-6. If you want to customize the audited events, you can do this via PowerShell or the REST API. 
+6. If you want to customize the audited events, you can do this via PowerShell or the REST API.
 7. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
 8. Click **Save**.
 
@@ -175,8 +178,6 @@ In production, you are likely to refresh your storage keys periodically. When re
 
    * [Get-AzureRMSqlDatabaseAuditing][101]
    * [Get-AzureRMSqlServerAuditing][102]
-   * [Remove-AzureRMSqlDatabaseAuditing][103]
-   * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditing][105]
    * [Set-AzureRMSqlServerAuditing][106]
 

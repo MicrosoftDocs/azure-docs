@@ -20,7 +20,7 @@ ms.author: LADocs; jehollan
 
 # Monitor status, set up diagnostics logging, and turn on alerts for Azure Logic Apps
 
-After you [create and run a logic app](../logic-apps/logic-apps-create-a-logic-app.md), 
+After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), 
 you can check its runs history, trigger history, status, and performance. 
 For real-time event monitoring and richer debugging, 
 set up [diagnostics logging](#azure-diagnostics) for your logic app. 
@@ -39,8 +39,8 @@ by using [Azure Diagnostics event settings and properties](#diagnostic-event-pro
 ## View runs and trigger history for your logic app
 
 1. To find your logic app in the [Azure portal](https://portal.azure.com), 
-on the main Azure menu, choose **More services**. In the search box, 
-find "logic apps", and choose **Logic apps**.
+on the main Azure menu, choose **All services**. In the search box, 
+type "logic apps", and choose **Logic apps**.
 
    ![Find your logic app](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
@@ -147,7 +147,7 @@ To find and view events in your logic app,
 like trigger events, run events, and action events, 
 follow these steps.
 
-1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
+1. In the [Azure portal](https://portal.azure.com), choose **All Services**. 
 Search for "log analytics", then choose **Log Analytics** as shown here:
 
    ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
@@ -172,7 +172,7 @@ Search for "log analytics", then choose **Log Analytics** as shown here:
 When you start typing, OMS shows you possible matches and operations that you can use. 
 
    For example, to find the top 10 events that happened, 
-   enter and select this search query: **Category=WorkflowRuntime |top 10**
+   enter and select this search query: **search Category == "WorkflowRuntime" | limit 10**
 
    ![Enter search string](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

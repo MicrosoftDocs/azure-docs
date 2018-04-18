@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 ---
 # Tutorial: Copy data from an on-premises SQL Server database to Azure Blob storage
@@ -198,6 +198,9 @@ In this section, you create a self-hosted integration runtime and associate it w
 
 2. Create a self-hosted integration runtime. 
 
+    ```powershell
+	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    ```	
     Here is the sample output:
 
     ```json
@@ -206,7 +209,7 @@ In this section, you create a self-hosted integration runtime and associate it w
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : onpremdf0914
     Name              : myonpremirsp0914
-    Description       :
+    Description       : selfhosted IR description
     ```
 
 3. To retrieve the status of the created integration runtime, run the following command:

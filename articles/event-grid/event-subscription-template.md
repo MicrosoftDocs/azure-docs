@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/30/2018
 ms.author: tomfitz
 ---
 
@@ -21,14 +21,14 @@ When subscribing to resource group events, use `Microsoft.EventGrid/eventSubscri
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01-preview/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "resources": [
         {
             "type": "Microsoft.EventGrid/eventSubscriptions",
             "name": "mySubscription",
-            "apiVersion": "2017-09-15-preview",
+            "apiVersion": "2018-01-01",
             "properties": {
                 "destination": {
                     "endpointType": "WebHook",
@@ -58,7 +58,7 @@ The following example shows how to subscribe to Blob storage events.
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01-preview/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageName": {
@@ -69,7 +69,7 @@ The following example shows how to subscribe to Blob storage events.
         {
             "type": "Microsoft.Storage/storageAccounts/providers/eventSubscriptions",
             "name": "[concat(parameters('storageName'), '/Microsoft.EventGrid/myStorageSubscription')]",
-            "apiVersion": "2017-09-15-preview",
+            "apiVersion": "2018-01-01",
             "properties": {
                 "destination": {
                     "endpointType": "WebHook",

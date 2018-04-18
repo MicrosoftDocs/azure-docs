@@ -15,6 +15,15 @@ metadata:
   ms.author: nitinme
 abstract:
   description: Learn how to use Azure Databricks using the quickstart and other links provided here. Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Designed with the founders of Apache Spark, Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250  
+    title: Introduction to Azure Databricks (3:38)
+    href: https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/
+    width: 250 
 sections:
 - title: 5-Minute Quickstarts
   items:

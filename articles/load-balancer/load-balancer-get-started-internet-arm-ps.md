@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Internet-facing load balancer - PowerShell | Microsoft Docs
-description: Learn how to create an Internet-facing load balancer in Resource Manager by using PowerShell
+title: Create a public load balancer - PowerShell | Microsoft Docs
+description: Learn how to create a public load balancer in Resource Manager by using PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: kumud
 ---
 
-# <a name="get-started"></a>Creating an Internet-facing load balancer in Resource Manager by using PowerShell
+# <a name="get-started"></a>Creating a public load balancer in Resource Manager by using PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -33,7 +33,7 @@ ms.author: kumud
 
 ## Deploying the solution by using Azure PowerShell
 
-The following procedures explain how to create an Internet-facing load balancer by using Azure Resource Manager with PowerShell. With Azure Resource Manager, each resource is created and configured individually, and then put together to create a load balancer.
+The following procedures explain how to create a public load balancer by using Azure Resource Manager with PowerShell. With Azure Resource Manager, each resource is created and configured individually, and then put together to create a load balancer.
 
 You must create and configure the following objects to deploy a load balancer:
 

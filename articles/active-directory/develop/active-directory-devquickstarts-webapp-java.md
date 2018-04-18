@@ -41,7 +41,7 @@ To set up the app to authenticate users, first register it in your tenant by doi
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top bar, click your account name. Under the **Directory** list, select the Active Directory tenant where you want to register the app.
-3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
+3. Click **All services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Follow the prompts to create a **Web Application and/or WebAPI**.
   * **Name** describes the app to users.

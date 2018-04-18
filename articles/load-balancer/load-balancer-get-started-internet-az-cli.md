@@ -38,7 +38,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Before selecting a zone or zone-redundant option for the frontend Public IP Address for the Load Balancer, you must first complete the steps in [register for the availability zones preview](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Make sure that you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)and are logged in to an Azure account with [az login](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#login).
+Make sure that you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)and are logged in to an Azure account with [az login](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#az_login).
 
 ## Create a resource group
 

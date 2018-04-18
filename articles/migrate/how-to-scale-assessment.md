@@ -26,22 +26,24 @@ Plan your discoveries and assessments based on the following limits:
 | **Entity** | **Machine limit** |
 | ---------- | ----------------- |
 | Project    | 1,500              | 
-| Discovery  | 1,000              |
-| Assessment | 400               |
+| Discovery  | 1,500              |
+| Assessment | 1,500               |
 
+<!-- 
 - If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
 - If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
 - If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
-    - If you have 5,000 machines, you can set up four projects: two with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## Plan multiple discoveries
 
 You can use the same Azure Migrate collector to do multiple discoveries to one or more projects. Keep these planning considerations in mind:
  
 - When you do a discovery by using the Azure Migrate collector, you can set the discovery scope to a vCenter Server folder, datacenter, cluster, or host.
-- To do more than one discovery, verify in vCenter Server that the VMs you want to discover are in folders, datacenters, clusters, or hosts that support the limitation of 1,000 machines.
+- To do more than one discovery, verify in vCenter Server that the VMs you want to discover are in folders, datacenters, clusters, or hosts that support the limitation of 1,500 machines.
 - We recommend that for assessment purposes, you keep machines with interdependencies within the same project and assessment. In vCenter Server, make sure that dependent machines are in the same folder, datacenter, or cluster for the assessment.
 
 
@@ -79,14 +81,38 @@ Check that the OVA file is secure before you deploy it:
 
    Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Make sure that the generated hash matches the following settings.
+
+	For OVA version 1.0.9.5
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
+
+    For OVA version 1.0.9.2
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | 7326020e3b83f225b794920b7cb421fc
+    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
+    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
+
+    For OVA version 1.0.8.59
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | 71139e24a532ca67669260b3062c3dad
+    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
+    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
  
     For OVA version 1.0.8.49
 
     **Algorithm** | **Hash value**
     --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
+    MD5 | cefd96394198b92870d650c975dbf3b8
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
     For the OVA version 1.0.8.40:
 

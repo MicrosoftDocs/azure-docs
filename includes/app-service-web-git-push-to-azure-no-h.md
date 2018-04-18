@@ -1,4 +1,16 @@
-In the local terminal window, add an Azure remote to your local Git repository. This Azure remote was created for you in [Create a web app](#create-a-web-app).
+---
+title: "include file"
+description: "include file"
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: "include"
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: "include file"
+---
+
+Back in the _local terminal window_, add an Azure remote to your local Git repository. Replace _&lt;paste\_copied\_url\_here>_ with the URL of the Git remote that you saved from [Create a web app](#create).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>

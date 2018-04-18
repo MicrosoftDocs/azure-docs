@@ -12,7 +12,7 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 10/16/2017
 ms.author: sethm
 

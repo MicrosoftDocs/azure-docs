@@ -67,7 +67,7 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
 After running this script, you'll see records in Log Analytics within 10 minutes of new JobLogs or JobStreams being written.
 
 To see the logs, run the following query in Log Analytics log search:
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION""`
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### Verify configuration
 To confirm that your Automation account is sending logs to your Log Analytics workspace, check that diagnostics are correctly configured on the Automation account by using the following PowerShell:

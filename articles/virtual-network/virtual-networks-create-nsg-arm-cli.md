@@ -33,9 +33,9 @@ The following sample Azure CLI commands expect an existing simple environment ba
 
 To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow the steps following.
 
-1. If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). 
+1. If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#az_login). 
 
-2. Create an NSG using the [az network nsg create](/cli/azure/network/nsg#create) command. 
+2. Create an NSG using the [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) command. 
 
     ```azurecli
     az network nsg create \
@@ -73,7 +73,7 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
 
 
 
-3. Create a rule that allows access to port 3389 (RDP) from the Internet with the [az network nsg rule create](/cli/azure/network/nsg/rule#create) command.
+3. Create a rule that allows access to port 3389 (RDP) from the Internet with the [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) command.
 
     > [!NOTE]
     > Depending on the shell you are using, you might need to modify the `*` character in the arguments following so as not to expand the argument before execution.
@@ -168,7 +168,7 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
     }
     ```
 
-5. Bind the NSG to the **FrontEnd** subnet with the [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) command.
+5. Bind the NSG to the **FrontEnd** subnet with the [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) command.
         
     ```azurecli
     az network vnet subnet update \

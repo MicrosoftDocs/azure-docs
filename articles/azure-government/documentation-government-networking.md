@@ -98,6 +98,9 @@ Virtual Network is generally available in Azure Government. For more information
 ## Support for Load Balancer
 Load Balancer is generally available in Azure Government. For more information, see the [Load Balancer public documentation](../load-balancer/load-balancer-overview.md). 
 
+## Support for DNS
+DNS is generally available in Azure Government. For more information, see the [DNS public documentation](../dns/dns-overview.md). 
+
 ## Support for Traffic Manager
 Traffic Manager is generally available in Azure Government. For more information, see the [Traffic Manager public documentation](../traffic-manager/traffic-manager-overview.md). 
 
@@ -111,7 +114,7 @@ VPN Gateway is generally available in Azure Government. For more information, se
 Application Gateway is generally available in Azure Government. For more information, see the [Application Gateway public documentation](../application-gateway/application-gateway-introduction.md). 
 
 ## Support for Network Watcher
-Network Watcher is available through Preview in Azure Government. For more information, see the [Network Watcher public documentation](../network-watcher/index.md). 
+Network Watcher is generally available in Azure Government. For more information, see the [Network Watcher public documentation](../network-watcher/index.md). 
 
 ## Support for Service Bus
 Service Bus is generally available in Azure Government. For more information, see the [Service Bus public documentation](../service-bus/index.md).

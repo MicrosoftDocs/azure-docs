@@ -61,7 +61,7 @@ Azure Files has several built-in options for ensuring data security:
     * Clients which do not support SMB 3.0, can communicate intra-datacenter over SMB 2.1 or SMB 3.0 without encryption. Note that clients are not allowed to communicate inter-datacenter over SMB 2.1 or SMB 3.0 without encryption.
     * Clients can communicate over File REST with either HTTP or HTTPS.
 * Encryption at-rest ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): We are in the process of enabling Storage Service Encryption (SSE) on the underlying Azure Storage platform. This means that encryption will be enabled by default for all storage accounts. If you are creating a new storage account in a region with encryption at-rest on default, you don't have to do anything to enable. Data at-rest is encrypted with fully-managed keys. Encryption at-rest does not increase storage costs or reduce performance. 
-* Optional requirement of encrypted data in-transit: when selected, Azure Files will not allow access to the data over unencrypted channels. Specifically, only HTTPS and SMB 3.0 with encryption connections will be allowed. 
+* Optional requirement of encrypted data in-transit: when selected, Azure Files rejects access the data over unencrypted channels. Specifically, only HTTPS and SMB 3.0 with encryption connections are allowed. 
 
     > [!Important]  
     > Requiring secure transfer of data will cause older SMB clients not capable of communicating with SMB 3.0 with encryption to fail. See [Mount on Windows](storage-how-to-use-files-windows.md), [Mount on Linux](storage-how-to-use-files-linux.md), [Mount on macOS](storage-how-to-use-files-mac.md) for more information.
@@ -71,10 +71,13 @@ For maximum security, we strongly recommend always enabling both encryption at-r
 If you are using Azure File Sync to access your Azure File share, we will always use HTTPS and SMB 3.0 with encryption to sync your data to your Windows Servers, regardless of whether you require encryption of data at-rest.
 
 ## Data redundancy
-Azure Files supports two data redundancy options: locally redundant storage (LRS) and geo-redundant storage (GRS). The following sections describe the differences between locally redundant storage and geo-redundant storage:
+Azure Files supports three data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), and geo-redundant storage (GRS). The following sections describe the differences between the different redundancy options:
 
 ### Locally redundant storage
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+
+### Zone redundant storage
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### Geo-redundant storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]

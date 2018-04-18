@@ -89,6 +89,10 @@ The output includes the core properties of your container, along with deployment
 
 There are a few common issues that account for most errors in deployment.
 
+## Image version not supported
+
+If an image is specified that Azure Container Instances cannot support, an error will be returned of form `ImageVersionNotSupported`. The value of the error will show `The version of image '{0}' is not supported.`. This error currently applies to Windows 1709 images, to mitigate use an LTS Windows image. Support for Windows 1709 images is underway.
+
 ## Unable to pull image
 
 If Azure Container Instances is unable to pull your image initially, it retries for some period before eventually failing. If the image cannot be pulled, events like the following are shown in the output of [az container show][az-container-show]:

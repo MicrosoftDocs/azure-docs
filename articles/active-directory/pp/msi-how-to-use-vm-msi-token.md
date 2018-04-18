@@ -3,7 +3,7 @@ title: How to use a user-assigned Managed Service Identity to acquire an access 
 description: Step by step instructions and examples for using a user-assigned MSI from an Azure VM to acquire an OAuth access token.
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 

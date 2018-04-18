@@ -9,7 +9,7 @@ editor: tysonn
 
 ms.assetid: 45145189-e67f-4ca6-b15d-43af7bfd3f97
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article

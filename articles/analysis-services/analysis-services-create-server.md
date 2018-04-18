@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
 
 ---
@@ -47,7 +47,7 @@ To complete this quickstart, you need:
    * **Pricing tier**: Select a pricing tier. Tabular models up to 400 GB are supported. To learn more, see [Azure Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
 4. Click **Create**.
 
-Create usually takes under a minute; often just a few seconds. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **More services** > **Analysis Services** to see if your server is ready.
+Create usually takes under a minute; often just a few seconds. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **All services** > **Analysis Services** to see if your server is ready.
 
  ![Dashboard](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 

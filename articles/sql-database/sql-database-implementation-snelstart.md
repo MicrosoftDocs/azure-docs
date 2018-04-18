@@ -101,7 +101,6 @@ The immediate goal for SnelStart is to keep growing its satisfied customer base.
 
 ## More information
 * To learn more about Azure elastic pools, see [elastic pools](sql-database-elastic-pool.md).
-* To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).    
 * To learn more about Azure SQL Data Warehouse,see [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * To learn more about SnelStart, see [SnelStart](http://www.snelstart.nl).
 

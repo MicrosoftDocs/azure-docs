@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: "On Demand"
-ms.date: 08/25/2017
+ms.date: 01/12/2018
 ms.author: genemi
 ---
 # Design an Azure SQL database and connect with C&#x23; and ADO.NET

@@ -2,17 +2,11 @@
 title: Introduction to Azure Blob storage | Microsoft Docs
 description:  Introduction to Azure Blob storage 
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 09/28/2017
 ms.author: tamram
 
@@ -40,7 +34,7 @@ a **General-purpose storage account (v1 or v2)** or **Blob storage accounts**. S
 
 * **Container:** A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs. Note that the container name must be lowercase.
 
-* **Blob:** A file of any type and size. Azure Storage offers three types of blobs: block blobs, page blobs, and append blobs.
+* **Blob:** A file of any type and size. Azure Storage offers three types of blobs: block blobs, [page blobs](storage-blob-pageblob-overview.md), and append blobs.
   
     *Block blobs* are ideal for storing text or binary files, such as documents and media files. *Append blobs* are similar to block blobs in that they are made up of blocks, but they are optimized for append operations, so they are useful for logging scenarios. A single block blob can contain up to 50,000 blocks of up to 100 MB each, for a total size of slightly more than 4.75 TB (100 MB X 50,000). A single append blob can contain up to 50,000 blocks of up to 4 MB each, for a total size of slightly more than 195 GB (4 MB X 50,000).
   

@@ -42,7 +42,7 @@ Navigate to the Azure AD tenant that shows your Azure subscription. Open the [Az
 
 ## Find Azure AD B2C in the Azure Marketplace
 
-Click the **New** button. In the **Search the marketplace** field, enter `B2C`.
+Click the **Create a resource** button. In the **Search the marketplace** field, enter `B2C`.
 
 ![Add button highlighted and the text Azure AD B2C in the search the marketplace field](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 

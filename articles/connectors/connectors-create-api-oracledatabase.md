@@ -131,4 +131,4 @@ You can help improve Logic Apps and connectors by voting and submitting your ide
 
 
 ## Next steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md), and explore the available connectors in Logic Apps at our [APIs list](apis-list.md).
+[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), and explore the available connectors in Logic Apps at our [APIs list](apis-list.md).

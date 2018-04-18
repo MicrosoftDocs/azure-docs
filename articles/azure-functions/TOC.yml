@@ -63,6 +63,8 @@
     href: functions-cli-samples.md
 - name: Concepts
   items:
+  - name: Compare 1.x and 2.x
+    href: functions-versions.md
   - name: Scale and hosting
     href: functions-scale.md
   - name: Triggers and bindings
@@ -131,6 +133,8 @@
        href: functions-run-local.md
      - name: Visual Studio development
        href: functions-develop-vs.md
+     - name: Error handling
+       href: functions-bindings-error-pages.md 
   - name: Deploy
     items:
     - name: Continuous deployment
@@ -146,7 +150,7 @@
     - name: Manage a function app 
       href: functions-how-to-use-azure-function-app-settings.md
     - name: Set the runtime version 
-      href: functions-versions.md
+      href: set-runtime-version.md
   - name: Monitor
     href: functions-monitoring.md
   - name: Integrate
@@ -183,6 +187,8 @@
       href: functions-bindings-storage-blob.md
     - name: Azure Cosmos DB
       href: functions-bindings-cosmosdb.md
+    - name: Event Grid
+      href: functions-bindings-event-grid.md
     - name: Event Hubs
       href: functions-bindings-event-hubs.md
     - name: External file
@@ -208,9 +214,9 @@
     - name: Timer
       href: functions-bindings-timer.md
     - name: Twilio
-      href: functions-bindings-twilio.md
+      href: functions-bindings-twilio.md    
   - name: host.json reference
-    href: functions-host-json.md     
+    href: functions-host-json.md  
   - name: App settings reference
     href: functions-app-settings.md     
   - name: OpenAPI reference

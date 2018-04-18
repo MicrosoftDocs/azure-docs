@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 02/09/2018
 ms.author: magoedte
 ---
 
 # Managing and maintaining the Log Analytics agent for Windows and Linux
 
-After initial deployment of the Windows or Linux agent for Log Analytics, you may need to reconfigure the agent depending on the situation, or remove it from the computer if has reached the retirement stage in its lifecycle.  You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
+After initial deployment of the Windows or Linux agent for Log Analytics, you may need to reconfigure the agent, or remove it from the computer if has reached the retirement stage in its lifecycle.  You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
 
 ## Adding or removing a workspace 
 
@@ -107,7 +107,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### Linux agent
-Perform the following steps if your Linux computers need to communicate through a proxy server or OMS Gateway to Log Analytics.  The proxy configuration value has the following syntax `[protocol://][user:password@]proxyhost[:port]`.
+Perform the following steps if your Linux computers need to communicate through a proxy server or OMS Gateway to Log Analytics.  The proxy configuration value has the following syntax `[protocol://][user:password@]proxyhost[:port]`.  The *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server.
 
 1. Edit the file `/etc/opt/microsoft/omsagent/proxy.conf` by running the following commands and change the values to your specific settings.
 
@@ -144,12 +144,9 @@ The downloaded file for the agent is a self-contained installation package creat
 3. At the prompt, type `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### Linux agent
-To remove the agent, perform the following steps.
+To remove the agent, run the following command on the Linux computer.  The *--purge* argument completely removes the agent and its configuration.
 
-1. Download the the Linux agent [universal script](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) to the computer.
-2. Run the bundle .sh file w the *--purge* argument on the computer, which completely removes the agent and its configuration.
-
-    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
 ## Configure agent to report to an Operations Manager management group
 

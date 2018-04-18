@@ -4,7 +4,7 @@ description: This topic document describes how to update Azure AD Connect after 
 services: active-directory
 keywords: AD DS account, Active Directory account, password
 documentationcenter: ''
-author: cychua
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc

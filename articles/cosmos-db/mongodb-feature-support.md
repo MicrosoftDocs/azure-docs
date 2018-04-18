@@ -235,8 +235,35 @@ When there's a need to include '$' or '|', it is best to create two (or more) re
 For example, given the following original query: ```find({x:{$regex: /^abc$/})```, it has to be modified as follows:
 ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 The first part will use the index to restrict the search to those documents beginning with ^abc and the second part will match the exact entries. 
-The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^abc|^def/})``` matches the documents whin which field 'x' has value that begins with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^abc|^def/})``` matches the documents in which field 'x' has values that begin with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
+### Update operators
+
+#### Field update operators
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- $unset
+- $min
+- $max
+- $currentDate
+
+#### Array update operators
+- $addToSet
+- $pop
+- $pullAll
+- $pull  (Note: $pull with condition is not supported)
+- $pushAll
+- $push
+- $each
+- $slice
+- $sort
+- $position
+
+#### Bitwise update operator
+- $bit
 
 ### Geospatial operators
 

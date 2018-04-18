@@ -101,7 +101,7 @@ Your custom HTML5 template is based on the Azure AD B2C built-in HTML5 template.
 
 7. For this walkthrough, we remove the reference to layout-page. Add the following code snippet to _unified.cshtml_:
 
-    ```C#
+    ```csharp
     @{
         Layout = null;
     }
@@ -260,7 +260,7 @@ Modify the HomeController `unified` method to accept the campaignId parameter. T
 
 1. Open the *Controllers\HomeController.cs* file, and then change the `unified` method by adding the following code snippet:
 
-    ```C#
+    ```csharp
     public IActionResult unified(string campaignId)
     {
         // If campaign ID is Hawaii, show Hawaii background

@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Azure Blueprint Automation -- Security Assessment and Authorization 
-description: Web Applications for FedRAMP - Security Assessment and Authorization 
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation -- Security Assessment and Authorization 
+description: FedRAMP Web Applications Automation - Security Assessment and Authorization 
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
 
 ---
@@ -202,7 +202,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Azure Application Gateway and network security groups are deployed to restrict external connectivity to resources deployed by this Azure Blueprint. Rulesets applied to network security groups are configured using a deny-by-default scheme. |
+| **Customer** | Azure Application Gateway and network security groups are deployed to restrict external connectivity to resources deployed by this blueprint. Rulesets applied to network security groups are configured using a deny-by-default scheme. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 

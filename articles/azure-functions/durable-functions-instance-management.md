@@ -34,12 +34,12 @@ Here is a simple C# example:
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
-public static Task Run(
+public static async Task Run(
     [ManualTrigger] string input,
     [OrchestrationClient] DurableOrchestrationClient starter,
     TraceWriter log)
 {
-    string instanceId = starter.StartNewAsync("HelloWorld", input);
+    string instanceId = await starter.StartNewAsync("HelloWorld", input);
     log.Info($"Started orchestration with ID = '{instanceId}'.");
 }
 ```

@@ -1,5 +1,5 @@
 ---
-title: Setting up on-premises conditional access using Azure Active Directory device registration | Microsoft Docs
+title: Set up on-premises conditional access in Azure Active Directory | Microsoft Docs
 description: A step-by-step guide to enabling conditional access to on-premises applications by using Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
 services: active-directory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-
+ms.custom: seohack1
 ---
 # Setting up on-premises conditional access by using Azure Active Directory device registration
 When you require users to workplace-join their personal devices to the Azure Active Directory (Azure AD) device registration service, their devices can be marked as known to your organization. Following is a step-by-step guide for enabling conditional access to on-premises applications by using Active Directory Federation Services (AD FS) in Windows Server 2012 R2.

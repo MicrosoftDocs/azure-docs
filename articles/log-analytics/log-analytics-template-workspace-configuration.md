@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.author: richrund
 
 ---
@@ -28,7 +28,6 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/resourc
 * Collect performance counters from Linux and Windows computers
 * Collect events from syslog on Linux computers 
 * Collect events from Windows event logs
-* Collect custom event logs
 * Add the log analytics agent to an Azure virtual machine
 * Configure log analytics to index data collected using Azure diagnostics
 
@@ -57,7 +56,6 @@ The following template sample illustrates how to:
 7. Collect syslog events from Linux computers
 8. Collect Error and Warning events from the Application Event Log from Windows computers
 9. Collect Memory Available Mbytes performance counter from Windows computers
-10. Collect a custom log 
 11. Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account
 
 ```json
@@ -288,61 +286,6 @@ The following template sample illustrates how to:
           "kind": "LinuxPerformanceCollection",
           "properties": {
             "state": "Enabled"
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLog1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLog",
-          "properties": {
-            "customLogName": "sampleCustomLog1",
-            "description": "test custom log datasources",
-            "inputs": [
-              {
-                "location": {
-                  "fileSystemLocations": {
-                    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
-                    "linuxFileTypeLogPaths": [ "/var/logs" ]
-                  }
-                },
-                "recordDelimiter": {
-                  "regexDelimiter": {
-                    "pattern": "\\n",
-                    "matchIndex": 0,
-                    "matchIndexSpecified": true,
-                    "numberedGroup": null
-                  }
-                }
-              }
-            ],
-            "extractions": [
-              {
-                "extractionName": "TimeGenerated",
-                "extractionType": "DateTime",
-                "extractionProperties": {
-                  "dateTimeExtraction": {
-                    "regex": null,
-                    "joinStringRegex": null
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLogCollection1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLogCollection",
-          "properties": {
-            "state": "LinuxLogsEnabled"
           }
         },
         {

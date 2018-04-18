@@ -24,6 +24,7 @@ ms.custom: H1Hack27Feb2017
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -33,6 +34,8 @@ ms.custom: H1Hack27Feb2017
 > 
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+The SQL API Java SDK supports synchronous operations. For asynchronous support, use the [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
 <table>
 
@@ -49,7 +52,7 @@ ms.custom: H1Hack27Feb2017
 <tr><td>**Minimum supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
-## Release Notes
+## Release notes
 
 ### <a name="1.15.0"/>1.15.0
 * Improved Json Serialization performance.
@@ -164,7 +167,7 @@ ms.custom: H1Hack27Feb2017
 ### <a name="1.0.0"/>1.0.0
 * GA SDK
 
-## Release & Retirement Dates
+## Release and retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible.
@@ -216,6 +219,6 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## See Also
+## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
 

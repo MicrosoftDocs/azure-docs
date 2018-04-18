@@ -168,7 +168,7 @@ public static string SayHello([ActivityTrigger] string name)
 
 ## Orchestration client
 
-The orchestration client binding enables you to write functions which interact with orchestrator functions. For example, you can act on orchestration instances in the followng ways:
+The orchestration client binding enables you to write functions which interact with orchestrator functions. For example, you can act on orchestration instances in the following ways:
 * Start them.
 * Query their status.
 * Terminate them.

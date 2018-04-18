@@ -4,8 +4,8 @@ description: This document describes the steps and concepts involved in setting 
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jmartens,jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
@@ -37,16 +37,7 @@ Install Python from https://www.python.org/. Ensure that you have selected to in
 Open a command prompt using Run As Administrator and run the following commands:
 
 ```cmd
-pip install azure-cli
-pip install azure-cli-ml
-```
- 
->[!NOTE]
->If you have an earlier version, uninstall it first using the following command:
->
-
-```cmd
-pip uninstall azure-cli-ml
+pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### Installing (or updating) on Linux
@@ -54,8 +45,7 @@ Run the following command from the command line, and follow the prompts:
 
 ```bash
 sudo -i
-pip install azure-cli
-pip install azure-cli-ml
+pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### Configuring Docker on Linux

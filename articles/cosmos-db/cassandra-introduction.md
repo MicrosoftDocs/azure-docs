@@ -61,7 +61,7 @@ The Cassandra API enables you to interact with data stored in Azure Cosmos DB us
 
 If you already have an Azure subscription, you can sign up to join the Cassandra API (preview) program in the [Azure portal](https://aka.ms/cosmosdb-cassandra-signup).  If you’re new to Azure, sign up for a [free trial](https://azure.microsoft.com/free) where you get 12 months of free access to Azure Cosmos DB. Complete the following steps to request access to the Cassandra API (preview) program.
 
-1. In the [Azure portal](https://portal.azure.com), click **New** > **Databases** > **Azure Cosmos DB**. 
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Databases** > **Azure Cosmos DB**. 
 
 2. In the New Account page, select **Cassandra** in the API box. 
 

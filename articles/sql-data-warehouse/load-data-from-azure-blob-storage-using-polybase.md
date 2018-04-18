@@ -1,5 +1,5 @@
 ---
-title: Polybase data load - Azure Storage Blob to Azure SQL Data Warehouse | Microsoft Docs
+title: 'Tutorial: Polybase data load - Azure Storage Blob to Azure SQL Data Warehouse | Microsoft Docs'
 description: A tutorial that uses the Azure portal and SQL Server Management Studio to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 documentationcenter: ''
@@ -21,7 +21,7 @@ ms.reviewer: barbkess
 
 ---
 
-# Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse
+# Tutorial: Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse
 
 PolyBase is the standard loading technology for getting data into SQL Data Warehouse. In this tutorial, you use PolyBase to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to: 
 
@@ -52,7 +52,7 @@ An Azure SQL data warehouse is created with a defined set of [compute resources]
 
 Follow these steps to create a blank SQL data warehouse. 
 
-1. Click the **New** button in the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **SQL Data Warehouse** under **Featured** on the **New** page.
 
@@ -168,7 +168,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 ## Create a user for loading data
 
-The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data usually requires lots of memory. [Memory maximums](performance-tiers.md#memory-maximums) are defined according to [performance tier](performance-tiers.md), and [resource class](resource-classes-for-workload-management.md). 
+The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. [Memory maximums](performance-tiers.md#memory-maximums) are defined according to [performance tier](performance-tiers.md), and [resource class](resource-classes-for-workload-management.md). 
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
@@ -209,7 +209,7 @@ The first step toward loading data is to login as LoaderRC20.
 
     ![Connect with new login](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. Enter the fully qualified server name, but this time enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
+2. Enter the fully qualified server name, and enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
 
 3. Click **Connect**.
 
@@ -450,6 +450,10 @@ Run the following SQL scripts specify information about the data you wish to loa
 
 This section uses the external tables you just defined to load the sample data from Azure Storage Blob to SQL Data Warehouse.  
 
+> [!NOTE]
+> This tutorial loads the data directly into the final table. In a production environment, you will usually use CREATE TABLE AS SELECT to load into a staging table. While data is in the staging table you can perform any necessary transformations. To append the data in the staging table to a production table, you can use the INSERT...SELECT statement. For more information, see [Inserting data into a production table](guidance-for-loading-data.md#inserting-data-into-a-production-table).
+> 
+
 The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL statement to load the data from Azure Storage Blob into new tables in your data warehouse. CTAS creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement. When the select statement selects from an external table, SQL Data Warehouse imports the data into a relational table in the data warehouse. 
 
 1. Run the following script to load the data into new tables in your data warehouse.
@@ -565,7 +569,7 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
 
 SQL Data Warehouse does not auto-create or auto-update statistics. Therefore, to achieve high query performance, it's important to create statistics on each column of each table after the first load. It's also important to update statistics after substantial changes in the data.
 
-1. Run these commands to create statistics on columns that are likely to be used in joins.
+Run these commands to create statistics on columns that are likely to be used in joins.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);

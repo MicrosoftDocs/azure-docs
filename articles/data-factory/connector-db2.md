@@ -12,7 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/07/2018
+
 ms.author: jingwang
 
 ---
@@ -50,7 +51,8 @@ Specifically, this DB2 connector supports the following IBM DB2 platforms and ve
 To use copy data from a DB2 database that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. To learn about Self-hosted integration runtimes, see [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article. The Integration Runtime provides a built-in DB2 driver, therefore you don't need to manually install any driver when copying data from DB2.
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to DB2 connector.
 
@@ -66,7 +68,7 @@ The following properties are supported for DB2 linked service:
 | schema |Name of the schema in the database. The schema name is case-sensitive. |No |
 | authenticationType |Type of authentication used to connect to the DB2 database.<br/>Allowed value is: **Basic**. |Yes |
 | username |Specify user name to connect to the DB2 database. |Yes |
-| password |Specify password for the user account you specified for the username. Mark this field as SecureString. |Yes |
+| password |Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**

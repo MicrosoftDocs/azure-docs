@@ -79,7 +79,7 @@ The Enterprise Integration Pack (EIP) includes connectors that are well known to
 | --- | --- | --- | --- |
 | [![API Icon][as2icon]<br/>**AS2</br> decoding**][as2decode] | [![API Icon][as2icon]<br/>**AS2</br> encoding**][as2encode] | [![API Icon][x12icon]<br/>**EDIFACT</br> decoding**][EDIFACTdecode] | [![API Icon][x12icon]<br/>**EDIFACT</br> encoding**][EDIFACTencode] |
 [![API Icon][flatfileicon]<br/>**Flat file</br> encoding**][flatfiledoc] | [![API Icon][flatfiledecodeicon]<br/>**Flat file</br> decoding**][flatfiledecodedoc] | [![API Icon][integrationaccounticon]<br/>**Integration<br/>account**][integrationaccountdoc] | [![API Icon][xmltransformicon]<br/>**Transform<br/>XML**][xmltransformdoc] |
-| [![API Icon][x12icon]<br/>**X12</br> decoding**][x12decode] | [![API Icon][x12icon]<br/>**X12</br> encoding**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] | |
+| [![API Icon][x12icon]<br/>**X12</br> decoding**][x12decode] | [![API Icon][x12icon]<br/>**X12</br> encoding**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] | [![API Icon][liquidicon]<br/>**Transform <br/>JSON**][JSONliquidtransformdoc] |
 
 ### Enterprise connectors
 
@@ -140,7 +140,7 @@ To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
 Are we missing a connector topic, or any details you think are important? If yes, then help us by adding to our existing topics, or write your own. Our documentation is open source, and hosted on GitHub. Get started at our [GitHub repository](https://github.com/Microsoft/azure-docs). 
 
 ## Next steps
-* [Create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Create custom APIs for logic apps](../logic-apps/logic-apps-create-api-app.md)
 * [Monitor your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
@@ -186,6 +186,7 @@ Are we missing a connector topic, or any details you think are important? If yes
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode"
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode"
 [integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Look up schemas, maps, partners, and more in your integration account"
+[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Learn about JSON transformations with Liquid"
 
 
 [boxDoc]: ./connectors-create-api-box.md "Connect to Box. Upload, get, delete, list your files, and more"
@@ -325,3 +326,4 @@ Are we missing a connector topic, or any details you think are important? If yes
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
+[liquidicon]: ./media/apis-list/liquidtransform.png

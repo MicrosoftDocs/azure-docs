@@ -61,7 +61,7 @@ To access tables in ASP.NET Core projects, you need to include the following ite
 
     ```cs
     // Get a reference to a table named "peopleTable"
-    CloudTable table = tableClient.GetTableReference("peopleTable");
+    CloudTable peopleTable = tableClient.GetTableReference("peopleTable");
     ```
 
 ## Create a table in code
@@ -70,7 +70,7 @@ To create the Azure table, call ``CreateIfNotExistsAsync()`:
 
 ```cs
 // Create the CloudTable if it does not exist
-await table.CreateIfNotExistsAsync();
+await peopleTable.CreateIfNotExistsAsync();
 ```
 
 ## Add an entity to a table

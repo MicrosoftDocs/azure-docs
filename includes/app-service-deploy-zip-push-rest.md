@@ -7,7 +7,7 @@ The following example uses the cURL tool to send a request that contains the .zi
 Replace the `<deployment_user>` placeholder with the username of your deployment credentials. When prompted by cURL, type in the password. To learn how to set deployment credentials for your app, see [Set and reset user-level credentials](../articles/app-service/app-service-deployment-credentials.md#userscope).   
 
 ```bash
-curl POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
+curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
 This request triggers push deployment from the uploaded .zip file. You can review the current and past deployments by using the https://<app_name>.scm.azurewebsites.net/api/deployments endpoint, as shown in the following cURL example. Again, replace `<app_name>` with the name of your app and `<deployment_user>` with the username of your deployment credentials.

@@ -38,14 +38,17 @@ To create a Bing Custom Search instance:
 3.  Sign in to the portal using a Microsoft account (MSA). If you don’t have an MSA, click **Create a Microsoft account**. If it’s your first time using the portal, it will ask for permissions to access your data. Click **Yes**.
 4.  After signing in, click **New custom search**. In the **Create a new custom search instance** window, enter a name that’s meaningful and describes the type of content the search returns. You can change the name at any time.
  
-    ![Screen shot of the Create a new custom search instance box](./media/custom-search-create-a-new-custom-search-instance.png)
+    ![Screen shot of the Create a new custom search instance box](../media/newCustomSrch.png)
+Click OK, specify a URL and whether to include subpages of the base page:
+
+    ![Screen shot of URL definition page](../media/newCustomSrch1-a.png)
 
 ## Add active entries
 To include results from specific sites or URLs add them to the **Active** tab.
 
 1.	In the **Definition Editor**, click the **Active** tab and enter the URL of one or more sites you want to include in your search.
 
-    ![Screen shot of the Definition Editor active tab](./media/custom-search-definition-editor-active-tab.png)
+    ![Screen shot of the Definition Editor active tab](../media/customSrchEditor.png)
 
 2.	To confirm that your instance returns results, enter a query in the preview pane on the right. Bing returns results only for public sites that it has indexed.
 
@@ -54,7 +57,7 @@ To exclude results from specific sites or URLs, add them to the **Blocked** tab.
 
 1. In the **Definition Editor**, click the **Blocked** tab and enter the URL of one or more sites you want to exclude from your search.
 
-    ![Screen shot of the Definition Editor blocked tab](./media/custom-search-definition-editor-blocked-tab.png)
+    ![Screen shot of the Definition Editor blocked tab](../media/blockedCustomSrch.png)
 
 
 2. To confirm that your instance doesn't return results from the blocked sites, enter a query in the preview pane on the right. 
@@ -64,7 +67,7 @@ To pin a specific webpage to the top of the search results, add the webpage and 
 
 1. In the **Definition Editor**, click the **Pinned** tab and enter the webpage and query term of the webpage that should return as the top result.
 
-    ![Screen shot of the Definition Editor pinned tab](./media/custom-search-definition-editor-pinned-tab.png)
+    ![Screen shot of the Definition Editor pinned tab](../media/pinnedCustomSrch.png)
 
 2. To confirm that your instance returns the specified webpage as the top result, enter the query term you pinned in the preview pane on the right.
 
@@ -143,7 +146,7 @@ The remainder of this tutorial illustrates **Option 1: Javascript snippet**.
 
     ![Screen shot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)
 
-5. Paste the script element below the container you added.
+5. Paste the script element into the container you added.
 
     ``` html
     @page
@@ -152,49 +155,15 @@ The remainder of this tutorial illustrates **Option 1: Javascript snippet**.
         ViewData["Title"] = "Home page";
     }
     <br />
-    <div id="customSearch"></div>
-    <script type="text/javascript">
-        var customConfigId = '<YOUR-CUSTOM-CONFIG-ID>';
-        var javasriptResourceUrl = 'https://ui.customsearch.ai/api/ux/render?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate';
-        var s = document.createElement('script');
-        s.setAttribute('type', 'text/javascript');
-        s.id = 'bcs_js_snippet';
-        s.src = javasriptResourceUrl;
-        var scripts = document.getElementsByTagName("script"),
-        currentScript = scripts[scripts.length-1];
-        currentScript.parentElement.appendChild(s);
-    </script>
+    <div id="customSearch">
+        <script type="text/javascript"
+                id="bcs_js_snippet"
+                src="https://ui.customsearch.ai/api/ux/render?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate">
+        </script>
+    </div>
     ```
 
-6. Replace the last three lines of the script with the following code to make it compatible with the Visual Studio web app template.
-
-    ``` JavaScript
-    var customSearch = document.getElementById("customSearch");
-    customSearch.appendChild(s);
-    ```
-
-    The index.cshtml file should now look like this:
-
-    ``` html
-    @page
-    @model IndexModel
-    @{
-        ViewData["Title"] = "Home page";
-    }
-    <br />
-    <div id="customSearch"></div>
-    <script type="text/javascript">
-        var customConfigId = '<YOUR-CUSTOM-CONFIG-ID>';
-        var javasriptResourceUrl = 'https://ui.customsearch.ai/api/ux/render?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate';
-        var s = document.createElement('script');
-        s.setAttribute('type', 'text/javascript');
-        s.id = 'bcs_js_snippet';
-        s.src = javasriptResourceUrl;
-        var customSearch = document.getElementById("customSearch");
-        customSearch.appendChild(s);
-    </script>
-    ```
-7. In the **Solution Explorer**, right click on **wwwroot** and click **View in Browser**.
+6. In the **Solution Explorer**, right click on **wwwroot** and click **View in Browser**.
 
     ![Screen shot of solution explorer selecting View in Browser from the wwwroot context menu](./media/custom-search-webapp-view-in-browser.png)
 

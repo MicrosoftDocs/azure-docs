@@ -54,7 +54,7 @@ After you create the service, return to the portal to get the URL or `api-key`. 
 ## Download the sample files
 Use either one of the following approaches to download the sample.
 
-1. Go to [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo).
+1. Go to [search-node-indexer-demo](https://github.com/Azure-Samples/search-node-indexer-demo).
 2. Click **Download ZIP**, save the .zip file, and then extract all the files it contains.
 
 All subsequent file modifications and run statements are made against files in this folder.

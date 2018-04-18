@@ -1,4 +1,4 @@
-- name: Jenkins on Azure
+- name: Jenkins on Azure Documentation
   href: index.yml
 - name: Overview
   items: 
@@ -20,7 +20,7 @@
   - name: CI/CD to Linux VMs
     href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
     maintainContext: true
-  - name: Create Azure resouces in a pipeline job
+  - name: Create Azure resources in a pipeline job
     href: /azure/jenkins/execute-cli-jenkins-pipeline
     maintainContext: true
   - name: Scale with Azure VM agents
@@ -40,6 +40,9 @@
       maintainContext: true
     - name: Use Jenkins with VSTS
       href: https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins
+    - name: Deploy Service Fabric apps
+      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+      maintainContext: true
 - name: Samples
   items:
     - name: Sample jobs and scripts
@@ -50,6 +53,8 @@
     items:
     - name: Azure App Service plugin
       href: https://plugins.jenkins.io/azure-app-service
+    - name: Azure AD plugin
+      href: https://plugins.jenkins.io/azure-ad
     - name: Azure Container Agents plugin
       href: https://plugins.jenkins.io/azure-container-agents
     - name: Azure Container Service plugin
@@ -58,10 +63,14 @@
       href: https://plugins.jenkins.io/azure-credentials 
     - name: Azure Function plugin
       href: https://plugins.jenkins.io/azure-function
+    - name: Azure Service Fabric plugin
+      href: https://plugins.jenkins.io/service-fabric
     - name: Azure Storage plugin
       href: https://plugins.jenkins.io/windows-azure-storage
     - name: Azure VM agents plugin
       href: https://plugins.jenkins.io/azure-vm-agents
+    - name: Azure VM scale set plugin
+      href: https://plugins.jenkins.io/azure-vmss
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Jenkins home

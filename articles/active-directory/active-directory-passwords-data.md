@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
 
@@ -28,6 +28,8 @@ To deploy Azure Active Directory (Azure AD) self-service password reset (SSPR), 
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
 
 > [!NOTE]
+> There needs to be a space between the country code and the phone number.
+>
 > Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, extensions are removed before the call is placed.
 
 ## Fields populated
@@ -39,6 +41,11 @@ If you use the default settings in Azure AD Connect, the following mappings are 
 | telephoneNumber | Office phone | Alternate phone |
 | mobile | Mobile phone | Phone |
 
+These fields may appear empty until a user confirms their authentication data.
+
+A Global Administrator can manually set the Authentication contact info for the user as displayed in the following screenshot.
+
+![Contact][Contact]
 
 ## Security questions and answers
 
@@ -102,7 +109,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### Use PowerShell version 2
 
-To get started, you need to [download and install the Azure AD version 2 PowerShell module](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). After you have it installed, you can use the steps that follow to configure each field.
+To get started, you need to [download and install the Azure AD version 2 PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). After you have it installed, you can use the steps that follow to configure each field.
 
 To quickly install from recent versions of PowerShell that support Install-Module, run the following commands. (The first line checks to see if the module is already installed.)
 
@@ -149,3 +156,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Global administrators can modify a user's authentication contact info"

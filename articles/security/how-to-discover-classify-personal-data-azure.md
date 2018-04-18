@@ -1,6 +1,6 @@
 ﻿---
 title: Discover, identify, and classify personal data in Microsoft Azure | Microsoft Docs
-description: Learn about searching, classifying, discovering, and identifying data
+description: Learn about searching, classifying, discovering, and identifying data. These tools and processes may help you comply with General Data Protection Regulation (GDPR)
 services: security
 documentationcenter: na
 author: barclayn
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/05/2018
 ms.author: barclayn
 ms.custom: 
 
 ---
 # Discover, identify, and classify personal data in Microsoft Azure
 
-This article provides guidance on how to discover, identify, and classify personal data in several Azure tools and services, including using Azure Data Catalog, Azure Active Directory, SQL Database, Power Query for Hadoop clusters in Azure HDInsight, Azure Information Protection, Azure Search, and SQL queries for Azure Cosmos DB.
+This article provides guidance on how to discover, identify, and classify personal data in several Azure tools and services, including using Azure Data Catalog, Azure Active Directory, SQL Database, Power Query for Hadoop clusters in Azure HDInsight, Azure Information Protection, Azure Search, and SQL queries for Azure Cosmos DB. These tools and processes can be used to comply with General Data Protection Regulation (GDPR)
 
 ## Scenario, problem statement, and goal
 
@@ -56,22 +56,22 @@ This is particularly helpful if you want to find or change personal data for a s
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+2. Select **All services**, enter **Users and groups** in the text box, and then select **Enter**.
 
    ![how do I locate user profile and work information](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. On the **Users and groups** blade, select **Users**.
 
-  ![Opening users and group](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![Opening users and group](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. On the **Users and groups - Users** blade, select a user from the list, and then, on the blade for the selected user, select **Profile** to view user profile information that might contain personal data.
 
-  ![select user](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![select user](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. If you need to add or change user profile information, you can do so, and then, in the command bar, select **Save.**
 6. On the blade for the selected user, select **Work Info** to view user work information that may contain personal data.
 
- ![viewing work info](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![viewing work info](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. If you need to add or change user work information, you can do so, and then, in the command bar, select **Save.**
 
@@ -113,7 +113,7 @@ To learn how to create your database this way, visit the [Create a single Azure 
 >[!Note]
 Windows admins tend to use PowerShell, but some of them prefer Azure CLI.
 
-### How do I search for personal data in SQL database in the Azure portal?**
+### How do I search for personal data in SQL database in the Azure portal?
 
 You can use the built-in query editor tool inside the Azure portal to search for personal data. You’ll log in to the tool using your SQL server admin login and password, and then enter a query.
 

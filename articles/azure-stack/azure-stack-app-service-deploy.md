@@ -3,8 +3,8 @@ title: 'Deploy App Services: Azure Stack | Microsoft Docs'
 description: Detailed guidance for deploying App Service in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,17 +13,19 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: anwestg
+ms.date: 01/29/2018
+ms.author: brenduns
+ms.reviewer: anwestg
 
 ---
 # Add an App Service resource provider to Azure Stack
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 As an Azure Stack cloud operator, you can give your users the ability to create web and API applications. To do this, you must first add the [App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment as described in this article. After you have installed the App Service resource provider, you can include it in your offers and plans. Users can then subscribe to get the service and start creating applications.
 
 > [!IMPORTANT]
 > Prior to running the installer, make sure that you have followed the guidance in [Before you get started](azure-stack-app-service-before-you-get-started.md).
-> 
+>
 >
 
 
@@ -65,7 +67,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image03.png)
 
-7. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name of your File Server, for example \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or the IP Address, for example \\\10.0.0.1\websites.
+7. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name of your File Server, or the IP Address. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image04.png)
 
@@ -78,7 +80,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image05.png)
 
-9. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-deploy.md#create-the-required-certificates). Click **Next** after entering all the information.
+9. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-deploy.md#create-the-required-certificates). Click **Next** after entering all the information.
 
     | Box | Certificate file name example |
     | --- | --- |
@@ -94,11 +96,11 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image07.png)    
 
-11. Review the role instance and SKU options. The defaults are populated with the minimum number of instance and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
+11. Review the role instance and SKU options. The defaults populate with the minimum number of instance and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
     > [!NOTE]
     > For production deployments, following the guidance in [Capacity planning for Azure App Service server roles in Azure Stack](azure-stack-app-service-capacity-planning.md).
-    > 
+    >
     >
 
     | Role | Minimum instances | Minimum SKU | Notes |

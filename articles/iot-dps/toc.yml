@@ -7,8 +7,12 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Set up auto provisioning
+  - name: Set up auto-provisioning - Azure CLI
+    href: quick-setup-auto-provision-cli.md
+  - name: Set up auto-provisioning - Portal
     href: quick-setup-auto-provision.md
+  - name: Set up auto-provisioning - Template
+    href: quick-setup-auto-provision-rm.md
   - name: Create simulated device
     items:
     - name: TPM 
@@ -19,6 +23,8 @@
           href: quick-create-simulated-device-tpm-java.md
         - name: C#
           href: quick-create-simulated-device-tpm-csharp.md
+        - name: Node.js
+          href: quick-create-simulated-device-tpm-node.md
         - name: Python
           href: quick-create-simulated-device-tpm-python.md
     - name: X.509 
@@ -29,6 +35,8 @@
           href: quick-create-simulated-device-x509-java.md
         - name: C#
           href: quick-create-simulated-device-x509-csharp.md
+        - name: Node.js
+          href: quick-create-simulated-device-x509-node.md
         - name: Python
           href: quick-create-simulated-device-x509-python.md
   - name: Enroll device
@@ -37,14 +45,22 @@
       items:
         - name: Java
           href: quick-enroll-device-tpm-java.md
+        - name: C#
+          href: quick-enroll-device-tpm-csharp.md
         - name: Node.js
           href: quick-enroll-device-tpm-node.md
+        - name: Python
+          href: quick-enroll-device-tpm-python.md
     - name: X.509 
       items:
         - name: Java
           href: quick-enroll-device-x509-java.md
+        - name: C#
+          href: quick-enroll-device-x509-csharp.md
         - name: Node.js
           href: quick-enroll-device-x509-node.md
+        - name: Python
+          href: quick-enroll-device-x509-python.md
 - name: Tutorials
   items:
   - name: 1 - Set up cloud resources
@@ -52,9 +68,15 @@
   - name: 2 - Set up device
     href: tutorial-set-up-device.md
   - name: 3 - Provision a device to an IoT hub
-    href: tutorial-provision-device-to-hub.md
+    items:
+      - name: C
+        href: tutorial-provision-device-to-hub.md
+      - name: C#
+        href: tutorial-net-provision-device-to-hub.md
   - name: 4 - Provision devices to multiple hubs
     href: tutorial-provision-multiple-hubs.md
+  - name: 5 - Provision group enrollments
+    href: tutorial-group-enrollments.md
 - name: Concepts
   items:
   - name: Device concepts
@@ -73,10 +95,20 @@
       href: how-to-manage-enrollments-sdks.md
   - name: Revoke device access
     href: how-to-revoke-device-access-portal.md
+  - name: Unprovision devices
+    href: how-to-unprovision-devices.md
+  - name: Perform proof-of-possession on X.509 CA certificates
+    href: how-to-verify-certificates.md
   - name: Use HSM with SDK
     href: use-hsm-with-sdk.md
   - name: Control access to Provisioning Service
     href: how-to-control-access.md
+  - name: Use Azure CLI to manage device provisioning service
+    href: how-to-manage-dps-with-cli.md
+  - name: Use SDK tools to develop
+    href: how-to-use-sdk-tools.md
+  - name: Connect to MXChip IoT DevKit
+    href: how-to-connect-mxchip-iot-devkit.md
 - name: Reference
   items:
   - name: REST

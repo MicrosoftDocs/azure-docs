@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -34,8 +34,12 @@ Specifically, this Azure Data Lake Store connector supports:
 - Copying files using **service principal** or **managed service identity (MSI)** authentication.
 - Copying files as-is, or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
+> [!IMPORTANT]
+> If you copy data using Self-hosted Integration Runtime, configure the corporate firewall to allow outbound traffic to `<ADLS account name>.azuredatalakestore.net` and `login.microsoftonline.com/<tenant>/oauth2/token` on port 443. The latter is Azure Security Token Service (STS) that IR need communicate with to get access token.
+
 ## Get started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity. 
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Data lake Store.
 
@@ -47,7 +51,6 @@ The following properties are supported for Azure Data Lake Store linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureDataLakeStore**. | Yes |
 | dataLakeStoreUri | Information about the Azure Data Lake Store account. This information takes one of the following formats: `https://[accountname].azuredatalakestore.net/webhdfs/v1` or `adl://[accountname].azuredatalakestore.net/`. | Yes |
-| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
 | subscriptionId | Azure subscription ID to which the Data Lake Store account belongs. | Required for sink |
 | resourceGroupName | Azure resource group name to which the Data Lake Store account belongs. | Required for sink |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
@@ -67,15 +70,16 @@ To use service principal authentication, register an application entity in Azure
 
 >[!IMPORTANT]
 > Make sure you grant the service principal proper permission in Azure Data Lake Store:
->- **As source**, grant at least **Read + Execute** data access permission to list and copy the contents of a folder, or **Read** permission to copy a single file. No requirement on account level access control (IAM).
->- **As sink**, grant at least **Write + Execute** data access permission to create child items in the folder. And if you use Azure IR to copy (both source and sink are in cloud), in order to let Data Factory detect Data Lake Store's region, grant at least **Reader** role in account access control (IAM). If you want to avoid this IAM role, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store, and associate in the Data Lake Store linked service as the following example:
+>- **As source**, in Data explorer -> Access, grant at least **Read + Execute** permission to list and copy the files in folder/subfolders, or **Read** permission to copy a single file; and choose to add as **an access permission and a default permission entry**. No requirement on account level access control (IAM).
+>- **As sink**, in Data explorer -> Access, grant at least **Write + Execute** permission to create child items in the folder, and choose to add as **an access permission and a default permission entry**. If you use Azure IR to copy (both source and sink are in cloud), in Access control (IAM), grant at least **Reader** role in order to let Data Factory detect Data Lake Store's region. If you want to avoid this IAM role, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store, and associate in the Data Lake Store linked service as the following example.
 
 The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | servicePrincipalId | Specify the application's client ID. | Yes |
-| servicePrincipalKey | Specify the application's key. Mark this field as a SecureString. | Yes |
+| servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
 
 **Example:**
 
@@ -110,12 +114,12 @@ A data factory can be associated with a [managed service identity](data-factory-
 To use managed service identity (MSI) authentication:
 
 1. [Retrieve data factory service identity](data-factory-service-identity.md#retrieve-service-identity) by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
-2. Grant the service identity access to Data Lake Store the same way you do for service principal. For detailed steps, see [Service-to-service authentication - Assign the Azure AD application to the Azure Data Lake Store account file or folder](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+2. Grant the service identity access to Data Lake Store the same way you do for service principal following below notes.
 
 >[!IMPORTANT]
 > Make sure you grant the data factory service identity proper permission in Azure Data Lake Store:
->- **As source**, grant at least **Read + Execute** data access permission to list and copy the contents of a folder, or **Read** permission to copy a single file. No requirement on account level access control (IAM).
->- **As sink**, grant at least **Write + Execute** data access permission to create child items in the folder. And if you use Azure IR to copy (both source and sink are in cloud), in order to let Data Factory detect Data Lake Store's region, grant at least **Reader** role in account access control (IAM). If you want to avoid this IAM role, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store, and associate in the Data Lake Store linked service as the following example:
+>- **As source**, in Data explorer -> Access, grant at least **Read + Execute** permission to list and copy the files in folder/subfolders, or **Read** permission to copy a single file; and choose to add as **an access permission and a default permission entry**. No requirement on account level access control (IAM).
+>- **As sink**, in Data explorer -> Access, grant at least **Write + Execute** permission to create child items in the folder, and choose to add as **an access permission and a default permission entry**. If you use Azure IR to copy (both source and sink are in cloud), in Access control (IAM), grant at least **Reader** role in order to let Data Factory detect Data Lake Store's region. If you want to avoid this IAM role, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store, and associate in the Data Lake Store linked service as the following example.
 
 In Azure Data Factory, you don't need to specify any properties besides the general Data Lake Store information in linked service.
 
@@ -128,7 +132,6 @@ In Azure Data Factory, you don't need to specify any properties besides the gene
         "type": "AzureDataLakeStore",
         "typeProperties": {
             "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
             "subscriptionId": "<subscription of ADLS>",
             "resourceGroupName": "<resource group of ADLS>"
         },
@@ -193,7 +196,7 @@ To copy data from Azure Data Lake Store, set the source type in the copy activit
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **AzureDataLakeStoreSource** |Yes |
-| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder.<br/>Allowed values are: **true** (default), **false** | No |
+| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. Note when recursive is set to true and sink is file-based store, empty folder/sub-folder will not be copied/created at sink.<br/>Allowed values are: **true** (default), **false** | No |
 
 **Example:**
 

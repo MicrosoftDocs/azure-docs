@@ -34,7 +34,7 @@ This Azure Network Security Overview article focuses on the following areas:
 
 
 ## Azure Networking
-Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical Azure Virtual Network is isolated from all other Azure Virtual Networks. This helps insure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
+Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical Azure Virtual Network is isolated from all other Azure Virtual Networks. This helps ensure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
 
 Learn more:
 

@@ -36,10 +36,10 @@ You can create a virtual network (classic) by using the [Azure portal](#portal),
 ## Portal
 
 1. In an Internet browser, go to the [Azure portal](https://portal.azure.com). Log in using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. Click **+New** in the portal.
-3. Enter *Virtual network* in the **Search the Marketplace** box at the top of the **New** blade that appears.  Click **Virtual network** when it appears in the search results.
-4. Select **Classic** in the **Select a deployment model** box in the **Virtual Network** blade that appears, then click **Create**. 
-5. Enter the following values on the **Create virtual network (classic)** blade and then click **Create**:
+2. Click **Create a resource** in the portal.
+3. Enter *Virtual network* in the **Search the Marketplace** box at the top of the **New** pane that appears. Click **Virtual network** when it appears in the search results.
+4. Select **Classic** in the **Select a deployment model** box in the **Virtual Network** pane that appears, then click **Create**. 
+5. Enter the following values on the **Create virtual network (classic)** pane and then click **Create**:
 
     |Setting|Value|
     |---|---|
@@ -52,13 +52,13 @@ You can create a virtual network (classic) by using the [Azure portal](#portal),
 
     If you're new to Azure, learn more about [resource groups](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [subscriptions](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), and [locations](https://azure.microsoft.com/regions) (also referred to as *regions*).
 4. In the portal, you can create only one subnet when you create a virtual network. In this tutorial, you create a second subnet after you create the virtual network. You might later create Internet-accessible resources in the **Public** subnet. You also might create resources that aren't accessible from the Internet in the **Private** subnet. To create the second subnet, enter **myVnet** in the **Search resources** box at the top of the page. Click **myVnet** when it appears in the search results.
-5. Click **Subnets** (in the **SETTINGS** section) on the **Create virtual network (classic)** blade that appears.
-6. Click **+Add** on the **myVnet - Subnets** blade that appears.
-7. Enter **Private** for **Name** on the **Add subnet** blade. Enter **10.0.1.0/24** for **Address range**.  Click **OK**.
-8. On the **myVnet - Subnets** blade, you can see the **Public** and **Private** subnets that you created.
+5. Click **Subnets** (in the **SETTINGS** section) on the **Create virtual network (classic)** pane that appears.
+6. Click **+Add** on the **myVnet - Subnets** pane that appears.
+7. Enter **Private** for **Name** on the **Add subnet** pane. Enter **10.0.1.0/24** for **Address range**.  Click **OK**.
+8. On the **myVnet - Subnets** pane, you can see the **Public** and **Private** subnets that you created.
 9. **Optional**: When you finish this tutorial, you might want to delete the resources that you created, so that you don't incur usage charges:
-    - Click **Overview** on the **myVnet** blade.
-    - Click the **Delete** icon on the **myVnet** blade.
+    - Click **Overview** on the **myVnet** pane.
+    - Click the **Delete** icon on the **myVnet** pane.
     - To confirm the deletion, click **Yes** in the **Delete virtual network** box.
 
 ## Azure CLI
@@ -160,6 +160,6 @@ You can create a virtual network (classic) by using the [Azure portal](#portal),
 
 - To learn about all virtual network and subnet settings, see [Manage virtual networks](virtual-network-manage-network.md) and [Manage virtual network subnets](virtual-network-manage-subnet.md). You have various options for using virtual networks and subnets in a production environment to meet different requirements.
 - To filter inbound and outbound subnet traffic, create and apply [network security groups](virtual-networks-nsg.md) to subnets.
-- Create a [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or a [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine, and then connect it to an existing virtual network.
+- Create a [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or a [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine, and then connect it to an existing virtual network.
 - To connect two virtual networks in the same Azure location, create a  [virtual network peering](create-peering-different-deployment-models.md) between the virtual networks. You can peer a virtual network (Resource Manager) to a virtual network (classic), but you cannot create a peering between two virtual networks (classic).
 - Connect the virtual network to an on-premises network by using a [VPN Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuit.

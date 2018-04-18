@@ -206,6 +206,10 @@ When you're using an on-premises live encoder to send a multi-bitrate stream to 
 Here are other considerations related to working with channels and related components:
 
 * Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program.
+
+  > [!NOTE]
+  > When you restart the program, you need to associate it with a new asset and create a new locator. 
+  
 * A channel can be stopped only when it's in the **Running** state and all programs on the channel have been stopped.
 * By default, you can add only five channels to your Media Services account. For more information, see [Quotas and limitations](media-services-quotas-and-limitations.md).
 * You are billed only when your channel is in the **Running** state. For more information, see the [Channel states and billing](media-services-live-streaming-with-onprem-encoders.md#states) section.

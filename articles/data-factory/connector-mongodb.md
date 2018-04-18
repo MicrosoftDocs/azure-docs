@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/28/2018
 ms.author: jingwang
 
 ---
@@ -41,7 +41,8 @@ Specifically, this MongoDB connector supports:
 To copy data from a MongoDB database that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details. The Integration Runtime provides a built-in MongoDB driver, therefore you don't need to manually install any driver when copying data from/to MongoDB.
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to MongoDB connector.
 
@@ -57,7 +58,7 @@ The following properties are supported for MongoDB linked service:
 | databaseName |Name of the MongoDB database that you want to access. |Yes |
 | authenticationType | Type of authentication used to connect to the MongoDB database.<br/>Allowed values are: **Basic**, and **Anonymous**. |Yes |
 | username |User account to access MongoDB. |Yes (if basic authentication is used). |
-| password |Password for the user. Mark this field as SecureString. |Yes (if basic authentication is used). |
+| password |Password for the user. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes (if basic authentication is used). |
 | authSource |Name of the MongoDB database that you want to use to check your credentials for authentication. |No. For basic authentication, default is to use the admin account and the database specified using databaseName property. |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
@@ -149,7 +150,7 @@ To copy data from MongoDB, set the source type in the copy activity to **MongoDb
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "MongoDbSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -161,7 +162,7 @@ To copy data from MongoDB, set the source type in the copy activity to **MongoDb
 ```
 
 > [!TIP]
-> When specify the SQL query, pay attention to the DateTime format. For example: `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', <datetime parameter>, <datetime parameter>)`
+> When specify the SQL query, pay attention to the DateTime format. For example: `SELECT * FROM Account WHERE LastModifiedDate >= {{ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')}'}} AND LastModifiedDate < {{ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}'}}`
 
 ## Schema by Data Factory
 

@@ -1,6 +1,6 @@
 --- 
-title: Migrate on-premises data to Azure Storage with AzCopy| Microsoft Docs
-description: Use AzCopy to migrate data or copy data to or from blob, table, and file content. Easily migrate data from your local storage to Azure storage.  
+title: Migrate on-premises data to Azure Storage by using AzCopy| Microsoft Docs
+description: Use AzCopy to migrate data or copy data to or from blob, table, and file content. Easily migrate data from your local storage to Azure Storage.  
 services: storage 
 author: ruthogunnnaike
 manager: jeconnoc 
@@ -13,30 +13,26 @@ ms.date: 12/14/2017
 ms.author: v-ruogun 
 --- 
 
-#  Migrate on-premises data to cloud storage with AzCopy
+#  Migrate on-premises data to cloud storage by using AzCopy
 
-AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob, File, and Table storage, using simple commands designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
+AzCopy is a command-line tool for copying data to or from Azure Blob storage, Azure Files, and Azure Table storage, by using simple commands. The commands are designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 
-There are two versions of AzCopy that you can download:
+You can download two versions of AzCopy:
 
-* [AzCopy on Linux](storage-use-azcopy.md) is built with .NET Core Framework, which targets Linux platforms offering POSIX style command-line options. 
-* [AzCopy on Windows](../storage-use-azcopy.md) is built with .NET Framework, and offers Windows style command-line options. 
+* [AzCopy on Linux](storage-use-azcopy.md) is built with .NET Core Framework. It targets Linux platforms by offering POSIX-style command-line options. 
+* [AzCopy on Windows](../storage-use-azcopy.md) is built with .NET Framework. It offers Windows-style command-line options. 
  
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a storage account 
-> * Use AzCopy to upload all your data
-> * Modify the data for testing purposes
-> * Create a scheduled task or cron job to identify new files to upload
+> * Create a storage account. 
+> * Use AzCopy to upload all your data.
+> * Modify the data for test purposes.
+> * Create a scheduled task or cron job to identify new files to upload.
 
 ## Prerequisites
 
-To complete this tutorial: 
-
-* Download the latest version of AzCopy on [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) or [Windows](http://aka.ms/downloadazcopy). 
-
-## Log in to the [Azure portal](https://portal.azure.com/).
+To complete this tutorial, download the latest version of AzCopy on [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) or [Windows](http://aka.ms/downloadazcopy). 
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -47,16 +43,16 @@ To complete this tutorial:
 
 ## Create a container
 
-Blobs are always uploaded into a container. Containers allows you to organize groups of blobs like you organize your files on your computer in folders. 
+Blobs are always uploaded into a container. You can use containers to organize groups of blobs like you organize your files on your computer in folders. 
 
 Follow these steps to create a container:
 
-1. Select the **Storage accounts** button from the main page, and select the storage account you created.
-2. Select **Blobs** under **Services**, then select **Container**. 
+1. Select the **Storage accounts** button from the main page, and select the storage account that you created.
+2. Select **Blobs** under **Services**, and then select **Container**. 
 
-![Create a container](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![Create a container](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
-Container names must start with a letter or number, and can contain only letters, numbers, and the hyphen character (-). For more rules about naming blobs and containers, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+Container names must start with a letter or number. They can contain only letters, numbers, and the hyphen character (-). For more rules about naming blobs and containers, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ## Upload all files in a folder to Blob storage
 
@@ -73,14 +69,14 @@ You can use AzCopy to upload all files in a folder to Blob storage on [Windows](
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S
 ---
 
-Replace **\<key\>** with your account key. In the Azure portal, you can retrieve your account key by selecting **Access keys** under Settings in your storage account. Select a key, and paste it into the AzCopy command. If the specified destination container does not exist, AzCopy creates it and uploads the file into it. Update the source path to your data directory, and replace **myaccount** in the destination URL to your storage account name.
+Replace `<key>` and `key` with your account key. In the Azure portal, you can retrieve your account key by selecting **Access keys** under **Settings** in your storage account. Select a key, and paste it into the AzCopy command. If the specified destination container does not exist, AzCopy creates it and uploads the file into it. Update the source path to your data directory, and replace **myaccount** in the destination URL with your storage account name.
 
-Specify the `--recursive` and `/S` options, on Linux and Windows respectively, to upload the contents of the specified directory to Blob storage recursively. When you run AzCopy with one of these options, all subfolders and their files are uploaded as well.
+To upload the contents of the specified directory to Blob storage recursively, specify the `--recursive` (Linux) or `/S` (Windows) option. When you run AzCopy with one of these options, all subfolders and their files are uploaded as well.
 
-## Upload Modified files to Blob storage
-You can use AzCopy to [upload files](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#other-azcopy-features) based on their last-modified time. To try this, modify or create new files in your source directory for testing purpose. To upload only updated or new files, add `--exclude-older`or `/XO` parameter to the AzCopy Linux and Windows command respectively.
+## Upload modified files to Blob storage
+You can use AzCopy to [upload files](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#other-azcopy-features) based on their last-modified time. To try this, modify or create new files in your source directory for test purposes. To upload only updated or new files, add the `--exclude-older` (Linux) or `/XO` (Windows) parameter to the AzCopy command.
 
-If you only want to copy source resources that do not exist in the destination, specify both `--exclude-older` and `--exclude-newer` or `/XO` and `/XN` parameters in the AzCopy Linux and Windows command respectively. AzCopy uploads only the updated data based on their timestamp.
+If you only want to copy source resources that do not exist in the destination, specify both `--exclude-older` and `--exclude-newer` (Linux) or `/XO` and `/XN` (Windows) parameters in the AzCopy command. AzCopy uploads only the updated data, based on its time stamp.
  
 # [Linux](#tab/linux)
     azcopy \
@@ -95,9 +91,9 @@ If you only want to copy source resources that do not exist in the destination, 
 ---
 
 ## Create a scheduled task or cron job 
-You can create a scheduled task/cron job that runs an AzCopy command script that identifies and uploads new on-premises data to cloud storage at a specific time interval. 
+You can create a scheduled task or cron job that runs an AzCopy command script. The script identifies and uploads new on-premises data to cloud storage at a specific time interval. 
 
-Copy the AzCopy command to a text editor. Update the parameter values of AzCopy command to the appropriate values. Save the file as `script.sh` or `script.bat` for AzCopy on Linux and Windows respectively. 
+Copy the AzCopy command to a text editor. Update the parameter values of the AzCopy command to the appropriate values. Save the file as `script.sh` (Linux) or `script.bat` (Windows) for AzCopy. 
 
 # [Linux](#tab/linux)
     azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --recursive --exclude-older --exclude-newer --verbose >> Path/to/logfolder/`date +\%Y\%m\%d\%H\%M\%S`-cron.log
@@ -107,42 +103,47 @@ Copy the AzCopy command to a text editor. Update the parameter values of AzCopy 
     AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
 
-AzCopy is run with verbose `--verbose` (Linux) and `/V` (Windows) option, and the output is redirected into a log file. 
+AzCopy is run with the verbose `--verbose` (Linux) or `/V` (Windows) option. The output is redirected into a log file. 
 
-In this tutorial, [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) is used to create a scheduled task on Windows, and [Crontab](http://crontab.org/) command is used to create a cron job on Linux. 
- **Schtasks** enables an administrator to create, delete, query, change, run, and end scheduled tasks on local or remote computer. **Cron** allows Linux and Unix users to run commands or scripts at specified date and time using [cron expression](https://en.wikipedia.org/wiki/Cron#CRON_expression)
+In this tutorial, [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) is used to create a scheduled task on Windows. The [Crontab](http://crontab.org/) command is used to create a cron job on Linux. 
+ **Schtasks** enables an administrator to create, delete, query, change, run, and end scheduled tasks on a local or remote computer. **Cron** enables Linux and Unix users to run commands or scripts at a specified date and time by using [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 
 # [Linux](#tab/linux)
-**To create a cron job on Linux**, enter the following command on a terminal. 
+To create a cron job on Linux, enter the following command on a terminal: 
 
 ```bash
 crontab -e 
 */5 * * * * sh /path/to/script.sh 
 ```
 
-Specifying the cron expression `*/5 * * * * ` in the command indicates the shell script `script.sh` should execute every five minutes. The script can be scheduled to run at a specific time daily, monthly, or yearly. See [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to learn more about setting the date and time for job execution. 
+Specifying the cron expression `*/5 * * * * ` in the command indicates that the shell script `script.sh` should run every five minutes. You can schedule the script to run at a specific time daily, monthly, or yearly. To learn more about setting the date and time for job execution, see [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression). 
 
 # [Windows](#tab/windows)
-**To create a scheduled task on Windows**, enter the following command on command prompt or PowerShell.
+To create a scheduled task on Windows, enter the following command at a command prompt or in PowerShell:
 
 ```cmd 
 schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\Users\username\Documents\script.bat
 ```
 
-The command uses the `/SC` parameter to specify a minute schedule and the `/MO` parameter to specify an interval of five minutes. The `/TN` parameter is used to specify the task name, and `/TR` parameter to specify the path to `script.bat` file. Visit [schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes) to learn more about creating scheduled task on 
-Windows.
+The command uses:
+- The `/SC` parameter to specify a minute schedule.
+- The `/MO` parameter to specify an interval of five minutes.
+- The `/TN` parameter to specify the task name.
+- The `/TR` parameter to specify the path to the `script.bat` file. 
+
+To learn more about creating a scheduled task on 
+Windows, see [Schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes).
 
 ---
  
-To validate the scheduled task/cron job executes correctly, create new files in your directory `myfolder`. Wait for five minutes to confirm the new files have been uploaded to your storage account. Go to your log directory to view output logs of the scheduled task/cron job. 
+To validate that the scheduled task/cron job runs correctly, create new files in your `myfolder` directory. Wait five minutes to confirm that the new files have been uploaded to your storage account. Go to your log directory to view output logs of the scheduled task or cron job. 
 
-Visit [move-on-premises-data](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) learn more about ways to move on-premises data to Azure storage and vice versa.  
+To learn more about ways to move on-premises data to Azure Storage and vice versa, see [Move data to and from Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 ## Next steps
 For more information about Azure Storage and AzCopy, see the following resources:
 
-### Azure Storage documentation:
 * [Introduction to Azure Storage](../storage-introduction.md)
 * [Transfer data with AzCopy on Windows](storage-use-azcopy.md) 
 * [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md) 

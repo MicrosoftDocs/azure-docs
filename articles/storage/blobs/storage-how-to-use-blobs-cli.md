@@ -2,16 +2,10 @@
 title: Perform operations on Azure Blob storage (object storage) with the Azure CLI | Microsoft Docs
 description: Learn how to upload and download blobs in Azure Blob storage, as well as construct a shared access signature (SAS) to manage access to a blob in your storage account.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid:
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
@@ -41,7 +35,7 @@ This tutorial requires Azure CLI version 2.0.4 or later. Run `az --version` to f
 
 Containers are similar to directories on your computer, allowing you to organize groups of blobs in a container like you organize files in a directory. A storage account can have any number of containers. You can store up to 500 TB of blob data in a container, which is the maximum amount of data in a storage account.
 
-Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container#create) command.
+Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command.
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -61,7 +55,7 @@ A newly created container is private by default. That is, nobody can access the 
 
 When you set public access to `blob` or `container`, you enable read-only access for anyone on the Internet. For example, if you want to display images stored as blobs on your website, you need to enable public read access. If you want to enable read/write access, you must instead use a [shared access signature (SAS)](#create-a-shared-access-signature-sas).
 
-Enable public read access for your container with the [az storage container set-permission](/cli/azure/storage/container#create) command.
+Enable public read access for your container with the [az storage container set-permission](/cli/azure/storage/container#az_storage_container_create) command.
 
 ```azurecli-interactive
 az storage container set-permission \
@@ -73,7 +67,7 @@ az storage container set-permission \
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most common type of blob stored in Azure Storage. Append blobs are used when data must be added to an existing blob without modifying its existing content, such as for logging. Page blobs back the VHD files of IaaS virtual machines.
 
-In this example, we upload a blob into the container we created in the last step with the [az storage blob upload](/cli/azure/storage/blob#upload) command.
+In this example, we upload a blob into the container we created in the last step with the [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) command.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -86,7 +80,7 @@ This operation creates the blob if it doesn't already exist, and overwrites it i
 
 ## List the blobs in a container
 
-List the blobs in the container with the [az storage blob list](/cli/azure/storage/blob#list) command.
+List the blobs in the container with the [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) command.
 
 ```azurecli-interactive
 az storage blob list \
@@ -108,7 +102,7 @@ dir1/file1.txt  BlockBlob        6700  application/octet-stream  2017-04-21T18:3
 
 ## Download a blob
 
-Download the blob you uploaded in a previous step using the [az storage blob download](/cli/azure/storage/blob#download) command.
+Download the blob you uploaded in a previous step using the [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) command.
 
 ```azurecli-interactive
 az storage blob download \
@@ -152,7 +146,7 @@ az storage blob copy start \
 
 ## Delete a blob
 
-Delete the blob from the container using the [az storage blob delete](/cli/azure/storage/blob#delete) command.
+Delete the blob from the container using the [az storage blob delete](/cli/azure/storage/blob#az_storage_blob_delete) command.
 
 ```azurecli-interactive
 az storage blob delete \
@@ -162,7 +156,7 @@ az storage blob delete \
 
 ## Set the content type
 
-The content type, also known as the MIME type, identitifies the format of the data in the blob. Browsers and other software use the content type to determine how to process the data. The following example sets the content type to `image/png`.
+The content type, also known as the MIME type, identifies the format of the data in the blob. Browsers and other software use the content type to determine how to process the data. The following example sets the content type to `image/png`.
 
 ```azurecli-interactive
 # Set the content type
@@ -174,9 +168,9 @@ az storage blob update
 
 ## Display and modify blob properties and metadata
 
-Each blob has several service-defined properties you can display with the [az storage blob show](/cli/azure/storage/blob#show) command, including its name, type, length, and others. You can also configure a blob with your own properties and their values by using the [az storage blob metadata update](/cli/azure/storage/blob/metadata#update) command.
+Each blob has several service-defined properties you can display with the [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show) command, including its name, type, length, and others. You can also configure a blob with your own properties and their values by using the [az storage blob metadata update](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_update) command.
 
-In this example, we first display the service-defined properties of a blob, then update the blob with two of our own metadata properties. Finally, we display the blob's metadata properties and their values with the [az storage blob metadata show](/cli/azure/storage/blob/metadata#show) command.
+In this example, we first display the service-defined properties of a blob, then update the blob with two of our own metadata properties. Finally, we display the blob's metadata properties and their values with the [az storage blob metadata show](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_show) command.
 
 ```azurecli-interactive
 # Show properties of a blob
@@ -215,7 +209,7 @@ az storage container set-permission \
 
 ### Verify private access
 
-To verify that there is no public read access to the blobs in that container, get the URL for one of its blobs with the [az storage blob url](/cli/azure/storage/blob#url) command.
+To verify that there is no public read access to the blobs in that container, get the URL for one of its blobs with the [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url) command.
 
 ```azurecli-interactive
 az storage blob url \
@@ -228,7 +222,7 @@ Navigate to the blob's URL in a private browser window. You're presented with a 
 
 ### Create a SAS URI
 
-Now we'll create a SAS URI that permits access to the blob. In the following example, we first populate a variable with the URL for the blob with [az storage blob url](/cli/azure/storage/blob#url), then populate another variable with a SAS token generated with the [az storage blob generate-sas](/cli/azure/storage/blob#generate-sas) command. Finally, we output the full SAS URI for blob by concatenating the two, separated by the `?` query string separator.
+Now we'll create a SAS URI that permits access to the blob. In the following example, we first populate a variable with the URL for the blob with [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url), then populate another variable with a SAS token generated with the [az storage blob generate-sas](/cli/azure/storage/blob#az_storage_blob_generate_sas) command. Finally, we output the full SAS URI for blob by concatenating the two, separated by the `?` query string separator.
 
 ```azurecli-interactive
 # Get UTC datetimes for SAS start and expiry (Example: 1994-11-05T13:15:30Z)
@@ -263,7 +257,7 @@ Wait long enough for the URL to expire (two minutes in this example), then navig
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the storage account you created and any blobs you've uploaded in this tutorial, delete the resource group with the [az group delete](/cli/azure/group#delete) command.
+If you no longer need any of the resources in your resource group, including the storage account you created and any blobs you've uploaded in this tutorial, delete the resource group with the [az group delete](/cli/azure/group#az_group_delete) command.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

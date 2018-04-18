@@ -1,20 +1,20 @@
 ---
-title: Understanding cost reports in Azure Cost Management | Microsoft Docs
-description: This article helps you understand Cloudyn reports basic structure and functions.
+title: Understanding cost management reports in Azure Cost Management | Microsoft Docs
+description: This article helps you understand Cloudyn cost management reports basic structure and functions.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/27/2017
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom:
 ---
 
-# Understanding cost reports
+# Understanding cost management reports
 
-This article helps you understand Cloudyn reports basic structure and functions. Most Cloudyn reports are intuitive and have a uniform look and feel. After you read this article, are ready to use all the reports. Many standard features are available throughout the various reports, allowing you to navigate the reports with ease. Reports are customizable, and you can select from several options to calculate and display results.
+This article helps you understand Cloudyn cost management reports basic structure and functions. Most Cloudyn reports are intuitive and have a uniform look and feel. After you read this article, are ready to use all the cost management reports. Many standard features are available throughout the various reports, allowing you to navigate the reports with ease. Reports are customizable, and you can select from several options to calculate and display results.
 
 ## Report fields and options
 
@@ -127,6 +127,27 @@ Each numbered area in the preceding image is described in detail in the followin
 14. **Actions**
 
     Use Actions to save, export, or schedule the report.
+
+## Save and schedule reports
+
+After you create a report, you can save it for future use. Saved reports are available in **My Tools** > **My Reports**. If you make changes to an existing report and save it, the report is saved as a new version. Or, you can save it as a new report.
+
+### Save a report to the Cloudyn portal
+
+While viewing any report, click **Actions** and then select **Save to my reports**. Name the report and then either add a your own URL or use the automatically created URL. You can optionally **Share** the report publicly with others in your organization or you can share it to your entity. If you do not share the report, it remains a personal report and that only you can view. Save the report.
+
+
+### Save a report to cloud provider storage
+
+In order to save a report to your cloud service provider, you must have already configured a storage account. While viewing any report, click **Actions** and then select **Schedule report**. Name the report and then either add a your own URL or use the automatically created URL. Select **Save to storage** and then select the storage account or add a new one. Enter a prefix that gets appended to the report file name. Select a either CSV or JSON file format and then save the report.
+
+### Schedule a report
+
+You can run reports at scheduled intervals and you can sent them to a recipient list or cloud service provider storage account. While viewing any report, click **Actions** and then select **Schedule report**. You can send the report by email and save to a storage account. Under **Schedule**, select the interval (daily, weekly or monthly). For weekly and monthly, select the day or dates to deliver and select the time. Save the scheduled report. If you select the Excel report format, the report is sent as an attachment. When you select email content format, report results that are displayed in chart format are delivered as a graph.
+
+### Export a report as a CSV file
+
+While viewing any report, click **Actions** and then select **Export all report data**. A pop-up window appears and a CSV file is downloaded.
 
 ## Next steps
 

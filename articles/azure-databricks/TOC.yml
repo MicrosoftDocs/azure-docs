@@ -1,4 +1,4 @@
-- name: Azure Databricks documentation
+- name: Azure Databricks Documentation
   href: index.yml
 - name: Overview
   items:
@@ -9,6 +9,12 @@
   items:
   - name: Create Databricks workspace
     href: quickstart-create-databricks-workspace-portal.md
+- name: How-to guides
+  items:
+  - name: Connect with Excel, R, and Python 
+    href: connect-databricks-excel-python-r.md
+  - name: Use Databricks CLI from Azure Cloud Shell
+    href: databricks-cli-from-azure-cloud-shell.md
 - name: Resources
   items:
   - name: Common questions

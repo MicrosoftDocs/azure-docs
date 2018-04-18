@@ -5,8 +5,8 @@ description: Storage account keys provide a seemless integration between Azure K
 ms.topic: article
 services: key-vault
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+author: lleonard-msft
+ms.author: alleonar
 manager: mbaldwin
 ms.date: 10/12/2017
 ---

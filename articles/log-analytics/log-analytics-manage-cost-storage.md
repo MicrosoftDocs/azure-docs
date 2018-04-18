@@ -41,7 +41,7 @@ While using the *Free* plan, if you find you consistently exceed the amounts all
 ## Change the data retention period 
 
 1. Sign into the [Azure portal](http://portal.azure.com). 
-2. Click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+2. Click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 3. In the Log Analytics subscriptions pane, select your workspace to modify from the list.
 4. On the Workspace page, click **Retention** from the left-hand pane.
 5. On the workspace retention pane, move the slider to increase or decrease the number of days and then click **Save**.  If you are on the *free* tier, you will not be able to modify the data retention period and you need to upgrade to the paid tier in order to control this setting.<br><br> ![Change workspace data retention setting](media/log-analytics-manage-cost/manage-cost-change-retention.png)

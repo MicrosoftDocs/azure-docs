@@ -76,8 +76,8 @@ Next, you create a webhook in your GitHub repository.
 | Setting | Suggested value | Description |
 |---|---|---|
 | **Payload URL** | Copied value | Use the value returned by  **</> Get function URL**. |
-| **Secret**   | Copied value | Use the value returned by  **</> Get GitHub secret**. |
 | **Content type** | application/json | The function expects a JSON payload. |
+| **Secret**   | Copied value | Use the value returned by  **</> Get GitHub secret**. |
 | Event triggers | Let me select individual events | We only want to trigger on issue comment events.  |
 | | Issue comment |  |
 
@@ -103,7 +103,7 @@ Now, the webhook is configured to trigger your function when a new issue comment
 
 ## Next steps
 
-You have created a function that runs when a request is received from a GitHub webhook.
+You have created a function that is triggered when a request is received from a GitHub webhook.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

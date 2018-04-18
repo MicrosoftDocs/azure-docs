@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: babanisa
 ---
 
@@ -17,6 +17,8 @@ This article describes the properties and schema that are present for all events
 
 Events are sent to Azure Event Grid in an array, which can contain multiple event objects. If there is only a single event, the array has a length of 1. The array can have a total size of up to 1 MB. Each event in the array is limited to 64 KB.
 
+You can find the JSON schema for the Event Grid event and each Azure publisher's data payload in the [Event Schema store](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
+
 ## Event schema
 
 The following example shows the properties that are used by all event publishers:
@@ -25,13 +27,15 @@ The following example shows the properties that are used by all event publishers
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
     "data":{
       object-unique-to-each-publisher
-    }
+    },
+    "dataVersion": string,
+    "metadataVersion": string
   }
 ]
 ```
@@ -59,29 +63,35 @@ For example, the schema published for an Azure Blob storage event is:
       "storageDiagnostics": {
         "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
       }
-    }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
   }
 ]
 ```
- 
+
 ## Event properties
 
 All events contain the same following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| topic | string | Full resource path to the event source. This field is not writeable. |
+| topic | string | Full resource path to the event source. This field is not writeable. Event Grid provides this value. |
 | subject | string | Publisher-defined path to the event subject. |
 | eventType | string | One of the registered event types for this event source. |
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
 | id | string | Unique identifier for the event. |
 | data | object | Event data specific to the resource provider. |
+| dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
+| metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
 To learn about the properties in the data object, see the event source:
 
 * [Azure subscriptions (management operations)](event-schema-subscriptions.md)
 * [Blob storage](event-schema-blob-storage.md)
-* [Event hubs](event-schema-event-hubs.md)
+* [Event Hubs](event-schema-event-hubs.md)
+* [Service Bus](event-schema-service-bus.md)
+* [IoT Hub](event-schema-iot-hub.md)
 * [Resource groups (management operations)](event-schema-resource-groups.md)
 
 For custom topics, the event publisher determines the data object. The top-level data should contain the same fields as standard resource-defined events. When publishing events to custom topics, you should consider modeling the subject of your events to aid in routing and filtering.

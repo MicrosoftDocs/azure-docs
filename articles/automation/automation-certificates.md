@@ -25,9 +25,8 @@ Certificates can be stored securely in Azure Automation so they can be accessed 
 > Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in the Azure Automation using a unique key that is generated for each automation account. This key is encrypted by a master certificate and stored in Azure Automation. Before storing a secure asset, the key for the automation account is decrypted using the master certificate and then used to encrypt the asset.
 > 
 
-## Windows PowerShell Cmdlets
-
-The cmdlets in the following table are used to create and manage automation certificate assets with Windows PowerShell. They ship as part of the [Azure PowerShell module](../powershell-install-configure.md) which is available for use in Automation runbooks and DSC configurations.
+## AzureRM PowerShell cmdlets
+For AzureRM, the cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell.  They ship as part of the [AzureRM.Automation module](/powershell/azure/overview) which is available for use in Automation runbooks and DSC configurations.
 
 |Cmdlets|Description|
 |:---|:---|
@@ -37,6 +36,15 @@ The cmdlets in the following table are used to create and manage automation cert
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Sets the properties for an existing certificate including uploading the certificate file and setting the password for a .pfx.|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Uploads a service certificate for the specified cloud service.|
 
+## Activities
+The activities in the following table are used to access certificates in a runbook and DSC configurations.
+
+| Activities | Description |
+|:---|:---|
+|Get-AutomationCertificate|Gets a certificate to use in a runbook or DSC configuration. Returns a [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx) object.|
+
+> [!NOTE] 
+> You should avoid using variables in the –Name parameter of **Get-AutomationCertificate**  in a runbook or DSC configuration since this can complicate discovering dependencies between runbooks or DSC configuration, and Automation variables at design time.
 
 ## Python2 functions
 

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
 
@@ -119,15 +119,15 @@ You should now be able to access your account. If not, contact your organization
 
 | Error case| What error do you see?| Solution |
 | --- | --- | --- |
-| I see an error when I try to change my password. | Unfortunately, your password contains a word, phrase, or pattern that makes your password easily guessable. Please try again with a different password. | Choose a password that is more difficlt to guess. |
+| I see an error when I try to change my password. | Unfortunately, your password contains a word, phrase, or pattern that makes your password easily guessable. Please try again with a different password. | Choose a password that is more difficult to guess. |
 | I get a "Please contact your administrator" page after entering my user ID | Please contact your administrator. <br> <br> We've detected that your user account password is not managed by Microsoft. As a result, we are unable to automatically reset your password. <br> <br> You need to contact your IT staff for further assistance. | You're seeing this message because your IT staff manages your password in your on-premises environment. You can't reset your password from the "Can't access your account" link. <br> <br> To reset your password, contact your IT staff directly for help, and let them know you want to reset your password so they can enable this feature for you.|
 | I get a "Your account is not enabled for password reset" error after entering my user ID | Your account is not enabled for password reset. <br> <br> We're sorry, but your IT staff has not set up your account to use this service. <br> <br> If you'd like, we can contact an administrator in your organization to reset your password for you. | You're seeing this message because your IT staff has not enabled password reset for your organization from the "Can't access your account" link, or hasn't licensed you to use the feature. <br> <br> To reset your password, select the "contact an administrator link" to send an email to your company's IT staff, and let them know you want to reset your password so they can enable this feature for you. |
-| I get a "We could not verify your account" error after entering my user ID | We could not verify your account. <br> <br> If you'd like, we can contact an administrator in your organization to reset your password for you. | You're seeing this message because you're enabled for password reset, but you have not registered to use the service. To register for password reset, go to http://aka.ms/ssprsetup after you have regained access to your account. <br> <br> To reset your password, select the "contact an administrator" link to send an email to your company's IT staff. |
+| I get a "We could not verify your account" error after entering my user ID | We could not verify your account. <br> <br> If you'd like, we can contact an administrator in your organization to reset your password for you. | You're seeing this message because you're enabled for password reset, but you have not registered to use the service. To register for password reset, go to https://aka.ms/ssprsetup after you have regained access to your account. <br> <br> To reset your password, select the "contact an administrator" link to send an email to your company's IT staff. |
 
 ## Next steps
 
 * [How to register to use self-service password reset](active-directory-passwords-reset-register.md)
-* [Password reset registration page](http://aka.ms/ssprsetup)
+* [Password reset registration page](https://aka.ms/ssprsetup)
 * [Password reset portal](https://passwordreset.microsoftonline.com/)
 * [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
@@ -138,4 +138,3 @@ You should now be able to access your account. If not, contact your organization
 [LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 Fall Creators Update login screen Reset password link"
 [ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Verify your authentication data"
 [ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Change your password"
-

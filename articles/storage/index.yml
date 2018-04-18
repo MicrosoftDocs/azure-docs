@@ -24,6 +24,9 @@ sections:
     style: dataMatrix
     columns:
       - image:
+          src: media/index/portal.svg
+          text: Portal
+      - image:
           src: media/index/logo_powershell.svg
           text: Powershell
       - image:
@@ -40,14 +43,16 @@ sections:
     rows:
       - title: Create storage account
         values:
-        - href: /azure/storage/common/storage-quickstart-create-storage-account-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - href: /azure/storage/common/storage-quickstart-create-storage-account-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - href: /azure/storage/common/storage-quickstart-create-account?tabs=portal
+        - href: /azure/storage/common/storage-quickstart-create-account?tabs=powershell
+        - href: /azure/storage/common/storage-quickstart-create-account?tabs=azure-cli
         - href: 
         - href: 
         - href: 
         - href: 
       - title: Blob quickstarts
         values:
+        - href: /azure/storage/blobs/storage-quickstart-blobs-portal
         - href: /azure/storage/blobs/storage-quickstart-blobs-powershell
         - href: /azure/storage/blobs/storage-quickstart-blobs-cli
         - href: /azure/storage/blobs/storage-quickstart-blobs-dotnet

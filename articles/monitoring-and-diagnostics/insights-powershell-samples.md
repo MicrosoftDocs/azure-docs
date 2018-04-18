@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 2/14/2018
 ms.author: robb
 
 ---
 # Azure Monitor PowerShell quick start samples
-This article shows you sample PowerShell commands to help you access Azure Monitor features. Azure Monitor allows you to autoScale Cloud Services, Virtual Machines, and Web Apps. It also allows you to send alert notifications or call web URLs based on values of configured telemetry data.
+This article shows you sample PowerShell commands to help you access Azure Monitor features.
 
 > [!NOTE]
 > Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the following commands still contain the the word "insights."
@@ -196,6 +196,22 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 ```
 
 A full list of available options for `Get-AzureRmMetricDefinition` is available at [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+
+## Create and manage Activity Log alerts
+You can use the `Set-AzureRmActivityLogAlert` cmdlet to set an Activity Log alert. An Activity Log alert requires that you first define your conditions as a dictionary of conditions, then create an alert that uses those conditions.
+
+```PowerShell
+
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$additionalWebhookProperties.Add('customProperty', 'someValue')
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+
+```
+
+The additional webhook properties are optional. You can get back the contents of an Activity Log Alert using `Get-AzureRmActivityLogAlert`.
 
 ## Create and manage AutoScale settings
 A resource (a Web app, VM, Cloud Service, or Virtual Machine Scale Set) can have only one autoscale setting configured for it.

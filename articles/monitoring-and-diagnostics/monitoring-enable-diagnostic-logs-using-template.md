@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 2/13/2018
 ms.author: johnkem
 
 ---
@@ -77,7 +77,7 @@ For non-Compute resources, you will need to do two things:
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "Microsoft.Insights/service",
+        "name": "Microsoft.Insights/[parameters('settingName')]",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
@@ -113,7 +113,7 @@ For non-Compute resources, you will need to do two things:
     ]
     ```
 
-The properties blob for the Diagnostic Setting follows [the format described in this article](https://docs.microsoft.com/en-us/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). Adding the `metrics` property will enable you to also send resource metrics to these same outputs, provided that [the resource supports Azure Monitor metrics](monitoring-supported-metrics.md).
+The properties blob for the Diagnostic Setting follows [the format described in this article](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). Adding the `metrics` property will enable you to also send resource metrics to these same outputs, provided that [the resource supports Azure Monitor metrics](monitoring-supported-metrics.md).
 
 Here is a full example that creates a Logic App and turns on streaming to Event Hubs and storage in a storage account.
 
@@ -207,7 +207,7 @@ Here is a full example that creates a Logic App and turns on streaming to Event 
       "resources": [
         {
           "type": "providers/diagnosticSettings",
-          "name": "Microsoft.Insights/service",
+          "name": "Microsoft.Insights/[parameters('settingName')]",
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],

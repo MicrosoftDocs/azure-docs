@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Workplace by Facebook | Microsoft Docs'
+title: 'Tutorial: Configure Workplace by Facebook for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Workplace by Facebook.
 services: active-directory
 documentationCenter: na
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Configuring Workplace by Facebook for User Provisioning
+# Tutorial: Configure Workplace by Facebook for automatic user provisioning
 
 The objective of this tutorial is to show you the steps you need to perform in Workplace by Facebook and Azure AD to automatically provision and de-provision user accounts from Azure AD to Workplace by Facebook.
 
@@ -72,7 +72,7 @@ Azure AD supports the ability to automatically synchronize the account details o
 
     ![provisioning](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Under the **Admin Credentials** section, enter the Secret Token and the Tenant URL of your Workplace by Facebook administrator.
+5. Under the **Admin Credentials** section, enter the Secret Token of your Workplace by Facebook administrator and set the Tenant URL value to `https://www.facebook.com/scim/v1/` .
 
 6. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Workplace by Facebook app. If the connection fails, ensure your Workplace by Facebook account has Team Admin permissions.
 
@@ -97,4 +97,3 @@ You can now create a test account. Wait for up to 20 minutes to verify that the 
 * [Managing user account provisioning for Enterprise Apps](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Configure Single Sign-on](active-directory-saas-workplacebyfacebook-tutorial.md)
-

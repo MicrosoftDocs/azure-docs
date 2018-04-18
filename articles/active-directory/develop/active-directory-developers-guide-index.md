@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 02/27/2017
 ms.author: bryanla
 ms.custom: aaddev
 ---
@@ -40,6 +40,7 @@ These articles describe specific concepts and features of Azure Active Directory
 | [Office 365 Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | How to publish an application on the O365 seller dashboard |
 | [Visual Studio Connected Services](vs-active-directory-dotnet-getting-started.md)                                               | How to use Azure AD integration with MVC projects in Visual Studio |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | How to integrate with on-premises Active Directory using ADFS |
+| [Error handling best practices for ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | How to integrate with on-premises Active Directory using ADFS |
 
 ## Reference
 These articles provide a foundation for REST and authentication library APIs, protocols, errors, code samples, and endpoints.

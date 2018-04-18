@@ -3,7 +3,7 @@ title: Microsoft Cognitive Toolkit with Azure HDInsight Spark for deep learning 
 description: Learn how a trained Microsoft Cognitive Toolkit deep learning model can be applied to a dataset using the Spark Python API in an Azure HDInsight Spark cluster.
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
+ms.author: jgao
 
 ---
 # Use Microsoft Cognitive Toolkit deep learning model with Azure HDInsight Spark cluster
@@ -95,7 +95,6 @@ To use the Microsoft Cognitive Toolkit with the Azure HDInsight Spark cluster, y
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Application Insight telemetry data analysis using Spark in HDInsight](apache-spark-analyze-application-insight-logs.md)
 

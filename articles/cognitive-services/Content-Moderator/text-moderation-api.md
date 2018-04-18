@@ -1,6 +1,6 @@
 ---
-title: Text Moderation with Azure Content Moderator | Microsoft Docs
-description: Use Text Moderation for profanity, PII, and matching against custom lists of terms.
+title: Azure Content Moderator - Text Moderation | Microsoft Docs
+description: Use text moderation for possible unwanted text, PII, and custom lists of terms.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -8,59 +8,164 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.technology: content-moderator
 ms.topic: article
-ms.date: 08/06/2017
+ms.date: 01/30/2018
 ms.author: sajagtap
 ---
 
 # Text moderation
 
-Content Moderator’s Text Moderation API does more than screen text: it also matches against custom and shared lists that are specific to your business and users, and search for PII (personally identifiable information). In addition, it can auto-correct text before screening it, which helps catch deliberately misspelled words. After content is processed, results are sent, along with relevant information, either to the Review Tool or to a specified system. You use this information to make decisions about content: take it down, send to a human judge, etc.
+Use Content Moderator’s machine-assisted text moderation and [human-in-the-loop](Review-Tool-User-Guide/human-in-the-loop.md) capabilities to moderate text content.
 
-## Language detection
+Businesses use the text moderation service to either block, approve, or review the content based on their policies and thresholds. It is used to moderate environments that require partners, employees, and consumers to generate text content. These include chat rooms, discussion boards, chatbots, eCommerce catalogs, documents, and more. 
 
-The first step is determining the language of the content to be moderated. The Text - Detect Language function returns language codes for the predominant language of the submitted text. For more information, see the [Text - Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66e) API reference.
+The API scans the incoming text (maximum 1024 characters) for profanity, classifies for possible undesired text (preview), autocorrects text, and detects potential Personally Identifiable Information (PII). It also matches against custom lists of terms. The autocorrection feature helps catch deliberately misspelled words. After content is processed, the service returns a detailed response. You use the response to either create a human review in the review tool or take it down, etc.
 
-## Screening text
+The service response includes the following information:
 
-The Text - Screen function does it all – scans the incoming text (maximum 1024 characters) for profanity, autocorrects text, and extracts Personally Identifiable Information (PII), all while matching against custom lists of terms.
-
-The response includes this information:
-
-- Location of detected profanity terms within the submitted text
-- Terms: detected profanity content
-- PII
+- Profanity: term-based matching with built-in list of profane terms in multiple languages
+- Classification: machine-assisted classification into three categories
+- Personally Identifiable Information (PII)
 - Auto-corrected text
 - Original text
 - Language
 
-## Profanity terms
+## Profanity
 
-If any terms are detected, those terms are included in the response, along with their starting index (location) within the original text.
+If the API detects any profane terms in any of the [supported languages](Text-Moderation-API-Languages.md), those terms are included in the response. The response also contains their location (`Index`) in the original text. The `ListId` in the following sample JSON refers to terms found in [custom term lists](try-terms-list-api.md) if available.
 
-## PII
+	"Terms": [
+	{
+		"Index": 118,
+		"OriginalIndex": 118,
+		"ListId": 0,
+		"Term": "crap"
+	}
+
+> [!NOTE]
+> For the **language** parameter, assign `eng` or leave it empty to see the machine-assisted **classification** response (preview feature). **This feature supports English only**.
+>
+> For **profanity terms** detection, use the [ISO 639-3 code](http://www-01.sil.org/iso639-3/codes.asp) of the supported languages listed in this article, or leave it empty.
+
+## Classification (preview)
+
+Content Moderator’s machine-assisted **text classification feature (preview)** supports **English only**, and helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words. 
+
+The following extract in the JSON extract shows an example output:
+
+> [!NOTE]
+> The machine-assisted 'Classification' feature is in preview.
+
+	"Classification": {
+    	"ReviewRecommended": true,
+    	"Category1": {
+      		"Score": 1.5113095059859916E-06
+    		},
+    	"Category2": {
+      		"Score": 0.12747249007225037
+    		},
+    	"Category3": {
+      		"Score": 0.98799997568130493
+    	}
+	}
+
+### Explanation
+
+- `Category1` represents the potential presence of language that may be considered sexually explicit or adult in certain situations.
+- `Category2` represents the potential presence of language that may be considered sexually suggestive or mature in certain situations.
+- `Category3` represents the potential presence of language that may be considered offensive in certain situations.
+- `Score` range is between 0 and 1. The higher the score, higher the likelihood of the category being applicable.
+- `ReviewRecommended` is either true or false depending on the internal score thresholds. Customers are recommended to either use this value or decide on custom thresholds based on their content policies. In the preceding example, `ReviewRecommended` is `true` because of the high score assigned to `Category3`.
+
+
+## Personally Identifiable Information (PII)
 
 The PII feature detects the potential presence of this information:
 
-- Email
-- Phone
-- Mailing Address
+- Email address
+- US Mailing address
+- IP address
+- US Phone number
+- UK Phone number
+- Social Security Number (SSN)
+
+The following example shows a sample response:
+
+	"PII": {
+    	"Email": [{
+      		"Detected": "abcdef@abcd.com",
+      		"SubType": "Regular",
+      		"Text": "abcdef@abcd.com",
+      		"Index": 32
+    		}],
+    	"IPA": [{
+      		"SubType": "IPV4",
+      		"Text": "255.255.255.255",
+      		"Index": 72
+    		}],
+    	"Phone": [{
+      		"CountryCode": "US",
+      		"Text": "6657789887",
+      		"Index": 56
+    		}, {
+      		"CountryCode": "US",
+      		"Text": "870 608 4000",
+      		"Index": 212
+    		}, {
+      		"CountryCode": "UK",
+      		"Text": "+44 870 608 4000",
+      		"Index": 208
+    		}, {
+      		"CountryCode": "UK",
+      		"Text": "0344 800 2400",
+      		"Index": 228
+    		}, {
+      		"CountryCode": "UK",
+      		"Text": "0800 820 3300",
+      		"Index": 245
+    		}],
+    	"Address": [{
+      		"Text": "1 Microsoft Way, Redmond, WA 98052",
+      		"Index": 89
+    		}],
+    	"SSN": [{
+      		"Text": "999999999",
+      		"Index": 56
+    		}, {
+      		"Text": "999-99-9999",
+      		"Index": 267
+    		}]
+		}
 
 ## Auto-correction
 
-Suppose the input text is (the ‘lzay’ is intentional):
+Suppose the input text is (the ‘lzay’ and 'f0x' are intentional):
 
-	The <a href="www.bunnies.com">qu!ck</a> brown  <a href="b.suspiciousdomain.com">f0x</a> jumps over the lzay dog www.benign.net.
+	The qu!ck brown f0x jumps over the lzay dog.
 
 If you ask for auto-correction, the response contains the corrected version of the text:
 
-	“The quick brown fox jumps over the lazy dog."
+	The quick brown fox jumps over the lazy dog.
 
 ## Creating and managing your custom lists of terms
 
 While the default, global list of terms works great for most cases, you may want to screen against terms that are specific to your business needs. For example, you may want to filter out any competitive brand names from posts by users. Your threshold of permitted text content may be different from the default list.
 
-The Content Moderator provides a complete [Term List API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) with operations for creating and deleting lists of terms, and for adding and removing text terms from those lists.
+> [!NOTE]
+> There is a maximum limit of **5 term lists** with each list to **not exceed 10,000 terms**.
+>
+
+The following example shows the matching List ID:
+
+	"Terms": [
+	{
+		"Index": 118,
+		"OriginalIndex": 118,
+		"ListId": 231.
+		"Term": "crap"
+	}
+
+The Content Moderator provides a [Term List API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) with operations for managing custom term lists. Start with the [Term Lists API Console](try-terms-list-api.md) and use the REST API code samples. Also check out the [Term Lists .NET quickstart](term-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
 
 ## Next steps
 
-Test drive the Text Moderation API by using the [Try Text Moderation API](try-text-api.md) article.
+Test drive the [Text moderation API console](try-text-api.md) and use the REST API code samples. Also check out the [Text moderation .NET quickstart](text-moderation-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.

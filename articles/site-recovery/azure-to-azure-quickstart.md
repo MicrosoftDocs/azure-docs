@@ -2,16 +2,18 @@
 title: Replicate an Azure VM to another Azure region (Preview)
 description: This quickstart provides the steps required to replicate an Azure VM in one Azure region to a different region.
 services: site-recovery
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: carmonm
-
 ms.service: site-recovery
+ms.topic: quickstart
+ms.date: 02/07/2018
+ms.author: raynew
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/08/2017
-ms.author: rajanaki
+ms.topic: quickstart
+ms.date: 02/07/2018
+ms.author: raynew
 ms.custom: mvc
 ---
 # Replicate an Azure VM to another Azure region (Preview)

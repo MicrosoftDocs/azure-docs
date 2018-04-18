@@ -24,7 +24,7 @@ Connect to Twilio to send and receive global SMS, MMS, and IP messages. With Twi
 * Build your business flow based on the data you get from Twilio. 
 * Use actions that get a message, list messages, and more. These actions get a response, and then make the output available for other actions. For example, when  you get a new Twilio message, you can take this message and use it a Service Bus workflow. 
 
-Get started by creating a logic app; see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+Get started by creating a logic app; see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to Twilio
 When you add this Connector to your logic apps, enter the following Twilio values:

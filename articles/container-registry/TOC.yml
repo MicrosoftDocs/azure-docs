@@ -43,14 +43,20 @@
     href: container-registry-get-started-docker-cli.md
   - name: View repositories
     href: container-registry-repositories.md
-  - name: Create a service principal
-    href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
-  - name: Authenticate with a registry
-    href: container-registry-authentication.md
   - name: Upgrade a Classic registry
     href: container-registry-upgrade.md
   - name: Use ACR webhooks
-    href: ./container-registry-webhook.md
+    href: container-registry-webhook.md
+  - name: Authentication
+    items:
+    - name: Authentication overview
+      href: container-registry-authentication.md
+    - name: Service principal authentication
+      href: container-registry-auth-service-principal.md
+    - name: Azure Container Instances
+      href: container-registry-auth-aci.md
+    - name: Azure Container Service
+      href: container-registry-auth-aks.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -63,6 +69,8 @@
     href: /dotnet/api/overview/azure/containerregistry
   - name: Python
     href: /python/api/overview/azure/container-registry
+  - name: Java
+    href: /java/api/overview/azure/containerregistry
   - name: Node.js
     href: /javascript/api/overview/azure/container-registry
   - name: Resource Manager template

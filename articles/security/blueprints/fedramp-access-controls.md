@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Azure Blueprint Automation - Access Control
-description: Web Applications for FedRAMP - Access Control
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Access Control
+description: FedRAMP Web Applications Automation - Access Control
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
 
 ---
@@ -22,7 +22,7 @@ ms.author: jomolesk
 # Access Control (AC)
 
 > [!NOTE]
-> These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
+> These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
 
 ## NIST 800-53 Control AC-1
 
@@ -48,7 +48,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint relies on and implements the following system account types: Azure Active Directory users (used to deploy the solution and manage access to Azure resources), Windows OS users (managed by Active Directory), SQL Server service account. |
+| **Customer** | This blueprint relies on and implements the following system account types: Azure Active Directory users (used to deploy the solution and manage access to Azure resources), Windows OS users (managed by Active Directory), SQL Server service account. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -132,7 +132,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor use of information system accounts. |
+| **Customer** | This blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor use of information system accounts. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -202,7 +202,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enable account managers to monitor use of information system accounts. OMS can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
+| **Customer** | This blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor use of information system accounts. OMS can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -216,7 +216,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint does not deploy temporary or emergency accounts. If not manually disabled, the deployed domain controller automatically disables all inactive accounts after 35 days. |
+| **Customer** | This blueprint does not deploy temporary or emergency accounts. If not manually disabled, the deployed domain controller automatically disables all inactive accounts after 35 days. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -230,7 +230,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The domain controller deployed by this Azure Blueprint is configured to disable all user accounts after 35 days of inactivity. |
+| **Customer** | The domain controller deployed by this blueprint is configured to disable all user accounts after 35 days of inactivity. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -244,7 +244,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the following system account types: Azure Active Directory users, Windows OS users, SQL Server service account. Azure Active Directory account management actions generate an event in the Azure activity log; OS-level account management actions generate an event in the system log. These logs collected by Log Analytics and stored in the OMS repository. OMS can be configured to send alerts when predefined events occur.  |
+| **Customer** | This blueprint implements the following system account types: Azure Active Directory users, Windows OS users, SQL Server service account. Azure Active Directory account management actions generate an event in the Azure activity log; OS-level account management actions generate an event in the system log. These logs collected by Log Analytics and stored in the OMS repository. OMS can be configured to send alerts when predefined events occur.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -272,7 +272,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the following system account types: Azure Active Directory users, Windows OS users, SQL Server service account. Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles; Active Directory account privileges are implemented using role-based access control by assigning users to security groups. These role-based schemes can be extended by the customer to meet mission needs. |
+| **Customer** | This blueprint implements the following system account types: Azure Active Directory users, Windows OS users, SQL Server service account. Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles; Active Directory account privileges are implemented using role-based access control by assigning users to security groups. These role-based schemes can be extended by the customer to meet mission needs. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -286,7 +286,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the OMS Security and Audit Solution's Identity and Access Dashboard. This dashboard enables account managers to monitor use of information system accounts. This solution can be queried to report privileged role assignments. |
+| **Customer** | This blueprint implements the OMS Security and Audit Solution's Identity and Access Dashboard. This dashboard enables account managers to monitor use of information system accounts. This solution can be queried to report privileged role assignments. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -314,7 +314,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | No shared/group accounts are enabled on resources deployed by this Azure Blueprint. |
+| **Customer** | No shared/group accounts are enabled on resources deployed by this blueprint. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -328,7 +328,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | No shared/group accounts are enabled on resources deployed by this Azure Blueprint. |
+| **Customer** | No shared/group accounts are enabled on resources deployed by this blueprint. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -342,7 +342,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy may be established in Active Directory and configured to implement time-of-day restrictions or other account usage conditions. |
+| **Customer** | This blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy may be established in Active Directory and configured to implement time-of-day restrictions or other account usage conditions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -356,7 +356,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor access attempts against deployed resources. |
+| **Customer** | This blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor access attempts against deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -370,7 +370,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enable account managers to monitor access attempts against deployed resources. This solution can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
+| **Customer** | This blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor access attempts against deployed resources. This solution can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -398,7 +398,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint enforces logical access authorizations using role-based access control enforced by Azure Active Directory by assigning users to roles, Active Directory by assigning users to security groups, and Windows OS-level controls. Azure Active Directory roles assigned to users or groups control logical access  to resources within Azure at the resource, group, or subscription level. Active Directory security groups control logical access to OS-level resources and functions. |
+| **Customer** | This blueprint enforces logical access authorizations using role-based access control enforced by Azure Active Directory by assigning users to roles, Active Directory by assigning users to security groups, and Windows OS-level controls. Azure Active Directory roles assigned to users or groups control logical access  to resources within Azure at the resource, group, or subscription level. Active Directory security groups control logical access to OS-level resources and functions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -412,7 +412,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint enforces information flow restrictions through the use of network security groups applied to the subnets in which resources are deployed, Application Gateway, and load balancer. Network security groups ensure that information flow is controlled between resources based on approved rules. Application Gateway and load balancer dynamically route traffic to specific resources based on approved roles. |
+| **Customer** | This blueprint enforces information flow restrictions through the use of network security groups applied to the subnets in which resources are deployed, Application Gateway, and load balancer. Network security groups ensure that information flow is controlled between resources based on approved rules. Application Gateway and load balancer dynamically route traffic to specific resources based on approved roles. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -482,7 +482,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements role-based access control which can be configured to separate duties according to organization requirements. Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles; Active Directory account privileges are implemented using role-based access control by assigning users to security groups. |
+| **Customer** | This blueprint implements role-based access controls that can be configured to separate duties according to organization requirements. Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles; Active Directory account privileges are implemented using role-based access control by assigning users to security groups. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -496,7 +496,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements role-based access control to restrict users to only privileges explicitly assigned. Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles; Active Directory account privileges are implemented using role-based access control by assigning users to security groups.  |
+| **Customer** | This blueprint implements role-based access control to restrict users to only privileges explicitly assigned. Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles; Active Directory account privileges are implemented using role-based access control by assigning users to security groups.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -594,7 +594,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements role-based access control to restrict users to only privileges explicitly assigned. Virtual machine OS-level protections do not allow software to execute at a higher privilege level than users executing the software. |
+| **Customer** | This blueprint implements role-based access control to restrict users to only privileges explicitly assigned. Virtual machine OS-level protections do not allow software to execute at a higher privilege level than users executing the software. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -608,7 +608,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the Log Analytics service in OMS. Deployed VMs and Azure diagnostics storage accounts are connected sources to Log Analytics ensuring that execution of privileged functions is audited. |
+| **Customer** | This blueprint implements the Log Analytics service in OMS. Deployed VMs and Azure diagnostics storage accounts are connected sources to Log Analytics ensuring that execution of privileged functions is audited. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -622,7 +622,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements role-based access control to restrict users to only privileges explicitly assigned.  |
+| **Customer** | This blueprint implements role-based access control to restrict users to only privileges explicitly assigned.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -636,7 +636,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The Azure portal limits consecutive invalid logon attempts by users. A group policy is applied at the operating system level for all virtual machines deployed by this Azure Blueprint. The policy limits consecutive invalid logon attempts by users to not more than three within a 15 minute period. |
+| **Customer** | The Azure portal limits consecutive invalid logon attempts by users. A group policy is applied at the operating system level for all virtual machines deployed by this blueprint. The policy limits consecutive invalid logon attempts by users to not more than three within a 15-minute period. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -650,7 +650,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The Azure portal locks accounts after consecutive invalid logon attempts by users. A group policy is applied at the operating system level for all virtual machines deployed by this Azure Blueprint. The policy locks accounts for three hours after three consecutive invalid logon attempts by users. |
+| **Customer** | The Azure portal locks accounts after consecutive invalid logon attempts by users. A group policy is applied at the operating system level for all virtual machines deployed by this blueprint. The policy locks accounts for three hours after three consecutive invalid logon attempts by users. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -678,7 +678,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements a system use notification that is displayed to users prior to login. Note: The Azure Blueprint implements an example system use notification. The customer must edit this text to meet organization and/or regulatory body requirements. |
+| **Customer** | This blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements a system use notification that is displayed to users prior to login. Note: This blueprint implements an example system use notification. The customer must edit this text to meet organization and/or regulatory body requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -692,7 +692,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements a system use notification that is displayed to users prior to logon. The user must acknowledge the notification in order to log in. |
+| **Customer** | This blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements a system use notification that is displayed to users prior to logon. The user must acknowledge the notification in order to log in. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -720,7 +720,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | An operating system policy is implemented for virtual machines deployed by this Azure Blueprint. The policy implements concurrent session restrictions (two sessions). |
+| **Customer** | An operating system policy is implemented for virtual machines deployed by this blueprint. The policy implements concurrent session restrictions (two sessions). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -734,7 +734,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements an inactivity lock for RDP sessions. Users may manually initiate the lock. |
+| **Customer** | This blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements an inactivity lock for RDP sessions. Users may manually initiate the lock. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -748,7 +748,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements an inactivity lock for RDP sessions. Users must reauthenticate to unlock the session.  |
+| **Customer** | This blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements an inactivity lock for RDP sessions. Users must reauthenticate to unlock the session.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -762,7 +762,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements an inactivity lock for RDP sessions. The session lock conceals information previously visible. |
+| **Customer** | This blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements an inactivity lock for RDP sessions. The session lock conceals information previously visible. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -776,7 +776,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The Remote Desktop session host configuration for the Windows virtual machines deployed by this Azure Blueprint can be configured to meet organization session termination requirements. |
+| **Customer** | The Remote Desktop session host configuration for the Windows virtual machines deployed by this blueprint can be configured to meet organization session termination requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -790,7 +790,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The Azure portal and virtual machine operating systems deployed by this Azure Blueprint enable uses to initiate a logout. |
+| **Customer** | The Azure portal and virtual machine operating systems deployed by this blueprint enable uses to initiate a logout. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -804,7 +804,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The Azure portal and virtual machine operating systems deployed by this Azure Blueprint enable uses to initiate a logout. The logout process provides indication to the users that the session has been terminated. |
+| **Customer** | The Azure portal and virtual machine operating systems deployed by this blueprint enable uses to initiate a logout. The logout process provides indication to the users that the session has been terminated. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -874,7 +874,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint provides remote access to the information system through the Azure portal, through remote desktop connection via a jumpbox, and through a customer-implemented web application. Accesses through the Azure portal and remote desktop sessions are audited and can be monitored through OMS. The customer must implement remote access controls, as necessary, to the web application. |
+| **Customer** | This blueprint provides remote access to the information system through the Azure portal, through remote desktop connection via a jumpbox, and through a customer-implemented web application. Accesses through the Azure portal and remote desktop sessions are audited and can be monitored through OMS. The customer must implement remote access controls, as necessary, to the web application. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -888,7 +888,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Remote access to resources deployed by this Azure Blueprint, including the Azure portal, remote desktop connection, and web application gateway, are secured using TLS. |
+| **Customer** | Remote access to resources deployed by this blueprint, including the Azure portal, remote desktop connection, and web application gateway, are secured using TLS. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -902,7 +902,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Remote access to the notional web application deployed by this Azure Blueprint is through an application gateway. Remote access to all other resources is through a jumpbox. There are no other publicly accessible endpoints. |
+| **Customer** | Remote access to the notional web application deployed by this blueprint is through an application gateway. Remote access to all other resources is through a jumpbox. There are no other publicly accessible endpoints. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -944,7 +944,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint provides remote access to the information system through the Azure portal, through remote desktop connection via a jumpbox, and through a web application. If an Azure Active Directory account is disabled or removed, Azure portal access is disconnected immediately. Similarly, if a virtual machine OS-level account is disabled or removed, remote desktop access via the jumpbox is disconnected immediately. Customers must implement remote access disconnect for the web application. |
+| **Customer** | This blueprint provides remote access to the information system through the Azure portal, through remote desktop connection via a jumpbox, and through a web application. If an Azure Active Directory account is disabled or removed, Azure portal access is disconnected immediately. Similarly, if a virtual machine OS-level account is disabled or removed, remote desktop access via the jumpbox is disconnected immediately. Customers must implement remote access disconnect for the web application. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 

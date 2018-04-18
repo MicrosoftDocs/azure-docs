@@ -18,14 +18,14 @@ ms.author: v-craic
 
 ---
 
-# Use a virtual machine's Azure Resource Manager template
+# Create virtual machines using an Azure Resource Manager template 
 
 When you are creating a virtual machine (VM) in DevTest Labs through the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), you can view the Azure Resource Manager template before you save the VM. The template can then be used as a basis to create more lab VMs with the same settings.
 
-This article describes how to view the Resource Manager template when creating a VM, and how to deploy it later to automate creation of the same VM.
+This article describes Multi-VM vs. single-VM Resource Manager templates and shows you how to view and save a template when creating a VM.
 
 ## Multi-VM vs. single-VM Resource Manager templates
-There are two ways to create VMs in DevTest Labs using a Resource Manager template: provision the Microsoft.DevTestLab/labs/virtualmachines resource or provision the Microsoft.Commpute/virtualmachines resource. Each is used in different scenarios and require different permissions.
+There are two ways to create VMs in DevTest Labs using a Resource Manager template: provision the Microsoft.DevTestLab/labs/virtualmachines resource or provision the Microsoft.Commpute/virtualmachines resource. Each is used in different scenarios and requires different permissions.
 
 - Resource Manager templates that use a Microsoft.DevTestLab/labs/virtualmachines resource type (as declared in the “resource” property in the template) can provision individual lab VMs. Each VM then shows up as a single item in the DevTest Labs virtual machines list:
 
@@ -51,18 +51,15 @@ The remainder of this article discusses Resource Manager templates that use Miro
    ![View ARM template button](./media/devtest-lab-use-arm-template/devtestlab-lab-view-rm-template.png)
 1. Copy and save the Resource Manager template to use later to create another virtual machine.
 
-   ![Resource manager template to save for later use](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
+   ![Resource Manager template to save for later use](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
 
 After you have saved the Resource Manager template, you must update the parameters section of the template before you can use it. You can create a parameter.json that customizes just the parameters, outside of the actual Resource Manager template. 
 
-![Customize paramaters using a JSON file](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
+![Customize parameters using a JSON file](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
 
-## Deploy a Resource Manager template to create a VM
-After you have saved a Resource Manager template and customized it for your needs, you can use it to automate VM creation. [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) describes how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure. [Deploy resources with Resource Manager templates and Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) describes how to use Azure CLI with Resource Manager templates to deploy your resources to Azure.
-
-> [!NOTE]
-> Only a user with lab owner permissions can create VMs from a Resource Manager template by using Azure PowerShell. If you want to automate VM creation using a Resource Manager template and you only have user permissions, you can use the [**az lab vm create** command in the CLI](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+The Resource Manager template is now ready to use to [create a VM](devtest-lab-create-environment-from-arm.md).
 
 ### Next steps
 * Learn how to [Create multi-VM environments with Resource Manager templates](devtest-lab-create-environment-from-arm.md).
-* Explore more quick-start Resource Manager templates for DevTest Labs automation from the [public DevTest Labs GitHub repo](https://github.com/Azure/azure-quickstart-templates).
+* [Deploy a Resource Manager template to create a VM](devtest-lab-create-environment-from-arm.md#deploy-a-resource-manager-template-to-create-a-vm)
+* Explore more quickstart Resource Manager templates for DevTest Labs automation from the [public DevTest Labs GitHub repo](https://github.com/Azure/azure-quickstart-templates).

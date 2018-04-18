@@ -2,14 +2,14 @@
 title: Integrate LUIS with a bot using the Bot Builder SDK for Node.js in Azure | Microsoft Docs 
 description: Build a bot integrated with a LUIS application using the Bot Framework. 
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-demak
+ms.author: v-geberr;
 ---
 
 # Integrate LUIS with a bot using the Bot Builder SDK for Node.js
@@ -67,7 +67,7 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 
   ![Update the LUIS app ID in Azure](./media/luis-tutorial-node-bot/bot-service-app-id.png)
 
-If you don't have the LUIS app ID, log in to [https://www.luis.ai](https://www.luis.ai) using the same account you use to log in to Azure. Click on **My apps**. 
+If you don't have the LUIS app ID, log in to the [LUIS](luis-reference-regions.md) website using the same account you use to log in to Azure. Click on **My apps**. 
 
 1. Find the LUIS app you previously created, that contains the intents and entites from the HomeAutomation domain.
 2. In the **Settings** page for the LUIS app, find and copy the app ID.
@@ -119,7 +119,7 @@ var luisAppId = process.env.LuisAppId;
 var luisAPIKey = process.env.LuisAPIKey;
 var luisAPIHostName = process.env.LuisAPIHostName || 'westus.api.cognitive.microsoft.com';
 
-const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisAppId + '&subscription-key=' + luisAPIKey;
+const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisAppId + '?subscription-key=' + luisAPIKey;
 
 // Main dialog with LUIS
 var recognizer = new builder.LuisRecognizer(LuisModelUrl);
@@ -370,7 +370,6 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 > [Add intents](./add-intents.md)
 
 
-[LUIS]: https://www.luis.ai/
 
 [intentDialog]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.intentdialog.html
 
@@ -421,6 +420,5 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[LUIS-website]: https://www.luis.ai
 
 

@@ -46,7 +46,7 @@ Next, you'll need to delegate access to your application to the Azure Resource M
 
 Follow these steps in the Azure portal:
 
-1. In the left-hand navigation pane of the Azure portal, choose **More Services**, click **App Registrations**, and click **Add**.
+1. In the left-hand navigation pane of the Azure portal, choose **All services**, click **App Registrations**, and click **Add**.
 2. Search for the name of your application in the list of app registrations:
 
     ![Search for your application name](./media/batch-aad-auth-management/search-app-registration.png)

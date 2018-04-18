@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/12/2018
 ms.author: jingwang
 
 ---
@@ -36,7 +36,8 @@ Specifically, this SFTP connector supports:
 - Copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Get started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SFTP.
 
@@ -61,13 +62,15 @@ To use basic authentication, set "authenticationType" property to **Basic**, and
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | User who has access to the SFTP server. |Yes |
-| password | Password for the user (userName). Mark this field as a SecureString. | Yes |
+| password | Password for the user (userName). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Example:**
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -98,17 +101,19 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 |:--- |:--- |:--- |
 | userName | User who has access to the SFTP server |Yes |
 | privateKeyPath | Specify absolute path to the private key file that Integration Runtime can access. Applies only when Self-hosted type of Integration Runtime is specified in "connectVia". | Specify either the `privateKeyPath` or `privateKeyContent`.  |
-| privateKeyContent | Base64 encoded SSH private key content. SSH private key should be OpenSSH format. Mark this field as a SecureString. | Specify either the `privateKeyPath` or `privateKeyContent`. |
-| passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. Mark this field as a SecureString. | Yes if the private key file is protected by a pass phrase. |
+| privateKeyContent | Base64 encoded SSH private key content. SSH private key should be OpenSSH format. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Specify either the `privateKeyPath` or `privateKeyContent`. |
+| passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes if the private key file is protected by a pass phrase. |
 
 > [!NOTE]
-> SFTP connector supports only OpenSSH key. Make sure your key file is in the proper format. You can use Putty tool to convert from .ppk to OpenSSH format.
+> SFTP connector supports RSA/DSA OpenSSH key. Make sure your key file content starts with "-----BEGIN [RSA/DSA] PRIVATE KEY-----". If the private key file is a ppk-format file, please use Putty tool to convert from .ppk to OpenSSH format. 
 
 **Example 1: SshPublicKey authentication using private key filePath**
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -135,7 +140,9 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -180,7 +187,9 @@ To copy data from SFTP, set the type property of the dataset to **FileShare**. T
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SFTPDataset",
+    "type": "Datasets",
     "properties": {
         "type": "FileShare",
         "linkedServiceName":{
@@ -215,7 +224,7 @@ To copy data from SFTP, set the source type in the copy activity to **FileSystem
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **FileSystemSource** |Yes |
-| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder.<br/>Allowed values are: **true** (default), **false** | No |
+| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. Note when recursive is set to true and sink is file-based store, empty folder/sub-folder will not be copied/created at sink.<br/>Allowed values are: **true** (default), **false** | No |
 
 **Example:**
 

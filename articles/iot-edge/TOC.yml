@@ -1,18 +1,19 @@
-- name: Azure IoT Edge documentation
+- name: Azure IoT Edge Documentation
   href: index.yml
 - name: Overview
   items:
   - name: About Azure IoT Edge
     href: how-iot-edge-works.md
 - name: Quickstarts
+  expanded: true
   items:
-  - name: Deploy to the edge - Linux
+  - name: Deploy to the edge - Linux/Mac
     href: quickstart-linux.md
   - name: Deploy to the edge - Windows
     href: quickstart.md
 - name: Tutorials
   items:
-  - name: Simulate an Edge device - Linux
+  - name: Simulate an Edge device - Linux/Mac
     href: tutorial-simulate-device-linux.md
   - name: Simulate an Edge device - Windows
     href: tutorial-simulate-device-windows.md
@@ -32,6 +33,8 @@
       href: how-to-create-transparent-gateway.md
     - name: Modbus gateway
       href: deploy-modbus-gateway.md
+  - name: Use the IoT extension for Azure CLI 2.0
+    href: tutorial-create-deployment-with-cli-iot-extension.md
   - name: Deploy and monitor at scale
     href: how-to-deploy-monitor.md
   - name: Provision an IoT Core device
@@ -46,6 +49,8 @@
         href: how-to-vscode-develop-azure-function.md
       - name: Debug Azure Functions
         href: how-to-vscode-debug-azure-function.md
+  - name: Store data at the edge
+    href: sql-storage.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Concepts
@@ -84,7 +89,7 @@
   - name: Learning path
     href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/iot-hub/
   - name: Pricing calculator

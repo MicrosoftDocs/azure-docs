@@ -1,10 +1,10 @@
 ---
-title: Azure Stack Development Kit deployment quickstart | Microsoft Docs
-description: Learn how to deploy the Azure Stack Development Kit
+title: Evaluate the Azure Stack Development Kit | Microsoft Docs
+description: Learn how to deploy the Azure Stack Development Kit for evaluation purposes.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/10/2017
-ms.author: erikje
+ms.date: 01/22/2018
+ms.author: jeffgilb
 ms.custom: mvc
 
 ---
-# Azure Stack Development Kit deployment quickstart
+# Quickstart: Evaluate the Azure Stack Development Kit
 
 *Applies to: Azure Stack Development Kit*
 

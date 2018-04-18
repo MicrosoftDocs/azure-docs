@@ -44,7 +44,7 @@ Azure Cloud Shell does not include the Docker components required to complete ev
 
 Sign in to the [Azure portal](http://portal.azure.com).
 
-Select **New** > **Containers** > **Azure Container Registry**.
+Select **Create a resource** > **Containers** > **Azure Container Registry**.
 
 ![Creating a container registry in the Azure portal][tut-portal-01]
 

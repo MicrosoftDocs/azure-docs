@@ -24,7 +24,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/time-series-insights/media/index/time-series-insights.svg
+        src: https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg
       text: Explore Azure Time Series Insights
       href: /azure/time-series-insights/time-series-quickstart
 - title: Reference

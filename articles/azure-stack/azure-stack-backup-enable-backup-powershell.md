@@ -25,7 +25,7 @@ Enable the Infrastructure Backup Service with Windows PowerShell so that Azure S
 
 ## Download Azure Stack Tools
 
-Install and configured PowerShell for Azure Stack and the Azure Stack tools. See [Get up and running with PowerShell in Azure Stack](https://review.docs.microsoft.com/en-us/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+Install and configured PowerShell for Azure Stack and the Azure Stack tools. See [Get up and running with PowerShell in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
 
 ##  Load the Connect and Infrastructure modules
 

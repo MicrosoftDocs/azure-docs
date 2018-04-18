@@ -245,7 +245,7 @@ If you want to set the key dynamically - for example if you want to send results
 
 To set the key for all instances of TelemetryClient, including standard telemetry modules, set the key in TelemetryConfiguration.Active. Do this in an initialization method, such as global.aspx.cs in an ASP.NET service:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {
@@ -258,7 +258,7 @@ To set the key for all instances of TelemetryClient, including standard telemetr
 
 If you just want to send a specific set of events to a different resource, you can set the key for a specific TelemetryClient:
 
-```C#
+```csharp
 
     var tc = new TelemetryClient();
     tc.Context.InstrumentationKey = "----- my key ----";

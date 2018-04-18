@@ -1,7 +1,7 @@
 ---
 
-title: Payment Processing Blueprint for PCI DSS-compliant environments
-description: PCI DSS Requirement
+title: Azure Security and Compliance Blueprint - PCI DSS-compliant Payment Processing environments
+description: Azure Security and Compliance Blueprint - PCI DSS-compliant Payment Processing environments
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
 
 ---
 
-# Azure Blueprint Automation: Payment Processing for PCI DSS-compliant environments
+# Azure Security and Compliance Blueprint - PCI DSS-compliant Payment Processing environments
 
 ## Overview
 
@@ -42,7 +42,7 @@ The foundational architecture is comprised of the following components:
 - **Deployment templates**. In this deployment, [Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment) are used to automatically deploy the components of the architecture into Microsoft Azure by specifying configuration parameters during setup.
 - **Automated deployment scripts**. These scripts help deploy the end-to-end solution. The scripts consist of:
     - A module installation and [global administrator](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) setup script is used to install and verify that required PowerShell modules and global administrator roles are configured correctly.
-    - An installation PowerShell script is used to deploy the end-to-end solution, provided via a .zip file and a .bacpac file that contain a pre-built demo web application with [SQL database sample](https://github.com/Microsoft/azure-sql-security-sample). content. The source code for this solution is available for review [Payment Processing Blueprint code repository][code-repo]. 
+    - An installation PowerShell script is used to deploy the end-to-end solution, provided via a .zip file and a .bacpac file that contain a pre-built demo web application with [SQL database sample](https://github.com/Microsoft/azure-sql-security-sample). content. The source code for this solution is available for review [ Blueprint code repository][code-repo]. 
 
 ## Architectural diagram
 
@@ -109,8 +109,6 @@ Edna Benson is the receptionist and business manager. She is responsible for ens
 - Edna can create and read customer information
 - Edna can modify customer information.
 - Edna can overwrite or replace credit card number, expiration, and CVV information.
-
-> In the Contoso Webstore, the user is automatically as the **Edna** user for testing the capabilities of the deployed environment.
 
 ### Contoso Webstore - Estimated pricing
 
@@ -358,7 +356,7 @@ It is highly recommended that a clean installation of PowerShell be used to depl
     
 ## Threat model
 
-A data flow diagram (DFD) and sample threat model for the Contoso Webstore [Payment Processing Blueprint Threat Model](https://aka.ms/pciblueprintthreatmodel).
+A data flow diagram (DFD) and sample threat model for the Contoso Webstore [Blueprint Threat Model](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 

@@ -4,6 +4,20 @@
   items: 
   - name: About Content Moderator
     href: overview.md
+- name: Concepts
+  items: 
+  - name: Image moderation
+    href: image-moderation-api.md
+  - name: Text moderation
+    href: text-moderation-api.md
+  - name: Text moderation - languages
+    href: Text-Moderation-API-Languages.md
+  - name: Video moderation
+    href: video-moderation-human-review.md
+  - name: Jobs and reviews
+    href: review-api.md
+  - name: Workflows
+    href: workflow-api.md
 - name: Quickstarts
   items: 
   - name: Review tool
@@ -26,6 +40,8 @@
       href: text-moderation-quickstart-dotnet.md
     - name: Custom terms - API console
       href: try-terms-list-api.md
+    - name: Custom terms - .NET
+      href: term-lists-quickstart-dotnet.md 
     - name: Videos - .NET
       href: video-moderation-api.md
   - name: Review APIs
@@ -38,18 +54,16 @@
       href: try-review-api-review.md
     - name: Reviews - .NET
       href: moderation-reviews-quickstart-dotnet.md
+    - name: Video reviews - .NET
+      href: video-reviews-quickstart-dotnet.md
+    - name: Video transcript reviews - .NET
+      href: video-transcript-reviews-quickstart-dotnet.md
     - name: Workflows - API console
       href: try-review-api-workflow.md
-- name: Concepts
-  items: 
-  - name: Image moderation
-    href: image-moderation-api.md
-  - name: Text moderation
-    href: text-moderation-api.md
-  - name: Text moderation - languages
-    href: Text-Moderation-API-Languages.md
-  - name: Review APIs
-    href: review-api.md
+- name: Samples
+  items:
+  - name: .NET
+    href: samples-dotnet.md
 - name: How-to guides
   items:
   - name: Review tool
@@ -78,8 +92,10 @@
   items:
   - name: Facebook content moderation
     href: facebook-post-moderation.md
-  - name: eCommerce catalog moderation
+  - name: eCommerce image moderation
     href: ecommerce-retail-catalog-moderation.md
+  - name: Video and trancript moderation
+    href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: API References
   items: 
   - name: All APIs  
@@ -88,9 +104,7 @@
   items:  
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Windows SDK
-    href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/
-  - name: Samples
-    href: https://github.com/MicrosoftContentModerator
+  - name: SDK and samples
+    href: sdk-and-samples.md 
   - name: FAQ
     href: FAQs.md

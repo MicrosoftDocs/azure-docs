@@ -24,7 +24,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a container instance
 
-Select the **New** > **Containers** > **Azure Container Instances (preview)**.
+Select the **Create a resource** > **Containers** > **Azure Container Instances (preview)**.
 
 ![Begin creating a new container instance in the Azure portal][aci-portal-01]
 
@@ -58,6 +58,15 @@ Once the container moves to the **Running** state, navigate to the IP address yo
 
 ![App deployed using Azure Container Instances viewed in browser][aci-portal-07]
 
+## Delete the container
+When you are done with the container, select the **mycontainer-myc1** container group and then click **Delete**.
+
+![Deleting the container instance in the Azure portal][aci-portal-09]
+
+This will launch a confirmation dialog box, select **Yes** when prompted.
+
+![Delete confirmation of a container instance in the Azure portal][aci-portal-10]
+
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
 [aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png
@@ -67,6 +76,8 @@ Once the container moves to the **Running** state, navigate to the IP address yo
 [aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
 [aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
+[aci-portal-09]: ./media/container-instances-quickstart-portal/qs-portal-09.png
+[aci-portal-10]: ./media/container-instances-quickstart-portal/qs-portal-10.png
 
 ## Next steps
 

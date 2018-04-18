@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 02/27/2018
 ms.author: larryfr
 ---
 # Introducing Apache Kafka on HDInsight
@@ -25,23 +25,45 @@ ms.author: larryfr
 
 Kafka on HDInsight provides the following features:
 
-* Service Level Agreement (SLA): [SLA information for HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* __99% Service Level Agreement (SLA) on Kafka uptime__: For more information, see the [SLA information for HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) document.
 
-* Publish-subscribe messaging pattern: Kafka provides a Producer API for publishing records to a Kafka topic. The Consumer API is used when subscribing to a topic.
+* __Fault-tolerance and rack awareness__: Kafka was designed with a single dimensional view of a rack, which works well on some environments. However on environments such as Azure, a rack is separated out into two dimensions - Update Domains (UDs) and Fault Domains (FDs). Microsoft provides tools that ensure that rebalance Kafka partitions and replicas across UDs and FDs. 
 
-* Stream processing: Kafka is often used with Apache Storm or Spark for real-time stream processing. Kafka 0.10.0.0 (HDInsight version 3.5 and 3.6) introduced a streaming API that allows you to build streaming solutions without requiring Storm or Spark.
+    For more information, see [High availability with Kafka on HDInsight](apache-kafka-high-availability.md).
 
-* Horizontal scale: Kafka partitions streams across the nodes in the HDInsight cluster. Consumer processes can be associated with individual partitions to provide load balancing when consuming records.
-
-* In-order delivery: Within each partition, records are stored in the stream in the order that they were received. By associating one consumer process per partition, you can guarantee that records are processed in-order.
-
-* Fault-tolerant: Partitions can be replicated between nodes to provide fault tolerance.
-
-* Integration with Azure Managed Disks: Managed disks provide higher scale and throughput for the disks used by the virtual machines in the HDInsight cluster.
-
-    Managed disks are enabled by default for Kafka on HDInsight. The number of disks used per node can be configured during HDInsight creation. For more information on managed disks, see [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+* **Integration with Azure Managed Disks**: Managed disks provide higher scale and throughput for the disks used by Kafka on HDInsight, up to 16 TB per node in the cluster.
 
     For information on configuring managed disks with Kafka on HDInsight, see [Increase scalability of Kafka on HDInsight](apache-kafka-scalability.md).
+
+    For more information on managed disks, see [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+
+* **Alerting, monitoring, and predictive maintenance**: Azure Log Analytics can be used to monitor Kafka on HDInsight. Log Analytics surfaces virtual machine level information, such as disk and NIC metrics, and JMX metrics from Kafka.
+
+    For more information, see [Analyze logs for Kafka on HDInsight](apache-kafka-log-analytics-operations-management.md).
+
+* **Replication of Kafka data**: Kafka provides the MirrorMaker utility, which replicates data between Kafka clusters.
+
+    For information on using MirrorMaker, see [Replicate Kafka topics with Kafka on HDInsight](apache-kafka-mirroring.md).
+
+* **Cluster scaling**: HDInsight allows you to change the number of worker nodes (which host the Kafka-broker) after cluster creation. Scale up a cluster as workloads increase, or scale down to reduce costs. Scaling can be performed from the Azure portal, Azure PowerShell, and other Azure management interfaces. For Kafka, you should rebalance partition replicas after scaling operations. Rebalancing partitions allows Kafka to take advantage of the new number of worker nodes.
+
+    For more information, see [High availability with Kafka on HDInsight](apache-kafka-high-availability.md).
+
+* **Publish-subscribe messaging pattern**: Kafka provides a Producer API for publishing records to a Kafka topic. The Consumer API is used when subscribing to a topic.
+
+    For more information, see [Start with Kafka on HDInsight](apache-kafka-get-started.md).
+
+* **Stream processing**: Kafka is often used with Apache Storm or Spark for real-time stream processing. Kafka 0.10.0.0 (HDInsight version 3.5 and 3.6) introduced a streaming API that allows you to build streaming solutions without requiring Storm or Spark.
+
+    For more information, see [Start with Kafka on HDInsight](apache-kafka-get-started.md).
+
+* **Horizontal scale**: Kafka partitions streams across the nodes in the HDInsight cluster. Consumer processes can be associated with individual partitions to provide load balancing when consuming records.
+
+    For more information, see [Start with Kafka on HDInsight](apache-kafka-get-started.md).
+
+* **In-order delivery**: Within each partition, records are stored in the stream in the order that they were received. By associating one consumer process per partition, you can guarantee that records are processed in-order.
+
+    For more information, see [Start with Kafka on HDInsight](apache-kafka-get-started.md).
 
 ## Use cases
 
@@ -62,7 +84,7 @@ This diagram shows a typical Kafka configuration that uses consumer groups, part
 Each Kafka broker uses Azure Managed Disks. The number of disks is user-defined, and can provide up to 16 TB of storage per broker.
 
 > [!IMPORTANT]
-> Kafka is not aware of the underlying hardware (rack) in the Azure data center. To ensure that partitions are correctly balanced across the underlying hardware, see [configure high availability of data (Kafka)](apache-kafka-high-availability.md).
+> Kafka is not aware of the underlying hardware (rack) in the Azure data center. To ensure that partitions are correctly balanced across the underlying hardware, see the [Configure high availability of data (Kafka)](apache-kafka-high-availability.md) document.
 
 ## Next steps
 

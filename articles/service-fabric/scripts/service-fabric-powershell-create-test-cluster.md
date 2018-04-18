@@ -13,7 +13,7 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
 ---

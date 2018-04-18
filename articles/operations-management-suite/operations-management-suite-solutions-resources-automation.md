@@ -38,7 +38,7 @@ This article assumes that you're already familiar with the following information
 - How to [author Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Automation account
-All resources in Azure Automation are contained in an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  As described in [OMS workspace and Automation account](operations-management-suite-solutions.md#oms-workspace-and-automation-account) the Automation account isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
+All resources in Azure Automation are contained in an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  As described in [OMS workspace and Automation account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) the Automation account isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
 
 The name of each Automation resource includes the name of its Automation account.  This is done in the solution with the **accountName** parameter as in the following example of a runbook resource.
 

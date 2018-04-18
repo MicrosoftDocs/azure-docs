@@ -3,7 +3,7 @@ title: Azure Stack 1711 Update | Microsoft Docs
 description: Learn about what's in the 1711 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
 documentationcenter: ''
-author: andredm7
+author: brenduns
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
-ms.author: andredm
+ms.date: 01/31/2018
+ms.author: brenduns
 
 ---
 
@@ -60,7 +60,7 @@ This update includes the following improvements and fixes for Azure Stack.
 #### Windows Server 2016 new features and fixes
 
 - [November 14, 2017—KB4048953 (OS Build 14393.1884) ](https://support.microsoft.com/help/4048953)
- 
+
 ### Known issues with the update process
 
 This section contains known issues that you may encounter during the 1711 update installation.
@@ -95,7 +95,7 @@ This section contains post-installation known issues with build **20171201.3**.
 
    - You may see a blank row at the top of the list. You should still be able to select an item as expected.
    - If the list of items in the drop-down list is short, you may not be able to view any of the item names.
-   - If you have multiple user subscriptions, the resource group drop-down list may be empty. 
+   - If you have multiple user subscriptions, the resource group drop-down list may be empty.
 
 		> [!NOTE]
 		> To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
@@ -116,18 +116,18 @@ This section contains post-installation known issues with build **20171201.3**.
 - You can configure a virtual machine availability set only with a fault domain of one, and an update domain of one.
 - There is no marketplace experience to create virtual machine scale sets. You can create a scale set by using a template.
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
- 
+
 #### Networking
 - You can't create a load balancer with a public IP address by using the portal. As a workaround, you can use PowerShell to create the load balancer.
 - You must create a network address translation (NAT) rule when you create a network load balancer. If you don't, you'll receive an error when you try to add a NAT rule after the load balancer is created.
 - You can't disassociate a public IP address from a virtual machine (VM) after the VM has been created and associated with that IP address. Disassociation will appear to work, but the previously assigned public IP address remains associated with the original VM. This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one. Currently, you must only use new public IP addresses for new VM creation.
 - Azure Stack operators may be unable to deploy, delete, modify VNETs or Network Security Groups. This issue is primarily seen on subsequent update attempts of the same package. This is caused by a packaging issue with an update which is currently under investigation.
 - Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs which breaks Linux instances.
- 
+
 #### SQL/MySQL
-- It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
+- It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU.
 - Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in a mismatched state.
- 
+
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
 
@@ -147,7 +147,7 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 - **Enabling infrastructure backup on ASDK is for testing purposes only.**  
   Infrastructure backups can be used to restore multi-node solutions. You can enable infrastructure backup on ASDK but there is no way to test recovery.
 
-For more information see [Backup and data recovery for Azure Stack with the Infrastructure Backup Service](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+For more information, see [Backup and data recovery for Azure Stack with the Infrastructure Backup Service](azure-stack-backup-infrastructure-backup.md).
 
 ## Download the update
 

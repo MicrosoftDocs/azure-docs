@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 01/29/2018
 ms.author: seguler
 
 ---
@@ -747,7 +747,7 @@ You can specify multiple response files. However, note that AzCopy does not supp
 
 ### /Y
 
-Suppresses all AzCopy confirmation prompts.
+Suppresses all AzCopy confirmation prompts. This option also allows the use of write-only SAS tokens for data upload scenarios, when /XO and /XN are not specified.
 
 **Applicable to:** Blobs, Files, Tables
 

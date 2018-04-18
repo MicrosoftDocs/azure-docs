@@ -22,7 +22,7 @@ ms.author: lbosq
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, database, and graph (container) using the Azure portal. You then build and run a console app built on the [Graph API](graph-sdk-dotnet.md).  
+This quick start demonstrates how to create an Azure Cosmos DB account, database, and graph (container) using the Azure portal. You then build and run a console app built using the open-source driver [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
 
 ## Prerequisites
 
@@ -42,63 +42,98 @@ If you already have Visual Studio 2017 installed, make sure to be installed up t
 
 ## Clone the sample application
 
-Now let's clone a Graph API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Graph API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-This sample project is using .NET Core project format and has been configured to target the following frameworks:
- - netcoreapp2.0
- - net461
-
-1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
+1. Open a git terminal window, such as git bash, and `cd` to your working directory.  
 
 2. Run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started.git
     ```
 
-3. Then open Visual Studio and open the solution file. 
+3. Then open Visual Studio and open the solution file.
+
+4. Restore the NuGet packages in the project. This should include the Gremlin.Net driver, as well as the Newtonsoft.Json package.
+
+5. You can also install the Gremlin.Net driver manually, version 3.2.7, using the Nuget package manager, or the [nuget command-line utility](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools): 
+
+    ```bash
+    nuget install Gremlin.Net -Version 3.2.7
+    ```
 
 ## Review the code
 
 Let's make a quick review of what's happening in the app. Open the Program.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The DocumentClient is initialized. 
+* Set your connection parameters based on the account created above (Line 19): 
 
     ```csharp
-    using (DocumentClient client = new DocumentClient(
-        new Uri(endpoint),
-        authKey,
-        new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp }))
+    private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";
+    private static int port = 443;
+    private static string authKey = "your-authentication-key";
+    private static string database = "your-database";
+    private static string collection = "your-collection-or-graph";
     ```
 
-* A new database is created.
+* The Gremlin commands to be executed are listed in a Dictionary (Line 26):
 
     ```csharp
-    Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" });
-    ```
-
-* A new graph is created.
-
-    ```csharp
-    DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync(
-        UriFactory.CreateDatabaseUri("graphdb"),
-        new DocumentCollection { Id = "graph" },
-        new RequestOptions { OfferThroughput = 1000 });
-    ```
-* A series of Gremlin steps are executed using the `CreateGremlinQuery` method.
-
-    ```csharp
-    // The CreateGremlinQuery method extensions allow you to execute Gremlin queries and iterate
-    // results asychronously
-    IDocumentQuery<dynamic> query = client.CreateGremlinQuery<dynamic>(graph, "g.V().count()");
-    while (query.HasMoreResults)
+    private static Dictionary<string, string> gremlinQueries = new Dictionary<string, string>
     {
-        foreach (dynamic result in await query.ExecuteNextAsync())
-        {
-            Console.WriteLine($"\t {JsonConvert.SerializeObject(result)}");
-        }
-    }
+        { "Cleanup",        "g.V().drop()" },
+        { "AddVertex 1",    "g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44)" },
+        { "AddVertex 2",    "g.addV('person').property('id', 'mary').property('firstName', 'Mary').property('lastName', 'Andersen').property('age', 39)" },
+        { "AddVertex 3",    "g.addV('person').property('id', 'ben').property('firstName', 'Ben').property('lastName', 'Miller')" },
+        { "AddVertex 4",    "g.addV('person').property('id', 'robin').property('firstName', 'Robin').property('lastName', 'Wakefield')" },
+        { "AddEdge 1",      "g.V('thomas').addE('knows').to(g.V('mary'))" },
+        { "AddEdge 2",      "g.V('thomas').addE('knows').to(g.V('ben'))" },
+        { "AddEdge 3",      "g.V('ben').addE('knows').to(g.V('robin'))" },
+        { "UpdateVertex",   "g.V('thomas').property('age', 44)" },
+        { "CountVertices",  "g.V().count()" },
+        { "Filter Range",   "g.V().hasLabel('person').has('age', gt(40))" },
+        { "Project",        "g.V().hasLabel('person').values('firstName')" },
+        { "Sort",           "g.V().hasLabel('person').order().by('firstName', decr)" },
+        { "Traverse",       "g.V('thomas').out('knows').hasLabel('person')" },
+        { "Traverse 2x",    "g.V('thomas').out('knows').hasLabel('person').out('knows').hasLabel('person')" },
+        { "Loop",           "g.V('thomas').repeat(out()).until(has('id', 'robin')).path()" },
+        { "DropEdge",       "g.V('thomas').outE('knows').where(inV().has('id', 'mary')).drop()" },
+        { "CountEdges",     "g.E().count()" },
+        { "DropVertex",     "g.V('thomas').drop()" },
+    };
+    ```
 
+
+* Create a `GremlinServer` connection object using the parameters provided above (Line 52):
+
+    ```csharp
+    var gremlinServer = new GremlinServer(hostname, port, enableSsl: true, 
+                                                    username: "/dbs/" + database + "/colls/" + collection, 
+                                                    password: authKey);
+    ```
+
+* Create a new `GremlinClient` object (Line 56):
+
+    ```csharp
+    var gremlinClient = new GremlinClient(gremlinServer);
+    ```
+
+* Execute each Gremlin query using the `GremlinClient` object with an async task (Line 63). This will read the Gremlin queries from the dictionary defined above (Line 26):
+
+    ```csharp
+    var task = gremlinClient.SubmitAsync<dynamic>(query.Value);
+    task.Wait();
+    ```
+
+* Retrieve the result and read the values, which are formatted as a dictionary, using the `JsonSerializer` class from Newtonsoft.Json:
+
+    ```csharp
+    foreach (var result in task.Result)
+    {
+        // The vertex results are formed as dictionaries with a nested dictionary for their properties
+        string output = JsonConvert.SerializeObject(result);
+        Console.WriteLine(String.Format("\tResult:\n\t{0}", output));
+    }
     ```
 
 ## Update your connection string
@@ -111,47 +146,45 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy an access key in the Azure portal, Keys page](./media/create-graph-dotnet/keys.png)
 
-2. In Visual Studio 2017, open the appsettings.json file and paste the value over `FILLME` in the `endpoint`. 
+2. In Program.cs paste the value over `your-endpoint` in the `hostname` variable in line 19. 
 
-    `"endpoint": "https://FILLME.documents.azure.com:443/",`
+    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
 
     The endpoint value should now look like this:
 
-    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+    `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. Copy your **PRIMARY KEY** value from the portal, and make it the value of the AuthKey key in App.config, then save your changes. 
+3. Copy your **PRIMARY KEY** value from the portal, and paste it in the `authkey` variable, replacing the `"your-authentication-key"` placeholder in line 21. 
 
-    `"authkey": "FILLME"`
+    `private static string authKey = "your-authentication-key";`
 
-4. Save the appsettings.json file. 
+4. Using the information of the database created above, paste the database name inside of the `database` variable in line 22. 
+
+    `private static string database = "your-database";`
+
+5. Similarly, using the information of the collection created above, paste the collection (which is also the graph name) inside of the `collection` variable in line 23. 
+
+    `private static string collection = "your-collection-or-graph";`
+
+6. Save the Program.cs file. 
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
 ## Run the console app
 
-Before running the application, it is recommended that you update the *Microsoft.Azure.Graphs* package to the latest version.
+Click CTRL + F5 to run the application. The application will print both the Gremlin query commands and results in the console.
 
-1. In Visual Studio, right-click on the **GraphGetStarted** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
-
-2. In the NuGet Package Manager **Updates** tab, type *Microsoft.Azure.Graphs* and check the **Includes prerelease** box. 
-
-3. From the results, update the **Microsoft.Azure.Graphs** library to the latest version of the package. This installs the Azure Cosmos DB graph extension library package and all dependencies.
-
-    If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
-
-4. Click CTRL + F5 to run the application.
-
-   The console window displays the vertexes and edges being added to the graph. When the script completes, press ENTER twice to close the console window.
+   The console window displays the vertexes and edges being added to the graph. When the script completes, press ENTER to close the console window.
 
 ## Browse using the Data Explorer
 
 You can now go back to Data Explorer in the Azure portal and browse and query your new graph data.
 
-1. In Data Explorer, the new database appears in the Graphs pane. Expand **graphdb**, **graphcollz**, and then click **Graph**.
+1. In Data Explorer, the new database appears in the Graphs pane. Expand the database and collection nodes, and then click **Graph**.
 
-2. Click the **Apply Filter** button to use the default query to view all the verticies in the graph. The data generated by the sample app is displayed in the Graphs pane.
+2. Click the **Apply Filter** button to use the default query to view all the vertices in the graph. The data generated by the sample app is displayed in the Graphs pane.
 
-    You can zoom in and out of the graph, you can expand the graph display space, add additional verticies, and move verticies on the display surface.
+    You can zoom in and out of the graph, you can expand the graph display space, add additional vertices, and move vertices on the display surface.
 
     ![View the graph in Data Explorer in the Azure portal](./media/create-graph-dotnet/graph-explorer.png)
 

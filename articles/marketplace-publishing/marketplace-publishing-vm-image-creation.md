@@ -56,7 +56,7 @@ After you have added an offer, you need to define and identify your SKUs. You ca
 
 ## 2. Create an Azure-compatible VHD (Linux-based)
 This section focuses on best practices for creating a Linux-based VM image for the Azure Marketplace. For a step-by-step walkthrough, refer to the following documentation:
-[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+[Create a custom Linux VM image](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## 3. Create an Azure-compatible VHD (Windows-based)
 This section focuses on the steps to create a SKU based on Windows Server for the Azure Marketplace.
@@ -116,13 +116,16 @@ From the Microsoft Azure portal, you can create your VM based on an approved bas
 We strongly recommend that you develop your VHD in the cloud by using Remote Desktop Protocol (RDP). You connect to RDP with the user name and password specified during provisioning.
 
 > [!IMPORTANT]
+> **Do not use discs managed.** The virtual machine used to develop the VHD to the cloud must not be based on disks managed as it currently does not support the creation of an image from them.
+> Creating the virtual machine in the optional feature change the default for disks managed.
+
 > If you develop your VHD on-premises (which is not recommended), see [Creating a virtual machine image on-premises](marketplace-publishing-vm-image-creation-on-premise.md). Downloading your VHD is not necessary if you are developing in the cloud.
 >
 >
 
 **Connect via RDP using the [Microsoft Azure portal][link-azure-portal]**
 
-1. Select **Browse** > **VMs**.
+1. Select **All services** > **VMs**.
 2. The Virtual machines blade opens. Ensure that the VM that you want to connect with is running, and then select it from the list of deployed VMs.
 3. A blade opens that describes the selected VM. At the top, click **Connect**.
 4. You are prompted to enter the user name and password that you specified during provisioning.
@@ -131,7 +134,7 @@ We strongly recommend that you develop your VHD in the cloud by using Remote Des
 
 To download a remote desktop file to a local machine, use the [Get-AzureRemoteDesktopFile cmdlet][link-technet-2]. In order to use this cmdlet, you need to know the name of the service and name of the VM. If you created the VM from the [Microsoft Azure portal][link-azure-portal], you can find this information under VM properties:
 
-1. In the Microsoft Azure portal, select **Browse** > **VMs**.
+1. In the Microsoft Azure portal, select **All services** > **VMs**.
 2. The Virtual machines blade opens. Select the VM that you deployed.
 3. A blade opens that describes the selected VM.
 4. Click **Properties**.
@@ -209,7 +212,6 @@ To deploy a VM from a user VM image, you can use the current [Azure portal](http
 
 1. Go to **New** > **Compute** > **Virtual machine** > **From gallery**.
 
-    ![drawing][img-manage-vm-new]
 2. Go to **My images**, and then select the VM image from which to deploy a VM:
 
    1. Pay close attention to which image you select, because the **My images** view lists both operating system images and VM images.

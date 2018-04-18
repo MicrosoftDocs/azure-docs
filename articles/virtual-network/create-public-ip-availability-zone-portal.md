@@ -37,7 +37,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 ## Create a zonal public IP address
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Select **Networking**, and then select **Public IP address**.
 3. Enter or select values for the following settings, select your subscription, accept the defaults for the remaining settings, then click **Create**:
 

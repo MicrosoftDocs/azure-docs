@@ -33,15 +33,17 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Monitor and update VMs
+  - name: 10 - Govern VMs
+    href: tutorial-govern-resources.md
+  - name: 11 - Monitor and update VMs
     href: tutorial-monitoring.md
-  - name: 11 - Manage VM security
+  - name: 12 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 12 - Team Services CI/CD
+  - name: 13 - Team Services CI/CD
     href: tutorial-vsts-iis-cicd.md
-  - name: 13 - Install a SQL\IIS\.NET stack
+  - name: 14 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
-  - name: 14 - Secure web server with SSL
+  - name: 15 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -98,6 +100,8 @@
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: Troubleshoot attached VHDs
+      href: troubleshoot-vhds.md      
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -251,6 +255,8 @@
       href: ../workloads/sap/get-started.md
     - name: MATLAB cluster
       href: matlab-mdcs-cluster.md
+    - name: Visual Studio
+      href: using-visual-studio-vm.md
     - name: High Performance Computing (HPC)
       href: hpcpack-cluster-options.md
       items:
@@ -286,6 +292,8 @@
       href: convert-disk-storage.md
     - name: Migrate to Premium storage with Azure Site Recovery
       href: migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: Find unattached disks
+      href: find-unattached-disks.md
     - name: Use File storage
       href: mount-azure-file-storage.md
     - name: Deploy disks with template
@@ -418,6 +426,8 @@
       href: performance-diagnostics-vm-extension.md
     - name: Use nested virtualization 
       href: troubleshoot-vm-by-use-nested-virtualization.md
+    - name: Install the VM agent in offline mode
+      href: install-vm-agent-offline.md
 - name: Reference
   items:
   - name: Azure CLI

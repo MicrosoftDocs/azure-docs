@@ -68,18 +68,18 @@ The bot responds by saying "You have reached Greeting. You said: hello".  This r
 
 ## Connect your LUIS app to the bot
 
-Open **Application Settings** and edit the **LuisAppId** field to contain the application ID of your LUIS app. If you created your HomeAutomation LUIS app in a region other than West US, you need to change the **LuisAPIHostName** as well. The **LuisAPIKey** is currently set to your programmatic key. You change this to your subscription key when your traffic exceeds the free tier quota. 
+Open **Application Settings** and edit the **LuisAppId** field to contain the application ID of your LUIS app. If you created your HomeAutomation LUIS app in a region other than West US, you need to change the **LuisAPIHostName** as well. The **LuisAPIKey** is currently set to your authoring key. You change this to your subscription key when your traffic exceeds the free tier quota. 
 
   ![Update the LUIS app ID in Azure](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 
 > [!Note]
-> If you don't have the LUIS app ID of the [Home Automation app](luis-get-started-create-app.md), log in to [https://www.luis.ai](https://www.luis.ai) using the same account you use to log in to Azure. 
+> If you don't have the LUIS app ID of the [Home Automation app](luis-get-started-create-app.md), log in to the [LUIS](luis-reference-regions.md) website using the same account you use to log in to Azure. 
 > 1. Click on **My apps**. 
 > 2. Find the LUIS app you previously created, that contains the intents and entities from the HomeAutomation domain.
 > 3. In the **Settings** page for the LUIS app, find and copy the app ID. Make sure it is [trained](Train-Test.md) and [published](PublishApp.md). 
 
     > [!WARNING]
-    > If you delete your app ID or programmatic key, the bot will stop working.
+    > If you delete your app ID or LUIS key, the bot will stop working.
 
 ## Modify the bot code
 
@@ -148,7 +148,7 @@ If your bot isn't working, download the project to your local machine and contin
 
 ## Next steps
 
-Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, and **Greeting** intents. Remember to train and publish [LUIS](https://www.luis.ai) and to [build](#build-the-bot) the web app bot. Both LUIS and the bot should have the same intents.
+Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, and **Greeting** intents. Remember to train, publish and to [build](#build-the-bot) the web app bot. Both LUIS and the bot should have the same intents.
 
 > [!div class="nextstepaction"]
 > [Add intents](./add-intents.md)
@@ -161,7 +161,6 @@ Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, 
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[LUIS-website]: https://www.luis.ai
 [AssignedEndpointDoc]:https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
 [VisualStudio]: https://www.visualstudio.com/
 

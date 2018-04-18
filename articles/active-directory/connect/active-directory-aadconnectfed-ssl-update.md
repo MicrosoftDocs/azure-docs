@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Update the SSL certificate for an Active Directory Federation Services (AD FS) farm | Microsoft Docs'
+title: Azure AD Connect - Update the SSL certificate for an AD FS farm | Microsoft Docs
 description: This document details the steps to update the SSL certificate of an AD FS farm by using Azure AD Connect.
 services: active-directory
 keywords: azure ad connect, adfs ssl update, adfs certificate update, change adfs certificate, new adfs certificate, adfs certificate, update adfs ssl certificate, update ssl certificate adfs, configure adfs ssl certificate, adfs, ssl, certificate, adfs service communication certificate, update federation, configure federation, aad connect
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: anandy
-
+ms.custom: seohack1
 ---    
 
 # Update the SSL certificate for an Active Directory Federation Services (AD FS) farm

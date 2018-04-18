@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 03/05/2018
 ms.author: owend
 
 ---
@@ -64,8 +64,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token in the Authorization header and must meet the following requirements:
 
 - The token must be either a user token or an application service principal.
-- The user or application must have sufficient permissions on the server or model to make the requested call. The permission level is determined by roles within the model or the admin group on the server.
 - The token must have the correct audience set to `https://*.asazure.windows.net`.
+- The user or application must have sufficient permissions on the server or model to make the requested call. The permission level is determined by roles within the model or the admin group on the server.
+
+    > [!IMPORTANT]
+    > Currently, **server admin** role permissions are required.
 
 ## POST /refreshes
 
@@ -205,7 +208,7 @@ The code sample can use interactive login, username/password, or [service princi
 
 This form of authentication requires an Azure application be created with the necessary API permissions assigned. 
 
-1.	In Azure portal, click **New** > **Azure Active Directory** > **App registrations** > **New application registration**.
+1.	In Azure portal, click **Create a resource** > **Azure Active Directory** > **App registrations** > **New application registration**.
 
     ![New Application registration](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Service Fabric Java Application | Microsoft Docs
-description: Create a Java application for Azure using the Service Fabric quick start sample.
+description: In this quickstart, you create a Java application for Azure using a Service Fabric reliable services sample application.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -19,7 +19,7 @@ ms.custom: mvc, devcenter
 
 ---
 
-# Create a Java Application
+# Quickstart: deploy a Java Service Fabric reliable services application to Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
 
 This quickstart shows how to deploy your first Java application to Service Fabric using the Eclipse IDE on a Linux developer machine. When you're finished, you have a voting application with a Java web front end that saves voting results in a stateful back-end service in the cluster.
@@ -77,16 +77,42 @@ You can now add a set of voting options, and start taking votes. The application
 ## Deploy the application to Azure
 
 ### Set up your Azure Service Fabric Cluster
-To deploy the application to a cluster in Azure, create your own cluster or use a Party Cluster.
+To deploy the application to a cluster in Azure, create your own cluster.
 
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
+
+In order to perform management operations on the secure party cluster, you can use Service Fabric Explorer, CLI, or Powershell. To use Service Fabric Explorer, you will need to download the PFX file from the Party Cluster website and import the certificate into your certificate store (Windows or Mac) or into the browser itself (Ubuntu). There is no password for the self-signed certificates from the party cluster. 
+
+To perform management operations with Powershell or CLI, you will need the PFX (Powershell) or PEM (CLI). To convert the PFX to a PEM file, please run the following command:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 For information about creating your own cluster, see [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> The web front-end service is configured to listen on port 8080 for incoming traffic. Make sure that port is open in your cluster. If you are using the Party Cluster, this port is open.
+> The Spring Boot service is configured to listen on port 8080 for incoming traffic. Make sure that port is open in your cluster. If you are using the Party Cluster, this port is open.
 >
 
+### Add certificate information to your application
+
+Certificate thumbprint needs to be added to your application because it is using Service Fabric programming models. 
+
+1. You will need the thumbprint of your certificate in the ```Voting/VotingApplication/ApplicationManiest.xml``` file when running on a secure cluster. Run the following command to extract the thumbprint of the certificate.
+
+    ```bash
+    openssl x509 -in [CERTIFICATE_FILE] -fingerprint -noout
+    ```
+
+2. In the ```Voting/VotingApplication/ApplicationManiest.xml```, add the following snippet under the **ApplicationManifest** tag. The **X509FindValue** should be the thumbprint from the previous step (no semicolons). 
+
+    ```xml
+    <Certificates>
+        <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="0A00AA0AAAA0AAA00A000000A0AA00A0AAAA00" />
+    </Certificates>   
+    ```
+    
 ### Deploy the application using Eclipse
 Now that the application and your cluster are ready, you can deploy it to the cluster directly from Eclipse.
 
@@ -98,8 +124,8 @@ Now that the application and your cluster are ready, you can deploy it to the cl
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
             "ConnectionPort": "19080",
-            "ClientKey": "",
-            "ClientCert": ""
+            "ClientKey": "[path_to_your_pem_file_on_local_machine]",
+            "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
     }
     ```
@@ -119,7 +145,7 @@ Service Fabric Explorer runs in all Service Fabric clusters and can be accessed 
 
 To scale the web front-end service, do the following steps:
 
-1. Open Service Fabric Explorer in your cluster - for example, `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+1. Open Service Fabric Explorer in your cluster - for example, `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 2. Click on the ellipsis (three dots) next to the **fabric:/Voting/VotingWeb** node in the treeview and choose **Scale Service**.
 
     ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)

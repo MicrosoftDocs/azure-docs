@@ -3,8 +3,8 @@ title: Troubleshoot a web app in Azure App Service using Visual Studio
 description: Learn how to troubleshoot an Azure web app by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013.
 services: app-service
 documentationcenter: .net
-author: tdykstra
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: ''
 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: rachelap
+ms.author: cephalin
 
 ---
 # Troubleshoot a web app in Azure App Service using Visual Studio
@@ -114,9 +114,9 @@ If the detailed error message doesn't provide enough information, and you can't 
 
 Remote debugging does not work in Express editions of Visual Studio.
 
-This section shows how to debug remotely using the project you create in [Create an ASP.NET web app in Azure][app-service-web-get-started-dotnet.md].
+This section shows how to debug remotely using the project you create in [Create an ASP.NET web app in Azure](app-service-web-get-started-dotnet.md).
 
-1. Open the web project that you created in [Create an ASP.NET web app in Azure][app-service-web-get-started-dotnet.md].
+1. Open the web project that you created in [Create an ASP.NET web app in Azure](app-service-web-get-started-dotnet.md).
 
 2. Open *Controllers\HomeController.cs*.
 
@@ -132,7 +132,7 @@ This section shows how to debug remotely using the project you create in [Create
 
 5. In **Solution Explorer**, right-click the project, and click **Publish**.
 
-6. In the **Profile** drop-down list, select the same profile that you used in [Create an ASP.NET web app in Azure][app-service-web-get-started-dotnet.md]. Then, click Settings.
+6. In the **Profile** drop-down list, select the same profile that you used in [Create an ASP.NET web app in Azure](app-service-web-get-started-dotnet.md). Then, click Settings.
 
 7. In the **Publish** dialog, click the **Settings** tab, and then change **Configuration** to **Debug**, and then click **Save**.
 

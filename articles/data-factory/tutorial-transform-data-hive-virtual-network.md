@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shengc
 ---
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 - **Azure Storage account**. You create a hive script, and upload it to the Azure storage. The output from the Hive script is stored in this storage account. In this sample, HDInsight cluster uses this Azure Storage account as the primary storage. 
-- **Azure Virtual Network.** If you don't have an Azure virtual network, create it by following [these instructions](../virtual-network/virtual-network-get-started-vnet-subnet.md). In this sample, the HDInsight is in an Azure Virtual Network. Here is a sample configuration of Azure Virtual Network. 
+- **Azure Virtual Network.** If you don't have an Azure virtual network, create it by following [these instructions](../virtual-network/quick-create-portal.md). In this sample, the HDInsight is in an Azure Virtual Network. Here is a sample configuration of Azure Virtual Network. 
 
 	![Create virtual network](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
 - **HDInsight cluster.** Create a HDInsight cluster and join it to the virtual network you created in the previous step by following this article: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Here is a sample configuration of HDInsight in a virtual network. 
@@ -146,7 +146,7 @@ In this section, you create a self-hosted integration runtime and associate it w
    }
    ```
     Note down the value of **AuthKey1** without quotation mark. 
-3. Create an Azure VM and join it into the same virtual network that contains your HDInsight cluster. For details, see [How to create virtual machines](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms). Join them into an Azure Virtual Network. 
+3. Create an Azure VM and join it into the same virtual network that contains your HDInsight cluster. For details, see [How to create virtual machines](../virtual-network/quick-create-portal.md#create-virtual-machines). Join them into an Azure Virtual Network. 
 4. On the Azure VM, download [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). Use the Authentication Key obtained in the previous step to manually register the self-hosted integration runtime. 
 
    ![Register integration runtime](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)

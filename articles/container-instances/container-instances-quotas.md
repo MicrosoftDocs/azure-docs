@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 01/04/2018
+ms.date: 02/27/2018
 ms.author: marsma
 ---
 # Quotas and region availability for Azure Container Instances
@@ -25,9 +25,13 @@ Azure Container Instances is available in the following regions with the specifi
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
 | West Europe, West US, East US | Linux | 4 | 14 |
+| Southeast Asia  | Linux | 1 | 1.5 |
 | West Europe, West US, East US | Windows | 4 | 14 |
+| Southeast Asia  | Windows | 2 | 3.5 |
 
 Container instances created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances. To mitigate such a deployment failure, try deploying instances with lower CPU and memory settings, or try your deployment at a later time.
+
+Let the team know of additional regions required or increased CPU/Memory limits at [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 
 For more information on troubleshooting container instance deployment, see [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md).
 

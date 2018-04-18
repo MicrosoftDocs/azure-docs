@@ -39,7 +39,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create VM
 
-To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
+To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupMonitor --location eastus
@@ -60,7 +60,7 @@ az vm create \
 
 As Linux VMs boot, the boot diagnostic extension captures boot output and stores it in Azure storage. This data can be used to troubleshoot VM boot issues. Boot diagnostics are not automatically enabled when you create a Linux VM using the Azure CLI.
 
-Before enabling boot diagnostics, a storage account needs to be created for storing boot logs. Storage accounts must have a globally unique name, be between 3 and 24 characters, and must contain only numbers and lowercase letters. Create a storage account with the [az storage account create](/cli/azure/storage/account#create) command. In this example, a random string is used to create a unique storage account name. 
+Before enabling boot diagnostics, a storage account needs to be created for storing boot logs. Storage accounts must have a globally unique name, be between 3 and 24 characters, and must contain only numbers and lowercase letters. Create a storage account with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. In this example, a random string is used to create a unique storage account name. 
 
 ```azurecli-interactive 
 storageacct=mydiagdata$RANDOM
@@ -90,13 +90,13 @@ az vm boot-diagnostics enable \
 
 ## View boot diagnostics
 
-When boot diagnostics are enabled, each time you stop and start the VM, information about the boot process is written to a log file. For this example, first deallocate the VM with the [az vm deallocate](/cli/azure/vm#deallocate) command as follows:
+When boot diagnostics are enabled, each time you stop and start the VM, information about the boot process is written to a log file. For this example, first deallocate the VM with the [az vm deallocate](/cli/azure/vm#az_vm_deallocate) command as follows:
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Now start the VM with the [az vm start]( /cli/azure/vm#stop) command as follows:
+Now start the VM with the [az vm start]( /cli/azure/vm#az_vm_stop) command as follows:
 
 ```azurecli-interactive 
 az vm start --resource-group myResourceGroupMonitor --name myVM

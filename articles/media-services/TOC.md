@@ -1,3 +1,5 @@
+# [Media Services Documentation](index.md)
+
 # [Overview](media-services-overview.md)
 ## [Scenarios and availability](scenarios-and-availability.md)
 ## [Concepts](media-services-concepts.md)
@@ -36,8 +38,9 @@
 #### [Manage assets across multiple storage accounts](meda-services-managing-multiple-storage-accounts.md)
 ### [Quotas and limitations](media-services-quotas-and-limitations.md)
 ## [Configure Postman](media-rest-apis-with-postman.md)
+### [On-demand streaming collection](postman-collection.md)
+### [Live streaming collection](postman-live-streaming-collection.md)
 ### [Environment](postman-environment.md)
-### [Collection](postman-collection.md)
 ## Upload content
 ### Upload files into an account
 #### [Azure portal](media-services-portal-upload-files.md)
@@ -116,7 +119,8 @@
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Configure on-premises encoders for use with cloud encoder](media-services-live-encoders-overview.md)
 #### [Elemental Live encoder](media-services-configure-elemental-live-encoder.md)
-#### [FMLE encoder ](media-services-configure-fmle-live-encoder.md)
+#### [FMLE encoder](media-services-configure-fmle-live-encoder.md)
+#### [Haivision KB encoder](media-services-configure-kb-live-encoder.md)
 #### [NewTek TriCaster encoder](media-services-configure-tricaster-live-encoder.md)
 #### [Wirecast encoder](media-services-configure-wirecast-live-encoder.md)
 ### [Handle long-running operations](media-services-dotnet-long-operations.md)
@@ -135,8 +139,9 @@
 ### [AES-128 encryption](media-services-protect-with-aes128.md)
 ### [PlayReady/Widevine for Streaming](media-services-protect-with-playready-widevine.md)
 ### [FairPlay for Streaming](media-services-protect-hls-with-fairplay.md)
-### [Offline PlayReady](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
-### [Offline FairPlay](media-services-protect-hls-with-offline-fairplay.md)
+### [Offline PlayReady for Windows 10](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [Offline Fairplay for iOS](media-services-protect-hls-with-offline-fairplay.md)
+### [Offline Widevine for Android](offline-widevine-for-android.md)
 ### [Configure in Azure portal](media-services-portal-protect-content.md)
 ### [Deliver DRM licenses](media-services-deliver-keys-and-licenses.md)
 ### Create ContentKeys
@@ -169,6 +174,7 @@
 #### [Face Redactor walkthrough](media-services-redactor-walkthrough.md)
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
+### [Process with Content Moderator](media-services-content-moderation.md)
 
 ## [Configure telemetry](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

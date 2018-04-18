@@ -21,7 +21,7 @@ ms.author: rli
 # Azure CDN rules engine features
 This article lists detailed descriptions of the available features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
-The third part of a rule is the feature. A feature defines the type of action that is applied to the type of request identified by a set of match conditions.
+The third part of a rule is the feature. A feature defines the type of action that is applied to the request type identified by a set of match conditions.
 
 ## Access features
 
@@ -47,24 +47,24 @@ Name | Purpose
 [Bandwidth Throttling](#bandwidth-throttling) | Throttles the bandwidth for the response provided by the edge servers.
 [Bypass Cache](#bypass-cache) | Determines whether the request should bypass caching.
 [Cache-Control Header Treatment](#cache-control-header-treatment) | Controls the generation of `Cache-Control` headers by the edge server when External Max-Age feature is active.
-[Cache-Key Query String](#cache-key-query-string) | Determines whether the cache-key will include or exclude query string parameters associated with a request.
+[Cache-Key Query String](#cache-key-query-string) | Determines whether the cache-key includes or excludes query string parameters associated with a request.
 [Cache-Key Rewrite](#cache-key-rewrite) | Rewrites the cache-key associated with a request.
 [Complete Cache Fill](#complete-cache-fill) | Determines what happens when a request results in a partial cache miss on an edge server.
-[Compress File Types](#compress-file-types) | Defines the file formats that will be compressed on the server.
+[Compress File Types](#compress-file-types) | Defines the file formats for the files that are compressed on the server.
 [Default Internal Max-Age](#default-internal-max-age) | Determines the default max-age interval for edge server to origin server cache revalidation.
 [Expires Header Treatment](#expires-header-treatment) | Controls the generation of `Expires` headers by an edge server when the External Max-Age feature is active.
 [External Max-Age](#external-max-age) | Determines the max-age interval for browser to edge server cache revalidation.
 [Force Internal Max-Age](#force-internal-max-age) | Determines the max-age interval for edge server to origin server cache revalidation.
 [H.264 Support (HTTP Progressive Download)](#h264-support-http-progressive-download) | Determines the types of H.264 file formats that may be used to stream content.
-[Honor No-Cache Request](#honor-no-cache-request) | Determines whether an HTTP client's no-cache requests will be forwarded to the origin server.
+[Honor No-Cache Request](#honor-no-cache-request) | Determines whether an HTTP client's no-cache requests are forwarded to the origin server.
 [Ignore Origin No-Cache](#ignore-origin-no-cache) | Determines whether the CDN ignores certain directives served from an origin server.
 [Ignore Unsatisfiable Ranges](#ignore-unsatisfiable-ranges) | Determines the response that is returned to clients when a request generates a 416 Requested Range Not Satisfiable status code.
 [Internal Max-Stale](#internal-max-stale) | Controls how long past the normal expiration time a cached asset may be served from an edge server when the edge server is unable to revalidate the cached asset with the origin server.
 [Partial Cache Sharing](#partial-cache-sharing) | Determines whether a request can generate partially cached content.
-[Prevalidate Cached Content](#prevalidate-cached-content) | Determines whether cached content will be eligible for early revalidation before its TTL expires.
+[Prevalidate Cached Content](#prevalidate-cached-content) | Determines whether cached content is eligible for early revalidation before its TTL expires.
 [Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) | Determines how an HTTP client's request for a 0-byte cache asset is handled by the edge servers.
 [Set Cacheable Status Codes](#set-cacheable-status-codes) | Defines the set of status codes that can result in cached content.
-[Stale Content Delivery on Error](#stale-content-delivery-on-error) | Determines whether expired cached content will be delivered when an error occurs during cache revalidation or when retrieving the requested content from the customer origin server.
+[Stale Content Delivery on Error](#stale-content-delivery-on-error) | Determines whether expired cached content is delivered when an error occurs during cache revalidation or when retrieving the requested content from the customer origin server.
 [Stale While Revalidate](#stale-while-revalidate) | Improves performance by allowing the edge servers to serve stale client to the requester while revalidation takes place.
 
 ## Comment feature
@@ -81,7 +81,7 @@ These features are designed to add, modify, or delete headers from the request o
 
 Name | Purpose
 -----|--------
-[Age Response Header](#age-response-header) | Determines whether an Age response header will be included in the response sent to the requester.
+[Age Response Header](#age-response-header) | Determines whether an Age response header is included in the response sent to the requester.
 [Debug Cache Response Headers](#debug-cache-response-headers) | Determines whether a response may include the X-EC-Debug response header, which provides information on the cache policy for the requested asset.
 [Modify Client Request Header](#modify-client-request-header) | Overwrites, appends, or deletes a header from a request.
 [Modify Client Response Header](#modify-client-response-header) | Overwrites, appends, or deletes a header from a response.
@@ -94,8 +94,8 @@ These features are designed to customize the data stored in raw log files.
 
 Name | Purpose
 -----|--------
-[Custom Log Field 1](#custom-log-field-1) | Determines the format and the content that will be assigned to the custom log field in a raw log file.
-[Log Query String](#log-query-string) | Determines whether a query string will be stored along with the URL in access logs.
+[Custom Log Field 1](#custom-log-field-1) | Determines the format and the content that is assigned to the custom log field in a raw log file.
+[Log Query String](#log-query-string) | Determines whether a query string is stored along with the URL in access logs.
 
 
 <!---
@@ -149,7 +149,7 @@ These features are designed to control how the CDN communicates with an origin s
 Name | Purpose
 -----|--------
 [Maximum Keep-Alive Requests](#maximum-keep-alive-requests) | Defines the maximum number of requests for a Keep-Alive connection before it is closed.
-[Proxy Special Headers](#proxy-special-headers) | Defines the set of CDN-specific request headers that will be forwarded from an edge server to an origin server.
+[Proxy Special Headers](#proxy-special-headers) | Defines the set of CDN-specific request headers that are forwarded from an edge server to an origin server.
 
 
 ## Specialty features
@@ -193,14 +193,14 @@ Disabled | The Age response header is excluded from the response sent to the req
 
 ---
 ### Bandwidth Parameters
-**Purpose:** Determines whether bandwidth throttling parameters (for example, ec_rate and ec_prebuf) will be active.
+**Purpose:** Determines whether bandwidth throttling parameters (for example, ec_rate and ec_prebuf) are active.
 
-Bandwidth throttling parameters determine whether the data transfer rate for a client's request will be limited to a custom rate.
+Bandwidth throttling parameters determine whether the data transfer rate for a client's request are limited to a custom rate.
 
 Value|Result
 --|--
 Enabled|Allows the edge servers to honor bandwidth throttling requests.
-Disabled|Causes the edge servers to ignore bandwidth throttling parameters. The requested content will be served normally (that is, without bandwidth throttling).
+Disabled|Causes the edge servers to ignore bandwidth throttling parameters. The requested content is served normally (that is, without bandwidth throttling).
 
 **Default Behavior:** Enabled.
  
@@ -267,7 +267,7 @@ Key information:
 ### Cacheable Request Body Size
 **Purpose:** Defines the threshold for determining whether a POST response can be cached.
 
-This threshold is determined by specifying a maximum request body size. Requests that contain a larger request body will not be cached.
+This threshold is determined by specifying a maximum request body size. Requests that contain a larger request body are not cached.
 
 Key information:
 
@@ -306,23 +306,23 @@ Remove| This option ensures that a `Cache-Control` header is not included with
 
 ---
 ### Cache-Key Query String
-**Purpose:** Determines whether the cache-key will include or exclude query string parameters associated with a request.
+**Purpose:** Determines whether the cache-key includes or excludes query string parameters associated with a request.
 
 Key information:
 
-- Specify one or more query string parameter name(s). Each parameter name should be delimited with a single space.
-- This feature determines whether query string parameters will be included or excluded from the cache-key. Additional information is provided for each option below.
+- Specify one or more query string parameter name(s). Deliminate each parameter name with a single space.
+- This feature determines whether query string parameters are included or excluded from the cache-key. Additional information is provided for each option in the following table.
 
 Type|Description
 --|--
- Include|  Indicates that each specified parameter should be included in the cache-key. A unique cache-key will be generated for each request that contains a unique value for a query string parameter defined in this feature. 
- Include All  |Indicates that a unique cache-key will be created for each request to an asset that includes a unique query string. This type of configuration is not typically recommended since it may lead to a small percentage of cache hits. This will increase the load on the origin server, since it will have to serve more requests. This configuration duplicates the caching behavior known as "unique-cache" on the Query-String Caching page. 
- Exclude | Indicates that only the specified parameter(s) will be excluded from the cache-key. All other query string parameters will be included in the cache-key. 
- Exclude All  |Indicates that all query string parameters will be excluded from the cache-key. This configuration duplicates the default caching behavior, which is known as "standard-cache" on the Query-String Caching page. 
+ Include|  Indicates that each specified parameter should be included in the cache-key. A unique cache-key is generated for each request that contains a unique value for a query string parameter defined in this feature. 
+ Include All  |Indicates that a unique cache-key is created for each request to an asset that includes a unique query string. This type of configuration is not typically recommended because it can lead to a small percentage of cache hits. A low number of cache hits increases the load on the origin server, because it must serve more requests. This configuration duplicates the caching behavior known as "unique-cache" on the Query-String Caching page. 
+ Exclude | Indicates that only the specified parameter(s) is excluded from the cache-key. All other query string parameters are included in the cache-key. 
+ Exclude All  |Indicates that all query string parameters are excluded from the cache-key. This configuration duplicates the "standard-cache" default caching behavior on the Query-String Caching page.  
 
-The power of HTTP Rules Engine allows you to customize the manner in which query string caching is implemented. For example, you can specify that query string caching only be performed on certain locations or file types.
+The rules engine allows you to customize the manner in which query string caching is implemented. For example, you can specify that query string caching is performed only on certain locations or file types.
 
-If you would like to duplicate the query string caching behavior known as "no-cache" on the Query-String Caching page, then you will need to create a rule that contains a URL Query Wildcard match condition and a Bypass Cache feature. The URL Query Wildcard match condition should be set to an asterisk (*).
+To duplicate the "no-cache" query string caching behavior on the Query-String Caching page, create a rule that contains a URL Query Wildcard match condition and a Bypass Cache feature. Set the URL Query Wildcard match condition to an asterisk (*).
 
 #### Sample Scenarios
 
@@ -381,13 +381,13 @@ This type of configuration would generate the following query string parameter c
 ### Cache-Key Rewrite
 **Purpose:** Rewrites the cache-key associated with a request.
 
-A cache-key is the relative path that identifies an asset for the purposes of caching. In other words, the servers will check for a cached version of an asset according to its path as defined by its cache-key.
+A cache-key is the relative path that identifies an asset for the purposes of caching. In other words, the servers check for a cached version of an asset according to its path as defined by its cache-key.
 
 Configure this feature by defining both of the following options:
 
 Option|Description
 --|--
-Original Path| Define the relative path to the types of requests whose cache-key will be rewritten. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern.
+Original Path| Define the relative path to the types of requests whose cache-key is rewritten. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern.
 New Path|Define the relative path for the new cache-key. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern. This relative path can be dynamically constructed through the use of HTTP variables
 **Default Behavior:** A request's cache-key is determined by the request URI.
 
@@ -420,7 +420,7 @@ A partial cache miss describes the cache status for an asset that was not comple
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
 --->
-A partial cache miss typically occurs after a user aborts a download or for assets that are solely requested using HTTP range requests. This feature is most useful for large assets where users will not typically download them from start to finish (for example, videos). As a result, this feature is enabled by default on the HTTP Large platform. It is disabled on all other platforms.
+A partial cache miss typically occurs after a user aborts a download or for assets that are solely requested using HTTP range requests. This feature is most useful for large assets that are not typically downloaded from start to finish (for example, videos). As a result, this feature is enabled by default on the HTTP Large platform. It is disabled on all other platforms.
 
 Keep the default configuration for the HTTP Large platform, because it reduces the load on your customer origin server and increases the speed at which your customers download your content.
 
@@ -429,7 +429,7 @@ Due to the manner in which cache settings are tracked, this feature cannot be as
 Value|Result
 --|--
 Enabled|Restores the default behavior. The default behavior is to force the edge server to initiate a background fetch of the asset from the origin server. After which, the asset will be in the edge server's local cache.
-Disabled|Prevents an edge server from performing a background fetch for the asset. This means that the next request for that asset from that region will cause an edge server to request it from the customer origin server.
+Disabled|Prevents an edge server from performing a background fetch for the asset. The result is that the next request for that asset from that region causes an edge server to request it from the customer origin server.
 
 **Default Behavior:** Enabled.
 
@@ -439,7 +439,7 @@ Disabled|Prevents an edge server from performing a background fetch for the asse
 
 ---
 ### Compress File Types
-**Purpose:** Defines the file formats that will be compressed on the server.
+**Purpose:** Defines the file formats for the files that are compressed on the server.
 
 A file format can be specified using its Internet media type (for example, Content-Type). Internet media type is platform-independent metadata that allows the servers to identify the file format of a particular asset. A list of common Internet media types is provided below.
 
@@ -453,10 +453,10 @@ application/javascript|Javascript
 Key information:
 
 - Specify multiple Internet media types by delimiting each one with a single space. 
-- This feature will only compress assets whose size is less than 1 MB. Larger assets will not be compressed by the servers.
-- Certain types of content, such as images, video, and audio media assets (for example, JPG, MP3, MP4, etc.), are already compressed. Additional compression on these types of assets will not significantly diminish file size. Therefore, it is recommended that you do not enable compression on these types of assets.
+- This feature only compresses assets whose size is less than 1 MB. Larger assets are not compressed by the servers.
+- Certain types of content, such as images, video, and audio media assets (for example, JPG, MP3, MP4, etc.), are already compressed. Because additional compression on these types of assets does not significantly diminish file size, it is recommended that you do not enable compression on them.
 - Wildcard characters, such as asterisks, are not supported.
-- Before you add this feature to a rule, ensure that you set the Compression Disabled option on the Compression page for the platform to which this rule will be applied.
+- Before you add this feature to a rule, ensure that you set the Compression Disabled option on the Compression page for the platform to which this rule is applied.
 
 [Back to top](#azure-cdn-rules-engine-features)
 
@@ -468,9 +468,9 @@ Key information:
 
 This custom field allows you to determine which request and response header values are stored in your log files.
 
-By default, the custom log field is called "x-ec_custom-1." However, the name of this field can be customized from the Raw Log Settings page.
+By default, the custom log field is called "x-ec_custom-1." The name of this field can be customized from the Raw Log Settings page.
 
-The formatting that you should use to specify request and response headers is defined below.
+The format for specifying request and response headers is defined as follows:
 
 Header Type|Format|Examples
 -|-|-
@@ -480,9 +480,9 @@ Response Header|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/>
 Key information:
 
 - A custom log field can contain any combination of header fields and plain text.
-- Valid characters for this field include the following: alphanumeric (0-9, a-z, and A-Z), dashes, colons, semi-colons, apostrophes, commas, periods, underscores, equal signs, parentheses, brackets, and spaces. The percentage symbol and curly braces are only allowed when used to specify a header field.
+- Valid characters for this field are as follows: alphanumeric (0-9, a-z, and A-Z), dashes, colons, semi-colons, apostrophes, commas, periods, underscores, equal signs, parentheses, brackets, and spaces. The percentage symbol and curly braces are only allowed when used to specify a header field.
 - The spelling for each specified header field must match the desired request/response header name.
-- If you would like to specify multiple headers, then it is recommended that you use a separator to indicate each header. For example, you could use an abbreviation for each header. Sample syntax is provided below.
+- If you want to specify multiple headers, use a separator to indicate each header. For example, you could use an abbreviation for each header:
 	- AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o 
 
 **Default Value:** -
@@ -493,7 +493,7 @@ Key information:
 
 ---
 ### Debug Cache Response Headers
-**Purpose:** Determines whether a response may include the X-EC-Debug response header which provides information on the cache policy for the requested asset.
+**Purpose:** Determines whether a response can include the X-EC-Debug response header, which provides information on the cache policy for the requested asset.
 
 Debug cache response headers will be included in the response when both of the following are true:
 
@@ -980,7 +980,7 @@ Key information:
 
 The Header name option defines the name of the custom request header where the client's IP address is stored.
 
-This feature allows a customer origin server to find out client IP addresses through a custom request header. If the request is served from cache, then the origin server will not be informed of the client's IP address. Therefore, it is recommended that this feature be used with ADN or assets that will not be cached.
+This feature allows a customer origin server to find out client IP addresses through a custom request header. If the request is served from cache, then the origin server will not be informed of the client's IP address. Therefore, it is recommended that this feature be used with assets that aren't cached.
 
 Ensure that the specified header name does not match any of the following names:
 
@@ -1254,8 +1254,8 @@ This feature includes matching criteria that must be met before it can be applie
 </br>
 
 ## Next Steps
-* [Rules Engine Reference](cdn-rules-engine-reference.md)
-* [Rules Engine Conditional Expressions](cdn-rules-engine-reference-conditional-expressions.md)
-* [Rules Engine Match Conditions](cdn-rules-engine-reference-match-conditions.md)
-* [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)
-* [Azure CDN Overview](cdn-overview.md)
+* [Rules engine reference](cdn-rules-engine-reference.md)
+* [Rules engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md)
+* [Rules engine match conditions](cdn-rules-engine-reference-match-conditions.md)
+* [Override HTTP behavior using the rules engine](cdn-rules-engine.md)
+* [Azure CDN overview](cdn-overview.md)

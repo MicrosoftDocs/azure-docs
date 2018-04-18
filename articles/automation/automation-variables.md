@@ -48,20 +48,20 @@ The following are a list of variable types available in Automation:
 * Boolean
 * Null
 
-## Scripting the creation and management of variables
+## AzureRM PowerShell cmdlets
+For AzureRM, the cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell.  They ship as part of the [AzureRM.Automation module](/powershell/azure/overview) which is available for use in Automation runbooks and DSC configurations.
 
-The cmdlets in the following table are used to create and manage Automation variables with Windows PowerShell. They ship as part of the [Azure PowerShell module](../powershell-install-configure.md) which is available for use in Automation runbooks and DSC configuration.
-
-|Cmdlets|Description|
+| Cmdlets | Description |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Retrieves the value of an existing variable.|
 |[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Creates a new variable and sets its value.|
 |[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Removes an existing variable.|
 |[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Sets the value for an existing variable.|
 
-The workflow activities in the following table are used to access Automation variables in a runbook. They are only available for use in a runbook or DSC configuration, and do not ship as part of the Azure PowerShell module.
+## Activities
+The activities in the following table are used to access credentials in a runbook and DSC configurations.
 
-|Workflow Activities|Description|
+| Activities | Description |
 |:---|:---|
 |Get-AutomationVariable|Retrieves the value of an existing variable.|
 |Set-AutomationVariable|Sets the value for an existing variable.|
@@ -202,4 +202,3 @@ The following image shows sample activities to update a variable with a simple v
 
 * To learn more about connecting activities together in graphical authoring, see [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow)
 * To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md) 
-

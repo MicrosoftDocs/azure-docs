@@ -1,6 +1,6 @@
 ---
-title: Copy data to/from Oracle using Azure Data Factory | Microsoft Docs
-description: Learn how to copy data from supported source stores to Oracle database (or) from Oracle to supported sink stores by using Data Factory.
+title: Copy data to and from Oracle by using Azure Data Factory | Microsoft Docs
+description: Learn how to copy data from supported source stores to an Oracle database or from Oracle to supported sink stores by using Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
-# Copy data from and to Oracle using Azure Data Factory
+# Copy data from and to Oracle by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-onprem-oracle-connector.md)
+> * [Version 1 - Generally available](v1/data-factory-onprem-oracle-connector.md)
 > * [Version 2 - Preview](connector-oracle.md)
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to an Oracle database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to an Oracle database. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Oracle connector in V1](v1/data-factory-onprem-oracle-connector.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Oracle connector in version 1](v1/data-factory-onprem-oracle-connector.md).
 
 ## Supported capabilities
 
-You can copy data from Oracle database to any supported sink data store, or copy data from any supported source data store to Oracle database. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from an Oracle database to any supported sink data store. You also can copy data from any supported source data store to an Oracle database. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this Oracle connector supports the following versions of Oracle database, and it supports Basic or OID authentications.
+Specifically, this Oracle connector supports the following versions of an Oracle database. It also supports Basic or OID authentications:
 
 - Oracle 12c R1 (12.1)
 - Oracle 11g R1, R2 (11.1, 11.2)
@@ -40,22 +40,23 @@ Specifically, this Oracle connector supports the following versions of Oracle da
 
 ## Prerequisites
 
-To copy data from/to an Oracle database that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details about integration runtime. The Integration Runtime provides a built-in Oracle driver, therefore you don't need to manually install any driver when copying data from/to Oracle.
+To copy data from and to an Oracle database that isn't publicly accessible, you need to set up a Self-hosted Integration Runtime. For more information about integration runtime, see [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md). The integration runtime provides a built-in Oracle driver. Therefore, you don't need to manually install a driver when you copy data from and to Oracle.
 
-## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+## Get started
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Oracle connector.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+
+The following sections provide details about properties that are used to define Data Factory entities specific to the Oracle connector.
 
 ## Linked service properties
 
-The following properties are supported for Oracle linked service:
+The following properties are supported for the Oracle linked service.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to: **Oracle** | Yes |
-| connectionString | Specify information needed to connect to the Oracle Database instance. Mark this field as a SecureString.<br><br>**Supported connection type**: you can choose to use **Oracle SID** or **Oracle Service Name** to identify your database:<br>- Using SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Using Service Name: `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+| type | The type property must be set to **Oracle**. | Yes |
+| connectionString | Specifies the information needed to connect to the Oracle Database instance. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Supported connection type**: You can use **Oracle SID** or **Oracle Service Name** to identify your database:<br>- If you use SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- If you use Service Name: `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
 
@@ -80,14 +81,14 @@ The following properties are supported for Oracle linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Oracle dataset.
+For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Oracle dataset.
 
-To copy data from/to Oracle, set the type property of the dataset to **OracleTable**. The following properties are supported:
+To copy data from and to Oracle, set the type property of the dataset to **OracleTable**. The following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **OracleTable** | Yes |
-| tableName |Name of the table in the Oracle Database that the linked service refers to. | Yes |
+| type | The type property of the dataset must be set to **OracleTable**. | Yes |
+| tableName |The name of the table in the Oracle database that the linked service refers to. | Yes |
 
 **Example:**
 
@@ -110,18 +111,18 @@ To copy data from/to Oracle, set the type property of the dataset to **OracleTab
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Oracle source and sink.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by the Oracle source and sink.
 
-### Oracle as source
+### Oracle as a source type
 
-To copy data from Oracle, set the source type in the copy activity to **OracleSource**. The following properties are supported in the copy activity **source** section:
+To copy data from Oracle, set the source type in the copy activity to **OracleSource**. The following properties are supported in the copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **OracleSource** | Yes |
-| oracleReaderQuery | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No |
+| type | The type property of the copy activity source must be set to **OracleSource**. | Yes |
+| oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. | No |
 
-If you do not specify "oracleReaderQuery", the columns defined in the "structure" section of the dataset are used to construct a query (`select column1, column2 from mytable`) to run against the Oracle database. If the dataset definition does not have the "structure", all columns are selected from the table.
+If you don't specify "oracleReaderQuery", the columns defined in the "structure" section of the dataset are used to construct a query (`select column1, column2 from mytable`) to run against the Oracle database. If the dataset definition doesn't have "structure", all columns are selected from the table.
 
 **Example:**
 
@@ -155,16 +156,16 @@ If you do not specify "oracleReaderQuery", the columns defined in the "structure
 ]
 ```
 
-### Oracle as sink
+### Oracle as a sink type
 
-To copy data to Oracle, set the sink type in the copy activity to **OracleSink**. The following properties are supported in the copy activity **sink** section:
+To copy data to Oracle, set the sink type in the copy activity to **OracleSink**. The following properties are supported in the copy activity **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity sink must be set to: **OracleSink** | Yes |
-| writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are: Integer (number of rows). |No (default is 10000) |
-| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: Timespan. Example: 00:30:00 (30 minutes). | No |
-| preCopyScript | Specify a SQL query for Copy Activity to execute before writing data into Oracle in each run. You can use this property to clean up the pre-loaded data. | No |
+| type | The type property of the copy activity sink must be set to **OracleSink**. | Yes |
+| writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are Integer (number of rows). |No (default is 10,000) |
+| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are Timespan. An example is 00:30:00 (30 minutes). | No |
+| preCopyScript | Specify a SQL query for the copy activity to execute before writing data into Oracle in each run. You can use this property to clean up the preloaded data. | No |
 
 **Example:**
 
@@ -199,9 +200,9 @@ To copy data to Oracle, set the sink type in the copy activity to **OracleSink**
 
 ## Data type mapping for Oracle
 
-When copying data from/to Oracle, the following mappings are used from Oracle data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When you copy data from and to Oracle, the following mappings are used from Oracle data types to Data Factory interim data types. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Oracle data type | Data factory interim data type |
+| Oracle data type | Data Factory interim data type |
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(only supported on Oracle 10g and higher) |
@@ -226,8 +227,8 @@ When copying data from/to Oracle, the following mappings are used from Oracle da
 | XML |String |
 
 > [!NOTE]
-> Data type INTERVAL YEAR TO MONTH and INTERVAL DAY TO SECOND are not supported.
+> The data types INTERVAL YEAR TO MONTH and INTERVAL DAY TO SECOND aren't supported.
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

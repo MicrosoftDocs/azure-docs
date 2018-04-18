@@ -4,7 +4,7 @@ description: Describes backup and restore considerations for SQL Server database
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-resource-management
 

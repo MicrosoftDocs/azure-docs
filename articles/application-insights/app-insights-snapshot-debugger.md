@@ -79,7 +79,7 @@ The following environments are supported:
 
 3. Modify your application's `Startup` class to add and configure the Snapshot Collector's telemetry processor.
 
-   ```C#
+   ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
    ...
@@ -137,7 +137,7 @@ The following environments are supported:
 2. Add the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
 3. Snapshots are collected only on exceptions that are reported to Application Insights. You may need to modify your code to report them. The exception handling code depends on the structure of your application, but an example is below:
-    ```C#
+    ```csharp
    TelemetryClient _telemetryClient = new TelemetryClient();
 
    void ExampleRequest()
@@ -288,7 +288,7 @@ Follow these steps to configure your Cloud Service role with a dedicated local r
 ```
 
 2. Modify your role's `OnStart` method to add an environment variable that points to the `SnapshotStore` local resource.
-```C#
+```csharp
    public override bool OnStart()
    {
        Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);

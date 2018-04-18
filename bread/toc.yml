@@ -126,8 +126,8 @@
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/
   - name: Cognitive Services
-    tocHref: /azure/cognitive-services/
-    topicHref: /azure/cognitive-services/
+    tocHref: /azure/#pivot=products&panel=ai
+    topicHref: /azure/#pivot=products&panel=ai
     items:
     - name: Bing Custom Search
       tocHref: /azure/cognitive-services/bing-custom-search/
@@ -239,16 +239,24 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
-      
+  - name: IoT Edge
+    tocHref: /azure/iot-edge/
+    topicHref: /azure/iot-edge/      
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/
   - name: IoT Suite
     tocHref: /azure/iot-suite/
     topicHref: /azure/iot-suite/
+  - name: Jenkins
+    tocHref: /azure/jenkins/
+    topicHref: /azure/jenkins/
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
+  - name: Location Based Services
+    tocHref: /azure/location-based-services/
+    topicHref: /azure/location-based-services/
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/

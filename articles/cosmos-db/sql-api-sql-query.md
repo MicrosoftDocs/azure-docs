@@ -979,7 +979,7 @@ The following table shows the list of supported aggregate functions in the SQL A
 Aggregates can also be performed over the results of an array iteration. For more information, see [Array Iteration in Queries](#Iteration).
 
 > [!NOTE]
-> When using the Azure portal's Query Explorer, note that aggregation queries may return the partially aggregated results over a query page. The SDKs produces a single cumulative value across all pages. 
+> When using the Azure portal's Data Explorer, note that aggregation queries may return the partially aggregated results over a query page. The SDKs produces a single cumulative value across all pages. 
 > 
 > In order to perform aggregation queries using code, you need .NET SDK 1.12.0, .NET Core SDK 1.1.0, or Java SDK 1.9.5 or above.    
 >
@@ -1547,7 +1547,7 @@ The following scalar functions perform an operation on a string input value and 
 | [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Returns the number of characters of the specified string expression |
 | [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Returns a string that is the result of concatenating two or more string values. |
 | [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Returns part of a string expression. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Returns a Boolean indicating whether the first string expression ends with the second |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Returns a Boolean indicating whether the first string expression starts with the second |
 | [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Returns a Boolean indicating whether the first string expression ends with the second |
 | [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Returns a Boolean indicating whether the first string expression contains the second. |
 | [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found. |

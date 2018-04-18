@@ -318,6 +318,12 @@ The name of this application setting is what goes in the output binding connecti
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
+## Exceptions and return codes
+
+| Binding | Reference |
+|---|---|
+| Notification Hub | [Operations Guide](https://docs.microsoft.com/rest/api/notificationhubs/) |
+
 ## Next steps
 
 > [!div class="nextstepaction"]

@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 2/22/2017
 ms.author: rithorn
 ---
 
@@ -19,12 +19,10 @@ ms.author: rithorn
 
 Within enterprise enrollments, there are multiple settings that could cause users within the enrollment to not be able to view costs.  These settings are managed by the enrollment administrator, or by the partner if the enrollment is not purchased directly with Microsoft.  This article helps you understand what the settings are and how they impact the enrollment. These settings are independent of the [Azure RBAC Roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
-> [!Note]
-> This feature is currently in a private preview. [Sign up here](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) to have your enrollment join the preview.     
 
 ## Enabling access to costs
 
-Are you are seeing a message Unauthorized, or *"Cost views are disabled in your enrollment."* when looking for cost information?
+Are you seeing a message Unauthorized, or *"Cost views are disabled in your enrollment."* when looking for cost information?
 ![unauthorized](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
 It might be due to one of the following reasons:
@@ -45,4 +43,3 @@ If you are receiving an error message "This asset is unavailable" when trying to
 
 Contact the administer of the subscription or management groups to be given access.  
 * For subscriptions, reference [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) document for help on which role is needed.
-* For management groups, RBAC access is not available and is coming soon. Contact your enterprise portal administer to have access assigned.   

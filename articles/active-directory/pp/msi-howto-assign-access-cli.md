@@ -3,7 +3,7 @@ title: How to assign a user-assigned MSI access to an Azure resource, using Azur
 description: Step by step instructions for assigning a user-assigned MSI on one resource, access to another resource, using Azure CLI.
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: 
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -30,7 +30,7 @@ Once you've created a user-assigned MSI, you can give the MSI access to another 
 To run the CLI script examples in this tutorial, you have two options:
 
 - Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) either from the Azure portal, or via the "Try It" button, located in the top right corner of each code block.
-- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 or later) if you prefer to use a local CLI console. Then sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the user-assigned MSI and VM:
+- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 or later) if you prefer to use a local CLI console. Then sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the user-assigned MSI and VM:
 
    ```azurecli
    az login

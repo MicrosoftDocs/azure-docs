@@ -11,34 +11,33 @@ ms.author: v-rogara
 ms.custom: mvc
 ---
 
-# Search semi-structured data in cloud storage
+# Part 2: Search semi-structured data in cloud storage
 
-In this two-part tutorial series, you learn how to search semi-structured and unstructured data using Azure search. This tutorial shows you how to search semi-structured data, such as JSON, stored in Azure blobs. Semi-structured data contains tags or markings which separate content within the data. It differs from structured data in that it is not formally structured according to a data model, such as a relational database schema.
+In a two-part tutorial series, you learn how to search semi-structured and unstructured data using Azure search. [Part 1](../storage/blobs/storage-unstructured-search.md) walked you through search over unstructured data, but also included important prerequisites for this tutorial, like creating the storage account. 
 
-In this part we cover how to:
+In Part 2, focus shifts to semi-structured data, such as JSON, stored in Azure blobs. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data which must be indexed wholistically, and formally structured data that adheres to a data model, such as a relational database schema, that can be crawled on a per-field basis.
+
+In Part 2, learn how to:
 
 > [!div class="checklist"]
-> * Create and populate an index inside an Azure Search Service
-> * Use the Azure Search Service to search your index
+> * Configure an Azure Search data source for an Azure blob container
+> * Create and populate an Azure Search index and indexer to crawl the container and extract searchable content
+> * Search the index you just created
 
 > [!NOTE]
-> "JSON array support is a preview feature in Azure Search. It is not currently available in the portal. For this reason, we're using the preview REST API, which provides this feature, and a REST client tool to call the API."
+> This tutorial relies on JSON array support, which is currently a preview feature in Azure Search. It is not available in the portal. For this reason, we're using the preview REST API, which provides this feature, and a REST client tool to call the API.
 
 ## Prerequisites
 
-To complete this tutorial:
-* Complete the [previous tutorial](../storage/blobs/storage-unstructured-search.md)
-    * This tutorial uses the storage account and search service created in the previous tutorial
-* Install a REST client and understand how to construct an HTTP request
+* Completion of the [previous tutorial](../storage/blobs/storage-unstructured-search.md) providing the storage account and search service created in the previous tutorial.
 
+* Installation of a REST client and an understanding of how to construct an HTTP request. For the purposes of this tutorial, we are using [Postman](https://www.getpostman.com/). Feel free to use a different REST client if you're already comfortable with a particular one.
 
-## Set up the REST client
+## Set up Postman
 
-To complete this tutorial you need a REST client. For the purposes of this tutorial, we are using [Postman](https://www.getpostman.com/). Feel free to use a different REST client if you're already comfortable with a particular one.
+Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Explore Azure Search REST APIs using Fiddler or Postman](search-fiddler.md) for more information.
 
-After installing Postman, launch it.
-
-If this is your first time making REST calls to Azure, here's a brief introduction of the important components for this tutorial: The request method for every call in this tutorial is "POST." The header keys are "Content-type" and "api-key." The values of the header keys are "application/json" and your "admin key" (the admin key is a placeholder for your search primary key) respectively. The body is where you place the actual contents of your call. Depending on the client you're using, there may be some variations on how you construct your query, but those are the basics.
+The request method for every call in this tutorial is "POST." The header keys are "Content-type" and "api-key." The values of the header keys are "application/json" and your "admin key" (the admin key is a placeholder for your search primary key) respectively. The body is where you place the actual contents of your call. Depending on the client you're using, there may be some variations on how you construct your query, but those are the basics.
 
   ![Semi-structured search](media/search-semi-structured-data/postmanoverview.png)
 

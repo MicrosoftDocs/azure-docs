@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 
 robots: noindex
@@ -114,7 +114,7 @@ See [Debug a pipeline with custom activity](data-factory-use-custom-activities.m
 
 ## Use Azure portal to troubleshoot
 ### Using portal blades
-See [Monitor pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) for steps.
+See [Monitor pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) for steps.
 
 ### Using Monitor and Manage App
 See [Monitor and manage data factory pipelines using Monitor and Manage App](data-factory-monitor-manage-app.md) for details.

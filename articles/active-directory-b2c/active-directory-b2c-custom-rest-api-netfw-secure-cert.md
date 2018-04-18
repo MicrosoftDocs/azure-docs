@@ -178,7 +178,7 @@ Replace the certificate's **Subject name**, **Issuer name**, and **Certificate t
 ### 6.2 Add the IsValidClientCertificate function
 Open the *Controllers\IdentityController.cs* file, and then add to the `Identity` controller class the following function: 
 
-```C#
+```csharp
 private bool IsValidClientCertificate()
 {
     string ClientCertificateSubject = ConfigurationManager.AppSettings["ClientCertificate:Subject"];
@@ -280,7 +280,7 @@ In the preceding sample code, we accept the certificate as valid only if all the
 ### 6.3 Call the IsValidClientCertificate function
 Open the *Controllers\IdentityController.cs* file and then, at the beginning of the `SignUp()` function, add the following code snippet: 
 
-```C#
+```csharp
 if (IsValidClientCertificate() == false)
 {
     return Content(HttpStatusCode.Conflict, new B2CResponseContent("Your client certificate is not valid", HttpStatusCode.Conflict));

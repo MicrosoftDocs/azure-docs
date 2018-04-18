@@ -1,7 +1,7 @@
 ---
 
-title: Azure Blueprint Automation - Financial Services for Regulated Workloads
-description: Financial Services Blueprint for Regulated Workloads
+title: Azure Security and Compliance Blueprint - FFIEC Financial Services Regulated Workloads
+description: Azure Security and Compliance Blueprint - FFIEC Financial Services Regulated Workloads
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
 
 ---
 
-# Azure Blueprint Automation: Financial Services Blueprint for Regulated Workloads
+# Azure Security and Compliance Blueprint - FFIEC Financial Services Regulated Workloads
 
 ## Overview
 
-Financial Services Blueprint for Regulated Workloads helps deploy a secure and compliant platform as a service (PaaS) web application designed to handle sensitive data in the cloud. The blueprint consists of automated scripts and guidance that showcase a simple reference architecture and a design that helps simplify the adoption of Microsoft Azure solutions. This blueprint illustrates an end-to-end solution to meet the needs of organizations seeking ways to reduce the burden and cost of deploying in the cloud.
+Azure Security and Compliance Blueprint - FFIEC Financial Services Regulated Workloads helps deploy a secure and compliant platform as a service (PaaS) web application designed to handle sensitive data in the cloud. The blueprint consists of automated scripts and guidance that showcase a simple reference architecture and a design that helps simplify the adoption of Microsoft Azure solutions. This blueprint illustrates an end-to-end solution to meet the needs of organizations seeking ways to reduce the burden and cost of deploying in the cloud.
 
 This blueprint is designed to meet the requirements of stringent compliant standards set by the American Institute of Certified Public Accountants such as - SOC 1, SOC 2, the Payment Card Industry Data Security Standards council's DSS 3.2, and FFIEC for the collection, storage, and retrieval of sensitive financial data. It demonstrates the proper handling of such data by deploying a solution that manages financial data in a secure, compliant, multi-tier environment. The solution is deployed as an end-to-end Azure-based PaaS solution. 
 
@@ -51,7 +51,7 @@ The architecture is comprised of the following components and uses the deploymen
 
 The blueprint addresses the following  the use case below.
 
-> This scenario illustrates how a fictitious webstore moved sensitive data into a PaaS cloud Azure-based solution. The example solution illustrates the handling and collection of basic user information and selected sensitive data. This work borrows from the Azure Blueprint Automation: Payment Processing for PCI DSS-compliant environments for payment card processing. For more information, on expanding on this work ["Review and Guidance for Implementation"](https://aka.ms/pciblueprintprocessingoverview) paper provides a review of the PCI DSS-compliant environments.
+> This scenario illustrates how a fictitious webstore moved sensitive data into a PaaS cloud Azure-based solution. The example solution illustrates the handling and collection of basic user information and selected sensitive data. This work borrows from the Azure Security and Compliance Blueprint - PCI DSS-compliant Payment Processing environments. For more information, on expanding on this work ["Review and Guidance for Implementation"](https://aka.ms/pciblueprintprocessingoverview) paper provides a review of the PCI DSS-compliant environments.
 
 ### Use case
 A small webstore called *Contoso Webstore* is ready to move financial data that includes customer payment information to the cloud. 
@@ -110,7 +110,7 @@ Edna Benson is the receptionist and business manager. She is responsible for ens
 - Edna can overwrite financial information.
 - Edna account cannot view unfiltered financial information.
 
-> In the Contoso Webstore, the user is automatically the **Edna** user for testing the capabilities of the deployed environment.
+
 
 ### Contoso Webstore - Estimated pricing
 
@@ -171,7 +171,7 @@ Each of the network tiers has a dedicated network security group (NSG):
 - An NSG for management jumpbox (bastion host)
 - An NSG for the app service environment
 
-Each of the NSGs have specific ports and protocols opened for the secure and correct operation of the solution. For more information, see [PCI Guidance - Network Security Groups](#network-security-groups).
+Each of the NSGs have specific ports and protocols opened for the secure and correct operation of the solution. 
 
 In addition, the following configurations are enabled for each NSG:
 
@@ -305,7 +305,7 @@ Default deployment is intended to provide a baseline of Security Center recommen
 
 ## Deploy the solution
 
-The components for deploying this solution are available in the [Payment Processing Blueprint code repository][code-repo]. The deployment of the foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
+The components for deploying this solution are available in the [Blueprint code repository][code-repo]. The deployment of the foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
 
 The scripts add domain users to the Azure AD tenant that you specify. Microsoft recommends creating a new Azure AD tenant to use as a test.
 
@@ -361,7 +361,7 @@ Microsoft highly recommends that a clean installation of PowerShell be used to d
     
 ## Threat model
 
-A data flow diagram (DFD) and sample threat model for the Contoso Webstore [Payment Processing Blueprint Threat Model](https://aka.ms/pciblueprintthreatmodel).
+A data flow diagram (DFD) and sample threat model for the Contoso Webstore [Blueprint Threat Model](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 

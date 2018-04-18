@@ -79,11 +79,19 @@
         href: backup-mabs-system-state-and-bmr.md
     - name: Recover data from Azure Backup Server
       href: backup-azure-alternate-dpm-server.md
+  - name: Azure File shares
+    items:
+    - name: Back up Azure File shares
+      href: backup-azure-files.md
+    - name: Back up Azure File shares FAQ
+      href: backup-azure-files-faq.md
+    - name: Troubleshoot Azure File shares Backup
+      href: troubleshoot-azure-files.md
   - name: Azure VMs
     items:
     - name: Prepare the VM
       items:
-      - name: Prepare Resource Manager-deployed virtual machines
+      - name: Prepare Resource Manager-deployed VMs
         href: backup-azure-arm-vms-prepare.md
       - name: Application consistent backups of Linux VMs
         href: backup-azure-linux-app-consistent.md
@@ -93,23 +101,25 @@
         href: backup-azure-vms-introduction.md
     - name: Back up VMs
       items:
-      - name: Back up Azure virtual machines to a Recovery Services vault
+      - name: Back up Azure VMs to Recovery Services vault
         href: backup-azure-arm-vms.md
-      - name: Back up encrypted virtual machines
+      - name: Back up encrypted VMs
         href: backup-azure-vms-encryption.md
+      - name: Enable VM backup during VM creation
+        href: backup-during-vm-creation.md
     - name: Manage and monitor VMs
       items:
       - name: Manage Azure VM backups in Azure portal
         href: backup-azure-manage-vms.md
-      - name: Monitor alerts for Azure VM backups in Azure portal
+      - name: Monitor alerts for Azure VM backups
         href: backup-azure-monitor-vms.md
     - name: Restore data from VMs
       items:
       - name: Recover files from Azure VM backups
         href: backup-azure-restore-files-from-vm.md
-      - name: Restore Resource Manager-deployed VMs in Azure portal
+      - name: Restore VMs in Azure portal
         href: backup-azure-arm-restore-vms.md
-      - name: Restore encrypted virtual machines
+      - name: Restore encrypted VMs
         href: backup-azure-vms-encryption.md
       - name: Restore Key Vault key and secret for encrypted VMs
         href: backup-azure-restore-key-secret.md
@@ -125,9 +135,9 @@
     items:
     - name: Prepare DPM workloads in Azure portal
       href: backup-azure-dpm-introduction.md
-    - name: Use System Center DPM to back up Exchange server
+    - name: Use DPM to back up Exchange server
       href: backup-azure-backup-exchange-server.md
-    - name: Recover data to an alternate DPM server
+    - name: Recover data to alternate DPM server
       href: backup-azure-alternate-dpm-server.md
     - name: Use DPM to back up SQL Server workloads
       href: backup-azure-backup-sql.md
@@ -181,6 +191,8 @@
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Troubleshoot Azure Backup Server
       href: backup-azure-mabs-troubleshoot.md
+    - name: Troubleshoot System Center Data Protection Manager
+      href: backup-azure-scdpm-troubleshooting.md
     - name: Troubleshoot Azure Backup Agent
       href: backup-azure-mars-troubleshoot.md
 - name: Reference

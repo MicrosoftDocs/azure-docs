@@ -3,8 +3,8 @@ title: Before you deploy App Service on Azure Stack | Microsoft Docs
 description: Steps to complete before you deploy App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,11 +13,12 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: anwestg
-
+ms.date: 01/29/2018
+ms.author: brenduns
+ms.reviewer: anwestg
 ---
 # Before you get started with App Service on Azure Stack
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 Before you deploy Azure App Service on Azure Stack, you must complete the prerequisites in this article.
 
@@ -34,7 +35,7 @@ Before you deploy Azure App Service on Azure Stack, you must complete the prereq
    - Remove-AppService.ps1
    - Modules
      - GraphAPI.psm1
-    
+
 ## Prepare for high availability
 
 Azure App Service on Azure Stack cannot currently offer high availability because Azure Stack deploys workloads into only one fault domain.
@@ -152,22 +153,22 @@ For Azure Stack Development Kit deployments only, you can use the [example Azure
 When you use the Azure Resource Manager template, the users are already created.
 
 1. Run the following commands to create the FileShareOwner and FileShareUser accounts. Replace `<password>` with your own values.
-``` DOS
-net user FileShareOwner <password> /add /expires:never /passwordchg:no
-net user FileShareUser <password> /add /expires:never /passwordchg:no
-```
+    ``` DOS
+    net user FileShareOwner <password> /add /expires:never /passwordchg:no
+    net user FileShareUser <password> /add /expires:never /passwordchg:no
+    ```
 2. Set the passwords for the accounts to never expire by running the following WMIC commands:
-``` DOS
-WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
-WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
-```
+    ``` DOS
+    WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
+    WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+    ```
 3. Create the local groups FileShareUsers and FileShareOwners, and add the accounts in the first step to them:
-``` DOS
-net localgroup FileShareUsers /add
-net localgroup FileShareUsers FileShareUser /add
-net localgroup FileShareOwners /add
-net localgroup FileShareOwners FileShareOwner /add
-```
+    ``` DOS
+    net localgroup FileShareUsers /add
+    net localgroup FileShareUsers FileShareUser /add
+    net localgroup FileShareOwners /add
+    net localgroup FileShareOwners FileShareOwner /add
+    ```
 
 ### Provision the content share
 
@@ -241,7 +242,7 @@ For Azure Stack Development Kit deployments, you can use SQL Server Express 2014
 
 For production and high-availability purposes, you should use a full version of SQL Server 2014 SP2 or later, enable mixed-mode authentication, and deploy in a [highly available configuration](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-The SQL Server instance for Azure App Service on Azure Stack must be accessible from all App Service roles. You can deploy SQL Server within the Default Provider Subscription in Azure Stack. Or you can make use of the existing infrastructure within your organization (as long as there is connectivity to Azure Stack). If you're using an Azure Marketplace image, remember to configure the firewall accordingly. 
+The SQL Server instance for Azure App Service on Azure Stack must be accessible from all App Service roles. You can deploy SQL Server within the Default Provider Subscription in Azure Stack. Or you can make use of the existing infrastructure within your organization (as long as there is connectivity to Azure Stack). If you're using an Azure Marketplace image, remember to configure the firewall accordingly.
 
 For any of the SQL Server roles, you can use a default instance or a named instance. If you use a named instance, be sure to manually start the SQL Server Browser service and open port 1434.
 

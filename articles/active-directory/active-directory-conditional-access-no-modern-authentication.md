@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
 

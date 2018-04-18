@@ -149,7 +149,7 @@ Take a look at [Data Retention and Privacy][data].
 
 This is possible if your code sends such data. It can also happen if variables in stack traces include PII. Your development team should conduct risk assessments to ensure that PII is properly handled. [Learn more about data retention and privacy](app-insights-data-retention-privacy.md).
 
-The last octet of the client web address is always set to 0 after ingestion by the portal.
+**All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
 
 ## My iKey is visible in my web page source. 
 

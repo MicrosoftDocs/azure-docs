@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
 
 ---
@@ -44,16 +44,16 @@ The mode that we recommend for application upgrade is the monitored mode, which 
 Unmonitored manual mode needs manual intervention after every upgrade on an update domain, to kick off the upgrade on the next update domain. No Service Fabric health checks are performed. The administrator performs the health or status checks before starting the upgrade in the next update domain.
 
 ## Upgrade default services
-Default services within Service Fabric application can be upgraded during the upgrade process of an application. Default services are defined in the [application manifest](service-fabric-application-and-service-manifests.md). The standard rules of upgrading default services are:
+Some default service parameters defined in the [application manifest](service-fabric-application-and-service-manifests.md) can also be upgraded as part of an application upgrade. Only the service parameters that support being changed through [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) can be changed as part of an upgrade. The behavior of changing default services during application upgrade is as follows:
 
-1. Default services in the new [application manifest](service-fabric-application-and-service-manifests.md) that do not exist in the cluster are created.
+1. Default services in the new application manifest that do not already exist in the cluster are created.
+2. Default services that exist in both the previous and new application manifests are updated. The parameters of the default service in the new application manifest overwrite the parameters of the existing service. The application upgrade will rollback automatically if updating a default service fails.
+3. Default services that do not exist in the new application manifest are deleted if they exist in the cluster. **Note that deleting a default service will result in deleting all that service's state and cannot be undone.**
+
+When an application upgrade is rolled back, default service parameters are reverted back to their old values before the upgrade started but deleted services cannot be re-created with their old state.
+
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) needs to be set to true to enable the following rules. This feature is supported from v5.5.
-
-2. Default services existing in both previous [application manifest](service-fabric-application-and-service-manifests.md) and new version are updated. Service descriptions in the new version would overwrite those already in the cluster. Application upgrade would rollback automatically upon updating default service failure.
-3. Default services in the previous [application manifest](service-fabric-application-and-service-manifests.md) but not in the new version are deleted. **Note that this deleting default services can not be reverted.**
-
-In case of an application upgrade is rolled back, default services are reverted to the status before upgrade started. But deleted services can never be created.
+> The [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) cluster config setting must be *true* to enable rules 2) and 3) above (default service update and deletion). This feature is supported starting in Service Fabric version 5.5.
 
 ## Application upgrade flowchart
 The flowchart following this paragraph can help you understand the upgrade process of a Service Fabric application. In particular, the flow describes how the time-outs, including *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, and *UpgradeHealthCheckInterval*, help control when the upgrade in one update domain is considered a success or a failure.

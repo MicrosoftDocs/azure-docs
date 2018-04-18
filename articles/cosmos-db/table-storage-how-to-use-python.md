@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Table storage with Python | Microsoft Docs
+title: Get started with Azure Table storage using Python | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: cosmos-db
 documentationcenter: python
@@ -9,50 +9,96 @@ editor: tysonn
 
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 02/08/2018
 ms.author: mimig
 
 ---
-# How to use Azure Table storage with Python
+# Get started with Azure Table storage using Python
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-This guide shows you how to perform common Azure Table storage scenarios in Python using the [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). The scenarios covered include creating and deleting a table, and inserting and querying entities.
+Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Because Table storage is schemaless, it's easy to adapt your data as the needs of your application evolve. Access to Table storage data is fast and cost-effective for many types of applications, and is typically lower in cost than traditional SQL for similar volumes of data.
 
-While working through the scenarios in this tutorial, you may wish to refer to the [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html).
+You can use Table storage to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
+
+### About this tutorial
+This tutorial shows you how to use the [Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/) in common Azure Table storage scenarios. The name of the SDK indicates it is for use with Azure Cosmos DB, but it works with both Azure Cosmos DB and Azure Tables storage, each service just has a unique endpoint. These scenarios are explored using Python examples that illustrate how to:
+* Create and delete tables
+* Insert and query entities
+* Modify entities
+
+While working through the scenarios in this tutorial, you may want to refer to the [Azure Cosmos DB SDK for Python API reference](https://azure.github.io/azure-cosmosdb-python/).
+
+## Prerequisites
+
+You need the following to complete this tutorial successfully:
+
+- [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5, or 3.6
+- [Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). This SDK connects with both Azure Table storage and the Azure Cosmos DB Table API.
+- [Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) or [Azure Cosmos DB account](https://azure.microsoft.com/en-us/try/cosmosdb/)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+## Create an Azure service account
 
-## Install the Azure Storage SDK for Python
+You can work with tables using Azure Table storage or Azure Cosmos DB. You can learn more about the differences between the services by reading [Table offerings](table-introduction.md#table-offerings). You'll need to create an account for the service you're going to use. 
 
-Once you've created a storage account, your next step is to install the [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). For details on installing the SDK, refer to the [README.rst](https://github.com/Azure/azure-storage-python/blob/master/README.rst) file in the Storage SDK for Python repository on GitHub.
+### Create an Azure storage account
+The easiest way to create your first Azure storage account is by using the [Azure portal](https://portal.azure.com). To learn more, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-## Create a table
+You can also create an Azure storage account by using [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) or [Azure CLI](../storage/common/storage-azure-cli.md).
 
-To work with the Azure Table service in Python, you must import the [TableService][py_TableService] module. Since you'll be working with Table entities, you also need the [Entity][py_Entity] class. Add this code near the top your Python file to import both:
+If you prefer not to create a storage account at this time, you can also use the Azure storage emulator to run and test your code in a local environment. For more information, see [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md).
+
+### Create an Azure Cosmos DB Table API account
+
+For instructions on creating an Azure Cosmos DB Table API account, see [Create a Table API account](create-table-dotnet.md#create-a-database-account).
+
+## Install the Azure Cosmos DB Table SDK for Python
+
+After you've created a Storage account, your next step is to install the [Microsoft Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). For details on installing the SDK, refer to the [README.rst](https://github.com/Azure/azure-cosmosdb-python/blob/master/azure-cosmosdb-table/README.rst) file in the Cosmos DB Table SDK for Python repository on GitHub.
+
+## Import the TableService and Entity classes
+
+To work with entities in the Azure Table service in Python, you use the [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) and [Entity][py_Entity] classes. Add this code near the top your Python file to import both:
 
 ```python
-from azure.storage.table import TableService, Entity
+from azure.cosmosdb.table.tableservice import TableService
+from azure.cosmosdb.table.models import Entity
 ```
 
-Create a [TableService][py_TableService] object, passing in your storage account name and account key. Replace `myaccount` and `mykey` with your account name and key, and call [create_table][py_create_table] to create the table in Azure Storage.
+## Connect to Azure Table service
+
+To connect to Azure Storage Table service, create a [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) object, and pass in your Storage account name and account key. Replace `myaccount` and `mykey` with your account name and key.
 
 ```python
 table_service = TableService(account_name='myaccount', account_key='mykey')
+```
 
+## Connect to Azure Cosmos DB
+
+To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) object using your copied connection string:
+
+```python
+table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;)
+```
+
+## Create a table
+
+Call [create_table][py_create_table] to create the table.
+
+```python
 table_service.create_table('tasktable')
 ```
 
 ## Add an entity to a table
 
-To add an entity, you first create an object that represents your entity, then pass the object to the [TableService][py_TableService].[insert_entity][py_insert_entity] method. The entity object can be a dictionary or an object of type [Entity][py_Entity], and defines your entity's property names and values. Every entity must include the required [PartitionKey and RowKey](#partitionkey-and-rowkey) properties, in addition to any other properties you define for the entity.
+To add an entity, you first create an object that represents your entity, then pass the object to the [TableService.insert_entity method][py_TableService]. The entity object can be a dictionary or an object of type [Entity][py_Entity], and defines your entity's property names and values. Every entity must include the required [PartitionKey and RowKey](#partitionkey-and-rowkey) properties, in addition to any other properties you define for the entity.
 
 This example creates a dictionary object representing an entity, then passes it to the [insert_entity][py_insert_entity] method to add it to the table:
 
@@ -109,7 +155,7 @@ To ensure the atomic processing of a request by the Table service, you can submi
 This example adds two entities together in a batch:
 
 ```python
-from azure.storage.table import TableBatch
+from azure.cosmosdb.table.tablebatch import TableBatch
 batch = TableBatch()
 task004 = {'PartitionKey': 'tasksSeattle', 'RowKey': '004', 'description' : 'Go grocery shopping', 'priority' : 400}
 task005 = {'PartitionKey': 'tasksSeattle', 'RowKey': '005', 'description' : 'Clean the bathroom', 'priority' : 100}
@@ -167,7 +213,7 @@ for task in tasks:
 
 ## Delete an entity
 
-Delete an entity by passing its PartitionKey and RowKey to the [delete_entity][py_delete_entity] method.
+Delete an entity by passing its **PartitionKey** and **RowKey** to the [delete_entity][py_delete_entity] method.
 
 ```python
 table_service.delete_entity('tasktable', 'tasksSeattle', '001')
@@ -183,20 +229,21 @@ table_service.delete_table('tasktable')
 
 ## Next steps
 
-* [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html)
-* [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
+* [FAQ - Develop with the Table API](https://docs.microsoft.com/en-us/azure/cosmos-db/faq#develop-with-the-table-api)
+* [Azure Cosmos DB SDK for Python API reference](https://azure.github.io/azure-cosmosdb-python/)
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): A free, cross-platform application for working visually with Azure Storage data on Windows, macOS, and Linux.
+* [Working with Python in Visual Studio (Windows)](https://docs.microsoft.com/en-us/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
-[py_commit_batch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.commit_batch
-[py_create_table]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.create_table
-[py_delete_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.delete_entity
-[py_delete_table]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.delete_table
-[py_Entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.models.html#azure.storage.table.models.Entity
-[py_get_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.get_entity
-[py_insert_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_entity
-[py_insert_or_replace_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_or_replace_entity
-[py_merge_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.merge_entity
-[py_update_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.update_entity
-[py_TableService]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html
-[py_TableBatch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tablebatch.html#azure.storage.table.tablebatch.TableBatch
+[py_commit_batch]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
+[py_create_table]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
+[py_delete_entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
+[py_delete_table]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
+[py_Entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.models.html
+[py_get_entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
+[py_insert_entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
+[py_insert_or_replace_entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
+[py_TableService]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
+[py_TableBatch]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tablebatch.html
+[py_merge_entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
+[py_update_entity]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html

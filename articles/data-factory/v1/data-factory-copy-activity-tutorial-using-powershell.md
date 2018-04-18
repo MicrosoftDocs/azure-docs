@@ -3,9 +3,9 @@ title: 'Tutorial: Create a pipeline to move data by using Azure PowerShell | Mic
 description: In this tutorial, you create an Azure Data Factory pipeline with Copy Activity by using Azure PowerShell.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: 
+editor: 
 
 ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
-ms.author: spelluru
+ms.date: 01/22/2018
+ms.author: jingwang
 
 robots: noindex
 ---

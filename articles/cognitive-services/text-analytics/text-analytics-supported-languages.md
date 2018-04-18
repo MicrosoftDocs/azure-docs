@@ -40,6 +40,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Greek       | `el`          | ✔ \*     |             |            |
 | Italian     | `it`          | ✔ \*     | ✔           |             |
 | Japanese    | `ja`          |          | ✔           |            |
+| Korean      | `ko`          |          | ✔           |            |
 | Norwegian  (Bokmål) | `no`          | ✔ \*     |  ✔          |             |
 | Polish      | `pl`          | ✔ \*     |  ✔          |             |
 | Portuguese (Portugal) | `pt-PT`| ✔        |  ✔          |`pt` also accepted |

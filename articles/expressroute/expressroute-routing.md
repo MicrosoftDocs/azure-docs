@@ -115,7 +115,7 @@ A Private AS Number is allowed with Microsoft Peering, but will also require man
 Routing exchange will be over eBGP protocol. EBGP sessions are established between the MSEEs and your routers. Authentication of BGP sessions is not a requirement. If required, an MD5 hash can be configured. See the [Configure routing](expressroute-howto-routing-classic.md) and [Circuit provisioning workflows and circuit states](expressroute-workflows.md) for information about configuring BGP sessions.
 
 ## Autonomous System numbers
-Microsoft uses AS 12076 for Azure public, Azure private, and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported.
+Microsoft uses AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported. We require a publicly registered ASN only for the Microsoft peering. Both private and public peering can use private ASNs.
 
 There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging you. Route metrics are not required to be identical.
 

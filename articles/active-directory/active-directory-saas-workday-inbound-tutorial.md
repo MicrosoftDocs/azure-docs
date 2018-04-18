@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory and Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Workday for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to use Workday as source of identity data for Active Directory and Azure Active Directory.
 services: active-directory
 author: asmalser-msft
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
 
 ---
-# Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory and Azure Active Directory
+# Tutorial: Configure Workday for automatic user provisioning
+
 The objective of this tutorial is to show you the steps you need to perform to import people from Workday into both Active Directory and Azure Active Directory, with optional writeback of some attributes to Workday. 
 
 
@@ -160,13 +161,17 @@ You need to create an unconstrained integration system security group and assign
     ![System Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "System Security Group")  
 
 ### Configure security group options
-In this step, you grant to the new security group permissions for **Get** and **Put** operations on the objects secured by the following domain security policies:
+In this step, you'll grant domain security policy permissions for the worker data secured by the following domain security policies:
 
-* External Account Provisioning
-* Worker Data: Public Worker Reports
-* Worker Data: All Positions
-* Worker Data: Current Staffing Information
-* Worker Data: Business Title on Worker Profile
+
+| Operation | Domain Security Policy |
+| ---------- | ---------- | 
+| Get and Put |  External Account Provisioning |
+| Get and Put | Worker Data: Public Worker Reports |
+| Get and Put | Worker Data: All Positions |
+| Get and Put | Worker Data: Current Staffing Information |
+| Get and Put | Worker Data: Business Title on Worker Profile |
+| View and Modify | Worker Data: Work Email |
 
 **To configure security group options:**
 
@@ -322,7 +327,7 @@ Active Directory.
                 attributes. [For more info, see this article on
                 expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-      * **Source attribute** - The user attribute from Workday.
+      * **Source attribute** - The user attribute from Workday. If the attribute you are looking for is not present, see [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
       * **Default value** – Optional. If the source attribute has
             an empty value, the mapping will write this value instead.
@@ -395,7 +400,7 @@ Directory, with some common expressions**
 | **AddressLineData**    |  streetAddress  |     |   Create + update |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Create + update |
 | **BusinessTitle**   |  title     |     |  Create + update |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | Create + update                                                   
+| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | Written on create only                                                   
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Create + update |
   
 ### Part 3: Configure the on-premises synchronization agent
@@ -622,7 +627,7 @@ Azure Active Directory for cloud-only users.
                 attributes. [For more info, see this article on
                 expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-   * **Source attribute** - The user attribute from Workday.
+   * **Source attribute** - The user attribute from Workday. If the attribute you are looking for is not present, see [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
    * **Default value** – Optional. If the source attribute has
             an empty value, the mapping will write this value instead.
@@ -748,11 +753,132 @@ Once parts 1-2 have been completed, you can start the provisioning service.
 5. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
 
+
+## Customizing the list of Workday user attributes
+The Workday provisioning apps for Active Directory and Azure AD both include a default list of Workday user attributes you can select from. However, these lists are not comprehensive. Workday supports many hundreds of possible user attributes, which can either be standard or unique to your Workday tenant. 
+
+The Azure AD provisioning service supports the ability to customize your list or Workday attribute to include any attributes exposed in the [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) operation of the Human Resources API.
+
+To do this, you must use [Workday Studio](https://community.workday.com/studio-download) to extract the XPath expressions that represent the attributes you wish to use, and then add them to your provisioning configuration using the advanced attribute editor in the Azure portal.
+
+**To retrieve an XPath expression for a Workday user attribute:**
+
+1. Download and install [Workday Studio](https://community.workday.com/studio-download). You will need a Workday community account to access the installer.
+
+2. Download the Workday Human_Resources WDSL file from this URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
+
+3. Launch Workday Studio.
+
+4. From the command bar, select the  **Workday > Test Web Service in Tester** option.
+
+5. Select **External**, and select the Human_Resources WSDL file you downloaded in step 2.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio1.PNG)
+
+6. Set the **Location** field to `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, but replacing "IMPL-CC" with your actual instance type, and "TENANT" with your real tenant name.
+
+7. Set **Operation** to **Get_Workers**
+
+8.	Click the small **configure** link below the Request/Response panes to set your Workday credentials. Check **Authentication**, and then enter the user name and password for your Workday integration system account. Be sure to format the user name as name@tenant, and leave the **WS-Security UsernameToken** option selected.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
+
+9. Select **OK**.
+
+10.	The **Request** pane, paste in the XML below and set **Employee_ID** to the employee ID of a real user in your Workday tenant. Select a user that has the attribute populated that you wish to extract.
+
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <env:Body>
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
+          <wd:Request_References wd:Skip_Non_Existing_Instances="true">
+            <wd:Worker_Reference>
+              <wd:ID wd:type="Employee_ID">21008</wd:ID>
+            </wd:Worker_Reference>
+          </wd:Request_References>
+		  <wd:Response_Group>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Personal_Information>true</wd:Include_Personal_Information>
+            <wd:Include_Employment_Information>true</wd:Include_Employment_Information>
+            <wd:Include_Management_Chain_Data>true</wd:Include_Management_Chain_Data>
+            <wd:Include_Organizations>true</wd:Include_Organizations>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
+            <wd:Include_Photo>true</wd:Include_Photo>
+            <wd:Include_User_Account>true</wd:Include_User_Account>
+          </wd:Response_Group>
+        </wd:Get_Workers_Request>
+      </env:Body>
+    </env:Envelope>
+    ```
+ 
+11. Click the **Send Request** (green arrow) to execute the command. If successful, the response should appear in the **Response** pane. Check the response to ensure it has the data of the user ID you entered, and not an error.
+
+12. If successful, copy the XML from the **Response** pane and save it as an XML file.
+
+13. In the command bar of Workday Studio, select **File > Open File...** and open the XML file you just saved. This opens it in the Workday Studio XML editor.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio3.PNG)
+
+14. In the file tree, navigate through **/env:Envelope > env:Body > wd:Get_Workers_Response > wd:Response_Data > wd:Worker** to find your user's data. 
+
+15. Under **wd:Worker**, find the attribute that you wish to add, and select it.
+
+16. Copy the XPath expression for your selected attribute out of the **Document Path** field.
+
+17. Remove the **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** prefix from the copied expression. 
+
+18. If the last item in the copied expression is a node (example: "/wd:Birth_Date"), then append **/text()** at the end of the expression. This is not necessary if the last item is an attribute (example: "/@wd:type").
+
+19. The result should be something like `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`. This is what you will copy into the Azure portal.
+
+
+**To add your custom Workday user attribute to your provisioning configuration:**
+
+1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Provisioning section of your Workday provisioning application, as described earlier in this tutorial.
+
+2. Set **Provisioning Status** to **Off**, and select **Save**. This will help ensure your changes will take effect only when you are ready.
+
+3. Under **Mappings**, select **Synchronize Workers to OnPremises** (or **Synchronize Workers to Azure AD**).
+
+4. Scroll to the bottom of the next screen, and select **Show advanced options**.
+
+5. Select **Edit attribute list for Workday**.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD1.PNG)
+
+6. Scroll to the bottom of the attribute list to where the input fields are.
+
+7. For **Name**, enter a display name for your attribute.
+
+8. For **Type**, select type that appropriately corresponds to your attribute (**String** is most common).
+
+9. For **API Expression**, enter the XPath expression you copied from Workday Studio. Example: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+
+10. Select **Add Attribute**.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
+
+11. Select **Save** above, and then **Yes** to the dialog. Close the Attribute Mapping screen if it is still open.
+
+12. Back on the main **Provisioning** tab, select **Synchronize Workers to OnPremises** (or **Synchronize Workers to Azure AD**) again.
+
+13. Select **Add new mapping**.
+
+14. Your new attribute should now appear in the **Source attribute** list.
+
+15. Add a mapping for your new attribute as desired.
+
+16. When finished, remember to set **Provisioning Status** back to **On** and save.
+
+
 ## Known issues
 
 * When running the **Add-ADSyncAgentAzureActiveDirectoryConfiguration** Powershell command, there is presently a known issue with global administrator credentials not working if they use a custom domain (example: admin@contoso.com). As a workaround, create and use a global administrator account in Azure AD with an onmicrosoft.com domain (example: admin@contoso.onmicrosoft.com).
 
 * A previous issue with audit logs not appearing in Azure AD tenants located in the European Union has been resolved. However, additional agent configuration is required for Azure AD tenants in the EU. For details, see [Part 3: Configure the on-premises synchronization agent](#Part 3: Configure the on-premises synchronization agent)
+
 
 ## Additional resources
 * [Tutorial: Configuring single sign-on between Workday and Azure Active Directory](active-directory-saas-workday-tutorial.md)

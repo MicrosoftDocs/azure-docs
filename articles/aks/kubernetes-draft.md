@@ -24,28 +24,7 @@ The steps detailed in this document assume that you have created an AKS cluster 
 
 You also need a private Docker registry in Azure Container Registry (ACR). For instructions on deploying an ACR instance, see the [Azure Container Registry Quickstart][acr-quickstart].
 
-## Install Helm
-
-The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm charts.
-
-To install the Helm CLI on a Mac, use `brew`. For additional installation options, see [Installing Helm][install-helm].
-
-```console
-brew install kubernetes-helm
-```
-
-Output:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
-```
+Helm must also be installed in your AKS cluster. For more information on installing helm, see [Use Helm with Azure Container Service (AKS)][aks-helm].
 
 ## Install Draft
 
@@ -304,10 +283,10 @@ For more information about using Draft, see the Draft documentation on GitHub.
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
 [install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
-[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
-[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-helm]: ./kubernetes-helm.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

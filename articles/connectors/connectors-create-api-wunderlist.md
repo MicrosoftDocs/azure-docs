@@ -21,7 +21,7 @@ ms.author: mandia; ladocs
 # Get started with the Wunderlist connector
 Wunderlist provide a todo list and task manager to help people get their stuff done.  Whether you’re sharing a grocery list with a loved one, working on a project, or planning a vacation, Wunderlist makes it easy to capture, share, and complete your to¬dos. Wunderlist instantly syncs between your phone, tablet and computer, so you can access all your tasks from anywhere.
 
-Get started by creating a logic app now; see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+Get started by creating a logic app now; see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to Wunderlist
 To create Logic apps with Wunderlist, you must first create a **connection** then provide the details for the following properties:

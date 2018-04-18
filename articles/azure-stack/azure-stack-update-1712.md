@@ -3,7 +3,7 @@ title: Azure Stack 1712 Update | Microsoft Docs
 description: Learn about what's in the 1712 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
 documentationcenter: ''
-author: andredm7
+author: brenduns
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2018
-ms.author: andredm
+ms.date: 01/11/2018
+ms.author: brenduns
 
 ---
 
@@ -56,7 +56,7 @@ This update includes the following improvements and fixes for Azure Stack.
 - Test-AzureStack cmdlet to validate Azure Stack Cloud available via privileged endpoint
 - Ability to register a disconnected deployment of Azure Stack
 - Monitoring alerts for certificate and user account expiration
-- Added Update-BMCCredential cmdlet in PEP for BMC password rotation
+- Added Set-BmcPassword cmdlet in PEP for BMC password rotation
 - Network logging updates to support on-demand logging
 - Support reimage operation for Virtual Machine Scales Sets (VMSS)
 - Enable kiosk mode on ERCS VM for CloudAdmin login

@@ -47,7 +47,7 @@ The following table lists the throughput available for containers:
 ## To set the throughput by using the Azure portal
 
 1. In a new window, open the [Azure portal](https://portal.azure.com).
-2. On the left bar, click **Azure Cosmos DB**, or click **More Services** at the bottom, then scroll to **Databases**, and then click **Azure Cosmos DB**.
+2. On the left bar, click **Azure Cosmos DB**, or click **All services** at the bottom, then scroll to **Databases**, and then click **Azure Cosmos DB**.
 3. Select your Cosmos DB account.
 4. In the new window, click **Data Explorer** in the navigation menu.
 5. In the new window, expand your database and container and then click **Scale & Settings**.
@@ -57,7 +57,7 @@ The following table lists the throughput available for containers:
 
 ## To set the throughput by using the SQL API for .NET
 
-```C#
+```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    

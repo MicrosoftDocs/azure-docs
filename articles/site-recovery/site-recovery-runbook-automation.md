@@ -20,7 +20,7 @@ ms.author: ruturajd@microsoft.com
 # Add Azure Automation runbooks to recovery plans
 In this article, we describe how Azure Site Recovery integrates with Azure Automation to help you extend your recovery plans. Recovery plans can orchestrate recovery of VMs that are protected with Site Recovery. Recovery plans work both for replication to a secondary cloud, and for replication to Azure. Recovery plans also help make the recovery **consistently accurate**, **repeatable**, and **automated**. If you fail over your VMs to Azure, integration with Azure Automation extends your recovery plans. You can use it to execute runbooks, which offer powerful automation tasks.
 
-If you are new to Azure Automation, you can [sign up](https://azure.microsoft.com/services/automation/) and [download sample scripts](https://azure.microsoft.com/documentation/scripts/). For more information, and to learn how to orchestrate recovery to Azure by using [recovery plans](https://azure.microsoft.com/blog/?p=166264), see [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
+If you are new to Azure Automation, you can [sign up](https://azure.microsoft.com/services/automation/) and [download sample scripts](https://azure.microsoft.com/documentation/scripts/). For more information, and to learn how to orchestrate recovery to Azure by using [recovery plans](./site-recovery-create-recovery-plans.md), see [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
 
 In this article, we describe how you can integrate Azure Automation runbooks into your recovery plans. We use examples to automate basic tasks that previously required manual intervention. We also describe how to convert a multi-step recovery to a single-click recovery action.
 
@@ -253,8 +253,10 @@ For another example, see the following video. It demonstrates how to recover a t
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-
 ## Additional resources
-* [Azure Automation service Run As account](../automation/automation-sec-configure-azure-runas-account.md)
+* [Azure Automation service Run As account](../automation/automation-create-runas-account.md)
 * [Azure Automation overview](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation overview")
 * [Azure Automation sample scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation sample scripts")
+
+## Next steps
+[Learn more](site-recovery-failover.md) about running failovers.

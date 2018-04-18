@@ -85,9 +85,9 @@ $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $e
 [Console]::Write("Exporting")
 while ($exportStatus.Status -eq "InProgress")
 {
-    $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
-    [Console]::Write(".")
     Start-Sleep -s 10
+    $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
+    [Console]::Write(".")   
 }
 [Console]::WriteLine("")
 $exportStatus

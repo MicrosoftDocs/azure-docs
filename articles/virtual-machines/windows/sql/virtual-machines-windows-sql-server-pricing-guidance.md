@@ -4,7 +4,7 @@ description: Provides best practices for choosing the right SQL Server virtual m
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management
 

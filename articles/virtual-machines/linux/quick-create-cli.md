@@ -31,7 +31,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -66,7 +66,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 ## Open port 80 for web traffic 
 
-By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.  
+By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](/cli/azure/vm#az_vm_open_port) command to open the desired port.  
  
  ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -74,10 +74,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## SSH into your VM
 
-Use the following command to create an SSH session with the virtual machine. Make sure to replace *<publicIpAddress>* with the correct public IP address of your virtual machine.  In our example above our IP address was *40.68.254.142*.
+Use the following command to create an SSH session with the virtual machine. Make sure to replace **publicIpAddress** with the correct public IP address of your virtual machine.  In our example above our IP address was *40.68.254.142*.
 
 ```bash 
-ssh <publicIpAddress>
+ssh publicIpAddress
 ```
 
 ## Install NGINX
@@ -101,7 +101,7 @@ With NGINX installed and port 80 now open on your VM from the Internet - you can
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

@@ -51,7 +51,7 @@ This script uses the following commands. Each command in the table links to comm
 | [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Creates a logical server that hosts the SQL Database. |
 | [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
 | [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Creates the SQL Database in the logical server. |
-| [az group delete](/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

@@ -97,7 +97,7 @@ Note the following considerations to keep in mind with this release:
 
 1. In your failover planning, you should also consider the time factor. For example, if you lose connectivity for longer than 15 to 20 minutes, you might decide to initiate the failover. 
  
-2. The fact that no data is replicated means that currently active sessions are not replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, scheduled messages, and new duplicates will work. 
+2. The fact that no data is replicated means that currently active sessions are not replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, new scheduled messages and new duplicates will work. 
 
 3. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) at least once. 
 

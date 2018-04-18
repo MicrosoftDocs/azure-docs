@@ -53,7 +53,7 @@ To complete this quickstart tutorial, make sure you have the following prerequis
    <dependency>
 	   <groupId>com.microsoft.sqlserver</groupId>
 	   <artifactId>mssql-jdbc</artifactId>
-	   <version>6.2.1.jre8</version>
+	   <version>6.4.0.jre8</version>
    </dependency>
    ```
 

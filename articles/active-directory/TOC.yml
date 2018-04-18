@@ -51,15 +51,23 @@
       - name: Using Azure Resource Manager template
         href: msi-qs-configure-template-windows-vm.md  
       - name: Using Azure SDK
-        href: msi-qs-configure-sdk-windows-vm.md          
-    - name: Grant a VM MSI access to Resource Manager
+        href: msi-qs-configure-sdk-windows-vm.md
+    - name: Configure MSI for Azure VMSS
+      items:
+      - name: Using the Azure Portal
+        href: msi-qs-configure-portal-windows-vmss.md
+      - name: Using Azure CLI
+        href: msi-qs-configure-cli-windows-vmss.md
+      - name: Using Azure Resource Manager template
+        href: msi-qs-configure-template-windows-vmss.md
+    - name: Grant a VM or VMSS MSI access to Resource Manager
       items:
       - name: Using Azure portal
         href: msi-howto-assign-access-portal.md
       - name: Using PowerShell
         href: msi-howto-assign-access-powershell.md
       - name: Using Azure CLI
-        href: msi-howto-assign-access-cli.md 
+        href: msi-howto-assign-access-cli.md
     - name: How to use a VM MSI
       items:
       - name: Acquire an access token

@@ -18,16 +18,16 @@ ms.author: vturecek
 
 ---
 # Reliable Actors state management
-Reliable Actors are single-threaded objects that can encapsulate both logic and state. Because actors run on Reliable Services, they can maintain state reliably by using the same persistence and replication mechanisms that Reliable Services uses. This way, actors don't lose their state after failures, upon reactivation after garbage collection, or when they are moved around between nodes in a cluster due to resource balancing or upgrades.
+Reliable Actors are single-threaded objects that can encapsulate both logic and state. Because actors run on Reliable Services, they can maintain state reliably by using the same persistence and replication mechanisms. This way, actors don't lose their state after failures, upon reactivation after garbage collection, or when they are moved around between nodes in a cluster due to resource balancing or upgrades.
 
 ## State persistence and replication
 All Reliable Actors are considered *stateful* because each actor instance maps to a unique ID. This means that repeated calls to the same actor ID are routed to the same actor instance. In a stateless system, by contrast, client calls are not guaranteed to be routed to the same server every time. For this reason, actor services are always stateful services.
 
 Even though actors are considered stateful, that does not mean they must store state reliably. Actors can choose the level of state persistence and replication based on their data storage requirements:
 
-* **Persisted state**: State is persisted to disk and is replicated to 3 or more replicas. This is the most durable state storage option, where state can persist through complete cluster outage.
-* **Volatile state**: State is replicated to 3 or more replicas and only kept in memory. This provides resilience against node failure and actor failure, and during upgrades and resource balancing. However, state is not persisted to disk. So if all replicas are lost at once, the state is lost as well.
-* **No persisted state**: State is not replicated or written to disk. This level is for actors that simply don't need to maintain state reliably.
+* **Persisted state**: State is persisted to disk and is replicated to three or more replicas. Persisted state is the most durable state storage option, where state can persist through complete cluster outage.
+* **Volatile state**: State is replicated to three or more replicas and only kept in memory. Volatile state provides resilience against node failure and actor failure, and during upgrades and resource balancing. However, state is not persisted to disk. So if all replicas are lost at once, the state is lost as well.
+* **No persisted state**: State is not replicated or written to disk, only use for actors that don't need to maintain state reliably.
 
 Each level of persistence is simply a different *state provider* and *replication* configuration of your service. Whether or not state is written to disk depends on the state provider--the component in a reliable service that stores state. Replication depends on how many replicas a service is deployed with. As with Reliable Services, both the state provider and replica count can easily be set manually. The actor framework provides an attribute that, when used on an actor, automatically selects a default state provider and automatically generates settings for replica count to achieve one of these three persistence settings. The StatePersistence attribute is not inherited by derived class, each Actor type must provide its StatePersistence level.
 
@@ -108,7 +108,7 @@ State manager keys must be strings. Values are generic and can be any type, incl
 
 The state manager exposes common dictionary methods for managing state, similar to those found in Reliable Dictionary.
 
-### Accessing state
+## Accessing state
 State can be accessed through the state manager by key. State manager methods are all asynchronous because they might require disk I/O when actors have persisted state. Upon first access, state objects are cached in memory. Repeat access operations access objects directly from memory and return synchronously without incurring disk I/O or asynchronous context-switching overhead. A state object is removed from the cache in the following cases:
 
 * An actor method throws an unhandled exception after it retrieves an object from the state manager.
@@ -190,7 +190,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-### Saving state
+## Saving state
 The state manager retrieval methods return a reference to an object in local memory. Modifying this object in local memory alone does not cause it to be saved durably. When an object is retrieved from the state manager and modified, it must be reinserted into the state manager to be saved durably.
 
 You can insert state by using an unconditional *Set*, which is the equivalent of the `dictionary["key"] = value` syntax:
@@ -325,7 +325,7 @@ interface MyActor {
 }
 ```
 
-### Removing state
+## Removing state
 You can remove state permanently from an actor's state manager by calling the *Remove* method. This method throws `KeyNotFoundException`(C#) or `NoSuchElementException`(Java) when it tries to remove a key that doesn't exist.
 
 ```csharp
@@ -401,6 +401,17 @@ class MyActorImpl extends FabricActor implements  MyActor
     }
 }
 ```
+
+## Best practices
+Here are some suggested practices and troubleshooting tips for managing your actor state.
+
+### Make the actor state as granular as possible
+This is critical for performance and resource usage of your application. Whenever there is any write/update to the "named state" of an actor, the whole value corresponding to that "named state" is serialized and sent over the network to the secondary replicas.  The secondaries write it to local disk and reply back to the primary replica. When the primary receives acknowledgements from a quorum of secondary replicas, it writes the state to its local disk. For example, suppose the value is a class which has 20 members and a size of 1 MB. Even if you only modified one of the class members which is of size 1 KB, you end up paying the cost of serialization and network and disk writes for the full 1 MB. Similarly, if the value is a collection (such as a list, array, or dictionary), you pay the cost for the complete collection even if you modify one of it's members. The StateManager interface of the actor class is like a dictionary. You should always model the data structure representing actor state on top of this dictionary.
+ 
+### Correctly manage the actor's life-cycle
+You should have clear policy about managing the size of state in each partition of an actor service. Your actor service should have a fixed number of actors and reuse them a much as possible. If you continuously create new actors, you must delete them once they are done with their work. The actor framework stores some metadata about each actor that exists. Deleting all the state of an actor does not remove metadata about that actor. You must delete the actor (see [deleting actors and their state](service-fabric-reliable-actors-lifecycle.md#deleting-actors-and-their-state)) to remove all the information about it stored in the system. As an extra check, you should query the actor service (see [enumerating actors](service-fabric-reliable-actors-platform.md)) once in a while to make sure the number actors are within the expected range.
+ 
+If you ever see that database file size of an Actor Service is increasing beyond the expected size, make sure that you are following the preceding guidelines. If you are following these guidelines and are still database file size issues, you should [open a support ticket](service-fabric-support.md) with the product team to get help.
 
 ## Next steps
 

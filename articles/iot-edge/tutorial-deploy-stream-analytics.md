@@ -150,7 +150,7 @@ You are now ready to deploy the Azure Stream Analytics job on your IoT Edge devi
 
     ![Set module][6]
 
-6. Copy the name that was automatically generated for your Azure Stream Analytics module. 
+6. Copy the name of your Azure Stream Analytics module. 
 
     ![Temperature module][11]
 

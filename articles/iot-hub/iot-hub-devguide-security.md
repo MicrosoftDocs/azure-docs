@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
 
 ---
@@ -69,7 +69,7 @@ For more information about how to construct and use security tokens, see [IoT Hu
 
 Each supported protocol, such as MQTT, AMQP, and HTTPS, transports tokens in different ways.
 
-When using MQTT, the CONNECT packet has the deviceId as the ClientId, {iothubhostname}/{deviceId} in the Username field, and a SAS token in the Password field. {iothubhostname} should be the full CName of the IoT hub (for example, contoso.azure-devices.net).
+When using MQTT, the CONNECT packet has the deviceId as the ClientId, `{iothubhostname}/{deviceId}` in the Username field, and a SAS token in the Password field. `{iothubhostname}` should be the full CName of the IoT hub (for example, contoso.azure-devices.net).
 
 When using [AMQP][lnk-amqp], IoT Hub supports [SASL PLAIN][lnk-sasl-plain] and [AMQP Claims-Based-Security][lnk-cbs].
 
@@ -192,7 +192,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
 The functionality in C# to generate a security token is:
 
-```C#
+```csharp
 using System;
 using System.Globalization;
 using System.Net;
@@ -267,7 +267,7 @@ The result, which grants access to all functionality for device1, would be:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> It is possible to generate a SAS token using the .NET [device explorer][lnk-device-explorer] tool or the cross-platform, node-based [iothub-explorer][lnk-iothub-explorer] command-line utility.
+> It is possible to generate a SAS token using the .NET [device explorer][lnk-device-explorer] tool or the cross-platform, Python-based [The IoT extension for Azure CLI 2.0][lnk-IoT-extension-CLI-2.0] command-line utility.
 
 ### Use a shared access policy
 
@@ -487,7 +487,7 @@ If you would like to try out some of the concepts described in this article, see
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
+[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

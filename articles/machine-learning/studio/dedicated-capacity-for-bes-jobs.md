@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
+ms.author: raymondl
 
 ---
 # Azure Batch service for Machine Learning jobs

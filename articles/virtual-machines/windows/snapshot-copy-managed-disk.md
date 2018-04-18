@@ -24,7 +24,7 @@ Take a snapshot of an OS or data disk VHD for backup or to troubleshoot VM issue
 ## Use Azure portal to take a snapshot 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Starting in the upper left, click **New** and search for **snapshot**.
+2. Starting in the upper left, click **Create a resource** and search for **snapshot**.
 3. In the Snapshot blade, click **Create**.
 4. Enter a **Name** for the snapshot.
 5. Select an existing [Resource group](../../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. 
@@ -39,7 +39,7 @@ The following steps show you how to get the VHD disk to be copied, create the sn
 Make sure that you have the latest version of the AzureRM.Compute PowerShell module installed. Run the following command to install it.
 
 ```
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 ```
 For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 

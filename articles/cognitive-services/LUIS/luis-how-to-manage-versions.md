@@ -2,21 +2,21 @@
 title: Manage versions in LUIS apps in Azure | Microsoft Docs
 description: Learn how to manage versions in Language Understanding (LUIS) applications.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: cahann
+ms.author: v-geberr;
 ---
 
 # Manage versions
 
 You can build different versions of your application. Versioning allows you to create a model definition that can be managed, changed, cloned, or exported. 
 
-Trained versions are not automatically available at your app endpoint. You must [publish](PublishApp.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production** so you can have up to two versions of your app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID. 
+Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](PublishApp.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production** so you can have up to two versions of your app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID. 
 
 Performance is a consideration when versioning with large LUIS model definitions. In general, cloning should be quicker than exporting the app and reimporting the app. 
 

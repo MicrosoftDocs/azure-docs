@@ -34,7 +34,7 @@ Bash in Cloud Shell securely and automatically authenticates account access for 
 
 ### SSH into Azure Linux virtual machines
 
-Creating a Linux VM from Azure CLI 2.0 can create a default SSH key and place it in your `$Home` directory. Placing SSH keys in `$Home`  enables direct SSH connections to Azure Linux VMs directly from Cloud Shell. Keys are held in acc_<user>.img in your file share, use best practices when using or sharing access to your file share or keys.
+Creating a Linux VM from Azure CLI 2.0 can create a default SSH key and place it in your `$Home` directory. Placing SSH keys in `$Home` enables SSH connections to Azure Linux VMs directly from Cloud Shell. Keys are held in acc_<user>.img in your file share, use best practices when using or sharing access to your file share or keys.
 
 ### $Home persistence across sessions
 
@@ -44,6 +44,10 @@ Additionally, in Bash in Cloud Shell your `$Home` directory is persisted as an .
 Files outside of `$Home` and machine state are not persisted across sessions.
 
 [Learn more about persisting files in Bash in Cloud Shell.](persisting-shell-storage.md)
+
+### Deep integration with open-source tooling
+
+Bash in Cloud Shell includes pre-configured authentication for open-source tools such as Terraform and Ansible. Try it out from the example walkthroughs.
 
 ## Tools
 
@@ -56,17 +60,17 @@ Files outside of `$Home` and machine state are not persisted across sessions.
 |Build tools            |make<br> maven<br> npm<br> pip         |
 |Containers             |[Docker CLI](https://github.com/docker/cli)/[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Databases              |MySQL client<br> PostgreSql client<br> [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Other                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/) |
+|Other                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)| 
 
 ## Language support
 
 |Language   |Version   |
 |---|---|
 |.NET       |2.0.0       |
-|Go         |1.7        |
+|Go         |1.9        |
 |Java       |1.8        |
-|Node.js    |6.9.4      |
-|PowerShell |[6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
+|Node.js    |8.9.4      |
+|PowerShell |[6.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 and 3.5 (default)|
 
 ## Next steps
