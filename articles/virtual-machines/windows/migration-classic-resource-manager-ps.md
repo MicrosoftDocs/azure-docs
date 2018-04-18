@@ -67,7 +67,7 @@ First, start a PowerShell prompt. For migration, you need to set up your environ
 Sign in to your account for the Resource Manager model.
 
 ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 ```
 
 Get the available subscriptions by using the following command:
