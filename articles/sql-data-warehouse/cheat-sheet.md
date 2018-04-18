@@ -7,7 +7,7 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.component: design
-ms.date: 04/11/2018
+ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
 ---
