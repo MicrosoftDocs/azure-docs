@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 05/04/2018
 ms.author: heidist
 ---
 # Cognitive Search overview
