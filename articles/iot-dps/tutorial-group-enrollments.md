@@ -3,7 +3,7 @@ title: Provision a simulated X.509 device to Azure IoT Hub using Java and enroll
 description: Azure Tutorial - Create and provision a simulated X.509 device using Java device and service SDK and enrollment groups for IoT Hub Device Provisioning Service
 services: iot-dps 
 keywords: 
-author: msebolt
+author: bryanla
 ms.author: v-masebo
 ms.date: 01/04/2018
 ms.topic: tutorial
@@ -36,9 +36,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
     > This step requires [OpenSSL](https://www.openssl.org/), which can either be built and installed from source or downloaded and installed from a [3rd party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/). If you have already created your _root_, _intermediate_ and _device_ certificates you may skip this step.
     >
 
-1. Create the enrollment group information:
-
-    1. Run through **Step 1** and **Step 2** to create your _root_ and _intermediate_ certificates.
+    1. Run through the first two steps to create your _root_ and _intermediate_ certificates.
 
     1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
@@ -53,16 +51,16 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
         1. Select the newly created certificate:
             - Click **Generate Verification Code**. Copy the code generated.
-            - Run through **Step 3**. Enter the _verification code_ or right-click to paste in your running PowerShell window.  Press **Enter**.
+            - Run the verification step. Enter the _verification code_ or right-click to paste in your running PowerShell window.  Press **Enter**.
             - Select the newly created **_verifyCert4.pem_** file in the Azure portal. Click **Verify**.
 
             ![Validate certificate](./media/tutorial-group-enrollments/validate-certificate.png)
 
-1. Finish by running **Step 4** and **Step 5** to create your device certificates and clean-up resources.
+    1. Finish by running the steps to create your device certificates and clean-up resources.
 
-> [!NOTE]
-> When creating device certificates be sure to use only lower-case alphanumerics and hyphens in your device name.
->
+    > [!NOTE]
+    > When creating device certificates be sure to use only lower-case alphanumerics and hyphens in your device name.
+    >
 
 
 ## Create a device enrollment entry

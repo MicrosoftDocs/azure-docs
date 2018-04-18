@@ -2,14 +2,14 @@
 title: Create a new app with LUIS | Microsoft Docs
 description: Create and manage your applications on the Language Understanding (LUIS) webpage. 
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/26/2017
-ms.author: cahann;v-geberr
+ms.date: 04/17/2018
+ms.author: v-geberr
 ---
 
 # Create an app
@@ -26,7 +26,7 @@ The default version of a new app is "0.1."
 
 You can create and manage your applications on **My Apps** page. You can always access this page by selecting **My apps** on the top navigation bar of the [LUIS](luis-reference-regions.md) website. 
 
-![List of apps](./media/luis-create-new-app/apps-list.png)
+[![](media/luis-create-new-app/apps-list.png "Screenshot of List of apps")](media/luis-create-new-app/apps-list.png#lightbox)
 
 ## Create new app
 
@@ -49,13 +49,16 @@ You can set the name (50 char max), version (10 char max), and description of an
     ![Import a new app dialog](./media/luis-create-new-app/import-app.png)
 
 ## Export app
-1. On **My Apps** page, select the three dots (...) at the end of the app row. 
-2. Select **Export App** from the menu. 
+1. On **My Apps** page, select the three dots (...) at the end of the app row.
+
+    [![](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
+
+2. Select **Export app** from the menu. 
 
 ## Rename app
 
 1. On **My Apps** page, select the three dots (...) at the end of the app row. 
-2. Select **Rename App** from the menu.
+2. Select **Rename** from the menu.
 3. Enter the new name of the app and select **Done**.
 
 ## Delete app
@@ -64,7 +67,7 @@ You can set the name (50 char max), version (10 char max), and description of an
 > You are deleting the app for all collaborators and the owner. [Export](#export-app) the app before deleting it. 
 
 1. On **My Apps** page, select the three dots (...) at the end of the app row. 
-2. Select **Delete App** from the menu.
+2. Select **Delete** from the menu.
 3. Select **Ok** in the confirmation window.
 
 ## Export endpoint logs

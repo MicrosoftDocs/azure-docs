@@ -1,20 +1,20 @@
 ---
-title: 'Connect to Azure Database for PostgreSQL from Python | Microsoft Docs'
+title: Connect to Azure Database for PostgreSQL from Python
 description: This quickstart provides a Python code sample that you can use to connect and query data from Azure Database for PostgreSQL.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/03/2017
+ms.date: 02/28/2018
 ---
 
 # Azure Database for PostgreSQL: Use Python to connect and query data
-This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL. It also demonstrates how to use SQL statements to query, insert, update, and delete data in the database from macOS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL. For further sdk details, refer to the [Azure PostgreSQL libraries for Python SDK reference](/python/api/overview/azure/postgresql) documentation and a [psycopg sample](http://initd.org/psycopg/docs/usage.html).
+This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL. It also demonstrates how to use SQL statements to query, insert, update, and delete data in the database from macOS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
@@ -46,11 +46,10 @@ Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package, whic
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources** and search for **mypgserver-20170401** (the server you created).
-3. Click the server name **mypgserver-20170401**.
-4. Select the server's **Overview** page, and then make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-python/1-connection-string.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
+3. Click the server name.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for PostgreSQL server name](./media/connect-python/1-connection-string.png)
 
 ## How to run Python code
 This article contains a total of four code samples, each of which performs a specific function. The following instructions indicate how to create a text file, insert a code block, and then save the file so that you can run it later. Be sure to create four separate files, one for each code block.
@@ -71,8 +70,8 @@ Use the following code to connect and load the data using [psycopg2.connect](htt
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -115,8 +114,8 @@ Use the following code to read the data inserted using [cursor.execute](http://i
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -149,8 +148,8 @@ Use the following code to update the inventory row that you previously inserted 
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -179,8 +178,8 @@ Use the following code to delete an inventory item that you previously inserted 
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"

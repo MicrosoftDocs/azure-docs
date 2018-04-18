@@ -29,8 +29,7 @@ IP Restrictions are evaluated on the same App Service plan instances assigned to
 
 To add an IP restriction rule to your app, use the menu to open **Network**>**IP Restrictions** and click on **Configure IP Restrictions**
 
-![IP restrictions]
-(media/app-service-ip-restrictions/ip-restrictions.png)
+![IP restrictions](media/app-service-ip-restrictions/ip-restrictions.png)  
 
 From here, you can review the list of IP restriction rules defined for your app.
 

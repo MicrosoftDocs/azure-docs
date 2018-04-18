@@ -45,7 +45,7 @@ Status Monitor Configuration - needed only when making changes.
 | Configuration |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configuration |`auth.gfx.ms` | |`443` |
 | Configuration |`login.live.com` | |`443` |
-| Installation |`packages.nuget.org` | |`443` |
+| Installation |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (NuGet Downloads) | |`443` |
 
 ## HockeyApp
 | Purpose | URL | IP | Ports |

@@ -29,10 +29,15 @@ App Service on Linux supports a number of Built-in images in order to increase d
 
 | Language | Supported Versions |
 |---|---|
-| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
-| PHP | 5.6, 7.0 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 9.4 |
+| Java * | 8.0 |
+| PHP | 5.6, 7.0, 7.2 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
+| Go | 1.0 |
+| Apache Tomcat | 8.5, 9.0 |
+
+See [Create a Java web app in App Service on Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java) for more details.
 
 ## Deployments
 
@@ -67,10 +72,7 @@ The Azure portal shows only features that currently work for Web App for Contain
 
 Some features, such as virtual network integration, Azure Active Directory/third-party authentication, or Kudu site extensions, are not available yet. Once these features are available, we will update our documentation and blog about the changes.
 
-App Service on Linux is only supported with [Basic and Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. The following are also important restrictions for App Service on Linux:
-
-* You cannot create Web App for Containers in an App Service plan already hosting non-Linux Web Apps.
-* When creating Web App for Containers in a resource group containing non-Linux Web Apps, you must create an App Service plan in a different resource group than the existing App Service plan.
+App Service on Linux is only supported with [Basic and Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. You cannot create Web App for Containers in an App Service plan already hosting non-Linux Web Apps.
 
 ## Troubleshooting
 

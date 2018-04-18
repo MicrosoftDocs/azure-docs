@@ -1,10 +1,10 @@
-﻿---
+---
 title: Govern Azure virtual machines with Azure CLI | Microsoft Docs
 description: Tutorial - Manage Azure virtual machines by applying RBAC, polices, locks and tags with Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 
 ms.service: virtual-machines-linux
@@ -18,7 +18,7 @@ ms.author: tomfitz
 ---
 # Virtual machine governance with Azure CLI
 
-[!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -26,7 +26,7 @@ To install and use the CLI locally, see [Install Azure CLI 2.0](/cli/azure/insta
 
 ## Understand scope
 
-[!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
 In this tutorial, you apply all management settings to a resource group so you can easily remove those settings when done.
 
@@ -40,15 +40,15 @@ Currently, the resource group is empty.
 
 ## Role-based access control
 
-You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Role-based access control](../../active-directory/role-based-access-control-what-is.md) enables you to manage which users have permission to complete specific actions at a scope.
+You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Role-based access control](../../role-based-access-control/overview.md) enables you to manage which users have permission to complete specific actions at a scope.
 
 To create and remove role assignments, users must have `Microsoft.Authorization/roleAssignments/*` access. This access is granted through the Owner or User Access Administrator roles.
 
 For managing virtual machine solutions, there are three resource-specific roles that provide commonly needed access:
 
-* [Virtual Machine Contributor](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Network Contributor](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage Account Contributor](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../../active-directory/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
 
@@ -68,7 +68,7 @@ Typically, you repeat the process for *Network Contributor* and *Storage Account
 
 ## Azure policies
 
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
 
 ### Apply policies
 
@@ -176,7 +176,7 @@ You see an error stating that the delete operation cannot be performed because o
 
 You apply [tags](../../azure-resource-manager/resource-group-using-tags.md) to your Azure resources to logically organize them by categories. Each tag consists of a name and a value. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
-[!include[Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
+[!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
 To apply tags to a virtual machine, use the [az resource tag](/cli/azure/resource#az_resource_tag) command. Any existing tags on the resource are not retained.
 
@@ -203,7 +203,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ### View costs by tag values
 
-[!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
+[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## Clean up resources
 

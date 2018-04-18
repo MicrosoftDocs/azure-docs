@@ -2,8 +2,8 @@
 title: 'Azure Cosmos DB: MongoDB API articles | Microsoft Docs'
 description: A list of all the articles specific to creating document databases with the MongoDB API in Azure Cosmos DB. 
 services: cosmos-db
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 0ee5b7f8-cda9-41a1-b7f0-f6a97e58c4da
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
-ms.author: mimig
+ms.author: sngun
 
 ---
 # Azure Cosmos DB: MongoDB API documentation

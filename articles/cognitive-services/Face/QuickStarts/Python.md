@@ -1,14 +1,15 @@
 ---
-title: Face API Python quick start | Microsoft Docs
+title: Face API Python QuickStarts | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Get information and code samples to help you quickly get started using the Face API with Python in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: SteveMSFT
+manager: corncar
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 06/21/2017
-ms.author: anroth
+ms.date: 03/01/2018
+ms.author: sbowles
 ---
 
 # Face detection using Cognitive Services
@@ -24,11 +25,11 @@ For more information, see the [REST API Reference](https://westus.dev.cognitive.
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Face API**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=face-api) is sufficient for this quickstart. You need the subscription key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
 ## Running the walkthrough
-To continue with this walkthrough, replace `subscription_key` with a valid subscription key.
+To continue with this walkthrough, replace `<Subscription Key>` with a valid subscription key.
 
 
 ```python
-subscription_key = "354f9ac5f2f04a008504575c15f458a7"
+subscription_key = "<Subscription Key>"
 assert subscription_key
 ```
 
@@ -46,7 +47,7 @@ Here is the URL of the image. You can experiment with different images  by chang
 image_url = 'https://how-old.net/Images/faces2/main007.jpg'
 ```
 
-The next few lines of code call into the Face API to detect the faces in the image. In this instance, the image is specified via a publically visible URL. You can also pass an image directly as part of the request body. For more information, see the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236). 
+The next few lines of code call into the Face API to detect the faces in the image. In this instance, the image is specified via a publicly visible URL. You can also pass an image directly as part of the request body. For more information, see the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 
 ```python
@@ -63,14 +64,16 @@ params = {
 
 response = requests.post(face_api_url, params=params, headers=headers, json={"url": image_url})
 faces = response.json()
-HTML("<font size=5>Detected <font color='blue'>%d</font> faces in the image</font>"%len(faces))
+HTML("<font size='5'>Detected <font color='blue'>%d</font> faces in the image</font>"%len(faces))
 ```
 
 
+The expected result is
 
 
-<font size=5>Detected <font color='blue'>2</font> faces in the image</font>
-
+```html
+<font size='5'>Detected <font color='blue'>2</font> faces in the image</font>
+```
 
 
 Finally, the face information can be overlaid of the original image using the `matplotlib` library in Python.

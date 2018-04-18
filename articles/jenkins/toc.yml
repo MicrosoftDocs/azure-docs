@@ -46,7 +46,7 @@
 - name: Samples
   items:
     - name: Sample jobs and scripts
-      href: https://github.com/Azure/azure-devops-utils/tree/master/jenkins
+      href: https://github.com/azure/jenkins
 - name: Resources
   items:
   - name: Plugins
@@ -75,3 +75,6 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Jenkins home
     href: https://jenkins.io/
+  - name: Jenkins architecture
+    href: /azure/architecture/reference-architectures/jenkins/
+    maintainContext: true

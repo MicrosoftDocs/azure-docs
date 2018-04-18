@@ -1,26 +1,18 @@
 ---
-title: Create a sample tabular model for your Azure Analysis Services server | Microsoft Docs
-description: Learn how to create a sample model in Azure Analysis Services.
-services: analysis-services
-documentationcenter: ''
+title: Add a sample tabular model for your Azure Analysis Services server | Microsoft Docs
+description: Learn how to add a sample model in Azure Analysis Services.
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/27/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
-# Tutorial: Create a sample model
+# Tutorial: Add a sample model
 
-In this tutorial, you create a sample Adventure Works model. The sample model is a completed version of the Adventure Works Internet Sales (1200) data modeling tutorial. A sample model is useful for testing model management, connecting with tools and client applications, and querying model data.
+In this tutorial, you add a sample Adventure Works model to your server. The sample model is a completed version of the Adventure Works Internet Sales (1200) data modeling tutorial. A sample model is useful for testing model management, connecting with tools and client applications, and querying model data.
 
 ## Before you begin
 

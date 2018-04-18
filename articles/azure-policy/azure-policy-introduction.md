@@ -4,8 +4,9 @@ description: Azure Policy is a service in Azure, that you use to create, assign 
 services: azure-policy
 keywords:
 author: bandersmsft
-ms.author: banders; nini
-ms.date: 01/17/2018
+ms.author: banders
+ms.reviewer: nini
+ms.date: 04/18/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
@@ -26,6 +27,9 @@ To use policies, you must be authenticated through RBAC. Specifically, your acco
 
 - `Microsoft.Authorization/policydefinitions/write` permission to define a policy.
 - `Microsoft.Authorization/policyassignments/write` permission to assign a policy.
+- `Microsoft.Authorization/policySetDefinitions/write` permission to define an initiative.
+- `Microsoft.Authorization/policyassignments/write` permission to assign an initiative.
+
 
 These permissions are not included in the **Contributor** role.
 
@@ -45,7 +49,7 @@ In Azure Policy, we offer some built-in policies that are available to you by de
 - **Enforce tag and its value**: This policy enforces a required tag and its value to a resource.
 - **Not allowed resource types**: This policy enables you to specify the resource types that your organization cannot deploy.
 
-You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
+You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI. After you make changes to a policy definition, policy reevaluation happens about once an hour.
 
 To learn more about the structures of policy definitions, look at this article - [Policy Definition Structure](policy-definition.md).
 

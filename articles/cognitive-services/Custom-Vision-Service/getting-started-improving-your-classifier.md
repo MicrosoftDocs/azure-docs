@@ -2,14 +2,14 @@
 title: Getting started improve your classifier using Custom Vision Service machine learning | Microsoft Docs
 description: Improve your classifier.
 services: cognitive-services
-author: v-royhar
-manager: juliakuz
+author: anrothMSFT
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: custom vision service
 ms.topic: article
 ms.date: 05/08/2017
-ms.author: v-royhar
+ms.author: anroth
 ---
 
 # Getting Started: Improving your classifier
@@ -30,4 +30,4 @@ The quality of your classifier is foremost dependent on the quality of the label
 
 5. Custom Vision Service supports some automatic negative image handling. If you are building a “cat” vs “dog” classifier, and you submit an image of a shoe for prediction, Custom Vision Service should score that image as close to 0% for “cat” and 0% for “dog”. 
 
-   **Note:** The automatic approach works for clearly negative images. It may not work well in cases where the negative images are just a variation of the images used in training. For example, if you have a “husky” vs “corgi” classifier, and you feed in an image of a Pomeranian, IRIS may score the Pomeranian as a Husky. If your negative images are of this nature, we recommend you create a new tag, such as “Other”, and apply it to your training images that are negative.
+   **Note:** The automatic approach works for clearly negative images. It may not work well in cases where the negative images are just a variation of the images used in training. For example, if you have a “husky” vs “corgi” classifier, and you feed in an image of a Pomeranian, Custom Vision Service may score the Pomeranian as a Husky. If your negative images are of this nature, we recommend you create a new tag, such as “Other”, and apply it to your training images that are negative.

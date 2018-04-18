@@ -85,7 +85,7 @@ We recommended that for test failover, you choose a network that's isolated from
 
 Although we recommended that you use a test network separate from your production network, if you do want to test a disaster recovery drill into your production network, note the following: 
 
-- Make sure that the primary VM is shut down when you run the test failover. Otherewise there will be two VMs with the same identity,  running in the same network at the same time. This can lead to unexpected consequences.
+- Make sure that the primary VM is shut down when you run the test failover. Otherwise there will be two VMs with the same identity,  running in the same network at the same time. This can lead to unexpected consequences.
 - Any changes to VMs created for test failover are lost when you clean up the failover. These changes are not replicated back to the primary VM.
 - Testing in your production environment leads to a downtime of your production application. Users shouldn't use apps running on VMs when the test failover is in progress.  
 

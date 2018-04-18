@@ -20,8 +20,11 @@ ms.custom: H1Hack27Feb2017
 ---
 # Understand and use device twins in IoT Hub
 
-*Device twins* are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. This article describes:
+*Device twins* are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. 
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+This article describes:
 
 * The structure of the device twin: *tags*, *desired* and *reported properties*.
 * The operations that device apps and back ends can perform on device twins.

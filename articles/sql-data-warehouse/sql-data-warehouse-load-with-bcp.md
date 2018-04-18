@@ -2,23 +2,16 @@
 title: Use bcp to load data into SQL Data Warehouse | Microsoft Docs
 description: Learn what bcp is and how to use it for data warehousing scenarios.
 services: sql-data-warehouse
-documentationcenter: NA
-author: ckarst
-manager: barbkess
-editor: ''
-
-ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 01/22/2018
-ms.author: cakarst;barbkess
-
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
+
 # Load data with bcp
 
 **[bcp](/sql/tools/bcp-utility.md)** is a command-line bulk load utility that allows you to copy data between SQL Server, data files, and SQL Data Warehouse. Use bcp to import large numbers of rows into SQL Data Warehouse tables or to export data from SQL Server tables into data files. Except when used with the queryout option, bcp requires no knowledge of Transact-SQL.
@@ -172,7 +165,7 @@ You can verify the data was exported correctly by opening the new file. The data
 > 
 
 ## Next steps
-To design your loading process, see the [Loading overview](sql-data-warehouse-design-elt-data-loading].  
+To design your loading process, see the [Best practices for loading data into Azure SQL Data Warehouse](guidance-for-loading-data.md).  
 
 
 

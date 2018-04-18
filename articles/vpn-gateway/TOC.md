@@ -17,7 +17,6 @@
 ## [Point-to-Site: certificate authentication](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md)
 ## [Site-to-Site](./scripts/vpn-gateway-sample-site-to-site-powershell.md)
 
-
 # Concepts
 ## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
 ## [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md)

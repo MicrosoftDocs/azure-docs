@@ -3,7 +3,7 @@ title: Understand the OAuth 2.0 authorization code flow in Azure AD
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: hpsin
 manager: mtillman
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: dastrock
+ms.date: 03/19/2018
+ms.author: hirsin
 ms.custom: aaddev
 
 ---
@@ -47,7 +47,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter |  | Description |
 | --- | --- | --- |
 | tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
-| client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure Portal. Click **Active Directory**, click the directory, choose the application, and click **Configure** |
+| client_id |required |The Application ID assigned to your app when you registered it with Azure AD. You can find this in the Azure Portal. Click **Active Directory**, click the directory, choose the application, and click **Configure** |
 | response_type |required |Must include `code` for the authorization code flow. |
 | redirect_uri |recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded.  For native & mobile apps, you should use the default value of `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |recommended |Specifies the method that should be used to send the resulting token back to your app.  Can be `query` or `form_post`. |
@@ -56,6 +56,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | prompt |optional |Indicate the type of user interaction that is required.<p> Valid values are: <p> *login*: The user should be prompted to reauthenticate. <p> *consent*: User consent has been granted, but needs to be updated. The user should be prompted to consent. <p> *admin_consent*: An administrator should be prompted to consent on behalf of all users in their organization |
 | login_hint |optional |Can be used to pre-fill the username/email address field of the sign-in page for the user, if you know their username ahead of time.  Often apps use this parameter during reauthentication, having already extracted the username from a previous sign-in using the `preferred_username` claim. |
 | domain_hint |optional |Provides a hint about the tenant or domain that the user should use to sign in. The value of the domain_hint is a registered domain for the tenant. If the tenant is federated to an on-premises directory, AAD redirects to the specified tenant federation server. |
+| code_challenge_method | optional    | The method used to encode the `code_verifier` for the `code_challenge` parameter. Can be one of `plain` or `S256`.  If excluded, `code_challenge` is assumed to be plaintext if `code_challenge` is included.  Azure AAD v1.0 supports both `plain` and `S256`. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | optional    | Used to secure authorization code grants via Proof Key for Code Exchange (PKCE) from a native client. Required if `code_challenge_method` is included.  For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > If the user is part of an organization, an administrator of the organization can consent or decline on the user's behalf, or permit the user to consent. The user is given the option to consent only when the administrator permits it.
@@ -133,8 +135,9 @@ grant_type=authorization_code
 | grant_type |required |Must be `authorization_code` for the authorization code flow. |
 | code |required |The `authorization_code` that you acquired in the previous section |
 | redirect_uri |required |The same `redirect_uri` value that was used to acquire the `authorization_code`. |
-| client_secret |required for web apps |The application secret that you created in the app registration portal for your app.  It should not be used in a native app, because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs, which have the ability to store the `client_secret` securely on the server side. |
+| client_secret |required for web apps, not allowed for public clients |The application secret that you created in the app registration portal for your app.  It cannot be used in a native app (public client), because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs (all confidential clients), which have the ability to store the `client_secret` securely on the server side. |
 | resource |required if specified in authorization code request, else optional |The App ID URI of the web API (secured resource). |
+| code_verifier | optional              | The same code_verifier that was used to obtain the authorization_code.  Required if PKCE was used in the authorization code grant request.  For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
 To find the App ID URI, in the Azure Management Portal, click **Active Directory**, click the directory, click the application, and then click **Configure**.
 

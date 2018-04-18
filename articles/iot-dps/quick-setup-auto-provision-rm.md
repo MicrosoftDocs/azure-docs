@@ -1,9 +1,9 @@
 ---
-title: Set up Device Provisioning using an Axure Resource Manager template | Microsoft Docs
+title: Set up Device Provisioning using an Azure Resource Manager template | Microsoft Docs
 description: Azure Quickstart - Set up the Azure IoT Hub Device Provisioning Service using a template
 services: iot-dps
 keywords: 
-author: JimacoMS2
+author: bryanla
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: hero-article
@@ -77,7 +77,7 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
    }
    ```
 
-2. Replace the **parameters** section with the following content. The parameters section specifies parameters that can be passed in from another file. This section specifies the name of the IoT hub and provisioning service to create. It also specifies the location for both the IoT hub and provisioning service. The values are restricted to Azure regions that support IoT hubs and provisioning services. For a list of supported locations for Device Provisioning Service, you can run the following command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or go to the [Azure Status](https://azure.microsoft.com/en-us/status/) page and search on "Device Provisioning Service".
+2. Replace the **parameters** section with the following content. The parameters section specifies parameters that can be passed in from another file. This section specifies the name of the IoT hub and provisioning service to create. It also specifies the location for both the IoT hub and provisioning service. The values are restricted to Azure regions that support IoT hubs and provisioning services. For a list of supported locations for Device Provisioning Service, you can run the following command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or go to the [Azure Status](https://azure.microsoft.com/status/) page and search on "Device Provisioning Service".
 
    ```json
     "parameters": {
@@ -270,7 +270,7 @@ The template that you defined in the last step uses parameters to specify the na
 
    ```
 
-4. Add the **hubLocation** value to the parameter section. This value specifies the location for both the IoT hub and provisioning service. The value must correspond to one of the locations specified in the **allowedValues** collection in the parameter definition in the template file. This collection restricts the values to Azure locations that support both IoT hubs and provisioning services. For a list of supported locations for Device Provisioning Service, you can run the following command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or go to the [Azure Status](https://azure.microsoft.com/en-us/status/) page and search on "Device Provisioning Service".
+4. Add the **hubLocation** value to the parameter section. This value specifies the location for both the IoT hub and provisioning service. The value must correspond to one of the locations specified in the **allowedValues** collection in the parameter definition in the template file. This collection restricts the values to Azure locations that support both IoT hubs and provisioning services. For a list of supported locations for Device Provisioning Service, you can run the following command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or go to the [Azure Status](https://azure.microsoft.com/status/) page and search on "Device Provisioning Service".
 
    ```json
     "parameters": {
@@ -283,7 +283,7 @@ The template that you defined in the last step uses parameters to specify the na
         "hubLocation": {
             "value": "westus"
         }
-    },
+    }
 
    ```
 
@@ -337,7 +337,7 @@ To delete a resource group and all its resources, run the following command:
 az group delete --name {your resource group name}
 ```
 
-You can also delete resource groups and individual resources using the Azure portal, PowerShell, or REST APIs or supported platform SDKs published for Azure Resource Manager or IoT Hub and Device Provisioning Service.
+You can also delete resource groups and individual resources using the Azure portal, PowerShell, or REST APIs or supported platform SDKs published for Azure Resource Manager or IoT Hub Device Provisioning Service.
 
 ## Next steps
 

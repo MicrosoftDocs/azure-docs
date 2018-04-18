@@ -27,7 +27,7 @@ The tasks covered are:
 > - Integrate custom search into a web page
 
 ## Prerequisites
-- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
+- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 - If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## Create a custom search instance
@@ -39,7 +39,8 @@ To create a Bing Custom Search instance:
 4.  After signing in, click **New custom search**. In the **Create a new custom search instance** window, enter a name that’s meaningful and describes the type of content the search returns. You can change the name at any time.
  
     ![Screen shot of the Create a new custom search instance box](../media/newCustomSrch.png)
-Click OK, specify a URL and whether to include subpages of the base page:
+
+5.  Click OK, specify a URL and whether to include subpages of the base page:
 
     ![Screen shot of URL definition page](../media/newCustomSrch1-a.png)
 

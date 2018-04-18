@@ -49,7 +49,7 @@ This guide describes how to create the artifacts associated with the prerequisit
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure 
-Sign in to your Azure subscription with the [az login](/cli/azure/#az_login) command and follow the on-screen directions, or click **Try it** to use Cloud Shell.
+Sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az_login) command and follow the on-screen directions, or click **Try it** to use Cloud Shell.
 
 ```azurecli 
 az login

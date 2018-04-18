@@ -3,8 +3,7 @@ title: 'Database encryption at rest: Azure Cosmos DB | Microsoft Docs'
 description: Learn how Azure Cosmos DB provides default encryption of all data.
 services: cosmos-db
 author: voellm
-manager: jhubbard
-editor: mimig
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
@@ -51,7 +50,6 @@ A: Microsoft has a set of internal guidelines for encryption key rotation, which
 
 ### Q: Can I use my own encryption keys?
 A: Cosmos DB is a PaaS service, and we worked hard to keep the service easy to use. We've noticed this question is often asked as a proxy question for meeting a compliance requirement like PCI-DSS. As part of building this feature, we worked with compliance auditors to ensure that customers who use Cosmos DB meet their requirements without the need to manage keys themselves.
-As a result, we currently do not offer users the option to burden themselves with key management.
 
 ### Q: What regions have encryption turned on?
 A: All Azure Cosmos DB regions have encryption turned on for all user data.

@@ -1,6 +1,6 @@
 ---
-title: Entity Search SDK Java quickstart | Microsoft Docs
-description: Setup for Entity Search SDK console application.
+title: Bing Entity Search SDK Java quickstart | Microsoft Docs
+description: Set up the Bing Entity Search SDK console application.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 02/19/2018
 ms.author: v-gedod
 ---
-# Entity Search SDK Java quickstart
+# Bing Entity Search SDK Java quickstart
 
-The Bing Entity Search SDK contains the functionality of the REST API for entity queries and parsing results. 
+The Bing Entity Search SDK provides the REST API functionality for entity queries and parsing results. 
 
 ## Application dependencies
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
-Install Bing Entity Search SDK dependencies using Maven, Gradle, or another dependency management system. The Maven POM file requires:
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 
+Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
 ```
   <dependencies>
   	<dependency>
@@ -28,7 +28,7 @@ Install Bing Entity Search SDK dependencies using Maven, Gradle, or another depe
   </dependencies>
 ```
 ## Entity Search client
-Add imports to the class implementation:
+Add imports to the class implementation.
 ```
 import com.microsoft.azure.cognitiveservices.entitysearch.*;
 import com.microsoft.azure.cognitiveservices.entitysearch.implementation.EntitySearchAPIImpl;
@@ -43,7 +43,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 ```
-Implement the `EntitySearchAPIImpl` client, which requires an instance of the `ServiceClientCredentials`:
+Implement the **EntitySearchAPIImpl** client, which requires an instance of the **ServiceClientCredentials** class.
 ```
 public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
     return new EntitySearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -68,7 +68,7 @@ public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Search for a single entity "tom cruise" and print a short description.
+Search for the single entity "Satya Nadella" and print a short description.
 ```
 public static void dominantEntityLookup(final String subscriptionKey)
 {
@@ -76,16 +76,16 @@ public static void dominantEntityLookup(final String subscriptionKey)
     {
         EntitySearchAPIImpl client = getClient(subscriptionKey);
         SearchResponseInner entityData = client.entities().search(
-                "tom cruise", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
+                "satya nadella", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
 
         if (entityData.entities().value().size() > 0)
         {
-            // find the entity that represents the dominant one
+            // Find the entity that represents the dominant entity
             List<Thing> entrys = entityData.entities().value();
             Thing dominateEntry = null;
             for(Thing thing : entrys) {
                 if(thing.entityPresentationInfo().entityScenario() == EntityScenario.DOMINANT_ENTITY) {
-                    System.out.println("\r\nSearched for \"Tom Cruise\" and found a dominant entity with this description:");
+                    System.out.println("\r\nSearched for \"Satya Nadella\" and found a dominant entity with this description:");
                     System.out.println(thing.description());
                     break;
                 }
@@ -93,7 +93,7 @@ public static void dominantEntityLookup(final String subscriptionKey)
 
             if(dominateEntry == null)
             {
-                 System.out.println("Couldn't find main entity tom cruise!");
+                 System.out.println("Couldn't find main entity Satya Nadella!");
             }
         }
         else
@@ -108,7 +108,7 @@ public static void dominantEntityLookup(final String subscriptionKey)
 }
 
 ```
-Search for "Harry Potter", and handle disambiguation results for the ambiguous query.
+Search for "William Gates" and handle disambiguation results for the ambiguous query.
 ```
 public static void handlingDisambiguation(String subscriptionKey)
 {
@@ -116,24 +116,24 @@ public static void handlingDisambiguation(String subscriptionKey)
     {
         EntitySearchAPIImpl client = getClient(subscriptionKey);
         SearchResponseInner entityData = client.entities().search(
-                "harry potter", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
+                "william gates", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
         if (entityData.entities().value().size() > 0)
         {
-            // find the entity that represents the dominant one
+            // Find the entity that represents the dominant entity
             List<Thing> entrys = entityData.entities().value();
             Thing dominateEntry = null;
             List<Thing> disambigEntities = new ArrayList<Thing>();
             for(Thing thing : entrys) {
                 if(thing.entityPresentationInfo().entityScenario() == EntityScenario.DOMINANT_ENTITY) {
-                    System.out.println("\r\nSearched for \"Tom Cruise\" and found a dominant entity with this description:");
-                    System.out.println(String.format("Searched for \"harry potter\" and found a dominant entity with type hint \"%s\" with this description:",
+                    System.out.println("\r\nSearched for \"William Gates\" and found a dominant entity with this description:");
+                    System.out.println(String.format("Searched for \"William Gates\" and found a dominant entity with type hint \"%s\" with this description:",
                             thing.entityPresentationInfo().entityTypeDisplayHint()));
                     System.out.println(thing.description());
                 }
 
                 if(thing.entityPresentationInfo().entityScenario() == EntityScenario.DISAMBIGUATION_ITEM) {
                     disambigEntities.add(thing);
-                    System.out.println("Searched for \"Tom Cruise\" and found a dominant entity with this description:");
+                    System.out.println("Searched for \"William Gates\" and found a dominant entity with this description:");
                     System.out.println(thing.description());
                 }
 
@@ -141,7 +141,7 @@ public static void handlingDisambiguation(String subscriptionKey)
 
             if (dominateEntry == null)
             {
-                 System.out.println("Couldn't find a reliable dominant entity for harry potter!");
+                 System.out.println("Couldn't find a reliable dominant entity for William Gates!");
             }
 
             if (disambigEntities.size() > 0)
@@ -160,7 +160,7 @@ public static void handlingDisambiguation(String subscriptionKey)
             }
             else
             {
-                 System.out.println("We didn't find any disambiguation items for harry potter, so we must be certain what you're talking about!");
+                 System.out.println("We didn't find any disambiguation items for William Gates, so we must be certain what you're talking about!");
             }
         }
         else
@@ -175,26 +175,26 @@ public static void handlingDisambiguation(String subscriptionKey)
 }
 
 ```
-Search for a single restaurant "John Howie Bellevue" and print out its phone number.
+Search for a single store with the query "Microsoft Store" and print the phone number for the result.
 ```
-public static void restaurantLookup(String subscriptionKey)
+public static void storeLookup(String subscriptionKey)
 {
     try
     {
         EntitySearchAPIImpl client = getClient(subscriptionKey);
         SearchResponseInner entityData = client.entities().search(
-                "John Howie Bellevue", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
+                "Microsoft Store", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
 
         if (entityData.places() != null && entityData.places().value().size() > 0)
         {
-            // Some local entities will be places, others won't be. Depending on the data you want, try to cast to the appropriate schema
-            // In this case, the item being returned is technically a Restaurant, but the Place schema has the data we want (telephone)
-            Place restaurant = (Place)entityData.places().value().get(0);
+            // Some local entities are places, others are not. Depending on the data that you want, try to cast to the appropriate schema.
+            // In this case, the returned item is technically a store, but the Place schema has the data that we want (telephone).
+            Place store = (Place)entityData.places().value().get(0);
 
-            if (restaurant != null)
+            if (store != null)
             {
-                 System.out.println("\r\nSearched for \"John Howie Bellevue\" and found a restaurant with this phone number:");
-                 System.out.println(restaurant.telephone());
+                 System.out.println("\r\nSearched for \"Microsoft Store\" and found a store with this phone number:");
+                 System.out.println(store.telephone());
             }
             else
             {
@@ -213,7 +213,7 @@ public static void restaurantLookup(String subscriptionKey)
 }
 
 ```
-Search for a list of restaurants "Seattle restaurants" and print their names and phone numbers.
+Search for a list of restaurants with the query "Seattle restaurants." Print the names and phone numbers for the results.
 ```
 public static void multipleRestaurantLookup(String subscriptionKey)
 {
@@ -221,7 +221,7 @@ public static void multipleRestaurantLookup(String subscriptionKey)
     {
         EntitySearchAPIImpl client = getClient(subscriptionKey);
         SearchResponseInner restaurants = client.entities().search(
-                "seattle restaurants", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
+                "Seattle restaurants", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
         
         System.out.println("\r\nSearched for \"multiple restaurants\""); 
         if (restaurants.places() != null && restaurants.places().value().size() > 0)
@@ -269,7 +269,7 @@ public static void multipleRestaurantLookup(String subscriptionKey)
 }
 
 ```
-Add the previous methods to a class with main function to run the code:
+Add the methods described in this article to a class with a main function for executing the code.
 ```
 package entitySDK;
 import com.microsoft.azure.cognitiveservices.entitysearch.*;
@@ -284,7 +284,7 @@ public class EntitySearchSDK {
 		multipleRestaurantLookup("YOUR-SUBSCRIPTION-KEY");
 
 	}
-    // Include methods documented previously.
+    // Include the methods described in this article.
 }
 ```
 ## Next steps

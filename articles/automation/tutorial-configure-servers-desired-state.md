@@ -1,22 +1,13 @@
----
-title: Configure servers to a desired state and manage drift with Azure Automation | Microsoft Docs
+﻿---
+title: Configure servers to a desired state and manage drift with Azure Automation
 description: Tutorial - Manage server configurations with Azure Automation DSC
 services: automation
-documentationcenter: automation
-author: georgewallace
-manager: carmonm
-editor: tysonn
-tags: azure-service-management
-
-ms.assetid: 
 ms.service: automation
-ms.devlang: powershell
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 09/25/2017
+author: georgewallace
 ms.author: gwallace
-ms.custom: 
+manager: carmonm
+ms.topic: article
+ms.date: 09/25/2017
 ---
 
 # Configure servers to a desired state and manage drift
@@ -44,10 +35,10 @@ To complete this tutorial, you will need:
 
 ## Log in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## Create and upload a configuration to Azure Automation

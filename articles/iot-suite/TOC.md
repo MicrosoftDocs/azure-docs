@@ -1,3 +1,5 @@
+# [IoT Suite Documentation](index.md)
+
 # Overview
 ## [IoT architecture concepts](iot-suite-what-is-azure-iot.md)
 ## [Compare Azure IoT options](iot-suite-options.md)
@@ -64,6 +66,7 @@
 ### [Create a new simulated device](iot-suite-remote-monitoring-test.md)
 ### [Customize the solution](iot-suite-remote-monitoring-customize.md)
 ### [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md)
+### [Deploy locally](iot-suite-remote-monitoring-deploy-local.md)
 ### Connect a physical device
 #### [C on Windows](iot-suite-connecting-devices.md)
 #### [C on Linux](iot-suite-connecting-devices-linux.md)

@@ -18,7 +18,7 @@ ms.date: 09/25/2017
 ms.author: LADocs; estfan
 ---
 
-# Schedule tasks and workflows that run regularly with logic apps
+# Create and schedule regularly running tasks with Azure Logic Apps
 
 To schedule tasks, actions, workloads, or processes that run regularly, 
 you can create a logic app workflow that starts with the 
@@ -128,7 +128,7 @@ You can configure these properties for the recurrence trigger.
 
 ## JSON example
 
-Here is an example recurrence trigger definition:
+Here is an example [recurrence trigger definition](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
 {

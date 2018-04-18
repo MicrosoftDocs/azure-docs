@@ -9,8 +9,8 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/27/2018
-ms.author: v-geberr;
+ms.date: 03/19/2018
+ms.author: v-geberr
 ---
 
 # Use batch testing to find prediction accuracy issues
@@ -56,12 +56,6 @@ This article uses the prebuilt domain HomeAutomation. The prebuilt domain has in
 5. Select **Train** in the top right navigation bar.
 
     ![Select Train button](./media/luis-tutorial-batch-testing/train-button.png)
-
-6. Select **Publish** in the top right navigation bar.
-
-7. Select **Publish to production slot**. 
-
-    ![Publish the app](./media/luis-tutorial-batch-testing/publish.png)
 
 ## Batch test criteria
 Batch testing can test up to 1000 utterances at a time. The batch should not have duplicates. [Export](create-new-app.md#export-app) the app in order to see the list of current utterances.  
@@ -135,7 +129,7 @@ Do not use any of the utterances already in the app for the batch test:
           "entities": []
         },
         {
-          "text": "call Jack at work",
+          "text": "help",
           "intent": "None",
           "entities": []
         },
@@ -196,27 +190,44 @@ In the legend, select the `HomeAutomation.TurnOff` intent. It has a green succes
 ![Batch results](./media/luis-tutorial-batch-testing/batch-result-1.png)
 
 ### HomeAutomation.TurnOn and None intents have errors
-The other two intents have errors, meaning the batch test predictions didn't match the batch file expectations. Select the `None` intent in the legend. 
+The other two intents have errors, meaning the test predictions didn't match the batch file expectations. Select the `None` intent in the legend to review the first error. 
 
 ![None intent](./media/luis-tutorial-batch-testing/none-intent-failures.png)
 
-The two intents (dots on the chart) in the left bottom panel, in red, are the failures. Select **False Negative** in the chart to see the failed utterances. 
+Failures appear on the chart in the red sections: **False Positive** and **False Negative**. Select the **False Negative** section name in the chart to see the failed utterances below the chart. 
 
 ![False negative failures](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
 
-The two failing utterances should have been labeled as `None` intent but were instead labeled `HomeAutomation.TurnOn` intent. Because of this failure, both intents'
-expectations (HomeAutomation.TurnOn and None) failed.
+The failing utterance, `help` was expected as a `None` intent but the test predicted `HomeAutomation.TurnOn` intent.  
 
-To determine why the `None` utterances are failing, review the utterances currently in `None`:
+There are two failures, one in HomeAutomation.TurnOn, and one in None. Both were caused by the utterance `help` because it failed to meet the expectation in None and it was an unexpected match for the HomeAutomation.TurnOn intent. 
 
-```
-"decrease temperature for me please"
-"dim kitchen lights to 25."
-"lower your volume"
-"turn on the internet in my bedroom please"
-```
+To determine why the `None` utterances are failing, review the utterances currently in `None`. 
 
-These utterances are supposed to be outside the app domain but are not. To fix the app, the utterances currently in the `None` intent need to be moved into the correct intent and the `None` intent needs new, appropriate intents. 
+## Review None intent's utterances
+
+1. Close the **Test** panel by selecting the **Test** button on the top navigation bar. 
+
+2. Select **Build** from the top navigation panel. 
+
+3. Select **None** intent from list of intents.
+
+4. Select Control+E to see the token view of the utterances 
+    
+    |None intent's utterances|Prediction score|
+    |--|--|
+    |"decrease temperature for me please"|0.44|
+    |"dim kitchen lights to 25."|0.43|
+    |"lower your volume"|0.46|
+    |"turn on the internet in my bedroom please"|0.28|
+
+## Fix None intent's utterances
+    
+Any utterances in `None` are supposed to be outside of the app domain. These utterances are relative to HomeAutomation, so they are in the wrong intent. 
+
+LUIS also gives the utterances less than 50% (<.50) prediction score. If you look at the utterances in the other two intents, you see much higher prediction scores. When LUIS has low scores for example utterances, that is a good indication the utterances are confusing to LUIS between the current intent and other intents. 
+
+To fix the app, the utterances currently in the `None` intent need to be moved into the correct intent and the `None` intent needs new, appropriate intents. 
 
 Three of the utterances in the `None` intent are meant to lower the automation device settings. They use words such as `dim`, `lower`, or `decrease`. The fourth utterance asks to turn on the internet. Since all four utterances are about turning on or changing the degree of power to a device, they should be moved to the `HomeAutomation.TurnOn` intent. 
 
@@ -225,38 +236,30 @@ This is just one solution. You could also create a new intent of `ChangeSetting`
 ## Fix the app based on batch results
 Move the four utterances to the `HomeAutomation.TurnOn` intent. 
 
-1. To fix the app so the batch is successful, exit the batch test panel by selecting **Test** in the top navigation panel. 
+1. Select the checkbox above the utterance list so all utterances are selected. 
 
-2. Select **Intents** in the left navigation panel. 
-
-3. Select the `None` intent.  
-
-4. Select the checkbox above the utterance list so all utterances are selected. 
-
-5. In the **Reassign intent** drop-down, select `HomeAutomation.TurnOn`. 
+2. In the **Reassign intent** drop-down, select `HomeAutomation.TurnOn`. 
 
     ![Move utterances](./media/luis-tutorial-batch-testing/move-utterances.png)
 
     After the four utterances are reassigned, the utterance list for the `None` intent is empty.
 
-6. Add four new intents for the None intent:
+3. Add four new intents for the None intent:
 
     ```
-    "When is the game?"
-    "Call Mom about the party."
-    "The recipe calls for more milk."
-    "The pizza is done."
+    "fish"
+    "dogs"
+    "beer"
+    "pizza"
     ```
 
-    These utterances are definitely outside the domain of HomeAutomation. 
+    These utterances are definitely outside the domain of HomeAutomation. As you enter each utterance, watch the score for it. The score may be low, or even very low (with a red box around it). After you train the app, in step 8, the score will be much higher. 
 
-7. Because none of these utterances should have a HomeAutomation.Device ("light", "camera"), HomeAutomation.Operation("on","off") or HomeAutomation.Room ("living room"), remove any labels by selecting the blue label in the utterance and select **Remove label**.
+7. Remove any labels by selecting the blue label in the utterance and select **Remove label**.
 
-8. Select **Train** in the top right navigation bar.
+8. Select **Train** in the top right navigation bar. The score of each utterance is much higher. All scores for the `None` intent should be above .80 now. 
 
-9. Select **Publish** in the top right navigation bar. 
-
-## Verify the fix
+## Verify the fix worked
 In order to verify that the utterances in the batch test are correctly predicted for the **None** intent, run the batch test again.
 
 1. Select **Test** in the top navigation bar. 
@@ -267,92 +270,111 @@ In order to verify that the utterances in the batch test are correctly predicted
 
     ![Run dataset](./media/luis-tutorial-batch-testing/run-dataset.png)
 
-4. Select **See results**. The intents should all have green icons to the left of the intent names. Select the green dot in the top right panel closest to the middle of the chart. The name of the utterance appears in the table below the chart. The score of `breezeway off please` is very low at 0.24. An optional activity is to add more utterances to the intent to increase this score. 
+4. Select **See results**. The intents should all have green icons to the left of the intent names. With the right filter set to the `HomeAutomation.Turnoff` intent, select the green dot in the top right panel closest to the middle of the chart. The name of the utterance appears in the table below the chart. The score of `breezeway off please` is very low. An optional activity is to add more utterances to the intent to increase this score. 
 
     ![Run dataset](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
 
-<!-- WAITING ON FIX
+<!--
+    The Entities section of the legend may have errors. That is the next thing to fix.
 
-The Entities section of the legend may have errors. That is the next thing to fix.
+## Create a batch to test entity detection
+1. Create `homeauto-batch-2.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
 
-## Create a batch testing with entities
-1. Create `homeauto-batch-2.json` in a text editor such as [VSCode](https://code.visualstudio.com/). The [file]() is also available in the LUIS-Samples repository. 
+2. Utterances have entities identified with `startPos` and `endPost`. These two elements identify the entity before [tokenization](luis-glossary.md#token), which happens in some [cultures](luis-supported-languages.md#tokenization) in LUIS. If you plan to batch test in a tokenized culture, learn how to [extract](luis-concept-data-extraction.md#tokenized-entity-returned) the non-tokenized entities.
 
-2. Add utterances to the file with entities. 
+    Copy the following JSON into the file:
 
-```JSON
-[
-  {
-    "text": "lobby on please",
-    "intent": "HomeAutomation.TurnOn",
-    "entities": [
-      {
-        "entity": "HomeAutomation.Room",
-        "startPos": 0,
-        "endPos": 4
-      },
-      {
-        "entity": "HomeAutomation.Operation",
-        "startPos": 6,
-        "endPos": 7
-      }
-    ]
-  },
-  {
-    "text": "change temperature to seventy one degrees",
-    "intent": "HomeAutomation.TurnOn",
-    "entities": [
-      {
-        "entity": "HomeAutomation.Device",
-        "startPos": 7,
-        "endPos": 17
-      }
-    ]
-  },
-  {
-    "text": "where is my pizza",
-    "intent": "None",
-    "entities": []
-  },
-  {
-    "text": "call Jack at work",
-    "intent": "None",
-    "entities": []
-  },
-  {
-    "text": "breezeway off please",
-    "intent": "HomeAutomation.TurnOff",
-    "entities": [
-      {
-        "entity": "HomeAutomation.Room",
-        "startPos": 0,
-        "endPos": 8
-      },
-      {
-        "entity": "HomeAutomation.Operation",
-        "startPos": 10,
-        "endPos": 12
-      }
-    ]
-  },
-  {
-    "text": "coffee bar off please",
-    "intent": "HomeAutomation.TurnOff",
-    "entities": [
-      {
-        "entity": "HomeAutomation.Room",
-        "startPos": 0,
-        "endPos": 9
-      },
-      {
-        "entity": "HomeAutomation.Operation",
-        "startPos": 11,
-        "endPos": 13
-      }
-    ]
-  }
-]
-```
+    ```JSON
+    [
+        {
+          "text": "lobby on please",
+          "intent": "HomeAutomation.TurnOn",
+          "entities": [
+            {
+              "entity": "HomeAutomation.Room",
+              "startPos": 0,
+              "endPos": 4
+            }
+          ]
+        },
+        {
+          "text": "change temperature to seventy one degrees",
+          "intent": "HomeAutomation.TurnOn",
+          "entities": [
+            {
+              "entity": "HomeAutomation.Operation",
+              "startPos": 7,
+              "endPos": 17
+            }
+          ]
+        },
+        {
+          "text": "where is my pizza",
+          "intent": "None",
+          "entities": []
+        },
+        {
+          "text": "help",
+          "intent": "None",
+          "entities": []
+        },
+        {
+          "text": "breezeway off please",
+          "intent": "HomeAutomation.TurnOff",
+          "entities": [
+            {
+              "entity": "HomeAutomation.Room",
+              "startPos": 0,
+              "endPos": 9
+            }
+          ]
+        },
+        {
+          "text": "coffee bar off please",
+          "intent": "HomeAutomation.TurnOff",
+          "entities": [
+            {
+              "entity": "HomeAutomation.Device",
+              "startPos": 0,
+              "endPos": 10
+            }
+          ]
+        }
+      ]
+    ```
+
+3. Import the batch file, following the [same instructions](#run-the-batch) as the first import, and name the dataset `set 2`. Run the test.
+
+## Possible entity errors
+Since the intents in the right-side filter of the test panel still pass the test, this section focuses on correct entity identification. 
+
+Entity testing is diferrent than intents. An utterance will have only one top scoring intent, but it may have several entities. An utterance's entity may be correctly identified, may be incorrectly identified as an entity other than the one in the batch test, may overlap with other entities, or not identified at all. 
+
+## Review entity errors
+1. Select `HomeAutomation.Device` in the filter panel. The chart changes to show a single false positive and several true negatives. 
+
+2. Select the False positive section name. The utterance for this chart point is displayed below the chart. The labeled intent and the predicted intent are the same, which is consistent with the test -- the intent prediction is correct. 
+
+    The issue is that the HomeAutomation.Device was detected but the batch expected HomeAutomation.Room for the utterance "coffee bar off please". `Coffee bar` could be a room or a device, depending on the environment and context. As the model designer, you can either enforce the selection as `HomeAutomation.Room` or change the batch file to use `HomeAutomation.Device`. 
+
+    If you want to reinforce that coffee bar is a room, you nee to add an utterances to LUIS that help LUIS decide a coffee bar is a room. 
+
+    The most direct route is to add the utterance to the intent but that to add the utterance for every entity detection error is not the machine-learned solution. Another fix would be to add an utterance with `coffee bar`.
+
+## Add utterance to help extract entity
+1. Select the **Test** button on the top navigation to close the batch test panel.
+
+2. On the `HomeAutomation.TurnOn` intent, add the utterance, `turn coffee bar on please`. The uttterance should have all three entities detected after you select enter. 
+
+3. Select **Train** on the top navigation panel. Wait until training completes successfully.
+
+3. Select **Test** on the top navigation panel to open the Batch testing pane again. 
+
+4. If the list of datasets is not visible, select **Back to list**. Select the three dots (...) at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
+
+5. Select **See results** to review the test results.
+
+6. 
 -->
 ## Next steps
 

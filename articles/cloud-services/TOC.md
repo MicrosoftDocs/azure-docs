@@ -1,3 +1,5 @@
+# [Cloud Services Documentation](index.md)
+
 # Overview
 ## [What is Cloud Services?](cloud-services-choose-me.md)
 ## [Cloud service config files and packaging](cloud-services-model-and-package.md)
@@ -33,6 +35,7 @@
 ### Configure Remote Desktop
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## Deploy
 ### [Create and deploy a cloud service in portal](cloud-services-how-to-create-deploy-portal.md)

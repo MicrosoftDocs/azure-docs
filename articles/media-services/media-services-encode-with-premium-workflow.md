@@ -67,7 +67,7 @@ The following steps are performed:
    
 6. Submit the encoding job.
 
-```
+```csharp
 using System;
 using System.Linq;
 using System.Configuration;

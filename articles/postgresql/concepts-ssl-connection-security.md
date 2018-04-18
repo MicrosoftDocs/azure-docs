@@ -1,15 +1,15 @@
 ---
-title: Configure SSL connectivity in Azure Database for PostgreSQL | Microsoft Docs
+title: Configure SSL connectivity in Azure Database for PostgreSQL
 description: Instructions and information to configure Azure Database for PostgreSQL and associated applications to properly use SSL connections.
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: postgresql
 ms.custom: 
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 02/28/2018
 ---
 # Configure SSL connectivity in Azure Database for PostgreSQL
 Azure Database for PostgreSQL prefers connecting your client applications to the PostgreSQL service using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
@@ -35,7 +35,7 @@ You can confirm the setting by viewing the **Overview** page to see the **SSL en
 You can enable or disable the **ssl-enforcement** parameter using `Enabled` or `Disabled` values respectively in Azure CLI.
 
 ```azurecli
-az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
+az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## Ensure your application or framework supports SSL connections
@@ -111,11 +111,11 @@ The following example shows how to successfully connect to your PostgreSQL serve
 
 Using the PostgreSQL command-line interface, execute the following command:
 ```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mypgserver-20170401.postgres.database.azure.com dbname=postgres user=mylogin@mypgserver-20170401"
+psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=mylogin@mydemoserver"
 ```
 If successful, you receive the following output:
 ```bash
-Password for user mylogin@mypgserver-20170401:
+Password for user mylogin@mydemoserver:
 psql (9.6.2)
 WARNING: Console code page (437) differs from Windows code page (1252)
      8-bit characters might not work correctly. See psql reference

@@ -5,7 +5,7 @@ keywords: linux virtual machine,virtual machine linux,ubuntu virtual machine
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -23,7 +23,7 @@ ms.author: rclaus
 Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to ensure you have set it up to optimize its performance on the Microsoft Azure platform. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## Prerequisites
-This topic assumes you already have a working Azure subscription ([free trial signup](https://azure.microsoft.com/pricing/free-trial/)) and have already provisioned a VM into your Azure subscription. Make sure that you have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to your Azure subscription with [az login](/cli/azure/#az_login) before you [create a VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+This topic assumes you already have a working Azure subscription ([free trial signup](https://azure.microsoft.com/pricing/free-trial/)) and have already provisioned a VM into your Azure subscription. Make sure that you have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to your Azure subscription with [az login](/cli/azure/reference-index#az_login) before you [create a VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Azure OS Disk
 Once you create a Linux VM in Azure, it has two disks associated with it. **/dev/sda** is your OS disk, **/dev/sdb** is your temporary disk.  Do not use the main OS disk (**/dev/sda**) for anything except the operating system as it is optimized for fast VM boot time and does not provide good performance for your workloads. You want to attach one or more disks to your VM to get persistent and optimized storage for your data. 
@@ -128,8 +128,7 @@ Remember, as with all optimization discussions, you need to perform tests before
 
 Some useful links to additional resources: 
 
-* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../windows/premium-storage.md)
-* [Azure Linux Agent User Guide](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Optimizing MySQL Performance on Azure Linux VMs](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Configure Software RAID on Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](premium-storage.md)
+* [Azure Linux Agent User Guide](agent-user-guide.md)
+* [Optimizing MySQL Performance on Azure Linux VMs](classic/optimize-mysql.md)
+* [Configure Software RAID on Linux](configure-raid.md)

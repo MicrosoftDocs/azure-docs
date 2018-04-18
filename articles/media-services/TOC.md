@@ -1,3 +1,5 @@
+# [Media Services Documentation](index.md)
+
 # [Overview](media-services-overview.md)
 ## [Scenarios and availability](scenarios-and-availability.md)
 ## [Concepts](media-services-concepts.md)
@@ -231,7 +233,11 @@
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media/mediaservice)  
+## [REST](/rest/api/media/mediaservice)
+## Specifications
+### [Live Ingest - Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
+### [Live Ingest - Signaling Timed Metadata in Live Streaming](media-services-specifications-live-timed-metadata.md)
+### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-amendment-hevc.md)
 
 # Resources
 ## [Azure Media Services community](media-services-community.md)

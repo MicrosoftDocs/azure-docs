@@ -1,21 +1,14 @@
 ---
-title: Azure Stream Analytics and Machine Learning integration | Microsoft Docs
-description: How to use a user-defined function and Machine Learning in a Stream Analytics job
-keywords: ''
-documentationcenter: ''
+title: Azure Stream Analytics integration with Azure Machine Learning
+description: This article describes how to quickly set up a simple Azure Stream Analytics job that integrates Azure Machine Learning, using a user defined function.
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 07/06/2017
-ms.author: samacha
+ms.topic: conceptual
+ms.date: 04/16/2018
 ---
 
 # Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning
@@ -28,7 +21,7 @@ You can apply what you learn from this article to scenarios such as these:
 * Evaluating comments on forums, blogs, and videos. 
 * Many other real-time, predictive scoring scenarios.
 
-In a real-world scenario, you would get the data directly from a Twitter data stream. To simplify the tutorial, we've written it so that the Streaming Analytics job gets tweets from a CSV file in Azure Blob storage. You can create your own CSV file, or you can use a sample CSV file, as shown in the following image:
+In a real-world scenario, you would get the data directly from a Twitter data stream. To simplify the tutorial, it's written so that the Streaming Analytics job gets tweets from a CSV file in Azure Blob storage. You can create your own CSV file, or you can use a sample CSV file, as shown in the following image:
 
 ![sample tweets in a CSV file](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
@@ -42,7 +35,7 @@ The following figure demonstrates this configuration. As noted, for a more reali
 Before you start, make sure you have the following:
 
 * An active Azure subscription.
-* A CSV file with some data in it. You can download the file shown earlier from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), or you can create your own file. For this article, we assume that you're using the file from GitHub.
+* A CSV file with some data in it. You can download the file shown earlier from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), or you can create your own file. For this article, it is assumed that you're using the file from GitHub.
 
 At a high level, to complete the tasks demonstrated in this article, you do the following:
 
@@ -54,9 +47,7 @@ At a high level, to complete the tasks demonstrated in this article, you do the 
 ## Create a storage container and upload the CSV input file
 For this step, you can use any CSV file, such as the one available from GitHub.
 
-1. In the Azure portal, click **Create a resource** &gt; **Storage** &gt; **Storage account**.
-
-   ![create new storage account](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
+1. In the Azure portal, click **Create a resource** > **Storage** > **Storage account**.
 
 2. Provide a name (`samldemo` in the example). The name can use only lowercase letters and numbers, and it must be unique across Azure. 
 
@@ -78,9 +69,7 @@ For this step, you can use any CSV file, such as the one available from GitHub.
 
     !['Upload' button for a container](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
-8. In the **Upload blob** blade, specify the CSV file that you want to use for this tutorial. For **Blob type**, select **Block blob** and set the block size to 4 MB, which is sufficient for this tutorial.
-
-    ![upload blob file](./media/stream-analytics-machine-learning-integration-tutorial/create-sa4.png)
+8. In the **Upload blob** blade, upload the **sampleinput.csv** file that you downloaded earlier. For **Blob type**, select **Block blob** and set the block size to 4 MB, which is sufficient for this tutorial.
 
 9. Click the **Upload** button at the bottom of the blade.
 
@@ -112,7 +101,7 @@ Now that the sample data is in a blob, you can enable the sentiment analysis mod
 
    ![test results in Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
 
-7. In the **Apps** column, click the **Excel 2010 or earlier workbook** link to download an Excel workbook. The workbook contains the an API key and the URL that you need later to set up the Stream Analytics job.
+7. In the **Apps** column, click the **Excel 2010 or earlier workbook** link to download an Excel workbook. The workbook contains the API key and the URL that you need later to set up the Stream Analytics job.
 
     ![Stream Analytics Machine Learning, quick glance](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
@@ -127,8 +116,6 @@ You can now create a Stream Analytics job that reads the sample tweets from the 
 
 2. Click **Create a resource** > **Internet of Things** > **Stream Analytics job**. 
 
-   ![Azure portal path for getting to a new Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
-   
 3. Name the job `azure-sa-ml-demo`, specify a subscription, specify an existing resource group or create a new one, and select the location for the job.
 
    ![specify settings for new Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
@@ -137,71 +124,65 @@ You can now create a Stream Analytics job that reads the sample tweets from the 
 ### Configure the job input
 The job gets its input from the CSV file that you uploaded earlier to blob storage.
 
-1. After the job has been created, under **Job Topology** in the job blade, click the **Inputs** box.  
+1. After the job has been created, under **Job Topology** in the job blade, click the **Inputs** option.    
+
+2. In the **Inputs** blade, click **Add Stream Input** >**Blob storage**
+
+3. Fill out the **Blob Storage** blade with these values:
+
    
-   !['Inputs' box in Stream Analytics job blade](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input.png)  
+   |Field  |Value  |
+   |---------|---------|
+   |**Input alias** | Use the name `datainput` and select **Select blob storage from your subscription**       |
+   |**Storage account**  |  Select the storage account you created earlier.  |
+   |**Container**  | Select the container you created earlier (`azuresamldemoblob`)        |
+   |**Event serialization format**  |  Select **CSV**       |
 
-2. In the **Inputs** blade, click **+ Add**.
+   ![Settings for new job input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-   !['Add' button for adding an input to the Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input-button.png)  
-
-3. Fill out the **New input** blade with these values:
-
-    * **Input alias**: Use the name `datainput`.
-    * **Source type**: Select **Data stream**.
-    * **Source**: Select **Blob storage**.
-    * **Import option**: Select **Use blob storage from current subscription**. 
-    * **Storage account**. Select the storage account you created earlier.
-    * **Container**. Select the container you created earlier (`azuresamldemoblob`).
-    * **Event serialization format**. Select **CSV**.
-
-    ![Settings for new job input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
-
-4. Click **Create**.
+4. Click **Save**.
 
 ### Configure the job output
 The job sends results to the same blob storage where it gets input. 
 
-1. Under **Job Topology** in the job blade, click the **Outputs** box.  
-  
-   ![Create new output for Streaming Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/create-output.png)  
+1. Under **Job Topology** in the job blade, click the **Outputs** option.  
 
-2. In the **Outputs** blade, click **+ Add**, and then add an output with the alias `datamloutput`. 
+2. In the **Outputs** blade, click **Add** >**Blob storage**, and then add an output with the alias `datamloutput`. 
 
-3. For **Sink**, select **Blob storage**. Then fill in the rest of the output settings using the same values that you used for the blob storage for input:
+3. Fill out the **Blob Storage** blade with these values:
 
-    * **Storage account**. Select the storage account you created earlier.
-    * **Container**. Select the container you created earlier (`azuresamldemoblob`).
-    * **Event serialization format**. Select **CSV**.
+   |Field  |Value  |
+   |---------|---------|
+   |**Output alias** | Use the name `datamloutput` and select **Select blob storage from your subscription**       |
+   |**Storage account**  |  Select the storage account you created earlier.  |
+   |**Container**  | Select the container you created earlier (`azuresamldemoblob`)        |
+   |**Event serialization format**  |  Select **CSV**       |
 
    ![Settings for new job output](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
 
-4. Click **Create**.   
+4. Click **Save**.   
 
 
 ### Add the Machine Learning function 
-Earlier you published a Machine Learning model to a web service. In our scenario, when the Stream Analysis job runs, it sends each sample tweet from the input to the web service for sentiment analysis. The Machine Learning web service returns a sentiment (`positive`, `neutral`, or `negative`) and a probability of the tweet being positive. 
+Earlier you published a Machine Learning model to a web service. In this scenario, when the Stream Analysis job runs, it sends each sample tweet from the input to the web service for sentiment analysis. The Machine Learning web service returns a sentiment (`positive`, `neutral`, or `negative`) and a probability of the tweet being positive. 
 
 In this section of the tutorial, you define a function in the Stream Analysis job. The function can be invoked to send a tweet to the web service and get the response back. 
 
 1. Make sure you have the web service URL and API key that you downloaded earlier in the Excel workbook.
 
-2. Return to the job overview blade.
+2. Navigate to your job blade > **Functions** > **+ Add** > **AzureML**
 
-3. Under **Settings**, select **Functions** and then click **+ Add**.
+3. Fill out the **Azure Machine Learning function** blade with these values:
 
-   ![Add a function to the Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/create-function1.png) 
-
-4. Enter `sentiment` as the function alias and fill out the rest of the blade using these values:
-
-    * **Function type**: Select **Azure ML**.
-    * **Import option**: Select **Import from a different subscription**. This gives you a chance to enter the URL and key.
-    * **URL**: Paste in the web service URL.
-    * **Key**: Paste in the API key.
+   |Field  |Value  |
+   |---------|---------|
+   | **Function alias** | Use the name `sentiment` and select **Provide Azure Machine Learning function settings manually** which gives you an option to enter the URL and key.      |
+   | **URL**| Paste the web service URL.|
+   |**Key** | Paste the API key. |
   
-    ![Settings for adding a Machine Learning function to the Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![Settings for adding a Machine Learning function to the Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
-5. Click **Create**.
+4. Click **Save**.
 
 ### Create a query to transform the data
 
@@ -211,18 +192,17 @@ Stream Analytics uses a declarative, SQL-based query to examine the input and pr
 
 2.  Under **Job Topology**, click the **Query** box.
 
-    ![Create a query for Streaming Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/create-query.png)  
-
 3. Enter the following query:
 
     ```
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result from datainput  
+    SELECT text, sentiment(text) as result 
+    FROM datainput  
     )  
 
-    Select text, result.[Score]  
-    Into datamloutput
-    From sentiment  
+    SELECT text, result.[Score]  
+    INTO datamloutput
+    FROM sentiment  
     ```    
 
     The query invokes the function you created earlier (`sentiment`) in order to perform sentiment analysis on each tweet in the input. 
@@ -238,8 +218,6 @@ You can now start the Stream Analytics job.
 1. Return to the job overview blade.
 
 2. Click **Start** at the top of the blade.
-
-    ![Create a query for Streaming Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/start-job.png)  
 
 3. In the **Start job**, select **Custom**, and then select one day prior to when you uploaded the CSV file to blob storage. When you're done, click **Start**.  
 

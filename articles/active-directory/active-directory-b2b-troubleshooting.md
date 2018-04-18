@@ -3,7 +3,7 @@ title: Troubleshooting Azure Active Directory B2B collaboration | Microsoft Docs
 description: Remedies for common problems with Azure Active Directory B2B collaboration
 services: active-directory
 documentationcenter: ''
-author: sasubram
+author: twooley
 manager: mtillman
 editor: ''
 tags: ''
@@ -15,7 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: sasubram
 
 ---
 
@@ -60,7 +61,7 @@ To resolve this issue, the external user’s admin must synchronize the user’s
 
 ## How does ‘\#’, which is not normally a valid character, sync with Azure AD?
 
-“\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users, because the invited account user@contoso.com becomes user_contoso.com#EXT@fabrikam.onmicrosoft.com. Therefore, \# in UPNs coming from on-premises aren't allowed to sign in to the Azure portal. 
+“\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users, because the invited account user@contoso.com becomes user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Therefore, \# in UPNs coming from on-premises aren't allowed to sign in to the Azure portal. 
 
 ## I receive an error when adding external users to a synchronized group
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: bradsev;weig
+ms.author: bradsev
 
 ---
 # The Team Data Science Process in action: using SQL Data Warehouse

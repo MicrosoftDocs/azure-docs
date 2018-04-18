@@ -1,0 +1,95 @@
+- name: Managed Service Identity
+  href: overview.md
+  items:
+    - name: Quickstarts
+      items:
+      - name: Use a VM MSI to acess Azure Resource Manager
+        items: 
+        - name: Windows VM
+          href: tutorial-windows-vm-access-arm.md
+        - name: Linux VM
+          href: tutorial-linux-vm-access-arm.md
+    - name: Tutorials
+      items:
+      - name: Windows VM/VMSS
+        items:
+        - name: Access Azure Data Lake Store
+          href: tutorial-windows-vm-access-datalake.md
+        - name: Access Azure Storage using an access key
+          href: tutorial-windows-vm-access-storage.md
+        - name: Acess Azure Storage using SAS
+          href: tutorial-windows-vm-access-storage-sas.md
+        - name: Access Azure SQL
+          href: tutorial-windows-vm-access-sql.md
+        - name: Access Azure Key Vault
+          href: tutorial-windows-vm-access-nonaad.md
+        - name: Access Azure Cosmos DB
+          href: tutorial-windows-vm-access-cosmos-db.md
+      - name: Linux VM/VMSS
+        items:
+        - name: Access Azure Data Lake Store
+          href: tutorial-linux-vm-access-datalake.md
+        - name: Access Azure Storage using an access key
+          href: tutorial-linux-vm-access-storage-access-key.md
+        - name: Access Azure Storage using SAS
+          href: tutorial-linux-vm-access-storage-sas.md
+        - name: Access Azure Key Vault
+          href: tutorial-linux-vm-access-nonaad.md
+        - name: Access Azure Cosmos DB
+          href: tutorial-linux-vm-access-cosmos-db.md
+    - name: Configure MSI for an Azure VM
+      items:
+      - name: Using Azure Portal
+        href: qs-configure-portal-windows-vm.md
+      - name: Using PowerShell
+        href: qs-configure-powershell-windows-vm.md
+      - name: Using Azure CLI
+        href: qs-configure-cli-windows-vm.md
+      - name: Using Azure Resource Manager template
+        href: qs-configure-template-windows-vm.md  
+      - name: Using Azure SDK
+        href: qs-configure-sdk-windows-vm.md
+    - name: Configure MSI for Azure VMSS
+      items:
+      - name: Using the Azure Portal
+        href: qs-configure-portal-windows-vmss.md
+      - name: Using Azure CLI
+        href: qs-configure-cli-windows-vmss.md
+      - name: Using Azure Resource Manager template
+        href: qs-configure-template-windows-vmss.md
+    - name: Grant a VM or VMSS MSI access to Resource Manager
+      items:
+      - name: Using Azure portal
+        href: howto-assign-access-portal.md
+      - name: Using PowerShell
+        href: howto-assign-access-powershell.md
+      - name: Using Azure CLI
+        href: howto-assign-access-cli.md
+    - name: How to use a VM MSI
+      items:
+      - name: Acquire an access token
+        href: how-to-use-vm-token.md
+      - name: Sign-in to PowerShell, Azure CLI
+        href: how-to-use-vm-sign-in.md
+      - name: Use with Azure SDKs
+        href: how-to-use-vm-sdk.md
+    - name: FAQs and known issues
+      href: known-issues.md
+    - name: Reference
+      items:
+      - name: CLI
+        href: /cli/azure/identity
+      - name: PowerShell
+        href: /powershell/module/azurerm.managedserviceidentity#managed_service_identity 
+      - name: .NET
+        href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
+      - name: Java
+        href: https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines
+      - name: Python
+        href: /python/api/azure.mgmt.msi
+      - name: Ruby
+        href: https://rubygems.org/gems/azure_mgmt_msi
+      - name: Node.js
+        href: /javascript/api/ms-rest-azure
+      - name: Go 
+        href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi

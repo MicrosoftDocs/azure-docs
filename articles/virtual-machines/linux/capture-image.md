@@ -4,7 +4,7 @@ description: Capture an image of an Azure VM to use for mass deployments using t
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 03/22/2018
 ms.author: cynthn
 
 ---
@@ -34,7 +34,7 @@ Ensure that you meet the following prerequisites:
 
 * You need an Azure VM created in the Resource Manager deployment model using managed disks. If you haven't created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](create-ssh-secured-vm-from-template.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
 
-* You also need to have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and be logged in to an Azure account using [az login](/cli/azure/#az_login).
+* You also need to have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and be logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 ## Quick commands
 
@@ -86,6 +86,8 @@ Use the Azure CLI 2.0 to mark the VM as generalized and capture the image. In th
    
    > [!NOTE]
    > The image is created in the same resource group as your source VM. You can create VMs in any resource group within your subscription from this image. From a management perspective, you may wish to create a specific resource group for your VM resources and images.
+   >
+   > If you would like to store your image in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `--zone-resilient true` parameter.
 
 ## Step 3: Create a VM from the captured image
 Create a VM using the image you created with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMDeployed* from the image named *myImage*:
@@ -140,4 +142,4 @@ You can create multiple VMs from your source VM image. If you need to make chang
 - Follow the steps again to deprovision, deallocate, generalize, and create an image.
 - Use this new image for future deployments. If desired, delete the original image.
 
-For more information on managing your VMs with the CLI, see [Azure CLI 2.0](/cli/azure/overview).
+For more information on managing your VMs with the CLI, see [Azure CLI 2.0](/cli/azure).

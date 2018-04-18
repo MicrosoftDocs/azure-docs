@@ -73,7 +73,7 @@ By default, the Microsoft account or Organizational account that creates the wor
 There are two permission models that control access to a Log Analytics workspace:
 
 1. Legacy Log Analytics user roles
-2. [Azure role-based access](../active-directory/role-based-access-control-configure.md)
+2. [Azure role-based access](../role-based-access-control/role-assignments-portal.md)
 
 The following table summarizes the access that can be set using each permission model:
 
@@ -100,7 +100,7 @@ The following activities also require Azure permissions:
 
 
 ### Managing access to Log Analytics using Azure permissions
-To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
+To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
 
 Azure has two built-in user roles for Log Analytics:
 - Log Analytics Reader
@@ -152,7 +152,7 @@ Use these roles to give users access at different scopes:
 - Resource Group - Access to all workspace in the resource group
 - Resource - Access to only the specified workspace
 
-Use [custom roles](../active-directory/role-based-access-control-custom-roles.md) to create roles with the specific permissions needed.
+Use [custom roles](../role-based-access-control/custom-roles.md) to create roles with the specific permissions needed.
 
 ### Azure user roles and Log Analytics portal user roles
 If you have at least Azure read permission on the Log Analytics workspace, you can open the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace.
@@ -170,7 +170,7 @@ Your role assignment in the OMS portal is determined using as follows:
 | For Cloud Solution Provider (CSP) managed subscriptions <br> The account you are signed-in with is in the Azure Active Directory linked to the workspace | Administrator | Typically the customer of a CSP |
 | For Cloud Solution Provider (CSP) managed subscriptions <br> The account you are signed-in with is not in the Azure Active Directory linked to the workspace | Contributor | Typically the CSP |
 
-<sup>1</sup> Refer to [Azure permissions](../active-directory/role-based-access-control-custom-roles.md) for more information on role definitions. When evaluating roles, an action of `*` is not equivalent to `Microsoft.OperationalInsights/workspaces/*`.
+<sup>1</sup> Refer to [Azure permissions](../role-based-access-control/custom-roles.md) for more information on role definitions. When evaluating roles, an action of `*` is not equivalent to `Microsoft.OperationalInsights/workspaces/*`.
 
 Some points to keep in mind about the Azure portal:
 
@@ -243,7 +243,7 @@ Use the following steps to remove a user from a workspace. Removing the user doe
 4. Select the group in the list results and then click **Add**.
 
 ## Link an existing workspace to an Azure subscription
-All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created before this date must be linked to a workspace when you sign in. When you create the workspace from the Azure portal, or when you link your workspace to an Azure subscription, your Azure Active Directory is linked as your organizational account.
+All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created before this date must be linked to a subscription when you sign in. When you create the workspace from the Azure portal, or when you link your workspace to an Azure subscription, your Azure Active Directory is linked as your organizational account.
 
 ### To link a workspace to an Azure subscription in the OMS portal
 

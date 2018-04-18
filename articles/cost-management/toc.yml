@@ -21,12 +21,14 @@
     href: tutorial-forecast-spending.md
   - name: 3 - Manage costs
     href: tutorial-manage-costs.md
-  - name: 4 - Control access to data
+  - name: 4 - Optimize reserved instances
+    href: tutorial-optimize-reserved-instances.md
+  - name: 5 - Control access to data
     href: tutorial-user-access.md
 - name: Concepts
   items:
   - name: Understanding cost reports
-    href: understading-cost-reports.md
+    href: understanding-cost-reports.md
 - name: How-to guides
   items:
   - name: Activate Azure subscriptions and accounts
@@ -37,6 +39,8 @@
     href: connect-google-account.md
   - name: Connect an AWS account
     href: connect-aws-account.md
+  - name: Configure storage accounts
+    href: storage-accounts.md
   - name: Use Cost Management reports
     href: use-reports.md
 - name: Resources
@@ -51,3 +55,5 @@
     href: https://azure.microsoft.com/en-us/regions/services/
   - name: FAQ
     href: cost-mgt-faq.md
+  - name: Contact support
+    href: support-request-cost-management.md

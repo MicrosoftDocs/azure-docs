@@ -1,21 +1,13 @@
 ---
 title: Data sources supported in Azure Analysis Services | Microsoft Docs
 description: Describes data sources supported for data models in Azure Analysis Services.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 6ec63319-ff9b-4b01-a1cd-274481dc8995
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/27/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Data sources supported in Azure Analysis Services
@@ -30,12 +22,10 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 |Azure SQL Data Warehouse     |   Yes      |   Yes       |
 |Azure Blob Storage*     |   Yes       |    No      |
 |Azure Table Storage*    |   Yes       |    No      |
-|Azure Cosmos DB (Beta)*     |  Yes        |  No        |
+|Azure Cosmos DB*     |  Yes        |  No        |
 |Azure Data Lake Store*     |   Yes       |    No      |
 |Azure HDInsight HDFS*     |     Yes     |   No       |
-|Azure HDInsight Spark (Beta)*     |   Yes       |   No       |
-|Azure Database for MySQL (Preview)*     |   Yes       |   No      |
-|Azure Database for PostgreSQL (Preview)*     | Yes         |  No       |
+|Azure HDInsight Spark*     |   Yes       |   No       |
 ||||
 
 \* Tabular 1400 models only.
@@ -45,7 +35,7 @@ In-memory and DirectQuery models connecting to Azure data sources use .NET Frame
 
 ## On-premises data sources
 
-Connecting to on-premises data sources require an On-premises gateway. When using a gateway, ensure 64-bit providers are installed.
+Connecting to on-premises data sources from and Azure AS server require an On-premises gateway. When using a gateway, 64-bit providers are required.
 
 ### In-memory and DirectQuery
 
@@ -57,31 +47,26 @@ Connecting to on-premises data sources require an On-premises gateway. When usin
 | Teradata |OLE DB Provider for Teradata, Teradata Data Provider for .NET |Teradata Data Provider for .NET | |
 | | | |
 
-\* Tabular 1400 models only.
-
 ### In-memory only
-
-> [!IMPORTANT]
-> Testing providers for the following data sources is ongoing. 
 
 |Datasource  |  
 |---------|---------|
 |Access Database     |  
 |Active Directory*     |  
-|Analysis Services     | 
+|Analysis Services     |  
 |Analytics Platform System     |  
 |Dynamics CRM*     |  
-|Excel workbook     | 
+|Excel workbook     |  
 |Exchange*     |  
 |Folder*     | 
 |JSON document*     |  
 |Lines from binary*     | 
 |MySQL Database     | 
-|OData Feed*     | 
+|OData Feed*     |  
 |ODBC query     | 
-|OLE DB     |  
+|OLE DB     |   
 |Postgre SQL Database*    | 
-|SAP HANA*    |   
+|SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   
 |Sybase Database     |  

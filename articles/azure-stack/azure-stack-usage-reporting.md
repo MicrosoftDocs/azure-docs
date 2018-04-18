@@ -7,14 +7,14 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 2A397C83-1A6C-4290-B0EF-FDC34EE290CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: mabrigg;AlfredoPizzirani
+ms.date: 03/27/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
 
 ---
 
@@ -22,10 +22,10 @@ ms.author: mabrigg;AlfredoPizzirani
 
 Usage data, also called consumption data, represents the amount of resources used. 
 
-Azure Stack multinode systems that use consumption based billing model should report usage data to Azure for billing purpose.  Azure Stack operators should configure their Azure Stack instance to report usage data to Azure.
+Azure Stack multinode systems that use consumption-based billing model should report usage data to Azure for billing purpose.  Azure Stack operators should configure their Azure Stack instance to report usage data to Azure.
 
 > [!NOTE]
-> Usage data reporting is required for the Azure Stack multi-node users who license under the Pay-as-you-use model. It is optional for customers who license under the Capacity model (see the [How to buy page](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). For Azure Stack Development Kit users, Azure Stack operators can report usage data and test the feature. However, users will not be charged for any usage they incur. 
+> Usage data reporting is required for the Azure Stack multi-node users who license under the Pay-as-you-use model. It is optional for customers who license under the Capacity model (see the [How to buy page](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/). For Azure Stack Development Kit users, Azure Stack operators can report usage data and test the feature. However, users will not be charged for any usage they incur. 
 
 
 ![billing flow](media/azure-stack-usage-reporting/billing-flow.png)
@@ -34,7 +34,7 @@ Usage data is sent from Azure Stack to Azure through the Azure Bridge. In Azure,
 
 ## Set up usage data reporting
 
-To set up usage data reporting, you must [register your Azure Stack instance with Azure](azure-stack-register.md). As a part of the registration process, the Azure Bridge component of Azure Stack , which connects Azure Stack to Azure and sends the usage data, is configured. The following usage data is sent from Azure Stack to Azure:
+To set up usage data reporting, you must [register your Azure Stack instance with Azure](azure-stack-register.md). As a part of the registration process, the Azure Bridge component of Azure Stack, which connects Azure Stack to Azure and sends the usage data, is configured. The following usage data is sent from Azure Stack to Azure:
 
 - **Meter ID** – Unique ID for the resource that was consumed.
 - **Quantity** – Amount of resource usage.
@@ -106,3 +106,4 @@ There is always a delaybetween the usage data reported by the Azure Stack usage 
 * [Provider usage API](azure-stack-provider-resource-api.md)  
 * [Tenant usage API](azure-stack-tenant-resource-usage-api.md)
 * [Usage FAQ](azure-stack-usage-related-faq.md)
+* [Manage usage and billing as a Cloud Service Provider](azure-stack-add-manage-billing-as-a-csp.md)

@@ -2,21 +2,16 @@
 title: Pause, resume, scale with REST in Azure SQL Data Warehouse | Microsoft Docs
 description: Manage compute power in SQL Data Warehouse through REST APIs.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: kfile
-editor: ''
-
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 02/13/2018
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
+
 # REST APIs for Azure SQL Data Warehouse
 REST APIs for managing compute in Azure SQL Data Warehouse.
 
@@ -58,5 +53,5 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 
 ## Next steps
-For other management tasks, see [Management overview](./sql-data-warehouse-overview-manage.md).
+For more information, see [Manage compute](sql-data-warehouse-manage-compute-overview.md).
 

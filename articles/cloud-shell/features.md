@@ -67,10 +67,10 @@ Bash in Cloud Shell includes pre-configured authentication for open-source tools
 |Language   |Version   |
 |---|---|
 |.NET       |2.0.0       |
-|Go         |1.7        |
+|Go         |1.9        |
 |Java       |1.8        |
-|Node.js    |6.9.4      |
-|PowerShell |[6.0.0](https://github.com/PowerShell/powershell/releases)       |
+|Node.js    |8.9.4      |
+|PowerShell |[6.0.1](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 and 3.5 (default)|
 
 ## Next steps

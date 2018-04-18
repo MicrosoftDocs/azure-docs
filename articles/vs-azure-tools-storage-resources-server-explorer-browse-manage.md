@@ -3,8 +3,8 @@ title: Browse and manage storage resources by using Server Explorer | Microsoft 
 description: Browsing and managing storage resources by using Server Explorer
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
-ms.author: kraigb
+ms.author: ghogen
 
 ---
 # Browse and manage storage resources by using Server Explorer

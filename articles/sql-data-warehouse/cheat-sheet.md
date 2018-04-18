@@ -2,22 +2,16 @@
 title: Cheat sheet for Azure SQL Data Warehouse | Microsoft Docs
 description: Find links and best practices to quickly build your Azure SQL Data Warehouse solutions.
 services: sql-data-warehouse
-documentationcenter: NA
 author: acomet
-manager: jhubbard
-editor: ''
-
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 02/20/2018
+ms.topic: overview
+ms.component: design
+ms.date: 04/17/2018
 ms.author: acomet
-
+ms.reviewer: igorstan
 ---
+
 # Cheat sheet for Azure SQL Data Warehouse
 This cheat sheet provides helpful tips and best practices for building your Azure SQL Data Warehouse solutions. Before you get started, learn more about each step in detail by reading [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), which explains what SQL Data Warehouse is and what it is not.
 
@@ -143,12 +137,14 @@ Deploy in one click your spokes in SQL databases from SQL Data Warehouse:
 [Sketch]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
 
 <!--Article references-->
-[data loading]:./design-elt-data-loading.md
-[deeper guidance]: ./guidance-for-loading-data.md
-[indexes]:./sql-data-warehouse-tables-index.md
-[partitions]:./sql-data-warehouse-tables-partition.md
-[statistics]:./sql-data-warehouse-tables-statistics.md
-[resource classes and concurrency]:./sql-data-warehouse-develop-concurrency.md
+[data loading]:design-elt-data-loading.md
+[deeper guidance]:guidance-for-loading-data.md
+[indexes]:sql-data-warehouse-tables-index.md
+[partitions]:sql-data-warehouse-tables-partition.md
+[statistics]:sql-data-warehouse-tables-statistics.md
+[resource classes and concurrency]:resource-classes-for-workload-management.md
+[replicated tables]:design-guidance-for-replicated-tables.md
+[distributed tables]:sql-data-warehouse-tables-distribute.md
 
 <!--MSDN references-->
 
@@ -157,8 +153,7 @@ Deploy in one click your spokes in SQL databases from SQL Data Warehouse:
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [data migration]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-[replicated tables]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-guidance-for-replicated-tables
-[distributed tables]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
-[Azure Data Lake Store]: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store
-[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
-[sys.dm_pdw_request_steps]:https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
+
+[Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
+[sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
+[sys.dm_pdw_request_steps]:/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql

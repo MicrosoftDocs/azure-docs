@@ -47,7 +47,6 @@ Install the following NuGet packages:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-
 ### Update the program's using statements
 
 Modify the program's using statements.
@@ -81,9 +80,12 @@ Add the following static fields to the **Program** class in Program.cs.
 
 We used the following text to generate the output for this quickstart:
 
+> [!NOTE]
+> The invalid social security number in the following sample text is intentional. The purpose is to convey the sample input and output format.
+
 	Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
 	These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 
-	0800 820 3300. Also, 544-56-7788 looks like a social security number (SSN).
+	0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
 
 ## Add code to load and evaluate the input text
 
@@ -124,9 +126,9 @@ The sample output for the program, as written to the log file, is:
 
 	Autocorrect typos, check for matching terms, PII, and classify.
 	{
-	"OriginalText": "\"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 544-56-7788 looks like a social security number (SSN).\"",
-  	"NormalizedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 544- 56- 7788 looks like a social security number ( SSN) . \"",
-  	"AutoCorrectedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 544- 56- 7788 looks like a social security number ( SSN) . \"",
+	"OriginalText": "\"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).\"",
+  	"NormalizedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",
+  	"AutoCorrectedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",
   	"Misrepresentation": null,
   	
 	"Classification": {
@@ -189,12 +191,10 @@ The sample output for the program, as written to the log file, is:
         		"Index": 244
       			}
     			],
-    		"Address": [
-      			{
-        		"Text": "1 Microsoft Way, Redmond, WA 98052",
-        		"Index": 90
-      			}
-    		]
+    		 "Address": [{
+     			 "Text": "1 Microsoft Way, Redmond, WA 98052",
+      			 "Index": 89
+    		        }]
   		},
   	"Language": "eng",
   	"Terms": [

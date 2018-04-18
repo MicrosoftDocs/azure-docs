@@ -2,7 +2,7 @@
 title: Microsoft Translator Text API Tutorial (C#) | Microsoft Docs
 description: Learn how to use the Translator text service to translate text, get a localized list of supported languages, and more.
 services: cognitive-services
-author: jerrykindall
+author: Jann-Skotdal
 manager: chriswendt1
 
 ms.service: cognitive-services
@@ -10,7 +10,7 @@ ms.technology: translator
 ms.devlang: csharp
 ms.topic: article
 ms.date: 10/25/2017
-ms.author: v-jerkin
+ms.author: v-jansko
 ---
 # Tutorial: Microsoft Translator WPF application in C#
 
@@ -223,7 +223,7 @@ namespace MSTranslatorTextDemo
             return text;
         }
         
-        // ***** GET TRANSLATABLE LANGAUGE CODES
+        // ***** GET TRANSLATABLE LANGUAGE CODES
         private void GetLanguagesForTranslate()
         {
             // send request to get supported language codes

@@ -1,11 +1,11 @@
----
+﻿---
 title: Until activity in Azure Data Factory | Microsoft Docs
 description: The Until activity executes a set of activities in a loop until the condition associated with the activity evaluates to true or it times out. 
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -250,7 +250,7 @@ The pipeline sets the **folderPath** to the value of either **outputPath1** or *
 These commands assume that you have saved the JSON files into the folder: C:\ADF. 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"
