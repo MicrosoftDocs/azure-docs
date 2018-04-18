@@ -100,7 +100,7 @@
     - name: Back up VMs
       items:
       - name: Back up Azure VMs to Recovery Services vault
-        href: backup-azure-arm-vms.md
+        href: backup-azure-vms-first-look-arm.md
       - name: Back up encrypted VMs
         href: backup-azure-vms-encryption.md
       - name: Enable VM backup during VM creation
@@ -179,9 +179,9 @@
       href: backup-azure-delete-vault.md
   - name: Troubleshoot
     items:
-    - name: IaaS VM backup error messages
+    - name: Azure VM
       href: backup-azure-vms-troubleshoot.md
-    - name: Azure Backup (MARS) agent or VM extension timed out
+    - name: Azure Backup agent or VM extension timed out
       href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
     - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
@@ -189,16 +189,22 @@
       href: backup-azure-mabs-troubleshoot.md
     - name: System Center DPM
       href: backup-azure-scdpm-troubleshooting.md
-    - name: Azure Backup (MARS) agent
+    - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
-    - name: Azure File shares backup
+    - name: Azure File share
       href: troubleshoot-azure-files.md
 - name: Reference
   items:
-  - name: Azure PowerShell
-    href: /powershell/module/azurerm.recoveryservices.backup
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+  - name: Azure CLI 2.0
+    href: /cli/azure/backup?view=azure-cli-latest
+  - name: PowerShell
+    href: /powershell/module/azurerm.recoveryservices.backup
+  - name: REST - Backup
+    href: /rest/api/backup/
+  - name: REST - Recovery Services vault
+    href: /rest/api/recoveryservices/
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -43,7 +43,7 @@ To complete this article, you must have sufficient permissions to register an ap
 
    ![view app registrations](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. If the app registrations setting is set to **No**, only admin users can register apps. Check whether your account is an admin for the Azure AD tenant. Select **Overview** and look at your user information. If your account is assigned to the User role, but the app registration setting (from the preceding step) is limited to admin users, ask your administrator to either assign you to an administrator role, or to enable users to register apps.
+1. If the app registrations setting is set to **No**, only [global administrators](../active-directory/active-directory-assign-admin-roles-azure-portal.md) can register apps. Check whether your account is an admin for the Azure AD tenant. Select **Overview** and look at your user information. If your account is assigned to the User role, but the app registration setting (from the preceding step) is limited to admin users, ask your administrator to either assign you to the global administrator role, or to enable users to register apps.
 
    ![find user](./media/resource-group-create-service-principal-portal/view-user-info.png)
 

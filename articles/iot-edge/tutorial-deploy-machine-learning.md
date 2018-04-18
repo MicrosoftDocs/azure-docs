@@ -32,8 +32,8 @@ The Azure Machine Learning module that you create in this tutorial reads the env
 
 * The Azure IoT Edge device that you created in the quickstart or first tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.
-* An Azure Machine Learning account. To create an account, follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
-* Module Management for Azure ML on your machine. To set up your environment and create an account, follow the instructions in [Model management setup](../machine-learning/preview/deployment-setup-configuration.md).
+* An Azure Machine Learning account. To create an account, follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
+* Module Management for Azure ML on your machine. To set up your environment and create an account, follow the instructions in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md).
 
 The Azure Machine Learning module does not support ARM processors. 
 
