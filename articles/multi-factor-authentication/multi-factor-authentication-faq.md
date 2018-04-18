@@ -60,7 +60,7 @@ In Canada Microsoft uses the following SMS short codes:
 Microsoft does not guarantee consistent SMS or Voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, Microsoft may add or remove Short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft does not support short codes for countries besides the United States and Canada
 
 ## Billing
-Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
+Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-licensing.md).
 
 **Q: Is my organization charged for sending the phone calls and text messages that are used for authentication?**
 
@@ -78,7 +78,7 @@ When you create a per-user or per-authentication MFA provider, your organization
 
 When you purchase a subscription for Azure Multi-Factor Authentication, your organization only pays the annual license fee for each user. MFA licenses and Office 365, Azure AD Premium, or Enterprise Mobility + Security bundles are billed this way. 
 
-Learn more about your options in [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
+Learn more about your options in [How to get Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-licensing.md).
 
 **Q: Is there a free version of Azure Multi-Factor Authentication?**
 
@@ -96,7 +96,7 @@ When an MFA provider is created, it can be linked to an Azure Active Directory (
 
 If your MFA provider is *not* linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options are not transferred. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the new MFA Provider. Reactivating the MFA Servers to link them to the new MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications will stop working for all users until they reactivate the mobile app.
 
-Learn more about MFA providers in [Getting started with an Azure Multi-Factor Auth Provider](multi-factor-authentication-get-started-auth-provider.md).
+Learn more about MFA providers in [Getting started with an Azure Multi-Factor Auth Provider](../active-directory/authentication/concept-mfa-authprovider.md).
 
 **Q: Can my organization switch between consumption-based billing and subscriptions (a license-based model) at any time?**
 
@@ -131,7 +131,7 @@ To prevent unauthorized access, delete all the user's app passwords. After the u
 
 **Q: What if a user can't sign in to non-browser apps?**
 
-If your organization still uses legacy clients, and you [allowed the use of app passwords](multi-factor-authentication-whats-next.md#app-passwords), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](./end-user/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
+If your organization still uses legacy clients, and you [allowed the use of app passwords](../active-directory/authentication/howto-mfa-mfasettings.md#app-passwords), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](./end-user/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
 
 If your organization doesn't have legacy clients, you should not allow your users to create app passwords.
 

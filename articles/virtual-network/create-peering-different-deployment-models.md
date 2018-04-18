@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an Azure virtual network peering - different deployment models - same subscription | Microsoft Docs
 description: Learn how to create a virtual network peering between virtual networks created through different Azure deployment models that exist in the same Azure subscription.
 services: virtual-network
@@ -158,7 +158,7 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
 
     > [!WARNING]
     > Importing a changed network configuration file can cause changes to existing virtual networks (classic) in your subscription. Ensure you only add the previous virtual network and that you don't change or remove any existing virtual networks from your subscription. 
-5. Log in to Azure to create the virtual network (Resource Manager) by entering the `login-azurermaccount` command. The account you log in with must have the necessary permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#requirements-and-constraints).
+5. Log in to Azure to create the virtual network (Resource Manager) by entering the `Connect-AzureRmAccount` command. The account you log in with must have the necessary permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#requirements-and-constraints).
 6. Create a resource group and a virtual network (Resource Manager). Copy the script, paste it into PowerShell, and then press `Enter`.
 
     ```powershell
