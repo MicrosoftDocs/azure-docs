@@ -1,18 +1,12 @@
 ---
 title: Indexing an Azure Cosmos DB data source for Azure Search | Microsoft Docs
 description: This article shows you how to create an Azure Search indexer with an Azure Cosmos DB data source.
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: 
+manager: jlembicz
 
-ms.assetid: 
 ms.service: search
 ms.devlang: rest-api
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: search
+ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: eugenesh
 robot: noindex

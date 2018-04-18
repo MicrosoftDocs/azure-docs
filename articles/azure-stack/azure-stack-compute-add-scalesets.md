@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Make virtual machine scale sets available in Azure Stack | Microsoft Docs'
 description: Learn how a cloud operator can add virtual machine scale to the Azure Stack Marketplace
 services: azure-stack
@@ -63,7 +63,7 @@ $User = "<your Azure Stack service administrator user name>"
 $Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
 
 $AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
-$AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
+$AzsEnvContext = Connect-AzureRmAccount -Environment $AzsEnv -Credential $Creds
 
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 

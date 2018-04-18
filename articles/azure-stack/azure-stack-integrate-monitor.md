@@ -1,4 +1,4 @@
----
+﻿---
 title: Integrate external monitoring solution with Azure Stack | Microsoft Docs
 description: Learn how to integrate Azure Stack with an external monitoring solution in your datacenter.
 services: azure-stack
@@ -123,7 +123,6 @@ If you're not using Operations Manager, Nagios, or a Nagios-based solution, you 
 ## Learn more
 
 For information about built-in health monitoring, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
-
 
 ## Next steps
 

@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
+ms.date: 04/16/2018
 ---
 # Stream Analytics outputs: Options for storage and analysis
 When authoring a Stream Analytics job, consider how the resulting data is consumed. How can you view the results of the Stream Analytics job and where can you store it?
@@ -285,6 +285,8 @@ The table below lists the property names and their description for creating a Qu
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
 | Format |Only applicable for JSON type. Line separated specifies that the output is formatted by having each JSON object separated by a new line. Array specifies that the output is formatted as an array of JSON objects. |
 
+The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.
+
 ## Service Bus Topics
 While Service Bus Queues provide a one to one communication method from sender to receiver, [Service Bus Topics](https://msdn.microsoft.com/library/azure/hh367516.aspx) provide a one-to-many form of communication.
 
@@ -300,6 +302,8 @@ The table below lists the property names and their description for creating a ta
 | Event Serialization Format |Serialization format for output data.  JSON, CSV, and Avro are supported. |
  | Encoding |If using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
+
+The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.
 
 ## Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a globally distributed, multi-model database service that offers limitless elastic scale around the globe, rich query, and automatic indexing over schema-agnostic data models, guaranteed low latency, and industry-leading comprehensive SLAs. To learn about Cosmos DB collection options for Stream Analytics, refer to the [Stream Analytics with Cosmos DB as output](stream-analytics-documentdb-output.md) article.
@@ -321,7 +325,7 @@ The following table describes the properties for creating an Azure Cosmos DB out
 | Partition Key | Optional. This is only needed if you are using a {partition} token in your collection name pattern.<br/> The partition key is the name of the field in output events used to specify the key for partitioning output across collections.<br/> For single collection output, any arbitrary output column can be used for example, PartitionId. |
 | Document ID |Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
 
-## Azure Functions (in preview)
+## Azure Functions
 Azure Functions is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. It lets you implement code that is triggered by events occurring in Azure or third-party services.  This ability of Azure Functions to respond to triggers makes it a natural output for an Azure Stream Analytics. This output adapter allows users to connect Stream Analytics to Azure Functions, and run a script or piece of code in response to a variety of events.
 
 Azure Stream Analytics invokes Azure Functions via HTTP triggers. The new Azure Function Output adapter is available with the following configurable properties:
@@ -337,6 +341,23 @@ Azure Stream Analytics invokes Azure Functions via HTTP triggers. The new Azure 
 Note that when Azure Stream Analytics receives 413 (http Request Entity Too Large) exception from Azure function, it reduces the size of the batches it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, make sure that the max batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal. 
 
 Also, in a situation where there is no event landing in a time window, no output is generated. As a result, computeResult function is not called. This behavior is consistent with the built-in windowed aggregate functions.
+
+## Partitioning
+
+The following table summarizes the partition support and the number of output writers for each output type:
+
+| Output type | Partitioning support | Partition key  | Number of output writers | 
+| --- | --- | --- | --- |
+| Azure Data Lake Store | Yes | Use {date} and {time} tokens in the Path prefix pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Same as input. | 
+| Azure SQL Database | No | None | Not applicable. | 
+| Azure Blob storage | Yes | Use {date} and {time} tokens in the Path pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Same as input. | 
+| Azure Event Hub | Yes | Yes | Same as output Event Hub partitions. |
+| Power BI | No | None | Not applicable. | 
+| Azure Table storage | Yes | Any output column.  | Same as input or previous step. | 
+| Azure Service Bus Topic | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.| Same as output.  |
+| Azure Service Bus Queue | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.| Same as output. |
+| Azure Cosmos DB | Yes | Use {partition} token in the Collection name pattern. {partition} value is based on the PARTITION BY clause in the query. | Same as input. |
+| Azure Functions | No | None | Not applicable. | 
 
 
 ## Get help

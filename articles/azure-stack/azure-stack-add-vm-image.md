@@ -60,6 +60,37 @@ In Azure Stack, you can make virtual machine images available to your users. The
 ## Add a custom VM image to the Marketplace by using PowerShell
 
 1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
+      # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+      Add-AzureRMEnvironment `
+        -Name "AzureStackAdmin" `
+        -ArmEndpoint $ArmEndpoint
+
+      Set-AzureRmEnvironment `
+        -Name "AzureStackAdmin" `
+        -GraphAudience $GraphAudience
+
+      $TenantID = Get-AzsDirectoryTenantId `
+        -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+        -EnvironmentName AzureStackAdmin
+
+      Connect-AzureRmAccount `
+        -EnvironmentName "AzureStackAdmin" `
+        -TenantId $TenantID
+      ```
+
+   * **Active Directory Federation Services**. Use the following cmdlet:
+
+        ```PowerShell
+        # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+        $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+        # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+        $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
+        # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+        Add-AzureRMEnvironment `
+          -Name "AzureStackAdmin" `
+          -ArmEndpoint $ArmEndpoint
 
 2. Sign in to Azure Stack as an operator. For instructions, see [Sign in to Azure Stack as an operator](azure-stack-powershell-configure-admin.md).
 
