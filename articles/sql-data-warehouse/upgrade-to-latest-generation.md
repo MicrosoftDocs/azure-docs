@@ -26,12 +26,6 @@ This upgrade applies to data warehouses in the Optimized for Elasticity performa
 Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Before you begin
-
-> [!NOTE]
-> As of 3/30, you must have [server level auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing#subheading-8) turned off before starting the upgrade.
-> 
->
-
 > [!NOTE]
 > If your existing Optimized for Elasticity data warehouse is not in a region where Optimized for Compute is available, you can [geo-restore to Optimized for Compute](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) through PowerShell to a supported region.
 > 

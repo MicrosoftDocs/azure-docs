@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure PHP in Azure App Service Web Apps
 description: Learn how to configure the default PHP installation or add a custom PHP installation for Web Apps in Azure App Service.
 services: app-service
@@ -46,7 +46,7 @@ PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To 
 
 1. Open Azure PowerShell, and login to your account:
 
-        PS C:\> Login-AzureRmAccount
+        PS C:\> Connect-AzureRmAccount
 1. Set the PHP version for the web app.
 
         PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
