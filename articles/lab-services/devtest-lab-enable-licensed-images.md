@@ -1,20 +1,19 @@
 ---
 title: Enable a licensed image in your lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to enable a licensed image in Azure DevTest Labs using the Azure portal
-services: devtest-lab,virtual-machines
+services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
+author: spelluru
+manager: femila
 editor: ''
-
 ms.assetid: 221390d2-8d3b-4e1f-b454-43d33f8072b7
-ms.service: devtest-lab
+ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
-ms.author: v-craic
+ms.date: 04/17/2018
+ms.author: spelluru
 
 ---
 

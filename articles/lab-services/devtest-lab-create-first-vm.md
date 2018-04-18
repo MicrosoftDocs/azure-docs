@@ -1,20 +1,20 @@
 ---
 title: Create your first VM in a lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to create your first virtual machine in a lab in Azure DevTest Labs
-services: devtest-lab,virtual-machines
+services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
+author: spelluru
+manager: femila
 editor: ''
 
 ms.assetid: fbc5a438-6e02-4952-b654-b8fa7322ae5f
-ms.service: devtest-lab
+ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
-ms.author: v-craic
+ms.date: 04/17/2018
+ms.author: spelluru
 
 ---
 # Create your first VM in a lab in Azure DevTest Labs
