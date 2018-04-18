@@ -41,7 +41,7 @@ New-AzureRmResourceGroup -Name ContosoResourceGroup -Location EastUS
 
 ## Create a Key Vault
 
-Next you will create the Key Vault in the resource group created in the previous step. When doing this step, you will need to provide some information:
+Next you will create a Key Vault. When doing this step, you will need some information:
 
 Although we use “Contoso KeyVault2” as the name for our Key Vault throughout this quickstart, you must use a unique name.
 
@@ -55,8 +55,8 @@ New-AzureRmKeyVault -VaultName 'Contoso-Vault2' -ResourceGroupName 'ContosoResou
 
 The output of this cmdlet shows properties of the newly created key vault. Take note of the two properties listed below:
 
-* **Vault Name**: In the example, this is **Contoso-Vault2**. You will use this name for other Key Vault cmdlets.
-* **Vault URI**: In the example, this is https://contosokeyvault.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+* **Vault Name**: In the example that is **Contoso-Vault2**. You will use this name for other Key Vault cmdlets.
+* **Vault URI**: In this example that is https://contosokeyvault.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 After vault creation your Azure account is the only account allowed to do anything on this new vault.
 
@@ -64,7 +64,7 @@ After vault creation your Azure account is the only account allowed to do anythi
 
 ## Adding a secret to Key Vault
 
-To add a secret to the vault, you just need to take a couple of additional steps. In this case, we will add a password that could be used by an application. The password will be called **ExamplePassword** and we will store the value of **Pa$$w0rd** in it.
+To add a secret to the vault, you just need to take a couple of steps. In this case, we will add a password that could be used by an application. The password will be called **ExamplePassword** and we will store the value of **Pa$$w0rd** in it.
 
 First convert the value of Pa$$w0rd to a secure string by typing:
 
