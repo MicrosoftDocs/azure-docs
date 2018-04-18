@@ -158,20 +158,6 @@ Enter the following to Unlock Jenkins:
 667e24bba78f4de6b51d330ad89ec6c6
 ```
 
-If you experience issues logging into Jenkins, create an SSH session with the Jenkins VM and restart the Jenkins service. The IP address of the VM is the same address that was provided by the build script. The VM admin user name is `azureuser`.
-
-```bash
-ssh azureuser@52.166.118.64
-```
-
-Restart the Jenkins service.
-
-```bash
-sudo service jenkins restart
-```
-
-Refresh your browser, and the Jenkins login form should be presented.
-
 ## Jenkins environment variables
 
 A Jenkins environment variable is used to hold Azure Container Registry (ACR) login server name. This variable is referenced during the Jenkins continuous deployment job.
