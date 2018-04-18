@@ -13,19 +13,19 @@ ms.author: luisca
 
 Find out how adding enrichment steps, called *cognitive skills*, to an Azure Search indexing pipeline helps you extract structure and information from raw content. By attaching a *skillset* to an Azure Search indexer, you can add named entity recognition, natural language processing, and image analysis that makes inherent information usable and searchable in custom apps. 
 
-In this tutorial, learn how to do the following tasks:
+In this tutorial, learn the following tasks:
 
 > [!div class="checklist"]
 > * Create resources used in an enriched indexing pipeline
-> * Assemble a skillset composed of predefined skills (entity recognition, language detection, key phrase extraction, and text extraction from images)
+> * Apply skills: entity recognition, language detection, pagination, key phrase extraction
 > * Map inputs to outputs
 > * Run code and review results
 > * Reset the index and indexers for further development
 
-The output is a full text searchable index, which you can further augment with other Azure Search functionality, such as [synonyms](search-synonyms.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](search-analyzers.md), and [filters](search-filters.md).
+The output is a full text searchable index on Azure Search. You can enhance the index with other Azure Search capabilities, such as [synonyms](search-synonyms.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](search-analyzers.md), and [filters](search-filters.md).
 
 > [!Note]
-> Enrichment is a preview feature with limited availability. Be sure to create a search service in one of the data regions providing this feature.
+> Enrichment is a preview feature with limited availability. Create a search service running in a data region providing this feature.
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
   DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y5NIlE4wFVBIyrCi392GzZl+JO4TEGdqOerqfbT79C8zrn28Te8DsWlxvKKnjh69P/HM5k50ztz2shOt8vqlbg==;EndpointSuffix=core.windows.net
   ```
 
-There are other ways to specify the connection string, such as proviing a shared access signature. To learn more about data source credentials, see [Indexing Azure Blob Storage](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage).
+There are other ways to specify the connection string, such as providing a shared access signature. To learn more about data source credentials, see [Indexing Azure Blob Storage](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage).
 
 ## Create a data source
 
@@ -106,7 +106,7 @@ api-key: [admin key]
 ```
 The web test tool should return a status code of 201 confirming success. Since this is your first request, check the Azure portal to confirm the data source was created in Azure Search. On the search service dashboard page, verify the Data Sources tile has a new item. You might need to wait a few minutes for the portal page to refresh. 
 
-If you got a 403 or 404 error, check the request construction: `api-version=2017-11-11-Preview` should be on the endpoint, `api-key` should be in the Header after `Content-Type` and its value must be valid for a search service. You can reuse the header for the remaining steps in this tutorial.
+If you got a 403 or 404 error, check the request construction: `api-version=2017-11-11-Preview` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You can reuse the header for the remaining steps in this tutorial.
 
 > [!Tip]
 > Now, before you do a lot of work, is a good time to verify that the search service is running in one of the supported locations providing the preview feature: South Central US or West Europe.
@@ -373,7 +373,7 @@ In this preview, ```"embedTextInContentField"``` is the only valid value for ```
 
 ## Check indexer status
 
-Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer is still runing, send the following request to check the indexer status.
+Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer is still running, send the following request to check the indexer status.
 
 ```http
 GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
@@ -415,7 +415,7 @@ You can use GET or POST, depending on query string complexity and length. For mo
 
 To capture an enriched document created during indexing, add a field called ```enriched``` to your index. The indexer automatically dumps into it a string representation of all the enrichments for that document.
 
-The enriched field will contain a string that is a logical representation of the in memory enriched document in json.  The field value is a valid json document, however, quotes are escaped so you'll need to replace \" with " in order to view the document as formatted json.  The enriched field is intended for debugging purposes only to help you understand the logical shape of the content that expressions are being evaluated against.
+The enriched field will contain a string that is a logical representation of the in-memory enriched document in json.  The field value is a valid json document, however, quotes are escaped so you'll need to replace \" with " in order to view the document as formatted json.  The enriched field is intended for debugging purposes only to help you understand the logical shape of the content that expressions are being evaluated against.
 
 This implementation is temporary, likely to be replaced by public preview or general release. For now, it can be a useful tool to understand what's going on and help you debug your skillset.
 
@@ -499,7 +499,7 @@ This tutorial demonstrates the basic steps for building an enriched indexing pip
 
 [Predefined skills](cognitive-search-predefined-skills.md) were introduced, along with skillset definition and the mechanics of chaining skills together through inputs and outputs. You also learned that `outputFieldMappings` in the indexer definition is required for routing enriched values from the pipeline into a searchable index on an Azure Search service.
 
-Finally, you learned how to test results and reset the system for further iterations. You learned that issuing queries against the index returns the output created by the enriched indexing pipline. In this release, there is a mechanism for viewing internal constructs (enriched documents created by the system). You also learned how to check indexer status, and which objects to delete before re-running a pipeline.
+Finally, you learned how to test results and reset the system for further iterations. You learned that issuing queries against the index returns the output created by the enriched indexing pipeline. In this release, there is a mechanism for viewing internal constructs (enriched documents created by the system). You also learned how to check indexer status, and which objects to delete before re-running a pipeline.
 
 ## Clean up resources
 
@@ -507,7 +507,7 @@ The fastest way to clean up after a tutorial is by deleting the resource group c
 
 ## Next steps
 
-Customize or extend the pipeline with custom skills. Creating a custom skill and adding it to a skillset allows you to onboardtext or image analysis that you write yourself. 
+Customize or extend the pipeline with custom skills. Creating a custom skill and adding it to a skillset allows you to onboard text or image analysis that you write yourself. 
 
 > [!div class="nextstepaction"]
 > [Example: create a custom skill](cognitive-search-create-custom-skill-example.md)
