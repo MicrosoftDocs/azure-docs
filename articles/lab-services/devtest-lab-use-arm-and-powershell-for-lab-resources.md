@@ -1,20 +1,20 @@
 ---
 title: Create or modify labs automatically using Azure Resource Manager templates with PowerShell | Microsoft Docs
 description: Learn how to use Azure Resource Manager templates with PowerShell to create or modify labs automatically in a DevTest lab
-services: devtest-lab,virtual-machines,visual-studio-online
+services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
+author: spelluru
+manager: femila
 editor: ''
 
 ms.assetid: dad9944c-0b20-48be-ba80-8f4aa0950903
-ms.service: devtest-lab
+ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
-ms.author: v-craic
+ms.date: 04/17/2018
+ms.author: spelluru
 
 ---
 
