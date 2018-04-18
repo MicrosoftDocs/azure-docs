@@ -23,7 +23,7 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| categories	| Array of categories that should be extracted.  Possible category types: "Person", "Location", "Organization". If no category is provided, all types will be returned.|
+| categories	| Array of categories that should be extracted.  Possible category types: "Person", "Location", "Organization". If no category is provided, all types are returned.|
 |defaultLanguageCode |	Language code of the input text. The following languages are supported: ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt|
 | minimumPrecision	| A number between 0 and 1. If the precision is lower than this value, the entity is not returned. The default is 0.|
 
@@ -118,7 +118,8 @@ Parameters are case-sensitive.
 
 
 ## Error cases
-If the provided language code is not supported or if the content does not match the language specified, an error is generated and no entities are extracted.
+
+If you specify an unsupported language code, or if content doesn't match the language specified, an error is return and no entities are extracted.
 
 ## See also
 

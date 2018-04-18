@@ -42,7 +42,7 @@ The following diagram illustrates a hypothetical enrichment pipeline:
 Once you have a clear idea  of what the pipeline looks like, you can express the skillset that provides these steps. Functionally, the skillset is expressed when you upload your indexer definition to Azure Search. To learn more about how to upload your indexer, see the [indexer-documentation](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 
-In the diagram, the *document cracking* step happens automatically. Essentially, Azure Search knows how to open well-known files and creates a *content* field containing the text extracted from each document. The white boxes are built-in enrichers, and the dotted "Bing Entity Search" box represents a custom enricher that you will need to create. As illustrated, the skillset contains three skills.
+In the diagram, the *document cracking* step happens automatically. Essentially, Azure Search knows how to open well-known files and creates a *content* field containing the text extracted from each document. The white boxes are built-in enrichers, and the dotted "Bing Entity Search" box represents a custom enricher that you are creating. As illustrated, the skillset contains three skills.
 
 
 ## Skillset definition in REST
@@ -160,13 +160,13 @@ Let's look at the first skill, which is the predefined [named entity recognition
 
 Every predefined skill has odata.type, input, and output properties. Skill-specific properties provide additional information applicable to that skill. For entity recognition, "categories" is one entity among a fixed set of entity types that the pretrained model can recognize.
 
-Each skill should have a ```"context"```. The context represents the level at which operations take place. In the skill above, the context is the whole document. That means that the named entity recognition skill will only be called once per document. Also, any outputs produced, will be produced at that level. More specifically, ```"organizations"``` will be generated as a member of ```"\document"```. In future skills, you can refer to this newly created information as ```"\document\organizations"```.  If the ```"context"``` field is not explicitly set, the default context is the document.
+Each skill should have a ```"context"```. The context represents the level at which operations take place. In the skill above, the context is the whole document, meaning that the named entity recognition skill is called once per document. Outputs are also produced at that level. More specifically, ```"organizations"``` are generated as a member of ```"\document"```. In downstream skills, you can refer to this newly created information as ```"\document\organizations"```.  If the ```"context"``` field is not explicitly set, the default context is the document.
 
 The skill has one input called "text", with a source input set to ```"/document/content"```. The skill (named entity recognition) operates on the *content* field of each document, which is a standard field created by the Azure blob indexer. 
 
 The skill has one output called ```"organizations"```. Outputs exist only during processing. To chain this output to a downstream skill's input, reference the output as ```"/document/organizations"```.
 
-For a particular document, the value of ```"/document/organizations"``` will be an array of organizations extracted from the text. 
+For a particular document, the value of ```"/document/organizations"``` is an array of organizations extracted from the text. 
 
 For instance:
 
@@ -175,7 +175,7 @@ For instance:
 ```
 Some situations call for referencing each element of an array separately. For example, suppose you want to pass each element of ```"/document/organizations"``` separately to another skill (such as the custom Bing entity search enricher). You can refer to each element of the array by adding an asterisk to the path: ```"/document/organizations/*"``` 
 
-The second skill for sentiment extraction follows the same pattern as the first enricher. It takes ```"/document/content"``` as input, and returns a sentiment score for each content instance. Since you did not set the ```"context"``` field explicitly, the output (mySentiment) will be now a child of ```"/document"```.
+The second skill for sentiment extraction follows the same pattern as the first enricher. It takes ```"/document/content"``` as input, and returns a sentiment score for each content instance. Since you did not set the ```"context"``` field explicitly, the output (mySentiment) is now a child of ```"/document"```.
 
 ```json
     {
@@ -223,17 +223,17 @@ Recall the structure of the custom Bing entity search enricher:
     }
 ```
 
-This is a custom skill that calls a web API as part of the enrichment process. In other words, for each organization identified by named entity recognition, this skill calls a web API  to find the description of that organization. The orchestration of when to call the web API and how to flow the information received is handled internally by the enrichment engine, but initialization necessary for calling this custom API must be provided in the JSON (such as uri, httpHeaders, and the inputs expected). For guidance in creating a custom web API for the enrichment pipeline, see [How to define a custom interface](cognitive-search-custom-skill-interface.md).
+This definintion is a custom skill that calls a web API as part of the enrichment process. In other words, for each organization identified by named entity recognition, this skill calls a web API  to find the description of that organization. The orchestration of when to call the web API and how to flow the information received is handled internally by the enrichment engine, but initialization necessary for calling this custom API must be provided in the JSON (such as uri, httpHeaders, and the inputs expected). For guidance in creating a custom web API for the enrichment pipeline, see [How to define a custom interface](cognitive-search-custom-skill-interface.md).
 
-Notice that the "context" field is set to ```"/document/content/organizations/*"``` with an asterisk. That means that the enrichment step will be called *for each* organization that is part of ```"/document/content/organizations"```. 
+Notice that the "context" field is set to ```"/document/content/organizations/*"``` with an asterisk, meaning the enrichment step is called *for each* organization under ```"/document/content/organizations"```. 
 
-It also means that the output (in this case, a company description) is generated for each organization identified. If you needed to refer to the description in another downstream step (for example, in key phrase extraction), you would use the path ```"/document/content/organizations/*/description"``` to do so. 
+Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path ```"/document/content/organizations/*/description"``` to do so. 
 
 ## Enrichments create structure out of unstructured information
 
-As you may have noticed by now, the skillset generates structured information out of unstructured data. Consider the following example:
+As you may have noticed, the skillset generates structured information out of unstructured data. Consider the following example:
 
-*"In its fourth quarter, Microsoft logged $1.1 billion in revenue from LinkedIn, the social networking company it bought last year. The acquisition will enable Microsoft to combine LinkedIn capabilities with its CRM and Office capabilities. Stockholders are excited with the progress so far."*
+*"In its fourth quarter, Microsoft logged $1.1 billion in revenue from LinkedIn, the social networking company it bought last year. The acquisition enables Microsoft to combine LinkedIn capabilities with its CRM and Office capabilities. Stockholders are excited with the progress so far."*
 
 A likely outcome would be a generated structure similar to the following illustration:
 
