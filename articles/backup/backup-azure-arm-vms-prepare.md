@@ -206,6 +206,10 @@ You can allow connections to storage of the specific region by using [service ta
 
 ![NSG with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
+The following video walks you through the step by step procedure to configure service tags: 
+
+>[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
+
 > [!WARNING]
 > Storage service tags are available only in specific regions and are in preview. For a list of regions, see [Service tags for Storage](../virtual-network/security-overview.md#service-tags).
 
