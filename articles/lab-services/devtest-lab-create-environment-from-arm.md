@@ -1,21 +1,20 @@
 ---
 title: Create multi-VM environments and PaaS resources with Azure Resource Manager templates | Microsoft Docs
 description: Learn how to create multi-VM environments and PaaS resources in Azure DevTest Labs from an Azure Resource Manager template
-services: devtest-lab,virtual-machines,visual-studio-online
+services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
+author: spelluru
+manager: femila
 editor: ''
 
 ms.assetid: 
-ms.service: devtest-lab
+ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
-ms.author: v-craic
-
+ms.date: 04/05/2018
+ms.author: spelluru
 ---
 
 # Create multi-VM environments and PaaS resources with Azure Resource Manager templates

@@ -1,21 +1,20 @@
 ---
 title: Configure a virtual network in Azure DevTest Labs  | Microsoft Docs
 description: Learn how to configure an existing virtual network and subnet, and use them in a VM with Azure DevTest Labs
-services: devtest-lab,virtual-machines
+services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: craigcaseyMSFT
-manager: douge
+author: spelluru
+manager: femila
 editor: ''
 
 ms.assetid: 6cda99c2-b87e-4047-90a0-5df10d8e9e14
-ms.service: devtest-lab
+ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
-ms.author: v-craic
-
+ms.date: 04/05/2018
+ms.author: spelluru
 ---
 # Configure a virtual network in Azure DevTest Labs
 As explained in the article [Add a VM to a lab](devtest-lab-add-vm.md), when you create a VM in a lab, you can specify a configured virtual network. 
