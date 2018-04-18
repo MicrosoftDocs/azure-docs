@@ -3,8 +3,8 @@ title: Using Dynamic DNS to register hostnames
 description: This page gives details on how to set up Dynamic DNS to register hostnames in your own DNS servers.
 services: dns
 documentationcenter: na
-author: GarethBradshawMSFT
-manager: timlt
+author: subsarma
+manager: vitinnan
 editor: ''
 
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
-ms.author: garbrad
+ms.author: subsarma
 
 ---
 # Using Dynamic DNS to register hostnames in your own DNS server
