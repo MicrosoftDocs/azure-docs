@@ -32,7 +32,7 @@ When using the NPS extension for Azure MFA, the authentication flow includes the
 
 The following diagram illustrates this high-level authentication request flow: 
 
-![Authentication flow diagram](./media/multi-factor-authentication-nps-extension/auth-flow.png)
+![Authentication flow diagram](./media/howto-mfa-nps-extension/auth-flow.png)
 
 ## Plan your deployment
 
@@ -48,7 +48,7 @@ The NPS extension is meant to work with your existing infrastructure. Make sure 
 
 ### Licenses
 
-The NPS Extension for Azure MFA is available to customers with [licenses for Azure Multi-Factor Authentication](multi-factor-authentication.md) (included with Azure AD Premium, EMS, or an MFA stand-alone license). Consumption-based licenses for Azure MFA such as per user or per authentication licenses are not compatible with the NPS extension. 
+The NPS Extension for Azure MFA is available to customers with [licenses for Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication.md) (included with Azure AD Premium, EMS, or an MFA stand-alone license). Consumption-based licenses for Azure MFA such as per user or per authentication licenses are not compatible with the NPS extension. 
 
 ### Software
 
@@ -69,7 +69,7 @@ Everyone using the NPS extension must be synced to Azure Active Directory using 
 
 When you install the extension, you need the directory ID and admin credentials for your Azure AD tenant. You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select the **Azure Active Directory** icon on the left, then select **Properties**. Copy the GUID in the **Directory ID** box and save it. You use this GUID as the tenant ID when you install the NPS extension.
 
-![Find your Directory ID under Azure Active Directory properties](./media/multi-factor-authentication-nps-extension/find-directory-id.png)
+![Find your Directory ID under Azure Active Directory properties](./media/howto-mfa-nps-extension/find-directory-id.png)
 
 ## Prepare your environment
 
@@ -98,7 +98,7 @@ This step may already be complete on your tenant, but it's good to double-check 
 2. Select **Azure Active Directory** > **Azure AD Connect**
 3. Verify that your sync status is **Enabled** and that your last sync was less than an hour ago.
 
-If you need to kick off a new round of synchronization, us the instructions in [Azure AD Connect sync: Scheduler](../active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler).
+If you need to kick off a new round of synchronization, us the instructions in [Azure AD Connect sync: Scheduler](../connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler).
 
 ### Determine which authentication methods your users can use
 
@@ -111,7 +111,7 @@ There are two factors that affect which authentication methods are available wit
 
 When you deploy the NPS extension, use these factors to evaluate which methods are available for your users. If your RADIUS client supports PAP, but the client UX doesn't have input fields for a verification code, then phone call and mobile app notification are the two supported options.
 
-You can [disable unsupported authentication methods](multi-factor-authentication-whats-next.md#selectable-verification-methods) in Azure.
+You can [disable unsupported authentication methods](howto-mfa-mfasettings.md#selectable-verification-methods) in Azure.
 
 ### Enable users for MFA
 
@@ -120,7 +120,7 @@ Before you deploy the full NPS extension, you need to enable MFA for the users t
 Use these steps to get a test account started:
 1. Sign in to [https://aka.ms/mfasetup](https://aka.ms/mfasetup) with a test account. 
 2. Follow the prompts to set up a verification method.
-3. Either create a conditional access policy or [change the user state](multi-factor-authentication-get-started-user-states.md) to require two-step verification for the test account. 
+3. Either create a conditional access policy or [change the user state](../../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) to require two-step verification for the test account. 
 
 Your users also need to follow these steps to enroll before they can authenticate with the NPS extension.
 
@@ -172,7 +172,7 @@ This section includes design considerations and suggestions for successful NPS e
 ### Configuration limitations
 
 - The NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud. For this reason, we suggest using the extension for new deployments, rather than existing deployment. If you use the extension on an existing deployment, your users have to perform proof-up again to populate their MFA details in the cloud.  
-- The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom Active Directory field other than UPN. See [Advanced configuration options for the NPS extension for Multi-Factor Authentication](multi-factor-authentication-advanced-vpn-configurations.md) for more information.
+- The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom Active Directory field other than UPN. See [Advanced configuration options for the NPS extension for Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md) for more information.
 - Not all encryption protocols support all verification methods.
    - **PAP** supports phone call, one-way text message, mobile app notification, and mobile app verification code
    - **CHAPV2** and **EAP** support phone call and mobile app notification
@@ -241,8 +241,8 @@ Verify that https://adnotifications.windowsazure.com is reachable from the serve
 
 ## Next steps
 
-- Configure alternate IDs for login, or set up an exception list for IPs that shouldn't perform two-step verification in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](nps-extension-advanced-configuration.md)
+- Configure alternate IDs for login, or set up an exception list for IPs that shouldn't perform two-step verification in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md)
 
-- Learn how to integrate [Remote Desktop Gateway](nps-extension-remote-desktop-gateway.md) and [VPN servers](nps-extension-vpn.md) using the NPS extension
+- Learn how to integrate [Remote Desktop Gateway](../../multi-factor-authentication/nps-extension-remote-desktop-gateway.md) and [VPN servers](../../multi-factor-authentication/nps-extension-vpn.md) using the NPS extension
 
-- [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md)
+- [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)

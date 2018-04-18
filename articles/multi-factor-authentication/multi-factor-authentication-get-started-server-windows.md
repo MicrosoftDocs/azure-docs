@@ -45,4 +45,4 @@ Use the Windows Authentication section of the Azure Multi-Factor Authentication 
 
 - [Configure third-party VPN appliances for Azure MFA Server](multi-factor-authentication-advanced-vpn-configurations.md)
 
-- [Augment your existing authentication infrastructure with the NPS extension for Azure MFA](multi-factor-authentication-nps-extension.md)
+- [Augment your existing authentication infrastructure with the NPS extension for Azure MFA](../active-directory/authentication/howto-mfa-nps-extension.md)
