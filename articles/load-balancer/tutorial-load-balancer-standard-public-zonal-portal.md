@@ -20,12 +20,14 @@ ms.author: kumud
 
 # Load balance VMs within an availability zone with a Standard Load Balancer using the Azure portal
 
-This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address. In this scenario, you specify a particular zone for your front-end and back-end instances, to align your data path and resources with a specific zone.
+This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address using the Azure portal. In this scenario, you specify a particular zone for your front-end and back-end instances, to align your data path and resources with a specific zone.
+
+If you prefer, you can complete this tutorial using the [Azure CLI](load-balancer-standard-public-zonal-cli.md).
 
 For more information about using Availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 
 > [!NOTE]
-> Support for Availability Zones is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+> Support for Availability Zones is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 ## Log in to Azure
 
