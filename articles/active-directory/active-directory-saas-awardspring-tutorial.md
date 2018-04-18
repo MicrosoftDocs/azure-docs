@@ -129,7 +129,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| Last Name | user.surname |
 	| Email | user.mail |
 	| Username | user.userprinicipalname |
-	| studentID | <Student ID> |
+	| studentID | < Student ID > |
 
 	> [!NOTE]
 	> The value of studentID attribute is not real. This value is only for demo purpose. To get the value of your studentID attribute contact [AwardSpring Client support team](mailto:support@awardspring.com).
