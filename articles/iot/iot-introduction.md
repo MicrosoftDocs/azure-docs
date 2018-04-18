@@ -138,7 +138,7 @@ Explore the following areas of technologies and solutions, or see the Table of C
                 <div class="card">
                     <div class="cardText">
                         <h3>Solutions</h3>
-                        <a href="/azure/iot-suite">IoT solution accelerators</a><br/>
+                        <a href="/azure/iot-suite">IoT Suite</a><br/>
                         <a href="/azure/iot-central">IoT Central</a>
                     </div>
                 </div>
@@ -153,7 +153,7 @@ Explore the following areas of technologies and solutions, or see the Table of C
                         <h3>Platform services</h3>
                         <a href="/azure/iot-hub">IoT Hub</a><br/>
                         <a href="/azure/iot-dps">IoT Hub Device Provisioning Service</a><br/>
-                        <a href="/azure/location-based-services">Azure Maps</a><br/>
+                        <a href="/azure/location-based-services">Location Based Services</a><br/>
                         <a href="/azure/time-series-insights">Time Series Insights</a>
                     </div>
                 </div>
