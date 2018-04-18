@@ -20,7 +20,7 @@ ms.author: v-deasim
 
 # Using Azure CDN with SAS
 
-When you allow set up a storage account for Azure Content Delivery Network (CDN) to use to cache content, by default anyone who knows the URL can access files that you've uploaded to your storage container. To protect the files in your storage account, you can set the access of your storage containers from private to public. However, if you do so, no one will be able to access your files. 
+When you set up a storage account for Azure Content Delivery Network (CDN) to use to cache content, by default anyone who knows the URLs for your storage containers can access the files that you've uploaded. To protect the files in your storage account, you can set the access of your storage containers from public to private. However, if you do so, no one will be able to access your files. 
 
 If you want to grant limited access to private storage containers, you can use the Shared Access Signature (SAS) feature of your Azure storage account. A SAS is a URI that grants restricted access rights to your Azure Storage resources without exposing your account key. You can provide a SAS to clients that you do not trust with your storage account key but to whom you want to delegate access to certain storage account resources. By distributing a shared access signature URI to these clients, you grant them access to a resource for a specified period of time.
  
@@ -32,7 +32,9 @@ The following three options are recommended for using SAS with Azure CDN. All op
 ### Prerequisites
 To start, create a storage account and then generate a SAS for your asset. You can generate two types of stored access signatures: a service SAS or an account SAS. For more information, see [Types of shared access signatures](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
 
-After you have generated a SAS, you can access your blob storage file with a URL that has the following format:  `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS_TOKEN>`
+After you've generated a SAS token, you can access your blob storage file by appending `?sv=<SAS token>` to your URL. This URL has the following format: 
+
+`https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
 For example:
  ```
@@ -54,7 +56,7 @@ This option is the simplest and uses a single SAS token, which is passed from Az
 2. After you set up SAS on your storage account, use the SAS token with the Azure CDN URL to access the file. 
    
    The resulting URL has the following format:
-   `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS_TOKEN>`
+   `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
    For example:   
    ```
@@ -79,9 +81,10 @@ With this option, you can secure the origin blob storage without requiring an Az
    `(/test/*.)`
    
    Destination:   
-   `$1sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D`
+   ```$1sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D```
 
    ![CDN URL Rewrite rule](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
+
  
 2. After the new rule becomes active, you can access the file on Azure CDN without using a SAS token in the URL, in the following format:
    `https://<endpoint hostname>.azureedge.net/<container>/<file>`
@@ -117,7 +120,7 @@ This option is the most secure and customizable. To use Azure CDN security token
    `(/test/*.)`
    
    Destination:   
-   `$1&sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D`
+   ```$1&sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D```
 
    ![CDN URL Rewrite rule](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
 
