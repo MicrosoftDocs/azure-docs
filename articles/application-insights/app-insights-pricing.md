@@ -30,6 +30,9 @@ If you have questions about how pricing works for Application Insights, you can 
 
 For current prices in your currency and region, see [Application Insights pricing][pricing].
 
+> [!NOTE]
+> In April 2018, we [introduced](https://azure.microsoft.com/en-us/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) a new pricing model for Azure monitoring. This model adopts a simple “pay-as-you-go” model across the complete portfolio of monitoring services. Learn more about the  [new pricing model](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), how to [assess the impact of moving to this model](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) based on your usage patterns, and [how to opt into the new model](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model).
+
 ### Basic plan
 
 The Basic plan is the default pricing plan when a new Application Insights resource is created. The Basic plan is optimal for all customers except those who have an Operations Management Suite subscription.
