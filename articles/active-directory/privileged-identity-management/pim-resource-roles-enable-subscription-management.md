@@ -1,6 +1,6 @@
 ---
 title: Privileged Identity Management for Azure resources - enable subscription management | Microsoft Docs
-description: Learn how Global administrators can manage subscriptions in the tenant.
+description: Learn how global administrators can manage subscriptions in the tenant.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,19 +17,19 @@ ms.custom: pim
 
 # Enable subscription management in your tenant
 
-As a Global administrator of your directory, you may not have default access to all subscription resources in your tenant. This article outlines the steps to give yourself access to all subscriptions in your tenant. It also provides a recommended approach to remaining compliant with any security controls your organization requires after you receive access.
+As a global administrator of your directory, you might not have default access to all subscription resources in your tenant. This article outlines the steps to give yourself access to all subscriptions in your tenant. It also provides a recommended approach to remaining compliant with any security controls your organization requires after you receive access.
 
 ## Who can enable management of subscriptions in my directory?
 
-Each user assigned to the Global administrator role must follow the steps below to enable subscription management. After you have enabled subscription management for yourself, you can add other Global administrators who may need resource access as well. There is no directory setting that enables access for all members of the Global administrator role.
+Each user assigned to the global administrator role must follow the steps below to enable subscription management. After you have enabled subscription management for yourself, you can add other global administrators who might need resource access as well. There is no directory setting that enables access for all members of the global administrator role.
 
 ## Sign in to the Azure portal
 
-Sign in to the Azure portal with an account that is an eligible or active member of the Global administrator role. If the account is an eligible Global administrator, you must first activate the role before moving on to the next step.
+Sign in to the Azure portal with an account that is an eligible or active member of the global administrator role. If the account is an eligible global administrator, you must first activate the role before moving on to the next step.
 
 ## Access the Azure Active Directory admin center
 
-Now that you are signed in to the Azure portal as a Global administrator, you can edit settings that provide access to Azure subscriptions. Browse to the Azure Active Directory (Azure AD) admin center, and select **Properties**.
+Now that you are signed in to the Azure portal as a global administrator, you can edit settings that provide access to Azure subscriptions. Browse to the Azure Active Directory (Azure AD) admin center, and select **Properties**.
 
 ![Screenshot of Azure AD admin center, with Properties highlighted](media/azure-pim-resource-rbac/aad_properties.png)
 
@@ -37,7 +37,7 @@ In the list of properties, under **Global admin can manage Azure subscriptions**
 
 ![Screenshot of Properties page, with toggle set to Yes](media/azure-pim-resource-rbac/aad_properties_save.png)
 
-Now your account is automatically added to the User access administrator role for every subscription resource in the tenant.
+Now your account is automatically added to the user access administrator role for every subscription resource in the tenant.
 
 ## Browse to Azure AD PIM
 
@@ -53,7 +53,7 @@ If your organization is already using Azure AD PIM to protect administrators in 
 
 > [!NOTE]
 > If you do not see any resources, confirm that:
->- Your Global administrator role is not expired. 
+>- Your global administrator role is not expired. 
 >- Your organization has an Azure subscription.
 
 ![Screenshot of PIM, with empty resource list](media/azure-pim-resource-rbac/aadpim_rbac_empty_resource_list.png)
@@ -67,7 +67,7 @@ Repeat this process for each resource before proceeding to the next step.
 
 ## Clean up standing access
 
-Now that you have eligible assignments for the important subscriptions in your organization, you can clean up standing access by disabling the option in directory properties:
+Now that you have eligible assignments for the important subscriptions in your organization, you can clean up standing access by disabling the option in directory properties.
 
 ![Screenshot of Properties page, with toggle set to No](media/azure-pim-resource-rbac/aad_properties_no.png)
 

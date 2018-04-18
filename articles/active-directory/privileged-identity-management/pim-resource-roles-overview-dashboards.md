@@ -28,7 +28,7 @@ You can use a resource dashboard to perform an access review in Privileged Ident
 
 ![Screenshot of teh Admin View dashboard, showing data lists](media/azure-pim-resource-rbac/role-settings.png)
 
-The graphical representation of resource role activations covers the past seven days. This data is scoped to the selected resource, and displays activations for the most common roles (Owner, Contributor, User Access Administrator), and for all roles combined.
+The graphical representation of resource role activations covers the past seven days. This data is scoped to the selected resource, and displays activations for the most common roles (owner, contributor, user access administrator), and for all roles combined.
 
 To the right of the activations graph, two charts display the distribution of role assignments by assignment type, for both users and groups. You can change the value to a percentage (or vice versa), by selecting a slice of the chart.
 
