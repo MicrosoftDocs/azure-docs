@@ -55,6 +55,7 @@
 
 ## Manage Azure AD Connect Sync
 ### [GDPR compliance and Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [Preferred data location for O365 resources](active-directory-aadconnectsync-feature-preferreddatalocation.md)
 ### [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Azure AD service account](active-directory-aadconnectsync-howto-azureadaccount.md)
