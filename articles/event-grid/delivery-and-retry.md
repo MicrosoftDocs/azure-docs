@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
 ---
 
@@ -15,7 +15,9 @@ ms.author: tomfitz
 
 This article describes how Azure Event Grid handles events when delivery is not acknowledged.
 
-Event Grid provides durable delivery. It delivers each message at least once for each subscription. Events are sent to the registered webhook of each subscription immediately. If a webhook does not acknowledge receipt of an event within 60 seconds of the first delivery attempt, Event Grid retries delivery of the event.
+Event Grid provides durable delivery. It delivers each message at least once for each subscription. Events are sent to the registered webhook of each subscription immediately. If a webhook does not acknowledge receipt of an event within 60 seconds of the first delivery attempt, Event Grid retries delivery of the event. 
+
+Currently, Event Grid sends each event individually to subscribers. The subscriber receives an array with a single event.
 
 ## Message delivery status
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory for developers | Microsoft Docs
-description: This article provides an overview of signing in Microsoft work and school accounts by using Azure Active Directory. 
+description: This article provides an overview of signing in Microsoft work and school accounts by using Azure Active Directory.
 services: active-directory
 author: dstrockis
 manager: mtillman
@@ -17,23 +17,23 @@ ms.author: dastrock
 ms.custom: aaddev
 ---
 # Azure Active Directory for developers
-Azure Active Directory (Azure AD) is a cloud identity service that allows developers to build apps which securely sign in users with a Microsoft work or school account. Azure AD supports developers building both single-tenant, line-of-business (LOB) apps, as well as developers looking to develop multi-tenant apps. In addition to basic sign in, Azure AD also lets apps call both Microsoft APIs like [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) and custom APIs that are built on the Azure AD platform.  This documentation shows you how to add Azure AD support to your application by using industry standard protocols like OAuth2.0 and OpenID Connect. 
+Azure Active Directory (Azure AD) is a cloud identity service that allows developers to build apps which securely sign in users with a Microsoft work or school account. Azure AD supports developers building both single-tenant, line-of-business (LOB) apps, as well as developers looking to develop multi-tenant apps. In addition to basic sign in, Azure AD also lets apps call both Microsoft APIs like [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) and custom APIs that are built on the Azure AD platform.  This documentation shows you how to add Azure AD support to your application by using industry standard protocols like OAuth2.0 and OpenID Connect.
 
 > [!NOTE]
-> Most of the content on this page focuses on the Azure AD v1 endpoint, which supports only Microsoft work or school accounts. If you want to sign in consumer or personal Microsoft accounts, please see more information on the [Azure AD v2.0 endpoint](active-directory-appmodel-v2-overview.md). The Azure AD v2.0 endpoint offers a unified developer experience for apps which want to sign in both users with Azure AD accounts (work and school) and personal Microsoft accounts. 
+> Most of the content on this page focuses on the Azure AD v1 endpoint, which supports only Microsoft work or school accounts. If you want to sign in consumer or personal Microsoft accounts, please see more information on the [Azure AD v2.0 endpoint](active-directory-appmodel-v2-overview.md). The Azure AD v2.0 endpoint offers a unified developer experience for apps which want to sign in both users with Azure AD accounts (work and school) and personal Microsoft accounts.
 
 | | |
 | --- | --- |
 |[Authentication basics](active-directory-authentication-scenarios.md) | An introduction to authentication with Azure AD. |
 |[Types of applications](active-directory-authentication-scenarios.md#application-types-and-scenarios) | An overview of the authentication scenarios that are supported by Azure AD. |                                
-                                                                              
+
 ## Get started
 The guided setups below walk you through building an app on your preferred platform using the Azure Active Directory Library (ADAL) SDK. If you're looking for information on using the Microsoft Authentication Library (MSAL), please see our documentation on the [Azure AD v2.0 endpoint](active-directory-appmodel-v2-overview.md).
 
 |  |  |  |  |
 | --- | --- | --- | --- |
 | <center>![Mobile and desktop apps](./media/active-directory-developers-guide/NativeApp_Icon.png)<br />Mobile and desktop apps</center> | [Overview](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET (WPF)](active-directory-devquickstarts-dotnet.md)<br /><br />[.NET (UWP)](active-directory-devquickstarts-windowsstore.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) | [Cordova](active-directory-devquickstarts-cordova.md) |
-| <center>![Web apps](./media/active-directory-developers-guide/Web_app.png)<br />Web apps</center> | [Overview](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |  |
+| <center>![Web apps](./media/active-directory-developers-guide/Web_app.png)<br />Web apps</center> | [Overview](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) | |
 | <center>![Single page apps](./media/active-directory-developers-guide/SPA.png)<br />Single page apps</center> | [Overview](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |  |
 | <center>![Web APIs](./media/active-directory-developers-guide/Web_API.png)<br />Web APIs</center> | [Overview](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
 | <center>![Service-to-service](./media/active-directory-developers-guide/Service_App.png)<br />Service-to-service</center> | [Overview](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)|  |
