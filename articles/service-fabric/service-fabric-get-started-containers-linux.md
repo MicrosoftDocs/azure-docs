@@ -36,7 +36,7 @@ Running an existing application in a Linux container on a Service Fabric cluster
 ## Define the Docker container
 Build an image based on the [Python image](https://hub.docker.com/_/python/) located on Docker Hub. 
 
-Define your Docker container in a Dockerfile. The Dockerfile contains instructions for setting up the environment inside your container, loading the application you want to run, and mapping ports. The Dockerfile is the input to the `docker build` command, which creates the image. 
+Specify your Docker container in a Dockerfile. The Dockerfile contains instructions for setting up the environment inside your container, loading the application you want to run, and mapping ports. The Dockerfile is the input to the `docker build` command, which creates the image. 
 
 Create an empty directory and create the file *Dockerfile* (with no file extension). Add the following to *Dockerfile* and save your changes:
 
@@ -65,13 +65,13 @@ CMD ["python", "app.py"]
 
 Read the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) for more information.
 
-## Create a simple web application
+## Create a basic web application
 Create a Flask web application listening on port 80 that returns "Hello World!".  In the same directory, create the file *requirements.txt*.  Add the following and save your changes:
 ```
 Flask
 ```
 
-Also create the *app.py* file and add the following:
+Also create the *app.py* file and add the following snippet:
 
 ```python
 from flask import Flask
@@ -94,7 +94,7 @@ Run the `docker build` command to create the image that runs your web applicatio
 docker build -t helloworldapp .
 ```
 
-This command builds the new image using the instructions in your Dockerfile, naming (-t tagging) the image "helloworldapp". Building an image pulls the base image down from Docker Hub and creates a new image that adds your application on top of the base image.  
+This command builds the new image using the instructions in your Dockerfile, naming (-t tagging) the image "helloworldapp". To build a container image, the base image is first downloaded down from Docker Hub to which the application is added.  
 
 Once the build command completes, run the `docker images` command to see information on the new image:
 
@@ -137,7 +137,7 @@ After you verify that the application runs in Docker, push the image to your reg
 
 Run `docker login` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
 
-The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry for an automation scenario.  Or, you could login using your registry username and password.
+The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry for an automation scenario.  Or, you could log in using your registry username and password.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
