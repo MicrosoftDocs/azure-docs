@@ -4,7 +4,7 @@ description: Learn about how to provision conditional access device policies to 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 8664c0bb-bba1-4012-b321-e9c8363080a0
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: calebb
 

@@ -14,18 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 01/25/2017
+ms.date: 3/14/2018
 ms.author: cakarst;barbkess
 
 
 ---
 # Load data from Azure Data Lake Store into SQL Data Warehouse
-This document gives you all steps you  need to load your own data from Azure Data Lake Store (ADLS) into SQL Data Warehouse using PolyBase.
-While you are able to run adhoc queries over the data stored in ADLS using the External Tables, as a best practice we suggest importing the data into the SQL Data Warehouse.
-Time Estimate: 10 minutes assuming you have the prerequisites need to complete.
+This document gives you all steps you need to load data from Azure Data Lake Store (ADLS) into SQL Data Warehouse using PolyBase.
+While you are able to run adhoc queries over the data stored in ADLS using the External Tables, we suggest importing the data into the SQL Data Warehouse for best performance.
+
 In this tutorial you will learn how to:
 
-1. Create External Database objects to load from Azure Data Lake Store.
+1. Create Database objects required to load from Azure Data Lake Store.
 2. Connect to an Azure Data Lake Store Directory.
 3. Load data into Azure SQL Data Warehouse.
 
@@ -42,19 +42,13 @@ To run this tutorial, you need:
 
 * An Azure SQL Data Warehouse, to create one follow: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
-* An Azure Data Lake Store, with or without encryption enabled. To create one follow: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
-
-
-
-
-## Configure the data source
-PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external objects are stored in SQL Data Warehouse and reference the data th is stored externally.
+* An Azure Data Lake Store, to create one follow: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 ###  Create a credential
 To access your Azure Data Lake Store, you will need to create a Database Master Key to encrypt your credential secret used in the next step.
-You then create a Database scoped credential, which stores the service principal credentials set up in AAD. For those of you who have used PolyBase to connect to Windows Azure Storage Blobs, note that the credential syntax is different.
-To connect to Azure Data Lake Store, you must **first** create an Azure Active Directory Application, create an access key, and grant the application access to the Azure Data Lake resource. Instrucitons to perform these steps are located [here](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
+You then create a Database Scoped Credential, which stores the service principal credentials set up in AAD. For those of you who have used PolyBase to connect to Windows Azure Storage Blobs, note that the credential syntax is different.
+To connect to Azure Data Lake Store, you must **first** create an Azure Active Directory Application, create an access key, and grant the application access to the Azure Data Lake resource. Instructions to perform these steps are located [here](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -85,9 +79,8 @@ WITH
 ```
 
 
-### Create the external data source
-Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command to store the location of the data, and the type of data.
-You can find the ADL URI in the Azure portal and www.portal.azure.com.
+### Create the External Data Source
+Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command to store the location of the data. 
 
 ```sql
 -- C: Create an external data source
@@ -103,19 +96,16 @@ WITH (
 );
 ```
 
-
-
 ## Configure data format
-To import the data from ADLS, you need to specify the external file format. This command has format-specific options to describe your data.
-Below is an example of a commonly used file format that is a pipe-delimited text file.
-Look at our T-SQL documentation for a complete list of [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]
+To import the data from ADLS, you need to specify the External File Format. This object defines how the files are written in ADLS.
+For the complete list, look at our T-SQL documentation [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]
 
 ```sql
 -- D: Create an external file format
 -- FIELD_TERMINATOR: Marks the end of each field (column) in a delimited text file
 -- STRING_DELIMITER: Specifies the field terminator for data of type string in the text-delimited file.
 -- DATE_FORMAT: Specifies a custom format for all date and time data that might appear in a delimited text file.
--- Use_Type_Default: Store all Missing values as NULL
+-- Use_Type_Default: Store missing values as default for datatype.
 
 CREATE EXTERNAL FILE FORMAT TextFileFormat
 WITH
@@ -128,8 +118,8 @@ WITH
 );
 ```
 
-## Create the external tables
-Now that you have specified the data source and file format, you are ready to create the external tables. External tables are how you interact with external data. PolyBase uses recursive directory traversal to read all files in all subdirectories of the directory specified in the location parameter. Also, the following example shows how to create the object. You need to customize the statement to work with the data you have in ADLS.
+## Create the External Tables
+Now that you have specified the data source and file format, you are ready to create the external tables. External tables are how you interact with external data. The location parameter can specify a file or a directory. If it specifies a directory, all files within the directory will be loaded.
 
 ```sql
 -- D: Create an External Table
@@ -160,18 +150,15 @@ WITH
 ## External Table Considerations
 Creating an external table is easy, but there are some nuances that need to be discussed.
 
-Loading data with PolyBase is strongly typed. This means that each row of the data being ingested must satisfy the table schema definition.
-If a given row does not match the schema definition, the row is rejected from the load.
+External Tables are strongly typed. This means that each row of the data being ingested must satisfy the table schema definition.
+If a row does not match the schema definition, the row is rejected from the load.
 
-The REJECT_TYPE and REJECT_VALUE options allow you to define how many rows or what percentage of the data must be present in the final table.
-During load, if the reject value is reached, the load fails. The most common cause of rejected rows is a schema definition mismatch.
-For example, if a column is incorrectly given the schema of int when the data in the file is a string, every row will fail to load.
+The REJECT_TYPE and REJECT_VALUE options allow you to define how many rows or what percentage of the data must be present in the final table. During load, if the reject value is reached, the load fails. The most common cause of rejected rows is a schema definition mismatch. For example, if a column is incorrectly given the schema of int when the data in the file is a string, every row will fail to load.
 
-The Location specifies the topmost directory that you want to read data from.
-In this case, if there were subdirectories under /DimProduct/ PolyBase would import all the data within the subdirectories.
+ Azure Data Lake store uses Role Based Access Control (RBAC) to control access to the data. This means that the Service Principal must have read permissions to the directories defined in the location parameter and to the children of the final directory and files. This enables PolyBase to authenticate and load that data. 
 
 ## Load the data
-To load data from Azure Data Lake Store use the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS uses the strongly typed external table you have created.
+To load data from Azure Data Lake Store use the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. 
 
 CTAS creates a new table and populates it with the results of a select statement. CTAS defines the new table to have the same columns and data types as the results of the select statement. If you select all the columns from an external table, the new table is a replica of the columns and data types in the external table.
 
@@ -211,8 +198,8 @@ The following example is a good starting point for creating statistics. It creat
 ## Achievement unlocked!
 You have successfully loaded data into Azure SQL Data Warehouse. Great job!
 
-##Next Steps
-Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources on [Tables](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) and [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
+## Next Steps
+Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources on [Tables](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) and [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops).
 
 
 <!--Image references-->

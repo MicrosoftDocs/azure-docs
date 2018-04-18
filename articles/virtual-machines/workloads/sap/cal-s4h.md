@@ -92,7 +92,7 @@ You successfully created an SAP CAL account that is able to:
 Now you can start to deploy S/4HANA into your user subscription in Azure.
 
 > [!NOTE]
-Before you continue, determine whether you have Azure core quotas for Azure H-Series VMs. At the moment, the SAP CAL uses H-Series VMs of Azure to deploy some of the SAP HANA-based solutions. Your Azure subscription might not have any H-Series core quotas for H-Series. If so, you might need to contact Azure support to get a quota of at least 16 H-Series cores.
+Before you continue, determine whether you have Azure vCPU quotas for Azure H-Series VMs. At the moment, the SAP CAL uses H-Series VMs of Azure to deploy some of the SAP HANA-based solutions. Your Azure subscription might not have any H-Series vCPU quotas for H-Series. If so, you might need to contact Azure support to get a quota of at least 16 H-Series vCPUs.
 
 > [!NOTE]
 When you deploy a solution on Azure in the SAP CAL, you might find that you can choose only one Azure region. To deploy into Azure regions other than the one suggested by the SAP CAL, you need to purchase a CAL subscription from SAP. You also might need to open a message with SAP to have your CAL account enabled to deliver into Azure regions other than the ones initially suggested.

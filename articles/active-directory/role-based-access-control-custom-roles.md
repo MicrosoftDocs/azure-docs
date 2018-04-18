@@ -3,8 +3,8 @@ title: Create custom roles for Azure RBAC | Microsoft Docs
 description: Learn how to define custom roles with Azure Role-Based Access Control for more precise identity management in your Azure subscription.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: rolyon
+manager: mtillman
 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/11/2017
-ms.author: kgremban
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ---
@@ -24,7 +24,7 @@ Each tenant can create up to 2000 custom roles.
 
 The following example shows a custom role for monitoring and restarting virtual machines:
 
-```
+```json
 {
   "Name": "Virtual Machine Operator",
   "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
@@ -63,7 +63,7 @@ The **Actions** property of a custom role specifies the Azure operations to whic
 
 Use `Get-AzureRmProviderOperation` (in PowerShell) or `azure provider operations show` (in Azure CLI) to list operations of Azure resource providers. You may also use these commands to verify that an operation string is valid, and to expand wildcard operation strings.
 
-```
+```powershell
 Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
 
 Get-AzureRMProviderOperation Microsoft.Network/*
@@ -71,7 +71,7 @@ Get-AzureRMProviderOperation Microsoft.Network/*
 
 ![PowerShell screenshot - Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
-```
+```azurecli
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
 
 azure provider operations show "Microsoft.Network/*"
@@ -114,6 +114,7 @@ The **AssignableScopes** property of the custom role also controls who can view,
 
 ## See also
 * [Role Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
+* For a list of available operations, see [Azure Resource Manager Resource Provider operations](role-based-access-control-resource-provider-operations.md).
 * Learn how to manage access with:
   * [PowerShell](role-based-access-control-manage-access-powershell.md)
   * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)

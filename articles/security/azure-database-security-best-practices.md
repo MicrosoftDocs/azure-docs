@@ -1,10 +1,10 @@
----
+﻿---
 
 title: Azure database security best practices| Microsoft Docs
 description: This article provides a set of best practices for Azure database security.
 services: security
 documentationcenter: na
-author: UnifyCloud
+author: unifycloud
 manager: swadhwa
 editor: tomsh
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2017
+ms.date: 11/21/2017
 ms.author: tomsh
 
 ---
@@ -25,7 +25,7 @@ Security is a top concern when managing databases, and it has always been a prio
 
 In this article, we will discuss a collection of Azure database security best practices. These best practices are derived from our experience with Azure database security and the experiences of customers like yourself.
 
-For each best practice, we’ll explain:
+For each best practice, we explain:
 
 -	What the best practice is
 -	Why you want to enable that best practice
@@ -136,7 +136,7 @@ If you are interacting with Azure Storage through the Azure Portal, all transact
 
 Organizations that fail to protect data in transit are more susceptible for [man-in-the-middle attacks](https://technet.microsoft.com/library/gg195821.aspx), [eavesdropping](https://technet.microsoft.com/library/gg195641.aspx) and session hijacking. These attacks can be the first step in gaining access to confidential data.
 
-To learn more about Azure VPN option by reading the article [Planning and design for VPN Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design).
+To learn more about Azure VPN option by reading the article [Planning and design for VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ## Enable database auditing
 Auditing an instance of the SQL Server Database Engine or an individual database involves tracking and logging events that occur on the Database Engine. SQL Server audit lets you create server audits, which can contain server audit specifications for server level events, and database audit specifications for database level events. Audited events can be written to the event logs or to audit files.

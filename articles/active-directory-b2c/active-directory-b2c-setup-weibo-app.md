@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Weibo configuration | Microsoft Docs'
 description: Provide sign-up and sign-in to consumers with Weibo accounts in your applications that are secured by Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''
-author: parakhj
-manager: krassk
-editor: parakhj
+author: davidmu1
+manager: mtillman
+editor: ''
 
-ms.assetid: 1860de34-94cb-4ceb-851e-102f930f7230
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
-ms.author: parakhj
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Weibo accounts
@@ -51,7 +48,7 @@ To use Weibo as an identity provider in Azure Active Directory (Azure AD) B2C, y
 10. Click **提交** (submit).  
 
 ## Configure Weibo as an identity provider in your tenant
-1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
 2. On the B2C features blade, click **Identity providers**.
 3. Click **+Add** at the top of the blade.
 4. Provide a friendly **Name** for the identity provider configuration. For example, enter "Weibo".

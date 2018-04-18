@@ -3,9 +3,8 @@ title: Access and usage reports for Azure MFA | Microsoft Docs
 description: This describes how to use the Azure Multi-Factor Authentication feature - reports.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
-manager: femila
-editor: curtand
+author: MicrosoftGuyJFlo
+manager: mtillman
 
 ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189
 ms.service: multi-factor-authentication
@@ -13,34 +12,42 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
-ms.author: kgremban
+ms.date: 12/15/2017
+ms.author: joflore
+ms.reviewer: richagi
 
 ---
 # Reports in Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication provides several reports that can be used by you and your organization. These reports can be accessed through the Multi-Factor Authentication Management Portal. The following is a list of the available reports:
 
-| Report | Description |
-|:--- |:--- |
-| Usage |The usage reports display information on overall usage, user summary, and user details. |
-| Server Status |This report displays the status of Multi-Factor Authentication Servers associated with your account. |
-| Blocked User History |These reports show the history of requests to block or unblock users. |
-| Bypassed User History |Shows the history of requests to bypass Multi-Factor Authentication for a user's phone number. |
-| Fraud Alert |Shows a history of fraud alerts submitted during the date range you specified. |
-| Queued |Lists reports queued for processing and their status. A link to download or view the report is provided when the report is complete. |
+Azure Multi-Factor Authentication provides several reports that can be used by you and your organization accessible through the Azure portal. The following table lists the available reports:
 
-## View reports
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
-2. On the left, select Active Directory.
-3. Follow one of these two options, depending on whether you use Auth Providers:
-   * **Option 1**: Click the Multi-Factor Auth Providers tab. Select your MFA provider and click the **Manage** button at the bottom.
-   * **Option 2**: Select your directory and go to the **Configure** tab. Under the multi-factor authentication section, select **Manage service settings**. At the bottom of the MFA Service Settings page, click the Go to the portal link.
-4. In the Azure Multi-Factor Authentication Management Portal, select the type of report you want from the **View a Report** section in the left navigation.
+| Report | Location | Description |
+|:--- |:--- |:--- |
+| Blocked User History | Azure AD > MFA Server > Block/unblock users | Shows the history of requests to block or unblock users. |
+| Usage and fraud alerts | Azure AD > Sign-ins | Provides information on overall usage, user summary, and user details; as well as a history of fraud alerts submitted during the date range specified. |
+| Usage for on-premises components | Azure AD > MFA Server > Activity Report | Provides information on overall usage for MFA through the NPS extension, ADFS, and MFA server. |
+| Bypassed User History | Azure AD > MFA Server > One-time bypass | Provides a history of requests to bypass Multi-Factor Authentication for a user. |
+| Server status | Azure AD > MFA Server > Server status | Displays the status of Multi-Factor Authentication Servers associated with your account. |
 
-<center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
+## View reports 
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the left, select **Azure Active Directory** > **MFA Server**.
+3. Select the report that you wish to view.
 
-**Additional Resources**
+   <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
+
+## PowerShell reporting
+
+Identify users who have registered for MFA using the PowerShell that follows.
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+
+Identify users who have not registered for MFA using the PowerShell that follows.
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
+
+## Next steps
 
 * [For Users](end-user/multi-factor-authentication-end-user.md)
-* [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
+* [Where to deploy](multi-factor-authentication-get-started.md)

@@ -4,7 +4,7 @@ description: Learn how to build a Node.js web API that accepts tokens both from 
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 0b572fc1-2aaf-4cb6-82de-63010fb1941d

@@ -4,7 +4,7 @@ description: This topic describes how to create filters so your client can use t
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 01/22/2018
 ms.author: cenkd;juliako
 
 ---
 # Filters and dynamic manifests
-Starting with 2.11 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is archived through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
+Starting with 2.17 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is archived through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
-This topics discusses common scenarios in which using filters would be very beneficial to your customers and links to topics that demonstrate how to create filters programmatically (currently, you can create filters with REST APIs only).
+This topics discusses common scenarios in which using filters would be very beneficial to your customers and links to topics that demonstrate how to create filters programmatically.
 
 ## Overview
 When delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high quality video to various devices under different network conditions. To achieve this goal do the following:
@@ -121,12 +121,12 @@ Your assets might include multiple audio languages such as English, Spanish, Fre
 ![Language tracks filtering][language_filter]
 
 ## Trimming start of an asset
-In most live streaming events, operators run some tests before the actual event. For example, they might include a slate like this before the start of the event: "Program will begin momentarily". If the program is archiving, the test and slate data are also archived and will be included in the presentation. However, this information should not be shown to the clients. With Dynamic Manifest, you can create a start time filter and remove the unwanted data from the manifest.
+In most live streaming events, operators run some tests before the actual event. For example, they might include a slate like this before the start of the event: "Program will begin momentarily". If the program is archiving, the test and slate data are also archived and included in the presentation. However, this information should not be shown to the clients. With Dynamic Manifest, you can create a start time filter and remove the unwanted data from the manifest.
 
 ![Trimming start][trim_filter]
 
-## Creating sub-clips (views) from a live archive
-Many live events are long running and live archive might include multiple events. After the live event ends broadcasters may want to break up the live archive into logical program start and stop sequences. Then, publish these virtual programs separately without post processing the live archive and not creating separate assets (which will not get benefit of the existing cached fragments in the CDNs). Examples of such virtual programs (sub-clips) are the quarters of a football or basketball game, the innings in baseball, or individual events of an afternoon of Olympics program.
+## Creating subclips (views) from a live archive
+Many live events are long running and live archive might include multiple events. After the live event ends, broadcasters may want to break up the live archive into logical program start and stop sequences. Next, publish these virtual programs separately without post processing the live archive and not creating separate assets (which does not get the benefit of the existing cached fragments in the CDNs). Examples of such virtual programs are the quarters of a football or basketball game, innings in baseball, or individual events of any sports program.
 
 With Dynamic Manifest, you can create filters using start/end times and create virtual views over the top of your live archive. 
 
@@ -137,24 +137,24 @@ Filtered Asset:
 ![Skiing][skiing]
 
 ## Adjusting Presentation Window (DVR)
-Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes - 25 hours. Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media. There are many scenarios where broadcasters want to provide a limited DVR window which moves with the live edge and at the same time keep a bigger archiving window. A broadcaster may want to use the data that is out of the DVR window to highlight clips, or he\she may want to provide different DVR windows for different devices. For example, most of the mobile devices don’t handle big DVR windows (you can have a 2 minute DVR window for mobile devices and 1 hour for desktop clients).
+Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes - 25 hours. Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media. There are many scenarios where broadcasters want to provide a limited DVR window to move with the live edge and at the same time keep a bigger archiving window. A broadcaster may want to use the data that is out of the DVR window to highlight clips, or he\she may want to provide different DVR windows for different devices. For example, most of the mobile devices don’t handle large DVR windows (you can have a 2-minute DVR window for mobile devices and one hour for desktop clients).
 
 ![DVR window][dvr_filter]
 
 ## Adjusting LiveBackoff (live position)
-Manifest filtering can be used to remove several seconds from the live edge of a live program. This allows broadcasters to watch the presentation on the preview publication point and create advertisement insertion points before the viewers receive the stream (usually backed-off by 30 seconds). Broadcasters can then push these advertisements to their client frameworks in time for them to received and process the information before the advertisement opportunity.
+Manifest filtering can be used to remove several seconds from the live edge of a live program. Filtering allows broadcasters to watch the presentation on the preview publication point and create advertisement insertion points before the viewers receive the stream (backed-off by 30 seconds). Broadcasters can then push these advertisements to their client frameworks in time for them to received and process the information before the advertisement opportunity.
 
-In addition to the advertisement support, LiveBackoff can be used for adjusting client live download position so that when clients drift and hit the live edge they can still get fragments from server instead of getting 404 or 412 HTTP errors.
+In addition to the advertisement support, the LiveBackoff setting can be used to adjusting the viewers position so that when clients drift and hit the live edge they can still get fragments from server instead of getting an HTTP 404 or 412 error.
 
 ![livebackoff_filter][livebackoff_filter]
 
 ## Combining multiple rules in a single filter
-You can combine multiple filtering rules in a single filter. As an example you can define a range rule to remove slate from a live archive and also filter available bitrates. For multiple filtering rules the end result is the composition (intersection only) of these rules.
+You can combine multiple filtering rules in a single filter. As an example you can define a "range rule" to remove slates from a live archive and also filter out available bitrates. When applying multiple filtering rules, the end result is the intersection of all rules.
 
 ![multiple-rules][multiple-rules]
 
 ## Create filters programmatically
-The following topic discusses Media Services entities that are related to filters. The topic also shows how to programmatically create filters.  
+The following article discusses Media Services entities that are related to filters. The article also shows how to programmatically create filters.  
 
 [Create filters with REST APIs](media-services-rest-dynamic-manifest.md).
 
@@ -163,17 +163,17 @@ You can also combine multiple filters in a single URL.
 
 The following scenario demonstrates why you might want to combine filters:
 
-1. You need to filter your video qualities for mobile devices such as Android or iPAD (in order to limit video qualities). To remove the unwanted qualities, you would create a global filter which is suitable for device profiles. As mentioned above, global filters can be used for all your assets under the same media services account without any further association. 
+1. You need to filter your video qualities for mobile devices such as Android or iPAD (in order to limit video qualities). To remove the unwanted qualities, you would create a global filter suitable for the device profiles. As mentioned earlier in this article, global filters can be used for all your assets under the same media services account without any further association. 
 2. You also want to trim the start and end time of an asset. To achieve this, you would create a local filter and set the start/end time. 
-3. You want to combine both of these filters (without combination you would need to add quality filtering to the trimming filter which will make filter usage difficult).
+3. You want to combine both of these filters (without combination, you need to add quality filtering to the trimming filter which makes filter usage more difficult).
 
 To combine filters, you need to set the filter names to the manifest/playlist URL with semicolon delimited. Let’s assume you have a filter named *MyMobileDevice* that filters qualities and you have another named *MyStartTime* to set a specific start time. You can combine them like this:
 
     http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
 
-You can combine up to 3 filters. 
+You can combine up to three filters. 
 
-For more information see [this](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
+For more information, see [this](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
 ## Know issues and limitations
 * Dynamic manifest operates in GOP boundaries (Key Frames) hence trimming has GOP accuracy. 

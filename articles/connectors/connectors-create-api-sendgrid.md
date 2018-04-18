@@ -3,7 +3,7 @@ title: SendGrid | Microsoft Docs
 description: Create Logic apps with Azure App service. SendGrid Connection Provider lets you send email and manage recipient lists.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the SendGrid connector
 SendGrid Connection Provider lets you send email and manage recipient lists.
 
-You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to SendGrid
 To create Logic apps with SendGrid, you must first create a **connection** then provide the details for the following properties: 

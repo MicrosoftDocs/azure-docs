@@ -8,12 +8,12 @@ manager: slivkins
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: slivkins;marcozo;alekh
+ms.author: slivkins;marcozo;alekh;marossi
 ---
 
 # Article personalization with Custom Decision Service
 
-This tutorial focuses on personalizing the selection of articles on the front page of a website. In this example, we consider a typical scenario when Azure Custom Decision Service is applied to *multiple* lists of articles on the same front page. For concreteness, suppose we have a news website that covers only politics and sports. This website features three ranked lists of articles: politics, sports, and recent. We assume the news website has enough traffic for the [application-specific learning mode](custom-decision-service-overview.md#application-specific-learning-mode).
+This tutorial focuses on personalizing the selection of articles on the front page of a website. In this example, we consider a typical scenario when Azure Custom Decision Service is applied to *multiple* lists of articles on the same front page. For concreteness, suppose we have a news website that covers only politics and sports. This website features three ranked lists of articles: politics, sports, and recent.
 
 ## Applications and action sets
 
@@ -51,7 +51,7 @@ For more information on the feed format, see the [API reference](custom-decision
 
     ![Custom Decision Service portal](./media/custom-decision-service-tutorial/portal.png)
 
-3. Enter a unique name for your application in the **App ID** text box. If this name is already in use by another customer, the system asks you to pick a different app ID. Select the **Advanced** check box, and enter the [connection string](../../storage/storage-configure-connection-string.md) for your Azure storage account. Normally, you use the same storage account for all your applications.
+3. Enter a unique name for your application in the **App ID** text box. If this name is already in use by another customer, the system asks you to pick a different app ID. Select the **Advanced** check box, and enter the [connection string](../../storage/common/storage-configure-connection-string.md) for your Azure storage account. Normally, you use the same storage account for all your applications.
 
     ![New app dialog box](./media/custom-decision-service-tutorial/new-app-dialog.png)
 
@@ -131,28 +131,6 @@ function callback(data) {
 ```
 
 In this example, implement the `render()` function to render a given article for a given application. This function inputs the app ID and the article (in the format from the Ranking API). The `onClick` parameter is the function that should be called from `render()` to handle a click. It checks whether the click is on the top slot. Then it calls the Reward API with the appropriate app ID and event ID.
-
-## Use the performance dashboard
-
-We provide a dashboard to track performance. To see the dashboard for a given app, such as app-sports, go to the list of apps, as explained previously. Click the **Dashboard** link for the app.
-
-![Link to dashboard](./media/custom-decision-service-tutorial/apps-dashboard-link.png)
-
-The dashboard shows three plots:
-
-- Actual performance of Custom Decision Service (online)
-- Counterfactual performance estimate for the default ranking; estimated performance if this ranking is deployed (default policy)
-- Counterfactual performance estimate for Custom Decision Service (latest policy)
-
-The counterfactual performance estimate for Custom Decision Service should closely track its online performance. We provide this plot as a check for our counterfactual evaluation methodology.
-
-![Dashboard](./media/custom-decision-service-tutorial/dashboard.png)
-
-The Y axis corresponds to rewards. Currently, a ranking is assigned reward 1 if the top slot is clicked; otherwise, it is 0. Rewards are expressed as running averages over a short time window. Currently, the time window is one hour.
-
-We also provide upper and lower confidence bounds for our counterfactual estimates. To see the upper and lower bounds, select the **bounds** check box in the upper-right corner.
-
-![Dashboard with confidence bounds](./media/custom-decision-service-tutorial/dashboard-with-bounds.png)
 
 ## Next steps
 

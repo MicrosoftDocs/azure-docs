@@ -4,7 +4,7 @@ description: How to build an Android app that signs in users with both personal 
 services: active-directory
 documentationcenter: ''
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794

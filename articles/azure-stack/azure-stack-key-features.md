@@ -3,8 +3,8 @@ title: Key features and concepts in Azure Stack | Microsoft Docs
 description: Learn about the key features and concepts in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: Heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid: 09ca32b7-0e81-4a27-a6cc-0ba90441d097
@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
-ms.author: helaw
+ms.date: 02/27/2018
+ms.author: jeffgilb
+ms.reviewer:
 
 ---
 # Key features and concepts in Azure Stack
@@ -84,6 +85,7 @@ Subscriptions help providers organize and access cloud resources and services.
 
 For the administrator, a Default Provider Subscription is created during deployment. This subscription can be used to manage Azure Stack, deploy further resource providers, and create plans and offers for tenants. It should not be used to run customer workloads and applications. 
 
+
 ## Azure Resource Manager
 By using Azure Resource Manager, you can work with your infrastructure resources in a template-based, declarative model.   It provides a single interface that you can use to deploy and manage your solution components. For full information and guidance, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
@@ -105,7 +107,7 @@ The Compute Resource Provider (CRP) allows Azure Stack tenants to create their o
 The Network Resource Provider (NRP) delivers a series of Software Defined Networking (SDN) and Network Function Virtualization (NFV) features for the private cloud.  You can use the NRP to create resources like software load balancers, public IPs, network security groups, virtual networks.
 
 ### Storage RP
-The Storage RP delivers four Azure-consistent storage services: blob, table, queue, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
+The Storage RP delivers four Azure-consistent storage services: blob, table, queue, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
 #### Blob storage
 Blob storage stores any data set. A blob can be any type of text or binary data, such as a document, media file, or application installer. Table storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data. Queue storage provides reliable messaging for workflow processing and for communication between components of cloud services.
@@ -120,6 +122,25 @@ Azure Queue storage provides cloud messaging between application components. In 
 
 ### KeyVault
 The KeyVault RP provides management and auditing of secrets, such as passwords and certificates. As an example, a tenant can use the KeyVault RP to provide administrator passwords or keys during VM deployment.
+
+## High availability for Azure Stack
+*Applies to: Azure Stack 1802 or higher versions*
+
+To achieve high availability of a multi-VM production systems in Azure, VMs are placed in an availability set that spreads them across multiple fault domains and update domains. In this way, [VMs deployed in availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) are physically isolated from each other on seperate server racks to allow for failure resiliency as shown in the following diagram:
+
+  ![Azure Stack high availability](media/azure-stack-key-features/high-availability.png)
+
+### Availablity sets in Azure Stack
+While the infrastructure of Azure Stack is already resilient to failures, the underlying technology (failover clustering) still incurs some downtime for VMs on an impacted physical server in the event of a hardware failure. Azure Stack supports having an availability set with a maximum of three fault domains to be consistent with Azure.
+
+- **Fault domains**. VMs placed in an availability set will be physically isolated from each other by spreading them as evenly as possible over multiple fault domains (Azure Stack nodes). In the event of a hardware failure, VMs from the failed fault domain will be restarted in other fault domains, but, if possible, kept in separate fault domains from the other VMs in the same availability set. When the hardware comes back online, VMs will be rebalanced to maintain high availability. 
+ 
+- **Update domains**. Update domains are another Azure concept that provides high availability in availability sets. An update domain is a logical group of underlying hardware that can undergo maintenance at the same time. VMs located in the same update domain will be restarted together during planned maintenance. As tenants create VMs within an availability set, the Azure platform automatically distributes VMs across these update domains. In Azure Stack, VMs are live migrated across the other online hosts in the cluster before their underlying host is updated. Since there is no tenant downtime during a host update, the update domain feature on Azure Stack only exists for template compatibility with Azure. 
+
+### Upgrade scenarios 
+VMs in availability sets created before Azure Stack version 1802 are given a default number of fault and update domains (1 and 1 respectively). To achieve high availablity for VMs in these pre-existing availability sets, you must first delete the existing VMs and then redeploy them into a new availability set with the correct fault and update domain counts as described in [Change the availability set for a Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
+
+For VM scale sets, an availability set is created internally with a default fault domain and update domain count (3 and 5 respectively). Any VM scale sets created before the 1802 update will be placed in an availability set with the default fault and update domain counts (1 and 1 respectively). To update these VM scale set instances to achieve the newer spread, scale out the VM scale sets by the number of instances that were present before the 1802 update and then delete the older instances of the VM scale sets. 
 
 ## Role Based Access Control (RBAC)
 You can use RBAC to grant system access to authorized users, groups, and services by assigning them roles at a subscription, resource group, or individual resource level. Each role defines the access level a user, group, or service has over Microsoft Azure Stack resources.
@@ -138,5 +159,5 @@ In-development builds will provide the following benefits:
 - Other improvements
 
 ## Next steps
-[Deploy Azure Stack Development Kit](azure-stack-deploy.md)
+[Evaluate the Azure Stack Development Kit](azure-stack-deploy-overview.md)
 

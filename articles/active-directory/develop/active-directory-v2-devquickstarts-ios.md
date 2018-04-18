@@ -4,7 +4,7 @@ description: How to build an iOS app that signs in users with both personal Micr
 services: active-directory
 documentationcenter: ''
 author: brandwe
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b

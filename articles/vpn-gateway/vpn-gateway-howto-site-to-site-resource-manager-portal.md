@@ -4,7 +4,7 @@ description: Steps to create an IPsec connection from your on-premises network t
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -13,8 +13,8 @@ ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/31/2017
+ms.workload: infrastructure-services 
+ms.date: 04/02/2018
 ms.author: cherylmc
 
 ---
@@ -27,10 +27,8 @@ This article shows you how to use the Azure portal to create a Site-to-Site VPN 
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Classic portal (classic)](vpn-gateway-site-to-site-create.md)
 > 
 >
-
 
 A Site-to-Site VPN gateway connection is used to connect your on-premises network to an Azure virtual network over an IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about VPN gateways, see [About VPN gateway](vpn-gateway-about-vpngateways.md).
 
@@ -46,26 +44,25 @@ Verify that you have met the following criteria before beginning your configurat
 
 ### <a name="values"></a>Example values
 
-The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article.
+The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article. For more information about VPN Gateway settings in general, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 * **VNet Name:** TestVNet1
-* **Address Space:** 
-	* 10.11.0.0/16
-	* 10.12.0.0/16 (optional for this exercise)
-* **Subnets:**
-  * FrontEnd: 10.11.0.0/24
-  * BackEnd: 10.12.0.0/24 (optional for this exercise)
-* **GatewaySubnet:** 10.11.255.0/27
+* **Address Space:** 10.1.0.0/16
+* **Subscription:** The subscription you want to use
 * **Resource Group:** TestRG1
 * **Location:** East US
-* **DNS Server:** Optional. The IP address of your DNS server.
+* **Subnet:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (optional for this exercise)
+* **Gateway Subnet name:** GatewaySubnet (this will auto-fill in the portal)
+* **Gateway Subnet address range:** 10.1.255.0/27
+* **DNS Server:** 8.8.8.8 - Optional. The IP address of your DNS server.
 * **Virtual Network Gateway Name:** VNet1GW
 * **Public IP:** VNet1GWIP
 * **VPN Type:** Route-based
 * **Connection Type:** Site-to-site (IPsec)
 * **Gateway Type:** VPN
-* **Local Network Gateway Name:** Site2
-* **Connection Name:** VNet1toSite2
+* **Local Network Gateway Name:** Site1
+* **Connection Name:** VNet1toSite1
+* **Shared key:** For this example, we use abc123. But, you can use whatever is compatible with your VPN hardware. The important thing is that the values match on both sides of the connection.
 
 ## <a name="CreatVNet"></a>1. Create a virtual network
 
@@ -79,10 +76,11 @@ DNS is not required to create a Site-to-Site connection. However, if you want to
 
 ## <a name="gatewaysubnet"></a>3. Create the gateway subnet
 
-[!INCLUDE [vpn-gateway-aboutgwsubnet](../../includes/vpn-gateway-about-gwsubnet-include.md)]
+[!INCLUDE [about gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 
+[!INCLUDE [no nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="VNetGateway"></a>4. Create the VPN gateway
 
@@ -101,7 +99,6 @@ Site-to-Site connections to an on-premises network require a VPN device. In this
 - A shared key. This is the same shared key that you specify when creating your Site-to-Site VPN connection. In our examples, we use a basic shared key. We recommend that you generate a more complex key to use.
 - The Public IP address of your virtual network gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI. To find the Public IP address of your VPN gateway using the Azure portal, navigate to **Virtual network gateways**, then click the name of your gateway.
 
-
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 ## <a name="CreateConnection"></a>7. Create the VPN connection
@@ -118,9 +115,29 @@ Create the Site-to-Site VPN connection between your virtual network gateway and 
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
+## <a name="reset"></a>How to reset a VPN gateway
+
+Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more Site-to-Site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways. For steps, see [Reset a VPN gateway](vpn-gateway-resetgw-classic.md).
+
+## <a name="resize"></a>How to change a gateway SKU (resize a gateway)
+
+For the steps to change a gateway SKU, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+
+## <a name="addconnect"></a>How to add an additional connection to a VPN gateway
+
+You can add additional connections, provided that none of the address spaces overlap between connections.
+
+1. To add an additional connection, navigate to the VPN gateway, then click **Connections** to open the Connections page.
+2. Click **+Add** to add your connection. Adjust the connection type to reflect either VNet-to-VNet (if connecting to another VNet gateway), or Site-to-site.
+3. If you are connecting using Site-to-site and you have not already created a local network gateway for the site you want to connect to, you can create a new one.
+4. Specify the shared key that you want to use, then click **OK** to create the connection.
 
 ## Next steps
 
-*  For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
-*  For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-forced-tunneling-rm.md)
-*  For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
+* For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+* For information about forced tunneling, see [About forced tunneling](vpn-gateway-forced-tunneling-rm.md).
+* For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
+* For information about how to limit network traffic to resources in a virtual network, see [Network Security](../virtual-network/security-overview.md).
+* For information about how Azure routes traffic between Azure, on-premises, and Internet resources, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md).
+* For information about creating a Site-to-Site VPN connection using Azure Resource Manager template, see [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
+* For information about creating a Vnet-to-Vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

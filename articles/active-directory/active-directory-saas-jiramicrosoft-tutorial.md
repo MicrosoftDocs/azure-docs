@@ -1,40 +1,44 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with JIRA SAML SSO by Microsoft | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and JIRA SAML SSO by Microsoft.
+title: 'Tutorial: Azure Active Directory integration with Microsoft Azure Active Directory single sign-on for JIRA | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Microsoft Azure Active Directory single sign-on for JIRA.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
 ms.reviewer: joflore
 
-ms.assetid: 0dc847b9-eec4-4c31-845e-0144ddedc4a7
+ms.assetid: 4b663047-7f88-443b-97bd-54224b232815
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 02/08/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with JIRA SAML SSO by Microsoft
+# Tutorial: Azure Active Directory integration with Microsoft Azure Active Directory single sign-on for JIRA
 
-In this tutorial, you learn how to integrate JIRA SAML SSO by Microsoft with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate Microsoft Azure Active Directory single sign-on for JIRA with Azure Active Directory (Azure AD).
 
-Integrating JIRA SAML SSO by Microsoft with Azure AD provides you with the following benefits:
+Integrating Microsoft Azure Active Directory single sign-on for JIRA with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to JIRA SAML SSO by Microsoft
-- You can enable your users to automatically get signed-on to JIRA SAML SSO by Microsoft (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+- You can control in Azure AD who has access to Microsoft Azure Active Directory single sign-on for JIRA.
+- You can enable your users to automatically get signed-on to Microsoft Azure Active Directory single sign-on for JIRA (Single Sign-On) with their Azure AD accounts.
+- You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
+## Description
+
+Use your Microsoft Azure Active Directory account with Atlassian JIRA server to enable single sign-on. This way all your organization users can use the Azure AD credentials to login into the JIRA application. This plugin uses SAML 2.0 for federation.
+
 ## Prerequisites
 
-To configure Azure AD integration with JIRA SAML SSO by Microsoft, you need the following items:
+To configure Azure AD integration with Microsoft Azure Active Directory single sign-on for JIRA, you need the following items:
 
 - An Azure AD subscription
-- JIRA server application installed on a Windows 64-bit server (on premise or on the cloud IaaS infrastructure)
+- JIRA Core and Software 6.0 to 7.2.0 or JIRA Service Desk 3.0 to 3.2 should installed and configured on Windows 64-bit version
 - JIRA server is HTTPS enabled
 - Note the supported versions for JIRA Plugin are mentioned in below section.
 - JIRA server is reachable on internet particularly to Azure AD Login page for authentication and should able to receive the token from Azure AD
@@ -50,77 +54,71 @@ To test the steps in this tutorial, you should follow these recommendations:
 - Do not use your production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
 
-## Supported versions of JIRA 
+## Supported versions of JIRA
 
-As of now, following versions of JIRA are supported:
-
-- JIRA Core and Software: 6.0 to 7.2.0
-- JIRA Service Desk: 3.0 to 3.2
+*	JIRA Core and Software: 6.0 to 7.2.0
+*	JIRA Service Desk 3.0 to 3.2
+*   JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./active-directory-saas-jira52microsoft-tutorial.md)
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding JIRA SAML SSO by Microsoft from the gallery
+1. Adding Microsoft Azure Active Directory single sign-on for JIRA from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding JIRA SAML SSO by Microsoft from the gallery
-To configure the integration of JIRA SAML SSO by Microsoft into Azure AD, you need to add JIRA SAML SSO by Microsoft from the gallery to your list of managed SaaS apps.
+## Adding Microsoft Azure Active Directory single sign-on for JIRA from the gallery
+To configure the integration of Microsoft Azure Active Directory single sign-on for JIRA into Azure AD, you need to add Microsoft Azure Active Directory single sign-on for JIRA from the gallery to your list of managed SaaS apps.
 
-**To add JIRA SAML SSO by Microsoft from the gallery, perform the following steps:**
+**To add Microsoft Azure Active Directory single sign-on for JIRA from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+	![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
+	![The Enterprise applications blade][2]
 	
 3. To add new application, click **New application** button on the top of dialog.
 
-	![Applications][3]
+	![The New application button][3]
 
-4. In the search box, type **JIRA SAML SSO by Microsoft**.
+4. In the search box, type **Microsoft Azure Active Directory single sign-on for JIRA**, select **Microsoft Azure Active Directory single sign-on for JIRA** from result panel then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_jiramicrosoft_search.png)
+	![Microsoft Azure Active Directory single sign-on for JIRA in the results list](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_addfromgallery.png)
 
-5. In the results panel, select **JIRA SAML SSO by Microsoft**, and then click **Add** button to add the application.
+## Configure and test Azure AD single sign-on
 
-	![Creating an Azure AD test user](./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_jiramicrosoft_addfromgallery.png)
+In this section, you configure and test Azure AD single sign-on with Microsoft Azure Active Directory single sign-on for JIRA based on a test user called "Britta Simon".
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with JIRA SAML SSO by Microsoft based on a test user called "Britta Simon."
+For single sign-on to work, Azure AD needs to know what the counterpart user in Microsoft Azure Active Directory single sign-on for JIRA is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Microsoft Azure Active Directory single sign-on for JIRA needs to be established.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in JIRA SAML SSO by Microsoft is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in JIRA SAML SSO by Microsoft needs to be established.
+To configure and test Azure AD single sign-on with Microsoft Azure Active Directory single sign-on for JIRA, you need to complete the following building blocks:
 
-In JIRA SAML SSO by Microsoft, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Create a Microsoft Azure Active Directory single sign-on for JIRA test user](#create-a-microsoft-azure-active-directory-single-sign-on-for-jira-test-user)** - to have a counterpart of Britta Simon in Microsoft Azure Active Directory single sign-on for JIRA that is linked to the Azure AD representation of user.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-To configure and test Azure AD single sign-on with JIRA SAML SSO by Microsoft, you need to complete the following building blocks:
+### Configure Azure AD single sign-on
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a JIRA SAML SSO by Microsoft test user](#creating-a-jira-saml-sso-by-microsoft-test-user)** - to have a counterpart of Britta Simon in JIRA SAML SSO by Microsoft that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Microsoft Azure Active Directory single sign-on for JIRA application.
 
-### Configuring Azure AD single sign-on
+**To configure Azure AD single sign-on with Microsoft Azure Active Directory single sign-on for JIRA, perform the following steps:**
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your JIRA SAML SSO by Microsoft application.
+1. In the Azure portal, on the **Microsoft Azure Active Directory single sign-on for JIRA** application integration page, click **Single sign-on**.
 
-**To configure Azure AD single sign-on with JIRA SAML SSO by Microsoft, perform the following steps:**
-
-1. In the Azure portal, on the **JIRA SAML SSO by Microsoft** application integration page, click **Single sign-on**.
-
-	![Configure Single Sign-On][4]
+	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_jiramicrosoft_samlbase.png)
+	![Single sign-on dialog box](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_samlbase.png)
 
-3. On the **JIRA SAML SSO by Microsoft Domain and URLs** section, perform the following steps:
+3. On the **Microsoft Azure Active Directory single sign-on for JIRA Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_jiramicrosoft_url.png)
+	![Microsoft Azure Active Directory single sign-on for JIRA Domain and URLs single sign-on information](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<domain:port>/plugins/servlet/saml/auth`
 
@@ -135,67 +133,58 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. Click **App registrations**.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-jiramicrosoft-tutorial/appregistrations.png)
+    ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\appregistrations.png)
    
     b. Click **Endpoints** to open **Endpoints** dialog box.  
     
-    ![Configure Single Sign-On](./media/active-directory-saas-jiramicrosoft-tutorial/endpointicon.png)
+    ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\endpointicon.png)
 
     c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-jiramicrosoft-tutorial/endpoint.png)
+    ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\endpoint.png)
      
-    d. Now go to the property page of **JIRA SAML SSO by Microsoft** and copy the **Application Id** using **Copy** button and paste it into notepad.
+    d. Now go to the property page of **Microsoft Azure Active Directory single sign-on for JIRA** and copy the **Application Id** using **Copy** button and paste it into notepad.
  
-    ![Configure Single Sign-On](./media/active-directory-saas-jiramicrosoft-tutorial/appid.png)
+    ![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\appid.png)
 
     e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` and copy this value in notepad as it is used later for the configuration of the plugin.
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_general_400.png)
+	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_400.png)
 
-6. Contact [Microsoft](mailto:waadpartners@microsoft.com) with the following information for the JIRA plugin.
+6. In a different web browser window, log in to your JIRA instance as an administrator.
+
+7. Hover on cog and click the **Add-ons**.
     
-	*	Customer Name:
-    *   Primary domain name:
-    *   Azure AD Premium: Yes/No (Plugin will be available to all     the customer Free, Basic, and Premium SKU)
-    *   Number of users who will be using this integration:
-    *   JIRA Version:
-	*	Comments:
+	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon1.png)
 
-7. In a different web browser window, log in to your JIRA instance as an administrator.
+8. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Manually upload the plugin provided by Microsoft using **Upload add-on** menu. The download of plugin is covered under [Microsoft Service Agreement](https://www.microsoft.com/en-us/servicesagreement/).
 
-8. Hover on cog and click the **Add-ons**.
-    
-	![Configure Single Sign-On](./media/active-directory-saas-jiramicrosoft-tutorial/addon1.png)
+	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon12.png)
 
-9. Under Add-ons tab section, click **Manage add-ons**.
+9. Once the plugin is installed, it appears in **User Installed** add-ons section of **Manage Add-on** section. Click **Configure** to configure the new plugin.
 
-	![Configure Single Sign-On](./media/active-directory-saas-jiramicrosoft-tutorial/addon7.png)
+	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon13.png)
 
-10. Manually upload the plugin provided by Microsoft. Once the plugin is installed, it appears in **User Installed** add-ons section of **Manage Add-on** section.
+10. Perform following steps on configuration page:
 
-11. Click **Configure** to configure the new plugin.
-
-12. Perform following steps on configuration page:
-
-	![Configure Single Sign-On](./media/active-directory-saas-jiramicrosoft-tutorial/addon5.png)
- 
-	a. In **Metadata URL** paste the **Metadata URL** generated from Azure AD and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
-
-	> [!Note]
-	> Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name.
+	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira-tutorial\addon52.png)
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
-	
-	b. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **JIRA SAML SSO by Microsoft Domain and URLs** section on Azure portal.
+ 
+	a. In **Metadata URL** paste the **Metadata URL** generated from Azure AD and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
+
+	b. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **Microsoft Azure Active Directory single sign-on for JIRA Domain and URLs** section on Azure portal.
 
 	c. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
 
 	d. In **SAML User ID Locations** select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the JIRA user id. If the user id is not matched, then system will not allow users to log in. 
-	
+
+	> [!Note]
+	> Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name.
+
 	e. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User Id is expected. 
 
 	f. If you are using the federated domain (like ADFS etc.) with Azure AD, then click on the **Enable Home Realm Discovery** option and configure the **Domain Name**.
@@ -206,44 +195,48 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	i. Click **Save** button to save the settings.
 
+	> [!NOTE]
+	> For more information about installation and troubleshooting, visit [MS JIRA SSO Connector Admin Guide](ms-confluence-jira-plugin-adminguide.md) and there is also [FAQ](ms-confluence-jira-plugin-faq.md) for your assistance
+
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### Creating an Azure AD test user
+### Create an Azure AD test user
+
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][100]
+   ![Create an Azure AD test user][100]
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-jiramicrosoft-tutorial/create_aaduser_01.png) 
+    ![The Azure Active Directory button](.\media\active-directory-saas-msaadssojira-tutorial\create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-jiramicrosoft-tutorial/create_aaduser_02.png) 
+2. To display the list of users, go to **Users and groups**, and then click **All users**.
 
-3. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-jiramicrosoft-tutorial/create_aaduser_03.png) 
+    ![The "Users and groups" and "All users" links](.\media\active-directory-saas-msaadssojira-tutorial\create_aaduser_02.png)
 
-4. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-jiramicrosoft-tutorial/create_aaduser_04.png) 
+3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
-    a. In the **Name** textbox, type **BrittaSimon**.
+    ![The Add button](.\media\active-directory-saas-msaadssojira-tutorial\create_aaduser_03.png)
 
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+4. In the **User** dialog box, perform the following steps:
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    ![The User dialog box](.\media\active-directory-saas-msaadssojira-tutorial\create_aaduser_04.png)
+
+    a. In the **Name** box, type **BrittaSimon**.
+
+    b. In the **User name** box, type the email address of user Britta Simon.
+
+    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
     d. Click **Create**.
  
-### Creating a JIRA SAML SSO by Microsoft test user
+### Create a Microsoft Azure Active Directory single sign-on for JIRA test user
 
-To enable Azure AD users to log in to JIRA on-premise server, they must be provisioned into JIRA SAML SSO by Microsoft. For JIRA SAML SSO by Microsoft, provisioning is a manual task.
+To enable Azure AD users to log in to JIRA on-premise server, they must be provisioned into Microsoft Azure Active Directory single sign-on for JIRA. For Microsoft Azure Active Directory single sign-on for JIRA, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
@@ -251,19 +244,19 @@ To enable Azure AD users to log in to JIRA on-premise server, they must be provi
 
 2. Hover on cog and click the **User management**.
 
-    ![Add Employee](./media/active-directory-saas-jiramicrosoft-tutorial/user1.png) 
+    ![Add Employee](.\media\active-directory-saas-msaadssojira-tutorial\user1.png) 
 
 3. You are redirected to Administrator Access page to enter **Password** and click **Confirm** button.
 
-	![Add Employee](./media/active-directory-saas-jiramicrosoft-tutorial/user2.png) 
+	![Add Employee](.\media\active-directory-saas-msaadssojira-tutorial\user2.png) 
 
 4. Under **User management** tab section, click **create user**.
 
-	![Add Employee](./media/active-directory-saas-jiramicrosoft-tutorial/user3.png) 
+	![Add Employee](.\media\active-directory-saas-msaadssojira-tutorial\user3.png) 
 
 5. On the **“Create new user”** dialog page, perform the following steps:
 
-	![Add Employee](./media/active-directory-saas-jiramicrosoft-tutorial/user4.png) 
+	![Add Employee](.\media\active-directory-saas-msaadssojira-tutorial\user4.png) 
 
 	a. In the **Email address** textbox, type the email address of user like Brittasimon@contoso.com.
 
@@ -273,31 +266,31 @@ To enable Azure AD users to log in to JIRA on-premise server, they must be provi
 
 	d. In the **Password** textbox, type the password of user.
 
-	e. Click **Create user**.	
+	e. Click **Create user**.
 
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to JIRA SAML SSO by Microsoft.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Microsoft Azure Active Directory single sign-on for JIRA.
 
-![Assign User][200] 
+![Assign the user role][200] 
 
-**To assign Britta Simon to JIRA SAML SSO by Microsoft, perform the following steps:**
+**To assign Britta Simon to Microsoft Azure Active Directory single sign-on for JIRA, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
-2. In the applications list, select **JIRA SAML SSO by Microsoft**.
+2. In the applications list, select **Microsoft Azure Active Directory single sign-on for JIRA**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_jiramicrosoft_app.png) 
+	![The Microsoft Azure Active Directory single sign-on for JIRA link in the Applications list](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+	![The "Users and groups" link][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+	![The Add Assignment pane][203]
 
 5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
@@ -305,31 +298,28 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. Click **Assign** button on **Add Assignment** dialog.
 	
-### Testing single sign-on
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the JIRA SAML SSO by Microsoft tile in the Access Panel, you should get automatically signed-on to your JIRA SAML SSO by Microsoft application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+When you click the Microsoft Azure Active Directory single sign-on for JIRA tile in the Access Panel, you should get automatically signed-on to your Microsoft Azure Active Directory single sign-on for JIRA application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_general_04.png
+[1]: .\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_01.png
+[2]: .\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_02.png
+[3]: .\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_03.png
+[4]: .\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_general_100.png
+[100]: .\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-jiramicrosoft-tutorial/tutorial_general_203.png
-
+[200]: .\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_200.png
+[201]: .\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_201.png
+[202]: .\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_202.png
+[203]: .\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_203.png

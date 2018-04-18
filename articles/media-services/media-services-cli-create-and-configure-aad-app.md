@@ -4,7 +4,7 @@ description: This topic shows how to use CLI 2.0 to create an Azure AD app and c
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.service: media-services
@@ -40,7 +40,7 @@ For more information, see [Overview of Azure Cloud Shell](../cloud-shell/overvie
 ```azurecli
 az login
 az ad sp create-for-rbac --name <appName> --password <strong password>
-az role assignment create -- assignee < user/app id> --role Contributor --scope <subscription/subscription id>
+az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 
 For example:

@@ -3,8 +3,8 @@ title: Get Started with Azure Data Lake Analytics using Azure portal | Microsoft
 description: 'Learn how to use the Azure portal to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. '
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: kfile
 editor: cgronlun
 
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
-ms.author: edmaca
+ms.author: saveenr
 
 ---
 # Get started with Azure Data Lake Analytics using Azure portal
@@ -32,7 +32,7 @@ Before you begin this tutorial, you must have an **Azure subscription**. See [Ge
 Now, you will create a Data Lake Analytics and a Data Lake Store account at the same time.  This step is simple and only takes about 60 seconds to finish.
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. Click **New** >  **Intelligence + analytics** > **Data Lake Analytics**.
+2. Click **Create a resource** >  **Data + Analytics** > **Data Lake Analytics**.
 3. Select values for the following items:
    * **Name**: Name your Data Lake Analytics account (Only lower case letters and numbers allowed).
    * **Subscription**: Choose the Azure subscription used for the Analytics account.
@@ -67,7 +67,7 @@ OUTPUT @a
 3. Click **Submit Job**.   
 4. Wait until the job status changes to **Succeeded**.
 5. If the job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-6. Click the **Output** tab, and then click `SearchLog-from-Data-Lake.csv`. 
+6. Click the **Output** tab, and then click `data.csv`. 
 
 ## See also
 

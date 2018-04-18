@@ -2,7 +2,7 @@
 title: Azure Key Vault Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
 services: key-vault
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid:
@@ -134,21 +134,10 @@ Learn how to use Key Vault to safeguard and manage cryptographic keys and secret
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.keyvault">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Node.js</h3>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest">Vault management</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest">Vault contents management</a></p>
+                        <p><a href="/dotnet/api/overview/azure/key-vault">.NET</a></p>
+                        <p><a href="/java/api/overview/azure/keyvault">Java</a></p>
+                        <p><a href="/python/api/overview/azure/key-vault">Python</a></p>
+                        <p><a href="/javascript/api/overview/azure/key-vault">Node.js</a></p>
                     </div>
                 </div>
             </div>

@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot Azure RBAC | Microsoft Docs
+title: Troubleshoot role-based access control Azure RBAC | Microsoft Docs
 description: Get help with issues or questions about Role Based Access Control resources.
 services: azure-portal
 documentationcenter: na
-author: kgremban
-manager: femila
+author: rolyon
+manager: mtillman
 
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: kgremban
+ms.date: 03/19/2018
+ms.author: rolyon
 ms.reviewer: rqureshi
+ms.custom: seohack1
 ---
-# Role-Based Access Control troubleshooting
+# Troubleshooting Azure role-based access control 
 
-This document article answers common questions about the specific access rights that are granted with roles, so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems. These three roles cover all resource types:
+This article answers common questions about the specific access rights that are granted with roles, so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems. These three roles cover all resource types:
 
 * Owner  
 * Contributor  
@@ -26,7 +27,7 @@ This document article answers common questions about the specific access rights 
 
 Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we'll spend some time. See the [Role-Based Access Control get-started article](role-based-access-control-configure.md) for details on how to grant access.
 
-## App service workloads
+## App Service
 ### Write access capabilities
 If you grant a user read-only access to a single web app, some features are disabled that you might not expect. The following management capabilities require **write** access to a web app (either Contributor or Owner), and aren’t available in any read-only scenario.
 
@@ -64,7 +65,14 @@ These items require **write** access to the whole **Resource group** that contai
 * Application insights components  
 * Web tests  
 
-## Virtual machine workloads
+## Azure Functions
+Some features of [Azure Functions](../azure-functions/functions-overview.md) require write access. For example, if a user is assigned the Reader role, they will not be able to view the functions within a function app. The portal will display **(No access)**.
+
+![Function apps no access](./media/role-based-access-control-troubleshooting/functionapps-noaccess.png)
+
+A reader can click the **Platform features** tab and then click **All settings** to view some settings related to a function app (similar to a web app), but they can't modify any of these settings.
+
+## Virtual machine
 Much like with web apps, some features on the virtual machine blade require write access to the virtual machine, or to other resources in the resource group.
 
 Virtual machines are related to Domain names, virtual networks, storage accounts, and alert rules.

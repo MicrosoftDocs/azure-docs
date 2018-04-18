@@ -4,7 +4,7 @@ description: Set up a load-balanced, high availability Linux MySQL cluster creat
 services: virtual-machines-linux
 documentationcenter: ''
 author: bureado
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management 
 
@@ -21,6 +21,7 @@ ms.author: jparrel
 # Use load-balanced sets to clusterize MySQL on Linux
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. A [Resource Manager template](https://azure.microsoft.com/documentation/templates/mysql-replication/) is available if you need to deploy a MySQL cluster.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 This article explores and illustrates the different approaches available to deploy highly available Linux-based services on Microsoft Azure, exploring MySQL Server high availability as a primer. A video illustrating this approach is available on [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
@@ -48,7 +49,7 @@ You need the following resources and abilities:
   * Corosync and Pacemaker
 
 ### Affinity group
-Create an affinity group for the solution by signing in to the Azure classic portal, selecting **Settings**, and creating an affinity group. Allocated resources created later will be assigned to this affinity group.
+Create an affinity group for the solution by signing in to the Azure portal, selecting **Settings**, and creating an affinity group. Allocated resources created later will be assigned to this affinity group.
 
 ### Networks
 A new network is created, and a subnet is created inside the network. This example uses a 10.10.10.0/24 network with only one /24 subnet inside.

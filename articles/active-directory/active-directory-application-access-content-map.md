@@ -4,7 +4,7 @@ description: Problems managing application access and permissions"
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: kbrint
+manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity

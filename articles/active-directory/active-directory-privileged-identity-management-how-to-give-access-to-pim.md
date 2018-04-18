@@ -4,7 +4,7 @@ description: Learn how to add roles to users with the Azure Active Directory Pri
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: d4c53b53-2b37-41e6-813c-96ec08a1c897
@@ -18,7 +18,7 @@ ms.author: billmath
 ms.custom: pim
 ---
 # Giving access to manage Azure AD Privileged Identity Management
-The global administrator who enables Azure AD Privileged Identity Management (PIM) for an organization automatically get role assignments and access to PIM. No one else gets write access by default, though, including other global administrators. Other global adminstrators, security administrators, and security readers have read-only access to Azure AD PIM. To give access to PIM, the first user can assign others to the **Privileged role administrator** role. This assignment must be done from within PIM itself, and cannot be changed via PowerShell or other portals.
+The global administrator who enables Azure AD Privileged Identity Management (PIM) for an organization automatically get role assignments and access to PIM. No one else gets write access by default, though, including other global administrators. Other global administrators, security administrators, and security readers have read-only access to Azure AD PIM. To give access to PIM, the first user can assign others to the **Privileged role administrator** role. This assignment must be done from within PIM itself, and cannot be changed via PowerShell or other portals.
 
 > [!NOTE]
 > Managing Azure AD PIM requires Azure MFA. Since Microsoft accounts cannot register for Azure MFA, a user who signs in with a Microsoft account cannot access Azure AD PIM.

@@ -1,22 +1,14 @@
 ---
-title: 'Analytics platforms: Apache Storm comparison to Stream Analytics | Microsoft Docs'
-description: Get guidance choosing a cloud analytics platform by using an Apache Storm comparison to Stream Analytics. Understand features and differences.
-keywords: analytics platform, analytics platforms, cloud analytics platform, storm comparison
+title: 'Analytics platforms: Apache Storm comparison to Azure Stream Analytics'
+description: Guidance to choose a cloud analytics platform by using an Apache Storm comparison to Stream Analytics. Understand features and differences.
 services: stream-analytics
-documentationcenter: ''
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 06/27/2017
-ms.author: jeffstok
-
 ---
 # Choosing a streaming analytics platform: comparing Apache Storm and Azure Stream Analytics
 Azure provides multiple solutions for analyzing streaming data: [Azure Streaming Analytics](https://docs.microsoft.com/azure/stream-analytics/) and [Apache Storm on Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-storm/). Both analytics platforms provide the benefits of a PaaS solution. But the platforms have some significant differences in their capabilities as well as in how you configure and manage them. 
@@ -229,29 +221,12 @@ This article provides a side-by-side comparison of features to help you choose b
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Support for user-defined functions (UDFs)</strong>
-                </p>
-            </td>
-            <td width="204" valign="top">
-                <p>
-                    Queries support JavaScript UDFs. For more information, see <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">JavaScript UDF integration</a>.
-                </p>
-            </td>
-            <td width="246" valign="top">
-                <p>
-                    UDFs can be written in C#, Java, or any other language.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="174" valign="top">
-                <p>
                     <strong>Extensibility using custom code?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    No. There is no support for extensible code in Stream Analytics.
+                    Partially support with JavaScript UDFs. For more information, see <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">JavaScript UDF integration</a>.
                 </p>
             </td>
             <td width="246" valign="top">

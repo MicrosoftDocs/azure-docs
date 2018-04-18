@@ -1,10 +1,10 @@
 ---
 title: Set up endpoints on a classic Windows VM | Microsoft Docs
-description: Learn to set up endpoints for a Windows VM in the Azure classic portal to allow communication with a Windows virtual machine in Azure.
+description: Learn to set up endpoints for a classic Windows VM in the Azure portal to allow communication with a Windows virtual machine in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -23,6 +23,7 @@ All Windows virtual machines that you create in Azure using the classic deployme
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 In the **Resource Manager** deployment model, endpoints are configured using **Network Security Groups (NSGs)**. For more information, see [Allow external access to your VM using the Azure portal](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -33,4 +34,4 @@ When you create a Windows virtual machine in the Azure portal, common endpoints 
 ## Next steps
 * To use an Azure PowerShell cmdlet to set up a VM endpoint, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
 * To use an Azure PowerShell cmdlet to manage an ACL on an endpoint, see [Managing access control lists (ACLs) for endpoints by using PowerShell](../../../virtual-network/virtual-networks-acl-powershell.md).
-* If you created a virtual machine in the Resource Manager deployment model, you can use Azure PowerShell to [create network security groups](../../../virtual-network/virtual-networks-create-nsg-arm-ps.md) to control traffic to the VM.
+* If you created a virtual machine in the Resource Manager deployment model, you can use Azure PowerShell to [create network security groups](../../../virtual-network/tutorial-filter-network-traffic.md) to control traffic to the VM.

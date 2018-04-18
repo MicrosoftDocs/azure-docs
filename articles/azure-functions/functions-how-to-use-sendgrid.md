@@ -3,8 +3,8 @@ title: How to use SendGrid in Azure Functions | Microsoft Docs
 description: Shows how to use SendGrid in Azure Functions
 services: functions
 documentationcenter: na
-author: rachelappel
-manager: erikre
+author: ggailey777
+manager: cfowler
 
 ms.service: functions
 ms.devlang: multiple
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/31/2017
-ms.author: rachelap
+ms.author: glenga
 
 ---
 # How to use SendGrid in Azure Functions

@@ -4,8 +4,8 @@ title: View Azure resource access assignments | Microsoft Docs
 description: View and manage all the Role-Based Access Control assignments for any user or group in the Azure portal
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: rolyon
+manager: mtillman
 editor: jeffsta
 
 ms.assetid: e6f9e657-8ee3-4eec-a21c-78fe1b52a005
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
-ms.author: kgremban
+ms.author: rolyon
 
 ---
 # View access assignments for users and groups in the Azure portal
@@ -37,7 +37,7 @@ Get more information about how to [Use role assignments to manage access to your
 ## View access assignments
 To look up the access assignments for a single user or group, start in Azure Active Directory in the [Azure portal](http://portal.azure.com).
 
-1. Select **Azure Active Directory**. If this option is not visible on your navigation list, select **More Services** and then scroll down to find **Azure Active Directory**.
+1. Select **Azure Active Directory**. If this option is not visible on your navigation list, select **All Services** and then scroll down to find **Azure Active Directory**.
 2. Select **Users and Groups**, and then either **All users** or **All groups**. For this example, we focus on individual users.
     ![Manage users and groups in Azure Active Directory - screenshot](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
 3. Search for the user by name or username.

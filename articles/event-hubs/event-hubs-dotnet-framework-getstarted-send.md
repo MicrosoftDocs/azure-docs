@@ -12,8 +12,8 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 06/12/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
 
 ---
@@ -36,13 +36,13 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 
 ## Create a sender console application
 
-In this section, you'll write a Windows console app that sends events to your event hub.
+In this section, you write a Windows console app that sends events to your event hub.
 
 1. In Visual Studio, create a new Visual C# Desktop App project using the **Console Application** project template. Name the project **Sender**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 2. In Solution Explorer, right-click the **Sender** project, and then click **Manage NuGet Packages for Solution**. 
-3. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Click **Install**, and accept the terms of use. 
+3. Click the **Browse** tab, then search for `WindowsAzure.ServiceBus`. Click **Install**, and accept the terms of use. 
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    

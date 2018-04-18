@@ -4,7 +4,7 @@ description: Learn to create and upload an Azure virtual hard disk (VHD) that co
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
+ms.date: 03/12/2018
 ms.author: szark
 
 ---
 # Prepare a Red Hat-based virtual machine for Azure
-In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure. The versions of RHEL that are covered in this article are 6.7+ and 7.1+. The hypervisors for preparation that are covered in this article are Hyper-V, kernel-based virtual machine (KVM), and VMware. For more information about eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/articles/1989673).
+In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure. The versions of RHEL that are covered in this article are 6.7+ and 7.1+. The hypervisors for preparation that are covered in this article are Hyper-V, kernel-based virtual machine (KVM), and VMware. For more information about eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
 
 ## Prepare a Red Hat-based virtual machine from Hyper-V Manager
 
@@ -35,7 +35,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 * Kernel support for mounting Universal Disk Format (UDF) file systems is required. At first boot on Azure, the UDF-formatted media that is attached to the guest passes the provisioning configuration to the Linux virtual machine. The Azure Linux Agent must be able to mount the UDF file system to read its configuration and provision the virtual machine.
 * Versions of the Linux kernel that are earlier than 2.6.37 do not support non-uniform memory access (NUMA) on Hyper-V with larger virtual machine sizes. This issue primarily impacts older distributions that use the upstream Red Hat 2.6.32 kernel and was fixed in RHEL 6.6 (kernel-2.6.32-504). Systems that run custom kernels that are older than 2.6.37 or RHEL-based kernels that are older than 2.6.32-504 must set the `numa=off` boot parameter on the kernel command line in grub.conf. For more information, see Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Do not configure a swap partition on the operating system disk. The Linux Agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the following steps.
-* All VHDs must have sizes that are multiples of 1 MB.
+* All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. More details can be found in the steps below. See also [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
 ### Prepare a RHEL 6 virtual machine from Hyper-V Manager
 
@@ -340,24 +340,33 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 19. Convert the qcow2 image to the VHD format.
 
+> [!NOTE]
+> There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
+
+
 	First convert the image to raw format:
 
-		# qemu-img convert -f qcow2 -O raw rhel-6.8.qcow2 rhel-6.8.raw
+		# qemu-img convert -f qcow2 -O raw rhel-6.9.qcow2 rhel-6.9.raw
 
 	Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
 		# MB=$((1024*1024))
-		# size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+		# size=$(qemu-img info -f raw --output json "rhel-6.9.raw" | \
 		  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
 		# rounded_size=$((($size/$MB + 1)*$MB))
-		# qemu-img resize rhel-6.8.raw $rounded_size
+		# qemu-img resize rhel-6.9.raw $rounded_size
 
 	Convert the raw disk to a fixed-sized VHD:
 
-		# qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.8.raw rhel-6.8.vhd
+		# qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.9.raw rhel-6.9.vhd
 
+	Or, with qemu version **2.6+** include the `force_size` option:
 
+		# qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
+
+		
 ### Prepare a RHEL 7 virtual machine from KVM
 
 1. Download the KVM image of RHEL 7 from the Red Hat website. This procedure uses RHEL 7 as the example.
@@ -480,22 +489,32 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 19. Convert the qcow2 image to the VHD format.
 
+> [!NOTE]
+> There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
+
+
 	First convert the image to raw format:
 
-		# qemu-img convert -f qcow2 -O raw rhel-7.3.qcow2 rhel-7.3.raw
+		# qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
 
 	Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
 		# MB=$((1024*1024))
-		# size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+		# size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
 		  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
 		# rounded_size=$((($size/$MB + 1)*$MB))
-		# qemu-img resize rhel-6.8.raw $rounded_size
+		# qemu-img resize rhel-7.4.raw $rounded_size
 
 	Convert the raw disk to a fixed-sized VHD:
 
-		# qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.3.raw rhel-7.3.vhd
+		# qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+
+	Or, with qemu version **2.6+** include the `force_size` option:
+
+		# qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+
 
 ## Prepare a Red Hat-based virtual machine from VMware
 ### Prerequisites
@@ -597,22 +616,32 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 15. Shut down the virtual machine, and convert the VMDK file to a .vhd file.
 
+> [!NOTE]
+> There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
+
+
 	First convert the image to raw format:
 
-		# qemu-img convert -f vmdk -O raw rhel-6.8.vmdk rhel-6.8.raw
+		# qemu-img convert -f vmdk -O raw rhel-6.9.vmdk rhel-6.9.raw
 
 	Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
 		# MB=$((1024*1024))
-		# size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+		# size=$(qemu-img info -f raw --output json "rhel-6.9.raw" | \
 		  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
 		# rounded_size=$((($size/$MB + 1)*$MB))
-		# qemu-img resize rhel-6.8.raw $rounded_size
+		# qemu-img resize rhel-6.9.raw $rounded_size
 
 	Convert the raw disk to a fixed-sized VHD:
 
-		# qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.8.raw rhel-6.8.vhd
+		# qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.9.raw rhel-6.9.vhd
+
+	Or, with qemu version **2.6+** include the `force_size` option:
+
+		# qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
+
 
 ### Prepare a RHEL 7 virtual machine from VMware
 1. Create or edit the `/etc/sysconfig/network` file, and add the following text:
@@ -701,22 +730,32 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 14. Shut down the virtual machine, and convert the VMDK file to the VHD format.
 
+> [!NOTE]
+> There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
+
+
 	First convert the image to raw format:
 
-		# qemu-img convert -f vmdk -O raw rhel-7.3.vmdk rhel-7.3.raw
+		# qemu-img convert -f vmdk -O raw rhel-7.4.vmdk rhel-7.4.raw
 
 	Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
 		# MB=$((1024*1024))
-		# size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+		# size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
 		  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
 		# rounded_size=$((($size/$MB + 1)*$MB))
-		# qemu-img resize rhel-6.8.raw $rounded_size
+		# qemu-img resize rhel-7.4.raw $rounded_size
 
 	Convert the raw disk to a fixed-sized VHD:
 
-		# qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.3.raw rhel-7.3.vhd
+		# qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+
+	Or, with qemu version **2.6+** include the `force_size` option:
+
+		# qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+
 
 ## Prepare a Red Hat-based virtual machine from an ISO by using a kickstart file automatically
 ### Prepare a RHEL 7 virtual machine from a kickstart file
@@ -880,6 +919,6 @@ Rebuild initramfs:
 For more details, see the information about [rebuilding initramfs](https://access.redhat.com/solutions/1958).
 
 ## Next steps
-You're now ready to use your Red Hat Enterprise Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see steps 2 and 3 in [Creating and uploading a virtual hard disk that contains the Linux operating system](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+You're now ready to use your Red Hat Enterprise Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
 
 For more details about the hypervisors that are certified to run Red Hat Enterprise Linux, see [the Red Hat website](https://access.redhat.com/certified-hypervisors).

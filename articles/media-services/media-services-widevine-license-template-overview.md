@@ -1,8 +1,8 @@
 ---
 title: Widevine license template overview | Microsoft Docs
-description: This topic gives an overview of a Widevine license template that used to configure Widevine licenses.
+description: This topic gives an overview of a Widevine license template that is used to configure Widevine licenses.
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -18,13 +18,12 @@ ms.author: juliako
 
 ---
 # Widevine license template overview
-## Overview
-Azure Media Services now enables you to configure and request Widevine licenses. When the end user player tries to play your Widevine protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.
+You can use Azure Media Services to configure and request Google Widevine licenses. When the player tries to play your Widevine-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, the service issues the license. It's sent to the client and is used to decrypt and play the specified content.
 
-Widevine license request is formatted as a JSON message.  
+A Widevine license request is formatted as a JSON message.  
 
 >[!NOTE]
-> You can choose to create an empty message with no values just "{}" and a license template will be created with all defaults. The default works for most cases. For example, for MS based license delivery scenarios that should always be default. If you do need to set the "provider" and "content_id" values, a provider must match Google's Widevine credentials.
+> You can create an empty message with no values, just "{}." Then a license template is created with defaults. The default works for most cases. Microsoft-based license-delivery scenarios should always use the defaults. If you need to set the "provider" and "content_id" values, a provider must match Widevine credentials.
 
     {  
        “payload”:“<license challenge>”,
@@ -58,57 +57,57 @@ Widevine license request is formatted as a JSON message.
 ## JSON message
 | Name | Value | Description |
 | --- | --- | --- |
-| payload |Base64 encoded string |The license request sent by a client. |
-| content_id |Base64 encoded string |Identifier used to derive KeyId(s) and Content Key(s) for each content_key_specs.track_type. |
-| provider |string |Used to look up content keys and policies. If MS key delivery is used for Widevine license delivery, this parameter is ignored. |
-| policy_name |string |Name of a previously registered policy. Optional |
-| allowed_track_types |enum |SD_ONLY or SD_HD. Controls which content keys should be included in a license |
-| content_key_specs |array of JSON structures, see **Content Key Specs** below |A finer grained control on what content keys to return. See Content Key Spec below for details.  Only one of allowed_track_types and content_key_specs can be specified. |
-| use_policy_overrides_exclusively |boolean. true or false |Use policy attributes specified by policy_overrides and omit all previously stored policy. |
-| policy_overrides |JSON structure, see **Policy Overrides** below |Policy settings for this license.  In the event this asset has a pre-defined policy, these specified values will be used. |
-| session_init |JSON structure, see **Session Initialization** below |Optional data passed to license. |
-| parse_only |boolean. true or false |The license request is parsed but no license is issued. However, values form the license request are returned in the response. |
+| payload |Base64-encoded string |The license request sent by a client. |
+| content_id |Base64-encoded string |Identifier used to derive the key ID and content key for each content_key_specs.track_type. |
+| provider |string |Used to look up content keys and policies. If Microsoft key delivery is used for Widevine license delivery, this parameter is ignored. |
+| policy_name |string |Name of a previously registered policy. Optional. |
+| allowed_track_types |enum |SD_ONLY or SD_HD. Controls which content keys are included in a license. |
+| content_key_specs |Array of JSON structures, see the section "Content key specs."  |A finer-grained control on which content keys to return. For more information, see the section "Content key specs." Only one of the allowed_track_types and content_key_specs values can be specified. |
+| use_policy_overrides_exclusively |Boolean, true or false |Use policy attributes specified by policy_overrides, and omit all previously stored policy. |
+| policy_overrides |JSON structure, see the section "Policy overrides." |Policy settings for this license.  In the event this asset has a predefined policy, these specified values are used. |
+| session_init |JSON structure, see the section "Session initialization." |Optional data is passed to the license. |
+| parse_only |Boolean, true or false |The license request is parsed, but no license is issued. However, values from the license request are returned in the response. |
 
-## Content Key Specs
-If a pre-existing policy exist, there is no need to specify any of the values in the Content Key Spec.  The pre-existing policy associated with this content will be used to determine the output protection such as HDCP and CGMS.  If a pre-existing policy is not registered with the Widevine License Server, the content provider can inject the values into the license request.   
+## Content key specs
+If a preexisting policy exists, there is no need to specify any of the values in the content key spec. The preexisting policy associated with this content is used to determine the output protection, such as High-bandwidth Digital Content Protection (HDCP) and the Copy General Management System (CGMS). If a preexisting policy isn't registered with the Widevine license server, the content provider can inject the values into the license request.   
 
-Each content_key_specs must be specified for all tracks, regardless of the option use_policy_overrides_exclusively. 
+Each content_key_specs value must be specified for all tracks, regardless of the use_policy_overrides_exclusively option. 
 
 | Name | Value | Description |
 | --- | --- | --- |
-| content_key_specs. track_type |string |A track type name. If content_key_specs is specified in the license request, make sure to specify all track types explicitly. Failure to do so will result in failure to playback past 10 seconds. |
-| content_key_specs  <br/> security_level |uint32 |Defines client robustness requirements for playback. <br/> 1 - Software-based whitebox crypto is required. <br/> 2 - Software crypto and an obfuscated decoder is required. <br/> 3 - The key material and crypto operations must be performed within a hardware backed trusted execution environment. <br/> 4 - The crypto and decoding of content must be performed within a hardware backed trusted execution environment.  <br/> 5 - The crypto, decoding and all handling of the media (compressed and uncompressed) must be handled within a hardware backed trusted execution environment. |
-| content_key_specs <br/> required_output_protection.hdc |string - one of: HDCP_NONE, HDCP_V1, HDCP_V2 |Indicates whether HDCP is require |
-| content_key_specs <br/>key |Base64 <br/>encoded string |Content key to use for this track. If specified, the track_type or key_id is required.  This option allows the content provider to inject the content key for this track instead of letting Widevine license server generate or lookup a key. |
-| content_key_specs.key_id |Base64 encoded string  binary, 16 bytes |Unique identifier for the key. |
+| content_key_specs. track_type |string |A track type name. If content_key_specs is specified in the license request, make sure to specify all track types explicitly. Failure to do so results in failure to play back past 10 seconds. |
+| content_key_specs  <br/> security_level |uint32 |Defines client robustness requirements for playback. <br/> - Software-based white-box cryptography is required. <br/> - Software cryptography and an obfuscated decoder are required. <br/> - The key material and cryptography operations must be performed within a hardware-backed trusted execution environment. <br/> - The cryptography and decoding of content must be performed within a hardware-backed trusted execution environment.  <br/> - The cryptography, decoding, and all handling of the media (compressed and uncompressed) must be handled within a hardware-backed trusted execution environment. |
+| content_key_specs <br/> required_output_protection.hdc |string, one of HDCP_NONE, HDCP_V1, HDCP_V2 |Indicates whether HDCP is required. |
+| content_key_specs <br/>key |Base64-<br/>encoded string |Content key to use for this track. If specified, the track_type or key_id is required. The content provider can use this option to inject the content key for this track instead of letting the Widevine license server generate or look up a key. |
+| content_key_specs.key_id |Base64-encoded string binary, 16 bytes |Unique identifier for the key. |
 
-## Policy Overrides
+## Policy overrides
 | Name | Value | Description |
 | --- | --- | --- |
-| policy_overrides. can_play |boolean. true or false |Indicates that playback of the content is allowed. Default is false. |
-| policy_overrides. can_persist |boolean. true or false |Indicates that the license may be persisted to non-volatile storage for offline use. Default is false. |
-| policy_overrides. can_renew |boolean true or false |Indicates that renewal of this license is allowed. If true, the duration of the license can be extended by heartbeat. Default is false. |
+| policy_overrides. can_play |Boolean, true or false |Indicates that playback of the content is allowed. Default is false. |
+| policy_overrides. can_persist |Boolean, true or false |Indicates that the license might be persisted to nonvolatile storage for offline use. Default is false. |
+| policy_overrides. can_renew |Boolean, true or false |Indicates that renewal of this license is allowed. If true, the duration of the license can be extended by heartbeat. Default is false. |
 | policy_overrides. license_duration_seconds |int64 |Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0. |
 | policy_overrides. rental_duration_seconds |int64 |Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0. |
-| policy_overrides. playback_duration_seconds |int64 |The viewing window of time once playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0. |
-| policy_overrides. renewal_server_url |string |All heartbeat (renewal) requests for this license shall be directed to the specified URL. This field is only used if can_renew is true. |
-| policy_overrides. renewal_delay_seconds |int64 |How many seconds after license_start_time, before renewal is first attempted. This field is only used if can_renew is true. Default is 0 |
-| policy_overrides. renewal_retry_interval_seconds |int64 |Specifies the delay in seconds between subsequent license renewal requests, in case of failure. This field is only used if can_renew is true. |
-| policy_overrides. renewal_recovery_duration_seconds |int64 |The window of time, in which playback is allowed to continue while renewal is attempted, yet unsuccessful due to backend problems with the license server. A value of 0 indicates that there is no limit to the duration. This field is only used if can_renew is true. |
-| policy_overrides. renew_with_usage |boolean true or false |Indicates that the license shall be sent for renewal when usage is started. This field is only used if can_renew is true. |
+| policy_overrides. playback_duration_seconds |int64 |The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0. |
+| policy_overrides. renewal_server_url |string |All heartbeat (renewal) requests for this license are directed to the specified URL. This field is used only if can_renew is true. |
+| policy_overrides. renewal_delay_seconds |int64 |How many seconds after license_start_time before renewal is first attempted. This field is used only if can_renew is true. Default is 0. |
+| policy_overrides. renewal_retry_interval_seconds |int64 |Specifies the delay in seconds between subsequent license renewal requests, in case of failure. This field is used only if can_renew is true. |
+| policy_overrides. renewal_recovery_duration_seconds |int64 |The window of time in which playback can continue while renewal is attempted, yet unsuccessful due to back-end problems with the license server. A value of 0 indicates that there is no limit to the duration. This field is used only if can_renew is true. |
+| policy_overrides. renew_with_usage |Boolean, true or false |Indicates that the license is sent for renewal when usage starts. This field is used only if can_renew is true. |
 
-## Session Initialization
+## Session initialization
 | Name | Value | Description |
 | --- | --- | --- |
-| provider_session_token |Base64 encoded string |This session token is passed back in the license and will exist in subsequent renewals.  The session token will not persist beyond sessions. |
-| provider_client_token |Base64 encoded string |Client token to send back in the license response.  If the license request contains a client token, this value is ignored. The client token will persist beyond license sessions. |
-| override_provider_client_token |boolean. true or false |If false and the license request contains a client token, use the token from the request even if a client token was specified in this structure.  If true, always use the token specified in this structure. |
+| provider_session_token |Base64-encoded string |This session token is passed back in the license and exists in subsequent renewals. The session token doesn't persist beyond sessions. |
+| provider_client_token |Base64-encoded string |Client token to send back in the license response. If the license request contains a client token, this value is ignored. The client token persists beyond license sessions. |
+| override_provider_client_token |Boolean, true or false |If false and the license request contains a client token, use the token from the request even if a client token was specified in this structure. If true, always use the token specified in this structure. |
 
-## Configure your Widevine licenses using .NET types
-Media Services provides .NET APIs that let you configure your Widevine licenses. 
+## Configure your Widevine licenses by using .NET types
+Media Services provides .NET APIs that you can use to configure your Widevine licenses. 
 
 ### Classes as defined in the Media Services .NET SDK
-The following are the definitions of these types.
+The following classes are the definitions of these types:
 
     public class WidevineMessage
     {
@@ -158,7 +157,7 @@ The following are the definitions of these types.
     }
 
 ### Example
-The following example shows how to use .NET APIs to configure  a simple Widevine license.
+The following example shows how to use .NET APIs to configure a simple Widevine license:
 
     private static string ConfigureWidevineLicenseTemplate()
     {
@@ -194,5 +193,5 @@ The following example shows how to use .NET APIs to configure  a simple Widevine
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## See also
-[Using PlayReady and/or Widevine Dynamic Common Encryption](media-services-protect-with-drm.md)
+[Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md)
 

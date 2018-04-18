@@ -1,9 +1,9 @@
----
+﻿---
 title: Automate Azure Application Insights with PowerShell | Microsoft Docs
 description: Automate creating resource, alert, and availability tests in PowerShell using an Azure Resource Manager template.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
 #  Create Application Insights resources using PowerShell
@@ -201,7 +201,7 @@ To create an app resource with the Enterprise price plan, using the template abo
 * If you only want to use the default Basic price plan, you can omit the CurrentBillingFeatures resource from the template.
 * If you want to change the price plan after the component resource has been created, you can use a template that omits the "microsoft.insights/components" resource. Also, omit the `dependsOn` node from the billing resource. 
 
-To verify the updated price plan, look at the "Features+pricing" blade in the browser. **Refresh the browser view** to make sure you see the latest state.
+To verify the updated price plan, look at the **Usage and estimated costs page** blade in the browser. **Refresh the browser view** to make sure you see the latest state.
 
 
 

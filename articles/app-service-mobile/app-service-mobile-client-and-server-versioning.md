@@ -3,8 +3,8 @@ title: Client and server SDK versioning in Mobile Apps and Mobile Services | Mic
 description: List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: ''
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Client and server versioning in Mobile Apps and Mobile Services

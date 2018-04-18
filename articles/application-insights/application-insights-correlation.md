@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Application Insights Telemetry Correlation | Microsoft Docs
 description: Application Insights telemetry correlation
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
 # Telemetry correlation in Application Insights
@@ -78,7 +78,7 @@ Application Insights defines the [extension](https://github.com/lmolkova/correla
 - `dependency` maps to **Span** with `span.kind = client`
 - `id` of a `request` and `dependency` maps to **Span.Id**
 - `operation_Id` maps to **TraceId**
-- `operation_ParentId` maps to **Reference** of type `ChileOf`
+- `operation_ParentId` maps to **Reference** of type `ChildOf`
 
 See [data model](application-insights-data-model.md) for Application Insights types and data model.
 
@@ -95,7 +95,7 @@ The [guide to Activities](https://github.com/dotnet/corefx/blob/master/src/Syste
 
 ASP.NET Core 2.0 supports extraction of Http Headers and starting the new Activity. 
 
-`System.Net.HttpClient` starting version `<fill in>` supports automatic injection of the correlation Http Headers and tracking the http call as an Activity.
+`System.Net.HttpClient` starting version `4.1.0` supports automatic injection of the correlation Http Headers and tracking the http call as an Activity.
 
 There is a new Http Module [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) for the ASP.NET Classic. This module implements telemetry correlation using DiagnosticsSource. It starts activity based on incoming request headers. It also correlates telemetry from the different stages of request processing. Even for the cases when every stage of IIS processing runs on a different manage threads.
 

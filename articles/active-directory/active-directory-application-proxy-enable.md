@@ -3,8 +3,8 @@ title: Azure AD App Proxy - get started install connector| Microsoft Docs
 description:  Turn on Application Proxy in the Azure  portal, and install the Connectors for the reverse proxy.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: MarkusVi
+manager: mtillman
 
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
@@ -12,10 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
-ms.author: kgremban
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
+
 ---
 
 # Get started with Application Proxy and install the connector
@@ -52,9 +53,15 @@ To prepare your environment for Azure AD Application Proxy, you first need to en
 
 2. If your firewall or proxy allows DNS whitelisting, you can whitelist connections to msappproxy.net and servicebus.windows.net. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated each week.
 
-3. Your connector needs access to login.windows.net and login.microsoftonline.net for the registration process, so open your firewall for those URLs as well.
+3. Microsoft uses four addresses to verify certificates. Allow access to the following URLs if you haven't done so for other products:
+   * mscrl.microsoft.com:80
+   * crl.microsoft.com:80
+   * ocsp.msocsp.com:80
+   * www.microsoft.com:80
 
-4. Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency.
+4. Your connector needs access to login.windows.net and login.microsoftonline.com for the registration process.
+
+5. Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency.
 
 ## Install and register a connector
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).

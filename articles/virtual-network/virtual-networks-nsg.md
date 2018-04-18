@@ -4,7 +4,7 @@ description: Learn how to isolate and control traffic flow within your virtual n
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
@@ -20,7 +20,7 @@ ms.author: jdial
 # Filter network traffic with network security groups
 
 A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to Azure Virtual Networks (VNet). NSGs can be associated to subnets, individual VMs (classic), or individual network interfaces (NIC) attached to VMs (Resource Manager). When an NSG is associated to a subnet, the rules apply to all resources connected to the subnet. Traffic can further be restricted by also associating an NSG to a VM or NIC.
-
+ 
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using both models, but Microsoft recommends that most new deployments use the Resource Manager model.
 
@@ -45,7 +45,7 @@ NSG rules contain the following properties:
 | --- | --- | --- | --- |
 | **Name** |Name for the rule. |Must be unique within the region.<br/>Can contain letters, numbers, underscores, periods, and hyphens.<br/>Must start with a letter or number.<br/>Must end with a letter, number, or underscore.<br/>Cannot exceed 80 characters. |You may have several rules within an NSG, so make sure you follow a naming convention that allows you to identify the function of your rule. |
 | **Protocol** |Protocol to match for the rule. |TCP, UDP, or * |Using * as a protocol includes ICMP (East-West traffic only), as well as UDP and TCP, and may reduce the number of rules you need.<br/>At the same time, using * might be too broad an approach, so it's recommended that you use * only when necessary. |
-| **Source port range** |Source port range to match for the rule. |Single port number from 1 to 65535, port range (example: 1-65635), or * (for all ports). |Source ports could be ephemeral. Unless your client program is using a specific port, use * in most cases.<br/>Try to use port ranges as much as possible to avoid the need for multiple rules.<br/>Multiple ports or port ranges cannot be grouped by a comma. |
+| **Source port range** |Source port range to match for the rule. |Single port number from 1 to 65535, port range (example: 1-65535), or * (for all ports). |Source ports could be ephemeral. Unless your client program is using a specific port, use * in most cases.<br/>Try to use port ranges as much as possible to avoid the need for multiple rules.<br/>Multiple ports or port ranges cannot be grouped by a comma. |
 | **Destination port range** |Destination port range to match for the rule. |Single port number from 1 to 65535, port range (example: 1-65535), or \* (for all ports). |Try to use port ranges as much as possible to avoid the need for multiple rules.<br/>Multiple ports or port ranges cannot be grouped by a comma. |
 | **Source address prefix** |Source address prefix or tag to match for the rule. |Single IP address (example: 10.10.10.10), IP subnet (example: 192.168.1.0/24), [default tag](#default-tags), or * (for all addresses). |Consider using ranges, default tags, and * to reduce the number of rules. |
 | **Destination address prefix** |Destination address prefix or tag to match for the rule. | Single IP address (example: 10.10.10.10), IP subnet (example: 192.168.1.0/24), [default tag](#default-tags), or * (for all addresses). |Consider using ranges, default tags, and * to reduce the number of rules. |
@@ -63,7 +63,7 @@ The previous picture shows how NSG rules are processed.
 Default tags are system-provided identifiers to address a category of IP addresses. You can use default tags in the **source address prefix** and **destination address prefix** properties of any rule. There are three default tags you can use:
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** for classic): This tag includes the virtual network address space (CIDR ranges defined in Azure), all connected on-premises address spaces, and connected Azure VNets (local networks).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** for classic): This tag denotes Azure’s infrastructure load balancer. The tag translates to an Azure datacenter IP where Azure’s health probes originate.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** for classic): This tag denotes Azure’s infrastructure load balancer. The tag translates to an Azure datacenter IP where Azure Load Balancer's health probes originate.
 * **Internet** (Resource Manager) (**INTERNET** for classic): This tag denotes the IP address space that is outside the virtual network and reachable by public Internet. The range includes the [Azure owned public IP space](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Default rules
@@ -72,7 +72,7 @@ All NSGs contain a set of default rules. The default rules cannot be deleted, bu
 The default rules allow and disallow traffic as follows:
 - **Virtual network:** Traffic originating and ending in a virtual network is allowed both in inbound and outbound directions.
 - **Internet:** Outbound traffic is allowed, but inbound traffic is blocked.
-- **Load balancer:** Allow Azure’s load balancer to probe the health of your VMs and role instances. If you are not using a load balanced set you can override this rule.
+- **Load balancer:** Allow Azure Load Balancer to probe the health of your VMs and role instances. If you override this rule, Azure Load Balancer health probes will fail which could cause impact to your service.
 
 **Inbound default rules**
 
@@ -95,7 +95,7 @@ You can associate an NSG to VMs, NICs, and subnets, depending on the deployment 
 
 * **VM (classic only):** Security rules are applied to all traffic to/from the VM. 
 * **NIC (Resource Manager only):** Security rules are applied to all traffic to/from the NIC the NSG is associated to. In a multi-NIC VM, you can apply different (or the same) NSG to each NIC individually. 
-* **Subnet (Resource Manager and classic):** Security rules are applied to any traffic to/from any resources connected to the VNet.
+* **Subnet (Resource Manager and classic):** Security rules are applied to any traffic to/from any resources connected to the Subnet.
 
 You can associate different NSGs to a VM (or NIC, depending on the deployment model) and the subnet that a NIC or VM is connected to. Security rules are applied to the traffic, by priority, in each NSG, in the following order:
 
@@ -121,9 +121,9 @@ You can implement NSGs in the Resource Manager or classic deployment models usin
 | Deployment tool | Classic | Resource Manager |
 | --- | --- | --- |
 | Azure portal   | Yes | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell     | [Yes](virtual-networks-create-nsg-classic-ps.md) | [Yes](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI **V1**   | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](virtual-networks-create-nsg-cli-nodejs.md) |
-| Azure CLI **V2**   | No | [Yes](virtual-networks-create-nsg-arm-cli.md) |
+| PowerShell     | [Yes](virtual-networks-create-nsg-classic-ps.md) | [Yes](tutorial-filter-network-traffic.md) |
+| Azure CLI **V1**   | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](tutorial-filter-network-traffic-cli.md) |
+| Azure CLI **V2**   | No | [Yes](tutorial-filter-network-traffic-cli.md) |
 | Azure Resource Manager template   | No  | [Yes](virtual-networks-create-nsg-arm-template.md) |
 
 ## Planning
@@ -160,7 +160,8 @@ The current NSG rules only allow for protocols *TCP* or *UDP*. There is not a sp
 ### Load balancers
 * Consider the load balancing and network address translation (NAT) rules for each load balancer used by each of your workloads. NAT rules are bound to a back-end pool that contains NICs (Resource Manager) or VMs/Cloud Services role instances (classic). Consider creating an NSG for each back-end pool, allowing only traffic mapped through the rules implemented in the load balancers. Creating an NSG for each back-end pool guarantees that traffic coming to the back-end pool directly (rather than through the load balancer), is also filtered.
 * In classic deployments, you create endpoints that map ports on a load balancer to ports on your VMs or role instances. You can also create your own individual public-facing load balancer through Resource Manager. The destination port for incoming traffic is the actual port in the VM or role instance, not the port exposed by a load balancer. The source port and address for the connection to the VM is a port and address on the remote computer in the Internet, not the port and address exposed by the load balancer.
-* When you create NSGs to filter traffic coming through an internal load balancer (ILB), the source port and address range applied are  from the originating computer, not the load balancer. The destination port and address range are those of the destination computer, not the load balancer.
+* When you create NSGs to filter traffic coming through an Azure Load Balancer, the source port and address range applied are from the originating computer, not the load balancer frontend. The destination port and address range are those of the destination computer, not the load balancer frontend.
+* If you block the AzureLoadBalancer tag, the health probes from Azure Load Balancer will fail and your service may be impacted.
 
 ### Other
 * Endpoint-based access control lists (ACL) and NSGs are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to remove an endpoint ACL, see the [Manage endpoint ACLs](virtual-networks-acl-powershell.md) article.
@@ -226,7 +227,7 @@ The following NSGs are created and associated to NICs in the following VMs:
 | Allow-Inbound-HTTP-Internet | Allow | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> The source address range for the previous rules is **Internet**, not the virtual IP address of for the load balancer. The source port is *, not 500001. NAT rules for load balancers are not the same as NSG security rules. NSG security rules are always related to the original source and final destination of traffic, **not** the load balancer between the two. 
+> The source address range for the previous rules is **Internet**, not the virtual IP address of for the load balancer. The source port is *, not 500001. NAT rules for load balancers are not the same as NSG security rules. NSG security rules are always related to the original source and final destination of traffic, **not** the load balancer between the two. Azure Load Balancer always preserves the source IP address and port.
 > 
 > 
 

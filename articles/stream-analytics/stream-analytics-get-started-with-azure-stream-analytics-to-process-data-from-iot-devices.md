@@ -1,22 +1,14 @@
 ---
-title: IoT real-time data streams and Azure Stream Analytics | Microsoft Docs
+title: IoT real-time data streams using Azure Stream Analytics
 description: IoT sensor tags and data streams with stream analytics and real-time data processing
-keywords: iot solution, get started with iot
 services: stream-analytics
-documentationcenter: ''
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-
 ---
 # Get started with Azure Stream Analytics to process data from IoT devices
 In this tutorial, you will learn how to create stream-processing logic to gather data from Internet of Things (IoT) devices. We will use a real-world, Internet of Things (IoT) use case to demonstrate how to build your solution quickly and economically.
@@ -28,11 +20,7 @@ In this tutorial, you will learn how to create stream-processing logic to gather
 ## Scenario
 Contoso, which is a company in the industrial automation space, has completely automated its manufacturing process. The machinery in this plant has sensors that are capable of emitting streams of data in real time. In this scenario, a production floor manager wants to have real-time insights from the sensor data to look for patterns and take actions on them. We will use the Stream Analytics Query Language (SAQL) over the sensor data to find interesting patterns from the incoming stream of data.
 
-Here data is being generated from a Texas Instruments sensor tag device.
-
-![Texas Instruments sensor tag](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
-
-The payload of the data is in JSON format and looks like the following:
+Here data is being generated from a Texas Instruments sensor tag device. The payload of the data is in JSON format and looks like the following:
 
     {
         "time": "2016-01-26T20:47:53.0000000",  
@@ -65,7 +53,7 @@ For ease of use, this getting started guide provides a sample data file, which w
    
     ![job creation in progress](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-### Create an Azure Stream Analytics query
+## Create an Azure Stream Analytics query
 After your job is created it's time to open it and build a query. You can easily access your job by clicking the tile for it.
 
 ![Job tile](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
@@ -107,7 +95,7 @@ Let's make our query more detailed. For every type of sensor, we want to monitor
 You should now see results that contain only 245 rows and names of sensors where the average temperate is greater than 100. This query groups the stream of events by **dspl**, which is the sensor name, over a **Tumbling Window** of 30 seconds. Temporal queries must state how we want time to progress. By using the **TIMESTAMP BY** clause, we have specified the **OUTPUTTIME** column to associate times with all temporal calculations. For detailed information, read the MSDN articles about [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing functions](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 ### Query: Detect absence of events
-How can we write a query to find a lack of input events? Let’s find the last time that a sensor sent data and then did not send events for the next minute. The query is in the AbsenseOfEvent.txt file.
+How can we write a query to find a lack of input events? Let’s find the last time that a sensor sent data and then did not send events for the next 5 seconds. The query is in the AbsenseOfEvent.txt file.
 
 ![Detect absence of events](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 

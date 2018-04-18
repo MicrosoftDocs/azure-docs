@@ -3,8 +3,8 @@ title: Create a Cordova app on Azure App Service Mobile Apps | Microsoft Docs
 description: Follow this tutorial to get started with using Azure mobile app backends for Apache Cordova development
 services: app-service\mobile
 documentationcenter: javascript
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 tags: ''
 keywords: cordova,javascript,mobile,client
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 07/07/2017
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Create an Apache Cordova app

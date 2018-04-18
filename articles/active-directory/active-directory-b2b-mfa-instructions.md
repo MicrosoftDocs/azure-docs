@@ -3,8 +3,8 @@ title: Conditional access for Azure Active Directory B2B collaboration users | M
 description: Azure Active Directory B2B collaboration supports multi-factor authentication (MFA) for selective access to your corporate applications
 services: active-directory
 documentationcenter: ''
-author: sasubram
-manager: femila
+author: twooley
+manager: mtillman
 editor: ''
 tags: ''
 
@@ -14,8 +14,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/24/2017
-ms.author: sasubram
+ms.date: 09/11/2017
+ms.author: twooley
+ms.reviewer: sasubram
 
 ---
 
@@ -61,7 +62,7 @@ Currently, the admin can require B2B collaboration users to proof up again only 
   Here is an example:
 
   ```
-  PS C:\Users\tjwasserGet-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+  Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
   ```
 
 3. Reset the MFA method for a specific user to require the B2B collaboration user to set proof-up methods again. Example:
@@ -116,4 +117,4 @@ Browse our other articles on Azure AD B2B collaboration:
 * [Azure Active Directory B2B collaboration frequently asked questions (FAQ)](active-directory-b2b-faq.md)
 * [Azure Active Directory B2B collaboration API and customization](active-directory-b2b-api.md)
 * [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+* [Article index for application management in Azure Active Directory](active-directory-apps-index.md)

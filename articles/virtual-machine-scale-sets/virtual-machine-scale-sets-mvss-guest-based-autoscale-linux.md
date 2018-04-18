@@ -4,7 +4,7 @@ description: Learn how to autoscale using guest metrics in a Linux Virtual Machi
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -20,13 +20,15 @@ ms.author: negat
 
 # Autoscale using guest metrics in a Linux scale set template
 
-There are two types of metrics in Azure that are gathered from VMs and scale sets: some come from the host VM and others come from the guest VM. Host metrics do not require additional setup because they are collected by the host VM, whereas guest metrics require us to install the [Windows Azure Diagnostics extension](../virtual-machines/windows/extensions-diagnostics-template.md) or the [Linux Azure Diagnostics extension](../virtual-machines/linux/diagnostic-extension.md) in the guest VM. One common reason to use guest metrics instead of host metrics is that guest metrics provide a larger selection of metrics than host metrics. One such example is memory-consumption metrics, which are only available via guest metrics. The supported host metrics are listed [here](../monitoring-and-diagnostics/monitoring-supported-metrics.md), and commonly used guest metrics are listed [here](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). This article shows how to modify the [minimum viable scale set template](./virtual-machine-scale-sets-mvss-start.md) to use autoscale rules based on guest metrics for Linux scale sets.
+There are two types of metrics in Azure that are gathered from VMs and scale sets: some come from the host VM and others come from the guest VM. At a high level, if you are using standard CPU, disk, and network metrics, then host metrics are probably a good fit. If, however, you need a larger selection of metrics, then guest metrics are probably a better fit. Let's take a look at the differences between the two:
+
+Host metrics are simpler and more reliable. They do not require additional setup because they are collected by the host VM, whereas guest metrics require you to install the [Windows Azure Diagnostics extension](../virtual-machines/windows/extensions-diagnostics-template.md) or the [Linux Azure Diagnostics extension](../virtual-machines/linux/diagnostic-extension.md) in the guest VM. One common reason to use guest metrics instead of host metrics is that guest metrics provide a larger selection of metrics than host metrics. One such example is memory-consumption metrics, which are only available via guest metrics. The supported host metrics are listed [here](../monitoring-and-diagnostics/monitoring-supported-metrics.md), and commonly used guest metrics are listed [here](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). This article shows how to modify the [minimum viable scale set template](./virtual-machine-scale-sets-mvss-start.md) to use autoscale rules based on guest metrics for Linux scale sets.
 
 ## Change the template definition
 
-Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and our template for deploying the Linux scale set with guest-based autoscale can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json). Let's examine the diff used to create this template (`git diff minimum-viable-scale-set existing-vnet`) piece by piece:
+The minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and the template for deploying the Linux scale set with guest-based autoscale can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json). Let's examine the diff used to create this template (`git diff minimum-viable-scale-set existing-vnet`) piece by piece:
 
-First, we add parameters for `storageAccountName` and `storageAccountSasToken`. The diagnostics agent will store metric data in a [table](../storage/storage-dotnet-how-to-use-tables.md) in this storage account. As of the Linux Diagnostics Agent version 3.0, using a storage access key is no longer supported. We must use a [SAS Token](../storage/storage-dotnet-shared-access-signature-part-1.md).
+First, add parameters for `storageAccountName` and `storageAccountSasToken`. The diagnostics agent stores metric data in a [table](../cosmos-db/table-storage-how-to-use-dotnet.md) in this storage account. As of the Linux Diagnostics Agent version 3.0, using a storage access key is no longer supported. Instead, use a [SAS Token](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },
@@ -42,7 +44,7 @@ First, we add parameters for `storageAccountName` and `storageAccountSasToken`. 
    },
 ```
 
-Next, we modify the scale set `extensionProfile` to include the diagnostics extension. In this configuration, we specify the resource ID of the scale set to collect metrics from, as well as the storage account and SAS token to use to store the metrics. We also specify how frequently the metrics are aggregated (in this case every minute) and which metrics to track (in this case percent used memory). For more detailed information on this configuration and metrics other than percent used memory, see [this documentation](../virtual-machines/linux/diagnostic-extension.md).
+Next, modify the scale set `extensionProfile` to include the diagnostics extension. In this configuration, specify the resource ID of the scale set to collect metrics from, as well as the storage account and SAS token to use to store the metrics. Specify how frequently the metrics are aggregated (in this case, every minute) and which metrics to track (in this case, percent used memory). For more detailed information on this configuration and metrics other than percent used memory, see [this documentation](../virtual-machines/linux/diagnostic-extension.md).
 
 ```diff
                  }
@@ -105,7 +107,7 @@ Next, we modify the scale set `extensionProfile` to include the diagnostics exte
        }
 ```
 
-Finally, we add an `autoscaleSettings` resource to configure autoscale based on these metrics. This resource has a `dependsOn` clause that references the scale set to ensure that the scale set exists before attempting to autoscale it. If we choose a different metric to autoscale on, we would use the `counterSpecifier` from the diagnostics extension configuration as the `metricName` in the autoscale configuration. For more information on autoscale configuration, see the [autoscale best practices](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) and the [Azure Monitor REST API reference documentation](https://msdn.microsoft.com/library/azure/dn931928.aspx).
+Finally, add an `autoscaleSettings` resource to configure autoscale based on these metrics. This resource has a `dependsOn` clause that references the scale set to ensure that the scale set exists before attempting to autoscale it. If you choose a different metric to autoscale on, you would use the `counterSpecifier` from the diagnostics extension configuration as the `metricName` in the autoscale configuration. For more information on autoscale configuration, see the [autoscale best practices](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) and the [Azure Monitor REST API reference documentation](https://msdn.microsoft.com/library/azure/dn931928.aspx).
 
 ```diff
 +    },

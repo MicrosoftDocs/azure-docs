@@ -2,21 +2,21 @@
 title: Computer Vision API C# tutorial | Microsoft Docs
 description: Explore a basic Windows app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
-author: JuliaNik
-manager: ytkuo
+author: KellyDF
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: juliakuz
+ms.author: kefre
 ---
 
 # Computer Vision API C&#35; Tutorial
 
 Explore a basic Windows application that uses Computer Vision API to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag and describe visual features, including faces, in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Vision API and WPF (Windows Presentation Foundation), a part of .NET Framework.
 
-### <a name="Prerequisites">Prerequisites</a>
+### Prerequisites
 
 #### Platform requirements
 

@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: API Management documentation
+metadata:
+  title: Azure API Management documentation - Tutorials, API Reference | Microsoft Docs
+  description: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Tutorials, API references, and other documentation show you how to create and manage modern API gateways for existing back-end services hosted anywhere.
+  services: api-management
+  author: czeumault
+  manager: carolz
+  ms.service: api-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/15/2017
+  ms.author: carolz
+abstract:
+  description: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Tutorials, API references, and other documentation show you how to create and manage modern API gateways for existing back-end services hosted anywhere.
+sections:
+- title: 5-minute quickstarts
+  items:
+  - type: paragraph
+    text: Create an API Management instance.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
+      text: Create an instance - Portal
+      href: /azure/api-management/get-started-create-service-instance
+    - image: 
+        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
+      text: Create an instance - PowerShell
+      href: /azure/api-management/powershell-create-service-instance
+- title: Step-by-step tutorials
+  items:
+  - type: paragraph
+    text: Learn how to manage API Management.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/api-management/import-and-publish">Import and publish your first API</a>
+    - html: <a href="/azure/api-management/api-management-howto-add-products">Create and publish a product</a>
+    - html: <a href="/azure/api-management/mock-api-responses">Mock API responses</a>
+    - html: <a href="/azure/api-management/transform-api">Transform and protect your API</a>
+    - html: <a href="/azure/api-management/api-management-howto-use-azure-monitor">Monitor published APIs</a>
+    - html: <a href="/azure/api-management/api-management-howto-api-inspector">Debug your APIs using request tracing</a>
+    - html: <a href="/azure/api-management/api-management-get-started-revise-api">Use revisions to make non-breaking changes safely</a>
+    - html: <a href="/azure/api-management/api-management-get-started-publish-versions">Publish multiple versions of your API</a>
+    - html: <a href="/azure/api-management/api-management-customize-styles">Customize the style of the Developer portal pages</a>
+- title: Samples
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/api-management/policy-samples">Policy</a>
+    - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>

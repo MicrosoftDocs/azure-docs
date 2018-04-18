@@ -4,7 +4,7 @@ description: This topic explains how to use setRuntimeProperties to use multiple
 services: media-services
 documentationcenter: ''
 author: xpouyat
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 7fb35bdd-9891-4401-a65b-ef3cc8190e8a
@@ -44,7 +44,7 @@ The configuration string to set in the encoding task uses an XML document that l
 
 The following is the C# code that reads the XML configuration from a file, update it with the right video filename and passes it to the task in a job:
 
-```c#
+```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
 
 // Declare a new job.
@@ -412,7 +412,7 @@ Then, paste the following XML data. You need to specify the name of the video fi
 
 If you use the .NET SDK to create and run the task, this XML data has to be passed as the configuration string.
 
-```c#
+```csharp
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 
@@ -466,7 +466,7 @@ To encode, please follow these steps:
 * [How to use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Encoding on-demand content with Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Media Encoder Premium Workflow formats and codecs](media-services-premium-workflow-encoder-formats.md)
-* [Sample workflow files](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
+* [Sample workflow files](https://github.com/Azure/azure-media-services-samples)
 * [Azure Media Services Explorer tool](http://aka.ms/amse)
 
 ## Media Services learning paths

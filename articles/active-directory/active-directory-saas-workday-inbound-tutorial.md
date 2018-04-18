@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory and Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Workday for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to use Workday as source of identity data for Active Directory and Azure Active Directory.
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
 
 ---
-# Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory and Azure Active Directory
+# Tutorial: Configure Workday for automatic user provisioning
+
 The objective of this tutorial is to show you the steps you need to perform to import people from Workday into both Active Directory and Azure Active Directory, with optional writeback of some attributes to Workday. 
 
 
@@ -31,17 +32,31 @@ The [Azure Active Directory user provisioning service](active-directory-saas-app
 
 * **Writeback of email addresses to Workday** - the Azure AD user provisioning service can write selected Azure AD user attributes back to Workday, such as the email address.
 
-### Scenarios covered
+### What human resources scenarios does it cover?
 
-The Workday user provisioning workflows supported by the Azure AD user provisioning service enables automation of the following human resources and identity lifecycle management scenarios:
+The Workday user provisioning workflows supported by the Azure AD user provisioning service enable automation of the following human resources and identity lifecycle management scenarios:
 
-* **Hiring new employees** - When a new employee is added to Workday, a user account will be automatically created in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md), with write back of the email address to Workday.
+* **Hiring new employees** - When a new employee is added to Workday, a user account will be automatically created in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md), with write-back of the email address to Workday.
 
 * **Employee attribute and profile updates** - When an employee record is updated in Workday (such as their name, title, or manager), their user account will be automatically updated in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md).
 
 * **Employee terminations** - When an employee is terminated in Workday, their user account is automatically disabled in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md).
 
 * **Employee re-hires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md).
+
+### Who is this user provisioning solution best suited for?
+
+This Workday user provisioning solution is presently in public preview, and is ideally suited for:
+
+* Organizations that desire a pre-built, cloud-based solution for Workday user provisioning
+
+* Organizations that require direct user provisioning from Workday to Active Directory, or Azure Active Directory
+
+* Organizations that require users to be provisioned using data obtained from the Workday HCM module (see [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)) 
+
+* Organizations that require joining, moving, and leaving users to be synced to one or more Active Directory Forests, Domains, and OUs based only on change information detected in the Workday HCM module (see [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
+
+* Organizations using Office 365 for email
 
 
 ## Planning your solution
@@ -58,13 +73,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * For user provisioning to Active Directory, a domain-joined server running Windows Service 2012 or greater is required to host the [on-premises synchronization agent](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](connect/active-directory-aadconnect.md) for synchronizing between Active Directory and Azure AD
 
-> [!NOTE]
-> If your Azure AD tenant is located in Europe, please see the [Known issues](#known-issues) section below.
-
-
 ### Solution architecture
 
-Azure AD provides a rich set of provisioning connectors to help you solve provisioning and identity lifecycle management from Workday to Active Directory, Azure AD, SaaS apps, and beyond. Which features you will use and how you set up the solution will vary depending on your organization's environment and requirements. As a first step, take stock of how many of the following are present and deployed in your organization:
+Azure AD provides a rich set of provisioning connectors to help you solve provisioning and identity life cycle management from Workday to Active Directory, Azure AD, SaaS apps, and beyond. Which features you will use and how you set up the solution will vary depending on your organization's environment and requirements. As a first step, take stock of how many of the following are present and deployed in your organization:
 
 * How many Active Directory Forests are in use?
 * How many Active Directory Domains are in use?
@@ -74,13 +85,14 @@ Azure AD provides a rich set of provisioning connectors to help you solve provis
 * Are there users who need to be provisioned to Azure Active Directory, but not Active Directory (e.g. "cloud-only" users)?
 * Do user email addresses need to be written back to Workday?
 
+
 Once you have answers to these questions, you can plan your Workday provisioning deployment by following the guidance below.
 
 #### Using provisioning connector apps
 
 Azure Active Directory supports pre-integrated provisioning connectors for Workday and a large number of other SaaS applications. 
 
-A single provisioning connector interfaces with the API of a single source system, and helps provision data to a single target system. Most provisioning connectors that Azure AD supports are for a single source and target system (e.g. Azure AD to ServiceNow), and can be setup by simply adding the app in question from the Azure AD app gallery (e.g. ServiceNow). 
+A single provisioning connector interfaces with the API of a single source system, and helps provision data to a single target system. Most provisioning connectors that Azure AD supports are for a single source and target system (e.g. Azure AD to ServiceNow), and can be set up by adding the app in question from the Azure AD app gallery (e.g. ServiceNow). 
 
 There is a one-to-one relationship between provisioning connector instances and app instances in Azure AD:
 
@@ -143,7 +155,7 @@ You need to create an unconstrained integration system security group and assign
    
     ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity Group")
 2. Complete the **Create Security Group** task.  
-3. Select Integration System Security Group—Unconstrained from the **Type of Tenanted Security Group** dropdown.
+3. Select **Integration System Security Group (Unconstrained)** from the **Type of Tenanted Security Group** dropdown.
 4. Create a security group to which members will be explicitly added. 
    
     ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity Group")
@@ -163,17 +175,11 @@ You need to create an unconstrained integration system security group and assign
     ![System Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "System Security Group")  
 
 ### Configure security group options
-In this step, you grant to the new security group permissions for **Get** and **Put** operations on the objects secured by the following domain security policies:
-
-* External Account Provisioning
-* Worker Data: Public Worker Reports
-* Worker Data: All Positions
-* Worker Data: Current Staffing Information
-* Worker Data: Business Title on Worker Profile
+In this step, you'll grant domain security policy permissions for the worker data to the security group.
 
 **To configure security group options:**
 
-1. Enter domain security policies in the search box, and then click on the link **Domain Security Policies for Functional Area**.  
+1. Enter **Domain Security Policies** in the search box, and then click on the link **Domain Security Policies for Functional Area**.  
    
     ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Domain Security Policies")  
 2. Search for system and select the **System** functional area.  Click **OK**.  
@@ -182,30 +188,20 @@ In this step, you grant to the new security group permissions for **Get** and **
 3. In the list of security policies for the System functional area, expand **Security Administration** and select the domain security policy **External Account Provisioning**.  
    
     ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Domain Security Policies")  
-4. Click **Edit Permissions**, and then, on the **Edit Permissions**dialog page, add the new security group to the list of security groups with **Get** and **Put** integration permissions. 
+4. Click **Edit Permissions**, and then, on the **Edit Permissions** dialog page, add the new security group to the list of security groups with **Get** and **Put** integration permissions. 
    
     ![Edit Permission](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Edit Permission")  
-5. Repeat step 1 above to return to the screen for selecting functional areas, and this time, search for staffing, select the **Staffing functional area** and click **OK**.
+	
+5. Repeat steps 1-4 above for each of these remaining security policies:
+
+| Operation | Domain Security Policy |
+| ---------- | ---------- | 
+| Get and Put | Worker Data: Public Worker Reports |
+| Get and Put | Worker Data: Work Contact Information |
+| Get | Worker Data: All Positions |
+| Get | Worker Data: Current Staffing Information |
+| Get | Worker Data: Business Title on Worker Profile |
    
-    ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "Domain Security Policies")  
-6. In the list of security policies for the Staffing functional area, expand **Worker Data: Staffing** and repeat step 4 above for each of these remaining security policies:
-
-   * Worker Data: Public Worker Reports
-   * Worker Data: All Positions
-   * Worker Data: Current Staffing Information
-   * Worker Data: Business Title on Worker Profile
-   
-7. Repeat step 1, above, to return to the screen for selecting
-    functional areas, and this time, search for **Contact Information**,
-    select the Staffing functional area, and click **OK**.
-
-8.  In the list of security policies for the Staffing functional area,
-    expand **Worker Data: Work Contact Information**, and repeat step 4
-    above for the security policies below:
-
-    * Worker Data: Work Email
-
-    ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "Domain Security Policies")  
     
 ### Activate security policy changes
 
@@ -224,6 +220,41 @@ In this step, you grant to the new security group permissions for **Get** and **
 ## Configuring user provisioning from Workday to Active Directory
 Follow these instructions to configure user account provisioning from Workday to each Active Directory forest that you require provisioning to.
 
+### Planning
+
+Before configuring user provisioning to an Active Directory forest, consider the following questions. The answers to these questions will determine how your scoping filters and attribute mappings need to be set. 
+
+* **What users in Workday need to be provisioned to this Active Directory forest?**
+
+   * *Example: Users where the Workday "Company" attribute contains the value "Contoso", and the "Worker_Type" attribute contains "Regular"*
+
+* **How are users routed into different organization units (OUs)?**
+
+   * *Example: Users are routed to OUs that correspond to an office location, as defined in the Workday "Municipality" and "Country_Region_Reference" attributes*
+
+* **How should the following attributes be populated in the Active Directory?**
+
+   * Common Name (cn)
+      * *Example: Use the Workday User_ID value, as set by human resources*
+	  
+   * Employee ID (employeeId)
+      * *Example: Use the Workday Worker_ID value*
+	  
+   * SAM Account Name (sAMAccountName)
+      * *Example: Use the Workday User_ID value, filtered through an Azure AD provisioning expression to remove illegal characters*
+	  
+   * User Principal Name (userPrincipalName)
+      * *Example: Use the Workday User_ID value, with an Azure AD provisioning expression to append a domain name*
+
+* **How should users be matched between Workday and Active Directory?**
+
+  * *Example: Users with a specific Workday "Worker_ID" value are matched with Active Directory users where "employeeID" has the same value. If the Worker_ID value is not found in Active Directory, then create a new user.*
+  
+* **Does the Active Directory forest already contain the user IDs required for the matching logic to work?**
+
+  * *Example: If this is a new Workday deployment, it is strongly recommended that Active Directory be pre-populated with the correct Workday Worker_ID values (or unique ID value of choice) to keep the matching logic as simple as possible.*
+	
+	
 ### Part 1: Adding the provisioning connector app and creating the connection to Workday
 
 **To configure Workday to Active Directory provisioning:**
@@ -325,7 +356,7 @@ Active Directory.
                 attributes. [For more info, see this article on
                 expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-      * **Source attribute** - The user attribute from Workday.
+      * **Source attribute** - The user attribute from Workday. If the attribute you are looking for is not present, see [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
       * **Default value** – Optional. If the source attribute has
             an empty value, the mapping will write this value instead.
@@ -361,44 +392,41 @@ Active Directory.
 **Below are some example attribute mappings between Workday and Active
 Directory, with some common expressions**
 
--   The expression that maps to the parentDistinguishedName AD attribute
-    can be used to provision a user to a specific OU based on one or
-    more Workday source attributes. This example places users in
-    different OUs depending on their city data in Workday.
+-   The expression that maps to the parentDistinguishedName attribute
+    is used to provision a users to different OUs based on one or
+    more Workday source attributes. This example here places users in
+    different OUs based on what city they are in.
 
--   The expression that maps to the userPrincipalName AD attribute
-    create a UPN of firstName.LastName@contoso.com. It
-    also replaces illegal special characters.
+-   The userPrincipalName attribute in Active Directory is generated by concatenating the Workday user ID with a domain suffix
 
--   [There is documentation on writing expressions here](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+-   [There is documentation on writing expressions here](active-directory-saas-writing-expressions-for-attribute-mappings.md). This includes examples on how to remove special characters.
 
   
 | WORKDAY ATTRIBUTE | ACTIVE DIRECTORY ATTRIBUTE |  MATCHING ID? | CREATE / UPDATE |
 | ---------- | ---------- | ---------- | ---------- |
-|  **WorkerID**  |  EmployeeID | **Yes** | Written on create only | 
-|  **Municipality**   |   l   |     | Create + update |
-|  **Company**         | company   |     |  Create + update |
-|  **CountryReferenceTwoLetter**      |   co |     |   Create + update |
-| **CountryReferenceTwoLetter**    |  c  |     |         Create + update |
-| **SupervisoryOrganization**  | department  |     |  Create + update |
-|  **PreferredNameData**  |  displayName |     |   Create + update |
-| **EmployeeID**    |  cn    |   |   Written on create only |
-| **Fax**      | facsimileTelephoneNumber     |     |    Create + update |
-| **FirstName**   | givenName       |     |    Create + update |
+| **WorkerID**  |  EmployeeID | **Yes** | Written on create only | 
+| **UserID**    |  cn    |   |   Written on create only |
+| **Join("@",[UserID], "contoso.com")**   | userPrincipalName     |     | Written on create only 
+| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Written on create only |
 | **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | Create + update |
-| **Mobile**  |    mobile       |     |       Written on create only |
-| **EmailAddress**    | mail    |     |     Create + update |
+| **FirstName**   | givenName       |     |    Create + update |
+| **LastName**   |   sn   |     |  Create + update |
+| **PreferredNameData**  |  displayName |     |   Create + update |
+| **Company**         | company   |     |  Create + update |
+| **SupervisoryOrganization**  | department  |     |  Create + update |
 | **ManagerReference**   | manager  |     |  Create + update |
+| **BusinessTitle**   |  title     |     |  Create + update | 
+| **AddressLineData**    |  streetAddress  |     |   Create + update |
+| **Municipality**   |   l   |     | Create + update |
+| **CountryReferenceTwoLetter**      |   co |     |   Create + update |
+| **CountryReferenceTwoLetter**    |  c  |     |         Create + update |
+| **CountryRegionReference** |  st     |     | Create + update |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Create + update |
 | **PostalCode**  |   postalCode  |     | Create + update |
-| **LocalReference** |  preferredLanguage  |     |  Create + update |
-| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Written on create only |
-| **LastName**   |   sn   |     |  Create + update |
-| **CountryRegionReference** |  st     |     | Create + update |
-| **AddressLineData**    |  streetAddress  |     |   Create + update |
-| **PrimaryWorkTelephone**  |  telephoneNumber   |     | Written on create only |
-| **BusinessTitle**   |  title     |     |  Create + update |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | Create + update                                                   
+| **PrimaryWorkTelephone**  |  telephoneNumber   |     | Create + update |
+| **Fax**      | facsimileTelephoneNumber     |     |    Create + update |
+| **Mobile**  |    mobile       |     |       Create + update |
+| **LocalReference** |  preferredLanguage  |     |  Create + update |                                               
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Create + update |
   
 ### Part 3: Configure the on-premises synchronization agent
@@ -414,10 +442,10 @@ After installing agent, run the Powershell commands below to configure the agent
 
 **Command #1**
 
-> cd C:\\Program Files\\Microsoft Azure Active Directory Synchronization
+> cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent"
 Agent\\Modules\\AADSyncAgent
 
-> import-module AADSyncAgent.psd1
+> Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
 **Command #2**
 
@@ -431,6 +459,13 @@ Agent\\Modules\\AADSyncAgent
 > Add-ADSyncAgentAzureActiveDirectoryConfiguration
 
 * Input: Global admin username and password for your Azure AD tenant
+
+>[!IMPORTANT]
+>There is presently a known issue with global administrator credentials not working if they use a custom domain (example: admin@contoso.com). As a workaround, create and use a global administrator account with an onmicrosoft.com domain (example: admin@contoso.onmicrosoft.com)
+
+>[!IMPORTANT]
+>There is presently a known issue with global administrator credentials not working if they have multi-factor authentication enabled. As a workaround, disable multi-factor authentication for the global administrator.
+
 
 **Command #4**
 
@@ -460,22 +495,50 @@ Agent\\Modules\\AADSyncAgent
 
 > net start aadsyncagent
 
-### Part 4: Start the service
-Once parts 1-3 have been completed, you can start the provisioning service back in the Azure Management Portal.
+>[!TIP]
+>In addition to the "net" commands in Powershell, the synchronization agent service can also be started and stopped using **Services.msc**. If you get errors when running the Powershell commands, ensure that the **Microsoft Azure AD Connect Provisioning Agent** is running in **Services.msc**.
 
-1.  In the **Provisioning** tab, set the **Provisioning Status** to
-    **On**.
+![Services](./media/active-directory-saas-workday-inbound-tutorial/Services.png)  
+
+**Additional configuration for customers in the European Union**
+
+If your Azure Active Directory tenant is located in one of the EU data centers, then follow the additional steps below.
+
+1. Open **Services.msc** , and stop the **Microsoft Azure AD Connect Provisioning Agent** service.
+2. Go to the agent installation folder (example: C:\Program Files\Microsoft Azure AD Connect Provisioning Agent).
+3. Open **SyncAgnt.exe.config** in a text editor.
+4. Replace https://manage.hub.syncfabric.windowsazure.com/Management with **https://eu.manage.hub.syncfabric.windowsazure.com/Management**
+5. Replace https://provision.hub.syncfabric.windowsazure.com/Provisioning with **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
+6. Save the **SyncAgnt.exe.config** file.
+7. Open **Services.msc**, and start the **Microsoft Azure AD Connect Provisioning Agent** service.
+
+**Agent troubleshooting**
+
+The [Windows Event Log](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) on the Windows Server machine hosting the agent contains events for all operations performed by the agent. To view these events:
+	
+1. Open **Eventvwr.msc**.
+2. Select **Windows Logs > Application**.
+3. View all events logged under the source **AADSyncAgent**. 
+4. Check for errors and warnings.
+
+If there is a permissions problem with either the Active Directory or Azure Active Directory credentials provided in the Powershell commands, you will see an error such as this one: 
+	
+![Event logs](./media/active-directory-saas-workday-inbound-tutorial/Windows_Event_Logs.png) 
+
+
+### Part 4: Start the service
+Once parts 1-3 have been completed, you can start the provisioning service back in the Azure portal.
+
+1.  In the **Provisioning** tab, set the **Provisioning Status** to **On**.
 
 2. Click **Save**.
 
 3. This will start the initial sync, which can take a variable number of hours depending on how many users are in Workday.
 
-4. Individual sync events such as what users are being read out of
-    Workday, and then subsequently added or updated to Active Directory,
-    can be viewed in the **Audit Logs** tab. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](active-directory-saas-provisioning-reporting.md)**
+4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](active-directory-saas-provisioning-reporting.md)**
 
-5.  The Windows Application log on the agent machine will show all
-    operations performed via the agent.
+5.  Check the [Windows Event Log](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) on the Windows Server machine hosting the agent for any new errors or warnings. These events are viewable by launching **Eventvwr.msc** on the server and selecting **Windows Logs > Application**. All provisioning-related messages are logged under the source **AADSyncAgent**. 
+	
 
 6. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
@@ -530,8 +593,7 @@ The following sections describe setting up a connection between Workday and Azur
         endpoint for your tenant. This should look like:
         https://wd3-impl-services1.workday.com/ccx/service/contoso4,
         where contoso4 is replaced with your correct tenant name and
-        wd3-impl is replaced with the correct environment string (if
-        necessary).
+        wd3-impl is replaced with the correct environment string. If this URL is not known, please work with your Workday integration partner or support representative to determine the correct URL to use.
 
    * **Notification Email –** Enter your email address, and check the
         “send email if failure occurs” checkbox.
@@ -594,7 +656,7 @@ Azure Active Directory for cloud-only users.
                 attributes. [For more info, see this article on
                 expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-   * **Source attribute** - The user attribute from Workday.
+   * **Source attribute** - The user attribute from Workday. If the attribute you are looking for is not present, see [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
    * **Default value** – Optional. If the source attribute has
             an empty value, the mapping will write this value instead.
@@ -720,15 +782,154 @@ Once parts 1-2 have been completed, you can start the provisioning service.
 5. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
 
+
+## Customizing the list of Workday user attributes
+The Workday provisioning apps for Active Directory and Azure AD both include a default list of Workday user attributes you can select from. However, these lists are not comprehensive. Workday supports many hundreds of possible user attributes, which can either be standard or unique to your Workday tenant. 
+
+The Azure AD provisioning service supports the ability to customize your list or Workday attribute to include any attributes exposed in the [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) operation of the Human Resources API.
+
+To do this, you must use [Workday Studio](https://community.workday.com/studio-download) to extract the XPath expressions that represent the attributes you wish to use, and then add them to your provisioning configuration using the advanced attribute editor in the Azure portal.
+
+**To retrieve an XPath expression for a Workday user attribute:**
+
+1. Download and install [Workday Studio](https://community.workday.com/studio-download). You will need a Workday community account to access the installer.
+
+2. Download the Workday Human_Resources WDSL file from this URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
+
+3. Launch Workday Studio.
+
+4. From the command bar, select the  **Workday > Test Web Service in Tester** option.
+
+5. Select **External**, and select the Human_Resources WSDL file you downloaded in step 2.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio1.PNG)
+
+6. Set the **Location** field to `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, but replacing "IMPL-CC" with your actual instance type, and "TENANT" with your real tenant name.
+
+7. Set **Operation** to **Get_Workers**
+
+8.	Click the small **configure** link below the Request/Response panes to set your Workday credentials. Check **Authentication**, and then enter the user name and password for your Workday integration system account. Be sure to format the user name as name@tenant, and leave the **WS-Security UsernameToken** option selected.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
+
+9. Select **OK**.
+
+10.	The **Request** pane, paste in the XML below and set **Employee_ID** to the employee ID of a real user in your Workday tenant. Select a user that has the attribute populated that you wish to extract.
+
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <env:Body>
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
+          <wd:Request_References wd:Skip_Non_Existing_Instances="true">
+            <wd:Worker_Reference>
+              <wd:ID wd:type="Employee_ID">21008</wd:ID>
+            </wd:Worker_Reference>
+          </wd:Request_References>
+		  <wd:Response_Group>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Personal_Information>true</wd:Include_Personal_Information>
+            <wd:Include_Employment_Information>true</wd:Include_Employment_Information>
+            <wd:Include_Management_Chain_Data>true</wd:Include_Management_Chain_Data>
+            <wd:Include_Organizations>true</wd:Include_Organizations>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
+            <wd:Include_Photo>true</wd:Include_Photo>
+            <wd:Include_User_Account>true</wd:Include_User_Account>
+			<wd:Include_Roles>true</wd:Include_Roles>
+          </wd:Response_Group>
+        </wd:Get_Workers_Request>
+      </env:Body>
+    </env:Envelope>
+    ```
+ 
+11. Click the **Send Request** (green arrow) to execute the command. If successful, the response should appear in the **Response** pane. Check the response to ensure it has the data of the user ID you entered, and not an error.
+
+12. If successful, copy the XML from the **Response** pane and save it as an XML file.
+
+13. In the command bar of Workday Studio, select **File > Open File...** and open the XML file you just saved. This opens it in the Workday Studio XML editor.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio3.PNG)
+
+14. In the file tree, navigate through **/env:Envelope > env:Body > wd:Get_Workers_Response > wd:Response_Data > wd:Worker** to find your user's data. 
+
+15. Under **wd:Worker**, find the attribute that you wish to add, and select it.
+
+16. Copy the XPath expression for your selected attribute out of the **Document Path** field.
+
+17. Remove the **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** prefix from the copied expression. 
+
+18. If the last item in the copied expression is a node (example: "/wd:Birth_Date"), then append **/text()** at the end of the expression. This is not necessary if the last item is an attribute (example: "/@wd:type").
+
+19. The result should be something like `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`. This is what you will copy into the Azure portal.
+
+
+**To add your custom Workday user attribute to your provisioning configuration:**
+
+1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Provisioning section of your Workday provisioning application, as described earlier in this tutorial.
+
+2. Set **Provisioning Status** to **Off**, and select **Save**. This will help ensure your changes will take effect only when you are ready.
+
+3. Under **Mappings**, select **Synchronize Workers to OnPremises** (or **Synchronize Workers to Azure AD**).
+
+4. Scroll to the bottom of the next screen, and select **Show advanced options**.
+
+5. Select **Edit attribute list for Workday**.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD1.PNG)
+
+6. Scroll to the bottom of the attribute list to where the input fields are.
+
+7. For **Name**, enter a display name for your attribute.
+
+8. For **Type**, select type that appropriately corresponds to your attribute (**String** is most common).
+
+9. For **API Expression**, enter the XPath expression you copied from Workday Studio. Example: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+
+10. Select **Add Attribute**.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
+
+11. Select **Save** above, and then **Yes** to the dialog. Close the Attribute Mapping screen if it is still open.
+
+12. Back on the main **Provisioning** tab, select **Synchronize Workers to OnPremises** (or **Synchronize Workers to Azure AD**) again.
+
+13. Select **Add new mapping**.
+
+14. Your new attribute should now appear in the **Source attribute** list.
+
+15. Add a mapping for your new attribute as desired.
+
+16. When finished, remember to set **Provisioning Status** back to **On** and save.
+
+
 ## Known issues
 
-* **Audit logs in European locales** - As of the release of this technical preview, there is a known issue with the [audit logs](active-directory-saas-provisioning-reporting.md) for the Workday connector apps not appearing in the [Azure portal](https://portal.azure.com) if the Azure AD tenant resides in a European data center. A fix for this issue is forthcoming. Please check this space again in the near future for updates. 
+* When running the **Add-ADSyncAgentAzureActiveDirectoryConfiguration** Powershell command, there is presently a known issue with global administrator credentials not working if they use a custom domain (example: admin@contoso.com). As a workaround, create and use a global administrator account in Azure AD with an onmicrosoft.com domain (example: admin@contoso.onmicrosoft.com).
 
-## Additional resources
-* [Tutorial: Configuring single sign-on between Workday and Azure Active Directory](active-directory-saas-workday-tutorial.md)
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* A previous issue with audit logs not appearing in Azure AD tenants located in the European Union has been resolved. However, additional agent configuration is required for Azure AD tenants in the EU. For details, see [Part 3: Configure the on-premises synchronization agent](#Part 3: Configure the on-premises synchronization agent)
+
+## GDPR compliance
+
+[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is a European Union (EU) data protection and privacy law. The GDPR imposes rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents. 
+
+The Azure AD provisioning service is GDPR compliant along with the rest of Microsoft’s services and features. To learn more about Microsoft’s GDPR story, see the [terms of service](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+
+However, because the Workday provisioning solution for Active Directory requires a synchronization agent to be installed on a domain-joined server, there are some events you will need to monitor to also stay GDPR compliant.
+ 
+The agent creates logs in the **Windows Event log**, which can contain personally-identifiable information.
+
+There are two ways for you to stay GDPR compliant:
+
+1. Upon request, extract data for a person and remove data from that person from the Windows Event logs. 
+2. Keep retention of Windows Event logs sourced from the AADSyncAgent process to under 48 hours
+
+For information on how to configure data retention for the Windows Event logs, see the [Settings for event logs](https://technet.microsoft.com/en-us/library/cc952132.aspx). For general information on the Windows Event log, see [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+
 
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
+* [Learn how to configure single sign-on between Workday and Azure Active Directory](active-directory-saas-workday-tutorial.md)
+* [Learn how to integrate other SaaS applications with Azure Active Directory](active-directory-saas-tutorial-list.md)
+

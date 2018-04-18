@@ -1,12 +1,12 @@
 ---
-title: Sending push notifications with Azure Notification Hubs on Windows Phone | Microsoft Docs
+title: Get started with Azure Notification Hubs for Windows Phone apps| Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to a Windows Phone 8 or Windows Phone 8.1 Silverlight application.
 services: notification-hubs
 documentationcenter: windows
 keywords: push notification,push notification,windows phone push
-author: ysxu
-manager: erikre
-editor: erikre
+author: jwhitedev
+manager: kpiteira
+editor: ''
 
 ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
@@ -14,11 +14,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/03/2016
-ms.author: yuaxu
+ms.date: 03/06/2018
+ms.author: jawh
 
 ---
-# Sending push notifications with Azure Notification Hubs on Windows Phone
+# Get started with Azure Notification Hubs for Windows Phone apps
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## Overview
@@ -48,11 +48,11 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
-<li><p>Click the <b>Notification Services</b> section (within <i>Settings</i>), click on <b>Windows Phone (MPNS)</b> and then click the <b>Enable unauthenticated push</b> check box.</p>
+<li><p>Under <b>Notification Services</b>, select <b>Windows Phone (MPNS)</b> and then click the <b>Enable unauthenticated push</b> check box.</p>
 </li>
 </ol>
 
-&emsp;&emsp;![Azure Portal - Enable unathenticated push notifications](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
+&emsp;&emsp;![Azure portal - Enable unauthenticated push notifications](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 
 Your hub is now created and configured to send unauthenticated notification for Windows Phone.
 
@@ -64,7 +64,7 @@ Your hub is now created and configured to send unauthenticated notification for 
 ## Connecting your app to the notification hub
 1. In Visual Studio, create a new Windows Phone 8 application.
    
-       ![Visual Studio - New Project - Windows Phone App][13]
+    ![Visual Studio - New Project - Windows Phone App][13]
    
     In Visual Studio 2013 Update 2 or later, you instead create a Windows Phone Silverlight application.
    
@@ -116,9 +116,9 @@ Your hub is now created and configured to send unauthenticated notification for 
    > 
 6. In Solution Explorer, expand **Properties**, open the `WMAppManifest.xml` file, click the **Capabilities** tab, and make sure that the **ID_CAP_PUSH_NOTIFICATION** capability is checked.
    
-       ![Visual Studio - Windows Phone App Capabilities][14]
+    ![Visual Studio - Windows Phone App Capabilities][14]
    
-       This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
+    This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
 7. Press the `F5` key to run the app.
    
     A registration message is displayed in the app.
@@ -126,62 +126,7 @@ Your hub is now created and configured to send unauthenticated notification for 
    
    > [!NOTE]
    > To receive a toast push notification, the application must not be running in the foreground.
-   > 
-   > 
-
-## Send push notifications from your backend
-You can send push notifications by using Notification Hubs from any backend via the public <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial, you send push notifications using a .NET console application. 
-
-For an example of how to send push notifications from an ASP.NET WebAPI backend that's integrated with Notification Hubs, see [Azure Notification Hubs Notify Users with .NET backend](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md).  
-
-For an example of how to send push notifications by using the [REST APIs](https://msdn.microsoft.com/library/azure/dn223264.aspx), check out [How to use Notification Hubs from Java](notification-hubs-java-push-notification-tutorial.md) and [How to use Notification Hubs from PHP](notification-hubs-php-push-notification-tutorial.md).
-
-1. Right-click the solution, select **Add** and **New Project...**, and then under **Visual C#**, click **Windows** and **Console Application**, and click **OK**.
-   
-       ![Visual Studio - New Project - Console Application][6]
-   
-    This adds a new Visual C# console application to the solution. You can also do this in a separate solution.
-2. Click **Tools**, click **Library Package Manager**, and then click **Package Manager Console**.
-   
-    This displays the Package Manager Console.
-3. In the **Package Manager Console** window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
-   
-       Install-Package Microsoft.Azure.NotificationHubs
-   
-   This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
-4. Open the `Program.cs` file and add the following `using` statement:
-   
-        using Microsoft.Azure.NotificationHubs;
-5. In the `Program` class, add the following method:
-   
-        private static async void SendNotificationAsync()
-        {
-            NotificationHubClient hub = NotificationHubClient
-                .CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            string toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                "<wp:Notification xmlns:wp=\"WPNotification\">" +
-                   "<wp:Toast>" +
-                        "<wp:Text1>Hello from a .NET App!</wp:Text1>" +
-                   "</wp:Toast> " +
-                "</wp:Notification>";
-            await hub.SendMpnsNativeNotificationAsync(toast);
-        }
-   
-    Make sure to replace the `<hub name>` placeholder with the name of the notification hub that appears in the portal. Also, replace the connection string placeholder with the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your notification hub."
-   
-   > [!NOTE]
-   > Make sure that you use the connection string with **Full** access, not **Listen** access. The listen-access string does not have permissions to send push notifications.
-   > 
-   > 
-6. Add the following line in your `Main` method:
-   
-         SendNotificationAsync();
-         Console.ReadLine();
-7. With your Windows Phone emulator running and your app closed, set the console application project as the default startup project, and then press the `F5` key to run the app.
-   
-    You will receive a toast push notification. Tapping the toast banner loads the app.
-
-You can find all the possible payloads in the [toast catalog] and [tile catalog] topics on MSDN.
+   >
 
 ## Next steps
 In this simple example, you broadcasted push notifications to all your Windows Phone 8 devices. 

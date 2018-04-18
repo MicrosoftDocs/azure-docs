@@ -1,188 +1,196 @@
 ---
-title: 'Azure SQL Database service and performance tiers | Microsoft Docs'
-description: Compare SQL Database service tiers and performance levels for single databases, and introduce SQL elastic pools
-keywords: database options,database performance
+title: 'Azure SQL Database service | Microsoft Docs'
+description: Learn about service tiers for single and pool databases to provide performance levels and storage sizes.  
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 06/30/2017
+ms.date: 04/04/2018
+manager: craigg
+ms.topic: article
 ms.author: carlrab
 
 ---
-# What performance options are available for an Azure SQL Database
+# What are Azure SQL Database service tiers?
 
-[Azure SQL Database](sql-database-technical-overview.md) offers four service tiers for both single and [pooled](sql-database-elastic-pool.md) databases. These service tiers are: **Basic**, **Standard**, **Premium**, and **Premium RS**. Within each service tier are multiple performance levels ([DTUs](sql-database-what-is-a-dtu.md)) and storage options to handle different workloads and data sizes. Higher performance levels provide additional compute and storage resources designed to deliver increasingly higher throughput and capacity. You can change service tiers, performance levels, and storage dynamically without downtime. 
-- **Basic**, **Standard** and **Premium** service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. 
-- The **Premium RS** tier provides the same performance levels as the Premium tier with a reduced SLA because it runs with a lower number of redundant copies than a database in the other service tiers. So, in the event of a service failure, you may need to recover your database from a backup with up to a 5-minute lag.
+[Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a vCore-based purchasing model (preview). The following table and chart compare and contrast these two purchasing models.
+
+|**Purchasing model**|**Description**|**Best for**|
+|---|---|---|
+|DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-what-is-a-dtu.md)?|Best for customers who want simple, pre-configured resource options.| 
+|vCore-based model|This model allows you to independently scale compute and storage resources. It also allows you to use Azure Hybrid Benefit for SQL Server to gain cost savings.|Best for customers who value flexibility, control, and transparency.|
+||||  
+
+![pricing model](./media/sql-database-service-tiers/pricing-model.png)
+
+## DTU-based purchasing model
+
+The Database Throughput Unit (DTU) represents a blended measure of CPU, memory, reads, and writes. The DTU-based purchasing model offers a set of preconfigured bundles of compute resources and included storage to drive different levels of application performance. Customers who prefer the simplicity of a preconfigured bundle and fixed payments each month, may find the DTU-based model more suitable for their needs. In the DTU-based purchasing model, customers can choose between **Basic**, **Standard**, and **Premium** service tiers for both [single databases](sql-database-single-database-resources.md) and [elastic pools](sql-database-elastic-pool.md). Service tiers are differentiated by a range of performance levels with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers provide flexibility of changing performance levels without downtime. Single databases and elastic pools are billed hourly based on service tier and performance level.
 
 > [!IMPORTANT]
-> An Azure SQL database gets a guaranteed set of resources and the expected performance characteristics of your database are not affected by any other database within Azure. 
+> SQL Database Managed Instance, currently in public preview does not support a DTU-based purchasing model. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance.md). 
 
-## Choosing a service tier
-The following table provides examples of the tiers best suited for different application workloads.
+### Choosing a service tier in the DTU-based purchasing model
 
-| Service tier | Target workloads |
-| :--- | --- |
-| **Basic** | Best suited for a small database, supporting typically one single active operation at a given time. Examples include databases used for development or testing, or small-scale infrequently used applications. |
-| **Standard** |The go-to option for cloud applications with low to medium IO performance requirements, supporting multiple concurrent queries. Examples include workgroup or web applications. |
-| **Premium** | Designed for high transactional volume with high IO performance requirements, supporting many concurrent users. Examples are databases supporting mission critical applications. |
-| **Premium RS** | Designed for IO-intensive workloads that do not require the highest availability guarantees. Examples include testing high-performance workloads, or an analytical workload where the database is not the system of record. |
-|||
+Choosing a service tier depends primarily on business continuity, storage, and performance requirements.
+||Basic|Standard|Premium|
+| :-- | --: |--:| --:| --:| 
+|Target workload|Development and production|Development and production|Development and production||
+|Uptime SLA|99.99%|99.99%|99.99%|N/A while in preview|
+|Backup retention|7 days|35 days|35 days|
+|CPU|Low|Low, Medium, High|Medium, High|
+|IO throughput (approximate) |2.5 IOPS per DTU| 2.5 IOPS per DTU | 48 IOPS per DTU|
+|IO latency (approximate)|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
+|Columnstore indexing |N/A|S3 and above|Supported|
+|In-memory OLTP|N/A|N/A|Supported|
+|||||
 
-You can create single databases with dedicated resources within a service tier at a specific [performance level](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) or you can also create databases within a [SQL elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus). In a SQL elastic pool, the compute and storage resources are shared across multiple databases within a single logical server. 
+### Performance level and storage size limits in the DTU-based purchasing model
 
-Resources available for single databases are expressed in terms of Database Transaction Units (DTUs) and resources for a SQL elastic pools are expressed in terms of elastic Database Transaction Units (eDTUs). For more on DTUs and eDTUs, see [What are DTUs and eDTUs?](sql-database-what-is-a-dtu.md).
+Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-what-is-a-dtu.md)?
 
-To decide on a service tier, start by determining the minimum database features that you need:
+#### Single databases
 
-| **Service tier features** | **Basic** | **Standard** | **Premium** | **Premium RS**|
+||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
-| Maximum single database size | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| Maximum elastic pool size | 156 GB | 2.9 TB | 4 TB* | 750 GB |
-| Maximum database size in an elastic pool | 2 GB | 250 GB | 500 GB | 500 GB |
-| Maximum number of databases per pool | 500  | 500 | 100 | 100 |
-| Maximum single database DTUs | 5 | 100 | 4000 | 1000 |
-| Maximum DTUs per database in an elastic pool | 5 | 3000 | 4000 | 1000 |
-| Database backup retention period | 7 days | 35 days | 35 days | 35 days |
+| Maximum storage size* | 2 GB | 1 TB | 4 TB  | 
+| Maximum DTUs | 5 | 3000 | 4000 | |
+||||||
+
+For details on specific performance levels and storage size choices available for single databases, see [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels).
+
+#### Elastic pools
+
+| | **Basic** | **Standard** | **Premium** | 
+| :-- | --: | --: | --: | --: |
+| Maximum storage size per database*  | 2 GB | 1 TB | 1 TB | 
+| Maximum storage size per pool* | 156 GB | 4 TB | 4 TB | 
+| Maximum eDTUs per database | 5 | 3000 | 4000 | 
+| Maximum eDTUs per pool | 1600 | 3000 | 4000 | 
+| Maximum number of databases per pool | 500  | 500 | 100 | 
 ||||||
 
 > [!IMPORTANT]
-> Storage up to 4 TB is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [Current 4 TB limitations](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
+> \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> 
 
-Once you have determined the appropriate service tier, you are ready to determine the performance level (the number of DTUs) and the storage amount for the database. 
+For details on specific performance levels and storage size choices available for elastic pools, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
-- The S2 and S3 performance levels in the **Standard** tier are often a good starting point. 
-- For databases with high CPU or IO requirements, the performance levels in the **Premium** tier are the right starting point. 
-- The **Premium** tier offers more CPU and starts at 10x more IO compared to the highest performance level in the **Standard** tier.
-- The **PremiumRS** tier offers the performance of the **Premium** tier at a lower cost, but with a reduced SLA.
+## vCore-based purchasing model (preview)
+
+A virtual core represents the logical CPU offered with an option to choose between generations of hardware. The vCore-based purchasing model (preview) gives your flexibility, control, transparency of individual resource consumption and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. In the vCore-based purchasing model, customers can choose between General Purpose and Business critical service tiers (preview) for both [single databases](sql-database-single-database-resources.md) and [elastic pools](sql-database-elastic-pool.md). 
+
+Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups. When using the vCore model, single databases and elastic pools are eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+
+In the vCore-based purchasing model customers pay for:
+- Compute (service tier + number of vCores + generation of hardware)*
+- Type and amount of data and log storage 
+- Number of IOs**
+- Backup storage (RA-GRS)** 
+
+\* In the initial public preview, the Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors
+
+\*\* During preview, 7 days of backups and IOs are free
 
 > [!IMPORTANT]
-> Review the [SQL elastic pools](sql-database-elastic-pool.md) topic for the details about grouping databases into SQL elastic pools to share compute and storage resources. The remainder of this topic focuses on service tiers and performance levels for single databases.
->
+> Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 
-## Single database service tiers and performance levels
-For single databases, there are multiple performance levels and storage amounts within each service tier. 
+### Choosing service tier, compute, memory, storage, and IO resources
 
-[!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
+Converting to the vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the performance level using the following rule of thumb: each 100 DTU in Standard tier requires at least 1 vCore and each 125 DTU in Premium tier requires at least 1 vCore.
 
-## Scaling up or scaling down a single database
+The following table helps you understand the differences between these two tiers:
 
-After initially picking a service tier and performance level, you can scale a single database up or down dynamically based on actual experience.  
+||**General Purpose**|**Business Critical**|
+|---|---|---|
+|Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|
+|Compute|1 to 16 vCore|1 to 16 vCore|
+|Memory|7 GB per core |7 GB per core |
+|Storage|Premium remote storage, 5 GB – 4 TB|Local SSD storage, 5 GB – 1 TB|
+|IO throughput (approximate)|500 IOPS per vCore with 7500 maximum IOPS|5000 IOPS per core|
+|Availability|1 replica, no read-scale|3 replicas, 1 [read-scale](sql-database-read-scale-out.md), zone redundant HA|
+|Backups|RA-GRS, 7-35 days (7 days by default)|RA-GRS, 7-35 days (7 days by default)*|
+|In-Memory|N/A|Supported|
+|||
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
->
-
-Changing the service tier and/or performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process but during the brief moment when we switch over to the replica, connections to the database are disabled, so some transactions in flight may be rolled back. The length of time for the switch over varies, but is generally under 4 seconds is less than 30 seconds 99% of the time. If there are large numbers of transactions in flight at the moment connections are disabled, the length of time for the switch over may be longer.  
-
-The duration of the entire scale-up process depends on both the size and service tier of the database before and after the change. For example, a 250 GB database that is changing to, from, or within a Standard service tier, should complete within 6 hours. For a database of the same size that is changing performance levels within the Premium service tier, it should complete within 3 hours.
-
-> [!TIP]
-> To check on the status of an ongoing SQL database scaling operation, you can use the following query: ```select * from sys.dm_operation_status```.
->
-
-* If you are upgrading to a higher service tier or performance level, the maximum database size does not increase unless you explicitly specify a larger maximum size.
-* To downgrade a database, the database must be smaller than the maximum allowed size of the target service tier. 
-* When upgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, upgrade its secondary databases to the desired performance tier before upgrading the primary database (general guidance).
-* When downgrading from a **Premium** service tier to a lower service tier, you must first terminate all geo-replication relationships. You can follow the steps described in the [Recover from an outage](sql-database-disaster-recovery.md) topic to stop the replication process between the primary and the secondary databases.
-* The restore service offerings are different for the various service tiers. If you are downgrading to the **Basic** tier, you will have a lower backup retention period - see [Azure SQL Database Backups](sql-database-automated-backups.md).
-* The new properties for the database are not applied until the changes are complete.
-
-
-## Current limitations of P11 and P15 databases with 4 TB maxsize
-
-A maximum size of 4 TB for P11 and P15 database is supported in some regions (as previously discussed). The following considerations and limitations apply to P11 and P15 databases with 4 TB maxsize:
-
-- If you choose the 4 TB maxsize option when creating a database (using a value of 4 TB or 4096 GB), the create command fails with an error if the database is provisioned in an unsupported region.
-- For existing P11 and P15 databases located in one of the supported regions, you can increase the maxsize storage to 4 TB. This can be checked using the [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) or by inspecting the database size in the Azure portal. Upgrading an existing P11 or P15 database can only be performed by a server-level principal login or by members of the dbmanager database role. 
-- If an upgrade operation is executed in a supported region the configuration is updated immediately. The database remains online during the upgrade process. However, you cannot utilize the full 4 TB of storage until the actual database files have been upgraded to the new maxsize. The length of time required depends upon on the size of the database being upgraded.  
-- When creating or updating a P11 or P15 database, you can only choose between 1 TB and 4 TB maxsize. Intermediate storage sizes are not currently supported. When creating a P11/P15, the default storage option of 1 TB is pre-selected. For databases located in one of the supported regions, you can increase the storage maximum to 4TB for a new or existing single database. For all other regions, max size cannot be increased above 1 TB. The price does not change when you select 4 TB of included storage.
-- The 4 TB database maxsize cannot be changed to 1 TB even if the actual storage used is below 1 TB. Thus, you cannot downgrade a P11-4TB/P15-4TB to a P11-1TB/P15-1TB or a lower performance tier for example, to P1-P6) until we are providing additional storage options for the rest of the performance tiers. This restriction also applies to the restore and copy scenarios including point-in-time, geo-restore, long-term-backup-retention, and database copy. Once a database is configured with the 4 TB option, all restore operations of this database must be run into a P11/P15 with 4 TB maxsize.
-- When creating or upgrading an P11/P15 database in an unsupported region, the create or upgrade operation fails with the following error message: **P11 and P15 database with up to 4TB of storage are available in US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East.**
-- For active geo-replication scenarios:
-   - Setting up a geo-replication relationship: If the primary database is P11 or P15, the secondary(ies) must also be P11 or P15; lower performance tiers are rejected as secondaries since they are not capable of supporting 4 TB.
-   - Upgrading the primary database in a geo-replication relationship: Changing the maxsize to 4 TB on a primary database triggers the same change on the secondary database. Both upgrades must be successful for the change on the primary to take effect. Region limitations for the 4TB option apply (see above). If the secondary is in a region that does not support 4 TB, the primary is not upgraded.
-- Using the Import/Export service for loading P11-4TB/P15-4TB databases is not supported. Use SqlPackage.exe to [import](sql-database-import.md) and [export](sql-database-export.md) data.
-
-## Manage single database service tiers and performance levels using the Azure portal
-
-To set or change the service tier, performance level, or storage amount for a new or existing Azure SQL database using the Azure portal, open the **Configure performance** window for your database by clicking **Pricing tier (scale DTUs)** - as shown in the following screenshot. 
-
-- Set or change the service tier by selecting the service tier for your workload. 
-- Set or change the performance level (**DTUs**) within a service tier using the **DTU** slider.
-- Set or change the storage amount for the performance level using the **Storage** slider. 
-
-  ![Configure service tier and performance level](./media/sql-database-service-tiers/service-tier-performance-level.png)
+\* During preview, the backups retention period is not configurable and is fixed to 7 days.
 
 > [!IMPORTANT]
-> Review [Current limitations of P11 and P15 databases with 4 TB maxsize](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize) when selecting a P11 or P15 service tier.
->
+> If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
 
-## Manage single database service tiers and performance levels using PowerShell
+For details on specific performance levels and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels) and for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
-To set or change Azure SQL databases service tiers, performance levels, and storage amount using PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions. 
 
-| Cmdlet | Description |
-| --- | --- |
-|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Creates a database |
-|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Gets one or more databases|
-|[Set-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Sets properties for a database, or moves an existing database into an elastic pool|
+### Storage considerations
 
+Consider the following:
+- The allocated storage is used by data files (MDF) and log files (LDF) files.
+- Each performance level supports a maximum database size, with a default max size of 32 GB.
+- When you configure the required database size (size of MDF), 30% of additional storage is automatically added to support LDF
+- You can select any database size between 10 GB and the supported maximum
+ - For Standard storage, increase or decrease size in 10 GB increments
+ - For Premium storage, increase or decrease size in 250 GB increments
+- In the General Purpose service tier, `tempdb` uses an attached SSD and this storage cost is included in the vCore price.
+- In the Business Critical service tier, `tempdb` shares the attached SSD with the MDF and LDF files and the tempDB storage cost is included in the vCore price.
 
-> [!TIP]
-> For a PowerShell example script that monitors the performance metrics of a database, scales it to a higher performance level, and creates an alert rule on one of the performance metrics, see [Monitor and scale a single SQL database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> [!IMPORTANT]
+> You are charged for the total storage allocated for MDF and LDF.
 
-## Manage single database service tiers and performance levels using the Azure CLI
+To monitor the current total size of MDF and LDF, use [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). To monitor the current size of the individual MDF and LDF files, use [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
-To set or change Azure SQL databases service tiers, performance levels, and storage amount using the Azure CLI, use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+### Backups and storage
 
-| Cmdlet | Description |
-| --- | --- |
-|[az sql db create](/cli/azure/sql/db#create) |Creates a database|
-|[az sql db list](/cli/azure/sql/db#list)|Lists all databases and data warehouses in a server, or all databases in an elastic pool|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|Lists available service objectives and storage limits|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|Returns database usages|
-|[az sql db show](/cli/azure/sql/db#show)|Gets a database or data warehouse|
-|[az sql db update](/cli/azure/sql/db#update)|Updates a database|
+Storage for database backups is allocated to support the Point in Time Restore (PITR) and Long Term Retention (LTR) capabilities of SQL Database. This storage is allocated separately for each database and billed as two separate per databases charges. 
 
-> [!TIP]
-> For an Azure CLI example script that scales a single Azure SQL database to a different performance level after querying the size information of the database, see [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
->
+- **PITR**: Individual database backups are copied to RA-GRS storage are automatically. The storage size increases dynamically as the new backups are created.  The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The storage consumption depends on the rate of change of the database and the retention period. You can configure a separate retention period for each database between 7 and 35 days. A minimum storage amount equal to 1x of data size is provided at no extra charge. For most databases, this amount is enough to store 7 days of backups.
+- **LTR**: SQL Database offers the option configuring long-term retention of full backups for up to 10 years. If LTR policy is enabled, theses backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. This configuration will define how much storage will be used for the LTR backups. You can use the LTR pricing calculator to estimate the cost of LTR storage. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
-## Manage single database service tiers and performance levels using Transact-SQL
+### Azure Hybrid Use Benefit
 
-To set or change Azure SQL databases service tiers, performance levels, and storage amount with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. 
+In the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). This Azure benefit allows you to use your on-premises SQL Server licenses to save up to 30% on Azure SQL Database using your on-premises SQL Server licenses with Software Assurance.
 
-| Command | Description |
-| --- | --- |
-|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Creates a new database. You must be connected to the master database to create a new database.|
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifies an Azure SQL database. |
-|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for an Azure SQL database or an Azure SQL Data Warehouse. If logged on to the master database in an Azure SQL Database server, returns information on all databases. For Azure SQL Data Warehouse, you must be connected to the master database.|
-|[sys.database_usage (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Lists the number, type, and duration of databases on an Azure SQL Database server.|
+![pricing](./media/sql-database-service-tiers/pricing.png)
 
-The following example shows the maxsize being changed using the ALTER DATABASE command:
+#### Migration of single databases with geo-replication links
 
- ```sql
-ALTER DATABASE <myDatabaseName> 
-   MODIFY (MAXSIZE = 4096 GB);
-```
+Migrating to from DTU-based model to vCore-based model is similar to upgrading or downgrading the geo-replication relationships between Standard and Premium databases. It does not require terminating geo-replication but the user must observe the sequencing rules. When upgrading, you must upgrade the secondary database first, and then upgrade the primary. When downgrading, reverse the order: you must downgrade the primary database first, and then downgrade the secondary. 
 
-## Manage single databases using the REST API
+When using geo-replication between two elastic pools, it is strongly recommended that you designate one pool as the primary and the other – as the secondary. In that case, migrating elastic pools should use the same guidance.  However, it is technically it is possible that an elastic pool contains both primary and secondary databases. In this case, to properly migrate you should treat the pool with the higher utilization as “primary” and follow the sequencing rules accordingly.  
 
-To set or change Azure SQL databases service tiers, performance levels, and storage amount using the REST API, see [Azure SQL Database REST API](/rest/api/sql/).
+The following table provides guidance for the specific migration scenarios: 
+
+|Current service tier|Target service tier|Migration type|User actions|
+|---|---|---|---|
+|Standard|General purpose|Lateral|Can migrate in any order, but need to ensure an appropriate vCore sizing*|
+|Premium|Business Critical|Lateral|Can migrate in any order, but need to ensure appropriate vCore sizing*|
+|Standard|Business Critical|Upgrade|Must migrate secondary first|
+|Business Critical|Standard|Downgrade|Must migrate primary first|
+|Premium|General purpose|Downgrade|Must migrate primary first|
+|General purpose|Premium|Upgrade|Must migrate secondary first|
+|Business Critical|General purpose|Downgrade|Must migrate primary first|
+|General purpose|Business Critical|Upgrade|Must migrate secondary first|
+||||
+
+\* Each 100 DTU in Standard tier requires at least 1 vCore and each 125 DTU in Premium tier requires at least 1 vCore
+
+#### Migration of failover groups 
+
+Migration of failover groups with multiple databases requires individual migration of the primary and secondary databases. During that process, the same considerations and sequencing rules apply. After the databases are converted to the vCore-based model, the failover group will remain in effect with the same policy settings. 
+
+#### Creation of a geo-replication secondary
+
+You can only create a geo-secondary using the same service tier as the primary. For database with high log generation rate, it is strongly advised that the secondary is created with the same performance level as the primary. If you are creating a geo-secondary in the elastic pool for a single primary database, it is strongly advised that the pool has the `maxVCore` setting that matches the primary database performance level. If you are creating a geo-secondary in the elastic pool for a primary in another elastic pool, it is strongly advised that the pools have the same `maxVCore` settings
+
+#### Using database copy to convert a DTU-based database to a vCore-based database.
+
+You can copy any database with a DTU-based performance level to a database with a vCore-based performance level without restrictions or special sequencing as long as the target performance level supports the maximum database size of the source database. This is because the database copy creates a snapshot of data as of the starting time of the copy operation and does not perform data synchronization between the source and the target. 
 
 ## Next steps
 
-* Learn more about [DTUs](sql-database-what-is-a-dtu.md).
-* To learn about monitoring DTU usage, see [Monitoring and performance tuning](sql-database-troubleshoot-performance.md).
-
+- For details on specific performance levels and storage size choices available, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md) and [SQL Database vCore-based resource limits](sql-database-vcore-resource-limits.md).
+- See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
+- Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)

@@ -4,7 +4,7 @@ description: An overview of the authentication protocols supported by Azure Acti
 documentationcenter: dev-center-name
 author: priyamohanram
 services: active-directory
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 7a838ae2-c24c-4304-b6c0-e77fb888e6c0
@@ -33,7 +33,5 @@ Azure Active Directory (Azure AD) supports several of the most widely used authe
 
 ## See Also
 [Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
-
-[Using Azure AD for Authentication](../../app-service-web/web-sites-authentication-authorization.md)
 
 [Active Directory Code Samples](active-directory-code-samples.md)

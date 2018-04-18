@@ -4,7 +4,7 @@ description: Learn how to manage server admins for an Analysis Services server i
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,17 +14,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/22/2016
+ms.date: 02/14/2018
 ms.author: owend
 
 ---
 # Manage server administrators
-Server administrators must be a valid user or group in the Azure Active Directory (Azure AD) for the tenant in which the server resides. You can use **Analysis Services Admins** in the control blade for your server in Azure portal, or Server Properties in SSMS to manage server administrators. 
+Server administrators must be a valid user or group in the Azure Active Directory (Azure AD) for the tenant in which the server resides. You can use **Analysis Services Admins** for your server in Azure portal, or Server Properties in SSMS to manage server administrators. 
 
 ## To add server administrators by using Azure portal
-1. In the control blade for your server, click **Analysis Services Admins**.
-2. In the **\<servername> - Analysis Services Admins** blade, click **Add**.
-3. In the **Add Server Administrators** blade, select user accounts from your Azure AD or invite external users by email address.
+1. In the the portal, for your server, click **Analysis Services Admins**.
+2. In **\<servername> - Analysis Services Admins**, click **Add**.
+3. In **Add Server Administrators**, select user accounts from your Azure AD or invite external users by email address.
 
     ![Server Admins in Azure portal](./media/analysis-services-server-admins/aas-manage-users-admins.png)
 

@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/02/2017
 ms.author: vturecek
 
 ---
@@ -53,7 +53,7 @@ Worker Role and Service Fabric service APIs offer similar entry points:
 | Open listener for client requests |N/A |<ul><li> `CreateServiceInstanceListener()` for stateless</li><li>`CreateServiceReplicaListener()` for stateful</li></ul> |
 
 ### Worker Role
-```C#
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -78,7 +78,7 @@ namespace WorkerRole1
 ```
 
 ### Service Fabric Stateless Service
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -135,7 +135,7 @@ Each of these packages can be independently versioned and upgraded. Similar to C
 #### Cloud Services
 Configuration settings from ServiceConfiguration.*.cscfg can be accessed through `RoleEnvironment`. These settings are globally available to all role instances in the same Cloud Service deployment.
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -146,7 +146,7 @@ Each service has its own individual configuration package. There is no built-in 
 
 Configuration settings are accesses within each service instance through the service's `CodePackageActivationContext`.
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -167,7 +167,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### Cloud Services
 The `RoleEnvironment.Changed` event is used to notify all role instances when a change occurs in the environment, such as a configuration change. This is used to consume configuration updates without recycling role instances or restarting a worker process.
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -188,7 +188,7 @@ Each of the three package types in a service - Code, Config, and Data - have eve
 
 These events are available to consume changes in service packages without restarting the service instance.
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;

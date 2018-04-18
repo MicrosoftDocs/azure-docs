@@ -13,15 +13,15 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 04/03/2017
+ms.topic: troubleshooting
+ms.date: 11/03/2017
 ms.author: cjiang
 
 ---
 # Sign up for an Office 365 subscription with your Azure account
-If you're Azure subscriber, use your Azure account to sign up for an Office 365 subscription. If you're part of an organization that has an Azure subscription, you can create an Office 365 subscription for users in your existing Azure Active Directory (Azure AD). Sign up to Office 365 using an account that's a member of the Global Admin or Billing Admin directory role in your Azure Active Directory tenant. For more information, see [Check my account permissions in Azure AD](#RoleInAzureAD) and [Assigning administrator roles in Azure Active Directory](../active-directory/active-directory-assign-admin-roles.md).
+If you're Azure subscriber, you can use your Azure account to sign up for an Office 365 subscription. If you're part of an organization that has an Azure subscription, you can create Office 365 subscriptions for users in your existing Azure Active Directory (Azure AD). Sign up to Office 365 using an account that has Global Admin or Billing Admin permissions in your Azure Active Directory tenant. For more information, see [Check my account permissions in Azure AD](#RoleInAzureAD) and [Assigning administrator roles in Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
 
-If you already have both an Office 365 account and an Azure subscription, see [Associate an Office 365 tenant to an Azure subscription](billing-add-office-365-tenant-to-azure-subscription.md).
+If you already have both an Office 365 account and an Azure subscription, you can [Associate an Office 365 tenant to an Azure subscription](billing-add-office-365-tenant-to-azure-subscription.md).
 
 ## Get an Office 365 subscription by using your Azure account
 
@@ -51,7 +51,7 @@ After you sign up, the Office 365 subscription is added to the same Azure Active
 
 ## <a id="RoleInAzureAD"></a>Check my account permissions in Azure AD
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click **More services**, and then search for **Active Directory**.
+2. Click **All services**, and then search for **Active Directory**.
 
     ![Screenshot of Active Directory in the Azure portal](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Click **Users and groups** > **All users**.

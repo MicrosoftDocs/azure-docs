@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 01/29/2018
 ms.author: dobett
 
 ---
@@ -23,7 +23,7 @@ ms.author: dobett
 You can use Azure IoT Hub and the Azure IoT device SDKs to build Internet of Things (IoT) solutions:
 
 * Azure IoT Hub is a fully managed service in the cloud that securely connects, monitors, and manages your IoT devices. Use the Azure IoT Device SDKs to implement your IoT devices.
-* Use an IoT gateway in more complex IoT scenarios. For example, where you need to consider factors such as legacy devices, bandwidth costs, security and privacy policies, or edge data processing. In these scenarios, you use Azure IoT Edge to implement a gateway that connects devices to your IoT hub.
+* Use an IoT gateway in more complex IoT scenarios. For example, where you need to consider factors such as legacy devices, bandwidth costs, security and privacy policies, or edge data processing. In these scenarios, use [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) to implement a gateway that connects devices to your IoT hub.
 
 ## What the tutorials cover
 
@@ -35,7 +35,8 @@ Connect an IoT device or gateway to Azure IoT Hub. You can choose a physical or 
 
 | IoT device                       | Programming language |
 |----------------------------------|----------------------|
-| Raspberry Pi                     | [Node.js][Pi_Nd], [C][Pi_C]    |
+| Raspberry Pi                     | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
+| IoT DevKit                       | [Arduino in VSCode][DevKit]     |
 | Intel Edison                     | [Node.js][Ed_Nd], [C][Ed_C]    |
 | Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 Thing Dev       | [Arduino][Th_Ard]              |
@@ -43,17 +44,12 @@ Connect an IoT device or gateway to Azure IoT Hub. You can choose a physical or 
 | Simulated device on PC           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
 | Online device simulator         | [Raspberry Pi (Node.js)][Ol_Sim] |
 
-In addition, you can use an IoT Edge gateway to enable devices to connect to your IoT hub:
-
-| Gateway device               | Programming language | Platform         |
-|------------------------------|----------------------|------------------|
-| Intel NUC (model DE3815TYKE) | C                    | [Wind River Linux][NUC_Lnx] |
-| Simulated gateway            | C                    | [Linux][Sim_Lnx], [Windows][Sim_Win] |
-
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
 [Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
 [Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
+[Pi_Py]: iot-hub-raspberry-pi-kit-python-get-started.md
+[DevKit]: iot-hub-arduino-iot-devkit-az3166-get-started.md
 [Ed_Nd]: iot-hub-intel-edison-kit-node-get-started.md
 [Ed_C]: iot-hub-intel-edison-kit-c-get-started.md
 [Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md

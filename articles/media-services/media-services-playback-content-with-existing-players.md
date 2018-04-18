@@ -4,7 +4,7 @@ description: This topic lists existing players that you can use to playback your
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 7e9fcf89-0fb6-4fa4-96cb-666320684d69

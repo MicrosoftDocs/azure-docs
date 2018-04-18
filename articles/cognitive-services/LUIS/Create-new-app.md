@@ -1,37 +1,86 @@
 ---
 title: Create a new app with LUIS | Microsoft Docs
-description: Create and manage your applications on the Language Understanding Intelligent Services (LUIS) webpage. 
+description: Create and manage your applications on the Language Understanding (LUIS) webpage. 
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: cahann
+ms.date: 03/30/2018
+ms.author: v-geberr
 ---
 
-# Create a New App
-You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My Apps** on the top navigation bar of LUIS web page. 
-This article shows you how to create a LUIS app and use it as an example application to work on throughout the LUIS help topics.
+# Create an app
+You create a new app in different ways: 
 
-**To create a new app:**
+* [Start](#create-new-app) with an empty app and create intents, utterances, and entities.
+* [Start](#create-new-app) with an empty app and add a [prebuilt domain](luis-how-to-use-prebuilt-domains.md).
+* [Import a LUIS app](#import-new-app) from a JSON file that already contains intents, utterances, and entities.
 
-1. On **My Apps** page, click **New App**.
+## What is an app
+The app contains [versions](luis-how-to-manage-versions.md) of your model as well as any [collaborators](luis-how-to-collaborate.md) for the app. When you create the app, you select the culture ([language](luis-supported-languages.md)) which **cannot be changed later**. 
+
+The default version of a new app is "0.1." 
+
+You can create and manage your applications on **My Apps** page. You can always access this page by selecting **My apps** on the top navigation bar of the [LUIS](luis-reference-regions.md) website. 
+
+![List of apps](./media/luis-create-new-app/apps-list.png)
+
+## Create new app
+
+1. On **My Apps** page, select **Create new app**.
 2. In the dialog box, name your application "TravelAgent".
 
-    ![A new app form](./Images/NewApp-Form.JPG)
-3. Choose your application culture (for TravelAgent app, we’ll choose English), and then click **Create**. 
+    ![Create new app dialog](./media/luis-create-new-app/create-app.png)
+
+3. Choose your application culture (for TravelAgent app, choose English), and then select **Done**. 
 
     >[!NOTE]
     >The culture cannot be changed once the application is created. 
 
-LUIS creates the TravelAgent app and opens its main page which looks like the following screen. Use the navigation links in the left panel to move through your app pages to define data and work on your app. 
+## Import new app
+You can set the name (50 char max), version (10 char max), and description of an app in the JSON file. Examples of application JSON files are available at [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
 
-![TravelAgent app created and Opened](./Images/AppCreated_Opened.JPG)
+1. On **My Apps** page, select **Import new app**.
+2. In the **Import new app** dialog, select the JSON file defining the LUIS app.
 
+    ![Import a new app dialog](./media/luis-create-new-app/import-app.png)
+
+## Export app
+1. On **My Apps** page, select the three dots (...) at the end of the app row.
+
+    ![Import a new app dialog](./media/luis-create-new-app/three-dots.png)
+
+2. Select **Export app** from the menu. 
+
+## Rename app
+
+1. On **My Apps** page, select the three dots (...) at the end of the app row. 
+2. Select **Rename** from the menu.
+3. Enter the new name of the app and select **Done**.
+
+## Delete app
+
+> [!CAUTION]
+> You are deleting the app for all collaborators and the owner. [Export](#export-app) the app before deleting it. 
+
+1. On **My Apps** page, select the three dots (...) at the end of the app row. 
+2. Select **Delete** from the menu.
+3. Select **Ok** in the confirmation window.
+
+## Export endpoint logs
+The logs contain the Query, UTC time, and LUIS JSON response.
+
+1. On **My Apps** page, select the three dots (...) at the end of the app row. 
+2. Select **Export endpoint logs** from the menu.
+
+```
+Query,UTC DateTime,Response
+text i'm driving and will be 30 minutes late to the meeting,02/13/2018 15:18:43,"{""query"":""text I'm driving and will be 30 minutes late to the meeting"",""intents"":[{""intent"":""None"",""score"":0.111048922},{""intent"":""SendMessage"",""score"":0.987501}],""entities"":[{""entity"":""i ' m driving and will be 30 minutes late to the meeting"",""type"":""Message"",""startIndex"":5,""endIndex"":58,""score"":0.162995353}]}"
+```
 
 ## Next steps
 
-Your first task in the app is to add intents. For more info on how to add intents, see [Add intents](Add-intents.md).
+Your first task in the app is to [add intents](Add-intents.md).

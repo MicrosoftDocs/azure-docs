@@ -1,19 +1,16 @@
 ---
-title: Canary release with Vamp on Azure DC/OS cluster | Microsoft Docs
+title: Canary release with Vamp on Azure DC/OS cluster
 description: How to use Vamp to canary release services and apply smart traffic filtering on an Azure Container Service DC/OS cluster 
 services: container-service
 author: gggina
-manager: rasquill
+manager: timlt
 
-ms.assetid:
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.date: 04/17/2017
 ms.author: rasquill
+ms.custom: mvc
 ---
-
 
 # Canary release microservices with Vamp on an Azure Container Service DC/OS cluster
 

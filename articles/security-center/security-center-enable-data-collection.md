@@ -1,5 +1,5 @@
 ---
-title: Enable data collection in Azure Security Center | Microsoft Docs
+title: Data Collection in Azure Security Center | Microsoft Docs
 description: " Learn how to enable data collection in Azure Security Center. "
 services: security-center
 documentationcenter: na
@@ -13,53 +13,128 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 04/03/2018
 ms.author: terrylan
 
 ---
-# Enable data collection in Azure Security Center
+# Data collection in Azure Security Center
+Security Center collects data from your Azure virtual machines (VMs) and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, and tenant ID. The Microsoft Monitoring Agent also copies crash dump files to your workspace.
+
+## Enable automatic provisioning of Microsoft Monitoring Agent     
+When automatic provisioning is enabled, Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended but manual agent installation is also available. [Learn how to install the Microsoft Monitoring Agent extension](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
-> Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md). The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
+> Disabling automatic provisioning limits security monitoring for your resources. To learn more, see [disable automatic provisioning](security-center-enable-data-collection.md#disable-automatic-provisioning) in this article. VM disk snapshots and artifact collection are enabled even if automatic provisioning is disabled.
 >
 >
 
-Security Center collects data from your virtual machines (VMs) to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, you have the option to enable data collection for all VMs in your subscription. If data collection is not enabled, Security Center recommends that you turn on data collection in the security policy for that subscription.
+To enable automatic provisioning of the Microsoft Monitoring Agent:
+1. Under the Security Center main menu, select **Security Policy**.
+2. Select the subscription.
+3. Under **Security policy**, select **Data Collection**.
+4. Under **Onboarding**, select **On** to enable automatic provisioning.
+5. Select **Save**.
 
-When data collection is enabled, Security Center provisions the Microsoft Monitoring Agent on all existing supported Azure virtual machines and any new ones that are created. The Microsoft Monitoring Agent scans for various security-related configurations. In addition, the operating system raises event log events. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, and tenant ID. The Microsoft Monitoring Agent reads event log entries and configurations and copies the data to your workspace for analysis. The Microsoft Monitoring Agent also copies crash dump files to your workspace.
+![Enable automatic provisioning][1]
 
-If you are using the Free tier of Security Center, you can disable data collection from virtual machines by turning off data collection in the security policy. Disabling data collection limits security assessments for your VMs. To learn more, see [Disabling data collection](#disabling-data-collection). VM disk snapshots and artifact collection are enabled even if data collection has been disabled. Data collection is required for subscriptions on the Standard tier of Security Center.
+## Default workspace configuration
+Data collected by Security Center is stored in Log Analytics workspace(s).  You can elect to have data collected from Azure VMs stored in workspaces created by Security Center or in an existing workspace you created.
+
+To use your existing Log Analytics workspace:
+- The workspace must be associated with your selected Azure subscription.
+- At a minimum, you must have read permissions to access the workspace.
+
+To select an existing Log Analytics workspace:
+
+1. Under **Security policy – Data Collection**, select **Use another workspace**.
+
+   ![Select existing workspace][2]
+
+2. From the pull-down menu, select a workspace to store collected data.
 
 > [!NOTE]
-> Learn more about Security Center's Free and Standard [pricing tiers](security-center-pricing.md).
+> In the pull down menu, only workspaces that you have access to and are in your Azure subscription are shown.
 >
 >
 
-## Implement the recommendation
+3. Select **Save**.
+4. After selecting **Save**, you will be asked if you would like to reconfigure monitored VMs.
+
+   - Select **No** if you want the new workspace settings to apply on new VMs only. The new workspace settings only apply to new agent installations; newly discovered VMs that do not have the Microsoft Monitoring Agent installed.
+   - Select **Yes** if you want the new workspace settings to apply on all VMs. In addition, every VM connected to a Security Center created workspace is reconnected to the new target workspace.
+
+   > [!NOTE]
+   > If you select Yes, you must not delete the workspace(s) created by Security Center until all VMs have been reconnected to the new target workspace. This operation fails if a workspace is deleted too early.
+   >
+   >
+
+   - Select **Cancel** to cancel the operation.
+
+   ![Select existing workspace][3]
+
+## Data collection tier
+Security Center can reduce the volume of events while maintaining enough events for investigation, auditing, and threat detection. You can choose the right filtering policy for your subscriptions and workspaces from four sets of events to be collected by the agent.
+
+- **All events** – For customers who want to make sure all events are collected. This is the default.
+- **Common** – This is a set of events that satisfies most customers and allows them a full audit trail.
+- **Minimal** – A smaller set of events for customers who want to minimize the event volume.
+- **None** – Disable security event collection from security and App Locker logs. For customers who choose this option, their security dashboards have only Windows Firewall logs and proactive assessments like antimalware, baseline, and update.
 
 > [!NOTE]
-> This document introduces the service by using an example deployment. This document is not a step-by-step guide.
+> These sets were designed to address typical scenarios. Make sure to evaluate which one fits your needs before implementing it.
 >
 >
 
-1. In the **Recommendations** blade, select **Enable data collection for subscriptions**.  This opens the **Turn on data collection** blade.
-   ![Recommendations blade][2]
-2. On the **Turn on data collection** blade, select your subscription. The **Security policy** blade for that subscription opens.
-3. On the **Security policy** blade, select **On** under **Data collection** to automatically collect logs. Turning on data collection provisions the monitoring extension on all current and new supported VMs in the subscription.
-4. Select **Save**.
-5. Select **OK**.
+To determine the events that will belong to the **Common** and **Minimal** event sets, we worked with customers and industry standards to learn about the unfiltered frequency of each event and their usage. We used the following guidelines in this process:
 
-## Disabling data collection
-If you are using the Free tier of Security Center, you can disable data collection from virtual machines at any time by turning off data collection in the security policy. Data collection is required for subscriptions on the Standard tier of Security Center.
+- **Minimal** - Make sure that this set covers only events that might indicate a successful breach and important events that have a very low volume. For example, this set contains user successful and failed login (event IDs 4624, 4625), but it doesn’t contain logout which is important for auditing but not meaningful for detection and has relatively high volume. Most of the data volume of this set is the login events and process creation event (event ID 4688).
+- **Common** - Provide a full user audit trail in this set. For example, this set contains both user logins and user logoff (event ID 4634). We include auditing actions like security group changes, key domain controller Kerberos operations, and other events that are recommended by industry organizations.
 
-1. Return to the **Security Center** blade and select the **Policy** tile. This opens the **Security policy-Define policy per subscription** blade.
-   ![Select the policy tile][5]
-2. On the **Security policy-Define policy per subscription** blade, select the subscription that you wish to disable data collection.
-3. The **Security policy** blade for that subscription opens.  Select **Off** under Data collection.
-4. Select **Save** in the top ribbon.
+Events that have very low volume were included in the Common set as the main motivation to choose it over all the events is to reduce the volume and not to filter out specific events.
+
+Here is a complete breakdown of the Security and App Locker event IDs for each set:
+
+| Data tier | Collected event indicators |
+| --- | --- |
+| Minimal | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
+| | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
+| Common | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
+| |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
+| | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
+| | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
+| | 4774,4778,4779,4781,4793,4797,4798,4799,4800,4801,4802,4803,4825,4826,4870,4886,4887,4888,4893,4898,4902, |
+| | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
+| | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
+
+> [!NOTE]
+> If you are using Group Policy Object (GPO), it is recommended that you enable audit policies Process Creation Event 4688 and the *CommandLine* field inside event 4688. For more information about Process Creation Event 4688, see Security Center's [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled). For more information about these audit policies, see [Audit Policy Recommendations](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+>
+>
+
+To choose your filtering policy:
+1. On the **Security policy & settings** blade, select your filtering policy under **Security Events**.
+2. Select **Save**.
+
+   ![Choose filtering policy][5]
+
+## Disable automatic provisioning
+You can disable automatic provisioning from resources at any time by turning off this setting in the security policy. Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities and endpoint protection.
+
+> [!NOTE]
+> Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent has been provisioned.
+>
+>
+
+1. Return to the Security Center main menu and select the Security policy.
+
+   ![Disable automatic provisioning][6]
+
+2. Select the subscription that you wish to disable automatic provisioning.
+3. On the **Security policy – Data Collection** blade, under **Onboarding** select **Off** to disable automatic provisioning.
+4. Select **Save**.  
 
 ## Next steps
-This article showed you how to implement the Security Center recommendation "Enable data collection.” To learn more about Security Center, see the following:
+This article showed you how data collection and automatic provisioning in Security Center works. To learn more about Security Center, see the following:
 
 * [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
@@ -71,8 +146,8 @@ This article showed you how to implement the Security Center recommendation "Ena
 * [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
 
 <!--Image references-->
-[2]: ./media/security-center-enable-data-collection/recommendations.png
-[3]: ./media/security-center-enable-data-collection/data-collection.png
-[4]: ./media/security-center-enable-data-collection/storage-account.png
-[5]: ./media/security-center-enable-data-collection/policy.png
-[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
+[1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
+[2]: ./media/security-center-enable-data-collection/use-another-workspace.png
+[3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
+[5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
+[6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png

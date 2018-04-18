@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory Conditional Access technical reference | Microsoft Docs
-description: With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application.
+title: Azure Active Directory conditional access settings reference | Microsoft Docs
+description: Get an overview of the supported settings in an Azure Active Directory conditional access policy.
 services: active-directory.
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
@@ -12,77 +12,223 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/25/2017
+ms.date: 03/13/2018
 ms.author: markvi
-ms.reviewer: calebb
+ms.reviewer: spunukol
 
 ---
-# Azure Active Directory Conditional Access technical reference
+# Azure Active Directory conditional access settings reference
 
-## Services enabled with conditional access
+You can use [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md) to control how authorized users can access your resources.   
 
-Conditional Access rules are supported across various Azure AD application types. This list includes:
+This article provides you with support information for the following configuration options in a conditional access policy: 
 
+- Cloud applications assignments
 
-* Applications registered with the Azure Application Proxy
-* Azure Remote App
-* Developed line of business and multi-tenant applications registered with Azure AD
-* Dynamics CRM
-* Federated applications from the Azure AD application gallery
-* Microsoft Office 365 Yammer
-* Microsoft Office 365 Exchange Online
-* Microsoft Office 365 SharePoint Online (includes OneDrive for Business)
-* Microsoft Power BI 
-* Password SSO applications from the Azure AD application gallery
-* Visual Studio Team Services
-* Microsoft Teams
+- Device platform condition 
+
+- Client applications condition
+
+- Approved client application requirement
 
 
+If this is not the information you are looking for, please leave a comment at the end of this article.
+
+## Cloud apps assignments
+
+With conditional access policies, you control how your users access your [cloud apps](active-directory-conditional-access-conditions.md#cloud-apps). When you configure a conditional access policy, you need to select at least one cloud app. 
+
+![Select the cloud apps for your policy](./media/active-directory-conditional-access-technical-reference/09.png)
+
+
+### Microsoft cloud applications
+
+You can assign a conditional access policy to the following cloud apps from Microsoft:
+
+- Azure Information Protection - [Learn more](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+
+- Azure RemoteApp
+
+- Microsoft Dynamics 365
+
+- Microsoft Office 365 Yammer
+
+- Microsoft Office 365 Exchange Online
+
+- Microsoft Office 365 SharePoint Online (includes OneDrive for Business and Project Online)
+
+- Microsoft Power BI 
+
+- Microsoft Visual Studio Team Services
+
+- Microsoft Teams
+
+
+### Other applications 
+
+In addition to the Microsoft cloud apps, you can assign a conditional access policy to the following types of cloud apps:
+
+- Azure AD-connected applications
+
+- Pre-integrated federated software as a service (SaaS) application
+
+- Applications that use password single sign-on (SSO)
+
+- Line-of-business applications
+
+- Applications that use Azure AD Application Proxy
+
+
+## Device platform condition
+
+In a conditional access policy, you can configure the device platform condition to tie the policy to the operating system on a client. Azure AD conditional access supports the following device platforms:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+- Windows
+
+- macOS
+
+
+![Tie the access policy to the client OS](./media/active-directory-conditional-access-technical-reference/41.png)
 
 
 
 
 
+## Client apps condition 
+
+In your conditional access policy, you can configure the [client apps](active-directory-conditional-access-conditions.md#client-apps) condition to tie the policy to the client app that has initiated an access attempt. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
+
+- Browser
+- Mobile apps and desktop apps
+
+![Control access for client apps](./media/active-directory-conditional-access-technical-reference/03.png)
+
+### Supported browsers 
+
+In your conditional access policy, you can select **Browsers** as client app.
+
+![Control access for supported browsers](./media/active-directory-conditional-access-technical-reference/05.png)
+
+This setting works with all browsers. However, to satisfy a device policy, like a compliant device requirement, the following operating systems and browsers are supported:
 
 
-## Enable access rules
-Each rule can be enabled or disabled on a per application bases. When rules are **ON** they will be enabled and enforced for users accessing the application. When they are **OFF** they will not be used and will not impact the users sign in experience.
-
-## Applying rules to specific users
-Rules can be applied to specific sets of users based on security group by setting **Apply To**. **Apply To** can be set to **All Users** or **Groups**. When set to **All Users** the rules will apply to any user with access to the application. The **Groups** option allows specific security and distribution groups to be selected, rules will only be enforced for these groups.
-
-When deploying a rule,  it is common to first apply it a limited set of users, that are members of a piloting groups. Once complete the rule can be applied to **All Users**. This will cause the rule to be enforced for all users in the organization.
-
-Select groups may also be exempted from policy using the **Except** option. Any members of these groups will be exempted even if they appear in an included group.
-
-## “At work” networks
-Conditional access rules that use an “At work” network, rely on trusted IP address ranges that have been configured in Azure AD, or use of the "inside corpnet" claim from AD FS. These rules include:
-
-* Require multi-factor authentication when not at work
-* Block access when not at work
-
-Options for specifiying “at work” networks
-
-1. Configure trusted IP address ranges in the [multi-factor authentication configuration page](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules. 
-2. Configure use of the inside corpnet claim, this option can be used with federated directories, using AD FS. To learn more about the inside corpnet claims, see [Tusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+| OS                     | Browsers                            | Support     |
+| :--                    | :--                                 | :-:         |
+| Windows 10             | Internet Explorer, Edge, Chrome     | ![Check][1] |
+| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Check][1] |
+| Windows 7              | Internet Explorer, Chrome           | ![Check][1] |
+| iOS                    | Safari, Intune Managed Browser      | ![Check][1] |
+| Android                | Chrome, Intune Managed Browser      | ![Check][1] |
+| Windows Phone          | Internet Explorer, Edge             | ![Check][1] |
+| Windows Server 2016    | Internet Explorer, Edge             | ![Check][1] |
+| Windows Server 2016    | Chrome                              | Coming soon |
+| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Check][1] |
+| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Check][1] |
+| macOS                  | Chrome, Safari                      | ![Check][1] |
 
 
-## Rules based on application sensitivity
-Rules are configured per application allowing the high value services to be secured without impacting access to other services. Conditional access rules can be configured on the  **Configure** tab of the application. 
 
-Rules currently offered:
+#### Chrome support
 
-* **Require multi-factor authentication**
-  
-  * All users that this policy is applied to will be required to authenticate via multi-factor authentication at least once.
-* **Require multi-factor authentication when not at work**
-  
-  * If this policy is applied, all users will be required to have performed multi-factor authentication at least once if they access the service from a non-work remote location. If they move from a work to remote location, they will be required to perform multifactor authentication when accessing the service.
-* **Block access when not at work** 
-  
-  * When users move from work to a remote location, they will be blocked if the "Block access when not at work" policy is applied to them.  They will be re-allowed access when at a work location.
+For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
-## Related topics
-* [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access.md)
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+For Chrome support in **Windows 8.1 and 7**, create the following registry key:
+
+|    |    |
+|--- | ---|
+|Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|Name | 1 |
+|Type | REG_SZ (String) |
+|Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
+
+These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode. 
+
+
+### Supported mobile applications and desktop clients
+
+In your conditional access policy, you can select **Mobile apps and desktop clients** as client app.
+
+
+![Control access for supported mobile apps or desktop clients](./media/active-directory-conditional-access-technical-reference/06.png)
+
+
+This setting has an impact on access attempts made from the following mobile apps and desktop clients: 
+
+
+| Client apps| Target Service| Platform |
+| --- | --- | --- |
+| Azure Remote app| Azure Remote App service| Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X|
+| Dynamics CRM app| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, and Android|
+| Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Office 365 Exchange Online| Windows 10|
+| MFA and location policy for apps. Device based policies are not supported.| Any My Apps app service| Android and iOS|
+| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android and macOS|
+| Office 2016 apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office Groups support is planned for the future, SharePoint app support is planned for the future| Office 365 SharePoint Online| Windows 10|
+| Office 2016 for macOS (Word, Excel, PowerPoint, OneNote only). OneDrive for Business support planned for the future| Office 365 SharePoint Online| Mac OS X|
+| Office mobile apps| Office 365 SharePoint Online| Android, iOS|
+| Office Yammer app| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2016 (Office for macOS)| Office 365 Exchange Online| Mac OS X|
+| Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Outlook mobile app| Office 365 Exchange Online| Android, iOS|
+| PowerBI app| PowerBI service| Windows 10, Windows 8.1, Windows 7, Android and iOS|
+| Skype for Business| Office 365 Exchange Online| Android, IOS|
+| Visual Studio Team Services app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS, and Android|
+
+
+
+## Approved client app requirement 
+
+In your conditional access policy, you can require that an access attempt to the selected cloud apps needs to be made from an approved client app. 
+
+![Control access for approved client apps](./media/active-directory-conditional-access-technical-reference/21.png)
+
+This setting applies to the following client apps:
+
+
+- Microsoft Intune Managed Browser
+- Microsoft PowerBI
+- Microsoft Invoicing
+- Microsoft Launcher
+- Microsoft Azure Information Protection
+- Microsoft Excel
+- Microsoft Kaizala 
+- Microsoft OneDrive
+- Microsoft OneNote
+- Microsoft Outlook
+- Microsoft Planner
+- Microsoft PowerPoint
+- Microsoft SharePoint
+- Microsoft Skype for Business
+- Microsoft StaffHub
+- Microsoft Teams
+- Microsoft Visio
+- Microsoft Word
+
+
+
+**Remarks**
+
+- The approved client apps support the Intune mobile application management feature.
+
+- The **Require approved client app** requirement:
+
+    - Only supports the iOS and Android for [device platform condition](#device-platforms-condition).
+
+
+## Next steps
+
+- For an overview of conditional access, see [conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- If you are ready to configure conditional access policies in your environment, see the [recommended practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md).
+
+
+
+<!--Image references-->
+[1]: ./media/active-directory-conditional-access-technical-reference/01.png
+
 

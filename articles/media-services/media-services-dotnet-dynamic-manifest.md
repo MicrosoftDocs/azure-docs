@@ -4,7 +4,7 @@ description: This topic describes how to create filters so your client can use t
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 12/07/2017
 ms.author: juliako;cenkdin
 
 ---
@@ -24,13 +24,13 @@ ms.author: juliako;cenkdin
 > 
 > 
 
-Starting with 2.11 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
+Starting with 2.17 release, Media Services enables you to define filters for your assets. These filters are server-side rules that allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
 For more detailed information related to filters and Dynamic Manifest, see [Dynamic manifests overview](media-services-dynamic-manifest-overview.md).
 
-This topic shows how to use Media Services .NET SDK to create, update, and delete filters. 
+This article shows how to use Media Services .NET SDK to create, update, and delete filters. 
 
-Note if you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. It is recommend to clear the cache after updating the filter. If this option is not possible, consider using a different filter. 
+Note if you update a filter, it can take up to two minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. Always clear the cache after updating the filter. If this option is not possible, consider using a different filter. 
 
 ## Types used to create filters
 The following types are used when creating filters: 
@@ -41,8 +41,9 @@ The following types are used when creating filters:
 * **FilterTrackSelectStatement** and **IFilterTrackPropertyCondition**. These types are based on the following REST APIs [FilterTrackSelect and FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 ## Create/Update/Read/Delete global filters
-The following code shows how to use .NET to create, update,read, and delete asset filters.
+The following code shows how to use .NET to create, update, read, and delete asset filters.
 
+```csharp
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
 
     List<FilterTrackSelectStatement> filterTrackSelectStatements = new List<FilterTrackSelectStatement>();
@@ -67,11 +68,12 @@ The following code shows how to use .NET to create, update,read, and delete asse
 
     // Delete
     filter.Delete();
-
+```
 
 ## Create/Update/Read/Delete asset filters
-The following code shows how to use .NET to create, update,read, and delete asset filters.
+The following code shows how to use .NET to create, update, read, and delete asset filters.
 
+```csharp
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
     var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
 
@@ -97,7 +99,7 @@ The following code shows how to use .NET to create, update,read, and delete asse
     // Delete
     filterUpdated.Delete();
 
-
+```
 
 
 ## Build streaming URLs that use filters

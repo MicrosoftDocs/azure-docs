@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Virtual Data Center | Microsoft Docs
+title: "Microsoft Azure Virtual Datacenter: A Network Perspective | Microsoft Docs"
 description: Learn how to build your virtual data center in Azure
 services: networking
 author: tracsman
@@ -14,7 +14,7 @@ ms.date: 05/26/2017
 ms.author: jonor
 ---
 
-# Microsoft Azure Virtual Data Center
+# Microsoft Azure Virtual Datacenter: A Network Perspective
 **Microsoft Azure**: Move faster, Save money, Integrate on-premises apps and data
 
 ## Overview
@@ -385,7 +385,7 @@ The following features were discussed in this document. Click the links to learn
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
 [OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
-[WebApps]: https://docs.microsoft.com/azure/app-service-web/
+[WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 
 [ServiceBus]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview

@@ -4,7 +4,7 @@ description: A list of limitations and restrictions for the Azure AD v2.0 endpoi
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
@@ -78,6 +78,8 @@ In this case, you're referring to a DNS subdomain of login.contoso.com. If you w
 
 You can add the latter two because they are subdomains of the first redirect URI, contoso.com. This limitation will be removed in an upcoming release.
 
+Also note, you can have only 20 reply URLs for a particular application.
+
 To learn how to register an app in the Application Registration Portal, see [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).
 
 ## Restrictions on services and APIs
@@ -105,7 +107,7 @@ The v2.0 endpoint does not support SAML or WS-Federation; it only supports Open 
 * The v2.0 endpoint does not support issuing role or group claims in ID tokens.
 * The [OAuth 2.0 Resource Owner Password Credentials Grant](https://tools.ietf.org/html/rfc6749#section-4.3) is not supported by the v2.0 endpoint.
 
-In addtion, the v2.0 endpoint does not support any form of the SAML or WS-Federation protocols.
+In addition, the v2.0 endpoint does not support any form of the SAML or WS-Federation protocols.
 
 To better understand the scope of protocol functionality supported in the v2.0 endpoint, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-v2-protocols.md).
 

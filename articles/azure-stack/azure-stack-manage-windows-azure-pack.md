@@ -3,8 +3,8 @@ title: Manage Windows Azure Pack virtual machines from Azure Stack | Microsoft D
 description: Learn how to manage Windows Azure Pack (WAP) VMs from the user portal in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: walterov
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
@@ -13,12 +13,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
-ms.author: walterov
+ms.date: 02/28/2018
+ms.author: mabrigg
 
 ---
 # Manage Windows Azure Pack virtual machines from Azure Stack
-In the Azure Stack Development Kit, you can enable access from the Azure Stack user portal to tenant virtual machines running on Windows Azure Pack. Tenants can use the Azure Stack portal to manage their existing IaaS virtual machines and virtual networks. These resources are made available on Windows Azure Pack through the underlying Service Provider Foundation (SPF) and Virtual Machine Manager (VMM) components. Specifically, tenants can:
+
+*Applies to: Azure Stack Development Kit*
+
+In the Azure Stack Development Kit, you can enable access from the Azure Stack user portal to tenant virtual machines running on Windows Azure Pack. Users can use the Azure Stack portal to manage their existing IaaS virtual machines and virtual networks. These resources are made available on Windows Azure Pack through the underlying Service Provider Foundation (SPF) and Virtual Machine Manager (VMM) components. Specifically, users can:
 
 * Browse resources
 * Examine configuration values

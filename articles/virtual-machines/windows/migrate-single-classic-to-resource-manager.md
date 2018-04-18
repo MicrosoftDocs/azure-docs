@@ -22,7 +22,7 @@ ms.author: cynthn
 # Manually migrate a Classic VM to a new ARM Managed Disk VM from the VHD 
 
 
-This section helps you to migrate your existing Azure VMs from the classic deployment model to [Managed Disks](../../storage/storage-managed-disks-overview.md) in the Resource Manager deployment model.
+This section helps you to migrate your existing Azure VMs from the classic deployment model to [Managed Disks](managed-disks-overview.md) in the Resource Manager deployment model.
 
 
 ## Plan for the migration to Managed Disks

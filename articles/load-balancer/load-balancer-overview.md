@@ -3,129 +3,178 @@ title: Azure Load Balancer overview | Microsoft Docs
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the load balancer works and leverage it in the cloud.
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: ''
-
-ms.assetid: 0f313dc0-f007-4cee-b2b9-f542357925a3
+ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 03/21/2018
 ms.author: kumud
 ---
 
 # Azure Load Balancer overview
 
-Azure Load Balancer delivers high availability and network performance to your applications. It is a Layer 4 (TCP, UDP) load balancer that distributes incoming traffic among healthy instances of services defined in a load-balanced set.
+Azure Load Balancer allows you to scale your applications and create high availability for your services. Load Balancer supports inbound as well as outbound scenarios, and provides low latency, high throughput, and scales up to millions of flows for all TCP and UDP applications.   
 
-Azure Load Balancer can be configured to:
+Load Balancer will distribute new inbound flows arriving on the load balancer's frontend to backend pool instances according to rules and health probes.  
 
-* Load balance incoming Internet traffic to virtual machines. This configuration is known as [Internet-facing load balancing](load-balancer-internet-overview.md).
-* Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](load-balancer-internal-overview.md).
-* Forward external traffic to a specific virtual machine.
+Additionally, a public Load Balancer can also provide outbound connections for virtual machines inside your virtual network by translating their private IP addresses to public IP addresses.
 
-All resources in the cloud need a public IP address to be reachable from the Internet. The cloud infrastructure in Azure uses non-routable IP addresses for its resources. Azure uses network address translation (NAT) with public IP addresses to communicate to the Internet.
+Azure Load Balancer is available in two different SKUs: Basic and Standard.  There are differences in scale, features, and pricing.  Any scenario possible with Basic Load Balancer can also be created with Standard Load Balancer, although the approach might differ slightly.  As you learn about Load Balancer, it is important to familiarize yourself with the fundamentals and SKU-specific differences.
 
-## Azure deployment models
+## Why use Load Balancer? 
 
-It's important to understand the differences between the Azure classic and Resource Manager [deployment models](../azure-resource-manager/resource-manager-deployment-model.md). Azure Load Balancer is configured differently in each model.
+Azure Load Balancer can be used to:
 
-### Azure classic deployment model
+* Load balance incoming Internet traffic to virtual machines. This configuration is known as a [public Load Balancer](#publicloadbalancer).
+* Load balance traffic between virtual machines inside a virtual network. You can also reach a Load Balancer frontend from an on-premises network in a hybrid scenario. Both of these scenarios use a configuration that is known as an [internal Load Balancer](#internalloadbalancer).
+* Port forward traffic to a specific port on specific virtual machines with inbound NAT rules.
+* Provide [outbound connectivity](load-balancer-outbound-connections.md) for virtual machines inside your virtual network by using a public Load Balancer.
 
-Virtual machines deployed within a cloud service boundary can be grouped to use a load balancer. In this model a public IP address and a Fully Qualified Domain Name, (FQDN) are assigned to a cloud service. The load balancer does port translation and load balances the network traffic by using the public IP address for the cloud service.
 
-Load-balanced traffic is defined by endpoints. Port translation endpoints have a one-to-one relationship between the public-assigned port of the public IP address and the local port assigned to the service on a specific virtual machine. Load balancing endpoints have a one-to-many relationship between the public IP address and the local ports assigned to the services on the virtual machines in the cloud service.
+>[!NOTE]
+> Azure provides a suite of fully managed load balancing solutions for your scenarios.  If you are looking for TLS termination ("SSL offload") or per HTTP/HTTPS request application layer processing, review [Application Gateway](../application-gateway/application-gateway-introduction.md).  If you are looking for global DNS load balancing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Your end-to-end scenarios may benefit from combining these solutions as needed.
 
-![Azure Load Balancer in the classic deployment model](./media/load-balancer-overview/asm-lb.png)
+## What is Load Balancer?
 
-Figure 1 - Azure Load Balancer in the classic deployment model
+A Load Balancer resource can exist as either a public Load Balancer or an internal Load Balancer. The Load Balancer resource's functions are expressed as a frontend, a rule, a health probe, and a backend pool definition.  Virtual machines are placed into the backend pool by specifying the backend pool from the virtual machine.
 
-The domain label for the public IP address that the load balancer uses for this deployment model is \<cloud service name\>.cloudapp.net. The following graphic shows the Azure Load Balancer in this model.
+Load Balancer resources are objects within which you can express how Azure should program its multi-tenant infrastructure to achieve the scenario you wish to create.  There is no direct relationship between Load Balancer resources and actual infrastructure; creating a Load Balancer doesn't create an instance and capacity is always available. 
 
-### Azure Resource Manager deployment model
+## Fundamental Load Balancer features
 
-In the Resource Manager deployment model there is no need to create a Cloud service. The load balancer is created to explicitly route traffic among multiple virtual machines.
+Load Balancer provides the following fundamental capabilities for TCP and UDP applications:
 
-A public IP address is an individual resource that has a domain label (DNS name). The public IP address is associated with the load balancer resource. Load balancer rules and inbound NAT rules use the public IP address as the Internet endpoint for the resources that are receiving load-balanced network traffic.
+* **Load balancing**
 
-A private or public IP address is assigned to the network interface resource attached to a virtual machine. Once a network interface is added to a load balancer's back-end IP address pool, the load balancer is able to send load-balanced network traffic based on the load-balanced rules that are created.
+    Azure Load Balancer allows you to create a load balancing rule to distribute traffic arriving at a frontend to backend pool instances.  It uses a hash-based algorithm for distribution of inbound flows and rewrites the headers of flows to backend pool instances accordingly. A server is available to receive new flows when the health probe indicates a healthy backend endpoint.
+    
+    By default, it uses a 5-tuple hash composed of source IP address, source port, destination IP address, destination port, and IP protocol number to map flows to available servers.  You can choose to create affinity to a specific source IP address by opting into a 2- or 3-tuple hash for a given rule.  All packets of the same packet flow arrive on the same instance behind the load-balanced frontend.  When the client initiates a new flow from the same source IP, the source port changes. The resulting 5-tuple may cause the traffic to go to a different backend endpoint as a result.
 
-The following graphic shows the Azure Load Balancer in this model:
-
-![Azure Load Balancer in Resource Manager](./media/load-balancer-overview/arm-lb.png)
-
-Figure 2 - Azure Load Balancer in Resource Manager
-
-The load balancer can be managed through Resource Manager-based templates, APIs, and tools. To learn more about Resource Manager, see the [Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
-
-## Load Balancer features
-
-* Hash-based distribution
-
-    Azure Load Balancer uses a hash-based distribution algorithm. By default, it uses a 5-tuple hash composed of source IP, source port, destination IP, destination port, and protocol type to map traffic to available servers. It provides stickiness only *within* a transport session. Packets in the same TCP or UDP session will be directed to the same instance behind the load-balanced endpoint. When the client closes and reopens the connection or starts a new session from the same source IP, the source port changes. This may cause the traffic to go to a different endpoint in a different datacenter.
-
-    For more details, see [Load balancer distribution mode](load-balancer-distribution-mode.md). The following graphic shows the hash-based distribution:
+    For more information, see [Load balancer distribution mode](load-balancer-distribution-mode.md). The following graphic shows the hash-based distribution:
 
     ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    Figure 3 - Hash based distribution
+    *Figure - Hash-based distribution*
 
-* Port forwarding
+* **Port forwarding**
 
-    Azure Load Balancer gives you control over how inbound communication is managed. This communication includes traffic initiated from Internet hosts, virtual machines in other cloud services, or virtual networks. This control is represented by an endpoint (also called an input endpoint).
+    Azure Load Balancer allows you to create an inbound NAT rule to port forward traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the Virtual Network. This is also accomplished by the same hash-based distribution as load balancing.  Common scenarios for this ability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual virtual machine instances inside the Virtual Network.  You can map multiple internal endpoints to the different ports on the same frontend IP address. You can use these  to remotely administer your virtual machines over the Internet without the need for an additional jump box.
 
-    An input endpoint listens on a public port and forwards traffic to an internal port. You can map the same ports for an internal or external endpoint or use a different port for them. For example, you can have a web server configured to listen to port 81 while the public endpoint mapping is port 80. The creation of a public endpoint triggers the creation of a load balancer instance.
+* **Application agnostic and transparent**
 
-    When created using the Azure portal, the portal automatically creates endpoints to the virtual machine for the Remote Desktop Protocol (RDP) and remote Windows PowerShell session traffic. You can use these endpoints to remotely administer the virtual machine over the Internet.
+    Load Balancer does not directly interact with TCP or UDP or the application layer and any TCP or UDP-based application scenario can be supported.  For example, while Load Balancer does not terminate TLS itself, you can build and scale out TLS applications using Load Balancer and terminate the TLS connection on the virtual machine itself. Load Balancer does not terminate a flow and protocol handshakes are always directly between the client and the hash-selected backend pool instance. For example, a TCP handshake is always between the client and the selected backend virtual machine.  And a response to a request to a frontend is a response generated from the backend virtual machine.  Load Balancer's outbound network performance is only limited by the virtual machine SKU you choose and flows will remain alive for long periods of time if the idle timeout is never reached.
 
-* Automatic reconfiguration
+* **Automatic reconfiguration**
 
-    Azure Load Balancer instantly reconfigures itself when you scale instances up or down. For example, this reconfiguration happens when you increase the instance count for web/worker roles in a cloud service or when you add additional virtual machines into the same load-balanced set.
+    Azure Load Balancer instantly reconfigures itself when you scale instances up or down. Adding or removing virtual machines from the backend pool reconfigures the load balancer without additional operations on the Load Balancer resource.
 
-* Service monitoring
+* **Health probes**
 
-    Azure Load Balancer can probe the health of the various server instances. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. Existing connections are not impacted.
+    Azure Load Balancer uses health probes you define to determine the health of instances in the backend pool. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. Existing connections are not impacted and will continue until the application terminates the flow, an idle timeout occurs, or the virtual machine is shut down.
 
     Three types of probes are supported:
 
-    + **Guest agent probe (on Platform as a Service Virtual Machines only):** The load balancer utilizes the guest agent inside the virtual machine. The guest agent listens and responds with an HTTP 200 OK response only when the instance is in the ready state (i.e. the instance is not in a state like busy, recycling, or stopping). If the agent fails to respond with an HTTP 200 OK, the load balancer marks the instance as unresponsive and stops sending traffic to that instance. The load balancer continues to ping the instance. If the guest agent responds with an HTTP 200, the load balancer will send traffic to that instance again. When you're using a web role, your website code typically runs in w3wp.exe, which is not monitored by the Azure fabric or guest agent. This means that failures in w3wp.exe (e.g. HTTP 500 responses) will not be reported to the guest agent, and the load balancer will not know to take that instance out of rotation.
-    + **HTTP custom probe:** This probe overrides the default (guest agent) probe. You can use it to create your own custom logic to determine the health of the role instance. The load balancer will regularly probe your endpoint (every 15 seconds, by default). The instance is considered to be in rotation if it responds with a TCP ACK or HTTP 200 within the timeout period (default of 31 seconds). This is useful for implementing your own logic to remove instances from the load balancer's rotation. For example, you can configure the instance to return a non-200 status if the instance is above 90% CPU. For web roles that use w3wp.exe, you also get automatic monitoring of your website, since failures in your website code return a non-200 status to the probe.
-    + **TCP custom probe:** This probe relies on successful TCP session establishment to a defined probe port.
+    - **HTTP custom probe:**  You can use it to create your own custom logic to determine the health of a backend pool instance. The load balancer will regularly probe your endpoint (every 15 seconds, by default). The instance is considered to be healthy if it responds with a HTTP 200 within the timeout period (default of 31 seconds). Any status other than HTTP 200 causes this probe to fail.  This is also useful for implementing your own logic to remove instances from the load balancer's rotation. For example, you can configure the instance to return a non-200 status if the instance is above 90% CPU.   This probe overrides the default guest agent probe.
 
-    For more information, see the [LoadBalancerProbe schema](https://msdn.microsoft.com/library/azure/jj151530.aspx).
+    - **TCP custom probe:** This probe relies on successful TCP session establishment to a defined probe port.  As long as the specified listener on the virtual machine exists, this probe will succeed. If the connection is refused, the probe will fail. This probe overrides the default guest agent probe.
 
-* Source NAT
+    - **Guest agent probe (on Platform as a Service Virtual Machines only):** The load balancer can also utilize the guest agent inside the virtual machine. The guest agent listens and responds with an HTTP 200 OK response only when the instance is in the ready state. If the agent fails to respond with an HTTP 200 OK, the load balancer marks the instance as unresponsive and stops sending traffic to that instance. The load balancer continues to attempt to reach the instance. If the guest agent responds with an HTTP 200, the load balancer will send traffic to that instance again.  Guest agent probes are a last resort and should not be used when HTTP or TCP custom probe configurations are possible. 
+    
+* **Outbound connections (Source NAT)**
 
-    All outbound traffic to the Internet that originates from your service undergoes source NAT (SNAT) by using the same VIP address as the incoming traffic. SNAT provides important benefits:
+    All outbound flows from private IP addresses inside your Virtual Network to public IP addresses on the Internet can be translated to a frontend IP address of the Load Balancer. When a public frontend is tied to a backend virtual machine by way of a load balancing rule, Azure programs outbound connections to be automatically translated to the public frontend's IP address . This is also called Source NAT (SNAT). SNAT provides important benefits:
 
-    + It enables easy upgrade and disaster recovery of services, since the VIP can be dynamically mapped to another instance of the service.
-    + It makes access control list (ACL) management easier. ACLs expressed in terms of VIPs do not change as services scale up, down, or get redeployed.
+    + It enables easy upgrade and disaster recovery of services, since the frontend can be dynamically mapped to another instance of the service.
+    + It makes access control list (ACL) management easier. ACLs expressed in terms of frontend IPs do not change as services scale up, down, or get redeployed.
 
-    The load balancer configuration supports full cone NAT for UDP. Full cone NAT is a type of NAT where the port allows inbound connections from any external host (in response to an outbound request).
+    Refer to [outbound connections](load-balancer-outbound-connections.md) article for a detailed discussion of this ability.
 
-    For each new outbound connection that a virtual machine initiates, an outbound port is also allocated by the load balancer. The external host sees traffic with a virtual IP (VIP)-allocated port. For scenarios that require a large number of outbound connections, it is recommended to use [instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) addresses so that the VMs have a dedicated outbound IP address for SNAT. This reduces the risk of port exhaustion.
+Standard Load Balancer has additional SKU-specific abilities beyond these fundamentals.  Review the remainder of this article for details.
 
-    Please see [outbound connections](load-balancer-outbound-connections.md) article for more details on this topic.
+## <a name="skus"></a> Load Balancer SKU comparison
 
-### Support for multiple load-balanced IP addresses for virtual machines
-You can assign more than one load-balanced public IP address to a set of virtual machines. With this ability, you can host multiple SSL websites and/or multiple SQL Server AlwaysOn Availability Group listeners on the same set of virtual machines. For more information, see [Multiple VIPs per cloud service](load-balancer-multivip.md).
+Azure Load Balancer supports two different SKUs: Basic and Standard.  There are differences in scenario scale, features, and pricing.  Any scenario possible with Basic Load Balancer can be created with Standard Load Balancer as well.  In fact, the APIs for both SKUs are similar and invoked through the specification of a SKU.  The API for supporting SKUs for Load Balancer and public IP is available starting with the 2017-08-01 API.  Both SKUs have the same general API and structure.
 
-[!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
+However, depending on which SKU is chosen, the complete scenario configuration detail may be slightly different. The Load Balancer documentation calls out when an article is applicable to a specific SKU only. Review the following table below to compare and understand the differences.  Review [Standard Load Balancer Overview](load-balancer-standard-overview.md) for further details.
 
-## Limitations
+>[!NOTE]
+> New designs should consider using Standard Load Balancer. 
 
-Load Balancer backend pools can contain any VM SKU except Basic tier.
+Standalone virtual machines, availability sets, and virtual machine scale sets can only be connected to one SKU, never both. When used with public IP addresses, both Load Balancer and public IP address SKU must match. Load Balancer and Public IP SKUs are not mutable.
+
+_It is a best practice to specify the SKUs explicitly, even though it is not yet mandatory._  At this time, required changes are being kept to a minimum. If a SKU is not specified, it is interpreted as the intention to use Basic SKU in the 2017-08-01 API version.
+
+>[!IMPORTANT]
+>Standard Load Balancer is a new Load Balancer product and largely a superset of Basic Load Balancer.  There are important and deliberate differences between both products.  Any end-to-end scenario possible with Basic Load Balancer can be created with Standard Load Balancer.  If you are already used to Basic Load Balancer, you should familiarize yourself with Standard Load Balancer to understand breaking changes in behavior between Standard and Basic and their impact. Review this section carefully.
+
+| | [Standard SKU](load-balancer-standard-overview.md) | Basic SKU |
+| --- | --- | --- |
+| Backend pool size | up to 1000 instances | up to 100 instances |
+| Backend pool endpoints | any virtual machine in a single virtual network, including blend of virtual machines, availability sets, virtual machine scale sets. | virtual machines in a single availability set or virtual machine scale set |
+| Availability Zones | zone-redundant and zonal frontends for inbound and outbound, outbound flows mappings survive zone failure, cross-zone load balancing | / |
+| Diagnostics | Azure Monitor, multi-dimensional metrics including byte and packet counters, health probe status, connection attempts (TCP SYN), outbound connection health (SNAT successful and failed flows), active data plane measurements | Azure Log Analytics for public Load Balancer only, SNAT exhaustion alert, backend pool health count |
+| HA Ports | internal Load Balancer | / |
+| Secure by default | default closed for public IP and Load Balancer endpoints and a network security group must be used to explicitly whitelist for traffic to flow | default open, network security group optional |
+| Outbound connections | Multiple frontends with per rule opt-out. An outbound scenario _must_ be explicitly created for the virtual machine to be able to use outbound connectivity.  [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) can be reached without outbound connectivity and do not count towards data processed.  Any public IP addresses, including Azure PaaS services not available as VNet Service Endpoints, must be reached via outbound connectivity and count towards data processed. When only an internal Load Balancer is serving a virtual machine, outbound connections via default SNAT are not available. Outbound SNAT programming is transport protocol specific based on protocol of the inbound load balancing rule. | Single frontend, selected at random when multiple frontends are present.  When only internal Load Balancer is serving a virtual machine, default SNAT is used. |
+| Multiple frontends | Inbound and outbound | Inbound only |
+| Management Operations | Most operations < 30 seconds | 60-90+ seconds typical |
+| SLA | 99.99% for data path with two healthy virtual machines | Implicit in VM SLA | 
+| Pricing | Charged based on number of rules, data processed inbound or outbound associated with resource  | No charge |
+
+Review [service limits for Load Balancer](https://aka.ms/lblimits).  For Standard Load Balancer also review a more detailed [overview](load-balancer-standard-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
+
+## Concepts
+
+### <a name = "publicloadbalancer"></a>Public Load Balancer
+
+Public Load Balancer maps the public IP address and port number of incoming traffic to the private IP address and port number of the virtual machine and vice versa for the response traffic from the virtual machine. Load balancing rules allow you to distribute specific types of traffic between multiple virtual machines or services. For example, you can spread the load of web request traffic across multiple web servers.
+
+The following figure shows a load-balanced endpoint for web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
+
+![public load balancer example](./media/load-balancer-overview/IC727496.png)
+
+*Figure : Load balancing web traffic using a public Load Balancer*
+
+When Internet clients send web page requests to the public IP address of a web app on TCP port 80, the Azure Load Balancer distributes the requests between the three virtual machines in the load-balanced set. For more information about load balancer algorithms, see the [load balancer overview page](load-balancer-overview.md#load-balancer-features).
+
+By default, Azure Load Balancer distributes network traffic equally among multiple virtual machine instances. You can also configure session affinity. For more information, see [load balancer distribution mode](load-balancer-distribution-mode.md).
+
+### <a name = "internalloadbalancer"></a> Internal Load Balancer
+
+Internal Load Balancer only directs traffic to resources that are inside a virtual network or that use a VPN to access Azure infrastructure. In this respect, internal Load Balancer differs from a public Load Balancer. Azure infrastructure restricts access to the load-balanced frontend IP addresses of a virtual network. Frontend IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
+
+Internal Load Balancer enables the following types of load balancing:
+
+* Within a virtual network: Load balancing from VMs in the virtual network to a set of VMs that reside within the same virtual network.
+* For a cross-premises virtual network: Load balancing from on-premises computers to a set of VMs that reside within the same virtual network. 
+* For multi-tier applications: Load balancing for internet-facing multi-tier applications where the back-end tiers are not internet-facing. The back-end tiers require traffic load balancing from the internet-facing tier (see figure 2).
+* For line-of-business applications: Load balancing for line-of-business applications that are hosted in Azure without additional load balancer hardware or software. This scenario includes on-premises servers that are in the set of computers whose traffic is load-balanced.
+
+![internal load balancer example](./media/load-balancer-overview/IC744147.png)
+
+*Figure - Load balancing multi-tier applications using both public and internal load balancers*
+
+## Pricing
+Standard Load Balancer is a charged product based on number of load balancing rules configured and all inbound and outbound data processed. For Standard Load Balancer pricing information, visit the [Load Balancer Pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
+
+Basic Load Balancer is offered at no charge.
+
+## SLA
+
+For information about the Standard Load Balancer SLA, visit the [Load Balancer SLA](https://aka.ms/lbsla) page. 
 
 ## Next steps
 
-- Learn more about [Internet-facing load balancer](load-balancer-internet-overview.md)
-
-- Learn more about [Internal load balancer overview](load-balancer-internal-overview.md)
-
-- Create an [Internet-facing load balancer](load-balancer-get-started-internet-portal.md)
-
-- Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure
+- Review [Standard Load Balancer in more detail](load-balancer-standard-overview.md)
+- Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md)
+- Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md)
+- Learn about [Load Balancer HA Ports](load-balancer-ha-ports-overview.md)
+- Learn about using [Load Balancer with Multiple Frontends](load-balancer-multivip-overview.md)
+- Learn about [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
+- Learn how to create a [basic public load balancer](load-balancer-get-started-internet-portal.md)
 

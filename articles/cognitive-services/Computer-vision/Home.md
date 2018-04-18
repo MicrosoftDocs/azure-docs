@@ -2,17 +2,17 @@
 title: Computer Vision API for Microsoft Cognitive Services | Microsoft Docs 
 description: Use advanced algorithms in the Computer Vision API to help you process images and return information in Microsoft Cognitive Services. 
 services: cognitive-services 
-author: JuliaNik 
-manager: ytkuo 
+author: KellyDF 
+manager: corncar 
  
 ms.service: cognitive-services 
 ms.technology: computer-vision 
 ms.topic: article
-ms.date: 02/06/2017 
-ms.author: juliakuz 
+ms.date: 08/10/2017 
+ms.author: kefre 
 --- 
  
-# Computer Vision API Version 1.0 
+# What is Computer Vision API Version 1.0?
 
 The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. With the Computer Vision API users can analyze images to:
 * [Tag images based on content.](#Tagging)
@@ -84,7 +84,7 @@ Returned Json
 In addition to tagging and descriptions, Computer Vision API returns the taxonomy-based categories defined in previous versions. These categories are organized as a taxonomy with parent/child hereditary hierarchies. All categories are in English. They can be used alone or with our new models.
 
 ### The 86-category concept
-Based on a list of 86 concepts seen in the following diagram, visual features found in an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
+Based on a list of 86 concepts seen in the following diagram, visual features found in an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).
 
 ![Analyze Categories](./Images/analyze_categories.jpg)
 
@@ -221,7 +221,7 @@ Among the various visual categories is the adult and racy group, which enables d
 ## <a name="OCR">Optical Character Recognition (OCR)</a>
 OCR technology detects text content in an image and extracts the identified text into a machine-readable character stream. You can use the result for search and numerous other purposes like medical records, security, and banking. It automatically detects the language. OCR saves time and provides convenience for users by allowing them to take photos of text instead of transcribing the text.
 
-OCR supports 21 languages. These languages are: Chinese Simplified, Chinese Traditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Russian, Spanish, Swedish, and Turkish.
+OCR supports 25 languages. These languages are: Arabic, Chinese Simplified, Chinese Traditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian (Cyrillic and Latin), Slovak, Spanish, Swedish, and Turkish.
 
 If needed, OCR corrects the rotation of the recognized text, in degrees, around the horizontal image axis. OCR provides the frame coordinates of each word as seen in below illustration.
 

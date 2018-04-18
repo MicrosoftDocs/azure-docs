@@ -3,7 +3,7 @@ title: High availability for Hadoop - Azure HDInsight | Microsoft Docs
 description: Learn how HDInsight clusters improve reliability and availability by using an additional head node. Learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH.
 services: hdinsight
 editor: cgronlun
-manager: jhubbard
+manager: cgronlun
 author: Blackmist
 documentationcenter: ''
 tags: azure-portal
@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 03/22/2018
 ms.author: larryfr
 
 ---
@@ -31,12 +31,10 @@ Hadoop achieves high availability and reliability by replicating services and da
 
 ## Availability and reliability of nodes
 
-Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. If a node fails, it is taken offline and a new node is created to replace the failed node. While the node is offline, another node of the same type is used until the new node is brought online.
+Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. The following sections discuss the individual node types used with HDInsight. 
 
 > [!NOTE]
-> If the node is analyzing data when it fails, its progress on the job is lost. The job is resubmitted to another node.
-
-The following sections discuss the individual node types used with HDInsight. Not all node types are used for a cluster type. For example, a Hadoop cluster type does not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of the [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) document.
+> Not all node types are used for a cluster type. For example, a Hadoop cluster type does not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of the [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) document.
 
 ### Head nodes
 

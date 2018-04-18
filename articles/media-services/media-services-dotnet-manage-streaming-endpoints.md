@@ -1,12 +1,12 @@
 ---
 
 title: Manage streaming endpoints with .NET SDK. | Microsoft Docs
-description: This topic shows how to manage streaming endpoints with the Azure portal.
+description: This article shows how to manage streaming endpoints with the Azure portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
 writer: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 0da34a97-f36c-48d0-8ea2-ec12584a2215
@@ -15,7 +15,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: juliako
 
 ---
@@ -23,9 +23,9 @@ ms.author: juliako
 # Manage streaming endpoints with .NET SDK
 
 >[!NOTE]
->Make sure to review the [overview](media-services-streaming-endpoints-overview.md) topic. Also, review [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Make sure to review the [overview](media-services-streaming-endpoints-overview.md) article. Also, review [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
-The code in this topic shows how to do the following tasks using the Azure Media Services .NET SDK:
+The code in this article shows how to do the following tasks using the Azure Media Services .NET SDK:
 
 - Examine the default streaming endpoint.
 - Create/add new streaming endpoint.
@@ -44,7 +44,7 @@ The code in this topic shows how to do the following tasks using the Azure Media
 	>[!NOTE]
 	>The default streaming endpoint cannot be deleted.
 
-For information about how to scale the streaming endpoint, see [this](media-services-portal-scale-streaming-endpoints.md) topic.
+For information about how to scale the streaming endpoint, see [this](media-services-portal-scale-streaming-endpoints.md) article.
 
 ## Create and configure a Visual Studio project
 
@@ -54,82 +54,92 @@ Set up your development environment and populate the app.config file with connec
 	
 Replace the code in the Program.cs with the following code:
 
-	using System;
-	using System.Configuration;
-	using System.Linq;
-	using Microsoft.WindowsAzure.MediaServices.Client;
-	using Microsoft.WindowsAzure.MediaServices.Client.Live;
+```csharp
+using System;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.MediaServices.Client.Live;
 
-	namespace AMSStreamingEndpoint
-	{
-	    class Program
-	    {
-		// Read values from the App.config file.
-		private static readonly string _AADTenantDomain =
-		ConfigurationManager.AppSettings["AADTenantDomain"];
-		private static readonly string _RESTAPIEndpoint =
-		ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+namespace AMSStreamingEndpoint
+{
+    class Program
+    {
+        // Read values from the App.config file.
 
-		private static CloudMediaContext _context = null;
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
-		static void Main(string[] args)
-		{
-		    var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
-		    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+        private static CloudMediaContext _context = null;
 
-		    _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+        static void Main(string[] args)
+        {
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
 
-		    var defaultStreamingEndpoint = _context.StreamingEndpoints.Where(s => s.Name.Contains("default")).FirstOrDefault();
-		    ExamineStreamingEndpoint(defaultStreamingEndpoint);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-		    IStreamingEndpoint newStreamingEndpoint = AddStreamingEndpoint();
-		    UpdateStreamingEndpoint(newStreamingEndpoint);
-		    DeleteStreamingEndpoint(newStreamingEndpoint);
-		}
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-		static public void ExamineStreamingEndpoint(IStreamingEndpoint streamingEndpoint)
-		{
-		    Console.WriteLine(streamingEndpoint.Name);
-		    Console.WriteLine(streamingEndpoint.StreamingEndpointVersion);
-		    Console.WriteLine(streamingEndpoint.FreeTrialEndTime);
-		    Console.WriteLine(streamingEndpoint.ScaleUnits);
-		    Console.WriteLine(streamingEndpoint.CdnProvider);
-		    Console.WriteLine(streamingEndpoint.CdnProfile);
-		    Console.WriteLine(streamingEndpoint.CdnEnabled);
-		}
+            var defaultStreamingEndpoint = _context.StreamingEndpoints.Where(s => s.Name.Contains("default")).FirstOrDefault();
+            ExamineStreamingEndpoint(defaultStreamingEndpoint);
 
-		static public IStreamingEndpoint AddStreamingEndpoint()
-		{
-		    var name = "StreamingEndpoint" + DateTime.UtcNow.ToString("hhmmss");
-		    var option = new StreamingEndpointCreationOptions(name, 1)
-		    {
-			StreamingEndpointVersion = new Version("2.0"),
-			CdnEnabled = true,
-			CdnProfile = "CdnProfile",
-			CdnProvider = CdnProviderType.PremiumVerizon
-		    };
+            IStreamingEndpoint newStreamingEndpoint = AddStreamingEndpoint();
+            UpdateStreamingEndpoint(newStreamingEndpoint);
+            DeleteStreamingEndpoint(newStreamingEndpoint);
+        }
 
-		    var streamingEndpoint = _context.StreamingEndpoints.Create(option);
+        static public void ExamineStreamingEndpoint(IStreamingEndpoint streamingEndpoint)
+        {
+            Console.WriteLine(streamingEndpoint.Name);
+            Console.WriteLine(streamingEndpoint.StreamingEndpointVersion);
+            Console.WriteLine(streamingEndpoint.FreeTrialEndTime);
+            Console.WriteLine(streamingEndpoint.ScaleUnits);
+            Console.WriteLine(streamingEndpoint.CdnProvider);
+            Console.WriteLine(streamingEndpoint.CdnProfile);
+            Console.WriteLine(streamingEndpoint.CdnEnabled);
+        }
 
-		    return streamingEndpoint;
-		}
+        static public IStreamingEndpoint AddStreamingEndpoint()
+        {
+            var name = "StreamingEndpoint" + DateTime.UtcNow.ToString("hhmmss");
+            var option = new StreamingEndpointCreationOptions(name, 1)
+            {
+                StreamingEndpointVersion = new Version("2.0"),
+                CdnEnabled = true,
+                CdnProfile = "CdnProfile",
+                CdnProvider = CdnProviderType.PremiumVerizon
+            };
 
-		static public void UpdateStreamingEndpoint(IStreamingEndpoint streamingEndpoint)
-		{
-		    if (streamingEndpoint.StreamingEndpointVersion == "1.0")
-			streamingEndpoint.StreamingEndpointVersion = "2.0";
+            var streamingEndpoint = _context.StreamingEndpoints.Create(option);
 
-		    streamingEndpoint.CdnEnabled = false;
-		    streamingEndpoint.Update();
-		}
+            return streamingEndpoint;
+        }
 
-		static public void DeleteStreamingEndpoint(IStreamingEndpoint streamingEndpoint)
-		{
-		    streamingEndpoint.Delete();
-		}
-	    }
-	}
+        static public void UpdateStreamingEndpoint(IStreamingEndpoint streamingEndpoint)
+        {
+            if (streamingEndpoint.StreamingEndpointVersion == "1.0")
+                streamingEndpoint.StreamingEndpointVersion = "2.0";
 
+            streamingEndpoint.CdnEnabled = false;
+            streamingEndpoint.Update();
+        }
+
+        static public void DeleteStreamingEndpoint(IStreamingEndpoint streamingEndpoint)
+        {
+            streamingEndpoint.Delete();
+        }
+    }
+}
+```
 
 ## Next steps
 Review Media Services learning paths.

@@ -46,7 +46,7 @@ The Import Data wizard supports the following data sources:
 A flattened dataset is a required input. You can only import from a single table, database view, or equivalent data structure. You should create this data structure before running the wizard.
 
 ## Connect to your data
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the service dashboard. You can click **More services** in the jump bar to search for existing "search services" in the current subscription. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the service dashboard. You can click **All services** in the jump bar to search for existing "search services" in the current subscription. 
 2. Click **Import Data** on the command bar to slide open the Import Data blade.  
 3. Click **Connect to your data** to specify a data source definition used by an indexer. For intra-subscription data sources, the wizard can usually detect and read connection information, minimizing overall configuration requirements.
 
@@ -110,7 +110,7 @@ Edits that don't require a rebuild include adding a new field, changing scoring 
 Review these links to learn more about indexers:
 
 * [Indexing Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexing Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Indexing Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Indexing Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indexing Table Storage](search-howto-indexing-azure-tables.md)
 

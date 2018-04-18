@@ -1,22 +1,14 @@
 ---
-title: Azure Stream Analytics query testing | Microsoft Docs
-description: How to test your queries in Stream Analytics jobs.
-keywords: test query, troubleshoot query
-documentation center: ''
+title: Test queries in Azure Stream Analytics
+description: This article describes how to test queries using sample data files in Stream Analytics jobs.
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 04/20/2017
-ms.author: jeffstok
-
 ---
 # Test Azure Stream Analytics queries in the Azure portal
 
@@ -24,7 +16,7 @@ With Azure Stream Analytics, you can test queries in the Azure portal without ne
 
 ## Test the input
 
-1. To test with sample input data, right-click any of your inputs, and then select **Upload sample data from file**.
+1. To test with sample input data, right-click any of your inputs, and then select **Upload sample data from file**. Currently you can upload JSON formatted data only. If your data is in a different format such as CSV, you should convert it to JSON before uploading. You can use any opensource conversion tool such as [CSV to JSON convertor](http://www.convertcsv.com/csv-to-json.htm) to convert your data to JSON.
 
     ![stream analytics query editor test query](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
@@ -42,7 +34,7 @@ After you are satisfied with the results shown in the browser, you can save your
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Problems adding or configuring applications"
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: kbrint
+manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity

@@ -3,8 +3,8 @@ title: Get Started with Azure Mobile Apps for Xamarin.Android apps
 description: Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Create a Xamarin.Android App
@@ -36,13 +36,6 @@ To complete this tutorial, you need the following prerequisites:
 * An active Azure account. If you don't have an account, sign up for an Azure trial and get up to 10 free Mobile
   Apps. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.
-
-> [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to
-> [Try App Service](https://azure.microsoft.com/try/app-service/mobile/).  You can immediately create a short-lived starter Mobile
-> App in App Service. No credit cards required; no commitments.
->
->
 
 ## Create an Azure Mobile App backend
 Follow these steps to create a Mobile App backend.

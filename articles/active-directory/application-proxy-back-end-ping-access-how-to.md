@@ -4,7 +4,7 @@ description: Learn how to use PingAccess  to extend the benefits of Application 
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

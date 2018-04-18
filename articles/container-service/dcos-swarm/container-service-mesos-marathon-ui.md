@@ -1,25 +1,19 @@
 ---
-title: Manage Azure DC/OS cluster with Marathon UI | Microsoft Docs
+title: Manage Azure DC/OS cluster with Marathon UI
 description: Deploy containers to an Azure Container Service cluster service by using the Marathon web UI.
 services: container-service
-documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Mesos, Azure
 
-ms.assetid: d148ed1e-b582-4d51-944f-1ac7ae3c4fd6
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
-
+ms.custom: mvc
 ---
+
 # Manage an Azure Container Service DC/OS cluster through the Marathon web UI
+
 DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
 
 While frameworks are available for many popular workloads, this document describes how to get started deploying containers with Marathon. 
