@@ -124,7 +124,7 @@ Refer to the documentation in the [Azure Linux Agent repo on GitHub](https://git
 > 
 > 
 
-* deprovision+user: Performs everything under -deprovision (above) and also deletes the last provisioned user account (obtained from /var/lib/waagent) and associated data. This parameter is when de-provisioning an image that was previously provisioning on Azure so it may be captured and reused.
+* deprovision+user: Performs everything in -deprovision (above) and also deletes the last provisioned user account (obtained from /var/lib/waagent) and associated data. This parameter is when de-provisioning an image that was previously provisioning on Azure so it may be captured and reused.
 * version: Displays the version of waagent
 * serialconsole: Configures GRUB to mark ttyS0 (the first serial port) as
    the boot console. This ensures that kernel bootup logs are sent to the
@@ -292,7 +292,7 @@ The size of the swap file in megabytes.
 Type: Boolean  
 Default: n
 ```
-If set, log verbosity is boosted. Waagent logs to /var/log/waagent.log and leverages the system logrotate functionality to rotate logs.
+If set, log verbosity is boosted. Waagent logs to /var/log/waagent.log and utilizes the system logrotate functionality to rotate logs.
 
 **OS.EnableRDMA**  
 ```
