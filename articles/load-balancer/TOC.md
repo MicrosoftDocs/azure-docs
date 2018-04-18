@@ -4,19 +4,18 @@
 ## [What is Load Balancer?](load-balancer-overview.md)
 
 # Quickstart
-## [Create Basic Load Balancer](quickstart-create-basic-load-balancer-portal.md)
-## [Create Basic Load Balancer (CLI)](quickstart-create-basic-load-balancer-cli.md)
-## [Create Basic Load Balancer (PowerShell)](quickstart-create-basic-load-balancer-powershell.md)
-## [Create Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md)
-## [Create a Standard Load Balancer (CLI)](quickstart-load-balancer-standard-public-cli.md)
+## [Create Basic Load Balancer - Portal](quickstart-create-basic-load-balancer-portal.md)
+## [Create Basic Load Balancer - Azure CLI ](quickstart-create-basic-load-balancer-cli.md)
+## [Create Standard Load Balancer - Portal](quickstart-load-balancer-standard-public-portal.md)
+## [Create a Standard Load Balancer - Azure CLI](quickstart-load-balancer-standard-public-cli.md)
 
 #Samples
 ## [Azure CLI](cli-samples.md)
 ## [Azure PowerShell](powershell-samples.md)
 
 #Tutorials
-## [Load balance VMs across availability zones](load-balancer-standard-public-availability-zones-portal.md)
-
+## [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+## [Load balance VM within a specific availability zone](tutorial-load-balancer-standard-public-zonal-portal.md)
 
 #Concepts
 ## [What is Load Balancer Standard?](load-balancer-standard-overview.md)
