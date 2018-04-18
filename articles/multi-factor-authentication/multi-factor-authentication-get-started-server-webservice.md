@@ -1,3 +1,4 @@
+
 ---
 title: Azure MFA Server Mobile App Web Service | Microsoft Docs
 description: The Microsoft Authenticator app offers an additional out-of-band authentication option.  It allows the MFA server to use push notifications to users.
@@ -25,7 +26,8 @@ Using a mobile app for two-step verification is preferred when phone reception i
 
 Depending on your environment, you may want to deploy the mobile app web service on the same server as Azure Multi-Factor Authentication Server or on another internet-facing server.
 
-If you have installed MFA Server version 8.0 or higher, most of the steps below are not required. Mobile app authentication can be set up by following the steps under [Configure the mobile app](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server).
+> [!IMPORTANT]
+> If you have installed MFA Server version 8.0 or higher, most of the steps below are not required. Mobile app authentication can be set up by following the steps under [Configure the mobile app](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server).
 
 ## Requirements
 
