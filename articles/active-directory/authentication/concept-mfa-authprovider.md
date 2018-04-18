@@ -70,4 +70,4 @@ If your MFA provider is not linked to an Azure AD tenant, or you link the new MF
 
 [Configure Multi-Factor Authentication settings](howto-mfa-mfasettings.md)
 
-[Providers]: ./media/multi-factor-authentication-get-started-auth-provider/add-providers.png "Add MFA Providers"
+[Providers]: ./media/concept-mfa-authprovider/add-providers.png "Add MFA Providers"
