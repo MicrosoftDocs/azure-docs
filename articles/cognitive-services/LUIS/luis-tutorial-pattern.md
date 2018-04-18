@@ -258,6 +258,8 @@ The pattern is a combination of regular expression matching and machine learning
     Who are {Employee}'s subordinates?
     ```
 
+    The `{Employee}` syntax marks the entity location within the patter as well as which entity it is. The syntax for an entity with a role is {Entity::role} such as `{Location::origin}`.
+
     ![Enter pattern for intent](./media/luis-tutorial-pattern/enter-pattern.png)
 
 4. Select **Train** in the top navigation bar to train the app. Wait for the green success bar.
