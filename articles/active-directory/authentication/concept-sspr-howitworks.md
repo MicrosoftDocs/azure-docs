@@ -204,17 +204,17 @@ Example: There are four administrators in an environment. Administrator A resets
 
 ## On-premises integration
 
-If you install, configure, and enable Azure AD Connect, you have the following additional options for on-premises integrations. If these options are grayed out, then writeback has not been properly configured. For more information, see [Configuring password writeback](active-directory-passwords-writeback.md#configure-password-writeback).
+If you install, configure, and enable Azure AD Connect, you have the following additional options for on-premises integrations. If these options are grayed out, then writeback has not been properly configured. For more information, see [Configuring password writeback](../active-directory-passwords-writeback.md#configure-password-writeback).
 
 ![Writeback][Writeback]
 
 This page provides you a quick status of the on-premises writeback client one of the following messages are displayed based on the current configuration:
 
 * Your On-premises writeback client is up and running.
-* Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
-* Unfortunately, we can’t check your on-premises writeback client status because the installed version of Azure AD Connect is out-of-date. [Upgrade Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) to be able to check your connection status.
+* Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
+* Unfortunately, we can’t check your on-premises writeback client status because the installed version of Azure AD Connect is out-of-date. [Upgrade Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) to be able to check your connection status.
 * Unfortunately, it looks like we can't connect to your on-premises writeback client right now. [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) to restore the connection.
-* Unfortunately, we can't connect to your on-premises writeback client because password writeback has not been properly configured. [Configure password writeback](active-directory-passwords-writeback.md#configure-password-writeback) to restore the connection.
+* Unfortunately, we can't connect to your on-premises writeback client because password writeback has not been properly configured. [Configure password writeback](../active-directory-passwords-writeback.md#configure-password-writeback) to restore the connection.
 * Unfortunately, it looks like we can't connect to your on-premises writeback client right now. This may be due to temporary issues on our end. If the problem persists, [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) to restore the connection.
 
 ### Write back passwords to your on-premises directory
@@ -235,8 +235,8 @@ This control designates whether users who visit the password reset portal should
 Password reset and change are fully supported on all business-to-business (B2B) configurations. B2B user password reset is supported in the following three cases:
 
    * **Users from a partner organization with an existing Azure AD tenant**: If the organization you're partnering with has an existing Azure AD tenant, we *respect whatever password reset policies are enabled on that tenant*. For password reset to work, the partner organization just needs to make sure that Azure AD SSPR is enabled. There is no additional charge for Office 365 customers, and it can be enabled by following the steps in our [Get started with password management](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guide.
-   * **Users who sign up through** self-service sign-up: If the organization you're partnering with used the [self-service sign-up](active-directory-self-service-signup.md) feature to get into a tenant, we let them reset the password with the email they registered.
-   * **B2B users**: Any new B2B users created by using the new [Azure AD B2B capabilities](active-directory-b2b-what-is-azure-ad-b2b.md) will also be able to reset their passwords with the email they registered during the invite process.
+   * **Users who sign up through** self-service sign-up: If the organization you're partnering with used the [self-service sign-up](../active-directory-self-service-signup.md) feature to get into a tenant, we let them reset the password with the email they registered.
+   * **B2B users**: Any new B2B users created by using the new [Azure AD B2B capabilities](../active-directory-b2b-what-is-azure-ad-b2b.md) will also be able to reset their passwords with the email they registered during the invite process.
 
 To test this scenario, go to http://passwordreset.microsoftonline.com with one of these partner users. If they have an alternate email or authentication email defined, password reset works as expected.
 
@@ -247,18 +247,18 @@ To test this scenario, go to http://passwordreset.microsoftonline.com with one o
 
 The following articles provide additional information regarding password reset through Azure AD:
 
-* [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
-* [Reset or change your password](active-directory-passwords-update-your-own-password.md)
-* [Register for self-service password reset](active-directory-passwords-reset-register.md)
-* [Do you have a licensing question?](active-directory-passwords-licensing.md)
-* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
-* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [What are the policy options with SSPR?](active-directory-passwords-policy.md)
-* [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
-* [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
-* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
+* [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
+* [Reset or change your password](../active-directory-passwords-update-your-own-password.md)
+* [Register for self-service password reset](../active-directory-passwords-reset-register.md)
+* [Do you have a licensing question?](concept-sspr-licensing.md)
+* [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
+* [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
+* [What are the policy options with SSPR?](concept-sspr-policy.md)
+* [What is password writeback and why do I care about it?](../active-directory-passwords-writeback.md)
+* [How do I report on activity in SSPR?](howto-sspr-reporting.md)
+* [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
-[Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Azure AD authentication methods available and quantity required"
-[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "On-premises integration password writeback configuration and troubleshooting information"
+[Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "Azure AD authentication methods available and quantity required"
+[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-writeback-running.png "On-premises integration password writeback configuration and troubleshooting information"

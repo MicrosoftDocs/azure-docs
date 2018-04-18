@@ -48,7 +48,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Can I define password reset data on behalf of my users?**
 
-  > **A:** Yes, you can do so with Azure AD Connect, PowerShell, the [Azure portal](https://portal.azure.com), or the Office 365 Admin center. For more information, see [Data used by Azure AD self-service password reset](active-directory-passwords-data.md).
+  > **A:** Yes, you can do so with Azure AD Connect, PowerShell, the [Azure portal](https://portal.azure.com), or the Office 365 Admin center. For more information, see [Data used by Azure AD self-service password reset](howto-sspr-authenticationdata.md).
   >
   >
 * **Q:  Can I synchronize data for security questions from on-premises?**
@@ -68,7 +68,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Can I synchronize or set the authentication phone, authentication email, or alternate authentication phone fields on behalf of my users?**
 
-  > **A:** The fields that are able to be set by a Global Administrator are defined in the article [SSPR Data requirements](active-directory-passwords-data.md).
+  > **A:** The fields that are able to be set by a Global Administrator are defined in the article [SSPR Data requirements](howto-sspr-authenticationdata.md).
   >
   >
 * **Q:  How does the registration portal determine which options to show my users?**
@@ -118,7 +118,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  How can I educate my users about where to go to reset their passwords?**
 
-  > **A:** Try some of the suggestions in our [SSPR deployment](active-directory-passwords-best-practices.md#email-based-rollout) article.
+  > **A:** Try some of the suggestions in our [SSPR deployment](howto-sspr-deployment.md#email-based-rollout) article.
   >
   >
 * **Q:  Can I use this page from a mobile device?**
@@ -173,7 +173,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  I configured my policy to require users to use security questions for reset, but the Azure administrators seem to be configured differently.**
 
-  > **A:** This is the expected behavior. Microsoft enforces a strong default two-gate password reset policy for any Azure administrator role. This prevents administrators from using security questions. You can find more information about this policy in the [Password policies and restrictions in Azure Active Directory](active-directory-passwords-policy.md#administrator-password-policy-differences) article.
+  > **A:** This is the expected behavior. Microsoft enforces a strong default two-gate password reset policy for any Azure administrator role. This prevents administrators from using security questions. You can find more information about this policy in the [Password policies and restrictions in Azure Active Directory](concept-sspr-policy.md#administrator-password-policy-differences) article.
   >
   >
 * **Q:  If a user has registered more than the maximum number of questions required to reset, how are the security questions selected during reset?**
@@ -247,7 +247,7 @@ This FAQ is split into the following sections:
 
 * **Q:  How does password writeback work behind the scenes?**
 
-  > **A:** See the article [How password writeback works](active-directory-passwords-writeback.md) for an explanation of what happens when you enable password writeback and how data flows through the system back into your on-premises environment.
+  > **A:** See the article [How password writeback works](../active-directory-passwords-writeback.md) for an explanation of what happens when you enable password writeback and how data flows through the system back into your on-premises environment.
   >
   >
 * **Q:  How long does password writeback take to work? Is there a synchronization delay like there is with password hash sync?**
@@ -277,20 +277,20 @@ This FAQ is split into the following sections:
   >
 * **Q:  Is password writeback secure?  How can I be sure I won’t get hacked?**
 
-  > **A:** Yes, password writeback is secure. To read more about the four layers of security implemented by the password writeback service, check out the [Password writeback security model](active-directory-passwords-writeback.md#password-writeback-security-model) section in the [Password writeback overview](active-directory-passwords-writeback.md) article.
+  > **A:** Yes, password writeback is secure. To read more about the four layers of security implemented by the password writeback service, check out the [Password writeback security model](../active-directory-passwords-writeback.md#password-writeback-security-model) section in the [Password writeback overview](../active-directory-passwords-writeback.md) article.
   >
   >
 
 ## Next steps
 
-* [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
-* [Reset or change your password](active-directory-passwords-update-your-own-password.md)
-* [Register for self-service password reset](active-directory-passwords-reset-register.md)
-* [Do you have a licensing question?](active-directory-passwords-licensing.md)
-* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
-* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [What are the policy options with SSPR?](active-directory-passwords-policy.md)
-* [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
-* [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
-* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
+* [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
+* [Reset or change your password](../active-directory-passwords-update-your-own-password.md)
+* [Register for self-service password reset](../active-directory-passwords-reset-register.md)
+* [Do you have a licensing question?](concept-sspr-licensing.md)
+* [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
+* [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
+* [What are the policy options with SSPR?](concept-sspr-policy.md)
+* [What is password writeback and why do I care about it?](../active-directory-passwords-writeback.md)
+* [How do I report on activity in SSPR?](howto-sspr-reporting.md)
+* [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)

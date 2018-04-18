@@ -292,6 +292,6 @@ List of additional services that are deployed in a Virtual Network and can be co
 
 * [Azure DDoS Protection Product page](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Azure DDoS Protection Blog](https://azure.microsoft.com/blog/azure-ddos-protection-service-preview/)
+* [Azure DDoS Protection Blog](http://aka.ms/ddosblog)
 
 * [Azure DDoS Protection documentation ](../virtual-network/ddos-protection-overview.md)

@@ -18284,6 +18284,56 @@
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-cloud.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-getstarted",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-best-practices.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-sspr-deployment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-customize.md",
+            "redirect_url": "/azure/active-directory/authentication/concept-sspr-customization",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-data.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-sspr-authenticationdata",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-faq.md",
+            "redirect_url": "/azure/active-directory/authentication/active-directory-passwords-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-how-it-works.md",
+            "redirect_url": "/azure/active-directory/authentication/concept-sspr-howitworks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-licensing.md",
+            "redirect_url": "/azure/active-directory/authentication/concept-sspr-licensing",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-overview.md",
+            "redirect_url": "/azure/active-directory/authentication/active-directory-passwords-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-reporting.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-sspr-reporting",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-policy.md",
+            "redirect_url": "/azure/active-directory/authentication/concept-sspr-policy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-troubleshoot.md",
+            "redirect_url": "/azure/active-directory/authentication/active-directory-passwords-troubleshoot",
+            "redirect_document_id": true
         }
     ]
 }

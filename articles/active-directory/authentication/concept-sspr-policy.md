@@ -147,14 +147,14 @@ To get started, you need to [download and install the Azure AD PowerShell module
 
 The following articles provide additional information about password reset through Azure AD:
 
-* [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
-* [Reset or change your password](active-directory-passwords-update-your-own-password.md).
-* [Register for self-service password reset](active-directory-passwords-reset-register.md).
-* [Do you have a licensing question?](active-directory-passwords-licensing.md)
-* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
-* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
-* [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
-* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
+* [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
+* [Reset or change your password](../active-directory-passwords-update-your-own-password.md).
+* [Register for self-service password reset](../active-directory-passwords-reset-register.md).
+* [Do you have a licensing question?](concept-sspr-licensing.md)
+* [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
+* [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
+* [What is password writeback and why do I care about it?](../active-directory-passwords-writeback.md)
+* [How do I report on activity in SSPR?](howto-sspr-reporting.md)
+* [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
