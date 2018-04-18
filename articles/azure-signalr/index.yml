@@ -8,7 +8,7 @@ metadata:
   services: azure-signalr
   author: v-chmccl
   manager: wesmc
-  ms.service: virtual-machines-linux
+  ms.service: signalr
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -20,14 +20,14 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to deploy your first web application using Azure SignalR for real-time communications:'
+    text: 'Learn how to develop your first web application using Azure SignalR for real-time communications:'
   - type: list
     style: icon48
     items: 
     - image: 
         src: http://docs.microsoft.com/en-us/media/logos/logo_NET.svg
       text: .NET
-      href: /azure/azure-signalr/
+      href: /azure/azure-signalr/signalr-quickstart-asp-dotnet
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -35,8 +35,8 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-signalr/">Authenticating and Authorizing clients</a>
-    - html: <a href="/azure/azure-signalr/">Integration with Azure Functions</a></li>
+    - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Authentication and Authorization with OAuth</a>
+    - html: <a href="/azure/azure-signalr/signalr-integrate-functions">Integration with Azure Functions</a></li>
 - title: Free Pluralsight Video Training
   items:
   - type: list

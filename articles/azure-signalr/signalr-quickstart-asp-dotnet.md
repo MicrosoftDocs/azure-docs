@@ -11,9 +11,9 @@ ms.assetid:
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: cache-redis
+ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
-ms.date: 04/09/2018
+ms.date: 04/17/2018
 ms.author: wesmc
 
 ---
