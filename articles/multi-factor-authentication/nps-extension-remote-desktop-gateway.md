@@ -72,7 +72,7 @@ If you wish to manually create an on-premises RDS infrastructure quickly for tes
 **Learn more**: [Deploy RDS with Azure quick start](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) and [Basic RDS infrastructure deployment](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
 
 ### Azure MFA License
-Required is a license for Azure MFA, which is available through an Azure AD Premium, Enterprise Mobility plus Security (EMS), or an MFA subscription. Consumption-based licenses for Azure MFA, such as per user or per authentication licenses, are not compatible with the NPS extension. For more information, see [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). For testing purposes, you can use a trial subscription. 
+Required is a license for Azure MFA, which is available through an Azure AD Premium, Enterprise Mobility plus Security (EMS), or an MFA subscription. Consumption-based licenses for Azure MFA, such as per user or per authentication licenses, are not compatible with the NPS extension. For more information, see [How to get Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-licensing.md). For testing purposes, you can use a trial subscription. 
 
 ### Windows Server software
 The NPS extension requires Windows Server 2008 R2 SP1 or above with the NPS role service installed. All the steps in this section were performed using Windows Server 2016.
@@ -91,7 +91,7 @@ To install NPS extension, you need to know the GUID of the Azure AD. Instruction
 ## Configure Multi-Factor Authentication 
 This section provides instructions for integrating Azure MFA with the Remote Desktop Gateway. As an administrator, you must configure the Azure MFA service before users can self-register their multi-factor devices or applications.
 
-Follow the steps in [Getting started with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-get-started-cloud.md) to enable MFA for your Azure AD users. 
+Follow the steps in [Getting started with Azure Multi-Factor Authentication in the cloud](../active-directory/authentication/howto-mfa-getstarted.md) to enable MFA for your Azure AD users. 
 
 ### Configure accounts for two-step verification
 Once an account has been enabled for MFA, you cannot sign in to resources governed by the MFA policy until you have successfully configured a trusted device to use for the second authentication factor and have authenticated using two-step verification.
@@ -371,7 +371,7 @@ The image below from Microsoft Message Analyzer shows network traffic filtered o
 ![Microsoft Message Analyzer](./media/nps-extension-remote-desktop-gateway/image36.png)
 
 ## Next steps
-[How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
+[How to get Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-licensing.md)
 
 [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](multi-factor-authentication-get-started-server-rdg.md)
 
