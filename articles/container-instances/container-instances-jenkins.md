@@ -88,7 +88,7 @@ Jenkins is now configured and ready to build and deploy code. For this example, 
 
 ## Create build job
 
-When using a container image as a Jenkins build target, you need to specify an image that includes all tooling necisary for a sucessful build. For the sake of this sample application, the `microsoft/java-on-azure-jenkins-slave` can be used.
+When using a container image as a Jenkins build target, you need to specify an image that includes all tooling necessary for a successful build. For the sake of this sample application, the `microsoft/java-on-azure-jenkins-slave` can be used.
 
 To specify the image, select **Manage Jenkins** > **Configure System** > and scroll down to the **Cloud** section. Update the Docker image use the `microsoft/java-on-azure-jenkins-slave` image. Once done, click **Save** to return to the Jenkins dashboard.
 
@@ -102,7 +102,7 @@ Under **General**, ensure that **Restrict where this project can be run** is sel
 
 ![Create Jenkins job](./media/container-instances-jenkins/jenkins-job-01.png)
 
-Under source code management, select `git` and enter `https://github.com/spring-projects/spring-petclinic.git` for the repository URL. This GitHub repo contains the sample appliction code.
+Under source code management, select `git` and enter `https://github.com/spring-projects/spring-petclinic.git` for the repository URL. This GitHub repo contains the sample application code.
 
 ![Add source code to Jenkins job](./media/container-instances-jenkins/jenkins-job-02.png)
 
