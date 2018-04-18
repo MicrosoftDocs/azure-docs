@@ -3,7 +3,7 @@ title: Overview of Custom Vision Service machine learning | Microsoft Docs
 description: Use this to bring the power of machine learning to your applications.
 services: cognitive-services
 author: anrothMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: custom-vision-service

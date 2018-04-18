@@ -8,8 +8,8 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/18/2018
-ms.author: v-geberr;
+ms.date: 03/29/2018
+ms.author: v-geberr
 ---
 
 # Create your first LUIS app

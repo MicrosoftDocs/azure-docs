@@ -27,7 +27,7 @@ When you deploy your web app, web app on Linux, mobile back end, and API app to 
 * Deploying an app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. This entire workflow can be automated by configuring [Auto Swap](#Auto-Swap) when pre-swap validation is not needed.
 * After a swap, the slot with previously staged app now has the previous production app. If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back.
 
-Each App Service plan tier supports a different number of deployment slots. To find out the number of slots your app's tier supports, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
+Each App Service plan tier supports a different number of deployment slots. To find out the number of slots your app's tier supports, see [App Service Limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits).
 
 * When your app has multiple slots, you cannot change the tier.
 * Scaling is not available for non-production slots.
@@ -211,7 +211,7 @@ New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] 
 ```
 
 - - -
-### Initiate a swap with review (multi-phase swap) and apply destination slot configuration to source slot
+### Initiate a swap with preview (multi-phase swap) and apply destination slot configuration to source slot
 ```
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01

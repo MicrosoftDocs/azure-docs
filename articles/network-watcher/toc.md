@@ -1,4 +1,4 @@
-# [Azure Network Watchers Documentation](index.md)
+# [Azure Network Watcher Documentation](index.md)
 
 # Overview
 ## [What is Network Watcher?](network-watcher-monitoring-overview.md)
@@ -73,8 +73,8 @@
 ### [Visualize network traffic patterns using open source tools](network-watcher-using-open-source-tools.md)
 ## Analyze NSG flow logs
 ### [Read NSG flow logs](network-watcher-read-nsg-flow-logs.md)
-### Traffic Analytics
-#### [Use Traffic Analytics](traffic-analytics.md)
+### Traffic analytics
+#### [Use traffic analytics](traffic-analytics.md)
 #### [Frequently asked questions](traffic-analytics-faq.md)
 ### [Use Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Use Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)

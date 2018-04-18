@@ -31,7 +31,7 @@ You can take one of two approaches for requiring two-step verification. The firs
 
 **Enabling Azure Multi-Factor Authentication with a conditional access policy** is a more flexible approach for requiring two-step verification. It only works for Azure MFA in the cloud, though, and _conditional access_ is a [paid feature of Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features). You can create conditional access policies that apply to groups as well as individual users. High-risk groups can be given more restrictions than low-risk groups, or two-step verification can be required only for high-risk cloud apps and skipped for low-risk ones. 
 
-Both options prompt users to register for Azure Multi-Factor Authentication the first time they sign in after the requirements turn on. Both options also work with the configurable [Azure Multi-Factor Authentication settings](multi-factor-authentication-whats-next.md).
+Both options prompt users to register for Azure Multi-Factor Authentication the first time they sign in after the requirements turn on. Both options also work with the configurable [Azure Multi-Factor Authentication settings](../active-directory/authentication/howto-mfa-mfasettings.md).
 
 ## Enable Azure MFA by changing user status
 
@@ -81,7 +81,7 @@ To change the user state by using [Azure AD PowerShell](/powershell/azure/overvi
 * Enforced
 * Disabled  
 
-Don't move users directly to the *Enforced* state. If you do, non-browser-based apps stop working because the user has not gone through Azure MFA registration and obtained an [app password](multi-factor-authentication-whats-next.md#app-passwords). 
+Don't move users directly to the *Enforced* state. If you do, non-browser-based apps stop working because the user has not gone through Azure MFA registration and obtained an [app password](../active-directory/authentication/howto-mfa-mfasettings.md#app-passwords). 
 
 Using PowerShell is a good option when you need to bulk enabling users. Create a PowerShell script that loops through a list of users and enables them:
 

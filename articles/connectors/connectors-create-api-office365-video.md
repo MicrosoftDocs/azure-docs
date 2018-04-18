@@ -3,7 +3,7 @@ title: Use the Office 365 Video connector in your Logic apps | Microsoft Docs
 description: Get started using the Office 365 Video connector in your Microsoft Azure App service Logic apps
 services: ''
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the Office365 Video connector

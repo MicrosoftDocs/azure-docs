@@ -90,6 +90,3 @@ If an orchestrator function is in an infinite loop and needs to be stopped, use 
 
 > [!div class="nextstepaction"]
 > [Learn how to implement singleton orchestrations](durable-functions-singletons.md)
-
-> [!div class="nextstepaction"]
-> [Run a sample eternal orchestration](durable-functions-counter.md)

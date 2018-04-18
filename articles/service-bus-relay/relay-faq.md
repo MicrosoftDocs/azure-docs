@@ -19,7 +19,7 @@ ms.author: sethm
 ---
 # Azure Relay FAQs
 
-This article answers some frequently asked questions (FAQs) about [Azure Relay](https://azure.microsoft.com/services/service-bus/). For general Azure pricing and support information, see [Azure Support FAQs](http://go.microsoft.com/fwlink/?LinkID=185083).
+This article answers some frequently asked questions (FAQs) about [Azure Relay](https://azure.microsoft.com/services/service-bus/). For general Azure pricing and support information, see [Azure Support FAQs](https://azure.microsoft.com/en-in/support/faq/).
 
 ## General questions
 ### What is Azure Relay?

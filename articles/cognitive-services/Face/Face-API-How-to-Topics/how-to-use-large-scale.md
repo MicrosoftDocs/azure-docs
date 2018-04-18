@@ -4,7 +4,7 @@ titleSuffix: "Microsoft Cognitive Services"
 description: Use the large-scale feature in the Face API of Cognitive Services.
 services: cognitive-services
 author: SteveMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: face

@@ -13,13 +13,18 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: anwestg
 
 ---
 # Add an App Service resource provider to a disconnected Azure Stack environment secured by AD FS
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
+> [!IMPORTANT]
+> Apply the 1802 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service.
+>
+>
 
 By following the instructions in this article, you can install the [App Service resource provider](azure-stack-app-service-overview.md) to an Azure Stack environment that is:
 
@@ -176,6 +181,19 @@ To deploy App Service in a disconnected environment, you must first create an of
 2. In the overview under status, check to see that the **Status** shows **All roles are ready**.
 
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> If you chose to deploy into an existing virtual network and a internal IP address to conenct to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+> * Source: Any
+> * Source port range: *
+> * Destination: IP Addresses
+> * Destination IP address range: Range of IPs for your fileserver
+> * Destination port range: 445
+> * Protocol: TCP
+> * Action: Allow
+> * Priority: 700
+> * Name: Outbound_Allow_SMB445
+>
 
 ## Test drive App Service on Azure Stack
 

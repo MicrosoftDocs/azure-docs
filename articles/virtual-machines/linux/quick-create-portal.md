@@ -3,8 +3,8 @@ title: Azure Quick Start - Create VM Portal | Microsoft Docs
 description: Azure Quick Start - Create VM Portal
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/11/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 

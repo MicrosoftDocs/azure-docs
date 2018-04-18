@@ -3,7 +3,7 @@ title: Translator Speech Tutorial (C#) | Microsoft Docs
 titleSuffix: Cognitive Services
 description: Learn how to use the Translator speech service to translate text in real time.
 services: cognitive-services
-author: jerrykindall
+author: v-jerkin
 manager: chriswendt1
 
 ms.service: cognitive-services

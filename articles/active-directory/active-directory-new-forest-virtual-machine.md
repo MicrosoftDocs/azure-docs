@@ -28,7 +28,7 @@ You might also be interested in these related articles:
 * For conceptual guidance about installing Active Directory Domain Services (AD DS) on an Azure virtual network, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## Scenario Diagram
-In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the VMs that run domain controllers are installed installed in their own cloud service in an Azure virtual network. They are also included within an availability set for improved fault tolerance.
+In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the VMs that run domain controllers are installed in their own cloud service in an Azure virtual network. They are also included within an availability set for improved fault tolerance.
 
 ![Active Directory forest on a virtual machines in Azure Virtual Network ][1]
 7

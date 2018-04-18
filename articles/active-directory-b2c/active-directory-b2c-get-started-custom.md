@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Get started With custom policies | Microsoft
 description: How to get started with Azure Active Directory B2C custom policies
 services: active-directory-b2c
 documentationcenter: ''
-author: rojasja
+author: davidmu1
 manager: mtillman
-editor: rojasja
+editor: ''
 
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: joroja;parahk;gsacavdm
+ms.author: davidmu
 ---
 # Azure Active Directory B2C: Get started with custom policies
 

@@ -24,10 +24,10 @@ Azure Container Instances is available in the following regions with the specifi
 
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
-| West Europe, West US, East US | Linux | 4 | 14 |
-| Southeast Asia  | Linux | 1 | 1.5 |
-| West Europe, West US, East US | Windows | 4 | 14 |
-| Southeast Asia  | Windows | 2 | 3.5 |
+| West US, East US, West Europe, North Europe | Linux | 4 | 14 |
+| West US 2, Southeast Asia | Linux | 2 | 7 |
+| West US, East US, West Europe, North Europe | Windows | 4 | 14 |
+| West US 2, Southeast Asia | Windows | 2 | 3.5 |
 
 Container instances created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances. To mitigate such a deployment failure, try deploying instances with lower CPU and memory settings, or try your deployment at a later time.
 

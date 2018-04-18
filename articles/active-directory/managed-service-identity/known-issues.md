@@ -22,9 +22,9 @@ ms.author: daveba
 
 ## Frequently Asked Questions (FAQs)
 
-### Is there a private preview available, for additional features?
+### Is there a private preview program available for upcoming MSI features and integrations?
 
-Yes. If you would like to be considered for enrollment in the private preview, [visit our sign-up page](https://aka.ms/azuremsiprivatepreview).
+Yes. If you would like to be considered for enrollment in the private preview program, [visit our sign-up page](https://aka.ms/azuremsiprivatepreview).
 
 ### Does MSI work with Azure Cloud Services?
 
@@ -34,10 +34,28 @@ No, there are no plans to support MSI in Azure Cloud Services.
 
 No, MSI is not yet integrated with ADAL or MSAL. For details on acquiring an MSI token using the MSI REST endpoint, see [How to use an Azure VM Managed Service Identity (MSI) for token acquisition](how-to-use-vm-token.md).
 
+### What is the security boundary of a Managed Service Identity?
+
+The security boundary of the identity is the resource to which it is attached to. For example, the security boundary for a Virtual Machine MSI, is the Virtual Machine. Any code running on that VM, is able to call the MSI endpoint and request tokens. It is the similar experience with other resources that support MSI.
+
+### Should I use the MSI VM IMDS endpoint or the MSI VM extension endpoint?
+
+When using MSI with VMs, we encourage using the MSI IMDS endpoint. The Azure Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the Azure Resource Manager. Some of the benefits of using MSI over IMDS are:
+
+1. All Azure IaaS supported operating systems can use MSI over IMDS. 
+2. No longer need to install an extension on your VM to enable MSI. 
+3. The certificates used by MSI are no longer present in the VM. 
+4. The IMDS endpoint is a well-known non-routable IP address, only available from within the VM. 
+
+The MSI VM extension is still availble to be used today; however, moving forward we will default to using the IMDS endpoint. The MSI VM extension will start on a deprecation plan soon. 
+
+For more information on Azure Instance Metada Service, see [IMDS documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+
 ### What are the supported Linux distributions?
 
-The following Linux distributions support MSI: 
+All Linux distributions supported by Azure IaaS can be used with MSI via the IMDS endpoint. 
 
+Note: The MSI VM Extension only supports the following Linux distributions:
 - CoreOS Stable
 - CentOS 7.1
 - RedHat 7.2

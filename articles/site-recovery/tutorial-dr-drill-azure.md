@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 03/08/2018
 ms.author: raynew
 
 ---
@@ -29,8 +29,7 @@ tasks in the previous tutorials.
 
 ## Verify VM properties
 
-Before you run a test failover, verify the VM properties, and make sure that the VM complies with
-[Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Before you run a test failover, verify the VM properties, and make sure that the Hyper-V VM[hyper-v-azure-support-matrix.md#replicated-vms], [VMware VM or physical server](vmware-physical-azure-support-matrix.md#replicated-machines) complies with Azure requirements.
 
 1. In **Protected Items**, click **Replicated Items** > VM.
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the

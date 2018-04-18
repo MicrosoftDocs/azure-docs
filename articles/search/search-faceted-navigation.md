@@ -1,18 +1,11 @@
 ---
 title: How to implement faceted navigation in Azure Search | Microsoft Docs
 description: Add Faceted navigation to applications that integrate with Azure Search, a cloud hosted search service on Microsoft Azure.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: mblythe
-editor: ''
+manager: cgronlun
 
-ms.assetid: cdf98fd4-63fd-4b50-b0b0-835cb08ad4d3
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
 

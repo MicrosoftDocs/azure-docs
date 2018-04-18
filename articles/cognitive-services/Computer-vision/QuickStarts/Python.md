@@ -3,7 +3,7 @@ title: Computer Vision API Python quickstart | Microsoft Docs
 description: Get information and code samples to help you quickly get started using Python and the Computer Vision API in Microsoft Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: corneliakara
+manager: corncar
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
@@ -44,7 +44,7 @@ To begin analyzing images, in the following code, replace `subscription_key` wit
 
 
 ```python
-subscription_key = "cfa2ac95fcf04101b79b839837876d16"
+subscription_key = None
 assert subscription_key
 ```
 

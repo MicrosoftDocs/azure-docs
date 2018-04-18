@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/01/2018
+ms.date: 03/29/2018
 ms.author: gsacavdm
 ---
 # Azure Government Web + Mobile
@@ -36,8 +36,11 @@ Some App Service features available in Azure Government have variations:
 Some App Service features available in the public cloud are not yet available 
 in Azure Government:
 
-- App Service Environments
+- App Service Environments are not available via the portal experience, but can be [created via templates](../app-service/environment/create-from-template.md)
+- App Service Certificates
 - Settings
+    - Managed service identity > [Vote for this](https://feedback.azure.com/forums/558487-azure-government/suggestions/33804523-enable-managed-service-identity-for-app-services)
+    - Push notifications
     - Security scanning
 - Development Tools
     - Performance test
@@ -77,9 +80,9 @@ The URLs for accessing Azure API Management in Azure Government are different:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
-|API Management gateway| *.azure-api.net| *.azure-api.us|
-|API Management portal | *.portal.azure-api.net |*.portal.azure-api.us| 
-|API Management management|	*.management.azure-api.net	|*.management.azure-api.us|
+|API Management gateway| \*.azure-api.net| \*.azure-api.us|
+|API Management portal | \*.portal.azure-api.net |\*.portal.azure-api.us| 
+|API Management management|	\*.management.azure-api.net	|\*.management.azure-api.us|
 
 ### Considerations
 The following information identifies the Azure Government boundary for Azure API Management service:

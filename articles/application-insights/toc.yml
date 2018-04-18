@@ -121,6 +121,10 @@
         href: app-insights-configuration-with-applicationinsights-config.md
       - name: Snapshot Debugger
         href: app-insights-snapshot-debugger.md
+    - name: ASP.NET Core
+      items:
+      - name: Profiler for Linux App services
+        href: app-insights-profiler-aspnetcore-linux.md
     - name: J2EE
       items:
       - name: Log traces
@@ -192,8 +196,10 @@
         href: app-insights-usage-segmentation.md
       - name: Funnels
         href: usage-funnels.md
+      - name: Cohorts
+        href: app-insights-usage-cohorts.md
       - name: Impact
-        href: app-insights-usage-impact.md     
+        href: app-insights-usage-impact.md
       - name: Retention
         href: app-insights-usage-retention.md
       - name: User Flows
@@ -234,6 +240,9 @@
     items:
     - name: Manage pricing and data volume
       href: app-insights-pricing.md
+      items:
+      - name: Enterprise plan details
+        href: app-insights-pricing-enterprise-details.md
     - name: Application Performance Monitoring using Application Insights for SCOM
       href: app-insights-scom.md
   - name: Export
@@ -246,7 +255,7 @@
         - name: Export to SQL using Stream Analytics
           href: app-insights-code-sample-export-sql-stream-analytics.md
         - name: Export to Stream Analytics
-          href: app-insights-export-stream-analytics.md         
+          href: app-insights-export-stream-analytics.md
     - name: Export data model
       href: app-insights-export-data-model.md
     - name: Export to Power BI
@@ -279,6 +288,8 @@
   items:
   - name: Analytics query language
     href: https://docs.loganalytics.io/
+  - name: Azure PowerShell
+    href: https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/?view=azurermps-5.7.0#monitor
   - name: .NET
     href: https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights
   - name: Java
@@ -287,6 +298,8 @@
     href: https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md
   - name: Data access API
     href: https://dev.applicationinsights.io/
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/application-insights/
   - name: Data model
     href: application-insights-data-model.md
     items:

@@ -4,7 +4,7 @@ description: Learn all about the SQL .NET API and SDK including release dates, r
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -27,13 +27,11 @@ ms.custom: H1Hack27Feb2017
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -51,11 +49,10 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
-### <a name="1.21.0"/>1.21.0
+### <a name="1.21.1"/>1.21.1
 
-* Single NuGet package for .NET Framework and .NET Standard. [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) package has been deprecated. 
 * Fixed KeyNotFoundException for cross partition order by queries in corner cases.
-* Fixed bug where JsonPropery attribute in select clause for LINQ queries was not being honored.
+* Fixed bug where JsonProperty attribute in select clause for LINQ queries was not being honored.
 
 ### <a name="1.20.2"/>1.20.2
 
@@ -293,7 +290,8 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.21.0](#1.21.0) |March 05, 2018 |--- |
+| [1.21.1](#1.20.1) |March 09, 2018 |--- |
+| [1.20.2](#1.20.1) |February 21, 2018 |--- |
 | [1.20.1](#1.20.1) |February 05, 2018 |--- |
 | [1.19.1](#1.19.1) |November 16, 2017 |--- |
 | [1.19.0](#1.19.0) |November 10, 2017 |--- |

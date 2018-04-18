@@ -3,11 +3,11 @@ title: Azure SQL Database Managed Instance VNet Configuration | Microsoft Docs
 description: This topic describes configuration options for a virtual network (VNet) with an Azure SQL Database Managed Instance.
 services: sql-database
 author: srdjan-bozovic
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 ---
@@ -29,7 +29,7 @@ Plan how you deploy a Managed Instance in virtual network using your answers to 
 
    If you plan to use an existing virtual network, you need to modify that network configuration to accommodate your Managed Instance. For more information, see [Modify existing virtual network for Managed Instance](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   If you plan to create new virtual network, see [Create new virtual network for Managed Instance](#create-new-virtual-network-for-managed-instances).
+   If you plan to create new virtual network, see [Create new virtual network for Managed Instance](#create-a-new-virtual-network-for-managed-instances).
 
 ## Requirements
 
@@ -141,5 +141,5 @@ If yes, see [Configuring a Custom DNS](sql-database-managed-instance-custom-dns.
 ## Next steps
 
 - For an overview, see [What is a Managed Instance](sql-database-managed-instance.md)
-- For a tutorial showing how to create a VNet, create a Managed Instance, and restore a database from a database backup, see [Creating an Azure SQL Database Managed Instance](sql-database-managed-instance-tutorial-portal.md).
+- For a tutorial showing how to create a VNet, create a Managed Instance, and restore a database from a database backup, see [Creating an Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
 - For DNS issues, see [Configuring a Custom DNS](sql-database-managed-instance-custom-dns.md)

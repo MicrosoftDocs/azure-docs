@@ -4,7 +4,7 @@ description: Setup WinRM access for use with an Azure virtual machine created in
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

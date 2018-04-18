@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Make virtual machine scale sets available in Azure Stack | Microsoft Docs'
 description: Learn how a cloud operator can add virtual machine scale to the Azure Stack Marketplace
 services: azure-stack
@@ -9,7 +9,7 @@ editor: ''
 ms.assetid:
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords:
@@ -27,7 +27,7 @@ Virtual machine scale sets on Azure Stack are like virtual machine scale sets on
 * [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 * [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-On Azure Stack, Virtual Machine Scale Sets do not support auto-scale. You can add more instances to a scale set using the Azure Stack portal, Resource Manager templates, or PowerShell.
+On Azure Stack, virtual machine scale sets don't support auto-scale. You can add more instances to a scale set using the Azure Stack portal, Resource Manager templates, or PowerShell.
 
 ## Prerequisites
 * **Powershell and tools**
@@ -43,6 +43,7 @@ On Azure Stack, Virtual Machine Scale Sets do not support auto-scale. You can ad
    If you haven’t added an operating system image to your Azure Stack Marketplace, see [Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md).
 
    For Linux support, download Ubuntu Server 16.04 and add it using ```Add-AzsVMImage``` with the following parameters: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+
 
 ## Add the virtual machine scale set
 
@@ -63,13 +64,44 @@ $User = "<your Azure Stack service administrator user name>"
 $Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
 
 $AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
-$AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
-Select-AzureRmProfile -Profile $AzsEnvContext
+$AzsEnvContext = Connect-AzureRmAccount -Environment $AzsEnv -Credential $Creds
 
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
 ```
+
+## Update images in a virtual machine scale set 
+After you create a virtual machine scale set, users can update images in the scale set without the scale set having to be recreated. The process to update an image depends on the following scenarios:
+
+1. Virtual machine scale set deployment template **specifies latest** for *version*:  
+
+   When the *version* is set as **latest** in the *imageReference* section of the template for a scale set, scale up operations on the scale set use the newest available version of the image for the scale set instances. After a scale up is complete, you can delete older virtual machine scale sets instances.  (The values for *publisher*, *offer*, and *sku* remain unchanged). 
+
+   The following is an example of specifying *latest*:  
+
+          "imageReference": {
+             "publisher": "[parameters('osImagePublisher')]",
+             "offer": "[parameters('osImageOffer')]",
+             "sku": "[parameters('osImageSku')]",
+             "version": "latest"
+             }
+
+   Before scale up can use a new image, you must download that new image:  
+
+   - When the image on the Marketplace is a newer version than the image in the scale set: Download the new image that replaces the older image. After the image is replaced, a user can proceed to scale up. 
+
+   - When the image version on the Marketplace is the same as the image in the scale set: Delete the image that is in use in the scale set, and then download the new image. During the time between the removal of the original image and the download of the new image, you cannot scale up. 
+      
+     This process is required  to resyndicate images that make use of the sparse file format, introduced with version 1803. 
+ 
+
+2. Virtual machine scale set deployment template **does not specify latest** for *version* and specifies a version number instead:  
+
+     If you download an image with a newer version (which changes the available version), the scale set can't scale up. This is by design as the image version specified in the scale set template must be available.  
+
+For more information, see [operating system disks and images](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+
 
 ## Remove a virtual machine scale set
 

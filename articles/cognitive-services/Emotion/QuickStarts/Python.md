@@ -3,7 +3,7 @@ title: Emotion API Python quick start | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Emotion API with Python in Cognitive Services.
 services: cognitive-services
 author: anrothMSFT
-manager: CorneliaKara
+manager: corncar
 ms.service: cognitive-services
 ms.technology: emotion
 ms.topic: article
@@ -31,7 +31,7 @@ To continue with this walkthrough, replace `subscription_key` with the API key y
 
 
 ```python
-subscription_key = "eeb35d3bc60b4298addcea8d14bb022c"
+subscription_key = None
 assert subscription_key
 ```
 

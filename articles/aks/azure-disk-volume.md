@@ -53,7 +53,7 @@ Once the disk has been created, you should see output similar to the following. 
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
 
-## Mount file share as volume
+## Mount disk as volume
 
 Mount the Azure disk into your pod by configuring the volume in the container spec. 
 

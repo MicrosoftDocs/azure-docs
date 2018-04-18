@@ -13,13 +13,18 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 03/09/2018
 ms.author: anwestg
 
 ---
 # Before you get started with App Service on Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
+> [!IMPORTANT]
+> Apply the 1802 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service.
+>
+>
 
 Before you deploy Azure App Service on Azure Stack, you must complete the prerequisites in this article.
 
@@ -37,11 +42,11 @@ Before you deploy Azure App Service on Azure Stack, you must complete the prereq
    - Modules
      - GraphAPI.psm1
 
-## Prepare for high availability
+## High availability
 
-Azure App Service on Azure Stack cannot currently offer high availability because Azure Stack deploys workloads into only one fault domain.
+Due to the 1802 release of Azure Stack, which added support for fault domains, new deployments of Azure App Service on Azure Stack will be distributed across fault domains and provide fault tolerance.  For existing deployments of Azure App Service on Azure Stack which were deployed prior to the release of the 1802 update, please see the [documentation](azure-stack-app-service-fault-domain-update.md) for how to rebalance the deployment.
 
-To prepare Azure App Service on Azure Stack for high availability, deploy the required file server and SQL Server instance in a highly available configuration. When Azure Stack supports multiple fault domains, guidance will be provided on how to enable Azure App Service on Azure Stack in a highly available configuration.
+In addition Azure App Service on Azure Stack for high availability, deploy the required file server and SQL Server instance in a highly available configuration. 
 
 ## Get certificates
 
@@ -124,17 +129,17 @@ The certificate for identity must contain a subject that matches the following f
 
 ## Virtual Network
 
-Azure App Service on Azure Stack allows you to deploy the resource provider into an existing Virtual Network.  This enables the use of internal IPs to connect to the file server and SQL server required by Azure App Service on Azure Stack.  The Virtual Network must be configured with the following address range and subnets before installing Azure App Service on Azure Stack:
+Azure App Service on Azure Stack allows you to deploy the resource provider into either an existing Virtual Network or App Service will create one as part of the deployment.  Using an existing Virtual Network enables the use of internal IPs to connect to the file server and SQL server required by Azure App Service on Azure Stack.  The Virtual Network must be configured with the following address range and subnets before installing Azure App Service on Azure Stack:
 
 Virtual Network - /16
 
 Subnets
 
-ControllersSubnet /24
-ManagementServersSubnet /24
-FrontEndsSubnet /24
-PublishersSubnet /24
-WorkersSubnet /21
+* ControllersSubnet /24
+* ManagementServersSubnet /24
+* FrontEndsSubnet /24
+* PublishersSubnet /24
+* WorkersSubnet /21
 
 ## Prepare the file server
 

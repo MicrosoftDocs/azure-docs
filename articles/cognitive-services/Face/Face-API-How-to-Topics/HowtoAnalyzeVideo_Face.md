@@ -4,7 +4,7 @@ titleSuffix: "Microsoft Cognitive Services"
 description: Use the Face API in Cognitive Services to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
 author: SteveMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: face

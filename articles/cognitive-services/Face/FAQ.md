@@ -3,7 +3,7 @@ title: Frequently asked questions for the Face API Service | Microsoft Docs
 description: Here are answers to the most popular questions about the Face API Service.
 services: cognitive-services
 author: SteveMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: face

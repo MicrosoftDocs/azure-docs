@@ -1,25 +1,19 @@
 ---
-title: What are Data Warehouse Units (DWUs, cDWUs) in Azure SQL Data Warehouse? | Microsoft Docs
-description: Performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs, cDWUs,or pause and resume compute resources to save costs.
+title: Data Warehouse Units (DWUs, cDWUs) in Azure SQL Data Warehouse | Microsoft Docs
+description: Recommendations on choosing the ideal number of data warehouse units (DWUs, cDWUs) to optimize price and performance, and how to change the number of units.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-
-ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 11/10/2017
-ms.author: jrj;barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
+
 # Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
-Explains Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUS) for Azure SQL Data Warehouse. Include recommendations on choosing the ideal number of data warehouse units, and how to change the number of them. 
+Recommendations on choosing the ideal number of data warehouse units (DWUs, cDWUs) to optimize price and performance, and how to change the number of units. 
 
 ## What are Data Warehouse Units?
 With SQL Data Warehouse CPU, memory, and IO are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. By changing your service level you alter the number of DWUs that are allocated to the system, which in turn adjusts the performance, and the cost, of your system. 
@@ -30,12 +24,33 @@ Performance for data warehouse units is based on these data warehouse workload m
 
 - How fast can a standard data warehousing query scan a large number of rows and then perform a complex aggregation? This operation is I/O and CPU intensive.
 - How fast can the data warehouse ingest data from Azure Storage Blobs or Azure Data Lake? This operation is network and CPU intensive. 
-- How fast can the [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL command copy a table? This operation involves reading data from storage, distributing it across the nodes of the appliance and writing to storage again. This operation is CPU, IO, and network intensive.
+- How fast can the [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL command copy a table? This operation involves reading data from storage, distributing it across the nodes of the appliance and writing to storage again. This operation is CPU, IO, and network intensive.
 
 Increasing DWUs:
 - Linearly changes performance of the system for scans, aggregations, and CTAS statements
 - Increases the number of readers and writers for PolyBase load operations
 - Increases the maximum number of concurrent queries and concurrency slots.
+
+## Service Level Objective
+The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for the Optimized for Compute performance tier scale are measured in compute data warehouse units (cDWU), for example DW2000c. The Optimized for Elasticity service levels are measured in DWUs, for example DW2000. 
+
+In T-SQL the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your data warehouse.
+
+```sql
+--Optimized for Elasticity
+CREATE DATABASE myElasticSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000'
+)
+;
+
+--Optimized for Compute
+CREATE DATABASE myComputeSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000c'
+)
+;
+```
 
 ## Performance Tiers and Data Warehouse Units
 
@@ -66,11 +81,11 @@ SQL Data Warehouse is a scale-out system that can provision vast amounts of comp
 
 > [!NOTE]
 >
-> Query performance only increases with more parallelization if the work can be split between compute nodes. If you find that scaling is not changing your performance, you may need to tune your table design and/or your queries. For query tuning guidance,refer to the following [performance](sql-data-warehouse-overview-manage-user-queries.md) articles. 
+> Query performance only increases with more parallelization if the work can be split between compute nodes. If you find that scaling is not changing your performance, you may need to tune your table design and/or your queries. For query tuning guidance, see [Manage user queries](sql-data-warehouse-overview-manage-user-queries.md). 
 
 ## Permissions
 
-Changing the data warehouse units requires the permissions described in [ALTER DATABASE][ALTER DATABASE]. 
+Changing the data warehouse units requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). 
 
 ## View current DWU settings
 
@@ -101,11 +116,13 @@ To change DWUs or cDWUs:
 3. Click **Save**. A confirmation message appears. Click **yes** to confirm or **no** to cancel.
 
 ### PowerShell
-To change the DWUs or cDWUs, use the [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase] PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
+To change the DWUs or cDWUs, use the [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
 
 ```Powershell
 Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
+
+For more information, see [PowerShell cmdlets for SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 ### T-SQL
 With T-SQL you can view the current DWU or cDWU settings, change the settings, and check the progress. 
@@ -113,7 +130,7 @@ With T-SQL you can view the current DWU or cDWU settings, change the settings, a
 To change the DWUs or cDWUs:
 
 1. Connect to the master database associated with your logical SQL Database server.
-2. Use the [ALTER DATABASE][ALTER DATABASE] TSQL statement. The following example sets the service level objective to DW1000 for the database MySQLDW. 
+2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) TSQL statement. The following example sets the service level objective to DW1000 for the database MySQLDW. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -123,7 +140,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ### REST APIs
 
-To change the DWUs, use the [Create or Update Database][Create or Update Database] REST API. The following example sets the service level objective to DW1000 for the database MySQLDW which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
+To change the DWUs, use the [Create or Update Database](/rest/api/sql/databases/createorupdate) REST API. The following example sets the service level objective to DW1000 for the database MySQLDW which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -136,6 +153,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
+For more REST API examples, see [REST APIs for SQL Data Warehouse](sql-data-warehouse-manage-compute-rest-api.md).
 
 ## Check status of DWU changes
 
@@ -177,40 +195,7 @@ When you initiate a scale operation, the system first kills all open sessions, r
 - For a scale-down operation, the unneeded nodes detach from the storage and reattach to the remaining nodes.
 
 ## Next steps
-Refer to the following articles to help you understand some additional key performance concepts:
-
-* [Workload and concurrency management][Workload and concurrency management]
-* [Table design overview][Table design overview]
-* [Table distribution][Table distribution]
-* [Table indexing][Table indexing]
-* [Table partitioning][Table partitioning]
-* [Table statistics][Table statistics]
-* [Best practices][Best practices]
-
-<!--Image reference-->
-
-<!--Article references-->
-
-[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
+To learn more about managing performance, see [Resource classes for workload management](resource-classes-for-workload-management.md) and [Memory and concurrency limits](memory-and-concurrency-limits.md).
 
 
-[Check database state with T-SQL]: ./sql-data-warehouse-manage-compute-tsql.md#check-database-state-and-operation-progress
-[Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
-[Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
-[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
-[Table design overview]: ./sql-data-warehouse-tables-overview.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexing]: ./sql-data-warehouse-tables-index.md
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
-
-<!--MSDN references-->
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-
-<!--Other Web references-->
-[Azure portal]: http://portal.azure.com/

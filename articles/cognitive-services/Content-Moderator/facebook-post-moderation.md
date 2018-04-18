@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # Facebook content moderation with Content Moderator
 
-In this tutorial, we learn how to use machine-learning-based Content Moderator to help moderate Facebook pages.
+In this tutorial, we learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
 
 The tutorial guides you through these steps:
 
@@ -60,16 +60,16 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 > For example, **westeurope**, not West Europe, **westcentralus**, not West Central US, and so on.
 >
 
-    | App Setting | Description   | 
-    | -------------------- |-------------|
-    | cm: TeamId   | Your Content Moderator TeamId  | 
-    | cm: SubscriptionKey | Your Content Moderator subscription key - See [Credentials](/review-tool-user-guide/credentials.md) | 
-    | cm: Region | Your Content Moderator region name, without the spaces. See preceding note. |
-    | cm: ImageWorkflow | Name of the workflow to run on Images |
-    | cm: TextWorkflow | Name of the workflow to run on Text |
-    | cm: CallbackEndpoint | Url for the CMListener Function App that you create later in this guide |
-    | fb: VerificationToken | The secret token, also used to subscribe to the Facebook feed events |
-    | fb: PageAccessToken | The Facebook graph api access token does not expire and allows the function Hide/Delete posts on your behalf. |
+| App Setting | Description   | 
+| -------------------- |-------------|
+| cm:TeamId   | Your Content Moderator TeamId  | 
+| cm:SubscriptionKey | Your Content Moderator subscription key - See [Credentials](/review-tool-user-guide/credentials.md) | 
+| cm:Region | Your Content Moderator region name, without the spaces. See preceding note. |
+| cm:ImageWorkflow | Name of the workflow to run on Images |
+| cm:TextWorkflow | Name of the workflow to run on Text |
+| cm:CallbackEndpoint | Url for the CMListener Function App that you create later in this guide |
+| fb:VerificationToken | The secret token, also used to subscribe to the Facebook feed events |
+| fb:PageAccessToken | The Facebook graph api access token does not expire and allows the function Hide/Delete posts on your behalf. |
 
 5. Create a new **HttpTrigger-CSharp** function named **FBListener**. This function receives events from Facebook. Create this function by following these steps:
 
@@ -92,7 +92,6 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     7. Replace the contents of the **run.csx** with the contents from [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx).
 
 ## Configure the Facebook page and App
-
 1. Create a Facebook App.
 
     1. Navigate to the [Facebook developer site](https://developers.facebook.com/)
@@ -107,7 +106,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 
     1. Navigate to [Facebook](https://www.facebook.com/bookmarks/pages) and create a **new Facebook Page**.
     2. Allow the Facebook App to access this page by following these steps:
-        1. Navigate to the **Graph API Explorer**.
+        1. Navigate to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
         2. Select **Application**.
         3. Select **Page Access Token**, Send a **Get** request.
         4. Click the **Page ID** in the response.
