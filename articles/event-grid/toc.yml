@@ -21,12 +21,18 @@
     href: custom-event-quickstart-portal.md
 - name: Tutorials
   items:
-  - name: Monitor VM changes with logic apps
+  - name: Notify logic app when VM changes
     href: monitor-virtual-machine-changes-event-grid-logic-app.md
   - name: Resize uploaded images
     href: resize-images-on-storage-blob-upload-event.md
   - name: Trigger Automation runbook
     href: ensure-tags-exists-on-new-virtual-machines.md
+  - name: Send emails about IoT Hub events
+    href: publish-iot-hub-events-to-logic-apps.md
+  - name: Respond to Service Bus events
+    href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - name: Stream data from Event Hubs to data warehouse
+    href: event-grid-event-hubs-integration.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -47,18 +53,14 @@
   items:
   - name: Post to custom topic
     href: post-to-custom-topic.md
-  - name: Receive events to an HTTP endpoint
+  - name: Receive events at HTTP endpoint
     href: receive-events.md
-  - name: Stream data from Event Hubs to data warehouse
-    href: event-grid-event-hubs-integration.md
-  - name: Send notifications about IoT Hub events
-    href: publish-iot-hub-events-to-logic-apps.md
-  - name: Listen to Service Bus events with Functions and Logic Apps
-    href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
   - name: Monitor event delivery
     href: monitor-event-delivery.md
   - name: Query event subscriptions
     href: query-event-subscriptions.md
+  - name: Map custom fields to schema
+    href: input-mappings.md
 - name: Reference
   items:
   - name: Azure CLI
