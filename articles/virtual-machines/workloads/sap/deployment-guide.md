@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Virtual Machines deployment for SAP NetWeaver | Microsoft Docs
 description: Learn how to deploy SAP software on Linux virtual machines in Azure.
 services: virtual-machines-linux,virtual-machines-windows
@@ -893,7 +893,7 @@ To install the Azure Enhanced Monitoring Extension for SAP by using PowerShell:
 
     ```powershell
     $env = Get-AzureRmEnvironment -Name <name of the environment>
-    Login-AzureRmAccount -Environment $env
+    Connect-AzureRmAccount -Environment $env
     Set-AzureRmContext -SubscriptionName <subscription name>
 
     Set-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
@@ -1057,7 +1057,7 @@ If some of the monitoring data is not delivered correctly as indicated by the te
 2.  Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzureRmEnvironment`. To use global Azure, select the **AzureCloud** environment. For Azure in China, select **AzureChinaCloud**.
   ```powershell
   $env = Get-AzureRmEnvironment -Name <name of the environment>
-  Login-AzureRmAccount -Environment $env
+  Connect-AzureRmAccount -Environment $env
   Set-AzureRmContext -SubscriptionName <subscription name>
   Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
   ```
