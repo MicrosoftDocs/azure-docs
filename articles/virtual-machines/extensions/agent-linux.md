@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 The Microsoft Azure Linux Agent (waagent) manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller. In addition to the Linux Agent providing provisioning functionality, Azure also provides the option of using cloud-init for some Linux OSes. The Linux Agent provides the following functionality for Linux and FreeBSD IaaS deployments:
 
 > [!NOTE]
-> For more information see the [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
+> For more information, see the [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 > 
 > 
 
@@ -46,7 +46,7 @@ The Microsoft Azure Linux Agent (waagent) manages Linux & FreeBSD provisioning, 
   * Ensures the stability of the network interface name
 * **Kernel**
   
-  * Configures virtual NUMA (disable for kernel <2.6.37)
+  * Configures virtual NUMA (disable for kernel <'2.6.37')
   * Consumes Hyper-V entropy for /dev/random
   * Configures SCSI timeouts for the root device (which could be remote)
 * **Diagnostics**
@@ -104,7 +104,7 @@ Installation using an RPM or a DEB package from your distribution's package repo
 
 Refer to the documentation in the [Azure Linux Agent repo on GitHub](https://github.com/Azure/WALinuxAgent) for advanced installation options, such as installing from source or to custom locations or prefixes.
 
-## Command Line Options
+## Command-Line Options
 ### Flags
 * verbose: Increase verbosity of specified command
 * force: Skip interactive confirmation for some commands
@@ -165,9 +165,10 @@ The following shows a sample configuration file:
 The following various configuration options are described. Configuration options are of three types; Boolean, String, or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as the following details:
 
 **Provisioning.Enabled:**  
+```
 Type: Boolean  
 Default: y
-
+```
 This allows the user to enable or disable the provisioning functionality in the agent. Valid values are "y" or "n". If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Azure provisioning API is ignored.
 
 > [!NOTE]
@@ -176,53 +177,61 @@ This allows the user to enable or disable the provisioning functionality in the 
 > 
 
 **Provisioning.DeleteRootPassword:**  
+```
 Type: Boolean  
 Default: n
-
+```
 If set, the root password in the /etc/shadow file is erased during the provisioning process.
 
 **Provisioning.RegenerateSshHostKeyPair:**  
+```
 Type: Boolean  
 Default: y
-
+```
 If set, all SSH host key pairs (ecdsa, dsa, and rsa) are deleted during the provisioning process from /etc/ssh/. And a single fresh key pair is generated.
 
 The encryption type for the fresh key pair is configurable by the Provisioning.SshHostKeyPairType entry. Some distributions re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted (for example, upon a reboot).
 
 **Provisioning.SshHostKeyPairType:**  
+```
 Type: String  
 Default: rsa
-
+```
 This can be set to an encryption algorithm type that is supported by the SSH daemon on the virtual machine. The typically supported values are "rsa", "dsa" and "ecdsa". "putty.exe" on Windows does not support "ecdsa". So, if you intend to use putty.exe on Windows to connect to a Linux deployment, use "rsa" or "dsa".
 
 **Provisioning.MonitorHostName:**  
+```
 Type: Boolean  
 Default: y
-
+```
 If set, waagent monitors the Linux virtual machine for hostname changes (as returned by the "hostname" command) and automatically update the networking configuration in the image to reflect the change. In order to push the name change to the DNS servers, networking is restarted in the virtual machine. This results in brief loss of Internet connectivity.
 
 **Provisioning.DecodeCustomData**  
+```
 Type: Boolean  
 Default: n
-
+```
 If set, waagent decodes CustomData from Base64.
 
 **Provisioning.ExecuteCustomData**  
+```
 Type: Boolean  
 Default: n
-
+```
 If set, waagent executes CustomData after provisioning.
 
 **Provisioning.AllowResetSysUser**
+```
 Type: Boolean
 Default: n
-
+```
 This option allows the password for the sys user to be reset; default is disabled.
 
 **Provisioning.PasswordCryptId**  
+```
 Type: String  
 Default: 6
-
+```
 Algorithm used by crypt when generating password hash.  
  1 - MD5  
  2a - Blowfish  
@@ -230,81 +239,94 @@ Algorithm used by crypt when generating password hash.
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
+```
 Type: String  
 Default: 10
-
+```
 Length of random salt used when generating password hash.
 
 **ResourceDisk.Format:**  
+```
 Type: Boolean  
 Default: y
-
+```
 If set, the resource disk provided by the platform is formatted and mounted by waagent if the filesystem type requested by the user in "ResourceDisk.Filesystem" is anything other than "ntfs". A single partition of type Linux (83) is made available on the disk. This partition is not formatted if it can be successfully mounted.
 
 **ResourceDisk.Filesystem:**  
+```
 Type: String  
 Default: ext4
-
+```
 This specifies the filesystem type for the resource disk. Supported values vary by Linux distribution. If the string is X, then mkfs.X should be present on the Linux image. SLES 11 images should typically use 'ext3'. FreeBSD images should use 'ufs2' here.
 
 **ResourceDisk.MountPoint:**  
+```
 Type: String  
 Default: /mnt/resource 
-
+```
 This specifies the path at which the resource disk is mounted. The resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned.
 
 **ResourceDisk.MountOptions**  
+```
 Type: String  
 Default: None
-
+```
 Specifies disk mount options to be passed to the mount -o command. This is a comma separated list of values, ex. 'nodev,nosuid'. See mount(8) for details.
 
 **ResourceDisk.EnableSwap:**  
+```
 Type: Boolean  
 Default: n
-
+```
 If set, a swap file (/swapfile) is created on the resource disk and added to the system swap space.
 
 **ResourceDisk.SwapSizeMB:**  
+```
 Type: Integer  
 Default: 0
-
+```
 The size of the swap file in megabytes.
 
 **Logs.Verbose:**  
+```
 Type: Boolean  
 Default: n
-
+```
 If set, log verbosity is boosted. Waagent logs to /var/log/waagent.log and leverages the system logrotate functionality to rotate logs.
 
 **OS.EnableRDMA**  
+```
 Type: Boolean  
 Default: n
-
+```
 If set, the agent attempts to install and then load an RDMA kernel driver that matches the version of the firmware on the underlying hardware.
 
 **OS.RootDeviceScsiTimeout:**  
+```
 Type: Integer  
 Default: 300
-
+```
 This setting configures the SCSI timeout in seconds on the OS disk and data drives. If not set, the system defaults are used.
 
 **OS.OpensslPath:**  
+```
 Type: String  
 Default: None
-
+```
 This setting can be used to specify an alternate path for the openssl binary to use for cryptographic operations.
 
 **HttpProxy.Host, HttpProxy.Port**  
+```
 Type: String  
 Default: None
-
+```
 If set, the agent uses this proxy server to access the internet. 
 
 **AutoUpdate.Enabled**
+```
 Type: Boolean
 Default: y
-
+```
 Enable or disable auto-update for goal state processing; default is enabled.
 
 
