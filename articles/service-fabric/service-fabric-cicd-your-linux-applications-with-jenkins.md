@@ -28,7 +28,7 @@ Jenkins is a popular tool for continuous integration and deployment of your apps
 You can set up Jenkins either inside or outside a Service Fabric cluster. The following sections show how to set it up inside a cluster while using an Azure storage account to save the state of the container instance.
 
 ### Prerequisites
-1. Have a Service Fabric Linux cluster ready. A Service Fabric cluster created from the Azure portal already has Docker installed. If you are running the cluster locally, check if Docker is installed by using the command ``docker info``. If it is not installed, install it by using the following commands:
+1. Have a Service Fabric Linux cluster ready. A Service Fabric cluster created from the Azure portal already has Docker installed. If you are running the cluster locally, check if Docker is installed by using the command `docker info`. If it is not installed, install it by using the following commands:
 
    ```sh
    sudo apt-get install wget
@@ -46,8 +46,8 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    ```
 
 3. Persist the state of the Jenkins container in a file-share:
-   * Create an Azure storage account in the **same region** as your cluster with a name such as ``sfjenkinsstorage1``.
-   * Create a **File Share** under the storage Account with a name such as ``sfjenkins``.
+   * Create an Azure storage account in the **same region** as your cluster with a name such as `sfjenkinsstorage1`.
+   * Create a **File Share** under the storage Account with a name such as `sfjenkins`.
    * Click on **Connect** for the file-share and note the values it displays under **Connecting from Linux**, the value should look similar to the one below:
      ```sh
      sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
@@ -61,10 +61,10 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    ```sh
    vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
    ```
-   * Replace ``[REMOTE_FILE_SHARE_LOCATION]`` with the value ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` from the output of the connect in step 3 above.
-   * Replace ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` with the value ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` from step 3 above.
+   * Replace `[REMOTE_FILE_SHARE_LOCATION]` with the value `//sfjenkinsstorage1.file.core.windows.net/sfjenkins` from the output of the connect in step 3 above.
+   * Replace `[FILE_SHARE_CONNECT_OPTIONS_STRING]` with the value `vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777` from step 3 above.
 
-5. **Secure Cluster Only:** In order to configure the deployment of applications on a secure cluster from Jenkins, the certificate must be accessible within the Jenkins container. On Linux clusters, the certificates(PEM) are simply copied over from the store specified by X509StoreName onto the container. In the ApplicationManifest under ContainerHostPolicies add this certificate reference and update the thumbprint value. The thumbprint value must be that of a certifcate that is located on the node.
+5. **Secure Cluster Only:** In order to configure the deployment of applications on a secure cluster from Jenkins, the certificate must be accessible within the Jenkins container. On Linux clusters, the certificates(PEM) are simply copied over from the store specified by X509StoreName onto the container. In the ApplicationManifest under ContainerHostPolicies add this certificate reference and update the thumbprint value. The thumbprint value must be that of a certificate that is located on the node.
    ```xml
    <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
    ```
@@ -93,12 +93,12 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    >
 
 ### Steps
-1. From your browser, go to ``http://PublicIPorFQDN:8081``. It provides the path of the initial admin password required to sign in. 
+1. From your browser, go to `http://PublicIPorFQDN:8081`. It provides the path of the initial admin password required to sign in. 
 2. Look at the Service Fabric Explorer to determine on which node the Jenkins container is running. Secure Shell (SSH) sign in to this node.
    ```sh
    ssh user@PublicIPorFQDN -p [port]
    ``` 
-3. Get the container instance ID by using ``docker ps -a``.
+3. Get the container instance ID by using `docker ps -a`.
 4. Secure Shell (SSH) sign in to the container, and paste the path you were shown on the Jenkins portal. For example, if in the portal it shows the path `PATH_TO_INITIAL_ADMIN_PASSWORD`, run the following:
 
    ```sh
@@ -107,7 +107,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    ```sh
    cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the pasword value
    ```
-5. On the Jenkins Gettting Started page, choose the Select plugins to install option, select the **None** checkbox, and click install.
+5. On the Jenkins Getting Started page, choose the Select plugins to install option, select the **None** checkbox, and click install.
 6. Create a user or select to continue as an admin.
 
 ## Set up Jenkins outside a Service Fabric cluster
@@ -122,7 +122,7 @@ Make sure that Docker is installed on your machine. The following commands can b
   wget -qO- https://get.docker.io/ | sh
   ```
 
-When you run ``docker info`` in the terminal, you should see in the output that the Docker service is running.
+When you run `docker info` in the terminal, the output should show that the Docker service is running.
 
 ### Steps
 1. Pull the Service Fabric Jenkins container image: `docker pull rapatchi/jenkins:v10`. This image comes with Service Fabric Jenkins plugin pre-installed.
