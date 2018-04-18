@@ -19,11 +19,11 @@ ms.author: LADocs; shhurst
 ---
 # What is a large message?
 
-Large messages can add extra overhead to a service because they take more space to store, and require more time to process and send. The classification of a message as "large" is relative to the service that is handling that message. Because Logic Apps' communicate with a variety of services via connectors and HTTP, what is considered a "large" message can vary based on service specific constraints. For this reason there can be multiple qualifications that could make a message "large". Here you can learn more about the [message size limits for logic apps](../logic-apps/logic-apps-limits-and-config.md) specifically. For Logic Apps and connectors "large" messages cannot be directly consumed, and instead must be **chunked**.
+The classification of a message as "large" is relative to the service that is handling that message. Large messages can add extra overhead to a service because they take more space to store, and require more time to process and send. Because Logic Apps' communicate with a variety of services via connectors and HTTP, what is considered a "large" message can vary based on service specific constraints. For this reason there can be multiple qualifications that could make a message "large". Here you can learn more about the [message size limits for logic apps](../logic-apps/logic-apps-limits-and-config.md) specifically. For Logic Apps and connectors "large" messages cannot be directly consumed, and instead must be **chunked**.
 
 # Handle large messages through chunking with logic apps
 
-Logic Apps limits the maximum size of messages that it can handle. When a message has content that exceeds this size limit, Logic Apps **chunks** this large message into multiple smaller messages. That way, you can still transfer large files with logic apps under specific circumstances.  Content that exceeds the message size limit can only be consumed for use by Logic Apps if it has been chunked. This means either the connector used to consume the content must support chunking, or the underlying HTTP message exchange between Logic Apps and the service is chunked.
+Logic Apps limits the maximum size of messages that it can handle. When a message has content that exceeds this size limit, Logic Apps chunks this large message into multiple smaller messages. That way, you can still transfer large files with logic apps under specific circumstances.  Content that exceeds the message size limit can only be consumed for use by Logic Apps if it has been chunked. This means either the connector used to consume the content must support chunking, or the underlying HTTP message exchange between Logic Apps and the service is chunked.
 
 ## Using large chunked messages within logic apps
 
@@ -31,7 +31,7 @@ Within Logic Apps, messages that were ingested in chunks and have a size greater
 
 ## Large chunked messages and connectors
 
-Often, connectors have smaller content size limits than the Logic Apps engine. For this reason a connector may consider a 30MB message as large, even though Logic Apps would not. For connectors that support chunking, behind the scenes Logic Apps will split up content greater than 30MB into smaller chunks so the connector size limit is not exceeded. However, not all connectors support chunking, so larger content could cause a runtime error if the connector size limit is exceeded even though the Logic App size limit is not. See connector [details](../connectors/apis-list.md) to help determine large message size limits for specific connectors. When chunking is handled via connectors the underlying chunked protocol is invisible to the user. For generic HTTP scenarios, the following sections describe the underlying chunked protocol.
+Often, connectors have smaller content size limits than the Logic Apps engine. For this reason a connector may consider a 30MB message as large, even though Logic Apps would not. For connectors that support chunking, behind the scenes Logic Apps will split up content greater than 30MB into smaller chunks so the connector size limit is not exceeded. However, not all connectors support chunking, so larger content could cause a runtime error if the connector size limit is exceeded even though the Logic App size limit is not. See [connector information](../connectors/apis-list.md) to help determine large message size limits for specific connectors. When chunking is handled via connectors the underlying chunked protocol is invisible to the user. For generic HTTP scenarios, the following sections describe the underlying chunked protocol.
 
 # Logic Apps chunked transfer protocol
 
@@ -56,10 +56,10 @@ Here is an example workflow definition using an HTTP GET action to download cont
 {
     "inputs": {
         "headers": {
-            "Range": "0-1024"
+            "Range": "bytes=0-1023"
         },
         "method": "GET",
-        "uri": "http://myAPIendpoint/api/action"
+        "uri": "http://myAPIendpoint/api/downloadContent"
     },
     "runAfter": {},
     "type": "Http"
