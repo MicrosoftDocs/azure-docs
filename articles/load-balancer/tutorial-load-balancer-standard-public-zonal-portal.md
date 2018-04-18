@@ -18,7 +18,7 @@ ms.date: 04/18/2018
 ms.author: kumud
 ---
 
-# Load balance VMs within a specific availability zone with a Standard Load Balancer using the Azure portal
+# Load balance VMs within an availability zone with a Standard Load Balancer using the Azure portal
 
 This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address. In this scenario, you specify a particular zone for your front-end and back-end instances, to align your data path and resources with a specific zone.
 
@@ -130,7 +130,7 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
      ```powershell
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
     remove-item  C:\inetpub\wwwroot\iisstart.htm
-    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $($env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
    ```
 8. Close the RDP session with *myVM1*
 9. Repeat steps 1 to 8 to install IIS on *myVM2*.
