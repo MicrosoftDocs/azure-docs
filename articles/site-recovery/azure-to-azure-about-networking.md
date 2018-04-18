@@ -110,7 +110,7 @@ This example shows how to configure NSG rules for a VM to replicate.
 1. Create an outbound HTTPS (443) security rule for "Storage.EastUS" on the NSG as shown in the screenshot below.
 
       ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
-      
+
 2. Create outbound HTTPS (443) rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the target location:
 
@@ -132,13 +132,33 @@ These rules are required so that replication can be enabled from the target regi
     --- | --- | ---
    Central US | 13.82.88.226 | 104.45.147.24
 
+## Network virtual appliance configuration
+
+If you are using network virtual appliances (NVAs) to control outbound network traffic from VMs, the appliance might get throttled if all the replication traffic passes through the NVA. We recommend you to create a network service endpoint in your virtual network for "Storage" so that the replication traffic does not go to the NVA.
+
+### Create network service endpoint for Storage
+You can create a network service endpoint in your virtual network for "Storage" so that the replication traffic does not leave Azure boundary.
+
+- Select your Azure virtual network and click on 'Service endpoints'
+
+    ![storage-endpoint](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
+
+- Click 'Add' and 'Add service endpoints' tab opens
+- Select 'Microsoft.Storage' under 'Service' and the required subnets under 'Subnets' field and click 'Add'
+
+>[!NOTE]
+>Do not restrict virtual network access to your storage accounts used for ASR. You should allow access from 'All networks'
+
 ## ExpressRoute/VPN
 
 If you have an ExpressRoute or VPN connection between on-premises and Azure location, follow the guidelines in this section.
 
 ### Forced tunneling
 
-Typically, you define a default route (0.0.0.0/0) that forces outbound Internet traffic to flow through the on-premises location. We do not recommend this. The replication traffic and Site Recovery service communication should not leave the Azure boundary. The solution is to add user-defined routes (UDRs) for [these IP ranges](#outbound-connectivity-for-azure-site-recovery-ip-ranges) so that the replication traffic doesn’t go on-premises.
+Typically, you define a default route (0.0.0.0/0) that forces outbound Internet traffic to flow through the on-premises location or. We do not recommend this. The replication traffic should not leave the Azure boundary.
+
+You can [create a network service endpoint](#create-network-service-endpoint-for-storage) in your virtual network for "Storage" so that the replication traffic does not leave Azure boundary.
+
 
 ### Connectivity
 
