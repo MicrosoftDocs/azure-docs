@@ -6,7 +6,7 @@ keywords:
 author: bandersmsft
 ms.author: banders
 ms.reviewer: nini
-ms.date: 03/29/2018
+ms.date: 04/18/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
@@ -49,7 +49,7 @@ In Azure Policy, we offer some built-in policies that are available to you by de
 - **Enforce tag and its value**: This policy enforces a required tag and its value to a resource.
 - **Not allowed resource types**: This policy enables you to specify the resource types that your organization cannot deploy.
 
-You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
+You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI. After you make changes to a policy definition, policy reevaluation happens about once an hour.
 
 To learn more about the structures of policy definitions, look at this article - [Policy Definition Structure](policy-definition.md).
 
