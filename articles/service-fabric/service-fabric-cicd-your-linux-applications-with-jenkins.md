@@ -131,13 +131,13 @@ When you run `docker info` in the terminal, the output should show that the Dock
 4. Sign in to the Jenkins portal by using the following steps:
 
    * Sign in to a Jenkins shell from your host with the following command. Use the first four digits of the container ID. For example, if the container ID is  `2d24a73b5964`, use `2d24`.
-      ```sh
-      docker exec -it [first-four-digits-of-container-ID] /bin/bash
-      ```
+     ```sh
+     docker exec -it [first-four-digits-of-container-ID] /bin/bash
+     ```
    * From the Jenkins shell, get the admin password for your container instance:
-      ```sh
-      cat /var/jenkins_home/secrets/initialAdminPassword
-      ```      
+     ```sh
+     cat /var/jenkins_home/secrets/initialAdminPassword
+     ```      
    * To sign in to the Jenkins dashboard, open the following URL in a web browser: `http://<HOST-IP>:8080`. Use the password from the previous step to unlock Jenkins.
    * After you sign in for the first time, you can create your own user account and use that for the following steps, or you can continue to use the administrator account. If you create a user, you need to continue with that user.
 1. Set up GitHub to work with Jenkins, by using the steps in [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
@@ -188,7 +188,7 @@ Ensure that the cluster or machine where the Jenkins container image is hosted h
 
     ![Service Fabric Jenkins Build action][build-step-dotnet]
   
-   h. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. Here you need to provide cluster details where the Jenkins compiled Service Fabric application will be deployed. The path to the certificate can be found by echoing the value of the echo Certificates_JenkinsOnSF_Code_MyCert_PEM environment variable from within the container. This path can be used for the Client Key and the Client Cert fields.
+   h. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. You need to provide details about the cluster where the Jenkins compiled Service Fabric application will be deployed. The path to the certificate can be found by echoing the value of the echo Certificates_JenkinsOnSF_Code_MyCert_PEM environment variable from within the container. This path can be used for the Client Key and the Client Cert fields.
 
       ```sh
       echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
@@ -199,10 +199,10 @@ Ensure that the cluster or machine where the Jenkins container image is hosted h
     ![Service Fabric Jenkins Build action][post-build-step]
 
       > [!NOTE]
-      > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
+      > The cluster could be same as the one hosting the Jenkins container application if you are using Service Fabric to deploy the Jenkins container image.
       >
 
-## Use Azure Active Directory Service Principal
+## Configure Azure Active Directory Service Principal
 
 1. Follow the steps in [Use the portal to create an Azure Active Directory application and service principal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). 
 
