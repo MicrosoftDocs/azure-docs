@@ -157,7 +157,7 @@ If you have an ExpressRoute or VPN connection between on-premises and Azure loca
 
 Typically, you define a default route (0.0.0.0/0) that forces outbound Internet traffic to flow through the on-premises location or. We do not recommend this. The replication traffic should not leave the Azure boundary.
 
-You can [create a network service endpoint](#create-network-service-endpoint-for -Storage) in your virtual network for "Storage" so that the replication traffic does not leave Azure boundary.
+You can [create a network service endpoint](#create-network-service-endpoint-for-storage) in your virtual network for "Storage" so that the replication traffic does not leave Azure boundary.
 
 
 ### Connectivity
