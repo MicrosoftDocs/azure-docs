@@ -1,9 +1,8 @@
 ---
-title: Hadoop security - domain-joined HDInsight clusters - Azure | Microsoft Docs
+title: HDInsight - domain-joined HDInsight clusters - Azure
 description: Learn ....
 services: hdinsight
-documentationcenter: ''
-author: saurinsh
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -11,12 +10,9 @@ tags: azure-portal
 ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/31/2016
-ms.author: saurinsh
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
 
 ---
 # An introduction to Hadoop security with domain-joined HDInsight clusters
@@ -32,7 +28,7 @@ Azure HDInsight until today supported only a single user local admin. This worke
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## Benefits
-Enterprise Security contains four big pillars – Perimeter Security, Authentication, Authorization, and Encryption.
+Enterprise Security contains four major pillars – Perimeter Security, Authentication, Authorization, and Encryption.
 
 ![Domain Joined HDInsight clusters benefits pillars](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
 
