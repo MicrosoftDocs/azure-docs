@@ -36,7 +36,7 @@ The App Service on Azure Stack Update 1 build number is **69.0.13698.9**
 ### Prerequisites
 
 > [!IMPORTANT]
-> New deployments of Azure App Service on Azure Stack now require a [three-subject wildcard certificate](azure-stack-app-service-before-you-get-started.md#get-certificates) due to improvements in the way in which SSO for Kudu is now handled in Azure App Service.  The new subject is ** *.sso.appservice.<region>.<domainname>.<extension>**
+> New deployments of Azure App Service on Azure Stack now require a [three-subject wildcard certificate](azure-stack-app-service-before-you-get-started.md#get-certificates) due to improvements in the way in which SSO for Kudu is now handled in Azure App Service. The new subject is ** *.sso.appservice.<region>.<domainname>.<extension>**
 >
 >
 
@@ -46,11 +46,11 @@ Refer to the [Before You Get Started documentation](azure-stack-app-service-befo
 
 Azure App Service on Azure Stack Update 1 includes the following improvements and fixes:
 
-- **High Availability of Azure App Service** - The Azure Stack 1802 update enabled workloads to be deployed across fault domains.  Therefore App Service infrastructure is able to be fault tolerant as it will be deployed across fault domains.  By default all new deployments of Azure App Service will have this capability however for deployments completed prior to Azure Stack 1802 update being applied refer to the [App Service Fault Domain documentation](azure-stack-app-service-fault-domain-update.md)
+- **High Availability of Azure App Service** - The Azure Stack 1802 update enabled workloads to be deployed across fault domains. Therefore App Service infrastructure is able to be fault tolerant as it will be deployed across fault domains. By default all new deployments of Azure App Service has this capability however for deployments completed prior to Azure Stack 1802 update being applied refer to the [App Service Fault Domain documentation](azure-stack-app-service-fault-domain-update.md)
 
-- **Deploy in existing virtual network** - Customers can now deploy App Service on Azure Stack within an existing virtual network.  Deploying in an existing virtual network enables customers to connect to the SQL Server and File Server, required for Azure App Service, over private ports.  During deployment, customers can select to deploy in an existing virtual network, however [must create subnets for use by App Service](azure-stack-app-service-before-you-get-started.md#virtual-network) prior to deployment.
+- **Deploy in existing virtual network** - Customers can now deploy App Service on Azure Stack within an existing virtual network. Deploying in an existing virtual network enables customers to connect to the SQL Server and File Server, required for Azure App Service, over private ports. During deployment, customers can select to deploy in an existing virtual network, however [must create subnets for use by App Service](azure-stack-app-service-before-you-get-started.md#virtual-network) prior to deployment.
 
-- Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**.  Consistent with Azure Stack Portal SDK version.
+- Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
 
 - **Updates to the following application frameworks and tools**:
     - Added **.Net Core 2.0** support
@@ -102,11 +102,11 @@ Azure App Service on Azure Stack Update 1 includes the following improvements an
 
 - Certificate validation errors
 
-Some customers have experienced issues when providing certificates to the App Service installer when deploying on an integrated system, due to overly restrictive validation in the installer.  The App Service installer has been re-released, customers should [download the updated installer](https://aka.ms/appsvconmasinstaller).  If you continue to experience issues validating certificates with the updated installer, contact support.
+Some customers have experienced issues when providing certificates to the App Service installer when deploying on an integrated system, due to overly restrictive validation in the installer. The App Service installer has been re-released, customers should [download the updated installer](https://aka.ms/appsvconmasinstaller). If you continue to experience issues validating certificates with the updated installer, contact support.
 
 - Problem retrieving Azure Stack root certificate from integrated system.
 
-An error in the Get-AzureStackRootCert.ps1 caused customers to fail to retrieve the Azure Stack root certificate when executing the script on a machine that does not have the root certificate installed.  The script has also now been re-released, resolving this issue, and request customers [download the updated helper scripts](https://aka.ms/appsvconmashelpers).  If you continue to experience issues retrieving the root certificate with the updated script, contact support.
+An error in the Get-AzureStackRootCert.ps1 caused customers to fail to retrieve the Azure Stack root certificate when executing the script on a machine that does not have the root certificate installed. The script has also now been re-released, resolving this issue, and request customers [download the updated helper scripts](https://aka.ms/appsvconmashelpers). If you continue to experience issues retrieving the root certificate with the updated script, contact support.
 
 ### Known issues with the update process
 
@@ -116,9 +116,9 @@ An error in the Get-AzureStackRootCert.ps1 caused customers to fail to retrieve 
 
 - Slot Swap does not function
 
-Site slot swap is broken in this release.  To restore functionality, complete these steps:
+Site slot swap is broken in this release. To restore functionality, complete these steps:
 
-1. Modify the ControllersNSG Network Security Group to **Allow** remote desktop connections to the App Service controller instances.  Replace AppService.local with the name of the resource group you deployed App Service in.
+1. Modify the ControllersNSG Network Security Group to **Allow** remote desktop connections to the App Service controller instances. Replace AppService.local with the name of the resource group you deployed App Service in.
 
     ```powershell
       Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
@@ -143,7 +143,7 @@ Site slot swap is broken in this release.  To restore functionality, complete th
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
       ```
 
-2. Browse to the **CN0-VM** under Virtual Machines in the Azure Stack Administrator portal and **click Connect** to open a remote desktop session with the controller instance.  Use the credentials specified during the deployment of App Service.
+2. Browse to the **CN0-VM** under Virtual Machines in the Azure Stack Administrator portal and **click Connect** to open a remote desktop session with the controller instance. Use the credentials specified during the deployment of App Service.
 3. Start **PowerShell as an Administrator** and execute the following script
 
     ```powershell
@@ -168,7 +168,7 @@ Site slot swap is broken in this release.  To restore functionality, complete th
     ```
 
 4. Close the remote desktop session.
-5. Revert the ControllersNSG Network Security Group to **Deny** remote desktop connections to the App Service controller instances.  Replace AppService.local with the name of the resource group you deployed App Service in.
+5. Revert the ControllersNSG Network Security Group to **Deny** remote desktop connections to the App Service controller instances. Replace AppService.local with the name of the resource group you deployed App Service in.
 
     ```powershell
 
@@ -193,13 +193,13 @@ Site slot swap is broken in this release.  To restore functionality, complete th
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-- Workers are unable to reach file server when App Service is deployed in an existing virtual network and the fileserver is only available on the private network.
+- Workers are unable to reach file server when App Service is deployed in an existing virtual network and the file server is only available on the private network.
  
-If you chose to deploy into an existing virtual network and a internal IP address to connect to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the fileserver. To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+If you chose to deploy into an existing virtual network and an internal IP address to connect to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server. To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
  * Source: Any
  * Source port range: *
  * Destination: IP Addresses
- * Destination IP address range: Range of IPs for your fileserver
+ * Destination IP address range: Range of IPs for your file server
  * Destination port range: 445
  * Protocol: TCP
  * Action: Allow
