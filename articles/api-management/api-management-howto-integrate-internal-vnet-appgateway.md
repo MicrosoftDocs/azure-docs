@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use Azure API Management in Virtual Network with Application Gateway | Microsoft Docs
 description: Learn how to setup and configure Azure API Management in Internal Virtual Network with Application Gateway (WAF) as FrontEnd
 services: api-management
@@ -81,7 +81,7 @@ Make sure that you are using the latest version of Azure PowerShell. More info i
 Log in to Azure
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Authenticate with your credentials.<BR>
