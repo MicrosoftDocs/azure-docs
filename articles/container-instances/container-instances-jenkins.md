@@ -88,7 +88,7 @@ Select **Manage Jenkins** > **Configure System** > scroll down to the **Cloud** 
 
 ![Jenkins cloud configuration](./media/container-instances-jenkins/jenkins-aci-image.png)
 
-Now create a Jenkins build job. Select **New Item**, give the build project a name such as `aci-java-demo`, select **Freestyle Projet**, and click **OK** when done.
+Now create a Jenkins build job. Select **New Item**, give the build project a name such as `aci-java-demo`, select **Freestyle project**, and click **OK** when done.
 
 ![Create Jenkins job](./media/container-instances-jenkins/jenkins-new-job.png)
 
