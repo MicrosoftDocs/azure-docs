@@ -25,7 +25,6 @@ ms.author: juliako
 > 
 > 
 
-## Overview
 You can stream an adaptive bitrate MP4 set by creating an OnDemand streaming locator and building a streaming URL. The [encoding an asset](media-services-rest-encode-asset.md) article shows how to encode into an adaptive bitrate MP4 set. If your content is encrypted, configure asset delivery policy (as described in [this](media-services-rest-configure-asset-delivery-policy.md) article) before creating a locator. 
 
 You can also use an OnDemand streaming locator to build URLs that point to MP4 files that can be progressively downloaded.  
