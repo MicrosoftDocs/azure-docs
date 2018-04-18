@@ -17,7 +17,7 @@ ms.author: juliako
 
 # Tutorial: Analyze videos with Azure Media Services and Video Indexer 
 
-This tutorial shows you how to analyze videos. There are many scenarios in which you might want to gain valuable insights from recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can extract speech-to-text and build search indexes and dashboards. Then, they can extract intelligence around common complaints, sources of complaints, and other relevant data. 
+This tutorial shows you how to analyze videos with Video Indexer. There are many scenarios in which you might want to gain valuable insights from recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can extract speech-to-text and build search indexes and dashboards. Then, they can extract intelligence around common complaints, sources of complaints, and other relevant data. 
 
 This tutorial shows you how to:    
 
@@ -26,9 +26,9 @@ This tutorial shows you how to:
 > * Create a Media Services account
 > * Access the Media Services API
 > * Configure the sample app
-> * Examine the code in detail
+> * Examine the sample code in detail
 > * Run the app
-> * Examine the output
+> * Examine the Video Indexer output
 > * Clean up resources
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -51,7 +51,7 @@ Clone a GitHub repository that contains the .NET sample to your machine using th
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## Examine the code in detail
+## Examine the sample code in detail
 
 This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) file of the *AnalyzeVideos* project.
 
@@ -244,9 +244,9 @@ Press Ctrl+F5 to run the *AnalyzeVideos* application.
 
 When we run the program, the job produces thumbnails for each face that it finds in the video. It also produces the insights.json file.
 
-## Examine insights.json
+## Examine the Video Indexer output
 
-Media Services v3 uses **Video Indexer** to produce the insights.json. You can find details about elements that you find in this file in the [Video Indexer documentation](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-output-json).
+Media Services v3 uses **Video Indexer** to produce the insights for the specified videos. The output file is called insights.json. This file contains insights about your video. You can find details about elements in this file in the [Video Indexer documentation](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-output-json) article.
 
 ## Clean up resources
 
