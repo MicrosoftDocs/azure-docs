@@ -59,7 +59,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >
     >We recommend increasing the resources allocated to Docker when testing large applications. This can be done by selecting the **Docker Icon**, then selecting **Advanced** to adjust the number of cores and memory.
 
-2. In a new directory create a file called `.Dockerfile` to build your Service Fabric Image:
+2. In a new directory create a file called `Dockerfile` to build your Service Fabric Image:
 
     ```dockerfile
     FROM microsoft/service-fabric-onebox
@@ -83,7 +83,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >[!TIP]
     > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page
 
-3. To build your reusable image from the `.Dockerfile` open a terminal and `cd` to the directly holding your `.Dockerfile` then run:
+3. To build your reusable image from the `Dockerfile` open a terminal and `cd` to the directly holding your `Dockerfile` then run:
 
     ```bash 
     docker build -t mysfcluster .

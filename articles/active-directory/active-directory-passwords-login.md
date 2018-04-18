@@ -116,7 +116,7 @@ When testing this functionality using Remote Desktop, the "Reset password" link 
 ## Next steps
 The following links provide additional information regarding password reset using Azure AD
 
-* [How do I deploy SSPR?](active-directory-passwords-best-practices.md)
+* [How do I deploy SSPR?](authentication/howto-sspr-deployment.md)
 * [How do I enable PIN reset from the login screen?](https://docs.microsoft.com/intune/device-windows-pin-reset)
 * [More information about MDM authentication policies](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-authentication)
 
