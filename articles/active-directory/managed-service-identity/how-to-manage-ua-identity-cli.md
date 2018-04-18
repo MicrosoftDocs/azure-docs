@@ -46,7 +46,7 @@ To create a user assigned MSI, use the [az identity create](/cli/azure/identity#
  ```azurecli-interactive
 az identity create -g <RESOURCE GROUP> -n <MSI NAME>
 ```
-## List user assigned MSIs
+## List user assigned MSI
 
 To list managed service identities, use the [az identity list](/cli/azure/identity#az-identity-list) command.  The `-g` parameter specifies the resource group where the MSI was created.  Replace the `<RESOURCE GROUP>` with your own value:
 
@@ -69,7 +69,7 @@ az identity delete -n <MSI NAME> -g <RESOURCE GROUP>
 
 For a full list of Azure CLI identity commands, see [az identity](/cli/azure/identity).
 
-For information on how to assign a user assigned managed identity to a Azure VM see, [Configure Identity for an Azure VM](qs-configure-cli-windows-vm.md#user-assigned-msi)
+For information on how to assign a user assigned managed identity to an Azure VM see, [Configure Managed Service Identity (MSI) using Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-msi)
 
 
  

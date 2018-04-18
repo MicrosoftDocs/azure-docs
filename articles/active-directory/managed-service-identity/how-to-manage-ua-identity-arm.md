@@ -28,36 +28,65 @@ In this article, you learn how to create and delete a user assigned MSI using Az
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
+Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also ensure that your account belongs to a role that gives you write permissions on the VM (for example, the role of “Virtual Machine Contributor”).
+
+## Template creation and editing
+
+As with the Azure portal and scripting, Azure Resource Manager templates provide the ability to deploy new or modified resources defined by an Azure resource group. Several options are available for template editing and deployment, both local and portal-based, including:
+
+- Using a [custom template from the Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [QuickStart template](https://azure.microsoft.com/documentation/templates/).
+- Deriving from an existing resource group, by exporting a template from either [the original deployment](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), or from the [current state of the deployment](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
+- Using a local [JSON editor (such as VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), and then uploading and deploying by using PowerShell or CLI.
+- Using the Visual Studio [Azure Resource Group project](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to both create and deploy a template. 
+
 ## Create a user assigned MSI 
 
-To create a user assigned MSI, use the [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) command. The `ResourceGroupName` parameter specifies the resource group where to create the MSI, and the `-Name` parameter specifies its name. Replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
+To create a user assigned MSI, use the following template. Replace the `<MSI NAME>` value with your own values:
 
- ```azurpowershell-interactive
-New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <MSI NAME>
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resourceName": {
+          "type": "string",
+          "metadata": {
+            "description": "<MSI NAME>"
+          }
+        }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "name": "[parameters('<MSI NAME>')]",
+      "apiVersion": "2015-08-31-PREVIEW",
+      "location": "[resourceGroup().location]"
+    }
+  ],
+  "outputs": {
+      "identityName": {
+          "type": "string",
+          "value": "[parameters('<MSI NAME>')]"
+      }
+  }
+}
 ```
-## List user assigned MSIs
 
-To list managed service identities, use the [Get-AzureRmUserAssigned](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity) command.  The `-ResourceGroupName` parameter specifies the resource group where the MSI was created.  Replace the `<RESOURCE GROUP>` with your own value:
+## List user assigned MSI
 
-```azurepowershell-interactive
-Get-AzureRmUserAssignedIdentity -ResourceGroupName PSRG
- <RESOURCE GROUP>
-```
-In the response, user assigned identities have `"Microsoft.ManagedIdentity/userAssignedIdentities"` value returned for key, `Type`.
+It is not possible to list a user assigned identity using an ARM template. 
 
-`Type :Microsoft.ManagedIdentity/userAssignedIdentities`
+To list managed service identities, use the Azure CLI command listed here, [List user assigned MSI](how-to-manage-ua-identity-cli.md#list-user-assigned-msi)
 
 ## Delete a user assigned MSI
 
-To delete a user assigned MSI, use the [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity) command.  The `-ResourceGroupName` parameter specifies the resource group where the MSI was created and the `-Name` parameter specifies its name.  Replace the `<RESOURCE GROUP>` and the `<MSI NAME>` parameters values with your own values:
+It is not possible to delete a user assigned identity using an ARM template. 
 
- ```azurecli-interactive
-Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <MSI NAME>
-```
+To delete a managed service identity, use the Azure CLI command listed here, [List user assigned MSI](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-msi)
 
 ## Related content
 
-For a full list and more details of the Azure PowerShell MSI commands, see [AzureRM.ManagedServiceIdentity](/powershell/module/azurerm.managedserviceidentity#managed_service_identity).
+For information on how to assign a user assigned managed identity to an Azure VM using an ARM template see, [Configure a VM Managed Service Identity by using a template](qs-configure-template-windows-vm.md).
 
 
  
