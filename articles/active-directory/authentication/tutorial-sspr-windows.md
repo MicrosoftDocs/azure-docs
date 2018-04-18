@@ -120,6 +120,6 @@ The following links provide additional information regarding password reset usin
 * [How do I enable PIN reset from the login screen?](https://docs.microsoft.com/intune/device-windows-pin-reset)
 * [More information about MDM authentication policies](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-authentication)
 
-[CreateProfile]: ./media/active-directory-passwords-login/create-profile.png "Create Intune device configuration profile to enable Reset password link on the Windows 10 logon screen"
-[Assignment]: ./media/active-directory-passwords-login/profile-assignment.png "Assign Intune device configuration policy to a group of Windows 10 devices"
-[LoginScreen]: ./media/active-directory-passwords-login/logon-reset-password.png "Reset password link at the Windows 10 logon screen"
+[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Create Intune device configuration profile to enable Reset password link on the Windows 10 logon screen"
+[Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Assign Intune device configuration policy to a group of Windows 10 devices"
+[LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Reset password link at the Windows 10 logon screen"

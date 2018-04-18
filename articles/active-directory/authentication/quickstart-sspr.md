@@ -114,6 +114,6 @@ In this quickstart, you’ve learned how to configure self-service password rese
 > [!div class="nextstepaction"]
 > [Enable self-service password reset](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
 
-[Authentication]: ./media/active-directory-passwords-getting-started/sspr-authentication-methods.png "Azure AD authentication methods available and the quantity required"
-[Policy]: ./media/active-directory-passwords-getting-started/password-policy.png "On-premises password Group Policy set to 0 days"
+[Authentication]: ./media/quickstart-sspr/sspr-authentication-methods.png "Azure AD authentication methods available and the quantity required"
+[Policy]: ./media/quickstart-sspr/password-policy.png "On-premises password Group Policy set to 0 days"
 

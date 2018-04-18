@@ -229,4 +229,4 @@ The size of each of the message described previously is typically under 1 KB. Ev
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
-[Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Enable password writeback in Azure AD Connect"
+[Writeback]: ./media/howto-sspr-writeback/enablepasswordwriteback.png "Enable password writeback in Azure AD Connect"
