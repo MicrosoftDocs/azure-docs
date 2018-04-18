@@ -1,5 +1,5 @@
 ---
-title: Azure Cognitive Services, Bing Custom Search Documentation | Microsoft Docs
+title: Bing Custom Search Documentation - Azure Cognitive Services | Microsoft Docs
 description: Learn how to use the Bing Custom Search portal to create custom search instances
 services: cognitive-services
 author: czeumault

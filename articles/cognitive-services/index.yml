@@ -15,7 +15,7 @@ metadata:
   ms.author: cgronlun
 
 abstract:
-  description: Learn how to build into apps, websites, and bots intelligent algorithms to see, hear, speak, understand and interpret your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.
+  description: Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.
 
 sections:
 
@@ -46,7 +46,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href"/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page">Build a Custom Search webpage </a>
+    - html: <a href="/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page">Build a Custom Search webpage </a>
     - html: <a href="/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample">Use Language Understanding (LUIS) in a bot </a> 
     - html: <a href="/azure/cognitive-services/luis/luis-tutorial-batch-testing">Improve intent accuracy for home automation commands (LUIS) </a>
 - title: Cognitive Services APIs
@@ -87,7 +87,7 @@ sections:
                     <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="../media/index/API_Speaker_Recognition.svg" alt="" /><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                 </li>
                 <li>
-                    <a class="barLink" href="https://docs.microsofttranslator.com/speech-translate.html"><img src="../media/index/API_TranslatorSpeech.svg" alt="" />Translator Speech</a>
+                    <a class="barLink" href="/azure/cognitive-services/translator-speech/"><img src="../media/index/API_TranslatorSpeech.svg" alt="" />Translator Speech</a>
                 </li>
             </ul>   
     - title: Language
