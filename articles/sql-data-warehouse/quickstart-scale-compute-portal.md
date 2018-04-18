@@ -2,14 +2,14 @@
 title: "Quickstart: Scale out compute in Azure SQL Data Warehouse - Azure portal | Microsoft Docs"
 description: Scale compute in Azure SQL Data Warehouse in the Azure portal. Scale out compute for better performance, or scale back compute to save costs. 
 services: sql-data-warehouse
-author: hirokib
+author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.component: implement
-ms.date: 04/11/2018
-ms.author: elbutter
-ms.reviewer: jrj
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
 ---
 
 # Quickstart: Scale compute in Azure SQL Data Warehouse in the Azure portal

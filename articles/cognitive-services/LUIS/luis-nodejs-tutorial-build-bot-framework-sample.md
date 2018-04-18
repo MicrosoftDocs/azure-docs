@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Integrate LUIS with a bot using the Bot Builder SDK for Node.js

@@ -261,8 +261,6 @@
       href: service-fabric-health-introduction.md
     - name: Report health events
       href: service-fabric-report-health.md
-    - name: Monitor with OMS
-      href: service-fabric-diagnostics-event-analysis-oms.md
   - name: Integration with API Management
     href: service-fabric-api-management-overview.md
 - name: How-to guides
@@ -543,8 +541,10 @@
       href: service-fabric-visualizing-your-cluster.md
     - name: Connect to a secure cluster
       href: service-fabric-connect-to-secure-cluster.md
-    - name: Patch cluster nodes
+    - name: Patch cluster nodes (Windows)
       href: service-fabric-patch-orchestration-application.md
+    - name: Patch cluster nodes (Linux)
+      href: service-fabric-patch-orchestration-application-linux.md
   - name: Monitor and diagnose
     items:
     - name: Analyze with OMS
@@ -553,6 +553,8 @@
         href: service-fabric-diagnostics-oms-setup.md
       - name: Add the OMS Agent
         href: service-fabric-diagnostics-oms-agent.md
+      - name: Monitor with OMS
+        href: service-fabric-diagnostics-event-analysis-oms.md
       - name: Monitor containers
         href: service-fabric-diagnostics-oms-containers.md
     - name: Analyze with Application Insights

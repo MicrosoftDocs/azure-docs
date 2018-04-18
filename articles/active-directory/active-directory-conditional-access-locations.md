@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -40,7 +40,14 @@ A location is a label for a network location that either represents a named loca
 
 With named locations, you can create logical groupings of IP address ranges, countries and regions. 
 
- A name location has the following components:
+You can access your named locations in the **Manage** section of the conditional access page.
+
+![Locations](./media/active-directory-conditional-access-locations/02.png)
+
+ 
+
+
+A named location has the following components:
 
 ![Locations](./media/active-directory-conditional-access-locations/42.png)
 
