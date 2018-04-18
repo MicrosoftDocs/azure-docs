@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 3/30/2018
+ms.date: 04/10/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -39,11 +39,8 @@ Run the following commands to create a new policy assignment:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "<resourceGroupName>"
-
-$definition = Get-AzureRmPolicyDefinition -Name "Audit Virtual Machines without Managed Disks"
-
-New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition -Sku @{Name='A1';Tier='Standard'}
-
+$definition = Get-AzureRmPolicyDefinition | where {$_.properties.displayName -eq "Audit VMs that do not use managed disks"}
+New-AzureRMPolicyAssignment -Name "Audit Virtual Machines without Managed Disks" -Scope $rg.ResourceId -PolicyDefinition $definition -Sku @{Name='A1';Tier='Standard'}
 ```
 
 The preceding commands use the following information:

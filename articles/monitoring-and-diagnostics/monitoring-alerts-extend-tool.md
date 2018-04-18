@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/06/2018
 ms.author: vinagara
 
 ---
 # How to extend (copy) alerts from OMS into Azure
-Beginning **April 23, 2018**, all customers using alerts that are configured in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), will be extended into Azure. Alerts that are extended to Azure behave the same way as in OMS. Monitoring capabilities remain intact. Extending alerts created in OMS to Azure provides many benefits. For more information about the advantages and process of extending alerts from OMS to Azure, see [Extend alerts from OMS to Azure](monitoring-alerts-extend.md).
+Beginning **May 14, 2018**, all customers using alerts that are configured in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), will be extended into Azure. Alerts that are extended to Azure behave the same way as in OMS. Monitoring capabilities remain intact. Extending alerts created in OMS to Azure provides many benefits. For more information about the advantages and process of extending alerts from OMS to Azure, see [Extend alerts from OMS to Azure](monitoring-alerts-extend.md).
 
 Customers wanting to move their alerts from OMS into Azure immediately, can do so by using one of the options stated.
 
@@ -154,8 +154,89 @@ If the POST is successful, it shall return a 200 OK response along with:
 ```
 Indicating that the alerts have been extended into Azure, as indicated by version 2. This version is only for checking if alerts have been extended into Azure and have no bearing in usage with [Log Analytics Search API](../log-analytics/log-analytics-api-alerts.md). Once the alerts are extended into Azure successfully, all email addresses provided during GET will be sent a report with details of the changes done.
 
+And finally, if all the alerts in the specified workspace, are already scheduled to be extended into Azure - the response to POST will be 403 Forbidden. To view any error message or understand if extend process is stuck, user can do a GET call and error message if any will be returned along with summary.
 
-And finally, if all the alerts in the specified workspace, have already been scheduled to be extended into Azure - the response to POST will be 403 Forbidden.
+```json
+{
+    "version": 1,
+    "message": "OMS was unable to extend your alerts into Azure, Error: The subscription is not registered to use the namespace 'microsoft.insights'. OMS will schedule extending your alerts, once remediation steps illustrated in the troubleshooting guide are done.",
+    "recipients": [
+       "john.doe@email.com",
+       "jane.doe@email.com"
+     ],
+    "migrationSummary": {
+        "alertsCount": 2,
+        "actionGroupsCount": 2,
+        "alerts": [
+            {
+                "alertName": "DemoAlert_1",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_1"
+            },
+            {
+                "alertName": "DemoAlert_2",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_2"
+            }
+        ],
+        "actionGroups": [
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                "actions": {
+                    "emailIds": [
+                        "JohnDoe@mail.com"
+                    ],
+                    "webhookActions": [
+                        {
+                            "name": "Webhook_1",
+                            "serviceUri": "http://test.com"
+                        }
+                    ],
+                    "itsmAction": {}
+                }
+            },
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                 "actions": {
+                    "emailIds": [
+                        "test1@mail.com",
+                          "test2@mail.com"
+                    ],
+                    "webhookActions": [],
+                    "itsmAction": {
+                        "connectionId": "<Guid>",
+                        "templateInfo":"{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{\\\"contact_type\\\":\\\"email\\\",\\\"impact\\\":\\\"3\\\",\\\"urgency\\\":\\\"2\\\",\\\"category\\\":\\\"request\\\",\\\"subcategory\\\":\\\"password\\\"}\",\"CreateOneWIPerCI\":false}"
+                    }
+                }
+            }
+        ]
+    }
+}              
+
+```
+
+## Troubleshooting 
+During the process of extending alerts from OMS into Azure, there can be occasional issues that prevents the system from creating necessary [Action Groups](monitoring-action-groups.md). In such cases an error message will be shown in OMS portal via banner in Alert section and in GET call done to API.
+
+Listed below are the remediation steps for each error:
+1. **Error: The subscription is not registered to use the namespace 'microsoft.insights'**:
+    ![OMS portal Alert Settings page with Registration Error message](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
+
+    a. The subscription associated with your OMS workspace - has not been registered to use Azure Monitor (microsoft.insights) functionality; due to which OMS unable to extend you alerts into Azure Monitor & Alerts.
+    
+    b. To resolve, register microsoft.insights (Azure monitor & alerts) use in your subscription using Powershell, Azure CLI, or Azure portal. To learn more, view the article on [resolving errors on resource provider registration](../azure-resource-manager/resource-manager-register-provider-errors.md)
+    
+    c. Once resolved as per steps illustrated in the article, OMS will extend your alerts into Azure within the next day's scheduled run; without the need of any action or initiation.
+2. **Error: Scope Lock is present at subscription/resource group level for write operations**:
+    ![OMS portal Alert Settings page with ScopeLock Error message](./media/monitor-alerts-extend/ErrorScopeLock.png)
+
+    a. When Scope Lock is enabled, restricting any new change in subscription or resource group containing the Log Analytics (OMS) workspace; the system is unable to extend (copy) alerts into Azure and create necessary action groups.
+    
+    b. To resolve, delete the *ReadOnly* lock on your subscription or resource group containing the workspace; using Azure portal, Powershell, Azure CLI, or API. To learn more, view the article on [resource lock usage](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. Once resolved as per steps illustrated in the article, OMS will extend your alerts into Azure within the next day's scheduled run; without the need of any action or initiation.
 
 
 ## Next steps

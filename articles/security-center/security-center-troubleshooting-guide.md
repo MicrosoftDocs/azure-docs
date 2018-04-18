@@ -36,7 +36,7 @@ This guide explains how to troubleshoot Security Center related issues. Most of 
 The audit log contains all write operations (PUT, POST, DELETE) performed on your resources, however it does not include read operations (GET).
 
 ## Microsoft Monitoring Agent
-Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service – to collect security data from your Azure virtual machines. After data collection is enabled and the agent is correctly installed in the target machine, the process below should be in execution:
+Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Log Analytics service – to collect security data from your Azure virtual machines. After data collection is enabled and the agent is correctly installed in the target machine, the process below should be in execution:
 
 * HealthService.exe
 
@@ -81,7 +81,7 @@ There are two installation scenarios that can produce different results when ins
 For agents to connect to and register with Security Center, they must have access to network resources, including the port numbers and domain URLs.
 
 - For proxy servers, you need to ensure that the appropriate proxy server resources are configured in agent settings. Read this article for more information on [how to change the proxy settings](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
-- For firewalls that restrict access to the Internet, you need to configure your firewall to permit access to OMS. No action is needed in agent settings.
+- For firewalls that restrict access to the Internet, you need to configure your firewall to permit access to Log Analytics. No action is needed in agent settings.
 
 The following table shows resources needed for communication.
 

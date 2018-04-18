@@ -4,7 +4,7 @@ description: View maintenance notifications for Linux virtual machines running i
 services: virtual-machines-linux
 documentationcenter: ''
 author: zivraf
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
 

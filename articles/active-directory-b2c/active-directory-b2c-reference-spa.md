@@ -16,10 +16,6 @@ ms.author: davidmu
 ---
 # Azure AD B2C: Single-page app sign-in by using OAuth 2.0 implicit flow
 
-> [!NOTE]
-> This feature is in preview.
-> 
-
 Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, the app is written by using a framework like AngularJS, Ember.js, or Durandal. Single-page apps and other JavaScript apps that run primarily in a browser have some additional challenges for authentication:
 
 * The security characteristics of these apps are significantly different from traditional server-based web applications.

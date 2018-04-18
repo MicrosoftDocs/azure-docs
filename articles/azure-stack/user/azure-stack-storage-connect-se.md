@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2018
+ms.date: 04/20/2018
 ms.author: mattbriggs
 ms.reviewer: xiaofmao
 
@@ -47,6 +47,7 @@ For the Azure Stack Development Kit, you need to export the Azure Stack authorit
 4. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.  
 
     The exported certificate will be used in the next step.
+
 5. Start Storage Explorer, and if you see the **Connect to Azure Storage** dialog box, cancel it.
 
 6. On the **Edit** menu, point to **SSL Certificates**, and then select **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.

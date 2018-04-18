@@ -5,8 +5,7 @@ keywords: Database triggers, stored procedure, stored procedure, database progra
 services: cosmos-db
 documentationcenter: ''
 author: aliuy
-manager: jhubbard
-editor: mimig
+manager: kfile
 
 ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
 ms.service: cosmos-db
