@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/18/2018
 ms.author: tomfitz
 ---
 
@@ -43,7 +43,7 @@ The following HTTP response codes indicate that an event delivery attempt failed
 
 Any other response code or a lack of a response indicates a failure. Event Grid retries delivery. 
 
-## Retry intervals
+## Retry intervals and duration
 
 Event Grid uses an exponential backoff retry policy for event delivery. If your webhook does not respond or returns a failure code, Event Grid retries delivery on the following schedule:
 
@@ -57,9 +57,7 @@ Event Grid uses an exponential backoff retry policy for event delivery. If your 
 
 Event Grid adds a small randomization to all retry intervals. After one hour, event delivery is retried once an hour.
 
-## Retry duration
-
-Azure Event Grid expires all events that are not delivered within 24 hours.
+By default, Event Grid expires all events that are not delivered within 24 hours. You can customize the retry policy when creating an event subscription. You provide the maximum number of delivery attempts (default is 30) and the event time-to-live (default is 1440 minutes).
 
 ## Next steps
 
