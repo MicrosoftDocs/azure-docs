@@ -39,7 +39,7 @@ If you're using Azure Stack with a Cloud Service Provider (CSP), your access to 
 Add the CSP as owner to your subscription. 
 
 1. Add your CSP as guest user. with the owner role to your tenant directory.  For steps on adding a user, see [Add new users to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)
-2. Add Owner role to the CSP guest user. For steps on adding the CSP user to your subscription, see [Use Role-Based Access Control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)
+2. Add Owner role to the CSP guest user. For steps on adding the CSP user to your subscription, see [Use Role-Based Access Control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 3. The CSP will then create the local Azure Stack subscription for you.
 4. You are ready to start using Azure Stack.
 5. Your CSP should then create a resource in your subscription to verify that they can manage your resources. 

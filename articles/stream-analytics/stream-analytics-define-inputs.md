@@ -1,21 +1,14 @@
 ---
-title: 'Data connection: Data stream inputs from an event stream | Microsoft Docs'
-description: Learn about setting up a data connection to Stream Analytics called 'inputs'. Inputs include a data stream from events, and also reference data.
-keywords: data stream, data connection, event stream
+title: Data stream inputs from an event stream in Azure Stream Analytics
+description: Learn about setting up a data connection in Azure Stream Analytics. Inputs include a data stream from events, and also reference data.
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-
-ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: sngun
-
 ---
 # Data connection: Learn about data stream inputs from events to Stream Analytics
 The data connection to a Stream Analytics job is a stream of events from a data source, which is referred to as the job's *input*. Stream Analytics has first-class integration with Azure data stream sources, including [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), and [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). These input sources can be from the same Azure subscription as your analytics job, or from a different subscription.
@@ -132,6 +125,8 @@ The default timestamp of Blob storage events in Stream Analytics is the timestam
 
 CSV-formatted inputs *require* a header row to define fields for the data set. In addition, all header row fields must be unique.
 
+If original message (JSON, CSV or AVRO) was routed from IoT or Event Hub to Blob storage in AVRO format, Stream Analytics will fail to deserialize such inputs from Blob Storage.
+
 > [!NOTE]
 > Stream Analytics does not support adding content to an existing blob file. Stream Analytics will view each file only once, and any changes that occur in the file after the job has read the data are not processed. Best practice is to upload all the data for a blob file at once and then add additional newer events to a different, new blob file.
 > 
@@ -173,7 +168,7 @@ FROM Input
 ````
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 You've learned about data connection options in Azure for your Stream Analytics jobs. To learn more about Stream Analytics, see:

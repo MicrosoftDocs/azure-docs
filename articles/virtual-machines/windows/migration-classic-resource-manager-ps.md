@@ -4,7 +4,7 @@ description: This article walks through the platform-supported migration of IaaS
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -67,7 +67,7 @@ First, start a PowerShell prompt. For migration, you need to set up your environ
 Sign in to your account for the Resource Manager model.
 
 ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 ```
 
 Get the available subscriptions by using the following command:

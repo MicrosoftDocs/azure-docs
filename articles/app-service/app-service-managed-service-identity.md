@@ -10,7 +10,7 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/12/2018
 ms.author: mahender
 
 ---
@@ -18,17 +18,13 @@ ms.author: mahender
 # How to use Azure Managed Service Identity (public preview) in App Service and Azure Functions
 
 > [!NOTE] 
-> Managed Service Identity for App Service and Azure Functions is currently in preview.
+> Managed Service Identity for App Service and Azure Functions is currently in preview. App Service on Linux and Web App for Containers are not currently supported.
 
 This topic shows you how to create a managed app identity for App Service and Azure Functions applications and how to use it to access other resources. A managed service identity from Azure Active Directory allows your app to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about Managed Service Identity, see the [Managed Service Identity overview](../active-directory/managed-service-identity/overview.md).
 
 ## Creating an app with an identity
 
 Creating an app with an identity requires an additional property to be set on the application.
-
-> [!NOTE] 
-> Only the primary slot for a site will receive the identity. Managed service identities for deployment slots are not yet supported.
-
 
 ### Using the Azure portal
 
@@ -46,11 +42,11 @@ To set up a managed service identity in the portal, you will first create an app
 
 ### Using the Azure CLI
 
-To set up a managed service identity using the Azure CLI, you will need to use the `az webapp assign-identity` command against an existing application. You have three options for running the examples in this section:
+To set up a managed service identity using the Azure CLI, you will need to use the `az webapp identity assign` command against an existing application. You have three options for running the examples in this section:
 
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block below.
-- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 or later) if you prefer to use a local CLI console. 
+- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 or later) if you prefer to use a local CLI console. 
 
 The following steps will walk you through creating a web app and assigning it an identity using the CLI:
 
@@ -63,14 +59,14 @@ The following steps will walk you through creating a web app and assigning it an
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location westus
-    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
-    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    az appservice plan create --name myPlan --resource-group myResourceGroup --sku S1
+    az webapp create --name myApp --resource-group myResourceGroup --plan myPlan
     ```
 
-3. Run the `assign-identity` command to create the identity for this application:
+3. Run the `identity assign` command to create the identity for this application:
 
     ```azurecli-interactive
-    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
 ### Using an Azure Resource Manager template

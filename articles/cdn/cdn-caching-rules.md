@@ -4,7 +4,7 @@ description: You can use CDN caching rules to set or modify default cache expira
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: 
+manager: akucer
 editor: ''
 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
+ms.author: rli; v-deasim
 
 ---
 
 # Control Azure CDN caching behavior with caching rules
 
 > [!NOTE] 
-> Caching rules are available only for **Azure CDN from Verizon Standard** and **Azure CDN from Akamai Standard**. For **Azure CDN from Verizon Premium**, you can use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
+> Caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai**. For **Azure CDN Premium from Verizon**, you can use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
  
 Azure Content Delivery Network (CDN) offers two ways to control how your files are cached: 
 

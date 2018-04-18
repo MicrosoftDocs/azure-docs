@@ -1,20 +1,14 @@
 ---
-title: High-frequency trading simulation With Stream Analytics | Microsoft Docs
-description: How to perform linear regression model training and scoring in the same Stream Analytics job
-keywords: 'machine learning, advanced analytics, linear regression, simulation, UDA, user defined function'
-documentationcenter: ''
+title: High-frequency trading simulation using Azure Stream Analytics
+description: How to perform linear regression model training and scoring in an Azure Stream Analytics job.
 services: stream-analytics
 author: zhongc
-manager: ryanw
-
-ms.assetid: 997ccfc1-abaf-4c12-bef2-632481140f05
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 11/05/2017
 ms.author: zhongc
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: get-started-article
+ms.date: 11/05/2017
 ---
 
 # High-frequency trading simulation with Stream Analytics

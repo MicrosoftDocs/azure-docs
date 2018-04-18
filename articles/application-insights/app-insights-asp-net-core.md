@@ -155,7 +155,7 @@ Multiple confirmation prompts will occur, read and accept if you agree with the 
    ```
      ![Screenshot of code change to _ViewImports.cshtml](./media/app-insights-asp-net-core/00018-view-imports.png)
 
-3. In **Layout.cshtml** add the line below before the ``</head>`` tag, but prior to any other scripts.
+3. In **_Layout.cshtml** add the line below before the ``</head>`` tag, but prior to any other scripts.
 
     ```C#
     @Html.Raw(snippet.FullScript)

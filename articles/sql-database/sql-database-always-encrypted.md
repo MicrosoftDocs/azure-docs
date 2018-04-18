@@ -8,7 +8,7 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 04/01/2018
 ms.author: sstein
 
 ---

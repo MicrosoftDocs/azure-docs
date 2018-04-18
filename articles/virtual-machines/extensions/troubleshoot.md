@@ -4,7 +4,7 @@ description: Learn about troubleshooting Azure Windows VM extension failures
 services: virtual-machines-windows
 documentationcenter: ''
 author: kundanap
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-resource-manager
 

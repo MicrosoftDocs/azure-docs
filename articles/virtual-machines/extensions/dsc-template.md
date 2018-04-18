@@ -4,7 +4,7 @@ description: Learn about the Resource Manager template definition for the Desire
 services: virtual-machines-windows
 documentationcenter: ''
 author: mgreenegit
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: 'dsc'

@@ -321,7 +321,7 @@ Here are a few example roles built into Azure:
 
 -   **Storage account contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
 
-For more information, see [Use role assignments to manage access to your Azure subscription resources](../../active-directory/role-based-access-control-configure.md).
+For more information, see [Use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
 ## Azure Virtual Machines
 

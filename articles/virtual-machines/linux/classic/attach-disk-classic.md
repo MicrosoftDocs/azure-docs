@@ -4,7 +4,7 @@ description: Learn how to attach a data disk to a Linux VM using the Classic dep
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX

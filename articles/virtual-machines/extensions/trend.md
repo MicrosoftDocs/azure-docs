@@ -4,7 +4,7 @@ description: This article describes how to install and configure Trend Micro sec
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 

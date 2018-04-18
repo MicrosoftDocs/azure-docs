@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/30/2018
+ms.date: 04/02/2018
 ms.author: marsma
 ms.custom: mvc
 ---
@@ -50,7 +50,7 @@ When deployment starts, a tile is placed on your portal dashboard indicating dep
 
 ![Creation progress of a new container instance in the Azure portal][aci-portal-08]
 
-Select the **mycontainer-myc1** container group to display the container group properties. Take note of the **Ip address** of the container group, as well as the **STATE** of your container.
+Select the **mycontainer-myc1** container group to display the container group properties. Take note of the **IP address** of the container group, as well as the **STATE** of your container.
 
 ![Container group overview in the Azure portal][aci-portal-06]
 
