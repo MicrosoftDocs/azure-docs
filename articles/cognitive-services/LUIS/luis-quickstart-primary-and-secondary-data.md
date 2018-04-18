@@ -30,14 +30,13 @@ When the intent and entities of the utterance are identified, LUIS is done. The 
 
 4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
 
-    ![Intents page](./media/luis-quickstart-primary-and-secondary-data/intents-list.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/intents-list.png "Screenshot of LUIS Intents page with None intent")](media/luis-quickstart-primary-and-secondary-data/intents-list.png#lightbox)
 
 ## Create a new intent
 
 1. On the **Intents** page, select **Create new intent**. 
 
-    ![Select Create new intent button](./media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png)
-
+    [![](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png "Screenshot of LUIS with 'Create new intent' button highlighted")](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png#lightbox)
 
 2. Enter the new intent name `SendMessage`. This intent should be selected any time a user wants to send a message.
 
@@ -57,7 +56,7 @@ When the intent and entities of the utterance are identified, LUIS is done. The 
     |Compose message to David that says When was that?|
     |say greg hello|
 
-    ![Enter utterances on intent page](./media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png "Screenshot of LUIS with utterances entered")](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png#lightbox)
 
 ## Add utterances to None intent
 
@@ -65,11 +64,11 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
     
 1. Select **Intents** from the left panel. 
 
-    ![Select Intents link](./media/luis-quickstart-primary-and-secondary-data/select-intent-link.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png "Screenshot of LUIS with 'Intents' button highlighted")](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png#lightbox)
 
 2. Select the **None** intent. 
 
-    ![Select Intents link](./media/luis-quickstart-primary-and-secondary-data/select-none-intent.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png "Screenshot of Selecting None intent")](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png#lightbox)
 
 3. Add three utterances that your user might enter but are not relevant to your app. Some good **None** utterances are:
 
@@ -81,7 +80,7 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
     
     In your LUIS-calling application, such as a chat bot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
-    ![Enter utterances for None intent](./media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png "Screenshot of LUIS with utterances for None intent")](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png#lightbox)
 
 ## Create a simple entity to extract message 
 1. Select **Intents** from the left menu.
@@ -94,15 +93,15 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
 
 3. In the utterance, `Reply with I got your message, I will have the answer tomorrow`, select the first word of the message body, `I`, and the last word of the message body, `tomorrow`. All these words are selected for the message and a drop-down menu appears with a text box at the top.
 
-    ![Select words in utterance for message](./media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png "Screenshot of Select words in utterance for message")](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png#lightbox)
 
 4. Enter the entity name `Message` in the text box.
 
-    ![Enter entity name in box](./media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png "Screenshot of Enter entity name in box")](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png#lightbox)
 
 5. Select **Create new entity** in the drop-down menu. The purpose of the entity is to pull out the text that is the body of the message. In this LUIS app, the text message is at the end of the utterance, but the utterance can be any length, and the message can be any length. 
 
-    ![Create new entity from utterance](./media/luis-quickstart-primary-and-secondary-data/create-message-entity.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png "Screenshot of creating new entity from utterance")](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png#lightbox)
 
 6. In the pop-up window, the default entity type is **Simple** and the entity name is `Message`. Keep these settings and select **Done**.
 
@@ -110,11 +109,11 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
 
 7. Now that the entity is created, and one utterance is labeled, label the rest of the utterances with that entity. Select an utterance, then select the first and last word of a message. In the drop-down menu, select the entity, `Message`. The message is now labeled in the entity. Continue to label all message phrases in the remaining utterances.
 
-    ![All message utterances labeled](./media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png "Screenshot of all message utterances labeled")](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png#lightbox)
 
     The default view of the utterances is **Entities view**. Select the **Entities view** control above the utterances. The **Tokens view** displays the utterance text. 
 
-    ![Tokens view of utterances](./media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png "Screenshot of utterances in Tokens view")](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png#lightbox)
 
 ## Train the LUIS app
 LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
@@ -134,14 +133,14 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
 2. Select the **Publish to production slot**. 
 
-    ![publish app](./media/luis-quickstart-primary-and-secondary-data/publish-to-production.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with a different utterance
 On the **Publish** page, select the **endpoint** link at the bottom of the page. 
 
-![Select endpoint](./media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png)
+[![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Screenshot of Publish page with endpoint highlighted")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
 
 This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `text I'm driving and will be 30 minutes late to the meeting`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `SendMessage` utterances.
 
