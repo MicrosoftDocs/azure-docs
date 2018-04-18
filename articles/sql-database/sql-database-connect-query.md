@@ -1,4 +1,3 @@
----
 title: Azure SQL Database Connect and Query quickstarts | Microsoft Docs
 description: Azure SQL Database quickstarts showing you how to connect to and query an Azure SQL database. 
 services: sql-database
@@ -13,6 +12,8 @@ ms.author: carlrab
 ---
 
 # Azure SQL Database Connect and Query Quickstarts
+
+The following document includes links to Azure examples showing how to connect and query an Azure SQL database. It also provides some recommendations for Transport Level Security.
 
 ## Important TLS considerations while connecting to Azure SQL Database
 Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to Azure SQL Database. No
@@ -32,7 +33,6 @@ Non-Microsoft drivers might not use TLS by default. This can be a factor when co
 embedded drivers might not allow you to control these connection settings. We recommend that you examine the security of such drivers
 and applications before using them on systems that interact with sensitive data.
 
-The following table includes links to Azure examples showing how to connect and query an Azure SQL database.
 
 | |  |
 |---|---|
