@@ -179,15 +179,17 @@ To edit the storage replication setting:
 
   ![Select the new vault from the list of Recovery Services vault](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-  When you select the vault, the Settings menu (*which has the vault's name at the top*) and the vault details menu open.
+  When you select the vault, the Settings menu (*which has the vault's name at the top*) and the vault dashboard open.
 
-  ![View the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+  ![View the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
-2. In the new vault's Settings menu, use the vertical slide to scroll down to the Manage section, and click **Backup Infrastructure**.
-    The Backup Infrastructure menu opens.
+2. In the new vault's Management menu, use the vertical slide to scroll down to the Manage section, and click **Backup Infrastructure** to open the Backup Infrastructure menu.
+ 
+   ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
+
 3. In the Backup Infrastructure menu, click **Backup Configuration** to open the **Backup Configuration** menu.
 
-    ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+    ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-open-infra.png)
 4. Choose the appropriate storage replication option for your vault.
 
     ![storage configuration choices](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
