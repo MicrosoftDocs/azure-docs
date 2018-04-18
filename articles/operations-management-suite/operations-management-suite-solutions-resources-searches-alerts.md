@@ -174,14 +174,13 @@ Alert actions have the following structure.  This includes common variables and 
 					"triggerCondition": "[variables('Alert').Threshold.Trigger.Condition]",
 					"operator": "[variables('Alert').Trigger.Operator]",
 					"value": "[variables('Alert').Trigger.Value]"
-				},
-			},
+				  },
+			  },
       "AzNsNotification": {
-          "GroupIds": [
-            "/subscriptions/3b540246-808d-4331-99aa-917b808a9166/resourcegroups/myTestGroup/providers/microsoft.insights/actiongroups/sample"
-          ],
-          "CustomEmailSubject": "Alert fired"
-        },
+        "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+        "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]",
+        "CustomWebhookPayload": "[variables('MyAlert').AzNsNotification.CustomWebhookPayload]"
+        }
 		}
 	}
 ```
@@ -316,28 +315,10 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	          "Description": "Name of Log Analytics workspace"
 	        }
 	      },
-	      "accountName": {
-	        "type": "string",
-	        "metadata": {
-	          "Description": "Name of Automation account"
-	        }
-	      },
 	      "workspaceregionId": {
 	        "type": "string",
 	        "metadata": {
 	          "Description": "Region of Log Analytics workspace"
-	        }
-	      },
-	      "regionId": {
-	        "type": "string",
-	        "metadata": {
-	          "Description": "Region of Automation account"
-	        }
-	      },
-	      "pricingTier": {
-	        "type": "string",
-	        "metadata": {
-	          "Description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
 	        }
 	      },
 	      "actiongroup": {
@@ -353,7 +334,7 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	      "SolutionPublisher": "Contoso",
 	      "ProductName": "SampleSolution",
 	
-	      "LogAnalyticsApiVersion": "2015-11-01-preview",
+	      "LogAnalyticsApiVersion": "2015-03-20",
 	
 	      "MySearch": {
 	        "displayName": "Error records by hour",
@@ -407,8 +388,7 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	          "containedResources": [
 	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
 	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
-	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]",
-	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Webhook.Name)]"
+	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]"
 	          ]
 	        },
 	        "plan": {
@@ -473,8 +453,7 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	          },
             "AzNsNotification": {
               "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
-              "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]",
-              "CustomWebhookPayload": "[variables('MyAlert').AzNsNotification.CustomWebhookPayload]"
+              "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]"
             }	          
 	        }
 	      }
