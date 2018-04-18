@@ -27,7 +27,7 @@ Azure DDoS protection, combined with application design best practices, provide 
 - **Basic**: Automatically enabled as part of the Azure platform, at no additional charge. Always-on traffic monitoring, and real-time mitigation of common network-level attacks, provide the same defenses utilized by Microsoft’s online services. The entire scale of Azure’s global network can be used to distribute and mitigate attack traffic across regions. Protection is provided for IPv4 and IPv6 Azure [public IP addresses](virtual-network-public-ip-address.md).
 - **Standard**: Provides additional mitigation capabilities over the Basic service tier that are tuned specifically to Azure Virtual Network resources. DDoS Protection Standard is simple to enable, and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks, such as Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances. Real-time telemetry is available through Azure Monitor views during an attack, and for history. Application layer protection can be added through the [Azure Application Gateway Web Application Firewall](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Protection is provided for IPv4 Azure [public IP addresses](virtual-network-public-ip-address.md).
 
-![Azure DDoS Protection Standard](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
+![Azure DDoS Protection Standard](./media/ddos-protection-overview/ddospic.png)
 
 ## Types of DDoS attacks that DDoS Protection Standard mitigates
 
@@ -41,7 +41,7 @@ DDoS Protection Standard protects resources in a virtual network including publi
 
 ## DDoS Protection Standard features
 
-![DDoS functionality](./media/ddos-protection-overview/ddos-overview-fig1.png)
+![DDoS functionality](./media/ddos-protection-overview/ddosfeatures.png)
 
 DDoS Protection Standard features include:
 

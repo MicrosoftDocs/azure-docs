@@ -105,7 +105,7 @@ For information about installing the Network Policy and Access Services role ser
 
 ### Azure MFA License
 
-A license is required for Azure Multi-Factor Authentication, and it is available through an Azure AD Premium, Enterprise Mobility + Security, or a Multi-Factor Authentication stand-alone license. Consumption-based licenses for Azure MFA such as per user or per authentication licenses are not compatible with the NPS extension. For more information, see [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). For testing purposes, you can use a trial subscription.
+A license is required for Azure Multi-Factor Authentication, and it is available through an Azure AD Premium, Enterprise Mobility + Security, or a Multi-Factor Authentication stand-alone license. Consumption-based licenses for Azure MFA such as per user or per authentication licenses are not compatible with the NPS extension. For more information, see [How to get Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-licensing.md). For testing purposes, you can use a trial subscription.
 
 ### Windows Server software
 
@@ -448,10 +448,10 @@ To do additional troubleshooting, you can use a protocol analyzer such as Wiresh
 
 ![Microsoft Message Analyzer](./media/nps-extension-vpn/image50.png)
 
-For more information, see [Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication](multi-factor-authentication-nps-extension.md). 
+For more information, see [Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-nps-extension.md). 
 
 ## Next steps
-[Get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
+[Get Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-licensing.md)
 
 [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](multi-factor-authentication-get-started-server-rdg.md)
 
