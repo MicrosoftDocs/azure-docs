@@ -75,3 +75,10 @@ When creating a Kafka cluster using an Azure Resource Manager template, you can 
     }
 }
 ```
+
+## Next Steps
+
+In this document, you learned how to enable automatic topic creation for Kafka on HDInsight. To learn more about working with Kafka, see the following links:
+
+* [Analyze Kafka logs](apache-kafka-log-analytics-operations-management.md)
+* [Replicate data between Kafka clusters](apache-kafka-mirroring.md)
