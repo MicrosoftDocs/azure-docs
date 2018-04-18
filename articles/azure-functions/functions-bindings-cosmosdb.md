@@ -35,7 +35,7 @@ The Cosmos DB bindings for Functions version 1.x are provided in the [Microsoft.
 
 ## Trigger
 
-The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for changes across partitions. The change feed publishes inserts and updates, not deletions. 
+The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for changes across partitions. The change feed publishes inserts and updates, not deletions. The trigger is invoked for every insert or update made in the collection being monitored. 
 
 ## Trigger - example
 
