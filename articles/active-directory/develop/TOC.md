@@ -8,7 +8,6 @@
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
 ### [.NET (Windows Desktop)](active-directory-devquickstarts-dotnet.md)
-### [.NET (Windows Universal)](active-directory-devquickstarts-windowsstore.md)
 ### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
