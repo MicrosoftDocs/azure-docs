@@ -132,15 +132,17 @@ These rules are required so that replication can be enabled from the target regi
     --- | --- | ---
    Central US | 13.82.88.226 | 104.45.147.24
 
-## Network virtual appliance
+## Network virtual appliance configuration
 
 If you are using network virtual appliances (NVAs) to control outbound network traffic from VMs, the appliance might get throttled if all the replication traffic passes through the NVA. We recommend you to create a network service endpoint in your virtual network for "Storage" so that the replication traffic does not go to the NVA.
 
-## Create network service endpoint for Storage
+### Create network service endpoint for Storage
 You can create a network service endpoint in your virtual network for "Storage" so that the replication traffic does not leave Azure boundary.
 
 - Select your Azure virtual network and click on 'Service endpoints'
+
     ![storage-endpoint](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
+
 - Click 'Add' and 'Add service endpoints' tab opens
 - Select 'Microsoft.Storage' under 'Service' and the required subnets under 'Subnets' field and click 'Add'
 
