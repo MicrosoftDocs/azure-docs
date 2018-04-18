@@ -13,20 +13,13 @@ ms.workload: identity
 ms.topic: article
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
-ms.date: 02/20/2016
+ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: aaddev
 
 ---
 # Add sign-in to a Windows Universal app using the v2.0 endpoint
-  The quick-start tutorial for Windows Universal apps isn't quite ready... Check back soon & look for updates from @AzureAD on Twitter.
 
-> [!NOTE]
-> Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-> 
-> 
+See the [Universal Windows Platform application signing in users with Microsoft and calling the Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2) code sample in GitHub showing a Windows Universal Platform client application using MSAL.NET, to access the Microsoft Graph for a user authenticating with Azure AD V2 endpoint.
 
-    ## Get security updates for our products
-
-We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
-
+This sample is a variation of the [Call the Microsoft Graph API from a Windows Desktop app](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-windesktop) tutorial, which explains the concepts step by step.
