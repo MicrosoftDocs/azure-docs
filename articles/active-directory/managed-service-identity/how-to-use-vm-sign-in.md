@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use an Azure VM Managed Service Identity for sign in
 description: Step by step instructions and examples for using an Azure VM MSI service principal for script client sign in and resource access.
 services: active-directory
@@ -72,7 +72,7 @@ The following script demonstrates how to:
    echo "The MSI access token is $access_token"
 
    # Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
-   Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
+   Connect-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
 
    # Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
    $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
