@@ -4,9 +4,8 @@ description: Find out which countries and languages are supported by the Bing Im
 services: cognitive-services
 author: v-jerkin
 manager: jhubbard
-
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
 ms.author: v-jerkin
