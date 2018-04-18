@@ -126,7 +126,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Yodeck Configuration](./media/active-directory-saas-yodeck-tutorial/configure1.png)
 
-9. Select **SAML** and perform the follwing steps:
+9. Select **SAML** and perform the following steps:
 
 	![Yodeck Configuration](./media/active-directory-saas-yodeck-tutorial/configure2.png)
 
@@ -181,11 +181,11 @@ In the case of Yodeck, provisioning is a manual task.
 
 	![Add Employee](./media/active-directory-saas-yodeck-tutorial/user1.png)
 
-3. Click **User** to open the **User Details** tab.
+3. Click on **User** to open the **User Details** tab.
 
 	![Add Employee](./media/active-directory-saas-yodeck-tutorial/user2.png)
 
-4. On the **“Add Employee”** dialog page, perform the following steps:
+4. On the **Add Employee** dialog page, perform the following steps:
 
 	![Add Employee](./media/active-directory-saas-yodeck-tutorial/user3.png)
 
