@@ -126,9 +126,12 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
 4. On the server desktop, navigate to **Windows Administrative Tools**>**Windows PowerShell**.
 6. In the PowerShell Window, run the following commands to install the IIS server, remove the  default.htm file, add a new with default.htm file that displays the name of the VM:
 
-   ```powershell
+   ```azurepowershell-interactive
+    # install IIS server role
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
+    # Add a new htm file that displays server name
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
    ```
 8. Close the RDP session with *myVM1*
