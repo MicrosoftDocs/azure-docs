@@ -24,10 +24,10 @@ ms.author: cephalin
 
 ## When inbound IP changes
 
-Regardless of the number of scaled-out instances, each app has a single inbound IP address. The inbound IP address can change when you perform one of the following actions:
+Regardless of the number of scaled-out instances, each app has a single inbound IP address. The inbound IP address may change when you perform one of the following actions:
 
-- Delete and recreate an app.
-- Change from a higher pricing tier back to the **Shared** tier. 
+- Delete an app and recreate it in a different resource group.
+- Delete the last app in a resource group _and_ region combination and recreate it.
 - Delete an existing SSL binding, such as during certificate renewal (see [Renew certificates](app-service-web-tutorial-custom-ssl.md#renew-certificates)).
 
 ## Get static inbound IP
@@ -36,19 +36,17 @@ Sometimes you might want a dedicated, static IP address for your app. To get a s
 
 ## When outbound IPs change
 
-Regardless of the number of scaled-out instances, each app has four outbound IP address at any given time. Any outbound connection from the App Service app, such as to a back-end database, uses one of the four outbound IP addresses as the origin IP address. You can't know beforehand which IP address a given app instance will use to make the outbound connection, so your back-end service must open its firewall to all the outbound IP addresses of your app.
+Regardless of the number of scaled-out instances, each app has a set number of outbound IP addresses at any given time. Any outbound connection from the App Service app, such as to a back-end database, uses one of the outbound IP addresses as the origin IP address. You can't know beforehand which IP address a given app instance will use to make the outbound connection, so your back-end service must open its firewall to all the outbound IP addresses of your app.
 
-The set of outbound IP addresses for your app can change when you perform one of the following actions:
+The set of outbound IP addresses for your app changes when you scale your app between the lower tiers (**Basic**, **Standard**, and **Premium**) and the **Premium V2** tier.
 
-- Move your app to another App Service plan.
-- Scale your app between the lower tiers (**Basic**, **Standard**, and **Premium**) and the **Premium V2** tier.
-
-However, you can find the set of all possible outbound IP addresses your app can use, regardless of pricing tiers, by looking for the `possibleOutbountIPAddresses` property. See [Find outbound IPs](#find-outbound-ips).
- 
+You can find the set of all possible outbound IP addresses your app can use, regardless of pricing tiers, by looking for the `possibleOutbountIPAddresses` property. See [Find outbound IPs](#find-outbound-ips).
 
 ## Find outbound IPs
 
-To find the outbound IP addresses used by your app in the current pricing tier, run the following command in the [Cloud Shell](../cloud-shell/quickstart.md).
+To find the outbound IP addresses currently used by your app in the Azure portal, click **Properties** in your app's left-hand navigation. 
+
+You can find the same information by running the following command in the [Cloud Shell](../cloud-shell/quickstart.md).
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
