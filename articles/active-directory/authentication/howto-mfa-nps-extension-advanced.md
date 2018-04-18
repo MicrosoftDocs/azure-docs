@@ -36,7 +36,7 @@ To configure alternate login IDs, go to `HKLM\SOFTWARE\Microsoft\AzureMfa` and e
 | LDAP_FORCE_GLOBAL_CATALOG | boolean | False | Use this flag to force the use of Global Catalog for LDAP searches when looking up AlternateLoginId. Configure a domain controller as a Global Catalog, add the AlternateLoginId attribute to the Global Catalog, and then enable this flag. <br><br> If LDAP_LOOKUP_FORESTS is configured (not empty), **this flag is enforced as true**, regardless of the value of the registry setting. In this case, the NPS extension requires the Global Catalog to be configured with the AlternateLoginId attribute for each forest. |
 | LDAP_LOOKUP_FORESTS | string | Empty | Provide a semi-colon separated list of forests to search. For example, *contoso.com;foobar.com*. If this registry value is configured, the NPS extension iteratively searches all the forests in the order in which they were listed, and returns the first successful AlternateLoginId value. If this registry value is not configured, the AlternateLoginId lookup is confined to the current domain.|
 
-To troubleshoot problems with alternate login IDs, use the recommended steps for [Alternate login ID errors](multi-factor-authentication-nps-errors.md#alternate-login-id-errors).
+To troubleshoot problems with alternate login IDs, use the recommended steps for [Alternate login ID errors](howto-mfa-nps-extension-errors.md#alternate-login-id-errors).
 
 ## IP exceptions
 
@@ -52,4 +52,4 @@ When a request comes in from an IP address that exists in the whitelist, two-ste
 
 ## Next steps
 
-[Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md)
+[Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)

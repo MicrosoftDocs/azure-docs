@@ -28,20 +28,20 @@ To secure your cloud resource, set up a claims rule so that Active Directory Fed
 2. On the left, select **Relying Party Trusts**.
 3. Right-click on **Microsoft Office 365 Identity Platform** and select **Edit Claim Rules**.
 
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
+   ![Cloud](./media/howto-mfa-adfs/trustedip1.png)
 
 4. On Issuance Transform Rules, click **Add Rule**.
 
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+   ![Cloud](./media/howto-mfa-adfs/trustedip2.png)
 
 5. On the Add Transform Claim Rule Wizard, select **Pass Through or Filter an Incoming Claim** from the drop-down and click **Next**.
 
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+   ![Cloud](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Give your rule a name. 
 7. Select **Authentication Methods References** as the Incoming claim type.
 8. Select **Pass through all claim values**.
-    ![Add Transform Claim Rule Wizard](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+    ![Add Transform Claim Rule Wizard](./media/howto-mfa-adfs/configurewizard.png)
 9. Click **Finish**. Close the AD FS Management console.
 
 ## Trusted IPs for federated users
@@ -55,14 +55,14 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 1. Open AD FS Management.
 2. On the left, select **Relying Party Trusts**.
 3. Right-click on **Microsoft Office 365 Identity Platform** and select **Edit Claim Rules…**
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
+   ![Cloud](./media/howto-mfa-adfs/trustedip1.png)
 4. On Issuance Transform Rules, click **Add Rule.**
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+   ![Cloud](./media/howto-mfa-adfs/trustedip2.png)
 5. On the Add Transform Claim Rule Wizard, select **Pass Through or Filter an Incoming Claim** from the drop-down and click **Next**.
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+   ![Cloud](./media/howto-mfa-adfs/trustedip3.png)
 6. In the box next to Claim rule name, give your rule a name. For example: InsideCorpNet.
 7. From the drop-down, next to Incoming claim type, select **Inside Corporate Network**.
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
+   ![Cloud](./media/howto-mfa-adfs/trustedip4.png)
 8. Click **Finish**.
 9. On Issuance Transform Rules, click **Add Rule**.
 10. On the Add Transform Claim Rule Wizard, select **Send Claims Using a Custom Rule** from the drop-down and click **Next**.
@@ -71,7 +71,7 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
+    ![Cloud](./media/howto-mfa-adfs/trustedip5.png)
 13. Click **Finish**.
 14. Click **Apply**.
 15. Click **Ok**.
@@ -84,7 +84,7 @@ Now that the claims are in place, we can configure trusted IPs.
 2. Select **Azure Active Directory** > **Conditional access** > **Named locations**.
 3. From the **Conditional access - Named locations** blade, select **Configure MFA trusted IPs**
 
-   ![Azure AD conditional access named locations Configure MFA trusted IPs](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+   ![Azure AD conditional access named locations Configure MFA trusted IPs](./media/howto-mfa-adfs/trustedip6.png)
 
 4. On the Service Settings page, under **trusted IPs**, select **Skip multi-factor-authentication for requests from federated users on my intranet**.  
 5. Click **save**.

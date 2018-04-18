@@ -19,7 +19,7 @@ ms.reviewer: richagi
 ---
 # Configure Azure Multi-Factor Authentication settings
 
-This article helps you to manage Azure Multi-Factor Authentication now that you're up and running. It covers various topics that help you to get the most out of Azure Multi-Factor Authentication. Not all of the features are available in every [version of Azure Multi-Factor Authentication](multi-factor-authentication-get-started.md#what-features-do-i-need).
+This article helps you to manage Azure Multi-Factor Authentication now that you're up and running. It covers various topics that help you to get the most out of Azure Multi-Factor Authentication. Not all of the features are available in every [version of Azure Multi-Factor Authentication](concept-mfa-whichversion.md#what-features-do-i-need).
 
 | Feature | Description | 
 |:--- |:--- |
@@ -62,7 +62,7 @@ Configure the _fraud alert_ feature so that your users can report fraudulent att
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Browse to **Azure Active Directory** > **MFA Server** > **Fraud alert**.
 
-   ![Turn on fraud alerts](./media/multi-factor-authentication-whats-next/fraudalert.png)
+   ![Turn on fraud alerts](./media/howto-mfa-mfasettings/fraudalert.png)
 
 3. Set the **Allow users to submit fraud alerts** setting to **On**.
 4. Select **Save**.
@@ -90,7 +90,7 @@ The _one-time bypass_ feature allows a user to authenticate a single time withou
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Browse to **Azure Active Directory** > **MFA Server** > **One-time bypass**.
 
-   ![Create one-time bypass](./media/multi-factor-authentication-whats-next/onetimebypass.png)
+   ![Create one-time bypass](./media/howto-mfa-mfasettings/onetimebypass.png)
 
 3. Select **Add**.
 4. If necessary, select the replication group for the bypass.
@@ -116,7 +116,7 @@ Before you begin, be aware of the following restrictions:
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Browse to **Azure Active Directory** > **MFA Server** > **Phone call settings**.
 
-   ![Record custom phone messages](./media/multi-factor-authentication-whats-next/phonecallsettings.png)
+   ![Record custom phone messages](./media/howto-mfa-mfasettings/phonecallsettings.png)
 
 3. Select **Add greeting**.
 4. Choose the type of greeting. Choose the language.
@@ -135,7 +135,7 @@ You can set a time period to allow authentication attempts after a user is authe
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Browse to **Azure Active Directory** > **MFA Server** > **Caching rules**.
 
-   ![Set up caching rules](./media/multi-factor-authentication-whats-next/cachingrules.png)
+   ![Set up caching rules](./media/howto-mfa-mfasettings/cachingrules.png)
 
 3. Select **Add**.
 4. Select the **cache type** from the drop-down list. Enter the maximum number of **cache seconds**. 
@@ -144,7 +144,7 @@ You can set a time period to allow authentication attempts after a user is authe
 
 ## Trusted IPs
 
-The _Trusted IPs_ feature of Azure Multi-Factor Authentication is used by administrators of a managed or federated tenant. The feature bypasses two-step verification for users who sign in from the company intranet. The feature is available with the full version of Azure Multi-Factor Authentication, and not the free version for administrators. For details on how to get the full version of Azure Multi-Factor Authentication, see [Azure Multi-Factor Authentication](multi-factor-authentication.md).
+The _Trusted IPs_ feature of Azure Multi-Factor Authentication is used by administrators of a managed or federated tenant. The feature bypasses two-step verification for users who sign in from the company intranet. The feature is available with the full version of Azure Multi-Factor Authentication, and not the free version for administrators. For details on how to get the full version of Azure Multi-Factor Authentication, see [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication.md).
 
 If your organization deploys the NPS extension to provide MFA to on-premises applications note the source IP address will always appear to be the NPS server the authentication attempt flows through.
 
@@ -220,7 +220,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 
 6. Select **Save**.
 
-![Enable Trusted IPs with service settings](./media/multi-factor-authentication-whats-next/trustedips3.png)
+![Enable Trusted IPs with service settings](./media/howto-mfa-mfasettings/trustedips3.png)
 
 ## App passwords
 
@@ -269,7 +269,7 @@ Azure AD supports federation, or single sign-on (SSO), with on-premises Windows 
   * You're using Skype for Business on-premises.
   * You're using Azure Multi-Factor Authentication.
 
-  ![Using app passwords in a federated organization](./media/multi-factor-authentication-whats-next/federated.png)
+  ![Using app passwords in a federated organization](./media/howto-mfa-mfasettings/federated.png)
 
   In this scenario, you use the following credentials:
 
@@ -286,22 +286,22 @@ By default, users can't create app passwords. The app passwords feature must be 
 4. Under Multi-Factor Authentication, select **service settings**.
 5. On the **Service Settings** page, select the **Allow users to create app passwords to sign in to non-browser apps** option.
 
-   ![Allow users to create app passwords](./media/multi-factor-authentication-whats-next/trustedips3.png)
+   ![Allow users to create app passwords](./media/howto-mfa-mfasettings/trustedips3.png)
 
 ### Create app passwords
 
 Users can create app passwords during their initial registration. The user has the option to create app passwords at the end of the registration process.
 
-Users can also create app passwords after registration. The app passwords can be changed via the settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](./end-user/multi-factor-authentication-end-user-app-passwords.md)
+Users can also create app passwords after registration. The app passwords can be changed via the settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md)
 
 <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
 ## Remember Multi-Factor Authentication for trusted devices
 The _remember Multi-Factor Authentication_ feature for devices and browsers that are trusted by the user is a free feature for all Multi-Factor Authentication users. Users can bypass subsequent verifications for a specified number of days, after they've successfully signed-in to a device by using Multi-Factor Authentication. The feature enhances usability by minimizing the number of times a user has to perform two-step verification on the same device.
 
 >[!IMPORTANT]
->If an account or device is compromised, remembering Multi-Factor Authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [restore Multi-Factor Authentication on all devices](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user).
+>If an account or device is compromised, remembering Multi-Factor Authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [restore Multi-Factor Authentication on all devices](../../multi-factor-authentication/multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->The restore action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore Multi-Factor Authentication on their own devices with the instructions in [Manage your settings for two-step verification](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
+>The restore action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore Multi-Factor Authentication on their own devices with the instructions in [Manage your settings for two-step verification](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
 >
 
 ### How the feature works
@@ -326,7 +326,7 @@ The feature reduces the number of authentications on web apps, which normally pr
 4. Under Multi-Factor Authentication, select **service settings**.
 5. On the **Service Settings** page, under **manage remember multi-factor authentication**, select the **Allow users to remember multi-factor authentication on devices they trust** option.
 
-   ![Remember Multi-Factor Authentication for trusted devices](./media/multi-factor-authentication-whats-next/remember.png)
+   ![Remember Multi-Factor Authentication for trusted devices](./media/howto-mfa-mfasettings/remember.png)
 
 6. Set the number of days to allow trusted devices to bypass two-step verification. The default is 14 days.
 7. Select **Save**.
@@ -335,13 +335,13 @@ The feature reduces the number of authentications on web apps, which normally pr
 
 After you enable the remember Multi-Factor Authentication feature, users can mark a device as trusted when they sign in by selecting **Don't ask again**.
 
-![Select "Don't ask again" for trusted devices](./media/multi-factor-authentication-whats-next/trusted.png)
+![Select "Don't ask again" for trusted devices](./media/howto-mfa-mfasettings/trusted.png)
 
 ## Selectable verification methods
 
 You can choose the verification methods that are available for your users by using the _selectable verification methods_ feature. The following table provides a brief overview of the methods.
 
-When your users enroll their accounts for Azure Multi-Factor Authentication, they choose their preferred verification method from the options that you have enabled. Guidance for the user enrollment process is provided in [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md).
+When your users enroll their accounts for Azure Multi-Factor Authentication, they choose their preferred verification method from the options that you have enabled. Guidance for the user enrollment process is provided in [Set up my account for two-step verification](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md).
 
 | Method | Description |
 |:--- |:--- |
@@ -358,6 +358,6 @@ When your users enroll their accounts for Azure Multi-Factor Authentication, the
 4. Under Multi-Factor Authentication, select **service settings**.
 5. On the **Service Settings** page, under **verification options**, select/unselect the methods to provide to your users.
 
-   ![Select the verification methods](./media/multi-factor-authentication-whats-next/authmethods.png)
+   ![Select the verification methods](./media/howto-mfa-mfasettings/authmethods.png)
 
 6. Click **Save**.

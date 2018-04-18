@@ -41,7 +41,7 @@ The following table describes the differences between three versions of multi-fa
 The following table provides a list of the features that are available in the various versions of Azure Multi-Factor Authentication.
 
 > [!NOTE]
-> This comparison table discusses the features that are part of each version of Multi-Factor Authentication. If you have the full Azure Multi-Factor Authentication service, some features may not be available depending on whether you use [MFA in the cloud or MFA on-premises](multi-factor-authentication-get-started.md).
+> This comparison table discusses the features that are part of each version of Multi-Factor Authentication. If you have the full Azure Multi-Factor Authentication service, some features may not be available depending on whether you use [MFA in the cloud or MFA on-premises](concept-mfa-whichversion.md).
 
 
 | Feature | Multi-Factor Authentication for Office 365 | Multi-Factor Authentication for Azure AD Administrators | Azure Multi-Factor Authentication |
@@ -109,4 +109,4 @@ It's important to note that you can have Azure MFA licenses, but still get bille
 
 - For more pricing details, see [Azure MFA Pricing](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
-- Choose whether to deploy Azure MFA [in the cloud or on-premises](multi-factor-authentication-get-started.md)
+- Choose whether to deploy Azure MFA [in the cloud or on-premises](concept-mfa-whichversion.md)
