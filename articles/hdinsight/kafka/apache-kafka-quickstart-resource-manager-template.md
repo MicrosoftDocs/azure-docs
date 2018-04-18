@@ -12,7 +12,7 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/29/2018
+ms.date: 04/16/2018
 ms.author: larryfr
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
@@ -23,6 +23,11 @@ Kafka is an open-source, distributed streaming platform. It's often used as a me
 In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apache.org) cluster using an Azure Resource Manager template. You also learn how to use included utilities to send and receive messages using Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+
+> [!IMPORTANT]
+> The Kafka API can only be accessed by resources inside the same virtual network. In this quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Kafka, you must first create a virtual network and then create the resources within the network.
+>
+> For more information, see the [Connect to Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
 
 ## Prerequisites
 
@@ -45,13 +50,22 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 1. Click the following image to open the template in the Azure portal.
 
-    [TBD]
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-kafka-java-get-started%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/apache-kafka-quickstart-resource-manager-template/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-2. To create the virtual network and Kafka cluster, use the following values:
+2. To create the Kafka cluster, use the following values:
 
     | Property | Value |
     | --- | --- |
-    | tbd | tbd |
+    | Subscription | Your Azure subscription. |
+    | Resource group | The resource group that the cluster is created in. |
+    | Location | The Azure region that the cluster is created in. |
+    | Cluster Name | The name of the Kafka cluster. |
+    | Cluster Login User Name | The account name used to login to HTTPs-based services on hosted on the cluster. |
+    | Cluster Login Password | The password for the login user name. |
+    | SSH User Name | The SSH user name. This account can access the cluster using SSH. |
+    | SSH Password | The password for the SSH user. |
+
+    ![A screenshot of the template properties](./media/apache-kafka-quickstart-resource-manager-template/kafka-template-parameters.png)
 
 3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**.
 

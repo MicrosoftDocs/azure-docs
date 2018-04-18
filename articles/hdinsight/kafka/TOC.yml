@@ -25,6 +25,8 @@
   - name: Kafka and Storm
     href: ../hdinsight-apache-storm-with-kafka.md
     maintainContext: true
+  - name: Kafka Producer and Consumer API
+    href: apache-kafka-producer-consumer-api.md
 - name: Concepts
   items:
   - name: Capacity planning
@@ -36,6 +38,8 @@
     href: apache-kafka-high-availability.md
 - name: How to
   items:
+  - name: Enable auto topic creation
+    href: apache-kafka-auto-create-topics.md
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
     maintainContext: true
@@ -59,8 +63,6 @@
       href: apache-kafka-azure-functions.md
   - name: Develop
     items:
-    - name: Using Kafka Producer and Consumer API
-      href: apache-kafka-producer-consumer-api.md
     - name: Using Kafka Streams API
       href: apache-kafka-streams-api.md
     - name: Use empty edge nodes

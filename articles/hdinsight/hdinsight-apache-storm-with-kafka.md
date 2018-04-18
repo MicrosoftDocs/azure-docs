@@ -27,9 +27,10 @@ In this tutorial, you learn how to:
 > * Storm and Kafka
 > * Understanding the code
 > * Create Kafka and Storm clusters
-> * Create Kafka topic
-> * Start the reader topology
-> * Start the writer topology
+> * Build the topology
+> * Configure the topology
+> * Create the Kafka topic
+> * Start the topologies
 > * Stop the topologies
 > * Clean up resources
 
