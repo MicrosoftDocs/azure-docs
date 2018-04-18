@@ -379,20 +379,31 @@ The status displays on the bottom of the status bar when completed downloading a
 
 **ADLS Integration** 
 
- - Navigate to **Data Lake Store**, you can **Preview**, **Download**, **Delete**, **Copy Relative Path**, **Copy Full Path** by the context menu on the file node. You can **Refresh**, **Upload**, **Upload Folder**, **Delete** by right-clicking the context menu on the folder node.
+Navigate to **Data Lake Store**
+
+ - On the folder node, you can **Refresh**, **Delete**, **Upload**, **Upload Folder**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu.
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
+
+ - On the file node, you can **Download**, **Preview**, **Delete**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu. 
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
 
 **WASB Integration**
- - Navigate to **Blob Storage**, you can **Preview/Edit**, **Download**, **Delete**, **Copy Relative Path**, **Copy Full Path** by the context menu on the file node. You can **Refresh**, **Upload Blob** by right-clicking the context menu on the folder node. You can **Refresh**, **Delete Blob Container**, **Upload Blob** by right-clicking the context menu on the blob container node.
 
-    ![Blob Storage file node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
+Navigate to **Blob Storage**
+
+- On the blob container node, you can **Refresh**, **Delete Blob Container**, **Upload Blob** in the right-click context menu.
+
+    ![Blob Storage blob container node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+
+- On the folder node, you can **Refresh**, **Upload Blob** in the right-click context menu.
 
     ![Blob Storage folder node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
 
-    ![Blob Storage blob container node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+- On the file node, you can **Preview/Edit**, **Download**, **Delete**, **Copy Relative Path**, **Copy Full Path** in the right-click context menu.
+
+    ![Blob Storage file node](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
 
 ## Open ADL storage explorer in portal
 1. Select Ctrl+Shift+P to open the command palette.
