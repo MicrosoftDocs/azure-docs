@@ -31,12 +31,6 @@ If you choose to install and use PowerShell locally, this tutorial requires Azur
 Login-AzureRmAccount
 ```
 
-If you are using a specific instance of Azure use the -Environment parameter. For example:
-
- ```azurepowershell
- Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
- ```
-
 ## Create a resource group
 
 Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
@@ -47,7 +41,7 @@ New-AzureRmResourceGroup -Name ContosoResourceGroup -Location EastUS
 
 ## Create a Key Vault
 
-Next you will create the Key Vault in the resource group created in the previous step. When performing this step, you will need to provide some information:
+Next you will create the Key Vault in the resource group created in the previous step. When doing this step, you will need to provide some information:
 
 Although we use “Contoso KeyVault2” as the name for our Key Vault throughout this quickstart, you must use a unique name.
 
@@ -64,13 +58,13 @@ The output of this cmdlet shows properties of the newly created key vault. Take 
 * **Vault Name**: In the example, this is **Contoso-Vault2**. You will use this name for other Key Vault cmdlets.
 * **Vault URI**: In the example, this is https://contosokeyvault.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
-Your Azure account is the only account authorized to perform any operations on this new vault.
+After vault creation your Azure account is the only account allowed to do anything on this new vault.
 
 ![Output after Key Vault creation command completes](./media/quick-create-powershell/output-after-creating-keyvault.png)
 
 ## Adding a secret to Key Vault
 
-To add a secret to the vault, you just need to take a couple of additional steps. In this case, we will add a password that could be used by an application. The password will be called **SQLPassword** and we will store the value of **Pa$$w0rd** in it.
+To add a secret to the vault, you just need to take a couple of additional steps. In this case, we will add a password that could be used by an application. The password will be called **ExamplePassword** and we will store the value of **Pa$$w0rd** in it.
 
 First convert the value of Pa$$w0rd to a secure string by typing:
 
@@ -78,16 +72,16 @@ First convert the value of Pa$$w0rd to a secure string by typing:
 $secretvalue = ConvertTo-SecureString 'Pa$$w0rd' -AsPlainText -Force
 ```
 
-Then, type the PowerShell commands below to create a secret in Key Vault called **SQLPassword** with the value **Pa$$w0rd** :
+Then, type the PowerShell commands below to create a secret in Key Vault called **ExamplePassword** with the value **Pa$$w0rd** :
 
 ```azurepowershell
-$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
+$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'ExamplePassword' -SecretValue $secretvalue
 ```
 
 To view the value contained in the secret as plain text:
 
 ```azurepowershell
-(get-azurekeyvaultsecret -vaultName "Contosokeyvault" -name "SQLPassword").SecretValueText
+(get-azurekeyvaultsecret -vaultName "Contosokeyvault" -name "ExamplePassword").SecretValueText
 ```
 
 Now, you have created a Key Vault, stored a secret, and retrieved it.
