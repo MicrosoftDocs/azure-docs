@@ -271,6 +271,9 @@
         topicHref: /azure/hdinsight/storm/apache-storm-overview
   - name: Internet of Things
     tocHref: /azure/iot/
+    topicHref: /azure/iot/  
+  - name: IoT Fundamentals
+    tocHref: /azure/iot/
     topicHref: /azure/iot/
     items:
       - name: IoT Edge

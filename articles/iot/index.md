@@ -16,7 +16,9 @@ ms.date: 04/18/2018
 ms.author: bryanla
 ---
 
-# Azure Active Directory Documentation
+# Azure IoT Documentation
+
+Azure IoT technologies and solutions are designed to facilitate the end-to-end development of your IoT application. 
 
 <ul class="panelContent cardsF">  
     <li>
