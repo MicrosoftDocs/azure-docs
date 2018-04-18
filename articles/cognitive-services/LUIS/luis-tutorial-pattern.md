@@ -1,7 +1,7 @@
 ---
-title: Use pattern templates to improve LUIS predictions  | Microsoft Docs 
+title: Use patterns to improve LUIS predictions - Azure | Microsoft Docs 
 titleSuffix: Azure
-description: Use pattern templates on intents to improve LUIS intent and entity predictions.
+description: Use pattern for intents to improve LUIS intent and entity predictions.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -9,7 +9,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/07/2018
 ms.author: v-geberr;
 ---
 
@@ -84,27 +84,6 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
           "entities": []
         },
         {
-          "text": "is there blue in the color green?",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "that is too hot!",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "how many days of sick leave does santos mahaffey have?",
-          "intent": "GetEmployeeBenefits",
-          "entities": [
-            {
-              "entity": "Employee",
-              "startPos": 33,
-              "endPos": 47
-            }
-          ]
-        },
-        {
           "text": "does ilene chavez have any sl?",
           "intent": "GetEmployeeBenefits",
           "entities": [
@@ -112,17 +91,6 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
               "entity": "Employee",
               "startPos": 5,
               "endPos": 16
-            }
-          ]
-        },
-        {
-          "text": "how many hours of paid time off does jody pardo have?",
-          "intent": "GetEmployeeBenefits",
-          "entities": [
-            {
-              "entity": "Employee",
-              "startPos": 37,
-              "endPos": 46
             }
           ]
         },
@@ -138,6 +106,28 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
           ]
         },
         {
+          "text": "how many days of sick leave does santos mahaffey have?",
+          "intent": "GetEmployeeBenefits",
+          "entities": [
+            {
+              "entity": "Employee",
+              "startPos": 33,
+              "endPos": 47
+            }
+          ]
+        },
+        {
+          "text": "how many hours of paid time off does jody pardo have?",
+          "intent": "GetEmployeeBenefits",
+          "entities": [
+            {
+              "entity": "Employee",
+              "startPos": 37,
+              "endPos": 46
+            }
+          ]
+        },
+        {
           "text": "is helen walton on maternity leave?",
           "intent": "GetEmployeeBenefits",
           "entities": [
@@ -145,6 +135,27 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
               "entity": "Employee",
               "startPos": 3,
               "endPos": 14
+            }
+          ]
+        },
+        {
+          "text": "is there blue in the color green?",
+          "intent": "None",
+          "entities": []
+        },
+        {
+          "text": "that is too hot!",
+          "intent": "None",
+          "entities": []
+        },
+        {
+          "text": "who are virgie benjamin's subordinates?",
+          "intent": "GetEmployeeOrgChart",
+          "entities": [
+            {
+              "entity": "Employee",
+              "startPos": 8,
+              "endPos": 22
             }
           ]
         },
@@ -160,24 +171,13 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
           ]
         },
         {
-          "text": "who reports to magdalena joseph",
+          "text": "who is dina's manager?",
           "intent": "GetEmployeeOrgChart",
           "entities": [
             {
               "entity": "Employee",
-              "startPos": 15,
-              "endPos": 30
-            }
-          ]
-        },
-        {
-          "text": "who are virgie benjamin's subordinates?",
-          "intent": "GetEmployeeOrgChart",
-          "entities": [
-            {
-              "entity": "Employee",
-              "startPos": 8,
-              "endPos": 22
+              "startPos": 7,
+              "endPos": 10
             }
           ]
         },
@@ -189,6 +189,17 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
               "entity": "Employee",
               "startPos": 7,
               "endPos": 18
+            }
+          ]
+        },
+        {
+          "text": "who reports to magdalena joseph",
+          "intent": "GetEmployeeOrgChart",
+          "entities": [
+            {
+              "entity": "Employee",
+              "startPos": 15,
+              "endPos": 30
             }
           ]
         }
@@ -206,7 +217,9 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
 
 6. Select **Train** in the top navigation bar to train the app. Wait for the green success bar.
 
-7. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` then select enter. The employee name, Patti Owens, has not been used in an example utterance yet. This is a test to see how well LUIS learned this utterance is for the `GetEmployeeOrgChart` intent and the Employee entity should be `Patti Owens`. The result should be about 0.37 score for the `GetEmployeeOrgChart` intent. While the intent is correct, the score is low. The Employee entity is also correctly identified as `Patti Owens`. 
+7. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` then select enter. Select **Inspect** under the utterance to see more information about the test.
+    
+    The employee name, Patti Owens, has not been used in an example utterance yet. This is a test to see how well LUIS learned this utterance is for the `GetEmployeeOrgChart` intent and the Employee entity should be `Patti Owens`. The result should be about 0.37 score for the `GetEmployeeOrgChart` intent. While the intent is correct, the score is low. The Employee entity is also correctly identified as `Patti Owens`.
 
     ![Toggle Entities view](media/luis-tutorial-pattern/original-test.png)
 
@@ -232,11 +245,9 @@ The pattern is a combination of regular expression matching and machine learning
 ## Add the patterns
 1. Close the **Test** panel, if you haven't done so already.
 
-2. Select **Patterns** from the left navigation.
+2. In the left navigation, under **Improve app performance**, select **Patterns** from the left navigation.
 
-    ![Select pattern navigation element](./media/luis-tutorial-pattern/patterns-left-navigation.png)
-
-3. Enter the following patterns, one at a time, selecting enter after each pattern:
+3. Select the **GetEmployeeOrgChart** intent, then enter the following patterns, one at a time, selecting enter after each pattern:
 
     ```
     Does {Employee} have {number} subordinates?
