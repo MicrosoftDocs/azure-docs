@@ -74,19 +74,19 @@ To create a user assigned MSI, use the following template. Replace the `<MSI NAM
 
 ## List user assigned MSI
 
-It is not possible to list a user assigned identity using an ARM template. 
+It is not possible to list a user assigned identity using an Azure Resource Manager template. 
 
 To list managed service identities, use the Azure CLI command listed here, [List user assigned MSI](how-to-manage-ua-identity-cli.md#list-user-assigned-msi)
 
 ## Delete a user assigned MSI
 
-It is not possible to delete a user assigned identity using an ARM template. 
+It is not possible to delete a user assigned identity using an Azure Resource Manager template. 
 
 To delete a managed service identity, use the Azure CLI command listed here, [List user assigned MSI](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-msi)
 
 ## Related content
 
-For information on how to assign a user assigned managed identity to an Azure VM using an ARM template see, [Configure a VM Managed Service Identity by using a template](qs-configure-template-windows-vm.md).
+For information on how to assign a user assigned managed identity to an Azure VM using an Azure Resource Manager template see, [Configure a VM Managed Service Identity by using a template](qs-configure-template-windows-vm.md).
 
 
  
