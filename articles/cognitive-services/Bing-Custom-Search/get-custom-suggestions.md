@@ -36,7 +36,7 @@ The response contains a list of SearchAction objects that contain the suggested 
 
 Each suggestion includes a `displayText`, `query` and, `url` field. The `displayText` field contains the suggested query that you use to populate your search box's drop-down list.
 
-If the user selects a suggested query from the drop-down list, you'd use the query term in the `query` field to call the [Bing Custom Search API](./) and render the results yourself. Or, you can use the URL in the `url` field to send the user to the Bing search results page instead.  
+If the user selects a suggested query from the drop-down list, you'd use the query term in the `query` field to call the [Bing Custom Search API](overview.md) and render the results yourself. Or, you can use the URL in the `url` field to send the user to the Bing search results page instead.  
   
 
 ## Throttling requests
