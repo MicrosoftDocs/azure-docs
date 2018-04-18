@@ -4,13 +4,11 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
-
 ms.service: cognitive-services
-ms.technology: entity-search
+ms.component: bing-entity-search
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: v-jaswel
-
 ---
 # Quickstart for Microsoft Bing Entity Search API with Node.JS 
 <a name="HOLTop"></a>

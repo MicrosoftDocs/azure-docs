@@ -1,4 +1,4 @@
-﻿---
+---
 title: Protect personal data with Azure identity and access controls | Microsoft Docs
 description: Azure identity and access controls help you protect personal data and may be helpful complying with General Data Protection Regulation (GDPR)
 services: security
@@ -129,7 +129,7 @@ If your users have licenses that include Azure Multi-Factor Authentication, you 
 
 ![MFA enabled users](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-If you currently don't have licenses you need to go through the process of determining the most suitable deployment type for your scenario. You can start by looking at the article titled [Choose the Azure Multi-Factor Autehntication solution for you](../multi-factor-authentication/multi-factor-authentication-get-started.md). If you decide that you need to create a Multi-Factor Authentication server. You can start by following these steps:
+If you currently don't have licenses you need to go through the process of determining the most suitable deployment type for your scenario. You can start by looking at the article titled [Choose the Azure Multi-Factor Autehntication solution for you](../active-directory/authentication/concept-mfa-whichversion.md). If you decide that you need to create a Multi-Factor Authentication server. You can start by following these steps:
 
 1. Select **Active Directory** in the Azure portal (logged on as an administrator).
 
