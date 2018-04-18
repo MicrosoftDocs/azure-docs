@@ -46,7 +46,7 @@ A registry in Azure Container Registry - [Create a container registry](../contai
 ## Define the Docker container
 Build an image based on the [Python image](https://hub.docker.com/_/python/) located on Docker Hub.
 
-Specify your Docker container in a Dockerfile. The Dockerfile contains instructions for setting up the environment inside your container, loading the application you want to run, and mapping ports. The Dockerfile is the input to the `docker build` command, which creates the image.
+Specify your Docker container in a Dockerfile. The Dockerfile consists of instructions for setting up the environment inside your container, loading the application you want to run, and mapping ports. The Dockerfile is the input to the `docker build` command, which creates the image.
 
 Create an empty directory and create the file *Dockerfile* (with no file extension). Add the following to *Dockerfile* and save your changes:
 
@@ -180,7 +180,7 @@ The Service Fabric SDK and tools provide a service template to help you create a
 5. Give your service a name, and click **OK**.
 
 ## Configure communication
-The containerized service needs an endpoint for communication. Add an `Endpoint` element with the protocol, port, and type to the ServiceManifest.xml file. For this article, the containerized service listens on port 8081. In this example, a fixed port 8081 is used. If no port is specified, a random port from the application port range is chosen. 
+The containerized service needs an endpoint for communication. Add an `Endpoint` element with the protocol, port, and type to the ServiceManifest.xml file. In this example, a fixed port 8081 is used. If no port is specified, a random port from the application port range is chosen. 
 
 ```xml
 <Resources>
@@ -357,7 +357,7 @@ If you want to the disable the **HEALTHCHECK** integration for the entire Servic
 ## Deploy the container application
 Save all your changes and build the application. To publish your application, right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
 
-In **Connection Endpoint**, enter the management endpoint for the cluster. For example, "containercluster.westus2.cloudapp.azure.com:19000". You can find the client connection endpoint in the Overview blade for your cluster in the [Azure portal](https://portal.azure.com).
+In **Connection Endpoint**, enter the management endpoint for the cluster. For example, "containercluster.westus2.cloudapp.azure.com:19000". You can find the client connection endpoint in the Overview tab for your cluster in the [Azure portal](https://portal.azure.com).
 
 Click **Publish**.
 
@@ -372,16 +372,16 @@ Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.co
 ## Clean up
 You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-cluster-delete.md). [Party clusters](https://try.servicefabric.azure.com/) are automatically deleted after a few hours.
 
-After you push the image to the container registry you can delete the local image from your development computer:
+After you push the image to the container registry, you can delete the local image from your development computer:
 
 ```
 docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## Specify OS build version specific container images 
+## Specify OS build specific container images 
 
-Windows Server containers (process isolation mode) may not be compatible with newer versions of the OS. For example, Windows Server containers built using Windows Server 2016 do not work on Windows Server version 1709. Hence, if the cluster nodes are updated to the latest version, container services built using the earlier versions of the OS may fail. To circumvent this with version 6.1 of the runtime and newer, Service Fabric supports specifying multiple OS images per container and tag them with the build versions of the OS (obtained by running `winver` on a Windows command prompt). It is recommended to first update the application manifests and specify image overrides per OS version before updating the OS on the nodes. The following snippet shows how to specify multiple container images in the application manifest, **ApplicationManifest.xml**:
+Windows Server containers (process isolation mode) may not be compatible with newer versions of the OS. For example, Windows Server containers built using Windows Server 2016 do not work on Windows Server version 1709. Hence, if the cluster nodes are updated to the latest version, container services built using the earlier versions of the OS may fail. To circumvent this with version 6.1 of the runtime and newer, Service Fabric supports specifying multiple OS images per container and tag them with the build versions of the OS (obtained by running `winver` on a Windows command prompt). Update the application manifests and specify image overrides per OS version before updating the OS on the nodes. The following snippet shows how to specify multiple container images in the application manifest, **ApplicationManifest.xml**:
 
 
 ```xml
@@ -405,7 +405,7 @@ The build version for WIndows Server 2016 is 14393, and the build version for Wi
    > The OS build version tagging features is only available for Service Fabric on Windows
    >
 
-If the underlying OS on the VM is build 16299 (version 1709), Service Fabric picks the container image corresponding to that Windows Server version. If an untagged container image is also provided alongside tagged container images in the application manifest, then Service Fabric treats the untagged image as one that works across versions. It is recommended to tag the container images explicitly.
+If the underlying OS on the VM is build 16299 (version 1709), Service Fabric picks the container image corresponding to that Windows Server version. If an untagged container image is also provided alongside tagged container images in the application manifest, then Service Fabric treats the untagged image as one that works across versions. Tag the container images explicitly to avoid issues during upgrades.
 
 The untagged container image will work as an override for the one provide in the ServiceManifest. So image "myregistry.azurecr.io/samples/helloworldappDefault" will override the ImageName "myregistry.azurecr.io/samples/helloworldapp" in the ServiceManifest.
 
@@ -549,12 +549,12 @@ You can configure the Service Fabric cluster to remove unused container images f
 } 
 ```
 
-For images that should not be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
+For images that shouldn't be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
 
 
 ## Configure container image download time
 
-By default, the Service Fabric runtime allocates a time of 20 minutes to download and extract container images, which work for the majority of container images. For large images, or when the network connection is slow, it might be necessary to increase the time to wait before aborting the image download and extraction. This can be set using the **ContainerImageDownloadTimeout** attribute in the **Hosting** section of the cluster manifest as shown in the following snippet:
+The Service Fabric runtime allocates 20 minutes to download and extract container images, which work for the majority of container images. For large images, or when the network connection is slow, it might be necessary to increase the time to wait before aborting the image download and extraction. This time out is set using the **ContainerImageDownloadTimeout** attribute in the **Hosting** section of the cluster manifest as shown in the following snippet:
 
 ```json
 {
@@ -577,12 +577,12 @@ To assist with diagnosing container startup failures, Service Fabric (version 6.
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
-The setting **ContainersRetentionCount** specifies the number of containers to retain when they fail. If a negative value is specified, all failing containers will be retained. When the **ContainersRetentionCount**  attribute is not specified, no containers will be retained. The attribute **ContainersRetentionCount** also supports Application Parameters so users can specify different values for test and production clusters. It is recommended to use placement constraints to target the container service to a particular node when using this features to prevent the container service from moving to other nodes. 
+The setting **ContainersRetentionCount** specifies the number of containers to retain when they fail. If a negative value is specified, all failing containers will be retained. When the **ContainersRetentionCount**  attribute is not specified, no containers will be retained. The attribute **ContainersRetentionCount** also supports Application Parameters so users can specify different values for test and production clusters. Use placement constraints to target the container service to a particular node when using this feature to prevent the container service from moving to other nodes. 
 Any containers retained using this feature must be manually removed.
 
 ## Start the Docker daemon with custom arguments
 
-With the 6.2 version of the Service Fabric runtime and greater, you can start the Docker daemon with custom arguments. When custom arguments are specified, Service Fabric does not pass any other argument to docker engine except the `--pidfile` argument. Hence, `--pidfile` should not be passed as an argument. Additionally, the argument should continue to have the docker daemon listen on the default name pipe on Windows (or unix domain socket on Linux) for Service Fabric to communicate with the Daemon. The custom arguments are passed in the cluster manifest under the **Hosting** section under **ContainerServiceArguments** as shown in the following snippet: 
+With the 6.2 version of the Service Fabric runtime and greater, you can start the Docker daemon with custom arguments. When custom arguments are specified, Service Fabric does not pass any other argument to docker engine except the `--pidfile` argument. Hence, `--pidfile` shouldn't be passed as an argument. Additionally, the argument should continue to have the docker daemon listen on the default name pipe on Windows (or unix domain socket on Linux) for Service Fabric to communicate with the Daemon. The custom arguments are passed in the cluster manifest under the **Hosting** section under **ContainerServiceArguments** as shown in the following snippet: 
  
 
 ```json
