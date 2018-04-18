@@ -1,6 +1,6 @@
 ---
-title:Synchronizing guest user accounts with alternate login id | Microsoft Docs
-description: This article explains how to synchronize guest user accounts that use an alternate id to sign-in to applications.
+title:Synchronizing guest users with alternate login id | Microsoft Docs
+description: This article explains how to synchronize guest user accounts that use an alternate ID to sign in to applications.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,10 +11,10 @@ ms.date: 04/18/2018
 ms.author: billmath
 ---
 
-# Synchronizing guest user accounts with alternate login id
-The following scenario address the situation where you may have external users in your on-premises AD environment, such as partners, who use an alternate sign-in method.
+# Synchronizing guest user accounts with alternate login ID
+The following scenario address the situation where you may have external users in your on-premises AD environment, such as partners, who use an alternate sign in method.
 
-In our example below, Nina Morin works for Fabrikam and she has the following email address: nmorin@fabrikam.com.  Nina is a partner with Contoso and she needs access to certain applications that Contoso has.  Contoso has created an account for Nina and has directed Nina to use her email address to sign-in to applications.
+In our example below, Nina Morin works for Fabrikam and she has the following email address: nmorin@fabrikam.com.  Nina is a partner with Contoso and she needs access to certain applications that Contoso has.  Contoso has created an account for Nina and has directed Nina to use her email address to sign in to applications.
 
 For their on-premises applications, this has been working great.  But now, Contoso is moving these applications to the cloud and wants to have the same experience for their partners.
 
@@ -22,10 +22,10 @@ This scenario will address this situation.
 
 
 ## Pre-requisites and assumptions
-The following is a list of pre-requisites and assumptions you need to be aware of prior to attempting to setup this scenario.
+The following is a list of pre-requisites and assumptions you need to be aware of prior to attempting to set up this scenario.
 
-### Pre-requisties
-- Global admininistrator credentials to configure Azure AD Connect, verify domains, and configure domain federation settings
+### Pre-requisites
+- Global administrator credentials to configure Azure AD Connect, verify domains, and configure domain federation settings
 - Azure AD Connect version 1.1.524.0 or higher
 - Verified domain to set the cloud UPN of external users (example: contoso.onmicrosoft.com).  For purposes of this doc, an onmicrosoft.com tenant was used.  In most cases this will be the 
 - Federation Service to authenticate your external users. If you use AD FS, it must be 2012 R2 or higher
@@ -33,14 +33,14 @@ The following is a list of pre-requisites and assumptions you need to be aware o
 
 
 ### Assumptions 
-- Azure AD Connect has already been setup and installed successfully.  For information on how to install Azure AD Connect see.
+- Azure AD Connect has already been set up and installed successfully.  For information on how to install Azure AD Connect see.
 This document makes the following assumptions:
-- that you have a federation service setup and that it is successfully authenticating users.
+- that you have a federation service set up and that it is successfully authenticating users.
 - external users can authenticate using their external email address.
-- - Using an alternate ID for sign-in has been setup and configured and users can authenticate using it.  For additional information on setting up an alternate id with AD FS see [Configure Alternate Login ID](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
+- - Using an alternate ID for sign in has been set up and configured and users can authenticate using it.  For additional information on setting up an alternate ID with AD FS see [Configure Alternate Login ID](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 ## Task 1:  Prepare the environment
-The following task is more of an informational so that you are ready to begin synchronizing your external accounts so that they can sign-in using an alternate id such as the mail attribute.
+The following task is more of an informational so that you are ready to begin synchronizing your external accounts so that they can sign-in using an alternate i such as the mail attribute.
 
 You need to identify and define the items in the table below before moving on to the second task.
 
@@ -101,7 +101,7 @@ Use the following procedure to configure Azure AD Connect.
     - **Source** - userPrincipalName
   ![](media/active-directory-aadconnect-guest-sync/guest5.png)
 10. Click **Add**. 
-11. On the **Synchrionzation Rules Editor** screen, ensure the direction is **outbound** and on the right, click **Add new rule**.
+11. On the **Synchronization Rules Editor** screen, ensure the direction is **outbound** and on the right, click **Add new rule**.
 12. On the **Description** page configure the following and click **Next**.
     - **Name** - enter a name for the rule 
     - **Connected System:** - our Azure AD tenant
@@ -162,12 +162,12 @@ This document uses AD FS as our identity provider (Idp).  If you are using a dif
 ![](media/active-directory-aadconnect-guest-sync/guest9.png)
 
 ## Task 4:  Testing
-In order to verify that this is working properly, you need to sign-in to a tenanted endpoint.  To test this, we deployed a website in Azure and are using the following url: contososampapp.azurewebsites.net
+In order to verify that this is working properly, you need to sign in to a tenanted endpoint.  To test this, we deployed a website in Azure and are using the following url: contososampapp.azurewebsites.net
 
-### Verify that you can sign-in with the alternate id
-1. Sign-in to the tenanted endpoint.
+### Verify that you can sign in with the alternate ID
+1. Sign in to the tenanted endpoint.
 ![](media/active-directory-aadconnect-guest-sync/guest10.png)
-1. Enter your username and you will be re-directed to the federation sign-in page.
+1. Enter your username and you will be re-directed to the federation sign in page.
 ![](media/active-directory-aadconnect-guest-sync/guest11.png)
 1. Enter your credentials.
 2. You should now be successfully signed in.
