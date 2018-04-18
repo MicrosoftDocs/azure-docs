@@ -13,6 +13,10 @@ ms.author: nepeters
 
 # Use Azure Container Instances as a Jenkins build server
 
+Azure Container Instances provide an on-demand, burstable, and isolated environment for running containerized workload. Because of these attributes, Azure Container Instances make a great platform for running Jenkins build jobs at a large scale. This document walks through deploying and using a Jenkins server that is pre-configured with ACI as a build target.
+
+For more information on Azure Container Instances, see [About Azure Container Instances][about-aci].
+
 ## Deploy Jenkins server
 
 In the Azure portal, select **Create a resource** and search for **Jenkins**. Select the Jenkins offering with a publisher of **Microsoft** and click **create**.
@@ -92,7 +96,7 @@ Now create a Jenkins build job. Select **New Item**, give the build project a na
 
 ![Create Jenkins job](./media/container-instances-jenkins/jenkins-new-job.png)
 
-Under **General**, ensure that Restrict where this project can be run is selected, and enter `linux` for the Label Expression. This configuration ensures that this build job runs on the ACI cloud.
+Under **General**, ensure that Restrict where this project can be run is selected. Enter `linux` for the Label Expression. This configuration ensures that this build job runs on the ACI cloud.
 
 ![Create Jenkins job](./media/container-instances-jenkins/jenkins-job-01.png)
 
@@ -124,3 +128,10 @@ Once all build jobs have been completed, the Azure Container Instances are remov
 
 ![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci-none.png)
 
+## Next steps
+
+To learn more about Jenkins on Azure see, [Azure and Jenkins][jenkins-azure]
+
+<!-- LINKS - internal -->
+[about-aci]: ./container-instances-overview.md
+[jenkins-azure]: ../jenkins/overview.md
