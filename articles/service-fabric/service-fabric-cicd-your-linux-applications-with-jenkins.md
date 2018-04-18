@@ -188,7 +188,7 @@ Ensure that the cluster or machine where the Jenkins container image is hosted h
 
     ![Service Fabric Jenkins Build action][build-step-dotnet]
   
-   h. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. Here you need to provide cluster details where the Jenkins compiled Service Fabric application would be deployed. The path to the certificate can be found by echoing the value of the echo Certificates_JenkinsOnSF_Code_MyCert_PEM environment variable from within the container. This path can be used for the Client Key and the Client Cert fields.
+   h. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. Here you need to provide cluster details where the Jenkins compiled Service Fabric application will be deployed. The path to the certificate can be found by echoing the value of the echo Certificates_JenkinsOnSF_Code_MyCert_PEM environment variable from within the container. This path can be used for the Client Key and the Client Cert fields.
 
       ```sh
       echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
@@ -202,8 +202,35 @@ Ensure that the cluster or machine where the Jenkins container image is hosted h
       > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
       >
 
+## Use Azure Active Directory Service Principal
+
+1. Follow the steps in [Use the portal to create an Azure Active Directory application and service principal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). 
+
+   * If you don't have the [required permissions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) on your directory, you'll need to ask an administrator to grant you the permissions or create the service principal for you, or you'll need to configure the cluster certificate (or a client certificate) in the **Post-Build Actions** for your job in Jenkins. For details about how to configure a certificate, see step 4.h in the preceding section.
+   * Be sure to copy and save the following values. You'll need them to configure the Azure credentials in Jenkins:
+      * *Application ID*
+      * *Application key*
+      * *Directory ID (Tenant ID)*
+      * *Subscription ID*
+   * In the [Create an Azure Active Directory application](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) section, make sure you select *Web app/API* for the **Application type**. You can enter any well-formed URL for the **Sign-on URL**.
+   * In the [Assign application to a Role](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) section, you can assign your application the *Reader* role on the resource group for your cluster.
+
+2. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. 
+   1. Click the **Select the Service Fabric Cluster** button. Click **Add** next to **Azure Credentials**. Click **Jenkins** to select the Jenkins Credentials Provider.
+   2. In the Jenkins Credentials Provider, select **Microsoft Azure Service Principal** from the **Kind** drop-down.
+   3. From the values you saved when setting up your service principal, enter the following:
+      * **Client ID** : *Application ID*
+      * **Client Secret** : *Application key*
+      * **Tenant ID** : *Directory ID*
+      * **Subscription ID** : *Subscription ID*
+   5. Enter a descriptive **ID** that you use to select the credential in Jenkins and a brief **Description**. Then click **Verify Service Principal**. If the verification succeeds, click **Add**.
+   6. Back under **Service Fabric Cluster Configuration**, ensure that your new credential is selected for **Azure Credentials**. 
+   7. From the **Resource Group** drop-down select the resource group of the cluster you want to deploy the application to.
+   8. From the **Service Fabric** drop-down select the cluster that you wan to deploy the application to.
+   9. Under **Application Configuration**, configure the **Application Name**, **Application Type**, and the (relative) **Path to Application Manifest** fields.
+
 ## Next steps
-GitHub and Jenkins are now configured. Consider making some sample change in your ``MyActor`` project in the repository example, https://github.com/sayantancs/SFJenkins. Push your changes to a remote ``master`` branch (or any branch that you have configured to work with). This triggers the Jenkins job, ``MyJob``, that you configured. It fetches the changes from GitHub, builds them, and deploys the application to the cluster endpoint you specified in post-build actions.  
+GitHub and Jenkins are now configured. Consider making some sample change in your `MyActor` project in the repository example, https://github.com/sayantancs/SFJenkins. Push your changes to a remote `master` branch (or any branch that you have configured to work with). This triggers the Jenkins job, `MyJob`, that you configured. It fetches the changes from GitHub, builds them, and deploys the application to the cluster endpoint you specified in post-build actions.  
 
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-application-with-jenkins/build-step.png
