@@ -49,7 +49,7 @@ Azure IoT Hub SDKs releases a set of Objective-C CocoaPod libraries for iOS deve
 [lnk-device-ios-quickstart]:https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-ios
 [lnk-service-ios-quickstart]: https://docs.microsoft.com/azure/iot-hub/iot-hub-ios-swift-c2d
 [lnk-cocoapod-list]: https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/ios/CocoaPods.md
-[lnk-ios-samples-repo]: https://github.com/Azure-Samples/azure-iot-ios-samples
+[lnk-ios-samples-repo]: https://github.com/Azure-Samples/azure-iot-samples-ios
 [lnk-ios-pal]: https://github.com/Azure/azure-c-shared-utility/tree/master/pal/ios-osx
 [lnk-c-sdk]: https://github.com/Azure/azure-iot-sdk-c
 [lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
