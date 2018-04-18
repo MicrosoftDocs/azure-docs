@@ -19,7 +19,7 @@ layout: LandingPage
 
 # Introduction to Azure and the Internet of Things
 
-Azure IoT consists of three areas of technologies and solutions—solutions, platform services, and edge, all designed to facilitate the end-to-end development of your IoT application. This article begins by describing the common characteristics of an IoT solution in the cloud, followed by an overview of Azure IoT product portfolio to showcase the technologies and solutions available for creating your own application.
+Azure IoT consists of three areas of technologies and solutions—solutions, platform services, and edge, all designed to facilitate the end-to-end development of your IoT application. This article begins by describing the common characteristics of an IoT solution in the cloud, followed by an overview of how Azure IoT addresses challenges in IoT projects and why you should consider adopting Azure IoT.
 
 ## IoT solution architecture
 
@@ -90,17 +90,6 @@ The presentation and business connectivity layer allows end users to interact wi
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-## Azure IoT portfolio
-
-Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. This section provides an overview of the technologies and solutions available for creating your own solution.
-
-![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
-
-### Videos
-
-| Introduction to Azure IoT services and solutions. (4:07) | Codeless IoT Solutions. (11:08) | 
-|-|-|
-| [![Introduction to Azure IoT services and solutions][img-video-contoso-hvac-iot-part1]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player) | [![Codeless IoT Solutions][img-video-contoso-hvac-iot-part8]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player) | 
 
 ## Why Azure IoT?
 
@@ -108,33 +97,33 @@ Azure IoT simplifies the complexity of IoT projects and addresses the challenges
 
 **Agile** <br>
 Accelerate your IoT journey
-* Scale: Start small, grow to any size, anywhere and everywhere: millions of devices, terabytes of data, in the most regions worldwide.
+* Scale: start small, grow to any size, anywhere and everywhere — millions of devices, terabytes of data, in the most regions worldwide.
 
-* Open: Use what you have, or modernize for the future by connecting to any device, software or service.
+* Open: use what you have, or modernize for the future by connecting to any device, software or service.
 
-* Hybrid: Build according to your needs by deploying your IoT solution at the edge, in the cloud, or anywhere in between.
+* Hybrid: build according to your needs by deploying your IoT solution at the edge, in the cloud, or anywhere in between.
 
-* Pace: Deploy faster, speed time-to-market, and stay ahead of your competition with the leader in solution accelerators and pace of innovation in IoT.
+* Pace: deploy faster, speed time-to-market, and stay ahead of your competition with the leader in solution accelerators and pace of innovation in IoT.
 
 **Comprehensive** <br>
 Deliver impact for your business
 
 * Complete: Microsoft is the only IoT solution provider with a complete platform spanning device to cloud, across big data, advanced analytics, and with managed services.
 
-* Partner for success: Tap into the power of the world’s  largest partner ecosystem, and bring line-of-business and technology to life, across industry and around the world.
+* Partner for success: tap into the power of the world’s  largest partner ecosystem, and bring line-of-business and technology to life, across industry and around the world.
 
 * Data-driven: IoT is about data, and the best IoT solutions bring together all of the tools you need to store, interpret, transform, analyze, and present data to right user, in the right place, at the right time.
 
 * Device-centric: Microsoft IoT allows you to connect anything, from legacy equipment to a vast ecosystem of certified hardware, and the ability to build your own devices across edge, mobile, and embedded systems.
 
 **Secure** <br>
-Solve the hardest part of IoT – security
+Solve the hardest part of IoT — security
 
-* Empower: With Microsoft IoT, you can bring together your vision, with the technology, best practices, and the capabilities to solve for the hardest part of IoT – security.
+* Empower: with Microsoft IoT, you can bring together your vision, with the technology, best practices, and the capabilities to solve for the hardest part of IoT — security.
 
-* Take action: Secure your IoT data and manage risk with Identity and access management, threat and information protection, and security management.
+* Take action: secure your IoT data and manage risk with identity and access management, threat and information protection, and security management.
 
-* Peace of mind: Ensure the safety of sensitive information across devices, software, applications, and cloud services, as well as on-premises environments.
+* Peace of mind: ensure the safety of sensitive information across devices, software, applications, and cloud services, as well as on-premises environments.
 
 * Compliance: Microsoft has been leading the industry in establishing security requirements that meet a broad set of international and industry-specific standards for IoT devices, data, and services.
 
@@ -142,27 +131,14 @@ Solve the hardest part of IoT – security
 
 Explore the following areas of technologies and solutions, or see the Table of Contents to the left for the list of Azure IoT services.
 
-<ul class="panelContent cardsF">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Edge</h3>
-                        <a href="/azure/iot-edge">IoT Edge</a><br/>
-                        <a href="/azure/iot-edge/how-iot-edge-works">What is IoT Edge?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
+<ul class="panelContent cardsF">  
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Solutions</h3>
-                        <a href="/azure/iot-suite">IoT Suite</a><br/>
+                        <a href="/azure/iot-suite">IoT solution accelerators</a><br/>
                         <a href="/azure/iot-central">IoT Central</a>
                     </div>
                 </div>
@@ -177,19 +153,29 @@ Explore the following areas of technologies and solutions, or see the Table of C
                         <h3>Platform services</h3>
                         <a href="/azure/iot-hub">IoT Hub</a><br/>
                         <a href="/azure/iot-dps">IoT Hub Device Provisioning Service</a><br/>
-                        <a href="/azure/location-based-services">Location Based Services</a><br/>
+                        <a href="/azure/location-based-services">Azure Maps</a><br/>
                         <a href="/azure/time-series-insights">Time Series Insights</a>
                     </div>
                 </div>
             </div>
         </div>
-    </li>        
+    </li>  
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Edge</h3>
+                        <a href="/azure/iot-edge">IoT Edge</a><br/>
+                        <a href="/azure/iot-edge/how-iot-edge-works">What is IoT Edge?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>      
 </ul>
 
 [img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
-[img-video-contoso-hvac-iot-part1]: media/index/contoso-hvac-iot-part1.png
-[img-video-contoso-hvac-iot-part8]: media/index/contoso-hvac-iot-part8.png
-
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/

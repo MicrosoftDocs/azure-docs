@@ -22,9 +22,9 @@ Welcome to Microsoft Azure and the Internet of Things (IoT). Azure IoT is a comp
 
 ## Technologies and solutions available 
 
-| **Solutions**<br>Get started faster with solution accelerators and SaaS offerings | **Platform services**<br>Build on Platform as a Service (PaaS) offerings |**Edge**<br>Build the intelligent edge|
+| **Solutions**<br>Get started fast with solution accelerators and SaaS offerings | **Platform services**<br>Build on Platform as a Service (PaaS) offerings |**Edge**<br>Build the intelligent edge|
 |------|-----------|-------------------|
-| &#9657; [Iot Suite Preconfigured Solutions][lnk-iot-suite-land]<br>&#9657; [IoT Central][lnk-iot-central-land] | &#9657; [IoT Hub][lnk-iot-hub-land]<br>&#9657; [IoT Hub Device Provisioning Service][lnk-iot-dps-land]<br>&#9657; [Location Based Services][lnk-iot-lbs-land]<br>&#9657; [Time Series Insights][lnk-iot-tsi-land]<br> |&#9657; [IoT Edge][lnk-iot-edge-land]<br>&#9657; [IoT Device/Service SDKs][lnk-device-sdks]|
+| &#9657; [IoT solution accelerators ][lnk-iot-suite-land]<br>&#9657; [IoT Central][lnk-iot-central-land] | &#9657; [IoT Hub][lnk-iot-hub-land]<br>&#9657; [IoT Hub Device Provisioning Service][lnk-iot-dps-land]<br>&#9657; [Azure Maps][lnk-iot-lbs-land]<br>&#9657; [Time Series Insights][lnk-iot-tsi-land]<br> |&#9657; [IoT Edge][lnk-iot-edge-land]<br>&#9657; [IoT Device/Service SDKs][lnk-device-sdks]|
 |    |    |    |
 
 [img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
