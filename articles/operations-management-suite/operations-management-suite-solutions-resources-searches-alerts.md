@@ -138,6 +138,9 @@ The properties for schedule resources are described in the following table.
 
 The schedule resource should depend on the saved search so that it's created before the schedule.
 
+> [!NOTE]
+> Schedule Name must be unique in a given workspace; two schedules cannot have the same ID even if they are associated with different saved searches. Also name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
+
 
 ### Actions
 A schedule can have multiple actions. An action may define one or more processes to perform such as sending a mail or starting a runbook, or it may define a threshold that determines when the results of a search match some criteria.  Some actions will define both so that the processes are performed when the threshold is met.
