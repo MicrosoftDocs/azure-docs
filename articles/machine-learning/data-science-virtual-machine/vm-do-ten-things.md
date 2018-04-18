@@ -19,9 +19,9 @@ ms.author: gokuma
 
 ---
 
-# Ten things you can do on the Data science Virtual Machine
+# Ten things you can do on the Windows Data Science Virtual Machine
 
-The Microsoft Data Science Virtual Machine (DSVM) is a powerful data science development environment that enables you to perform various data exploration and modeling tasks. The environment comes already built and bundled with several popular data analytics tools that make it easy to get started quickly with your analysis for On-premises, Cloud, or hybrid deployments. The DSVM works closely with many Azure services and is able to read and process data that is already stored on Azure, in Azure SQL Data Warehouse, Azure Data Lake, Azure Storage, or in Azure Cosmos DB. It can also utilize other analytics tools such as Azure Machine Learning and Azure Data Factory.
+The Windows Data Science Virtual Machine (DSVM) is a powerful data science development environment that enables you to perform various data exploration and modeling tasks. The environment comes already built and bundled with several popular data analytics tools that make it easy to get started quickly with your analysis for On-premises, Cloud or hybrid deployments. The DSVM works closely with many Azure services and is able to read and process data that is already stored on Azure, in Azure SQL Data Warehouse, Azure Data Lake, Azure Storage, or in Azure Cosmos DB. It can also leverage other analytics tools such as Azure Machine Learning and Azure Data Factory.
 
 In this article, you will learn how to use your DSVM to perform various data science tasks and interact with other Azure services. Here are some of the things you can do on the DSVM:
 

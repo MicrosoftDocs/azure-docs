@@ -30,7 +30,7 @@ When you're running an Azure Service Fabric cluster, it's a good idea to collect
 One way to upload and collect logs is to use the Windows Azure Diagnostics (WAD) extension, which uploads logs to Azure Storage, and also has the option to send logs to Azure Application Insights or Event Hubs. You can also use an external process to read the events from storage and place them in an analysis platform product, such as [Log Analytics](../log-analytics/log-analytics-service-fabric.md) or another log-parsing solution.
 
 ## Prerequisites
-The following tools will be used in this article:
+The following tools are used in this article:
 
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
@@ -43,14 +43,14 @@ Service Fabric sets you up with a few [out-of-the-box logging channels](service-
   * [Reliable Services programming model events](service-fabric-reliable-services-diagnostics.md)
 
 ## Deploy the Diagnostics extension through the portal
-The first step in collecting logs is to deploy the Diagnostics extension on the VMSS nodes in the Service Fabric cluster. The Diagnostics extension collects logs on each VM and uploads them to the storage account that you specify. The steps below outline how to accomplish this for new and existing clusters through the Azure portal and ARM templates.
+The first step in collecting logs is to deploy the Diagnostics extension on the virtual machine scale set nodes in the Service Fabric cluster. The Diagnostics extension collects logs on each VM and uploads them to the storage account that you specify. The following steps outline how to accomplish this for new and existing clusters through the Azure portal and Azure Resource Manager templates.
 
 ### Deploy the Diagnostics extension as part of cluster creation through Azure portal
 When creating your cluster, in the cluster configuration step, expand the optional settings and ensure that Diagnostics is set to **On** (the default setting).
 
 ![Azure Diagnostics settings in the portal for cluster creation](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics-new.png)
 
-We highly recommend that you download the template **before you click Create** in the final step. For details, refer to [Set up a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md). You'll need the template to make changes on what channels (listed above) to gather data from.
+We highly recommend that you download the template **before you click Create** in the final step. For details, refer to [Set up a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md). You need the template to make changes on what channels (listed above) to gather data from.
 
 ![Cluster Template](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
@@ -62,14 +62,14 @@ Now that you're aggregating events in Azure Storage, [set up Log Analytics](serv
 ## Deploy the Diagnostics extension through Azure Resource Manager
 
 ### Create a cluster with the Diagnostics extension
-To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full cluster Resource Manager template before you create the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full Resource Manager template before you create the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 To see the Diagnostics setting in the Resource Manager template, open the azuredeploy.json file and search for **IaaSDiagnostics**. To create a cluster by using this template, select the **Deploy to Azure** button available at the previous link.
 
 Alternatively, you can download the Resource Manager sample, make changes to it, and create a cluster with the modified template by using the `New-AzureRmResourceGroupDeployment` command in an Azure PowerShell window. See the following code for the parameters that you pass in to the command. For detailed information on how to deploy a resource group by using PowerShell, see the article [Deploy a resource group with the Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### Add the Diagnostics extension to an existing cluster
-If you have an existing cluster that doesn't have Diagnostics deployed, you can add or update it via the cluster template. Modify the Resource Manager template that's used to create the existing cluster or download the template from the portal as described earlier. Modify the template.json file by performing the following tasks.
+If you have an existing cluster that doesn't have Diagnostics deployed, you can add or update it via the cluster template. Modify the Resource Manager template that's used to create the existing cluster or download the template from the portal as described earlier. Modify the template.json file by performing the following tasks:
 
 Add a new storage resource to the template by adding to the resources section.
 
@@ -184,7 +184,7 @@ After you modify the template.json file as described, republish the Resource Man
 
 ### Update storage quota
 
-Since the tables populated by the extension will keep growing until the quota is hit, you may want to consider decreasing the quota size. The default value is 50 GB and is configurable in the template under the `overallQuotainMB` field under `DiagnosticMonitorConfiguration`
+Since the tables populated by the extension grows until the quota is hit, you may want to consider decreasing the quota size. The default value is 50 GB and is configurable in the template under the `overallQuotainMB` field under `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
@@ -204,7 +204,7 @@ Logs from additional channels are also available for collection, here are some o
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* Data and Messaging Channel - Base: Critical logs and events generated in the messaging (currently only the ReverseProxy) and data path, in addition to detailed operational channel logs. These events are request processing failures and other critical issues in the ReverseProxy and requests processed. **This is our recommendation for comprehensive logging**. To view these events in Visual Studio's Diagnostic Event Viewer, add "Microsoft-ServiceFabric:4:0x4000000000000010" to the list of ETW providers.
+* Data and Messaging Channel - Base: Critical logs and events generated in the messaging (currently only the ReverseProxy) and data path, in addition to detailed operational channel logs. These events are request processing failures and other critical issues in the ReverseProxy, as well as requests processed. **This is our recommendation for comprehensive logging**. To view these events in Visual Studio's Diagnostic Event Viewer, add "Microsoft-ServiceFabric:4:0x4000000000000010" to the list of ETW providers.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"

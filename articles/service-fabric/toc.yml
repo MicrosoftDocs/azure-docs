@@ -261,8 +261,6 @@
       href: service-fabric-health-introduction.md
     - name: Report health events
       href: service-fabric-report-health.md
-    - name: Monitor with OMS
-      href: service-fabric-diagnostics-event-analysis-oms.md
   - name: Integration with API Management
     href: service-fabric-api-management-overview.md
 - name: How-to guides
@@ -556,7 +554,7 @@
       - name: Add logging to your application
         href: service-fabric-how-to-diagnostics-log.md
       - name: Aggregate events with EventFlow
-        href: service-fabric-diagnostics-event-aggregation-eventflow.md
+        href: service-fabric-diagnostics-event-aggregation-eventflow.md    
       - name: Monitor containers
         href: service-fabric-diagnostics-oms-containers.md
     - name: Monitor clusters
@@ -566,7 +564,9 @@
       - name: Linux Azure Diagnostics
         href: service-fabric-diagnostics-event-aggregation-lad.md 
       - name: Set up OMS Log Analytics
-        href: service-fabric-diagnostics-oms-setup.md  
+        href: service-fabric-diagnostics-oms-setup.md
+      - name: Monitor with OMS
+        href: service-fabric-diagnostics-event-analysis-oms.md  
     - name: Monitor infrastructure
       items:
       - name: Performance monitoring with WAD

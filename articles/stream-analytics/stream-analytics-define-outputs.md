@@ -354,10 +354,10 @@ The following table summarizes the partition support and the number of output wr
 | Azure Event Hub | Yes | Yes | Same as output Event Hub partitions. |
 | Power BI | No | None | Not applicable. | 
 | Azure Table storage | Yes | Any output column.  | Same as input or previous step. | 
-| Azure Service Bus Topic | Yes | Automatically chosen. The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.| Same as output.  |
-| Azure Service Bus Queue | Yes | Automatically chosen. The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.| Same as output. |
+| Azure Service Bus Topic | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.| Same as output.  |
+| Azure Service Bus Queue | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.| Same as output. |
 | Azure Cosmos DB | Yes | Use {partition} token in the Collection name pattern. {partition} value is based on the PARTITION BY clause in the query. | Same as input. |
-| Azure Function | No | None | Not applicable. | 
+| Azure Functions | No | None | Not applicable. | 
 
 
 ## Get help

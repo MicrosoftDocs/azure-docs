@@ -24,18 +24,17 @@ Azure Application Insights is an extensible platform for application monitoring 
 
 * How do I know what is going on inside my application and services and gather telemetry
 * How do I troubleshoot my application, especially services communicating with one another
-* How do I get metrics about how my services are performing, e.g. page load time, http requests
-
+* How do I get metrics about how my services are performing, for example, page load time, http requests
 
 **The purpose of this article is to show how to gain insights and troubleshoot from within App Insights. If you'd like to learn how to set up and configure AI with service fabric, check out this [tutorial](service-fabric-tutorial-monitoring-aspnet.md).**
 
 ## Monitoring in App Insights
 
-Application Insights has a rich out of the box with Service Fabric. In the overview page below, AI provides key information about your service such as the response time and number of requests processed. By clicking the 'Search' button above, you can see a list of recent requests in your application. Additionally, you would be able to see failed requests here and diagnose what errors may have occurred. 
+Application Insights has a rich out of the box with Service Fabric. In the overview page below, AI provides key information about your service such as the response time and number of requests processed. By clicking the 'Search' button above, you can see a list of recent requests in your application. Additionally, you would be able to see failed requests here and diagnose what errors may have occurred.
 
 ![AI Overview](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 
-On the right panel in the picture above, there are two main types of entries in the list: requests and events. Requests are calls made to the app's API through HTTP requests in this case, and events are custom events, which act as telemetry you can add anywhere in your code. You can further explore this in [Application Insights API for custom events and metrics](../application-insights/app-insights-api-custom-events-metrics.md). Clicking on a request would display further details as shown in the picture below, including data specific to Service Fabric which is collected in the AI Service Fabric nuget package. This info is useful for troubleshooting and knowing what the state of your application is, and all of this information is searchable within Application Insights
+On the right panel in the image above, there are two main types of entries in the list: requests and events. Requests are calls made to the app's API through HTTP requests in this case, and events are custom events, which act as telemetry you can add anywhere in your code. You can further explore instrumenting your applications in [Application Insights API for custom events and metrics](../application-insights/app-insights-api-custom-events-metrics.md). Clicking on a request would display further details as shown in the image below, including data specific to Service Fabric, which is collected in the AI Service Fabric nuget package. This info is useful for troubleshooting and knowing what the state of your application is, and all of this information is searchable within Application Insights
 
 ![AI Request Details](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
@@ -56,7 +55,7 @@ There are two primary ways to send data from WAD to Azure AI, which is achieved 
 
 ![Adding an AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
 
-When creating a cluster, if Diagnostics is turned "On", an optional field to enter an Application Insights Instrumentation key will show. If you paste your AI Key here, the AI sink will be automatically configured for you in the Resource Manager template that is used to deploy your cluster.
+When creating a cluster, if Diagnostics is turned "On", an optional field to enter an Application Insights Instrumentation key will show. If you paste your AI Key here, the AI sink is automatically configured for you in the Resource Manager template that is used to deploy your cluster.
 
 #### Add the AI Sink to the Resource Manager template
 
@@ -84,10 +83,10 @@ In the "WadCfg" of the Resource Manager template, add a "Sink" by including the 
 
 In both the code snippets above, the name "applicationInsights" was used to describe the sink. This is not a requirement and as long as the name of the sink is included in "sinks", you can set the name to any string.
 
-Currently, logs from the cluster will show up as **traces** in AI's log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error." This can be done by adding "Channels" to your sink, as demonstrated in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Currently, logs from the cluster show up as **traces** in AI's log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error." This can be done by adding "Channels" to your sink, as demonstrated in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 >[!NOTE]
->If you use an incorrect AI IKey either in portal or in your Resource Manager template, you will have to manually change the key and update the cluster / redeploy it. 
+>If you use an incorrect AI IKey either in portal or in your Resource Manager template, you will have to manually change the key and update the cluster / redeploy it.
 
 ### Configuring AI with EventFlow
 
