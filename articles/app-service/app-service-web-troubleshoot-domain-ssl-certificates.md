@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Domain and SSL certificate problems in your Azure web apps | Microsoft Docs
-description: Troubleshoot Domain and SSL certificate problems in your Azure web apps
+title: Troubleshoot domain and SSL certificate problems in Azure web apps | Microsoft Docs
+description: Troubleshoot domain and SSL certificate problems in Azure web apps
 services: app-service\web
 documentationcenter: ''
 author: genli
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 04/18/2018
 ms.author: genlin
 ---
-# Troubleshoot Domain and SSL certificate problems in your Azure web apps
+# Troubleshoot domain and SSL certificate problems in Azure web apps
 
 This article lists common problems that you might encounter when you configure domain or SSL certificate for your Azure web apps. It also provides possible causes and resolutions for these problems.
 
@@ -32,13 +32,13 @@ When you add an SSL binding, you see the following error message:
 
 ### Cause
 
-This problem can occur if you have multiple IP-based SSL bindings for the same IP across multiple web apps. For example, Web app A has IP-based SSL with old certificate. Web app B with IP-based SSL with new certificate for the same IP. When you update web app SSL binding with the new certificate, it will fail with this error since same IP is being used for another app. 
+This problem can occur if you have multiple IP-based SSL bindings for the same IP across multiple web apps. For example, web app A has IP-based SSL with old certificate. Web app B with IP-based SSL with new certificate for the same IP. When you update web app SSL binding with the new certificate, it will fail with this error since same IP is being used for another app. 
 
 ### Solution 
 
 To fix the problem, use one of the following methods:
 
-- Delete the IP-based SSL binding on Web App with the old certificate. 
+- Delete the IP-based SSL binding on web app with the old certificate. 
 - Create a new IP-based SSL binding with the new certificate.
 
 ## Unable to delete a certificate 
@@ -47,7 +47,7 @@ To fix the problem, use one of the following methods:
 
 When you try to delete a certificate, you receive the following error message:
 
-**Unable to delete the certificate because it is currently being used in an SSL binding. The SSL binding must be removed before you can delete the certificate. **
+**Unable to delete the certificate because it is currently being used in an SSL binding. The SSL binding must be removed before you can delete the certificate.**
 
 ### Cause
 
@@ -67,7 +67,7 @@ This problem can be caused by one of the following reasons:
 
 - The App Service plan is Free or Shared pricing plans. We do not support SSL for these pricing tiers. 
 
-    **Solution**: Upgrade App Service plan to Standard for Web App.
+    **Solution**: Upgrade App Service plan to Standard for web app.
 
 - The Subscription does not have a valid credit card.
 
@@ -81,10 +81,11 @@ This problem can be caused by one of the following reasons:
 
     **Solution**: App Service Certificates has a limit of 10 certificate purchases for Pay-As-Go and EA subscriptions types. For other subscription types, the limit is 3. To increase the limit, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - The App Service certificate was marked as fraud. You will receive this error “Your certificate has been flagged for possible fraud. The request is currently under review. If the certificate does not become usable within 24 hours”.
+
     **Solution**: If the certificate is marked as Fraud and has not been resolved after 24 hours, then follow these steps:
 
-    1. Go to App Service certificate in Azure portal
-    2. Click on Certificate Configuration > Step 2 : Verify > Domain Verification 
+    1. Go to App Service certificate in Azure portal.
+    2. Click on Certificate Configuration > Step 2 : Verify > Domain Verification.
     3. Click on Email Instructions that will send an email to Azure certificate provider to resolve the issue.
 
 ## Purchased SSL certificate for wrong domain
@@ -95,7 +96,7 @@ You purchased an App Service certificate for the wrong domain and cannot update 
 
 ### Solution
 
-- Delete that certificate and buy a new certificate 
+- Delete that certificate and buy a new certificate.
 - If the current certificate with the wrong domain is in the “Issued” state, then you will be billed for it as well. App Service certificates are not refunded, but you can contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to see if there are other options. 
 
 ## App Service certificate was renewed but still shows the old certificate 
@@ -105,7 +106,7 @@ You purchased an App Service certificate for the wrong domain and cannot update 
 The App Service certificate was renewed but the web app that uses the App Service certificate is still using the old certificate. And you received a warning as HTTPS is required.
 
 ### Cause 
-The Web App service runs a background job that periodically runs every eight hours that syncs if there are any changes. Hence when you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate.  This  is because the job has not run to sync the certificate resource.  
+The Web app service runs a background job that periodically runs every eight hours that syncs if there are any changes. Hence when you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate.  This  is because the job has not run to sync the certificate resource.  
  
 ### Solution
 
@@ -157,7 +158,7 @@ This problem might be caused by one of the following reasons:
 
 - If you are not the subscription owner, you may not have permission to buy domain.
 
-    **Solution**: [Add the Owner role](../billing/billing-add-change-azure-subscription-administrator) to your account or contact with the subscription administrator to get permissions to purchase a domain.
+    **Solution**: [Add the Owner role](../billing/billing-add-change-azure-subscription-administrator.md) to your account or contact with the subscription administrator to get permissions to purchase a domain.
 - You may have reached the limit to purchasing domains on your subscription. The current limit is 20.
 
     **Solution**: To request increase the limit, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -192,7 +193,7 @@ This problem can be caused by one of the following reasons:
 
 ### Symptom
 
-You receive the error message； "The DNS record could not be located"。
+You receive the error message: "The DNS record could not be located".
 
 ### Cause
 One of the reasons could be causing the issue:
@@ -202,7 +203,7 @@ One of the reasons could be causing the issue:
 ### Solution
 - Wait for 48 hours and this should automatically resolve.
 - If you can modify the TTL setting in your DNS configuration, go ahead and make the change to 5 minutes or so to see if this resolves the issue.
-- Verify your domain is pointing to the web app IP address using WhatsmyDNS.net. If not, fix the A record to be configured to the right IP address of the web app.
+- Verify your domain is pointing to the web app IP address using [WhatsmyDNS.net](https://www.whatsmydns.net/). If not, fix the A record to be configured to the right IP address of the web app.
 
 ## Restore a deleted domain 
 
