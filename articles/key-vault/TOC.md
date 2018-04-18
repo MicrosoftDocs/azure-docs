@@ -1,7 +1,7 @@
 # [Key Vault Documentation](index.md)
 
 # Overview
-## [What is Key Vault?](key-vault-whatis.md)
+## [Key Vault Overview](key-vault-overview.md)
 
 # Quickstarts
 ## [Create a Key Vault - CLI](quick-create-cli.md)
@@ -11,7 +11,7 @@
 # Tutorials
 ## [Configure an Azure web application to read a secret from Key vault ](tutorial-web-application-keyvault.md)
 # Samples
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=key-vault)
 # Concepts
 ## [Get started with Key Vault](key-vault-get-started.md)
 ## [Set up key rotation and auditing](key-vault-key-rotation-log-monitoring.md)
@@ -20,6 +20,8 @@
 ## [Soft-delete](key-vault-ovw-soft-delete.md)
 ## [Storage account keys](key-vault-ovw-storage-keys.md)
 ## [Throttling](key-vault-ovw-throttling.md)
+## [What is Key Vault?](key-vault-whatis.md)
+
 # How-to guides
 ## Manage
 ### [Azure Key Vault logging](key-vault-logging.md)
@@ -59,6 +61,6 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
-## [Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
+## [Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 ## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

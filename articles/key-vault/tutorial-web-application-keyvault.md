@@ -79,7 +79,7 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 We are adding a secret to help illustrate how this works. You could be storing a SQL connection string or any other information that you need to keep securely but make available to your application. In this tutorial the password will be called **AppSecret** and will store the value of **MySecret** in it.
 
-Type the commands below to create a secret in Key Vault called **AppSecret** that will store the value **MySecret:
+Type the commands below to create a secret in Key Vault called **AppSecret** that will store the value **MySecret**:
 
 ```azurecli
 az keyvault secret set --vault-name '<YourKeyVaultName>' --name 'AppSecret' --value 'MySecret'
@@ -234,11 +234,11 @@ az webapp assign-identity --name WebKeyVault --resource-group ContosoResourcegro
 
 Using the Azure portal, go to the Key Vault's access policies, and grant yourself Secret Management access to the Key Vault. This will allow you to run the application on your local development machine.
 
-* Search for your Key Vault in the **Search Resources** dialog box in the Azure portal.
-* Select **Access policies**.
-* Select **Add New**, in the **Secret permissions** section select **Get** and **List**.
-* Select **Select Principal**, and add the application identity. It will have the same name as the application.
-* Choose **Ok**
+1. Search for your Key Vault in the **Search Resources** dialog box in the Azure portal.
+2. Select **Access policies**.
+3. Select **Add New**, in the **Secret permissions** section select **Get** and **List**.
+4. Select **Select Principal**, and add the application identity. It will have the same name as the application.
+5. Choose **Ok**
 
 Now your account in Azure and the application identity have rights to read information from Key Vault. If you refresh the page you should see the landing page of the site. If you select **About**. You see the value you stored in Key Vault.
 

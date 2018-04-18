@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 04/18/2018
 ms.author: barclayn
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Create an Azure Key Vault using PowerShell
 
-Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates and other secrets. For more information on Key Vault you may review the [Overview](key-vault-overview.md). In this quickstart you will use PowerShell to create a key vault. You will then store a secret in the newly created vault.
+Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, you may review the [Overview](key-vault-overview.md). In this quickstart, you will use PowerShell to create a key vault. You will then store a secret in the newly created vault.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -47,7 +47,7 @@ New-AzureRmResourceGroup -Name ContosoResourceGroup -Location EastUS
 
 ## Create a Key Vault
 
-Next you will create the Key Vault in the resource group created in the previous step. When performing this step you will need to provide some information:
+Next you will create the Key Vault in the resource group created in the previous step. When performing this step, you will need to provide some information:
 
 Although we use “Contoso KeyVault2” as the name for our Key Vault throughout this quickstart, you must use a unique name.
 
@@ -70,7 +70,7 @@ Your Azure account is the only account authorized to perform any operations on t
 
 ## Adding a secret to Key Vault
 
-To add a secret to the vault you just need to take a couple of additional steps. In this case we will add a password that could be used by an application. The password will be called **SQLPassword** and we will store the value of **Pa$$w0rd** in it.
+To add a secret to the vault, you just need to take a couple of additional steps. In this case, we will add a password that could be used by an application. The password will be called **SQLPassword** and we will store the value of **Pa$$w0rd** in it.
 
 First convert the value of Pa$$w0rd to a secure string by typing:
 
@@ -105,8 +105,7 @@ Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 
 ## Next steps
 
-In this quickstart you have created a Key Vault and stored a software key in it. To learn more about Key Vault and how you can use it with your applications continue to the tutorial for web applications working with Key Vault.
+In this quickstart, you have created a Key Vault and stored a software key in it. To learn more about Key Vault and how you can use it with your applications continue to the tutorial for web applications working with Key Vault.
 
 > [!div class="nextstepaction"]
 > [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md)
-> To learn how to read a secret from Key Vault using a web application using [managed service identity](/active-directory/managed-service-identity/overview.md), continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md)
