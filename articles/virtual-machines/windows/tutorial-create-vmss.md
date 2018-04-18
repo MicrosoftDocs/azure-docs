@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a Virtual Machine Scale Sets for Windows in Azure | Microsoft Docs
 description: Create and deploy a highly available application on Windows VMs using a virtual machine scale set
 services: virtual-machine-scale-sets
@@ -31,7 +31,7 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 
 ## Scale Set overview
