@@ -25,9 +25,9 @@ This series of migration articles shows you how you can plan and build a migrati
 --- | --- | --- | ---
 [Scenario 1: Discovery and assessment](migrate-scenarios-assessment.md) | Discover and assess on-premises apps and data for migration to Azure | Data Migration Assistant, Azure Migrate service  | Available now
 **Scenario 2: Lift and shift migration** | Rehost internal apps on Azure. Optimize in Azure after migration. | Azure Site Recovery, Azure Database Migration Service, Azure SQL Managed Instance | Available now
-**Scenario 3: Refactor and migrate** | Refactor on-premises customer apps during migration to Azure. | Services TBD | Planned
-**Scenario 4: Rearchitect and migrate** | Rearchitect and migrate customer transactional websites during migration to Azure. | Services TBD | Planned
-**Scenario 5: Move infrastructure** | Move and migrate corporate infrastructure and data to Azure | Services TBD | Planned
+**Scenario 3: Refactor and migrate** | Modernize and refactor on-premises customer apps during migration to Azure. | In planning | Planned
+**Scenario 4: Rearchitect and migrate** | Rearchitect and migrate customer transactional websites during migration to Azure. | In planning | Planned
+**Scenario 5: Rebuild** |Rebuild and migrate customer app and data to Azure | In planning | Planned
 
 
 

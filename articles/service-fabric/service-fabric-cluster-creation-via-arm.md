@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an Azure Service Fabric cluster from a template | Microsoft Docs
 description: This article describes how to set up a secure Service Fabric cluster in Azure by using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
 services: service-fabric
@@ -96,7 +96,7 @@ Use the following command to create cluster, if you have want the system to gene
 
 ```Powershell
 
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
 
 ```
