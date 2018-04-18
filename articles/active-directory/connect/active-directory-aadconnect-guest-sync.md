@@ -1,5 +1,5 @@
 ---
-title:Synchronizing guest users with alternate login id | Microsoft Docs
+title: Synchronizing guest users with alternate login id | Microsoft Docs
 description: This article explains how to synchronize guest user accounts that use an alternate ID to sign in to applications.
 services: active-directory
 author: billmath
@@ -138,14 +138,14 @@ You can verify your federation settings with Azure using the Azure AD PowerShell
 ### Verify your federation settings
 Use the following procedure to verify your federation settings.
 1. Open Windows PowerShell and connect to Azure AD using the following:
-   ``` powershell
-    Connect-MSOLservice
-   ```
+``` powershell
+      Connect-MSOLservice
+```
 2.  Enter the global administrator credentials
 3.  Now enter the following:
   ``` powershell
-    Get-MSOLDomainFederationSettings
-   ```
+      Get-MSOLDomainFederationSettings
+  ```
 4.   Notice your federation information should be returned.  Note the **ActiveLogonUri** is the URL of our federation server.
 
   ![](media/active-directory-aadconnect-guest-sync/guest8.png)
@@ -154,7 +154,7 @@ Use the following procedure to verify your federation settings.
 This document uses AD FS as our identity provider (Idp).  If you are using a different Idp, these steps may very.
 
 1. Open Windows PowerShell and enter the following:
-   ``` powershell
+   ```powershell
     Get-ADFSClaimsProviderTrust
    ```
 2. You should see your AD FS information.  Note the **AlternateLoginID** and **LookupForests**.
@@ -165,7 +165,7 @@ This document uses AD FS as our identity provider (Idp).  If you are using a dif
 In order to verify that this is working properly, you need to sign in to a tenanted endpoint.  To test this, we deployed a website in Azure and are using the following url: contososampapp.azurewebsites.net
 
 ### Verify that you can sign in with the alternate ID
-1. Sign in to the tenanted endpoint.
+1. Sign in to the tenanted endpoint.</br>
 ![](media/active-directory-aadconnect-guest-sync/guest10.png)
 1. Enter your username and you will be re-directed to the federation sign in page.
 ![](media/active-directory-aadconnect-guest-sync/guest11.png)
