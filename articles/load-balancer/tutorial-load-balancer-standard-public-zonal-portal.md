@@ -186,7 +186,7 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
     - *myHealthProbe* - for the name of the health probe.
 4. Click **OK**.
     
-    ![Adding a load balancing rule](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
+    ![Adding a load balancing rule](./media/tutorial-load-balancer-standard-zonal-portal/load-balancing-rule.png)
 
 ## Test the load balancer
 1. Find the public IP address for the Load Balancer on the **Overview** screen. Click **All resources** and then click **myPublicIP**. 
