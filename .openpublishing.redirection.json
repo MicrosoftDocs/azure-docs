@@ -3366,11 +3366,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/azure-stack-powershell-configure-quickstart.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-powershell-install",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/azure-resource-manager/best-practices-resource-manager-security.md",
             "redirect_url": "/azure/best-practices-network-security",
             "redirect_document_id": false
