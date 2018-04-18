@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Storage migration FAQ | Microsoft Docs
 description: Answers to common questions about migrating Azure Storage
 services: storage
@@ -145,7 +145,7 @@ Follow these steps:
     following Azure PowerShell script:
 
     ```
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Select-AzureRmSubscription -SubscriptionId <ID>
 
