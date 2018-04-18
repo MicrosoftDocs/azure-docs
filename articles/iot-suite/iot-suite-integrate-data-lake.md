@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Stream Analytics to stream data from IoT Hub to a Data Lake Store | Microsoft Docs
-description: Learn how to configure Azure Data Lake Store and Azure Stream Analytics to stream data from IoT Hub.
+title: Integrate the Remote Monitoring solution with Azure Data Lake Store | Microsoft Docs
+description: Learn how to integrate the Remote Monitoring solution with Azure Data Lake Store using an Azure Stream Analytics job.
 +services: ''
 +suite: iot-suite
 +author: philmea
@@ -11,54 +11,34 @@ description: Learn how to configure Azure Data Lake Store and Azure Stream Analy
 +ms.service: iot-suite
 
 ---
-# Configure Azure Stream Analytics to stream data from IoT Hub to a Data Lake Store
+# Integrate the Remote Monitoring solution with Azure Data Lake Store
 
-Using an Azure Stream Analytics job, you can stream data from your IoT hub to a Data Lake store that can provide a single place for analytics over potentially trillions of files. Azure Data Lake Store is ideal for this application because it can store data from massive and diverse datasets as well as integrate with Azure Data Lake Analytics to provide on-demand analytics.
+You may have advanced analytics requirements beyond what is offered in the Remote Monitoring solution. Azure Data Lake Store is ideal for this application because it can store data from massive and diverse datasets as well as integrate with Azure Data Lake Analytics to provide on-demand analytics.
+
+In this how-to, you will use an Azure Stream Analytics job to stream data from the IoT hub in your Remote Monitoring solution to an Azure Data Lake Store.
 
 ## Prerequisites
 
-To complete this tutorial, [deploy the remote monitoring preconfigured solution] (/iot-suite/iot-suite-remote-monitoring-deploy).
+To complete this how-to, you will need the following:
 
-## Create Azure Data Lake Store
+* [Deploy the remote monitoring preconfigured solution](/iot-suite/iot-suite-remote-monitoring-deploy).
+  * The Remote Monitoring solution will deploy the IoT hub and Azure Stream Analytics job used in this article into your Azure subscription.
+* [Deploy an Azure Data Lake Store](/data-lake-store/data-lake-store-get-started-portal)
+  * Your Data Lake Store should be deployed to the same region as your Remote Monitoring solution.
+  * [Create a folder](/data-lake-store/data-lake-store-get-started-portal#createfolder) named "streaming" in your account.
 
-Create a new Azure Data Lake Store to hold your IoT data.
+## Create a consumer group in the IoT hub of your Remote Monitoring solution
 
-1. Click **Create a resource**, select **Data + Analytics** from the Marketplace and click **Data Lake Store**.
-
-![Create Datalake Store](media/iot-suite-integrate-data-lake/01_Create_Datalake_Store.png)
-
-1. Enter a store name and select the appropriate Subscription and Resource group.
-
-1. Select a Location in the same region as your remote monitoring solution. Here we are using East US 2.
-
-By default, the deployment will enable encryption on the store using keys managed by the Data Lake Store. You can learn more about encrpytion options by reading [Encryption of data in Azure Data Lake Store](/data-lake-store/data-lake-store-encryption).
-
-![Imported Script](media/iot-suite-integrate-data-lake/02_Create_Datalake_Store_Submit.png "Create Datalake Store")
-
-1. Click **Create**.
-
-## Create the File System for Streaming Data
-
-Create the /streaming folder to store data coming from your IoT Hub devices.
-
-1. Go to your new Data Lake Store.
-
-1. On the Overview page, click the **Data explorer** button.
-
-![Imported Script](media/iot-suite-integrate-data-lake/03_Datalake_Store_Date_Explore.png "Explore Data")
-
-1. In the Data explorer, click **New folder**, enter a folder name of **streaming** and click **OK**.
-
-![Imported Script](media/iot-suite-integrate-data-lake/05_Datalake_Store_Date_Explore_create_folder_workshop_streaming.png "Explore Data")
-
-## Create a consumer group in your IoT hub
-
-Create a dedicated consumer group in your IoT hub to be used by a Stream Analytics job for streaming data to your Data Lake Store.
+Create a dedicated consumer group in the IoT hub of your Remote Monitoring solution. This will be used by the Stream Analytics job for streaming data to your Data Lake Store.
 
 [!NOTE]
 Consumer groups are used by applications to pull data from Azure IoT Hub. You should create a new consumer group for every five output consumers. You can create up to 32 consumer groups.
 
+1. Sign in to the Azure portal.
+
 1. In the Azure portal, click the **Cloud Shell** button.
+
+![Portal Launch Icon](media/iot-suite-integrate-data-lake/portal-launch-icon.png)
 
 1. Execute the following command to create a new consumer group:
 
@@ -66,33 +46,19 @@ Consumer groups are used by applications to pull data from Azure IoT Hub. You sh
 az iot hub consumer-group create --hub-name contoso-rm30263 --name streamanalyticsjob --resource-group contoso-rm
 ```
 
-## Create Stream Analytics Job
+[!NOTE] Use the resource group and IoT hub names from your Remote Monitoring solution.
 
-Create an Azure Stream Analytics job to stream the data from your IoT hub to your Azure Data Lake store.
+## Configure the Stream Analytics job
 
-1. Click **Create a resource**, select Internet of Things from the Marketplace, and click **Stream Analytics job**.
-
-![Imported Script](media/iot-suite-integrate-data-lake/07_Create_Stream_Analytics_Job.png "Create Stream Analytics Job")
-
-1. Enter a job name and select the appropriate Subscription and Resource group.
-
-1. Select a Location in the same region as your Data Lake Store. Here we are using East US 2.
-
-1. Ensure to leave the Hosting environment as the default **Cloud**.
-
-1. Click **Create**.
-
-![Imported Script](media/iot-suite-integrate-data-lake/08_Create_Stream_Analytics_Job_submit.png "Create Stream Analytics Job")
-
-1. Go to the new **Stream Analytics job**.
+1. Go to the the **Stream Analytics job** in your Remote Monitoring solution resource group.
 
 1. On the Overview page, click **Inputs**.
 
-![Imported Script](media/iot-suite-integrate-data-lake/09_Add_Input.png "Add Input")
+![Add Input](media/iot-suite-integrate-data-lake/09_Add_Input.png)
 
 1. Click **Add stream input** and select **IoT Hub** from the drop-down.
 
-![Imported Script](media/iot-suite-integrate-data-lake/10_Add_IoTHub.png "Select Input")
+![Select Input](media/iot-suite-integrate-data-lake/10_Add_IoTHub.png)
 
 1. On the New input tab, enter an Input alias of **IoTHub**.
 
@@ -100,15 +66,15 @@ Create an Azure Stream Analytics job to stream the data from your IoT hub to you
 
 1. Click **Save**.
 
-![Imported Script](media/iot-suite-integrate-data-lake/11_Save_IoTHub.png "Save Input")
+![Save Input](media/iot-suite-integrate-data-lake/11_Save_IoTHub.png)
 
 1. On the Overview page, click **Outputs**.
 
-![Imported Script](media/iot-suite-integrate-data-lake/12_Add_Data_Lake_Store.png "Add Data Lake Store")
+![Add Data Lake Store](media/iot-suite-integrate-data-lake/12_Add_Data_Lake_Store.png)
 
 1. Click **Add** and select **Data Lake Store** from the drop-down.
 
-![Imported Script](media/iot-suite-integrate-data-lake/13_Add_Output.png "Add Output")
+![Add Output](media/iot-suite-integrate-data-lake/13_Add_Output.png)
 
 1. On the New output tab, enter an Output alias of **DataLakeStore**.
 
@@ -116,29 +82,28 @@ Create an Azure Stream Analytics job to stream the data from your IoT hub to you
 
 1. In the Date format field, enter **/streaming/{date}/{time}**. Leave the default Date format of YYYY/MM/DD and Time format of HH.
 
-![Imported Script](media/iot-suite-integrate-data-lake/14_Save_Output.png "Provide Folder Structure")
+![Provide Folder Structure](media/iot-suite-integrate-data-lake/14_Save_Output.png)
 
 1. Click **Authorize**.
 
 You will have to authorize with Data Lake Store to give the Stream analytics job write access to the file system.
 
-![Imported Script](media/iot-suite-integrate-data-lake/15_Save_Output_2.png "Authorize Stream Analytics to Data Lake Store")
+![Authorize Stream Analytics to Data Lake Store](media/iot-suite-integrate-data-lake/15_Save_Output_2.png)
 
 You will see a popup and once the popup closes Authorize button will be greyed out after authorization is complete.
 
 [!NOTE]
-If the popup errors, open a new browser window in Incognito Mode and try again.
-![Imported Script](media/iot-suite-integrate-data-lake/16_Save_Output_3.png "Authorized")
+If the you seen an error in the popup window, open a new browser window in Incognito Mode and try again.
 
 1. Click **Save**.
 
-## Edit Stream Analytics Query
+## Edit the Stream Analytics query
 
 Azure Stream Analytics uses a SQL-like query language to specify an input source that streams data, transform that data as desired, and output to a varity of storage or processing destinations.
 
 1. On the Overview tab, click **Edit query**.
 
-![Imported Script](media/iot-suite-integrate-data-lake/17_Edit_Query.png "Edit Query")
+![Edit Query](media/iot-suite-integrate-data-lake/17_Edit_Query.png)
 
 1. In the Query editor, replace the [YourOutputAlias] and [YourInputAlias] placeholders with the values you defined previously.
 
@@ -153,17 +118,17 @@ FROM
 
 1. Click **Save**.
 
-![Imported Script](media/iot-suite-integrate-data-lake/18_Save_Query.png "Save Query")
+![Save Query](media/iot-suite-integrate-data-lake/18_Save_Query.png)
 
 1. Click **Yes** to accept the changes.
 
-![Imported Script](media/iot-suite-integrate-data-lake/19_Save_Query_Yes.png "Accept Save")
+![Accept Save](media/iot-suite-integrate-data-lake/19_Save_Query_Yes.png)
 
-## Start Streaming Analytics Job
+## Start the Stream Analytics job
 
 1. On the Overview tab, click **Start**.
 
-![Imported Script](media/iot-suite-integrate-data-lake/20_Start_Stream_Analytics_Job.png "Start Job")
+![Start Job](media/iot-suite-integrate-data-lake/20_Start_Stream_Analytics_Job.png)
 
 1. On the Start job tab, click **Custom**.
 
@@ -171,15 +136,15 @@ FROM
 
 1. Click **Start**.
 
-![Imported Script](media/iot-suite-integrate-data-lake/21_Start_custom.png "Pick Custom Date")
+![Pick Custom Date](media/iot-suite-integrate-data-lake/21_Start_custom.png)
 
 Wait until job goes into running state, if you see errors it could be from your query, make sure to verify that the syntax is correct.
 
-![Imported Script](media/iot-suite-integrate-data-lake/22_running.png "Job running")
+![Job running](media/iot-suite-integrate-data-lake/22_running.png)
 
 The streaming job will begin to read data from your IoT Hub and store the data in your Data Lake Store. It may take a few minutes for the data to begin to appear in your Data Lake Store.
 
-## Explore Streaming Data
+## Explore the streaming data
 
 1. Go to your Data Lake Store.
 
@@ -187,8 +152,8 @@ The streaming job will begin to read data from your IoT Hub and store the data i
 
 1. In the Data explorer, drill down to the **/streaming** folder. You will see folders created with YYYY/MM/DD/HH format.
 
-![Imported Script](media/iot-suite-integrate-data-lake/23_datalake_store_explore_streaming_data.png "Explore Streaming Data")
+![Explore Streaming Data](media/iot-suite-integrate-data-lake/23_datalake_store_explore_streaming_data.png)
 
 You will see json files with one file per hour.
 
-![Imported Script](media/iot-suite-integrate-data-lake/24_datalake_file.png "Explore Streaming Data")
+![Explore Streaming Data](media/iot-suite-integrate-data-lake/24_datalake_file.png)
