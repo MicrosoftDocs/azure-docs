@@ -123,7 +123,7 @@
           href: azure-stack-manage-storage-accounts.md
         - name: Manage storage capacity
           href: azure-stack-manage-storage-shares.md
-        - name: Manage physical storage capacity for Azure Stack
+        - name: Manage physical memory capacity
           href: azure-stack-manage-storage-physical-memory-capacity.md
     - name: Replace hardware
       items:
