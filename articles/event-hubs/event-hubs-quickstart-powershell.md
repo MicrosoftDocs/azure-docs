@@ -14,24 +14,22 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2018
+ms.date: 04/18/2018
 ms.author: sethm
 
 ---
 
 # Process events using PowerShell and .NET Standard
 
-This quickstart shows you how to:
-* Create an event hub using PowerShell
-* Send to and receive from an event hub using the .NET Standard SDK. 
+Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create an event hub using Azure PowerShell, and then send to and receive from an event hub using the .NET Standard SDK.
 
 ## Prerequisites
 
 To complete this tutorial, make sure you have:
 
-1. An Azure subscription. If you don't have one, [create a free subscription](https://azure.microsoft.com/en-us/free/) before you begin.
-2. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
-3. [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
+- An Azure subscription. If you don't have one, [create a free subscription](https://azure.microsoft.com/en-us/free/) before you begin.
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+- [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

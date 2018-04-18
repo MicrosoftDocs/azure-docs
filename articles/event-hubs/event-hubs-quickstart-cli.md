@@ -14,20 +14,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2018
+ms.date: 04/18/2018
 ms.author: sethm
 
 ---
 
 # Process event streams using Azure CLI and .NET Standard
 
-In this quickstart, we'll show you how to (1) create an event hub using Azure CLI and (2) send to and receive from an event hub using our .NET Standard SDK.
+Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create an event hub using Azure CLI, and then send to and receive from an event hub using the .NET Standard SDK.
 
 ## Prerequisites
 
-To complete this tutorial, make sure you have:
-
-1. An Azure subscription. If you don't have one, [create a free subscription][] before you begin.
+To complete this tutorial, make sure you have an Azure subscription. If you don't have one, [create a free subscription][] before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
