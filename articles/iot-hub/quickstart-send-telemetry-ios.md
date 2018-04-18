@@ -18,7 +18,7 @@ ms.author: kgremban
 # As a developer, I need to build an end-to-end IoT solution that sends telemetry from a device to an IoT hub and reads that telemetry data from the hub using a back-end application.
 ---
 
-# Quickstart: Send telemetry from a device to an IoT hub (Swift)
+# Send telemetry from a device to an IoT hub (Swift)
 
 IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this article, you send telemetry from a simulated device application to IoT Hub. Then you can view the data from a back-end application. 
 
