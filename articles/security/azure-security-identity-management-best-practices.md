@@ -76,7 +76,7 @@ It is important to obtain feedback from these users and learn from their experie
 
 Organizations that want to avoid password change support calls but do enable users to reset their own passwords are more susceptible to a higher call volume to the service desk due to password issues. In organizations that have multiple tenants, it is imperative that you implement this type of capability and enable users to perform password reset within security boundaries that were established in the security policy.
 
-You can learn more about password reset by reading the article [Deploying Password Management and training users to use it](../active-directory/active-directory-passwords-best-practices.md).
+You can learn more about password reset by reading the article [Deploying Password Management and training users to use it](../active-directory/authentication/howto-sspr-deployment.md).
 
 ## Enforce multi-factor authentication (MFA) for users
 For organizations that need to be compliant with industry standards, such as [PCI DSS version 3.2](http://blog.pcisecuritystandards.org/preparing-for-pci-dss-32), multi-factor authentication is a must have capability for authenticate users. Beyond being compliant with industry standards, enforcing MFA to authenticate users can also help organizations to mitigate credential theft type of attack, such as [Pass-the-Hash (PtH)](http://aka.ms/PtHPaper).
@@ -87,7 +87,7 @@ For example: you enforce Azure MFA for your users and configure it to use a phon
 
 One alternative for organizations that want to keep the entire authentication control on-premises is to use [Azure Multi-Factor Authentication Server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), also called MFA on-premises. By using this method, you will still be able to enforce multi-factor authentication, while keeping the MFA server on-premises.
 
-For more information on Azure MFA, see the article [Getting started with Azure Multi-Factor Authentication in the cloud](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+For more information on Azure MFA, see the article [Getting started with Azure Multi-Factor Authentication in the cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## Use role-based access control (RBAC)
 Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. Azure Role-Based Access Control (RBAC) can be used to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
