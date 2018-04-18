@@ -124,7 +124,7 @@ While the job is running, open up the Azure portal and look at the Jenkins resou
 
 ![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci.png)
 
-As Jenkins runs more jobs then the configured number of Jenkins executors (default 2), multiple Azure Container Instances are created.
+As Jenkins runs more jobs than the configured number of Jenkins executors (default 2), multiple Azure Container Instances are created.
 
 ![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci-multi.png)
 
