@@ -3,7 +3,7 @@ title: App types for the Azure Active Directory v2.0 endpoint | Microsoft Docs
 description: The types of apps and scenarios supported by the Azure Active Directory v2.0 endpoint.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: hirsin
 manager: mtillman
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-ms.author: dastrock
+ms.date: 04/17/2018
+ms.author: hpsin
 ms.custom: aaddev
 
 ---
@@ -117,4 +117,4 @@ In this flow, the app interacts directly with the `/token` endpoint to obtain en
 
 ![Daemon app authentication flow](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-To build a daemon app, see the client credentials documentation in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section, or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+To build a daemon app, see the [client credentials documentation](active-directory-v2-protocols-oauth-client-creds.md), or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
