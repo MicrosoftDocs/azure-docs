@@ -1,0 +1,50 @@
+- name: Azure SignalR Service Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure SignalR Service
+    href: signalr-overview.md
+- name: Quickstarts
+  items:
+  - name: ASP.NET
+    href: signalr-quickstart-asp-dotnet.md
+- name: Tutorials
+  items:
+  - name: Authentication and Authorization with OAuth
+    href: signalr-authenticate-oauth.md  
+  - name: Integration with Azure Functions
+    href: signalr-integrate-functions.md
+- name: Samples
+- name: Concepts
+- name: How-to guides
+  items:
+  - name: Plan
+  - name: Automate
+  - name: Manage
+  - name: Monitor and troubleshoot
+  - name: Scale
+- name: Reference
+  items:
+  - name: Code samples
+    href: https://github.com/aspnet/signalr-samples
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.signalr
+  - name: Azure CLI Preview
+    href: /cli/azure/signalr
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.signalr
+  - name: Java
+    href: /java/api/com.microsoft.azure.management.signalr
+- name: Resources
+  items:
+  - name: SignalR Roadmap
+    href: https://github.com/aspnet/Home/wiki/Roadmap
+  - name: Pricing
+    href: https://azure.microsoft.com
+  - name: Azure SignalR Service FAQ
+  - name: Videos
+    href: https://www.youtube.com/results?search_query=Azure+SignalR
+  - name: ASP.NET Forums
+    href: https://forums.asp.net/search?q=title%3A%28SignalR%29+OR+body%3A%28SignalR%29+AND+forumid%3A%281255%29
+  - name: Twitter
+    href: https://twitter.com/SignalR
