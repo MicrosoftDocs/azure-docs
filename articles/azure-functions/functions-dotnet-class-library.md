@@ -58,13 +58,15 @@ public static class SimpleExample
 } 
 ```
 
-The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project.
+The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project. The method name can be any valid C# method name (it doesn't have to be `Run`).
 
 The trigger attribute specifies the trigger type and binds input data to a method parameter. The example function is triggered by a queue message, and the queue message is passed to the method in the `myQueueItem` parameter.
 
+The method signature may contain other parameters in addition to one decorated by a trigger attribute. For example, you can include an `ILogger` or `TraceWriter` parameter for logging, or a `CancellationToken` parameter for graceful shutdown. Parameters for input and output bindings can be added and marked as such by decorating them with attributes. This article and the [triggers and bindings article](functions-triggers-bindings.md) tell you which parameters you can add that aren't specific to a given binding type, and the binding ref docs ([Storage queues](functions-binding-storage-queue.md), for example) explain the binding-specific ones.
+
 ### Additional binding attributes
 
-Additional input and output binding attributes may be used. The following example modifies the preceding one by adding an output queue binding. The function writes the input queue message to a new queue message in a different queue.
+The following example modifies the preceding one by adding an output queue binding. The function writes the input queue message to a new queue message in a different queue.
 
 ```csharp
 public static class SimpleExampleWithOutput
