@@ -14,13 +14,13 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2018
+ms.date: 04/19/2018
 ms.author: chwolf;sethm
 
 ---
 # Send and receive using Azure PowerShell and .NET
 
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the workflow sends to and receives messages from a Service Bus queue.
+Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the client app sends to and receives messages from a Service Bus queue.
 
 ![queue](./media/service-bus-quickstart-powershell/quick-start-queue.png)
 
@@ -32,8 +32,8 @@ If you do not have an Azure subscription, create a [free account][] before you b
 
 To complete this tutorial, make sure you have installed:
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
-2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+- [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 This quickstart requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
 
