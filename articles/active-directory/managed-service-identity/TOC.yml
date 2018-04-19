@@ -91,6 +91,7 @@
         - name: PowerShell
           href: how-to-manage-ua-identity-powershell.md
         - name: Azure Resource Manager Template
+          href: how-to-manage-ua-identity-arm.md
     - name: Reference
       items:
       - name: CLI

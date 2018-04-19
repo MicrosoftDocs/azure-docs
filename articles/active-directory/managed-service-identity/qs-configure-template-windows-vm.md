@@ -153,7 +153,7 @@ In this section, you will create a user identity and Azure VM using an Azure Res
         }
     }
     ```
-5. Then, add the following entry to assign your user assigned identity your VM:
+5. Then, add the following entry to assign your user assigned identity to your VM:
 
     ```json
     {
@@ -168,15 +168,12 @@ In this section, you will create a user identity and Azure VM using an Azure Res
             ]
         },
     ```
-6.  When you are done, you template should look similar to the following:
+6.  When you are done, your template should look similar to the following:
     > [!NOTE]
     > The template does not list all of the necessary variables to create your VM.  `//other configuration variables...` is used in the place of all the necessary configuration variables for the sake of brevity.
 
       ![Screenshot of user assigned identity](../media/msi-qs-configure-template-windows-vm/template-user-assigned-identity.png)
 
-### Remove a system assigned identity from an Azure VM
-
-It is not possible to remove a user assigned identity using an Azure Resource Manager template.  To delete a user assigned identity see, [Delete a user assigned identity](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-msi).
 
 ## Related content
 
