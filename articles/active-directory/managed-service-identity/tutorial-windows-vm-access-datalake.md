@@ -99,7 +99,7 @@ In this tutorial, you authenticate to the Data Lake Store filesystem REST API us
 4. Using PowerShell’s `Invoke-WebRequest`, make a request to the local MSI endpoint to get an access token for Azure Data Lake Store.  The resource identifier for Data Lake Store is "https://datalake.azure.net/".  Data Lake does an exact match on the resource identifier and the trailing slash is important.
 
    ```powershell
-   $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -Method GET -Headers @{Metadata="true"}
+   $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
    ```
     
    Convert the response from a JSON object to a PowerShell object. 

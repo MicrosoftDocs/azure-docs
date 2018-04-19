@@ -4,13 +4,11 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 documentationcenter: ''
 author: Jann-Skotdal
-
 ms.service: cognitive-services
-ms.technology: translator-text
+ms.component: translator-text
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: v-jansko
-
 ---
 # Quickstart for Microsoft Translator Text API with C# 
 

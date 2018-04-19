@@ -3,7 +3,7 @@ title: How to use Azure Search from a .NET Application | Microsoft Docs
 description: How to use Azure Search from a .NET Application
 author: brjohnstmsft
 manager: jlembicz
-
+services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
