@@ -34,10 +34,6 @@ Once network rules are applied, they are enforced for all requests.  SAS tokens 
 
 Virtual Machine Disk traffic (including mount and unmount operations, and disk IO) is **not** affected by network rules.  REST access to page blobs is protected by network rules.
 
-> [!NOTE]
-> Backup and Restore of Virtual Machines using unmanaged disks in storage accounts with network rules applied is not currently supported.  For more information, see [Limitations when backing up and restoring a VM](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
->
-
 Classic Storage accounts **do not** support Firewalls and Virtual Networks.
 
 ## Change the default network access rule
@@ -288,7 +284,7 @@ When the "Trusted Microsoft Services" exception is enabled, the following servic
 
 |Service|Resource Provider Name|Purpose|
 |:------|:---------------------|:------|
-|Azure Backup|Microsoft.Networking|Perform and continue with scheduled and ad-hoc IaaS VM backups and restores.  [Learn more](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
+|Azure Backup|Microsoft.Backup|Perform and continue with scheduled and ad-hoc IaaS VM backups and restores.  [Learn more](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Custom image creation and artifact installation.  [Learn more](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Enable Blob Storage event publishing.  [Learn more](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Archive data with Event Hubs Capture.  [Learn More](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
