@@ -7139,8 +7139,7 @@
             "source_path": "articles/sql-database/sql-database-export-portal.md",
             "redirect_url": "/azure/sql-database/sql-database-export",
             "redirect_document_id": false
-        },
-        {
+        },       {
             "source_path": "articles/sql-database/sql-database-export-powershell.md",
             "redirect_url": "/azure/sql-database/sql-database-export",
             "redirect_document_id": false
@@ -7166,7 +7165,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-sql-database-managed-instance-tutorial-portal.md",
+            "source_path": "articles/sql-database/sql-database-managed-instance-tutorial-portal.md",
             "redirect_url": "/azure/sql-database/sql-database-managed-instance-create-tutorial-portal",
             "redirect_document_id": false
         },
@@ -18782,6 +18781,61 @@
         {
             "source_path": "articles/active-directory/active-directory-passwords-writeback.md",
             "redirect_url": "/azure/active-directory/authentication/howto-sspr-writeback",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-manage-reports.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfa-reporting",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-sdk.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfa-sdk",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-adfs-adfs2.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-adfs-2",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-deploy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/mfa-server-high-availability.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-deploy-ha",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server-webservice.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-deploy-mobileapp",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-server-upgrade.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-deploy-upgrade",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server-upgrade.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-deploy-upgrade-pf",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-portal.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-deploy-userportal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server-dirint.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-dir-ad",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server-ldap.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-dir-ldap",
             "redirect_document_id": true
         },
         {
