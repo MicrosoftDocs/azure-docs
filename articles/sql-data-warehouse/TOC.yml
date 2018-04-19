@@ -143,6 +143,20 @@
     href: sql-data-warehouse-troubleshoot.md
 - name: How-to guides
   items:
+  - name: Connect & query
+    items:
+    - name: Overview
+      href: sql-data-warehouse-connect-overview.md
+    - name: Connection strings
+      href: sql-data-warehouse-connection-strings.md
+    - name: sqlcmd
+      href: sql-data-warehouse-get-started-connect-sqlcmd.md
+    - name: Query with SSMS
+      href: sql-data-warehouse-query-ssms.md
+    - name: Query with Visual Studio
+      href: sql-data-warehouse-query-visual-studio.md
+    - name: Install Visual studio
+      href: sql-data-warehouse-install-visual-studio.md
   - name: Upgrade
     href: upgrade-to-latest-generation.md
   - name: Restore
