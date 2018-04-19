@@ -170,54 +170,33 @@ public static string SayHello([ActivityTrigger] string name)
 
 It is not possible to pass multiple parameters to an activity function directly. The recommendation in this case is to pass in an array of objects or to use [ValueTuples](https://blogs.msdn.microsoft.com/mazhou/2017/05/26/c-7-series-part-1-value-tuples/) objects.
 
-Below you can find sample using array:
+The following sample is using [ValueTuples](https://blogs.msdn.microsoft.com/mazhou/2017/05/26/c-7-series-part-1-value-tuples/):
 
 ```csharp
-[FunctionName("GetCountriesOrchestrator")]
-public static async Task<Example> RunOrchestrator(
+[FunctionName("GetCourseRecommendations")]
+public static async Task<List<string>> RunOrchestrator(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    ExampleContract incoming = context.GetInput<ExampleContract>();
-    Example example = new Example();
+    string major = "ComputerScience";
+    int universityYear =  context.GetInput<int>();
 
-    var inputArray = new[] { incoming, example };
-    example = await context.CallActivityAsync<Example>("Mapper", inputArray);
-    return example;
+    List<string> courseRecommendations = await context.CallActivityAsync<List<string>>("CourseRecommendation", (major, universityYear));
+    return courseRecommendations;
 }
 
-[FunctionName("Mapper")]
-public static async Task<Example> Mapper([ActivityTrigger] Example[] inputs)
+[FunctionName("CourseRecommendation")]
+public static async Task<List<string>> Mapper([ActivityTrigger] DurableActivityContext inputs)
 {
-    return new Example 
+    // parse input for student's major and year in university 
+    (string, int) studentInfo = inputs.GetInput<(string, int)>();
+
+    // retrieve and return course recommendations by major and university year
+    return new List<string>
     {
-        Name = inputs[1].Name ?? "empty",
-        Address = inputs[1].Address ?? "empty",
+        "Introduction to .NET Programming",
+        "Introduction to Linux",
+        "Becoming an Entrepreneur"
     };
-}
-```
-
-And the following sample is using [ValueTuples](https://blogs.msdn.microsoft.com/mazhou/2017/05/26/c-7-series-part-1-value-tuples/):
-
-```csharp
-[FunctionName("GetCountriesOrchestrator")]
-public static async Task<Example> RunOrchestrator(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
-{
-    ExampleContract incoming = context.GetInput<ExampleContract>();
-    Example example = new Example();
-
-    example = await context.CallActivityAsync<Example>("Mapper", (incoming, example));
-    return example;
-}
-
-[FunctionName("Mapper")]
-public static async Task<Example> Mapper([ActivityTrigger] DurableActivityContext inputs)
-{
-    var (example, exampleContract) = inputs.GetInput<(ExampleContract, ExampleContract)>();
-    example.Name = exampleContract.Name ?? "empty";
-    example.Address = exampleContract.Address ?? "empty";
-
-    return example;
 }
 ```
 
