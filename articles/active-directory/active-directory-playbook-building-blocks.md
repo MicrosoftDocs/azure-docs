@@ -378,8 +378,8 @@ Approximate time to Complete: 15 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | Enable self-service password management in your tenant. | [Azure Active Directory password reset for IT administrators](active-directory-passwords-update-your-own-password.md) |
-| Enable password write-back to manage passwords from on-premises. Note this requires specific Azure AD Connect versions | [Password Writeback prerequisites](active-directory-passwords-writeback.md) |
-| Identify the PoC users that will use this functionality, and make sure they are members of a security group. The users must be non-admins to fully showcase the capability | [Customize: Azure AD Password Management: Restrict Access to password reset](active-directory-passwords-writeback.md) |
+| Enable password write-back to manage passwords from on-premises. Note this requires specific Azure AD Connect versions | [Password Writeback prerequisites](authentication/howto-sspr-writeback.md) |
+| Identify the PoC users that will use this functionality, and make sure they are members of a security group. The users must be non-admins to fully showcase the capability | [Customize: Azure AD Password Management: Restrict Access to password reset](authentication/howto-sspr-writeback.md) |
 
 
 ### Steps
