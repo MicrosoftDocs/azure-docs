@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Container Service Health | Microsoft Docs
+title: Monitor Azure Monitor Container Health | Microsoft Docs
 description: This article describes how you can easily review the performance of your AKS container to quickly understand the utilization of your hosted Kubernetes environment.
 services: log-analytics
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 04/19/2018
 ms.author: magoedte
 ---
 
 # Monitor Azure Container Service (AKS) health and performance
 
-This article describes how to set up and use Container Health to monitor the performance of your workloads deployed to Kubernetes environments hosted on AKS (Azure Container Service).  Monitoring your Kubernetes cluster and containers is critical, especially when running a production cluster, at scale, with multiple applications.
+This article describes how to set up and use Azure Monitor Container Health to monitor the performance of your workloads deployed to Kubernetes environments hosted on AKS (Azure Container Service).  Monitoring your Kubernetes cluster and containers is critical, especially when running a production cluster, at scale, with multiple applications.
 
 Container Health gives you performance monitoring ability by collecting memory and processor metrics from controllers, nodes, and containers available in Kubernetes through the Metrics API.  After enabling Container Health, these metrics are automatically collected for you using a containerized version of the OMS Agent for Linux and stored in your [Log Analytics](../log-analytics/log-analytics-overview.md) workspace.  The pre-defined views included show the residing container workloads and what is affecting the performance health of the Kubernetes cluster so you can understand:  
 
@@ -39,7 +39,7 @@ Before starting, review the following details to understand the supported prereq
 
 ## Components 
 
-This capability depends on the OMS Agent for Linux to collect performance and event data from all nodes in the cluster.  The agent is automatically deployed and registered with the specified Log Analytics workspace after you enable monitoring container performance. 
+This capability relies on the OMS Agent for Linux to collect performance and event data from all nodes in the cluster.  The agent is automatically deployed and registered with the specified Log Analytics workspace after you enable container performance monitoring. 
 
 >[!NOTE] 
 >If you have already deployed an AKS cluster, you cannot enable monitoring afterwards with this feature.  It must be enabled during deployment of the cluster and it can only be performed through the portal, not from an Azure Resource Manager template, PowerShell, or CLI.
@@ -80,7 +80,7 @@ The following table describes the information presented when you view Nodes.
 | Name | The name of the host |
 | Status | Kubernetes view of the node status |
 | AVG% | Average node percentage based on selected metric for the selected time duration |
-| AVERAGE | Average node actual metric based on selected metric for the selected time duration |
+| AVERAGE | Average nodes actual value based on selected metric for the selected time duration.  The Average value is measured from the CPU/Memory limit set for a pod. |
 | Containers | Number of containers |
 | Uptime | Represents the time since a node started or was rebooted |
 | Pod | Not applicable|
@@ -99,8 +99,8 @@ The following table describes the information presented when you view Controller
 |--------|-------------|
 | Name | The name of the controller|
 | Status | Roll up status of the containers, if any. |
-| AVG% | Roll up average % of all container performance |
-| AVERAGE | Roll up of the average millicore performance of the container |
+| AVG% | Roll up average of the average % of each entity for the selected metric |
+| AVERAGE | Roll up of the average CPU millicore or memory performance of the container.  The Average value is measured from the CPU/Memory limit set for a pod. |
 | Containers | Total number of containers for the controller|
 | Restarts | Roll up of the restart count from containers |
 | Uptime | Represents the time since a controller was started or rebooted |
@@ -118,8 +118,8 @@ The following table describes the information presented when you view Containers
 |--------|-------------|
 | Name | The name of the controller|
 | Status | Roll up status of the containers, if any. |
-| AVG% | Roll up average % of all container performance |
-| AVERAGE | Roll up of the average millicore performance of the container |
+| AVG% | Roll up average of the average % of each entity for the selected metric |
+| AVERAGE | Roll up of the average CPU millicore or memory performance of the container. The Average value is measured from the CPU/Memory limit set for a pod. |
 | Containers | Total number of containers for the controller|
 | Restarts | Roll up of the restart count from containers |
 | Uptime | Represents the time since a container was started or rebooted |
@@ -129,8 +129,11 @@ The following table describes the information presented when you view Containers
 
 
 ## Search logs to analyze data
-When you're interested in looking for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally, Log Analytics can help.  Pre-defined queries are provided to immediately start using or to customize in order to return the information the way you want. 
+When you're interested in looking for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally, Log Analytics can help.  Pre-defined log searches are provided to immediately start using or to customize in order to return the information the way you want. 
 
-## Troubleshooting
+You can perform interactive analysis of data in the repository by selecting the **View Log** option, available on the far right when you expand a node, controller, or container and the **Log Search** page appears right above the page you were on in the portal, so you are never redirected directly to Log Analytics.<br><br> ![Analyze data in Log Analytics](./media/monitoring-container-performance/container-performance-and-health-view-logs-01.png)   
+
 
 ## Next steps
+
+[Search logs](../log-analytics/log-analytics-log-search.md) to view detailed container health and application performance information.  
