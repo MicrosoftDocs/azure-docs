@@ -23,6 +23,16 @@ Jenkins is a popular tool for continuous integration and deployment of your apps
 ## General prerequisites
 - Make sure Git is installed locally. You can install the appropriate Git version from [the Git downloads page](https://git-scm.com/downloads), based on your operating system. If you are new to Git, learn more about it from the [Git documentation](https://git-scm.com/docs).
 
+## Requirements to install Service Fabric plug-in in an existing Jenkins environment
+If you are adding the Service Fabric plug-in to an existing Jenkins environment, you need the following:
+
+- The [Service Fabric CLI](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli) (sfctl).
+   > [!NOTE]
+   > Be sure to install the CLI at the system level rather than at the user level, so Jenkins can run CLI commands. 
+- To develop Java applications, install both [Gradle and Open JDK 8.0](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development). 
+- To develop .NetCore 2.0 applications, install the [.NET Core 2.0 SDK](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-net-core-20-development). 
+
+
 ## Set up Jenkins inside a Service Fabric cluster
 
 You can set up Jenkins either inside or outside a Service Fabric cluster. The following sections show how to set it up inside a cluster while using an Azure storage account to save the state of the container instance.
@@ -237,6 +247,9 @@ If you choose to use Azure credentials, be sure to follow the instructions in th
 
 10. To configure Jenkins to deploy the application post-build using the cluster management endpoint, follow these steps:
 
+    > [!NOTE]
+    > Using the cluster management endpoint to deploy your application is suitable for development and test environments. If you are deploying to a production environment, skip ahead to the next step (11) to configure an Azure Active Directory service principal as the Azure Credential to use during deployment.    
+    
    1. Click the **Post-build Actions** tab. 
    2. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. 
    3. Under **Service Fabric Cluster Configuration**, select the **Fill the Service Fabric Management Endpoint** radio button.
@@ -247,8 +260,12 @@ If you choose to use Azure credentials, be sure to follow the instructions in th
         ![Service Fabric Jenkins Post-Build action configure management endpoint](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-endpoint.png)
 
    7. Click **Verify Configuration**. On successful verification, click **Save**.
+   8. Skip ahead to [Next steps](#next-steps) to test your deployment.
 
-11. To configure Jenkins to deploy the application post-build using an Azure service principal, follow these steps: 
+11. To configure Jenkins to deploy the application post-build using an Azure Active Directory service principal, follow these steps: 
+    > [!NOTE]
+    > Configuring an Azure credential is strongly recommended for production environments. These steps show you how to configure an Azure Active Directory  service principal as your Azure credential. You can assign service principals to roles to limit the permissions of the Jenkins job in your directory. For development and test, you can use configure Azure credentials or the cluster management endpoint to deploy your application. For details about how to configure a cluster management endpoint, see the previous step (10).   
+
 
    1. Click the **Post-build Actions** tab.
    2. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. 
