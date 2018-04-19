@@ -78,11 +78,11 @@ A LUIS app operates successfully until the endpoint quota runs out. If you are c
 
 ## Actions to plan into a cyclical maintenance schedule
 
-* Review endpoint utterances to improve LUIS predictions.
+* [Review endpoint utterances](label-suggested-utterances.md) to improve LUIS predictions.
 * Verify that the number of utterances in the **None** intent is about 10% of all the other utterances in the app.
-* Review endpoint quota usage.
-* Back up application by cloning the app.
-* Review collaborators in case someone has left the company or no longer needs access to modeling the app. 
+* Review [endpoint quota usage](viewing-summary-usage).
+* Back up application by [cloning](luis-how-to-manage-versions.md#clone-a-version) the app.
+* Review [collaborators](luis-how-to-collaborate.md) in case someone has left the company or no longer needs access to modeling the app. 
 
 ## Next steps
 
