@@ -6,7 +6,7 @@ author: KellyDF
 manager: corncar 
 
 ms.service: cognitive-services 
-ms.technology: computer-vision 
+ms.component: computer-vision 
 ms.topic: article
 ms.date: 06/15/2017 
 ms.author: kefre 
