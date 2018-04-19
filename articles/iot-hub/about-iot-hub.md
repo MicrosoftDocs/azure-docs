@@ -5,7 +5,7 @@ services: iot-hub
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 04/15/2018
+ms.date: 04/19/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 # What is Azure IoT Hub?
 
-IoT Hub is a central message hub for bi-directional communication between your IoT application and the devices it manages. You can use Azure IoT Hub to build IoT solutions with reliable and secure communications between millions of IoT devices and a cloud-hosted solution backend. You can connect virtually any device to IoT Hub, which is a managed service hosted in the cloud.
+IoT Hub is a managed service, hosted in the cloud, that acts as a central message hub for bi-directional communication between your IoT application and the devices it manages. You can use Azure IoT Hub to build IoT solutions with reliable and secure communications between millions of IoT devices and a cloud-hosted solution backend. You can connect virtually any device to IoT Hub.
 
 IoT Hub supports communications both from the device to the cloud and from the cloud to the device. IoT Hub supports multiple messaging patterns such as device-to-cloud telemetry, file upload from devices, and request-reply methods to control your devices from the cloud. IoT Hub monitoring helps you maintain the health of your solution by tracking events such as device creation, device failures, and device connections.
 
@@ -31,7 +31,7 @@ IoT Hub's capabilities help you build scalable, full-featured IoT solutions such
 
 IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads. IoT Hub offers several tiers of service to best fit your scalability needs. [Learn more](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-## Secure communications between your devices and the cloud
+## Secure your communications
 
 IoT Hub gives you a secure communication channel for your devices to send data.
 
@@ -43,9 +43,9 @@ IoT Hub gives you a secure communication channel for your devices to send data.
   * Individual X.509 certificate authentication for secure, standards-based authentication.
   * X.509 CA authentication for simple, standards-based enrollment.
 
-## Route device data where it needs to go
+## Route device data
 
-Built-in message routing functionality gives you flexibility to setup automatic rules-based message fan-out.
+Built-in message routing functionality gives you flexibility to setup automatic rules-based message fan-out:
 
 * Use message routing to control where your hub sends device telemetry.
 * There is no additional cost to route messages to multiple endpoints.
