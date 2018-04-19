@@ -33,13 +33,28 @@ SignalR Core has broader platform reach than SignalR since .NET Core can be empl
 
 ## Why use it over deploying an Azure web app with SignalR Core
 
+I think we should add some comments to help customers understand how the Azure SignalR Service offering compares to these other alternatives. However, I'm not sure of the key factors are that are favorable to Azure SignalR Service, except maybe simplicity.
 
+ * What key reasons would compel customers to use the Azure SignalR Service instead of building SignalR into their backend as an App Service?  
+ * Could the 99% SLA for Azure SignalR Service offer more coverage and potentially less down time compared to building SignalR into a backend myself?
 
 ## How does it scale?
 
+When talking about scaling looks like there are actually quite a few comparative approaches if they decide to build SignalR into their backend:
 
+* [SignalR Scaleout with SQL Server](https://docs.microsoft.com/aspnet/signalr/overview/performance/scaleout-with-sql-server)
+* [SignalR Scaleout with Azure Service Bus](https://docs.microsoft.com/aspnet/signalr/overview/performance/scaleout-with-windows-azure-service-bus)
+* [SignalR Scaleout with Redis Cache](https://docs.microsoft.com/aspnet/signalr/overview/performance/scaleout-with-redis)
 
+I would expect Redis Cache might have a performance advantage over these other two.  
 
+* Do we know how Azure SignalR Server performance compares to these approaches? I think it is obviously a more simple approach.  
+
+* Will it be cheaper or at least similar priced at the same scale?
+
+If I understand correctly, with DS2 Basic tier, I can scale to 128 instances with 1000 connection per instance for a total of 128,000 connections. I'm not sure how common it would be for customers to require this many connections or possibly more.  
+
+* Is this a temporary limitation which will change after we make more tiers available? I guess if the answer is yes, then we would probably offer comparative scaling extents to these other approaches. Should we comment on any of this at this time?
 
 ## Next steps
 * [Quickstart: Create a chat room with Azure SignalR](signalr-quickstart-asp-dotnet-core.md)  
