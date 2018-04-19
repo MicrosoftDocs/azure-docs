@@ -84,6 +84,8 @@
     items: 
     - name: Classify Iris using CLI
       href: ../desktop-workbench/tutorial-iris-azure-cli.md
+    - name: Train computer vision models
+      href: ../how-to-train-image-classification-models.md    
     - name: Track run history and model metrics
       href: ../desktop-workbench/how-to-use-run-history-model-metrics.md    
     - name: Find run with the best accuracy
@@ -142,6 +144,8 @@
       href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
 - name: Reference
   items:  
+  - name: Python packages
+    href: reference-python-package-overview.md
   - name: Data preparation
     items:
     - name: Python extensions for data preparation
