@@ -1,4 +1,4 @@
----
+﻿---
 title: Graphical Authoring in Azure Automation
 description: Graphical authoring allows you to create runbooks for Azure Automation without working with code. This article provides an introduction to graphical authoring and all the details needed to start creating a graphical runbook.
 services: automation
@@ -267,11 +267,11 @@ You can set [checkpoints](automation-powershell-workflow.md#checkpoints) in a Gr
 
 ![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
-Checkpoints are only enabled in Graphical PowerShell Workflow runbooks, it is not available in Graphical runbooks. If the runbook uses Azure cmdlets, you should follow any checkpointed activity with an Add-AzureRMAccount in case the runbook is suspended and restarts from this checkpoint on a different worker.
+Checkpoints are only enabled in Graphical PowerShell Workflow runbooks, it is not available in Graphical runbooks. If the runbook uses Azure cmdlets, you should follow any checkpointed activity with an Connect-AzureRmAccount in case the runbook is suspended and restarts from this checkpoint on a different worker.
 
 ## Authenticating to Azure resources
 
-Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](automation-create-runas-account.md) (also referred to as a service principal) is the default method to access Azure Resource Manager resources in your subscription with Automation runbooks. You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** Connection asset, which is using the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, and [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet to the canvas. This is illustrated in the following example:
+Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](automation-offering-get-started.md#creating-an-automation-account) (also referred to as a service principal) is the default method to access Azure Resource Manager resources in your subscription with Automation runbooks. You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** Connection asset, which is using the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, and [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet to the canvas. This is illustrated in the following example:
 
 ![Run As Authentication Activities](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
@@ -279,9 +279,9 @@ The Get Run As Connection activity (that is, Get-AutomationConnection), is confi
 
 ![Run As Connection Configuration](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)
 
-The next activity, Add-AzureRmAccount, adds the authenticated Run As account for use in the runbook.
+The next activity, Connect-AzureRmAccount, adds the authenticated Run As account for use in the runbook.
 
-![Add-AzureRmAccount Parameter Set](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
+![Connect-AzureRmAccount Parameter Set](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
 
 For the parameters **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID** you need to specify the name of the property for the Field path because the activity outputs an object with multiple properties. Otherwise when you execute the runbook, it fails attempting to authenticate. This is what you need at a minimum to authenticate your runbook with the Run As account.
 
@@ -322,15 +322,16 @@ Each input parameter is defined by the properties in the following table:
 
 ### Runbook output
 
-Data created by any activity that does not have an outgoing link is to the [output of the runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx). The output is saved with the runbook job and is available to a parent runbook when the runbook is used as a child.
+Data created by any activity that does not have an outgoing link is saved to the [output of the runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx). The output is saved with the runbook job and is available to a parent runbook when the runbook is used as a child.
 
 ## PowerShell expressions
 
 One of the advantages of graphical authoring is providing you with the ability to build a runbook with minimal knowledge of PowerShell. Currently, you do need to know a bit of PowerShell though for populating certain [parameter values](#activities) and for setting [link conditions](#links-and-workflow). This section provides a quick introduction to PowerShell expressions for those users who may not be familiar with it. Full details of PowerShell are available at [Scripting with Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx).
 
 ### PowerShell expression data source
-
 You can use a PowerShell expression as a data source to populate the value of an [activity parameter](#activities) with the results of some PowerShell code. This could be a single line of code that performs some simple function or multiple lines that perform some complex logic. Any output from a command that is not assigned to a variable is output to the parameter value.
+
+For example, the following command would output the current date.
 
 For example, the following command would output the current date.
 
