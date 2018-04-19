@@ -119,7 +119,7 @@ You can also define relationships between entities by creating composite entitie
 > Try the composite [tutorial](luis-tutorial-composite-entity.md) to learn more.
 
 ## Add Pattern.any entities
-[Pattern.any](luis-concept-entity-types.md) entities are only valid on patterns and must use the curly brace [syntax](luis-how-to-model-intent-pattern.md#entity-syntax-in-patterns) to mark the entities. 
+[Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md). This entity helps LUIS find entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance.
 
 1. Open the TravelAgent app by selecting its name on **My Apps** page and select **Entities** in the app's left panel.
 
