@@ -69,7 +69,7 @@ Using Azure Lab Services, you can quickly set up a lab for your development, tes
 ### Simplified experience for lab users
 A lab owner can add users to a lab and provide them access to lab’s set of resources. Lab users can view a single list of all the resources that they can access across labs. A lab owner can give permissions for lab users to manage and reuse data disks, and set up reusable secrets. Lab users can integrate labs into their website or learning management systems. 
 
-## Cost optimization and analysis
+### Cost optimization and analysis
 For custom labs, a lab owner can set lab schedules to automatically shut down and start up virtual machines. The lab owner can set a schedule to specify the time slots when the lab’s virtual machines are accessible to users, set usage policies per user or per lab to optimize cost, and analyze usage and activity trends in your lab. For managed labs such as classroom labs, currently some cost optimization and analysis options are available. 
 
 ### Embedded security
