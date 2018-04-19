@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/07/2017
 ms.author: v-geberr
 ---
 
@@ -19,7 +19,8 @@ Language Understanding (LUIS) allows your application to understand what a perso
 Several Microsoft technologies work with LUIS:
 
 * [Bot Framework][bot-framework] allows a chat bot to talk with a user via text input.
-* [Bing Speech API][speech] converts spoken language requests into text. Once converted to text, LUIS processes the requests.
+* [Speech][speech] converts spoken language requests into text. Once converted to text, LUIS processes the requests.
+* [Text Analytics][text-analytics] provides sentiment analysis and key phrase data extraction. 
 
 ## What is a LUIS app?
 
@@ -69,14 +70,21 @@ For example, a "BookFlight" intent could trigger an API call to an external serv
 
 * **Prebuilt Entities** LUIS has many prebuilt domain models including intents, utterances, and [prebuilt entities][prebuilt-entities]. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. The prebuilt entities save you time.
 
-* **Custom Entities** LUIS gives you several ways to identify your own custom [entities][entity-concept] including simple entities, composite entities, list entities, regular expression entities, and hierarchical entities.
-
-* **Phrases** LUIS provides [phrase lists](luis-concept-feature.md), which also help identify entities. 
+* **Custom Entities** LUIS gives you several ways to identify your own custom [entities][entity-concept] including simple entities, composite entities, list entities, regular expression entities, hierarchical entities, and key phrase entities.
 
 ## Improve performance
-Once your application is [published][publish-app] and real user utterances are entered, LUIS uses [active learning][label-suggested-utterances] to improve identification. In the active learning process, LUIS provides real utterances that it is relatively unsure of for you to review. You can label them according to intent and entities, retrain, and republish.
+Once your application is [published][publish-app] and real user utterances are entered, LUIS provides several methods to improve prediction accuracy including: [active learning][label-suggested-utterances], [phrase lists](luis-concept-feature.md), and [patterns][patterns]. 
+
+### Active learning
+In the active learning process, LUIS provides real utterances that it is relatively unsure of for you to review. You can label them according to intent and entities, retrain, and republish.
 
 This iterative process has tremendous advantages. LUIS knows what it is unsure of, and your help leads to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. LUIS is an active machine learning at its best. 
+
+### Phrase lists
+LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate words or phrases that are significant to your app domain.  
+
+### Patterns
+Patterns allow you to simplify an intent's utterance collection into common patterns of word choice and word order. 
 
 ## Next steps
 Create a [new LUIS app](LUIS-get-started-create-app.md).
@@ -100,3 +108,5 @@ Create a [new LUIS app](LUIS-get-started-create-app.md).
 [authoring-apis]:https://aka.ms/luis-authoring-api
 [endpoint-apis]:https://aka.ms/luis-endpoint-apis
 [LUIS]:luis-reference-regions.md
+[text-analytics]:https://fix-this-url
+[patterns]:https://fix-this-url
