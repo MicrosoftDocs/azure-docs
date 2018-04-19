@@ -7991,6 +7991,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/resource-groups-networking.md",
+            "redirect_url": "/azure/networking/networking-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/ddos-protection-manage-portal.md",
             "redirect_url": "/azure/virtual-network/manage-ddos-protection",
             "redirect_document_id": false
