@@ -1,6 +1,6 @@
 ---
-title: 'VPN Gateway Overview: Create cross-premises VPN connections to Azure virtual networks | Microsoft Docs'
-description: This article explains what a VPN Gateway is and shows the ways you can connect to Azure virtual networks.
+title: 'What is VPN Gateway?: Create VPN connections to Azure virtual networks | Microsoft Docs'
+description: This article explains what a VPN gateway is and shows the ways you can connect to Azure virtual networks, including IPsec/IKE Site-to-Site cross-premises and VNet-to-VNet solutions, as well as Point-to-Site VPN.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -14,23 +14,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/18/2018
+ms.date: 04/19/2018
 ms.author: cherylmc
 
 ---
-# VPN Gateway overview
+# What is VPN Gateway?
 
-A VPN gateway is a type of virtual network gateway that you use to send traffic between an Azure virtual network and an on-premises location. Traffic is encrypted and sent across a public connection. You can also use VPN gateways to send encrypted traffic between Azure virtual networks over the Microsoft network. 
-
-To send encrypted network traffic between your Azure virtual network and your on-premises site, you create a VPN gateway for your virtual network, then create a connection. Each virtual network can have only one VPN gateway, however, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the bandwidth that is available for the gateway.
+A VPN gateway is a type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network.
 
 ## <a name="whatis"></a>What is a virtual network gateway?
 
-A virtual network gateway is composed of two or more virtual machines that are deployed to a specific subnet called the gateway subnet. The VMs that are located in the gateway subnet are created when you create the virtual network gateway. Virtual network gateway VMs are configured to contain routing tables and gateway services specific to the gateway. You can't directly configure the VMs that are part of the virtual network gateway and you should never deploy additional resources to the gateway subnet.
+A VPN gateway is a specific type of virtual network gateway that encrypts traffic. To send encrypted network traffic between your Azure virtual network and your on-premises site, you first create a VPN gateway for your virtual network, then create a connection. Each virtual network can have only one VPN gateway, however, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the bandwidth that is available for the gateway.
 
-A VPN gateway is a specific type of virtual network gateway that encrypts traffic. When you create a VPN gateway, you set a gateway type. For a VPN gateway, the gateway type is 'vpn'. When you create a virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the settings that you specify, one setting of which is the gateway type. Creating a VPN gateway can take up to 45 minutes to complete.
+A virtual network gateway is composed of two or more virtual machines that are deployed to a specific subnet called the *gateway subnet*. The VMs that are located in the gateway subnet are created when you create the virtual network gateway. Virtual network gateway VMs are configured to contain routing tables and gateway services specific to the gateway. You can't directly configure the VMs that are part of the virtual network gateway and you should never deploy additional resources to the gateway subnet.
 
-After you create a VPN gateway, you can create a connection between the VPN gateway and another VPN gateway (between VNets), or between the VPN gateway and an on-premises VPN device.
+When you create a virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the settings that you specify, one setting of which is the gateway type. Creating a VPN gateway can take up to 45 minutes to complete. After you create a VPN gateway, you can create an IPsec connection between the VPN gateway and another VPN gateway (VNet-to-VNet), or an IPsec connection between the VPN gateway and an on-premises VPN device (Site-to-Site). You can also create a Point-to-Site VPN connection to your virtual network using a VPN gateway. This type of connection lets you connect from a remote location, such as a conference or from home.
 
 ## <a name="configuring"></a>Configuring a VPN Gateway
 
@@ -134,7 +132,7 @@ ExpressRoute lets you extend your on-premises networks into the Microsoft cloud 
 
 ExpressRoute connections do not go over the public Internet. This allows ExpressRoute connections to offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet.
 
-An ExpressRoute connection uses a virtual network gateway as part of its required configuration. In an ExpressRoute connection, the virtual network gateway is configured with the gateway type 'ExpressRoute', rather than 'Vpn'. While traffic that travels over an ExpressRoute circuit is not encrypted by default, you it is possible create an encryption solution. For more information about ExpressRoute, see the [ExpressRoute technical overview](../expressroute/expressroute-introduction.md).
+An ExpressRoute connection uses a virtual network gateway as part of its required configuration. In an ExpressRoute connection, the virtual network gateway is configured with the gateway type 'ExpressRoute', rather than 'Vpn'. While traffic that travels over an ExpressRoute circuit is not encrypted by default, it is possible create a solution that allows you to send encrypted traffic over an ExpressRoute circuit. For more information about ExpressRoute, see the [ExpressRoute technical overview](../expressroute/expressroute-introduction.md).
 
 ## <a name="coexisting"></a>Site-to-Site and ExpressRoute coexisting connections
 
