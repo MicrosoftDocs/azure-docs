@@ -23,7 +23,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: See how quickly/easily you can learn about Azure IoT by exploring these quickstarts:
+    text: See how quickly/easily you can learn about Azure IoT by exploring these quickstarts
   - type: list
     style: unordered
     items:
