@@ -166,6 +166,63 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
+### Passing multiple parameters 
+
+It is not possible to pass multiple parameters to an activity function directly. The recommendation is this case is to pass in an array of objects or to use [ValueTuples](https://blogs.msdn.microsoft.com/mazhou/2017/05/26/c-7-series-part-1-value-tuples/) objects.
+
+Below you can find sample using array:
+
+```csharp
+[FunctionName("GetCountriesOrchestrator")]
+public static async Task<Example> RunOrchestrator(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    ExampleContract incoming = context.GetInput<ExampleContract>();
+    Example example = new Example();
+
+    var inputArray = new[] { incoming, example };
+    example = await context.CallActivityAsync<Example>("Mapper", inputArray);
+    return example;
+}
+
+[FunctionName("Mapper")]
+public static async Task<Example> Mapper([ActivityTrigger] Example[] inputs)
+{
+    return new Example 
+    {
+        Name = inputs[1].Name ?? "empty",
+        Address = inputs[1].Address ?? "empty",
+    };
+}
+```
+
+And the following sample is using [ValueTuples](https://blogs.msdn.microsoft.com/mazhou/2017/05/26/c-7-series-part-1-value-tuples/):
+
+```csharp
+[FunctionName("GetCountriesOrchestrator")]
+public static async Task<Example> RunOrchestrator(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    ExampleContract incoming = context.GetInput<ExampleContract>();
+    Example example = new Example();
+
+    example = await context.CallActivityAsync<Example>("Mapper", (incoming, example));
+    return example;
+}
+
+[FunctionName("Mapper")]
+public static async Task<Example> Mapper([ActivityTrigger] DurableActivityContext inputs)
+{
+    var (example, exampleContract) = inputs.GetInput<(ExampleContract, ExampleContract)>();
+    example.Name = exampleContract.Name ?? "empty";
+    example.Address = exampleContract.Address ?? "empty";
+
+    return example;
+}
+```
+
+
+
 ## Orchestration client
 
 The orchestration client binding enables you to write functions which interact with orchestrator functions. For example, you can act on orchestration instances in the following ways:
