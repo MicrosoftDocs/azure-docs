@@ -215,7 +215,7 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
 
 5. Select the **GetEmployeeOrgChart** intent, then change from **Entities view** to **Tokens view**. Several example utterances are listed. Each utterance contains a name, which is an Employee entity. Notice that each name is different and that the arrangement of the wording is different for each utterance. This diversity helps LUIS learn a wide range of utterances.
 
-    ![Toggle Entities view](media/luis-tutorial-pattern/utterances-token-view.png)
+    ![Screenshot of Intent page with Entities view toggled](media/luis-tutorial-pattern/utterances-token-view.png)
 
 6. Select **Train** in the top navigation bar to train the app. Wait for the green success bar.
 
@@ -223,7 +223,7 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
     
     The employee name, Patti Owens, has not been used in an example utterance yet. This is a test to see how well LUIS learned this utterance is for the `GetEmployeeOrgChart` intent and the Employee entity should be `Patti Owens`. The result should be about 0.37 score for the `GetEmployeeOrgChart` intent. While the intent is correct, the score is low. The Employee entity is also correctly identified as `Patti Owens`.
 
-    ![Toggle Entities view](media/luis-tutorial-pattern/original-test.png)
+    ![Screenshot of Test panel](media/luis-tutorial-pattern/original-test.png)
 
 8. Close the test panel by selecting the **Test** button in the top navigation. 
 
@@ -263,17 +263,17 @@ The pattern is a combination of regular expression matching and machine learning
 
     The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. The syntax for an entity with a role is {Entity::role} such as `{Location::origin}`.
 
-    ![Enter template utterances for intent](./media/luis-tutorial-pattern/enter-pattern.png)
+    ![Screenshot of entering template utterances for intent](./media/luis-tutorial-pattern/enter-pattern.png)
 
-3. Select **Train** in the top navigation bar to train the app. Wait for the green success bar.
+3. Select **Train** in the top navigation bar. Wait for the green success bar.
 
-4. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` then select Enter. This is the same utterance tested in the previous section. The result should be higher than 0.37 for the `GetEmployeeOrgChart` intent. 
+4. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` in the text box. Select Enter. This is the same utterance tested in the previous section. The result should be higher than 0.37 for the `GetEmployeeOrgChart` intent. 
 
     The score is now **0.99**, much better. LUIS learned the pattern relevant to the intent without providing many examples.
 
-    ![Test with high score result](./media/luis-tutorial-pattern/high-score.png)
+    ![Screenshot of Test panel with high score result](./media/luis-tutorial-pattern/high-score.png)
 
-    The entity is found first, then the pattern is found, indicating the intent. If you have a test result where the entity are not detected, and therefore the pattern is not found, you need to add more example utterances on the intent (not the pattern). 
+    The entity is found first, then the pattern is found, indicating the intent. If you have a test result where the entity is not detected, and therefore the pattern is not found, you need to add more example utterances on the intent (not the pattern). 
 
 5. Close the test panel by selecting the **Test** button in the top navigation.
 
@@ -312,9 +312,9 @@ Create a new intent for any utterances that are about moving people or assets.
 
     ![Screenshot of all entities marked](./media/luis-tutorial-pattern/moveasset-all-entities-labeled.png)
 
-    The pattern of word choice and order is very obvious in this previous image. If you were **not** using patterns, and the utterances on the intent have an obvious pattern, that is a good indication you should be using patterns. 
+    The pattern of word choice and order is obvious in this previous image. If you were **not** using patterns, and the utterances on the intent have an obvious pattern, that is a good indication you should be using patterns. 
 
-    If you expect a wide variety of utterances, instead of a pattern, these would be the wrong example utterances. In that case, you would want widely varying utterances in term or word choice, utterance length and entity placement. 
+    If you expect a wide variety of utterances, instead of a pattern, these would be the wrong example utterances. In that case, you would want widely varying utterances in term or word choice, utterance length, and entity placement. 
 
 ### Add role to location entity 
 Roles can only be used for patterns. Add the roles of Origin and Destination to the Location entity. 
@@ -325,7 +325,7 @@ Roles can only be used for patterns. Add the roles of Origin and Destination to 
 
     ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/location-entity.png)
 
-    The roles will not be marked on the MoveAssetsOrPeople intent page because roles don't exist on intent utterances. They only exist on pattern template utterances. 
+    The roles are not marked on the MoveAssetsOrPeople intent page because roles don't exist on intent utterances. They only exist on pattern template utterances. 
 
 ### Add template utterances that uses location and destination roles
 Add template utterances that use the new entity.
