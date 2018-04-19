@@ -26,7 +26,7 @@ ms.author: tamram
  An authenticated request requires two headers: the `Date` or `x-ms-date` header and the `Authorization` header. The following sections describe how to construct these headers.  
   
 > [!NOTE]
->  A container or blob may be made available for public access by setting a container's permissions. For more information, see [Manage Access to Azure Storage Resources](/azure/storage/storage-manage-access-to-resources). A container, blob, queue, or table may be available for signed access via a shared access signature; a shared access signature is authenticated through a different mechanism. See [Delegating Access with a Shared Access Signature](Delegating-Access-with-a-Shared-Access-Signature.md) for more details.  
+>  A container or blob may be made available for public access by setting a container's permissions. For more information, see [Manage Access to Azure Storage Resources](storage-manage-access-to-resources.md). A container, blob, queue, or table may be available for signed access via a shared access signature; a shared access signature is authenticated through a different mechanism. See [Delegating Access with a Shared Access Signature](/rest/api/storageservices/delegating-access-with-a-shared-access-signature) for more details.  
   
 ##  <a name="Subheading1"></a> Specifying the Date Header  
  All authenticated requests must include the Coordinated Universal Time (UTC) timestamp for the request. You can specify the timestamp either in the `x-ms-date` header, or in the standard HTTP/HTTPS `Date` header. If both headers are specified on the request, the value of `x-ms-date` is used as the request's time of creation.  
@@ -93,7 +93,7 @@ StringToSign = VERB + "\n" +
                CanonicalizedResource;  
 ```  
   
- The following example shows a signature string for a [Get Blob](Get-Blob.md) operation. Note that where there is no header value, the new-line character only is specified.  
+ The following example shows a signature string for a [Get Blob](/rest/api/storageservices/get-blob) operation. Note that where there is no header value, the new-line character only is specified.  
   
 ```  
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Sun, 11 Oct 2009 21:49:13 GMT\nx-ms-version:2009-09-19\n/myaccount/mycontainer\ncomp:metadata\nrestype:container\ntimeout:20  
@@ -177,7 +177,7 @@ StringToSign = VERB + "\n" +
 ```  
   
 > [!NOTE]
->  Beginning with version 2009-09-19, the Table service requires that all REST calls include the `DataServiceVersion` and `MaxDataServiceVersion` headers. See [Setting the OData Data Service Version Headers](Setting-the-OData-Data-Service-Version-Headers.md) for more information.  
+>  Beginning with version 2009-09-19, the Table service requires that all REST calls include the `DataServiceVersion` and `MaxDataServiceVersion` headers. See [Setting the OData Data Service Version Headers](/rest/api/storageservices/Setting-the-OData-Data-Service-Version-Headers) for more information.  
   
 #### Blob, Queue, and File Service (Shared Key Lite Authentication)  
  You may use Shared Key Lite authentication to authenticate a request made against the 2009-09-19 version and later of the Blob and Queue services, and version 2014-02-14 and later of the File services.  
@@ -195,7 +195,7 @@ StringToSign = VERB + "\n" +
                CanonicalizedResource;  
 ```  
   
- The following example shows a signature string for a [Put Blob](Put-Blob.md) operation. Note that the Content-MD5 header line is empty. The headers shown in the string are name-value pairs that specify custom metadata values for the new blob.  
+ The following example shows a signature string for a [Put Blob](/rest/api/storageservices/Put-Blob) operation. Note that the Content-MD5 header line is empty. The headers shown in the string are name-value pairs that specify custom metadata values for the new blob.  
   
 ```  
 PUT\n\ntext/plain; charset=UTF-8\n\nx-ms-date:Sun, 20 Sep 2009 20:36:40 GMT\nx-ms-meta-m1:v1\nx-ms-meta-m2:v2\n/testaccount1/mycontainer/hello.txt  
@@ -217,7 +217,7 @@ StringToSign = Date + "\n"
                CanonicalizedResource  
 ```  
   
- The following example shows a signature string for a [Create Table](Create-Table.md) operation.  
+ The following example shows a signature string for a [Create Table](/rest/api/storageservices/Create-Table) operation.  
   
 ```  
 Sun, 11 Oct 2009 19:52:39 GMT\n/testaccount1/Tables  
@@ -267,13 +267,13 @@ Authorization: SharedKeyLite testaccount1:uay+rilMVayH/SVI8X+a3fL8k/NxCnIePdyZSk
   
  For help constructing the URI for the resource you are accessing, see one of the following topics:  
   
--   Blob service: [Naming and Referencing Containers, Blobs, and Metadata](Naming-and-Referencing-Containers--Blobs--and-Metadata.md)  
+-   Blob service: [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)  
   
--   Queue service: [Addressing Queue Service Resources](Addressing-Queue-Service-Resources.md)  
+-   Queue service: [Addressing Queue Service Resources](/rest/api/storageservices/Addressing-Queue-Service-Resources)  
   
--   Table service: [Addressing Table Service Resources](Addressing-Table-Service-Resources.md)  
+-   Table service: [Addressing Table Service Resources](/rest/api/storageservices/Addressing-Table-Service-Resources)  
   
--   File service: [Naming and Referencing Shares, Directories, Files, and Metadata](Naming-and-Referencing-Shares--Directories--Files--and-Metadata.md)  
+-   File service: [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)  
   
 > [!IMPORTANT]
 >  If your storage account is replicated with read-access geo-replication (RA-GRS), and you are accessing a resource in the secondary location, do not include the `–secondary` designation in the `CanonicalizedResource` string. The resource URI used in the `CanonicalizedResource` string URI should be the URI of the resource at the primary location.  
@@ -350,7 +350,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_azure_stora
 ```  
   
 ## See Also  
- [Blob Service REST API](Blob-Service-REST-API.md)   
- [Queue Service REST API](Queue-Service-REST-API.md)   
- [Table Service REST API](Table-Service-REST-API.md)   
- [Storage Services REST](Azure-Storage-Services-REST-API-Reference.md)
+ [Blob Service REST API](/rest/api/storageservices/Blob-Service-REST-API)   
+ [Queue Service REST API](/rest/api/storageservices/Queue-Service-REST-API)   
+ [Table Service REST API](/rest/api/storageservices/Table-Service-REST-API)   
+ [Storage Services REST](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
