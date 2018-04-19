@@ -38,12 +38,12 @@ You can use the following criteria to determine whether Azure Automation with Hy
 
 ## Installing a Hybrid Runbook Worker
 
-The process to install a Hybrid Runbook worker is different depending on the OS. The following table shows the different methods you can use to install a Hybrid Runbook Worker. To install and configure a Windows Hybrid Runbook Worker, there are two methods available. The recommended method is using an Automation runbook to completely automate the process required to configure a Windows computer. The second method is following a step-by-step procedure to manually install and configure the role.
+The process to install a Hybrid Runbook worker is different depending on the OS. The following table contains links to the different methods you can use to install a Hybrid Runbook Worker. To install and configure a Windows Hybrid Runbook Worker, there are two methods available. The recommended method is using an Automation runbook to completely automate the process required to configure a Windows computer. The second method is following a step-by-step procedure to manually install and configure the role. For Linux machines, you run a Python script to install the agent on the machine
 
 |OS  |Deployment Types  |
 |---------|---------|
-|Windows     | [Automated](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
-|Linux     | [Automated](automation-linux-hrw-install.md#installing-linux-hybrid-runbook-worker)        |
+|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
+|Linux     | [Python](automation-linux-hrw-install.md#installing-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
 > To manage the configuration of your servers supporting the Hybrid Runbook Worker role with Desired State Configuration (DSC), you need to add them as DSC nodes. For more information about onboarding them for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).
@@ -79,7 +79,7 @@ The following port and URLs are required for the Hybrid Runbook Worker role to c
 
 * Port: Only TCP 443 is required for outbound internet access.
 * Global URL: *.azure-automation.net.
-* Agent Service: https://<workspaceId>.agentsvc.azure-automation.net
+* Agent Service: https://\<workspaceId\>.agentsvc.azure-automation.net
 
 If you have an Automation account that's defined for a specific region, you can restrict communication to that regional datacenter. The following table provides the DNS record for each region.
 

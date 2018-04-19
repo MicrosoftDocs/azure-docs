@@ -11,17 +11,7 @@ manager: carmonm
 ---
 # How to deploy a Windows Hybrid Runbook Worker
 
-Runbooks in Azure Automation cannot access resources in other clouds or in your on-premises environment since they run in the Azure cloud. The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks directly on the computer hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers.
-
-This functionality is illustrated in the following image:
-
-![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/automation.png)
-
-## Hybrid Runbook Worker groups
-
-Each Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the agent. A group can include a single agent, but you can install multiple agents in a group for high availability.
-
-When you start a runbook on a Hybrid Runbook Worker, you specify the group that it runs on. The members of the group determine which worker services the request. You cannot specify a particular worker.
+The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks directly on the computer hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers. This article decribes how to install the Hybrid Runbook Worker on a Windows machine.
 
 ## Installing the Windows Hybrid Runbook Worker
 
@@ -37,6 +27,9 @@ The following are the minimum requirements for a Windows Hybrid Runbook Worker.
 * .NET Framework 4.6.2 or later.
 * A minimum of two cores.
 * A minimum of 4 GB of RAM.
+* Port 443 (outbound)
+
+To see additional networking requirements for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
 
 For more information about onboarding them for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).
 If you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer connected to your Log Analytics workspace is  automatically configured as a Hybrid Runbook Worker to support runbooks included in this solution. However, it is not registered with any Hybrid Worker groups already defined in your Automation account. The computer can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
@@ -131,6 +124,10 @@ Use the **-Verbose** switch with **Add-HybridRunbookWorker** to receive detailed
 Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment. These modules are not automatically deployed to on-premises computers though, so you must install them manually. The exception is the Azure module, which is installed by default providing access to cmdlets for all Azure services and activities for Azure Automation.
 
 Since the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you most likely need to install the modules that support these resources. You can refer to [Installing Modules](http://msdn.microsoft.com/library/dd878350.aspx) for information on installing Windows PowerShell modules. Modules that are installed must be in a location referenced by PSModulePath environment variable so that they are automatically imported by the Hybrid worker. For more information, see [Modifying the PSModulePath Installation Path](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
+
+## Privileges
+
+The Windows Hybrid Runbook Worker executes runbooks as a LocalSystem which is able to run commands that need elevation.
 
 ## Next Steps
 

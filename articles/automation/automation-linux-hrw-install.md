@@ -11,50 +11,48 @@ manager: carmonm
 ---
 # How to deploy a Linux Hybrid Runbook Worker
 
-Runbooks in Azure Automation cannot access resources in other clouds or in your on-premises environment since they run in the Azure cloud. The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks directly on the computer hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers.
-
-This functionality is illustrated in the following image:
-
-![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/automation.png)
-
-For a technical overview of the Hybrid Runbook Worker role, see [Hybrid Runbook Worker overview](automation-hybrid-runbook-worker.md). Review the following [information for preparing your network](automation-hybrid-runbook-worker.md#network-planning) before you begin deploying a Hybrid Runbook Worker. After you have successfully deployed a runbook worker, review [run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
-
-## Hybrid Runbook Worker groups
-
-Each Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the agent. A group can include a single agent, but you can install multiple agents in a group for high availability.
-
-When you start a runbook on a Hybrid Runbook Worker, you specify the group that it runs on. The members of the group determine which worker services the request. You cannot specify a particular worker.
+The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks directly on the computer hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers. This article decribes how to install the Hybrid Runbook Worker on a Linux machine.
 
 ## Installing Linux Hybrid Runbook Worker
 
 To install and configure a Hybrid Runbook Worker on your Linux computer, you follow a straight forward process to manually install and configure the role. It requires enabling the **Automation Hybrid Worker** solution in your Log Analytics workspace and then running a set of commands to register the computer as a worker and add it to a new or existing group.
 
-Before you proceed, you need to note the Log Analytics workspace your Automation account is linked to and also the primary key for your Automation account. You can find both from the portal by selecting your Automation account, and selecting **Workspace** for the Workspace ID, and selecting **Keys** for the primary key.
+Before you proceed, you need to note the Log Analytics workspace your Automation account is linked to and also the primary key for your Automation account. You can find both from the portal by selecting your Automation account, and selecting **Workspace** for the Workspace ID, and selecting **Keys** for the primary key. For information on ports and addresses that are needed for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
 
-1. Enable the “Automation Hybrid Worker” solution in Azure. This can be done by either:
+1. Enable the "Automation Hybrid Worker" solution in Azure. This can be done by either:
 
-   1. Add the **Automation Hybrid Worker** solution to your subscription using the procedure at [Add Log Analytics management solutions to your workspace](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).
+   1. Add the **Automation Hybrid Worker** solution to your subscription using the procedure at [Add Log Analytics management solutions to your workspace](../log-analytics/log-analytics-add-solutions.md).
    1. Run the following cmdlet:
 
         ```powershell-interactive
          $null = Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
+1. Install the OMS agent for Linux by running the following command, replacing \<WorkspaceID\> and \<WorkspaceKey\> with the appropriate values from your workspace.
+
+   ```bash
+   wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
+   ```
+
 1. Run the following command, changing the values for parameters *-w*, *-k*, *-g*, and *-e*. For the *-g* parameter, replace the value with the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook Worker should join. If the name does not exist already in your Automation account, a new Hybrid Runbook Worker group is made with that name.
 
-   ```python
+   ```bash
    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
    ```
 
-1. After the command is complete, the Hybrid Worker Groups blade in the Azure portal will show the new group and number of members or if an existing group, the number of members is incremented. You can select the group from the list on the **Hybrid Worker Groups** blade and select the **Hybrid Workers** tile. On the **Hybrid Workers** blade, you see each member of the group listed.
+1. After the command is complete, the Hybrid Worker Groups page in the Azure portal will show the new group and number of members or if an existing group, the number of members is incremented. You can select the group from the list on the **Hybrid Worker Groups** page and select the **Hybrid Workers** tile. On the **Hybrid Workers** page, you see each member of the group listed.
 
 ## Turning off signature validation
 
 By default, Linux Hybrid Runbook Workers require signature validation. If you run an unsigned runbook against a worker, you see an error containing "Signature validation failed". To turn off signature validation, run the following command, replacing the second parameter with your Log Analytics workspace ID:
 
- ```python
+ ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
  ```
+
+## Privileges
+
+The Linux Hybrid Runbook Worker executes runbooks as a special user which can be elevated for running commands that need elevation.
 
 ## Supported runbook types
 
