@@ -78,18 +78,39 @@ sections:
   items:
   - type: list
     style: cards
-    className: cardsFTitle
+    className: cardsM
+    columns: 2
     items:
-    - title: Contoso HVAC’s Digital transformation through Internet of Things solutions 
-      href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
+    - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player
+      html: <p>Contoso HVAC’s Digital transformation through Internet of Things solutions</p>
       image: 
         src: media/index/contoso-hvac-iot-part1.png
-        href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player
-    - title: Codeless IoT Solution with Azure IoT Central
-      href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player
+      title: Introduction 
+    - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player
+      html: <p>Codeless IoT Solution with Azure IoT Central</p>
       image: 
         src: media/index/contoso-hvac-iot-part8.png
-        href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player
+      title: Demonstration
+    
+		- items:
+		  - type: list
+		    style: cards
+		    className: cardsM
+		    columns: 2
+		    items:
+		    - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
+		      html: <p>Create a containerized app with Azure Container Instances</p>
+		      image:
+		        src: https://docs.microsoft.com/media/common/i_get-started.svg
+		      title: Get Started
+		    - href: https://docs.microsoft.com/azure/container-service/kubernetes/cli-samples
+		      html: <p>Azure CLI Samples for Azure Container Service</p>
+		      image:
+		        src: https://docs.microsoft.com/media/common/i_code-samples.svg
+		      title: Code Samples	
+
+
+
 
 - title: Reference
   items:
