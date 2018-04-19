@@ -29,6 +29,8 @@
   items:
   - name: Azure PowerShell
     href: powershell-backup-samples.md
+  - name: Resource Manager templates
+    href: backup-rm-template-samples.md
 - name: Concepts
   items:
   - name: FAQ
@@ -100,7 +102,7 @@
     - name: Back up VMs
       items:
       - name: Back up Azure VMs to Recovery Services vault
-        href: backup-azure-arm-vms.md
+        href: backup-azure-vms-first-look-arm.md
       - name: Back up encrypted VMs
         href: backup-azure-vms-encryption.md
       - name: Enable VM backup during VM creation
