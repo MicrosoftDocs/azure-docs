@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/19/2018
 ms.author: jeedes
 
 ---
@@ -133,6 +133,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	a. Select **Import from URL**.
 
 	b. In the **URL** textbox, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal and click **Import**.
+	
+	c. After importing **App Federation Metadata Url**, the remaining fields populate automatically.
 
 	c. Click **Save**.
 
@@ -181,11 +183,11 @@ In the case of Yodeck, provisioning is a manual task.
 
 	![Add Employee](./media/active-directory-saas-yodeck-tutorial/user1.png)
 
-3. Click on **User** to open the **User Details** tab.
+3. Click on **+User** to open the **User Details** tab.
 
 	![Add Employee](./media/active-directory-saas-yodeck-tutorial/user2.png)
 
-4. On the **Add Employee** dialog page, perform the following steps:
+4. On the **User Details** dialog page, perform the following steps:
 
 	![Add Employee](./media/active-directory-saas-yodeck-tutorial/user3.png)
 
