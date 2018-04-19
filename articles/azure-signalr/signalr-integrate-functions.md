@@ -46,7 +46,10 @@ To complete this tutorial, you must have the following prerequisites:
 
 ## Next steps
 
+In this tutorial, you learned how to intergrate with Azure Function to push updates based on Azure Function triggers. To learn more about using Azure SignalR Server, continue to the next tutorial that demonstrates authentication with OAuth.
+
 > [!div class="nextstepaction"]
-> [How to Scale Azure Redis Cache](./cache-how-to-scale.md)
+> [Azure SignalR Service authentication with OAuth](./signalr-authenticate-oauth.md)
+
 
 
