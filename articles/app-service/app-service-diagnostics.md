@@ -23,11 +23,13 @@ When you’re running a web application, you want to be prepared for any issues 
  
 Although this experience is most helpful when you’re having issues with your web app within the last 24 hours, all the diagnostic graphs will be available for you to analyze at all times. Additional troubleshooting tools and links to helpful documentation and forums are located on the right-hand column.
 
+App Service Diagnostics works for not only your web app on Windows, but also web apps on Linux/containers, App Service Environment, and Azure Functions. 
+
 ## Open App Service diagnostics
 
-To access App Service diagnostics, navigate to your App Service web app in the [Azure portal](https://portal.azure.com). 
+To access App Service diagnostics, navigate to your App Service web app or App Service Environment in the [Azure portal](https://portal.azure.com). 
 
-In the left navigation, click on **Diagnose and solve problems**.
+In the left navigation, click on **Diagnose and solve problems**. For Azure Functions, navigate to your Function app, and in the top navigation, click on **Platform features** and select **Diagnose and solve problems** from the **Monitoring** section. 
 
 ![Homepage](./media/app-service-diagnostics/Homepage1.png)
 
@@ -43,13 +45,22 @@ If an issue is detected with a specific problem category within the last 24 hour
 
 ## Tile shortcuts
 
-If you know exactly what kind of troubleshooting information you’re looking for, the tile shortcuts will take you directly to the full diagnostic report of the problem category that you’re interested in. Compared to the health checkup, the tile shortcuts are the more direct, but less guided way of accessing your diagnostic metrics.  
+If you know exactly what kind of troubleshooting information you’re looking for, the tile shortcuts will take you directly to the full diagnostic report of the problem category that you’re interested in. Compared to the health checkup, the tile shortcuts are the more direct, but less guided way of accessing your diagnostic metrics. This is also where you will find **Diagnostic Tools** (applicable for Windows web apps), which are more advanced tools that will help you investigate an app issue. 
 
 ![Tile shortcuts](./media/app-service-diagnostics/TileShortcuts4.png)
 
 ## Diagnostic report
 
-Whether you want more information after running a [health checkup](#health-checkup) or you clicked on one of the [tile shortcuts](#tile-shortcuts), the full diagnostic report will show you relevant graphed metrics from the last 24 hours. If your app experiences any downtime, it's represented by an orange bar underneath the timeline. You can select one of the downtimes to get analyzed observations about the downtime and the suggested solutions. 
+Whether you want more information after running a [health checkup](#health-checkup) or you clicked on one of the [tile shortcuts](#tile-shortcuts), the full diagnostic report will show you relevant graphed metrics from the last 24 hours. If your app experiences any downtime, it's represented by an orange bar underneath the timeline. You can select one of the orange bars to select the downtime to get analyzed observations about the downtime and the suggested troubleshooting and next steps. 
 
 ![Diagnostic report](./media/app-service-diagnostics/DiagnosticReport5.png)
+
+
+## Investigating application code issues
+
+Because many web app issues are related to issues in your application code, App Service diagnostics integrates with Application Insights to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights does have to be enabled, and you can learn more here. 
+
+To view Application Insights exceptions, select the **Web App Down** or **Web App Slow** tile shortcuts. 
+
+![Application insights](./media/app-service-diagnostics/AppInsights6.png)
 
