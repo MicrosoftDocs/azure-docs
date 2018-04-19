@@ -16,23 +16,23 @@ Stream Analytics accepts data incoming from several kinds of event sources. The 
 
 Stream Analytics has first-class integration with Azure data streams as inputs from three kinds of resources:
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). 
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) 
 
 These input resources can live in same Azure subscription as your Stream Analytics job, or from a different subscription.
 
-## Stream input and reference input
+## Compare stream and reference inputs
 As data is pushed to a data source, it's consumed by the Stream Analytics job and processed in real time. Inputs are divided into two types: data stream inputs and reference data inputs.
 
-### Data stream inputs
+### Data stream input
 A data stream is an unbounded sequence of events over time. Stream Analytics jobs must include at least one data stream input. Event Hubs, IoT Hub, and Blob storage are supported as data stream input sources. Event Hubs are used to collect event streams from multiple devices and services. These streams might include social media activity feeds, stock trade information, or data from sensors. IoT Hubs are optimized to collect data from connected devices in Internet of Things (IoT) scenarios.  Blob storage can be used as an input source for ingesting bulk data as a stream, such as log files.  
 
-### Reference data
+### Reference data input
 Stream Analytics also supports input known as *reference data*. This is auxiliary data that is either static or that changes slowly. Reference data is typically used to perform correlation and lookups. For example, you might join data in the data stream input to data in the reference data, much as you would perform a SQL join to look up static values. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 100 MB in size.
 
 To learn how to create reference data inputs, see [Use Reference Data](stream-analytics-use-reference-data.md).  
 
-## Compression
+### Compression
 Stream Analytics supports compression across all data stream input sources. Currently supported reference types are: None, GZip, and Deflate compression. Support for compression is not available for reference data. If the input format is Avro data that is compressed, it's handled transparently. You don't need to specify compression type with Avro serialization. 
 
 ## Create or edit inputs
@@ -45,6 +45,7 @@ To create new inputs, and list or edit existing inputs on your streaming job, yo
 7. Select **Test** on the input details page to verify that the connection options are valid and working. 
 8. Right-click on the name of an existing input, and select **Sample data from input** as needed for further testing.
 
+You can also use [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input), and [Visual Studio](stream-analytics-tools-for-visual-studio.md) to create, edit, and test Stream Analytics job inputs.
 
 ## Stream data from Event Hubs
 
@@ -55,8 +56,8 @@ The default timestamp of events coming from Event Hubs in Stream Analytics is th
 ### Consumer groups
 You should configure each Stream Analytics event hub input to have its own consumer group. When a job contains a self-join or when it has multiple inputs, some input might be read by more than one reader downstream. This situation impacts the number of readers in a single consumer group. To avoid exceeding the Event Hubs limit of five readers per consumer group per partition, it's a best practice to designate a consumer group for each Stream Analytics job. There is also a limit of 20 consumer groups per event hub. For more information, see [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md).
 
-### Stream data from an Event Hub
-The following table explains each property in the **New input** page in the Azure portal when you configure an event hub as input.
+### Stream data from Event Hubs
+The following table explains each property in the **New input** page in the Azure portal to stream data input from an Event Hub:
 
 | Property | Description |
 | --- | --- |
@@ -64,8 +65,8 @@ The following table explains each property in the **New input** page in the Azur
 | **Subscription** | Choose the subscription in which the Event hub resource exists. | 
 | **Event Hub namespace** | The Event Hub namespace is a container for a set of messaging entities. When you create a new event hub, you also create the namespace. |
 | **Event Hub name** | The name of the event hub to use as input. |
-| **Event Hub policy name** | The shared access policy that provides access to the event hub. Each shared access policy has a name, permissions that you set, and access keys. This option is automatically populated in unless you select the option to provide the Event Hub settings manually.|
-| **Event Hub consumer group** (optional) | This string identifies the consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the default consumer group. We recommend that you use a distinct consumer group for each Stream Analytics job. |
+| **Event Hub policy name** | The shared access policy that provides access to the Event Hub. Each shared access policy has a name, permissions that you set, and access keys. This option is automatically populated in unless you select the option to provide the Event Hub settings manually.|
+| **Event Hub consumer group** (recommended) | It is highly recommended to use a distinct consumer group for each Stream Analytics job. This string identifies the consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the $Default consumer group.  |
 | **Event serialization format** | The serialization format (JSON, CSV, or Avro) of the incoming data stream. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
 | **Event compression type** | The compression type used to read the incoming data stream, such as None (default), GZip, or Deflate. |
@@ -80,13 +81,13 @@ When your data comes from an Event Hub stream input, you have access to the foll
 
 For example, using these fields, you can write a query like the following example:
 
-````
+```sql
 SELECT
     EventProcessedUtcTime,
     EventEnqueuedUtcTime,
     PartitionId
 FROM Input
-````
+```
 
 > [!NOTE]
 > When using Event Hub as an endpoint for IoT Hub Routes, you can access to the IoT Hub medadata using the [GetMetadataPropertyValue function](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx).
@@ -99,7 +100,6 @@ The default timestamp of events coming from an IoT Hub in Stream Analytics is th
 
 > [!NOTE]
 > Only messages sent with a `DeviceClient` property can be processed.
-> 
 > 
 
 ### Consumer groups
@@ -116,7 +116,7 @@ The following table explains each property in the **New input** page in the Azur
 | **Endpoint** | The endpoint for the IoT Hub.|
 | **Shared access policy name** | The shared access policy that provides access to the IoT Hub. Each shared access policy has a name, permissions that you set, and access keys. |
 | **Shared access policy key** | The shared access key used to authorize access to the IoT Hub.  This option is automatically populated in unless you select the option to provide the Iot Hub settings manually. |
-| **Consumer group** | The consumer group to use to ingest data from the IoT Hub. Stream Analytics uses the $Default consumer group unless specified otherwise. We highly recommend that you use a different consumer group for each Stream Analytics job. |
+| **Consumer group** | It is highly recommended that you use a different consumer group for each Stream Analytics job. The consumer group is used to ingest data from the IoT Hub. Stream Analytics uses the $Default consumer group unless you specify otherwise.  |
 | **Event serialization format** | The serialization format (JSON, CSV, or Avro) of the incoming data stream. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
 | **Event compression type** | The compression type used to read the incoming data stream, such as None (default), GZip, or Deflate. |
@@ -181,13 +181,13 @@ When your data comes from a Blob storage source, you have access to the followin
 
 For example, using these fields, you can write a query like the following example:
 
-````
+```sql
 SELECT
     BlobName,
     EventProcessedUtcTime,
     BlobLastModifiedUtcTime
 FROM Input
-````
+```
 
 ## Next steps
 You've learned about data connection options in Azure for your Stream Analytics jobs. To learn more about Stream Analytics, see:
