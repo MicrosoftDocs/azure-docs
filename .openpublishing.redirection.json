@@ -18364,7 +18364,7 @@
             "source_path": "articles/active-directory/active-directory-passwords-writeback.md",
             "redirect_url": "/azure/active-directory/authentication/howto-sspr-writeback",
             "redirect_document_id": true
-        }
+        },
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-manage-reports.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-reporting",
