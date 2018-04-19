@@ -98,16 +98,16 @@ Use this list for additional considerations and guidance for each component that
 - Set up and configure the Azure MFA Server with [RADIUS Authentication](multi-factor-authentication-get-started-server-radius.md).
 - Set up and configure the Azure MFA Server with [IIS Authentication](multi-factor-authentication-get-started-server-iis.md).
 - Set up and configure the Azure MFA Server with [Windows Authentication](multi-factor-authentication-get-started-server-windows.md).
-- Set up and configure the Azure MFA Server with [LDAP Authentication](multi-factor-authentication-get-started-server-ldap.md).
+- Set up and configure the Azure MFA Server with [LDAP Authentication](../active-directory/authentication/howto-mfaserver-dir-ldap.md).
 - Set up and configure the Azure MFA Server with [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](multi-factor-authentication-get-started-server-rdg.md).
-- Set up and configure synchronization between the Azure MFA Server and [Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md).
-- [Deploy the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md).
+- Set up and configure synchronization between the Azure MFA Server and [Windows Server Active Directory](../active-directory/authentication/howto-mfaserver-dir-ad.md).
+- [Deploy the Azure Multi-Factor Authentication Server Mobile App Web Service](../active-directory/authentication/howto-mfaserver-deploy-mobileapp.md).
 - [Advanced VPN Configuration with Azure Multi-Factor Authentication](multi-factor-authentication-advanced-vpn-configurations.md) for Cisco ASA, Citrix Netscaler, and Juniper/Pulse Secure VPN appliances using LDAP or RADIUS.
 
 ## Next steps
 While this article highlights some best practices for Azure MFA, there are other resources that you can also use while planning your MFA deployment. The list below has some key articles that can assist you during this process:
 
-* [Reports in Azure Multi-Factor Authentication](multi-factor-authentication-manage-reports.md)
+* [Reports in Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-reporting.md)
 * [The two-step verification registration experience](multi-factor-authentication-end-user-first-time.md)
 * [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
 

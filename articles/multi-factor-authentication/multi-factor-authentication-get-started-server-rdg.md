@@ -26,7 +26,7 @@ Install the Azure Multi-Factor Authentication Server on a separate server, which
 
 ## Prerequisites
 
-- A domain-joined Azure MFA Server. If you don't have one installed already, follow the steps in [Getting started with the Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server.md).
+- A domain-joined Azure MFA Server. If you don't have one installed already, follow the steps in [Getting started with the Azure Multi-Factor Authentication Server](../active-directory/authentication/howto-mfaserver-deploy.md).
 - A Remote Desktop Gateway that authenticates with Network Policy Services.
 
 ## Configure the Remote Desktop Gateway
