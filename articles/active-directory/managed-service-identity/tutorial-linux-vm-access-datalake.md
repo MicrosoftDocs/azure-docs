@@ -99,7 +99,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 3. In the terminal window, by using cURL, make a request to the local MSI endpoint to get an access token for the Data Lake Store file system. The resource identifier for Data Lake Store is "https://datalake.azure.net/".  It's important to include the trailing slash in the resource identifier.
     
    ```bash
-   curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -H Metadata:true   
+   curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   
    ```
     
    A successful response returns the access token that you use to authenticate to Data Lake Store:

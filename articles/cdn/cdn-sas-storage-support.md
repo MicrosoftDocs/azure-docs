@@ -82,7 +82,7 @@ With this option, you can secure the origin blob storage without requiring an Az
    
    Destination:   
    ```
-   $1sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   $1?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
 
    ![CDN URL Rewrite rule](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
@@ -93,7 +93,7 @@ With this option, you can secure the origin blob storage without requiring an Az
    For example:   
    `https://demoendpoint.azureedge.net/container1/demo.jpg`
        
-   Note that anyone, regardless of whether they are using a SAS token, can now access files on the CDN endpoint. 
+   Note that anyone, regardless of whether they're using a SAS token, can now access files on the CDN endpoint. 
 
 3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin server. Because Azure CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the Azure CDN origin server after the SAS expiration time has elapsed. If this situation occurs, and you want to make your cached file inaccessible, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on Azure CDN, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
