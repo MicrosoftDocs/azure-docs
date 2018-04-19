@@ -103,34 +103,27 @@ In the `MyDatabaseContext` class, add the following constructor:
 public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 {
     conn.ConnectionString = WebConfigurationManager.ConnectionStrings["MyDbConnection"].ConnectionString;
-    conn.AccessToken = (new AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
+    // DataSource != LocalDB means app is running in Azure with the SQLDB connection string you configured
+    if(conn.DataSource != "(localdb)\\MSSQLLocalDB")
+        conn.AccessToken = (new AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 
     Database.SetInitializer<MyDatabaseContext>(null);
 }
 ```
 
-This constructor configures a custom SqlConnection object to use an access token for Azure SQL Database from App Service. With the access token, your App Service app authenticates with Azure SQL Database with its managed service identity. For more information, see [Obtaining tokens for Azure resources](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources).
+This constructor configures a custom SqlConnection object to use an access token for Azure SQL Database from App Service. With the access token, your App Service app authenticates with Azure SQL Database with its managed service identity. For more information, see [Obtaining tokens for Azure resources](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). The `if` statement lets you continue to test your app locally with LocalDB.
 
 > [!NOTE]
 > `SqlConnection.AccessToken` is currently supported only in .NET Framework 4.6 and above, not in [.NET Core](https://www.microsoft.com/net/learn/get-started/windows).
 >
 
-To use this new constructor, open `Controllers\TodosController.cs` and find the line `private MyDatabaseContext db = new MyDatabaseContext();`. The existing code uses the default `MyDatabaseContext` controller to create a database using the standard connection string, which has username and password in clear text.
+To use this new constructor, open `Controllers\TodosController.cs` and find the line `private MyDatabaseContext db = new MyDatabaseContext();`. The existing code uses the default `MyDatabaseContext` controller to create a database using the standard connection string, which had username and password in clear text before [you changed it](#modify-connection-string).
 
 Replace the entire line with the following code:
 
 ```csharp
-private MyDatabaseContext db;
-
-public TodosController()
-{
-    if (Environment.GetEnvironmentVariable("MSI_SECRET") != null)
-        db = new MyDatabaseContext(new SqlConnection());
-    else db = new MyDatabaseContext();
-}
+private MyDatabaseContext db = new MyDatabaseContext(new SqlConnection());
 ```
-
-This code checks if one of the variables injected by App Service is present. If yes, then create a database context using Azure Active Directory authentication. Otherwise, the code is running in your local development environment, so just use the default constructor for the database context.
 
 ### Publish your changes
 
