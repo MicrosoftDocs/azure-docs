@@ -157,7 +157,7 @@ Unlike Azure, which supports multiple offers as both an initiator and a responde
 |IKE Version |IKEv2 |
 |Encryption & Hashing Algorithms (Encryption)     | GCMAES256|
 |Encryption & Hashing Algorithms (Authentication) | GCMAES256|
-|SA Lifetime (Time)  | 14,400 seconds |
+|SA Lifetime (Time)  | 27,700 seconds |
 |SA Lifetime (Bytes) | 819,200       |
 |Perfect Forward Secrecy (PFS) |PFS2048 |
 |Dead Peer Detection | Supported|  

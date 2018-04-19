@@ -4,9 +4,8 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: emotion
+ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth
