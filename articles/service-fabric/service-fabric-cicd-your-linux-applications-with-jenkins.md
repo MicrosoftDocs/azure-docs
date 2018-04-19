@@ -128,19 +128,21 @@ When you run `docker info` in the terminal, the output should show that the Dock
 1. Pull the Service Fabric Jenkins container image: `docker pull rapatchi/jenkins:v10`. This image comes with Service Fabric Jenkins plugin pre-installed.
 2. Run the container image: `docker run -itd -p 8080:8080 rapatchi/jenkins:v10`
 3. Get the ID of the container image instance. You can list all the Docker containers with the command `docker ps –a`
-4. Sign in to the Jenkins portal by using the following steps:
+4. Sign in to the Jenkins portal with the following steps:
 
-   * Sign in to a Jenkins shell from your host with the following command. Use the first four digits of the container ID. For example, if the container ID is  `2d24a73b5964`, use `2d24`.
-     ```sh
-     docker exec -it [first-four-digits-of-container-ID] /bin/bash
-     ```
-   * From the Jenkins shell, get the admin password for your container instance:
-     ```sh
-     cat /var/jenkins_home/secrets/initialAdminPassword
-     ```      
-   * To sign in to the Jenkins dashboard, open the following URL in a web browser: `http://<HOST-IP>:8080`. Use the password from the previous step to unlock Jenkins.
-   * After you sign in for the first time, you can create your own user account and use that for the following steps, or you can continue to use the administrator account. If you create a user, you need to continue with that user.
-1. Set up GitHub to work with Jenkins, by using the steps in [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+   1. Sign in to a Jenkins shell from your host. Use the first four digits of the container ID. For example, if the container ID is  `2d24a73b5964`, use `2d24`.
+
+      ```sh
+      docker exec -it [first-four-digits-of-container-ID] /bin/bash
+      ```
+   2. From the Jenkins shell, get the admin password for your container instance:
+
+      ```sh
+      cat /var/jenkins_home/secrets/initialAdminPassword
+      ```      
+   3. To sign in to the Jenkins dashboard, open the following URL in a web browser: `http://<HOST-IP>:8080`. Use the password from the previous step to unlock Jenkins.
+   4. (Optional.) After you sign in for the first time, you can create your own user account and use that for the following steps, or you can continue to use the administrator account. If you create a user, you need to continue with that user.
+5. Set up GitHub to work with Jenkins by using the steps in [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
    * Use the instructions provided by GitHub to generate the SSH key, and to add the SSH key to the GitHub account that is hosting the repository.
    * Run the commands mentioned in the preceding link in the Jenkins Docker shell (and not on your host).
    * To sign in to the Jenkins shell from your host, use the following command:
@@ -161,9 +163,9 @@ Ensure that the cluster or machine where the Jenkins container image is hosted h
 4. On the **General** tab, check the box for **GitHub project**, and specify your GitHub project URL. This URL hosts the Service Fabric Java application that you want to integrate with the Jenkins continuous integration, continuous deployment (CI/CD) flow (for example, `https://github.com/{your-github-account}/service-fabric-java-getting-started`).
 
 5. On the **Source Code Management** tab, select **Git**. Specify the repository URL that hosts the Service Fabric Java application that you want to integrate with the Jenkins CI/CD flow (for example, `https://github.com/{your-github-account}/service-fabric-java-getting-started`). You can also specify which branch to build (for example, `/master`).
-6. Configure the *GitHub* repository to talk to Jenkins. Use the following steps:
+6. Configure your *GitHub* repository to talk to Jenkins:
 
-   a. Go to your GitHub repository page. Go to **Settings** > **Integrations and Services**.
+   a. On your GitHub repository page, go to **Settings** > **Integrations and Services**.
 
    b. Select **Add Service**, type **Jenkins**, and select the **Jenkins-GitHub plugin**.
 
@@ -171,25 +173,25 @@ Ensure that the cluster or machine where the Jenkins container image is hosted h
 
    d. A test event is sent to your Jenkins instance. You should see a green check by the webhook in GitHub, and your project will build.
 
-7. On the **Build Triggers** tab, select which build option you want. For this example, you want to trigger a build whenever a push to the repository happens, so select **GitHub hook trigger for GITScm polling**. (Previously, this option was called **Build when a change is pushed to GitHub**.)
-8. On the **Build** tab, perform one of the following depending on whether you are building a Java application or a .NET Core application:
+7. On the **Build Triggers** tab in Jenkins, select which build option you want. For this example, you want to trigger a build whenever a push to the repository happens, so select **GitHub hook trigger for GITScm polling**. (Previously, this option was called **Build when a change is pushed to GitHub**.)
+8. On the **Build** tab, do one of the following depending on whether you are building a Java application or a .NET Core application:
 
-   * **For Java Applications:** Under the **Build section**, from the **Add build step** drop-down, select **Invoke Gradle Script**. In the widget that comes open the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly. If you create a project named `MyActor` (using the Eclipse plug-in or Yeoman generator), the root build script should contain `${WORKSPACE}/MyActor`. The following screenshot shows an example of what this looks like:
+   * **For Java Applications:** From the **Add build step** drop-down, select **Invoke Gradle Script**. Click **Advanced**. In the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly. If you create a project named `MyActor` (using the Eclipse plug-in or Yeoman generator), the root build script should contain `${WORKSPACE}/MyActor`. The following screenshot shows an example of what this looks like:
 
      ![Service Fabric Jenkins Build action][build-step]
 
-   * **For .Net Core Applications:** Under the **Build section**, from the **Add build step** drop-down, select **Execute Shell**. In the command box that appears, the directory first needs to be changed to the path where the build.sh file is located. Once the directory has been changed the build.sh script can be run and will build the application.
+   * **For .Net Core Applications:** From the **Add build step** drop-down, select **Execute Shell**. In the command box that appears, the directory first needs to be changed to the path where the build.sh file is located. Once the directory has been changed the build.sh script can be run and will build the application.
 
       ```sh
       cd /var/jenkins_home/workspace/[Job Name]/[Path to build.sh]  # change directory to location of build.sh file
       ./build.sh
       ```
 
-     The following image shows an example of the commands that are used to build the [Counter Service](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started/tree/master/Services/CounterService) sample with a Jenkins job name of CounterServiceApplication.
+     The following screenshot shows an example of the commands that are used to build the [Counter Service](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started/tree/master/Services/CounterService) sample with a Jenkins job name of CounterServiceApplication.
 
       ![Service Fabric Jenkins Build action][build-step-dotnet]
 
-9. To configure the **Post-Build Actions** step to deploy your app to a Service Fabric cluster, you need the location of the cluster certificate for the cluster where your application will be deployed. Choose one of the following depending on whether your Jenkins container is running inside or outside of your cluster:
+9. To configure Jenkins to deploy your app to a Service Fabric cluster post-build, you need the location of that cluster's certificate in your Jenkins container. Choose one of the following depending on whether your Jenkins container is running inside or outside of your cluster:
 
    * **For Jenkins running inside your cluster:** The path to the certificate can be found by echoing the value of the *Certificates_JenkinsOnSF_Code_MyCert_PEM* environment variable from within the container.
 
@@ -198,16 +200,34 @@ Ensure that the cluster or machine where the Jenkins container image is hosted h
       ```
    
    * **For Jenkins running outside your cluster:** Follow these steps to copy the cluster certificate to your container:
-      1. Your certificate must be in PEM format. If you don't have a PEM file, you can create one from the certificate PFX file. If your PFX file is not password protected, run the following command from your host: `openssl pkcs12 -in <file.pfx> -out <file.pem> -nodes -passin pass:` If the PFX file is password protected, include the password in the `-passin` parameter; for example, `-passin pass:MyPassword1234!`.
+      1. Your certificate must be in PEM format. If you don't have a PEM file, you can create one from the certificate PFX file. If your PFX file is not password protected, run the following command from your host:
+         ```sh
+         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
+         ``` 
+      If the PFX file is password protected, include the password in the `-passin` parameter. For example:
+         ```sh
+         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
+         ``` 
       2. To get the image name for your Jenkins container, run `docker ps` from your host and note the NAME value for your container.
-      3. Copy the PEM file to your container with the following Docker command: `docker cp <PEM-file-path> <container-name>:/var/jenkins_home`. For example, `docker cp clustercert.pem infallible_hamilton:/var/jenkins_home`.
+      3. Copy the PEM file to your container with the following Docker command:
+      
+         ```sh
+         docker cp clustercert.pem <container-name>:/var/jenkins_home
+         ``` 
 
-10. There are two ways to configure Jenkins to deploy your application to a Service Fabric cluster after it is built. The first way is to configure Jenkins with your Service Fabric Management endpoint. This is suitable for development and test environments. For production environments, Microsoft recommends that you configure Jenkins with a Azure credentials. Using Azure credentials lets you limit the access that a Jenkins job has to your Azure resources. The following steps show you how to configure Jenkins to deploy your application using the Service Fabric Management endpoint. To configure Jenkins using Azure credentials, skip ahead to [Configure Azure Active Directory service principal](#Configure-Azure-Active-Directory-Service-Principal).
+10. Click the **Post-build Actions** tab, to configure Jenkins to deploy the application to Service Fabric after it builds.
+
+    There are two ways to configure Jenkins to deploy your application to a Service Fabric cluster. 
+   
+      * The first way is to configure Jenkins with your Service Fabric Management endpoint. This is suitable for development and test environments. 
+      * For production environments, Microsoft recommends that you configure Jenkins with Azure credentials. Using Azure credentials lets you limit the access that a Jenkins job has to your Azure resources. 
+
+    The following steps show you how to configure Jenkins to deploy your application using the Service Fabric Management endpoint. To configure Jenkins using Azure credentials, skip ahead to [Configure Azure Active Directory service principal](#configure-azure-active-directory-service-principal).
 
   1. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. 
   2. Under **Service Fabric Cluster Configuration**, select the **Fill the Service Fabric Management Endpoint** radio button.
   3. For **Management Host**, enter the connection endpoint for your cluster; for example `{your-cluster}.eastus.cloudapp.azure.com`.
-  4. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container as determined by step 9. For example `/var/jenkins_home/clustercert.pem`.
+  4. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container (see step 9). For example `/var/jenkins_home/clustercert.pem`.
   5. Under **Application Configuration**, configure the **Application Name**, **Application Type**, and the (relative) **Path to Application Manifest** fields.
 
         ![Service Fabric Jenkins Post-Build action configure management endpoint](./media/service-fabric-cicd-your-linux-application-with-jenkins/service-fabric-config-endpoint.png)
@@ -222,12 +242,8 @@ Ensure that the cluster or machine where the Jenkins container image is hosted h
 
 1. Follow the steps in [Use the portal to create an Azure Active Directory application and service principal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). 
 
-   * While following the steps in the topic, be sure to copy and save the following values. You need them to configure the Azure credentials in Jenkins.
-      * *Application ID*
-      * *Application key*
-      * *Directory ID (Tenant ID)*
-      * *Subscription ID*
-   * If you don't have the [required permissions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) on your directory, you'll need to ask an administrator to either grant you the permissions or create the service principal for you, or you'll need to configure the management endpoint for your cluster in the **Post-Build Actions** for your job in Jenkins. For details about how to configure the management endpoint, see step 10 in the preceding section ([Create and configure a Jenkins job](#Create-and-configure-a-Jenkins-job)).
+   * While following the steps in the topic, be sure to copy and save the following values: *Application ID*, *Application key*, *Directory ID (Tenant ID)*, and *Subscription ID*. You need them to configure the Azure credentials in Jenkins.
+   * If you don't have the [required permissions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) on your directory, you'll need to ask an administrator to either grant you the permissions or create the service principal for you, or you'll need to configure the management endpoint for your cluster in the **Post-Build Actions** for your job in Jenkins. For details about how to configure the management endpoint, see step 10 in the preceding section ([Create and configure a Jenkins job](#create-and-configure-a-jenkins-job)).
    * In the [Create an Azure Active Directory application](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) section, you can enter any well-formed URL for the **Sign-on URL**.
    * In the [Assign application to a Role](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) section, you can assign your application the *Reader* role on the resource group for your cluster.
 
