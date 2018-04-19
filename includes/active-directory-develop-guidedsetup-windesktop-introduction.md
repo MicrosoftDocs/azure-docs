@@ -1,3 +1,23 @@
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file 
+---
+
 # Call the Microsoft Graph API from a Windows Desktop app
 
 This guide demonstrates how a native Windows Desktop .NET (XAML) application can get an access token and call the Microsoft Graph API or other APIs that require access tokens from an Azure Active Directory v2 endpoint.
