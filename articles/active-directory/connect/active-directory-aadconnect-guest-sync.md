@@ -1,5 +1,5 @@
 ---
-title: Synchronizing guest users user accounts that use email for sign-in | Microsoft Docs
+title: Synchronizing guest users user accounts that use email for sign-in to Azure | Microsoft Docs
 description: This article explains how to synchronize guest user accounts that use an alternate ID to sign-in to applications.
 services: active-directory
 author: billmath
@@ -48,7 +48,7 @@ The following task is more of an informational so that you are ready to begin sy
 
 Define the items in the table below before moving on to the second task.
 
-![](media/active-directory-aadconnect-guest-sync/guest2.png)
+![Architecture](media/active-directory-aadconnect-guest-sync/guest2.png)
 
 |Environment Aspect|What is it used for?|Implementation in your environment|
 |-----|-----|-----|
@@ -62,7 +62,7 @@ The following screen shot has three boxes outlined.
 - The **mail** attribute, which is used by the external users to sign-in.
 - The **userPrincipalName** attribute, which is the verified domain that the on-premises environment is federated with.
 
-![](media/active-directory-aadconnect-guest-sync/guest1.png)
+![User](media/active-directory-aadconnect-guest-sync/guest1.png)
 
 ## Task 2:  Configure Azure AD Connect
 Once you have the information above defined, we can move on to setting up the Azure AD Connect synchronization rules. To do set up the rules, use the Azure AD Connect synch rules editor. For more information on the editor, see [Declaritive Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
@@ -88,7 +88,7 @@ Use the following procedure to configure Azure AD Connect.
     - **Operator** - CONTAINS
     - **Value** - Externals
  
- ![](media/active-directory-aadconnect-guest-sync/guest4.png)
+ ![Filter](media/active-directory-aadconnect-guest-sync/guest4.png)
 
 6. On the **Join Rules** screen, click **Next**.
 7. On the **Transformations** screen, click **Add Transformation**. Enter the following information:
@@ -103,7 +103,7 @@ Use the following procedure to configure Azure AD Connect.
     - **FlowType** - Direct
     - **Target Attribute** - userPrincipalName
     - **Source** - userPrincipalName
-  ![](media/active-directory-aadconnect-guest-sync/guest5.png)
+  ![Transformation](media/active-directory-aadconnect-guest-sync/guest5.png)
 10. Click **Add**. 
 11. On the **Synchronization Rules Editor** screen, ensure the direction is **outbound** and on the right, click **Add new rule**.
 12. On the **Description** page configure the following and click **Next**.
@@ -114,7 +114,7 @@ Use the following procedure to configure Azure AD Connect.
     - **Link Type** - Join
     - **Precedence:** - 90
     - 
-![](media/active-directory-aadconnect-guest-sync/guest6.png)
+![Rule](media/active-directory-aadconnect-guest-sync/guest6.png)
 
 13. On the **Scoping filter** screen, click **Next**.
 14. On the **Join Rules** screen, click **Next**.
@@ -126,7 +126,7 @@ Use the following procedure to configure Azure AD Connect.
     - **FlowType** - Direct
     - **Target Attribute** - onPremisesUserPrincipalName
     - **Source** - onPremisesUserPrincipalName
-  ![](media/active-directory-aadconnect-guest-sync/guest7.png)
+  ![Transformation](media/active-directory-aadconnect-guest-sync/guest7.png)
 10. Click **Add**. 
 11. Once you have configured these rules you need to run a full synchronization. Use PowerShell to start a full synchronization. Once the synchronization finishes you can proceed to the next step.
 
@@ -152,7 +152,7 @@ Use the following procedure to verify federation settings.
   ```
 4.   Notice the federation information should be returned. Note the **ActiveLogonUri** is the URL of the federation server.
 
-  ![](media/active-directory-aadconnect-guest-sync/guest8.png)
+  ![Federation](media/active-directory-aadconnect-guest-sync/guest8.png)
 
 ### Verify Alternate Login ID
 This document uses AD FS as the identity provider (Idp). If you are using a different Idp, these steps may very.
@@ -163,21 +163,21 @@ This document uses AD FS as the identity provider (Idp). If you are using a diff
    ```
 2. You should see the AD FS information.  Note the **AlternateLoginID** and **LookupForests**.
 
-![](media/active-directory-aadconnect-guest-sync/guest9.png)
+![ADFS](media/active-directory-aadconnect-guest-sync/guest9.png)
 
 ## Task 4:  Testing
 In order to verify that this is working properly, you need to sign-in to an endpoint that has been configured to authenticate using the Idp. To test this, we deployed a website in Azure and are using the following url: contososampapp.azurewebsites.net
 
 ### Verify that you can sign-in with the alternate ID
 1. Sign-in to the endpoint.</br>
-![](media/active-directory-aadconnect-guest-sync/guest10.png)
+![Endpoint](media/active-directory-aadconnect-guest-sync/guest10.png)
 1. Enter your username and you will be re-directed to the federation sign-in page.
-![](media/active-directory-aadconnect-guest-sync/guest11.png)
+![Federation](media/active-directory-aadconnect-guest-sync/guest11.png)
 1. Enter your credentials.
 2. You should now be successfully signed in.
-![](media/active-directory-aadconnect-guest-sync/guest12.png)
+![Success](media/active-directory-aadconnect-guest-sync/guest12.png)
 
-## Next Steps
+## Next steps
 - [Properties of an Azure Active Directory B2B collaboration user](../../active-directory/active-directory-b2b-user-properties.md#key-properties-of-the-azure-ad-b2b-collaboration-user)
 - [Configuring Alternate Login ID](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 - [Azure AD Connect: Version release history](active-directory-aadconnect-version-history.md)
