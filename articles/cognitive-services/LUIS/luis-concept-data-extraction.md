@@ -479,7 +479,7 @@ Roles are contextual differences of entities.
 ```
 
 ## Pattern.any entity data
-Pattern.any entities are variable-length entities used in template utterances of a [pattern](luis-concept-patters.md). 
+Pattern.any entities are variable-length entities used in template utterances of a [pattern](luis-concept-patterns.md). 
 
 ```JSON
 {
