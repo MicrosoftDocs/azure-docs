@@ -44,6 +44,9 @@ To complete this tutorial, you must have the following prerequisites:
 * You need an Azure account to complete the quickstart. You can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
 
 
+## Clean up resources
+
+
 ## Next steps
 
 In this tutorial, you learned how to intergrate with Azure Function to push updates based on Azure Function triggers. To learn more about using Azure SignalR Server, continue to the next tutorial that demonstrates authentication with OAuth.

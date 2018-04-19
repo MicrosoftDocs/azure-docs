@@ -232,6 +232,11 @@ The client user interface for this chat room app will be composed of HTML and Ja
 
 
 
+## Clean up resources
+
+
+
+
 ## Next steps
 
 In this quickstart, you've created a new Azure SignalR Service resource and used to in an ASP.NET Core Web app to push content updates in real-time to multiple connected clients. To learn more about using Azure SignalR Server, continue to the next tutorial that demonstrates authentication with OAuth.

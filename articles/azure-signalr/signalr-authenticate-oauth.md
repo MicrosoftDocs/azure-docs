@@ -111,6 +111,21 @@ The first step of OAuth flow is to prompt the user to login with a GitHub accoun
     After:
 
     ```javascript
+    function getCookie(key) {
+        var cookies = document.cookie.split(';').map(c => c.trim());
+        for (var i = 0; i < cookies.length; i++) {
+            if (cookies[i].startsWith(key + '=')) return unescape(cookies[i].slice(key.length + 1));
+        }
+        return '';
+    }
+
+    function appendMessage(encodedName, encodedMsg) {
+        var messageEntry = createMessageEntry(encodedName, encodedMsg);
+        var messageBox = document.getElementById('messages');
+        messageBox.appendChild(messageEntry);
+        messageBox.scrollTop = messageBox.scrollHeight;
+    }
+
     var accessToken = getCookie('githubchat_access_token'), serviceUrl = getCookie('githubchat_service_url'), username = getCookie('githubchat_username');
     if (!accessToken) {
         appendMessage('_BROADCAST_', 'You\'re not logged in. Click <a href="/api/auth/login">here</a> to login with GitHub.');
@@ -238,6 +253,83 @@ In this section, you will update the *AuthController* class to support OAuth aut
     
     *AuthController* adds cookies to the client response to allow client-side code to use this information, along with the *serviceURL*, when pushing content updates with Azure SignalR Service.
 
+
+### Add the OAuth app secrets as constants
+
+1. Open *Constants.cs* and add the following members to the *Constants* class:
+
+    ```csharp
+    public const string GitHubClientIdKey = "Enter the Client ID for the OAuth app you registered";
+    public const string GitHubClientSecretKey = "Enter the Client Secret for the OAuth app you registered";
+    ```
+
+    Replace the values for these members with the values of the new OAuth app you registered.
+
+
+
+
+## Update the Hub class
+
+The hub class needs to be updated to use the user's claim for identification. In the previous tutorial, the `broadcastMessage()` method used the name parameter to let caller claim their own identity. This was not secure. In this section, you will remove that name parameter and read the username from the authenticated user's claim.
+
+1. Open *Hub\Chat.cs* and add the following updates for the *Chat* hub class:
+
+    Add references to these namespaces:
+
+    ```csharp
+    using System.Linq;
+    using System.Security.Claims;    
+    using System.Threading.Tasks;
+    ```
+
+    Add and update these members of the *Chat* hub class:
+
+    ```csharp
+    public override Task OnConnectedAsync()
+    {
+        var username = Context.Connection.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
+        return Clients.All.SendAsync("broadcastMessage", "_SYSTEM_", $"{username} JOINED");
+    }
+
+    // Uncomment this line to only allow user in Microsoft to send message
+    // [Authorize(Policy = "Microsoft_Only")]
+    public void broadcastMessage(string message)
+    {
+        var username = Context.Connection.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
+        Clients.All.SendAsync("broadcastMessage", username, message);
+    }
+
+    public void echo(string message)
+    {
+        var username = Context.Connection.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
+        Clients.Client(Context.ConnectionId).SendAsync("echo", username, message + " (echo from server)");
+    }
+    ```
+
+## Build and Run the app locally
+
+1. To build the app using the .NET Core CLI, execute the following command in the command shell:
+
+        dotnet build
+
+2. Once the build successfully completes, execute the following command to run the web app locally:
+
+        dotnet run
+
+    By default, the app will be hosted locally on port 5000:
+
+        E:\Testing\chattest>dotnet run
+        Hosting environment: Production
+        Content root path: E:\Testing\chattest
+        Now listening on: http://localhost:5000
+        Application started. Press Ctrl+C to shut down.    
+
+3. Launch two browser windows and navigate each browser to `http://localhost:5000`. You will be prompted to enter your name. Enter a client name for both clients and test pushing message content between both clients using the **Send** button.
+
+    ![Quickstart Complete local](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
+
+
+## Clean up resources
 
 
 ## Next steps
