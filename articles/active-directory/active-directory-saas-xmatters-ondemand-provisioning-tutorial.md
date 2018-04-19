@@ -105,7 +105,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	*   In the **Admin Password** field, populate the password corresponding to the admin username.
 
-	*   In the **Domain** field, fill the subdomain you registered with xMatters OnDemand for your tenant.
+	*   In the **Domain** field, populate the subdomain of your xMatters OnDemand tenant.
+	Example: For an account with a tenant URL of https://my-tenant.xmatters.com, your subdomain would be **my-tenant**.
 
 6. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to xMatters OnDemand. If the connection fails, ensure your xMatters OnDemand account has Admin permissions and try again.
 
