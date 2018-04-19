@@ -1,4 +1,4 @@
----
+﻿---
 title: Migrate to Azure Resource Manager tools for HDInsight | Microsoft Docs
 description: How to migrate to Azure Resource Manager development tools for HDInsight clusters
 services: hdinsight
@@ -10,7 +10,6 @@ documentationcenter: ''
 ms.assetid: 05efedb5-6456-4552-87ff-156d77fbe2e1
 ms.service: hdinsight
 ms.custom: hdinsightactive
-
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
@@ -91,7 +90,7 @@ The Azure PowerShell Resource Manager cmdlets can be installed side by side with
 
 Before you can use the HDInsight cmdlets, you must connect to your Azure account, and create a new resource group:
 
-* Login-AzureRmAccount or [Select-AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). See [Authenticating a service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* Connect-AzureRmAccount or [Select-AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). See [Authenticating a service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### Renamed cmdlets

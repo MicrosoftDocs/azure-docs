@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure end-to-end SSL with Azure Application Gateway
 description: This article describes how to configure end-to-end SSL with Azure Application Gateway by using PowerShell
 services: application-gateway
@@ -55,7 +55,7 @@ This section walks you through creating a resource group that contains the appli
    1. Sign in to your Azure account.
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 

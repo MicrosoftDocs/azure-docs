@@ -45,7 +45,7 @@ This feature is important because it allows the tenant admin to see all the subs
 To view the **User Access Administrator** assignment at the **/** scope, use the `Get-AzureRmRoleAssignment` PowerShell cmdlet.
     
 ```powershell
-Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
+Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_.SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
 ```
 
 **Example output**:
@@ -82,8 +82,8 @@ The basic process works with the following steps:
     ```json
     { 
       "properties": {
-        "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/acdd72a7338548efbd42f606fba81ae7",
-        "principalId": "cbc5e050-d7cd-4310-813b-4870be8ef5bb",
+        "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionID}",
+        "principalId": "{objectID}",
         "scope": "/"
       },
       "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
@@ -103,7 +103,7 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 
 1.  Call GET roleDefinitions where roleName = User Access Administrator to determine the name GUID of the User Access Administrator role.
 	```
-	GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator
+	GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User Access Administrator'
 	```
 
 	```json

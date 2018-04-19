@@ -1,18 +1,12 @@
 ---
 title: Indexing Azure Table storage with Azure Search | Microsoft Docs
 description: Learn how to index data stored in Azure Table storage with Azure Search
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-
-ms.assetid: 1cc27411-d0cc-40ed-8aed-c7cb9ab402b9
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: eugenesh
 ---
