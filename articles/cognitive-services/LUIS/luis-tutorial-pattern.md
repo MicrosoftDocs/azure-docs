@@ -24,6 +24,8 @@ In this tutorial, you learn how to:
 * How to create a pattern template for an intent
 * How to use prebuilt and custom entities in a pattern template 
 * How to verify pattern template prediction improvements
+* Add a role to an entity to find contextually-based entities
+* Add a Pattern.any to find free-form entities
 
 ## Prerequisites
 
@@ -266,10 +268,27 @@ The pattern is a combination of regular expression matching and machine learning
 
 5. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` then select Enter. This is the same utterance tested in the previous section. The result should be higher than 0.37 for the `GetEmployeeOrgChart` intent. 
 
-    The score is now 0.99, much better. LUIS learned the pattern relevant to the intent without providing many examples. 
+    The score is now **0.99**, much better. LUIS learned the pattern relevant to the intent without providing many examples.
 
     ![Test with high score result](./media/luis-tutorial-pattern/high-score.png)
 
+## Use an entity with a role in a pattern
+The LUIS app is used to help move employees from one location to another. An example utterance is `Move Bob Jones from Seattle to Los Colinas`. Each location in the utterance has a different meaning. Seattle is the originating location and Los Colinas is the destination location for the move. In order to differentiate those locations in the pattern, create a location entity with two roles: origin and destination. 
+
+### Create a simple entity with location and destination roles
+
+### Add a pattern that uses location and destination roles
+
+### Test the new pattern for role data extraction
+
+## Use a Pattern.any entity to find free-form entities in a pattern
+This HumanResources app also helps employees find company forms. Many of the forms have titles that are varying in length. Create a Pattern.any and use it in a pattern to extract the form name.
+
+### Create a Pattern.any
+
+### Add a pattern that uses the Pattern.any
+
+### Test the new pattern for free-form data extraction
 
 ## Next steps
 
