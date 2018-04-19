@@ -154,14 +154,14 @@ Ensure that the cluster or machine where the Jenkins container image is hosted h
 
 ## Create and configure a Jenkins job
 
-1. Create a **new item** from dashboard.
+1. On the Jenkins dashboard, click  **New Item**.
 2. Enter an item name (for example, **MyJob**). Select **free-style project**, and click **OK**.
-3. Go the job page, and click **Configure**.
+3. The Job configuration page opens. (To get to the configuration from the Jenkins dashboard, click the job, and then click **Configure**).
 
-   a. In the general section, select the checkbox for **GitHub project**, and specify your GitHub project URL. This URL hosts the Service Fabric Java application that you want to integrate with the Jenkins continuous integration, continuous deployment (CI/CD) flow (for example, `https://github.com/sayantancs/SFJenkins`).
+4. On the **General** tab, check the box for **GitHub project**, and specify your GitHub project URL. This URL hosts the Service Fabric Java application that you want to integrate with the Jenkins continuous integration, continuous deployment (CI/CD) flow (for example, `https://github.com/{your-github-account}/service-fabric-java-getting-started`).
 
-   b. Under the **Source Code Management** section, select **Git**. Specify the repository URL that hosts the Service Fabric Java application that you want to integrate with the Jenkins CI/CD flow (for example, `https://github.com/sayantancs/SFJenkins.git`). You can also specify which branch to build (for example, `/master`).
-1. Configure your *GitHub* (which is hosting the repository) so that it is able to talk to Jenkins. Use the following steps:
+5. On the **Source Code Management** tab, select **Git**. Specify the repository URL that hosts the Service Fabric Java application that you want to integrate with the Jenkins CI/CD flow (for example, `https://github.com/{your-github-account}/service-fabric-java-getting-started`). You can also specify which branch to build (for example, `/master`).
+6. Configure the *GitHub* repository to talk to Jenkins. Use the following steps:
 
    a. Go to your GitHub repository page. Go to **Settings** > **Integrations and Services**.
 
@@ -171,32 +171,48 @@ Ensure that the cluster or machine where the Jenkins container image is hosted h
 
    d. A test event is sent to your Jenkins instance. You should see a green check by the webhook in GitHub, and your project will build.
 
-   e. Under the **Build Triggers** section, select which build option you want. For this example, you want to trigger a build whenever a push to the repository happens, so select **GitHub hook trigger for GITScm polling**. (Previously, this option was called **Build when a change is pushed to GitHub**.)
+7. On the **Build Triggers** tab, select which build option you want. For this example, you want to trigger a build whenever a push to the repository happens, so select **GitHub hook trigger for GITScm polling**. (Previously, this option was called **Build when a change is pushed to GitHub**.)
+8. On the **Build** tab, perform one of the following depending on whether you are building a Java application or a .NET Core application:
 
-   f. **Build Section for Java Applications:** Under the **Build section**, from the **Add build step** drop-down, select **Invoke Gradle Script**. In the widget that comes open the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly. If you create a project named `MyActor` (using the Eclipse plug-in or Yeoman generator), the root build script should contain `${WORKSPACE}/MyActor`. See the following screenshot for an example of what this looks like:
+   * **For Java Applications:** Under the **Build section**, from the **Add build step** drop-down, select **Invoke Gradle Script**. In the widget that comes open the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly. If you create a project named `MyActor` (using the Eclipse plug-in or Yeoman generator), the root build script should contain `${WORKSPACE}/MyActor`. The following screenshot shows an example of what this looks like:
 
-    ![Service Fabric Jenkins Build action][build-step]
+     ![Service Fabric Jenkins Build action][build-step]
 
-   g. **Build Section for .Net Core Applications:** Under the **Build section**, from the **Add build step** drop-down, select **Execute Shell**. In the command box that appears, the directory first needs to be changed to the path where the build.sh file is located. Once the directory has been changed the build.sh script can be run and will build the application.
+   * **For .Net Core Applications:** Under the **Build section**, from the **Add build step** drop-down, select **Execute Shell**. In the command box that appears, the directory first needs to be changed to the path where the build.sh file is located. Once the directory has been changed the build.sh script can be run and will build the application.
 
       ```sh
       cd /var/jenkins_home/workspace/[Job Name]/[Path to build.sh]  # change directory to location of build.sh file
       ./build.sh
       ```
 
-    Below is an exmaple of the commands that are used to build the [Counter Service](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started/tree/master/Services/CounterService) sample with a Jenkins job name of CounterServiceApplication.
+     The following image shows an example of the commands that are used to build the [Counter Service](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started/tree/master/Services/CounterService) sample with a Jenkins job name of CounterServiceApplication.
 
-    ![Service Fabric Jenkins Build action][build-step-dotnet]
-  
-   h. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. You need to provide details about the cluster where the Jenkins compiled Service Fabric application will be deployed. The path to the certificate can be found by echoing the value of the echo Certificates_JenkinsOnSF_Code_MyCert_PEM environment variable from within the container. This path can be used for the Client Key and the Client Cert fields.
+      ![Service Fabric Jenkins Build action][build-step-dotnet]
+
+9. To configure the **Post-Build Actions** step to deploy your app to a Service Fabric cluster, you need the location of the cluster certificate for the cluster where your application will be deployed. Choose one of the following depending on whether your Jenkins container is running inside or outside of your cluster:
+
+   * **For Jenkins running inside your cluster:** The path to the certificate can be found by echoing the value of the *Certificates_JenkinsOnSF_Code_MyCert_PEM* environment variable from within the container.
 
       ```sh
       echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
       ```
    
-    You can also provide additional application details used to deploy the application. See the following screenshot for an example of what this looks like:
+   * **For Jenkins running outside your cluster:** Follow these steps to copy the cluster certificate to your container:
+      1. Your certificate must be in PEM format. If you don't have a PEM file, you can create one from the certificate PFX file. If your PFX file is not password protected, run the following command from your host: `openssl pkcs12 -in <file.pfx> -out <file.pem> -nodes -passin pass:` If the PFX file is password protected, include the password in the `-passin` parameter; for example, `-passin pass:MyPassword1234!`.
+      2. To get the image name for your Jenkins container, run `docker ps` from your host and note the NAME value for your container.
+      3. Copy the PEM file to your container with the following Docker command: `docker cp <PEM-file-path> <container-name>:/var/jenkins_home`. For example, `docker cp clustercert.pem infallible_hamilton:/var/jenkins_home`.
 
-    ![Service Fabric Jenkins Build action][post-build-step]
+10. You can either:
+
+    * From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. You need to provide details about the cluster where the Jenkins compiled Service Fabric application will be deployed. The path to the certificate can be found by echoing the value of the echo Certificates_JenkinsOnSF_Code_MyCert_PEM environment variable from within the container. This path can be used for the Client Key and the Client Cert fields.
+
+      ```sh
+      echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
+      ```
+   
+      You can also provide additional application details used to deploy the application. See the following screenshot for an example of what this looks like:
+
+     ![Service Fabric Jenkins Build action][post-build-step]
 
       > [!NOTE]
       > The cluster could be same as the one hosting the Jenkins container application if you are using Service Fabric to deploy the Jenkins container image.
