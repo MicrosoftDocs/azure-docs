@@ -52,7 +52,7 @@ To load data with PolyBase, you can use any of these loading options.
 PolyBase loads data from UTF-8 and UTF-16 encoded delimited text files. In addition to the delimited text files, it loads from  the Hadoop file formats RC File, ORC, and Parquet. PolyBase can load data from Gzip and Snappy compressed files. PolyBase currently does not support extended ASCII, fixed-width format, and nested formats such as WinZip, JSON, and XML.
 
 ### Non-PolyBase loading options
-If your data is not compatible with PolyBase, you can use [bcp](sql-data-warehouse-load-with-bcp.md) or the [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp loads directly to SQL Data Warehouse without going through Azure Blob storage, and is intended only for small loads. Note, the load performance of these options is significantly slower than PolyBase. 
+If your data is not compatible with PolyBase, you can use [bcp](/sql/tools/bcp-utility) or the [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp loads directly to SQL Data Warehouse without going through Azure Blob storage, and is intended only for small loads. Note, the load performance of these options is significantly slower than PolyBase. 
 
 
 ## Extract source data

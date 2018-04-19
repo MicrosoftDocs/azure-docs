@@ -3,7 +3,7 @@ title: How to page search results in Azure Search | Microsoft Docs
 description: Pagination in Azure Search, a hosted cloud search service on Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
-
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
