@@ -22,7 +22,7 @@ ms.reviewer: dastrock
 
 When debugging a SAML-based application integration, it is often helpful to use a tool like [Fiddler](http://www.telerik.com/fiddler) to see the SAML request and the SAML response that contain the SAML token that was issued to an application. 
 
-![][1]
+![Fiddler][1]
 
 Frequently the issues are related to a misconfiguration on Azure Active Directory or on the application side. Depending on where you see the error, you have to review the SAML request or response:
 
@@ -43,7 +43,9 @@ To get the error message, look at the bottom-right corner of the page. You see a
 - A timestamp
 - A message
 
-  
+![Error][2] 
+
+ 
 The correlation Id and the timestamp form a unique identifier you can use to find the back-end logs associated with the sign-in failure. These values are important when you create a support case with Microsoft because they  help the engineers to provide a faster resolution to your problem.
 
 The message is the root cause of the sign-in problem. 
@@ -100,3 +102,4 @@ For information on how to review the SAML response visit the article [Single Sig
 
 <!--Image references-->
 [1]: ../media/active-directory-saml-debugging/fiddler.png
+[2]: ../media/active-directory-saml-debugging/error.png
