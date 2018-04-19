@@ -3,7 +3,7 @@ title: What is Azure Search | Microsoft Docs
 description: Azure Search is a fully-managed hosted cloud search service. Learn more in this feature overview.
 manager: cgronlun
 author: HeidiSteen
-
+services: search
 ms.service: search
 ms.topic: overview
 ms.date: 11/10/2017
