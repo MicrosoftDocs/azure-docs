@@ -30,6 +30,8 @@
     href: app-service-app-service-environment-geo-distributed-scale.md
   - name: ASEv1
     href: app-service-app-service-environment-intro.md
+  - name: Diagnostics
+    href: ../app-service-diagnostics.md
 - name: How-To guides
   items:
   - name: Use an ASE
