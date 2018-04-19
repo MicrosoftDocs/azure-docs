@@ -18106,6 +18106,76 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/location-based-services/about-location-based-services.md",
+            "redirect_url": "/azure/azure-maps/about-azure-maps",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/location-based-services/geocoding-coverage.md",
+            "redirect_url": "/azure/azure-maps/geocoding-coverage",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/location-based-services/how-to-manage-account-keys.md",
+            "redirect_url": "/azure/azure-maps/how-to-manage-account-keys",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/how-to-search-for-address.md",
+            "redirect_url": "/azure/azure-maps/how-to-search-for-address",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/how-to-use-map-control.md",
+            "redirect_url": "/azure/azure-maps/how-to-use-map-control",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/quick-demo-map-app.md",
+            "redirect_url": "/azure/azure-maps/quick-demo-map-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/render-coverage.md",
+            "redirect_url": "/azure/azure-maps/render-coverage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/routing-coverage.md",
+            "redirect_url": "/azure/azure-maps/routing-coverage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/supported-languages.md",
+            "redirect_url": "/azure/azure-maps/supported-languages",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/traffic-coverage.md",
+            "redirect_url": "/azure/azure-maps/traffic-coverage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/tutorial-prioritized-routes.md",
+            "redirect_url": "/azure/azure-maps/tutorial-prioritized-routes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/tutorial-route-location.md",
+            "redirect_url": "/azure/azure-maps/tutorial-route-location",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/tutorial-search-location.md",
+            "redirect_url": "/azure/azure-maps/tutorial-search-location",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/zoom-levels-and-tile-grid.md",
+            "redirect_url": "/azure/azure-maps/zoom-levels-and-tile-grid",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md",
             "redirect_url": "/azure/data-factory/load-azure-sql-data-warehouse",
             "redirect_document_id": false

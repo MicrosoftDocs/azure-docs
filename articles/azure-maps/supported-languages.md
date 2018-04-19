@@ -33,7 +33,7 @@ table provides the supported language codes for each service. 
 | hr-HR      | Croatian               |       |    ✓   |         |                   |                |     ✓     |
 | cs-CZ      | Czech                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | da-DK      | Danish                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| nl -NL     | Dutch                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| nl-NL      | Dutch                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-BE      | Dutch (belgian)        |       |    ✓   |         |                   |                |     ✓     |
 | en         | English                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | Estonian               |       |    ✓   |         |         ✓         |                |     ✓     |
