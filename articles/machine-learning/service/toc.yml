@@ -4,17 +4,17 @@
   expanded: true
   items:
   - name: About Azure Machine Learning
-    href: ../desktop-workbench/overview-what-is-azure-ml.md
+    href: overview-what-is-azure-ml.md
   - name: Model Management overview
     href: ../desktop-workbench/model-management-overview.md
   - name: Other ML products
-    href: ../desktop-workbench/overview-more-machine-learning.md    
+    href: overview-more-machine-learning.md    
   - name: What's new
     href: ../desktop-workbench/azure-machine-learning-release-notes.md    
 - name: Quickstarts
   items:
   - name: Install and start
-    href: ../desktop-workbench/quickstart-installation.md
+    href: quickstart-installation.md
 - name: Tutorials
   items:
   - name: '1: Prepare data'
@@ -85,7 +85,7 @@
     - name: Classify Iris using CLI
       href: ../desktop-workbench/tutorial-iris-azure-cli.md
     - name: Train computer vision models
-      href: ../how-to-train-image-classification-models.md    
+      href: how-to-train-image-classification-models.md    
     - name: Track run history and model metrics
       href: ../desktop-workbench/how-to-use-run-history-model-metrics.md    
     - name: Find run with the best accuracy
@@ -195,9 +195,9 @@
   - name: Frequently asked questions
     href: ../desktop-workbench/frequently-asked-questions.md
   - name: Issues and troubleshooting
-    href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
+    href: known-issues-and-troubleshooting-guide.md
   - name: Support and training
-    href: ../desktop-workbench/support-for-aml-services.md
+    href: support-for-aml-services.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
