@@ -77,7 +77,7 @@ Now that you've built the base image, build the application image that specifies
 az acr build --registry $ACR_NAME --image helloworld:{{.Build.Id}} --file Dockerfile-app --build-arg REGISTRY_NAME=$ACR_NAME.azurecr.io --context .
 ```
 
-Output from the build operation is similar to the following. Tak note the **Build ID**, which you use in the next section. In the example output below, the build ID is "eastus-11".
+Output from the build operation is similar to the following. Take note the **Build ID**, which you use in the next section. In the example output below, the build ID is "eastus-11".
 
 ```console
 $ az acr build --registry $ACR_NAME --image helloworld:{{.Build.Id}} --file Dockerfile-app --build-arg REGISTRY_NAME=$ACR_NAME.azurecr.io --context .
@@ -107,7 +107,7 @@ If you have Docker installed, start a container from the image to see the instal
 First, login to your registry with [az acr login][az-acr-login]:
 
 ```azurecli
-az acr login
+az acr login --name $ACR_NAME
 ```
 
 Next, execute the following `docker run` command. Replace `$BUILD_ID` with the build ID from the previous step.
@@ -118,7 +118,7 @@ docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:$BUILD_ID
 
 Navigate to http://localhost:8080 to see the running application. The text displayed in the web page is similar to the following:
 
-```console
+```
 Hello World
 Version: 9.11.1
 ```
@@ -134,10 +134,12 @@ az acr build-task create \
     --image helloworld:{{.Build.Id}} \
     --build-arg REGISTRY_NAME=$ACR_NAME.azurecr.io \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node \
+    --file Dockerfile-app \
+    --branch master \
     --git-access-token $GIT_PAT
 ```
 
-This build task specifies that any time the base image specified in the Dockerfile is updated, ACR Build will build the container image from the code in the repository. In addition, any time code is committed to the repository specified in the `--context` parameter, ACR Build will build the image.
+This build task specifies that any time the base image specified in the Dockerfile (`Dockerfile-app`) is updated, ACR Build will build the container image from the code in the repository. In addition, any time code is committed to the repository specified in the `--context` parameter, ACR Build will build the image.
 
 ## Update base image
 
@@ -204,6 +206,7 @@ In this tutorial, you learned how to use a build task to automatically trigger c
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build-task-create]: /cli/azure/acr#az-acr-build-task-create
 [az-acr-build-task-run]: /cli/azure/acr#az-acr-build-task-run
+[az-acr-login]: /cli/azure/acr#az-acr-login
 
 <!-- IMAGES -->
 [build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png
