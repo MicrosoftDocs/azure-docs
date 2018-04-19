@@ -15,7 +15,7 @@ ms.date: 04/09/2018
 ms.author: juliako
 ---
 
-# Tutorial: Analyze videos with Azure Media Services and Video Indexer 
+# Tutorial: Analyze videos with Azure Media Services 
 
 This tutorial shows you how to analyze videos with Azure Media Services. There are many scenarios in which you might want to gain valuable insights from recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can extract speech-to-text and build search indexes and dashboards. Then, they can extract intelligence around common complaints, sources of complaints, and other relevant data. 
 
