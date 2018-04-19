@@ -20,7 +20,7 @@ ms.service: iot-hub
 # ms.reviewer:
 # manager: MSFT-alias-manager-or-PM-counterpart
 
-# As a developer or IT Pro, I want to know what tools I can use to troubleshoot device connectivity issues.
+# As a developer or IT Pro, I want to know what tools I can use to troubleshoot connectivity issues between my IoT devices and my IoT hub.
 ---
 
 # Troubleshoot device connectivity
@@ -35,7 +35,6 @@ In this tutorial, you learn how to:
 > * Check device-to-cloud connectivity
 > * Check cloud-to-device connectivity
 > * Check device twin synchronization
-> * Implement the heartbeat pattern
 
 ## Prerequisites
 
@@ -51,7 +50,7 @@ You can verify the current version of Node.js on your development machine using 
 node --version
 ```
 
-Download the sample Node.js project from https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip and extract the ZIP archive.
+Download the sample device simulator Node.js project from https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip and extract the ZIP archive.
 
 ## Create an IoT hub
 
@@ -61,7 +60,7 @@ If you created a free or standard tier IoT hub in a previous quickstart or tutor
 
 ## Device keys
 
-A device must authenticate with your hub before it can exchange any data with the hub. You can use the **IoT Devices** tool in the **Device Management** section of the portal to manage your devices and check the authentication keys you are using. In this section of the tutorial, you add a new test device, retrieve its key, and check that it can connect to the hub. Later you reset the authentication key to observe what happens when a device tries to use an outdated key. This section of the tutorial uses the Azure portal to create, manage and monitor a device, and the Azure CLI to simulate a device.
+A device must authenticate with your hub before it can exchange any data with the hub. You can use the **IoT Devices** tool in the **Device Management** section of the portal to manage your devices and check the authentication keys you are using. In this section of the tutorial, you add a new test device, retrieve its key, and check that the test device can connect to the hub. Later you reset the authentication key to observe what happens when a device tries to use an outdated key. This section of the tutorial uses the Azure portal to create, manage and monitor a device, and the sample Node.js device simulator.
 
 Sign in to the portal and navigate to your IoT hub. Then navigate to the **IoT Devices** tool:
 
@@ -125,7 +124,7 @@ This time you see an authentication error when the application tries to connect:
 
 ### Generate shared access signature (SAS) token
 
-If you use an IoT Hub device SDK to connect to your hub, the SDK generates the SAS token for you from the name of your hub, the name of your device, and the device key. In some scenarios, such as in a cloud protocol gateway or as part of a custom authentication scheme, you may need to generate the SAS token yourself. To troubleshoot issues with your SAS generation code, it's useful to have a way of generating a known-good SAS token.
+If your device uses one of the IoT Hub device SDKs the SDK generates the SAS token used to authenticate with the hub from the name of your hub, the name of your device, and the device key. In some scenarios, such as in a cloud protocol gateway or as part of a custom authentication scheme, you may need to generate the SAS token yourself. To troubleshoot issues with your SAS generation code, it's useful to have a way of generating a known-good SAS token to use during testing.
 
 <!-- Not working at the moment, created issue: https://github.com/Azure/azure-iot-cli-extension/issues/22 -->
 
@@ -147,7 +146,7 @@ If the outbound port is blocked by a firewall, the device cannot connect:
 
 ## Device-to-cloud connectivity
 
-After a device connects, it typically tries to send telemetry to your IoT hub.
+After a device connects, it typically tries to send telemetry to your IoT hub. This section shows you how you can verify that the telemetry sent by the device reaches your hub.
 
 First, retrieve the current connection string for your simulated device using the following command:
 
@@ -196,7 +195,7 @@ Use the CLI to invoke a direct method on the device:
 az iot hub invoke-device-method --device-id MyTestDevice --method-name TestMethod --timeout 10 --method-payload '{"key":"value"}'  -hub-name {YourIoTHubName}
 ```
 
-When the simulated device receives the direct method call, it sends an acknowledgement back to the hub.
+When the simulated device successfully receives the direct method call, it sends an acknowledgement back to the hub.
 
 ## Twin synchronization
 
@@ -225,10 +224,6 @@ az iot hub device-twin update --set properties.desired='{"mydesiredproperty":"pr
 ```
 
 In addition to receiving desired property changes as they are made, the simulated device automatically checks for desired properties when it starts up.
-
-## Heartbeat pattern
-
-<!-- Emailed Roopesh with questions about what to add here -->
 
 ## Clean up resources
 
