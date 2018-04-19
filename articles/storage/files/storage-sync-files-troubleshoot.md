@@ -49,7 +49,7 @@ If you try and install the sync agent on an Active Directory domain controller w
 To resolve, transfer the PDC role to another domain controller running Windows Server 2012R2 or more recent, then install sync.
 
 <a id="agent-installation-websitename-failure"></a>**Agent installation fails with this error: "Storage Sync Agent Wizard ended prematurely"**  
-This issue can occur if the IIS website default name is changed. To work around this issue, rename the IIS default website as "Default Web Site" and retry installation. The issue will be fixed in a future update of the agent. 
+This issue can occur with version 1.x agent and if the IIS website default name is changed. To work around this issue, use our 2.0.11+ agent.
 
 <a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
 If a server is not listed under **Registered servers** for a Storage Sync Service:

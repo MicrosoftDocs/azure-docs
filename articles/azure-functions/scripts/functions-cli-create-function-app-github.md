@@ -43,6 +43,6 @@ Each command in the table links to command specific documentation. This script u
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
 Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).

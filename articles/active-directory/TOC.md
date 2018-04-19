@@ -56,6 +56,7 @@
 #### [Invitation email](active-directory-b2b-invitation-email.md)
 #### [Invitation redemption](active-directory-b2b-redemption-experience.md)
 #### [Add B2B users without an invitation](active-directory-b2b-add-user-without-invite.md)
+#### [Allow or block invitations](active-directory-b2b-allow-deny-list.md)
 #### [Conditional access for B2B](active-directory-b2b-mfa-instructions.md)
 #### [B2B sharing policies](active-directory-b2b-delegate-invitations.md)
 #### [Add a B2B user to a role](active-directory-b2b-add-guest-to-role.md)
@@ -77,7 +78,8 @@
 ## [Manage groups and members](active-directory-manage-groups.md)
 ### Manage groups
 #### [Azure portal](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline (v1)](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
@@ -94,9 +96,8 @@
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
 ### [Restore a deleted Office 365 group](active-directory-groups-restore-azure-portal.md)
-### Manage group settings
-#### [Azure portal](active-directory-groups-settings-azure-portal.md)
-#### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [Manage group settings](active-directory-groups-settings-azure-portal.md)
+
 ### Create advanced rules
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
@@ -190,11 +191,10 @@
 #### [Report on automatic user provisioning](active-directory-saas-provisioning-reporting.md)
 #### [Troubleshoot user provisioning](active-directory-application-provisioning-content-map.md)
 
-
-
 ### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
 #### Get started
 ##### [Enable App Proxy](active-directory-application-proxy-enable.md)
+##### [GDPR support](active-directory-application-proxy-gdpr.md)
 ##### [Publish apps](application-proxy-publish-azure-portal.md)
 ##### [Custom domains](active-directory-application-proxy-custom-domains.md)
 #### [Single sign-on](application-proxy-sso-overview.md)
@@ -221,7 +221,8 @@
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
+##### [Qlik Sense](active-directory-application-proxy-qlik.md) 
+#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
 
@@ -290,9 +291,10 @@
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assign admin role to a user](active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](users-default-permissions.md)
+### [Securing privileged access](admin-roles-best-practices.md) 
+### [Create emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
-### [Manage emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Access reviews
 ### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)
@@ -326,9 +328,6 @@
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [FAQs](active-directory-conditional-faqs.md)
 
-### Windows Hello
-#### [Authenticate without passwords](active-directory-azureadjoin-passport.md)
-#### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

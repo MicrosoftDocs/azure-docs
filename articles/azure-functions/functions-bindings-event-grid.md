@@ -22,7 +22,7 @@ ms.author: tdykstra
 
 This article explains how to handle [Event Grid](../event-grid/overview.md) events in Azure Functions.
 
-Event Grid is an Azure service that sends HTTP requests to notify you about events that happen in *publishers*. A publisher is the service or resource that originates the event. For example, an Azure blob storage account is a publisher, and a blob upload or deletion is an event. Some [Azure services have built-in support for publishing events to Event Grid](../event-grid/overview.md#event-publishers). 
+Event Grid is an Azure service that sends HTTP requests to notify you about events that happen in *publishers*. A publisher is the service or resource that originates the event. For example, an Azure blob storage account is a publisher, and a blob upload or deletion is an event. Some [Azure services have built-in support for publishing events to Event Grid](../event-grid/overview.md#event-sources). 
 
 Event *handlers* receive and process events. Azure Functions is one of several [Azure services that have built-in support for handling Event Grid events](../event-grid/overview.md#event-handlers). In this article, you learn how to use an Event Grid trigger to invoke a function when an event is received from Event Grid.
 
@@ -34,11 +34,11 @@ If you prefer, you can use an HTTP trigger to handle Event Grid Events; see [Use
 
 The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet package. Source code for the package is in the [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub repository.
 
-The package is used for [C# class library development](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) and [Functions v2 binding extension registration](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
-
 <!--
 If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
 -->
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## Example
 

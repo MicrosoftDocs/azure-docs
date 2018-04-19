@@ -35,9 +35,9 @@ Complete the following tasks before completing steps in any section of this arti
 
 There is a limit to how many route tables you can create per Azure location and subscription. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. In the top-left corner of the portal, select **+ New**.
+1. In the top-left corner of the portal, select **+ Create a resource**.
 2. Select **Networking**, then select **Route table**.
-3. Enter a **Name** for the route table, select your **Subscription**, create a new **Resource group**, or select an existing resource group, select a **Location**, then select **Create**. The **Disable BGP route propagation** option prevents on-premises routes from being propagated to an Azure virtual network via BGP. If your virtual network is not connected to an Azure network gateway (VPN or ExpressRoute), leave the option *Disabled*. 
+3. Enter a **Name** for the route table, select your **Subscription**, create a new **Resource group**, or select an existing resource group, select a **Location**, then select **Create**. The **Disable BGP route propagation** option prevents on-premises routes from being propagated via BGP to the network interfaces in any subnet that the route table is associated to. If your virtual network is not connected to an Azure network gateway (VPN or ExpressRoute), leave the option *Disabled*.
 
 **Commands**
 
@@ -226,7 +226,7 @@ You can determine the next hop type between a virtual machine and the IP address
  
 ## Permissions
 
-To perform tasks on route tables and routes, your account must be assigned to the [network contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate permissions listed in the following table:
+To perform tasks on route tables and routes, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate permissions listed in the following table:
 
 |Operation                                                       |   Operation name                               |
 |--------------------------------------------------------------  |   -------------------------------------------  |

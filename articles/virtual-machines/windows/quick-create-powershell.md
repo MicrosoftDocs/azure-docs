@@ -3,8 +3,8 @@ title: Azure Quick Start - Create Windows VM PowerShell | Microsoft Docs
 description: Quickly learn to create a Windows virtual machines with PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/12/2018
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
 ---
 

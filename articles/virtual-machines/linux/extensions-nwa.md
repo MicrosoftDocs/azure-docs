@@ -22,9 +22,9 @@ ms.author: dennisg
 
 ## Overview
 
-[Azure Network Watcher](https://review.docs.microsoft.com/azure/network-watcher/) is a network performance monitoring, diagnostic, and analytics service that allows monitoring for Azure networks. The Network Watcher Agent virtual machine extension is a requirement for some of the Network Watcher features on Azure virtual machines. This includes capturing network traffic on demand and other advanced functionality.
+[Azure Network Watcher](/azure/network-watcher/) is a network performance monitoring, diagnostic, and analytics service that allows monitoring for Azure networks. The Network Watcher Agent virtual machine extension is a requirement for some of the Network Watcher features on Azure virtual machines. This includes capturing network traffic on demand and other advanced functionality.
 
-This document details the supported platforms and deployment options for the Network Watcher Agent virtual machine extension for Linux.
+This document details the supported platforms and deployment options for the Network Watcher Agent virtual machine extension for Linux. Installation of the agent does not disrupt, or require a reboot, of the virtual machine.
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ Note that CoreOS is not supported at this time.
 
 ### Internet connectivity
 
-Some of the Network Watcher Agent functionality requires that the target virtual machine be connected to the Internet. Without the ability to establish outgoing connections some of the Network Watcher Agent features may malfunction or become unavailable. For more details, please see the [Network Watcher documentation](https://review.docs.microsoft.com/azure/network-watcher/).
+Some of the Network Watcher Agent functionality requires that the target virtual machine be connected to the Internet. Without the ability to establish outgoing connections some of the Network Watcher Agent features may malfunction or become unavailable. For more details, please see the [Network Watcher documentation](/azure/network-watcher/).
 
 ## Extension schema
 

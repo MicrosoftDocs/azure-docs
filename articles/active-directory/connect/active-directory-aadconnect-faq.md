@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2017
+ms.date: 03/09/2017
 ms.author: billmath
 
 ---
@@ -75,7 +75,7 @@ See these articles:
 You can also configure Azure AD to allow the sync engine to update the userPrincipalName as described in [Azure AD Connect sync service features](active-directory-aadconnectsyncservice-features.md).
 
 **Q: Is it supported to soft match on-premises AD Group/Contact objects with existing Azure AD Group/Contact objects?**  
-No, this is currently not supported.
+Yes, this will be based on the proxyAddress.  Soft matching is not supported for groups that are not mail-enabled.
 
 **Q: Is it supported to manually set ImmutableId attribute on existing Azure AD Group/Contact objects to hard match it to on-premises AD Group/Contact objects?**  
 No, this is currently not supported.

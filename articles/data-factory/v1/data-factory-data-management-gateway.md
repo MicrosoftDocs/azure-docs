@@ -4,8 +4,8 @@ description: Set up a data gateway to move data between on-premises and the clou
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory

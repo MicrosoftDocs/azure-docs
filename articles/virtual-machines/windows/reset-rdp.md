@@ -3,8 +3,8 @@ title: Reset the password or Remote Desktop configuration on a Windows VM | Micr
 description: Learn how to reset an account password or Remote Desktop services on a Windows VM using the Azure portal or Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,12 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
-ms.author: genli
+ms.date: 03/23/2018
+ms.author: cynthn
 
 ---
 # How to reset the Remote Desktop service or its login password in a Windows VM
-If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration (not supported on Windows Domain Controllers). You can use either the Azure portal or the VM Access extension in Azure PowerShell to reset the password. If you are using PowerShell, make sure that you have the [latest PowerShell module installed and configured](/powershell/azure/overview) and are signed in to your Azure subscription. You can also [perform these steps for VMs created with the Classic deployment model](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
+If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration (not supported on Windows Domain Controllers). You can use either the Azure portal or the VM Access extension in Azure PowerShell to reset the password. Once you have logged into the VM, you should reset the password for that user.  
+If you are using PowerShell, make sure that you have the [latest PowerShell module installed and configured](/powershell/azure/overview) and are signed in to your Azure subscription. You can also [perform these steps for VMs created with the Classic deployment model](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
 
 ## Ways to reset configuration or credentials
 You can reset Remote Desktop services and credentials in a few different ways, depending on your needs:

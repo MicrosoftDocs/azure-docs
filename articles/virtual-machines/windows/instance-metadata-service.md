@@ -4,7 +4,7 @@ description: RESTful interface to get information about Windows VM's compute, ne
 services: virtual-machines-windows
 documentationcenter: ''
 author: harijayms
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -34,7 +34,7 @@ The service is available in generally available Azure regions. Not all API versi
 
 Regions                                        | Availability?                                 | Supported Versions
 -----------------------------------------------|-----------------------------------------------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01, 2017-12-01(This version is not available in UK regions)
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01, 2017-12-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02,2017-08-01
 [Azure China](https://www.azure.cn/)                                                           | Generally Available | 2017-04-02,2017-08-01
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02,2017-08-01
@@ -216,13 +216,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 **Request**
 
-Instance metadata can be retrieved in Windows via the PowerShell utility `curl`: 
+Instance metadata can be retrieved in Windows via the `curl` program: 
 
 ```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
-Or through the `Invoke-RestMethod` cmdlet:
+Or through the `Invoke-RestMethod` PowerShell cmdlet:
     
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 

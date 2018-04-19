@@ -3,19 +3,15 @@ title: Run ad hoc reporting queries across multiple Azure SQL databases | Micros
 description: "Run ad hoc reporting queries across multiple SQL databases in a multi-tenant app example."
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: craigg
-editor: ''
-
-ms.assetid:
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: "Inactive"
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang:
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: AyoOlubeko
 
 ---

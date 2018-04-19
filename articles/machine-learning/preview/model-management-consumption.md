@@ -157,6 +157,6 @@ url = 'http://<service ip address>:80/api/v1/service/<service name>/score'
 api_key = 'your service key' 
 headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
-resp = requests.post(url, data, headers=headers)
+resp = requests.post(url, body, headers=headers)
 resp.text
 ```

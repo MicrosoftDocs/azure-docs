@@ -70,9 +70,9 @@ to the policy in this example HTTP workflow definition:
         "retryPolicy" : {
             "type": "exponential",
             "count": 4,
-            "interval": "PT7.5S",
+            "interval": "PT7S",
             "minimumInterval": "PT5S",
-            "maximumInterval": "PT45S"
+            "maximumInterval": "PT1H"
         }
     },
     "runAfter": {}
@@ -369,8 +369,6 @@ information to other data sources, such as queues, topics, SQL, Azure Cosmos DB,
 
 * [See how a customer builds error handling with Azure Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Find more Logic Apps examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Learn how to create automated deployments for logic apps](../logic-apps/logic-apps-create-deploy-template.md)
-* [Build and deploy logic apps with Visual Studio](logic-apps-deploy-from-vs.md)
 
 <!-- References -->
 [retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9

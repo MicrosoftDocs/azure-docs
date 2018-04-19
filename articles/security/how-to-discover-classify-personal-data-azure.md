@@ -1,6 +1,6 @@
 ﻿---
 title: Discover, identify, and classify personal data in Microsoft Azure | Microsoft Docs
-description: Learn about searching, classifying, discovering, and identifying data. These tools and processes may help you comply with General Data Protection Regulation (GDPR)
+description: searching, classifying, discovering, and identifying data in Azure may help you comply with General Data Protection Regulation (GDPR)
 services: security
 documentationcenter: na
 author: barclayn
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
 

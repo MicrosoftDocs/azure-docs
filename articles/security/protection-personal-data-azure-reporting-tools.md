@@ -1,6 +1,6 @@
 ---
   title: Document protection of personal data with Azure reporting tools| Microsoft Docs
-  description: how to use Azure reporting services and technologies to help protect privacy of personal data. This information can be used to comply with industry or government regulations for example, General Data Protection Regulation (GDPR).
+  description: use Azure reporting services to protect privacy of personal data in initiatives to comply with General Data Protection Regulation (GDPR).
   services: security
   documentationcenter: na
   author: barclayn
@@ -13,7 +13,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 03/05/2018
+  ms.date: 03/06/2018
   ms.author: barclayn
 
 
@@ -96,13 +96,13 @@ Analysis tools in Log Analytics such as log searches, views, and solutions work 
 
 #### How do I use Log Analytics?
 
-You can access Log Analytics through the OMS portal or the Azure portal, from any web browser. Log Analytics includes a query language to quickly retrieve and consolidate data in the repository. You can create and save Log Searches to directly analyze data in the portal.
+You can access Log Analytics through the OMS portal or the Azure portal, from any web browser. Log Analytics includes a query language to quickly retrieve and consolidate data in the Log Analytics workspace. You can create and save Log Searches to directly analyze data in the portal.
 
 To create a Log Analytics workspace in the Azure portal, do the following:
 
 1. Select **Log Analytics** from the list of services in the Marketplace.
 
-2. Select **Create,** then specify the name of your OMS workspace, select your subscription, resource group, location, and pricing tier.
+2. Select **Create,** then specify the name of your Log Analytics workspace, select your subscription, resource group, location, and pricing tier.
 
 3. Click **OK** to display a list of your workspaces.
 

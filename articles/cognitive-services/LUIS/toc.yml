@@ -12,7 +12,15 @@
   - name: Create new app with intents
     href: luis-quickstart-intents-only.md
   - name: Create new app with intents and entities
-    href: luis-quickstart-primary-and-secondary-data.md
+    items: 
+    - name: Simple entity
+      href: luis-quickstart-primary-and-secondary-data.md
+    - name: List entity
+      href: luis-quickstart-intent-and-list-entity.md
+    - name: Hierarchical entity
+      href: luis-quickstart-intent-and-hier-entity.md
+    - name: Regular expresion entity
+      href: luis-quickstart-intents-regex-entity.md
   - name: Create a new app with Prebuilt Domain
     href: luis-get-started-create-app.md
   - name: Call LUIS endpoint API
@@ -49,12 +57,22 @@
       href: luis-quickstart-ruby-add-utterance.md
 - name: Tutorials
   items: 
-  - name: Integrate LUIS with a bot using Node.js
-    href: luis-nodejs-tutorial-build-bot-framework-sample.md
-  - name: Integrate LUIS with a bot using C#
-    href: luis-csharp-tutorial-build-bot-framework-sample.md
+  - name: Integrate LUIS with a bot
+    items: 
+    - name: Node.js
+      href: luis-nodejs-tutorial-build-bot-framework-sample.md
+    - name: C#
+      href: luis-csharp-tutorial-build-bot-framework-sample.md
+  - name: Gain Application Insights with a bot 
+    items: 
+    - name: Node.js
+      href: luis-tutorial-function-appinsights.md
+    - name: C#
+      href: luis-tutorial-bot-csharp-appinsights.md
   - name: Build a LUIS app programmatically using Node.js
     href: luis-tutorial-node-import-utterances-csv.md
+  - name: Use composite entity to extract grouped data
+    href: luis-tutorial-composite-entity.md
   - name: Add list entity for increased entity detection using Node.js
     href: luis-tutorial-list-entity.md
   - name: Learn synonyms with a phrase list
@@ -63,50 +81,88 @@
     href: luis-tutorial-batch-testing.md
   - name: Correct spelling with Bing Spell Check API v7
     href: luis-tutorial-bing-spellcheck.md
-  - name: Gain Application Insights with a bot using Node.js
-    href: luis-tutorial-function-appinsights.md
 - name: Samples
   items:
   - name: Code samples
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items:
-  - name: Authoring cycle
-    href: luis-concept-app-iteration.md 
-  - name: Intents
-    href: luis-concept-intent.md
-  - name: Entities
-    href: luis-concept-entity-types.md
-  - name: Data extraction
-    href: luis-concept-data-extraction.md
-  - name: Utterances
-    href: luis-concept-utterance.md
-  - name: Features
-    href: luis-concept-feature.md
-  - name: Testing
-    href: luis-concept-test.md
+  - name: Authoring and endpoint keys
+    href: luis-concept-keys.md
+  - name: Author App
+    items: 
+    - name: Authoring cycle
+      href: luis-concept-app-iteration.md 
+    - name: Collaboration
+      href: luis-concept-collaborator.md
+    - name: Versioning
+      href: luis-concept-version.md
+  - name: Design Model 
+    items:
+    - name: Intents
+      href: luis-concept-intent.md
+    - name: Entities
+      href: luis-concept-entity-types.md
+    - name: Utterances
+      href: luis-concept-utterance.md
+  - name: Predictions
+    items:
+    - name: Prediction score
+      href: luis-concept-prediction-score.md
+    - name: Features
+      href: luis-concept-feature.md
+  - name: Data management
+    items: 
+    - name: Altering data
+      href: luis-concept-data-alteration.md
+    - name: Extracting data
+      href: luis-concept-data-extraction.md
+    - name: Data Storage
+      href: luis-concept-data-storage.md
+  - name: Test
+    items: 
+    - name: Interactive testing
+      href: luis-concept-test.md
+    - name: Batch testing
+      href: luis-concept-batch-test.md
+  - name: Enterprise
+    items:
+    - name: Design strategies
+      href: luis-concept-enterprise.md
+  - name: Security
+    items:
+    - name: App access
+      href: luis-concept-security.md
+  - name: Best practices
+    href: luis-concept-best-practices.md
 - name: How-to guides
   items: 
   - name: Plan your app
     href: Plan-your-app.md
-  - name: Build a LUIS app
+  - name: Start a new app
+    href: Create-new-app.md
+  - name: Build Model
     items: 
-    - name: Start a new app
-      href: Create-new-app.md
     - name: Add intents
       href: Add-intents.md
     - name: Add utterances
       href: Add-example-utterances.md
     - name: Add entities
       href: Add-entities.md
-    - name: Improve performance using features
-      href: Add-Features.md
-    - name: Train and test the app
+  - name: Improve prediction accuracy using features
+    href: Add-Features.md
+  - name: Train
+    href: luis-how-to-train.md
+  - name: Test
+    items:
+    - name: Interactive testing
       href: Train-Test.md
-    - name: Use active learning
-      href: Label-Suggested-Utterances.md
-    - name: Publish your app
-      href: PublishApp.md
+    - name: Batch testing
+      href: luis-how-to-batch-test.md
+  - name: Use active learning
+    href: Label-Suggested-Utterances.md
+  - name: Publish your app
+    href: PublishApp.md
   - name: Use prebuilt models
     items: 
     - name: Use prebuilt entities
@@ -121,12 +177,14 @@
       href: App-Dashboard.md
     - name: Manage LUIS keys
       href: Manage-Keys.md
-    - name: Manage Azure keys
+    - name: Manage Azure endpoint keys
       href: AzureIbizaSubscription.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
     - name: Collaborate on a LUIS app
-      href: luis-how-to-collaborate.md    
+      href: luis-how-to-collaborate.md 
+  - name: Manage your LUIS account
+    href: luis-how-to-account-settings.md   
   - name: Migrate to V2 API
     href: migration-v1-to-v2.md
 - name: Reference
@@ -141,10 +199,16 @@
     href: luis-reference-prebuilt-domains.md
   - name: Cortana prebuilt app reference
     href: luis-reference-cortana-prebuilt.md
-  - name: Authoring APIs
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
-  - name: Endpoint API
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78         
+  - name: Authoring V2 APIs
+    href: https://aka.ms/luis-authoring-apis
+  - name: Endpoint V2 API
+    href: https://aka.ms/luis-endpoint-apis
+  - name: HTTP codes
+    href: luis-reference-response-codes.md
+  - name: Azure CLI 2.0
+    href: https://aka.ms/az-cli-cognitiveservices
+  - name: Azure RM PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
   - name: SDKs
     items:
     - name: Android
@@ -153,12 +217,14 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
     - name: Python
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
-    - name: Windows
-      href: https://github.com/Microsoft/Cognitive-LUIS-Windows
+    - name: .Net Endpoint
+      href: https://aka.ms/luis-endpoint-sdk
+    - name: .Net Authoring
+      href: https://aka.ms/luis-authoring-sdk
 - name: Resources
   items: 
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://aka.ms/luis-roadmap
   - name: Glossary
     href: luis-glossary.md
   - name: FAQ
@@ -169,5 +235,9 @@
     href: https://stackoverflow.com/questions/tagged/LUIS 
   - name: UserVoice
     href: https://aka.ms/luis-uservoice-forum
+  - name: Search
+    href: https://docs.microsoft.com/en-us/search/index?search=LUIS
   - name: Blog
     href: https://blog.botframework.com/category/luis/
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service

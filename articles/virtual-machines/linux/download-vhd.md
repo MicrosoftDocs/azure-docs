@@ -3,8 +3,8 @@ title: Download a Linux VHD from Azure | Microsoft Docs
 description: Download a Linux VHD using the Azure CLI and the Azure portal.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
-ms.author: davidmu
+ms.author: cynthn
 ---
 
 # Download a Linux VHD from Azure
@@ -32,15 +32,15 @@ A VHD can’t be downloaded from Azure if it's attached to a running VM. You nee
 
 To use the VHD as an image to create other VMs, complete these steps:
 
-1. Use SSH, the account name, and the public IP address of the VM to connect to it and deprovision it. The +user parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, leave out this +user parameter. The following example removes the last provisioned user account:
+1. Use SSH, the account name, and the public IP address of the VM to connect to it and deprovision it. You can find the public IP address with [az network public-ip show](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show). The +user parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, leave out this +user parameter. The following example removes the last provisioned user account:
 
     ```bash
-    ssh azureuser@40.118.249.235
+    ssh azureuser@<publicIpAddress>
     sudo waagent -deprovision+user -force
     exit 
     ```
 
-2. Sign in to your Azure account with [az login](https://docs.microsoft.com/cli/azure/#az_login).
+2. Sign in to your Azure account with [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login).
 3. Stop and deallocate the VM.
 
     ```azurecli

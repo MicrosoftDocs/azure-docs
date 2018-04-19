@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Deploy an Azure Container Service (AKS) cluster
+# Tutorial: Deploy an Azure Container Service (AKS) cluster
 
 Kubernetes provides a distributed platform for containerized applications. With AKS, provisioning of a production ready Kubernetes cluster is simple and quick. In this tutorial, part three of eight, a Kubernetes cluster is deployed in AKS. Steps completed include:
 
@@ -21,7 +21,7 @@ Kubernetes provides a distributed platform for containerized applications. With 
 > * Installation of the Kubernetes CLI (kubectl)
 > * Configuration of kubectl
 
-In subsequent tutorials, the Azure Vote application is deployed to the cluster, scaled, updated, and Operations Management Suite is configured to monitor the Kubernetes cluster.
+In subsequent tutorials, the Azure Vote application is deployed to the cluster, scaled, updated, and Log Analytics is configured to monitor the Kubernetes cluster.
 
 ## Before you begin
 
@@ -62,7 +62,7 @@ az aks install-cli
 To configure kubectl to connect to your Kubernetes cluster, run the following command:
 
 ```azurecli
-az aks get-credentials --resource-group=myResourceGroup --name=myAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 To verify the connection to your cluster, run the [kubectl get nodes][kubectl-get] command.
@@ -93,7 +93,7 @@ CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --q
 Get the ACR registry resource id. Update the regsitry name to that of your ACR registry and the resource group to the resource group where the ACR registry is located.
 
 ```azurecli
-ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Create the role assignment, which grants the proper access.

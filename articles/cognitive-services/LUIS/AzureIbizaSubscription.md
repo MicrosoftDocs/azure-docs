@@ -1,6 +1,6 @@
 ---
-title: Manage Azure subscription | Microsoft Docs
-description: In this article, you create a metered key for your LUIS account to provide unlimited traffic to your endpoint following a payment plan.
+title: Manage Azure endpoint subscription | Microsoft Docs
+description: In this article, you create a metered endpoint key for your LUIS account to provide unlimited traffic to your endpoint following a payment plan.
 services: cognitive-services
 author: v-geberr
 manager: Kaiqb
@@ -8,13 +8,16 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/21/2018
 ms.author: v-geberr
 ---
 
-# Manage Azure subscription keys
+# Manage Azure endpoint subscription keys
 
-For authoring, testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. When using the paid tier, LUIS scales to the number of endpoint transactions your application needs.
+For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. 
+
+> [!NOTE]
+> Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
 
 <a name="create-luis-service"></a>
 ## Create LUIS endpoint key
@@ -46,6 +49,7 @@ For authoring, testing and prototype only, use the free (F0) tier. For productio
     ![Change your LUIS payment tier](./media/luis-usage-tiers/plans.png)
 4.  When the pricing change is complete, a pop-up window verifies the new pricing tier. 
     ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
+5. Remember to [assign this endpoint key](manage-keys.md#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
 
 ## Exceed pricing tier usage
 Each tier allows endpoint requests to your LUIS account at a specific rate. If the rate of requests is higher than the allowed rate of your metered account per minute or per month, requests receive an HTTP error of "429: Too Many Requests."

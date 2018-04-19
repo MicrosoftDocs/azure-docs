@@ -35,7 +35,7 @@ In this tutorial, you convert MP4 media files in parallel to MP3 format using th
 
 * [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 or a more recent version). 
 
-* A Batch account and a linked general-purpose storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
+* A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
 * [Windows 64-bit version of ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Download the zip file to your local computer. For this tutorial you only need the zip file. You do not need to unzip the file or install it locally. 
 

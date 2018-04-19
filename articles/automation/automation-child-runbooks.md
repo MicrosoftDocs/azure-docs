@@ -1,21 +1,13 @@
 ---
-title: Child runbooks in Azure Automation | Microsoft Docs
+title: Child runbooks in Azure Automation
 description: Describes the different methods for starting a runbook in Azure Automation from another runbook and sharing information between them.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: jwhit
-editor: tysonn
-
-ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/02/2017
-ms.author: magoedte;bwren
-
+manager: carmonm
 ---
 # Child runbooks in Azure Automation
 It is a best practice in Azure Automation to write reusable, modular runbooks with a discrete function that can be used by other runbooks. A parent runbook will often call one or more child runbooks to perform required functionality. There are two ways to call a child runbook, and each has distinct differences that you should understand so that you can determine which will be best for your different scenarios.

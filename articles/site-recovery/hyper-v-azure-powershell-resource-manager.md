@@ -6,7 +6,7 @@ author: bsiva
 manager: abhiag
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/08/2018
 ms.author: bsiva
 
 ---
@@ -37,7 +37,7 @@ Make sure you have these prerequisites in place:
 In addition, the specific example described in this article has the following prerequisites:
 
 * A Hyper-V host running Windows Server 2012 R2 or Microsoft Hyper-V Server 2012 R2 containing one or more VMs. Hyper-V servers should be connected to the Internet, either directly or through a proxy.
-* The VMs you want to replicate should conform with [these prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+* The VMs you want to replicate should conform with [these prerequisites](hyper-v-azure-support-matrix.md#replicated-vms).
 
 ## Step 1: Sign in to your Azure account
 

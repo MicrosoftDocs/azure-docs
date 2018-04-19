@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/29/2018
+ms.date: 03/29/2018
 ms.author: ryanwi, mikhegn
 
 ---
@@ -25,7 +25,7 @@ ms.author: ryanwi, mikhegn
 > 
 > 
 
- To build and run [Azure Service Fabric applications][1] on your Windows development machine, install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
+To build and run [Azure Service Fabric applications][1] on your Windows development machine, install the Service Fabric runtime, SDK, and tools. You also need to [enable execution of the Windows PowerShell scripts](#enable-powershell-script-execution) included in the SDK.
 
 ## Prerequisites
 ### Supported operating system versions
@@ -45,13 +45,13 @@ The following operating system versions are supported for development:
 
 ## Install the SDK and tools
 ### To use Visual Studio 2017
-Service Fabric Tools are part of the Azure Development workload in Visual Studio 2017. Enable this workload as part of your Visual Studio installation.
-In addition, you need to install the Microsoft Azure Service Fabric SDK, using Web Platform Installer.
+The Service Fabric Tools are part of the Azure Development workload in Visual Studio 2017. Enable this workload as part of your Visual Studio installation.
+In addition, you need to install the Microsoft Azure Service Fabric SDK and runtime using Web Platform Installer.
 
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
 ### To use Visual Studio 2015 (requires Visual Studio 2015 Update 2 or later)
-For Visual Studio 2015, Service Fabric tools are installed together with the SDK, using the Web Platform Installer:
+For Visual Studio 2015, the Service Fabric tools are installed together with the SDK and runtime using the Web Platform Installer:
 
 * [Install the Microsoft Azure Service Fabric SDK and Tools][full-bundle-vs2015]
 
@@ -60,8 +60,8 @@ If you only need the SDK, you can install this package:
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK and Tools 3.0.467
-* Service Fabric runtime 6.1.467
+* Service Fabric SDK and Tools 3.0.480
+* Service Fabric runtime 6.1.480
 * Service Fabric Tools for Visual Studio 2015 2.0.10124.2
 * Visual Studio 2017 15.5.6 includes Service Fabric Tools for Visual Studio 2.0.20180124.2  
 

@@ -40,7 +40,7 @@ You can also control cache settings from the Azure portal by setting [CDN cachin
 The preferred method for setting a blob's `Cache-Control` header is to use caching rules in the Azure portal. For more information about CDN caching rules, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Caching rules are available only for **Azure CDN from Verizon Standard** and **Azure CDN from Akamai Standard** profiles. For **Azure CDN from Verizon Premium** profiles, you must use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
+> Caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles. For **Azure CDN Premium from Verizon** profiles, you must use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
 
 **To navigate to the CDN caching rules page**:
 
@@ -156,7 +156,7 @@ To update the *CacheControl* property of a blob with Azure Storage Explorer:
 ![Azure Storage Explorer properties](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### Azure Command-Line Interface
-With the [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), you can manage Azure blob resources from the command line. To set the cache-control header when you upload a blob with the Azure CLI, set the *cacheControl* property by using the `-p` switch. The following example shows how to set the TTL to one hour (3600 seconds):
+With the [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) (CLI), you can manage Azure blob resources from the command line. To set the cache-control header when you upload a blob with the Azure CLI, set the *cacheControl* property by using the `-p` switch. The following example shows how to set the TTL to one hour (3600 seconds):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>

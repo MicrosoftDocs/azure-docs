@@ -1,6 +1,6 @@
 ﻿---
 title: Protect personal data with Azure identity and access controls | Microsoft Docs
-description: Azure identity and access controls to help you protect your personal data. This informaton may be helpful to companies working on complying with General Data Protection Regulation (GDPR)
+description: Azure identity and access controls help you protect personal data and may be helpful complying with General Data Protection Regulation (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
 
@@ -85,12 +85,12 @@ For more information and instructions on getting started with AAD PIM, see [Star
 
 ### Azure Role-based Access Control
 
-[Azure Role-Based Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)
+[Azure Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 (RBAC) helps Azure administrators manage access to Azure resources by enabling the granting of access based on the user’s assigned role. You can segregate duties within a team and grant only the amount of access to users, groups and applications that they need to perform their jobs.
 
 Role-based access can be granted to users using the Azure portal, Azure Command-Line tools or Azure Management APIs.
 
-For more information about Azure RBAC basics, see [Get started with Role-Based Access Control in the Azure Portal.](https://docs.microsoft.com/active-directory/role-based-access-control-what-is)
+For more information about Azure RBAC basics, see [Get started with Role-Based Access Control in the Azure Portal.](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 #### How do I manage Azure RBAC with PowerShell?
 
@@ -114,7 +114,7 @@ You can use PowerShell cmdlets to manage Azure RBAC, including the following man
 
 - List custom roles
 
-For instructions on how to manage Azure RBAC with PowerShell, see [Manage Role-based Access with Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell).
+For instructions on how to manage Azure RBAC with PowerShell, see [Manage Role-based Access with Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 ### Azure Multi-Factor Authentication
 
@@ -189,6 +189,6 @@ For information on how to configure Azure MFA settings to set up fraud alerts, c
 
 - [Frequently asked questions about Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-faq)
 
-- [Role-based Access Control troubleshooting](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
+- [Role-based Access Control troubleshooting](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting)
 
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)

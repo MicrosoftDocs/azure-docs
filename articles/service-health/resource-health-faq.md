@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 07/05/2017
+ms.date: 03/27/2018
 ms.author: BernardoAMunoz
 
 ---
@@ -79,12 +79,12 @@ Resource health is available in across all Azure geos except the following regio
 - Germany Central
 - Germany Northeast
 
-## How is Resource Health different from the Service Health Dashboard or the Azure portal service notifications?
-The information provided by Resource Health is more specific than what is provided by the Azure Service Health Dashboard.
+## How is Resource Health different from Azure status or the Service Health dashboard?
+The information provided by Resource Health is more specific than what is provided by Azure status or the Service Health dashboard.
 
-Whereas [Azure Status](https://status.azure.com) and the portal service notifications inform you about service issues that affect a broad set of customers (for example an Azure region), Resource Health exposes more granular events that are relevant only to the specific resource. For example, if a host unexpectedly reboots, Resource Health alerts only those customers whose virtual machines were running on that host.
+Whereas [Azure status](https://status.azure.com) and the Service Health dashboard inform you about service issues that affect a broad set of customers (for example an Azure region), Resource Health exposes more granular events that are relevant only to the specific resource. For example, if a host unexpectedly reboots, Resource Health alerts only those customers whose virtual machines were running on that host.
 
-It is important to notice that to provide you complete visibility of events impacting your resources, Resource Health also surfaces events published in Service notifications and the Service Health Dashboard.
+It is important to notice that to provide you complete visibility of events impacting your resources, Resource Health also surfaces events published in the Service Health dashboard.
 
 ## Do I need to activate Resource Health for each resource?
 No, health information is available for all resource types available through Resource Health. 

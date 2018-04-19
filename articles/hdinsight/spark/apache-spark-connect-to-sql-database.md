@@ -10,10 +10,8 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/29/2018
+ms.topic: conceptual
+ms.date: 03/28/2018
 ms.author: nitinme
 
 ---
@@ -232,7 +230,7 @@ In this section, we stream data into the **hvactable** that you already created 
         
          var streamingQuery = WriteToSQLQuery.start()
 
-6. Verify that the data is being streamed into the **hvactable** by running the following query. Everytime you run the query, it shows the number of rows in the table increasing.
+6. Verify that the data is being streamed into the **hvactable** by running the following query in SQL Server Management Studio (SSMS). Everytime you run the query, it shows the number of rows in the table increasing.
 
         SELECT COUNT(*) FROM hvactable
 
