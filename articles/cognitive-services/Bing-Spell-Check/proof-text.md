@@ -4,10 +4,9 @@ description: The Bing Spell Check API uses machine learning and statistical mach
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 64ABDFD4-0118-4B6C-A592-68E5EDDB8491
 ms.service: cognitive-services
-ms.technology: bing-spell-check
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 06/21/2016
 ms.author: scottwhi

@@ -34,8 +34,8 @@
 ### [MFA user guide](./end-user/multi-factor-authentication-end-user.md)
 
 ## Integrate
-### [Remote Desktop Gateway](nps-extension-remote-desktop-gateway.md)
-### [VPN](nps-extension-vpn.md)
+### [Remote Desktop Gateway](../active-directory/authentication/howto-mfa-nps-extension-rdg.md)
+### [VPN](../active-directory/authentication/howto-mfa-nps-extension-vpn.md)
 ### Integrate MFA on-premises
 #### [Federation Services](multi-factor-authentication-get-started-adfs.md)
 ##### [Use AD FS](../active-directory/authentication/howto-mfa-adfs.md)
