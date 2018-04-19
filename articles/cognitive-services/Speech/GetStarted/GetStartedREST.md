@@ -4,9 +4,8 @@ description: Use REST to access the Speech Recognition API in Microsoft Cognitiv
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
