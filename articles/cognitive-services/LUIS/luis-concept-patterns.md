@@ -35,30 +35,10 @@ A second issue is that LUIS doesn't find the employee name in the utterance, to 
 ## Prediction scores with and without patterns
 Given enough example utterances, LUIS would be able to increase prediction confidence without patterns. Patterns increase the confidence score and find the entity without having to provide as many utterances as without using patterns.  
 
-## Pattern syntax
-A pattern is an utterance on the **Patterns** page or in the patterns array in the app definition file along with the intent: 
-
-```JSON
-"patterns": [
-    {
-      "text": "pack office from {Location:Origin} to {Location:Destination}",
-      "intent": "OfficeMove"
-    },
-    {
-      "text": "move {Employee} from {Location:Origin} to {Location:Destination}",
-      "intent": "OfficeMove"
-    },
-    {
-      "text": "setup new office for {Employee} at {Location:Destination}",
-      "intent": "OfficeMove"
-    }
-  ],
-```
-
 ## Pattern matching
 A pattern is matched based on finding the entities inside the pattern first, then validating the rest of the words and word order of the pattern. 
 
-## Entity syntax in patterns
+## Pattern syntax
 Entities in patterns are surrounded by curly brackets. Patterns can include entities, and entities with roles. Pattern.any is an entity only used in patterns. The syntax for each of these is explained in the following sections.
 
 ### Syntax to add an entity to a pattern template
@@ -93,10 +73,11 @@ How much does {Booktitle} cost and what format is it available in?
 In these book title examples, the contextual words of the book title are not confusing to LUIS. LUIS knows where the book title ends because it is in a pattern and marked with a Pattern.any entity.
 
 ## Best practices
-Do not create a pattern when you first create the app. Give LUIS the opportunity to learn from the provided utterances before adding patterns.
+Do not create a pattern when you first create the app. Give LUIS the opportunity to learn from the provided utterances before adding patterns. 
  
 ## Next steps
 
-Use the v2 API documentation to update existing REST calls to LIUS [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
+> [!div class="nextstepaction"]
+> [Learn how to implement patterns in this tutorial](luis-tutorial-pattern.md)
 
 [LUIS]: luis-reference-regions.md
