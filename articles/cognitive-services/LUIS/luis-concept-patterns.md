@@ -55,8 +55,42 @@ A pattern is an utterance on the **Patterns** page or in the patterns array in t
   ],
 ```
 
-## Entity detection
-When LUIS is highly confident with an intent prediction, then it finds the entity too. The entity is entered into the utterance using the "{" and "}" characters. The entity can be any type: custom, prebuilt, or Pattern.any. The entity can include Role notation of {entity:role} such as "{Location:Origin}". 
+## Pattern matching
+A pattern is matched based on finding the entities inside the pattern first, then validating the rest of the words and word order of the pattern. 
+
+## Entity syntax in patterns
+Entities in patterns are surrounded by curly brackets. Patterns can include entities, and entities with roles. Pattern.any is an entity only used in patterns. The syntax for each of these is explained in the following sections.
+
+### Syntax to add an entity to a pattern template
+To add an entity into the pattern template, surround the entity name with curly braces, such as `Who does {Employee} manage?`. 
+
+```
+Who does {Employee} manage?
+```
+
+### Syntax to add an entity and role to a pattern template
+An entity role is denoted as `{entity:role}` with the entity name followed by a colon, then the role name. To add an entity with a role into the pattern template, surround the entity role name with curly braces, such as `Book a ticket from {Location.Origin} to {Location.Destination}`. 
+
+```
+Book a ticket from {Location.Origin} to {Location.Destination}
+```
+
+### Syntax to add a pattern.any to pattern template
+The Pattern.any entity allows you to add an entity of varying length to the pattern. As long as the pattern template is followed, the pattern.any can be any length. 
+
+To add a **Pattern.any** entity into the pattern template, surround the Pattern.any entity with the curly braces, such as `How much does {Booktitle} cost and what format is it available in?`.  
+
+```
+How much does {Booktitle} cost and what format is it available in?
+```
+
+|Book titles in the pattern|
+|--|
+|How much does **steal this book** cost and what format is it available in?|
+|How much does **ask** cost and what format is it available in?|
+|How much does **The Curious Incident of the Dog in the Night-Time** cost and what format is it available in?| 
+
+In these book title examples, the contextual words of the book title are not confusing to LUIS. LUIS knows where the book title ends because it is in a pattern and marked with a Pattern.any entity.
 
 ## Best practices
 Do not create a pattern when you first create the app. Give LUIS the opportunity to learn from the provided utterances before adding patterns.
