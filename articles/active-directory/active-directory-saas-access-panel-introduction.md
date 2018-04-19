@@ -49,7 +49,6 @@ You can access the access panel by going to `http://myapps.microsoft.com`.
 If you have custom branding configured for your sign-in page, you can load the branding by appending your organization’s domain to the URL (for example, `http://myapps.microsoft.com/<your domain>.com`).
 
 You can use any active or verified domain name that has been configured in your Azure portal, as shown here:
-
 ![Wingtip Toys domain name][2]  
 
 Distribute the URL to all users who sign in to applications that are integrated with Azure AD.
@@ -73,7 +72,7 @@ The access panel extension is currently available for:
 - **Edge**: on Windows 10 Anniversary Edition or later. 
 - **Chrome**: on Windows 7 or later, and on MacOS X or later.
 - **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
-- **Internet Explorer 8, 9, 10, 11**: on Windows 7 or later (limited support).
+- **Internet Explorer 11**: on Windows 7 or later (limited support).
 
 ## My Apps Secure Sign-in Extension
 To sign in to password-based single sign-on, you must use the extension. After the extension is installed, you can sign in to it to enable additional features by selecting **Sign in to get started**. 
