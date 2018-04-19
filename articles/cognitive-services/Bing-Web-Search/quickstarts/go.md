@@ -4,7 +4,7 @@ description: Quickly get started using Go language to query the Bing Web Search 
 services: cognitive-services
 author: Nhoya
 ms.service: cognitive-services
-ms.technology: bing-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: rosh, nhoyadx@gmail.com, v-gedod
