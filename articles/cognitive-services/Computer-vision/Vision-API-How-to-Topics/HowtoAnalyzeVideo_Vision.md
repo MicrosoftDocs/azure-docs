@@ -4,9 +4,8 @@ description: Learn how to perform near-real-time analysis on frames taken from a
 services: cognitive-services
 author: KellyDF
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 01/20/2017
 ms.author: kefre
