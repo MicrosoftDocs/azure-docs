@@ -269,7 +269,7 @@ Enable FREB for your application to see the win32 error code (be sure you enable
 | 503 |1002 |Check win32 error code for actual reason – Request could not be dispatched to a node.exe. |
 | 503 |1003 |Named pipe is too Busy – Verify if node.exe is consuming excessive CPU |
 
-NODE.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. By default, when not deployed on Azure Web Apps, this value is 4. This means that node.exe can only accept four requests at a time on the named pipe. On Azure Web Apps, this value is set to 5000. This value should be good enough for most node applications running on Azure Web Apps. You should not see 503.1003 on Azure Web Apps because of the high value for the NODE_PENDING_PIPE_INSTANCES`  |
+NODE.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. By default, when not deployed on Azure Web Apps, this value is 4. This means that node.exe can only accept four requests at a time on the named pipe. On Azure Web Apps, this value is set to 5000. This value should be good enough for most node applications running on Azure Web Apps. You should not see 503.1003 on Azure Web Apps because of the high value for the `NODE_PENDING_PIPE_INSTANCES`
 
 ## More resources
 
