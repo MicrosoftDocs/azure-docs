@@ -136,7 +136,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	c. After importing **App Federation Metadata Url**, the remaining fields populate automatically.
 
-	c. Click **Save**.
+	d. Click **Save**.
 
 ### Create an Azure AD test user
 
