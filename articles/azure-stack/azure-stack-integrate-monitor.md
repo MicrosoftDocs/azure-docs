@@ -1,4 +1,4 @@
----
+﻿---
 title: Integrate external monitoring solution with Azure Stack | Microsoft Docs
 description: Learn how to integrate Azure Stack with an external monitoring solution in your datacenter.
 services: azure-stack
@@ -96,7 +96,7 @@ If you're not using Operations Manager, Nagios, or a Nagios-based solution, you 
    ```PowerShell
    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
-   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 3. Change to the directory where you installed the [Azure Stack tools](https://github.com/Azure/AzureStack-Tools) as part of the PowerShell installation, for example, c:\azurestack-tools-master. Then, change to the Infrastructure directory and run the following command to import the Infrastructure module:
 

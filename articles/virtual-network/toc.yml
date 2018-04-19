@@ -182,11 +182,7 @@
       - name: Peerings
         href: virtual-network-manage-peering.md
       - name: DDoS protection
-        items:
-        - name: Azure portal
-          href: ddos-protection-manage-portal.md
-        - name: Azure PowerShell
-          href: ddos-protection-manage-ps.md
+        href: manage-ddos-protection.md
     - name: Network security groups
       href: manage-network-security-group.md
       items:

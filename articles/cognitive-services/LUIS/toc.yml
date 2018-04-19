@@ -195,6 +195,8 @@
     href: migration-v1-to-v2.md
 - name: Reference
   items: 
+  - name: GDPR
+    href: luis-reference-gdpr.md
   - name: Regions
     href: luis-reference-regions.md
   - name: Boundaries
@@ -209,6 +211,8 @@
     href: https://aka.ms/luis-authoring-apis
   - name: Endpoint V2 API
     href: https://aka.ms/luis-endpoint-apis
+  - name: HTTP codes
+    href: luis-reference-response-codes.md
   - name: Azure CLI 2.0
     href: https://aka.ms/az-cli-cognitiveservices
   - name: Azure RM PowerShell

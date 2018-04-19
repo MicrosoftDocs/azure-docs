@@ -73,6 +73,7 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 
 <sup>1</sup> Dv3-series VM’s feature Intel® Hyper-Threading Technology
 
+
 ## DSv2-series
 
 ACU: 210-250
