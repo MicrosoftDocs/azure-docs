@@ -284,28 +284,53 @@ Create a new intent for any utterances that are about moving people or assets.
 1. Select **Intents** from left navigation
 2. Select **Create new intent**
 3. Name the new intent `MoveAssetsOrPeople`
-4. Add an example utterance `Move Bob Jones from Seattle to Los Colinas`
+4. Add example utterances:
 
+    ```
+    Move Bob Jones from Seattle to Los Colinas
+    Move Dave Cooper from Redmond to Seattle
+    Move Jim Smith from Toronto to Vancouver
+    Move Jill Benson from Boston to London
+    Move Travis Hinton from Portland to Orlando
+    ```
+    
+    The purpose of the example utterances is to give enough examples. If, later in the test, the location entity isn't detected, and consequently the pattern isn't detected, come back to this step and add more example. Then test again. 
+   
     ![Screenshot of example utterance for MoveAssetsOrPeople intent](./media/luis-tutorial-pattern/intent-moveasserts-example-utt.png)
 
-5. Select Seattle as the 
+5. Mark the entities in the example utterances with the Employee entity.
 
-### Create a simple entity with location and destination roles
-Roles can only be used in patterns. Create a new entity with roles to use in a pattern to find original and destination locations. 
+    ![Screenshot of utterances in MoveAssetsOrPeople marked with Employee entity](./media/luis-tutorial-pattern/intent-moveasserts-employee.png)
 
-1. Select **Entities** in the left navigation.
-2. Select **Create new entity**. 
-3. Name the entity `Location` with type **Simple**.
-4. Add Origin and Destination roles to the entity.
+6. Select the text `portland` in the utterance `move travis hinton from portland to orlando`. In the pop-up dialog, enter the new entity name `Location`, and select **Create new entity**. Choose the **Simple** entity type and select **Done**.
+
+    ![Screenshot of creating new location entity](./media/luis-tutorial-pattern/create-new-location-entity.png)
+
+    Mark the rest of the location names in the utterances. 
+
+    ![Screenshot of all entities marked](./media/luis-tutorial-pattern/moveasset-all-entities-labeled.png)
+
+    The pattern of word choice and order is very obvious in this previous image. If you were **not** using patterns, and the utterances on the intent have an obvious pattern, that is a good indication you should be using patterns. 
+
+    If you expect a wide variety of utterances, instead of a pattern, these would be the wrong example utterances. In that case, you would want widely varying utterances in term or word choice, utterance length and entity placement. 
+
+### Add role to location entity 
+Roles can only be used for patterns. Add the roles of Origin and Destination to the Location entity. 
+
+1. Select **Entities** in the left navigation, then **Location** from the list of entities.
+
+2. Add `Origin` and `Destination` roles to the entity.
 
     ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/location-entity.png)
+
+    The roles will not be marked on the MoveAssetsOrPeople intent page because roles don't exist on intent utterances. They only exist on pattern template utterances. 
 
 ### Add template utterances that uses location and destination roles
 Add template utterances that use the new entity.
 
 1. Select **Patterns** from the left navigation.
 2. Select the **MoveAssetsOrPeople** intent.
-3. Enter a new template utterance using the new entity `Move {Employee} from {Location:Origin} to {Location:Destination}`
+3. Enter a new template utterance using the new entity `Move {Employee} from {Location:Origin} to {Location:Destination}`. The syntax for an entity and role inside a template utterance is `{entity:role}`.
 
     ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/pattern-moveassets.png)
 
@@ -315,8 +340,13 @@ Add template utterances that use the new entity.
 Validate the new pattern with a test.
 
 1. Select **Test** in the top panel. 
-2. Enter the utterance `Move John Williams from San Diego to Boston`.
-3. Inspect the test results for entity and intent.
+2. Enter the utterance `Move Tammi Carlson from Bellingham to Winthrop`.
+3. Select **Inspect** under the result to see the test results for entity and intent.
+
+    ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/test-with-roles.png)
+
+    The entities are found first, then the pattern is found, indicating the intent. If you have a test result where the entities are not detected, and therefore the patter is not found, you need to add more example utterances on the intent (not the pattern). 
+
 4. Close the test panel by selecting the **Test** button in the top navigation.
 
 ## Use a Pattern.any entity to find free-form entities in a pattern
