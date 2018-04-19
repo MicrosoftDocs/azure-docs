@@ -1,12 +1,10 @@
 ---
-title: Use and display requirements for Bing Search APIs | Microsoft Docs
-description: Describes the requirements for using data returned by Bing Search APIs.
-services: cognitive-services
-author: mikedodaro
-manager: rosh
-ms.service: cognitive-services
-ms.component: bing-use-display-requirements
-ms.topic: includefile
+title: include file
+description: include file
+services: 
+author: MikeDodaro
+ms.service:
+ms.topic: include
 ms.date: 04/19/2018
 ms.author: rosh, v-gedod
 ---
