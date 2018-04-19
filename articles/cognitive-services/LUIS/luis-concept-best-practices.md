@@ -17,7 +17,7 @@ Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read this 
 ## Intents
 Use only as many [intents](luis-concept-intent.md) as you need to perform the functions of your app. The general rule is to create an intent when this intent would trigger an action in the calling application or bot. 
 
-The intents should be specific. They should not overlapping each other. If multiple intents are semantically close, consider merging them.
+The intents should be specific. They should not overlap each other. If multiple intents are semantically close, consider merging them.
 
 If you define too many intents, it becomes harder for LUIS to classify utterances correctly. If you define too few, they may be so general as to be overlapping. 
 
@@ -65,7 +65,7 @@ In each iteration of the model, do not add a large quantity of utterances. Add u
 When your app endpoint is receiving endpoint requests, you can use prediction improvement practices: [reviewing endpoint utterances](##review-endpoint-utterances), adding [phrase lists](#phrase-lists), and adding [patterns](#patterns). Do not apply these practices before your app has received endpoint requests because that skews the confidence. 
 
 ### Review endpoint utterances
-Use the improvement practice of [reviewing endpoint utterances](label-suggested-utterances.md) on a regular basis. These are utterances that LUIS is not confident about and needs your review. Because the app is constantly receiving endpoint utterances, this list is growing and changing. It is important to review these utterances to continue to increase prediction confidence scores.
+Use the improvement practice of [reviewing endpoint utterances](label-suggested-utterances.md) on a regular basis. LUIS is not confident about the current score of these utterances. Because the app is constantly receiving endpoint utterances, this list is growing and changing. It is important to review these utterances to continue to increase prediction confidence scores.
 
 ### Phrase lists
 Use the phrase list when you want to emphasis domain vocabulary. Use a phrase list for words: 
@@ -74,7 +74,7 @@ Use the phrase list when you want to emphasis domain vocabulary. Use a phrase li
 * That are obscure in general but significant in your domain. 
 
 ### Patterns
-If you have users from a common culture or work-place organization, utterances may take on a pattern in word order and word choice. When you find these patterns, instead of adding each unique utterance to the intent, create a [pattern](luis-concept-patterns.md). This allows you to maintain a few patterns instead of many utterances. It also helps LUIS understand the importance of word choice and word order. The result is better prediction of intent and better data extraction of entities. 
+If you have users from a common culture or work-place organization, utterances may take on a pattern in word order and word choice. When you find these patterns, instead of adding each unique utterance to the intent, create a [pattern](luis-concept-patterns.md). This use of patterns allows you to maintain a few patterns instead of many utterances. It also helps LUIS understand the importance of word choice and word order. The result is better prediction of intent and better data extraction of entities. 
 
 ## Data extraction
 Data extraction is based on intent and entity detection. The code that consumes the LUIS response should be flexible enough to make choices based on the response. The topScoring intent may not be different enough from the next intent's score or the None intent score. Your consuming code should be able to use this information in combination with knowledge of the entities extracted from the utterance to present choices to the user on how the conversation should continue. These can be clarifying questions or a menu of choices. 
