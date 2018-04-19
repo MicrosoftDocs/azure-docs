@@ -30,6 +30,9 @@ There are two versions of AzCopy that you can download. AzCopy on Linux targets 
 
 ### Installation on Linux
 
+> [!NOTE]
+> AzCopy on Linux is built with the .NET Core 2.1, and you might need to install its dependencies highlighted in this (.NET Core Pre-requisites article)[https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x] depending on your distribution. For main-stream distributions like Ubuntu 16.04, and RHEL 7 this is usually not needed.
+
 Installing AzCopy on Linux (v7.2 or later) is as easy as extracting a tar package and running the install script. 
 
 **RHEL 6 based distributions**: [download link](https://aka.ms/downloadazcopylinuxrhel6)
@@ -55,10 +58,9 @@ You can remove the extracted files once AzCopy on Linux is installed. Alternativ
 Add apt source for Microsoft Linux product repository and install AzCopy:
 
 ```bash
-curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
 ```
 
 ```bash
@@ -71,10 +73,9 @@ sudo apt-get install azcopy
 Add apt source for Microsoft Linux product repository and install AzCopy:
 
 ```bash
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
 ```
 
 ```bash
