@@ -17,7 +17,7 @@ ms.author: spelluru
 
 ---
 # An introduction to Azure Lab Services (formerly Azure DevTest Labs)
-Azure Lab Services enables you to quickly set up an environment for your team (for example: development environment, test environment, classroom lab environment) in the cloud. A lab owner creates a lab, provisions Windows or Linux virtual machines, installs the necessary software and tools, and makes them available to lab users. Lab users connect to virtual machines (VMs) in the lab, and use them for their day-to-day work, short-term projects, or for doing classroom exercises. Once users start utilizing the resources in the lab, a lab admin can analyze cost and usage across multiple labs, and set overarching policies to optimize your organization or team's costs.
+Azure Lab Services enables you to quickly set up an environment for your team (for example: development environment, test environment, classroom lab environment) in the cloud. A lab owner creates a lab, provisions Windows, or Linux virtual machines, installs the necessary software and tools, and makes them available to lab users. Lab users connect to virtual machines (VMs) in the lab, and use them for their day-to-day work, short-term projects, or for doing classroom exercises. Once users start utilizing the resources in the lab, a lab admin can analyze cost and usage across multiple labs, and set overarching policies to optimize your organization or team's costs.
 
 The following section provides information about different types of labs you can create with Azure Lab Services:
 
@@ -44,7 +44,7 @@ Here are some of the **use cases for using custom labs**:
 
 - Quickly provision a lab of virtual machines to host a hackathon or a hands-on session at a conference. Destroy the lab with a single click once you’re done. 
 - Create a pool of VMs configured with your application, and let your team easily grab a virtual machine for bug-bashing.  
-- Provide developers with virtual machines configured with all the tools they need. Schedule automatic start and shutdown to minimize cost. 
+- Provide developers with virtual machines configured with all the tools they need. Schedule automatic start and shut down to minimize cost. 
 - Repeatedly create a lab of test machines as part of your deployment. Test your latest bits and clean up the test machines once you are done. 
 - Set up a variety of differently configured virtual machines and multiple test agents for scale and performance testing. 
 - Offer training sessions to your customers using a lab configured with the latest version of your product. Give each customer limited number of hours to use in the lab. 
@@ -67,10 +67,10 @@ Azure Lab Services supports the following key capabilitiies/features:
 Using Azure Lab Services, you can quickly set up a lab for your development, testing, or training needs. You can choose to create and manage the lab's Azure infrastructure in your own subscription, or choose from a variety of fit-for-purpose managed labs, such as classroom labs, to let the service take care of all the infrastructure work. The service provides built-in scaling and resiliency of infrastructure for labs that the service manages for you. You can use a custom template to quickly reproduce your lab's resources, and share customizations and policies across multiple labs. 
 
 ### Simplified experience for lab users
-A lab owner can add users to a lab and provide them access to lab’s set of resources. Lab users can view a single list of all the resources that they can access across labs. A lab owners can give permissions for lab users to manage and reuse data disks, and set up reusable secrets. Lab users can integrate labs into their website or learning management systems. 
+A lab owner can add users to a lab and provide them access to lab’s set of resources. Lab users can view a single list of all the resources that they can access across labs. A lab owner can give permissions for lab users to manage and reuse data disks, and set up reusable secrets. Lab users can integrate labs into their website or learning management systems. 
 
 ## Cost optimization and analysis
-For custom labs, a lab owner can set lab schedules to automatically shut down and start up virtual machines. The lab owner can set a schedule to specify the time slots when the lab’s virtual machines are accessible to users, set usage policies per user or per lab to optimize cost, and analyze usage and activity trends in your lab. For managed labs such as classroom labs, currenly some cost optimization and analysis options are available. 
+For custom labs, a lab owner can set lab schedules to automatically shut down and start up virtual machines. The lab owner can set a schedule to specify the time slots when the lab’s virtual machines are accessible to users, set usage policies per user or per lab to optimize cost, and analyze usage and activity trends in your lab. For managed labs such as classroom labs, currently some cost optimization and analysis options are available. 
 
 ### Embedded security
 For custom labs in Azure Lab Services, a lab owner can set up private virtual networks and subnets for a lab, and enable shared public IP address. Lab users can securely access resources using your virtual networks configured with ExpressRoute or site-to-site VPN.
@@ -88,7 +88,7 @@ Typically, IT administrator of organization's cloud resources, who owns the Azur
 Typically, users such as a development lead/manager, a teacher, a hackathon host, an online trainer creates labs under a lab account. A lab creator creates a lab, creates virtual machines in the lab, installs the appropriate software on virtual machines, specifies who can access the lab, and provides link to the lab to lab users.
 
 ### Lab user
-A lab user uses the registration link that the lab creator shares to register and access the lab. The lab user connects to a virtual machine in the lab and use it for development, testing, or to do classwork.
+A lab user uses the registration link that the lab creator shares to register and access the lab. The lab user connects to a virtual machine in the lab and use it for development, testing, or to do class work.
 
 ## Next steps
 Get started with setting up a lab using Azure Lab Services:
