@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/11/2017
+ms.date: 04/19/2018
 ---
 # Stream data as input into Stream Analytics
 
