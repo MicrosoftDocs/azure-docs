@@ -1,6 +1,6 @@
 ---
-title: How to configure MSI on an Azure VM using Azure CLI
-description: Step by step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using Azure CLI.
+title: How to configure system and user assigned identities on an Azure VM using Azure CLI
+description: Step by step instructions for configuring a system and user assigned identities on an Azure VM, using Azure CLI.
 services: active-directory
 documentationcenter: 
 author: daveba
@@ -16,13 +16,13 @@ ms.date: 09/14/2017
 ms.author: daveba
 ---
 
-# Configure Managed Service Identity (MSI) using Azure CLI
+# Configure Managed Service Identity (MSI) on an Azure VM using Azure CLI
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you will learn how to enable and remove system and user assigned MSIs using Azure CLI.
+In this article, you will learn how to enable and remove system and user assigned identities using Azure CLI.
 
 ## Prerequisites
 
@@ -36,11 +36,11 @@ To run the CLI script examples, you have three options:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## System Assigned MSI
+## System assigned identity
 
 In this section, you will learn how to enable and remove a system assigned MSI using Azure CLI.
 
-### Enable MSI during creation of an Azure VM
+### Enable system assigned identity during creation of an Azure VM
 
 To create an MSI-enabled VM:
 
@@ -62,7 +62,7 @@ To create an MSI-enabled VM:
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
    ```
 
-### Enable MSI on an existing Azure VM
+### Enable system assigned identity on an existing Azure VM
 
 If you need to enable MSI on an existing Virtual Machine:
 
@@ -78,7 +78,7 @@ If you need to enable MSI on an existing Virtual Machine:
    az vm identity assign -g myResourceGroup -n myVm
    ```
 
-### Remove MSI from an Azure VM
+### Remove system assigned identity from an Azure VM
 
 If you have a Virtual Machine that no longer needs an MSI:
 
@@ -130,15 +130,15 @@ The response contains details for the user assigned MSI created, similar to the 
    }
    ```
 
-3. Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following example creates a VM associated with the new user assigned MSI, as specified by the `--assign-identity` parameter. Be sure to replace the `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, and `<`MSI ID>` parameter values with your own values. For `<MSI ID>`, use the user assigned MSI's resource `id` property created in the previous step: 
+3. Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following example creates a VM associated with the new user assigned MSI, as specified by the `--assign-identity` parameter. Be sure to replace the `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, and `<MSI ID>` parameter values with your own values. For `<MSI ID>`, use the user assigned MSI's resource `id` property created in the previous step: 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
    ```
 
-### Assign a user assigned MSI to an existing Azure VM
+### Assign a user assigned identity to an existing Azure VM
 
-1. Create a user assigned MSI using [az identity create](/cli/azure/identity#az_identity_create).  The `-g` parameter specifies the resource group where the MSI is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
+1. Create a user assigned MSI using [az identity create](/cli/azure/identity#az-identity-create).  The `-g` parameter specifies the resource group where the MSI is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
@@ -160,18 +160,18 @@ The response contains details for the user assigned MSI created, similar to the 
    }
    ```
 
-2. Assign the user assigned MSI to your VM using [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI ID>` will be the user assigned MSI's resource `id` property, as created in the previous step:
+2. Assign the user assigned MSI to your VM using [az vm identity assign](/cli/azure/vm#az-vm-identity-assign). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI ID>` will be the user assigned MSI's resource `id` property, as created in the previous step:
 
     ```azurecli-interactive
-    az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI ID>
+    az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI ID>
     ```
 
-### Remove a user assigned MSI from an Azure VM
+### Remove a user assigned identity from an Azure VM
 
-1. Remove the user assigned MSI from your VM using [az vm remove-identity](/cli/azure/vm#az_vm_remove_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI NAME>` will be the user assigned MSI's `name` property, as given during the `az identity create` command (see examples in the previous sections):
+1. Remove the user assigned MSI from your VM using [az vm identity remove](/cli/azure/vm#az-vm-identity-remove). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI NAME>` will be the user assigned MSI's `name` property, as given during the `az identity create` command (see examples in the previous sections):
 
    ```azurecli-interactive
-   az vm remove-identity -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+   az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
    ```
 
 ## Related content
