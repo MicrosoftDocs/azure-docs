@@ -83,11 +83,6 @@ This tutorial explores analytics over ticket sales data. In this step, you gener
 ### Deploy SQL Data Warehouse, Data Factory, and Blob Storage 
 In the Wingtip Tickets app, the tenants' transactional data is distributed over many databases. Azure Data Factory (ADF) is used to orchestrate the Extract, Load, and Transform (ELT) of this data into the data warehouse. To load data into SQL Data Warehouse most efficiently, ADF extracts data into intermediate blob files and then use [PolyBase](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading) to load the data into the data warehouse.   
 
-In the following steps, you deploy multiple Azure resources: a SQL Data Warehouse (analytics store) called **tenantanalytics**, a blob storage called **wingtipstaging<username>**, and a data factory called **dbtodwload-<username>**. You also populate these resources with predefined objects used later in the tutorial.
-1. In PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1*  and set the following value:
-    - **$DemoScenario** = **2** Deploy tenant analytics data warehouse, blob storage, and data factory
-1. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalyticsDW.ps1* script) which creates the resources. 
-
 In this step, you deploy the additional resources used in the tutorial: a SQL Data Warehouse called _tenantanalytics_, an Azure Data Factory called _dbtodwload-<username>_, and an Azure storage account called _wingtipstaging<username>_. The storage account is used to temporarily hold extracted data files as blobs before they are loaded into the data warehouse. This step also deploys the data warehouse schema and defines the ADF pipelines that orchestrate the ELT process.
 1. In PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* and set:
     - **$DemoScenario** = **2** Deploy tenant analytics data warehouse, blob storage, and data factory 
@@ -112,32 +107,21 @@ In the Object Explorer:
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
 #### Blob storage
-1. In [Azure Portal](https://ms.portal.azure.com), navigate to the resource group that you used for deploying the application. Verify that a storage account called **wingtipstaging<username>** has been added.
+1. In the [Azure Portal](https://ms.portal.azure.com), navigate to the resource group that you used for deploying the application. Verify that a storage account called **wingtipstaging<username>** has been added.
 
   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
-1. Click **wingtipstaging<username>** storage account to explore it's objects.
-1. In the [Azure Portal](https://ms.portal.azure.com), navigate to the resource group that you used for deploying the application. Verify that a storage account called **wingtipstaging<username>** has been added.
-  ![DWtables](media/saas-tenancy-tenant-analytics/blob.JPG)
-
-1. Click **wingtipstaging<username>** storage account to explore its objects.
+1. Click **wingtipstaging<username>** storage account to explore the objects present.
 1. Click **Blobs** tile
 1. Click the container **configfile**
 1. Verify that **configfile** contains a JSON file called **TableConfig.json**. This file contains the source and destination table names, column names, and tracker column name.
 
 #### Azure Data Factory (ADF)
-1. In [Azure Portal](https://ms.portal.azure.com) in the resource group, verify that an Azure Data Factory called **dbtodwload-<username>** has been added. 
-
 1. In the [Azure Portal](https://ms.portal.azure.com) in the resource group, verify that an Azure Data Factory called _dbtodwload-<username>_ has been added. 
-
 
  ![adf_icon](media/saas-tenancy-tenant-analytics/adf-data-factory.PNG)
 
 This section explores the data factory created. 
-Follow the steps below to launch the data factory:
-1. In portal, click the data factory called **dbtodwload-<username>**.
-2. Click **Author & Monitor** tile to launch Data Factory UI application in a separate tab. 
-
 Follow the steps below to launch the data factory:
 1. In the portal, click the data factory called **dbtodwload-<username>**.
 2. Click **Author & Monitor** tile to launch the Data Factory designer in a separate tab. 
