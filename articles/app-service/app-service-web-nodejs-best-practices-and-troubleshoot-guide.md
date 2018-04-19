@@ -39,11 +39,11 @@ This setting controls the path to the node.exe. You can set this value to point 
 
 ### maxConcurrentRequestsPerProcess
 
-This setting controls the maximum number of concurrent requests sent by iisnode to each node.exe. On Azure Web Apps, the default value for this is Infinite. You don't have to worry about this setting. When not hosted on Azure Web Apps, the default value is 1024. You can configure the value depending on how many requests your application receives and how fast your application processes each request.
+This setting controls the maximum number of concurrent requests sent by iisnode to each node.exe. On Azure Web Apps, the default value is Infinite. When not hosted on Azure Web Apps, the default value is 1024. You can configure the value depending on how many requests your application receives and how fast your application processes each request.
 
 ### maxNamedPipeConnectionRetry
 
-This setting controls the maximum number of times iisnode retries making the connection on the named pipe to send the request over to node.exe. This setting in combination with namedPipeConnectionRetryDelay determines the total timeout of each request within iisnode. The default value is 200 on Azure Web Apps. Total Timeout in seconds = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+This setting controls the maximum number of times iisnode retries making the connection on the named pipe to send the requests to node.exe. This setting in combination with namedPipeConnectionRetryDelay determines the total timeout of each request within iisnode. The default value is 200 on Azure Web Apps. Total Timeout in seconds = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
 ### namedPipeConnectionRetryDelay
 
@@ -58,13 +58,13 @@ This setting controls the directory where iisnode logs stdout/stderr. The defaul
 
 ### debuggerExtensionDll
 
-This setting controls what version of node-inspector iisnode uses when debugging your node application. Currently, iisnode-inspector-0.7.3.dll and iisnode-inspector.dll are the only two valid values for this setting. The default value is iisnode-inspector-0.7.3.dll. The iisnode-inspector-0.7.3.dll version uses node-inspector-0.7.3 and uses websockets. You must enable websockets on your Azure webapp to use this version. See <http://ranjithblogs.azurewebsites.net/?p=98> for more details on how to configure iisnode to use the new node-inspector.
+This setting controls what version of node-inspector iisnode uses when debugging your node application. Currently, iisnode-inspector-0.7.3.dll and iisnode-inspector.dll are the only two valid values for this setting. The default value is iisnode-inspector-0.7.3.dll. The iisnode-inspector-0.7.3.dll version uses node-inspector-0.7.3 and uses web sockets. Enable web sockets on your Azure webapp to use this version. See <http://ranjithblogs.azurewebsites.net/?p=98> for more details on how to configure iisnode to use the new node-inspector.
 
 ### flushResponse
 
 The default behavior of IIS is that it buffers response data up to 4 MB before flushing, or until the end of the response, whichever comes first. iisnode offers a configuration setting to override this behavior: to flush a fragment of the response entity body as soon as iisnode receives it from node.exe, you need to set the iisnode/@flushResponse attribute in web.config to 'true':
 
-```
+```xml
 <configuration>
     <system.webServer>
         <!-- ... -->
@@ -73,19 +73,19 @@ The default behavior of IIS is that it buffers response data up to 4 MB before f
 </configuration>
 ```
 
-Enabling flushing of every fragment of the response entity body adds performance overhead that reduces the throughput of the system by ~5% (as of v0.1.13), so it is best to scope this setting only to endpoints that require response streaming (for example, using the <location> element in the web.config)
+Enable the flushing of every fragment of the response entity body adds performance overhead that reduces the throughput of the system by ~5% (as of v0.1.13). The best to scope this setting only to endpoints that require response streaming (for example, using the `<location>` element in the web.config)
 
 In addition to this, for streaming applications, you must also set responseBufferLimit of your iisnode handler to 0.
 
-```
+```xml
 <handlers>
-    <add name="iisnode" path="app.js" verb="\*" modules="iisnode" responseBufferLimit="0"/>    
+    <add name="iisnode" path="app.js" verb="\*" modules="iisnode" responseBufferLimit="0"/>
 </handlers>
 ```
 
 ### watchedFiles
 
-This is a semi-colon separated list of files that are watched for changes. A change to a file causes the application to recycle. Each entry consists of an optional directory name plus a required file name that are relative to the directory where the main application entry point is located. Wild cards are allowed in the file name portion only. The default value is “\*.js;web.config”
+A semi-colon separated list of files that are watched for changes. Any change to a file causes the application to recycle. Each entry consists of an optional directory name as well as a required file name, which are relative to the directory where the main application entry point is located. Wild cards are allowed in the file name portion only. The default value is `*.js;web.config`
 
 ### recycleSignalEnabled
 
@@ -93,7 +93,7 @@ The default value is false. If enabled, your node application can connect to a n
 
 ### idlePageOutTimePeriod
 
-The default value is 0, which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every ‘idlePageOutTimePeriod’ in milliseconds. See [documentation](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx) to understand what page out means. This setting is useful for applications that consume a lot of memory and want to page out memory to disk occasionally to free up some RAM.
+The default value is 0, which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every ‘idlePageOutTimePeriod’ in milliseconds. See [documentation](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx) to understand what page out means. This setting is useful for applications that consume a high amount of memory and want to page out memory to disk occasionally to free up RAM.
 
 > [!WARNING]
 > Use caution when enabling the following configuration settings on production applications. The recommendation is to not enable them on live production applications.
@@ -101,7 +101,7 @@ The default value is 0, which means this feature is disabled. When set to some v
 
 ### debugHeaderEnabled
 
-The default value is false. If set to true, iisnode adds an HTTP response header iisnode-debug to every HTTP response it sends the iisnode-debug header value is a URL. Individual pieces of diagnostic information can be gleaned by looking at the URL fragment, but a much better visualization is achieved by opening the URL in the browser.
+The default value is false. If set to true, iisnode adds an HTTP response header `iisnode-debug` to every HTTP response it sends the `iisnode-debug` header value is a URL. Individual pieces of diagnostic information can be obtained by looking at the URL fragment, however, a visualization is available by opening the URL in a browser.
 
 ### loggingEnabled
 
@@ -113,17 +113,17 @@ The default value is false. When set to true, iisnode displays the HTTP status c
 
 ### debuggingEnabled (do not enable on live production site)
 
-This setting controls debugging feature. Iisnode is integrated with node-inspector. By enabling this setting, you enable debugging of your node application. Once this setting is enabled, iisnode will lay out the necessary node-inspector files in ‘debuggerVirtualDir’ directory on the first debug request to your node application. You can load the node-inspector by sending a request to http://yoursite/server.js/debug. You can control the debug URL segment with ‘debuggerPathSegment’ setting. By default, debuggerPathSegment=’debug’. You can set this to a GUID, for example, so that it is more difficult to be discovered by others.
+This setting controls debugging feature. Iisnode is integrated with node-inspector. By enabling this setting, you enable debugging of your node application. Upon enabling this setting, iisnode creates node-inspector files in ‘debuggerVirtualDir’ directory on the first debug request to your node application. You can load the node-inspector by sending a request to http://yoursite/server.js/debug. You can control the debug URL segment with ‘debuggerPathSegment’ setting. By default, debuggerPathSegment=’debug’. You can set `debuggerPathSegment` to a GUID, for example, so that it is more difficult to be discovered by others.
 
-Check this [link](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) for more details on debugging.
+Read [Debug node.js applications on Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) for more details on debugging.
 
 ## Scenarios and recommendations/troubleshooting
 
-### My node application is making many outbound calls
+### My node application is making excessive outbound calls
 
 Many applications would want to make outbound connections as part of their regular operation. For example, when a request comes in, your node app would want to contact a REST API elsewhere and get some information to process the request. You would want to use a keep alive agent when making http or https calls. You could use the agentkeepalive module as your keep alive agent when making these outbound calls.
 
-Leverage the agentkeepalive module to make sure that the sockets are reused on your Azure webapp VM. Reusing sockets reduces the overhead of creating a new socket on each outbound request. Reusing sockets for outbound requests ensures that your application doesn't exceed the maxSockets that are allocated per VM. The recommendation on Azure Web Apps is to set the agentKeepAlive maxSockets value to a total of (4 instances of node.exe \* 40 maxSockets/instance) 160 sockets per VM.
+The agentkeepalive module ensures that sockets are reused on your Azure webapp VM. Creating a new socket on each outbound request adds overhead to your application. Having your application reuse sockets for outbound requests ensures that your application doesn't exceed the maxSockets that are allocated per VM. The recommendation on Azure Web Apps is to set the agentKeepAlive maxSockets value to a total of (4 instances of node.exe \* 40 maxSockets/instance) 160 sockets per VM.
 
 Example [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) configuration:
 
@@ -240,7 +240,7 @@ If your application is returning 500 Errors when it starts, there could be a few
 
 ### My node application crashed
 
-Your application is throwing uncaught exceptions – Check `d:\\home\\LogFiles\\Application\\logging-errors.txt` file for the details on the exception thrown. This file has the stack trace so you can fix your application based on this.
+Your application is throwing uncaught exceptions – Check `d:\\home\\LogFiles\\Application\\logging-errors.txt` file for the details on the exception thrown. This file has the stack trace to help diagnose and fix your application.
 
 ### My node application takes too much time to start (Cold Start)
 
@@ -269,7 +269,7 @@ Enable FREB for your application to see the win32 error code (be sure you enable
 | 503 |1002 |Check win32 error code for actual reason – Request could not be dispatched to a node.exe. |
 | 503 |1003 |Named pipe is too Busy – Verify if node.exe is consuming excessive CPU |
 
-NODE.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. By default, when not deployed on Azure Web Apps, this value is 4. This means that node.exe can only accept four requests at a time on the named pipe. On Azure Web Apps, this value is set to 5000. This value should be good enough for most node applications running on Azure Web Apps. You should not see 503.1003 on Azure Web Apps because of the high value for the `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. By default, when not deployed on Azure Web Apps, this value is 4. Meaning that node.exe can only accept four requests at a time on the named pipe. On Azure Web Apps, this value is set to 5000. This value should be good enough for most node applications running on Azure Web Apps. You should not see 503.1003 on Azure Web Apps because of the high value for the `NODE_PENDING_PIPE_INSTANCES`
 
 ## More resources
 
