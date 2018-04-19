@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 04/19/2018
 ms.author: seguler
 
 ---
@@ -27,18 +27,6 @@ There are two versions of AzCopy that you can download. AzCopy on Linux targets 
 > Starting in AzCopy 7.2 version, the .NET Core dependencies are packaged with the AzCopy package. If you use 7.2 version or later, you no longer need to install .NET Core as a pre-requisite.
 
 ## Download and install AzCopy
-### Supported Linux distributions
-
-AzCopy on Linux is supported on the following Linux 64-bit (x86_64 or amd64) distributions/versions: 
-
-* RHEL 6 and 7
-* CentOS 6 and 7
-* Oracle Linux 7
-* Fedora 26 and 27
-* Debian 8.7 and 9 or later
-* Linux Mint 17 and 18
-* openSUSE 42.3 or later versions
-* SLES 12 Service Pack 2 or later. 
 
 ### Installation on Linux
 
@@ -53,7 +41,7 @@ sudo ./install.sh
 
 **All other Linux distributions**: [download link](https://aka.ms/downloadazcopylinux64)
 ```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinuxrhel6
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
