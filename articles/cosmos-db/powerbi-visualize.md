@@ -134,7 +134,7 @@ Ready to give it a try? Let's get started.
    
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Add Custom Column](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 
-10. Now, the center pane shows the new Longitude and Latitude columns populated with the values.
+10. Now, the center pane shows the new LatLong columns populated with the values.
     
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Custom LatLong column](./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
     
