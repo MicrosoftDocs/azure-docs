@@ -4198,6 +4198,30 @@ featureFlags:
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                    <img src="media/index/azure_dev-2.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="https://www.visualstudio.com/vs/python">Python Tools</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Visual Studio</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://code.visualstudio.com/docs/languages/python">Visual Studio Code</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
                                                 </div>
                                             </div>
@@ -4245,30 +4269,6 @@ featureFlags:
                                                 </p>
                                                 <p>
                                                     <a href="http://go.microsoft.com/fwlink/?LinkId=708343">Download for Windows</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-2.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Python Tools</a>
-                                                </h3>
-                                                <p>
-                                                    <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Get Started with Visual Studio</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://code.visualstudio.com/docs/languages/python">Get Started with Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>
