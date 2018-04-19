@@ -214,8 +214,8 @@
       tocHref: /azure/cognitive-services/video-indexer/
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
     - name: Web Language Model
-      tocHref: /cognitive-services/web-language-model/
-      topicHref: /cognitive-services/web-language-model/home    
+      tocHref: /azure/cognitive-services/web-language-model/
+      topicHref: /azure/cognitive-services/web-language-model/home    
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
