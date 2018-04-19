@@ -4,9 +4,8 @@ description: Use the Emotion API in Cognitive Services to perform near-real-time
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: emotion
+ms.component: emotion-api
 ms.topic: article
 ms.date: 01/25/2017
 ms.author: anroth
