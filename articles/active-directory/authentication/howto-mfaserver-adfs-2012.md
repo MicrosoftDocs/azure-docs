@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 If you use Active Directory Federation Services (AD FS) and want to secure cloud or on-premises resources, you can configure Azure Multi-Factor Authentication Server to work with AD FS. This configuration triggers two-step verification for high-value endpoints.
 
-In this article, we discuss using Azure Multi-Factor Authentication Server with AD FS in Windows Server 2012 R2 or Windows Server 2016. For more information, read about how to [secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with AD FS 2.0](../../multi-factor-authentication/multi-factor-authentication-get-started-adfs-adfs2.md).
+In this article, we discuss using Azure Multi-Factor Authentication Server with AD FS in Windows Server 2012 R2 or Windows Server 2016. For more information, read about how to [secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with AD FS 2.0](howto-mfaserver-adfs-2.md).
 
 ## Secure Windows Server AD FS with Azure Multi-Factor Authentication Server
 
@@ -36,11 +36,11 @@ Before you begin, be aware of the following information:
 * If your organization is using text message or mobile app verification methods, the strings defined in Company Settings contain a placeholder, <$*application_name*$>. In MFA Server v7.1, you can provide an application name that replaces this placeholder. In v7.0 or older, this placeholder is not automatically replaced when you use the AD FS adapter. For those older versions, remove the placeholder from the appropriate strings when you secure AD FS.
 * The account that you use to sign in must have user rights to create security groups in your Active Directory service.
 * The Multi-Factor Authentication AD FS adapter installation wizard creates a security group called PhoneFactor Admins in your instance of Active Directory. It then adds the AD FS service account of your federation service to this group. Verify that the PhoneFactor Admins group was created on your domain controller, and that the AD FS service account is a member of this group. If necessary, manually add the AD FS service account to the PhoneFactor Admins group on your domain controller.
-* For information about installing the Web Service SDK with the user portal, see [deploying the user portal for Azure Multi-Factor Authentication Server.](../../multi-factor-authentication/multi-factor-authentication-get-started-portal.md)
+* For information about installing the Web Service SDK with the user portal, see [deploying the user portal for Azure Multi-Factor Authentication Server.](howto-mfaserver-deploy-userportal.md)
 
 ### Install Azure Multi-Factor Authentication Server locally on the AD FS server
 
-1. Download and install Azure Multi-Factor Authentication Server on your AD FS server. For installation information, read about [getting started with Azure Multi-Factor Authentication Server](../../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+1. Download and install Azure Multi-Factor Authentication Server on your AD FS server. For installation information, read about [getting started with Azure Multi-Factor Authentication Server](howto-mfaserver-deploy.md).
 2. In the Azure Multi-Factor Authentication Server management console, click the **AD FS** icon. Select the options **Allow user enrollment** and **Allow users to select method**.
 3. Select any additional options you'd like to specify for your organization.
 4. Click **Install AD FS Adapter**.

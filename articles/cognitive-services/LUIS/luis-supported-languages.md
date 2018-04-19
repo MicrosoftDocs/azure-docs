@@ -1,12 +1,11 @@
 ---
-title: Support localization using LUIS apps in Azure | Microsoft Docs 
+title: Support localization using LUIS apps in Azure | Microsoft Docs
 description: Learn about the languages that LUIS supports.
 services: cognitive-services
 author: cahann
 manager: hsalama
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: cahann
