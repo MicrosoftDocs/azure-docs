@@ -1,0 +1,9 @@
+# Azure CycleCloud Overview
+
+Azure CycleCloud makes it easy to create HPC clusters in the cloud, orchestrating workloads from the user to overcome the challenges typically associated with cloud HPC. CycleCloud works with VPC so it can run inside your firewall (on-site or cloud based). It includes support for GridEngine and HTCondor, and clusters can be configured with the same cluster-init specification. It imports cluster definitions from PBSPro and Singularity, and includes a RESTful API and command-line tools to manage compute clusters.
+
+Azure CycleCloud manages compute resources (such as virtual machines or cloud instances) that can be acquired on demand. These resources are called *nodes*, which are grouped into *clusters*. Nodes in a cluster are logically related, but each node can be configured completely independently. A node specifies the cloud provider, operating system, and machine type to use, the region or location to run in, and the software to install on the node when it starts.
+
+Clusters make use of resources from a cloud provider account that is configured in CycleCloud. This includes the credentials used to authenticate with the provider. In addition, CycleCloud makes use of scripts and packages kept in cloud storage to configure nodes on startup.
+
+One important feature of CycleCloud is the ability to autoscale nodes as needed to meet variable demand. Clusters can contain a node array for this purpose, which is a node definition used to create as many nodes as needed. Each node array can be set to hit a certain target capacity (measured by either instance count or core count). Nodes are started as needed to hit this count, and when nodes are idle for too long, they will automatically shutdown. The target can be set directly by the user. When used with supported HPC schedulers (currently Grid Engine and HTCondor), the target core count is set according to the backlog of jobs in the queue.

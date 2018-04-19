@@ -1,0 +1,190 @@
+- name: Azure CycleCloud Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure CycleCloud
+    href: cyclecloud-overview.md
+- name: CycleCloud Tools and Software
+  items:
+  - name: Prerequisites
+    href: prerequisites.md
+  - name: Installation
+    href: installation.md
+  - name: Configuring CycleCloud
+    href: configuring_cyclecloud.md
+  - name: Installing CycleCloud CLI
+    href: install_cli.md
+  - name: Jetpack
+    href: jetpack.md
+  - name: pogo
+    items:
+    - name: Overview
+      href: pogo.md
+    - name: pogo Configuration
+      href: pogo_configuration.md
+    - name: Using pogo
+      href:
+  - name: SubmitOnce
+    items:
+    - name: Overview
+      href:
+    - name: User Management
+      href:
+    - name: CLI
+      href:
+    - name: Available Commands
+      href:
+    - name: Appendicies
+      href:
+- name: Quickstarts
+  items:
+  - name: Quickstart 1
+    href: quickstart1.md
+  - name: Quickstart 2
+    href: quickstart2.md
+  - name: Quickstart 3
+    href: quickstart3.md
+- name: Templates
+  items:
+  - name: CycleCloud Templates
+    href:
+- name: Concepts
+  items:
+  - name: Clusters and Nodes
+    items:
+    - name: Cluster Management
+      href: cluster_management.md
+    - name: Nodes and Node Arrays
+      href: nodes.md
+  - name: Projects
+    items:
+    - name: Cluster-Init Projects
+      href:
+    - name: Firewall rules
+      href:
+  - name: Disaster Recovery
+    items:
+    - name: Synchronization
+      href:
+    - name: Virtualization
+      href:
+  - name: Monitoring
+    items:
+    - name: Monitoring
+      href:
+    - name: Alerts
+      href:
+    - name: Custom Alerts
+      href:
+    - name: Usage
+      href:
+  - name: Reporting
+    items:
+    - name: Reporting
+      href:
+    - name: Event Log
+      href:
+  - name: Data Management
+    items:
+    - name: Overview
+      href:
+    - name: Endpoint Creation
+      href:
+    - name: Data Encrytion
+      href:
+    - name: Transferring Data
+      href:
+    - name: Enabling Return Nodes
+      href:
+  - name: Storage
+    items:
+    - name: Storage
+      href:
+    - name: Blobs
+      href:
+  - name: Auto-Scaling
+    items:
+    - name: Overview
+      href:
+  - name: Images
+    items:
+    - name: Images
+      href:
+    - name: Custom Images
+      href:
+- name: Reference
+  items:
+  - name: CLI
+    href:
+  - name: Cookbooks
+    href:
+  - name: HealthCheck
+    href:
+  - name: Node Configuration
+    href:
+  - name: Performance Tuning
+    href:
+  - name: CycleServer Datastore
+    href:
+    items:
+    - name: RESTful Interface
+      href:
+    - name: Notifications
+      href:
+    - name: Identifiers
+      href:
+    - name: Type Definitions
+      href:
+    - name: Views
+      href:
+    - name: Plugin API
+      href:
+    - name: Informal Syntax
+      href:
+  - name: Plugins
+    href:
+    items:
+    - name: Plugin Development
+      href:
+    - name: WebContent Plugins
+      href:
+    - name: Plugin Configuration
+      href:
+    - name: Debugging
+      href:
+    - name: Formatter Plugins
+      href:
+    - name: HTML Template Plugins
+      href:
+    - name: Actions
+      href:
+    - name: Task Execution
+      href:
+    - name: Email
+      href:
+    - name: RESTful Library
+      href:
+    - name: Event Log
+      href:
+    - name: Java Plugins
+      href:
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href:
+  - name: FAQ
+    href:
+  - name: Public data sets
+    href:
+  - name: Troubleshoot connectivity
+    href:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/sql-database/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/sql-azure
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?service=sql-database

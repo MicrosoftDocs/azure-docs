@@ -1,0 +1,60 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: CycleCloud Documentation
+metadata:
+  document_id:
+  title:
+  meta.description:
+  services:
+  author:
+  manager:
+  ms.service:
+  ms.tgt_pltfrm:
+  ms.devlang:
+  ms.topic: landing-page
+  ms.date:
+  ms.author:
+abstract:
+  description: CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. CycleCloud’s automated configuration enables IT to focus on on providing service to the business users.
+sections:
+- title: Quickstarts
+  items:
+  - type: paragraph
+    text: 'Here is some text about our quickstarts (that do not yet exist)'
+- title: How-To
+  items:
+  - type: paragraph
+    text: Set up projects, nodes, instances, and autoscale your jobs to suit your needs.
+  - type: list
+    style: ordered
+    items:
+    - html: Do a Thing
+    - html: Do a Second Thing
+    - html: Thing 3 - The Thingening
+    - html: Custom Alerts (an actual thing)
+- title: Templates
+  items:
+  - type: paragraph
+    text: Download a Cycle-approved template to set up your clusters
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: Template
+    - html: Template 2 - Electric Boogaloo
+- title: Reference
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - title: Command Line Interface
+      html: CLI
+    - title: Cookbooks
+      html: Cookbooks
+    - title: HealthCheck
+      html: HealthCheck
+    - title: Node Configuration
+      html: Node Nodey Node
+    - title: Dev Guide Contents
+      html: All of the dev guide in all the things

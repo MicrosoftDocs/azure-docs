@@ -1,1 +1,0 @@
-# Welcome to cycle_docs_v1!
