@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 05/07/2018
 ms.author: v-geberr
 ---
 
@@ -22,7 +22,7 @@ Once the type of utterance is identified, LUIS is done. The calling application 
 
 2. On the [LUIS][LUIS] website, select **Create new app**.  
 
-    ![LUIS apps list](./media/luis-quickstart-intents-only/app-list.png)
+    [![](media/luis-quickstart-intents-only/app-list.png "Screenshot of My Apps page")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
 3. In the pop-up dialog, enter the name `MyStore`. 
 
@@ -30,15 +30,13 @@ Once the type of utterance is identified, LUIS is done. The calling application 
 
 4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
 
-    ![Intents page](./media/luis-quickstart-intents-only/intents-list.png)
+    [![](media/luis-quickstart-intents-only/intents-list.png "Screenshot of Intents list page")](media/luis-quickstart-intents-only/intents-list.png#lightbox)
 
 5. Select **Create new intent**. Enter the new intent name `GetStoreInfo`. This intent should be selected any time a user wants information about your store such as what you sell, what hours you are open, and how to contact you.
 
     By creating an intent, you are creating a category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
 
 6. Add seven utterances to the `GetStoreInfo` intent that you expect a user to ask for, such as:
-
-    ![New utterance](./media/luis-quickstart-intents-only/utterance-getstoreinfo.png)
 
     | Example utterances|
     |--|
@@ -49,6 +47,8 @@ Once the type of utterance is identified, LUIS is done. The calling application 
     |Can someone call me please?|
     |Where is your store?|
     |How do I get to your store?|
+
+    [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot of entering new utterances for MyStore intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
 7. The LUIS app currently has no utterances for the **None** intent. It needs utterances that you don't want the app to answer, so it has to have utterances in the **None** intent. Do not leave it empty. 
     
