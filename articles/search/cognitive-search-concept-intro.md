@@ -15,10 +15,10 @@ ms.author: heidist
 Cognitive search, now in public preview, is a new enrichment layer in Azure Search indexing that finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
 
 + Natural language processing - in the form of entity recognition, sentiment analysis, key phrase analysis, and language detection - bring AI-powered modeling that extracts information that can amplify a search experience.
-+ Image processing can make scanned documents searchable, or analyze photographs for words and numbers that can be added to an index.
-+ Structural processing can deconstruct chunks of text, or blend smaller bits of text into larger units.
++ Image processing can make scanned documents searchable. Another scenario - analyze photographs for words and numbers that can be added to an index.
++ Structural processing can deconstruct chunks of text into component parts, or blend smaller bits into larger units.
 
-At the heart of cognitive search is an extensible indexing pipeline powered by *cognitive skills* that enriches source documents and feeds it into a search index.
+At the heart of cognitive search is an extensible indexing pipeline powered by *cognitive skills* that enrich source documents through these various forms of processing, en route to a search index.
 
 ![Component diagram of enrichment, augmentation pipeline](./media/cognitive-search-intro/cogsearch-architecture.png)
 
@@ -52,9 +52,11 @@ The index is like any other you might create for Azure Search: you can supplemen
 
 Indexes are generated from an index schema that defines the fields, attributes, and other constructs attached to a specific index, such as scoring profiles and synonym maps. Once an index is defined and populated, you can refresh it to pick up new and updated source documents. Enrichment steps are seamlessly integrated with the indexing workload; the same operations performed during initial data ingestion also occur in subsequent refresh operations.
 
+
+
 <a name="feature-concepts"></a>
 
-## Key concepts
+## Key concepts and terms
 
 | Concept | description|
 |---------|------------|
@@ -66,30 +68,38 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 | Skillset | A top-level named resource containing a collection of skills. A skillset is the augmentation pipeline. |
 | Enriched documents | A transitory internal structure, not directly accessible in code. Enriched documents are generated during processing, but only final outputs are persisted in a search index. Field mappings determine which data elements are added to the index. |
 
-## Resources for ramping up
+## Get started
 
 **Step 1: Create a service in a region providing the APIs** 
 
 + South Central US
 + West Europe
 
-**Step 2: Hands-on experience through these exercises**
+**Step 2: Hands-on experience to master the workflow**
 
 + [Quickstart (portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial (HTTP requests)](cognitive-search-tutorial-blob.md)
 + [Example custom skills (C#)](cognitive-search-create-custom-skill-example.md)
 
-**Step 3: Apply what you learned (typical workflow)**
+**Step 3: Apply what you learned**
 
 1. Subset your Azure source data into a representative sample. Indexing takes time so start with a small, representative data set and then build it up incrementally as your solution matures.
-2. Create a data source object in Azure Search to provide a connection string for data retrieval.
-3. Create a skillset with enrichment steps.
-4. Define the index schema. The Fields collection includes fields from source data. You should also stub out additional fields to hold generated values for content created during enrichment.
-5. Define the indexer referencing the data source, skillset, and index. 
-6. Within the indexer, add *outputFieldMappings*. This section maps output from the skillset (per step 3) to the inputs fields in the index schema (per step 4).
-7. Send Create Indexer (POST request with indexer definition in the request body) to create and run the indexer, invoking the pipeline.
-8. Evaluate results and modify code to update skillsets, schema, or indexer configuration.
-9. Reset the indexer before rebuilding the pipeline.
+
+1. Create a data source object in Azure Search to provide a connection string for data retrieval.
+
+1. Create a skillset with enrichment steps.
+
+1. Define the index schema. The Fields collection includes fields from source data. You should also stub out additional fields to hold generated values for content created during enrichment.
+
+1. Define the indexer referencing the data source, skillset, and index.
+
+1. Within the indexer, add *outputFieldMappings*. This section maps output from the skillset (in step 3) to the inputs fields in the index schema (in step 4).
+
+1. Send Create Indexer (a POST request with an indexer definition in the request body) to create and run the indexer, invoking the pipeline.
+
+1. Evaluate results and modify code to update skillsets, schema, or indexer configuration.
+
+1. Reset the indexer before rebuilding the pipeline.
 
 **Documentation**
 
@@ -112,17 +122,18 @@ The following articles are the complete documentation for cognitive search.
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill]( cognitive-search-skill-ocr.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
+  + [Microsoft.Skills.Util.TextMergerSkill](cognitive-search-skill-textmerger.md)
 
 + Reference (Preview REST APIs)
   + [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)
   + [Create Indexer (api-version=2017-11-11-Preview)](ref-create-indexer.md)
 
 
-## API (REST only)
+**API (REST only)**
 
 Currently, only REST is available, but the .NET SDK is expected to follow shortly after the feature officially moves into public preview. Support for .NET will be announced as a service update. It will also be announced on this page if you want to check back later.
 
-Use `api-version=2017-11-11-Preview` on all requests. Use the following APIs to build a cognitive search solution.
+Use `api-version=2017-11-11-Preview` on all requests. Use the following APIs to build a cognitive search solution. Only two APIs are added or extended for cognitive search. Other APIs have the same syntax as the generally available versions.
 
 | REST API | Description |
 |-----|-------------|
