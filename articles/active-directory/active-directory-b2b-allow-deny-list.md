@@ -52,7 +52,7 @@ To add a deny list:
  
 6. When you're done, click **Save**.
 
-After you set the policy, if you try to invite a user from a blocked domain, you receive a message saying that the user is currently blocked by your invitation policy.
+After you set the policy, if you try to invite a user from a blocked domain, you receive a message saying that the domain of the user is currently blocked by your invitation policy.
  
 ### Add an allow list
 
@@ -72,6 +72,8 @@ To add an allow list:
    ![Shows the allow option with added domains](./media/active-directory-b2b-allow-deny-list/AllowListSettings.png)
  
 6. When you're done, click **Save**.
+
+After you set the policy, if you try to invite a user from a domain that's not on the allow list, you receive a message saying that the domain of the user is currently blocked by your invitation policy.
 
 ### Switch from allow to deny list and vice versa 
 
