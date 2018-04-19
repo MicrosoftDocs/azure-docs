@@ -7,10 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Try cognitive search
+    href: cognitive-search-quickstart-blob.md
   - name: Create a service
     href: search-create-service-portal.md
-  - name: Try cognitive search
-    href: cognitive-search-get-start-preview.md
   - name: Portal
     items:
     - name: Create an index
@@ -39,6 +39,8 @@
       href: search-fiddler.md
 - name: Tutorials
   items:
+  - name: Index with cognitive search
+    href: cognitive-search-tutorial-blob.md
   - name: Index Azure SQL Database
     href: search-indexer-tutorial.md
   - name: Index Azure blobs
@@ -150,7 +152,9 @@
     - name: Map fields
       href: cognitive-search-output-field-mapping.md
     - name: Create a custom skill
-      href: cognitive-search-creating-custom-skills.md
+      href: cognitive-search-custom-skill-interface.md
+    - name: Example - custom skills
+      href: cognitive-search-create-custom-skill-example.md
   - name: Full text search
     items:
     - name: Basic query construction
@@ -197,36 +201,41 @@
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html
   - name: REST
     href: /rest/api/searchservice
+    items:
+    - name: 2016-09-01-Preview
+      href: search-api-2016-09-01-preview.md
   - name: REST (Management)
     href: /rest/api/searchmanagement
-  - name: Preview APIs (REST)
+  - name: Cognitive search (Preview)
     items:
-    - name: 2017-11-11-Preview
+    - name: 2017-11-11-Preview (REST)
       href: search-api-2017-11-11-preview.md
       items:
       - name: Create Skillset (Preview)
         href: ref-create-skillset.md
-      - name: Predefined skills 
-        href: cognitive-search-concept-skills-skillsets.md
-        items:
-        - name: Microsoft.Skills.Text.KeyPhrase
-          href: cognitive-search-skill-keyphrases.md
-        - name: Microsoft.Skills.Text.LanguageDetection
-          href: cognitive-search-skill-language-detection.md
-        - name: Microsoft.Skills.Text.NamedEntityRecognition
-          href: cognitive-search-skill-named-entity-recognition.md
-        - name: Microsoft.Skills.Text.Pagination
-          href: cognitive-search-skill-pagination.md
-        - name: Microsoft.Skills.Text.Sentiment
-          href: cognitive-search-skill-sentiment.md
-        - name: Microsoft.Skills.Vision.ImageAnalysis
-          href: cognitive-search-skill-image-analysis.md
-        - name: Microsoft.Skills.Vision.Ocr
-          href: cognitive-search-skill-ocr.md
-        - name: Microsoft.Skills.Util.Shaper
-          href: cognitive-search-skill-shaper.md
-    - name: 2016-09-01-Preview
-      href: search-api-2016-09-01-preview.md
+      - name: Create Indexer (Preview)
+        href: ref-create-indexer.md
+    - name: Predefined skills 
+      href: cognitive-search-predefined-skills.md
+      items:
+      - name: Microsoft.Skills.Text.KeyPhrase
+        href: cognitive-search-skill-keyphrases.md
+      - name: Microsoft.Skills.Text.LanguageDetection
+        href: cognitive-search-skill-language-detection.md
+      - name: Microsoft.Skills.Text.NamedEntityRecognition
+        href: cognitive-search-skill-named-entity-recognition.md
+      - name: Microsoft.Skills.Text.Pagination
+        href: cognitive-search-skill-pagination.md
+      - name: Microsoft.Skills.Text.Sentiment
+        href: cognitive-search-skill-sentiment.md
+      - name: Microsoft.Skills.Vision.ImageAnalysis
+        href: cognitive-search-skill-image-analysis.md
+      - name: Microsoft.Skills.Vision.Ocr
+        href: cognitive-search-skill-ocr.md
+      - name: Microsoft.Skills.Util.Shaper
+        href: cognitive-search-skill-shaper.md
+      - name: Microsoft.Skills.Util.TextMerger
+        href: cognitive-search-skill-textmerger.md
 - name: Resources
   items:
   - name: FAQ - Frequently Asked Questions

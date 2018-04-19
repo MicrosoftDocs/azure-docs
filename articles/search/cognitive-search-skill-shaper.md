@@ -4,41 +4,40 @@ description: Extract metadata and structured information from unstructured data 
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
 
-ms.assetid: 
+
 ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
 ---
 
-#	Cognitive Skills: ShaperSkill 
-As you extract metadata and structured information from unstructured data, sometimes, you need to shape that information into a complex type that better meets your needs.
+#	Microsoft.Skills.Util.Shaper cognitive skill
 
-The shaper skill allows you to essentially create a structure, define the name of the members of that structure and assign values to each member.
+The **Shaper** skill creates a complex type to support composite fields (also known as multipart fields). A complex type field has multiple parts but is treated as a single item in an Azure Search index. Examples of consolidated fields useful in search scenarios include combining a first and last name into a single field, city and state into a single field, or name and birthdate into a single field to establish unique identity.
 
-Note that with this technique you can only create "one-level-deep" objects. If you need more complex objects, you could do that by chaining several *Shaper* steps.
+The Shaper skill allows you to essentially create a structure, define the name of the members of that structure, and assign values to each member.
+
+By default, this technique supports objects that are one level deep. For more complex objects, you can chain several Shaper steps.
+
+In the response, the output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" in the examples below to "output", but the Shaper skill itself returns "output" in the response. This point might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the response yourself.
+
 
 ## @odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
-## Sample 1
+## Sample 1: complex types
 
-###	Sample definition
-Consider the scenario where you may want to create a structure called *myobj* that has two members respectively called *text* and *sentiment*.
+Consider a scenario where you want to create a structure called *analyzedText* that has two members: *text* and *sentiment*, respectively. In Azure Search, a multi-part searchable field is called a *complex type*, and it's not yet supported out of the box. In this preview, a shaper skill can be used to generate fields of a complex type in your index. 
 
-In that case you would provide the names of the members as the input names, and the name of the structure as the *targetName*.
-
-Then you would simply connect the sources as usual.
+This example provides the member names as the input. The output structure (your complex field in Azure Search) is specified through *targetName*. 
 
 
 ```json
 {
-  "@odata.type": "#Microsoft.Skills.Util.Shaper",
+  "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
   "context": "/document/content/phrases/*",
   "inputs": [
     {
@@ -53,14 +52,14 @@ Then you would simply connect the sources as usual.
   "outputs": [
     {
       "name": "output",
-      "targetName": "myobj"
+      "targetName": analyzedText"
     }
   ]
 }
 ```
 
 ###	Sample Input
-The input will be different for each shaper definition. For the definition above the input could look like:
+A JSON document providing usable input for this Shaper skill could be:
 
 ```json
 {
@@ -69,7 +68,7 @@ The input will be different for each shaper definition. For the definition above
         "recordId": "1",
         "data":
            {
-             "text": "I am happy" ,
+             "text": "this movie is awesome" ,
              "sentiment": 0.9
            }
       }
@@ -78,7 +77,7 @@ The input will be different for each shaper definition. For the definition above
 
 
 ###	Sample Output
-For the sample input above, the output will generate a new element called *myobj* with the members *text* and *sentiment*.
+The Shaper skill generates a new element called *analyzedText* with the combined elements of *text* and *sentiment*. 
 
 ```json
 {
@@ -87,9 +86,9 @@ For the sample input above, the output will generate a new element called *myobj
         "recordId": "1",
         "data":
            {
-            "myobj": 
+            "analyzedText": 
               {
-                "text": "I am happy" ,
+                "text": "this movie is awesome" ,
                 "sentiment": 0.9
               }
            }
@@ -98,9 +97,57 @@ For the sample input above, the output will generate a new element called *myobj
 }
 ```
 
-## Sample 2
+## Sample 2: input consolidation
 
-In this case we'll use the power of providing context to flatten an array as part of the shaping process...
+In another example, imagine that at different stages of pipeline processing, you have extracted the title of a book, and chapter titles on different pages of the book. You could now create a single structure composed of these various inputs.
+
+The Shaper skill definition for this scenario might look like the following example:
+
+```json
+{
+  "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+  "context": "/document",
+  "inputs": [
+        {
+      "name": "title",
+      "source": "/document/content/title"
+    },
+    {
+      "name": "chapterTitles",
+      "source": "/document/content/pages/*/chapterTitles/*"
+    }
+  ],
+  "outputs": [
+    {
+      "output": "titlesAndChapters",
+      "targetName": "analyzedText"
+    }
+  ]
+}
+```
+###	Sample Output
+In this case, the Shaper flattens all chapter titles to create a single array. 
 
 
+```json
+{
+    "values": [
+      {
+        "recordId": "1",
+        "data":
+        {
+        "titlesAndChapters": 
+          {
+            "title": "How to be happy" ,
+            "chapterTitles": ["Start young", "Laugh often", "Eat, sleep and exercise"]
+          }
+        }
+      }
+    ]
+}
+```
+## See also
+
++ [Predefined skills](cognitive-search-predefined-skills.md)
++ [How to define a skillset](cognitive-search-defining-skillset.md)
 

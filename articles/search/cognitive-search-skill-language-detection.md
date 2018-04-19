@@ -1,33 +1,34 @@
 ---
 title: Microsoft.Skills.Text.LanguageDetection cognitive search skill (Azure Search) | Microsoft Docs
-description: Evaluates unstructured text, and for each record, returns a language identifier with a score indicating the strength of the analysis in an Azure Search augmentation pipeline.
+description: Evaluates unstructured text, and for each record, returns a language identifier with a score indicating the strength of the analysis in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
 
-ms.assetid: 
+
 ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
 ---
-#	Cognitive Skills: LanguageDetectionSkill
+#	Microsoft.Skills.Text.LanguageDetection cognitive skill
 
-For up to 120 languages, detect which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score.
+For up to 120 languages, the **LanguageDetection** skill detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the analysis.
 
-This capability is specially useful when you need to provide the language of the text to other skills (like the sentiment analysis skill or the pagination skill).
+This capability is especially useful when you need to provide the language of the text as input to other skills (for example, the [sentiment analysis skill](cognitive-search-skill-sentiment.md) or [pagination skill](cognitive-search-skill-pagination.md)).
 
 ## @odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill 
 
 ## Data Limits
-The maximum size of a record should be 5000 characters as measured by String.Length. If you need to break up your data before sending it to the sentiment analyzer, you may use the Pagination Skill.
+The maximum size of a record should be 5000 characters as measured by String.Length. If you need to break up your data before sending it to the sentiment analyzer, you may use the [pagination skill](cognitive-search-skill-pagination.md).
 
-## Parameters
+## Skill Parameters
+
+Parameters are case-sensitive.
+
 | Inputs	 | Description |
 |--------------------|-------------|
 | text | The text to be analyzed.|
@@ -37,7 +38,7 @@ The maximum size of a record should be 5000 characters as measured by String.Len
 
 ```json
  {
-    "@odata.type": "#Microsoft.Skills.Text.KeyPhrases",
+    "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill ",
     "inputs": [
       {
         "name": "text",
@@ -78,7 +79,7 @@ The maximum size of a record should be 5000 characters as measured by String.Len
         "recordId": "2",
         "data":
            {
-             "text": "本文件为英文"
+             "text": "Estamos muy felices de estar con ustedes."
            }
       }
     ]
@@ -103,8 +104,8 @@ The maximum size of a record should be 5000 characters as measured by String.Len
         "recordId": "2",
         "data":
             {
-              "languageCode": "zh_chs",
-              "languageName": "Chinese_Simplified",
+              "languageCode": "es",
+              "languageName": "Spanish",
               "score": 1,
             }
       }
@@ -114,4 +115,9 @@ The maximum size of a record should be 5000 characters as measured by String.Len
 
 
 ## Error cases
-If a language provided is not supported, then an error will be generated, and keyPhrases will not be extracted.
+If text is expressed in an unsupported language, an error is generated and no language identifier is returned.
+
+## See also
+
++ [Predefined skills](cognitive-search-predefined-skills.md)
++ [How to define a skillset](cognitive-search-defining-skillset.md)
