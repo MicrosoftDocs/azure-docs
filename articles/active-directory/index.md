@@ -63,7 +63,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <h3>External users</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b">Business-to-business (B2B)</a><br/>
-                        <a href="/azure/active-directory-b2c/">Business-to-customer (B2C)</a>
+                        <a href="/azure/active-directory-b2c/">Business-to-consumer (B2C)</a>
                         </p>
                     </div>
                 </div>
