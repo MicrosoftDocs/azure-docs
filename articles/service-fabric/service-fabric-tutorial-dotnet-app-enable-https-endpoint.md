@@ -170,7 +170,7 @@ private X509Certificate2 GetCertificateFromStore()
 ## Give NETWORK SERVICE access to the certificate's private key
 In a previous step, you imported the certificate into the `Cert:\LocalMachine\My` store on the development computer.  You must also explicitly give the account running the service (NETWORK SERVICE, by default) access to the certificate's private key. You can do this manually (using the certlm.msc tool), but it's better to automatically run a PowerShell script by [configuring a startup script](service-fabric-run-script-at-service-startup.md) in the **SetupEntryPoint** of the service manifest.   
 
-## Configure the service setup entry point
+### Configure the service setup entry point
 In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*.  In the **CodePackage** section, add **SetupEntryPoint** node and then a **ExeHost** node.  In **ExeHost**, set **Program** to "Setup.bat" and **WorkingFolder** to "CodePackage".  When the VotingWeb service starts, the Setup.bat script executes in the CodePackage folder before VotingWeb.exe starts.
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -209,7 +209,7 @@ In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*.  In the 
 </ServiceManifest>
 ```
 
-## Add the batch and PowerShell setup scripts
+### Add the batch and PowerShell setup scripts
 To run PowerShell from the **SetupEntryPoint** point, you can run PowerShell.exe in a batch file that points to a PowerShell file. First, add the batch file the service project.  In Solution Explorer, right-click **VotingWeb** and select **Add**->**New Item** and add a new file named "Setup.bat".  Edit the *Setup.bat* file and add the following command:
 
 ```bat
@@ -269,7 +269,7 @@ if ($cert -eq $null)
 Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 ```
 
-## Run the setup script as a local administrator
+### Run the setup script as a local administrator
 By default, the service setup entry point executable runs under the same credentials as Service Fabric (typically the NetworkService account). The *SetCertAccess.ps1* requires administrator privileges. In the application manifest, you can change the security permissions to run the startup script under a local administrator account.  
 
 In Solution Explorer, open *Voting/ApplicationPackageRoot/ManifestManifest.xml*. First, create a **Principals** section and add a new user (for example, "SetupAdminUser". Add the SetupAdminUser user account to the Administrators system group.
@@ -327,16 +327,24 @@ Save all files and hit F5 to run the application locally.  After the application
 ![Voting application][image2] 
 
 ## Install certificate on cluster nodes
-Before deploying the application to the Azure, install the certificate into the `Cert:\LocalMachine\My` store of the cluster nodes using the [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) cmdlet.
+Before deploying the application to the Azure, install the certificate into the `Cert:\LocalMachine\My` store of the remote cluster nodes.  When the front-end web service starts on a cluster node, the startup script will lookup the certificate and configure access permissions.
+
+First, export the certificate to a PFX file. Open the certlm.msc application and navigate to **Personal**>**Certificates**.  Right-click on the *localhost* certificate, and select **All Tasks**>**Export**.  
+
+![Export certificate][image4]
+
+In the export wizard, choose **Yes, export the private key** and choose the Personal Information Exchange (PFX) format.  Export the file to *C:\Users\sfuser\votingappcert.pfx*.
+
+Next, install the certificate on the remote cluster using the [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) cmdlet.
 
 > [!Warning]
-> A self-signed certificate is sufficient for development and testing applications. For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).
+> A self-signed certificate is sufficient for development and testing applications. For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority) instead of a self-signed certificate.
 
 ```powershell
 Connect-AzureRmAccount
 
 $vaultname="sftestvault"
-$certname="VotingApp2PFX"
+$certname="VotingAppPFX"
 $certpw="!Password321#"
 $groupname="voting_RG"
 $clustername = "votinghttps"
@@ -418,3 +426,4 @@ Advance to the next tutorial:
 [image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
 [image2]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png
 [image3]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppAzure.png
+[image4]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/ExportCert.png
