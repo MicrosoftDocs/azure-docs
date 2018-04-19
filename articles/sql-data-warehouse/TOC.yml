@@ -93,6 +93,8 @@
       href: sql-data-warehouse-overview-develop.md
     - name: Data warehouse components
       href: sql-data-warehouse-overview-workload.md
+    - name: Best practices
+      href: sql-data-warehouse-best-practices.md
     - name: Tables
       items:
       - name: Overview
