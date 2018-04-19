@@ -6,7 +6,7 @@ author: brapel
 manager: ehansen
 
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.technology: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
@@ -63,7 +63,7 @@ At any time, you can test out your search instance by using the preview pane. Th
 
 <a name="adjustrank"></a>
 ## Adjust rank
-The portal lets you adjust ranking to manipulate the results that Bing returns. In the Preview pane, enter a search term and run the query. The preview pane list the search result for the query. To the right of each result is the list of adjustments you can make. 
+The portal lets you adjust ranking to manipulate the results that Bing returns. In the Preview pane, enter a search term and run the query. The preview pane list the search result for the query. To the right of each result is the list of adjustments, you can make. 
 
 - Block. Moves the domain, subpage, or webpage to the Blocked list. You select the level to block. Bing excludes content from the selected site in the search results. 
 - Boost. Boosts content from the domain or subpage higher in the search results. You select whether to boost content from the domain or subpage that the webpage belongs to.
@@ -87,16 +87,12 @@ To pin a webpage to the top of the search results for a specific query, choose o
 
 You can track your pins in the Pinned tab. The pins are shown as '\<query\>, \<webpage\>' pairs. 
 
-Changes are automatically saved and reflect instantly against your custom search instance. 
-
 The webpage is pinned only if the user’s query exactly matches your query. 
 
-Please note the following restrictions when working with pins: 
-
-- For a specific query, you can pin a maximum of one webpage to the top of the results.
+For a specific query, you can pin a maximum of one webpage to the top of the results.
 
 ## Use Bing to specify slices
-There are a couple of ways to specify the slices of the web that make up your custom search. If you know the slices you want to include in your instance, simply add them to your instance’s Active list. For information about adding items to the Active list yourself, see [Active and Blocked lists](#active-and-blocked-lists).
+There are a couple of ways to specify the slices of the web that make up your custom search. If you know the slices you want to include in your instance, add them to your instance’s Active list. For information about adding items to the Active list yourself, see [Active and Blocked lists](#active-and-blocked-lists).
 But if you’re not sure which slices to include, you can run Bing queries in the Preview pane and see what Bing returns. You can then select the slices that you want to include in your custom search. You likely need to run multiple query terms to make sure you identify all the slices that you want for your instance. 
 
 Follow these steps to use Bing to add slices to your Custom Search instance. 
@@ -110,17 +106,17 @@ Follow these steps to use Bing to add slices to your Custom Search instance.
 ## Share your instance
 You can share your custom search with anyone at any time using just their email address. Click **Settings**, enter the email address of the person to share your instance with and click **Share**. The email address is shown in the list titled **Instance shared with**. Repeat for each person you want to share your custom search with.
 
-After you share an instance with someone, they'll see the instance in their list of custom search instances.
+After you share an instance with someone, they'll see the instance in their list of custom search instances when they sign into the portal.
 
 To stop sharing an instance with someone, use the remove icon to remove their email address from the list.
 
-## Publish or discard
-Changes you make to a Custom Search instance are made in **Staging** so you can validate your changes. When you're done making changes and ready to publish, click on **Publish**. After you publish your changes, all new query results will be served using your new configuration.
+## Publish or revert
+Changes you make to a Custom Search instance are made in the **Configure** tab so you can validate your changes. When you're done making changes and ready to publish, click on **Publish to Live State**. After you publish your changes, all new query results will be served using your new configuration.
 
-If you decide that you don't want to keep the changes you've made, click **Discard**. When you discard your changes the production configuration remains unchanged and the staging environment will revert to match production.
+If you decide that you don't want to keep the changes you've made, click **Revert to Live State**. When you revert your changes, the live state configuration is unchanged and the Configure tab is reverted to match the live state.
 
 ## View statistics
-If you subscribed at the **S2 Tier** or above (see the [pricing pages](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/)), a **Statistics** tab is added to your production instances. The statistics tab shows details about **Endpoint Hits**, **Query Hits**, and **Top Queries**. You can filter details to a specific time period using the provided calendar controls.
+If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), a **Statistics** tab is added to your production instances. The statistics tab shows details about how your Custom Search endpoints are used, including call volume and most frequent queries. You can filter details using the provided controls.
 
 ## Understanding Quota
 - For each custom search instance, the maximum number of ranking adjustments that you may make to **Active** and **Blocked** slices is limited to 400.

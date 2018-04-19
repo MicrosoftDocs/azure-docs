@@ -6,7 +6,7 @@ author: brapel
 manager: ehansen
 
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.technology: bing-custom-search
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: v-brapel
@@ -17,22 +17,29 @@ Bing Custom Search enables you to create tailored search experiences for topics 
 
 To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). The portal lets you create a custom search instance that specifies the domains, websites, and webpages that you want Bing to search, and the websites that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also use the portal to find relevant content that you may want to add.
 
-The portal also lets you pin webpages and customize auto suggest search terms. Pinned webpages will appear at the top of the search results if the user enters the search term you specify. Auto suggest search terms are suggested based on the user's current input. Customizing auto suggest will show your suggestions first in the list of suggested search terms.
+The portal also lets you pin a specific webpage to the top of the search result if the user enters a specific search term. 
 
 After defining your instance, you can integrate custom search into your website, desktop app, or mobile app by calling the Custom Search API. If you have a web-based site or application, you can let the hosted UI render the search interface for you.
 
 The following image shows the simplicity of the custom search integration.
 
 
-
 ![picture alt](./media/bcs-overview.png "How Bing Custom Search works.")
 
-### Next steps
+## Customize search suggestions
+If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), you can customize the search suggestions made in your Custom Search experience. The Autosuggest API returns a list of suggested queries based on a partial query string that the user enters in the search box. With Custom Autosuggest, you add suggestions that appear before the suggestions that Autosuggest provides. 
+
+
+## Next steps
 To get started quickly, see [Create your first Bing Custom Search instance](quick-start.md).
 
 For detail about available options to customize your search instance, see [Define a custom search instance](define-your-custom-view.md).
 
 Familiarize yourself with the [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
+
+To learn how to customize suggestions, see [Define custom search suggestions](define-custom-suggestions.md).
+
+Familiarize yourself with the [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request query suggestions. It also includes definitions of the response objects.
 
 Be sure to read [Bing Use and Display Requirements](./use-and-display-requirements.md) so you don't break any of the rules about using the search results.
 
