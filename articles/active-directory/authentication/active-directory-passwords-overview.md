@@ -40,7 +40,7 @@ Azure AD SSPR helps you to:
 * **Drive mobility** as users can reset their passwords from wherever they are.
 * **Maintain control** of the security policy. Administrators can continue to enforce the policies they have today.
 
-If you're ready, you can get started with Azure AD SSPR by using our [quick start guidance](../active-directory-passwords-getting-started.md). You can quickly give your users to ability to reset their own passwords.
+If you're ready, you can get started with Azure AD SSPR by using our [quick start guidance](quickstart-sspr.md). You can quickly give your users to ability to reset their own passwords.
 
 ## Azure AD SSPR availability
 
@@ -63,7 +63,7 @@ More details about licensing, pricing, and future plans can be found on the foll
 
 ## Next steps
 
-* Are you ready to get started with SSPR? [Set up Azure AD self-service password reset](../active-directory-passwords-getting-started.md).
+* Are you ready to get started with SSPR? [Set up Azure AD self-service password reset](quickstart-sspr.md).
 * Plan a successful SSPR deployment to your users by using the guidance found in our [rollout guide](howto-sspr-deployment.md).
 * [Reset or change your password](../active-directory-passwords-update-your-own-password.md).
 * [Register for self-service password reset](../active-directory-passwords-reset-register.md).
