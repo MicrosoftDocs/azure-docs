@@ -68,7 +68,7 @@ Output:
 Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys --kubernetes-version 1.9.2
 ```
 
 After several minutes, the command completes and returns JSON-formatted information about the cluster.
