@@ -1,4 +1,4 @@
-# [Azure IoT Fundamentals](../iot-fundamentals/index.md)
+# [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
 # [IoT Hub Documentation](index.md)
 
 # Overview

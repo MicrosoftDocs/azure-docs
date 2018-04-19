@@ -1,5 +1,5 @@
 - name: Azure IoT Fundamentals 
-  href: ../iot-fundamentals/index.md
+  href: ../iot-fundamentals/index.yml
 - name: Azure IoT Hub Device Provisioning Service Documentation 
   href: index.yml
 - name: Overview
