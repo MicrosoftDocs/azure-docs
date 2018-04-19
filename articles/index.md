@@ -4111,15 +4111,24 @@ featureFlags:
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-9.svg" alt="" />
+                                                    <img src="media/logos/logo-vs-code.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools for Azure</a>
+                                                    <a href="https://code.visualstudio.com">Visual Studio Code</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Download</a>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">App Service</a>
+                                                </p>
+                                                 <p>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Azure Functions</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Storage</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Cosmos DB</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4137,7 +4146,7 @@ featureFlags:
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Microsoft/DockerToolsDocs">Docker Tools</a>
+                                                    Docker
                                                 </h3>
                                                 <p>
                                                     <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">Get Started</a>
@@ -4150,27 +4159,6 @@ featureFlags:
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Download for Team Services</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-8.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">PowerShell Tools for Visual Studio</a>
-                                                </h3>
-                                                <p>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Download</a>
                                                 </p>
                                             </div>
                                         </div>
