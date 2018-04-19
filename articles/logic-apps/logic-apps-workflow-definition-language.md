@@ -51,7 +51,7 @@ Here is the basic structure for a workflow definition:
 | $schema | Only when externally referencing a definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json` |   
 | contentVersion | No | The version number for your workflow definition, which is "1.0.0.0" by default. To identify and confirm the correct definition when deploying a workflow, specify a value to use. | 
 | parameters | No | The definitions for one or more parameters that can pass data into your workflow <p>Maximum parameters: 50 | 
-| triggers | No | The definitions for one or more triggers that start your workflow. You can define more than one trigger only when working with the Workflow Definition Language, for example, in code view, and not in the Logic Apps Designer. <p>Maximum triggers: 10 | 
+| triggers | No | The definitions for one or more triggers that start your workflow. <p>You can define more than one trigger, but only in code view with the Workflow Definition Language, not the Logic Apps Designer. <p>Maximum triggers: 10 | 
 | actions | No | The definitions for one or more actions that execute in the workflow at runtime <p>Maximum actions: 250 | 
 | outputs | No | The definitions for the outputs that can return from a workflow run <p>Maximum outputs: 10 |  
 |||| 
@@ -60,8 +60,8 @@ Here is the basic structure for a workflow definition:
 
 In the `parameters` section, define all the parameters 
 that the workflow uses for accepting inputs at runtime. 
-You must declare all the parameters in this section 
-before you can use the parameters in other workflow sections. 
+Before you can use these parameters in other workflow 
+sections, make sure that you declare all the parameters in this section. 
 
 Here is the general structure for a parameter definition:  
 
@@ -82,13 +82,13 @@ Here is the general structure for a parameter definition:
 
 | Element | Required | Type | Description |  
 |---------|----------|------|-------------|  
-| type | Yes | int, string, securestring, bool, object, secureobject, array <p>**Note**: The `securestring` and `secureobject` types are not returned by `GET` operations. All passwords, keys, and secrets should use this type. | See below for examples | 
-| defaultValue | No | The default parameter value to use if no value is specified when the workflow instantiates | 
+| type | Yes | int, string, securestring, bool, object, secureobject, array <p>**Note**: The `securestring` and `secureobject` types are not returned by `GET` operations. All passwords, keys, and secrets should use this type. | See the following *Examples* section. | 
+| defaultValue | No | The default parameter value to use when no value is specified when the workflow instantiates | 
 | allowedValues | No | An array with values that the parameter can accept |  
-| metadata | No | Any additional information about the parameter, such as a readable description or design-time data used by Visual Studio or other tools |  
+| metadata | No | Any other parameter details, for example, a readable description or design-time data used by Visual Studio or other tools |  
 ||||
   
-### Examples
+*Examples*
 
 ```json
 "parameters": {
@@ -168,7 +168,7 @@ For details about this section, see [Workflow triggers and actions](logic-apps-w
 
 Outputs define the data that a workflow can return when finished running. 
 For example, to track a specific status or value from each run, 
-you can specify that the workflow output includes and returns that data. 
+specify that the workflow output returns that data. 
 
 Here is the general structure for an output definition: 
 
@@ -188,10 +188,10 @@ Here is the general structure for an output definition:
 | value | Yes | Same as `type` | The output return value |  
 ||||| 
 
-To get the output from a workflow run, either check the Azure portal 
-by reviewing the logic app's run history and details or use the REST API. 
-You can also pass output to external systems such as PowerBI 
-so that you can create dashboards. 
+To get the output from a workflow run, 
+review the logic app's run history and details in the Azure portal 
+or use the [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
+You can also pass output to external systems such as PowerBI so that you can create dashboards. 
 
 > [!NOTE]
 > When responding to incoming requests from a service's REST API, 
@@ -234,7 +234,7 @@ and the result is always another JSON value.
 If you have a literal string that starts with the @ character, 
 prefix that @ character with another @ character as an escape character: @@
 
-These examples show show how expressions are evaluated:
+These examples show how expressions are evaluated:
 
 | JSON value | Result |
 |------------|--------| 
@@ -288,7 +288,7 @@ property or a value in an array.
 | Operator | Task | 
 |----------|------|
 | . | To reference a property in an object, use the dot operator. For example, | 
-| [] | To reference a value at a specific position, or index, in an array, use square brackets. For example, to get the second item in an array: <p>`myArray[2]` | 
+| [] | To reference a value at a specific position (index) in an array, use square brackets. For example, to get the second item in an array: <p>`myArray[2]` | 
 | ? | To reference null properties in an object without a runtime error, use the question mark operator. For example, to handle null outputs from a trigger, you can use this expression: <p>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` |
 | ' | To use a string literal as input or in expressions and functions, wrap the string only with single quotation marks. Do not use double quotation marks (""), which conflict with the JSON formatting for an entire expression. For example: <p>**Yes**: length('Hello') </br>**No**: length("Hello") <p>When you pass arrays or numbers, you don't need wrapping punctuation. For example: <p>**Yes**: length([1, 2, 3]) </br>**No**: length("[1, 2, 3]") | 
 ||| 
@@ -525,10 +525,12 @@ see the [alphabetical reference list](../logic-apps/workflow-definition-language
 
 ### Workflow functions
 
-To get information about a workflow instance at run time, 
-to work with the inputs used for instantiating logic apps, 
-or to reference the outputs from triggers and actions, 
-you can use these workflow functions. 
+These workflow functions can help you:
+
+* Get details about a workflow instance at run time. 
+* Work with the inputs used for instantiating logic apps.
+* Reference the outputs from triggers and actions.
+
 For example, you can reference the outputs from 
 one action and use that data in a later action. 
 For the full reference about each function, 
@@ -576,8 +578,8 @@ see the [alphabetical reference list](../logic-apps/workflow-definition-language
 ### Object and XML functions
 
 To work with objects and XML nodes, you can use these manipulation functions. 
-For the full reference about each function, 
-see the [alphabetical reference list](../logic-apps/workflow-definition-language-functions-reference.md).
+For the full reference about each function, see the 
+[alphabetical reference list](../logic-apps/workflow-definition-language-functions-reference.md).
 
 | Manipulation function | Task | 
 | --------------------- | ---- | 
