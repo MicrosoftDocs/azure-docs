@@ -184,7 +184,7 @@ For more development tips, see [development overview][development overview].
 [migrate your schema]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
-[Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
+[Use bcp to load data into SQL Data Warehouse]: /sql/tools/bcp-utility
 [Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 

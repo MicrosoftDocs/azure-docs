@@ -144,7 +144,7 @@ When your app receives a token (either an id_token upon user sign-in, or an acce
 * The **Nonce** -  to mitigate a token replay attack.
 * and more...
 
-For a full list of claim validations your app should perform for ID Tokens, refer to the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Details of the expected values for these claims are included in the preceding [id_token section](#id-tokens) section.
+For a full list of claim validations your app should perform for ID Tokens, refer to the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Details of the expected values for these claims are included in the preceding [id_token](#id-tokens) section.
 
 ## Token Revocation
 
