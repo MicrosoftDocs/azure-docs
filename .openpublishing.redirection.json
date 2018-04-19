@@ -18807,7 +18807,7 @@
         },
         {
             "source_path": "articles/multi-factor-authentication/mfa-server-high-availability.md",
-            "redirect_url": "/azure/active-directory/authentication/hhowto-mfaserver-deploy-ha",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-deploy-ha",
             "redirect_document_id": true
         },
         {
