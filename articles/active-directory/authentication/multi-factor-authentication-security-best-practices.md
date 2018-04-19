@@ -94,7 +94,7 @@ If your organization is federated for SSO with Azure AD and you are going to be 
 ## Additional Considerations
 Use this list for additional considerations and guidance for each component that is deployed on-premises:
 
-- Set up Azure Multi-Factor Authentication with [Active Directory Federation Service](../../multi-factor-authentication/multi-factor-authentication-get-started-adfs.md).
+- Set up Azure Multi-Factor Authentication with [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md).
 - Set up and configure the Azure MFA Server with [RADIUS Authentication](howto-mfaserver-dir-radius.md).
 - Set up and configure the Azure MFA Server with [IIS Authentication](howto-mfaserver-iis.md).
 - Set up and configure the Azure MFA Server with [Windows Authentication](howto-mfaserver-windows.md).
@@ -109,5 +109,5 @@ While this article highlights some best practices for Azure MFA, there are other
 
 * [Reports in Azure Multi-Factor Authentication](howto-mfa-reporting.md)
 * [The two-step verification registration experience](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
-* [Azure Multi-Factor Authentication FAQ](../../multi-factor-authentication/multi-factor-authentication-faq.md)
+* [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
 
