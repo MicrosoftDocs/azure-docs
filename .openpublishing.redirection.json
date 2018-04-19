@@ -6719,8 +6719,7 @@
             "source_path": "articles/sql-database/sql-database-export-portal.md",
             "redirect_url": "/azure/sql-database/sql-database-export",
             "redirect_document_id": false
-        },
-        {
+        },       {
             "source_path": "articles/sql-database/sql-database-export-powershell.md",
             "redirect_url": "/azure/sql-database/sql-database-export",
             "redirect_document_id": false
@@ -6746,7 +6745,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-sql-database-managed-instance-tutorial-portal.md",
+            "source_path": "articles/sql-database/sql-database-managed-instance-tutorial-portal.md",
             "redirect_url": "/azure/sql-database/sql-database-managed-instance-create-tutorial-portal",
             "redirect_document_id": false
         },
