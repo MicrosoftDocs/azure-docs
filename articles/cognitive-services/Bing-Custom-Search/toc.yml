@@ -26,26 +26,28 @@
       href: ./tutorials/custom-search-web-page.md
 - name: How-to  
   items:        
-    - name: Define your custom view
+    - name: Configure your custom search experience
       href: define-your-custom-view.md
     - name: Search your custom view
       href: search-your-custom-view.md
-    - name: Configure hosted UI
+    - name: Configure your hosted UI experience
       href: hosted-ui.md
-    - name: Define custom suggestions
+    - name: Configure your custom autosuggest experience
       href: define-custom-suggestions.md
     - name: Get custom suggestions
-      href: get-custom-suggestions.md 
-    - name: Handle hit highlighting
-      href: hit-highlighting.md
-    - name: Page webpages
-      href: page-webpages.md 
+      href: get-custom-suggestions.md
+    - name: Analyze your traffic
+      href: analyze-traffic.md
 - name: References
   items:
     - name: Bing Custom Search API Reference
       href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
     - name: Bing Search API use and display requirements
       href: use-and-display-requirements.md
+    - name: Handle hit highlighting
+      href: hit-highlighting.md
+    - name: Page webpages
+      href: page-webpages.md
     - name: SDK
       items:
       - name: SDK samples overview 
