@@ -1,17 +1,21 @@
 ---
 title: Microsoft.Skills.Text.KeyPhrases cognitive search skill (Azure Search) | Microsoft Docs
 description: Evaluates unstructured text, and for each record, returns a list of key phrases in an Azure Search augmentation pipeline.
+services: search
 manager: pablocas
 author: luiscabrer
+
+
 ms.service: search
 ms.devlang: NA
-ms.topic: reference
+ms.workload: search
+ms.topic: article
 ms.date: 05/01/2018
 ms.author: luisca
 ---
 #	Microsoft.Skills.Text.KeyPhrases cognitive skill
 
-The key phrase extraction skill evaluates unstructured text, and for each record, returns a list of key phrases.
+The **KeyPhrases** extraction skill evaluates unstructured text, and for each record, returns a list of key phrases.
 
 This capability is useful if you need to quickly identify the main talking points in the record. For example, given input text "The food was delicious and there were wonderful staff", the service returns "food" and "wonderful staff".
 

@@ -25,3 +25,10 @@ The following table enumerates and describes the skills provided by Microsoft. S
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | This skill uses an image detection algorithm to identify the content of an image and generate a text description. |
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Optical character recognition. |
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Maps output to a complex type (a multi-part data type, which might be used for a full name, a multi-line address, or a combination of last name and a personal identifier.) |
+| [Microsoft.Skills.Util.TextMerger](cognitive-search-skill-textmerger.md) | Donsolidates text from a collection of fields into a single field. |
+
+## See also
+
++ [How to define a skillset](cognitive-search-defining-skillset.md)
++ [Custom Skills interface definition](cognitive-search-custom-skill-interface.md)
++ [Tutorial: Enriched indexing with cognitive search](cognitive-search-tutorial-blob.md)

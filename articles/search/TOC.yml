@@ -242,6 +242,8 @@
         href: cognitive-search-skill-ocr.md
       - name: Microsoft.Skills.Util.Shaper
         href: cognitive-search-skill-shaper.md
+      - name: Microsoft.Skills.Util.TextMerger
+        href: cognitive-search-skill-textmerger.md
 - name: Resources
   items:
   - name: FAQ - Frequently Asked Questions

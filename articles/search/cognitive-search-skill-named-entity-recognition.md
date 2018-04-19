@@ -1,18 +1,21 @@
 ---
 title: Microsoft.Skills.Text.NamedEntityRecognition cognitive search skill (Azure Search) | Microsoft Docs
 description: Extract named entities for person, location and organization from text in an Azure Search augmentation pipeline.
+services: search
 manager: pablocas
 author: luiscabrer
+
 ms.service: search
 ms.devlang: NA
-ms.topic: reference
+ms.workload: search
+ms.topic: article
 ms.date: 05/01/2018
 ms.author: luisca
 ---
 
 #	Microsoft.Skills.Text.NamedEntityRecognition cognitive skill
 
-The named entity recognition skill extracts named entities from text. Available entities include the following types: person, location, and organization.
+The **NamedEntityRecognition** skill extracts named entities from text. Available entities include the following types: person, location, and organization.
 
 ## @odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
@@ -118,8 +121,7 @@ Parameters are case-sensitive.
 
 
 ## Error cases
-
-If you specify an unsupported language code, or if content doesn't match the language specified, an error is return and no entities are extracted.
+If the provided language code is not supported or if the content does not match the language specified, an error is generated and no entities are extracted.
 
 ## See also
 

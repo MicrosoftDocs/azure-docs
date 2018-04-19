@@ -1,24 +1,30 @@
 ---
 title: Microsoft.Skills.Text.Sentiment cognitive search skill (Azure Search) | Microsoft Docs
 description: Extract sentiment from text in an Azure Search augmentation pipeline.
+services: search
 manager: pablocas
 author: luiscabrer
+documentationcenter: ''
+
+ms.assetid: 
 ms.service: search
 ms.devlang: NA
-ms.topic: reference
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
 ---
 
 #	Microsoft.Skills.Text.Sentiment cognitive skill
 
-The sentiment skill evaluates unstructured text, and for each record, returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment.
+The **Sentiment** skill evaluates unstructured text along a positive-negative continuu, and for each record, returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment.
 
 ## @odata.type  
 Microsoft.Skills.Text.SentimentSkill
 
 ## Data Limits
-The maximum size of a record should be 5000 characters as measured by String.Length. If you need to break up your data before sending it to the sentiment analyzer, you may use the Pagination Skill.
+The maximum size of a record should be 5000 characters as measured by String.Length. If you need to break up your data before sending it to the sentiment analyzer, use the [Pagination Skill](cognitive-skill-pagination.md).
 
 
 ## Skill Parameters

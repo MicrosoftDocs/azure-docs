@@ -5,13 +5,13 @@ manager: pablocas
 author: luiscabrer
 ms.service: search
 ms.devlang: NA
-ms.topic: tuorial
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
 ---
 # Tutorial: Enrich indexing with cognitive search (Preview)
 
-Find out how adding enrichment steps, called *cognitive skills*, to an Azure Search indexing pipeline helps you extract structure and information from raw content. By attaching a *skillset* to an Azure Search indexer, you can add named entity recognition, natural language processing, and image analysis that makes inherent information usable and searchable in custom apps. 
+Find out how adding enrichment steps, called *cognitive skills*, to an Azure Search indexing pipeline helps you extract structure and information from raw content. By attaching a *skillset* to an Azure Search indexer, you can add named entity recognition, natural language processing, and image analysis that makes latent information usable and searchable in custom apps. 
 
 In this tutorial, learn the following tasks:
 

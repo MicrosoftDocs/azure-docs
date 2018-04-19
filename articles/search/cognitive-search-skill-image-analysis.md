@@ -1,11 +1,17 @@
 ---
 title: Microsoft.Skills.Vision.ImageAnalysis cognitive search skill (Azure Search) | Microsoft Docs
 description: Extract semantic text through image analysis using the ImageAnalysis cognitive skill in an Azure Search augmentation pipeline.
+services: search
 manager: pablocas
 author: luiscabrer
+documentationcenter: ''
+
+ms.assetid: 
 ms.service: search
 ms.devlang: NA
-ms.topic: reference
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
 ---
@@ -137,7 +143,7 @@ Parameters are case-sensitive.
 In the following error cases, no elements are extracted.
 
 | Error Code | Description |
-|-------|-------------|
+|------------|-------------|
 | NotSupportedLanguage | The language provided is not supported. |
 | InvalidImageUrl | Image URL is badly formatted or not accessible.|
 | InvalidImageFormat | Input data is not a valid image. |
