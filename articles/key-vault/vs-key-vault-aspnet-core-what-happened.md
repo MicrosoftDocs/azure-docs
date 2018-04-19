@@ -5,8 +5,9 @@ services: key-vault
 author: ghogen
 manager: douge
 tags: azure-resource-manager
-ms.service: key-vault
-ms.workload: identity
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
