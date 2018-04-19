@@ -1,4 +1,4 @@
----
+﻿---
 title: ' Manage the configuration server for physical server disaster recovery with Azure Site Recovery | Microsoft Docs'
 description: This article describes how to manage an existing configuration server for physical server disaster recovery to Azure, with the Azure Site Recovery service.
 services: site-recovery
@@ -262,7 +262,7 @@ Upgrade the server as follows:
 1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
 2. Login into to your Azure account using the command
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Select the subscription under which the vault is present
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

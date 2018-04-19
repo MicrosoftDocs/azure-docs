@@ -1,9 +1,8 @@
 ---
-title: Configure Hive policies in Domain-joined HDInsight - Azure | Microsoft Docs
+title: Configure Hive policies in Domain-joined HDInsight - Azure
 description: Learn ....
 services: hdinsight
-documentationcenter: ''
-author: saurinsh
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -11,10 +10,9 @@ tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/25/2016
-ms.author: saurinsh
+ms.date: 04/17/2018
+ms.author: omidm
 
 ---
 # Configure Hive policies in Domain-joined HDInsight

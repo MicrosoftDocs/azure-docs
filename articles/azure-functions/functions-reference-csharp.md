@@ -3,7 +3,7 @@ title: Azure Functions C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
-ms.author: glenga
+ms.author: tdykstra
 
 ---
 # Azure Functions C# script (.csx) developer reference
@@ -230,7 +230,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 ## Async
 
-To make a function asynchronous, use the `async` keyword and return a `Task` object.
+To make a function [asynchronous](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(

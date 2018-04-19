@@ -5,7 +5,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-autosuggest-search
+ms.component: bing-autosuggest
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: v-gedod

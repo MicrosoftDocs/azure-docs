@@ -1,4 +1,4 @@
----
+﻿---
 title: Analyze flight delay data with Hadoop in HDInsight - Azure | Microsoft Docs
 description: Learn how to use one Windows PowerShell script to create an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster.
 services: hdinsight
@@ -132,7 +132,7 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
         $acct = Get-AzureRmSubscription
     }
     catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
     Select-AzureRmSubscription -SubscriptionID $subscriptionID
 
@@ -297,7 +297,7 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
@@ -418,7 +418,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
@@ -638,7 +638,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #region - Create and validate Azure resouce group
