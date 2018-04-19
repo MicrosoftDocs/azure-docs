@@ -65,7 +65,7 @@ GIT_PAT=personalaccesstoken  # The PAT you generated in the second tutorial
 
 Build the base image with an ACR Build quick build. As discussed in the [first tutorial](container-registry-tutorial-quick-build.md) in the series, this not only builds the image, but pushes it to your container registry if the build is successful.
 
-```bash
+```azurecli-interactive
 az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base --context .
 ```
 
@@ -73,7 +73,7 @@ az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Docker
 
 Now that you've built the base image, build the application image that specifies the base image in its Dockerfile. In a later step, you update the base image, which triggers a build in ACR Build of the application image.
 
-```bash
+```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloworld:{{.Build.Id}} --file Dockerfile-app --build-arg REGISTRY_NAME=$ACR_NAME.azurecr.io --context .
 ```
 
@@ -127,7 +127,7 @@ Version: 9.11.1
 
 Execute the following [az acr build-task create][az-acr-build-task-create] command to create a build task that automates application image builds when the base image is updated:
 
-```sh
+```azurecli-interactive
 az acr build-task create \
     --registry $ACR_NAME \
     --name buildhelloworld \
@@ -151,7 +151,7 @@ ENV NODE_VERSION 9.11.1a
 
 Build the updated base image. Retain the stable tag of "9" since this simulates an OS or framework update. After a few moments, this triggers a build of the application image.
 
-```bash
+```azurecli-interactive
 az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base --context .
 ```
 
@@ -159,7 +159,7 @@ az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Docker
 
 View the logs as the base image update triggers the **helloworld** build task and builds the application image. It may take a moment for the webhook created by the build task to trigger the build. If the **build-id** is the same as the previous build you executed, re-run the following command to display the build log of the automatically triggered build.
 
-```bash
+```azurecli-interactive
 az acr build-task logs --registry $ACR_NAME
 ```
 
@@ -182,7 +182,7 @@ Version: 9.11.1a
 
 ## Clean up resources
 
-To remove all resources you've created in this tutorial, including the container, container registry, key vault, and service principal, issue the following commands:
+To remove all resources you've created in this tutorial series, including the container registry, container instance, key vault, and service principal, issue the following commands:
 
 ```azurecli-interactive
 az group delete --resource-group $RES_GROUP
