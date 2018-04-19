@@ -31,6 +31,11 @@
             "redirect_document_id": false
 	      },
         {
+            "source_path": "articles/machine-learning/preview/index.md",
+            "redirect_url": "/azure/machine-learning/service",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/preview/aml-pricing.md",
             "redirect_url": "/azure/machine-learning/service/aml-pricing",
             "redirect_document_id": true
