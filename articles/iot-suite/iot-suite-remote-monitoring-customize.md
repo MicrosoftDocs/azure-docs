@@ -492,9 +492,9 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 To further modify the presentation and visualizations layer in the remote monitoring solution, you can edit the code. The relevant GitHub repositories are:
 
-* [Azure PCS Remote Monitoring UIConfig (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
-* [Azure PCS Remote Monitoring UIConfig (Java)](https://github.com/Azure/pcs-ui-config-java/)
-* [Azure PCS Remote Monitoring WebUI](https://github.com/Azure/pcs-remote-monitoring-webui)
+* [The configuration microservice for Azure IoT Solutions (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
+* [The configuration microservice for Azure IoT Solutions  (Java)](https://github.com/Azure/pcs-ui-config-java/)
+* [Azure IoT PCS Remote Monitoring Web UI](https://github.com/Azure/pcs-remote-monitoring-webui)
 
 ## Device connectivity and streaming
 
@@ -541,10 +541,10 @@ To implement methods and jobs on your physical devices, see the following IoT Hu
 
 To further modify the device connectivity and streaming layer in the remote monitoring solution, you can edit the code. The relevant GitHub repositories are:
 
-* [Device Telemetry (.NET)](https://github.com/Azure/device-telemetry-dotnet)
-* [Device Telemetry (Java)](https://github.com/Azure/device-telemetry-java)
-* [Telemetry Agent (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
-* [Telemetry Agent (Java)](https://github.com/Azure/telemetry-agent-java)
+* [Device telemetry implementation in .NET for PCS](https://github.com/Azure/device-telemetry-dotnet)
+* [Device telemetry implementation in Java for PCS](https://github.com/Azure/device-telemetry-java)
+* [Azure IoT Hub Streaming, Analytics, Alerts generation (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
+* [Azure IoT Hub Streaming, Analytics, Alerts generation (Java)](https://github.com/Azure/telemetry-agent-java)
 
 ## Data processing and analytics
 
@@ -561,8 +561,8 @@ See the [Customize rules and actions](https://github.com/Azure/azure-iot-pcs-rem
 
 To modify the data processing and analytics layer in the remote monitoring solution, you can edit the code. The relevant GitHub repositories are:
 
-* [Telemetry Agent (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
-* [Telemetry Agent (Java)](https://github.com/Azure/telemetry-agent-java)
+* [Azure IoT Hub Streaming, Analytics, Alerts generation (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
+* [Azure IoT Hub Streaming, Analytics, Alerts generation (Java)](https://github.com/Azure/telemetry-agent-java)
 
 ## Infrastructure
 
@@ -582,10 +582,10 @@ The default storage service for logs is Cosmos DB. See the [Customize log storag
 
 To modify the infrastructure in the remote monitoring solution, you can edit the code. The relevant GitHub repositories are:
 
-* [IoTHub Manager (.NET)](https://github.com/Azure/iothub-manager-dotnet)
-* [IoTHub Manager (Java)](https://github.com/Azure/iothub-manager-java)
-* [Storage Adapter (.NET)](https://github.com/Azure/pcs-storage-adapter-dotnet)
-* [Storage Adapter (Java)](https://github.com/Azure/pcs-storage-adapter-java)
+* [IoT Hub management microservice for PCS. (.NET)](https://github.com/Azure/iothub-manager-dotnet)
+* [IoT Hub management microservice for PCS. (Java)](https://github.com/Azure/iothub-manager-java)
+* [The storage adapter microservice for IoT PCS (.NET)](https://github.com/Azure/pcs-storage-adapter-dotnet)
+* [The storage adapter microservice for IoT PCS (Java)](https://github.com/Azure/pcs-storage-adapter-java)
 
 ## Next steps
 
