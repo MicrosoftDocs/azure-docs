@@ -55,7 +55,7 @@ ls options
 >`az://mystorageaccount/mycontainer/my/path/to/a/blob` is the same as
 >`http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/to/a/blob`.
 
-# Uploading Files
+## Uploading Files
 
 To upload a file, use `pogo put <filename> <URL>`. For example, to
 upload data.zip from the local directory to the data_backups
@@ -76,7 +76,7 @@ To give the file a different name in Azure, append the desired name:
 > leaving off the trailing / would upload data.zip as a file named
 > data_backups.
 
-# Downloading Files
+## Downloading Files
 
 To download a file, use `pogo get <URL> [<filename>]`. For example,
 to download /mycontainer/my/path/data_backups/data.zip to the local
@@ -89,7 +89,7 @@ argument:
 
     `pogo get http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip data-download.zip`
 
-# Synchronizing Directories
+## Synchronizing Directories
 
 The get command operates on single files. To recursively sync a
 directory, use the `pogo sync` command. The source of the files is listed
@@ -105,7 +105,7 @@ To sync the the local data_backups directory to Azure:
 >[!Note]
 > `pogo sync` will not re-transfer unchanged objects.
 
-# Deleting Files
+## Deleting Files
 
 To remove a file from a remote endpoint, use the pogo del command. For
 example, to remove the data.zip file from the data_backups directory in
