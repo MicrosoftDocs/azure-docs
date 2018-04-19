@@ -1,3 +1,4 @@
+
 {
     "redirections": [
         {
@@ -18361,6 +18362,10 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/location-based-services/index.md",
+            "redirect_url": "/azure/azure-maps/index",
+            "redirect_document_id": false
+        },        {
             "source_path": "articles/active-directory/active-directory-passwords-best-practices.md",
             "redirect_url": "/azure/active-directory/authentication/howto-sspr-deployment",
             "redirect_document_id": true
