@@ -16,7 +16,7 @@ ms.custom: mvc
 
 # Tutorial: Automate container image builds with Azure Container Registry Build
 
-In addition to [Quick Build](container-registry-tutorial-quick-build.md), ACR Build supports automated Docker container image builds with the *build task*. In this tutorial, you use the Azure CLI to configure a build task to automatically trigger container image builds in the cloud when you commit source code to a Git repository.
+In addition to [Quick Build](container-registry-tutorial-quick-build.md), ACR Build supports automated Docker container image builds with the *build task*. In this tutorial, you use the Azure CLI to create a build task that automatically triggers image builds in the cloud when you commit source code to a Git repository.
 
 In this tutorial, part two in the series:
 
@@ -47,7 +47,7 @@ You must have an Azure container registry in your Azure subscription to complete
 
 ## Build task
 
-A build task defines the properties of an automated build, including the location of the container image source code and the event that triggers the build. When an event defined in the build task occurs, such as a commit to a Git repository, ACR Build initiates a container image build in the cloud, and by default, pushes a successfully built image to the Azure container registry specified in the task.
+A build task defines the properties of an automated build, including the location of the container image source code and the event that triggers the build. When an event defined in the build task occurs, such as a commit to a Git repository, ACR Build initiates a container image build in the cloud. By default, it then pushes a successfully built image to the Azure container registry specified in the task.
 
 ACR Build currently supports the following build task triggers:
 
@@ -69,7 +69,7 @@ To trigger a build on a commit to a Git repository, ACR Build needs a personal a
    ![Screenshot of the Personal Access Token generation page in GitHub][build-task-01-new-token]
 
 1. Select the **Generate token** button (you may be asked to confirm your password)
-1. Copy and save the generated token in a **secure location** (you use this token when you define a build task in a later step)
+1. Copy and save the generated token in a **secure location** (you use this token when you define a build task in the following section)
 
    ![Screenshot of the generated Personal Access Token in GitHub][build-task-02-generated-token]
 
@@ -87,7 +87,7 @@ GIT_PAT=personalaccesstoken  # The PAT you generated in the previous section
 
 Now, create the build task by executing following [az acr build-task create][az-acr-build-task-create] command.
 
-This build task specifies that any time code is committed to the *master* branch in the repository specified by `--context`, ACR Build will build the container image from the code in that branch. The `--image` argument specifies a parameterized value of "`{{.Build.Id}}`" for the version portion of the image's tag, ensuring the built image correlates to a specific build, and is tagged uniquely.
+This build task specifies that any time code is committed to the *master* branch in the repository specified by `--context`, ACR Build will build the container image from the code in that branch. The `--image` argument specifies a parameterized value of `{{.Build.Id}}` for the version portion of the image's tag, ensuring the built image correlates to a specific build, and is tagged uniquely.
 
 ```azurecli-interactive
 az acr build-task create \
@@ -146,7 +146,7 @@ You now have a build task that defines your build. To test the build definition,
 az acr build-task run --registry $ACR_NAME --name buildhelloworld
 ```
 
-Be default, the `az acr build-task run` command streams the log output to your console when you execute the command. Here, the output shows that build **eastus-2** has been queued and built.
+By default, the `az acr build-task run` command streams the log output to your console when you execute the command. Here, the output shows that build **eastus-2** has been queued and built.
 
 ```console
 $ az acr build-task run --registry mycontainerregistry --name buildhelloworld
@@ -217,7 +217,7 @@ Build ID: eastus-3 was successful after 30.076988169s
 
 Now that you've tested the build task by manually running it, trigger it automatically with a source code change.
 
-First, ensure you're in the directory containing your local clone of the repository:
+First, ensure you're in the directory containing your local clone of the [repository][sample-repo]:
 
 ```azurecli-interactive
 cd acr-build-helloworld-node
@@ -236,7 +236,7 @@ You may be asked to provide your GitHub credentials when you execute the `git pu
 
 ```console
 $ git push origin master
-Username for 'https://github.com': githubuser
+Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
 
@@ -261,15 +261,14 @@ Build ID: eastus-4 was successful after 28.9587031s
 
 ## Next steps
 
-In this tutorial, you learned how to use a build task to automatically trigger container image builds in the Azure when you commit source code to a Git repository. Move on to the next tutorial to learn how to create build tasks that trigger builds when a container image's base image is updated.
-
-Learn how Azure Container Registry stores your images in [Container image storage in Azure Container Registry](container-registry-storage.md).
+In this tutorial, you learned how to use a build task to automatically trigger container image builds in Azure when you commit source code to a Git repository. Move on to the next tutorial to learn how to create build tasks that trigger builds when a container image's base image is updated.
 
 > [!div class="nextstepaction"]
 > [Automate builds on base image update](container-registry-tutorial-base-image-update.md)
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[sample-repo]: https://github.com/Azure-Samples/acr-build-helloworld-node
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
