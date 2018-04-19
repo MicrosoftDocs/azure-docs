@@ -22,19 +22,19 @@ Azure Lab Services enables you to quickly set up an environment for your team (f
 The following section provides information about different types of labs you can create with Azure Lab Services:
 
 ## Types of labs
-If you want to just input what you need in the lab and let the service roll it out to your audience, you can choose from one of the **managed labs**, such as **classroom lab**. If you want to manage your own infrastructure, choose the **custom lab** type to set up a lab in your own Azure subscription. The custom lab is exactly same as the lab that you could create with Azure DevTest Labs service that is in general availability (GA). The following sections provide more details about these labs. 
+If you want to just input what you need in the lab and let the service roll it out to your audience, you can choose from one of the **managed labs**. If you want to manage your own infrastructure, choose the **custom lab** type to set up a lab in your own Azure subscription. The custom lab is exactly same as the lab that you could create with Azure DevTest Labs service that is in general availability (GA). The following sections provide more details about these labs. 
 
 ### Managed labs
-Managed labs offer different lab types that fit for your purpose, such as classroom labs. Currently, Azure Lab Services supports only **classroom lab** as a managed lab. Managed labs enable you to get started right away, with minimal setup. The service itself handles all management of the infrastructure behind the lab, from spinning up the VMs, handling errors, and scaling. You can create a managed lab after your organization's lab account has been set up, which serves as the central account in which all labs in the organization are managed. 
+Managed labs offer different lab types that fit for your purpose, such as classroom labs. Currently, Azure Lab Services supports only **classroom lab** as a managed lab. Managed labs enable you to get started right away, with minimal setup. The service itself handles all management of the infrastructure behind the lab, from spinning up the VMs, handling errors, and scaling. You can create a managed lab after your organization's lab account is set up. The lab account serves as the central account in which all labs in the organization are managed. 
 
 When you create and use Azure resources in these managed labs, the service creates and manages the resources in internal Microsoft subscriptions, and not within your own Azure subscription. It enables the service to handle all infrastructure work for you. The service keeps track of the usage of the resources and it is billed back to your Azure subscription that you created the lab account under.   
 
 Here are some of the **use cases for classroom labs**: 
 
-- Provide students with a lab of virtual machines configured with exactly what’s need for class. Give each student a limited number of hours to use the VMs for homework or personal projects.
+- Provide students with a lab of virtual machines configured with exactly what’s needed for a class. Give each student a limited number of hours for using the VMs for homework or personal projects.
 - Set up a pool of high performance compute VMs to perform compute-intensive or graphics-intensive research. Run the VMs as needed, and instantly clean up the machines once you are done. 
 - Move your school’s physical computer lab into the cloud. Automatically scale the number of VMs only to the maximum threshold you set on usage and cost.  
-- Quickly provision a lab of virtual machines to host a hackathon. Destroy the lab with a single click once you’re done. 
+- Quickly provision a lab of virtual machines for hosting a hackathon. Destroy the lab with a single click once you’re done. 
 
 
 ### Custom labs (same as Azure DevTest Labs)
@@ -47,7 +47,7 @@ Here are some of the **use cases for using custom labs**:
 - Provide developers with virtual machines configured with all the tools they need. Schedule automatic start and shut down to minimize cost. 
 - Repeatedly create a lab of test machines as part of your deployment. Test your latest bits and clean up the test machines once you are done. 
 - Set up a variety of differently configured virtual machines and multiple test agents for scale and performance testing. 
-- Offer training sessions to your customers using a lab configured with the latest version of your product. Give each customer limited number of hours to use in the lab. 
+- Offer training sessions to your customers using a lab configured with the latest version of your product. Give each customer limited number of hours for using in the lab. 
 
 
 ### Managed labs vs. Custom labs
@@ -82,12 +82,15 @@ Azure Lab Services allows you to integrate the labs into your organization’s w
 This section describes different user profiles in Azure Lab Services. 
 
 ### Lab account owner
-Typically, IT administrator of organization's cloud resources, who owns the Azure subscription acts as a lab account owner, who sets up a lab account for your organization, manages and configures policies across all labs, and gives permissions to people in the organization to create a lab under the lab account.
+
+Typically, an administrator of organization's cloud resources, who owns the Azure subscription acts as a lab account owner, who sets up a lab account for your organization, manages and configures policies across all labs, and gives permissions to people in the organization to create a lab under the lab account.
 
 ### Lab creator 
+
 Typically, users such as a development lead/manager, a teacher, a hackathon host, an online trainer creates labs under a lab account. A lab creator creates a lab, creates virtual machines in the lab, installs the appropriate software on virtual machines, specifies who can access the lab, and provides link to the lab to lab users.
 
 ### Lab user
+
 A lab user uses the registration link that the lab creator shares to register and access the lab. The lab user connects to a virtual machine in the lab and use it for development, testing, or to do class work.
 
 ## Next steps
