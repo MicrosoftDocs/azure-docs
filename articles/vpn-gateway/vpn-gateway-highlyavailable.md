@@ -49,7 +49,7 @@ This configuration provides multiple active tunnels from the same Azure VPN gate
 
 In this configuration, the Azure VPN gateway is still in active-standby mode, so the same failover behavior and brief interruption will still happen as described [above](#activestandby). But this setup guards against failures or interruptions on your on-premises network and VPN devices.
 
-### Active-active Azure VPN gateway
+### <a name = "activeactivegw"></a>Active-active Azure VPN gateway
 You can now create an Azure VPN gateway in an active-active configuration, where both instances of the gateway VMs will establish S2S VPN tunnels to your on-premises VPN device, as shown the following diagram:
 
 ![Active-Active](./media/vpn-gateway-highlyavailable/active-active.png)
@@ -60,6 +60,8 @@ Because the Azure gateway instances are in active-active configuration, the traf
 
 When a planned maintenance or unplanned event happens to one gateway instance, the IPsec tunnel from that instance to your on-premises VPN device will be disconnected. The corresponding routes on your VPN devices should be removed or withdrawn automatically so that the traffic will be switched over to the other active IPsec tunnel. On the Azure side, the switch over will happen automatically from the affected instance to the active instance.
 
+In the case you have more than one path to the same virtual network, you can influence routing from the virtual network back to your VPN device by prepending the AS Path. If you do that, the longer AS Path will be less preferred over the shorter one.
+
 ### Dual-redundancy: active-active VPN gateways for both Azure and on-premises networks
 The most reliable option is to combine the active-active gateways on both your network and Azure, as shown in the diagram below.
 
@@ -69,7 +71,9 @@ Here you create and setup the Azure VPN gateway in an active-active configuratio
 
 All gateways and tunnels are active from the Azure side, so the traffic will be spread among all 4 tunnels simultaneously, although each TCP or UDP flow will again follow the same tunnel or path from the Azure side. Even though by spreading the traffic, you may see slightly better throughput over the IPsec tunnels, the primary goal of this configuration is for high availability. And due to the statistical nature of the spreading, it is difficult to provide the measurement on how different application traffic conditions will affect the aggregate throughput.
 
-This topology will require two local network gateways and two connections to support the pair of on-premises VPN devices, and BGP is required to allow the two connections to the same on-premises network. These requirements are the same as the [above](#activeactiveonprem). 
+This topology will require two local network gateways and two connections to support the pair of on-premises VPN devices, and BGP is required to allow the two connections to the same on-premises network. These requirements are the same as the [above](#activeactiveonprem).
+
+As in the [previous case](#activeactivegw), when you have more than one path to the same virtual network, you can influence routing from the virtual network back to your VPN device by prepending the AS Path. If you do that, the longer AS Path will be less preferred over the shorter one.
 
 ## Highly Available VNet-to-VNet Connectivity through Azure VPN Gateways
 The same active-active configuration can also apply to Azure VNet-to-VNet connections. You can create active-active VPN gateways for both virtual networks, and connect them together to form the same full mesh connectivity of 4 tunnels between the two VNets, as shown in the diagram below:
