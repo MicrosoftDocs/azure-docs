@@ -66,7 +66,6 @@ sections:
     text: Find samples for common devices and languages.
   - type: list
     style: unordered
-    className: spaced noBullet
     items:
     - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0">All samples</a> 
     - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=C">C samples</a> 
@@ -78,14 +77,14 @@ sections:
   items:
   - type: list
     style: cards
-    className: cardsI
+    className: cardsM
     columns: 2
     items:
     - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player
       html: <p>Contoso HVAC’s Digital transformation through Internet of Things solutions</p>
       image: 
         src: media/index/i_video.png
-      title: Introduction 
+      title: Introduction
     - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player
       html: <p>Codeless IoT Solution with Azure IoT Central</p>
       image: 
