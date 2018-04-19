@@ -27,10 +27,10 @@ User portal Administrators may be set up and granted permission to add new users
 
 Depending on your environment, you may want to deploy the user portal on the same server as Azure Multi-Factor Authentication Server or on another internet-facing  server.
 
-![MFA User Portal](./media/multi-factor-authentication-get-started-portal/portal.png)
+![MFA User Portal](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> The user portal is only available with Multi-Factor Authentication Server. If you use Multi-Factor Authentication in the cloud, refer your users to the [Set-up your account for two-step verification](./end-user/multi-factor-authentication-end-user-first-time.md) or [Manage your settings for two-step verification](./end-user/multi-factor-authentication-end-user-manage-settings.md).
+> The user portal is only available with Multi-Factor Authentication Server. If you use Multi-Factor Authentication in the cloud, refer your users to the [Set-up your account for two-step verification](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md) or [Manage your settings for two-step verification](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md).
 
 ## Install the web service SDK
 
@@ -45,7 +45,7 @@ If you have questions about configuring an SSL Certificate on an IIS server, see
 
 The Web Service SDK must be secured with an SSL certificate. A self-signed certificate is okay for this purpose. Import the certificate into the “Trusted Root Certification Authorities” store of the Local Computer account on the User Portal web server so that it trusts that certificate when initiating the SSL connection.
 
-![MFA Server configuration setup Web Service SDK](./media/multi-factor-authentication-get-started-portal/sdk.png)
+![MFA Server configuration setup Web Service SDK](./media/howto-mfaserver-deploy-userportal/sdk.png)
 
 ## Deploy the user portal on the same server as the Azure Multi-Factor Authentication Server
 
@@ -67,7 +67,7 @@ To deploy the user portal, follow these steps:
 
 4. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: https://mfa.contoso.com/MultiFactorAuth). Ensure that no certificate warnings or errors are displayed.
 
-![MFA Server User Portal installation](./media/multi-factor-authentication-get-started-portal/install.png)
+![MFA Server User Portal installation](./media/howto-mfaserver-deploy-userportal/install.png)
 
 If you have questions about configuring an SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
@@ -121,7 +121,7 @@ Optional configuration:
 - **Passed Sessions** - Configure user portal integration with a form-based website using MFA.
 - **Trusted IPs** - Allow users to skip MFA when authenticating from a list of trusted IPs or ranges.
 
-![MFA Server User Portal configuration](./media/multi-factor-authentication-get-started-portal/config.png)
+![MFA Server User Portal configuration](./media/howto-mfaserver-deploy-userportal/config.png)
 
 Azure Multi-Factor Authentication server provides several options for the user portal. The following table provides a list of these options and an explanation of what they are used for.
 
@@ -142,7 +142,7 @@ Azure Multi-Factor Authentication server provides several options for the user p
 
 These settings become visible to the user in the portal once they are enabled and they are signed in to the user portal.
 
-![User portal settings](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
+![User portal settings](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
 
 ### Self-service user enrollment
 
@@ -152,13 +152,13 @@ For example, when a user signs in to the user portal for the first time, they ar
 
 If they select the Voice Call verification method or have been pre-configured to use that method, the page prompts the user to enter their primary phone number and extension if applicable. They may also be allowed to enter a backup phone number.
 
-![Register primary and backup phone numbers](./media/multi-factor-authentication-get-started-portal/backupphone.png)
+![Register primary and backup phone numbers](./media/howto-mfaserver-deploy-userportal/backupphone.png)
 
 If the user is required to use a PIN when they authenticate, the page prompts them to create a PIN. After entering their phone number(s) and PIN (if applicable), the user clicks the **Call Me Now to Authenticate** button. Azure Multi-Factor Authentication performs a phone call verification to the user’s primary phone number. The user must answer the phone call and enter their PIN (if applicable) and press # to move on to the next step of the self-enrollment process.
 
 If the user selects the Text Message verification method or has been pre-configured to use that method, the page prompts the user for their mobile phone number. If the user is required to use a PIN when they authenticate, the page also prompts them to enter a PIN.  After entering their phone number and PIN (if applicable), the user clicks the **Text Me Now to Authenticate** button. Azure Multi-Factor Authentication performs an SMS verification to the user’s mobile phone. The user receives the text message with a one-time-passcode (OTP), then replies to the message with that OTP plus their PIN (if applicable).
 
-![User portal SMS](./media/multi-factor-authentication-get-started-portal/text.png)
+![User portal SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
 If the user selects the Mobile App verification method, the page prompts the user to install the Microsoft Authenticator app on their device and generate an activation code. After installing the app, the user clicks the Generate Activation Code button.
 
@@ -171,10 +171,10 @@ After the activation is complete, the user clicks the **Authenticate Me Now** bu
 
 If the administrators have configured the Azure Multi-Factor Authentication Server to collect security questions and answers, the user is then taken to the Security Questions page. The user must select four security questions and provide answers to their selected questions.
 
-![User portal security questions](./media/multi-factor-authentication-get-started-portal/secq.png)
+![User portal security questions](./media/howto-mfaserver-deploy-userportal/secq.png)
 
 The user self-enrollment is now complete and the user is signed in to the user portal. Users can sign back in to the user portal at any time in the future to change their phone numbers, PINs, authentication methods, and security questions if changing their methods is allowed by their administrators.
 
 ## Next steps
 
-- [Deploy the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md)
+- [Deploy the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md)
