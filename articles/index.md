@@ -4179,7 +4179,7 @@ featureFlags:
                                                     Java Tools
                                                 </h3>
                                                 <p>
-                                                    <a href="https://github.com/Microsoft/azure-maven-plugins">Maven plugins</a>
+                                                    <a href="https://docs.microsoft.com/java/api/overview/azure/maven/readme">Maven plugins</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/java/azure/java-azure-tools">IntelliJ and Eclipse</a>
