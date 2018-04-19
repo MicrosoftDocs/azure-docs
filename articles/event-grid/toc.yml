@@ -49,6 +49,10 @@
     href: security-authentication.md
   - name: Delivery and retry
     href: delivery-and-retry.md
+  - name: Event sources
+    href: event-sources.md
+  - name: Event handlers
+    href: event-handlers.md
 - name: How-to guides
   items:
   - name: Post to custom topic
@@ -86,6 +90,8 @@
       href: event-schema-iot-hub.md
     - name: Resource groups
       href: event-schema-resource-groups.md
+    - name: Service Bus
+      href: event-schema-service-bus.md
 - name: Resources
   items:
   - name: Azure Roadmap
