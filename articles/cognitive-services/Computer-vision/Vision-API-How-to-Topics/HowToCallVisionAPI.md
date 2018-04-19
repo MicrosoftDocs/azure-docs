@@ -4,9 +4,8 @@ description: Learn how to call the Computer Vision API by using REST in Cognitiv
 services: cognitive-services
 author: KellyDF
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 01/20/2017
 ms.author: kefre
