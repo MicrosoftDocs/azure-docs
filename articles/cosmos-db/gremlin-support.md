@@ -195,7 +195,6 @@ Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete
 | `select` | Used to project results from the traversal |  [select step](http://tinkerpop.apache.org/docs/current/reference/#select-step) |
 | `sideEffect` | Performs an operation on the traverser and passes it to the next step. |  [sideEffect step](https://tinkerpop.apache.org/docs/current/reference/#general-steps) |
 | `store` | Used for non-blocking aggregates from the traversal | [store step](http://tinkerpop.apache.org/docs/current/reference/#store-step) |
-| `subgraph` | Produces an edge-induced subgraph from virtually any traversal | [subgraph step](http://tinkerpop.apache.org/docs/current/reference/#subgraph-step) |
 | `sum` | Operates on a stream of numbers and sums the numbers together to yield a result | [sum step](http://tinkerpop.apache.org/docs/current/reference/#sum-step) |
 | `tree` | Aggregate paths from a vertex into a tree | [tree step](http://tinkerpop.apache.org/docs/current/reference/#tree-step) |
 | `unfold` | Unroll an iterator as a step| [unfold step](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
