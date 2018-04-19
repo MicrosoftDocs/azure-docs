@@ -121,7 +121,7 @@ Parameters are case-sensitive.
 
 
 ## Error cases
-If the provided language code is not supported or if the content does not match the language specified, an error is generated and no entities are extracted.
+If you specify an unsupported language code, or if content doesn't match the language specified, an error is return and no entities are extracted.
 
 ## See also
 

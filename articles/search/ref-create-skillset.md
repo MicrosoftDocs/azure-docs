@@ -19,9 +19,9 @@ ms.author: luisca
 
 **Applies to:** api-version-2017-11-11-Preview
 
-A skillset is a collection of cognitive skills used for natural language and other transformations, including entity extraction, key phrase extraction, chunking text into logical pages, among others.
+A skillset is a collection of cognitive skills used for natural language processing and other transformations. Skills  include named entity extraction, key phrase extraction, chunking text into logical pages, among others.
 
-To use the skillset, reference it in an Azure Search indexer and then run the indexer to import data, invoke transformations and enrichment, and map the output fields to an index. A skillset is high-level resource, but it is operational only within indexer processing. You can design a skillset once, and then reference it in multiple indexers. 
+To use the skillset, reference it in an Azure Search indexer and then run the indexer to import data, invoke transformations and enrichment, and map the output fields to an index. A skillset is high-level resource, but it is operational only within indexer processing. As a high-level resource, you can design a skillset once, and then reference it in multiple indexers. 
 
 A skillset is expressed in Azure Search through an HTTP PUT or POST request. For PUT, the body of the request is a JSON schema that specifies which skills are invoked. Skills are chained together through input-output associations, where the output of one transform becomes input to another.
 

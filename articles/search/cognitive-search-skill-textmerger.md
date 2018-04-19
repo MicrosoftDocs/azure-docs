@@ -87,7 +87,7 @@ The following example skillset creates a *merged_text* field to contain the text
   ]
 }
 ```
-Note that the skillset above assumes that a normalized-images field exists. To do that you need to set the *imageAction* configuration in your indexer defintion to *generateNormalizedImages* as shown below:
+The example above assumes that a normalized-images field exists. To get normalized-images field, set the *imageAction* configuration in your indexer definition to *generateNormalizedImages* as shown below:
 
 ```json
 {
@@ -122,7 +122,7 @@ A JSON document providing usable input for this skill could be:
 ```
 
 ###	Sample Output
-This is the output of the previous input assuming that the *insertPreTag* is set to " ", and *insertPostTag* is set to "". 
+This example shows the output of the previous input, assuming that the *insertPreTag* is set to " ", and *insertPostTag* is set to "". 
 
 ```json
 {
