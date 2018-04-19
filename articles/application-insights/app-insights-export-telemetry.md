@@ -28,6 +28,7 @@ Before you set up continuous export, there are some alternatives you might want 
 * [Analytics](app-insights-analytics.md) provides a powerful query language for telemetry. It can also export results.
 * If you're looking to [explore your data in Power BI](app-insights-export-power-bi.md), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
+* You can also access setup [continuous export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
 After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](app-insights-data-retention-privacy.md).
 
@@ -73,7 +74,7 @@ The exported data is the raw telemetry we receive from your application, except 
 
 Data that has been discarded by [sampling](app-insights-sampling.md) is not included in the exported data.
 
-Other calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
+Other calculated metrics are not included. For example, we don't export average CPU utilization, but we do export the raw telemetry from which the average is computed.
 
 The data also includes the results of any [availability web tests](app-insights-monitor-web-app-availability.md) that you have set up.
 
@@ -109,7 +110,7 @@ Where
 
 ![View the telemetry with a suitable tool](./media/app-insights-export-telemetry/06-json.png)
 
-Time durations are in ticks, where 10 000 ticks = 1ms. For example, these values show a time of 1ms to send a request from the browser, 3ms to receive it, and 1.8s to process the page in the browser:
+Time durations are in ticks, where 10 000 ticks = 1 ms. For example, these values show a time of 1 ms to send a request from the browser, 3 ms to receive it, and 1.8 s to process the page in the browser:
 
     "sendRequest": {"value": 10000.0},
     "receiveRequest": {"value": 30000.0},

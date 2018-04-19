@@ -35,7 +35,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](a
 - *Great user experience*
   - Users use the same passwords to sign into both on-premises and cloud-based applications.
   - Users spend less time talking to the IT helpdesk resolving password-related issues.
-  - Users can complete [self-service password management](../active-directory-passwords-overview.md) tasks in the cloud.
+  - Users can complete [self-service password management](../authentication/active-directory-passwords-overview.md) tasks in the cloud.
 - *Easy to deploy & administer*
   - No need for complex on-premises deployments or network configuration.
   - Needs just a lightweight agent to be installed on-premises.
@@ -52,7 +52,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](a
 - Supports user sign-in into all web browser-based applications and into Microsoft Office client applications that use [modern authentication](https://aka.ms/modernauthga).
 - Sign-in usernames can be either the on-premises default username (`userPrincipalName`) or another attribute configured in Azure AD Connect (known as `Alternate ID`).
 - The feature works seamlessly with [conditional access](../active-directory-conditional-access-azure-portal.md) features such as Multi-Factor Authentication (MFA) to help secure your users.
-- Integrated with cloud-based [self-service password management](../active-directory-passwords-overview.md), including password writeback to on-premises Active Directory and password protection by banning commonly used passwords.
+- Integrated with cloud-based [self-service password management](../authentication/active-directory-passwords-overview.md), including password writeback to on-premises Active Directory and password protection by banning commonly used passwords.
 - Multi-forest environments are supported if there are forest trusts between your AD forests and if name suffix routing is correctly configured.
 - It is a free feature, and you don't need any paid editions of Azure AD to use it.
 - It can be enabled via [Azure AD Connect](active-directory-aadconnect.md).
