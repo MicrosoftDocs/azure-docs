@@ -91,27 +91,7 @@ sections:
       image: 
         src: media/index/contoso-hvac-iot-part8.png
       title: Demonstration
-    
-		- items:
-		  - type: list
-		    style: cards
-		    className: cardsM
-		    columns: 2
-		    items:
-		    - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
-		      html: <p>Create a containerized app with Azure Container Instances</p>
-		      image:
-		        src: https://docs.microsoft.com/media/common/i_get-started.svg
-		      title: Get Started
-		    - href: https://docs.microsoft.com/azure/container-service/kubernetes/cli-samples
-		      html: <p>Azure CLI Samples for Azure Container Service</p>
-		      image:
-		        src: https://docs.microsoft.com/media/common/i_code-samples.svg
-		      title: Code Samples	
-
-
-
-
+      
 - title: Reference
   items:
   - type: list
