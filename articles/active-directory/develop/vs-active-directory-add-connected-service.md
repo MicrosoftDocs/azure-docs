@@ -1,7 +1,7 @@
 ---
 title: Adding an Azure Active Directory by using Connected Services in Visual Studio
 description: Add an Azure Active Directory by using the Visual Studio Add Connected Services dialog box
-services: visual-studio-online
+services: active-directory
 author: ghogen
 manager: douge
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
