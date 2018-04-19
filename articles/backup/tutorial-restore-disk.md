@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 2/14/2018
+ms.date: 4/17/2018
 ms.author: iainfou
 ms.custom: mvc
 ---
 
 # Restore a disk and create a recovered VM in Azure
-Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files. This article explains how to restore a complete VM. In this tutorial you learn how to:
+Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files. This article explains how to restore a complete VM using CLI. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * List and select recovery points
 > * Restore a disk from a recovery point
 > * Create a VM from the restored disk
+
+For information on using PowerShell to restore a disk and create a recovered VM, see [Back up and restore Azure VMs with PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

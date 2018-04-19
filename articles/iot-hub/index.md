@@ -56,7 +56,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-get-started-simulated">
+        <a href="/azure/iot-hub/quickstart-send-telemetry-node">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

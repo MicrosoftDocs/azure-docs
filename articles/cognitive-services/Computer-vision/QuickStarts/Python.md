@@ -5,7 +5,7 @@ services: cognitive-services
 author: KellyDF
 manager: corncar
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: kefre

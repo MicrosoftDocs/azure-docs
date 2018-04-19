@@ -180,11 +180,12 @@ Also notice that the connection is encrypted and that a certificate issued by Le
 
 Learn more about the software demonstrated in this document. 
 
+- [Helm CLI][helm-cli]
 - [NGINX ingress controller][nginx-ingress]
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
-[helm-client]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
+[helm-cli]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
