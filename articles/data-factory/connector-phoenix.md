@@ -65,6 +65,7 @@ The following properties are supported for Phoenix linked service:
         "typeProperties": {
             "host" : "<cluster>.azurehdinsight.net",
             "port" : "443",
+            "httpPath" : "hbasephoenix",
             "authenticationType" : "WindowsAzureHDInsightService",
             "username" : "<username>",
             "password": {
