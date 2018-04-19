@@ -16,10 +16,11 @@ ms.custom: mvc
 ms.date: 04/18/2018
 ms.author: barclayn
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+
 ---
 # Quickstart: Create an Azure Key Vault using PowerShell
 
-Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, you may review the [Overview](key-vault-overview.md). In this quickstart, you will use PowerShell to create a key vault. You will then store a secret in the newly created vault.
+Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, you may review the [Overview](key-vault-overview.md). In this quickstart, you use PowerShell to create a key vault. You then store a secret in the newly created vault.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -41,7 +42,7 @@ New-AzureRmResourceGroup -Name ContosoResourceGroup -Location EastUS
 
 ## Create a Key Vault
 
-Next you will create a Key Vault. When doing this step, you will need some information:
+Next you create a Key Vault. When doing this step, you need some information:
 
 Although we use “Contoso KeyVault2” as the name for our Key Vault throughout this quickstart, you must use a unique name.
 
@@ -64,7 +65,7 @@ After vault creation your Azure account is the only account allowed to do anythi
 
 ## Adding a secret to Key Vault
 
-To add a secret to the vault, you just need to take a couple of steps. In this case, we will add a password that could be used by an application. The password will be called **ExamplePassword** and we will store the value of '''**Pa$$w0rd**''' in it.
+To add a secret to the vault, you just need to take a couple of steps. In this case, you add a password that could be used by an application. The password is called **ExamplePassword** and stores the value of '''**Pa$$w0rd**''' in it.
 
 First convert the value of Pa$$w0rd to a secure string by typing:
 
