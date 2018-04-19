@@ -18,7 +18,7 @@ ms.author: joflore
 ---
 
 # Advanced scenarios with Azure Multi-Factor Authentication and third-party VPN solutions
-Azure Multi-Factor Authentication can be used to seamlessly connect with various third-party VPN solutions. This article focuses on Cisco® ASA VPN appliance, Citrix NetScaler SSL VPN appliance, and the Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN appliance. We created configuration guides to address these three common appliances. Multi-Factor Authentication Server can also integrate with most other systems that use RADIUS, LDAP, IIS, or claims-based authentication to AD FS. You can find more details in [MFA Server configurations](multi-factor-authentication-get-started-server.md#next-steps).
+Azure Multi-Factor Authentication can be used to seamlessly connect with various third-party VPN solutions. This article focuses on Cisco® ASA VPN appliance, Citrix NetScaler SSL VPN appliance, and the Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN appliance. We created configuration guides to address these three common appliances. Multi-Factor Authentication Server can also integrate with most other systems that use RADIUS, LDAP, IIS, or claims-based authentication to AD FS. You can find more details in [MFA Server configurations](../active-directory/authentication/howto-mfaserver-deploy.md#next-steps).
 
 ## Cisco ASA VPN appliance and Azure Multi-Factor Authentication
 Azure Multi-Factor Authentication integrates with your Cisco® ASA VPN appliance to provide additional security for Cisco AnyConnect® VPN logins and portal access.  You can use either the LDAP or RADIUS protocol.  Select one of the following to download the detailed step-by-step configuration guides.
@@ -46,6 +46,6 @@ Azure Multi-Factor Authentication integrates with your Juniper/Pulse Secure SSL 
 
 ## Next steps
 
-- [Augment your existing authentication infrastructure with the NPS extension for Azure Multi-Factor Authentication](multi-factor-authentication-nps-extension.md)
+- [Augment your existing authentication infrastructure with the NPS extension for Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-nps-extension.md)
 
-- [Configure Azure Multi-Factor Authentication settings](multi-factor-authentication-whats-next.md)
+- [Configure Azure Multi-Factor Authentication settings](../active-directory/authentication/howto-mfa-mfasettings.md)

@@ -1,4 +1,4 @@
----
+﻿---
 title: Use PowerShell to create an Azure AD app to access the Azure Media Services API | Microsoft Docs
 description: Learn how to use PowerShell to create an Azure Active Directory (Azure AD) app and set it up to access the Azure Media Services API.
 services: media-services
@@ -31,7 +31,7 @@ Learn how to use a PowerShell script to create an Azure Active Directory (Azure 
 ## Create an Azure AD app by using PowerShell  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Import-Module AzureRM.Resources
 Set-AzureRmContext -SubscriptionId $SubscriptionId
 $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
@@ -53,7 +53,7 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 For more information, see the following articles:
 
 - [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-- [Manage Role-Based Access Control by using Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Manage Role-Based Access Control by using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 - [How to manually configure daemon apps by using certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad)
 
 ## Next steps

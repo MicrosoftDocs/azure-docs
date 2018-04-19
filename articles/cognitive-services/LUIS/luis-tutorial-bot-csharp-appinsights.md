@@ -1,13 +1,12 @@
 ---
-title: Add LUIS data to Application Insights using C# | Microsoft Docs 
+title: Add LUIS data to Application Insights using C# | Microsoft Docs
 titleSuffix: Azure
 description: Build a bot integrated with a LUIS application and Application Insights using C#.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: v-geberr

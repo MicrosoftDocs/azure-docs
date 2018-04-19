@@ -93,7 +93,7 @@ Create the pod with the [kubectl create][kubectl-create] command.
 kubectl create -f azure-pvc-disk.yaml
 ```
 
-You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. You can see the volume mount when inspecting your pod via `kubectl describe pod mypod`.
+You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`.
 
 ## Next steps
 

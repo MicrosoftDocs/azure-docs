@@ -88,7 +88,7 @@ After a virtual machine boots in Azure, it takes some time for the agent to regi
 
 1. In **Vault** > **Replicated items**, right-click the virtual machine that's been failed over, and then select **Re-Protect**. You can also click the machine and select **Re-Protect** from the command buttons.
 2. Verify the direction of protection, **Azure to On-premises**, is already selected.
-3. In **Master Target Server** and **Process Server**, select the on-premises master target server and the process server.
+3. In **Master Target Server** and **Process Server**, select the on-premises master target server and the process server.  
 4. For **Datastore**, select the datastore to which you want to recover the disks on-premises. This option is used when the on-premises virtual machine is deleted, and you need to create new disks. This option is ignored if the disks already exist, but you still need to specify a value.
 5. Choose the retention drive.
 6. The failback policy is automatically selected.

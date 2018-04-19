@@ -1,4 +1,4 @@
----
+﻿---
 title: Run runbooks on Azure Automation Hybrid Runbook Worker
 description: This article provides information about running runbooks on machines in your local datacenter or cloud provider with the Hybrid Runbook Worker role.
 services: automation
@@ -108,8 +108,6 @@ AUTHOR: Azure Automation Team
 LASTEDIT: 2016.10.13
 #>
 
-[OutputType([string])]
-
 # Generate the password used for this certificate
 Add-Type -AssemblyName System.Web -ErrorAction SilentlyContinue | Out-Null
 $Password = [System.Web.Security.Membership]::GeneratePassword(25, 10)
@@ -134,7 +132,7 @@ Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\
 # Test that authentication to Azure Resource Manager is working
 $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
 
-Add-AzureRmAccount `
+Connect-AzureRmAccount `
     -ServicePrincipal `
     -TenantId $RunAsConnection.TenantId `
     -ApplicationId $RunAsConnection.ApplicationId `

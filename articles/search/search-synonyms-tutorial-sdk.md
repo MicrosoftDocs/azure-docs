@@ -1,15 +1,11 @@
 ---
 title: Synonyms preview tutorial in Azure Search | Microsoft Docs
 description: Add the synonyms preview feature to an index in Azure Search.
-services: search
-manager: jhubbard
-documentationcenter: ''
+manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 03/31/2017
 ms.author: heidist
 ---
