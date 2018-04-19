@@ -68,7 +68,7 @@ If you have questions about configuring an SSL Certificate on an IIS server, see
 
 The Web Service SDK must be secured with an SSL certificate. A self-signed certificate is okay for this purpose. Import the certificate into the “Trusted Root Certification Authorities” store of the Local Computer account on the User Portal web server so that it trusts that certificate when initiating the SSL connection.
 
-![MFA Server configuration setup Web Service SDK](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)
+![MFA Server configuration setup Web Service SDK](./media/howto-mfaserver-deploy-mobileapp/sdk.png)
 
 ### Install the service
 
@@ -100,8 +100,8 @@ The Web Service SDK must be secured with an SSL certificate. A self-signed certi
 4. Click the **Mobile App** icon.
 5. If you are using v8.0 or higher, skip the following step: Enter the URL being used with the virtual directory that was created when installing MultiFactorAuthenticationMobileAppWebServiceSetup64 (Example: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/) in the field **Mobile App Web Service URL:**.
 6. Populate the **Account name** field with the company or organization name to display in the mobile application for this account.
-   ![MFA Server configuration Mobile App settings](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)
+   ![MFA Server configuration Mobile App settings](./media/howto-mfaserver-deploy-mobileapp/mobile.png)
 
 ## Next steps
 
-- [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](multi-factor-authentication-advanced-vpn-configurations.md).
+- [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](../../multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md).

@@ -18784,6 +18784,61 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-manage-reports.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfa-reporting",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-sdk.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfa-sdk",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-adfs-adfs2.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-adfs-2",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-deploy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/mfa-server-high-availability.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-deploy-ha",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server-webservice.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-deploy-mobileapp",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-server-upgrade.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-deploy-upgrade",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server-upgrade.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-deploy-upgrade-pf",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-portal.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-deploy-userportal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server-dirint.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-dir-ad",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server-ldap.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-dir-ldap",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-with-bcp.md",
             "redirect_url": "/azure/sql-data-warehouse/design-elt-data-loading",
             "redirect_document_id": false
