@@ -49,9 +49,9 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    * Create an Azure storage account in the **same region** as your cluster with a name such as `sfjenkinsstorage1`.
    * Create a **File Share** under the storage Account with a name such as `sfjenkins`.
    * Click on **Connect** for the file-share and note the values it displays under **Connecting from Linux**, the value should look similar to the one below:
-     ```sh
-     sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
-     ```
+      ```sh
+      sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+      ```
 
    > [!NOTE]
    > To mount cifs shares, you need to have the cifs-utils package installed in the cluster nodes. 		
@@ -173,7 +173,7 @@ If you choose to use Azure credentials, be sure to follow the instructions in th
    * In the [Create an Azure Active Directory application](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) section, you can enter any well-formed URL for the **Sign-on URL**.
    * In the [Assign application to a Role](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) section, you can assign your application the *Reader* role on the resource group for your cluster.
 
-2. The steps in this section use the *Service Fabric Getting Started Sample* on GitHub: [https://github.com/Azure-Samples/service-fabric-dotnet-getting-started](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started). You can fork this repository to follow along or, with some modification to the instructions, use your own GitHub project.
+2. The steps in this section use the *Service Fabric Getting Started Sample* on GitHub: [https://github.com/Azure-Samples/service-fabric-java-getting-started](https://github.com/Azure-Samples/service-fabric-java-getting-started). You can fork this repository to follow along or, with some modification to the instructions, use your own GitHub project.
 
 ### Steps
 1. On the Jenkins dashboard, click  **New Item**.
@@ -196,7 +196,7 @@ If you choose to use Azure credentials, be sure to follow the instructions in th
 7. On the **Build Triggers** tab in Jenkins, select which build option you want. For this example, you want to trigger a build whenever a push to the repository happens, so select **GitHub hook trigger for GITScm polling**. (Previously, this option was called **Build when a change is pushed to GitHub**.)
 8. On the **Build** tab, do one of the following depending on whether you are building a Java application or a .NET Core application:
 
-   * **For Java Applications:** From the **Add build step** drop-down, select **Invoke Gradle Script**. Click **Advanced**. In the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly. If you create a project named `MyActor` (using the Eclipse plug-in or Yeoman generator), the root build script should contain `${WORKSPACE}/MyActor`. The following screenshot shows an example of what this looks like:
+   * **For Java Applications:** From the **Add build step** drop-down, select **Invoke Gradle Script**. Click **Advanced**. In the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly. For the [ActorCounter application](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), this is: `${WORKSPACE}/reliable-services-actor-sample/Actpr/ActorCounter`.
 
      ![Service Fabric Jenkins Build action][build-step]
 
@@ -244,11 +244,11 @@ If you choose to use Azure credentials, be sure to follow the instructions in th
    5. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container (see step 9). For example `/var/jenkins_home/clustercert.pem`.
    6. Under **Application Configuration**, configure the **Application Name**, **Application Type**, and the (relative) **Path to Application Manifest** fields.
 
-        ![Service Fabric Jenkins Post-Build action configure management endpoint](./media/service-fabric-cicd-your-linux-application-with-jenkins/service-fabric-config-endpoint.png)
+        ![Service Fabric Jenkins Post-Build action configure management endpoint](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-endpoint.png)
 
    7. Click **Verify Configuration**. On successful verification, click **Save**.
 
-11. To configure Jenkins to deploy the application post-build using the cluster management endpoint, follow these steps: 
+11. To configure Jenkins to deploy the application post-build using an Azure service principal, follow these steps: 
 
    1. Click the **Post-build Actions** tab.
    2. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. 
@@ -267,11 +267,11 @@ If you choose to use Azure credentials, be sure to follow the instructions in th
    9. From the **Service Fabric** drop-down select the cluster that you wan to deploy the application to.
    10. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container. For example `/var/jenkins_home/clustercert.pem`. 
    11. Under **Application Configuration**, configure the **Application Name**, **Application Type**, and the (relative) **Path to Application Manifest** fields.
-      ![Service Fabric Jenkins Post-Build action configure Azure credentials](./media/service-fabric-cicd-your-linux-application-with-jenkins/service-fabric-config.png)
+      ![Service Fabric Jenkins Post-Build action configure Azure credentials](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
    12. Click **Verify Configuration**. On successful verification, click **Save**.
 
 ## Next steps
-GitHub and Jenkins are now configured. Consider making some sample change in your `MyActor` project in the repository example, https://github.com/sayantancs/SFJenkins. Push your changes to a remote `master` branch (or any branch that you have configured to work with). This triggers the Jenkins job, `MyJob`, that you configured. It fetches the changes from GitHub, builds them, and deploys the application to the cluster endpoint you specified in post-build actions.  
+GitHub and Jenkins are now configured. Consider making some sample change in your `MyActor` project in the repository example, https://github.com/{your-github-username}/service-fabric-java-getting-started. Push your changes to a remote `master` branch (or any branch that you have configured to work with). This triggers the Jenkins job, `MyJob`, that you configured. It fetches the changes from GitHub, builds them, and deploys the application to the cluster endpoint you specified in post-build actions.  
 
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-application-with-jenkins/build-step.png
