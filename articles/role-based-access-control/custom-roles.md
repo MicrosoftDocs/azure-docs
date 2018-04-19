@@ -167,6 +167,12 @@ Create a JSON file with the following format. The `Microsoft.Support/*` operatio
     "NotActions":  [
 
                    ],
+    "DataActions":  [
+
+                    ],
+    "NotDataActions":  [
+
+                       ],
     "AssignableScopes": [
                             "/subscriptions/11111111-1111-1111-1111-111111111111"
                         ]
