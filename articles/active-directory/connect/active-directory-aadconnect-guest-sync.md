@@ -55,7 +55,7 @@ Define the items in the table below before moving on to the second task.
 |Cloud UPN Attribute|The attribute that will populate the UPN of the external user objects in the cloud. The UPN suffix for the external accounts must be the one defined in the pre-requisites.  This is the verified domain.|* Example: UserPrincipalName (nmorin@bmcontoso.com)|
 |Sign-In Address|The attribute that external users will type in when logging in. This attribute must have an e-mail address format, and in most cases it coincides with the actual e-mail address of the external user.|* Example: mail (nmorin@fabrikam.com)|
 |Azure AD Connect Scoped Filter|The filter that will allow targeting the external identities to scope the synchronization rules defined later in this guide. Typical ways to scope include: a pre-defined OU in the organization, a certain naming convention, a specific domain, etc.|* Example: OU contains Externals|
-|Azure AD tenant|This will be the name of the Azure AD tenant as it appears to Azure AD Connect.  This will most likely be an *.onmicrosoft.com name and will be used as the connected system in the outbound synchronization rule created later.|Example:  contoso.onmicrosoft.com|
+|Azure AD tenant|The name of the Azure AD tenant as it appears to Azure AD Connect.  The tenant will most likely be an *.onmicrosoft.com name and will be used as the connected system in the outbound synchronization rule created later.|Example:  contoso.onmicrosoft.com|
 
 The following screen shot has three boxes outlined.
 - The **Externals** OU which will be used in our Azure AD Connect Scoped Filter and is the location of our external users.
@@ -65,7 +65,7 @@ The following screen shot has three boxes outlined.
 ![](media/active-directory-aadconnect-guest-sync/guest1.png)
 
 ## Task 2:  Configure Azure AD Connect
-Once you have the information above defined, we can move on to setting up the Azure AD Connect synchronization rule.  For this task we will be using the Azure AD Connect synch rules editor.  For more information on the editor see [Declaritive Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+Once you have the information above defined, we can move on to setting up the Azure AD Connect synchronization rules.  To do set up the rules, use the Azure AD Connect synch rules editor.  For more information on the editor see [Declaritive Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
 ### How to configure the synchronization rule
 Use the following procedure to configure Azure AD Connect.
@@ -128,40 +128,40 @@ Use the following procedure to configure Azure AD Connect.
     - **Source** - onPremisesUserPrincipalName
   ![](media/active-directory-aadconnect-guest-sync/guest7.png)
 10. Click **Add**. 
-11. Once you have configured these rules you need to run a full synchronization.  You can do this via PowerShell.  Once the synchronization finishes you can proceed to the next step.
+11. Once you have configured these rules you need to run a full synchronization.  Use PowerShell to start a full synchronization.  Once the synchronization finishes you can proceed to the next step.
 
 ``` powershell
     Start-ADSyncSyncCycle -PolicyType Initial
 ```
 
 ## Task 3:  Federation
-This task again is an informational on a few things that you need to have in-place in order for this scenario to work.
+The following task is an informational on a few things that you need to have in-place in order for the scenario to work.
 
 You can verify your federation settings with Azure using the Azure AD PowerShell.  This document uses the v1.1 of MSOL PowerShell.  You can install this version [here](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0).
 
 ### Verify your federation settings
 Use the following procedure to verify your federation settings.
-1. Open Windows PowerShell and connect to Azure AD using the following:
+1. Open Windows PowerShell and connect to Azure AD using the following command:
 ``` powershell
       Connect-MSOLservice
 ```
 2.  Enter the global administrator credentials
-3.  Now enter the following:
+3.  Now enter the following command:
   ``` powershell
       Get-MSOLDomainFederationSettings
   ```
-4.   Notice your federation information should be returned.  Note the **ActiveLogonUri** is the URL of our federation server.
+4.   Notice your federation information should be returned.  Note the **ActiveLogonUri** is the URL of the federation server.
 
   ![](media/active-directory-aadconnect-guest-sync/guest8.png)
 
 ### Verify Alternate Login ID
-This document uses AD FS as our identity provider (Idp).  If you are using a different Idp, these steps may very.
+This document uses AD FS as the identity provider (Idp).  If you are using a different Idp, these steps may very.
 
-1. Open Windows PowerShell and enter the following:
+1. Open Windows PowerShell and enter the following command:
    ```powershell
     Get-ADFSClaimsProviderTrust
    ```
-2. You should see your AD FS information.  Note the **AlternateLoginID** and **LookupForests**.
+2. You should see the AD FS information.  Note the **AlternateLoginID** and **LookupForests**.
 
 ![](media/active-directory-aadconnect-guest-sync/guest9.png)
 
