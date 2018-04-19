@@ -4,9 +4,8 @@ description: Describes how to configure a custom search instance and integrate i
 services: cognitive-services
 author: brapel
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-custom-search
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-brapel
