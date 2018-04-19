@@ -369,7 +369,7 @@ The Pattern.any entity allows for entities for varying length. It only works in 
 
 1. Select **Entities** in the left navigation.
 2. Select **Create new entity**. 
-3. Name the entity `FormName` with type **Pattern.any**. 
+3. Name the entity `FormName` with type **Pattern.any**. Do not add any roles to the entity.
 
 ### Add a pattern that uses the Pattern.any
 Add patterns that use the new entity.
@@ -377,17 +377,25 @@ Add patterns that use the new entity.
 1. Select **Patterns** from the left navigation.
 2. Select the **FindForm** intent.
 3. Enter a template utterance using the new entity `Where is the form {FormName} and who needs to sign it after I read it?`
+
+    ![Screenshot of template utterance using pattern.any entity](./media/luis-tutorial-pattern/pattern.any-template-utterance.png)
+
 4. Train the app for the new intent, entity, and pattern.
 
 ### Test the new pattern for free-form data extraction
 1. Open the test panel. 
 2. Enter the utterance `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`.
-3. Inspect the test results for entity and intent.
+3. Select Inspect under the result to see the test results for entity and intent.
+
+    ![Screenshot of template utterance using pattern.any entity](./media/luis-tutorial-pattern/test-pattern.any-results.png)
+
+    The entity is found first, then the pattern is found, indicating the intent. If you have a test result where the entities are not detected, and therefore the pattern is not found, you need to add more example utterances on the intent (not the pattern).
+
 4. Close the test panel by selecting the **Test** button in the top navigation.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about example utterances](Add-example-utterances.md)
+> [Learn how to improve accuracy with batch testing](luis-tutorial-batch-testing.md)
 
 [LUIS]: luis-reference-regions.md
