@@ -160,13 +160,9 @@ Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete
 | --- | --- | --- |
 | `addE` | Adds an edge between two vertices | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
 | `addV` | Adds a vertex to the graph | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
-| `aggregate` | Aggregates all the objects at a particular point of traversal into a Collection. | [aggregate step](http://tinkerpop.apache.org/docs/current/reference/#aggregate-step) | 
 | `and` | Ensures that all the traversals return a value | [and step](http://tinkerpop.apache.org/docs/current/reference/#and-step) |
 | `as` | A step modulator to assign a variable to the output of a step | [as step](http://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `barrier` | Turns the lazy traversal pipeline into a bulk-synchronous pipeline | [barrier step](https://tinkerpop.apache.org/docs/current/reference/#barrier-step) |
 | `by` | A step modulator used with `group` and `order` | [by step](http://tinkerpop.apache.org/docs/current/reference/#by-step) |
-| `cap` | Iterates the traversal up to itself and emits the sideEffect referenced by the provided key | [cap step](http://tinkerpop.apache.org/docs/current/reference/#cap-step) |
-| `choose` | Routes the current traverser to a particular traversal branch option | [choose step](https://tinkerpop.apache.org/docs/current/reference/#choose-step) |
 | `coalesce` | Returns the first traversal that returns a result | [coalesce step](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
 | `constant` | Returns a constant value. Used with `coalesce`| [constant step](http://tinkerpop.apache.org/docs/current/reference/#constant-step) |
 | `count` | Returns the count from the traversal | [count step](http://tinkerpop.apache.org/docs/current/reference/#count-step) |
@@ -179,9 +175,6 @@ Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete
 | `is` | Used to perform a filter using a boolean expression | [is step](http://tinkerpop.apache.org/docs/current/reference/#is-step) |
 | `limit` | Used to limit number of items in the traversal| [limit step](http://tinkerpop.apache.org/docs/current/reference/#limit-step) |
 | `local` | Local wraps a section of a traversal, similar to a subquery | [local step](http://tinkerpop.apache.org/docs/current/reference/#local-step) |
-| `max` | Operates on a stream of numbers and determines which is the largest number in the stream | [max step](http://tinkerpop.apache.org/docs/current/reference/#max-step) |
-| `mean` | Operates on a stream of numbers and determines the average of those numbers. | [mean step](http://tinkerpop.apache.org/docs/current/reference/#mean-step) |
-| `min` | Operates on a stream of numbers and determines which is the smallest number in the stream | [min step](http://tinkerpop.apache.org/docs/current/reference/#min-step) |
 | `not` | Used to produce the negation of a filter | [not step](http://tinkerpop.apache.org/docs/current/reference/#not-step) |
 | `optional` | Returns the result of the specified traversal if it yields a result else it returns the calling element | [optional step](http://tinkerpop.apache.org/docs/current/reference/#optional-step) |
 | `or` | Ensures at least one of the traversals returns a value | [or step](http://tinkerpop.apache.org/docs/current/reference/#or-step) |
@@ -192,10 +185,8 @@ Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete
 | `range` | Filters to the specified range of values| [range step](http://tinkerpop.apache.org/docs/current/reference/#range-step) |
 | `repeat` | Repeats the step for the specified number of times. Used for looping | [repeat step](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
 | `sample` | Used to sample results from the traversal | [sample step](http://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Used to project results from the traversal |  [select step](http://tinkerpop.apache.org/docs/current/reference/#select-step) |
-| `sideEffect` | Performs an operation on the traverser and passes it to the next step. |  [sideEffect step](https://tinkerpop.apache.org/docs/current/reference/#general-steps) |
+| `select` | Used to project results from the traversal |  [select step](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
 | `store` | Used for non-blocking aggregates from the traversal | [store step](http://tinkerpop.apache.org/docs/current/reference/#store-step) |
-| `sum` | Operates on a stream of numbers and sums the numbers together to yield a result | [sum step](http://tinkerpop.apache.org/docs/current/reference/#sum-step) |
 | `tree` | Aggregate paths from a vertex into a tree | [tree step](http://tinkerpop.apache.org/docs/current/reference/#tree-step) |
 | `unfold` | Unroll an iterator as a step| [unfold step](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
 | `union` | Merge results from multiple traversals| [union step](http://tinkerpop.apache.org/docs/current/reference/#union-step) |
