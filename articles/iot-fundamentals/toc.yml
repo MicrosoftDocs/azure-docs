@@ -20,11 +20,13 @@
     href: ../iot-dps/index.yml
   - name: Location Based Services
     href: ../location-based-services/index.yml
+  - name: Service SDKs
+    href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-service-sdks
   - name: Time Series Insights
     href: ../time-series-insights/index.yml
 - name: Edge
   items:
   - name: IoT Edge
     href: ../iot-edge/index.yml
-  - name: IoT Device/Service SDKs
-    href: ../iot-hub/iot-hub-devguide-sdks.md
+  - name: IoT Device SDKs
+    href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks

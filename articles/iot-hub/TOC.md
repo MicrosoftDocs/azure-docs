@@ -1,4 +1,4 @@
-# [Azure IoT Documentation](../iot/index.md)
+# [Azure IoT Documentation](../iot-fundamentals/index.md)
 # [IoT Hub Documentation](index.md)
 
 # Overview
