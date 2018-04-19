@@ -1,12 +1,11 @@
 ---
-title: Add utterances to a LUIS app using PHP | Microsoft Docs 
-description: Learn to call a LUIS app using PHP. 
+title: Add utterances to a LUIS app using PHP | Microsoft Docs
+description: Learn to call a LUIS app using PHP.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: v-geberr
