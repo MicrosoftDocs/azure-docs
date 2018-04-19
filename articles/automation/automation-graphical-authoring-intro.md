@@ -271,7 +271,7 @@ Checkpoints are only enabled in Graphical PowerShell Workflow runbooks, it is no
 
 ## Authenticating to Azure resources
 
-Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](automation-offering-get-started.md#creating-an-automation-account) (also referred to as a service principal) is the default method to access Azure Resource Manager resources in your subscription with Automation runbooks. You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** Connection asset, which is using the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, and [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet to the canvas. This is illustrated in the following example:
+Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](automation-create-runas-account.md) (also referred to as a service principal) is the default method to access Azure Resource Manager resources in your subscription with Automation runbooks. You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** Connection asset, which is using the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, and [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet to the canvas. This is illustrated in the following example:
 
 ![Run As Authentication Activities](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
