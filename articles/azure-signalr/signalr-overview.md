@@ -18,18 +18,30 @@ ms.author: wesmc
 
 # What is Azure SignalR
 
-Azure SignalR Service is an Azure managed service based on [SignalR for ASP.NET Core](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-2.1). SignalR for ASP.NET Core is an open source library that simplifies the process of adding real-time web functionality to applications. This real-time functionality allows the server to push content updates to connected clients. As a result, clients are updated without the need to poll the server, or submit new requests for updates. There are many application types that require real-time content updates. These can include games, stock tickers, monitoring applications, and communication or chat applications.
+The Azure SignalR Service is an Azure managed service based on [SignalR for ASP.NET Core](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-2.1). SignalR for ASP.NET Core is an open source library that simplifies the process of adding real-time web functionality to applications. This real-time functionality allows the server to push content updates to connected clients. As a result, clients are updated without the need to poll the server, or submit new requests for updates. There are many application types that need real-time content updates. The following application types are good candidates for using Azure SignalR Service:
 
-There are two versions of SignalR: SignalR (for ASP.NET), and SignalR Core (for ASP.NET Core). Azure SignalR Service is based on SignalR Core, which is the newest version. SignalR Core is not a simple .NET Core port of SignalR, but a rewrite of the original version. As a result, SignalR Core is not backward compatible. The API interfaces and behaviors are different. This doesn't mean you cannot use the service with the .NET Framework. Our SDK is .NET Standard so you can still use it with the .NET Framework. You just use the new APIs instead of old ones. If you're using SignalR and want to move to SignalR Core, or Azure SignalR Service, you'll need to change your code to handle these differences.
+* Apps that require high frequency updates from the server. Examples are gaming, social networks, voting, auction, maps, and GPS apps.
+* Dashboards and monitoring apps. Examples include company dashboards, instant sales updates, or travel alerts.
+* Collaborative apps. Whiteboard apps and team meeting software are examples of collaborative apps.
+* Apps that require notifications. Social networks, email, chat, games, travel alerts, and many other apps use notifications.
 
-, therefore you can only use SignalR Core SDK when using the service. 
 
+There are two versions of SignalR: SignalR (for ASP.NET), and SignalR Core (for ASP.NET Core). Azure SignalR Service is based on SignalR Core, which is the newest version. SignalR Core is not a simple .NET Core port of SignalR, but a rewrite of the original version. As a result, SignalR Core is not backward compatible with SignalR. The API interfaces and behaviors are different. This doesn't mean you cannot use the service with the .NET Framework. The SignalR Core SDK is .NET Standard so you can still use it with the .NET Framework. You use the new APIs instead of old ones. If you're using SignalR and want to move to SignalR Core, or Azure SignalR Service, you'll need to change your code to handle differences in the APIs.
+
+SignalR Core has broader platform reach than SignalR since .NET Core can be employed on Windows, MacOS, and Linux?
+
+
+## Why use it over deploying an Azure web app with SignalR Core
+
+
+
+## How does it scale?
 
 
 
 
 
 ## Next steps
-* [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache.
-* Read the official [Redis documentation](http://redis.io/documentation).
+* [Quickstart: Create a chat room with Azure SignalR](signalr-quickstart-asp-dotnet-core.md)  
+  Create your your first .NET Core app that uses the Azure SignalR Service. 
 

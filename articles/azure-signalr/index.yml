@@ -27,7 +27,7 @@ sections:
     - image: 
         src: http://docs.microsoft.com/en-us/media/logos/logo_NET.svg
       text: .NET
-      href: /azure/azure-signalr/signalr-quickstart-asp-dotnet
+      href: /azure/azure-signalr/signalr-quickstart-dotnet-core
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

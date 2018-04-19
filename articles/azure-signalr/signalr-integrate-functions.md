@@ -19,7 +19,7 @@ ms.author: wesmc
 #Customer intent: As an ASP.NET developer, new to Azure Redis Cache, I want to use Redis Cache to improve performance and reduce back-end database load.
 
 ---
-# Tutorial: Create a cache-aside leaderboard on ASP.NET
+# Tutorial: Integrate Azure Functions with Azure SignalR Service
 
 In this tutorial you will update the *ContosoTeamStats* ASP.NET web app, created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md), to include a leaderboard that uses the [cache-aside pattern](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) with Azure Redis Cache. The sample application displays a list of team statistics from a database and demonstrates different ways to use Azure Redis Cache to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
 

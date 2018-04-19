@@ -7,7 +7,7 @@
 - name: Quickstarts
   items:
   - name: ASP.NET
-    href: signalr-quickstart-asp-dotnet.md
+    href: signalr-quickstart-dotnet-core.md
 - name: Tutorials
   items:
   - name: Authentication and Authorization with OAuth
