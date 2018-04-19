@@ -15,7 +15,7 @@ ms.devlang: PowerShell
 ms.topic: get-started-article
 ms.date: 04/20/2018 
 ms.author: mabrigg
-ms.reviewer: thoroet
+ms.reviewer: xiaofmao
 
 ---
 # Manage storage accounts in Azure Stack
@@ -168,85 +168,20 @@ You can also use PowerShell to explicitly override the retention period and imme
    For more information about Azure Resource Manager cmdlets, see
    [Using Azure PowerShell with Azure Resource
    Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Run the following cmdlet:
+2. Run the following cmdlets:
 
 > [!NOTE]
-> If you run this cmdlet, you permanently delete the account and its contents. It is not recoverable. Use this with care.
+> If you run these cmdlets, you permanently delete the account and its contents. It is not recoverable. Use this with care.
 
+```PowerShell  
+    $farm_name = (Get-AzsStorageFarm)[0].name
+    Start-AzsReclaimStorageCapacity -FarmName $farm_name
+````
 
-        Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
-
-
-For more information, see [Azure Stack powershell documentation.](https://msdn.microsoft.com/library/mt637964.aspx)
+For more information, see [Azure Stack PowerShell documentation.](https://msdn.microsoft.com/library/mt637964.aspx)
  
 
-## Migrate a container
-Due to uneven storage use by tenants, a cloud operator may find one or more underlying tenant shares using more space than others. If this occurs, the cloud operator can attempt to free up some space on the stressed share by manually migrating some blob containers to another share. 
+## Next steps
 
-You must use PowerShell to migrate containers.
-> [!NOTE]
->Blob container migration does not support live migration and currently is an offline operation. During migration and until it is complete the underlying blobs in that container cannot be used and are “offline”. 
-
-**To migrate containers using PowerShell:**
-
-1. Confirm that you have Azure PowerShell installed and configured. If not,
-   use the following instructions:
-    * To install the latest Azure PowerShell version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). For more information about Azure Resource Manager cmdlets, see [Using Azure PowerShell with Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Get the farm name: 
-      
-      `$farm = Get-ACSFarm -ResourceGroupName system.local`
-3. Get the shares: 
-
-   `$shares = Get-ACSShare -ResourceGroupName system.local -FarmName $farm.FarmName`
-
-4. Get the containers for a given share. Note that count and intent are optional parameters:
-            
-   `$containers = Get-ACSContainer -ResourceGroupName system.local -FarmName $farm.FarmName -ShareName $shares[0].ShareName -Count 4 -Intent Migration`  
-
-   Then examine $containers:
-
-   `$containers`
-
-    ![](media/azure-stack-manage-storage-accounts/image13.png)
-5. Get the best destination shares for the container migration:
-
-    `$destinationshares= Get-ACSSharesForMigration  -ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName`
-
-    Then examine $destinationshares:
-
-    `$destinationshares`
-
-    ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Kick off migration for a container, notice this is an async implementation, so one can loop all containers in a share and track the status using the returned job ID.
-
-    `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
-
-    Then examine $jobId:
-
-   ```
-   $jobId
-   d1d5277f-6b8d-4923-9db3-8bb00fa61b65
-   ```
-7. Check status of the migration job by its job ID. When the container migration finishes, MigrationStatus is set to “Completed.”
-
-    `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
-
-    ![](media/azure-stack-manage-storage-accounts/image15.png)
-
-8. You can cancel an in-progress migration job. This again is an async operation and can be tracked using $jobid:
-
-    `Stop-ACSContainerMigration-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId-Verbose`
-
-    ![](media/azure-stack-manage-storage-accounts/image16.png)
-
-    You can check the statuses of the migration cancel again:
-
-    `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
-
-    ![](media/azure-stack-manage-storage-accounts/image17.png)
-
-
-
-
-  
-  
+ - For information on managing permissions see [Manage Role-Based Access Control](azure-stack-manage-permissions.md).
+ - For information on Manage storage capacity for Azure Stack, see [Manage storage capacity for Azure Stack](azure-stack-manage-storage-shares.md).
