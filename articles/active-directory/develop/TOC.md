@@ -36,6 +36,7 @@
 ## [Application registration](active-directory-integrating-applications.md)
 ## [Multi-tenant apps](active-directory-devhowto-multi-tenant-overview.md)
 ## [Conditional access](active-directory-conditional-access-developer.md)
+## [Permissions](active-directory-permissions.md)
 ## OAuth & OpenID Connect
 ### [OpenID Connect protocol](active-directory-protocols-openid-connect-code.md)
 ### [OAuth 2.0 auth code grant](active-directory-protocols-oauth-code.md)
