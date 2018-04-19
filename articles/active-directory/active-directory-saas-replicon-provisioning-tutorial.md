@@ -103,7 +103,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Admin Username**, **Admin Password**, **CompanyId**, and **Domain** of your Replicon's account. Examples of these values are:
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Replicon Tenant. Example: contosoadmin.
+	*   In the **Admin Username** field, populate the username of the admin account on your Replicon tenant. Example: contosoadmin.
 
 	*   In the **Admin Password** field, populate the password corresponding to the admin username.
 
