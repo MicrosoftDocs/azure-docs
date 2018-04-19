@@ -138,7 +138,7 @@ The generated *function.json* file includes a `configurationSource` property tha
 }
 ```
 
-## Microsoft.NET.Sdk.Functions NuGet package
+## Microsoft.NET.Sdk.Functions
 
 The *function.json* file generation is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
