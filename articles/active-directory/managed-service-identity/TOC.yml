@@ -1,10 +1,6 @@
 - name: Managed Service Identity
-  href: index.yml
+  href: overview.md
   items:
-    - name: Overview
-      items:
-      - name: About Managed Service Identity
-        href: overview.md
     - name: Quickstarts
       items:
       - name: Use a VM MSI to acess Azure Resource Manager
