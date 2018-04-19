@@ -18,7 +18,7 @@ ms.author: billmath
 
 The following scenario address the situation where you may have external users in your on-premises AD environment, such as partners, who use an alternate sign-in method.
 
-In the preceding example, Nina Morin works for Fabrikam and she has the following email address: nmorin@fabrikam.com.  Nina is a partner with Contoso and she needs access to certain applications that Contoso has. Contoso has created an account for Nina and has directed Nina to use her email address to sign-in to applications.
+In the preceding example, Nina Morin works for Fabrikam and she has the following email address: nmorin@fabrikam.com. Nina is a partner with Contoso and she needs access to certain applications that Contoso has. Contoso has created an account for Nina and has directed Nina to use her email address to sign-in to applications.
 
 For their on-premises applications, this scenario has been working great. But now, Contoso is moving these applications to the cloud and wants to have the same experience for their partners.
 
@@ -33,7 +33,7 @@ This section contains a  list of pre-requisites and assumptions you need to be a
 - Azure AD Connect version 1.1.524.0 or higher
 - Verified domain to set the cloud UPN of external users (example: bmcontoso.com).
 - Federation Service to authenticate your external users. If you use AD FS, it must be 2012 R2 or higher
-- MSOL PowerShell v1.1 is installed on a machine to verify federation settings.  For more information, see [Azure ActiveDirectory (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0).
+- MSOL PowerShell v1.1 is installed on a machine to verify federation settings. For more information, see [Azure ActiveDirectory (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0).
 
 
 ### Assumptions 
@@ -41,7 +41,7 @@ This section contains a  list of pre-requisites and assumptions you need to be a
 This document makes the following assumptions:
 - that you have a federation service set up and that it is successfully authenticating users.
 - external users can authenticate using their external email address.
-- - Using an alternate ID for sign-in has been set up and configured. Users can authenticate using their alternate ID.  For additional information on setting up an alternate ID with AD FS, see [Configure Alternate Login ID](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
+- - Using an alternate ID for sign-in has been set up and configured. Users can authenticate using their alternate ID. For additional information on setting up an alternate ID with AD FS, see [Configure Alternate Login ID](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 ## Task 1:  Prepare the environment
 The following task is more of an informational so that you are ready to begin synchronizing your external accounts so that they can sign-in using an alternate i such as the mail attribute.
@@ -52,20 +52,20 @@ Define the items in the table below before moving on to the second task.
 
 |Environment Aspect|What is it used for?|Implementation in your environment|
 |-----|-----|-----|
-|Cloud UPN Attribute|The attribute that will populate the UPN of the external user objects in the cloud. The UPN suffix for the external accounts must be the one defined in the pre-requisites. This is the verified domain.|* Example: UserPrincipalName (nmorin@bmcontoso.com)|
+|Cloud UPN Attribute|The attribute that populates the UPN of the external user objects in the cloud. The UPN suffix for the external accounts must be the one defined in the pre-requisites. This is the verified domain.|* Example: UserPrincipalName (nmorin@bmcontoso.com)|
 |Sign-In Address|The attribute that external users will type in when logging in. This attribute must have an e-mail address format, and in most cases it coincides with the actual e-mail address of the external user.|* Example: mail (nmorin@fabrikam.com)|
-|Azure AD Connect Scoped Filter|The filter that will allow targeting the external identities to scope the synchronization rules defined later in this guide. Typical ways to scope include: a pre-defined OU in the organization, a certain naming convention, a specific domain, etc.|* Example: OU contains Externals|
-|Azure AD tenant|The name of the Azure AD tenant as it appears to Azure AD Connect. The tenant will most likely be an *.onmicrosoft.com name and will be used as the connected system in the outbound synchronization rule created later.|Example:  contoso.onmicrosoft.com|
+|Azure AD Connect Scoped Filter|The filter that allows targeting the external identities to scope the synchronization rules defined later in this guide. Typical ways to scope include: a pre-defined OU in the organization, a certain naming convention, a specific domain, etc.|* Example: OU contains Externals|
+|Azure AD tenant|The name of the Azure AD tenant as it appears to Azure AD Connect.|Example:  contoso.onmicrosoft.com|
 
 The following screen shot has three boxes outlined.
-- The **Externals** OU which will be used in our Azure AD Connect Scoped Filter and is the location of our external users.
-- The **mail** attribute which is used by our external users to sign-in.
-- The **userPrincipalName** attribute which is our verified domain that our on-premises environment is federated with.
+- The **Externals** OU, which is used in the Azure AD Connect Scoped Filter and is the location of the external users.
+- The **mail** attribute, which is used by the external users to sign-in.
+- The **userPrincipalName** attribute, which is the verified domain that the on-premises environment is federated with.
 
 ![](media/active-directory-aadconnect-guest-sync/guest1.png)
 
 ## Task 2:  Configure Azure AD Connect
-Once you have the information above defined, we can move on to setting up the Azure AD Connect synchronization rules.  To do set up the rules, use the Azure AD Connect synch rules editor. For more information on the editor, see [Declaritive Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+Once you have the information above defined, we can move on to setting up the Azure AD Connect synchronization rules. To do set up the rules, use the Azure AD Connect synch rules editor. For more information on the editor, see [Declaritive Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
 ### How to configure the synchronization rule
 Use the following procedure to configure Azure AD Connect.
@@ -83,7 +83,7 @@ Use the following procedure to configure Azure AD Connect.
 ![](media/active-directory-aadconnect-guest-sync/guest3.png)
 
 4. On the **Scoping Filter** screen, click **Add group**.
-5. Use the drop-downs to configure the filter.  Enter the following and click **Next**.  This action creates a filter that only applies to objects located in the external OU.
+5. Use the drop-downs to configure the filter. Enter the following and click **Next**. This action creates a filter that only applies to objects located in the external OU.
     - **Attribute** - dn
     - **Operator** - CONTAINS
     - **Value** - Externals
@@ -91,15 +91,15 @@ Use the following procedure to configure Azure AD Connect.
  ![](media/active-directory-aadconnect-guest-sync/guest4.png)
 
 6. On the **Join Rules** screen, click **Next**.
-7. On the **Transformations** screen, click **Add Transformation**.  Enter the following information:
+7. On the **Transformations** screen, click **Add Transformation**. Enter the following information:
     - **FlowType** - Constant
     - **Target Attribute** - userType
     - **Source** - Guest
-8. On the **Transformations** screen, click **Add Transformation**.  Enter the following information:
+8. On the **Transformations** screen, click **Add Transformation**. Enter the following information:
     - **FlowType** - Direct
     - **Target Attribute** - onPremisesUserPrincipalName
     - **Source** - mail
-9. On the **Transformations** screen, click **Add Transformation**.  Enter the following information:
+9. On the **Transformations** screen, click **Add Transformation**. Enter the following information:
     - **FlowType** - Direct
     - **Target Attribute** - userPrincipalName
     - **Source** - userPrincipalName
@@ -122,7 +122,7 @@ Use the following procedure to configure Azure AD Connect.
     - **FlowType** - Direct
     - **Target Attribute** - userType
     - **Source** - userType
-9. On the **Transformations** screen, click **Add Transformation**.  Enter the following information:
+9. On the **Transformations** screen, click **Add Transformation**. Enter the following information:
     - **FlowType** - Direct
     - **Target Attribute** - onPremisesUserPrincipalName
     - **Source** - onPremisesUserPrincipalName
@@ -150,7 +150,7 @@ Use the following procedure to verify federation settings.
   ``` powershell
       Get-MSOLDomainFederationSettings
   ```
-4.   Notice the federation information should be returned.  Note the **ActiveLogonUri** is the URL of the federation server.
+4.   Notice the federation information should be returned. Note the **ActiveLogonUri** is the URL of the federation server.
 
   ![](media/active-directory-aadconnect-guest-sync/guest8.png)
 
