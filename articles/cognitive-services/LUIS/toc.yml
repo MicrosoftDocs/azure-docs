@@ -193,6 +193,8 @@
     href: migration-v1-to-v2.md
 - name: Reference
   items: 
+  - name: GDPR
+    href: luis-reference-gdpr.md
   - name: Regions
     href: luis-reference-regions.md
   - name: Boundaries

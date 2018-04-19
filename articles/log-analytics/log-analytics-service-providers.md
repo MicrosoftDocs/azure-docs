@@ -1,4 +1,4 @@
----
+﻿---
 title: Log Analytics Features for Service Providers | Microsoft Docs
 description: Log Analytics can help Managed Service Providers (MSPs), Large Enterprises, Independent Sofware Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
 services: log-analytics
@@ -37,7 +37,7 @@ As a *Cloud Solution Provider* you can:
 To log in to a tenant’s subscription, you need to specify the tenant identifier. The tenant identifier is often that last part of the e-mail address used to sign in.
 
 * In the OMS portal, add `?tenant=contoso.com` in the URL for the portal. For example, `mms.microsoft.com/?tenant=contoso.com`
-* In PowerShell, use the `-Tenant contoso.com` parameter when using `Add-AzureRmAccount` cmdlet
+* In PowerShell, use the `-Tenant contoso.com` parameter when using `Connect-AzureRmAccount` cmdlet
 * The tenant identifier is automatically added when you use the `OMS portal` link from the Azure portal to open and log in to the OMS portal for the selected workspace
 
 As a *customer* of a Cloud Solution Provider you can:

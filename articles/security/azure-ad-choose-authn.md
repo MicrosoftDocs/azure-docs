@@ -51,9 +51,9 @@ When you choose this authentication method Azure AD handles the sign-in process 
 ### Federated authentication
 When you choose this authentication method Azure AD hands off the authentication process to a separate trusted authentication system, for example, an on-premises Active Directory Federation Services (AD FS) to validate the user’s password. The authentication system can provide additional authentication requirements, such as smartcard-based authentication or a third-party multi-factor authentication. For more information, see [Deploying Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide).
 
-The following section will help you decide which authentication method is right for you, using a decision tree diagram. It will help you determine whether to deploy cloud or federated authentication for your Azure AD hybrid identity solution.
+The following section will help you decide which authentication method is right for you, using a decision tree. It will help you determine whether to deploy cloud or federated authentication for your Azure AD hybrid identity solution.
 
-## Azure AD authentication decision tree diagram
+## Azure AD authentication decision tree
 
 ![image1](media/azure-ad/azure-ad-authn-image1.png)
 
