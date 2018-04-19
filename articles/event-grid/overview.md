@@ -36,7 +36,7 @@ Currently, Event Grid supports the following regions:
 
 This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). The following image shows how Event Grid connects sources and handlers, but it does not provide a comprehensive list of supported options.
 
-![Event Grid functional model](./media/overview/abstract-model.png)
+![Event Grid functional model](./media/overview/functional-model.png)
 
 ## Event sources
 
@@ -60,8 +60,10 @@ Currently, the following Azure services support handling events from Event Grid:
 * Azure Automation
 * Azure Functions
 * Event Hubs
+* Hybrid Connections
 * Logic Apps
 * Microsoft Flow
+* Queue Storage
 * WebHooks
 
 When using Azure Functions as the handler, use the Event Grid trigger instead of generic HTTP triggers. Event Grid automatically validates Event Grid Function triggers. With generic HTTP triggers, you must implement the [validation response](security-authentication.md#webhook-event-delivery).
