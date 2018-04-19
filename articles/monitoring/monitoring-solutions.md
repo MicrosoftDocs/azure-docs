@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 04/19/2018
 ms.author: magoedte
 
 
@@ -22,7 +22,7 @@ Management solutions leverage services in Azure to provide additional insight in
 
 Management solutions typically collect information into Log Analytics and provide log searches and views to analyze collected data. They may also leverage other services such as Azure Automation to perform actions related to the application or service.
 
-You can add management solutions to your Azure subscription for any applications and services that you use. They are typically available at no cost but collect data that could invoke usage charges. In addition to solutions provided by Microsoft, partners and customers can create management solutions to be used in their own environment or made available to customers through the community.
+You can add management solutions to your Azure subscription for any applications and services that you use. They are typically available at no cost but collect data that could invoke usage charges. In addition to solutions provided by Microsoft, partners and customers can [create management solutions](../operations-management-suite/operations-management-suite-solutions-creating.md) to be used in their own environment or made available to customers through the community.
 
 ## Using management solutions
 The **Overview** page for each Log Analytics workspace displays a tile for each solution installed in the workspace. Click on the tile for the solution to open its view which includes more detailed analysis its collected data.
@@ -77,7 +77,7 @@ Members of the community can submit management solutions to Azure Quickstart Tem
 
 
 ## Log Analytics workspace and Automation account
-All management solutions require a [Log Analytics workspace](../log-analytics/log-analytics-manage-access.md) to store data collected by the solution and to host its log searches and views. Some solutions also require and an [Automation account](../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources. The workspace and account must meet the following requirements.
+All management solutions require a [Log Analytics workspace](../log-analytics/log-analytics-manage-access.md) to store data collected by the solution and to host its log searches and views. Some solutions also require an [Automation account](../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources. The workspace and account must meet the following requirements.
 
 * Each installation of a solution can only use one Log Analytics workspace and one Automation account. You can install the solution separately into multiple workspaces.
 * If a solution requires an Automation account, then the Log Analytics workspace and Automation account must be linked to one another. A Log Analytics workspace may only be linked to one Automation account, and an Automation account may only be linked to one Log Analytics workspace.
@@ -86,14 +86,15 @@ All management solutions require a [Log Analytics workspace](../log-analytics/lo
 ### Creating a link between a Log Analytics workspace and Automation account
 How you specify the Log Analytics workspace and Automation account depends on the installation method for your solution.
 
-* When you install a solution through the Azure Marketplace, you are prompted for a workspace and Automation account. The link between them is created if they aren't already linked
+* When you install a solution through the Azure Marketplace, you are prompted for a workspace and Automation account. The link between them is created if they aren't already linked.
 * For solutions outside of the Azure Marketplace, you must link the Log Analytics workspace and Automation account before installing the solution. You can do this by selecting any solution in the Azure Marketplace and selecting the Log Analytics workspace and Automation account. You don't have to actually install the solution because the link is created as soon as the Log Analytics workspace and Automation account are selected. Once the link is created, then you can use that Log Analytics workspace and Automation account for any solution.
 
 ### Verifying the link between a Log Analytics workspace and Automation account
 You can verify the link between a Log Analytics workspace and an Automation account using the following procedure.
 
 1. Select the Automation account in the Azure portal.
-2. If the **Workspace** setting in the **Related Resources** section of the menu is enabled, then this account is attached to a Log Analytics workspace. You can click on **Workspace** to view the details of the workspace.
+1. Scroll to the **Related Resources** section of the menu.
+1. If the **Workspace** setting is enabled, then this account is linked to a Log Analytics workspace. You can click on **Workspace** to view the details of the workspace.
 
 ## Remove a management solution
 To remove an installed solution, locate it in the [list of installed solutions](#list-installed-management-solutions). Click on the name of the solution to open its summary page and then click on **Delete**.
