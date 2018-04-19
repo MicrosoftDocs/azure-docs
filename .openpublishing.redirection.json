@@ -31,11 +31,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/machine-learning/preview/index.yml",
-            "redirect_url": "/azure/machine-learning/service/",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/machine-learning/preview/known-issues-and-troubleshooting-guide.md",
             "redirect_url": "/azure/machine-learning/service/known-issues-and-troubleshooting-guide",
             "redirect_document_id": true
