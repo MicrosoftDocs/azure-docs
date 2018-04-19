@@ -153,9 +153,9 @@ If you have not already done so, create separate accounts for users to perform g
 
 Ensure that all users have signed into their administrative accounts and changed their passwords at least once in the last 90 days. Also, ensure that any shared accounts in which multiple users know the password have had their passwords changed recently.
 
-#### Turn on password synchronization
+#### Turn on password hash synchronization
 
-Password synchronization is a feature used to synchronize hashes of user password hashes from an on-premises Active Directory instance to a cloud-based Azure AD instance. Even if you decide to use federation with Active Directory Federation Services (AD FS) or other identity providers, you can optionally set up password synchronization as a backup in case your on-premises infrastructure such as AD or ADFS servers fail or becomes temporarily unavailable. This enables users to sign in to the service by using the same password that they use to sign in to their on-premises AD instance. Also, it allows Identity Protection to detect compromised credentials by comparing those password hashes with passwords known to be compromised, if a user has leveraged their same email address and password on other services not connected to Azure AD.  For more information, see [Implement password synchronization with Azure AD Connect sync](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).
+Password hash synchronization is a feature used to synchronize hashes of user password hashes from an on-premises Active Directory instance to a cloud-based Azure AD instance. Even if you decide to use federation with Active Directory Federation Services (AD FS) or other identity providers, you can optionally set up password hash synchronization as a backup in case your on-premises infrastructure such as AD or ADFS servers fail or becomes temporarily unavailable. This enables users to sign in to the service by using the same password that they use to sign in to their on-premises AD instance. Also, it allows Identity Protection to detect compromised credentials by comparing those password hashes with passwords known to be compromised, if a user has leveraged their same email address and password on other services not connected to Azure AD.  For more information, see [Implement password hash synchronization with Azure AD Connect sync](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### Require multi-factor authentication (MFA) for users in all privileged roles as well as exposed users
 
@@ -177,14 +177,14 @@ Azure AD Identity Protection is an algorithm-based monitoring and reporting tool
 
 Secure Score figures out what Office 365 services you’re using (like OneDrive, SharePoint, and Exchange) then looks at your settings and activities and compares them to a baseline established by Microsoft. You’ll get a score based on how aligned you are with best security practices. Anyone who has admin permissions (global admin or a custom administrator role) for an Office 365 Business Premium or Enterprise subscription can access the Secure Score at [https://securescore.office.com](https://securescore.office.com/).
 
-#### Review the Office 365 security and compliance guidance (if using Office365)
+#### Review the Office 365 security and compliance guidance (if using Office 365)
 
 The [plan for security and compliance](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) outlines the approach for how an Office 365 customer should configure Office 365 and leverage other EMS capabilities. Then, review steps 3-6 of how to [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) and the guide for how to [monitor security and compliance in Office 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
 
 #### Configure Office 365 Activity Monitoring (if using Office 365)
 
-You can monitor how people in your organization are using Office 365 services, enabling you to identify users who have an administrative account and who may not need Office 365 access due to not signing into those portals. Fore more informatuon, see [Activity reports in the Office 365 admin center](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
+You can monitor how people in your organization are using Office 365 services, enabling you to identify users who have an administrative account and who may not need Office 365 access due to not signing into those portals. For more information, see [Activity reports in the Office 365 admin center](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### Establish incident/emergency response plan owners
 
@@ -200,7 +200,7 @@ If your Azure Active Directory tenant is synchronized with on-premises Active Di
 
 Use the Enterprise portal and the Azure portal to identify the subscriptions in your organization that host production applications. 
 
-#### Remove Microsoft ccounts from admin roles
+#### Remove Microsoft accounts from admin roles
 
 Microsoft accounts from other programs, such as Xbox, Live, and Outlook should not be used as administrator accounts for organizational subscriptions. Remove admin status from all Microsoft accounts, and replace with Active Directory (for example, chris@contoso.com) work or school accounts.
 
@@ -226,7 +226,7 @@ Stage 3 builds on the mitigations from Stage 2 and is designed to be implemented
 
 #### Complete an access review of users in administrator roles
 
-More corporate users are gaining privileged access through cloud services, which can lead to an increasing unmanaged platform. This includes users becoming global admins for Office365, Azure subscription administrators, and users who have admin access in VMs or via SaaS apps. Instead, organizations should have all employees, especially admins, handle day-to-day business transactions as unprivileged users, and only take on admin rights as needed. Since the number of users in admin roles may have grown since initial adoption, complete access reviews to identify and confirm every user who is eligible to activate admin privileges. 
+More corporate users are gaining privileged access through cloud services, which can lead to an increasing unmanaged platform. This includes users becoming global admins for Office 365, Azure subscription administrators, and users who have admin access to VMs or via SaaS apps. Instead, organizations should have all employees, especially admins, handle day-to-day business transactions as unprivileged users, and only take on admin rights as needed. Since the number of users in admin roles may have grown since initial adoption, complete access reviews to identify and confirm every user who is eligible to activate admin privileges. 
 
 Do the following:
 
@@ -243,7 +243,7 @@ Attackers may attempt to target privileged accounts to gain access to an organiz
 
 #### Review National Institute of Standards and Technology recommendations for handling incidents 
 
-The National Institute of Standards and Technology’s (NIST) provides guidelines for incident handling, particularly for analyzing incident-related data and determining the appropriate response to each incident. For more informatiin, see [The (NIST) Computer Security Incident Handling Guide (SP 800-61, Revision 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+The National Institute of Standards and Technology’s (NIST) provides guidelines for incident handling, particularly for analyzing incident-related data and determining the appropriate response to each incident. For more information, see [The (NIST) Computer Security Incident Handling Guide (SP 800-61, Revision 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 #### Implement Privileged Identity Management (PIM) for JIT to additional administrative roles
 
@@ -281,11 +281,11 @@ The [Azure Security Center](../security-center/security-center-intro.md) provide
 
 #### Inventory your privileged accounts within hosted Virtual Machines
 
-In most cases, you don’t need to give users unrestricted permissions to all your Azure subscriptions or resources. You can use Azure AD admin roles to segregate duties within your organization and grant only the amount of access to users who need to perform specific jobs. For example, use Azure AD administrator roles to let one admin manage only VMs in a subscription, while another can manage SQL databases within the same subscription. For more information, see [Get started with Role-Based Access Control in the Azure portal](role-based-access-control-what-is.md).
+In most cases, you don’t need to give users unrestricted permissions to all your Azure subscriptions or resources. You can use Azure AD admin roles to segregate duties within your organization and grant only the amount of access to users who need to perform specific jobs. For example, use Azure AD administrator roles to let one admin manage only VMs in a subscription, while another can manage SQL databases within the same subscription. For more information, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).
 
 #### Implement PIM for Azure AD administrator roles
 
-Use Privileged identity Management with Azure AD administrator roles to manage, control, and monitor access to Azure resources. Using PIM protects privileged accounts from cyber-attacks by lowering the exposure time of privileges and increasing your visibility into their use through reports and alerts. For more information, see [Manage RBAC access to Azure resources with Privileged Identity Management](pim-azure-resource.md).
+Use Privileged identity Management with Azure AD administrator roles to manage, control, and monitor access to Azure resources. Using PIM protects privileged accounts from cyber-attacks by lowering the exposure time of privileges and increasing your visibility into their use through reports and alerts. For more information, see [Manage RBAC access to Azure resources with Privileged Identity Management](../role-based-access-control/pim-azure-resource.md).
 
 #### Use Azure log integrations to send relevant Azure logs to your SIEM systems 
 
@@ -304,7 +304,7 @@ MCAS allows you to investigate files and set policies based on Azure Information
 
 #### Configure conditional access
 
-Configure conditional access based on group, location, and application sensitivity for [SaaS apps](https://azure.microsoft.com/overview/what-is-saas/) and Azure AD connected apps. 
+Configure conditional access based on a group, location, and application sensitivity for [SaaS apps](https://azure.microsoft.com/overview/what-is-saas/) and Azure AD connected apps. 
 
 #### Monitor activity in connected cloud apps
 
@@ -317,7 +317,6 @@ To ensure users’ access is protected in connected applications as well, we rec
 * Minimize risk and automated threat prevention and policy enforcement
 
 The Cloud App Security SIEM agent integrates Cloud App Security with your SIEM server to enable centralized monitoring of Office 365 alerts and activities. It runs on your server and pulls alerts and activities from Cloud App Security and streams them into the SIEM server. For more information, see [SIEM integration](https://docs.microsoft.com/cloud-app-security/siem).
-
 
 ## Stage 4: Continue building defenses to a more proactive security posture
 
@@ -356,7 +355,7 @@ If you are using Office 365.
 To improve upon your plan, Microsoft recommends you regularly validate that your plan operates as expected:
 
 * Go through your existing road map to see what was missed
-* Based on the post mortem analysis, revise existing or define new best practices
+* Based on the postmortem analysis, revise existing or define new best practices
 * Ensure that your updated incident response plan and best practices are distributed throughout your organization
 
 
@@ -437,16 +436,16 @@ For more information about how Microsoft Office 365 handles security incidents, 
 
 ## Next steps
 
-* [Microsoft Trust Center for Product Security](https://www.microsoft.com/trustcenter/security) – Security features of Microsoft cloud products and services
+* [Microsoft Trust Center for Product Security](https://www.microsoft.com/en-us/trustcenter/security) – Security features of Microsoft cloud products and services
 
-* [Microsoft Trust Center - Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – Microsoft’s comprehensive set of compliance offerings for cloud services
+* [Microsoft Trust Center - Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – Microsoft’s comprehensive set of compliance offerings for cloud services
 
-* [Guidance on how to perform a risk assessment](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - Manage security and compliance requirements for Microsoft cloud services
+* [Guidance on how to perform a risk assessment](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) - Manage security and compliance requirements for Microsoft cloud services
 
 ### Other MS Online Services 
 
-* [Microsoft Intune Security](https://www.microsoft.com/trustcenter/security/intune-security) – Intune provides mobile device management, mobile application management, and PC management capabilities from the cloud.
+* [Microsoft Intune Security](https://www.microsoft.com/en-us/trustcenter/security/intune-security) – Intune provides mobile device management, mobile application management, and PC management capabilities from the cloud.
 
-* [Microsoft Dynamics 365 security](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365 is the Microsoft cloud-based solution that unifies customer relationship management (CRM) and enterprise resource planning (ERP) capabilities.
+* [Microsoft Dynamics 365 security](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) – Dynamics 365 is the Microsoft cloud-based solution that unifies customer relationship management (CRM) and enterprise resource planning (ERP) capabilities.
 
  

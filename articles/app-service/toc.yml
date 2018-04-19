@@ -51,6 +51,8 @@
     href: app-service-web-tutorial-custom-ssl.md
   - name: 4 - Add CDN
     href: app-service-web-tutorial-content-delivery-network.md
+  - name: 5 - Authenticate users
+    href: app-service-web-tutorial-auth-aad.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -139,6 +141,10 @@
         href: app-service-mobile-how-to-configure-microsoft-authentication.md
       - name: Authenticate with Twitter
         href: app-service-mobile-how-to-configure-twitter-authentication.md
+    - name: Customize auth
+      href: app-service-authentication-how-to.md
+    - name: Restrict IPs
+      href: app-service-ip-restrictions.md
     - name: Use Managed Service Identity
       href: app-service-managed-service-identity.md
     - name: Use SSL cert in application code

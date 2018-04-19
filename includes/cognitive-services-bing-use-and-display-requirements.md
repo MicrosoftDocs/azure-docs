@@ -7,7 +7,7 @@ These use and display requirements apply to your implementation of the content a
 You must not:
 
 - copy, store, or cache any data you receive from the Bing Spell Check or Bing Autosuggest APIs
-- use data you receive from the Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
+- use data you receive from the Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services that you or third parties may offer.
 
 ## 2. Definitions
 
@@ -34,20 +34,20 @@ The only exception to the internet search experience requirement is for URL disc
 **B. Restrictions.** You must not:
 
 - copy, store, or cache any data from responses (except retention to the extent permitted by the "Continuity of Service" section below); 
-- use data received from the Search APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
+- use data received from the Search APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services that you or third parties may offer.
 - modify content of results (other than to reformat them in a way that does not violate any other requirement), unless required by law or agreed by Microsoft; 
 - omit attribution and URLs associated with result content;
-- re-order, including by omission, results displayed in an answer when an order or ranking is provided (for the Bing Custom Search API, this does not apply to re-ordering implemented through the customsearch.ai portal), unless required by law or agreed by Microsoft;
+- reorder, including by omission, results displayed in an answer when an order or ranking is provided (for the Bing Custom Search API, this rule does not apply to reordering implemented through the customsearch.ai portal), unless required by law or agreed by Microsoft;
 - display other content within any part of a response in a way that would lead an end user to believe that the other content is part of the response; 
 - display advertising that is not provided by Microsoft on any page that displays any part of a response; 
-- display any advertising with responses (i) from the Bing Image, News or Video Search APIs; or (ii) that are filtered or limited primarily (or solely) to image, news and/or video results.
+- display any advertising with responses (i) from the Bing Image, News, or Video Search APIs; or (ii) that are filtered or limited primarily (or solely) to image, news and/or video results.
 
 **C. Branding.** 
 
 - You may attribute each response (or portion of a response) displayed from the Bing Web, Image, News, and Video APIs to Microsoft as described in [https://go.microsoft.com/fwlink/?linkid=833278](https://go.microsoft.com/fwlink/?linkid=833278), unless Microsoft specifies otherwise in writing for your use.  
 - You must not attribute responses (or portions of responses) displayed from the Bing Custom Search API to Microsoft, unless Microsoft specifies otherwise in writing for your particular use.
 
-**D. Transferring responses.** If you enable a user to transferIf you enable a user to transfer a response from a Search API to another user, such as through a messaging app or social media posting, the following apply:
+**D. Transferring responses.** If you enable a user to transfer a response from a Search API to another user, such as through a messaging app or social media posting, the following apply:
 
 - Transferred responses must:
     - Consist of content that is unmodified from the content of the responses displayed to the transferring user (formatting changes are permissible);
@@ -55,11 +55,11 @@ The only exception to the internet search experience requirement is for URL disc
     -	For responses from the Bing Web, Image, News, and Video APIs, display language indicating the response was obtained through an internet search experience powered by Bing (for example, "Powered by Bing," "Learn more about this image on Bing," or using the Bing logo);
     -	For responses from the Bing Custom Search API, display language indicating the response was obtained through an internet search experience (for example, "Learn more about this search result”);
     -	Prominently display the full query used to generate the response; and
-    -	Include a prominent link or similar attribution to the underlying source of the response, either directly or through the search engine (bing.com, m.bing.com or your custom search service, as applicable).
+    -	Include a prominent link or similar attribution to the underlying source of the response, either directly or through the search engine (bing.com, m.bing.com, or your custom search service, as applicable).
 -	You may not automate the transfer of responses. A transfer must be initiated by a user action clearly evidencing an intent to transfer a response.
 -	You may only enable a user to transfer responses that were displayed in response to the transferring user's query.
 
-**E. Continuity of service.** You must not copy, store or cache any data from Search API responses. However, to enable continuity of service access and data rendering, you may retain results solely under the following conditions:
+**E. Continuity of service.** You must not copy, store, or cache any data from Search API responses. However, to enable continuity of service access and data rendering, you may retain results solely under the following conditions:
 
 **Device.** You may enable an end user to retain results on a device for the lesser of (i) 24 hours from the time of the query or (ii) until an end user submits another query for updated results, provided that retained results may be used only:
 
@@ -76,12 +76,12 @@ Whenever retained, results for a specific user cannot be commingled with results
 **General.** For all presentation of retained results, you must:
 
 -	include a clear, visible notice of the time the query was sent,
--	present the user a button or similar means to re-query and obtain updated results, 
+-	present the user a button or similar means to requery and obtain updated results, 
 -	retain the Bing branding in the presentation of the results, and
 -	delete (and refresh with a new query if needed) the stored results within the timeframes specified.
 
-**F. Non-display URL discovery.** You may only use search responses in a non-internet search experience for the sole purpose of discovering URLs of sources of information responsive to a query from your user or customer. You may copy such URLs in a report or similar response you provide (i) only to that user or customer, in response to that query and (ii) which includes significant additional valuable content relevant to the query. The requirements in sections 3A through 3E of these use and display requirements do not apply to this non-display use, except: 
+**F. Non-display URL discovery.** You may only use search responses in a non-internet search experience for the sole purpose of discovering URLs of sources of information responsive to a query from your user or customer. You may copy such URLs in a report or similar response you provide (i) only to that user or customer, in response to that query and (ii) that includes significant additional valuable content relevant to the query. The requirements in sections 3A through 3E of these use and display requirements do not apply to this non-display use, except: 
 
--	You shall not cache, copy or store any data or content from, or derived from, the search response, other than the limited URL copying described above;
+-	You shall not cache, copy, or store any data or content from, or derived from, the search response, other than the limited URL copying described above;
 -	You must ensure your use of data (including the URLs) received from the Search APIs does not violate any applicable laws or third-party rights; and
--	You shall not use the data (including the URLs) received from the Search APIs as part of any search index or machine learning or similar algorithmic activity to create train, evaluate, or improve services which you or third parties may offer.
+-	You shall not use the data (including the URLs) received from the Search APIs as part of any search index or machine learning or similar algorithmic activity to create train, evaluate, or improve services that you or third parties may offer.

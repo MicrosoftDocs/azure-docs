@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2018
+ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -164,7 +164,7 @@ This setting has an impact on access attempts made from the following mobile app
 |Client apps|Target Service|Platform|
 |---|---|---|
 |Azure Remote app|Azure Remote App service|Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X|
-|Dynamics CRM app|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS, and Android|
+|Dynamics CRM app|Dynamics CRM|Windows 10, Windows 8.1, iOS, and Android|
 |Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)|Office 365 Exchange Online|Windows 10|
 |MFA and location policy for apps. Device based policies are not supported. |Any My Apps app service|Android and iOS|
 |Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android and macOS |
@@ -176,9 +176,10 @@ This setting has an impact on access attempts made from the following mobile app
 |Outlook 2016 (Office for macOS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Outlook mobile app|Office 365 Exchange Online|Android, iOS|
-|PowerBI app|PowerBI service|Windows 10, Windows 8.1, Windows 7, and iOS|
+|PowerBI app|PowerBI service|Windows 10, Windows 8.1, Windows 7, Android and iOS|
 |Skype for Business|Office 365 Exchange Online|Android, IOS |
 |Visual Studio Team Services app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS, and Android|
+
 
 
 ## Approved client app requirement 
@@ -218,10 +219,6 @@ This setting applies to the following client apps:
 - The **Require approved client app** requirement:
 
     - Only supports the iOS and Android for [device platform condition](#device-platforms-condition).
-
-    - Does not support the **Browser** option for the [client apps condition](#supported-browsers).
-    
-    - Supersedes the **Mobile apps and desktop clients** option for the [client apps condition](#supported-mobile-apps-and-desktop-clients) when that option is selected.
 
 
 ## Next steps

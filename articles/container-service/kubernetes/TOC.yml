@@ -23,7 +23,7 @@
     href: container-service-tutorial-kubernetes-scale.md
   - name: 6 - Update application
     href: container-service-tutorial-kubernetes-app-update.md
-  - name: 7 - Monitor with OMS
+  - name: 7 - Monitor with Log Analytics
     href: container-service-tutorial-kubernetes-monitor.md
 - name: Concepts
   items:
@@ -45,7 +45,7 @@
     href: container-service-scale.md
   - name: Monitor
     items:
-    - name: Monitor with OMS
+    - name: Monitor with Log Analytics
       href: container-service-kubernetes-oms.md
     - name: Monitor with Datadog
       href: container-service-kubernetes-datadog.md
@@ -53,13 +53,13 @@
       href: container-service-kubernetes-sysdig.md
     - name: Monitor with CoScale
       href: container-service-kubernetes-coscale.md
-  - name: Deploy Spring Boot apps		
-    items:		
-    - name: Deploy a Spring Boot Application on Linux in the Azure Container Service		
-      href: container-service-deploy-spring-boot-app-on-linux.md		
-    - name: Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service		
-      href: container-service-deploy-spring-boot-app-on-kubernetes.md		
-    - name: Deploy a Spring Boot app using the fabric8 Maven plugin		
+  - name: Deploy Spring Boot apps
+    items:
+    - name: Deploy a Spring Boot Application on Linux in the Azure Container Service
+      href: container-service-deploy-spring-boot-app-on-linux.md
+    - name: Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service
+      href: container-service-deploy-spring-boot-app-on-kubernetes.md
+    - name: Deploy a Spring Boot app using the fabric8 Maven plugin
       href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Reference
   items:

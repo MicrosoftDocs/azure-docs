@@ -6,7 +6,7 @@ services: cognitive-services
 author: SteveMSFT
 manager: corncar
 ms.service: cognitive-services
-ms.technology: face
+ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles
@@ -54,7 +54,7 @@ The next few lines of code call into the Face API to detect the faces in the ima
 import requests
 from IPython.display import HTML
 
-headers = { 'Ocp-Apim-Subscription-Key': '<Subscription Key>' }
+headers = { 'Ocp-Apim-Subscription-Key': subscription_key }
     
 params = {
     'returnFaceId': 'true',

@@ -30,13 +30,13 @@ ACU: 195 - 210
 
 | Size             | vCPU's | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
-| Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Moderate                                       |
-| Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Moderate                                       |
-| Standard_F8s_v2   | 8      | 16          | 64             | 16             | 16000 (128)                                                           | High                                           |
-| Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | High                                           |
-| Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extremely High                                 |
-| Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extremely High                                 |
-| Standard_F72s_v2<sup>2, 3</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremely High                                 |
+| Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | 2 / 875                                        |
+| Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | 2 / 1,750                                      |
+| Standard_F8s_v2   | 8      | 16          | 64             | 16             | 16000 (128)                                                           | 4 / 3,500                                      |
+| Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | 4 / 7,000                                      |
+| Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | 8 / 14,000                                     |
+| Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | 8 / 28,000                                     |
+| Standard_F72s_v2<sup>2, 3</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | 8 / 30,000                                     |
 
 <sup>1</sup> Fsv2-series VM’s feature Intel® Hyper-Threading Technology
 

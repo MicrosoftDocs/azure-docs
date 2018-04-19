@@ -1,3 +1,4 @@
+
 ---
 title: Azure MFA Server Mobile App Web Service | Microsoft Docs
 description: The Microsoft Authenticator app offers an additional out-of-band authentication option.  It allows the MFA server to use push notifications to users.
@@ -25,11 +26,14 @@ Using a mobile app for two-step verification is preferred when phone reception i
 
 Depending on your environment, you may want to deploy the mobile app web service on the same server as Azure Multi-Factor Authentication Server or on another internet-facing server.
 
+> [!IMPORTANT]
+> If you have installed MFA Server version 8.0 or higher, most of the steps below are not required. Mobile app authentication can be set up by following the steps under [Configure the mobile app](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server).
+
 ## Requirements
 
 To use the Microsoft Authenticator app, the following are required so that the app can successfully communicate with Mobile App Web Service:
 
-* Azure Multi-Factor Authentication Server v6.0 or higher
+* Azure Multi-Factor Authentication Server v6.x or higher
 * Install Mobile App Web Service on an Internet-facing web server running Microsoft® [Internet Information Services (IIS) IIS 7.x or higher](http://www.iis.net/)
 * ASP.NET v4.0.30319 is installed, registered, and set to Allowed
 * Required role services include ASP.NET and IIS 6 Metabase Compatibility
@@ -44,6 +48,7 @@ To use the Microsoft Authenticator app, the following are required so that the a
 
 Before installing the mobile app web service, be aware of the following details:
 
+* Installation of the mobile app web service is not necessary for v8.0 or higher. Complete only the steps under [Configure the mobile app](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server).
 * You need a Service Account that is a part of "PhoneFactor Admins" Group. This account can be the same as the one used for the User Portal installation.
 * It is helpful to open a web browser on the Internet-facing web server and navigate to the URL of the Web Service SDK that was entered into the web.config file. If the browser can get to the web service successfully, it should prompt you for credentials. Enter the username and password that were entered into the web.config file exactly as it appears in the file. Ensure that no certificate warnings or errors are displayed.
 * If a reverse proxy or firewall is sitting in front of the Mobile App Web Service web server and performing SSL offloading, you can edit the Mobile App Web Service web.config file so that the Mobile App Web Service can use http instead of https. SSL is still required from the Mobile App to the firewall/reverse proxy. Add the following key to the \<appSettings\> section:
@@ -85,16 +90,15 @@ The Web Service SDK must be secured with an SSL certificate. A self-signed certi
 7. If the website that Mobile App Web Service was installed under has not already been bound with a publicly signed certificate, install the certificate on the server, open IIS Manager, and bind the certificate to the website.
 8. Open a web browser from any computer and navigate to the URL where Mobile App Web Service was installed (Example: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Ensure that no certificate warnings or errors are displayed.
 9. For more information on the methods available in the web services SDK, see the MFA server help file.
+10. Now that the mobile app web service is installed, you need to configure the Azure Multi-Factor Authentication Server to work with the portal.
 
 ## Configure the mobile app settings in the Azure Multi-Factor Authentication Server
-
-Now that the mobile app web service is installed, you need to configure the Azure Multi-Factor Authentication Server to work with the portal.
 
 1. In the Multi-Factor Authentication Server console, click the User Portal icon. If users are allowed to control their authentication methods, check **Mobile App** on the Settings tab, under **Allow users to select method**. Without this feature enabled, end users are required to contact your Help Desk to complete activation for the Mobile App.
 2. Check the **Allow users to activate Mobile App** box.
 3. Check the **Allow User Enrollment** box.
 4. Click the **Mobile App** icon.
-5. Enter the URL being used with the virtual directory that was created when installing MultiFactorAuthenticationMobileAppWebServiceSetup64 (Example: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/) in the field **Mobile App Web Service URL:**.
+5. If you are using v8.0 or higher, skip the following step: Enter the URL being used with the virtual directory that was created when installing MultiFactorAuthenticationMobileAppWebServiceSetup64 (Example: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/) in the field **Mobile App Web Service URL:**.
 6. Populate the **Account name** field with the company or organization name to display in the mobile application for this account.
    ![MFA Server configuration Mobile App settings](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)
 

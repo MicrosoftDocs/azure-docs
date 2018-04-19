@@ -4,7 +4,7 @@ description: Presents an overview of the indexing capabilities in Azure Cosmos D
 services: cosmos-db
 documentationcenter: ''
 author: orestis-ms
-manager: jhubbard
+manager: kfile
 editor: ''
 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703047

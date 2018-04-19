@@ -3,15 +3,9 @@ title: PowerShell for DNS alias Azure SQL | Microsoft Docs
 description: PowerShell cmdlets such as New-AzureRMSqlServerDNSAlias enable you to redirect new client connections to a different Azure SQL Database server, without having to touch any client configuration.
 keywords: dns sql database
 services: sql-database
-documentationcenter: ''
 author: MightyPen
 manager: craigg
-editor: ''
-
 ms.service: sql-database
-ms.custom: ''
-ms.workload: ''
-ms.tgt_pltfrm: ''
 ms.devlang: PowerShell
 ms.topic: article
 ms.date: 02/05/2018
@@ -83,7 +77,7 @@ Write-Host " ";
 $yesno = Read-Host '[yes/no]  Do you need to log into Azure now?';
 if ('yes' -eq $yesno)
 {
-    Login-AzureRmAccount -SubscriptionName $SubscriptionName;
+    Connect-AzureRmAccount -SubscriptionName $SubscriptionName;
 }
 
 $SubscriptionGuid_Get = Get-AzureRmSubscription `

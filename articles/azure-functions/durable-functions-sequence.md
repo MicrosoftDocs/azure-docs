@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
 ---
 
@@ -22,7 +22,7 @@ Function chaining refers to the pattern of executing a sequence of functions in 
 
 ## Prerequisites
 
-* Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
+* [Install Durable Functions](durable-functions-install.md).
 
 ## The functions
 
@@ -31,7 +31,7 @@ This article explains the following functions in the sample app:
 * `E1_HelloSequence`: An orchestrator function that calls `E1_SayHello` multiple times in a sequence. It stores the outputs from the `E1_SayHello` calls and records the results.
 * `E1_SayHello`: An activity function that prepends a string with "Hello".
 
-The following sections explain the configuration and code that are used for Azure portal development. The code for Visual Studio development is shown at the end of the article.
+The following sections explain the configuration and code that are used for C# scripting. The code for Visual Studio development is shown at the end of the article.
  
 ## function.json file
 

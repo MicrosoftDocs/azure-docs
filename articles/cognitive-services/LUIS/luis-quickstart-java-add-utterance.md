@@ -1,12 +1,11 @@
 ---
-title: Add utterances to a LUIS app using Java | Microsoft Docs 
-description: Learn to call a LUIS app using Java. 
+title: Add utterances to a LUIS app using Java | Microsoft Docs
+description: Learn to call a LUIS app using Java.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: v-geberr
@@ -19,7 +18,7 @@ Programmatically add utterances to your Language Understanding (LUIS) app and tr
 
 * Latest Oracle [**Java/JDK**](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Google's GSON JSON library](https://github.com/google/gson).
-* Your LUIS **[authoring key](manage-keys.md#authoring-key)**. You can find this key under Account Settings in the [LUIS](luis-reference-regions.md) website.
+* Your LUIS **[authoring key](luis-concept-keys.md#authoring-key)**. You can find this key under Account Settings in the [LUIS](luis-reference-regions.md) website.
 * Your existing LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard. The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `AddUtterances.java`. The code in this article will not create the intents and entities. It will only add the utterances for existing intents and entities. 
 * The **version ID** within the application that receives the utterances. The default ID is "0.1"
 * Create a new text file named `AddUtterances.java`.

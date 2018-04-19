@@ -2,18 +2,12 @@
 title: Azure SQL Database Security Overview | Microsoft Docs
 description: Learn about Azure SQL Database and SQL Server security, including the differences between the cloud and SQL Server on-premises.
 services: sql-database
-documentationcenter: ''
 author: giladm
-manager: shaik
+manager: craigg
 ms.reviewer: carlrab
-editor: ''
-ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: "On Demand"
 ms.date: 03/12/2018
 ms.author: giladm
 
@@ -50,7 +44,7 @@ For more information, see [Get started with SQL DB Data Discovery & Classificati
 SQL Database secures your data by limiting access to your database using firewall rules, authentication mechanisms requiring users to prove their identity, and authorization to data through role-based memberships and permissions, as well as through row-level security and dynamic data masking. For a discussion of the use of access control features in SQL Database, see [Control access](sql-database-control-access.md).
 
 > [!IMPORTANT]
-> Managing databases and logical servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../active-directory/role-based-access-control-what-is.md).
+> Managing databases and logical servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md).
 >
 
 ### Firewall and firewall rules

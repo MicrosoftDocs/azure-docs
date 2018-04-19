@@ -4,7 +4,7 @@ description: How to manage administrative users and reset access on Linux VMs us
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -21,7 +21,7 @@ ms.author: danlep
 # Manage administrative users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI 2.0
 The disk on your Linux VM is showing errors. You somehow reset the root password for your Linux VM or accidentally deleted your SSH private key. If that happened back in the days of the datacenter, you would need to drive there and then open the KVM to get at the server console. Think of the Azure VMAccess extension as that KVM switch that allows you to access the console to reset access to Linux or perform disk level maintenance.
 
-This article shows you how to use the Azure VMAccess Extension to check or repair a disk, reset user access, manage administrative user accounts, or reset the SSH configuration on Linux. You can also perform these steps with the [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+This article shows you how to use the Azure VMAccess Extension to check or repair a disk, reset user access, manage administrative user accounts, or update the SSH configuration on Linux. You can also perform these steps with the [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## Ways to use the VMAccess Extension
@@ -32,8 +32,8 @@ There are two ways that you can use the VMAccess Extension on your Linux VMs:
 
 The following examples use [az vm user](/cli/azure/vm/user) commands. To perform these steps, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
-## Reset SSH key
-The following example resets the SSH key for the user `azureuser` on the VM named `myVM`:
+## Update SSH key
+The following example updates the SSH key for the user `azureuser` on the VM named `myVM`:
 
 ```azurecli
 az vm user update \
@@ -42,6 +42,8 @@ az vm user update \
   --username azureuser \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
+
+> **NOTE:** The `az vm user update` command appends the new public key text to the `~/.ssh/authorized_keys` file for the admin user on the VM. This does not replace or remove any existing SSH keys. This will not remove prior keys set at deployment time or subsequent updates via the VMAccess Extension.
 
 ## Reset password
 The following example resets the password for the user `azureuser` on the VM named `myVM`:
@@ -91,9 +93,9 @@ az vm user delete \
 The following examples use raw JSON files. Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to then call your JSON files. These JSON files can also be called from Azure templates. 
 
 ### Reset user access
-If you have lost access to root on your Linux VM, you can launch a VMAccess script to reset a user's SSH key or password.
+If you have lost access to root on your Linux VM, you can launch a VMAccess script to update a user's SSH key or password.
 
-To reset the SSH public key of a user, create a file named `reset_ssh_key.json` and add settings in the following format. Substitute your own values for the `username` and `ssh_key` parameters:
+To update the SSH public key of a user, create a file named `update_ssh_key.json` and add settings in the following format. Substitute your own values for the `username` and `ssh_key` parameters:
 
 ```json
 {
@@ -111,7 +113,7 @@ az vm extension set \
   --name VMAccessForLinux \
   --publisher Microsoft.OSTCExtensions \
   --version 1.4 \
-  --protected-settings reset_ssh_key.json
+  --protected-settings update_ssh_key.json
 ```
 
 To reset a user password, create a file named `reset_user_password.json` and add settings in the following format. Substitute your own values for the `username` and `password` parameters:

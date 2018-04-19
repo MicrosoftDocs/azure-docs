@@ -3,24 +3,18 @@ title: 'Password complexity in custom policies - Azure AD B2C | Microsoft Docs'
 description: How to configure complexity requirements for passwords in Custom Policy
 services: active-directory-b2c
 documentationcenter: ''
-author: saeedakhter-msft
+author: davidmu1
 manager: mtillman
-editor: parakhj
+editor: ''
 
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeeda
+ms.author: davidmu
 
 ---
 # Configure password complexity in custom policies
-
-> [!NOTE]
-> **This feature is in preview.**  Contact [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com) to have your test tenant enabled with this feature.  Do not test this on production tenants.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -102,15 +96,9 @@ The claim types `newPassword` and `reenterPassword` are considered special, so d
 ```XML
     <ClaimsSchema>
       <ClaimType Id="newPassword">
-        <Restriction>
-          <Pattern RegularExpression="^.*$" HelpText="" />
-        </Restriction>
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
       <ClaimType Id="reenterPassword">
-        <Restriction>
-          <Pattern RegularExpression="^.*$" HelpText="" />
-        </Restriction>
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
     </ClaimsSchema>
@@ -147,37 +135,31 @@ This example contains a validation for pin passwords and one for strong password
   <BuildingBlocks>
     <ClaimsSchema>
       <ClaimType Id="newPassword">
-        <Restriction>
-          <Pattern RegularExpression="^.*$" HelpText="" />
-        </Restriction>
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
       <ClaimType Id="reenterPassword">
-        <Restriction>
-          <Pattern RegularExpression="^.*$" HelpText="" />
-        </Restriction>
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
     </ClaimsSchema>
     <Predicates>
       <Predicate Id="Lowercase" Method="MatchesRegex" HelpText="a lowercase">
         <Parameters>
-          <Parameter Id="RegularExpression">^[a-z]+$</Parameter>
+          <Parameter Id="RegularExpression">[a-z]+</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Uppercase" Method="MatchesRegex" HelpText="an uppercase">
         <Parameters>
-          <Parameter Id="RegularExpression">^[A-Z]+$</Parameter>
+          <Parameter Id="RegularExpression">[A-Z]+</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Number" Method="MatchesRegex" HelpText="a number">
         <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
+          <Parameter Id="RegularExpression">[0-9]+</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Symbol" Method="MatchesRegex" HelpText="a symbol">
         <Parameters>
-          <Parameter Id="RegularExpression">^[!@#$%^*()]+$</Parameter>
+          <Parameter Id="RegularExpression">[!@#$%^*()]+</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">

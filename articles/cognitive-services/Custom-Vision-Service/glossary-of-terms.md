@@ -3,10 +3,9 @@ title: Glossary of Terms for Custom Vision Service machine learning | Microsoft 
 description: Glossary of Terms for Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
-manager: CorneliaKara
-
+manager: corncar
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.component: custom-vision
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anroth

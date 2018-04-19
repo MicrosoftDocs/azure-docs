@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2018
+ms.date: 03/13/2018
 ms.author: tomfitz
 
 ---
@@ -22,11 +22,13 @@ ms.author: tomfitz
 Typically, you deploy all the resources in your template to a single [resource group](resource-group-overview.md). However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. For example, you may want to deploy the backup virtual machine for Azure Site Recovery to a separate resource group and location. Resource Manager enables you to use nested templates to target different subscriptions and resource groups than the subscription and resource group used for the parent template.
 
 > [!NOTE]
-> You can deploy to only five resource groups in a single deployment.
+> You can deploy to only five resource groups in a single deployment. Typically, this limitation means you can deploy to one resource group specified for the parent template, and up to four resource groups in nested or linked deployments. However, if your parent template contains only nested or linked templates and does not itself deploy any resources, then you can include up to five resource groups in nested or linked deployments.
 
 ## Specify a subscription and resource group
 
 To target a different resource, use a nested or linked template. The `Microsoft.Resources/deployments` resource type provides parameters for `subscriptionId` and `resourceGroup`. These properties enable you to specify a different subscription and resource group for the nested deployment. All the resource groups must exist before running the deployment. If you do not specify either the subscription ID or resource group, the subscription and resource group from the parent template is used.
+
+The account you use to deploy the template must have permissions to deploy to the specified subscription ID. If the specified subscription exists in a different Azure Active Directory tenant, you must [add guest users from another directory](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
 To specify a different resource group and subscription, use:
 

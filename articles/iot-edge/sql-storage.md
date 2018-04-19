@@ -6,7 +6,8 @@ keywords:
 author: kgremban
 manager: timlt
 
-ms.author: kgremban, ebertrams
+ms.author: kgremban
+ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
@@ -64,7 +65,7 @@ In step 3, you add create options to the SQL Server container, which are importa
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "localhost:5000/filterfunction:latest",
+              "image": "<docker registry address>/filterfunction:latest",
               "createOptions": "{}"
             }
           },
@@ -91,13 +92,18 @@ In step 3, you add create options to the SQL Server container, which are importa
         }
    ```
 
-3. Depending on the operating system that you're running, update the settings for the SQL module with the following code: 
+3. Replace the `<docker registry address>` with the address filled in at the completed tutorial [Deploy Azure Function as an IoT Edge module - preview](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)
+
+   >[!NOTE]
+   >The container registry address is the same as the login server that you copied from your registry. It should be in the form of `<your container registry name>.azurecr.io`
+
+4. Depending on the operating system that you're running, update the settings for the SQL module with the following code: 
 
    * Windows:
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
    * Linux:
@@ -107,11 +113,11 @@ In step 3, you add create options to the SQL Server container, which are importa
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-4. Save the file. 
-5. In the VS Code Command Palette, select **Edge: Create deployment for Edge device**. 
-6. Select your IoT Edge device ID.
-7. Select the `deployment.json` file that you updated. In the output window, you can see corresponding outputs for your deployment. 
-8. To start your Edge runtime, select **Edge: Start Edge** in the Command Palette.
+5. Save the file. 
+6. In the VS Code Command Palette, select **Edge: Create deployment for Edge device**. 
+7. Select your IoT Edge device ID.
+8. Select the `deployment.json` file that you updated. In the output window, you can see corresponding outputs for your deployment. 
+9. To start your Edge runtime, select **Edge: Start Edge** in the Command Palette.
 
 >[!TIP]
 >Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).

@@ -1,20 +1,13 @@
 ﻿---
-title: Onboarding machines for management by Azure Automation DSC | Microsoft Docs
+title: Onboarding machines for management by Azure Automation DSC
 description: How to setup machines for management with Azure Automation DSC
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-
-ms.assetid: da13e1f5-2a1c-443b-8e3b-9f0d6f9e4810
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 12/13/2016
+author: georgewallace
 ms.author: gwallace
-
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
 ---
 # Onboarding machines for management by Azure Automation DSC
 
@@ -55,7 +48,7 @@ To find the registration URL and key for the Automation account to onboard the m
 ```powershell
 # log in to both Azure Service Management and Azure Resource Manager
 Add-AzureAccount
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 # fill in correct values for your VM/Automation account here
 $VMName = ""
@@ -331,7 +324,7 @@ To generically onboard any machine to Azure Automation DSC, a [DSC metaconfigura
 If the PowerShell DSC Local Configuration Manager defaults match your use case, and you want to onboard machines such that they both pull from and report to Azure Automation DSC, the Azure Automation cmdlets provide a simplified method of generating the DSC metaconfigurations needed:
 
 1. Open the PowerShell console or PowerShell ISE as an administrator in a machine in your local environment.
-2. Connect to Azure Resource Manager using **Add-AzureRmAccount**
+2. Connect to Azure Resource Manager using **Connect-AzureRmAccount**
 3. Download the PowerShell DSC metaconfigurations for the machines you want to onboard from the Automation account to which you want to onboard nodes:
 
     ```powershell

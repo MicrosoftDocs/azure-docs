@@ -2,9 +2,8 @@
 title: Serverless database computing - Azure Functions and Azure Cosmos DB| Microsoft Docs
 description: Learn how Azure Cosmos DB and Azure Functions can be used together to create event-driven serverless computing apps.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: monicar
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 
@@ -13,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: mimig
+ms.date: 03/26/2018
+ms.author: sngun
 ---
 
 # Azure Cosmos DB: Serverless database computing using Azure Functions
@@ -110,13 +109,17 @@ In all of these use cases, because the function has decoupled the app itself, yo
 
 ## Tooling
 
-Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal.
+Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal and in Visual Studio 2017.
 * In the Azure Functions portal, you can create an Azure Cosmos DB trigger. For quickstart instructions, see [Create an Azure Cosmos DB trigger in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc)
     ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
 * In the Azure Functions portal, you can also add Azure Cosmos DB input bindings and output bindings to other types of triggers. For quickstart instructions, see [Store unstructured data using Azure Functions and Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
     ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/function-portal-input-binding.png)
 *   In the Azure Cosmos DB portal, you can add an Azure Cosmos DB trigger to an existing Azure Function app in the same resource group.
     ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/cosmos-db-portal.png)
+* In Visual Studio 2017, you can create an Azure Cosmos DB trigger using the integrated template:
+
+    >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
+
 
 ## Why choose Azure Functions integration for serverless computing?
 

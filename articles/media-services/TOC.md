@@ -236,7 +236,8 @@
 ## [REST](/rest/api/media/mediaservice)
 ## Specifications
 ### [Live Ingest - Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
-### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
+### [Live Ingest - Signaling Timed Metadata in Live Streaming](media-services-specifications-live-timed-metadata.md)
+### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-amendment-hevc.md)
 
 # Resources
 ## [Azure Media Services community](media-services-community.md)

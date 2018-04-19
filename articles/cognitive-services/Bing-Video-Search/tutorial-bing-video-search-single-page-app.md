@@ -4,9 +4,8 @@ description: Explains how to use the Bing Video Search API in a single-page Web 
 services: cognitive-services
 author: mikedodaro
 manager: ronakshah
-
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: v-gedod
@@ -310,7 +309,7 @@ The Bing News Search API returns up to four different kinds of related results, 
 
 As previously seen in `renderSearchResults()`, we render only the `relatedItems` suggestions and place the resulting links in the page's sidebar.
 
-##Rendering result items
+## Rendering result items
 
 In the JavaScript code the object, `searchItemRenderers`, can contains *renderers:* functions that generate HTML for each kind of search result. The video search page only uses `videos`. See other tutorials for various types of renderers.
 

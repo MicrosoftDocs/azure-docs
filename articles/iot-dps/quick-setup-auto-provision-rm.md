@@ -3,7 +3,7 @@ title: Set up Device Provisioning using an Azure Resource Manager template | Mic
 description: Azure Quickstart - Set up the Azure IoT Hub Device Provisioning Service using a template
 services: iot-dps
 keywords: 
-author: JimacoMS2
+author: bryanla
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: hero-article
@@ -337,7 +337,7 @@ To delete a resource group and all its resources, run the following command:
 az group delete --name {your resource group name}
 ```
 
-You can also delete resource groups and individual resources using the Azure portal, PowerShell, or REST APIs or supported platform SDKs published for Azure Resource Manager or IoT Hub and Device Provisioning Service.
+You can also delete resource groups and individual resources using the Azure portal, PowerShell, or REST APIs or supported platform SDKs published for Azure Resource Manager or IoT Hub Device Provisioning Service.
 
 ## Next steps
 

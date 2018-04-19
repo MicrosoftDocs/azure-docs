@@ -4,9 +4,8 @@ description: How to moderate text using Azure Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
@@ -194,13 +193,6 @@ The sample output for the program, as written to the log file, is:
     		 "Address": [{
      			 "Text": "1 Microsoft Way, Redmond, WA 98052",
       			 "Index": 89
-    		        }],
-    		 "SSN": [{
-      			"Text": "999999999",
-      			"Index": 56
-    		        }, {
-      			"Text": "999-99-9999",
-      			"Index": 266
     		        }]
   		},
   	"Language": "eng",

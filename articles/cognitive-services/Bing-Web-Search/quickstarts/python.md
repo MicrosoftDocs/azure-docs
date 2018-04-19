@@ -2,9 +2,9 @@
 title: Call and response - Python Quickstart for Azure Cognitive Services, Bing Web Search API | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Bing Web Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-author: jerrykindall
+author: v-jerkin
 ms.service: cognitive-services
-ms.technology: bing-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 9/18/2017
 ms.author: v-jerkin
@@ -30,7 +30,7 @@ Set `subscription_key` to your API key for the Bing API service.
 
 
 ```python
-subscription_key = "96d05359d76f4e758906539daeab939e"
+subscription_key = None
 assert subscription_key
 ```
 

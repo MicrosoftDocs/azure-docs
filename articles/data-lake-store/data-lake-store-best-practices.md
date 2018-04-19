@@ -16,18 +16,20 @@ ms.date: 03/02/2018
 ms.author: sachins
 
 ---
-# Overview of Azure Data Lake Store
+# Best practices for using Azure Data Lake Store
 In this article, you learn about best practices and considerations for working with the Azure Data Lake Store. This article provides information around security, performance, resiliency, and monitoring for Data Lake Store. Before Data Lake Store, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. With Data Lake Store, most of the hard limits for size and performance are removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Store. 
 
 ## Security considerations
 
 Azure Data Lake Store offers POSIX access controls and detailed auditing for Azure Active Directory (Azure AD) users, groups, and service principals. These access controls can be set to existing files and folders. The access controls can also be used to create defaults that can be applied to new files or folders. When permissions are set to existing folders and child objects, the permissions need to be propagated recursively on each object. If there large number of files,  propagating the permissions can take a long time. The time taken can range between 30-50 objects processed per second. Hence, plan the folder structure and user groups appropriately. Otherwise, it can cause unanticipated delays and issues when you work with your data. 
 
-Assume you have a folder with 100,000 child objects. If you take the lower bound of 30 objects processed per second, to update the permission for the whole folder could take an hour. More details on Data Lake Store ACLs are available at [Access control in Azure Data Lake Store](data-lake-store-access-control.md). For improved performance on assigning ACLs recursively, you can use the Azure Data Lake Command-Line Tool. The tool creates multiple threads and recursive navigation logic to quickly apply ACLs to millions of files. The tool is available for Linux and Windows, and the [documentation](https://github.com/Azure/data-lake-adlstool) and [downloads](http://aka.ms/adlstool-download) for this tool can be found on GitHub.
+Assume you have a folder with 100,000 child objects. If you take the lower bound of 30 objects processed per second, to update the permission for the whole folder could take an hour. More details on Data Lake Store ACLs are available at [Access control in Azure Data Lake Store](data-lake-store-access-control.md). For improved performance on assigning ACLs recursively, you can use the Azure Data Lake Command-Line Tool. The tool creates multiple threads and recursive navigation logic to quickly apply ACLs to millions of files. The tool is available for Linux and Windows, and the [documentation](https://github.com/Azure/data-lake-adlstool) and [downloads](http://aka.ms/adlstool-download) for this tool can be found on GitHub. These same performance improvements can be enabled by your own tools written with the Data Lake Store [.NET](data-lake-store-data-operations-net-sdk.md) and [Java](data-lake-store-get-started-java-sdk.md) SDKs.
 
 ### Use security groups versus individual users 
 
-When working with big data in Data Lake Store, most likely a service principal is used to allow services such as Azure  HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In such cases, you must use Azure Active Director security groups instead of assigning individual users to folders and files. Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Store. 
+When working with big data in Data Lake Store, most likely a service principal is used to allow services such as Azure  HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In such cases, you must use Azure Active Directory [security groups](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) instead of assigning individual users to folders and files. 
+
+Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Store. This also helps ensure you don't exceed the limit of [32 Access and Default ACLs](../azure-subscription-service-limits.md#data-lake-store-limits) (this includes the four POSIX-style ACLs that are always associated with every file and folder: [the owning user](data-lake-store-access-control.md#the-owning-user), [the owning group](data-lake-store-access-control.md#the-owning-group), [the mask](data-lake-store-access-control.md#the-mask-and-effective-permissions), and other).
 
 ### Security for groups 
 
@@ -126,7 +128,7 @@ Data Lake Store provides detailed diagnostic logs and auditing. Data Lake Store 
 
 ### Export Data Lake Store diagnostics 
 
-One of the quickest ways to get access to searchable logs from Data Lake Store is to enable log shipping to **Operations Management Suite (OMS)** under the **Diagnostics** blade for the Data Lake Store account. This provides immediate access to incoming logs with time and content filters, along with alerting options (email/webhook) triggered within 15-minute intervals. For instructions, see [Accessing diagnostic logs for Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
+One of the quickest ways to get access to searchable logs from Data Lake Store is to enable log shipping to **Log Analytics** under the **Diagnostics** blade for the Data Lake Store account. This provides immediate access to incoming logs with time and content filters, along with alerting options (email/webhook) triggered within 15-minute intervals. For instructions, see [Accessing diagnostic logs for Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
 
 For more real-time alerting and more control on where to land the logs, consider exporting logs to Azure EventHub where content can be analyzed individually or over a time window in order to submit real-time notifications to a queue. A separate application such as a [Logic App](../connectors/connectors-create-api-azure-event-hubs.md) can then consume and communicate the alerts to the appropriate channel, as well as submit metrics to monitoring tools like NewRelic, Datadog, or AppDynamics. Alternatively, if you are using a third-party tool such as ElasticSearch, you can export the logs to Blob Storage and use the [Azure Logstash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob) to consume the data into your Elasticsearch, Kibana, and Logstash (ELK) stack.
 
@@ -136,7 +138,7 @@ If Data Lake Store log shipping is not turned on, Azure HDInsight also provides 
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Once this is set and the nodes are restarted, Data Lake Store diagnostics is written to the YARN logs on the nodes (/tmp/<user>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in OMS or wherever logs are shipped to in the [Diagnostics](data-lake-store-diagnostic-logs.md) blade of the Data Lake Store account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Store for operational visibility and easier debugging.
+Once the property is set and the nodes are restarted, Data Lake Store diagnostics is written to the YARN logs on the nodes (/tmp/<user>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in Log Analytics or wherever logs are shipped to in the [Diagnostics](data-lake-store-diagnostic-logs.md) blade of the Data Lake Store account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Store for operational visibility and easier debugging.
 
 ### Run synthetic transactions 
 
@@ -152,7 +154,7 @@ In IoT workloads, there can be a great deal of data being landed in the data sto
 
     {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/ 
 
-For example, landing telemetry for an airplane engine within the UK might look like this: 
+For example, landing telemetry for an airplane engine within the UK might look like the following structure: 
 
     UK/Planes/BA1293/Engine1/2017/08/11/12/ 
 
@@ -160,7 +162,7 @@ There's an important reason to put the date at the end of the folder structure. 
 
 ### Batch jobs structure 
 
-From a high-level, a commonly used approach in batch processing is to land data in an “in” folder. Then, once the data is processed, put the new data into an “out” folder for downstream processes to consume. This is seen sometimes for jobs that require processing on individual files and might not require massively parallel processing over large datasets. Like the IoT structure recommended above, a good directory structure has the parent-level folders for things such as region and subject matters (for example, organization, product/producer). This helps with securing the data across your organization and better management of the data in your workloads. Furthermore, consider date and time in the structure to allow better organization, filtered searches, security, and automation in the processing. The level of granularity for the date structure is determined by the interval on which the data is uploaded or processed, such as hourly, daily, or even monthly. 
+From a high-level, a commonly used approach in batch processing is to land data in an “in” folder. Then, once the data is processed, put the new data into an “out” folder for downstream processes to consume. This directory structure is seen sometimes for jobs that require processing on individual files and might not require massively parallel processing over large datasets. Like the IoT structure recommended above, a good directory structure has the parent-level folders for things such as region and subject matters (for example, organization, product/producer). This structure helps with securing the data across your organization and better management of the data in your workloads. Furthermore, consider date and time in the structure to allow better organization, filtered searches, security, and automation in the processing. The level of granularity for the date structure is determined by the interval on which the data is uploaded or processed, such as hourly, daily, or even monthly. 
 
 Sometimes file processing is unsuccessful due to data corruption or unexpected formats. In such cases, directory structure might benefit from a **/bad** folder to move the files to for further inspection. The batch job might also handle the reporting or notification of these *bad* files for manual intervention. Consider the following template structure: 
 
@@ -168,7 +170,7 @@ Sometimes file processing is unsuccessful due to data corruption or unexpected f
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-For example, a marketing firm receiving daily data extracts of customer updates from their clients in North America might look like this before and after being processed: 
+For example, a marketing firm receives daily data extracts of customer updates from their clients in North America. It might look like the following snippet before and after being processed: 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 

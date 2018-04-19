@@ -5,7 +5,7 @@ services: cognitive-services
 author: KellyDF
 manager: corncar
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: kefre
@@ -44,7 +44,7 @@ To begin analyzing images, in the following code, replace `subscription_key` wit
 
 
 ```python
-subscription_key = "cfa2ac95fcf04101b79b839837876d16"
+subscription_key = None
 assert subscription_key
 ```
 

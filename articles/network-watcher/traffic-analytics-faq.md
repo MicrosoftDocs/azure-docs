@@ -1,6 +1,6 @@
 ---
-title: Azure Traffic Analytics frequently asked questions | Microsoft Docs
-description: Get answers to some of the most frequently asked questions about Traffic Analytics.
+title: Azure traffic analytics frequently asked questions | Microsoft Docs
+description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -16,9 +16,9 @@ ms.date: 03/08/2018
 ms.author: jdial
 ---
 
-# Traffic Analytics frequently asked questions
+# Traffic analytics frequently asked questions
 
-1.  What are the pre-requisites to use Traffic Analytics?
+1.  What are the pre-requisites to use traffic analytics?
 
     Traffic Analytics requires the following pre-requisites:
 
@@ -26,10 +26,22 @@ ms.author: jdial
     - NSG flow logs enabled for the NSGs you want to monitor
     - An Azure Storage account, to store raw flog logs
     - A Log Analytics (OMS) Workspace, with read and write access
+    - Your account must be assigned the following actions on the Microsoft.Network provider:
 
-2.  Which Azure regions are Traffic Analytics available in?
+        - Microsoft.Network/applicationGateways/read
+        - Microsoft.Network/connections/read
+        - Microsoft.Network/loadBalancers/read 
+        - Microsoft.Network/localNetworkGateways/read 
+        - Microsoft.Network/networkInterfaces/read 
+        - Microsoft.Network/networkSecurityGroups/read 
+        - Microsoft.Network/publicIPAddresses/read
+        - Microsoft.Network/routeTables/read
+        - Microsoft.Network/virtualNetworkGateways/read 
+        - Microsoft.Network/virtualNetworks/read
 
-    While in preview release, you can use Traffic Analytics for NSGs in any of the following **supported regions**: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US-2, West Europe, North Europe, West UK, South UK, Australia East, and Australia Southeast. The Log Analytics workspace must exist in the West Central US, East US, West Europe, Australia Southeast, or the South UK region.
+2.  Which Azure regions are traffic analytics available in?
+
+    While in preview release, you can use traffic analytics for NSGs in any of the following **supported regions**: West Central US, East US, East US 2, North Central US, South Central US, Central US, West US, West US-2, West Europe, North Europe, West UK, South UK, Australia East, and Australia Southeast. The Log Analytics workspace must exist in the West Central US, East US, West Europe, Australia Southeast, or the South UK region.
 
 3.  Can the NSGs I enable flow logs for be in different regions than my OMS Workspace?
 
@@ -51,7 +63,7 @@ ms.author: jdial
 
     No. You can store raw logs in any storage account where an NSG is enabled for flow logs, however, both the storage account and the raw logs must be in the same subscription and region.
 
-8.  If I receive a "Not found" error while configuring an NSG for Traffic Analytics, how can I resolve it?
+8.  If I receive a "Not found" error while configuring an NSG for traffic analytics, how can I resolve it?
 
     Select a supported region listed in question 2. If you select a non-supported region, you receive a "Not found" error.
 
@@ -80,7 +92,7 @@ ms.author: jdial
 12.  If I receive the following message: “1) Analyzing your NSG flow logs for the first time. This process may take 20-30 minutes to complete. Check back after some time. 2) If the above step doesn’t work and your workspace is under the free SKU, then check your workspace usage here to validate over quota, else refer to FAQs for further information”, how do I resolve it?
 
         You may receive the error for the following reasons:
-        - Traffic Analytics may have been recently enabled and may be aggregating enough data for it to derive meaningful insights before any reports can be generated. In this case, try again after 30 minutes
+        - Traffic analytics may have been recently enabled and may not yet have aggregated enough data for it to derive meaningful insights.
         - Your OMS Workspace is under the free SKU and it breached the quota limits. In this case, you may need to use a workspace in a SKU with larger capacity.
     
         If issues persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -89,11 +101,15 @@ ms.author: jdial
 
         You are seeing the resources information on the dashboard; however, no flow-related statistics are present. Data may not be present because of no communication flows between the resources. Wait for 60 mins and recheck status. If you're sure that communication flows among resources exist, then raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  How is Traffic Analytics priced?
+14. Can I configure traffic analytics using PowerShell or an Azure Resource Manager template?
 
-        No charges are billed while Traffic Analytics is in Public Preview. Generation of NSG Flow Logs and retention of data in an OMS workspace are subject to charges at published rates.
+    No, traffic analytics can only be configured using the Azure portal.
 
-15.  How can I navigate using Keyboard in Geo Map View?
+15.  How is traffic analytics priced?
+
+        Traffic analytics is metered for enhancing reduced logs, and storing the enhanced logs in a Log Analytics workspace. While in preview, traffic analytics is not billed for enhancing the reduced logs, however retention of data in a workspace is subject to billing at published rates. This answer will be updated once pricing for traffic analytics is available.
+
+16.  How can I navigate using Keyboard in Geo Map View?
 
         The geo-map page contains two main sections:
     

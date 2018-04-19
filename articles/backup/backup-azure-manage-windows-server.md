@@ -194,6 +194,8 @@ From the **Actions** available at the right of the backup agent console you perf
 >
 >
 
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## Modify the backup schedule
 1. In the Microsoft Azure Backup agent click **Schedule Backup**.
 

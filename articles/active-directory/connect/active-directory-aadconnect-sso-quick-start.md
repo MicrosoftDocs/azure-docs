@@ -28,7 +28,7 @@ To deploy Seamless SSO, follow these steps.
 
 Ensure that the following prerequisites are in place:
 
-* **Set up your Azure AD Connect server**: If you use [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) as your sign-in method, no additional prerequisite check is required. If you use [password hash synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) as your sign-in method, and if there is a firewall between Azure AD Connect and Azure AD, ensure that:
+* **Set up your Azure AD Connect server**: If you use [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) as your sign-in method, no additional prerequisite check is required. If you use [password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) as your sign-in method, and if there is a firewall between Azure AD Connect and Azure AD, ensure that:
    - You use version 1.1.644.0 or later of Azure AD Connect. 
    - If your firewall or proxy allows DNS whitelisting, whitelist the connections to the **\*.msappproxy.net** URLs over port 443. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly. This prerequisite is applicable only when you enable the feature. It is not required for actual user sign-ins.
 
@@ -130,7 +130,7 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 
 #### Safari (Mac OS)
 
-Ensure that the machine running the Mac OS is joined to Azure AD. For instructions on joining Azure AD, see [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Ensure that the machine running the Mac OS is joined to AD. For instructions on joining AD, see [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
 
 #### Google Chrome (all platforms)
 

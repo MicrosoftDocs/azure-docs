@@ -2,19 +2,13 @@
 title: Manage after migration - Azure SQL Database | Microsoft Docs
 description: Learn how to manage your database after migration to Azure SQL Database.
 services: sql-database
-documentationcenter: ''
 author: joesackmsft
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "Inactive"
-ms.date: 12/06/2016
-ms.author: Joe.Sack
+ms.date: 03/16/2018
+ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
@@ -22,7 +16,7 @@ ms.component: migration
 
 # New DBA in the cloud – Managing your database in Azure SQL Database
 
-Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who: -
+Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who: 
 - Are evaluating migration of their application(s) to Azure SQL DB – Modernizing your application(s).
 - Are In the process of migrating their application(s) – On-going migration scenario.
 - Have recently completed the migration to Azure SQL DB – New DBA in the cloud.
@@ -221,7 +215,7 @@ Your approach towards troubleshooting performance issues can significantly benef
 
 With performance troubleshooting, it is important to identify whether it is just the application or the database backing it, that’s impacting your application performance. Often the performance problem lies in the application layer. It could be the architecture or the data access pattern. For example, consider you have a chatty application that is sensitive to network latency. In this case, your application suffers because there would be many short requests going back and forth ("chatty") between the application and the server and on a congested network, these roundtrips add up fast. To improve the performance in this case, you can use [Batch Queries](sql-database-performance-guidance.md#batch-queries). Using batches helps you tremendously because now your requests get processed in a batch; thus, helping you cut down on the roundtrip latency and improve your application performance. 
 
-Additionally, if you notice a degradation in the overall performance of your database, you can monitor the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamic management views in order to understand CPU, I/O, and memory consumption. Your performance maybe impacted because your database is starved of resources. It could be that you may need to change the performance level and/or service tier based on the growing and shrinking workload demands. 
+Additionally, if you notice a degradation in the overall performance of your database, you can monitor the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamic management views in order to understand CPU, IO, and memory consumption. Your performance maybe impacted because your database is starved of resources. It could be that you may need to change the performance level and/or service tier based on the growing and shrinking workload demands. 
 
 For a comprehensive set of recommendations for tuning performance issues, see: [Tune your database](sql-database-performance-guidance.md#tune-your-database).
 

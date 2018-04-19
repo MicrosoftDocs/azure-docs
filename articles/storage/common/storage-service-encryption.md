@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/14/2018
 ms.author: lakasa
 
 ---
@@ -49,7 +49,7 @@ A: Storage Service Encryption is enabled by default on all existing Resource Man
 
 **Q: How do I encrypt the data in a Resource Manager storage account?**
 
-A: Storage Service Encryption is enabled by default for all storage accounts--classic and Resource Manager. However, existing data is not encrypted. To encrypt existing data, you can copy it to another name or another container and then remove the unencrypted versions. 
+A: Storage Service Encryption is enabled by default for all storage accounts--classic and Resource Manager, any existing files in the storage account created before encryption was enabled will retroactively get encrypted by a background encryption process.
 
 **Q: Can I create storage accounts with Storage Service Encryption enabled by using Azure PowerShell and Azure CLI?**
 
@@ -59,21 +59,17 @@ A: Storage Service Encryption is enabled by default at the time of creating any 
 
 A: There is no additional cost.
 
-**Q: Who manages the encryption keys?**
-
-A: Microsoft manages the keys.
-
 **Q: Can I use my own encryption keys?**
 
-A: Not at this time.
+A: Yes, you can use your own encryption keys. For more information, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **Q: Can I revoke access to the encryption keys?**
 
-A: Not at this time. Microsoft fully manages the keys.
+A: Yes, if you [use your own encryption keys](storage-service-encryption-customer-managed-keys.md) in Azure Key Vault.
 
 **Q: Is Storage Service Encryption enabled by default when I create a storage account?**
 
-A: Yes, Storage Service Encryption (using Microsoft-managed keys) is enabled by default for all storage accounts--Azure Resource Manager and classic. It's enabled for all services as well--Blob storage, Table storage, Queue storage, and Azure Files.
+A: Yes, Storage Service Encryption is enabled by default for all storage accounts and for all Azure Storage services.
 
 **Q: How is this different from Azure Disk Encryption?**
 
