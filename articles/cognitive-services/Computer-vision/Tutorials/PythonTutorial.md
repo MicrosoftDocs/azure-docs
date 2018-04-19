@@ -4,9 +4,8 @@ description: Learn how to use the Computer Vision API with Python by using Jupyt
 services: cognitive-services
 author: KellyDF
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 02/25/2017
 ms.author: kefre

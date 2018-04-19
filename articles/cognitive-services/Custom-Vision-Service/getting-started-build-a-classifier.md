@@ -4,9 +4,8 @@ description: Build a classifier to discern objects in photographs.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: anroth
