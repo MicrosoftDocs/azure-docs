@@ -18364,6 +18364,17 @@
             "source_path": "articles/active-directory/active-directory-passwords-writeback.md",
             "redirect_url": "/azure/active-directory/authentication/howto-sspr-writeback",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-with-bcp.md",
+            "redirect_url": "/azure/sql-data-warehouse/design-elt-data-loading",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-with-redgate.md",
+            "redirect_url": "/azure/sql-data-warehouse/design-elt-data-loading",
+            "redirect_document_id": false
         }
+
     ]
 }
