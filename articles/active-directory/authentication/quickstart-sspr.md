@@ -22,11 +22,11 @@ ms.custom: it-pro;seohack1
 # Azure AD self-service password reset rapid deployment
 
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, see [Help, I forgot my Azure AD password](active-directory-passwords-update-your-own-password.md).
+> **Are you here because you're having problems signing in?** If so, see [Help, I forgot my Azure AD password](../active-directory-passwords-update-your-own-password.md).
 
 Self-service password reset (SSPR) offers a simple means for IT administrators to empower users to reset or unlock their passwords or accounts. The system includes detailed reporting that tracks when users access the system, along with notifications to alert you to misuse or abuse.
 
-This guide assumes you already have a working trial or licensed Azure Active Directory (Azure AD) tenant. If you need help setting up Azure AD, see [Getting started with Azure AD](get-started-azure-ad.md).
+This guide assumes you already have a working trial or licensed Azure Active Directory (Azure AD) tenant. If you need help setting up Azure AD, see [Getting started with Azure AD](../get-started-azure-ad.md).
 
 ## Enable SSPR for your Azure AD tenant
 
@@ -62,18 +62,18 @@ This guide assumes you already have a working trial or licensed Azure Active Dir
    * Notify users on password resets.
    * Notify all admins when other admins reset their password.
 
-At this point, you have configured SSPR for your Azure AD tenant. Your users can now use the instructions found in the articles [Register for self-service password reset](active-directory-passwords-reset-register.md) and [Reset or change your password](active-directory-passwords-update-your-own-password.md) to update their password without administrator intervention. You can stop here if you're cloud-only. Or you can continue to the next section to configure the synchronization of passwords to an on-premises Active Directory domain.
+At this point, you have configured SSPR for your Azure AD tenant. Your users can now use the instructions found in the articles [Register for self-service password reset](../active-directory-passwords-reset-register.md) and [Reset or change your password](../active-directory-passwords-update-your-own-password.md) to update their password without administrator intervention. You can stop here if you're cloud-only. Or you can continue to the next section to configure the synchronization of passwords to an on-premises Active Directory domain.
 
 > [!TIP]
-> Test SSPR with a user rather than an administrator, because Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](authentication/concept-sspr-policy.md#administrator-password-policy-differences) article.
+> Test SSPR with a user rather than an administrator, because Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](concept-sspr-policy.md#administrator-password-policy-differences) article.
 
 ## Configure synchronization to an existing identity source
 
-To enable on-premises identity synchronization to Azure AD, you need to install and configure [Azure AD Connect](./connect/active-directory-aadconnect.md) on a server in your organization. This application handles the synchronization of users and groups from your existing identity source to your Azure AD tenant. For more information, see:
+To enable on-premises identity synchronization to Azure AD, you need to install and configure [Azure AD Connect](./../connect/active-directory-aadconnect.md) on a server in your organization. This application handles the synchronization of users and groups from your existing identity source to your Azure AD tenant. For more information, see:
 
-* [Upgrade from DirSync or Azure AD Sync to Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
-* [Get started with Azure AD Connect by using express settings](./connect/active-directory-aadconnect-get-started-express.md)
-* [Configure password writeback](active-directory-passwords-writeback.md#configure-password-writeback) to write passwords from Azure AD back to your on-premises directory
+* [Upgrade from DirSync or Azure AD Sync to Azure AD Connect](./../connect/active-directory-aadconnect-dirsync-deprecated.md)
+* [Get started with Azure AD Connect by using express settings](./../connect/active-directory-aadconnect-get-started-express.md)
+* [Configure password writeback](howto-sspr-writeback.md#configure-password-writeback) to write passwords from Azure AD back to your on-premises directory
 
 ### On-premises policy change
 
@@ -94,18 +94,18 @@ It's easy to disable self-service password reset. Open your Azure AD tenant and 
 ### Learn more
 The following articles provide additional information regarding password reset through Azure AD:
 
-* [How do I complete a successful rollout of SSPR?](authentication/howto-sspr-deployment.md)
-* [Reset or change your password](active-directory-passwords-update-your-own-password.md)
-* [Register for self-service password reset](active-directory-passwords-reset-register.md)
-* [Do you have a licensing question?](authentication/concept-sspr-licensing.md)
-* [What data is used by SSPR and what data should you populate for your users?](authentication/howto-sspr-authenticationdata.md)
-* [What authentication methods are available to users?](authentication/concept-sspr-howitworks.md#authentication-methods)
-* [What are the policy options with SSPR?](authentication/concept-sspr-policy.md)
-* [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
-* [How do I report on activity in SSPR?](authentication/howto-sspr-reporting.md)
-* [What are all of the options in SSPR and what do they mean?](authentication/concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](authentication/active-directory-passwords-troubleshoot.md)
-* [I have a question that was not covered somewhere else](authentication/active-directory-passwords-faq.md)
+* [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
+* [Reset or change your password](../active-directory-passwords-update-your-own-password.md)
+* [Register for self-service password reset](../active-directory-passwords-reset-register.md)
+* [Do you have a licensing question?](concept-sspr-licensing.md)
+* [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
+* [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
+* [What are the policy options with SSPR?](concept-sspr-policy.md)
+* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
+* [How do I report on activity in SSPR?](howto-sspr-reporting.md)
+* [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
+* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
+* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
 ## Next steps
 
@@ -114,6 +114,6 @@ In this quickstart, you’ve learned how to configure self-service password rese
 > [!div class="nextstepaction"]
 > [Enable self-service password reset](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
 
-[Authentication]: ./media/active-directory-passwords-getting-started/sspr-authentication-methods.png "Azure AD authentication methods available and the quantity required"
-[Policy]: ./media/active-directory-passwords-getting-started/password-policy.png "On-premises password Group Policy set to 0 days"
+[Authentication]: ./media/quickstart-sspr/sspr-authentication-methods.png "Azure AD authentication methods available and the quantity required"
+[Policy]: ./media/quickstart-sspr/password-policy.png "On-premises password Group Policy set to 0 days"
 
