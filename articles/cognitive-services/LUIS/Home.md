@@ -72,19 +72,14 @@ For example, a "BookFlight" intent could trigger an API call to an external serv
 
 * **Custom Entities** LUIS gives you several ways to identify your own custom [entities][entity-concept] including simple entities, composite entities, list entities, regular expression entities, hierarchical entities, and key phrase entities.
 
-## Improve performance
-Once your application is [published][publish-app] and real user utterances are entered, LUIS provides several methods to improve prediction accuracy including: [active learning][label-suggested-utterances], [phrase lists](luis-concept-feature.md), and [patterns][patterns]. 
+### Improve performance
+Once your application is [published][publish-app] and real user utterances are entered, LUIS provides several methods to improve prediction accuracy.
 
-### Active learning
-In the active learning process, LUIS provides real utterances that it is relatively unsure of for you to review. You can label them according to intent and entities, retrain, and republish.
+* **Active learning** In the [active learning](label-suggested-utterances.md) process, LUIS provides real utterances that it is relatively unsure of for you to review. You can label them according to intent and entities, retrain, and republish. This iterative process has tremendous advantages. LUIS knows what it is unsure of, and your help leads to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. LUIS is an active machine learning at its best. 
 
-This iterative process has tremendous advantages. LUIS knows what it is unsure of, and your help leads to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. LUIS is an active machine learning at its best. 
+* **Phrase lists** LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate words or phrases that are significant to your app domain.  
 
-### Phrase lists
-LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate words or phrases that are significant to your app domain.  
-
-### Patterns
-Patterns allow you to simplify an intent's utterance collection into common patterns of word choice and word order. 
+* **Patterns** Patterns allow you to simplify an intent's utterance collection into common [patterns][patterns] of word choice and word order. 
 
 ## Next steps
 Create a [new LUIS app](LUIS-get-started-create-app.md).
