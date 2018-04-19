@@ -17,8 +17,8 @@ ms.author: luisca
 ---
 #	Microsoft.Skills.Vision.ImageAnalysis cognitive skill
 
-Important note:
-The analyze image skill is not working in the April 4 build. This will be fixed in the next drop.
+> [!Note]
+> The analyze image skill is not working in the April 4 build. This will be fixed in the next drop.
 
 
 The image analysis skill extracts a rich set of visual features based on the image content. For instance, you can generate a caption from an image, generate tags, or identify celebrities and landmarks.
