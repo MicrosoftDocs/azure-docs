@@ -26,4 +26,4 @@ For containers running outside of the hosted Azure Kubernetes service, the Log A
 
 Once you have configured container monitoring, you should consider including any other application component dependencies (that is, Azure resources) to avoid any monitoring gaps with the application and ensure that you are able to meet operating and service availability requirements.  
 
-Finally, its important to monitor the application running on one ore more containers to identify issues that impact usability and responsiveness for users accessing those applications.  This can be accomplished with [Application Insights](../application-insights/app-insights-overview.md) and deliver end-to-end monitoring of application health.  
+Finally, it is important to monitor the application running on one or more containers to identify issues that impact usability and responsiveness for users accessing those applications.  This can be accomplished with [Application Insights](../application-insights/app-insights-overview.md) and deliver end-to-end monitoring of application health.  
