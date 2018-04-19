@@ -4,10 +4,9 @@ description: Shows how to use Bing Spell Check.
 services: cognitive-services
 author: v-jaswel
 manager: kamrani
-
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
-ms.technology: bing-spell-check
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-jaswel

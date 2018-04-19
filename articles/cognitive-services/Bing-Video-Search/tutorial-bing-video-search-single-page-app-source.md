@@ -4,9 +4,8 @@ description: Source code for tutorial showing how to use the Bing Video Search A
 services: cognitive-services
 author: mikedodaro
 manager: rosh
-
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: v-gedod

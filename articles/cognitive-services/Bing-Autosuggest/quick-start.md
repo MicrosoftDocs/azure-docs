@@ -4,10 +4,9 @@ description: Shows how to get started using the Bing Autosuggest API.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 1482E781-7352-4A3F-B1D5-B896381348C4
 ms.service: cognitive-services
-ms.technology: bing-autosuggest
+ms.component: bing-autosuggest
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
