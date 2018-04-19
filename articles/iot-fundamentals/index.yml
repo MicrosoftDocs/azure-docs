@@ -78,20 +78,20 @@ sections:
   items:
   - type: list
     style: cards
-    className: cardsM
+    className: cardsI
     columns: 2
     items:
     - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player
       html: <p>Contoso HVAC’s Digital transformation through Internet of Things solutions</p>
       image: 
-        src: media/index/contoso-hvac-iot-part1.png
+        src: media/index/i_video.png
       title: Introduction 
     - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player
       html: <p>Codeless IoT Solution with Azure IoT Central</p>
       image: 
-        src: media/index/contoso-hvac-iot-part8.png
+        src: media/index/i_video.png
       title: Demonstration
-      
+
 - title: Reference
   items:
   - type: list
