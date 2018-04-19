@@ -13,10 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 04/19/2018
 ms.author: v-ant-msft
 ---
-
 # Tutorial: Configure xMatters OnDemand for automatic user provisioning
 
 The objective of this tutorial is to demonstrate the steps to be performed in xMatters OnDemand and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to xMatters OnDemand.
@@ -30,17 +29,18 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 *   An Azure AD tenant
 *   A xMatters OnDemand tenant with the [Starter](https://www.xmatters.com/pricing) plan or better enabled 
-*   A user account in xMatters OnDemand with Admin permissions 
+*   A user account in xMatters OnDemand with Admin permissions
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [xMatters OnDemand API](https://help.xmatters.com/xmAPI), which is available to xMatters OnDemand teams on the Enterprise plan or better.
+> The Azure AD provisioning integration relies on the [xMatters OnDemand API](https://help.xmatters.com/xmAPI), which is available to xMatters OnDemand teams on the Starter plan or better.
 
 ## Adding xMatters OnDemand from the gallery
+
 Before configuring xMatters OnDemand for automatic user provisioning with Azure AD, you need to add xMatters OnDemand from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add xMatters OnDemand from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click on the **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click on the **Azure Active Directory** icon.
 
 	![The Azure Active Directory button][1]
 
@@ -101,11 +101,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Admin Username**, **Admin Password**, and **Domain** of your xMatters OnDemand's account.
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Cornerstone OnDemand  Tenant. Example: admin@contoso.com.
+	*   In the **Admin Username** field, populate the username of the admin account on your xMatters OnDemand tenant. Example: admin@contoso.com.
 
 	*   In the **Admin Password** field, populate the password corresponding to the admin username.
 
-	*   In the **Domain** field, fill the subdomain you registered with xMatters OnDmand for your tenant.
+	*   In the **Domain** field, fill the subdomain you registered with xMatters OnDemand for your tenant.
 
 6. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to xMatters OnDemand. If the connection fails, ensure your xMatters OnDemand account has Admin permissions and try again.
 
