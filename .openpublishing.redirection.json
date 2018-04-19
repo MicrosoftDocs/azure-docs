@@ -31,7 +31,7 @@
             "redirect_document_id": false
 	      },
 	      {
-            "source_path": "articles\active-directory\develop\active-directory-v2-devquickstarts-wpf.md",
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md",
             "redirect_url": "https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-windesktop",
             "redirect_document_id": false
 	      },
