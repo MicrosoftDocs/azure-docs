@@ -24,7 +24,10 @@ If the [built-in roles](built-in-roles.md) don't meet your specific access needs
 
 ## Create a custom role to open support requests using PowerShell
 
-To create a custom role, you can start with a built-in role, edit it, and then create a new role. For this example, the built-in [Reader](built-in-roles.md#reader) role has been customized to allow the user to open support requests.
+To create a custom role, you can start with a built-in role, edit it, and then create a new role. For this example, the built-in [Reader](built-in-roles.md#reader) role is customized to create a custom role named  "Reader support tickets access level". It allows the user to view everything in the subscription and also open support requests.
+
+> [!NOTE]
+> The only two built-in roles that allow a user to open support requests are [Owner](built-in-roles.md#owner) and [Contributor](built-in-roles.md#contributor). For a user to be able to open support requests, he must be assigned a role at the subscription scope, because all support requests are created based on an Azure subscription.
 
 In PowerShell, use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command to export the [Reader](built-in-roles.md#reader) role in JSON format.
 
@@ -32,7 +35,7 @@ In PowerShell, use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.re
 Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
 ```
 
-The following shows the JSON output for the [Reader](built-in-roles.md#reader) role.
+The following shows the JSON output for the [Reader](built-in-roles.md#reader) role. A typical role is composed of three main sections, `Actions`, `NotActions`, and `AssignableScopes`. A role can also optionally include `DataActions` and `NotDataActions` (currently in preview). The `Actions` section lists all the permitted operations for the role. To exclude operations from `Actions`, you add them to `NotActions`. The effective permissions is computed by subtracting the `NotActions` operations from the `Actions` operations.
 
 ```json
 {
@@ -58,7 +61,11 @@ The following shows the JSON output for the [Reader](built-in-roles.md#reader) r
 }
 ```
 
-Next, you edit the JSON output to create your custom role.
+Next, you edit the JSON output to create your custom role. In this case, to create support tickets, the `Microsoft.Support/*` operation must be added. Each operation is made available from a resource provider. To get a list of the operations for a resource provider, you can use the [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) command or see [Azure Resource Manager resource provider operations](resource-provider-operations.md).
+
+It's mandatory that the role contains the explicit subscription IDs where it is used. The subscription IDs are listed under `AssignableScopes`, otherwise you will not be allowed to import the role into your subscription.
+
+Finally, you must set the `IsCustom` property to `true` to specify that this is a custom role.
 
 ```json
 {
@@ -84,26 +91,11 @@ Next, you edit the JSON output to create your custom role.
 }
 ```
 
-A typical role is composed of three main sections, `Actions`, `NotActions`, and `AssignableScopes`. A role can also optionally include `DataActions` and `NotDataActions` (currently in preview).
-
-The `Actions` section lists all the permitted operations for the role. In this case, to create support tickets, the `Microsoft.Support/*` operation must be added. To exclude operations from `Actions`, you add them to `NotActions`. The effective permissions is computed by subtracting the `NotActions` operations from the `Actions` operations.
-
-Each operation is made available from a resource provider. To get a list of the operations for a resource provider, you can use the [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) command or see [Azure Resource Manager resource provider operations](resource-provider-operations.md).
-
-It's mandatory that the role contains the explicit subscription IDs where it is used. The subscription IDs are listed under `AssignableScopes`, otherwise you will not be allowed to import the role into your subscription.
-
-Finally, you must set the `IsCustom` property to `true` to specify that this is a custom role.
-
 To create the new custom role, you use the [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) command and provide the updated JSON role definition file.
 
 ```azurepowershell
 New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
 ```
-
-In this example, the name for this custom role is "Reader support tickets access level". It allows the user to view everything in the subscription and also open support requests.
-
-> [!NOTE]
-> The only two built-in roles that allow a user to open support requests are [Owner](built-in-roles.md#owner) and [Contributor](built-in-roles.md#contributor). For a user to be able to open support requests, he must be assigned a role at the subscription scope, because all support requests are created based on an Azure subscription.
 
 After running [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition), the new custom role is available in the Azure portal and can be assigned to users.
 
