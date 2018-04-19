@@ -1,5 +1,5 @@
 ---
-title: Synchronizing guest users with alternate login id | Microsoft Docs
+title: Synchronizing guest users user accounts that use email for sign-in | Microsoft Docs
 description: This article explains how to synchronize guest user accounts that use an alternate ID to sign in to applications.
 services: active-directory
 author: billmath
@@ -7,11 +7,11 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/19/2018
 ms.author: billmath
 ---
 
-# Synchronizing guest user accounts with alternate login ID
+# Synchronizing guest user accounts that use email for sign-in
 The following scenario address the situation where you may have external users in your on-premises AD environment, such as partners, who use an alternate sign in method.
 
 In our example below, Nina Morin works for Fabrikam and she has the following email address: nmorin@fabrikam.com.  Nina is a partner with Contoso and she needs access to certain applications that Contoso has.  Contoso has created an account for Nina and has directed Nina to use her email address to sign in to applications.
