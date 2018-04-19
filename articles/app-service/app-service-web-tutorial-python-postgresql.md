@@ -181,17 +181,11 @@ The Azure CLI confirms the firewall rule creation with output similar to the fol
 
 ```json
 {
-<<<<<<< HEAD
   "additionalProperties": {},
   "endIpAddress": "255.255.255.255",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAllIPs",
   "name": "AllowAllIPs",
-=======
-  "endIpAddress": "0.0.0.0",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAzureIPs",
-  "name": "AllowAzureIPs",
->>>>>>> 1438b43a211dc636ed2142cb4089c0ea76acc983
-  "resourceGroup": "myResourceGroup",
+ "resourceGroup": "myResourceGroup",
   "startIpAddress": "0.0.0.0",
   "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
 }
