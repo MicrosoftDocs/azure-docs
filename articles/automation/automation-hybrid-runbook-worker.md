@@ -144,6 +144,12 @@ You can remove one or more Hybrid Runbook Workers from a group or you can remove
 2. From the **Settings** blade, select **Keys** and note the values for field **URL** and **Primary Access Key**. You need this information for the next step.
 3. Open a PowerShell session in Administrator mode and run the following command - `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`. Use the **-Verbose** switch for a detailed log of the removal process.
 
+To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter to remove stale machines from the group.
+
+```powershell-interactive
+Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
+```
+
 > [!NOTE]
 > This does not remove the Microsoft Monitoring Agent from the computer, only the functionality and configuration of the Hybrid Runbook Worker role.
 
