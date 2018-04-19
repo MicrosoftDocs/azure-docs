@@ -1,22 +1,17 @@
 ---
-title: 'Planned maintenance for Azure SQL Data Warehouse | Microsoft Docs'
+title: Planned maintenance - Azure SQL Data Warehouse | Microsoft Docs
 description: Learn how to prepare for planned maintenance events to your Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: ''
 author: antvgski
-manager: jhubbard
-editor: ''
-
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,DBs & servers
-ms.workload: "Active"
-ms.tgt_pltfrm: portal
-ms.devlang: na
-ms.topic: concepts
-ms.date: 03/12/2018
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/19/2018
 ms.author: anvang
-
+ms.reviewer: igorstan
 ---
+
 # Planning for maintenance on your Azure SQL data warehouse
 
 Learn how to prepare for planned maintenance events on your Azure SQL data warehouse.

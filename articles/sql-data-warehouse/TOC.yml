@@ -47,6 +47,8 @@
       href: sql-data-warehouse-auditing-overview.md
     - name: Capacity limits
       href: sql-data-warehouse-service-capacity-limits.md
+    - name: Maintenance
+      href: service-maintenance.md
     - name: FAQ
       href: sql-data-warehouse-overview-faq.md
   - name: Security
