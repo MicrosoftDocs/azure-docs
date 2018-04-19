@@ -12,7 +12,7 @@ ms.date: 04/19/2018
 ---
 # Stream data as input into Stream Analytics
 
-Stream Analytics accepts data incoming from several kinds of event sources. The data provided as a input into a Stream Analytics job is referred to as the job's *input*. 
+Stream Analytics accepts data incoming from several kinds of event sources. The data connection provided as an input into a Stream Analytics job is referred to as the job's *input*. 
 
 Stream Analytics has first-class integration with Azure data streams as inputs from three kinds of resources:
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
@@ -28,22 +28,19 @@ As data is pushed to a data source, it's consumed by the Stream Analytics job an
 A data stream is an unbounded sequence of events over time. Stream Analytics jobs must include at least one data stream input. Event Hubs, IoT Hub, and Blob storage are supported as data stream input sources. Event Hubs are used to collect event streams from multiple devices and services. These streams might include social media activity feeds, stock trade information, or data from sensors. IoT Hubs are optimized to collect data from connected devices in Internet of Things (IoT) scenarios.  Blob storage can be used as an input source for ingesting bulk data as a stream, such as log files.  
 
 ### Reference data
-Stream Analytics also supports input known as *reference data*. This is auxiliary data that is either static or that changes slowly. It's typically used for performing correlation and lookups. For example, you might join data in the data stream input to data in the reference data, much as you would perform a SQL join to look up static values. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 100 MB in size.
+Stream Analytics also supports input known as *reference data*. This is auxiliary data that is either static or that changes slowly. Reference data is typically used to perform correlation and lookups. For example, you might join data in the data stream input to data in the reference data, much as you would perform a SQL join to look up static values. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 100 MB in size.
 
 To learn how to create reference data inputs, see [Use Reference Data](stream-analytics-use-reference-data.md).  
 
 ## Compression
-
-Azure Stream Analytics supports compression across all data stream input sources (Event Hubs, IoT Hub, and Blob storage). This feature adds a new dropdown option to the **New input** blade in Azure Portal, allowing you to optionally choose to compress data streams. Currently supported reference types are: None, GZip, and Deflate compression. Support for compression is not available for reference data.
-
-You don't need to specify compression type with Avro serialization. If the input Avro data is compressed, it is handled transparently. 
+Stream Analytics supports compression across all data stream input sources. Currently supported reference types are: None, GZip, and Deflate compression. Support for compression is not available for reference data. If the input format is Avro data that is compressed, it's handled transparently. You don't need to specify compression type with Avro serialization. 
 
 ## Create or edit inputs
 To create new inputs, and list or edit existing inputs on your streaming job, you can use the Azure portal:
 1. Open the [Azure portal](https://portal.azure.com) to locate and select your Stream Analytics job.
 2. Select the **Inputs** option under the **SETTINGS** heading. 
 4. The **Inputs** page lists any existing inputs. 
-5. On the **Inputs** page, select **Add stream input** or **Add reference intput** to open the details page.
+5. On the **Inputs** page, select **Add stream input** or **Add reference input** to open the details page.
 6. Select an existing input to edit the details and select **Save** to edit an existing input.
 7. Select **Test** on the input details page to verify that the connection options are valid and working. 
 8. Right-click on the name of an existing input, and select **Sample data from input** as needed for further testing.
@@ -51,7 +48,7 @@ To create new inputs, and list or edit existing inputs on your streaming job, yo
 
 ## Stream data from Event Hubs
 
-Azure Event Hubs provides highly scalable publish-subscribe event ingestors. An event hub can collect millions of events per second, so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs and Stream Analytics together provide you with an end-to-end solution for real-time analytics—Event Hubs let you feed events into Azure in real time, and Stream Analytics jobs can process those events in real time. For example, you can send web clicks, sensor readings, or online log events to Event Hubs. You can then create Stream Analytics jobs to use Event Hubs as the input data streams for real-time filtering, aggregating, and correlation.
+Azure Event Hubs provides highly scalable publish-subscribe event ingestors. An event hub can collect millions of events per second, so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs and Stream Analytics together provide you with an end-to-end solution for real-time analytics. Event Hubs let you feed events into Azure in real time, and Stream Analytics jobs can process those events in real time. For example, you can send web clicks, sensor readings, or online log events to Event Hubs. You can then create Stream Analytics jobs to use Event Hubs as the input data streams for real-time filtering, aggregating, and correlation.
 
 The default timestamp of events coming from Event Hubs in Stream Analytics is the timestamp that the event arrived in the event hub, which is `EventEnqueuedUtcTime`. To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) keyword.
 
@@ -119,7 +116,7 @@ The following table explains each property in the **New input** page in the Azur
 | **Endpoint** | The endpoint for the IoT Hub.|
 | **Shared access policy name** | The shared access policy that provides access to the IoT Hub. Each shared access policy has a name, permissions that you set, and access keys. |
 | **Shared access policy key** | The shared access key used to authorize access to the IoT Hub.  This option is automatically populated in unless you select the option to provide the Iot Hub settings manually. |
-| **Consumer group** | The consumer group to use to ingest data from the IoT Hub. Stream Analytics uses the $Default consumer group unless specifified otherwise. We highly recommend that you use a different consumer group for each Stream Analytics job. |
+| **Consumer group** | The consumer group to use to ingest data from the IoT Hub. Stream Analytics uses the $Default consumer group unless specified otherwise. We highly recommend that you use a different consumer group for each Stream Analytics job. |
 | **Event serialization format** | The serialization format (JSON, CSV, or Avro) of the incoming data stream. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
 | **Event compression type** | The compression type used to read the incoming data stream, such as None (default), GZip, or Deflate. |
@@ -141,11 +138,13 @@ When you use stream data from an IoT Hub, you have access to the following metad
 
 
 ## Stream data from Blob storage
-For scenarios with large quantities of unstructured data to store in the cloud, Azure Blob storage offers a cost-effective and scalable solution. Data in Blob storage is usually considered data at rest. However, it can be processed as a data stream by Stream Analytics. A typical scenario for Blob storage inputs with Stream Analytics is log processing. In this scenario, telemetry data has been captured from a system and needs to be parsed and processed to extract meaningful data.
+For scenarios with large quantities of unstructured data to store in the cloud, Azure Blob storage offers a cost-effective and scalable solution. Data in Blob storage is usually considered data at rest. However, blob data can be processed as a data stream by Stream Analytics. 
+
+Log processing is a commonly used scenario for using Blob storage inputs with Stream Analytics. In this scenario, telemetry data files have been captured from a system and needs to be parsed and processed to extract meaningful data.
 
 The default timestamp of Blob storage events in Stream Analytics is the timestamp that the blob was last modified, which is `BlobLastModifiedUtcTime`. To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) keyword.
 
-CSV-formatted inputs *require* a header row to define fields for the data set. In addition, all header row fields must be unique.
+CSV-formatted inputs *require* a header row to define fields for the data set, and all header row fields must be unique.
 
 Stream Analytics currently does not support deserializing AVRO messages generated by Event Hub capture or IoT Hub Azure Storage Container custom endpoint.
 
