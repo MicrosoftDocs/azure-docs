@@ -201,7 +201,7 @@ The following list explains this activity in detail:
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
 * [What are the policy options with SSPR?](concept-sspr-policy.md)
-* [What is password writeback and why do I care about it?](../active-directory-passwords-writeback.md)
+* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
