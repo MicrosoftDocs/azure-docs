@@ -184,11 +184,18 @@
 ## [REST (Jobs)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # Related
-## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Azure IoT Hub Device Provisioning Service](https://azure.microsoft.com/documentation/services/iot-dps/)
-## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
-## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+## Solutions 
+### [Iot Suite Preconfigured Solutions](/azure/iot-suite/index.md) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Platform Services 
+### [IoT Hub](/azure/iot-hub/index.md) 
+### [IoT Hub Device Provisioning Service](/azure/iot-dps/index.yml)
+### [IoT Service SDKs](/azure/iot-hub/iot-hub-devguide-sdks.md#azure-iot-service-sdks)
+### [Location Based Services](/azure/location-based-services/index.yml) 
+### [Time Series Insights](/azure/time-series-insights/index.yml) 
+## Edge 
+### [IoT Edge](/azure/iot-edge/index.yml) 
+### [IoT Device SDKs](/azure/iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) 
 
 # Resources
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)

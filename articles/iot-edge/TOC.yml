@@ -78,6 +78,32 @@
     href: security.md
   - name: IoT Edge glossary
     href: iot-edge-glossary.md
+- name: Related
+  items:
+  - name: Solutions
+    items:
+    - name: IoT Suite Preconfigured Solutions
+      href: /azure/iot-suite/index.md
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+  - name: Platform services
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub/index.md
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps/index.yml
+    - name: Location Based Services
+      href: /azure/location-based-services/index.yml
+    - name: Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks.md#azure-iot-service-sdks
+    - name: Time Series Insights
+      href: /azure/time-series-insights/index.yml
+  - name: Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge/index.yml
+    - name: IoT Device SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks
 - name: Resources
   items:
   - name: Azure Certified for IoT device catalog

@@ -94,10 +94,20 @@
 ## [Security from the ground up](securing-iot-ground-up.md)
 
 # Related
+## Solutions 
+### [Iot Suite Preconfigured Solutions](/azure/iot-suite/index.md) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Platform Services 
+### [IoT Hub](/azure/iot-hub/index.md) 
+### [IoT Hub Device Provisioning Service](/azure/iot-dps/index.yml)
+### [IoT Service SDKs](/azure/iot-hub/iot-hub-devguide-sdks.md#azure-iot-service-sdks)
+### [Location Based Services](/azure/location-based-services/index.yml) 
+### [Time Series Insights](/azure/time-series-insights/index.yml) 
+## Edge 
+### [IoT Edge](/azure/iot-edge/index.yml) 
+### [IoT Device SDKs](/azure/iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) 
 ## [Stream Analytics](/azure/stream-analytics/)
 ## [Event Hubs](/azure/event-hubs/)
-## [IoT Hub](/azure/iot-hub/)
-## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
 ## [Machine Learning](/azure/machine-learning/)
 
 # Resources

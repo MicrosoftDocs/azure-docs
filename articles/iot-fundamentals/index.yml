@@ -51,7 +51,7 @@ sections:
     - html: <a href="/azure/iot-dps">IoT Hub Device Provisioning Services</a>
     - html: <a href="/azure/location-based-services">Azure Maps</a>
     - html: <a href="/azure/time-series-insights">Azure Time Series Insights</a>
-    - html: <a href="azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">IoT Service SDKs</a>
+    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">IoT Service SDKs</a>
   - type: paragraph
     text: Build the intelligent edge.
   - type: list
