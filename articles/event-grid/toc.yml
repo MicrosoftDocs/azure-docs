@@ -65,6 +65,8 @@
     href: query-event-subscriptions.md
   - name: Map custom fields to schema
     href: input-mappings.md
+  - name: Set event delivery policy
+    href: set-retry-policy.md
 - name: Reference
   items:
   - name: Azure CLI
