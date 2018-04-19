@@ -159,17 +159,17 @@ fbd7c8b9c17e: Pushed
 26b0c207c4a9: Pushed
 917e7cdebc8b: Pushed
 v1: digest: sha256:60d78f0a336a387ba93f04ecf22538d01bca985a277ac77d3813ce360aba0cb1 size: 1367
-time="2018-04-18T18:28:29Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" acr22818.azurecr.io/helloacrbuild:v1"
-"["acr22818.azurecr.io/helloacrbuild@sha256:60d78f0a336a387ba93f04ecf22538d01bca985a277ac77d3813ce360aba0cb1"]"
+time="2018-04-18T18:28:29Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" mycontainerregistry.azurecr.io/helloacrbuild:v1"
+"["mycontainerregistry.azurecr.io/helloacrbuild@sha256:60d78f0a336a387ba93f04ecf22538d01bca985a277ac77d3813ce360aba0cb1"]"
 time="2018-04-18T18:28:30Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" node:9-alpine"
 "["node@sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3"]"
 ACR Builder discovered the following dependencies:
-[{"image":{"registry":"acr22818.azurecr.io","repository":"helloacrbuild","tag":"v1","digest":"sha256:60d78f0a336a387ba93f04ecf22538d01bca985a277ac77d3813ce360aba0cb1"},"runtime-dependency":{"registry":"registry.hub.docker.com","repository":"node","tag":"9-alpine","digest":"sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3"},"buildtime-dependency":null}]
+[{"image":{"registry":"mycontainerregistry.azurecr.io","repository":"helloacrbuild","tag":"v1","digest":"sha256:60d78f0a336a387ba93f04ecf22538d01bca985a277ac77d3813ce360aba0cb1"},"runtime-dependency":{"registry":"registry.hub.docker.com","repository":"node","tag":"9-alpine","digest":"sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3"},"buildtime-dependency":null}]
 Build complete
 Build ID: eastus-1 was successful after 38.116951381s
 ```
 
-Near the bottom of the output, ACR Build displays the dependencies it's discovered for your image. This enables ACR Build to automate image builds on base image updates, such as for OS and framework patching. You learn about triggering builds on base image updates later in the tutorial series.
+Near the end of the output, ACR Build displays the dependencies it's discovered for your image. This enables ACR Build to automate image builds on base image updates, such as when a base image is updated with OS or framework patches. You learn about ACR Build's support for base image updates later in this tutorial series.
 
 ## Deploy to Azure Container Instances
 
@@ -183,12 +183,10 @@ All production scenarios should use [service principals][service-principal-auth]
 
 #### Create key vault
 
-If you don't already have a vault in [Azure Key Vault](/azure/key-vault/), create one with the Azure CLI using the following [az keyvault create][az-keyvault-create] command.
-
-Specify a name for your new key vault in `AKV_NAME`. The vault name must be unique within Azure, and must be 3-24 alphanumeric characters in length.
+If you don't already have a vault in [Azure Key Vault](/azure/key-vault/), create one with the Azure CLI using the following commands.
 
 ```azurecli-interactive
-AKV_NAME=mykeyvault # Must be unique within Azure
+AKV_NAME=$ACR_NAME-vault
 
 az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 ```
