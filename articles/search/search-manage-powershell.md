@@ -4,7 +4,7 @@ description: Manage your Azure Search service with PowerShell scripts. Create or
 author: HeidiSteen
 manager: cgronlun
 tags: azure-resource-manager
-
+services: search
 ms.service: search
 ms.devlang: powershell
 ms.topic: conceptual
