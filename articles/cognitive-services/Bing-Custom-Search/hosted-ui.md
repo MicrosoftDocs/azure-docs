@@ -12,7 +12,7 @@ ms.date: 09/28/2017
 ms.author: v-brapel
 ---
 
-# Configure and consume custom hosted UI
+# Configure your hosted UI experience
 After configuring your custom search instance, you can call the Custom Search API to get the search results and display them in your app. Or, if your app is a web app, you can use the hosted UI that Custom Search provides.   
 
 ## Configure custom hosted UI
