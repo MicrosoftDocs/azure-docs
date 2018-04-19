@@ -275,11 +275,36 @@ The pattern is a combination of regular expression matching and machine learning
 ## Use an entity with a role in a pattern
 The LUIS app is used to help move employees from one location to another. An example utterance is `Move Bob Jones from Seattle to Los Colinas`. Each location in the utterance has a different meaning. Seattle is the originating location and Los Colinas is the destination location for the move. In order to differentiate those locations in the pattern, create a location entity with two roles: origin and destination. 
 
+### Create a new intent
+Create a new intent for any utterances that are about moving people or assets.
+
+1. Close the test panel.
+2. Select Intents from left navigation
+3. Select **Create new intent**
+4. Name the new intent `MoveAssetsOrPeople`
+
 ### Create a simple entity with location and destination roles
+Roles can only be used in patterns. Create a new entity with roles to use in a pattern to find original and destination locations. 
+
+1. Select Entities in the left navigation.
+2. Select Create new entity. 
+3. Name the entity Location.
+4. Add Origin and Destination roles to the entity.
 
 ### Add a pattern that uses location and destination roles
+Add patterns that use the new entity.
+
+1. Select **Patterns** from the left navigation.
+2. Select the **MoveAssetsOrPeople** intent.
+3. Enter a new pattern using the new entity `Move {Employee} from {Location:Origin} to {Location:Destination}
+4. Train the app for the new intent, entity, and pattern.
 
 ### Test the new pattern for role data extraction
+Validate the new pattern with a test.
+
+1. Open the test panel. 
+2. Enter the utterance `Move John Williams from San Diego to Boston`.
+3. Inspect the test results for entity and intent.
 
 ## Use a Pattern.any entity to find free-form entities in a pattern
 This HumanResources app also helps employees find company forms. Many of the forms have titles that are varying in length. Create a Pattern.any and use it in a pattern to extract the form name.
