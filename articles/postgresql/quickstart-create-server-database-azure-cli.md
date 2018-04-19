@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 04/01/2018
 ms.custom: mvc
 ---
 # Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI
@@ -36,30 +36,6 @@ az account set --subscription <subscription id>
 Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](/cli/azure/group#az_group_create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-## Add the extension
-Add the updated Azure Database for PostgreSQL management extension using the following command:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Check you have the correct extension version installed. 
-```azurecli-interactive
-az extension list
-```
-
-The return JSON should include the following: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.4"
-}
-```
-
-If version 0.0.4 is not returned, run the following to update the extension: 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## Create an Azure Database for PostgreSQL server

@@ -132,7 +132,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor use of information system accounts. |
+| **Customer** | This blueprint implements the Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor use of information system accounts. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -202,7 +202,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor use of information system accounts. OMS can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
+| **Customer** | This blueprint implements the Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor use of information system accounts. It can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -244,7 +244,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the following system account types: Azure Active Directory users, Windows OS users, SQL Server service account. Azure Active Directory account management actions generate an event in the Azure activity log; OS-level account management actions generate an event in the system log. These logs collected by Log Analytics and stored in the OMS repository. OMS can be configured to send alerts when predefined events occur.  |
+| **Customer** | This blueprint implements the following system account types: Azure Active Directory users, Windows OS users, SQL Server service account. Azure Active Directory account management actions generate an event in the Azure activity log; OS-level account management actions generate an event in the system log. These logs are collected by Log Analytics and stored in the Log Analytics workspace. Log Analytics can be configured to send alerts when predefined events occur.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -286,7 +286,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the OMS Security and Audit Solution's Identity and Access Dashboard. This dashboard enables account managers to monitor use of information system accounts. This solution can be queried to report privileged role assignments. |
+| **Customer** | This blueprint implements the Security and Audit Solution's Identity and Access Dashboard. This dashboard enables account managers to monitor use of information system accounts. This solution can be queried to report privileged role assignments. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -356,7 +356,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor access attempts against deployed resources. |
+| **Customer** | This blueprint implements the Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor access attempts against deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -370,7 +370,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor access attempts against deployed resources. This solution can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
+| **Customer** | This blueprint implements the Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor access attempts against deployed resources. This solution can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -608,7 +608,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the Log Analytics service in OMS. Deployed VMs and Azure diagnostics storage accounts are connected sources to Log Analytics ensuring that execution of privileged functions is audited. |
+| **Customer** | This blueprint implements the Log Analytics service. Deployed VMs and Azure diagnostics storage accounts are connected sources to Log Analytics ensuring that execution of privileged functions is audited. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -874,7 +874,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint provides remote access to the information system through the Azure portal, through remote desktop connection via a jumpbox, and through a customer-implemented web application. Accesses through the Azure portal and remote desktop sessions are audited and can be monitored through OMS. The customer must implement remote access controls, as necessary, to the web application. |
+| **Customer** | This blueprint provides remote access to the information system through the Azure portal, through remote desktop connection via a jumpbox, and through a customer-implemented web application. Accesses through the Azure portal and remote desktop sessions are audited and can be monitored through Log Analytics. The customer must implement remote access controls, as necessary, to the web application. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 

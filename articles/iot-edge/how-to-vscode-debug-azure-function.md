@@ -18,12 +18,9 @@ ms.service: iot-edge
 This article provides detailed instructions for using [Visual Studio Code](https://code.visualstudio.com/) as the main development tool to debug your Azure Functions on IoT Edge.
 
 ## Prerequisites
-This tutorial assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device could be another physical device or you can simulate your IoT Edge device on your development machine.
+This article assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device could be another physical device or you can simulate your IoT Edge device on your development machine.
 
-Make sure you have completed following tutorials before you start this guidance.
-- [Develop an IoT Edge solution with multiple modules in Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
-
-After finish the preceding tutorial, you should have the following items ready,
+Before following the guidance in this article, complete the steps in  [Develop an IoT Edge solution with multiple modules in Visual Studio Code](tutorial-multiple-modules-in-vscode.md). After that, you should have the following items ready:
 - A local Docker registry running on your development machine. It is suggested to use a local Docker registry for prototype and testing purpose. You can update the container registry in the `module.json` file in each module folder.
 - An IoT Edge solution project workspace with an Azure Function module subfolder in it.
 - The `run.csx` file with your function code.
@@ -57,8 +54,6 @@ After finish the preceding tutorial, you should have the following items ready,
 
 ## Next steps
 
-In this tutorial, you created an Azure Function and deployed it to IoT Edge for debugging purpose, and started debugging it in VS Code. You can continue on to either of the following tutorials to learn about other scenarios when developing Azure IoT Edge in VS Code. 
 
-> [!div class="nextstepaction"]
-> [Develop an IoT Edge solution with multiple modules in Visual Studio Code](tutorial-multiple-modules-in-vscode.md)
+[Use Visual Studio Code to debug a C# module with Azure IoT Edge](how-to-vscode-debug-csharp-module.md)
 

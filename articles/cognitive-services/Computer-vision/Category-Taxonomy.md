@@ -4,9 +4,8 @@ description: Get the 86 categories of taxonomy for the Computer Vision API in Mi
 services: cognitive-services
 author: KellyDF
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: kefre

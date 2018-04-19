@@ -19,16 +19,18 @@
     href: tutorial-prioritized-routes.md
 - name: Concepts
   items:
-  - name: Zoom Levels and Tile Grid
+  - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
-  - name: Geocoding Coverage
+  - name: Geocoding coverage
     href: geocoding-coverage.md
-  - name: Traffic Coverage
+  - name: Traffic coverage
     href: traffic-coverage.md
-  - name: Render Coverage
+  - name: Render coverage
     href: render-coverage.md
-  - name: Routing Coverage
+  - name: Routing coverage
     href: routing-coverage.md
+  - name: Supported languages
+    href: supported-languages.md
 - name: How-to guides
   items:
   - name: Manage account and keys

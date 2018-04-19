@@ -5,7 +5,7 @@
  author: dlepow
  ms.service: virtual-machines-linux
  ms.topic: include
- ms.date: 03/19/2018
+ ms.date: 04/03/2018
  ms.author: danlep
  ms.custom: include file
 ---
@@ -29,7 +29,7 @@ Microsoft redistributes NVIDIA GRID driver installers for NV VMs. Install only t
 
 | Distribution | Driver |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS-based 7.3 | NVIDIA GRID 5.2, driver branch R384|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS-based 7.3 | NVIDIA GRID 6.0, driver branch R390|
 
 
 

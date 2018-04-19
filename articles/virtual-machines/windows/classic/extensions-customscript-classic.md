@@ -4,7 +4,7 @@ description: Automate Azure VM configuration tasks by using the Custom Script ex
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 

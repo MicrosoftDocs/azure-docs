@@ -2,7 +2,6 @@
 title: Back up Azure Files to Azure
 description: This article details how to back up and restore your Azure file shares, and explains management tasks. 
 services: backup
-keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: markgalioto
 ms.author: markgal
 ms.date: 3/23/2018
@@ -28,7 +27,7 @@ Before you can back up an Azure file share, ensure that it is present in one of 
 
 ## Limitations for Azure file share backup during Preview
 Backup for Azure file shares is in preview. Be aware of the following limitations during the Preview:
-- You cannot protect Azure file shares in storage accounts with [zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) or [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) replication.
+- You cannot protect Azure file shares in storage accounts with [zone-redundant storage (ZRS)](../storage/common/storage-redundancy-zrs.md) or [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy-grs.md) replication.
 - You cannot protect Azure file shares in storage accounts that have Virtual Networks enabled.
 - There is no PowerShell or CLI available for protecting Azure Files.
 - The maximum number of scheduled backups per day is one.

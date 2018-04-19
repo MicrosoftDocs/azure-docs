@@ -4,12 +4,11 @@ description: Learn the LUIS best practices to get the best results.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/15/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 # Best practices
 Use these best practices along with using the [authoring cycle](luis-concept-app-iteration.md) when using LUIS.

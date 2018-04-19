@@ -37,7 +37,7 @@ Below we give an example of the template JSON file you need to generate for non-
 ## Non-Compute resource template
 For non-Compute resources, you will need to do two things:
 
-1. Add parameters to the parameters blob for the storage account name, event hub authorization rule ID, and/or OMS Log Analytics workspace ID (enabling archival of Diagnostic Logs in a storage account, streaming of logs to Event Hubs, and/or sending logs to Log Analytics).
+1. Add parameters to the parameters blob for the storage account name, event hub authorization rule ID, and/or Log Analytics workspace ID (enabling archival of Diagnostic Logs in a storage account, streaming of logs to Event Hubs, and/or sending logs to Log Analytics).
    
     ```json
     "settingName": {
@@ -113,7 +113,7 @@ For non-Compute resources, you will need to do two things:
     ]
     ```
 
-The properties blob for the Diagnostic Setting follows [the format described in this article](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). Adding the `metrics` property will enable you to also send resource metrics to these same outputs, provided that [the resource supports Azure Monitor metrics](monitoring-supported-metrics.md).
+The properties blob for the Diagnostic Setting follows [the format described in this article](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate). Adding the `metrics` property will enable you to also send resource metrics to these same outputs, provided that [the resource supports Azure Monitor metrics](monitoring-supported-metrics.md).
 
 Here is a full example that creates a Logic App and turns on streaming to Event Hubs and storage in a storage account.
 

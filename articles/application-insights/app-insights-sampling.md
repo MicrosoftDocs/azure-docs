@@ -27,7 +27,7 @@ Sampling reduces traffic and data costs, and helps you avoid throttling.
 ## In brief:
 * Sampling retains 1 in *n* records and discards the rest. For example, it might retain 1 in 5 events, a sampling rate of 20%. 
 * Sampling happens automatically if your application sends a lot of telemetry, in ASP.NET web server apps.
-* You can also set sampling manually, either in the portal on the pricing page; or in the ASP.NET SDK in the .config file; or in the Java SDK in the ApplicationInsights.xml file, to also reduce the network traffic.
+* You can also set sampling manually, either in the portal on the Usage and estimated costs page; or in the ASP.NET SDK in the .config file; or in the Java SDK in the ApplicationInsights.xml file, to also reduce the network traffic.
 * If you log custom events and you want to make sure that a set of events is either retained or discarded together, make sure that they have the same OperationId value.
 * The sampling divisor *n* is reported in each record in the property `itemCount`, which in Search appears under the friendly name "request count" or "event count". When sampling is not in operation, `itemCount==1`.
 * If you write Analytics queries, you should [take account of sampling](app-insights-analytics-tour.md#counting-sampled-data). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
@@ -47,7 +47,7 @@ This form of sampling operates at the point where the telemetry from your web se
 
 Use this type of sampling if your app often goes over its monthly quota and you don't have the option of using either of the SDK-based types of sampling. 
 
-Set the sampling rate in the Quotas and Pricing blade:
+Set the sampling rate in the Usage and estimated costs page:
 
 ![From the application Overview blade, click Settings, Quota, Samples, then select a sampling rate, and click Update.](./media/app-insights-sampling/04.png)
 

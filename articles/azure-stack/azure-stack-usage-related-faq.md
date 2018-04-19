@@ -1,4 +1,4 @@
- ---
+---
 title: Usage API related FAQs | Microsoft Docs
 description: List of Azure Stack meters, comparison to Azure usage API, Usage Time and Reported Time, error codes.
 services: azure-stack

@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/21/2018
+ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
 ---
@@ -88,6 +88,7 @@ Perform the following steps to automate the installation and configuration of th
 Perform the first two steps once for your Automation environment and then repeat the remaining steps for each worker computer.
 
 #### 1. Create Log Analytics workspace
+
 If you do not already have a Log Analytics workspace, then create one using instructions at [Manage your workspace](../log-analytics/log-analytics-manage-access.md). You can use an existing workspace if you already have one.
 
 #### 2. Add Automation solution to Log Analytics workspace
@@ -97,6 +98,7 @@ Solutions add functionality to Log Analytics. The Automation solution adds funct
 Follow the instructions at [To add a solution using the Solutions Gallery](../log-analytics/log-analytics-add-solutions.md) to add the **Automation** solution to your Log Analytics workspace.
 
 #### 3. Install the Microsoft Monitoring Agent
+
 The Microsoft Monitoring Agent connects computers to Log Analytics. When you install the agent on your on-premises computer and connect it to your workspace, it will automatically download the components required for Hybrid Runbook Worker.
 
 Follow the instructions at [Connect Windows computers to Log Analytics](../log-analytics/log-analytics-windows-agent.md) to install the agent on the on-premises computer. You can repeat this process for multiple computers to add multiple workers to your environment.

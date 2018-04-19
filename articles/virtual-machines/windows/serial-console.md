@@ -31,7 +31,7 @@ The virtual machine serial console on Azure provides access to a text-based cons
 ## Prerequisites 
 
 * Virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
-* The account using the serial console must have [Contributor role](../../active-directory/role-based-access-built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
+* The account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
 
 ## Open the serial console
 serial console for virtual machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access the serial console for virtual machines via portal 
@@ -49,7 +49,7 @@ The serial console functionality can be deactivated for specific VMs by disablin
 ## Serial console security 
 
 ### Access security 
-Access to Serial console is limited to users who have [VM Contributors](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) or above access to the virtual machine. If your AAD tenant requires Multi-Factor Authentication then access to the serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
+Access to Serial console is limited to users who have [VM Contributors](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) or above access to the virtual machine. If your AAD tenant requires Multi-Factor Authentication then access to the serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
 
 ### Channel security
 All data is sent back and forth is encrypted on the wire.

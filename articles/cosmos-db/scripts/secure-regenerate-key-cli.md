@@ -3,9 +3,8 @@ title: Azure CLI Script-Regenerate Azure Cosmos DB account key | Microsoft Docs
 description: Azure CLI Script Sample - Regenerate an Azure Cosmos DB account key
 services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
 
 ms.assetid:
@@ -16,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
-ms.author: mimig
+ms.author: sngun
 ---
 
 # Regenerate an Azure Cosmos DB account key using the Azure CLI
