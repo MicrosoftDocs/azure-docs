@@ -352,22 +352,24 @@ Validate the new pattern with a test.
 4. Close the test panel by selecting the **Test** button in the top navigation.
 
 ## Use a Pattern.any entity to find free-form entities in a pattern
-This HumanResources app also helps employees find company forms. Many of the forms have titles that are varying in length. The varying length includes phrases that may confuse LUIS about where the form name ends. Using a Pattern.any entity in a pattern allows you to specify the begin and end of the form name so LUIS correctly extracts the form. Because LUIS matches the form name with Pattern.any, it also knows which intent is used. Create a Pattern.any and use it in a template utterance to extract the form name.
+This HumanResources app also helps employees find company forms. Many of the forms have titles that are varying in length. The varying length includes phrases that may confuse LUIS about where the form name ends. Using a **Pattern.any** entity in a pattern allows you to specify the begin and end of the form name so LUIS correctly extracts the form name. Because LUIS matches the form name with Pattern.any, it also knows which intent is used. Create a Pattern.any and use it in a template utterance to extract the form name.
 
 ### Create a new intent for the form
-Create a new intent for any utterances that are looking for forms.
+Create a new intent for utterances that are looking for forms.
 
-1. Select Intents from left navigation
-2. Select **Create new intent**
-3. Name the new intent `FindForm`
-4. Add an example utterance `Where is the form What to do when a fire breaks out in the Lab and who needs to sign it after I read it?`. The form title is `What to do when a fire breaks out in the Lab`. The utterance is asking for the location of the form and is also asking who needs to sign it validating the employee read it. Without a Pattern.any entity, it would be difficult to understand the parts or whole of the utterance. 
+1. Select Intents from left navigation.
+2. Select **Create new intent**.
+3. Name the new intent `FindForm`.
+4. Add example utterances `Where is the form What to do when a fire breaks out in the Lab and who needs to sign it after I read it?`. The form title is `What to do when a fire breaks out in the Lab`. The utterance is asking for the location of the form and is also asking who needs to sign it validating the employee read it. Without a Pattern.any entity, it would be difficult to understand the parts or whole of the utterance. 
+
+    ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/intent-findform.png)
 
 ### Create a Pattern.any entity for the form title
 The Pattern.any entity allows for entities for varying length. It only works in a pattern because the pattern marks the beginning and end of the entity. 
 
-1. Select Entities in the left navigation.
-2. Select Create new entity. 
-3. Name the entity `FormName` with type **Pattern.any**.
+1. Select **Entities** in the left navigation.
+2. Select **Create new entity**. 
+3. Name the entity `FormName` with type **Pattern.any**. 
 
 ### Add a pattern that uses the Pattern.any
 Add patterns that use the new entity.
