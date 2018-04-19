@@ -180,11 +180,11 @@ public static async Task<List<string>> RunOrchestrator(
     string major = "ComputerScience";
     int universityYear =  context.GetInput<int>();
 
-    List<string> courseRecommendations = await context.CallActivityAsync<List<string>>("CourseRecommendation", (major, universityYear));
+    List<string> courseRecommendations = await context.CallActivityAsync<List<string>>("CourseRecommendations", (major, universityYear));
     return courseRecommendations;
 }
 
-[FunctionName("CourseRecommendation")]
+[FunctionName("CourseRecommendations")]
 public static async Task<List<string>> Mapper([ActivityTrigger] DurableActivityContext inputs)
 {
     // parse input for student's major and year in university 
