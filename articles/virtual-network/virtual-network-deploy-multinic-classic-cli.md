@@ -3,7 +3,7 @@ title: Create a VM (Classic) with multiple NICs - Azure CLI 1.0 | Microsoft Docs
 description: Learn how to create a VM (Classic) with multiple NICs using the Azure command-line interface (CLI) 1.0.
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: ''
 tags: azure-service-management
