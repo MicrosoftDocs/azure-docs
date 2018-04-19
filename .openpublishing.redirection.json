@@ -16466,11 +16466,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/index.md",
-            "redirect_url": "/azure/#pivot=products&panel=ai",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/billing/billing-enterprise-api-balance-summary.md",
             "redirect_url": "https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary",
             "redirect_document_id": true
