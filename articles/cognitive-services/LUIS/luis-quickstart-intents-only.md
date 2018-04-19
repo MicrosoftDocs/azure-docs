@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Simple app with intents

@@ -4,7 +4,7 @@ description: Use metrics in Azure Cosmos DB to debug common issues and monitor t
 keywords: metrics
 services: cosmos-db
 author: gnot
-manager: jhubbard
+manager: kfile
 editor: ''
 documentationcenter: ''
 
@@ -32,7 +32,7 @@ This article walks through common use cases and how Azure Cosmos DB metrics can 
 
 ## Understanding how many requests are succeeding or causing errors
 
-To get started, head to the [Azure portal](https://portal.azure.com) and navigate to the **Metrics** blade. In the blade, find the **Number of requests exceeded capacity per 1 minute** chart. This chart shows a minute by minute total requests segmented by the status code. For more information about HTTP status codes, see [HTTP Status Codes for Azure Cosmos DB](https://docs.microsoft.com/rest/api/documentdb/http-status-codes-for-documentdb).
+To get started, head to the [Azure portal](https://portal.azure.com) and navigate to the **Metrics** blade. In the blade, find the **Number of requests exceeded capacity per 1 minute** chart. This chart shows a minute by minute total requests segmented by the status code. For more information about HTTP status codes, see [HTTP Status Codes for Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 The most common error status code is 429 (throttling), which means that requests to Azure Cosmos DB are exceeding the provisioned throughput. The most common solution to this is to [scale up the RUs](./set-throughput.md) for the given collection.
 

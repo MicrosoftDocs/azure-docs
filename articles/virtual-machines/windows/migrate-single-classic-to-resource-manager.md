@@ -4,7 +4,7 @@ description: Migrate a single Azure VM from the classic deployment model to Mana
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

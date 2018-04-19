@@ -69,7 +69,7 @@ Approximate time to Complete: one hour for less than 1,000 PoC users
 
 ### Considerations
 
-1. Look at  the security considerations of password hash sync [here](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  If password hash sync for pilot production users is definitively not an option, then consider the following alternatives:
+1. Look at  the security considerations of password hash sync [here](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  If password hash sync for pilot production users is definitively not an option, then consider the following alternatives:
    * Create test users in the production domain. Make sure you don't synchronize any other account
    * Move to an UAT environment
 2.	If you want to pursue federation, it is worthwhile to understand the costs associated a federated solution with on-premises Identity Provider beyond the POC and measure that against the benefits you are looking for:
@@ -455,7 +455,7 @@ Approximate time to Complete: 10 minutes
 
 ### Considerations
 
-If you are using federation, you can use the on-premises Identity Provider (IdP) to communicate the inside/outside corporate network state with claims. You can use this technique without having to manage the list of IP addresses which might be complex to assess and manage in large organizations. In that setup, you need account for the "network roaming" scenario (a user logging from the internal network, and while logged in switches locations such as a coffee shop) and make sure you understand the implications. Learn more: [Securing cloud resources with Azure Multi-Factor Authentication and AD FS: Trusted IPs for federated users](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
+If you are using federation, you can use the on-premises Identity Provider (IdP) to communicate the inside/outside corporate network state with claims. You can use this technique without having to manage the list of IP addresses which might be complex to assess and manage in large organizations. In that setup, you need account for the "network roaming" scenario (a user logging from the internal network, and while logged in switches locations such as a coffee shop) and make sure you understand the implications. Learn more: [Securing cloud resources with Azure Multi-Factor Authentication and AD FS: Trusted IPs for federated users](authentication/howto-mfa-adfs.md#trusted-ips-for-federated-users)
 
 ## Privileged Identity Management (PIM)
 

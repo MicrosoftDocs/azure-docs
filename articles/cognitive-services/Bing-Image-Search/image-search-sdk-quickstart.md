@@ -12,7 +12,7 @@ ms.date: 01/29/2018
 ms.author: v-gedod
 ---
 
-# Image Search SDK C# quickstart (preview)
+# Image Search SDK C# quickstart
 
 The Bing Image Search SDK contains the functionality of the REST API for image requests and parsing results. 
 
@@ -20,7 +20,7 @@ The Bing Image Search SDK contains the functionality of the REST API for image r
 
 To set up a console application using the Bing Image Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.ImageSearch` package.
 
-Installing the [NuGet Image Search package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.1.0-preview) also installs dependencies, including:
+Installing the [NuGet Image Search package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0) also installs dependencies, including:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json

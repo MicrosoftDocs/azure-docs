@@ -26,7 +26,7 @@ Azure CLI is used to create and manage Azure Stack resources from the command li
 
 * Make sure that your Azure Stack operator has added the “Windows Server 2016” image to the Azure Stack marketplace.  
 
-* Azure Stack requires a specific version of Azure CLI to create and manage the resources. If you don't have Azure CLI configured for Azure Stack, follow the steps to [install and configure Azure CLI](azure-stack-connect-cli.md).
+* Azure Stack requires a specific version of Azure CLI to create and manage the resources. If you don't have Azure CLI configured for Azure Stack, follow the steps to [install and configure Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
 ## Create a resource group
 

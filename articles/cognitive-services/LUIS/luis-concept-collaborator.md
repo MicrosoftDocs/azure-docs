@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 03/22/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 # Collaborating
 
 LUIS provides collaboration to allow a group of people to author an app.
 
 ## LUIS account
-A LUIS account is associated with a single [Microsoft Live](https://login.live.com/) account. Each LUIS account is given a free [authoring key](manage-keys.md#authoring-key) to use for authoring all the LUIS apps the account has access to. 
+A LUIS account is associated with a single [Microsoft Live](https://login.live.com/) account. Each LUIS account is given a free [authoring key](luis-concept-keys.md#authoring-key) to use for authoring all the LUIS apps the account has access to. 
 
 A LUIS account may have many LUIS apps.
 

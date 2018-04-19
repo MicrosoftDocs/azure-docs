@@ -2,7 +2,7 @@
 title: Upload large amounts of random data in parallel to Azure Storage  | Microsoft Docs 
 description: Learn how to use the Azure SDK to upload large amounts of random data in parallel to an Azure Storage account
 services: storage
-author: tamram
+author: roygara
 manager: jeconnoc
 
 ms.service: storage
@@ -10,7 +10,7 @@ ms.workload: web
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/20/2018
-ms.author: tamram
+ms.author: rogarana
 ms.custom: mvc
 ---
 

@@ -12,7 +12,7 @@ ms.author: seanmck
 ms.custom: mvc
 ---
 
-# Troubleshoot deployment issues with Azure Container Instances
+# Troubleshoot container and deployment issues in Azure Container Instances
 
 This article shows how to troubleshoot issues when deploying containers to Azure Container Instances. It also describes some of the common issues you might run into.
 

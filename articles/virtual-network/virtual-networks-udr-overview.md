@@ -127,9 +127,11 @@ When outbound traffic is sent from a subnet, Azure selects a route based on the 
 If multiple routes contain the same address prefix, Azure selects the route type, based on the following priority:
 
 1. User-defined route
-2. A system route with the *Virtual network*, *VNet peering*, or *VirtualNetworkServiceEndpoint* hop type.
 2. BGP route
-3. A system route with a hop type other than *Virtual network*, *VNet peering*, or *VirtualNetworkServiceEndpoint*.
+3. System route
+
+> [!NOTE]
+> System routes for traffic related to virtual network, virtual network peerings, or virtual network service endpoints, are preferred routes, even if BGP routes are more specific.
 
 For example, a route table contains the following routes:
 

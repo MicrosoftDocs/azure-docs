@@ -17,7 +17,7 @@ ms.author: v-geberr
 For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. 
 
 > [!NOTE]
-> Do not use the [authoring key](manage-keys.md#authoring-key) for endpoint queries in production.
+> Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
 
 <a name="create-luis-service"></a>
 ## Create LUIS endpoint key

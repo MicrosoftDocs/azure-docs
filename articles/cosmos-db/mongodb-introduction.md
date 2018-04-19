@@ -1,11 +1,10 @@
 ---
-title: 'Introduction to Azure Cosmos DB: API for MongoDB | Microsoft Docs'
+title: 'Introduction to Azure Cosmos DB: MongoDB API | Microsoft Docs'
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of JSON documents with low latency using the popular OSS MongoDB APIs.
 keywords: what is MongoDB
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: ''
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
@@ -16,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-
+experimental: true
+experiment_id: "662dc5fd-886f-4a"
 ---
-# Introduction to Azure Cosmos DB: API for MongoDB
+# Introduction to Azure Cosmos DB: MongoDB API
 
 [Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. 
 
 ![Azure Cosmos DB: MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
-Azure Cosmos DB databases can be used as the data store for apps written for [MongoDB](https://docs.mongodb.com/manual/introduction/). This functionality means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/), your application written for MongoDB can now communicate with Azure Cosmos DB and use Azure Cosmos DB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to Azure Cosmos DB by simply changing a connection string. Using this functionality, you can easily build and run MongoDB database applications in the Azure cloud with Azure Cosmos DB's global distribution and [comprehensive industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db), while continuing to use familiar skills and tools for MongoDB.
+Azure Cosmos DB databases can be used as the data store for apps written for [MongoDB](https://docs.mongodb.com/manual/introduction/). This functionality means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/), your application written for MongoDB can now communicate with Azure Cosmos DB and use Azure Cosmos DB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to Azure Cosmos DB by simply changing a connection string. Using this functionality, you can easily build and run MongoDB globally distributed database applications in the Azure cloud with Azure Cosmos DB and it's [comprehensive industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db), while continuing to use familiar skills and tools for MongoDB.
 
 **MongoDB compatibility**: You can use your existing MongoDB expertise, application code, and tooling as Azure Cosmos DB implements the MongoDB 3.4 (version 5) wire protocol and supports the [MongoDB aggregation pipeline](mongodb-feature-support.md#aggregation-pipeline). You can develop applications using MongoDB and deploy them to production using the fully managed, and globally distributed Azure Cosmos DB service.
 
@@ -65,11 +65,11 @@ Follow the MongoDB quickstarts to create an Azure Cosmos DB account and migrate 
 
 ## Next steps
 
-Information about Azure Cosmos DB's MongoDB API is integrated into the overall Azure Cosmos DB documentation, but here are a few pointers to get you started:
+Information about the Azure Cosmos DB MongoDB API is integrated into the overall Azure Cosmos DB documentation, but here are a few pointers to get you started:
 
 * Follow the [Connect to a MongoDB account](connect-mongodb-account.md) tutorial to learn how to get your account connection string information.
 * Follow the [Use Studio 3T (MongoChef) with Azure Cosmos DB](mongodb-mongochef.md) tutorial to learn how to create a connection between your Azure Cosmos DB database and MongoDB app in Studio 3T.
 * Follow the [Migrate data to Azure Cosmos DB with protocol support for MongoDB](mongodb-migrate.md) tutorial to import your data to an API for MongoDB database.
 * Connect to an API for MongoDB account using [Robomongo](mongodb-robomongo.md).
-* Learn how many RUs your operations are using with the [GetLastRequestStatistics command and the Azure portal metrics](request-units.md#GetLastRequestStatistics).
+* Learn how many RUs your operations are using with the [GetLastRequestStatistics command and the Azure portal metrics](set-throughput.md#GetLastRequestStatistics).
 * Learn how to [configure read preferences for globally distributed apps](../cosmos-db/tutorial-global-distribution-mongodb.md).

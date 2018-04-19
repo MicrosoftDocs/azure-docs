@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 03/19/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Use batch testing to find prediction accuracy issues

@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Kubernetes cluster - Operations Management
-description: Monitoring Kubernetes cluster in Azure Container Service using Microsoft Operations Management Suite
+description: Monitoring Kubernetes cluster in Azure Container Service using Log Analytics
 services: container-service
 author: bburns
 manager: timlt
@@ -12,7 +12,7 @@ ms.author: bburns
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)
+# Monitor an Azure Container Service cluster with Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
@@ -27,8 +27,8 @@ You can test if you have the `az` tool installed by running:
 $ az --version
 ```
 
-If you don't have the `az` tool installed, there are instructions [here](https://github.com/azure/azure-cli#installation).  
-Alternatively, you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which has the `az` Azure cli and `kubectl` tools already installed for you.  
+If you don't have the `az` tool installed, there are instructions [here](https://github.com/azure/azure-cli#installation).
+Alternatively, you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which has the `az` Azure cli and `kubectl` tools already installed for you.
 
 You can test if you have the `kubectl` tool installed by running:
 
@@ -53,11 +53,11 @@ CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
-## Monitoring Containers with Operations Management Suite (OMS)
+## Monitoring Containers with Log Analytics
 
-Microsoft Operations Management (OMS) is Microsoft's cloud-based IT
+Log Analytics is Microsoft's cloud-based IT
 management solution that helps you manage and protect your on-premises
-and cloud infrastructure. Container Solution is a solution in OMS Log
+and cloud infrastructure. Container Solution is a solution in Log
 Analytics, which helps you view the container inventory, performance,
 and logs in a single location. You can audit, troubleshoot containers by
 viewing the logs in centralized location, and find noisy consuming
@@ -69,49 +69,49 @@ For more information about Container Solution, please refer to the
 [Container Solution Log
 Analytics](../../log-analytics/log-analytics-containers.md).
 
-## Installing OMS on Kubernetes
+## Installing Log Analytics on Kubernetes
 
 ### Obtain your workspace ID and key
-For the OMS agent to talk to the service it needs to be configured with a workspace id and
-a workspace key. To get the workspace id and key you need to create an OMS account at <https://mms.microsoft.com>.
+For the Log Analytics agent to talk to the service it needs to be configured with a workspace ID and
+a workspace key. To get the workspace ID and key you need to create an account at <https://mms.microsoft.com>.
 Please follow the steps to create an account. Once you are done creating
-the account, you need to obtain your id and key by clicking
+the account, you need to obtain your ID and key by clicking
 **Settings**, then **Connected Sources**, and then **Linux Servers**, as shown below.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-### Install the OMS agent using a DaemonSet
+### Install the Log Analytics agent using a DaemonSet
 DaemonSets are used by Kubernetes to run a single instance of a container on each host in the cluster.
 They're perfect for running monitoring agents.
 
 Here is the [DaemonSet YAML file](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Save it to a file named `oms-daemonset.yaml` and
-replace the place-holder values for `WSID` and `KEY` with your workspace id and key in the file.
+replace the place-holder values for `WSID` and `KEY` with your workspace ID and key in the file.
 
-Once you have added your workspace ID and key to the DaemonSet configuration, you can install the OMS agent
-on your cluster with the `kubectl` command line tool:
+Once you have added your workspace ID and key to the DaemonSet configuration, you can install the Log Analytics agent
+on your cluster with the `kubectl` command-line tool:
 
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
 
-### Installing the OMS agent using a Kubernetes Secret
-To protect your OMS workspace ID and key you can use Kubernetes Secret as a part of DaemonSet YAML file.
+### Installing the Log Analytics agent using a Kubernetes Secret
+To protect your Log Analytics workspace ID and key you can use Kubernetes Secret as a part of DaemonSet YAML file.
 
- - Copy the script, secret template file and the DaemonSet YAML file (from [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) and make sure they are on the same directory. 
+ - Copy the script, secret template file, and the DaemonSet YAML file (from [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) and make sure they are on the same directory.
 	  - secret generating script - secret-gen.sh
 	  - secret template - secret-template.yaml
    - DaemonSet YAML file - omsagent-ds-secrets.yaml
- - Run the script. The script will ask for the OMS Workspace ID and Primary Key. Please insert that and the script will create a secret yaml file so you can run it.   
+ - Run the script. The script will ask for the Log Analytics Workspace ID and Primary Key. Insert that and the script will create a secret yaml file so you can run it.
    ```
-   #> sudo bash ./secret-gen.sh 
+   #> sudo bash ./secret-gen.sh
    ```
 
-   - Create the secrets pod by running the following: 
+   - Create the secrets pod by running the following:
   ``` kubectl create -f omsagentsecret.yaml ```
- 
-   - To check, run the following: 
 
-   ``` 
+   - To check, run the following:
+
+   ```
    root@ubuntu16-13db:~# kubectl get secrets
    NAME                  TYPE                                  DATA      AGE
    default-token-gvl91   kubernetes.io/service-account-token   3         50d
@@ -127,10 +127,10 @@ To protect your OMS workspace ID and key you can use Kubernetes Secret as a part
    Data
    ====
    WSID:   36 bytes
-   KEY:    88 bytes 
+   KEY:    88 bytes
    ```
- 
+
   - Create your omsagent daemon-set by running ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### Conclusion
-That's it! After a few minutes, you should be able to see data flowing to your OMS dashboard.
+That's it! After a few minutes, you should be able to see data flowing to your Log Analytics dashboard.

@@ -49,7 +49,7 @@ A: Storage Service Encryption is enabled by default on all existing Resource Man
 
 **Q: How do I encrypt the data in a Resource Manager storage account?**
 
-A: Storage Service Encryption is enabled by default for all storage accounts--classic and Resource Manager. However, existing data is not encrypted. To encrypt existing data, you can copy it to another name or another container and then remove the unencrypted versions. 
+A: Storage Service Encryption is enabled by default for all storage accounts--classic and Resource Manager, any existing files in the storage account created before encryption was enabled will retroactively get encrypted by a background encryption process.
 
 **Q: Can I create storage accounts with Storage Service Encryption enabled by using Azure PowerShell and Azure CLI?**
 
@@ -69,7 +69,7 @@ A: Yes, if you [use your own encryption keys](storage-service-encryption-custome
 
 **Q: Is Storage Service Encryption enabled by default when I create a storage account?**
 
-A: Yes, Storage Service Encryption (using Microsoft-managed keys) is enabled by default for all storage accounts--Azure Resource Manager and classic. It's enabled for all services as well--Blob storage, Table storage, Queue storage, and Azure Files.
+A: Yes, Storage Service Encryption is enabled by default for all storage accounts and for all Azure Storage services.
 
 **Q: How is this different from Azure Disk Encryption?**
 

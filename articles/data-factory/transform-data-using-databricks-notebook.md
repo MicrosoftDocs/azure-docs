@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/12/2018
+ms.date: "03/12/2018"
 ms.author: abnarain
 ms.reviewer: douglasl
 ---

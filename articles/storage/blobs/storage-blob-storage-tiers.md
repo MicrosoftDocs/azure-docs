@@ -17,7 +17,7 @@ ms.date: 12/11/2017
 ms.author: kuhussai
 
 ---
-# Azure Blob Storage: Hot, cool, and archive storage tiers
+# Azure Blob storage: Hot, cool, and archive storage tiers
 
 ## Overview
 
@@ -29,9 +29,9 @@ Each of these data access scenarios benefits from a different storage tier that 
 
 ## Storage accounts that support tiering
 
-You may only tier your object storage data to hot, cool, or archive in Blob Storage or General Purpose v2 (GPv2) accounts. General Purpose v1 (GPv1) accounts do not support tiering. However, customers can easily convert their existing GPv1 or Blob Storage accounts to GPv2 accounts through a simple one-click process in the Azure portal. GPv2 provides a new pricing structure for blobs, files, and queues, and access to a variety of other new storage features as well. Furthermore, going forward some new features and prices cuts will only be offered in GPv2 accounts. Therefore, customers should evaluate using GPv2 accounts but only use them after reviewing the pricing for all services as some workloads can be more expensive on GPv2 than GPv1. See [Azure storage account options](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to learn more.
+You may only tier your object storage data to hot, cool, or archive in Blob storage or General Purpose v2 (GPv2) accounts. General Purpose v1 (GPv1) accounts do not support tiering. However, customers can easily convert their existing GPv1 or Blob storage accounts to GPv2 accounts through a simple one-click process in the Azure portal. GPv2 provides a new pricing structure for blobs, files, and queues, and access to a variety of other new storage features as well. Furthermore, going forward some new features and prices cuts will only be offered in GPv2 accounts. Therefore, customers should evaluate using GPv2 accounts but only use them after reviewing the pricing for all services as some workloads can be more expensive on GPv2 than GPv1. See [Azure storage account options](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to learn more.
 
-Blob Storage and GPv2 accounts expose the **Access Tier** attribute at the account level, which allows you to specify the default storage tier as hot or cool for any blob in the storage account that does not have the tier set at the object level. For objects with the tier set at the object level, the account tier will not apply. The archive tier can only be applied at the object level. You can switch between these storage tiers at any time.
+Blob storage and GPv2 accounts expose the **Access Tier** attribute at the account level, which allows you to specify the default storage tier as hot or cool for any blob in the storage account that does not have the tier set at the object level. For objects with the tier set at the object level, the account tier will not apply. The archive tier can only be applied at the object level. You can switch between these storage tiers at any time.
 
 ## Hot access tier
 
@@ -78,7 +78,7 @@ Blobs in all three storage tiers can co-exist within the same account. Any blob 
 
 When a blob is moved to a cooler tier (hot->cool, hot->archive, or cool->archive), the operation is billed as a write of the destination tier, where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply. If a blob is moved to a warmer tier (archive->cool, archive->hot, or cool->hot), the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply.
 
-If you toggle the account tier from hot to cool, you will be charged for write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only. There is no charge for this in Blob Storage accounts. You will be charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle your Blob Storage or GPv2 account from cool to hot. Early deletion charges for any blob moved out of the cool or archive tier may apply as well.
+If you toggle the account tier from hot to cool, you will be charged for write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only. There is no charge for this in Blob storage accounts. You will be charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle your Blob storage or GPv2 account from cool to hot. Early deletion charges for any blob moved out of the cool or archive tier may apply as well.
 
 ### Cool and archive early deletion
 
@@ -99,14 +99,14 @@ The following table shows a comparison of the hot, cool, and archive storage tie
 | **Scalability and performance targets** | Same as general-purpose storage accounts | Same as general-purpose storage accounts | Same as general-purpose storage accounts |
 
 > [!NOTE]
-> Blob Storage accounts support the same performance and scalability targets as general-purpose storage accounts. See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for more information.
+> Blob storage accounts support the same performance and scalability targets as general-purpose storage accounts. See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for more information.
 
 ## Quickstart scenarios
 
 In this section, the following scenarios are demonstrated using the Azure portal:
 
-* How to change the default account access tier of a GPv2 or Blob Storage account.
-* How to change the tier of a blob in a GPv2 or Blob Storage account.
+* How to change the default account access tier of a GPv2 or Blob storage account.
+* How to change the tier of a blob in a GPv2 or Blob storage account.
 
 ### Change the default account access tier of a GPv2 or Blob storage account
 
@@ -120,7 +120,7 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 5. Click Save at the top of the blade.
 
-### Change the tier of a blob in a GPv2 or Blob Storage account.
+### Change the tier of a blob in a GPv2 or Blob storage account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -132,11 +132,11 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 ## FAQ
 
-**Should I use Blob Storage or GPv2 accounts if I want to tier my data?**
+**Should I use Blob storage or GPv2 accounts if I want to tier my data?**
 
-We recommend you use GPv2 instead of Blob Storage accounts for tiering. GPv2 support all the features that Blob Storage accounts support plus a lot more. Pricing between Blob Storage and GPv2 is almost identical, but some new features and price cuts will only be available on GPv2 accounts. GPv1 accounts do not support tiering.
+We recommend you use GPv2 instead of Blob storage accounts for tiering. GPv2 support all the features that Blob storage accounts support plus a lot more. Pricing between Blob storage and GPv2 is almost identical, but some new features and price cuts will only be available on GPv2 accounts. GPv1 accounts do not support tiering.
 
-Pricing structure between GPv1 and GPv2 accounts is different and customers should carefully evaluate both before deciding to use GPv2 accounts. You can easily convert an existing Blob Storage or GPv1 account to GPv2 through a simple one-click process. See [Azure storage account options](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to learn more.
+Pricing structure between GPv1 and GPv2 accounts is different and customers should carefully evaluate both before deciding to use GPv2 accounts. You can easily convert an existing Blob storage or GPv1 account to GPv2 through a simple one-click process. See [Azure storage account options](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to learn more.
 
 **Can I store objects in all three (hot, cool, and archive) storage tiers in the same account?**
 
@@ -144,7 +144,7 @@ Yes. The **Access Tier** attribute set at the account level is the default tier 
 
 **Can I change the default storage tier of my Blob or GPv2 storage account?**
 
-Yes, you can change the default storage tier by setting the **Access tier** attribute on the storage account. Changing the storage tier applies to all objects stored in the account that do not have an explicit tier set. Toggling the storage tier from hot to cool incurs write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only and toggling from cool to hot incurs both read operations (per 10,000) and data retrieval (per GB) charges for all blobs in Blob Storage and GPv2 accounts.
+Yes, you can change the default storage tier by setting the **Access tier** attribute on the storage account. Changing the storage tier applies to all objects stored in the account that do not have an explicit tier set. Toggling the storage tier from hot to cool incurs write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only and toggling from cool to hot incurs both read operations (per 10,000) and data retrieval (per GB) charges for all blobs in Blob storage and GPv2 accounts.
 
 **Can I set my default account access tier to archive?**
 
@@ -156,7 +156,7 @@ The hot and cool storage tiers along with blob-level tiering are available in al
 
 **Do the blobs in the cool storage tier behave differently than the ones in the hot storage tier?**
 
-Blobs in the hot storage tier have the same latency as blobs in GPv1, GPv2, and Blob Storage accounts. Blobs in the cool storage tier have a similar latency (in milliseconds) as blobs in GPv1, GPv2, and Blob Storage accounts. Blobs in the archive storage tier have several hours of latency in GPv1, GPv2, and Blob Storage accounts.
+Blobs in the hot storage tier have the same latency as blobs in GPv1, GPv2, and Blob storage accounts. Blobs in the cool storage tier have a similar latency (in milliseconds) as blobs in GPv1, GPv2, and Blob storage accounts. Blobs in the archive storage tier have several hours of latency in GPv1, GPv2, and Blob storage accounts.
 
 Blobs in the cool storage tier have a slightly lower availability service level (SLA) than the blobs stored in the hot storage tier. For more details, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
 
@@ -186,12 +186,12 @@ Data storage along with other limits are set at the account level and not per st
 
 ## Next steps
 
-### Evaluate hot, cool, and archive in GPv2 Blob Storage accounts
+### Evaluate hot, cool, and archive in GPv2 Blob storage accounts
 
 [Check availability of hot, cool, and archive by region](https://azure.microsoft.com/regions/#services)
 
 [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-[Check hot, cool, and archive pricing in Blob Storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)
+[Check hot, cool, and archive pricing in Blob storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)
 
 [Check data transfers pricing](https://azure.microsoft.com/pricing/details/data-transfers/)

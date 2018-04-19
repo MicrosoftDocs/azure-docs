@@ -1,18 +1,11 @@
 ---
 title: Secure data and operations in Azure Search | Microsoft Docs
 description: Azure Search security is based on SOC 2 compliance, encryption, authentication, and identity access through user and group security identifiers in Azure Search filters.
-services: search
-documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: ''
 
-ms.assetid: 
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: heidist
 
@@ -48,7 +41,7 @@ Encryption at rest was announced in January 24, 2018 and applies to all service 
 Several security mechanisms are available across the Azure Stack, and thus automatically available to the Azure Search resources you create.
 
 + [Locks at the subscription or resource level to prevent deletion](../azure-resource-manager/resource-group-lock-resources.md)
-+ [Role-based Access Control (RBAC) to control access to information and administrative operations](../active-directory/role-based-access-control-what-is.md)
++ [Role-based Access Control (RBAC) to control access to information and administrative operations](../role-based-access-control/overview.md)
 
 All Azure services support role-based access controls (RBAC) for setting levels of access consistently across all services. For example, viewing sensitive data, such as the admin key, is restricted to the Owner and Contributor roles, whereas viewing service status is available to members of any role. RBAC provides Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role.
 

@@ -23,7 +23,7 @@ ms.author: haroldw
 After you deploy an OpenShift cluster, you can configure additional items. This article covers the following:
 
 - How to configure single sign-on by using Azure Active Directory (Azure AD)
-- How to configure Operations Management Suite to monitor OpenShift
+- How to configure Log Analytics to monitor OpenShift
 - How to configure metrics and logging
 
 ## Configure single sign-on by using Azure Active Directory
@@ -168,11 +168,11 @@ sudo systemctl restart atomic-openshift-master
 
 In the OpenShift console, you now see two options for authentication: htpasswd_auth and [App Registration].
 
-## Monitor OpenShift with Operations Management Suite
+## Monitor OpenShift with Log Analytics
 
-To monitor OpenShift with Operations Management Suite, you can use one of two options: OMS Agent installation on VM host, or OMS Container. This article provides instructions for deploying the OMS Container.
+To monitor OpenShift with Log Analytics, you can use one of two options: OMS Agent installation on VM host, or OMS Container. This article provides instructions for deploying the OMS Container.
 
-## Create an OpenShift project for Operations Management Suite and set user access
+## Create an OpenShift project for Log Analytics and set user access
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -241,7 +241,7 @@ spec:
 
 ## Create a secret yaml file
 
-To create the secret yaml file, you need two pieces of information: OMS Workspace ID and OMS Workspace Shared Key. 
+To create the secret yaml file, you need two pieces of information: Log Analytics Workspace ID and Log Analytics Workspace Shared Key. 
 
 A sample ocp-secret.yml file follows: 
 
@@ -255,7 +255,7 @@ data:
   KEY: key_data
 ```
 
-Replace wsid_data with the Base64 encoded OMS Workspace ID. Then replace key_data with the Base64-encoded OMS Workspace Shared Key.
+Replace wsid_data with the Base64 encoded Log Analytics Workspace ID. Then replace key_data with the Base64-encoded Log Analytics Workspace Shared Key.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'

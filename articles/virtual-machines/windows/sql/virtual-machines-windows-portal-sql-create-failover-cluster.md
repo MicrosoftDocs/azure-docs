@@ -373,27 +373,13 @@ To create the load balancer:
 
 1. Return to the Azure Resource Group with the virtual machines and locate the new load balancer. You may have to refresh the view on the Resource Group. Click the load balancer.
 
-1. On the load balancer blade, click **Backend pools**.
+1. Click **Backend pools** and click **+ Add** to add a backend pool.
 
-1. Click **+ Add** to add a backend pool.
+1. Associate the backend pool with the availability set that contains the VMs.
 
-1. Type a name for the backend pool.
+1. Under **Target network IP configurations**, check **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI. 
 
-1. Click **Add a virtual machine**.
-
-1. On the **Choose virtual machines** blade, click **Choose an availability set**.
-
-1. Choose the availability set that you placed the SQL Server virtual machines in.
-
-1. On the **Choose virtual machines** blade, click **Choose the virtual machines**.
-
-   Your Azure portal should look like the following picture:
-
-   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
-
-1. Click **Select** on the **Choose virtual machines** blade.
-
-1. Click **OK** twice.
+1. Click **OK** to create the backend pool.
 
 ### Configure a load balancer health probe
 

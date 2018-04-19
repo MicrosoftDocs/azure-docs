@@ -56,6 +56,7 @@
 #### [Invitation email](active-directory-b2b-invitation-email.md)
 #### [Invitation redemption](active-directory-b2b-redemption-experience.md)
 #### [Add B2B users without an invitation](active-directory-b2b-add-user-without-invite.md)
+#### [Allow or block invitations](active-directory-b2b-allow-deny-list.md)
 #### [Conditional access for B2B](active-directory-b2b-mfa-instructions.md)
 #### [B2B sharing policies](active-directory-b2b-delegate-invitations.md)
 #### [Add a B2B user to a role](active-directory-b2b-add-guest-to-role.md)
@@ -77,8 +78,8 @@
 ## [Manage groups and members](active-directory-manage-groups.md)
 ### Manage groups
 #### [Azure portal](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell Azure Resource Manager model](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure PowerShell classic deployment model](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline (v1)](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
@@ -133,24 +134,24 @@
 #### [Using certificates](active-directory-reporting-api-with-certificates.md)
 
 ## Manage passwords
-### [Passwords overview](active-directory-passwords-overview.md)
+### [Passwords overview](authentication/active-directory-passwords-overview.md)
 ### User documents
 #### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
 #### [Password best practices](active-directory-secure-passwords.md)
 #### [Register for self-service password reset](active-directory-passwords-reset-register.md)
-### [SSPR How it works](active-directory-passwords-how-it-works.md)
-### [SSPR Deployment guide](active-directory-passwords-best-practices.md)
+### [SSPR How it works](authentication/concept-sspr-howitworks.md)
+### [SSPR Deployment guide](authentication/howto-sspr-deployment.md)
 ### [SSPR and Windows 10](active-directory-passwords-login.md)
-### [SSPR Policies ](active-directory-passwords-policy.md)
-### [SSPR Customization](active-directory-passwords-customize.md)
-### [SSPR Data requirements](active-directory-passwords-data.md)
-### [SSPR Reporting](active-directory-passwords-reporting.md)
+### [SSPR Policies ](authentication/concept-sspr-policy.md)
+### [SSPR Customization](authentication/concept-sspr-customization.md)
+### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
+### [SSPR Reporting](authentication/howto-sspr-reporting.md)
 ### IT Admins: Reset passwords
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
-### [License SSPR](active-directory-passwords-licensing.md)
+### [License SSPR](authentication/concept-sspr-licensing.md)
 ### [Password writeback](active-directory-passwords-writeback.md)
-### [Troubleshoot](active-directory-passwords-troubleshoot.md)
-### [FAQ](active-directory-passwords-faq.md)
+### [Troubleshoot](authentication/active-directory-passwords-troubleshoot.md)
+### [FAQ](authentication/active-directory-passwords-faq.md)
 
 
 ## Manage devices
@@ -215,11 +216,12 @@
 ##### [Custom home page](application-proxy-office365-app-launcher.md)
 ##### [Translate inline links](application-proxy-link-translation.md)
 ##### [Wildcard applications](active-directory-application-proxy-wildcard.md)
-##### [Azure AD Application Proxy and Qlik Sense](active-directory-application-proxy-qlik.md) 
+
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+##### [Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
@@ -326,9 +328,6 @@
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [FAQs](active-directory-conditional-faqs.md)
 
-### Windows Hello
-#### [Authenticate without passwords](active-directory-azureadjoin-passport.md)
-#### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
