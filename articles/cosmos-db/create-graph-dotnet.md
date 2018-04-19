@@ -55,10 +55,10 @@ Now let's clone a Graph API app from GitHub, set the connection string, and run 
 
 4. Restore the NuGet packages in the project. This should include the Gremlin.Net driver, as well as the Newtonsoft.Json package.
 
-5. You can also install the Gremlin.Net driver manually, version 3.2.7, using the Nuget package manager, or the [nuget command-line utility](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools): 
+5. You can also install the Gremlin.Net driver manually using the Nuget package manager, or the [nuget command-line utility](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools): 
 
     ```bash
-    nuget install Gremlin.Net -Version 3.2.7
+    nuget install Gremlin.Net
     ```
 
 ## Review the code
