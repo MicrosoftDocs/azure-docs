@@ -1,12 +1,13 @@
 ---
-title: 'What is VPN Gateway?: Create VPN connections to Azure virtual networks | Microsoft Docs'
-description: This article explains what a VPN gateway is and shows the ways you can connect to Azure virtual networks, including IPsec/IKE Site-to-Site cross-premises and VNet-to-VNet solutions, as well as Point-to-Site VPN.
+title: 'Azure VPN Gateway | Microsoft Docs'
+description: Learn about what a VPN gateway is and the ways you can use a VPN gateway to connect to Azure virtual networks. Including IPsec/IKE Site-to-Site cross-premises and VNet-to-VNet solutions, as well as Point-to-Site VPN.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: ''
+manager: jeconnoc
 editor: ''
-tags: azure-resource-manager,azure-service-management
+tags: azure-resource-manager
+Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
