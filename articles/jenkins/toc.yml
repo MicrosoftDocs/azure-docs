@@ -1,7 +1,7 @@
 - name: Jenkins on Azure
   href: index.yml
 - name: Overview
-  items: 
+  items:
   - name: About Jenkins on Azure
     href: overview.md
 - name: Quickstarts
@@ -27,7 +27,7 @@
     href: /azure/jenkins/jenkins-azure-vm-agents
     maintainContext: true
   - name: Build using Azure Container Instances
-    href: /azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent
+    href: /azure/container-instances/container-instances-jenkins?toc=%2Fen-us%2Fazure%2Fjenkins%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.jso
     maintainContext: true
 - name: How-to
   items:
@@ -60,7 +60,7 @@
     - name: Azure Container Service plugin
       href: https://plugins.jenkins.io/azure-acs
     - name: Azure Credential plugin
-      href: https://plugins.jenkins.io/azure-credentials 
+      href: https://plugins.jenkins.io/azure-credentials
     - name: Azure Function plugin
       href: https://plugins.jenkins.io/azure-function
     - name: Azure Service Fabric plugin
