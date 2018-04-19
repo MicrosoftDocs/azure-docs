@@ -273,6 +273,8 @@ The pattern is a combination of regular expression matching and machine learning
 
     ![Test with high score result](./media/luis-tutorial-pattern/high-score.png)
 
+    The entity is found first, then the pattern is found, indicating the intent. If you have a test result where the entity are not detected, and therefore the pattern is not found, you need to add more example utterances on the intent (not the pattern). 
+
 5. Close the test panel by selecting the **Test** button in the top navigation.
 
 ## Use an entity with a role in a pattern
@@ -345,7 +347,7 @@ Validate the new pattern with a test.
 
     ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/test-with-roles.png)
 
-    The entities are found first, then the pattern is found, indicating the intent. If you have a test result where the entities are not detected, and therefore the patter is not found, you need to add more example utterances on the intent (not the pattern). 
+    The entities are found first, then the pattern is found, indicating the intent. If you have a test result where the entities are not detected, and therefore the pattern is not found, you need to add more example utterances on the intent (not the pattern). 
 
 4. Close the test panel by selecting the **Test** button in the top navigation.
 
