@@ -197,7 +197,7 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 - If **provisioningState** is **Updating**, another extension could be getting deployed. Check if there are any ongoing operations on the VM, wait for them to complete and retry the failed Site Recovery **Enable replication** job.
 
 
-## VM's provisioning state is not valid (error code 151025)
+## COM+/Volume Shadow Copy service error (error code 151025)
 **Error code** | **Possible causes** | **Recommendations**
 --- | --- | ---
 151025<br></br>**Message**: Site recovery extension failed to install | - 'COM+ System Application' service disabled.</br></br>- 'Volume Shadow Copy' service is disabled.| Set 'COM+ System Application' and 'Volume Shadow Copy' services to automatic or manual start up mode.
@@ -205,8 +205,7 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 ### Fix the problem
 
 You can open 'Services' console and ensure the 'COM+ System Application' and 'Volume Shadow Copy' are not set to 'Disabled' for 'Startup Type'.
-
-    ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
+  ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)
