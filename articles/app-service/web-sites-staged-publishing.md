@@ -64,7 +64,7 @@ There is no content after deployment slot creation. You can deploy to the slot f
 
 <a name="AboutConfiguration"></a>
 
-## Configuration for deployment slots
+## Which settings are swapped?
 When you clone configuration from another deployment slot, the cloned configuration is editable. Furthermore, some configuration elements will follow the content across a swap (not slot specific) while other configuration elements will stay in the same slot after a swap (slot specific). The following lists show the configuration that will change when you swap slots.
 
 **Settings that are swapped**:
@@ -168,7 +168,7 @@ Make sure configuration for the slot is exactly the configuration intended for t
 
 <a name="Rollback"></a>
 
-## To rollback a production app after swap
+## Rollback a production app after swap
 If any errors are identified in production after a slot swap, roll the slots back to their pre-swap states by swapping the same two slots immediately.
 
 <a name="Warm-up"></a>
@@ -181,9 +181,19 @@ Some apps may require custom warm-up actions. The `applicationInitialization` co
         <add initializationPage="/Home/About" hostname="[app hostname]" />
     </applicationInitialization>
 
+## Monitor swap progress
+
+Sometimes, the swap operation takes some time to complete, such as when the app that is swapped has a long warm-up time. You can get more information on a long-running swap operation in the [Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in the [Azure portal](https://portal.azure.com).
+
+In your app page of the portal, in the left-hand navigation, select **Activity log**.
+
+A swap operation appears in the log query as `Slotswap`. You can expand it and select one of the sub-operations or errors to see the details.
+
+![Activity log for slot swap](media/web-sites-staged-publishing/activity-log.png)
+
 <a name="Delete"></a>
 
-## To delete a deployment slot
+## Delete a deployment slot
 In the blade for a deployment slot, open the deployment slot's blade, click **Overview** (the default page), 
 and click **Delete** in the command bar.  
 
@@ -193,41 +203,47 @@ and click **Delete** in the command bar.
 
 <a name="PowerShell"></a>
 
-## Azure PowerShell cmdlets for deployment slots
+## Automate with Azure PowerShell
+
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing deployment slots in Azure App Service.
 
 * For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### Create a web app
-```
+```PowerShell
 New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### Create a deployment slot
-```
+```PowerShell
 New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### Initiate a swap with preview (multi-phase swap) and apply destination slot configuration to source slot
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
 ### Cancel a pending swap (swap with review) and restore source slot configuration
-```
+```PowerShell
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
 - - -
 ### Swap deployment slots
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
+
+### Monitor swap events in the Activity Log
+```PowerShell
+Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
@@ -241,49 +257,9 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 <a name="CLI"></a>
 
-## Azure Command-Line Interface (Azure CLI) commands for Deployment Slots
-The Azure CLI provides cross-platform commands for working with Azure, including support for managing App Service deployment slots.
+## Automate with Azure CLI
 
-* For instructions on installing and configuring the Azure CLI, including information on how to connect Azure CLI to your Azure subscription, see [Install and Configure the Azure CLI](../cli-install-nodejs.md).
-* To list the commands available for Azure App Service in the Azure CLI, call `azure site -h`.
-
-> [!NOTE] 
-> For [Azure CLI 2.0](https://github.com/Azure/azure-cli) commands for deployment slots, see [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
-
-- - -
-### azure site list
-For information about the apps in the current subscription, call **azure site list**, as in the following example.
-
-`azure site list webappslotstest`
-
-- - -
-### azure site create
-To create a deployment slot, call **azure site create** and specify the name of an existing app and the name of the slot to create, as in the following example.
-
-`azure site create webappslotstest --slot staging`
-
-To enable source control for the new slot, use the **--git** option, as in the following example.
-
-`azure site create --git webappslotstest --slot staging`
-
-- - -
-### azure site swap
-To make the updated deployment slot the production app, use the **azure site swap** command to perform a swap operation, as in the following example. The production app will not experience any down time, nor will it undergo a cold start.
-
-`azure site swap webappslotstest`
-
-- - -
-### azure site delete
-To delete a deployment slot that is no longer needed, use the **azure site delete** command, as in the following example.
-
-`azure site delete webappslotstest --slot staging`
-
-- - -
-> [!NOTE]
-> See a web app in action. [Try App Service](https://azure.microsoft.com/try/app-service/) immediately and create a short-lived starter app—no credit 
-> card required, no commitments.
-> 
-> 
+For [Azure CLI](https://github.com/Azure/azure-cli) commands for deployment slots, see [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## Next Steps
 [Azure App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
