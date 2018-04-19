@@ -187,7 +187,7 @@ Sometimes, the swap operation takes some time to complete, such as when the app 
 
 In your app page of the portal, in the left-hand navigation, select **Activity log**.
 
-A swap operation appears in the log query as `Slotswap`. You can expand it and select one of the sub-operations or errors to see the details.
+A swap operation appears in the log query as `Slotsswap`. You can expand it and select one of the sub-operations or errors to see the details.
 
 ![Activity log for slot swap](media/web-sites-staged-publishing/activity-log.png)
 
