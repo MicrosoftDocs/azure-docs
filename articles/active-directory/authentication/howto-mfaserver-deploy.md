@@ -20,9 +20,9 @@ ms.custom: it-pro
 ---
 # Getting started with the Azure Multi-Factor Authentication Server
 
-<center>![MFA on-premises](./media/multi-factor-authentication-get-started-server/server2.png)</center>
+<center>![MFA on-premises](./media/howto-mfaserver-deploy/server2.png)</center>
 
-Now that we have determined to use on-premises Multi-Factor Authentication Server, let’s get going. This page covers a new installation of the server and setting it up with on-premises Active Directory. If you already have the MFA server installed and are looking to upgrade, see [Upgrade to the latest Azure Multi-Factor Authentication Server](multi-factor-authentication-server-upgrade.md). If you're looking for information on installing just the web service, see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md).
+Now that we have determined to use on-premises Multi-Factor Authentication Server, let’s get going. This page covers a new installation of the server and setting it up with on-premises Active Directory. If you already have the MFA server installed and are looking to upgrade, see [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md). If you're looking for information on installing just the web service, see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md).
 
 ## Plan your deployment
 
@@ -94,7 +94,7 @@ Follow these steps to download the Azure Multi-Factor Authentication Server from
 3. Select **Server settings**.
 4. Select **Download** and follow the instructions on the download page to save the installer. 
 
-   ![Download MFA Server](./media/multi-factor-authentication-get-started-server/downloadportal.png)
+   ![Download MFA Server](./media/howto-mfaserver-deploy/downloadportal.png)
 
 5. Keep this page open as we will refer to it after running the installer.
 
@@ -107,7 +107,7 @@ Now that you have downloaded the server you can install and configure it. Be sur
 3. Once the installation is complete, click **Finish**.  The configuration wizard launches.
 4. On the configuration wizard welcome screen, check **Skip using the Authentication Configuration Wizard** and click **Next**.  The wizard closes and the server starts.
 
-   ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
+   ![Cloud](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Back on the page that you downloaded the server from, click the **Generate Activation Credentials** button. Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
 
@@ -123,11 +123,11 @@ The content of the email also varies depending on the method of verification tha
 
 Click the email icon on the left to set up the settings for sending these emails. This page is where you can enter the SMTP information of your mail server and send email by checking the **Send emails to users** check box.
 
-![MFA Server Email configuration](./media/multi-factor-authentication-get-started-server/email1.png)
+![MFA Server Email configuration](./media/howto-mfaserver-deploy/email1.png)
 
 On the Email Content tab, you can see the email templates that are available to choose from. Depending on how you have configured your users to perform two-step verification, choose the template that best suits you.
 
-![MFA Server Email templates](./media/multi-factor-authentication-get-started-server/email2.png)
+![MFA Server Email templates](./media/howto-mfaserver-deploy/email2.png)
 
 ## Import users from Active Directory
 
@@ -140,7 +140,7 @@ Now that the server is installed you will want to add users. You can choose to c
 3. Now you can either search for individual users or search the AD directory for OUs with users in them.  In this case, we specify the users OU.
 4. Highlight all the users on the right and click **Import**.  You should receive a pop-up telling you that you were successful.  Close the import window.
 
-   ![MFA Server user import](./media/multi-factor-authentication-get-started-server/import2.png)
+   ![MFA Server user import](./media/howto-mfaserver-deploy/import2.png)
 
 ### Automated synchronization with Active Directory
 
@@ -185,8 +185,8 @@ The new server is now up and running with the original backed-up configuration a
 
 ## Next steps
 
-- Set up and configure the [User Portal](multi-factor-authentication-get-started-portal.md) for user self-service.
-- Set up and configure the Azure MFA Server with [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [RADIUS Authentication](multi-factor-authentication-get-started-server-radius.md), or [LDAP Authentication](multi-factor-authentication-get-started-server-ldap.md).
-- Set up and configure [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](multi-factor-authentication-get-started-server-rdg.md).
-- [Deploy the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md).
-- [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](multi-factor-authentication-advanced-vpn-configurations.md).
+- Set up and configure the [User Portal](howto-mfaserver-deploy-userportal.md) for user self-service.
+- Set up and configure the Azure MFA Server with [Active Directory Federation Service](../../multi-factor-authentication/multi-factor-authentication-get-started-adfs.md), [RADIUS Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md), or [LDAP Authentication](howto-mfaserver-dir-ldap.md).
+- Set up and configure [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](../../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md).
+- [Deploy the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md).
+- [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](../../multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md).

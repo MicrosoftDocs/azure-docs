@@ -35,7 +35,7 @@ Azure Multi-Factor Authentication provides several reports that can be used by y
 2. On the left, select **Azure Active Directory** > **MFA Server**.
 3. Select the report that you wish to view.
 
-   <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
+   <center>![Cloud](./media/howto-mfa-reporting/report.png)</center>
 
 ## PowerShell reporting
 
@@ -49,5 +49,5 @@ Identify users who have not registered for MFA using the PowerShell that follows
 
 ## Next steps
 
-* [For Users](end-user/multi-factor-authentication-end-user.md)
-* [Where to deploy](../active-directory/authentication/concept-mfa-whichversion.md)
+* [For Users](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)
+* [Where to deploy](concept-mfa-whichversion.md)
