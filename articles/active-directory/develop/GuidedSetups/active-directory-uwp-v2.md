@@ -48,7 +48,7 @@ This section provides step-by-step instructions for how to create a new project 
 
 The application created by this guide exposes a button to graph and show results on screen and a sign-out button.
 
-> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip) and skip to the [Configuration](#register-your-application "Configuration Step") step to configure the code sample before executing.
+> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip) and skip to the [application registration](#register-your-application "application registration step") step to configure the code sample before executing.
 
 
 ### Create your application
@@ -372,9 +372,9 @@ You may receive one of the following errors when sign-in on your application on 
 **Solution:** follow the steps in [integrated authentication on federated domains](#enable-integrated-authentication-on-federated-domains-optional)
 
 ### Issue 2:
-After you enable [integrated authentication on federated domains](#enable-integrated-authentication-on-federated-domains-optional) and try to use Windows Hello to sign-in, the list of certificates is presented, however if you choose to use your PIN, the PIN window is never presented.
+Ater you enable [integrated authentication on federated domains](#enable-integrated-authentication-on-federated-domains-optional) and try to use Windows Hello on a Windows 10 computer to sign-in on a an environment with Multi-factor-authentication configured, the list of certificates is presented, however if you choose to use your PIN, the PIN window is never presented.
 
 **Cause:** This is a known limitation with Web authentication broker in UWP applications running on Windows 10 desktop (works fine on Windows 10 Mobile)
 
-**Solution:** as work around, you will need to select to sign in with other options link and then choose Sign-in with a username and password instead, provide your password and go through the phone authentication.
+**Workaround:** as workaround, users need to select to sign in with other options, and then choose *Sign-in with a username and password* instead, select provide your password and then go through the phone authentication.
 
