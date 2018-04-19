@@ -79,7 +79,7 @@ Once your application is [published][publish-app] and real user utterances are e
 
 * **Phrase lists** LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate words or phrases that are significant to your app domain.  
 
-* **Patterns** Patterns allow you to simplify an intent's utterance collection into common [patterns][patterns] of word choice and word order. 
+* **Patterns** Patterns allow you to simplify an intent's utterance collection into common [templates][patterns] of word choice and word order. 
 
 ## Next steps
 Create a [new LUIS app](LUIS-get-started-create-app.md).
