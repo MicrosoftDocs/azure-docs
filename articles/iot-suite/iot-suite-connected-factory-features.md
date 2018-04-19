@@ -47,7 +47,7 @@ Connected Factory includes the following features:
 
 ## Azure Time Series Insights
 
-- [Azure Time Series Insights](../time-series-insights/time-series-insights-overview) is built for storing, visualizing, and querying large amounts of time-series data. Connected Factory leverages this service.
+- [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) is built for storing, visualizing, and querying large amounts of time-series data. Connected Factory leverages this service.
 - Connected factory integrates with this service enabling you perform deep, real-time analysis of your device data.
 
 ## Rules and alerts
