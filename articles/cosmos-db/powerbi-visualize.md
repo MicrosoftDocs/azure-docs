@@ -112,28 +112,29 @@ Ready to give it a try? Let's get started.
 ## Flattening and transforming JSON documents
 1. Switch to the Power BI Query Editor window, where the **Document** column in the center pane.
    ![Power BI Desktop Query Editor](./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
-2. Click on the expander at the right side of the **Document** column header.  The context menu with a list of fields will appear.  Select the fields you need for your report, for instance,  Volcano Name, Country, Region, Location, Elevation, Type, Status and Last Know Eruption, and then click **OK**.
+2. Click on the expander at the right side of the **Document** column header.  The context menu with a list of fields will appear.  Select the fields you need for your report, for instance,  Volcano Name, Country, Region, Location, Elevation, Type, Status and Last Know Eruption. Uncheck the **Use original column name as prefix** box, and then click **OK**.
    
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Expand documents](./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
 3. The center pane will display a preview of the result with the fields selected.
    
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Flatten results](./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png)
 4. In our example, the Location property is a GeoJSON block in a document.  As you can see, Location is represented as a **Record** type in Power BI Desktop.  
-5. Click on the expander at the right side of the Location column header.  The context menu with type and coordinates fields will appear.  Let's select the coordinates field and click **OK**.
+5. Click on the expander at the right side of the Document.Location column header.  The context menu with type and coordinates fields will appear.  Let's select the coordinates field, ensure **Use original column name as prefix** is not selected, and click **OK**.
    
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Location record](./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png)
 6. The center pane now shows a coordinates column of **List** type.  As shown at the beginning of the tutorial, the GeoJSON data in this tutorial is of Point type with Latitude and Longitude values recorded in the coordinates array.
    
     The coordinates[0] element represents Longitude while coordinates[1] represents Latitude.
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Coordinates list](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
-7. To flatten the coordinates array, we will create a **Custom Column** called LatLong.  Select the **Add Column** ribbon and click on **Add Custom Column**.  The **Add Custom Column** window should appear.
+7. To flatten the coordinates array, we will create a **Custom Column** called LatLong.  Select the **Add Column** ribbon and click on **Custom Column**.  The **Custom Column** window appears.
 8. Provide a name for the new column, e.g. LatLong.
 9. Next, specify the custom formula for the new column.  For our example, we will concatenate the Latitude and Longitude values separated by a comma as shown below using the following formula: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Click **OK**.
    
     For more information on Data Analysis Expressions (DAX) including DAX functions, please visit [DAX Basic in Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
    
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Add Custom Column](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
-10. Now, the center pane will show the new LatLong column populated with the Latitude and Longitude values separated by a comma.
+
+10. Now, the center pane shows the new Longitude and Latitude columns populated with the values.
     
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Custom LatLong column](./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
     
@@ -142,10 +143,8 @@ Ready to give it a try? Let's get started.
     ![Applied steps should be Source, Navigation, Expanded Document, Expanded Document.Location, Added Custom](./media/powerbi-visualize/power-bi-applied-steps.png)
     
     If your steps are different, delete the extra steps and try adding the custom column again. 
-11. We have now completed flattening the data into tabular format.  You can leverage all of the features available in the Query Editor to shape and transform data in Cosmos DB.  If you're using the sample, change the data type for Elevation to **Whole number** by changing the **Data Type** on the **Home** ribbon.
-    
-    ![Power BI tutorial for Azure Cosmos DB Power BI connector - Change column type](./media/powerbi-visualize/power_bi_connector_pbichangetype.png)
-12. Click **Close and Apply** to save the data model.
+
+11. Click **Close and Apply** to save the data model.
     
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Close & Apply](./media/powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
@@ -172,6 +171,7 @@ The following shows the basic steps of creating a simple interactive Map view re
 6. You now have created a basic report.  You can further customize the report by adding more visualizations.  In our case, we added a Volcano Type slicer to make the report interactive.  
    
     ![Screenshot of the final Power BI Desktop report upon completion of the Power BI tutorial for Azure Cosmos DB](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
+7. On the File menu, click **Save** and save the file as PowerBITutorial.pbix.
 
 ## Publish and share your report
 To share your report, you must have an account in PowerBI.com.
@@ -198,7 +198,7 @@ Then follow the instructions in [Pin a tile from a report](https://powerbi.micro
 
 You can also do ad hoc modifications to report before creating a dashboard. However, it's recommended that you use Power BI Desktop to perform the modifications and republish the report to PowerBI.com.
 
-## Refresh data in PowerBI.com
+<!-- ## Refresh data in PowerBI.com
 There are two ways to refresh data, ad hoc and scheduled.
 
 For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
@@ -217,7 +217,7 @@ For a scheduled refresh, do the following.
 4. Enter the key to connect to the Azure Cosmos DB account for that data set, then click **Sign in**. 
 5. Expand **Schedule Refresh** and set up the schedule you want to refresh the dataset. 
 6. Click **Apply** and you are done setting up the scheduled refresh.
-
+-->
 ## Next steps
 * To learn more about Power BI, see [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * To learn more about Azure Cosmos DB, see the [Azure Cosmos DB documentation landing page](https://azure.microsoft.com/documentation/services/cosmos-db/).
