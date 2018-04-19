@@ -17,15 +17,15 @@ ms.author: v-geberr;
 
 This tutorial demonstrates how to use patterns to increase intent and entity prediction.  
 
-In this tutorial, you learn how to:
+In this tutorial, you learn:
 
 > [!div class="checklist"]
 * How to identify that a pattern would help your app
 * How to create a pattern 
 * How to use prebuilt and custom entities in a pattern 
 * How to verify pattern prediction improvements
-* Add a role to an entity to find contextually-based entities
-* Add a Pattern.any to find free-form entities
+* How to add a role to an entity to find contextually-based entities
+* How to add a Pattern.any to find free-form entities
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
 
 ## Import HumanResources app
-This tutorial imports a HumanResources app. The app has three intents: None, GetEmployeeOrgChart, GetEmployeeBenefits. The app has two entities: Prebuilt number and Employee. The Employee entity is a simple entity containing an employee's name. 
+This tutorial imports a HumanResources app. The app has three intents: None, GetEmployeeOrgChart, GetEmployeeBenefits. The app has two entities: Prebuilt number and Employee. The Employee entity is a simple entity to extract an employee's name. 
 
 1. Create a new LUIS app file and name it `HumanResources.json`. 
 
@@ -221,14 +221,14 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
 
 7. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` then select enter. Select **Inspect** under the utterance to see more information about the test.
     
-    The employee name, Patti Owens, has not been used in an example utterance yet. This is a test to see how well LUIS learned this utterance is for the `GetEmployeeOrgChart` intent and the Employee entity should be `Patti Owens`. The result should be about 0.37 score for the `GetEmployeeOrgChart` intent. While the intent is correct, the score is low. The Employee entity is also correctly identified as `Patti Owens`.
+    The employee name, Patti Owens, has not been used in an example utterance yet. This is a test to see how well LUIS learned this utterance is for the `GetEmployeeOrgChart` intent and the Employee entity should be `Patti Owens`. The result should be below 50% (.50) for the `GetEmployeeOrgChart` intent. While the intent is correct, the score is low. The Employee entity is also correctly identified as `Patti Owens`. Patterns will increase this initial prediction score. 
 
     ![Screenshot of Test panel](media/luis-tutorial-pattern/original-test.png)
 
 8. Close the test panel by selecting the **Test** button in the top navigation. 
 
 ## Patterns teach LUIS common utterances with fewer examples
-Because of the nature of the human resources domain, there are a few common ways of asking about employee relationships in organizations. For example:
+Because of the nature of the human resource domain, there are a few common ways of asking about employee relationships in organizations. For example:
 
 ```
 Who does Mike Jones report to?
@@ -244,7 +244,7 @@ Who does {Employee} report to?
 Who reports to {Employee}? 
 ```
 
-The pattern is a combination of regular expression matching and machine learning. Provide some template utterance examples for LUIS to learn the pattern. These examples, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent and where, within the utterance, the entity exists. <!--A pattern is specific to an intent. You can't duplicate the same pattern on another intent. That would confuse LUIS, which lowers the prediction score. -->
+The pattern is a combination of regular expression matching and machine learning. Next, provide some template utterance examples for LUIS to learn the pattern. These examples, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent and where, within the utterance, the entity exists. <!--A pattern is specific to an intent. You can't duplicate the same pattern on another intent. That would confuse LUIS, which lowers the prediction score. -->
 
 ## Add the template utterances
 
@@ -261,13 +261,13 @@ The pattern is a combination of regular expression matching and machine learning
     Who are {Employee}'s subordinates?
     ```
 
-    The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. The syntax for an entity with a role is {Entity::role} such as `{Location::origin}`.
+    The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. 
 
     ![Screenshot of entering template utterances for intent](./media/luis-tutorial-pattern/enter-pattern.png)
 
 3. Select **Train** in the top navigation bar. Wait for the green success bar.
 
-4. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` in the text box. Select Enter. This is the same utterance tested in the previous section. The result should be higher than 0.37 for the `GetEmployeeOrgChart` intent. 
+4. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` in the text box. Select Enter. This is the same utterance tested in the previous section. The result should be higher for the `GetEmployeeOrgChart` intent. 
 
     The score is now **0.99**, much better. LUIS learned the pattern relevant to the intent without providing many examples.
 
@@ -278,7 +278,7 @@ The pattern is a combination of regular expression matching and machine learning
 5. Close the test panel by selecting the **Test** button in the top navigation.
 
 ## Use an entity with a role in a pattern
-The LUIS app is used to help move employees from one location to another. An example utterance is `Move Bob Jones from Seattle to Los Colinas`. Each location in the utterance has a different meaning. Seattle is the originating location and Los Colinas is the destination location for the move. In order to differentiate those locations in the pattern, create a location entity with two roles: origin and destination. 
+The LUIS app is used to help move employees from one location to another. An example utterance is `Move Bob Jones from Seattle to Los Colinas`. Each location in the utterance has a different meaning. Seattle is the originating location and Los Colinas is the destination location for the move. In order to differentiate those locations in the pattern, in the following sections you create a simple entity for location with two roles: origin and destination. 
 
 ### Create a new intent for moving people and assets
 Create a new intent for any utterances that are about moving people or assets.
@@ -295,12 +295,11 @@ Create a new intent for any utterances that are about moving people or assets.
     Move Jill Benson from Boston to London
     Move Travis Hinton from Portland to Orlando
     ```
-    
-    The purpose of the example utterances is to give enough examples. If, later in the test, the location entity isn't detected, and consequently the pattern isn't detected, come back to this step and add more example. Then test again. 
-   
     ![Screenshot of example utterance for MoveAssetsOrPeople intent](./media/luis-tutorial-pattern/intent-moveasserts-example-utt.png)
 
-5. Mark the entities in the example utterances with the Employee entity.
+    The purpose of the example utterances is to give enough examples. If, later in the test, the location entity isn't detected, and consequently the pattern isn't detected, come back to this step and add more example. Then test again. 
+
+5. Mark the entities in the example utterances with the Employee entity by selecting the first name then the last name in an utterance, then selecting the Employee entity in the list.
 
     ![Screenshot of utterances in MoveAssetsOrPeople marked with Employee entity](./media/luis-tutorial-pattern/intent-moveasserts-employee.png)
 
@@ -312,7 +311,7 @@ Create a new intent for any utterances that are about moving people or assets.
 
     ![Screenshot of all entities marked](./media/luis-tutorial-pattern/moveasset-all-entities-labeled.png)
 
-    The pattern of word choice and order is obvious in this previous image. If you were **not** using patterns, and the utterances on the intent have an obvious pattern, that is a good indication you should be using patterns. 
+    The pattern of word choice and order is obvious in the previous image. If you were **not** using patterns, and the utterances on the intent have an obvious pattern, that is a good indication you should be using patterns. 
 
     If you expect a wide variety of utterances, instead of a pattern, these would be the wrong example utterances. In that case, you would want widely varying utterances in term or word choice, utterance length, and entity placement. 
 
@@ -352,15 +351,15 @@ Validate the new pattern with a test.
 4. Close the test panel by selecting the **Test** button in the top navigation.
 
 ## Use a Pattern.any entity to find free-form entities in a pattern
-This HumanResources app also helps employees find company forms. Many of the forms have titles that are varying in length. The varying length includes phrases that may confuse LUIS about where the form name ends. Using a **Pattern.any** entity in a pattern allows you to specify the begin and end of the form name so LUIS correctly extracts the form name. Because LUIS matches the form name with Pattern.any, it also knows which intent is used. Create a Pattern.any and use it in a template utterance to extract the form name.
+This HumanResources app also helps employees find company forms. Many of the forms have titles that are varying in length. The varying length includes phrases that may confuse LUIS about where the form name ends. Using a **Pattern.any** entity in a pattern allows you to specify the beginning and end of the form name so LUIS correctly extracts the form name. Because LUIS matches the form name with Pattern.any, it also knows which intent is used. Create a Pattern.any and use it in a template utterance to extract the form name.
 
 ### Create a new intent for the form
 Create a new intent for utterances that are looking for forms.
 
-1. Select Intents from left navigation.
+1. Select **Intents** from left navigation.
 2. Select **Create new intent**.
 3. Name the new intent `FindForm`.
-4. Add example utterances `Where is the form What to do when a fire breaks out in the Lab and who needs to sign it after I read it?`. The form title is `What to do when a fire breaks out in the Lab`. The utterance is asking for the location of the form and is also asking who needs to sign it validating the employee read it. Without a Pattern.any entity, it would be difficult to understand the parts or whole of the utterance. 
+4. Add example utterances `Where is the form What to do when a fire breaks out in the Lab and who needs to sign it after I read it?`. The form title is `What to do when a fire breaks out in the Lab`. The utterance is asking for the location of the form and is also asking who needs to sign it validating the employee read it. Without a Pattern.any entity, it would be difficult to understand the entity of the utterance. 
 
     ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/intent-findform.png)
 
@@ -385,7 +384,7 @@ Add patterns that use the new entity.
 ### Test the new pattern for free-form data extraction
 1. Open the test panel. 
 2. Enter the utterance `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`.
-3. Select Inspect under the result to see the test results for entity and intent.
+3. Select **Inspect** under the result to see the test results for entity and intent.
 
     ![Screenshot of template utterance using pattern.any entity](./media/luis-tutorial-pattern/test-pattern.any-results.png)
 
