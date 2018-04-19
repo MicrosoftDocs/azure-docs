@@ -1,6 +1,6 @@
 ---
-title: Create custom role-based access control roles and assign to internal and external users in Azure | Microsoft Docs
-description: Assign custom RBAC roles created using PowerShell and CLI for internal and external users
+title: Manage role assignments for external users in Azure | Microsoft Docs
+description: Manage role-based access control (RBAC) in Azure for users external to an organization
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -19,37 +19,22 @@ ms.reviewer: skwan
 ms.custom: it-pro
 
 ---
-# Intro on role-based access control
+# Manage role assignments for external users
 
-Role-based access control is an Azure portal only feature allowing the owners of a subscription to assign granular roles to other users who can manage specific resource scopes in their environment.
-
-RBAC allows better security management for large organizations and for SMBs working with external collaborators, vendors, or freelancers that need access to specific resources in your environment but not necessarily to the entire infrastructure or any billing-related scopes. RBAC allows the flexibility of owning one Azure subscription managed by the administrator account (service administrator role at a subscription level) and have multiple users invited to work under the same subscription but without any administrative rights for it. From a management and billing perspective, the RBAC feature proves to be a time and management efficient option for using Azure in various scenarios.
-
-## Prerequisites
-Using RBAC in the Azure environment requires:
-
-* Having a standalone Azure subscription assigned to the user as owner (subscription role)
-* Have the Owner role of the Azure subscription
-* Have access to the [Azure portal](https://portal.azure.com)
-* Make sure to have the following Resource Providers registered for the user subscription: **Microsoft.Authorization**. For more information on how to register the resource providers, see [Resource Manager providers, regions, API versions and schemas](../azure-resource-manager/resource-manager-supported-services.md).
+Role-based access control (RBAC) allows better security management for large organizations and for SMBs working with external collaborators, vendors, or freelancers that need access to specific resources in your environment but not necessarily to the entire infrastructure or any billing-related scopes. RBAC allows the flexibility of owning one Azure subscription managed by the administrator account (service administrator role at a subscription level) and have multiple users invited to work under the same subscription but without any administrative rights for it.
 
 > [!NOTE]
 > Office 365 subscriptions or Azure Active Directory licenses (for example: Access to Azure Active Directory) provisioned from the Office 365 Admin center don't qualify for using RBAC.
 
-## How can RBAC be used
-RBAC can be applied at three different scopes in Azure. From the highest scope to the lowest one, they are as follows:
-
-* Subscription (highest)
-* Resource group
-* Resource scope (the lowest access level offering targeted permissions to an individual Azure resource scope)
-
 ## Assign RBAC roles at the subscription scope
+
 There are two common examples when RBAC is used (but not limited to):
 
 * Having external users from the organizations (not part of the admin user's Azure Active Directory tenant) invited to manage certain resources or the whole subscription
 * Working with users inside the organization (they are part of the user's Azure Active Directory tenant) but part of different teams or groups that need granular access either to the whole subscription or to certain resource groups or resource scopes in the environment
 
 ## Grant access at a subscription level for a user outside of Azure Active Directory
+
 RBAC roles can be granted only by **Owners** of the subscription. Therefore, the administrator must be logged in as a user that has this role pre-assigned or has created the Azure subscription.
 
 From the Azure portal, after you sign in as admin, select “Subscriptions” and chose the desired one.
@@ -63,15 +48,7 @@ In this example, the "Default tenant Azure" directory contains only users with t
 
 After selecting the subscription, the admin user must click **Access Control (IAM)** and then **Add a new role**.
 
-
-
-
-
 ![access control IAM feature in Azure portal](./media/role-assignments-external-users/1.png)
-
-
-
-
 
 ![add new user in access control IAM feature in Azure portal](./media/role-assignments-external-users/2.png)
 
@@ -79,15 +56,7 @@ The next step is to select the role to be assigned and the user whom the RBAC ro
 
 The admin user then needs to add the email address of the external user. The expected behavior is for the external user to not show up in the existing tenant. After the external user has been invited, he will be visible under **Subscriptions > Access Control (IAM)** with all the current users that are currently assigned an RBAC role at the Subscription scope.
 
-
-
-
-
 ![add permissions to new RBAC role](./media/role-assignments-external-users/3.png)
-
-
-
-
 
 ![list of RBAC roles at subscription level](./media/role-assignments-external-users/4.png)
 
@@ -96,21 +65,11 @@ The user "chessercarlton@gmail.com" has been invited to be an **Owner** for the 
 
 Being external to the organization, the new user does not have any existing attributes in the "Default tenant Azure" directory. They will be created after the external user has given consent to be recorded in the directory that is associated with the subscription he has been assigned a role to.
 
-
-
-
-
 ![email invitation message for RBAC role](./media/role-assignments-external-users/6.png)
 
 The external user shows in the Azure Active Directory tenant from now on as external user and this can be viewed in the Azure portal.
 
-
-
-
-
 ![users blade azure active-directory Azure portal](./media/role-assignments-external-users/7.png)
-
-
 
 In the **Users** view, the external users can be recognized by the different icon type in the Azure portal.
 
@@ -120,10 +79,6 @@ However, granting **Owner** or **Contributor** access to an external user at the
 > Make sure that after entering the credentials in the portal, the external user selects the correct directory to sign in to. The same user can have access to multiple directories and can select either one of  them by clicking the username in the top right-hand side in the Azure portal and then choose the appropriate directory from the dropdown list.
 
 While being a guest in the directory, the external user can manage all resources for the Azure subscription, but can't access the directory.
-
-
-
-
 
 ![access restricted to azure active-directory Azure portal](./media/role-assignments-external-users/9.png)
 
@@ -139,44 +94,36 @@ Assigning the built-in RBAC role of **Virtual Machine Contributor** at a subscri
 * Can't operate any changes from a billing perspective
 
 ## Assign a built-in RBAC role to an external user
+
 For a different scenario in this test, the external user "alflanigan@gmail.com" is added as a **Virtual Machine Contributor**.
-
-
-
 
 ![virtual machine contributor built-in role](./media/role-assignments-external-users/11.png)
 
 The normal behavior for this external user with this built-in role is to see and manage only virtual machines and their adjacent Resource Manager only resources necessary while deploying. By design, these limited roles offer access only to their correspondent resources created in the Azure portal.
 
-
-
 ![virtual machine contributor role overview in Azure portal](./media/role-assignments-external-users/12.png)
 
 ## Grant access at a subscription level for a user in the same directory
+
 The process flow is identical to adding an external user, both from the admin perspective granting the RBAC role as well as the user being granted access to the role. The difference here is that the invited user will not receive any email invitations as all the resource scopes within the subscription will be available in the dashboard after signing in.
 
 ## Assign RBAC roles at the resource group scope
+
 Assigning an RBAC role at a **Resource Group** scope has an identical process for assigning the role at the subscription level, for both types of users - either external or internal (part of the same directory). The users that are assigned the RBAC role is to see in their environment only the resource group they have been assigned access from the **Resource Groups** icon in the Azure portal.
 
 ## Assign RBAC roles at the resource scope
+
 Assigning an RBAC role at a resource scope in Azure has an identical process for assigning the role at the subscription level or at the resource group level, following the same workflow for both scenarios. Again, the users that are assigned the RBAC role can see only the items that they have been assigned access to, either in the **All Resources** tab or directly in their dashboard.
 
 An important aspect for RBAC both at resource group scope or resource scope is for the users to make sure to sign in to the correct directory.
 
-
-
-
-
 ![directory login in Azure portal](./media/role-assignments-external-users/13.png)
 
 ## Assign RBAC roles for an Azure Active Directory group
+
 All the scenarios using RBAC at the three different scopes in Azure offer the privilege of managing, deploying, and administering various resources as an assigned user without the need of managing a personal subscription. Regardless the RBAC role is assigned for a subscription, resource group, or resource scope, all the resources created further on by the assigned users are billed under the one Azure subscription where the users have access to. This way, the users who have billing administrator permissions for that entire Azure subscription has a complete overview on the consumption, regardless who is managing the resources.
 
 For larger organizations, RBAC roles can be applied in the same way for Azure Active Directory groups considering the perspective that the admin user wants to grant the granular access for teams or entire departments, not individually for each user, thus considering it as an extremely time and management efficient option. To illustrate this example, the **Contributor** role has been added to one of the groups in the tenant at the subscription level.
-
-
-
-
 
 ![add RBAC role for AAD groups](./media/role-assignments-external-users/14.png)
 

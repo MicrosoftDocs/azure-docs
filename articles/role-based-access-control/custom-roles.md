@@ -20,11 +20,11 @@ ms.custom: H1Hack27Feb2017
 
 # Create custom roles in Azure
 
-If the [built-in roles](built-in-roles.md) don't meet your specific access needs, you can create your own custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes. Custom roles are stored in an Azure AD tenant and can be shared across subscriptions. Custom roles can be created using Azure PowerShell, Azure CLI, or the REST API. This article describes an example of how to get started creating custom roles using PowerShell and Azure CLI.
+If the [built-in roles](built-in-roles.md) don't meet your specific access needs, you can create your own custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes. Custom roles are stored in an Azure Active Directory (Azure AD) tenant and can be shared across subscriptions. Custom roles can be created using Azure PowerShell, Azure CLI, or the REST API. This article describes an example of how to get started creating custom roles using PowerShell and Azure CLI.
 
 ## Create a custom role to open support requests using PowerShell
 
-To create a custom role, you can start with a built-in role, edit it, and then create a new role. For this example, the built-in [Reader](built-in-roles.md#reader) role has been customized to allow the user the option of opening support requests.
+To create a custom role, you can start with a built-in role, edit it, and then create a new role. For this example, the built-in [Reader](built-in-roles.md#reader) role has been customized to allow the user to open support requests.
 
 In PowerShell, use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command to export the [Reader](built-in-roles.md#reader) role in JSON format.
 
