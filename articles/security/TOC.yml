@@ -65,6 +65,8 @@
   - name: Identity management
     href: security-identity-management-overview.md
     items:
+    - name: Choose Azure AD authentication
+      href: azure-ad-choose-authn.md
     - name: Best practices
       href: azure-security-identity-management-best-practices.md
     - name: Enforce MFA on subscription administrators
@@ -74,6 +76,8 @@
     items:
     - name: Best practices
       href: azure-security-network-security-best-practices.md
+    - name: DDoS Protection
+      href: azure-ddos-best-practices.md
     - name: Boundary security
       href: ../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json
 - name: Application
