@@ -47,7 +47,7 @@ Role-Based Access Control (RBAC) provides fine-grained access management for Azu
 Learn more:
 
 * [Active Directory team blog on RBAC](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
-* [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
+* [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)
 
 ## Antimalware
 With Azure, you can use antimalware software from major security vendors such as Microsoft, Symantec, Trend Micro, McAfee, and Kaspersky to help protect your virtual machines from malicious files, adware, and other threats.
@@ -73,7 +73,7 @@ Learn more:
 
 * [Multi-factor authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 * [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
-* [How Azure Multi-Factor Authentication works](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+* [How Azure Multi-Factor Authentication works](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## ExpressRoute
 Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and CRM Online. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility. ExpressRoute connections do not go over the public Internet. This allows ExpressRoute connections to offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet.

@@ -18,10 +18,11 @@ ms.author: cephalin
 
 # Customize authentication and authorization in Azure App Service
 
-This article shows you how to customize authentication and authorization in App Service, and to manage identity from your application. 
+This article shows you how to customize [authentication and authorization in App Service](app-service-authentication-overview.md), and to manage identity from your application. 
 
 To get started quickly, see one of the following tutorials:
 
+* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](app-service-web-tutorial-auth-aad.md)
 * [How to configure your app to use Azure Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [How to configure your app to use Facebook login](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [How to configure your app to use Google login](app-service-mobile-how-to-configure-google-authentication.md)
@@ -40,7 +41,7 @@ In the sign-in page, or the navigation bar, or any other location of your web ap
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
-<a href="/.auth/login/microsoft">Log in with Microsoft Account</a> 
+<a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
@@ -141,3 +142,7 @@ Click **Edit**, modify the following property, and then click **Put**. Be sure t
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Tutorial: Authenticate and authorize users end-to-end](app-service-web-tutorial-auth-aad.md)

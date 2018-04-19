@@ -27,7 +27,7 @@ Password writeback provides the following features:
 
 * **Provides zero-delay feedback**: Password writeback is a synchronous operation. Your users are notified immediately if their password did not meet the policy or could not be reset or changed for any reason.
 * **Supports password resets for users that use Active Directory Federation Services (AD FS) or other federation technologies**: With password writeback, as long as the federated user accounts are synchronized into your Azure AD tenant, they are able to manage their on-premises Active Directory passwords from the cloud.
-* **Supports password resets for users that use** [password hash sync](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md): When the password reset service detects that a synchronized user account is enabled for password hash sync, we reset both this account’s on-premises and cloud password simultaneously.
+* **Supports password resets for users that use** [password hash synchronization](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md): When the password reset service detects that a synchronized user account is enabled for password hash synchronization, we reset both this account’s on-premises and cloud password simultaneously. Password writeback does not depend on password hash synchronization.
 * **Supports password resets for users that use Pass-Through Authentication**: With password writeback, as long as the Pass-Through Authentication accounts are synchronized into your Azure AD tenant, they are able to manage their on-premises Active Directory passwords from the cloud.
 * **Supports password changes from the access panel and Office 365**: When federated or password synchronized users come to change their expired or non-expired passwords, we write those passwords back to your local Active Directory environment.
 * **Supports passwords writeback when an admin resets them from the Azure portal**: Whenever an admin resets a user’s password in the [Azure portal](https://portal.azure.com), if that user is federated or password synchronized, we’ll set the password the admin selects in local Active Directory as well. This functionality is currently not supported in the Office admin portal.
@@ -88,7 +88,7 @@ The following steps assume you have already configured Azure AD Connect in your 
 7. On the **Ready to configure** page, select **Configure** and wait for the process to finish.
 8. When you see the configuration finish, select **Exit**.
 
-For common troubleshooting tasks related to password writeback, see the section [Troubleshoot password writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) in our troubleshooting article.
+For common troubleshooting tasks related to password writeback, see the section [Troubleshoot password writeback](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) in our troubleshooting article.
 
 ## Active Directory permissions
 
@@ -131,7 +131,7 @@ To set up the appropriate permissions for password writeback to occur, complete 
 
 ## Licensing requirements for password writeback
 
-For information about licensing, see [Licenses required for password writeback](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) or the following sites:
+For information about licensing, see [Licenses required for password writeback](authentication/concept-sspr-licensing.md#licenses-required-for-password-writeback) or the following sites:
 
 * [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
@@ -217,16 +217,16 @@ The size of each of the message described previously is typically under 1 KB. Ev
 
 ## Next steps
 
-* [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
+* [How do I complete a successful rollout of SSPR?](authentication/howto-sspr-deployment.md)
 * [Reset or change your password](active-directory-passwords-update-your-own-password.md).
 * [Register for self-service password reset](active-directory-passwords-reset-register.md).
-* [Do you have a licensing question?](active-directory-passwords-licensing.md)
-* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
-* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [What are the policy options with SSPR?](active-directory-passwords-policy.md)
-* [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
-* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
-* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+* [Do you have a licensing question?](authentication/concept-sspr-licensing.md)
+* [What data is used by SSPR and what data should you populate for your users?](authentication/howto-sspr-authenticationdata.md)
+* [What authentication methods are available to users?](authentication/concept-sspr-howitworks.md#authentication-methods)
+* [What are the policy options with SSPR?](authentication/concept-sspr-policy.md)
+* [How do I report on activity in SSPR?](authentication/howto-sspr-reporting.md)
+* [What are all of the options in SSPR and what do they mean?](authentication/concept-sspr-howitworks.md)
+* [I think something is broken. How do I troubleshoot SSPR?](authentication/active-directory-passwords-troubleshoot.md)
+* [I have a question that was not covered somewhere else](authentication/active-directory-passwords-faq.md)
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Enable password writeback in Azure AD Connect"

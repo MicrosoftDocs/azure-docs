@@ -26,7 +26,8 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM agent unable to communicate with Azure Backup
 
-Error message: "VM Agent unable to communicate with Azure Backup"
+Error message: "VM Agent unable to communicate with Azure Backup"<br>
+Error code: "UserErrorGuestAgentStatusUnavailable"
 
 After you register and schedule a VM for the Backup service, Backup initiates the job by communicating with the VM agent to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. When a snapshot isn't triggered, the backup might fail. Complete the following troubleshooting steps in the order listed, and then retry your operation:
 
@@ -38,7 +39,8 @@ After you register and schedule a VM for the Backup service, Backup initiates th
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Snapshot operation fails because the virtual machine isn't connected to the network
 
-Error message: "Snapshot operation failed due to no network connectivity on the virtual machine"
+Error message: "Snapshot operation failed due to no network connectivity on the virtual machine"<br>
+Error code: "ExtensionSnapshotFailedNoNetwork"
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:    
 **Cause 1: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**  
@@ -47,7 +49,8 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>VMSnapshot extension operation fails
 
-Error message: "VMSnapshot extension operation failed"
+Error message: "VMSnapshot extension operation failed"<br>
+Error code: "ExtentionOperationFailed"
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
 **Cause 1: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -57,7 +60,8 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 
 ## Backup fails because the VM agent is unresponsive
 
-Error messagae: "Unable to perform the operation as the VM Agent is not responsive"
+Error message: "Unable to perform the operation as the VM Agent is not responsive" <br>
+Error code: "GuestAgentSnapshotTaskStatusError"
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
 **Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -66,7 +70,8 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 
 ## Backup fails, with an internal error
 
-Error message: "Backup failed with an internal error - Please retry the operation in a few minutes"
+Error message: "Backup failed with an internal error - Please retry the operation in a few minutes" <br>
+Error code: "BackUpOperationFailed"/ "BackUpOperationFailedV2"
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
 **Cause 1: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**  
@@ -174,6 +179,8 @@ To uninstall the extension:
 3. Select **Extensions**.
 4. Select **Vmsnapshot Extension**.
 5. Select **Uninstall**.
+
+For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/linux/update-agent.md), and then run the backup. 
 
 Completing these steps causes the extension to be reinstalled during the next backup.
 

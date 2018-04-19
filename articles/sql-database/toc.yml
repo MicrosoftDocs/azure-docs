@@ -48,14 +48,18 @@
     href: sql-database-design-first-database.md
   - name: 1 - Design DB using .NET
     href: sql-database-design-first-database-csharp.md
-  - name: 2 - Migrate to SQL Server DB
+  - name: 2 - Migrate to SQL Server DB using DMS
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Secure your SQL DB
     href: sql-database-security-tutorial.md
   - name: 4 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
   - name: 5 - Create Managed Instance
-    href: sql-database-managed-instance-tutorial-portal.md
+    href: sql-database-managed-instance-create-tutorial-portal.md
+  - name: 6 - Restore a backup to a Managed Instance
+    href: sql-database-managed-instance-restore-from-backup-tutorial.md
+  - name: 7 - Migrate to a Managed Instance using DMS
+    href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Samples
   items:
   - name: Code samples
@@ -410,6 +414,10 @@
         href: saas-tenancy-cross-tenant-reporting.md
       - name: ETL for analytics
         href: saas-tenancy-tenant-analytics.md
+      - name: Disaster recovery using geo-restore
+        href: saas-dbpertenant-dr-geo-restore.md
+      - name: Disaster recovery using database geo-replication
+        href: saas-dbpertenant-dr-geo-replication.md
     - name: Multi-tenant database
       items:
       - name: Deploy example app
@@ -430,6 +438,8 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
+    - name: Use Spark Connector
+      href: sql-database-spark-connector.md
 - name: Reference
   items:
   - name: Azure PowerShell

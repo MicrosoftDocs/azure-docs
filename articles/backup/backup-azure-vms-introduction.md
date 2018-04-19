@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk
+ms.author: markgal;trinadhk;sogup
 
 ---
 # Plan your VM backup infrastructure in Azure
@@ -97,7 +97,8 @@ While most of the backup time is spent reading and copying data, other operation
 
 * Time needed to [install or update the backup extension](backup-azure-arm-vms.md).
 * Snapshot time, which is the time taken to trigger a snapshot. Snapshots are triggered close to the scheduled backup time.
-* Queue wait time. Since the Backup service is processing backups from multiple customers, copying backup data from snapshot to the backup or Recovery Services vault might not start immediately. In times of peak load, the wait can stretch up to eight hours due to the number of backups being processed. However, the total VM backup time is less than 24 hours for daily backup policies.
+* Queue wait time. Since the Backup service is processing backups from multiple customers, copying backup data from snapshot to the backup or Recovery Services vault might not start immediately. In times of peak load, the wait can stretch up to eight hours due to the number of backups being processed. However, the total VM backup time is less than 24 hours for daily backup policies. <br>
+**This holds valid only for incremental backups and not for the first backup. First backup time is proportional and can be greater than 24 hours depending upon the size of the data and the time backup is taken.**
 * Data transfer time, time needed for backup service to compute the incremental changes from previous backup and transfer those changes to vault storage.
 
 ### Why am I observing longer(>12 hours) backup time?

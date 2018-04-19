@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Transform data using Hive in Azure Virtual Network | Microsoft Docs'
 description: 'This tutorial provides step-by-step instructions for transforming data by using Hive activity in Azure Data Factory.'
 services: data-factory
@@ -93,7 +93,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
     Run the following command to view all the subscriptions for this account:
 

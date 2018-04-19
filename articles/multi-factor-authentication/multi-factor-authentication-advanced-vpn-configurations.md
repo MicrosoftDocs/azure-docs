@@ -46,6 +46,6 @@ Azure Multi-Factor Authentication integrates with your Juniper/Pulse Secure SSL 
 
 ## Next steps
 
-- [Augment your existing authentication infrastructure with the NPS extension for Azure Multi-Factor Authentication](multi-factor-authentication-nps-extension.md)
+- [Augment your existing authentication infrastructure with the NPS extension for Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-nps-extension.md)
 
-- [Configure Azure Multi-Factor Authentication settings](multi-factor-authentication-whats-next.md)
+- [Configure Azure Multi-Factor Authentication settings](../active-directory/authentication/howto-mfa-mfasettings.md)

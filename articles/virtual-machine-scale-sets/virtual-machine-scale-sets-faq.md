@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure virtual machine scale sets FAQs | Microsoft Docs
 description: Get answers to frequently asked questions about virtual machine scale sets.
 services: virtual-machine-scale-sets
@@ -168,7 +168,7 @@ For more information, see [Create or update a virtual machine scale set](https:/
     ```powershell
     Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
@@ -401,9 +401,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 You can find the extensionName value in `$vmss`.
    
-### Is there a virtual machine scale set template example that integrates with Operations Management Suite?
+### Is there a virtual machine scale set template example that integrates with Log Analytics?
 
-For a virtual machine scale set template example that integrates with Operations Management Suite, see the second example in [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+For a virtual machine scale set template example that integrates with Log Analytics, see the second example in [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
    
 ### Extensions seem to run in parallel on virtual machine scale sets. This causes my custom script extension to fail. What can I do to fix this?
 
@@ -692,9 +692,9 @@ Yes, you can use the reimage operation to reset a VM without changing the image.
 
 For more information, see [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### Is it possible to integrate scale sets with Azure OMS (Operations Management Suite)?
+### Is it possible to integrate scale sets with Azure Log Analytics?
 
-Yes, you can by installing the OMS extension on the scale set VMs. Here is an Azure CLI example:
+Yes, you can by installing the Log Analytics extension on the scale set VMs. Here is an Azure CLI example:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
