@@ -1,0 +1,45 @@
+---
+title: Azure Event Grid event handlers
+description: Describes supported event handlers for Azure Event Grid 
+services: event-grid
+author: tfitzmac
+manager: timlt
+
+ms.service: event-grid
+ms.topic: article
+ms.date: 04/19/2018
+ms.author: tomfitz
+---
+
+# Event handlers in Azure Event Grid
+
+An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events. You can also use any webhook for handling events. The webhook does not need to be hosted in Azure to handle events.
+
+This article provides links to content for each event handler.
+
+## Handlers
+
+### Azure Automation
+
+[Integrate Azure Automation with Event Grid and Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md)
+
+### Azure Functions
+
+* [Automate resizing uploaded images using Event Grid](resize-images-on-storage-blob-upload-event.md)
+* [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
+* [Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+
+### Logic Apps
+
+* [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md)
+* [Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+
+### WebHooks
+
+[Receive events to an HTTP endpoint](receive-events.md)
+
+## Next steps
+
+* For an introduction to Event Grid, see [About Event Grid](overview.md).
+* To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
