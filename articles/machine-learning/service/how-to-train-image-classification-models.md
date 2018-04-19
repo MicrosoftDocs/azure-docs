@@ -1,6 +1,7 @@
 ---
 title: Train and deploy image classification models with Azure Machine Learning
 description: Learn how to build image classification models and deploy them with the Azure ML Package for Computer Vision.
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
@@ -31,4 +32,4 @@ Paragraph here.
 
 ## Next steps
 
-For information about machine learning, see another article.
+For information about machine learning, see another article once it gets written.
