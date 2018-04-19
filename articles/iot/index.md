@@ -55,7 +55,7 @@ Azure IoT technologies and solutions are designed to facilitate the end-to-end d
                         <h3>Platform services</h3>
                         <a href="/azure/iot-hub">IoT Hub</a><br/>
                         <a href="/azure/iot-dps">IoT Hub Device Provisioning Service</a><br/>
-                        <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">IoT Service SDKs</a><br/>                      
+                        <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">IoT Service SDKs</a><br/>
                         <a href="/azure/location-based-services">Location Based Services</a><br/>
                         <a href="/azure/time-series-insights">Time Series Insights</a>
                     </div>
