@@ -17,7 +17,7 @@
 ## [Configure company branding](customize-branding.md)
 ## [Add users to Azure AD](add-users-azure-active-directory.md)
 ## [Assign licenses to users](license-users-groups.md)
-## [Configure Self-service password reset](active-directory-passwords-getting-started.md)
+## [Configure Self-service password reset](authentication/quickstart-sspr.md)
 
 
 # How to
@@ -141,7 +141,7 @@
 #### [Register for self-service password reset](active-directory-passwords-reset-register.md)
 ### [SSPR How it works](authentication/concept-sspr-howitworks.md)
 ### [SSPR Deployment guide](authentication/howto-sspr-deployment.md)
-### [SSPR and Windows 10](active-directory-passwords-login.md)
+### [SSPR and Windows 10](authentication/tutorial-sspr-windows.md)
 ### [SSPR Policies ](authentication/concept-sspr-policy.md)
 ### [SSPR Customization](authentication/concept-sspr-customization.md)
 ### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
@@ -149,7 +149,7 @@
 ### IT Admins: Reset passwords
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
 ### [License SSPR](authentication/concept-sspr-licensing.md)
-### [Password writeback](active-directory-passwords-writeback.md)
+### [Password writeback](authentication/howto-sspr-writeback.md)
 ### [Troubleshoot](authentication/active-directory-passwords-troubleshoot.md)
 ### [FAQ](authentication/active-directory-passwords-faq.md)
 
