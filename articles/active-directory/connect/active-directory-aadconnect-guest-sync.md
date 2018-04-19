@@ -26,14 +26,14 @@ This scenario addresses this situation.
 
 
 ## Pre-requisites and assumptions
-The following is a list of pre-requisites and assumptions you need to be aware of prior to attempting to set up this scenario.
+This section contains a  list of pre-requisites and assumptions you need to be aware of prior to attempting to set up this scenario.
 
 ### Pre-requisites
 - Global administrator credentials to configure Azure AD Connect, verify domains, and configure domain federation settings
 - Azure AD Connect version 1.1.524.0 or higher
-- Verified domain to set the cloud UPN of external users (example: contoso.onmicrosoft.com).  For purposes of this doc, an onmicrosoft.com tenant was used.  In most cases this will be the 
+- Verified domain to set the cloud UPN of external users (example: bmcontoso.com).
 - Federation Service to authenticate your external users. If you use AD FS, it must be 2012 R2 or higher
-- MSOL PowerShell v1.1 is installed on a machine to verify federation settings.  For more information see [Azure ActiveDirectory (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0).
+- MSOL PowerShell v1.1 is installed on a machine to verify federation settings.  For more information, see [Azure ActiveDirectory (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0).
 
 
 ### Assumptions 
@@ -41,20 +41,20 @@ The following is a list of pre-requisites and assumptions you need to be aware o
 This document makes the following assumptions:
 - that you have a federation service set up and that it is successfully authenticating users.
 - external users can authenticate using their external email address.
-- - Using an alternate ID for sign-in has been set up and configured and users can authenticate using it.  For additional information on setting up an alternate ID with AD FS see [Configure Alternate Login ID](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
+- - Using an alternate ID for sign-in has been set up and configured.  Users can authenticate using their alternate ID.  For additional information on setting up an alternate ID with AD FS, see [Configure Alternate Login ID](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 ## Task 1:  Prepare the environment
 The following task is more of an informational so that you are ready to begin synchronizing your external accounts so that they can sign-in using an alternate i such as the mail attribute.
 
-You need to identify and define the items in the table below before moving on to the second task.
+Define the items in the table below before moving on to the second task.
 
 ![](media/active-directory-aadconnect-guest-sync/guest2.png)
 
 |Environment Aspect|What is it used for?|Implementation in your environment|
 |-----|-----|-----|
-|Cloud UPN Attribute|This will be the attribute that will populate the UPN of the external user objects in the cloud. The UPN suffix for the external accounts must be the one defined in the pre-requisites.  This is the verified domain.|* Example: UserPrincipalName (nmorin@bmcontoso.com)|
-|Sign-In Address|This attribute represents the string that external users will type in when logging in. This attribute must have an e-mail address format, and in most cases it coincides with the actual e-mail address of the external user.|* Example: mail (nmorin@fabrikam.com)|
-|Azure AD Connect Scoped Filter|This is a filter that will allow targeting the external identities to scope the synchronization rules defined later in this guide. Typical ways to scope include: a pre-defined OU in the organization, a certain naming convention, a specific domain, etc.|* Example: OU contains Externals|
+|Cloud UPN Attribute|The attribute that will populate the UPN of the external user objects in the cloud. The UPN suffix for the external accounts must be the one defined in the pre-requisites.  This is the verified domain.|* Example: UserPrincipalName (nmorin@bmcontoso.com)|
+|Sign-In Address|The attribute that external users will type in when logging in. This attribute must have an e-mail address format, and in most cases it coincides with the actual e-mail address of the external user.|* Example: mail (nmorin@fabrikam.com)|
+|Azure AD Connect Scoped Filter|The filter that will allow targeting the external identities to scope the synchronization rules defined later in this guide. Typical ways to scope include: a pre-defined OU in the organization, a certain naming convention, a specific domain, etc.|* Example: OU contains Externals|
 |Azure AD tenant|This will be the name of the Azure AD tenant as it appears to Azure AD Connect.  This will most likely be an *.onmicrosoft.com name and will be used as the connected system in the outbound synchronization rule created later.|Example:  contoso.onmicrosoft.com|
 
 The following screen shot has three boxes outlined.
