@@ -13,7 +13,7 @@ ms.date: 05/07/2018
 ms.author: v-geberr;
 ---
 
-# Use pattern templates on intents to improve predictions
+# Use patterns to improve predictions
 
 This tutorial demonstrates how to use patterns to increase intent and entity prediction.  
 
@@ -21,9 +21,9 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 * How to identify that a pattern would help your app
-* How to create a pattern template for an intent
-* How to use prebuilt and custom entities in a pattern template 
-* How to verify pattern template prediction improvements
+* How to create a pattern 
+* How to use prebuilt and custom entities in a pattern 
+* How to verify pattern prediction improvements
 * Add a role to an entity to find contextually-based entities
 * Add a Pattern.any to find free-form entities
 
@@ -225,6 +225,8 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
 
     ![Toggle Entities view](media/luis-tutorial-pattern/original-test.png)
 
+8. Close the test panel by selecting the **Test** button in the top navigation. 
+
 ## Patterns teach LUIS common utterances with fewer examples
 Because of the nature of the human resources domain, there are a few common ways of asking about employee relationships in organizations. For example:
 
@@ -233,23 +235,22 @@ Who does Mike Jones report to?
 Who reports to Mike Jones? 
 ```
 
-These utterances are too close to determine the contextual uniqueness of each without providing many utterance examples. By adding a pattern to an intent, LUIS learns common utterance patterns for an intent without supplying many utterance examples. 
+These utterances are too close to determine the contextual uniqueness of each without providing many utterance examples. By adding a pattern for an intent, LUIS learns common utterance patterns for an intent without supplying many utterance examples. 
 
-Example patterns for this intent include:
+Example template utterances for this intent include:
 
 ```
 Who does {Employee} report to?
 Who reports to {Employee}? 
 ```
 
-The pattern is a combination of regular expression matching and machine learning. Provide around 10 pattern examples for LUIS to learn the pattern. The pattern examples, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent and where, within the utterance, the entity exists. <!--A pattern is specific to an intent. You can't duplicate the same pattern on another intent. That would confuse LUIS, which lowers the prediction score. -->
+The pattern is a combination of regular expression matching and machine learning. Provide some template utterance examples for LUIS to learn the pattern. These examples, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent and where, within the utterance, the entity exists. <!--A pattern is specific to an intent. You can't duplicate the same pattern on another intent. That would confuse LUIS, which lowers the prediction score. -->
 
-## Add the patterns
-1. Close the **Test** panel, if you haven't done so already.
+## Add the template utterances
 
-2. In the left navigation, under **Improve app performance**, select **Patterns** from the left navigation.
+1. In the left navigation, under **Improve app performance**, select **Patterns** from the left navigation.
 
-3. Select the **GetEmployeeOrgChart** intent, then enter the following patterns, one at a time, selecting enter after each pattern:
+2. Select the **GetEmployeeOrgChart** intent, then enter the following template utterances, one at a time, selecting enter after each template utterance:
 
     ```
     Does {Employee} have {number} subordinates?
@@ -260,19 +261,19 @@ The pattern is a combination of regular expression matching and machine learning
     Who are {Employee}'s subordinates?
     ```
 
-    The `{Employee}` syntax marks the entity location within the patter as well as which entity it is. The syntax for an entity with a role is {Entity::role} such as `{Location::origin}`.
+    The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. The syntax for an entity with a role is {Entity::role} such as `{Location::origin}`.
 
-    ![Enter pattern for intent](./media/luis-tutorial-pattern/enter-pattern.png)
+    ![Enter template utterances for intent](./media/luis-tutorial-pattern/enter-pattern.png)
 
-4. Select **Train** in the top navigation bar to train the app. Wait for the green success bar.
+3. Select **Train** in the top navigation bar to train the app. Wait for the green success bar.
 
-5. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` then select Enter. This is the same utterance tested in the previous section. The result should be higher than 0.37 for the `GetEmployeeOrgChart` intent. 
+4. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` then select Enter. This is the same utterance tested in the previous section. The result should be higher than 0.37 for the `GetEmployeeOrgChart` intent. 
 
     The score is now **0.99**, much better. LUIS learned the pattern relevant to the intent without providing many examples.
 
     ![Test with high score result](./media/luis-tutorial-pattern/high-score.png)
 
-6. Close the test panel.
+5. Close the test panel by selecting the **Test** button in the top navigation.
 
 ## Use an entity with a role in a pattern
 The LUIS app is used to help move employees from one location to another. An example utterance is `Move Bob Jones from Seattle to Los Colinas`. Each location in the utterance has a different meaning. Seattle is the originating location and Los Colinas is the destination location for the move. In order to differentiate those locations in the pattern, create a location entity with two roles: origin and destination. 
@@ -280,37 +281,46 @@ The LUIS app is used to help move employees from one location to another. An exa
 ### Create a new intent for moving people and assets
 Create a new intent for any utterances that are about moving people or assets.
 
-1. Select Intents from left navigation
+1. Select **Intents** from left navigation
 2. Select **Create new intent**
 3. Name the new intent `MoveAssetsOrPeople`
 4. Add an example utterance `Move Bob Jones from Seattle to Los Colinas`
 
+    ![Screenshot of example utterance for MoveAssetsOrPeople intent](./media/luis-tutorial-pattern/intent-moveasserts-example-utt.png)
+
+5. Select Seattle as the 
+
 ### Create a simple entity with location and destination roles
 Roles can only be used in patterns. Create a new entity with roles to use in a pattern to find original and destination locations. 
 
-1. Select Entities in the left navigation.
-2. Select Create new entity. 
+1. Select **Entities** in the left navigation.
+2. Select **Create new entity**. 
 3. Name the entity `Location` with type **Simple**.
 4. Add Origin and Destination roles to the entity.
 
-### Add a pattern that uses location and destination roles
-Add patterns that use the new entity.
+    ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/location-entity.png)
+
+### Add template utterances that uses location and destination roles
+Add template utterances that use the new entity.
 
 1. Select **Patterns** from the left navigation.
 2. Select the **MoveAssetsOrPeople** intent.
-3. Enter a new pattern using the new entity `Move {Employee} from {Location:Origin} to {Location:Destination}`
+3. Enter a new template utterance using the new entity `Move {Employee} from {Location:Origin} to {Location:Destination}`
+
+    ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/pattern-moveassets.png)
+
 4. Train the app for the new intent, entity, and pattern.
 
 ### Test the new pattern for role data extraction
 Validate the new pattern with a test.
 
-1. Open the test panel. 
+1. Select **Test** in the top panel. 
 2. Enter the utterance `Move John Williams from San Diego to Boston`.
 3. Inspect the test results for entity and intent.
-4. Close the test panel
+4. Close the test panel by selecting the **Test** button in the top navigation.
 
 ## Use a Pattern.any entity to find free-form entities in a pattern
-This HumanResources app also helps employees find company forms. Many of the forms have titles that are varying in length. The varying length includes phrases that may confuse LUIS about where the form name ends. Using a Pattern.any entity in a patterns allows you to specify the begin and end of the form name so LUIS correctly extracts the form. Because LUIS matches the form name with Pattern.any, it also knows which intent is used. Create a Pattern.any and use it in a pattern to extract the form name.
+This HumanResources app also helps employees find company forms. Many of the forms have titles that are varying in length. The varying length includes phrases that may confuse LUIS about where the form name ends. Using a Pattern.any entity in a pattern allows you to specify the begin and end of the form name so LUIS correctly extracts the form. Because LUIS matches the form name with Pattern.any, it also knows which intent is used. Create a Pattern.any and use it in a template utterance to extract the form name.
 
 ### Create a new intent for the form
 Create a new intent for any utterances that are looking for forms.
@@ -332,14 +342,14 @@ Add patterns that use the new entity.
 
 1. Select **Patterns** from the left navigation.
 2. Select the **FindForm** intent.
-3. Enter a new pattern using the new entity `Where is the form {FormName} and who needs to sign it after I read it?`
+3. Enter a template utterance using the new entity `Where is the form {FormName} and who needs to sign it after I read it?`
 4. Train the app for the new intent, entity, and pattern.
 
 ### Test the new pattern for free-form data extraction
 1. Open the test panel. 
 2. Enter the utterance `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`.
 3. Inspect the test results for entity and intent.
-4. Close the test panel
+4. Close the test panel by selecting the **Test** button in the top navigation.
 
 ## Next steps
 
