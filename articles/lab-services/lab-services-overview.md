@@ -63,27 +63,20 @@ The following table compares two types of labs that are supported by Azure Lab S
 ## Key capabilities
 Azure Lab Services supports the following key capabilitiies/features: 
 
-- **Fast and flexible setup**
-    - Provides a simple, guided flow to set up, and customize your lab. 
-    - Use custom templates to quickly reproduce your Lab’s resources. 
-    - Choose to create and manage the lab's Azure infrastructure in your own subscription, or choose from a variety of fit-for-purpose labs, such as classroom lab, to let the service take care of all the infrastructure work. Azure Lab Services provides built-in scaling and resiliency of infrastructure for labs that the service manages for you. 
-    - Share customizations and policies across multiple labs. 
-- **Simplified experience for lab users** 
-    - Add new users to the lab to provide them access to lab’s set of resources.  
-    - Give your users a single list of all the resources they can access across Labs. 
-    - Enable your users to manage and reuse data disks. Set up reusable secrets.   
-    - Enable easy access to the resources by integrating labs into your website or learning management systems. 
-- **Embedded security** 
-    - Set up private virtual networks and subnets for your lab. 
-    - Enable a shared public IP address.  
-    - Securely access resources using your virtual networks configured with ExpressRoute or site-to-site VPN.
-- **Cost optimization and analysis**
-    - Set lab schedules to automatically shut down and start up virtual machines. Set a schedule to specify the time slots when the lab’s virtual machines are accessible to users.
-    - Set usage policies per user or per lab to optimize cost.  
-    - Analyze usage and activity trends in your lab. 
-- **Integration into your workflows and tools**
-    - Integrate the labs into your organization’s website and management systems. 
-    - Automatically provision environments from within your continuous integration/continuous deployment (CI/CD) tools.
+### Fast and flexible setup of a lab
+Using Azure Lab Services, you can quickly set up a lab for your development, testing, or training needs. You can choose to create and manage the lab's Azure infrastructure in your own subscription, or choose from a variety of fit-for-purpose managed labs, such as classroom labs, to let the service take care of all the infrastructure work. The service provides built-in scaling and resiliency of infrastructure for labs that the service manages for you. You can use a custom template to quickly reproduce your lab's resources, and share customizations and policies across multiple labs. 
+
+### Simplified experience for lab users
+A lab owner can add users to a lab and provide them access to lab’s set of resources. Lab users can view a single list of all the resources that they can access across labs. A lab owners can give permissions for lab users to manage and reuse data disks, and set up reusable secrets. Lab users can integrate labs into their website or learning management systems. 
+
+## Cost optimization and analysis
+For custom labs, a lab owner can set lab schedules to automatically shut down and start up virtual machines. The lab owner can set a schedule to specify the time slots when the lab’s virtual machines are accessible to users, set usage policies per user or per lab to optimize cost, and analyze usage and activity trends in your lab. For managed labs such as classroom labs, currenly some cost optimization and analysis options are available. 
+
+### Embedded security
+For custom labs in Azure Lab Services, a lab owner can set up private virtual networks and subnets for a lab, and enable shared public IP address. Lab users can securely access resources using your virtual networks configured with ExpressRoute or site-to-site VPN.
+
+### Integration into your workflows and tools
+Azure Lab Services allows you to integrate the labs into your organization’s website and management systems. You can automatically provision environments from within your continuous integration/continuous deployment (CI/CD) tools.
 
 ## User profiles
 This section describes different user profiles in Azure Lab Services. 
