@@ -145,17 +145,19 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Cornerstone OnDemand.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](./active-directory-saas-provisioning-reporting.md).
-## Additional resources
-
-* [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
 ## Connector Limitations
 
 * The Cornerstone OnDemand **Position** attribute expects a value that corresponds to the roles on the Cornerstone OnDemand Portal. The list of valid **Position** values can be obtained by clicking on **Edit User Record/Organization Structure/Position**
 	![Cornerstone OnDemand Provisioning Edit User](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/UserEdit.png)
 	![Cornerstone OnDemand Provisioning Position](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/UserPosition.png)
 	![Cornerstone OnDemand Provisioning Positions List](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/PostionId.png)
+	
+## Additional resources
+
+* [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 ## Next steps
 
