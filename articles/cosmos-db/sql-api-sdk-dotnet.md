@@ -4,7 +4,7 @@ description: Learn all about the SQL .NET API and SDK including release dates, r
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949

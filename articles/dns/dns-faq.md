@@ -166,7 +166,7 @@ No. Private Zones work in conjunction with virtual networks and let customers ma
 Yes. Customers can associate up to 10 Resolution virtual networks with a single private zone.
 
 ### Can a virtual network that belongs to a different subscription be added as a resolution virtual network to a Private Zone? 
-Yes, as long as the User has Write operation permission on both the virtual networks as well as the Private DNS zone. Note that the Write permission may be allocated to multiple RBAC roles. For example, the Classic Network Contributor RBAC role has write permissions to virtual networks. For more information on RBAC roles, see [Role Based Access Control](../active-directory/role-based-access-control-what-is.md)
+Yes, as long as the User has Write operation permission on both the virtual networks as well as the Private DNS zone. Note that the Write permission may be allocated to multiple RBAC roles. For example, the Classic Network Contributor RBAC role has write permissions to virtual networks. For more information on RBAC roles, see [Role Based Access Control](../role-based-access-control/overview.md)
 
 ### Will the automatically registered virtual machine DNS records in a private zone be automatically deleted when the virtual machines are deleted by the customer?
 Yes. If you delete a virtual machine within a Registration virtual network, we will automatically delete the DNS records that were registered into the zone due to this being a Registration virtual network. 

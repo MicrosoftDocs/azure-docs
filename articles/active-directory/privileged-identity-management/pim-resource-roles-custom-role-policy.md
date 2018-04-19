@@ -23,7 +23,7 @@ As a resource administrator, you would like employees of your organization to ha
 
 ## Create the custom role
 
-[Use this guide to create a custom role for a resource](../role-based-access-control-custom-roles.md).
+[Use this guide to create a custom role for a resource](../../role-based-access-control/custom-roles.md).
 
 Include a descriptive name so you can easily remember which built-in role you intended to duplicate.
 

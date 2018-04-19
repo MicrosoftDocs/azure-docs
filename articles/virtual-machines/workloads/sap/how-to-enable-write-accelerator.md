@@ -23,12 +23,10 @@ ms.custom: H1Hack27Feb2017
 # Azure Write Accelerator for SAP deployments
 Azure Write Accelerator is a functionality that is getting rolled out for M-Series VMs exclusively. The Azure Write Accelerator is not available with any other VM-Series in Azure, except the M-Series. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure Premium Storage. 
 
->[!NOTE]
-> At this point, the Azure Write Accelerator is in public preview and requires white-listing of your Azure subscription ID
-
 The Azure Write Accelerator functionality is available for M-Series deployment as public preview in:
 
 - West US2
+- East US2
 - Western Europe
 - Southeast Asia
 

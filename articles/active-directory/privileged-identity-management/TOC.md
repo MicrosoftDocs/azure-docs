@@ -55,7 +55,7 @@
 
 # Related
 ## [Azure Active Directory](/azure/active-directory/)
-## [Role-Based Access Control](../role-based-access-control-what-is.md)
+## [Role-Based Access Control](../../role-based-access-control/overview.md)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

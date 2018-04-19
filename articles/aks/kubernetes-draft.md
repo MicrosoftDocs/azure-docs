@@ -30,10 +30,10 @@ Finally, you must install [Docker](https://www.docker.com).
 
 ## Install Draft
 
-The Draft CLI is a client that runs on your development system and allows you to quicky deploy code into a Kubernetes cluster. 
+The Draft CLI is a client that runs on your development system and allows you to quicky deploy code into a Kubernetes cluster.
 
-> [!NOTE] 
-> If you've installed Draft prior to version 0.12, you should first delete Draft from your cluster using `helm delete --purge draft` and then remove your local configuration by running `rm -rf ~/.draft`. If you are on MacOS, you can run `brew upgrade draft`.
+> [!NOTE]
+> If you've installed Draft prior to version 0.12, you should first delete Draft from your cluster using `helm delete --purge draft` and then remove your local configuration by running `rm -rf ~/.draft`. If you are on MacOS, run `brew upgrade draft`.
 
 To install the Draft CLI on a Mac use `brew`. For additional installation options see, the [Draft Install guide][install-draft].
 
@@ -68,9 +68,9 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 
 Now that there is a trust relationship between AKS and ACR, the following steps enable the use of ACR from your AKS cluster.
 1. Set the Draft configuration `registry` value by running `draft config set registry <registry name>.azurecr.io`, where _&lt;registry name&lt;_ is the name of your ACR registry.
-2. Log on to the ACR registry by running `az acr login -n <registry name>`. 
+2. Log on to the ACR registry by running `az acr login -n <registry name>`.
 
-Because you are now logged on locally to ACR and you created a trust relationship with AKS and ACR, no passwords or secrets are required to push to or pull from ACR into AKS. Authentication happens at the Azure Resource Manager level, using Azure Active Directory. 
+Because you are now logged on locally to ACR and you created a trust relationship with AKS and ACR, no passwords or secrets are required to push to or pull from ACR into AKS. Authentication happens at the Azure Resource Manager level, using Azure Active Directory.
 
 ## Run an application
 
@@ -140,7 +140,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-You can now test your application by browsing to http://localhost:46143 (for the preceding example; your port may be different). When finished testing the application use `Control+C` to stop the proxy connection.
+Now test your application by browsing to http://localhost:46143 (for the preceding example; your port may be different). When finished testing the application use `Control+C` to stop the proxy connection.
 
 > [!NOTE]
 > You can also use the `draft up --auto-connect` command to build and deploy your application and immediately connect to the first running container to make the iteration cycle even faster.

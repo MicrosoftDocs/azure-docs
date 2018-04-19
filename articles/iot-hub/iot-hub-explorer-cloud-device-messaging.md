@@ -3,7 +3,7 @@ title: Manage Azure IoT Hub cloud device messaging with iothub-explorer | Micros
 description: Learn how to use the iothub-explorer CLI tool to monitor device to cloud (D2C) messages and send cloud to device (C2D) messages in Azure IoT Hub.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: 'iothub explorer, cloud device messaging, iot hub cloud to device, cloud to device messaging'
@@ -14,8 +14,8 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
-ms.author: xshi
+ms.date: 4/11/2018
+ms.author: rangv
 
 ---
 # Use iothub-explorer to send and receive messages between your device and IoT Hub
