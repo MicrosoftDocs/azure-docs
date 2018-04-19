@@ -23,10 +23,10 @@ Azure AD integration with Azure Storage is currently in preview for Azure Blob s
 
 Azure Storage offers four roles for use with Azure AD/IAM:
 
-- [Storage Blob Data Contributor (Preview)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) for read, write, and delete access to containers and blobs.
-- [Storage Blob Data Reader (Preview)](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview) for read access to containers and blobs.
-- [Storage Queue Data Contributor (Preview)](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor-preview) for read, write, and delete access to queues and messages.
-- [Storage Queue Data Reader (Preview)](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview) for read access to queues and messages.
+- Storage Blob Data Contributor (Preview)
+- Storage Blob Data Reader (Preview)
+- Storage Queue Data Contributor (Preview)
+- Storage Queue Data Reader (Preview)
 
 To grant access to X
 
