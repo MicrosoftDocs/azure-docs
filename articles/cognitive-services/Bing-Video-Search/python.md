@@ -4,7 +4,7 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
-ms.technology: bing-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin

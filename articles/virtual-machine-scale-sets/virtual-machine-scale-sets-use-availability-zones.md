@@ -76,7 +76,7 @@ The scale set and supporting resources, such as the Azure load balancer and publ
 
 ## Use the Azure CLI 2.0
 
-The process to create a scale set that uses an Availability Zone is the same as detailed in the [getting started article](quick-create-cli.md). To use Availability Zones, you must create your scale set in a supported Azure region, and have [registered for the Availability Zones preview](http://aka.ms/azenroll).
+The process to create a scale set that uses an Availability Zone is the same as detailed in the [getting started article](quick-create-cli.md). To use Availability Zones, you must create your scale set in a supported Azure region.
 
 Add the `--zones` parameter to the [az vmss create](/cli/azure/vmss#az_vmss_create) command and specify which zone to use (such as zone *1*, *2*, or *3*). The following example creates a single-zone scale set named *myScaleSet* in zone *1*:
 
