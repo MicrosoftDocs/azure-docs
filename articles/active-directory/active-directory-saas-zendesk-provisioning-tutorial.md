@@ -136,10 +136,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk12.png)
 
-	> [!NOTE]
-	> Zendesk supports usage of groups for Users with Agent roles only, please refer to [Zendesk documentation](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups)
-	> 
-
 13. Review the group attributes that are synchronized from Azure AD to Zendesk in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zendesk for update operations. Select the **Save** button to commit any changes.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk13.png)
@@ -162,6 +158,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Zendesk.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](./active-directory-saas-provisioning-reporting.md).
+
+## Connector Limitations
+* Zendesk supports usage of groups for Users with Agent roles only, please refer to [Zendesk documentation](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups)
 
 ## Additional resources
 
