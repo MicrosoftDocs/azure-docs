@@ -17,17 +17,17 @@ manager: femila
 
 Configuration metadata specifies the following information for each blockchain application: 
 
-* Name and description of the blockchain application.
-* Unique user roles who can act or participate within the blockchain application.
-* One or more workflows. Each workflow acts as a state machine to control business logic flow. Workflows can be independent or interact with one another.
+* Name and description of the blockchain application
+* Unique roles for users who can act or participate within the blockchain application
+* One or more workflows. Each workflow acts as a state machine to control the flow of the business logic. Workflows can be independent or interact with one another.
 
 Each defined workflow specifies the following configuration:
 
-* Name and description of the workflow.
-* States that define the status within the workflow.
-* Actions to transition to the next state.
+* Name and description of the workflow
+* States of the workflow.  Each state is a stage in the business logic's control flow. 
+* Actions to transition to the next state
 * User roles permitted to initiate each action
-* Smart contracts that represent business logic in code files.
+* Smart contracts that represent business logic in code files
 
 ## Application
 
@@ -39,31 +39,31 @@ A blockchain application contains configuration metadata, workflows, and user ro
 | DisplayName | Friendly display name of the application. | Yes |
 | Description | Description of the application. | No |
 | ApplicationRoles | Collection of [ApplicationRoles](#application-roles). User roles who can act or participate within the application.  | Yes |
-| Workflows | Collection of  [Workflows](#workflows). Each workflow acts as a state machine to control business flow. | Yes |
+| Workflows | Collection of  [Workflows](#workflows). Each workflow acts as a state machine to control the flow of the business logic. | Yes |
 
 For an example, see [configuration file example](#configuration-file-example).
 
 ## Workflows
 
-A workflow is defined by one or more states that acts as a state machine. Each workflow consists of one or more smart contracts, which represent the business logic in code files.
+An application's business logic may be modeled as a state machine where taking an action causes the flow of the business logic to move from one state to another. A workflow is a collection of such states and actions. Each workflow consists of one or more smart contracts, which represent the business logic in code files.
 
 | Field | Description | Required |
 |-------|-------------|:--------:|
 | Name | Unique workflow name. The corresponding smart contract must use the same **Name** for the applicable contract class. | Yes |
 | DisplayName | Friendly display name of the workflow. | Yes |
 | Description | Description of the workflow. | No |
-| Initiators | Collection of [ApplicationRoles](#application-roles). User roles who can create contracts in the workflow. | Yes |
+| Initiators | Collection of [ApplicationRoles](#application-roles). Roles that are assigned to users who are authorized to create contracts in the workflow. | Yes |
 | StartState | Name of the initial state of the workflow. | Yes |
 | Properties | Collection of [identifiers](#identifiers). Represents data that can be synchronized off-chain or visualized in a user experience tool. | Yes |
-| Constructor | Defines input parameters for creating a smart contract instance of the workflow. | Yes |
+| Constructor | Defines input parameters for creating an instance of the workflow. | Yes |
 | Functions | A collection of [functions](#functions) that can be executed in the workflow. | No |
-| States | A collection of smart contract [states](#states). | Yes |
+| States | A collection of workflow [states](#states). | Yes |
 
 For an example, see [configuration file example](#configuration-file-example).
 
 ## Constructor
 
-Defines input parameters for a new smart contract instance of a workflow.
+Defines input parameters for an instance of a workflow.
 
 | Field | Description | Required |
 |-------|-------------|:--------:|
@@ -152,7 +152,7 @@ A collection of unique states within a workflow. States that define the status w
 | Name | Unique name of the state. The corresponding smart contract must use the same **Name** for the applicable state. | Yes |
 | DisplayName | Friendly display name of the state. | Yes |
 | Description | Description of the state. | No |
-| PercentComplete | Value representing the percent completion at this state. | Yes |
+| PercentComplete | An integer value displayed in the Blockchain Workbench user interface to show the progress within the business logic control flow. | Yes |
 | Style | Visual hint indicating whether the state represents a success or failure state. There are two valid values: `Success` or `Failure`. | Yes |
 | Transitions | Collection of available [transitions](#transitions) from the current state to the next set of states. | No |
 
