@@ -1,9 +1,8 @@
 # [VPN Gateway Documentation](index.md)
 
 # Overview
-## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
+## [About VPN Gateway](vpn-gateway-overview.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
-## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Get Started
 ## Create a route-based VPN gateway
@@ -122,6 +121,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)

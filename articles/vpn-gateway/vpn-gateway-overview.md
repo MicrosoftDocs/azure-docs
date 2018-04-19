@@ -20,11 +20,9 @@ ms.author: cherylmc
 ---
 # What is VPN Gateway?
 
-A VPN gateway is a type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network.
+A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. Each virtual network can have only one VPN gateway. However, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the available gateway bandwidth.
 
 ## <a name="whatis"></a>What is a virtual network gateway?
-
-A VPN gateway is a specific type of virtual network gateway that encrypts traffic. To send encrypted network traffic between your Azure virtual network and your on-premises site, you first create a VPN gateway for your virtual network, then create a connection. Each virtual network can have only one VPN gateway, however, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the bandwidth that is available for the gateway.
 
 A virtual network gateway is composed of two or more virtual machines that are deployed to a specific subnet called the *gateway subnet*. The VMs that are located in the gateway subnet are created when you create the virtual network gateway. Virtual network gateway VMs are configured to contain routing tables and gateway services specific to the gateway. You can't directly configure the VMs that are part of the virtual network gateway and you should never deploy additional resources to the gateway subnet.
 
@@ -81,7 +79,7 @@ A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv
 
 ### <a name="Multi"></a>Multi-Site
 
-This type of connection is a variation of the Site-to-Site connection. You create more than one VPN connection from your virtual network gateway, typically connecting to multiple on-premises sites. When working with multiple connections, you must use a RouteBased VPN type (known as a dynamic gateway when working with classic VNets). Because each virtual network can only have one VPN gateway, all connections through the gateway share the available bandwidth. This is often called a "multi-site" connection.
+This type of connection is a variation of the Site-to-Site connection. You create more than one VPN connection from your virtual network gateway, typically connecting to multiple on-premises sites. When working with multiple connections, you must use a RouteBased VPN type (known as a dynamic gateway when working with classic VNets). Because each virtual network can only have one VPN gateway, all connections through the gateway share the available bandwidth. This type of connection is often called a "multi-site" connection.
 
 ![Azure VPN Gateway Multi-Site connection example](./media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
 
