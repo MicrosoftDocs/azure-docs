@@ -280,6 +280,11 @@ This FAQ is split into the following sections:
   > **A:** Yes, password writeback is secure. To read more about the four layers of security implemented by the password writeback service, check out the [Password writeback security model](../active-directory-passwords-writeback.md#password-writeback-security-model) section in the [Password writeback overview](../active-directory-passwords-writeback.md) article.
   >
   >
+  * **Q:  Is nested groups supported?**
+
+  > **A:** Yes, groups within groups are supported [UserVoice: Add support for nested groups in Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15718164-add-support-for-nested-groups-in-azure-ad-app-acc).
+  >
+  >
 
 ## Next steps
 
