@@ -1,5 +1,5 @@
 ---
-title: Changes made to a WebAPI project when you connect to Azure AD | Microsoft Docs
+title: Changes made to a WebAPI project when you connect to Azure AD
 description: Describes what happens to your WebAPI project when you connect to Azure AD by using Visual Studio
 services: active-directory
 author: ghogen
@@ -7,7 +7,7 @@ manager: douge
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: web
+ms.workload: azure
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
