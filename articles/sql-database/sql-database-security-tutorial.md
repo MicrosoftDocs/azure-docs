@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 06/28/2017
+ms.date: 04/01/2018
 ms.author: daredis
 
 ---

@@ -19,7 +19,7 @@ ms.author: ajaycode
 ---
 # Pricing Changes for Azure Network Performance Monitor
 
-We listened to you and have recently introduced a [new pricing experience](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), for various monitoring services across Azure.
+We have been listening to your feedback and have recently introduced a [new pricing experience](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), for various monitoring services across Azure.
 
 This document captures the pricing changes related to Azure [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM), in any easy to read Question and Answer format.
 
@@ -28,11 +28,11 @@ Network Performance Monitor consists of three components:
 * [Service Endpoint Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor) and
 * [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
-The section below explains the pricing changes for Performance Monitor, ExpressRoute Monitor, and Service Endpoint Monitor.
+The section below explains the pricing changes for the above components.
 
 ## Performance Monitor (PM)
 
-**How was usage of Performance Monitor billed in the old scheme?**
+**How was usage of Performance Monitor billed in the old model?**
 
 The billing for NPM was based on the usage/consumption of two components:
 * Nodes: All synthetic transactions originate and terminate at the nodes. Nodes are also referred to as agents or MMA (Microsoft Management Agents).
@@ -117,3 +117,8 @@ A connection is a test of reachability to one endpoint (URL or network service) 
 
 - Refer to the [Connection Monitoring](https://azure.microsoft.com/pricing/details/network-watcher/) section, for the cost of monitoring an endpoint for the entire month.
 - The charge for data is available on the [pricing page](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.  (Section: Data Ingestion).
+
+## References
+
+- [Log Analytics Pricing FAQ](https://azure.microsoft.com/pricing/details/log-analytics/) - The FAQ section has information on free tier,  per node pricing, etc.
+
