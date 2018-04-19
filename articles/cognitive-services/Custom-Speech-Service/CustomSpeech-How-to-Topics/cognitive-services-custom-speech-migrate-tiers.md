@@ -4,9 +4,8 @@ description: Learn how to migrate deployments from tiers S0 and S1 to S2 of Cust
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
-
 ms.service: cognitive-services
-ms.technology: custom-speech-service
+ms.component: custom-speech
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper

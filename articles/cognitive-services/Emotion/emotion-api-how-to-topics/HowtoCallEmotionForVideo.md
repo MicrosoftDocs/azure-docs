@@ -4,9 +4,8 @@ description: Learn how to call the Emotion API for Video in Cognitive Services.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: emotion
+ms.component: emotion-api
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: anroth
