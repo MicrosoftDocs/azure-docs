@@ -1,19 +1,13 @@
 ---
 title: "Create an index (.NET API - Azure Search) | Microsoft Docs"
 description: Create an index in code using the Azure Search .NET SDK.
-services: search
-documentationcenter: ''
 author: brjohnstmsft
-manager: jhubbard
-editor: ''
+manager: jlembicz
 tags: azure-portal
 
-ms.assetid: 3a851647-fc7b-4fb6-8506-6aaa519e77cd
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 05/22/2017
 ms.author: brjohnst
 

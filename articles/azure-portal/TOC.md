@@ -16,7 +16,7 @@
 ## Manage
 ### [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md)
 ### [Use portal to manage resources](../azure-resource-manager/resource-group-portal.md)
-### [Manage access with Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
+### [Manage access with Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)
 ### [Share dashboards with Role-Based Access Control](azure-portal-dashboard-share-access.md)
 ### [Use tags to organize resources](../azure-resource-manager/resource-group-using-tags.md)
 ### [Scale your resources](../monitoring-and-diagnostics/insights-how-to-scale.md)

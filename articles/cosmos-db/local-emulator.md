@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: ''
 keywords: Azure Cosmos DB Emulator
 author: David-Noble-at-work
-manager: jhubbard
+manager: kfile
 editor: ''
 
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656

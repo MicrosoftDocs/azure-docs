@@ -6,7 +6,7 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/09/2018
 manager: craigg
 ms.topic: article
 ms.author: carlrab
@@ -97,6 +97,12 @@ In the vCore-based purchasing model customers pay for:
 
 > [!IMPORTANT]
 > Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
+
+> [!IMPORTANT]
+> Region limitations: 
+>
+> The vCore-based purchasing model is not yet available in Australia Southeast. The preview is not available in the following regions: West Europe, France Central, UK South, and UK West.
+> 
 
 ### Choosing service tier, compute, memory, storage, and IO resources
 

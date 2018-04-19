@@ -28,7 +28,7 @@ Network Performance Monitor consists of three components:
 * [Service Endpoint Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor) and
 * [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
-The section below explains the pricing changes for Performance Monitor, ExpressRoute Monitor, and Service Endpoint Monitor.
+The section below explains the pricing changes for the above components.
 
 ## Performance Monitor (PM)
 

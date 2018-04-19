@@ -3,7 +3,7 @@ title: How to do proof-of-possession for X.509 CA certificates with Azure IoT Hu
 description: How to verify X.509 CA certificates with your DPS service
 services: iot-dps
 keywords: 
-author: JimacoMS
+author: bryanla
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: article

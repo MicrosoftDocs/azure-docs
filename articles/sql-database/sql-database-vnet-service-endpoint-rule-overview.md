@@ -124,8 +124,8 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
 
-- Turning ON virtual network service endpoints to Azure SQL Database also enables the endpoints for the MySQL and PostGres Azure services. However, with endpoints ON, attempts to connect from the endpoints to your MySQL or Postgres instances will fail.
-    - The underlying reason is that MySQL and PostGres do not presently support ACLing.
+- Turning ON virtual network service endpoints to Azure SQL Database also enables the endpoints for the MySQL and PostgreSQL Azure services. However, with endpoints ON, attempts to connect from the endpoints to your MySQL or PostgreSQL instances will fail.
+    - The underlying reason is that MySQL and PostgreSQL do not presently support ACLing.
 
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
     - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
@@ -222,6 +222,11 @@ A list of several SQL Database error messages is documented [here][sql-database-
 
 This section illustrates how you can use the [Azure portal][http-azure-portal-link-ref-477t] to create a *virtual network rule* in your Azure SQL Database. The rule tells your SQL Database to accept communication from a particular subnet that has been tagged as being a *Virtual Network service endpoint*.
 
+> [!NOTE]
+> Please ensure that service endpoints are turned on for the VNET/Subnet you intend to add to the VNET Firewall Rules of your Server.
+> If service endpoints are not turned on for the VNET/Subnet you will be asked in the portal to enable them, please click enable on 
+> the blade on which you add the rule.
+
 #### PowerShell alternative
 
 A PowerShell script can also create virtual network rules. The crucial cmdlet **New-AzureRmSqlServerVirtualNetworkRule**. If interested, see [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
@@ -311,7 +316,7 @@ The virtual network rule feature for Azure SQL Database became available in late
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 

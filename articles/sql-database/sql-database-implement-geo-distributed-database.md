@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,business continuity
 ms.topic: tutorial
-ms.date: 05/26/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 
 ---
@@ -377,4 +377,17 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
 ## Next steps
 
-For more information, see [Active geo-replication and failover groups](sql-database-geo-replication-overview.md).
+In this tutorial, you learned to configure an Azure SQL database and application for failover to a remote region, and then test your failover plan.  You learned how to: 
+
+> [!div class="checklist"]
+> * Create database users and grant them permissions
+> * Set up a database-level firewall rule
+> * Create a geo-replication failover group
+> * Create and compile a Java application to query an Azure SQL database
+> * Perform a disaster recovery drill
+
+Advance to the next tutorial to learn how to create a Managed Instance.
+
+> [!div class="nextstepaction"]
+>[Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md)
+

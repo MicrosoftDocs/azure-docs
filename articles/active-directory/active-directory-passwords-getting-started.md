@@ -65,7 +65,7 @@ This guide assumes you already have a working trial or licensed Azure Active Dir
 At this point, you have configured SSPR for your Azure AD tenant. Your users can now use the instructions found in the articles [Register for self-service password reset](active-directory-passwords-reset-register.md) and [Reset or change your password](active-directory-passwords-update-your-own-password.md) to update their password without administrator intervention. You can stop here if you're cloud-only. Or you can continue to the next section to configure the synchronization of passwords to an on-premises Active Directory domain.
 
 > [!TIP]
-> Test SSPR with a user rather than an administrator, because Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](active-directory-passwords-policy.md#administrator-password-policy-differences) article.
+> Test SSPR with a user rather than an administrator, because Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](authentication/concept-sspr-policy.md#administrator-password-policy-differences) article.
 
 ## Configure synchronization to an existing identity source
 
@@ -94,18 +94,18 @@ It's easy to disable self-service password reset. Open your Azure AD tenant and 
 ### Learn more
 The following articles provide additional information regarding password reset through Azure AD:
 
-* [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
+* [How do I complete a successful rollout of SSPR?](authentication/howto-sspr-deployment.md)
 * [Reset or change your password](active-directory-passwords-update-your-own-password.md)
 * [Register for self-service password reset](active-directory-passwords-reset-register.md)
-* [Do you have a licensing question?](active-directory-passwords-licensing.md)
-* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
-* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [What are the policy options with SSPR?](active-directory-passwords-policy.md)
+* [Do you have a licensing question?](authentication/concept-sspr-licensing.md)
+* [What data is used by SSPR and what data should you populate for your users?](authentication/howto-sspr-authenticationdata.md)
+* [What authentication methods are available to users?](authentication/concept-sspr-howitworks.md#authentication-methods)
+* [What are the policy options with SSPR?](authentication/concept-sspr-policy.md)
 * [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
-* [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
-* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
-* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+* [How do I report on activity in SSPR?](authentication/howto-sspr-reporting.md)
+* [What are all of the options in SSPR and what do they mean?](authentication/concept-sspr-howitworks.md)
+* [I think something is broken. How do I troubleshoot SSPR?](authentication/active-directory-passwords-troubleshoot.md)
+* [I have a question that was not covered somewhere else](authentication/active-directory-passwords-faq.md)
 
 ## Next steps
 
