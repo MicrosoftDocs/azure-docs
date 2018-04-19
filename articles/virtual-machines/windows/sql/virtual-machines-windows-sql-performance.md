@@ -7,14 +7,13 @@ author: rothja
 manager: craigg
 editor: ''
 tags: azure-service-management
-
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/17/2018
+ms.date: 04/19/2018
 ms.author: jroth
 
 ---
@@ -24,14 +23,10 @@ ms.author: jroth
 
 This article provides guidance for optimizing SQL Server performance in Microsoft Azure Virtual Machine. While running SQL Server in Azure Virtual Machines, we recommend that you continue using the same database performance tuning options that are applicable to SQL Server in on-premises server environment. However, the performance of a relational database in a public cloud depends on many factors such as the size of a virtual machine, and the configuration of the data disks.
 
+[SQL Server images provisioned in the Azure portal](quickstart-sql-vm-create-portal.md) follow storage configuration best practices. For more information on how storage is configured, see [Storage configuration for SQL Server VMs](virtual-machines-windows-sql-server-storage-configuration.md). After provisioning, consider applying other optimizations discussed in this article. Base your choices on your workload and verify through testing.
+
 > [!TIP]
 > This article is focused on getting the *best* performance for SQL Server on Azure VMs. If your workload is less demanding, you might not require every optimization listed below. Consider your performance needs and workload patterns as you evaluate these recommendations.
-
-## SQL VM images
-
-When creating SQL Server images, [consider provisioning your VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). SQL Server VMs provisioned in the Portal with Resource Manager follow general best practices.
-
-However, these images do not apply every suggestion in this article, because not every workload requires or benefits from the same configuration. After configuring a SQL Server VM image from the virtual machine gallery, you might find that you want to make additional changes based on your performance requirements. You can use this article for ideas and then verify they change through testing.
 
 ## Quick check list
 
@@ -89,7 +84,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
 ### Data disks
 
-* **Use data disks for data and log files**: If you are not using disk striping, use two Premium Storage [P30 disks](../premium-storage.md#scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each Premium Storage disk provides a number of IOPs and bandwidth (MB/s) depending on its size, as described in the following article: [Using Premium Storage for Disks](../premium-storage.md). If you are using a disk striping technique, such as Storage Spaces, you must place all files on the same drive.
+* **Use data disks for data and log files**: If you are not using disk striping, use two Premium Storage [P30 disks](../premium-storage.md#scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each Premium Storage disk provides a number of IOPs and bandwidth (MB/s) depending on its size, as described in the article, [Using Premium Storage for Disks](../premium-storage.md). If you are using a disk striping technique, such as Storage Spaces, we recommend to place all data and log files on the same drive.
 
    > [!NOTE]
    > When you provision a SQL Server VM in the portal, you have the option of editing your storage configuration. Depending on your configuration, Azure configures one or more disks. Multiple disks are combined into a single storage pool with striping. Both the data and log files reside together in this configuration. For more information, see [Storage configuration for SQL Server VMs](virtual-machines-windows-sql-server-storage-configuration.md).
