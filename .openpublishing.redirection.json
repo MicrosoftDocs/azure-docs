@@ -30,6 +30,11 @@
             "redirect_url": "https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2",
             "redirect_document_id": false
 	      },
+	      {
+            "source_path": "articles\active-directory\develop\active-directory-v2-devquickstarts-wpf.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-windesktop",
+            "redirect_document_id": false
+	      },
         {
             "source_path": "articles/machine-learning/preview/index.md",
             "redirect_url": "/azure/machine-learning/service",
