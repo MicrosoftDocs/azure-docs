@@ -50,7 +50,7 @@ When specifying inputs, use either `url` or `imageData` in the skill definition.
 
 | Output name	  | Description                   |
 |---------------|-------------------------------|
-| text         	| Plain text extracted from the image .   |
+| text         	| Plain text extracted from the image.   |
 | layoutText    | Complex type describing the extraced text and its origin.|
 
 

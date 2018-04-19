@@ -16,13 +16,13 @@ ms.author: luisca
 
 #	Microsoft.Skills.Util.Shaper cognitive skill
 
-The **Shaper** skill creates a complex type to support composite fields (also known as multipart fields). A complext type field has multiple parts but is treated as a single item in an Azure Search index. Some common examples include first and last name, city and state, or name and birthdate.
+The **Shaper** skill creates a complex type to support composite fields (also known as multipart fields). A complex type field has multiple parts but is treated as a single item in an Azure Search index. Examples of consolidated fields useful in search scenarios include combining a first and last name into a single field, city and state into a single field, or name and birthdate into a single field to establish unique identity.
 
 The Shaper skill allows you to essentially create a structure, define the name of the members of that structure, and assign values to each member.
 
 By default, this technique supports objects that are one level deep. For more complex objects, you can chain several Shaper steps.
 
-In the response, the output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" in the examples below to "output", but the Shaper skill itself returns "output" in the response. This point might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the reponse yourself.
+In the response, the output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" in the examples below to "output", but the Shaper skill itself returns "output" in the response. This point might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the response yourself.
 
 
 ## @odata.type  
@@ -32,7 +32,7 @@ Microsoft.Skills.Util.ShaperSkill
 
 Consider a scenario where you want to create a structure called *analyzedText* that has two members: *text* and *sentiment*, respectively. In Azure Search, a multi-part searchable field is called a *complex type*, and it's not yet supported out of the box. In this preview, a shaper skill can be used to generate fields of a complex type in your index. 
 
-This exampl, provides the member names as the input. The output structure (your complex field in Azure Search) is specified through *targetName*. 
+This example provides the member names as the input. The output structure (your complex field in Azure Search) is specified through *targetName*. 
 
 
 ```json

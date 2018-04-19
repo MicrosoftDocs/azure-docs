@@ -18,7 +18,7 @@ ms.author: luisca
 
 #	Microsoft.Skills.Text.Sentiment cognitive skill
 
-The **Sentiment** skill evaluates unstructured text along a positive-negative continuu, and for each record, returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment.
+The **Sentiment** skill evaluates unstructured text along a positive-negative continuum, and for each record, returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment.
 
 ## @odata.type  
 Microsoft.Skills.Text.SentimentSkill
