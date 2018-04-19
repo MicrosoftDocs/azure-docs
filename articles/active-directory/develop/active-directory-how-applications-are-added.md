@@ -115,7 +115,7 @@ Allowing users to register and consent to applications might initially sound con
 
 
 * Applications have been able to leverage Windows Server Active Directory for user authentication for many years without requiring the application to be registered or recorded in the directory. Now the organization will have improved visibility to exactly how many applications are using the directory and for what purpose.
-* Delegating these responsibilities to users negates the need for admin-driven application registration and publishing process. With Active Directory Federation Services (ADFS) it was likely that an admin had to add an application as a relying party on behalf of their developers. Now developers can self-service.
+* Delegating these responsibilities to users negates the need for an admin-driven application registration and publishing process. With Active Directory Federation Services (ADFS) it was likely that an admin had to add an application as a relying party on behalf of their developers. Now developers can self-service.
 * Users signing in to applications using their organization accounts for business purposes is a good thing. If they subsequently leave the organization they will automatically lose access to their account in the application they were using.
 * Having a record of what data was shared with which application is a good thing. Data is more transportable than ever and it's useful to have a clear record of who shared what data with which applications.
 * API owners who use Azure AD for OAuth decide exactly what permissions users are able to grant to applications and which permissions require an admin to agree to. Only admins can consent to larger scopes and more significant permissions, while user consent is scoped to the users' own data and capabilities.
@@ -124,7 +124,7 @@ Allowing users to register and consent to applications might initially sound con
 If you still want to prevent users in your directory from registering applications and from signing in to applications without administrator approval, there are two settings that you can change to turn off those capabilities:
 
 * To prevent users from consenting to applications on their own behalf:
-  1. In the Azure portal, go to the [User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) section under Enterprise application.
+  1. In the Azure portal, go to the [User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) section under Enterprise applications.
   2. Change **Users can consent to apps accessing company data on their behalf** to **No**. 
      *Note that if you decide to turn off user consent, an admin will be required to consent to any new app a user needs to use.*
 * To prevent users from registering their own applications:
