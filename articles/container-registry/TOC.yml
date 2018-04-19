@@ -27,6 +27,8 @@
       href: container-registry-tutorial-quick-build.md
     - name: 2 - Automate image builds
       href: container-registry-tutorial-build-task.md
+    - name: 3 - Base image update builds
+      href: container-registry-tutorial-base-image-update.md
   - name: Geo-replication (preview)
     items:
     - name: 1 - Prepare container registry

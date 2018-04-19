@@ -77,7 +77,7 @@ To trigger a build on a commit to a Git repository, ACR Build needs a personal a
 
 Now that you've completed the steps required to enable ACR Build to read commit status and create webhooks in a repository, you can create a build task that triggers a container image build on commits to the repo.
 
-First, populate these shell environment variables with values appropriate for your environment. This isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier.
+First, populate these shell environment variables with values appropriate for your environment. This isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these, you must manually replace each value wherever they appear in the example commands.
 
 ```azurecli-interactive
 ACR_NAME=mycontainerregistry # The name of your Azure container registry
