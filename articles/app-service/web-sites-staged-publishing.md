@@ -262,8 +262,8 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 For [Azure CLI](https://github.com/Azure/azure-cli) commands for deployment slots, see [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## Next Steps
-[Azure App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[Introduction to App Service on Linux](../app-service/containers/app-service-linux-intro.md)
+[Azure App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Introduction to App Service on Linux](../app-service/containers/app-service-linux-intro.md)  
 [Microsoft Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->
