@@ -18292,7 +18292,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/location-based-services/index.yml",
+            "source_path": "articles/location-based-services/index.md",
             "redirect_url": "/azure/azure-maps/index",
             "redirect_document_id": false
         },        {
