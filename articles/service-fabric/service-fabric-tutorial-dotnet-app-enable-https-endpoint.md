@@ -122,7 +122,8 @@ serviceContext =>
             return new WebHostBuilder()
                 .UseKestrel(opt =>
                 {
-                    opt.Listen(IPAddress.IPv6Any, 443, listenOptions =>
+                    int port = serviceContext.CodePackageActivationContext.GetEndpoint("EndpointHttps").Port;
+                    opt.Listen(IPAddress.IPv6Any, port, listenOptions =>
                     {
                         listenOptions.UseHttps(GetCertificateFromStore());
                         listenOptions.NoDelay = true;
