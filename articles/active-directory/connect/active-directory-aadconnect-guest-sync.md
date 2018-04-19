@@ -166,10 +166,10 @@ This document uses AD FS as the identity provider (Idp).  If you are using a dif
 ![](media/active-directory-aadconnect-guest-sync/guest9.png)
 
 ## Task 4:  Testing
-In order to verify that this is working properly, you need to sign-in to a tenanted endpoint.  To test this, we deployed a website in Azure and are using the following url: contososampapp.azurewebsites.net
+In order to verify that this is working properly, you need to sign-in to an endpoint that has been configured to authenticate using your Idp.  To test this, we deployed a website in Azure and are using the following url: contososampapp.azurewebsites.net
 
 ### Verify that you can sign-in with the alternate ID
-1. Sign-in to the tenanted endpoint.</br>
+1. Sign-in to the endpoint.</br>
 ![](media/active-directory-aadconnect-guest-sync/guest10.png)
 1. Enter your username and you will be re-directed to the federation sign-in page.
 ![](media/active-directory-aadconnect-guest-sync/guest11.png)
