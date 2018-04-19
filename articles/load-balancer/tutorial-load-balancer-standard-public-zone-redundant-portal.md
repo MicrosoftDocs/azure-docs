@@ -20,7 +20,16 @@ ms.author: kumud
 
 # Load balance VMs across availability zones with a Standard Load Balancer using the Azure portal
 
-This article steps through creating a public Load Balancer Standard with a zone redundant frontend to achieve achieve zone-redundancy without dependency on multiple DNS records. A single front-end IP address in a Standard Load Balancer is automatically zone-redundant. Using a zone redundant frontend for your load balancer, with a single IP address you can now reach any VM in a virtual network within a region that is across all Availability Zones. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more Availability Zones can fail and the data path survives as long as one zone in the region remains healthy. 
+This article steps through creating a public Load Balancer Standard with a zone redundant frontend to achieve achieve zone-redundancy without dependency on multiple DNS records. A single front-end IP address in a Standard Load Balancer is automatically zone-redundant. Using a zone redundant frontend for your load balancer, with a single IP address you can now reach any VM in a virtual network within a region that is across all Availability Zones. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more Availability Zones can fail and the data path survives as long as one zone in the region remains healthy. You learn how to:
+
+> [!div class="checklist"]
+> * Create an Azure Standard Load Balancer with a zone-redundant frontend
+> * Create network security groups to define incoming traffic rules
+> * Create zone-redundant VMs across multiple zones and attach to a load balancer
+> * Create load balancer health probe
+> * Create load balancer traffic rules
+> * Create a basic IIS site
+> * View a load balancer in action
 
 For more information about using Availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 
@@ -81,8 +90,8 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
     - *TCP* - for **Protocol**
     - *Allow* - for **Action**
     - *100* for **Priority**
-    - *myHTTPRule* for name
-    - *Allow HTTP* - for description
+    - *myHTTPRule* - for name of the load balancer rule.
+    - *Allow HTTP* - for description of the load balancer rule.
 4. Click **OK**.
  
  ![Create a virtual network](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)

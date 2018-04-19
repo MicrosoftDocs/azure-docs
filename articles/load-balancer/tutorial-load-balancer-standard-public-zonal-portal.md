@@ -20,7 +20,17 @@ ms.author: kumud
 
 # Load balance VMs within an availability zone with a Standard Load Balancer using the Azure portal
 
-This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address using the Azure portal. In this scenario, you specify a particular zone for your front-end and back-end instances, to align your data path and resources with a specific zone.
+This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address using the Azure portal. In this scenario, you specify a particular zone for your front-end and back-end instances, to align your data path and resources with a specific zone. You learn how to:
+
+> [!div class="checklist"]
+> * Create an Azure Standard Load Balancer with a zonal frontend
+> * Create network security groups to define incoming traffic rules
+> * Create zonal VMs and attach to a load balancer
+> * Create load balancer health probe
+> * Create load balancer traffic rules
+> * Create a basic IIS site
+> * View a load balancer in action
+
 For more information about using Availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 
 If you prefer, you can complete this tutorial using the [Azure CLI](load-balancer-standard-public-zonal-cli.md).
