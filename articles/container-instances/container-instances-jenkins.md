@@ -1,9 +1,9 @@
 ---
-title: Use Azure Container Instances as a Jenkins build server
-description: Learn how to use Azure Container Instances as a Jenkins build server.
+title: Use Azure Container Instances as a Jenkins build agent
+description: Learn how to use Azure Container Instances as a Jenkins build agent.
 services: container-instances
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
@@ -11,9 +11,9 @@ ms.date: 04/20/2018
 ms.author: nepeters
 ---
 
-# Use Azure Container Instances as a Jenkins build server
+# Use Azure Container Instances as a Jenkins build agent
 
-Azure Container Instances provide an on-demand, burstable, and isolated environment for running containerized workload. Because of these attributes, Azure Container Instances make a great platform for running Jenkins build jobs at a large scale. This document walks through deploying and using a Jenkins server that is pre-configured with ACI as a build target.
+Azure container instances provide an on-demand, burstable, and isolated environment for running containerized workload. Because of these attributes, Azure container instances make a great platform for running Jenkins build jobs at a large scale. This document walks through deploying and using a Jenkins server that is pre-configured with ACI as a build target.
 
 For more information on Azure Container Instances, see [About Azure Container Instances][about-aci].
 
@@ -88,9 +88,9 @@ Jenkins is now configured and ready to build and deploy code. For this example, 
 
 ## Create build job
 
-When using a container image as a Jenkins build target, you need to specify an image that includes all tooling necessary for a successful build. For the sake of this sample application, the `microsoft/java-on-azure-jenkins-slave` can be used.
+When using a container image as a Jenkins build target, you need to specify an image that includes all tooling necessary for a successful build. To specify the image, select **Manage Jenkins** > **Configure System** and scroll down to the **Cloud** section. For this example, update the Docker image value to `microsoft/java-on-azure-jenkins-slave`.
 
-To specify the image, select **Manage Jenkins** > **Configure System** > and scroll down to the **Cloud** section. Update the Docker image use the `microsoft/java-on-azure-jenkins-slave` image. Once done, click **Save** to return to the Jenkins dashboard.
+Once done, click **Save** to return to the Jenkins dashboard.
 
 ![Jenkins cloud configuration](./media/container-instances-jenkins/jenkins-aci-image.png)
 
@@ -102,7 +102,7 @@ Under **General**, ensure that **Restrict where this project can be run** is sel
 
 ![Create Jenkins job](./media/container-instances-jenkins/jenkins-job-01.png)
 
-Under source code management, select `git` and enter `https://github.com/spring-projects/spring-petclinic.git` for the repository URL. This GitHub repo contains the sample application code.
+Under source code management, select `Git` and enter `https://github.com/spring-projects/spring-petclinic.git` for the repository URL. This GitHub repo contains the sample application code.
 
 ![Add source code to Jenkins job](./media/container-instances-jenkins/jenkins-job-02.png)
 
@@ -116,7 +116,7 @@ Select **Save** when done.
 
 To test the build job and observe Azure Container Instances as the build platform, manually start a build.
 
-Select **Build Now** to start a build job. When running, you should see status similar to the following image.
+Select **Build Now** to start a build job. It takes a few minutes for the job to start, when running, you should see status similar to the following images.
 
 ![Add Jenkins build step](./media/container-instances-jenkins/jenkins-job-status.png)
 
@@ -128,13 +128,13 @@ As Jenkins runs more jobs than the configured number of Jenkins executors (defau
 
 ![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci-multi.png)
 
-Once all build jobs have been completed, the Azure Container Instances are removed.
+Once all build jobs have been completed, the Azure container instances are removed.
 
 ![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci-none.png)
 
 ## Next steps
 
-To learn more about Jenkins on Azure see, [Azure and Jenkins][jenkins-azure]
+To learn more about Jenkins on Azure see, [Azure and Jenkins][jenkins-azure].
 
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md
