@@ -23,8 +23,8 @@ If you need a multi-language LUIS client application such as a chat bot, you hav
 LUIS understands utterances in the following languages:
 
 
-| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | Speech to intent | 
-| --|  ------- |  :------: |  :------: |   :------:  |   :------:  |   :------:  |
+| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | Speech to intent |
+|--|--|:--:|:--:|:--:|:--:|:--:|
 | American English |`en-US` | ✔ | ✔  |✔|✔||
 | Canadian French |`fr-CA` |-|   -   |-|✔||
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-||
@@ -55,7 +55,7 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
      - です is not the same as だ. 
 
 ### **Text analytics support notes
-Only Portuguese is supported for sub-cultures: `pt-PT` and `pt-BR`. All other cultures are supported at the primary culture level. Learn more about Text Analytics [supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). 
+Only Portuguese is supported for subcultures: `pt-PT` and `pt-BR`. All other cultures are supported at the primary culture level. Learn more about Text Analytics [supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). 
 
 ## Rare or foreign words in an application
 In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](Add-Features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature. This phrase list should be marked non-interchangeable, to indicate that the set of rare words form a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.
