@@ -92,7 +92,7 @@ For this tutorial, you first create a new Linux VM. You can also opt to use an e
     }
     ```
 
-## Assign your user-assigned MSI to your Linux VM
+## Assign a user-assigned identity to your Linux VM
 
 Unlike a system-assigned MSI, a user-assigned MSI can be used by clients on multiple Azure resources. For this tutorial, you assign it to a single VM. You can also assign it to more than one VM.
 
@@ -102,7 +102,7 @@ Assign the user-assigned MSI to your Linux VM using [az vm assign-identity](/cli
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
 ```
 
-## Grant your user-assigned MSI access to a Resource Group in Azure Resource Manager 
+## Grant your user-assigned identity access to a Resource Group in Azure Resource Manager 
 
 MSI provides your code with an access token to authenticate to resource APIs that support Azure AD authentication. In this tutorial, your code accesses the Azure Resource Manager API. 
 
