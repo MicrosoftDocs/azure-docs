@@ -67,7 +67,31 @@ Using the same diagram, here's an example of how a user-assigned MSI works with 
 6. The MSI VM Extension checks if the certificate for the requested client ID is configured, and requests an access token from Azure AD. Azure AD returns a JSON Web Token (JWT) access token.
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
 
-Each Azure service that supports Managed Service Identity has its own method for your code to obtain an access token. Check out the [Step-by-Step Tutorials](/azure/active-directory/managed-service-identity#Step-by-Step-Tutorials) for each service to find out the specific method to get a token.
+Each Azure service that supports Managed Service Identity has its own method for your code to obtain an access token. Check out the tutorials for each service to find out the specific method to get a token.
+
+## Try Managed Service Identity
+
+Try a Managed Service Identity tutorial to learn end-to-end scenarios for accessing different Azure resources:
+<br><br>
+| From MSI-enabled resource | Learn how to |
+| ------- | -------- |
+| Azure VM (Windows) | [Access Azure Data Lake Store with a Windows VM Managed Service Identity](tutorial-windows-vm-access-datalake.md) |
+|                    | [Access Azure Resource Manager with a Windows VM Managed Service Identity](tutorial-windows-vm-access-arm.md) |
+|                    | [Access Azure SQL with a Windows VM Managed Service Identity](tutorial-windows-vm-access-sql.md) |
+|                    | [Access Azure Storage via access key with a Windows VM Managed Service Identity](tutorial-windows-vm-access-storage.md) |
+|                    | [Access Azure Storage via SAS with a Windows VM Managed Service Identity](tutorial-windows-vm-access-storage-sas.md) |
+|                    | [Access a non-Azure AD resource with a Windows VM Managed Service Identity and Azure Key Vault](tutorial-windows-vm-access-nonaad.md) |
+| Azure VM (Linux)   | [Access Azure Data Lake Store with a Linux VM Managed Service Identity](tutorial-linux-vm-access-datalake.md) |
+|                    | [Access Azure Resource Manager with a Linux VM Managed Service Identity](tutorial-linux-vm-access-arm.md) |
+|                    | [Access Azure Storage via access key with a Linux VM Managed Service Identity](tutorial-linux-vm-access-storage.md) |
+|                    | [Access Azure Storage via SAS with a Linux VM Managed Service Identity](tutorial-linux-vm-access-storage-sas.md) |
+|                    | [Access a non-Azure AD resource with a Linux VM Managed Service Identity and Azure Key Vault](tutorial-linux-vm-access-nonaad.md) |
+| Azure App Service  | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Functions    | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Service Bus  | [Use Managed Service Identity with Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
+| Azure Event Hubs   | [Use Managed Service Identity with Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) |
+
+
 
 ## Which Azure services support Managed Service Identity?
 
