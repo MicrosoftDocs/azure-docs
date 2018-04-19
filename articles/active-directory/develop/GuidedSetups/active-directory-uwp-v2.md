@@ -66,7 +66,8 @@ The application created by this guide exposes a button to graph and show results
     Install-Package Microsoft.Identity.Client -Pre
     ```
 
-> The package above installs the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching, and refreshing user tokens used to access APIs protected by Azure Active Directory v2.
+> [!NOTE]
+> The package above installs the [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL handles acquiring, caching, and refreshing user tokens used to access APIs protected by Azure Active Directory v2.
 
 ## Initialize MSAL
 This step helps you create a class to handle interaction with MSAL Library, such as handling of tokens.
@@ -93,21 +94,21 @@ A **MainPage.xaml** file should automatically be created as a part of your proje
 
 1.	Replace your application’s **<Grid>** node with:
 
-```xml
-<Grid>
-    <StackPanel Background="Azure">
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="CallGraphButton" Content="Call Microsoft Graph API" HorizontalAlignment="Right" Padding="5" Click="CallGraphButton_Click" Margin="5" FontFamily="Segoe Ui"/>
-            <Button x:Name="SignOutButton" Content="Sign-Out" HorizontalAlignment="Right" Padding="5" Click="SignOutButton_Click" Margin="5" Visibility="Collapsed" FontFamily="Segoe Ui"/>
+    ```xml
+    <Grid>
+        <StackPanel Background="Azure">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="CallGraphButton" Content="Call Microsoft Graph API" HorizontalAlignment="Right" Padding="5" Click="CallGraphButton_Click" Margin="5" FontFamily="Segoe Ui"/>
+                <Button x:Name="SignOutButton" Content="Sign-Out" HorizontalAlignment="Right" Padding="5" Click="SignOutButton_Click" Margin="5" Visibility="Collapsed" FontFamily="Segoe Ui"/>
+            </StackPanel>
+            <TextBlock Text="API Call Results" Margin="2,0,0,-5" FontFamily="Segoe Ui" />
+            <TextBox x:Name="ResultText" TextWrapping="Wrap" MinHeight="120" Margin="5" FontFamily="Segoe Ui"/>
+            <TextBlock Text="Token Info" Margin="2,0,0,-5" FontFamily="Segoe Ui" />
+            <TextBox x:Name="TokenInfoText" TextWrapping="Wrap" MinHeight="70" Margin="5" FontFamily="Segoe Ui"/>
         </StackPanel>
-        <TextBlock Text="API Call Results" Margin="2,0,0,-5" FontFamily="Segoe Ui" />
-        <TextBox x:Name="ResultText" TextWrapping="Wrap" MinHeight="120" Margin="5" FontFamily="Segoe Ui"/>
-        <TextBlock Text="Token Info" Margin="2,0,0,-5" FontFamily="Segoe Ui" />
-        <TextBox x:Name="TokenInfoText" TextWrapping="Wrap" MinHeight="70" Margin="5" FontFamily="Segoe Ui"/>
-    </StackPanel>
-</Grid>
-```
-
+    </Grid>
+    ```
+    
 ## Use the Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
 This section shows how to use MSAL to get a token for the Microsoft Graph API.
@@ -127,7 +128,6 @@ This section shows how to use MSAL to get a token for the Microsoft Graph API.
     
         //Set the scope for API call to user.read
         string[] scopes = new string[] { "user.read" };
-    
     
         public MainPage()
         {
@@ -300,18 +300,16 @@ Now you need to register your application in the *Microsoft Application Registra
 
 ## Enable integrated authentication on federated domains (optional)
 
-To enable Windows Integrated Authentication when used with a federated Azure Active Directory domain, follow the steps below:
-
-To work with Windows Integrated Authentication the application manifest must enable additional capabilities:
+To enable Windows Integrated Authentication when used with a federated Azure Active Directory domain, the application manifest must enable additional capabilities:
 
 1. Double click **Package.appxmanifest**
-2. Select **Capabilities** tab and select the following:
+2. Select **Capabilities** tab and make sure that the following settings are enabled:
 
     - Enterprise Authentication
     - Private Networks (Client & Server)
     - Shared User Certificates 
 
-3. Then, open **App.xaml.cs**, and add the following line of code in the App constructor:
+3. Then, open **App.xaml.cs**, and add the following in the App constructor:
 
     ```csharp
     App.PublicClientApp.UseCorporateNetwork = true;
@@ -358,25 +356,25 @@ The Microsoft Graph API requires the *user.read* scope to read a user's profile.
 
 To access the user’s calendars in the context of an application, add the *Calendars.Read* delegated permission to the application registration information. Then, add the *Calendars.Read* scope to the `acquireTokenSilent` call. 
 
->[!NOTE]
->The user might be prompted for additional consents as you increase the number of scopes.
+> [!NOTE]
+> User might be prompted for additional consents as you increase the number of scopes.
 
 ## Known issues
 
-> ### Issue 1:
-> You may receive one of the following errors when sign-in on your application on a federated Azure Active Directory Domain:
-> - 'No valid client certificate found in the request.
-> - No valid certificates found in the user's certificate store.
-> - Please try again choosing a different authentication method.'
+### Issue 1:
+You may receive one of the following errors when sign-in on your application on a federated Azure Active Directory Domain:
+ - 'No valid client certificate found in the request.
+ - No valid certificates found in the user's certificate store.
+ - Please try again choosing a different authentication method.'
 
-> **Cause:** Enterprise and certificates capabilities are not enabled
+**Cause:** Enterprise and certificates capabilities are not enabled
 
-> **Solution:** follow the steps in [integrated authentication on federated domains](#enable_integrated_authentication-on-federated-domains-optional)
+**Solution:** follow the steps in [integrated authentication on federated domains](#enable-integrated-authentication-on-federated-domains-optional)
 
-> ### Issue 2:
-> After you enable i[integrated authentication on federated domains](#enable_integrated_authentication-on-federated-domains-optional) and try to use Windows Hello to sign-in, the list of certificates is presented, however if you choose to use your PIN, the PIN window is never presented.
+### Issue 2:
+After you enable [integrated authentication on federated domains](#enable-integrated-authentication-on-federated-domains-optional) and try to use Windows Hello to sign-in, the list of certificates is presented, however if you choose to use your PIN, the PIN window is never presented.
 
-> **Cause:** This is a known limitation with Web authentication broker in UWP applications running on Windows 10 (this works fine on Windows 10 Mobile)
+**Cause:** This is a known limitation with Web authentication broker in UWP applications running on Windows 10 desktop (works fine on Windows 10 Mobile)
 
-> **Solution:** s a work around, you will need to click on the sign in with other options link and then choose Sign-in with a username and password instead, provide your password and go through the phone authentication
+**Solution:** as work around, you will need to select to sign in with other options link and then choose Sign-in with a username and password instead, provide your password and go through the phone authentication.
 
