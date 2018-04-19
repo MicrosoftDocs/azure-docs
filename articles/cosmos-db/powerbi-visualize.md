@@ -93,16 +93,16 @@ Ready to give it a try? Let's get started.
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Desktop Connect Window](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 8. If you are connecting to this endpoint for the first time, you are prompted for the account key. For your own account, retrieve the key from the **Primary Key** box in the **[Read-only Keys](manage-account.md#keys)** blade of the Azure portal. For the demo account, the key is `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Enter the appropriate key and then click **Connect**.
    
-    We recommend that you use the read-only key when building reports.  This will prevent unnecessary exposure of the master key to potential security risks. The read-only key is available from the [Keys](manage-account.md#keys) blade of the Azure portal or you can use the demo account information provided above.
+    We recommend that you use the read-only key when building reports.  This prevents unnecessary exposure of the master key to potential security risks. The read-only key is available from the [Keys](manage-account.md#keys) blade of the Azure portal or you can use the demo account information provided above.
    
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Account Key](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
     
     > [!NOTE] 
     > If you get an error that says "The specified database was not found." see the workaround steps in this [Power BI issue](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200).
     
-9. When the account is successfully connected, the **Navigator** will appear.  The **Navigator** will show a list of databases under the account.
-10. Click and expand on the database where the data for the report will come from, if you're using the demo account, select **volcanodb**.   
-11. Now, select a collection that you will retrieve the data from. If you're using the demo account, select **volcano1**.
+9. When the account is successfully connected, the **Navigator** pane appears.  The **Navigator** shows a list of databases under the account.
+10. Click and expand on the database where the data for the report comes from, if you're using the demo account, select **volcanodb**.   
+11. Now, select a collection that contains the data to retrieve. If you're using the demo account, select **volcano1**.
     
     The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**.
     
@@ -115,18 +115,18 @@ Ready to give it a try? Let's get started.
 2. Click on the expander at the right side of the **Document** column header.  The context menu with a list of fields will appear.  Select the fields you need for your report, for instance,  Volcano Name, Country, Region, Location, Elevation, Type, Status and Last Know Eruption. Uncheck the **Use original column name as prefix** box, and then click **OK**.
    
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Expand documents](./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
-3. The center pane will display a preview of the result with the fields selected.
+3. The center pane displays a preview of the result with the fields selected.
    
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Flatten results](./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png)
 4. In our example, the Location property is a GeoJSON block in a document.  As you can see, Location is represented as a **Record** type in Power BI Desktop.  
-5. Click on the expander at the right side of the Document.Location column header.  The context menu with type and coordinates fields will appear.  Let's select the coordinates field, ensure **Use original column name as prefix** is not selected, and click **OK**.
+5. Click on the expander at the right side of the Document.Location column header.  The context menu with type and coordinates fields appear.  Let's select the coordinates field, ensure **Use original column name as prefix** is not selected, and click **OK**.
    
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Location record](./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png)
 6. The center pane now shows a coordinates column of **List** type.  As shown at the beginning of the tutorial, the GeoJSON data in this tutorial is of Point type with Latitude and Longitude values recorded in the coordinates array.
    
     The coordinates[0] element represents Longitude while coordinates[1] represents Latitude.
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Coordinates list](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
-7. To flatten the coordinates array, we will create a **Custom Column** called LatLong.  Select the **Add Column** ribbon and click on **Custom Column**.  The **Custom Column** window appears.
+7. To flatten the coordinates array, create a **Custom Column** called LatLong.  Select the **Add Column** ribbon and click on **Custom Column**.  The **Custom Column** window appears.
 8. Provide a name for the new column, e.g. LatLong.
 9. Next, specify the custom formula for the new column.  For our example, we will concatenate the Latitude and Longitude values separated by a comma as shown below using the following formula: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Click **OK**.
    
@@ -156,9 +156,9 @@ Power BI Desktop Report view is where you can start creating reports to visualiz
 
 In the Report view, you should find:
 
-1. The **Fields** pane, this is where you will see a list of data models with fields you can use for your reports.
+1. The **Fields** pane, this is where you can see a list of data models with fields you can use for your reports.
 2. The **Visualizations** pane. A report can contain a single or multiple visualizations.  Pick the visual types fitting your needs from the **Visualizations** pane.
-3. The **Report** canvas, this is where you will build the visuals for your report.
+3. The **Report** canvas, this is where you build the visuals for your report.
 4. The **Report** page. You can add multiple report pages in Power BI Desktop.
 
 The following shows the basic steps of creating a simple interactive Map view report.
@@ -177,7 +177,7 @@ The following shows the basic steps of creating a simple interactive Map view re
 To share your report, you must have an account in PowerBI.com.
 
 1. In the Power BI Desktop, click on the **Home** ribbon.
-2. Click **Publish**.  You will be prompted to enter the user name and password for your PowerBI.com account.
+2. Click **Publish**.  You are be prompted to enter the user name and password for your PowerBI.com account.
 3. Once the credential has been authenticated, the report is published to your destination you selected.
 4. Click **Open 'PowerBITutorial.pbix' in Power BI** to see and share your report on PowerBI.com.
    
