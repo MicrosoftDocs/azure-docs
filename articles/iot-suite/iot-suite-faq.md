@@ -31,6 +31,12 @@ The source code is stored in the following GitHub repositories:
 * [Predictive maintenance preconfigured solution](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Connected factory preconfigured solution](https://github.com/Azure/azure-iot-connected-factory)
 
+### What SDKs can I use to develop device clients for the preconfigured solutions?
+
+You can find links to the different language (C, .NET, Java, Node.js, Python) IoT device SDKs in the [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) GitHub repositories.
+
+If you are using the DevKit device, you can find resources and samples in the [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk) GitHub repository.
+
 ### Is the new microservices architecture available for all the three preconfigured solutions?
 
 Currently, only the remote monitoring solution uses the microservices architecture as it covers the broadest scenario.
