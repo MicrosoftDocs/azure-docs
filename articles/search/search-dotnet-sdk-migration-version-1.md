@@ -3,7 +3,7 @@ title: Upgrading to the Azure Search .NET SDK version 1.1 | Microsoft Docs
 description: Upgrading to the Azure Search .NET SDK version 1.1
 author: brjohnstmsft
 manager: jlembicz
-
+services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
