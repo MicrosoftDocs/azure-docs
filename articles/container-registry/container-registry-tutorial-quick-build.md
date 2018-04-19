@@ -19,7 +19,7 @@ ms.custom: mvc
 
 **ACR Build** is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *Quick Build* feature of ACR Build. Quick Build extends your development "inner loop" to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
 
-All your Dockerfile expertise is directly transferrable to ACR Build. You don't have to change your Dockerfiles to build in the cloud with ACR build, just the command you run.
+All your Dockerfile expertise is directly transferrable to ACR Build. You don't have to change your Dockerfiles to build in the cloud with ACR Build, just the command you run.
 
 In this tutorial, part one of a series:
 
@@ -109,7 +109,7 @@ The following example commands create an Azure container registry named **mycont
 > [!NOTE]
 > ACR Build is currently supported only by registries in **EastUS**. Do not change the location of the resource group.
 
-Create an Azure container registry:
+Create a resource group and an Azure container registry:
 
 ```azurecli-interactive
 ACR_NAME=mycontainerregistry # Registry name - must be *unique* within Azure
@@ -270,13 +270,13 @@ Take note of the container's FQDN, you'll use it in the next section.
 
 ### Verify deployment
 
-To watch the startup process of the container, use the [az container attach][az-container-attach] command. The `az container attach` first displays the container's status as it pulls its image and starts, then binds your local console's STDOUT and STDERR to that of the container's.
+To watch the startup process of the container, use the [az container attach][az-container-attach] command:
 
 ```azurecli-interactive
 az container attach --resource-group $RES_GROUP --name acr-build
 ```
 
-Output from the `az container attach` command should appear similar to the following:
+The `az container attach` output first displays the container's status as it pulls its image and starts, then binds your local console's STDOUT and STDERR to that of the container's.
 
 ```console
 $ az container attach --resource-group $RES_GROUP --name acr-build
