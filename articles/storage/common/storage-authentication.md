@@ -6,14 +6,14 @@ author: tamram
 manager: jeconnoc
 
 ms.service: storage
-ms.topic: overview
+ms.topic: article
 ms.date: 04/16/2018
 ms.author: tamram
 ---
 
 # Authenticating requests to Azure Storage
 
-Each time you access data in your storage account, a request is made over HTTP/HTTPS to Azure Storage. Every request to a secure resource must be authenticated, so that the service ensures that the client has the right permissions to access the right data at the right time. Azure Storage offers several options for authentication:
+Each time you access data in your storage account, your client makes a request over HTTP/HTTPS to Azure Storage. Every request to a secure resource must be authenticated, so that the service ensures that the client has the right permissions to access the right data at the right time. Azure Storage offers several options for authentication:
 
 - **Azure Identity and Access Management (IAM)** for blobs and queues. Azure identity management provides role-based authentication (RBAC) for fine-grained control over a client's access to resources in a storage account.
 - **Shared Key authentication** for blobs, files, queues, and tables. A client using Shared Key passes a header with every request that is signed using the storage account access key.
