@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 04/19/2017
 ms.author: jingwang
 
 ---
@@ -43,7 +43,7 @@ The following properties are supported for Phoenix linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Phoenix** | Yes |
 | host | The IP address or host name of the Phoenix server. (that is, 192.168.222.160)  | Yes |
-| port | The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.  | No |
+| port | The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765. If you connect to Azure HDInsights, specify port as 443. | No |
 | httpPath | The partial URL corresponding to the Phoenix server. (that is, /gateway/sandbox/phoenix/version). The default value is `hbasephoenix` if using WindowsAzureHDInsightService.  | No |
 | authenticationType | The authentication mechanism used to connect to the Phoenix server. <br/>Allowed values are: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | username | The user name used to connect to the Phoenix server.  | No |
@@ -64,8 +64,7 @@ The following properties are supported for Phoenix linked service:
         "type": "Phoenix",
         "typeProperties": {
             "host" : "<cluster>.azurehdinsight.net",
-            "port" : "<port>",
-            "httpPath" : "hbasephoenix",
+            "port" : "443",
             "authenticationType" : "WindowsAzureHDInsightService",
             "username" : "<username>",
             "password": {
