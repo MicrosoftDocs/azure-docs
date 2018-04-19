@@ -63,4 +63,4 @@ The path in a sourceFieldName can represent one element or multiple elements. In
 
 Once you have mapped your enriched fields to searchable fields, you can set the field attributes for each of the searchable fields [as part of the index definition](https://docs.microsoft.com/azure/search/search-what-is-an-index).
 
-For more information about field mapping, see [Field mappings in Azure Search indexers](ref-search-indexer-field-mappings.md).
+For more information about field mapping, see [Field mappings in Azure Search indexers](https://docs.microsoft.com/azure/search/search-indexer-field-mappings).

@@ -24,7 +24,7 @@ The **Sentiment** skill evaluates unstructured text along a positive-negative co
 Microsoft.Skills.Text.SentimentSkill
 
 ## Data Limits
-The maximum size of a record should be 5000 characters as measured by String.Length. If you need to break up your data before sending it to the sentiment analyzer, use the [Pagination Skill](cognitive-skill-pagination.md).
+The maximum size of a record should be 5000 characters as measured by String.Length. If you need to break up your data before sending it to the sentiment analyzer, use the [Pagination Skill](cognitive-search-skill-pagination.md).
 
 
 ## Skill Parameters

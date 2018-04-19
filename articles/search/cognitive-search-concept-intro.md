@@ -10,15 +10,21 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
 ---
-# Cognitive Search overview
+# What is cognitive search?
 
-Cognitive search, currently in private preview, transforms raw, unstructured content into rich searchable content in an Azure Search index. At the heart of cognitive search is an extensible enrichment pipeline powered by a number of cognitive skills (for instance, natural language processing and computer vision capabilities) that extract structure and semantics from unstructured and non-textual data, and feeds it into a search index. 
+Cognitive search, now in public preview, is a new enrichment layer in Azure Search indexing that finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
+
++ Natural language processing - in the form of entity recognition, sentiment analysis, key phrase analysis, and language detection - bring AI-powered modeling that extracts information that can amplify a search experience.
++ Image processing can make scanned documents searchable, or analyze photographs for words and numbers that can be added to an index.
++ Structural processing can deconstruct chunks of text, or blend smaller bits of text into larger units.
+
+At the heart of cognitive search is an extensible indexing pipeline powered by *cognitive skills* that enriches source documents and feeds it into a search index.
 
 ![Component diagram of enrichment, augmentation pipeline](./media/cognitive-search-intro/cogsearch-architecture.png)
 
 ## Pipeline components
 
-At both ends of the pipeline, you have persisted data: source data read from an Azure data source, a target Azure Search index at the end. In between is a run-time process that moves data through a series of transformations, culminating in an index accessed via search requests through all query types supported by Azure Search. 
+At both ends of the pipeline, you have persisted data - source data stored in an Azure data source, and a searchable index in Azure Search. In between is a run-time process that moves data through a series of transformations, culminating in an index accessed via search requests through all query types supported by Azure Search. 
 
 Underneath it all, the engine driving the pipeline is an Azure Search *indexer*. An indexer pulls data from supported sources, adds field mappings and logic, and pushes it into a search index that you've defined in advance. Transformations and enrichment are added through individual *skills*, combined into a *skillset* attached to an indexer. The remaining sections explore each step in more detail.
 
@@ -76,7 +82,7 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 **Step 3: Apply what you learned (typical workflow)**
 
 1. Subset your Azure source data into a representative sample. Indexing takes time so start with a small, representative data set and then build it up incrementally as your solution matures.
-2. Create a data source object in Azure Search to provide the connection string.
+2. Create a data source object in Azure Search to provide a connection string for data retrieval.
 3. Create a skillset with enrichment steps.
 4. Define the index schema. The Fields collection includes fields from source data. You should also stub out additional fields to hold generated values for content created during enrichment.
 5. Define the indexer referencing the data source, skillset, and index. 
@@ -89,31 +95,28 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 The following articles are the complete documentation for cognitive search.
 
-[Cognitive search overview](cognitive-search-concept-intro.md)
-[Quickstart: Try cognitive search (Portal)](cognitive-search-quickstart-blob.md)
-[Tutorial: Enriched indexing of Azure blobs](cognitive-search-tutorial-blob.md)
-[How to define a skillset](cognitive-search-defining-skillset.md)
-[How to map fields](cognitive-search-output-field-mapping.md)
-[How to define a custom skills interface](cognitive-search-custom-skill-interface.md)
-[Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)
++ [Cognitive search overview](cognitive-search-concept-intro.md)
++ [Quickstart: Try cognitive search (Portal)](cognitive-search-quickstart-blob.md)
++ [Tutorial: Enriched indexing of Azure blobs](cognitive-search-tutorial-blob.md)
++ [How to define a skillset](cognitive-search-defining-skillset.md)
++ [How to map fields](cognitive-search-output-field-mapping.md)
++ [How to define a custom skills interface](cognitive-search-custom-skill-interface.md)
++ [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)
 
-[Predefined skills](cognitive-search-predefined-skills.md)
-  - [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
-  - [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
-  - [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
-  - [Microsoft.Skills.Text.PaginationSkill](cognitive-search-skill-pagination.md)
-  - [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
-  - [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
-  - [Microsoft.Skills.Vision.OcrSkill]( cognitive-search-skill-ocr.md)
-  - [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
++ [Predefined skills](cognitive-search-predefined-skills.md)
+  + [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
+  + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
+  + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
+  + [Microsoft.Skills.Text.PaginationSkill](cognitive-search-skill-pagination.md)
+  + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
+  + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
+  + [Microsoft.Skills.Vision.OcrSkill]( cognitive-search-skill-ocr.md)
+  + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
-Reference (REST APIs)
-  - [Create Skillset](ref-create-skillset.md)
-  - [Create Data Source](ref-create-data-source.md)
-  - [Create Index](ref-create-index.md)
-  - [Create Indexer](ref-create-indexer.md)
-  - [Data type map for indexers](ref-data-type-map-for-indexers-in-azure-search.md)
-  - [Field mappings in Azure Search indexers](ref-search-indexer-field-mappings.md)
++ Reference (Preview REST APIs)
+  + [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)
+  + [Create Indexer (api-version=2017-11-11-Preview)](ref-create-indexer.md)
+
 
 ## API (REST only)
 
@@ -121,12 +124,12 @@ Currently, only REST is available, but the .NET SDK is expected to follow shortl
 
 Use `api-version=2017-11-11-Preview` on all requests. Use the following APIs to build a cognitive search solution.
 
-| API | Description |
+| REST API | Description |
 |-----|-------------|
-| [Create Data Source](ref-create-data-source.md)  | A resource identifying an external data source providing source data used to create enriched documents.  |
-| [Create Skillset](ref-create-skillset.md)  | A resource coordinating the use of [predefined skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
-| [Create Index](ref-create-index.md)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
-| [Create Indexer](ref-create-indexer.md)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search corpus based on the index schema, populated with source data, enriched through skillsets.  |
+| [Create Data Source](rhttps://docs.microsoft.com/rest/api/searchservice/create-data-source)  | A resource identifying an external data source providing source data used to create enriched documents.  |
+| [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource coordinating the use of [predefined skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
+| [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
+| [Create Indexer (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search corpus based on the index schema, populated with source data, enriched through skillsets.  |
 | [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) | A command for rebuilding an index. Because pipeline development is an iterative process, plan for frequent index rebuilds.
 
 ## Next steps

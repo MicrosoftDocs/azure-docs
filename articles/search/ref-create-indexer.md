@@ -1,5 +1,5 @@
 ---
-title: "Create Indexer (Azure Search Service REST API)"
+title: "Create Indexer (Azure Search Service REST api-version=2017-11-11-Preview)"
 ms.custom: ""
 ms.date: 05/01/2018
 ms.prod: "azure"
@@ -25,10 +25,11 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Create Indexer (Azure Search Service REST API)
+# Create Indexer (Azure Search Service REST api-version=2017-11-11-Preview)
 
-You can create a new indexer within an Azure Search service using an HTTP POST request. For data-platform-specific guidance on creating indexers, start with [Indexers overview](https://docs.microsoft.com/azure/search/search-indexer-overview), which includes the complete list of [related articles](https://docs.microsoft.com/azure/search/search-indexer-overview#next-steps).
+This API reference is a preview-specific version of the documentation, covering cognitive search enhancements to indexing.
 
+As with the [generally available](https://docs.microsoft.com/rest/api/searchservice/create-indexer) version, you can create a new indexer within an Azure Search service using an HTTP POST request. 
 
 ```http
 POST https://[service name].search.windows.net/indexers?api-version=[api-version]  
@@ -41,6 +42,8 @@ POST https://[service name].search.windows.net/indexers?api-version=[api-version
 ```http
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]  
 ```  
+
+For data-platform-specific guidance on creating indexers, start with [Indexers overview](https://docs.microsoft.com/azure/search/search-indexer-overview), which includes the complete list of [related articles](https://docs.microsoft.com/azure/search/search-indexer-overview#next-steps).
 
 > [!NOTE]  
 >  The maximum number of indexers allowed varies by pricing tier. The free service allows up to 3 indexers. Standard service allows 50 indexers. See [Service Limits](https://azure.microsoft.com/documentation/articles/search-limits-quotas-capacity/) for details.  
@@ -78,13 +81,13 @@ PUT https://[service name].search.windows.net/indexers/[indexer name]?api-versio
 ### Indexer parameters  
  An indexer can optionally specify several parameters that affect its behavior. All of the parameters are optional.  
 
--   **maxFailedItems**: The number of items that can fail to be indexed before an indexer run is considered a failure. Default is 0. Information about failed items is returned by the [Get Indexer Status &#40;Azure Search Service REST API&#41;](get-indexer-status.md) operation.  
+-   **maxFailedItems**: The number of items that can fail to be indexed before an indexer run is considered a failure. Default is 0. Information about failed items is returned by the [Get Indexer Status &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) operation.  
 
 -   **maxFailedItemsPerBatch**: The number of items that can fail to be indexed in each batch before an indexer run is considered a failure. Default is 0.  
 
 -   **batchSize:** Specifies the number of items that are read from the data source and indexed as a single batch in order to improve performance. The default depends on the data source type: it is 1000 for Azure SQL and Azure Cosmos DB, and 10 for Azure Blob Storage.
 
-### Field Mappings
+### Field Mapping parameters
 
 Indexer definitions contain field associations for mapping a source field to a destination field in an Azure Search index. There are two types of associations depending on whether the content transfer follows a direct or enriched path:
 

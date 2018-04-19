@@ -288,7 +288,7 @@ Content-Type: application/json
 }
 ```
 
-To learn more about defining an index, see [Create an Azure Search Index](ref-create-index.md).
+To learn more about defining an index, see [Create Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 
 ## Create an indexer, map fields, and execute transformations
