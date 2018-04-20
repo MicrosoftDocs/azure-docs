@@ -12,7 +12,7 @@ ms.custom: MVC
 ---
 # Scenario 1: Assess on-premises workloads for migration to Azure
 
-As they consider migration to Azure, Contoso company want to run a technical and financial assessment to figure out whether their on-premises workloads are suitable for migration to the cloud. In particular, they want to assess machine and database compatibility for migration, and estimate capacity and costs for running their resources in Azure.
+As they consider migration to Azure, Contoso company wants to run a technical and financial assessment to figure out whether their on-premises workloads are suitable for migration to the cloud. In particular, they want to assess machine and database compatibility for migration, and estimate capacity and costs for running their resources in Azure.
 
 To get their feet wet and better understand the technologies involved, they're assessing and migrating a small on-premises travel app. It's a two-tier app, with a web app running on one VM, and a SQL Server database on the second VM. The application is deployed in VMware, and the environment is managed by a vCenter Server. They'll perform the assessment using the Data Migration Assistant (DMA), and the Azure Migrate service.
 
@@ -281,7 +281,7 @@ Before you start, note that the collector currently only supports "English (Unit
 5. In **Specify vCenter Server details**, do the following:
     - Specify the name (FQDN) or IP address of the vCenter server.
     - In **Username** and **Password**, specify the read-only account credentials that the collector will use to discover VMs on the vCenter server.
-    - In **Select scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1000 VMs. 
+    - In **Select scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1500 VMs. 
 
 	![Connect to vCenter](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 
