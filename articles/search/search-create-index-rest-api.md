@@ -6,7 +6,7 @@ author: chaosrealm
 manager: jlembicz
 ms.author: eugenesh
 tags: azure-portal
-
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
