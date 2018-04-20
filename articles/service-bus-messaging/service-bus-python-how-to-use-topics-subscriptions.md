@@ -30,7 +30,7 @@ This article describes how to use Service Bus topics and subscriptions. The samp
 
 ## Create a topic
 
-The **ServiceBusService** object enables you to work with topics. Add the following near the top of any Python file in which you wish to programmatically access Service Bus:
+The **ServiceBusService** object enables you to work with topics. Add the following code near the top of any Python file in which you wish to programmatically access Service Bus:
 
 ```python
 from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
@@ -51,7 +51,7 @@ You can obtain the values for the SAS key name and value from the [Azure portal]
 bus_service.create_topic('mytopic')
 ```
 
-The `create_topic` method also supports additional options, which enable you to override default topic settings such as message time to live or maximum topic size. The following example sets the maximum topic size to 5 GB, and a time to live (TTL) value of 1 minute:
+The `create_topic` method also supports additional options, which enable you to override default topic settings such as message time to live or maximum topic size. The following example sets the maximum topic size to 5 GB, and a time to live (TTL) value of one minute:
 
 ```python
 topic_options = Topic()
@@ -124,7 +124,7 @@ Now, when a message is sent to `mytopic` it is always delivered to receivers sub
 
 To send a message to a Service Bus topic, your application must use the `send_topic_message` method of the **ServiceBusService** object.
 
-The following example demonstrates how to send five test messages to `mytopic`. Note that the `messagenumber` property value of each message varies on the iteration of the loop (this determines which subscriptions receive it):
+The following example demonstrates how to send five test messages to `mytopic`. The `messagenumber` property value of each message varies on the iteration of the loop (this determines which subscriptions receive it):
 
 ```python
 for i in range(5):
@@ -146,7 +146,7 @@ print(msg.body)
 
 Messages are deleted from the subscription as they are read when the parameter `peek_lock` is set to **False**. You can read (peek) and lock the message without deleting it from the queue by setting the parameter `peek_lock` to **True**.
 
-The behavior of reading and deleting the message as part of the receive operation is the simplest model, and works best for scenarios in which an application can tolerate not processing a message in the event of a failure. To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus will have marked the message as being consumed, then when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
+The behavior of reading and deleting the message as part of the receive operation is the simplest model, and works best for scenarios in which an application can tolerate not processing a message if there is a failure. To understand this behavior, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus will have marked the message as being consumed, then when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
 
 If the `peek_lock` parameter is set to **True**, the receive becomes a two stage operation, which makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling `delete` method on the **Message** object. The `delete` method marks the message as being consumed and removes it from the subscription.
 
@@ -159,11 +159,11 @@ msg.delete()
 
 ## How to handle application crashes and unreadable messages
 
-Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process the message for some reason, then it can call the `unlock` method on the **Message** object. This will cause Service Bus to unlock the message within the subscription and make it available to be received again, either by the same consuming application or by another consuming application.
+Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process the message for some reason, then it can call the `unlock` method on the **Message** object. This method causes Service Bus to unlock the message within the subscription and make it available to be received again, either by the same consuming application or by another consuming application.
 
 There is also a timeout associated with a message locked within the subscription, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus unlocks the message automatically and makes it available to be received again.
 
-In the event that the application crashes after processing the message but before the `delete` method is called, then the message will be redelivered to the application when it restarts. This is often called *At Least Once Processing*, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **MessageId** property of the message, which will remain constant across delivery attempts.
+In the event that the application crashes after processing the message but before the `delete` method is called, then the message will be redelivered to the application when it restarts. This behavior is often called *At Least Once Processing*; that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. To do so, you can use the **MessageId** property of the message, which remains constant across delivery attempts.
 
 ## Delete topics and subscriptions
 
