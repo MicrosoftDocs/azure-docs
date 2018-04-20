@@ -36,7 +36,7 @@ This articles lists the audit activities that can be logged in your audit logs.
  
 
 
-## Access Reviews
+## Access reviews
 
 |Audit Category|Activty|
 |---|---|
@@ -72,7 +72,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 
 
-## Account Provisioning
+## Account provisioning
 
 |Audit Category|Activty|
 |---|---|
@@ -84,7 +84,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Application Management|Add OAuth2PermissionGrant|
 |Application Management|Add app role assignment to service principal|
 
-## Application Proxy
+## Application proxy
 
 |Audit Category|Activty|
 |---|---|
@@ -105,7 +105,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Resource|Remove service principal|
 
 
-## Automated Password Rollover
+## Automated password rollover
 
 |Audit Category|Activty|
 |---|---|
@@ -341,7 +341,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Resource|Issue an id_token to the application|
 
 
-## Core Directory
+## Core directory
 
 |Audit Category|Activty|
 |---|---|
@@ -475,7 +475,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |User Management|Assign|
 
 
-## Identity Protection
+## Identity protection
 
 |Audit Category|Activty|
 |---|---|
@@ -494,7 +494,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |User Management|Create access review|
 
 
-## Invited Users
+## Invited users
 
 |Audit Category|Activty|
 |---|---|
@@ -545,7 +545,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 
 
-## Self-service Group Management
+## Self-service group management
 
 |Audit Category|Activty|
 |---|---|
@@ -560,7 +560,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Group Management|Admin generates a temporary password|
 
 
-## Self-service Password Management
+## Self-service password management
 
 |Audit Category|Activty|
 |---|---|
@@ -576,7 +576,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |User Management|Blocked from self-service password reset|
 
 
-## Terms Of Use
+## Terms of use
 
 |Audit Category|Activty|
 |---|---|
