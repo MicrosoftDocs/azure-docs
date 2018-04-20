@@ -1,11 +1,11 @@
 ---
-title: Workflow Definition Language - Azure Logic Apps | Microsoft Docs
-description: Author workflows with the Workflow Definition Language for Azure Logic Apps
+title: Workflow Definition Language schema - Azure Logic Apps | Microsoft Docs
+description: Write custom workflow definitions for Azure Logic Apps with the Workflow Definition Language
 services: logic-apps
 author: ecfan
 manager: SyntaxC4
-editor: ''
-documentationcenter: ''
+editor: 
+documentationcenter: 
 
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps

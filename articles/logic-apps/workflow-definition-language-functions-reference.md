@@ -1,11 +1,11 @@
 ---
-title: Functions reference for Azure Logic Apps | Microsoft Docs
-description: Workflow Definition Language functions reference for Azure Logic Apps
+title: Workflow Definition Language functions - Azure Logic Apps | Microsoft Docs
+description: Learn about the functions that you can use in logic app workflow definitions
 services: logic-apps
 author: ecfan
 manager: SyntaxC4
-editor: na
-documentationcenter: na
+editor: 
+documentationcenter: 
 
 ms.assetid: 
 ms.service: logic-apps
@@ -17,7 +17,7 @@ ms.date: 04/27/2018
 ms.author: estfan; LADocs
 ---
 
-# Workflow Definition Language functions reference - Azure Logic Apps
+# Workflow Definition Language functions reference for Azure Logic Apps
 
 This article describes the functions that you can use when creating 
 workflows with [Azure Logic Apps](../logic-apps/logic-apps-overview.md). 
