@@ -10,7 +10,7 @@ tags: azure-portal
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 12/08/2016
+ms.date: 04/20/2018
 ---
 # Create an Azure Search index using the REST API
 > [!div class="op_single_selector"]

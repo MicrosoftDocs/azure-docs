@@ -7,7 +7,7 @@ author: yahnoosh
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/06/2017
+ms.date: 04/20/2018
 ms.author: jlembicz
 ---
 

@@ -7,7 +7,7 @@ tags: azure-portal
 
 ms.service: search
 ms.topic: tutorial
-ms.date: 12/04/2017
+ms.date: 04/20/2018
 ms.author: heidist
 
 ---

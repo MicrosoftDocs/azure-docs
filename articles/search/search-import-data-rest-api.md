@@ -8,7 +8,7 @@ ms.author: brjohnst
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 12/08/2016
+ms.date: 04/20/2018
 ---
 
 # Upload data to Azure Search using the REST API

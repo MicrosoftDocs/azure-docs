@@ -5,7 +5,7 @@ manager: cgronlun
 author: HeidiSteen
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/31/2017
+ms.date: 04/20/2018
 ms.author: heidist
 ---
 # Synonym C# tutorial for Azure Search
@@ -15,7 +15,7 @@ Synonyms expand a query by matching on terms considered semantically equivalent 
 In Azure Search, synonyms are defined in a *synonym map*, through *mapping rules* that associate equivalent terms. You can create multiple synonym maps, post them as a service-wide resource available to any index, and then reference which one to use at the field level. At query time, in addition to searching an index, Azure Search does a lookup in a synonym map, if one is specified on fields used in the query.
 
 > [!NOTE]
-> The synonyms feature is supported in the latest API and SDK versions (api-version=2017-11-11, SDK version 5.0.0). There is no Azure portal support at this time.
+> The synonyms feature is supported in the latest API and SDK versions (api-version=2017-11-11, SDK version 5.0.0). We're considering adding synonyms support in the portal. To help us prioritize these decisions, please provide your feedback on the [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## Prerequisites
 

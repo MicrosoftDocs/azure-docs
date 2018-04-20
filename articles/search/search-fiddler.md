@@ -7,7 +7,7 @@ manager: cgronlun
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 04/20/2018
 ms.author: heidist
 ---
 

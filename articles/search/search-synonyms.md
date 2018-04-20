@@ -1,14 +1,14 @@
 ---
-pageTitle: "Synonyms in Azure Search | Microsoft Docs"
-description: "Preliminary documentation for the Synonyms feature, exposed in the Azure Search REST API."
-authors: "mhko"
+pageTitle: Synonyms in Azure Search | Microsoft Docs
+description: Use synonyms to expand scope of a search query
+authors: mhko
 
-ms.service: "search"
-ms.devlang: "rest-api"
+ms.service: search
+ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: "07/07/2016"
+ms.date: 04/20/2018
 manager: jlembicz
-ms.author: "nateko"
+ms.author: nateko
 ---
 # Synonyms in Azure Search
 

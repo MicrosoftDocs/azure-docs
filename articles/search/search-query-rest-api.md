@@ -7,7 +7,7 @@ ms.author: brjohnst
 
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/12/2017
+ms.date: 04/20/2018
 ---
 
 # Query your Azure Search index using the REST API

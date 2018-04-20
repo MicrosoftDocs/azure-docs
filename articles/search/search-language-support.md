@@ -6,7 +6,7 @@ manager: jlembicz
 
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 04/20/2018
 ms.author: jlembicz
 ---
 

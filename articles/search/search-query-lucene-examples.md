@@ -7,7 +7,7 @@ tags: Lucene query analyzer syntax
 
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/21/2017
+ms.date: 04/20/2018
 ms.author: liamca
 ---
 

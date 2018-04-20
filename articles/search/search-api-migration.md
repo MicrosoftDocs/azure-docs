@@ -7,11 +7,11 @@ manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 10/27/2016
+ms.date: 04/20/2018
 ms.author: brjohnst
 ---
 # Upgrading to the latest Azure Search Service REST API version
-If you're using a previous version of the [Azure Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), this article will help you upgrade your application to use the latest generally available API version, 2017-11-11.
+If you're using a previous version of the [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/), this article will help you upgrade your application to use the latest generally available API version, 2017-11-11.
 
 Version 2017-11-11 of the REST API contains some changes from earlier versions. These are mostly backward compatible, so changing your code should require only minimal effort, depending on which version you were using before. See [Steps to upgrade](#UpgradeSteps) for instructions on how to change your code to use the new API version.
 
@@ -23,9 +23,9 @@ Version 2017-11-11 of the REST API contains some changes from earlier versions. 
 ## What's new in version 2017-11-11
 Version 2017-11-11 is the latest generally available release of the Azure Search Service REST API. New features in this API version include:
 
-* [Synonyms](https://docs.microsoft.com/azure/search/search-synonyms). The new synonyms feature allows you to define equivalent terms and expand the scope of the query.
-* [Support for efficiently indexing text blobs](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#IndexingPlainText). The new `text` parsing mode in indexer significantly improves indexing performance.
-* [Service Statistics API](service-limits.md). View the current usage and limits of resources in Azure Search with this new API.
+* [Synonyms](search-synonyms.md). The new synonyms feature allows you to define equivalent terms and expand the scope of the query.
+* [Support for efficiently indexing text blobs](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#IndexingPlainText). The new `text` parsing mode for Azure Blob indexers significantly improves indexing performance.
+* [Service Statistics API](https://aka.ms/azure-search-stats). View the current usage and limits of resources in Azure Search with this new API.
 
 <a name="UpgradeSteps"></a>
 
@@ -33,7 +33,7 @@ Version 2017-11-11 is the latest generally available release of the Azure Search
 If you are upgrading from a GA version, 2015-02-28 or 2016-09-01, you probably won't have to make any changes to your code, other than to change the version number. The only situations in which you may need to change code are when:
 
 * Your code fails when unrecognized properties are returned in an API response. By default your application should ignore properties that it does not understand.
-* Your code persists API requests and tries to resend them to the new API version. For example, this might happen if your application persists continuation tokens returned from the Search API (for more information, look for `@search.nextPageParameters` in the [Search API Reference](https://msdn.microsoft.com/library/azure/dn798927.aspx#Anchor_1)).
+* Your code persists API requests and tries to resend them to the new API version. For example, this might happen if your application persists continuation tokens returned from the Search API (for more information, look for `@search.nextPageParameters` in the [Search API Reference](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)).
 
 If either of these situations apply to you, then you may need to change your code accordingly. Otherwise, no changes should be necessary unless you want to start using the [new features](#WhatsNew) of version 2017-11-11.
 
@@ -50,7 +50,7 @@ If your code uses these features, you will not be able to upgrade to 2017-11-11 
 > 
 
 ## Conclusion
-If you need more details on using the Azure Search Service REST API, see the recently updated [API Reference](https://msdn.microsoft.com/library/azure/dn798935.aspx) on MSDN.
+If you need more details on using the Azure Search Service REST API, see the recently updated [API Reference](https://docs.microsoft.com/rest/api/searchservice/) on MSDN.
 
 We welcome your feedback on Azure Search. If you encounter problems, feel free to ask us for help on the [Azure Search MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) or [StackOverflow](http://stackoverflow.com/). If you're asking a question about Azure Search on StackOverflow, make sure to tag it with `azure-search`.
 
