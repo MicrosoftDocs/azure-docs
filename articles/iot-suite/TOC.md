@@ -49,6 +49,7 @@
 ### [Predictive maintenance solution walkthrough](iot-suite-predictive-walkthrough.md)
 
 ## Connected factory
+### [What is Connected factory?](iot-suite-connected-factory-features.md)
 ### [Connected factory solution overview](iot-suite-connected-factory-overview.md)
 ### [Connected factory solution walkthrough](iot-suite-connected-factory-sample-walkthrough.md)
 
