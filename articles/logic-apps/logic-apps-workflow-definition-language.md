@@ -240,8 +240,8 @@ These examples show how expressions are evaluated:
 |------------|--------| 
 | "Sophia Owen" | Return these characters: 'Sophia Owen' |
 | "array[1]" | Return these characters: 'array[1]' |
-| "@@" | Returns these characters as a one-character string: '@' |   
-| " @" | Returns these characters as a two-character string: ' @' |
+| "@@" | Return these characters as a one-character string: '@' |   
+| " @" | Return these characters as a two-character string: ' @' |
 |||
 
 Through string interpolation, you can also use expressions in 
