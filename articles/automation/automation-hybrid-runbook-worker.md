@@ -86,7 +86,7 @@ To remove a group, you first need to remove the Hybrid Runbook Worker from every
 
 ## <a name="network-planning"></a>Configure your network
 
-## Hybrid Worker role
+### Hybrid Worker role
 
 For the Hybrid Runbook Worker to connect to and register with Log Analytics, it must have access to the port number and the URLs that are described in this section. This is in addition to the [ports and URLs required for Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) to connect to Log Analytics.
 
@@ -126,7 +126,7 @@ For a list of region IP addresses instead of region names, download the [Azure D
 
 ### Update Management
 
-In addition to the standard URLS and ports that the Hybrid Runbook Worker requires, the following urls are required specifically for Update management. Communication to these urls is done over port 443.
+In addition to the standard addresses and ports that the Hybrid Runbook Worker requires, the following addresses are required specifically for Update Management. Communication to these addresses is done over port 443.
 
 * *.ods.opinsights.azure.com
 * *.oms.opinsights.azure.com

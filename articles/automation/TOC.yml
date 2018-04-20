@@ -117,9 +117,9 @@
       items:
         - name: Hybrid Runbook Worker overview
           href: automation-hybrid-runbook-worker.md
-        - name: Azure Automation Windows Hybrid Runbook Worker
+        - name: Deploy Windows Hybrid Runbook Worker
           href: automation-windows-hrw-install.md
-        - name: Azure Automation Linux Hybrid Runbook Worker
+        - name: Deploy Linux Hybrid Runbook Worker
           href: automation-linux-hrw-install.md
         - name: Run runbooks on a Hybrid Runbook Worker
           href: automation-hrw-run-runbooks.md

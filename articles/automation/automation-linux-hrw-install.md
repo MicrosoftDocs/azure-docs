@@ -11,11 +11,11 @@ manager: carmonm
 ---
 # How to deploy a Linux Hybrid Runbook Worker
 
-The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks directly on the computer hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers. This article decribes how to install the Hybrid Runbook Worker on a Linux machine.
+The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks directly on the computer hosting the role and against resources in the environment to manage those local resources. The Linux Hybrid Runbook Worker executes runbooks as a special user which can be elevated for running commands that need elevation. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers. This article decribes how to install the Hybrid Runbook Worker on a Linux machine.
 
 ## Supported Linux Operating Systems
 
-The following is a list of Linux distrobutions that are supported.
+The following is a list of Linux distributions that are supported:
 
 * Amazon Linux 2012.09 --> 2015.09 (x86/x64)
 * CentOS Linux 5,6, and 7 (x86/x64)
@@ -36,7 +36,7 @@ Before you proceed, you need to note the Log Analytics workspace your Automation
    1. Add the **Automation Hybrid Worker** solution to your subscription using the procedure at [Add Log Analytics management solutions to your workspace](../log-analytics/log-analytics-add-solutions.md).
    1. Run the following cmdlet:
 
-        ```powershell-interactive
+        ```azurepowershell-interactive
          $null = Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
@@ -62,10 +62,6 @@ By default, Linux Hybrid Runbook Workers require signature validation. If you ru
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
  ```
 
-## Privileges
-
-The Linux Hybrid Runbook Worker executes runbooks as a special user which can be elevated for running commands that need elevation.
-
 ## Supported runbook types
 
 Linux Hybrid Runbook Workers do not support the full set of runbook types that are found within Azure automation.
@@ -84,4 +80,4 @@ The following runbook types do not work on a Linux Hybrid Worker:
 ## Next steps
 
 * Review [run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
-* For instructions on how to remove Hybrid Runbook Workers, see [Remove Azure Automation Hybrid Runbook Workers](automation-remove-hrw.md)
+* For instructions on how to remove Hybrid Runbook Workers, see [Remove Azure Automation Hybrid Runbook Workers](automation-hybrid-runbook-worker#removing-hybrid-runbook-worker.md)
