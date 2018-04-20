@@ -100,7 +100,7 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
     The CURL request for the access token is below.  
     
     ```bash
-    curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net -H Metadata:true  
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true  
     ```
     The response includes the access token you need to access Resource Manager. 
     
