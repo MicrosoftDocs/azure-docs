@@ -32,7 +32,7 @@ In this tutorial, you do the following actions:
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).
 2. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for the classroom lab. 
-    2. Select the **size** of the virtual machine to use in the classroom.
+    2. Select the **size** of the virtual machine that you plan to use in the classroom.
     3. Select the **image** to use to create the virtual machine.
     4. Specify the **name of the user** who has access to the lab. 
     5. Specify the password for the user. 
@@ -73,7 +73,7 @@ In this tutorial, you do the following actions:
 ## Send registration link to students
 
 1. Select **User registration** tile.
-2. You see the URL in the **User registration** window that you can send to students in the class. The link is copied to the clipboard, so you can paste it in an email editor, and send an email to the student. 
+2. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard. Paste it in an email editor, and send an email to the student. 
 
     ![Student registration link](./media/tutorial-setup-classroom-lab/registration-link.png)
 
