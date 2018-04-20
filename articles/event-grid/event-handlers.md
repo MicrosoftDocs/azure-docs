@@ -25,6 +25,7 @@ This article provides links to content for each event handler.
 
 ### Azure Functions
 
+* [Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid.md)
 * [Automate resizing uploaded images using Event Grid](resize-images-on-storage-blob-upload-event.md)
 * [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
 * [Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json)

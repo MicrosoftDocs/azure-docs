@@ -21,7 +21,8 @@ This article provides links to content for each event source.
 
 ### Azure Subscriptions (management operations)
 
-[Schema](event-schema-subscriptions.md)
+* [Integrate Azure Automation with Event Grid and Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md)
+* [Schema](event-schema-subscriptions.md)
 
 ### Container Registry
 
@@ -54,7 +55,8 @@ This article provides links to content for each event source.
 
 ### Resource Groups (management operations)
 
- [Schema](event-schema-resource-groups.md)
+* [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Schema](event-schema-resource-groups.md)
 
 ### Service Bus
 
