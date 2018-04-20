@@ -4,13 +4,11 @@ description: Learn how to migrate and publish your web application to an Azure c
 services: visual-studio-online
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 9394adfd-a645-4664-9354-dd5df08e8c91
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ghogen
 
