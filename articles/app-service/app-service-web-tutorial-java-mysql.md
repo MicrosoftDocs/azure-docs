@@ -151,14 +151,18 @@ When the MySQL server is created, the Azure CLI shows information similar to the
 
 ```json
 {
-  "additionalProperties": {},
-  "administratorLogin": "<admin_user>",
-  "earliestRestoreDate": "2018-04-19T22:56:40.990000+00:00",
-  "fullyQualifiedDomainName": "<mysql_name>.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
   "location": "westeurope",
   "name": "<mysql_server_name>",
   "resourceGroup": "myResourceGroup",
+  "sku": {
+    "additionalProperties": {},
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
+    "size": null,
+    "tier": "GeneralPurpose"
+  },
+  "sslEnforcement": "Enabled",
   ...	+  
   -  < Output has been truncated for readability >
 }
