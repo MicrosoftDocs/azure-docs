@@ -4,10 +4,10 @@ description: Learn how to prepare Azure for migration of on-premises machines us
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 04/20/2018
+ms.topic: conceptual
+ms.date: 04/21/2018
 ms.author: raynew
-ms.custom: MVC
+
 
 ---
 # Scenario 2: Lift and shift migration to Azure
@@ -163,6 +163,7 @@ Set up a local network gateway in Azure, to represent your on-premises site.
 ### Configure your on-premises VPN device
 
 Here's what you need to configure on your on-premises VPN device:
+
 - The public IPv4 address of the Azure virtual network gateway that you just created.
 - The preshared key (the key that you used when creating the VPN site-to-site connection).  
 
