@@ -47,7 +47,15 @@
       href: devtest-lab-overview.md
 - name: How-to guides
   items:
-  - name: Custom labs
+  - name: Manage Classroom labs
+    items: 
+    - name: Manage lab accounts
+      href: how-to-manage-lab-accounts.md
+    - name: Manage classroom labs
+      href: how-to-manage-classroom-labs.md
+    - name: Use classroom labs
+      href: how-to-use-classroom-labs
+  - name: Manage Custom labs
     items:
     - name: Create a custom lab
       href: devtest-lab-create-lab.md
