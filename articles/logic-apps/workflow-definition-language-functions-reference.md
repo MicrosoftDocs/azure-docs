@@ -415,18 +415,17 @@ addToTime('2018-01-05T00:00:00Z', 1, 'Day', 'D')
 
 ## and
 
-Check whether all the specified expressions, 
-which must evaluate to Boolean values, are true. 
+Check whether all the expressions are true. 
 Return true when all expressions are true, 
 or return false when at least one expression is false.
 
 ```json
-and('<expression1>', '<expression2>', ...)
+and(<expression1>, <expression2>, ...)
 ```
 
 | Parameter | Required | Type | Description | 
 | --------- | -------- | ---- | ----------- | 
-| <*expression1*>, <*expression2*>, ... | Yes | Boolean | The values or expressions to compare | 
+| <*expression1*>, <*expression2*>, ... | Yes | Boolean | The expressions to check whether true or false | 
 ||||| 
 
 | Return value | Type | Description | 
@@ -434,14 +433,28 @@ and('<expression1>', '<expression2>', ...)
 | true or false | Boolean | Return true when all expressions are true. Return false when at least one expression is false. | 
 |||| 
 
-*Example*
+*Example 1*
 
 The first example returns true because both expressions are true. 
 The second example returns false because one expression is false.
+The third example returns false because both expressions are false.
 
 ```json
 and(true, true)
 and(false, true)
+and(false, false)
+```
+
+*Example 2*
+
+The first example returns true because both expressions are true. 
+The second example returns false because at least one expression is false.
+The third example returns false because both expressions are false.
+
+```json
+and(equals(1, 1), equals(2, 2))
+and(equals(1, 1), equals(1, 2))
+and(equals(1, 2), equals(1, 3))
 ```
 
 <a name="array"></a>
@@ -2315,6 +2328,90 @@ multipartBody('<actionName>', <index>)
 | "*body*" | String | The body for the specified part | 
 |||| 
 
+<a name="not"></a>
+
+## not
+
+Check whether an expression is false. 
+Return true when the expression is false, 
+or return false when true.
+
+```json
+not(<expression>)
+```
+
+| Parameter | Required | Type | Description | 
+| --------- | -------- | ---- | ----------- | 
+| <*expression*> | Yes | Boolean | The expression to check whether true or false | 
+||||| 
+
+| Return value | Type | Description | 
+| ------------ | ---- | ----------- | 
+| true or false | Boolean | Return true when the expression is false. Return false when the expression is true. |  
+|||| 
+
+*Example 1*
+
+The first example returns true because the expression is false. 
+The second example returns false because the expression is true.
+
+```json
+not(false)
+not(true)
+```
+
+*Example 2*
+
+The first example returns true because `equals(1, 2)` is false. 
+The second example returns false because `equals(1, 1)` is true.
+
+```json
+not(equals(1, 1))
+not(equals(1, 2))
+```
+
+<a name="or"></a>
+
+## or
+
+Check whether at least one expression is true. 
+Return true when at least one expression is true, 
+or return false when all are false.
+
+```json
+or(<expression1>, <expression2>, ...)
+```
+
+| Parameter | Required | Type | Description | 
+| --------- | -------- | ---- | ----------- | 
+| <*expression1*>, <*expression2*>, ... | Yes | Boolean | The expressions to check whether true or false | 
+||||| 
+
+| Return value | Type | Description | 
+| ------------ | ---- | ----------- | 
+| true or false | Boolean | Return true when at least one expression is true. Return false when all expressions are false. |  
+|||| 
+
+*Example 1*
+
+The first example returns true because at least one expression is true. 
+The second example returns false because both expressions are false.
+
+```json
+or(true, false)
+or(false, false)
+```
+
+*Example 2*
+
+The first example returns true because at least one expression is true. 
+The second example returns false because both expressions are false.
+
+```json
+or(equals(1, 1), equals(1, 2))
+or(equals(1, 2), equals(1, 3))
+```
+
 <a name="parameters"></a>
 
 ## parameters
@@ -2342,38 +2439,6 @@ This example returns "Sophia Owen" as the value from the specified parameter:
 
 ```json
 parameters('fullName')
-```
-
-<a name="not"></a>
-
-## not
-
-Check whether the expression or parameters are false. 
-Return true when the expression or parameters are false, 
-or return false when true.
-
-```json
-not(<expression>)
-```
-
-| Parameter | Required | Type | Description | 
-| --------- | -------- | ---- | ----------- | 
-| <*expression*> | Yes | Boolean | The expression or parameters to check whether true or false | 
-||||| 
-
-| Return value | Type | Description | 
-| ------------ | ---- | ----------- | 
-| true or false | Boolean | Return true when the expression or parameters evaluate as false. Return false when the expression or parameters evaluate as true. |  
-|||| 
-
-*Example*
-
-The first example returns true because `equals(1, 2)` is false, 
-while the second example returns false because `equals(1, 1)` is true.
-
-```json
-not(equals(1, 2))
-not(equals(1, 1))
 ```
 
 <a name="rand"></a>
@@ -2897,7 +2962,7 @@ ticks('<timestamp>')
 | *ticks-number* | Integer | The number of ticks since the specified timestamp | 
 |||| 
 
-<a name="to-lower"></a>
+<a name="toLower"></a>
 
 ## toLower
 
@@ -2928,7 +2993,7 @@ to lowercase, and returns the string "hello world":
 toLower('Hello World')
 ```
 
-<a name="to-upper"></a>
+<a name="toUpper"></a>
 
 ## toUpper
 
@@ -2944,7 +3009,6 @@ toUpper('<text>')
 | --------- | -------- | ---- | ----------- | 
 | <*text*> | Yes | String | The string to return in uppercase format | 
 ||||| 
-
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
 | "*uppercase-text*" | String | The original string in uppercase format | 
