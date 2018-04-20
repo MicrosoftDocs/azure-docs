@@ -27,7 +27,7 @@ In this article, you create a user assigned managed identity using an Azure Reso
 It is not possible to list and delete a user assigned identity using an Azure Resource Manager template.  See the following articles to create and list a user assigned identity:
 
 - [List user assigned identity](how-to-manage-ua-identity-cli.md#list-user-assigned-identities)
-- [Delete user assigned identity](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-msi)
+- [Delete user assigned identity](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-identity)
 ## Prerequisites
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
