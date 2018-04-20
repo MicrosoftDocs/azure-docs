@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/17/2018
+ms.date: 04/20/2018
 ms.topic: article
 manager: carmonm
 ---
@@ -18,8 +18,8 @@ The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks
 The following is a list of Linux distributions that are supported:
 
 * Amazon Linux 2012.09 --> 2015.09 (x86/x64)
-* CentOS Linux 5,6, and 7 (x86/x64)
-* Oracle Linux 5,6, and 7 (x86/x64)
+* CentOS Linux 5, 6, and 7 (x86/x64)
+* Oracle Linux 5, 6, and 7 (x86/x64)
 * Red Hat Enterprise Linux Server 5,6 and 7 (x86/x64)
 * Debian GNU/Linux 6, 7, and 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
@@ -37,7 +37,7 @@ Before you proceed, you need to note the Log Analytics workspace your Automation
    1. Run the following cmdlet:
 
         ```azurepowershell-interactive
-         $null = Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
+         Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
 1. Install the OMS agent for Linux by running the following command, replacing \<WorkspaceID\> and \<WorkspaceKey\> with the appropriate values from your workspace.

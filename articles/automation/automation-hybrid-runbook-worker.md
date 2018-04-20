@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.topic: article
 manager: carmonm
 ---
@@ -48,16 +48,16 @@ The process to install a Hybrid Runbook worker is different depending on the OS.
 > [!NOTE]
 > To manage the configuration of your servers supporting the Hybrid Runbook Worker role with Desired State Configuration (DSC), you need to add them as DSC nodes. For more information about onboarding them for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).
 >
->If you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer connected to your Log Analytics workspace is automatically configured as a Hybrid Runbook Worker to support runbooks included in this solution. However, it is not registered with any Hybrid Worker groups already defined in your Automation account. The computer can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
+>If you enable the [Update Management solution](automation-update-management.md), any computer connected to your Log Analytics workspace is automatically configured as a Hybrid Runbook Worker to support runbooks included in this solution. However, it is not registered with any Hybrid Worker groups already defined in your Automation account. The computer can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
 
-Review the following [information for planning your network](#network-planning) before you begin deploying a Hybrid Runbook Worker. After you have successfully deployed a runbook worker, review [run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
+Review the [information for planning your network](#network-planning) before you begin deploying a Hybrid Runbook Worker. After you have successfully deployed a runbook worker, review [run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
 ## Removing Hybrid Runbook Worker
 
 You can remove one or more Hybrid Runbook Workers from a group or you can remove the group, depending on your requirements. To remove a Hybrid Runbook Worker from an on-premises computer, perform the following steps:
 
 1. In the Azure portal, navigate to your Automation account.
-2. From the **Settings** blade, select **Keys** and note the values for field **URL** and **Primary Access Key**. You need this information for the next step.
+2. From the **Settings** page, select **Keys** and note the values for field **URL** and **Primary Access Key**. You need this information for the next step.
 3. Open a PowerShell session in Administrator mode and run the following command - `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`. Use the **-Verbose** switch for a detailed log of the removal process.
 
 To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter.
@@ -74,11 +74,11 @@ Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <Comp
 To remove a group, you first need to remove the Hybrid Runbook Worker from every computer that is a member of the group using the procedure shown earlier, and then you perform the following steps to remove the group.
 
 1. Open the Automation account in the Azure portal.
-1. Under **Process Automation**, select **Hybrid worker groups**. Select the group you wish to delete. After selecting the specific group, the **Hybrid worker group** properties blade is displayed.
+1. Under **Process Automation**, select **Hybrid worker groups**. Select the group you wish to delete. After selecting the specific group, the **Hybrid worker group** properties page is displayed.
 
-   ![Hybrid Runbook Worker Group Blade](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
+   ![Hybrid Runbook Worker Group page](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. On the properties blade for the selected group, click **Delete**. A message appears asking you to confirm this action, select **Yes** if you are sure you want to proceed.
+1. On the properties page for the selected group, click **Delete**. A message appears asking you to confirm this action, select **Yes** if you are sure you want to proceed.
 
    ![Delete Group Confirmation Dialog](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 
@@ -102,13 +102,13 @@ If you have an Automation account that's defined for a specific region, you can 
 
 | **Region** | **DNS record** |
 | --- | --- |
+| West Central US | wcus-jobruntimedata-prod-su1.azure-automation.net |
 | South Central US |scus-jobruntimedata-prod-su1.azure-automation.net |
 | East US 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
-| West Central US | wcus-jobruntimedata-prod-su1.azure-automation.net |
+| Canada Central |cc-jobruntimedata-prod-su1.azure-automation.net |
 | West Europe |we-jobruntimedata-prod-su1.azure-automation.net |
 | North Europe |ne-jobruntimedata-prod-su1.azure-automation.net |
-| Canada Central |cc-jobruntimedata-prod-su1.azure-automation.net |
-| South East Asia |sea-jobruntimedata-prod-su1.azure-automation.net |
+| South East Asia |sea-jobruntimedata-prod-su1.azure-automation.net|
 | Central India |cid-jobruntimedata-prod-su1.azure-automation.net |
 | Japan East |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | Australia South East |ase-jobruntimedata-prod-su1.azure-automation.net |
