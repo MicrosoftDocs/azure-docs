@@ -64,14 +64,8 @@ This tutorial uses features of Azure SQL Database and the Azure platform to addr
 
 ## Get the disaster recovery scripts
 
-<<<<<<< HEAD
-The DR scripts in this tutorial are available in the [Wingtip Tickets SaaS database per tenant GitHub repository](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/tree/feature-DR-georestore). For steps to download and unblock the Wingtip Tickets management scripts, see the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md).
-
-The DR scripts used in this tutorial are available in the [Wingtip Tickets SaaS database per tenant GitHub repository](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets management scripts.
-=======
 The DR scripts used in this tutorial are available in the [Wingtip Tickets SaaS database per tenant GitHub repository](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets management scripts.
 
->>>>>>> 03f3c3370ed7772d1e43323768bff10595af374e
 > [!IMPORTANT]
 > Like all the Wingtip Tickets management scripts, the DR scripts are sample quality and are not to be used in production.
 
@@ -146,7 +140,7 @@ The recovery process does the following:
 		
 7. Provisions servers and elastic pools in the recovery region for restoring tenant databases. These servers and pools are a mirror image of the configuration in the original region. Provisioning pools up front reserves the capacity needed to restore all the databases.
 
-	An outage in a region can place significant pressure on the resources available in the paired region. If you rely on geo-restore for DR, then reserving resources quickly is recommended. Consider geo-replication if it's critical that an application is recovered in a specific region. 
+	An outage in a region might place significant pressure on the resources available in the paired region. If you rely on geo-restore for DR, then reserving resources quickly is recommended. Consider geo-replication if it's critical that an application is recovered in a specific region. 
 
 8. Enables the Traffic Manager endpoint for the web app in the recovery region. Enabling this endpoint allows the application to provision new tenants. At this stage, existing tenants are still offline.
 
@@ -158,7 +152,7 @@ The recovery process does the following:
 
 	* Because restore requests are processed in parallel across all pools, it's better to distribute important tenants across many pools. 
 
-10. Monitors the SQL Database service to determine when databases are restored. Once a tenant database is restored, it's marked online in the catalog, and a rowversion sum for the tenant database is recorded. 
+10. Monitors the SQL Database service to determine when databases are restored. After a tenant database is restored, it's marked online in the catalog, and a rowversion sum for the tenant database is recorded. 
 
 	* Tenant databases can be accessed by the application as soon as they're marked online in the catalog.
 
@@ -220,13 +214,13 @@ Even before tenant databases are restored, you can provision new tenants in the 
 
 4. In the browser, refresh the Wingtip Tickets events hub page to see Hawthorn Hall included. 
 
-	If you provisioned Hawthorn Hall without waiting for the other tenants to restore, other tenants could still be offline.
+	If you provisioned Hawthorn Hall without waiting for the other tenants to restore, other tenants might still be offline.
 
 ## Review the recovered state of the application
 
 When the recovery process completes, the application and all tenants are fully functional in the recovery region. 
 
-1. Once the display in the PowerShell console window indicates all the tenants are recovered, refresh the events hub. 
+1. After the display in the PowerShell console window indicates all the tenants are recovered, refresh the events hub. 
 
 	The tenants all appear online, including the new tenant, Hawthorn Hall.
 
@@ -302,13 +296,13 @@ Step 4 is only done if the catalog in the recovery region has been modified duri
 
 It's important that step 7 causes minimal disruption to tenants and no data is lost. To achieve this goal, the process uses geo-replication.
 
-Before each database is geo-replicated, the corresponding database in the original region is deleted. The database in the recovery region is then geo-replicated, creating a secondary replica in the original region. Once replication is complete, the tenant is marked offline in the catalog, which breaks any connections to the database in the recovery region. The database is then failed over, causing any pending transactions to process on the secondary so no data is lost. 
+Before each database is geo-replicated, the corresponding database in the original region is deleted. The database in the recovery region is then geo-replicated, creating a secondary replica in the original region. After replication is complete, the tenant is marked offline in the catalog, which breaks any connections to the database in the recovery region. The database is then failed over, causing any pending transactions to process on the secondary so no data is lost. 
 
 On failover, the database roles are reversed. The secondary in the original region becomes the primary read-write database, and the database in the recovery region becomes a read-only secondary. The tenant entry in the catalog is updated to reference the database in the original region, and the tenant is marked online. At this point, repatriation of the database is complete. 
 
-Applications should be written with retry logic to ensure that they reconnect automatically when connections are broken. When they use the catalog to broker the reconnection, they connect to the repatriated database in the original region. Although the brief disconnect is often not noticed, you can choose to repatriate databases out of business hours.
+Applications should be written with retry logic to ensure that they reconnect automatically when connections are broken. When they use the catalog to broker the reconnection, they connect to the repatriated database in the original region. Although the brief disconnect is often not noticed, you might choose to repatriate databases out of business hours.
 
-Once a database is repatriated, the secondary database in the recovery region can be deleted. The database in the original region then relies again on geo-restore for DR protection.
+After a database is repatriated, the secondary database in the recovery region can be deleted. The database in the original region then relies again on geo-restore for DR protection.
 
 In step 8, resources in the recovery region, including the recovery servers and pools, are deleted.
 
@@ -342,7 +336,7 @@ If you've followed the tutorial, the script immediately reactivates Fabrikam Jaz
 7. Refresh the events hub again and open Hawthorn Hall. Notice that its database is also located in the original region. 
 
 ## Clean up recovery region resources after repatriation
-Once repatriation is complete, it's safe to delete the resources in the recovery region. 
+After repatriation is complete, it's safe to delete the resources in the recovery region. 
 
 > [!IMPORTANT]
 > Delete these resources promptly to stop all billing for them.
@@ -360,7 +354,7 @@ After cleaning up the scripts, the application is back where it started. At this
 ## Designing the application to ensure that the app and the database are co-located 
 The application is designed to always connect from an instance in the same region as the tenant's database. This design reduces latency between the application and the database. This optimization assumes the app-to-database interaction is chattier than the user-to-app interaction.  
 
-Tenant databases can be spread across recovery and original regions for some time during repatriation. For each database, the app looks up the region in which the database is located by doing a DNS lookup on the tenant server name. In SQL Database, the server name is an alias. The aliased server name contains the region name. If the application isn't in the same region as the database, it redirects to the instance in the same region as the database server. Redirecting to the instance in the same region as the database minimizes latency between the app and the database.  
+Tenant databases might be spread across recovery and original regions for some time during repatriation. For each database, the app looks up the region in which the database is located by doing a DNS lookup on the tenant server name. In SQL Database, the server name is an alias. The aliased server name contains the region name. If the application isn't in the same region as the database, it redirects to the instance in the same region as the database server. Redirecting to the instance in the same region as the database minimizes latency between the app and the database.  
 
 ## Next steps
 
