@@ -1,5 +1,5 @@
 - name: Azure IoT Fundamentals 
-  href: ../iot-fundamentals/index.md
+  href: ../iot-fundamentals/index.yml
 - name: Azure IoT Hub Device Provisioning Service Documentation 
   href: index.yml
 - name: Overview
@@ -119,6 +119,32 @@
   items:
   - name: REST
     href: /rest/api/iot-dps
+- name: Related
+  items:
+  - name: Solutions
+    items:
+    - name: IoT Suite Preconfigured Solutions
+      href: /azure/iot-suite
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+  - name: Platform services
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: Location Based Services
+      href: /azure/location-based-services
+    - name: Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT Device SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks    
 - name: Resources
   items:
   - name: Azure IoT Hub
