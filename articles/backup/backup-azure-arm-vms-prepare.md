@@ -20,16 +20,16 @@ ms.author: markgal;trinadhk;sogup;
 ---
 # Prepare your environment to back up Resource Manager-deployed virtual machines
 
-This article provides the steps for preparing your environment to back up an Azure Resource Manager-deployed virtual machine (VM). The steps shown in the procedures use the Azure portal. Store the virtual machine backup data in a Recovery Services vault. The vault holds the backup data for classic and Resource Manager-deployed virtual machines.
+This article provides the steps for preparing your environment to back up an Azure Resource Manager-deployed virtual machine (VM). The steps shown in the procedures use the Azure portal. When you back up a virtual machine, the backup data or recovery points, are stored in a Recovery Services vault. Recovery Services vaults store backup data for classic and Resource Manager-deployed virtual machines.
 
 > [!NOTE]
 > Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Before you protect (or back up) a Resource Manager-deployed virtual machine, make sure these prerequisites exist:
 
-* Create a Recovery Services vault (or identify an existing Recovery Services vault) *in the same region as your VM*.
+* Create or identify a Recovery Services vault *in the same region as your virtual machine*.
 * Select a scenario, define the backup policy, and define items to protect.
-* Check the installation of a VM agent on the virtual machine.
+* Check the installation of a VM agent (extension) on the virtual machine.
 * Check network connectivity.
 * For Linux VMs, if you want to customize your backup environment for application-consistent backups, follow the [steps to configure pre-snapshot and post-snapshot scripts](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
@@ -48,7 +48,7 @@ Before you prepare your environment, be sure to understand these limitations:
 * Backing up virtual machines with more than 16 data disks is not supported.
 * Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 * Backing up Linux VMs encrypted through Linux Unified Key Setup (LUKS) encryption is not supported.
-* We don't recommend backing up VMs that contain Cluster Shared Volumes (CSV) or Scale-Out File Server configuration. They require involving all VMs included in the cluster configuration during a snapshot task. Azure Backup doesn't support multi-VM consistency. 
+* We don't recommend backing up VMs that contain Cluster Shared Volumes (CSV) or Scale-Out File Server configuration. If done, failure of CSV writers is expected. They require involving all VMs included in the cluster configuration during a snapshot task. Azure Backup doesn't support multi-VM consistency. 
 * Backup data doesn't include network mounted drives attached to a VM.
 * Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 * Cross-region back up and restore are not supported.
@@ -164,7 +164,7 @@ Before you register a virtual machine with a Recovery Services vault, run the di
 
    !["Enable backup" button](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-After you successfully enable the backup, your backup policy will run on schedule. If you want to generate an on-demand backup job to back up the virtual machines now, see [Triggering the backup job](./backup-azure-arm-vms.md#triggering-the-backup-job).
+After you successfully enable the backup, your backup policy will run on schedule. If you want to generate an on-demand backup job to back up the virtual machines now, see [Triggering the backup job](./backup-azure-vms-first-look-arm.md#initial-backup).
 
 If you have problems registering the virtual machine, see the following information on installing the VM agent and on network connectivity. You probably don't need the following information if you are protecting virtual machines created in Azure. But if you migrated your virtual machines to Azure, be sure that you properly installed the VM agent and that your virtual machine can communicate with the virtual network.
 
@@ -205,6 +205,10 @@ To whitelist the Azure datacenter IP ranges, see the [Azure website](http://www.
 You can allow connections to storage of the specific region by using [service tags](../virtual-network/security-overview.md#service-tags). Make sure that the rule that allows access to the storage account has higher priority than the rule that blocks internet access. 
 
 ![NSG with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+The following video walks you through the step by step procedure to configure service tags: 
+
+>[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
 > [!WARNING]
 > Storage service tags are available only in specific regions and are in preview. For a list of regions, see [Service tags for Storage](../virtual-network/security-overview.md#service-tags).

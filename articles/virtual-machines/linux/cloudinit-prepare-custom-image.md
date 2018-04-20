@@ -71,6 +71,28 @@ Allow only Azure as a datasource for the Azure Linux Agent by creating a new fil
 datasource_list: [ Azure ]
 ```
 
+Add a configuration to address an outstanding hostname registration bug.
+```bash
+cat > /etc/cloud/hostnamectl-wrapper.sh <<\EOF
+#!/bin/bash -e
+if [[ -n $1 ]]; then
+  hostnamectl set-hostname $1
+else
+  hostname
+fi
+EOF
+
+chmod 0755 /etc/cloud/hostnamectl-wrapper.sh
+
+cat > /etc/cloud/cloud.cfg.d/90-hostnamectl-workaround-azure.cfg <<EOF
+# local	fix to ensure hostname is registered
+datasource:
+  Azure:
+    hostname_bounce:
+      hostname_command: /etc/cloud/hostnamectl-wrapper.sh
+EOF
+```
+
 If your existing Azure image has a swap file configured and you want to change the swap file configuration for new images using cloud-init, you need to remove the existing swap file.
 
 For RedHat based images - follow the instructions in the following RedHat document explaining how to [remove the swap file](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/s2-swap-removing-file.html).

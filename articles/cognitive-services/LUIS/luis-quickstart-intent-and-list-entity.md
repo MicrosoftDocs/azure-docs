@@ -6,10 +6,10 @@ author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: luis
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 --- 
 
 # Simple app with intents and a list entity
