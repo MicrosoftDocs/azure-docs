@@ -86,8 +86,10 @@
     items:
     - name: Use
       items:
-      - name: Add a solution
-        href: ..//log-analytics/log-analytics-add-solutions.md?toc=%2fazure%2fmonitoring%2ftoc.json
+      - name: Install and use solutions
+        href: monitoring-solutions.md
+      - name: Inventory of solutions
+        href: monitoring-solutions-inventory.md
       - name: Target solutions
         href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2fmonitoring%2ftoc.json
     - name: Create
