@@ -296,7 +296,7 @@
     href: /powershell/module/azurerm.logicapp
   - name: REST API
     href: /rest/api/logic/
-  - name: Workflow Definition Language
+  - name: Workflow Definition Language schema
     href: logic-apps-workflow-definition-language.md
     items: 
       - name: Workflow actions and triggers
