@@ -296,13 +296,15 @@
     href: /powershell/module/azurerm.logicapp
   - name: REST API
     href: /rest/api/logic/
-  - name: Workflow Definition Language Schema
+  - name: Workflow Definition Language
     href: logic-apps-workflow-definition-language.md
     items: 
+      - name: Workflow actions and triggers
+        href: logic-apps-workflow-actions-triggers.md
+      - name: Workflow Definition Language functions
+        href: workflow-definition-language-functions-reference.md
       - name: GA - Schema history
         href: logic-apps-schema-2016-04-01.md
-  - name: Workflow actions and triggers
-    href: logic-apps-workflow-actions-triggers.md
   - name: Tracking schemas
     items: 
       - name: AS2 tracking schema

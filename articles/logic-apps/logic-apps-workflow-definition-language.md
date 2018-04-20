@@ -48,7 +48,7 @@ Here is the basic structure for a workflow definition:
 | Element | Required | Description | 
 |---------|----------|-------------| 
 | definition | Yes | The element that identifies the starting point for your workflow definition | 
-| $schema | Only when externally referencing a definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json` |   
+| $schema | Only when externally referencing a definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |   
 | contentVersion | No | The version number for your workflow definition, which is "1.0.0.0" by default. To identify and confirm the correct definition when deploying a workflow, specify a value to use. | 
 | parameters | No | The definitions for one or more parameters that can pass data into your workflow <p>Maximum parameters: 50 | 
 | triggers | No | The definitions for one or more triggers that start your workflow. <p>You can define more than one trigger, but only with the Workflow Definition Language, not the Logic Apps Designer. <p>Maximum triggers: 10 | 
@@ -128,9 +128,9 @@ Here is the general structure for a parameter definition:
 
 ```json 
 "parameters": {
-  "isChecked": {
+  "colorRange": {
     "type": "array",
-    "defaultValue": [0] 
+    "defaultValue": [""] 
   }
 }
 ```
@@ -144,7 +144,7 @@ Here is the general structure for a parameter definition:
         "name": "",
         "accountNumber": 0,
         "location": "",
-        "purchasedItems": []
+        "purchasedItems": [""]
       }
     }
   }
@@ -157,8 +157,8 @@ Here is the general structure for a parameter definition:
     "type": "secureobject",
     "defaultValue": { <JSON-object> }
 } 
-``` 
- 
+```
+
 ## Triggers and actions  
 
 Triggers and actions define the calls that can happen during workflow execution. 
@@ -175,7 +175,7 @@ Here is the general structure for an output definition:
 ```json
 "outputs": {
   "<key-name>": {  
-    "type" : "<key-type>",  
+    "type": "<key-type>",  
     "value": "<key-value>"  
   }  
 } 
