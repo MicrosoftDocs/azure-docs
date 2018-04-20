@@ -4,9 +4,8 @@ description: Explains how to use the Bing Video Search API in a single-page Web 
 services: cognitive-services
 author: mikedodaro
 manager: ronakshah
-
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: v-gedod

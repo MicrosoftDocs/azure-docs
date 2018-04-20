@@ -3,7 +3,7 @@ title: Specifying DNS Settings in a virtual network configuration file | Microso
 description: How to change DNS server settings in a virtual network using a virtual network configuration file in the classic deployment model
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 tags: azure-service-management
