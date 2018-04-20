@@ -565,7 +565,7 @@ To verify whether a custom dimension is of a particular type:
 
 ### Special Characters
 
-For identifiers with special characters or langauge keywords in their names, you need to access them via `['` and `']` or using `["` and `"]`.
+For identifiers with special characters or language keywords in their names, you need to access them via `['` and `']` or using `["` and `"]`.
 
 ```AIQL
 
