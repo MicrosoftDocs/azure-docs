@@ -1,7 +1,7 @@
 ---
-title: Connected factory solution features - Azure | Microsoft Docs
+title: Connected Factory solution features - Azure | Microsoft Docs
 description: An overview of the features of the Connected Factory preconfigured solution.
-services: ''
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19
+ms.date: 04/20/2018
 ms.author: dobett
 
 ---
@@ -64,7 +64,7 @@ Connected Factory includes the following features:
 - [Customize](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) the solution to meet specific business requirements.
 - Full solution source-code available on GitHub. See the [Connected factory preconfigured solution](https://github.com/Azure/azure-iot-connected-factory) repository.
 
-## Next Steps
+## Next steps
 
 Learn more about the Connected factory preconfigured solution by reading the following articles:
 
