@@ -61,67 +61,25 @@ GIT_USER=gituser             # Your GitHub user account name
 GIT_PAT=personalaccesstoken  # The PAT you generated in the second tutorial
 ```
 
-## Create base image
+## Base images
 
-Build the base image with an ACR Build quick build. As discussed in the [first tutorial](container-registry-tutorial-quick-build.md) in the series, this not only builds the image, but pushes it to your container registry if the build is successful.
+Dockerfiles defining most container images specify a parent image from which it is based, often referred to as its *base image*. Base images typically contain the operating system, for example [Alpine Linux][base-alpine] or [Windows Nano Server][base-windows], on which the rest of the container's layers are applied. They might also include application frameworks such as [Node.js][base-node] or [.NET Core][base-dotnet].
 
-```azurecli-interactive
-az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base --context .
-```
+### Base image updates
 
-## Create application image from base image
+A base image is often updated by the image maintainer to include new features or improvements to the OS or framework in the image. Security patches are another common cause for a base image update.
 
-Now that you've built the base image, build the application image that specifies the base image in its Dockerfile. In a later step, you update the base image, which triggers a build in ACR Build of the application image.
+When a base image is updated, you're presented with the need to rebuild your own container images based on it to include the new features and fixes. ACR Build includes the ability to automatically build images for you when a container's base image is updated.
 
-```azurecli-interactive
-az acr build --registry $ACR_NAME --image helloworld:{{.Build.Id}} --file Dockerfile-app --build-arg REGISTRY_NAME=$ACR_NAME.azurecr.io --context .
-```
+### Base image update scenario
 
-Output from the build operation is similar to the following. Take note the **Build ID**, which you use in the next section. In the example output below, the build ID is "eastus-11".
+This tutorial walks you through a simulated base image update scenario. The [code sample][code-sample] includes two Dockerfiles: an application image, and an image it specifies as its base. In the following sections, you create an ACR Build task that automatically triggers a build of the application image when a new version of the base image is pushed to your container registry.
 
-```console
-$ az acr build --registry $ACR_NAME --image helloworld:{{.Build.Id}} --file Dockerfile-app --build-arg REGISTRY_NAME=$ACR_NAME.azurecr.io --context .
-Sending build context (4.932 KiB) to ACR
-Queued a build with ID: eastus-11
-Sending build context to Docker daemon  22.53kB
-Step 1/6 : ARG REGISTRY_NAME
+[Dockerfile-app][dockerfile-app]: A very small Node.js web application that renders a static web page displaying the Node.js version on which it's based. The version string is actually simulated, in that it displays the contents of an environment variable, `NODE_VERSION`, defined in the base image.
 
-[...]
+[Dockerfile-base][dockerfile-base]: The image that `Dockerfile-app` specifies as its base. It is itself based on a [Node][base-node] image, and includes the `NODE_VERSION` environment variable.
 
-4e90265f7e30: Pushed
-eastus-11: digest: sha256:249ba79b075ed12403774852a9aaf4e4611070f1b21a35a5fb61f61424a21b4a size: 1366
-time="2018-04-19T02:35:16Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" acr22818.azurecr.io/helloworld:eastus-11"
-"["acr22818.azurecr.io/helloworld@sha256:249ba79b075ed12403774852a9aaf4e4611070f1b21a35a5fb61f61424a21b4a"]"
-time="2018-04-19T02:35:16Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" acr22818.azurecr.io/baseimages/node:9-alpine"
-"["acr22818.azurecr.io/baseimages/node@sha256:77e1a028356f2c426090396b56d6fcff391dc3d855546e8aa2df2864fd916d63"]"
-ACR Builder discovered the following dependencies:
-[{"image":{"registry":"acr22818.azurecr.io","repository":"helloworld","tag":"eastus-11","digest":"sha256:249ba79b075ed12403774852a9aaf4e4611070f1b21a35a5fb61f61424a21b4a"},"runtime-dependency":{"registry":"acr22818.azurecr.io","repository":"baseimages/node","tag":"9-alpine","digest":"sha256:77e1a028356f2c426090396b56d6fcff391dc3d855546e8aa2df2864fd916d63"},"buildtime-dependency":null}]
-Build complete
-Build ID: eastus-11 was successful after 36.22102163s
-```
-
-### Run the sample container (optional)
-
-If you have Docker installed, start a container from the image to see the installed Node.js version.
-
-First, login to your registry with [az acr login][az-acr-login]:
-
-```azurecli
-az acr login --name $ACR_NAME
-```
-
-Next, execute the following `docker run` command. Replace `$BUILD_ID` with the build ID from the previous step.
-
-```bash
-docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:$BUILD_ID
-```
-
-Navigate to http://localhost:8080 to see the running application. The text displayed in the web page is similar to the following:
-
-```
-Hello World
-Version: 9.11.1
-```
+In the following sections, you create a build task, updated the `NODE_VERSION` value in the base image Dockerfile, then use ACR Build to build the base image. When ACR Build pushes the new base image to your registry, it automatically rebuilds the application image, and displays the new version string when you run the container.
 
 ## Create the build task
 
@@ -145,7 +103,7 @@ This build task specifies that any time the base image specified in the Dockerfi
 
 You've now built both the base image and the application image based upon it. Next, update the base image to trigger a build of the application image.
 
-Edit **Dockerfile-base**, and add an **a** after the version number defined in `NODE_VERSION`:
+Edit **Dockerfile-base**, and add an "a" after the version number defined in `NODE_VERSION`:
 
 ```Dockerfile
 ENV NODE_VERSION 9.11.1a
@@ -199,7 +157,13 @@ In this tutorial, you learned how to use a build task to automatically trigger c
 > [Authentication in Azure Container Registry](container-registry-authentication.md)
 
 <!-- LINKS - External -->
-[sample-archive]: https://github.com/Azure-Samples/aci-helloworld/archive/master.zip
+[base-alpine]: https://hub.docker.com/_/alpine/
+[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
+[base-node]: https://hub.docker.com/_/node/
+[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
+[code-sample]: https://github.com/Azure-Samples/acr-build-helloworld-node
+[dockerfile-base]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-base
+[dockerfile-app]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-app
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
