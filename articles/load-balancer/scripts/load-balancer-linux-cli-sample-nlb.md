@@ -1,26 +1,26 @@
 ---
-title: Azure CLI Script Sample - Load balance traffic to VMs for high availability | Microsoft Docs
-description: Azure CLI Script Sample - Load balance traffic to VMs for high availability
+title: CLI Example - Load balance traffic to VMs for high availability - Azure | Microsoft Docs
+description: This Azure CLI script example shows how to load balance traffic to VMs for high availability
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: 
 
 ms.assetid:
 ms.service: load-balancer
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 07/07/2017
+ms.date: 04/20/2018
 ms.author: kumud
 ---
 
-# Load balance traffic to VMs for high availability
+# Azure CLI script example: Load balance traffic to VMs for high availability
 
-This script sample creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer. 
+This Azure CLI script example creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

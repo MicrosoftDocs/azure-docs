@@ -1,26 +1,26 @@
 ---
-title: Azure CLI Script Sample - Load balance multiple websites with the Azure CLI | Microsoft Docs
-description: Azure CLI Script Sample - Load balance multiple websites to the same virtual machine
+title: CLI Example - Load balance multiple websites with the Azure CLI | Microsoft Docs
+description: This Azure CLI script example shows how to load balance multiple websites to the same virtual machine
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags:
 
 ms.assetid:
 ms.service: load-balancer
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 07/07/2017
+ms.date: 04/20/2018
 ms.author: kumud
 ---
 
-# Load balance multiple websites
+# Azure CLI script example: Load balance multiple websites
 
-This script sample creates a virtual network with two virtual machines (VM) that are members of an availability set. A load balancer directs traffic for two separate IP addresses to the two VMs. After running the script, you could deploy web server software to the VMs and host multiple web sites, each with its own IP address.
+This Azure CLI script sample creates a virtual network with two virtual machines (VM) that are members of an availability set. A load balancer directs traffic for two separate IP addresses to the two VMs. After running the script, you could deploy web server software to the VMs and host multiple web sites, each with its own IP address.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

@@ -1,26 +1,26 @@
 ---
-title: Azure PowerShell Script Sample - Load balance traffic to VMs for high availability | Microsoft Docs
-description: Azure PowerShell Script Sample - Load balance traffic to VMs for high availability
+title: PowerShell Example - Load balance traffic to VMs for high availability - Azure | Microsoft Docs
+description: This Azure PowerShell Script Example shows how to load balance traffic to VMs for high availability
 services: load-balancer
 documentationcenter: load-balancer
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: tysonn
 tags: 
 
 ms.assetid:
 ms.service: load-balancer
 ms.devlang: powershell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 05/16/2017
-ms.author: gwallace
+ms.date: 04/20/2018
+ms.author: kumud
 ---
 
-# Load balance traffic to VMs for high availability
+# Azure PowerShell script example: Load balance traffic to VMs for high availability
 
-This script sample creates everything needed to run several Windows virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer.
+This Azure PowerShell script example creates everything needed to run several Windows virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer.
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
