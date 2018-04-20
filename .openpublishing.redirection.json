@@ -2411,6 +2411,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-remove-hrw.md",
+            "redirect_url": "/azure/automation/automation-hybrid-runbook-worker",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-offering-get-started.md",
             "redirect_url": "/azure/automation/",
             "redirect_document_id": false

@@ -13,6 +13,18 @@ manager: carmonm
 
 The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks directly on the computer hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers. This article decribes how to install the Hybrid Runbook Worker on a Linux machine.
 
+## Supported Linux Operating Systems
+
+The following is a list of Linux distrobutions that are supported.
+
+* Amazon Linux 2012.09 --> 2015.09 (x86/x64)
+* CentOS Linux 5,6, and 7 (x86/x64)
+* Oracle Linux 5,6, and 7 (x86/x64)
+* Red Hat Enterprise Linux Server 5,6 and 7 (x86/x64)
+* Debian GNU/Linux 6, 7, and 8 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
+* SUSE Linux Enteprise Server 11 and 12 (x86/x64)
+
 ## Installing Linux Hybrid Runbook Worker
 
 To install and configure a Hybrid Runbook Worker on your Linux computer, you follow a straight forward process to manually install and configure the role. It requires enabling the **Automation Hybrid Worker** solution in your Log Analytics workspace and then running a set of commands to register the computer as a worker and add it to a new or existing group.
