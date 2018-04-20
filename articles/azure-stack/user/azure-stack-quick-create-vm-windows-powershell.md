@@ -13,17 +13,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: mabrigg
 ms.custom: mvc
 
 ---
 
-# Quickstart: create a Windows virtual machine by using PowerShell in Azure Stack
+# Quickstart: create a Windows server virtual machine by using PowerShell in Azure Stack
 
-*Applies to: Azure Stack integrated systems*
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-This guide details using PowerShell to create a Windows Server 2016 virtual machine in Azure Stack. You can run the steps described in this article either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN.
+You can create a Windows Server 2016 virtual machine by using Azure Stack PowerShell. Follow the steps in this article to create and use a virtual machine. This article also gives you the steps to:
+
+* Connect to the virtual machine with a remote client.
+* Install the IIS web server and view the default home page.
+* Clean up your resources.
+
+>[!NOTE]
+ You can run the steps described in this article from the Azure Stack Development Kit, or from a Windows-based external client if you are connected over a VPN.
 
 ## Prerequisites
 
