@@ -1,3 +1,23 @@
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file 
+---
+
 ## Test your code
 
 To test your application in Visual Studio, press **F5** to run your project. The browser opens to the http://<span></span>localhost:{port} location and you see the **Sign in with Microsoft** button. Select the button to start the sign-in process.
@@ -9,7 +29,7 @@ When you're ready to run your test, use a Microsoft Azure Active Directory (Azur
 ![Sign in to your Microsoft account](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### View application results
-After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that is specified in your application registration information in the Microsoft Application Registration Portal. The home page includes a welcome message "Hello \<User>," a link to sign out, and a link to view the user’s claims. The link for the user's claims browses to the **Authorize** controller that you created earlier.
+After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that is specified in your application registration information in the Microsoft Application Registration Portal. The home page includes a welcome message *"Hello \<User>,"* a link to sign out, and a link to view the user’s claims. The link for the user's claims browses to the *Claims* controller that you created earlier.
 
 ### Browse to see the user's claims
 To see the user's claims, select the link to browse to the controller view that is available only to authenticated users.
@@ -28,40 +48,43 @@ In addition, you should see a table of all claims that are in the authentication
 
 
 ### Test access to a method that has an Authorize attribute (optional)
-To test access to the **Authorize** controller for the user's claims as an anonymous user, follow these steps:
+To test access as an anonymous user to a controller protected with the `Authorize` attribute, follow these steps:
 1. Select the link to sign out the user and complete the sign-out process.
-2. In your browser, type http://<span></span>localhost:{port}/authenticated to access your controller that is protected with the **Authorize** attribute.
+2. In your browser, type http://<span></span>localhost:{port}/claims to access your controller that is protected with the `Authorize` attribute.
 
 #### Expected results after access to a protected controller
 You're prompted to authenticate to use the protected controller view.
 
-## Additional information
+## Advanced options
 
 <!--start-collapse-->
 ### Protect your entire website
-To protect your entire website, in the **Global.asax** file, add the **AuthorizeAttribute** attribute to the **GlobalFilters** filter in the **Application_Start** method:
+To protect your entire website, in the **Global.asax** file, add the `AuthorizeAttribute` attribute to the `GlobalFilters` filter in the `Application_Start` method:
 
 ```csharp
 GlobalFilters.Filters.Add(new AuthorizeAttribute());
 ```
 <!--end-collapse-->
 
-### Restrict sign-in access to your application
-By default, personal accounts like outlook.com, live.com, and others can sign in to your application. Work or school accounts in organizations that are integrated with Azure AD can also sign in by default.
+### Restrict who can sign in to your application
+By default when you build the application created by this guide, your application will accept sign ins of personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Azure Active Directory. This is a recommended option for SaaS applications.
 
-To restrict user sign-in access for your application, several options are available.
+To restrict user sign-in access for your application, multiple options are available:
 
-#### Restrict access to a single organization
-You can restrict sign-in access for your application to only user accounts that are in a single Azure AD organization:
-1. In the **web.config** file, change the value for the **Tenant** parameter. Change the value from **Common** to the tenant name of the organization, such as **contoso.onmicrosoft.com**.
-2. In your **OWIN Startup** class, set the **ValidateIssuer** argument to **true**.
+#### Option 1: Restrict users from only one organization's Active Directory instance to sign in to your application (single-tenant)
 
-#### Restrict access to a list of organizations
+This option is a common scenario for *LOB applications*: If you want your application to accept sign-ins only from accounts that belong to a specific Azure Active Directory instance (including *guest accounts* of that instance) do the following:
+
+1. In the **web.config** file, change the value for the `Tenant` parameter from `Common` to the tenant name of the organization, such as `contoso.onmicrosoft.com`.
+2. In your [OWIN Startup class](#configure-the-authentication-pipeline), set the `ValidateIssuer` argument to `true`.
+
+#### Option 2: Restrict access to your application to users in a specific list of organizations
+
 You can restrict sign-in access to only user accounts that are in an Azure AD organization that is in the list of allowed organizations:
-1. In the **web.config** file, in your **OWIN Startup** class, set the **ValidateIssuer** argument to **true**.
-2. Set the value of the **ValidIssuers** parameter to the list of allowed organizations.
+1. In your [OWIN Startup class](#configure-the-authentication-pipeline), set the `ValidateIssuer` argument to `true`.
+2. Set the value of the `ValidIssuers` parameter to the list of allowed organizations.
 
-#### Use a custom method to validate issuers
+#### Option 3: Use a custom method to validate issuers
 You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, read about the [TokenValidationParameters class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) on MSDN.
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]
