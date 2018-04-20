@@ -86,6 +86,8 @@
       href: event-schema-subscriptions.md
     - name: Blob storage
       href: event-schema-blob-storage.md
+    - name: Container Registry
+      href: event-schema-container-registry.md
     - name: Event Hubs
       href: event-schema-event-hubs.md
     - name: IoT Hub
