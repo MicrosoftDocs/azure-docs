@@ -55,10 +55,7 @@ This configuration works fine when it's used for on-premises authentication. How
 
 To address this issue, there's now a solution available where Azure AD can use the cloud UPN of the user to see which IdP the account is federated with. If it's a local IdP, the authentication request is redirected to the local IdP, and not to Microsoft. To enable this functionality, you must do the following:
 
-1. Use Azure AD Connect to synchronize external user accounts from the on-premises Active Directory to Azure AD. For example:
-   - User Type=Guest
-   - OnPremisesUserPrincipalName = wmoran@fabrikam.com (e-mail address of the external user)
-   - Cloud UPN = wmoran@partners.contoso.com
+1. Use Azure AD Connect to synchronize external user accounts from the on-premises Active Directory to Azure AD.
 2. Federate the Cloud UPN suffix of the external partner accounts with the on-premises IdP.
 3. Migrate the app trust from the on-premises IdP to Azure AD.
 4. Teach end users to sign in to target apps with a tenanted endpoint, for example, *contoso.sharepoint.com*.
