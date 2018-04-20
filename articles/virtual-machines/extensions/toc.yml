@@ -57,8 +57,6 @@
       href: dsc-credentials.md
     - name: Use templates
       href: dsc-template.md
-  - name: Log Collector extension
-    href: log-collector.md
   - name: IaaS antimalware for Windows
     href: iaas-antimalware-windows.md
   - name: Key Vault extension
@@ -75,6 +73,10 @@
       href: stackify-retrace-linux.md
     - name: Symantec
       href: symantec.md
+  - name: Depricated extensions
+    items:
+    - name: Log Collector extension
+      href: log-collector.md
     - name: Trend
       href: trend.md
   - name: Update Linux agent
