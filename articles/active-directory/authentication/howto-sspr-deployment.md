@@ -23,9 +23,9 @@ ms.custom: it-pro;seohack1
 
 To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service password reset (SSPR) functionality, most customers complete the following steps:
 
-1. [Enable password reset in your directory](../active-directory-passwords-getting-started.md).
-2. [Configure on-premises Active Directory permissions for password writeback](../active-directory-passwords-writeback.md#active-directory-permissions).
-3. [Configure password writeback](../active-directory-passwords-writeback.md#configure-password-writeback) to write passwords from Azure AD back to your on-premises directory.
+1. [Enable password reset in your directory](quickstart-sspr.md).
+2. [Configure on-premises Active Directory permissions for password writeback](howto-sspr-writeback.md#active-directory-permissions).
+3. [Configure password writeback](howto-sspr-writeback.md#configure-password-writeback) to write passwords from Azure AD back to your on-premises directory.
 4. [Assign and verify the required licenses](concept-sspr-licensing.md).
 5. Determine if you want to do a gradual rollout. If you want to roll out SSPR gradually, you can limit access to a group of users so you can pilot the program with a specific group. To roll out to a specific group, set the **Self Service Password Reset Enabled** switch to **Selected** and select the security group you want to  be able use password reset. 
 6. Populate the [authentication data](howto-sspr-authenticationdata.md) needed for your users to register, such as their office phone, mobile phone, and alternate email address.
@@ -38,7 +38,7 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
    > [!NOTE]
    > Changing this option from a selected group to everyone does not invalidate existing authentication data that a user has registered as part of a test group. Users who are configured and have valid authentication data registered continue to function.
 
-12. [Enable Windows 10 users to reset their password at the login screen](../active-directory-passwords-login.md).
+12. [Enable Windows 10 users to reset their password at the login screen](tutorial-sspr-windows.md).
 
    > [!IMPORTANT]
    > Test SSPR with a user, rather than an administrator, as Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](concept-sspr-policy.md#administrator-password-policy-differences) article.
@@ -87,7 +87,7 @@ It's easy to disable self-service password reset. Open your Azure AD tenant and 
 * [Do you have a licensing question?](concept-sspr-licensing.md)
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What are the policy options with SSPR?](concept-sspr-policy.md)
-* [What is password writeback and why do I care about it?](../active-directory-passwords-writeback.md)
+* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
 * [How do I report on activity in SSPR?](howto-sspr-reporting.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Cognitive Services, Computer Vision Documentation - Tutorials, API Reference | Microsoft Docs
+title: Computer Vision Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
 description: Learn how to create visual features for your apps
 services: cognitive-services
 author: KellyDF

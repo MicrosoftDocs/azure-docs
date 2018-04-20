@@ -4,7 +4,7 @@ description: Learn about index concepts in Azure Search and how indexes are used
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
-
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
