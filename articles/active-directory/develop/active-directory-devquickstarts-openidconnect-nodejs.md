@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 04/20/2018
 ms.author: nacanuma
 ms.custom: aaddev
 
@@ -328,7 +328,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
 
 2. Create the `/routes/user.js` route under the root directory.
 
-                ```JavaScript
+    ```JavaScript
                 /*
                  * GET users listing.
                  */
@@ -336,7 +336,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
                 exports.list = function(req, res){
                   res.send("respond with a resource");
                 };
-                ```
+    ```
 
  These pass along the request to our views, including the user if present.
 
@@ -353,7 +353,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
     <% } %>
     ```
 
-4. Create the `/views/account.ejs` view under the root directory so that we can view additional information that `passport-azuread` has put in the user request.
+4. Create the `/views/account.ejs` view under the root directory so that we can view additional information that `passport-azure-ad` has put in the user request.
 
     ```Javascript
     <% if (!user) { %>
