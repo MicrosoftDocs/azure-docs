@@ -40,12 +40,12 @@ Create an HDInsight Spark cluster using an Azure Resource Manager template. The 
 
     | Property | Value |
     |---|---|
-	|**Subscription**|Select your Azure subscription used for creating this cluster. The subscription used for this QuickStart is **&lt;subscription>**. |
-	| **Resource group**|Create a resource group or select an existing one. Resource group is used to manage Azure resources for your projects. The new resource group name used for this QuickStart is **myspark20180403rg**.|
-	| **Location**|Select a location for the resource group. The template uses this location for creating the cluster as well as for the default cluster storage. The location used for this QuickStart is **East US 2**.|
-	| **ClusterName**|Enter a name for the HDInsight cluster that you want to create. The new cluster name used for this QuickStart is **myspark20180403**.|
-	| **Cluster login name and password**|The default login name is admin. Choose a password for the cluster login. The login name used for this QuickStart is **admin**.|
-	| **SSH user name and password**|Choose a password for the SSH user. The SSH user name used for this QuickStart is **sshuser**.|
+	|**Subscription**|Select your Azure subscription used for creating this cluster. The subscription used for this quickstart is **&lt;Azure subscription name>**. |
+	| **Resource group**|Create a resource group or select an existing one. Resource group is used to manage Azure resources for your projects. The new resource group name used for this quickstart is **myspark20180403rg**.|
+	| **Location**|Select a location for the resource group. The template uses this location for creating the cluster as well as for the default cluster storage. The location used for this quickstart is **East US 2**.|
+	| **ClusterName**|Enter a name for the HDInsight cluster that you want to create. The new cluster name used for this quickstart is **myspark20180403**.|
+	| **Cluster login name and password**|The default login name is admin. Choose a password for the cluster login. The login name used for this quickstart is **admin**.|
+	| **SSH user name and password**|Choose a password for the SSH user. The SSH user name used for this quickstart is **sshuser**.|
 
     ![Create HDInsight Spark cluster using an Azure Resource Manager template](./media/apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Create Spark cluster in HDInsight using an Azure Resource Manager template")
 
@@ -121,6 +121,6 @@ You can also select the resource group name to open the resource group page, and
 In this quickstart, you learned how to create an HDInsight Spark cluster and run a basic Spark SQL query. Advance to the next tutorial to learn how to use an HDInsight Spark cluster to run interactive queries on sample data.
 
 > [!div class="nextstepaction"]
->[Run interactive queries on an HDInsight Spark cluster](./apache-spark-load-data-run-query.md)
+>[Run interactive queries on a Spark cluster](./apache-spark-load-data-run-query.md)
 
 

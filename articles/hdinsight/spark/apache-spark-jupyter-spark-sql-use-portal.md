@@ -37,22 +37,21 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
      
     |Property  |Description  |
     |---------|---------|
-    |**Cluster name**     | Give a name to your HDInsight Spark cluster. |
-    |**Subscription**     | From the drop-down, select an Azure subscription used for this cluster. |
+    |**Cluster name**     | Give a name to your HDInsight Spark cluster. The cluster name used for this quickstart is **myspark20180403**.|
+    |**Subscription**     | From the drop-down, select an Azure subscription used for this cluster. The subscription used for this quickstart is **&lt;Azure subscription**. |
     |**Cluster type**| Expand the item, and then select **Spark** as the cluster type, and specify the Spark cluster version. <img src="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-type.png" alt = "Slect HDInsight clsuter type" /> |
     |**Cluster login username**| Enter the cluster login username.  The default name is *admin*. You use this account to login in to the Jupyter notebook later in the quickstart. |
     |**Cluster login password**| Enter the cluster login password. |
-    |**Secure Shell (SSH) username**| Enter the SSH username. By default, this account shares the same password as the *Cluster Login username* account. |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/resource-group-overview.md). |
-    |**Location**     | Select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
-    |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Secure Shell (SSH) username**| Enter the SSH username. The SSH username used for this quickstart is **sshuser**. By default, this account shares the same password as the *Cluster Login username* account. |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. The resource group name used for this quickstart is **myspark20180403rg**. |
+    |**Location**     | Select a location for the resource group. The template uses this location for creating the cluster as well as for the default cluster storage. The location used for this quickstart is **East US 2**. |
 
     ![Create HDInsight Spark cluster basic configurations](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-basic2.png "Create Spark cluster in HDInsight the Basic configurations")
 
     Select **Next** to continue to the **Storage** page.
 3. Under **Storage**, provide the following values:
 
-    - **Select a Storage account**: select **Create new**, and then give a name to the new storage account. The default primary storage type is [Azure Storage](../hdinsight-hadoop-use-blob-storage.md). You can also create a Spark cluster that uses [Azure Data Lake Store](../hdinsight-hadoop-use-data-lake-store.md) as the default storage. For instructions, see [Create an HDInsight cluster with Data Lake Store](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    - **Select a Storage account**: select **Create new**, and then give a name to the new storage account. The storage account name used for this quickstart is **myspark20180403store**.
 
     ![Create HDInsight Spark cluster storage configurations](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "Create Spark cluster in HDInsight the storage configurations")
 
@@ -64,7 +63,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
     Select **Next** to continue to the **Summary** page. 
 
 
-3. On **Summary**, select **Create**. It takes about 20 minutes to create the cluster.
+3. On **Summary**, select **Create**. It takes about 20 minutes to create the cluster. The cluster must be created before you can proceed to the next session.
 
 If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. For more information, see [Access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
