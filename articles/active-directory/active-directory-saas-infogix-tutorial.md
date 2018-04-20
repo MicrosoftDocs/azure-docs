@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Infogix Data3Sixty Govern, you need the following items:
 
 - An Azure AD subscription
-- A Infogix Data3Sixty Govern single sign-on enabled subscription
+- An Infogix Data3Sixty Govern single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -82,7 +82,7 @@ To configure and test Azure AD single sign-on with Infogix Data3Sixty Govern, yo
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Infogix Data3Sixty Govern test user](#create-a-infogix-data3sixty-govern-test-user)** - to have a counterpart of Britta Simon in Infogix Data3Sixty Govern that is linked to the Azure AD representation of user.
+3. **[Create an Infogix Data3Sixty Govern test user](#create-an-infogix-data3sixty-govern-test-user)** - to have a counterpart of Britta Simon in Infogix Data3Sixty Govern that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Infogix Data3Sixty Govern Domain and URLs single sign-on information](./media/active-directory-saas-infogix-tutorial/tutorial_infogix_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `<subdomain>.data3sixty.com`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.data3sixty.com`
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Infogix Data3Sixty Govern Client support team](maito:data3sixtysupport@infogix.com) to get these values. 
@@ -163,7 +163,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Create a Infogix Data3Sixty Govern test user
+### Create an Infogix Data3Sixty Govern test user
 
 
 The objective of this section is to create a user called Britta Simon in Infogix Data3Sixty Govern. Infogix Data3Sixty Govern supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Infogix Data3Sixty Govern if it doesn't exist yet.
