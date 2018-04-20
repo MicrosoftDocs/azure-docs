@@ -58,8 +58,8 @@ When creating the Auth Provider, you need to select a directory and consider the
 ### Supportability
 Since most users are accustomed to using only passwords to authenticate, it is important that your company brings awareness to all users regarding this process. This awareness can reduce the likelihood that users call your help desk for minor issues related to MFA. However, there are some scenarios where temporarily disabling MFA is necessary. Use the following guidelines to understand how to handle those scenarios:
 
-* Train your technical support staff to handle scenarios where the user can't sign in because the mobile app or phone is not receiving a notification or phone call. Technical support can [enable a one-time bypass](../active-directory/authentication/howto-mfa-mfasettings.md#one-time-bypass) to allow a user to authenticate a single time by "bypassing" two-step verification. The bypass is temporary and expires after a specified number of seconds.
-* Consider the [Trusted IPs capability](../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) in Azure MFA as a way to minimize two-step verification. With this feature, administrators of a managed or federated tenant can bypass two-step verification for users that are signing in from the company’s local intranet. The features are available for Azure AD tenants that have Azure AD Premium, Enterprise Mobility Suite, or Azure Multi-Factor Authentication licenses.
+* Train your technical support staff to handle scenarios where the user can't sign in because the mobile app or phone is not receiving a notification or phone call. Technical support can [enable a one-time bypass](howto-mfa-mfasettings.md#one-time-bypass) to allow a user to authenticate a single time by "bypassing" two-step verification. The bypass is temporary and expires after a specified number of seconds.
+* Consider the [Trusted IPs capability](howto-mfa-mfasettings.md#trusted-ips) in Azure MFA as a way to minimize two-step verification. With this feature, administrators of a managed or federated tenant can bypass two-step verification for users that are signing in from the company’s local intranet. The features are available for Azure AD tenants that have Azure AD Premium, Enterprise Mobility Suite, or Azure Multi-Factor Authentication licenses.
 
 ## Best Practices for an on-premises deployment
 If your company decided to leverage its own infrastructure to enable MFA, then you need to deploy an Azure Multi-Factor Authentication Server on-premises. The MFA Server components are shown in the following diagram:
@@ -95,19 +95,19 @@ If your organization is federated for SSO with Azure AD and you are going to be 
 Use this list for additional considerations and guidance for each component that is deployed on-premises:
 
 - Set up Azure Multi-Factor Authentication with [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md).
-- Set up and configure the Azure MFA Server with [RADIUS Authentication](multi-factor-authentication-get-started-server-radius.md).
-- Set up and configure the Azure MFA Server with [IIS Authentication](multi-factor-authentication-get-started-server-iis.md).
-- Set up and configure the Azure MFA Server with [Windows Authentication](multi-factor-authentication-get-started-server-windows.md).
-- Set up and configure the Azure MFA Server with [LDAP Authentication](../active-directory/authentication/howto-mfaserver-dir-ldap.md).
-- Set up and configure the Azure MFA Server with [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](multi-factor-authentication-get-started-server-rdg.md).
-- Set up and configure synchronization between the Azure MFA Server and [Windows Server Active Directory](../active-directory/authentication/howto-mfaserver-dir-ad.md).
-- [Deploy the Azure Multi-Factor Authentication Server Mobile App Web Service](../active-directory/authentication/howto-mfaserver-deploy-mobileapp.md).
-- [Advanced VPN Configuration with Azure Multi-Factor Authentication](multi-factor-authentication-advanced-vpn-configurations.md) for Cisco ASA, Citrix Netscaler, and Juniper/Pulse Secure VPN appliances using LDAP or RADIUS.
+- Set up and configure the Azure MFA Server with [RADIUS Authentication](howto-mfaserver-dir-radius.md).
+- Set up and configure the Azure MFA Server with [IIS Authentication](howto-mfaserver-iis.md).
+- Set up and configure the Azure MFA Server with [Windows Authentication](howto-mfaserver-windows.md).
+- Set up and configure the Azure MFA Server with [LDAP Authentication](howto-mfaserver-dir-ldap.md).
+- Set up and configure the Azure MFA Server with [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md).
+- Set up and configure synchronization between the Azure MFA Server and [Windows Server Active Directory](howto-mfaserver-dir-ad.md).
+- [Deploy the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md).
+- [Advanced VPN Configuration with Azure Multi-Factor Authentication](howto-mfaserver-nps-vpn.md) for Cisco ASA, Citrix Netscaler, and Juniper/Pulse Secure VPN appliances using LDAP or RADIUS.
 
 ## Next steps
 While this article highlights some best practices for Azure MFA, there are other resources that you can also use while planning your MFA deployment. The list below has some key articles that can assist you during this process:
 
-* [Reports in Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-reporting.md)
-* [The two-step verification registration experience](multi-factor-authentication-end-user-first-time.md)
+* [Reports in Azure Multi-Factor Authentication](howto-mfa-reporting.md)
+* [The two-step verification registration experience](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
 * [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
 
