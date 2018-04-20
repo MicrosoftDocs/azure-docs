@@ -98,7 +98,6 @@ The following snippets are all taken from the DocumentDBRepository.cs file.
     ```csharp
     await client.CreateDocumentCollectionAsync(
         UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
         new DocumentCollection
             {
                Id = CollectionId
