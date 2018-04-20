@@ -103,22 +103,20 @@ In your LUIS-calling application (such as a chat bot), when LUIS returns the **N
 
 Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chat bot, your chat bot can follow up with a question that focuses the customer's intent. 
 
-## Create a KnowledgeBase article regular expression entity from the Intent page
-Now that the two intents have utterances, LUIS needs to understand what a KB number is. Navigate back to the `FindKnowledgeBase` intent and label (mark) the KB number in an utterance by following the steps:
+## Create a KnowledgeBase article regular expression entity 
+Now that the two intents have utterances, LUIS needs to understand what a KB number is. Create a regular expression entity by following the steps:
 
-1. Select **Intents** in the left panel.
+1. Select **Entities** in the left panel.
 
-2. Select `FindKnowledgeBase` from the **Intents** list.
+2. Select **Create new entity** button on the Entities Page. 
 
-3. In the utterance, `When was kb135135 released?`, select the word `kb135135`. A drop-down menu appears with a text box at the top to create a new entity. Enter the entity name `KBarticle` in the text box then select **Create new entity** in the drop-down menu. 
+    ![Screenshot of Entities page with Create new entity button highlighted](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png)
 
-    ![Screenshot of FindKnowledgeBase intent with regex entity creation process](./media/luis-quickstart-intents-regex-entity/create-entity.png)
+3. In the pop-up dialog, enter the new entity name `KBarticle`, select **RegEx** as the entity type, enter `kb[0-9]{6,}` as the Regex, and then select **Done**.
 
-4. In the pop-up window, select the **Regular expression** entity type with `kb[0-9]{6,}` as the regular expression. Select **Done**.
+    ![Screenshot of pop-up dialog setting new entity properties](./media/luis-quickstart-intents-regex-entity/create-entity.png)
 
-    ![Screenshot of pop-up dialog verifying entity type](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
-
-5. Now that the entity is created, and one utterance is labeled, <!--label the other Knowledge base article numbers by selecting the word (KB+number) in each utterance, then select the entity from the drop-down list. --> the other KB articles are automatically labeled. 
+4. Now that the entity is created, select **Intents** then **FindKnowledgeBase** entity to see the regular expression labeled in the utterances. 
 
     ![Screenshot of Label utterance with existing entity and regex pattern](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-kbnumber.png)
 
