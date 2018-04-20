@@ -53,7 +53,7 @@ Repeat steps 4 through 8 to add as many additional RADIUS clients as you need.
 2. If the Azure MFA Server is installed on a domain-joined server in an Active Directory environment, select Windows domain.
 3. If users should be authenticated against an LDAP directory, select **LDAP bind**.
 
-  Select the Directory Integration icon and edit the LDAP configuration on the Settings tab so that the Server can bind to your directory. Instructions for configuring LDAP can be found in the [LDAP Proxy configuration guide](multi-factor-authentication-get-started-server-ldap.md).
+  Select the Directory Integration icon and edit the LDAP configuration on the Settings tab so that the Server can bind to your directory. Instructions for configuring LDAP can be found in the [LDAP Proxy configuration guide](../active-directory/authentication/howto-mfaserver-dir-ldap.md).
 
 4. If users should be authenticated against another RADIUS server, select RADIUS server(s).
 5. Click **Add** to configure the server to which the Azure MFA Server will proxy the RADIUS requests.
@@ -77,4 +77,4 @@ To configure the RADIUS client, use the guidelines:
 
 ## Next steps
 
-Learn how to [integrate with RADIUS authentication](multi-factor-authentication-nps-extension.md) if you have Azure Multi-Factor Authentication in the cloud. 
+Learn how to [integrate with RADIUS authentication](../active-directory/authentication/howto-mfa-nps-extension.md) if you have Azure Multi-Factor Authentication in the cloud. 

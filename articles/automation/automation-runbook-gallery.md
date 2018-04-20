@@ -20,7 +20,7 @@ The [Runbook Gallery](http://gallery.technet.microsoft.com/scriptcenter/site/sea
 You can only import directly from the Runbook Gallery using the Azure portal. You cannot perform this function using Windows PowerShell.
 
 > [!NOTE]
-> You should validate the contents of any runbooks that you get from the Runbook Gallery and use extreme caution in installing and running them in a production environment.|
+> You should validate the contents of any runbooks that you get from the Runbook Gallery and use extreme caution in installing and running them in a production environment.
 > 
 > 
 
