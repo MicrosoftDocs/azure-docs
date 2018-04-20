@@ -1,6 +1,7 @@
 - name: Bing News Search Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
     - name: Search the web for news
       href: search-the-web.md

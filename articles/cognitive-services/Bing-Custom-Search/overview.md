@@ -4,9 +4,8 @@ description: Provides a high-level overview of Bing Custom Search
 services: cognitive-services
 author: brapel
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-custom-search
+ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: v-brapel
