@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/16/2018
 ms.author: marsma
 ---
 
@@ -30,14 +30,42 @@ When you mount a *gitRepo* volume, you can set three properties to configure the
 | `directory` | No | Directory into which the repository should be cloned. The path must not contain or start with "`..`".  If you specify "`.`", the repository is cloned into the volume's directory. Otherwise, the Git repository is cloned into a subdirectory of the given name within the volume directory. |
 | `revision` | No | The commit hash of the revision to be cloned. If unspecified, the `HEAD` revision is cloned. |
 
-## Mount a gitRepo volume
+## Mount gitRepo volume: Azure CLI
 
-To mount a *gitRepo* volume in a container instance, you must deploy using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups).
+To mount a gitRepo volume when you deploy container instances with the [Azure CLI](/cli/azure), supply the `--gitrepo-url` and `--gitrepo-mount-path` parameters to the [az container create][az-container-create] command. You can optionally specify the directory within the volume to clone into (`--gitrepo-dir`) and the commit hash of the revision to be cloned (`--gitrepo-revision`).
 
-First, populate the `volumes` array in the container group `properties` section of the template. Next, for each container in the container group in which you'd like to mount the *gitRepo* volume, populate the `volumeMounts` array in the `properties` section of the container definition.
+This example command clones the [aci-helloworld][aci-helloworld] sample application into `/mnt/aci-helloworld` in the container instance:
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name hellogitrepo \
+    --image microsoft/aci-helloworld \
+    --dns-name-label aci-demo \
+    --ports 80 \
+    --gitrepo-url https://github.com/Azure-Samples/aci-helloworld \
+    --gitrepo-mount-path /mnt/aci-helloworld
+```
+
+To verify the gitRepo volume was mounted, launch a shell in the container with [az container exec][az-container-exec] and list the directory:
+
+```console
+$ az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh
+/usr/src/app # ls -l /mnt/aci-helloworld/
+total 16
+-rw-r--r--    1 root     root           144 Apr 16 16:35 Dockerfile
+-rw-r--r--    1 root     root          1162 Apr 16 16:35 LICENSE
+-rw-r--r--    1 root     root          1237 Apr 16 16:35 README.md
+drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
+```
+
+## Mount gitRepo volume: Resource Manager
+
+To mount a gitRepo volume when you deploy container instances with an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups), first populate the `volumes` array in the container group `properties` section of the template. Then, for each container in the container group in which you'd like to mount the *gitRepo* volume, populate the `volumeMounts` array in the `properties` section of the container definition.
 
 For example, the following Resource Manager template creates a container group consisting of a single container. The container clones two GitHub repositories specified by the *gitRepo* volume blocks. The second volume includes additional properties specifying a directory to clone to, and the commit hash of a specific revision to clone.
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json -->
 [!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
 
 The resulting directory structure of the two cloned repos defined in the preceding template is:
@@ -56,3 +84,10 @@ Learn how to mount other volume types in Azure Container Instances:
 * [Mount an Azure file share in Azure Container Instances](container-instances-volume-azure-files.md)
 * [Mount an emptyDir volume in Azure Container Instances](container-instances-volume-emptydir.md)
 * [Mount a secret volume in Azure Container Instances](container-instances-volume-secret.md)
+
+<!-- LINKS - External -->
+[aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
+
+<!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-exec]: /cli/azure/container#az-container-exec
