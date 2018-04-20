@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 04/20/2018
 ms.author: tomfitz
 
 ---
@@ -30,7 +30,8 @@ In its simplest structure, a template contains the following elements:
     "parameters": {  },
     "variables": {  },
     "resources": [  ],
-    "outputs": {  }
+    "outputs": {  },
+    "functions": { }
 }
 ```
 
@@ -42,6 +43,7 @@ In its simplest structure, a template contains the following elements:
 | variables |No |Values that are used as JSON fragments in the template to simplify template language expressions. |
 | resources |Yes |Resource types that are deployed or updated in a resource group. |
 | outputs |No |Values that are returned after deployment. |
+| functions |No |User-defined functions that are available within the template. |
 
 Each element contains properties you can set. The following example contains the full syntax for a template:
 
@@ -214,6 +216,48 @@ In the Outputs section, you specify values that are returned from deployment. Fo
 ```
 
 For more information, see [Outputs section of Azure Resource Manager templates](resource-manager-templates-outputs.md).
+
+## Functions
+
+Within your template, you can create your own functions. These functions are available for use in your template. Typically, you define complicated expression that you do not want to repeat throughout your template. You create the user-defined functions from expressions and [functions](resource-group-template-functions.md) that are supported in templates.
+
+Your functions require a namespace value to avoid naming conflicts with template functions. The following example shows a function that returns a storage account name:
+
+```json
+functions {
+    "namespace": "contoso",
+    "members": {
+        "name": "storageName",
+        "parameters": {
+            "name": "namePrefix",
+            "type": "string"
+        },
+        "outputs": {
+            "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]",
+            "type": "string"
+        }
+    }
+}
+```
+
+You call the function with:
+
+```json
+"resources": [
+  {
+    "name": "[contoso.storageName(parameters('storageNamePrefix'))]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2016-01-01",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "location": "South Central US",
+    "tags": {},
+    "properties": {}
+  }
+]
+```
 
 ## Template limits
 
