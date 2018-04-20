@@ -32,8 +32,8 @@ PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSet
 Next, export the self-signed certificate to a PFX file. Open the certlm.msc application and navigate to **Personal**>**Certificates**. Right-click on the **myclustername.southcentralus.cloudapp.azure.com** certificate, and select **All Tasks**>**Export**.  In the export wizard, choose **Yes, export the private key**, enter a password, and choose the Personal Information Exchange (PFX) format. Export the file to *C:\Users\sfuser\myclustercert.pfx*.
 
 
-## Upload the certificate to keyvault and install in the VM scale set
-In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  Upload the certificate to a key vault and then install it on the VM scale set that the cluster is running on.
+## Upload the certificate to keyvault and install in the virtual machine scale set
+In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  Upload the certificate to a key vault and then install it on the virtual machine scale set that the cluster is running on.
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -89,7 +89,7 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Vi
 ```
 
 ## Download and update the template from the portal
-The certificate has been installed on the underlying scale set, but you also need to update the Service Fabric cluster to use that certificate and it's common name.  Now, download the template for your cluster deployment.  Log in to the [Azure portal](https://portal.azure.com) and navigate to the resource group hosting the cluster.  In **Settings**, select **Deployments**.  Select the most recent deployment and click **View template**.
+The certificate has been installed on the underlying scale set, but you also need to update the Service Fabric cluster to use that certificate and its common name.  Now, download the template for your cluster deployment.  Log in to the [Azure portal](https://portal.azure.com) and navigate to the resource group hosting the cluster.  In **Settings**, select **Deployments**.  Select the most recent deployment and click **View template**.
 
 ![View templates][image1]
 
