@@ -117,7 +117,7 @@ Evaluate the accounts that are assigned or eligible for the global admin role. I
 
 #### Turn on multi-factor authentication and register all other highly-privileged single-user non-federated admin accounts 
 
-Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange Online administrator, and SharePoint Online administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange Online administrator, and SharePoint Online administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## Stage 2: Mitigate the most frequently used attack techniques
 
@@ -163,8 +163,8 @@ Azure AD recommends that you require multi-factor authentication (MFA) for all y
 
 Turn on:
 
-* [MFA for high-exposure accounts](../multi-factor-authentication/multi-factor-authentication-security-best-practices.md) such as accounts for executive officers in an organization 
-* [MFA for every admin account associated with an individual user](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) for other connected SaaS apps 
+* [MFA for high-exposure accounts](authentication/multi-factor-authentication-security-best-practices.md) such as accounts for executive officers in an organization 
+* [MFA for every admin account associated with an individual user](authentication/howto-mfa-userstates.md) for other connected SaaS apps 
 * MFA for all admins for Microsoft SaaS apps, including administrators in roles managed in Exchange Online and the Office portal
 
 If you use Windows Hello for Business, the MFA requirement can be met using the Windows Hello sign in experience. For more information, see [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 

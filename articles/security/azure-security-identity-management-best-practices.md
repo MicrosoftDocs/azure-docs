@@ -85,7 +85,7 @@ By enabling Azure MFA for your users, you are adding a second layer of security 
 
 For example: you enforce Azure MFA for your users and configure it to use a phone call or text message as verification. If the user’s credentials are compromised, the attacker is not able to access any resource since they do not have access to user’s phone. Organizations that do not add extra layers of identity protection are more susceptible for credential theft attack, which may lead to data compromise.
 
-One alternative for organizations that want to keep the entire authentication control on-premises is to use [Azure Multi-Factor Authentication Server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), also called MFA on-premises. By using this method, you will still be able to enforce multi-factor authentication, while keeping the MFA server on-premises.
+One alternative for organizations that want to keep the entire authentication control on-premises is to use [Azure Multi-Factor Authentication Server](../active-directory/authentication/howto-mfaserver-deploy.md), also called MFA on-premises. By using this method, you will still be able to enforce multi-factor authentication, while keeping the MFA server on-premises.
 
 For more information on Azure MFA, see the article [Getting started with Azure Multi-Factor Authentication in the cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 
