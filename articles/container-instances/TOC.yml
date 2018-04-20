@@ -43,7 +43,7 @@
     href: container-instances-environment-variables.md
   - name: Troubleshoot deployments
     href: container-instances-troubleshooting.md
-  - name: ACI as Jenkins build agents
+  - name: Jenkins build agents on ACI
     href: container-instances-jenkins.md
   - name: Configure data volumes
     items:
