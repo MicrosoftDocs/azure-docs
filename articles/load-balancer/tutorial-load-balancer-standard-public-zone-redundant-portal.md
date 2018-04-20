@@ -1,6 +1,6 @@
 ---
-title: Load Balancer VMs across availability zones - Azure portal | Microsoft Docs
-description: Create a Standard Load Balancer with zone-redundant frontend to load balance VMs across availability zones using Azure portal
+title: Tutorial:Load Balancer VMs across availability zones - Azure portal | Microsoft Docs
+description: This tutorial demonstrates how to create a Standard Load Balancer with zone-redundant frontend to load balance VMs across availability zones using Azure portal
 services: load-balancer
 documentationcenter: na
 author: KumudD 
@@ -11,16 +11,16 @@ tags: azure-resource-manager
 ms.assetid:
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: 
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/18
+ms.date: 04/20/2018
 ms.author: kumud
 ---
 
-# Load balance VMs across availability zones with a Standard Load Balancer using the Azure portal
+# Tutorial:Load balance VMs across availability zones with a Standard Load Balancer using the Azure portal
 
-This article steps through creating a public Load Balancer Standard with a zone redundant frontend to achieve achieve zone-redundancy without dependency on multiple DNS records. A single front-end IP address in a Standard Load Balancer is automatically zone-redundant. Using a zone redundant frontend for your load balancer, with a single IP address you can now reach any VM in a virtual network within a region that is across all Availability Zones. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more Availability Zones can fail and the data path survives as long as one zone in the region remains healthy. You learn how to:
+This tutorial steps through creating a public Load Balancer Standard with a zone redundant frontend to achieve achieve zone-redundancy without dependency on multiple DNS records. A single front-end IP address in a Standard Load Balancer is automatically zone-redundant. Using a zone redundant frontend for your load balancer, with a single IP address you can now reach any VM in a virtual network within a region that is across all Availability Zones. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more Availability Zones can fail and the data path survives as long as one zone in the region remains healthy. You learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Standard Load Balancer with a zone-redundant frontend

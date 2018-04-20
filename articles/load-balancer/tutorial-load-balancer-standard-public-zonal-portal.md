@@ -1,6 +1,6 @@
 ---
-title: Load Balancer VMs within a zone - Azure portal | Microsoft Docs
-description: Create a Standard Load Balancer with zonal frontend to load balance VMs within an availability zone using Azure portal
+title: Tutorial:Load Balancer VMs within a zone - Azure portal | Microsoft Docs
+description: This tutorial demonstrates how to create a Standard Load Balancer with zonal frontend to load balance VMs within an availability zone using Azure portal
 services: load-balancer
 documentationcenter: na
 author: KumudD 
@@ -11,16 +11,16 @@ tags: azure-resource-manager
 ms.assetid:
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: 
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: kumud
 ---
 
-# Load balance VMs within an availability zone with a Standard Load Balancer using the Azure portal
+# Tutorial:Load balance VMs within an availability zone with a Standard Load Balancer using the Azure portal
 
-This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address using the Azure portal. In this scenario, you specify a particular zone for your front-end and back-end instances, to align your data path and resources with a specific zone. You learn how to:
+This tutorial steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address using the Azure portal. In this scenario, you specify a particular zone for your front-end and back-end instances, to align your data path and resources with a specific zone. You learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Standard Load Balancer with a zonal frontend
