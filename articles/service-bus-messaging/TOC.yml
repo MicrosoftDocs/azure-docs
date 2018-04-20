@@ -14,8 +14,10 @@
     href: service-bus-quickstart-cli.md
 - name: Tutorials
   items:
-  - name: Publish/subscribe channels and filters
+  - name: Publish/subscribe channels and filters - .NET
     href: service-bus-tutorial-topics-subscriptions-portal.md
+  - name: Publish/subscribe channels and filters - Java
+    href: service-bus-tutorial-topics-subscriptions-cli.md
 - name: Samples
   items:
   - name: Service Bus samples
