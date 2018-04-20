@@ -4,9 +4,8 @@ description: Use the text to speech API to provide real-time text-to-speech conv
 services: cognitive-services
 author: priyaravi20
 manager: yanbo
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: prrajan
