@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: mabrigg
 ms.custom: mvc
 ---
@@ -24,7 +24,7 @@ Azure CLI is used to create and manage Azure Stack resources from the command li
 
 ## Prerequisites
 
-* Make sure that your Azure Stack operator has added the “Windows Server 2016” image to the Azure Stack marketplace.
+* Make sure that your Azure Stack operator added the “Windows Server 2016” image to the Azure Stack marketplace.
 
 * Azure Stack requires a specific version of Azure CLI to create and manage the resources. If you don't have Azure CLI configured for Azure Stack, follow the steps to [install and configure Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
@@ -85,7 +85,7 @@ You can use a web browser of your choice to view the default IIS welcome page. U
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, the VM, and all related resources.
+When you're finished using the virtual machine, delete the virtual machine and its resources. Use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, the VM, and all related resources.
 
 ```cli
 az group delete --name myResourceGroup
@@ -93,4 +93,4 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you’ve deployed a simple Windows virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
+In this quickstart, you deployed a basic Windows server virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
