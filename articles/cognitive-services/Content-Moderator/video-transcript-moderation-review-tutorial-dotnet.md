@@ -4,9 +4,8 @@ description: How to use Content Moderator to moderate videos and transcripts in 
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 1/27/2018
 ms.author: sajagtap

@@ -50,7 +50,7 @@ Select **Reset configuration only** from the drop-down menu, then click **Update
 
 
 ## VMAccess extension and PowerShell
-Make sure that you have the [latest PowerShell module installed and configured](/powershell/azure/overview) and are signed in to your Azure subscription with the `Login-AzureRmAccount` cmdlet.
+Make sure that you have the [latest PowerShell module installed and configured](/powershell/azure/overview) and are signed in to your Azure subscription with the `Connect-AzureRmAccount` cmdlet.
 
 ### **Reset the local administrator account password**
 Reset the administrator password or user name with the [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet. 
@@ -61,7 +61,7 @@ $RgName = "<RESOURCE GROUP NAME>"
 $VmName = "<VM NAME>" 
 $Location = "<LOCATION>" 
  
-Login-AzureRMAccount 
+Connect-AzureRmAccount 
 Select-AzureRMSubscription -SubscriptionId $SubID 
 Set-AzureRmVMAccessExtension -ResourceGroupName $RgName -Location $Location -VMName $VmName -Credential (get-credential) -typeHandlerVersion "2.0" -Name VMAccessAgent 
 ```

@@ -1,4 +1,4 @@
----
+﻿---
 title: Add an Azure Stack marketplace item from a local source| Microsoft Docs
 description: Describes how to add a local operating system image to the Azure Stack Marketplace.
 services: azure-stack
@@ -81,7 +81,7 @@ Use this option if you have deployed Azure Stack in a disconnected scenario or i
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```
@@ -109,7 +109,7 @@ Use this option if you have deployed Azure Stack in a disconnected scenario or i
       -ADFS `
       -EnvironmentName "AzureStackAdmin" 
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```

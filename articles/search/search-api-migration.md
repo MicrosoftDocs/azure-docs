@@ -3,7 +3,7 @@ title: Upgrading to the Azure Search Service REST API version 2016-09-01 | Micro
 description: Upgrading to the Azure Search Service REST API version 2016-09-01
 author: brjohnstmsft
 manager: jlembicz
-
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual

@@ -27,28 +27,30 @@ To build an app that accepts both MSA & Azure AD sign-in, you'll first need to r
 > 
 
 ## Visit the Microsoft app registration portal
-First things first - navigate to [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  This is a new app registration portal where you can manage your Microsoft apps.
+First, navigate to [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  This is a new app registration portal where you can manage your Microsoft apps.
 
 Sign in with either a personal or work or school Microsoft account.  If you don't have either, sign up for a new personal account. Go ahead, it won't take long - we'll wait here.
 
 Done? You should now be looking at your list of Microsoft apps, which is probably empty.  Let's change that.
 
-Click **Add an app**, and give it a name.  The portal will assign your app a globally unique  Application Id that you'll use later in your code.  If your app includes a server-side component that needs access tokens for calling APIs (think: Office, Azure, or your own web API), you'll want to create an **Application Secret** here as well.
+Click **Add an app**, and give it a name.  The portal will assign your app a globally unique  Application ID that you'll use later in your code.  If your app includes a server-side component that needs access tokens for calling APIs (think: Office, Azure, or your own web API), you'll want to create an **Application Secret** here as well.
 
 Next, add the Platforms that your app will use.
 
-* For web based apps, provide a **Redirect URI** where sign-in messages can be sent.
+* For web-based apps, provide a **Redirect URI** where sign-in messages can be sent.
 * For mobile apps, copy down the default redirect uri automatically created for you.
+* For web APIs, a default scope to access the Web API is automatically created for you. You can choose to add additional scopes using the **Add Scope** button. You can also add any applications that are pre-authorized to use your Web API using the **Pre-authorized applications** form. 
+
 
 Optionally, you can customize the look and feel of your sign-in page in the Profile section.  Make sure to click **Save** before moving on.
 
 > [!NOTE]
-> When you create an application using [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), the application will be registered in the home tenant of the account that you use to sign into the portal.  This means that you can not register an application in your Azure AD tenant using a personal Microsoft account.  If you explicitly wish to register an application in a particular tenant, sign in with an account originally created in that tenant.
+> When you create an application using [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), the application will be registered in the home tenant of the account that you use to sign into the portal.  This means that you cannot register an application in your Azure AD tenant using a personal Microsoft account.  If you explicitly wish to register an application in a particular tenant, sign in with an account originally created in that tenant.
 > 
 > 
 
-## Build a quick start app
-Now that you have a Microsoft app, you can complete one of our v2.0 quick start tutorials.  Here are a few recommendations:
+## Build a quickstart app
+Now that you have a Microsoft app, you can complete one of our v2.0 quickstart tutorials.  Here are a few recommendations:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
 
