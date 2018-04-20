@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/18/2018
+ms.date: 04/19/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
@@ -368,7 +368,7 @@ With an initiative definition, you can group several policy definitions to achie
 
 ## Exempt a non-compliant or denied resource using Exclusion
 
-Following the example above, after assigning the policy definition to require SQL server version 12.0, a SQL server created with a different version would get denied. In this section, you walk through resolving a denied attempt to create a SQL server of a different version by requesting an exclusion. The exclusion essentially prevents policy enforcement. An exclusion can apply to a resource group, or you can narrow the exclusion to individual resources.
+Following the example above, after assigning the policy definition to require SQL server version 12.0, a SQL server created with any version other 12.0 would get denied. In this section, you walk through resolving a denied attempt to create a SQL server by requesting an exclusion for specific resources. The exclusion essentially prevents policy enforcement. In the following example, any SQL server version is allowed. An exclusion can apply to a resource group, or you can narrow the exclusion to individual resources.
 
 1. Select **Assignments** on the left pane.
 2. Browse through all policy assignments and open the *Require SQL Server version 12.0* assignment.
@@ -380,7 +380,7 @@ Following the example above, after assigning the policy definition to require SQ
 
 4. Click **Assign**.
 
-In this section, you resolved the denial of your attempt to create a SQL server with version 12.0, by requesting an exclusion to the resources.
+In this section, you resolved the denial of your attempt to create a SQL server, by requesting an exclusion to the resources.
 
 ## Clean up resources
 

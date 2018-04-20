@@ -97,6 +97,8 @@ You can use [service tags](../virtual-network/security-overview.md#service-tags)
 
 ![Network security group with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
+To understand the step by step procedure to configure service tags, watch [this video](https://youtu.be/1EjLQtbKm1M).
+
 > [!WARNING]
 > Storage service tags are in preview. They are available only in specific regions. For a list of regions, see [Service tags for storage](../virtual-network/security-overview.md#service-tags).
 

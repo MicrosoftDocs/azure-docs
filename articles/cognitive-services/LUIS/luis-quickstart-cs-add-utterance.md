@@ -1,12 +1,11 @@
 ---
-title: Add utterances to a LUIS app using C# | Microsoft Docs 
-description: Learn to call a LUIS app using C#. 
+title: Add utterances to a LUIS app using C# | Microsoft Docs
+description: Learn to call a LUIS app using C#.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: v-geberr
