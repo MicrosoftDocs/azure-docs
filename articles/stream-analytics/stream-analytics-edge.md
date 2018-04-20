@@ -145,7 +145,6 @@ However the following features are not yet supported for edge jobs:
 * Azure ML functions.
 * Using more than 14 aggregates in a single step.
 * AVRO format for input/output. At this time only CSV and JSON are supported.
-* Compression of JSON input.
 * The following  SQL operators:
     * AnomalyDetection
     * Geospatial operators:
