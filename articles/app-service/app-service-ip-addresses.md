@@ -18,7 +18,7 @@ ms.author: cephalin
 
 # Inbound and outbound IP addresses in Azure App Service
 
-[Azure App Service](app-service-web-overview.md) is a multi-tenent service, except for [App Service Environments](environment/intro.md). Apps that are not in the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/) share network infrastructure with other apps. As a result, the inbound and outbound IP addresses of an app can be different, and can even change in certain situations. 
+[Azure App Service](app-service-web-overview.md) is a multi-tenant service, except for [App Service Environments](environment/intro.md). Apps that are not in an App Service environment (not in the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/)) share network infrastructure with other apps. As a result, the inbound and outbound IP addresses of an app can be different, and can even change in certain situations. 
 
 [App Service Environments](environment/intro.md) use dedicated network infrastructures, so apps running in an App Service environment get static, dedicated IP addresses both for inbound and outbound connections.
 
@@ -40,7 +40,7 @@ Regardless of the number of scaled-out instances, each app has a set number of o
 
 The set of outbound IP addresses for your app changes when you scale your app between the lower tiers (**Basic**, **Standard**, and **Premium**) and the **Premium V2** tier.
 
-You can find the set of all possible outbound IP addresses your app can use, regardless of pricing tiers, by looking for the `possibleOutbountIPAddresses` property. See [Find outbound IPs](#find-outbound-ips).
+You can find the set of all possible outbound IP addresses your app can use, regardless of pricing tiers, by looking for the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ips).
 
 ## Find outbound IPs
 
