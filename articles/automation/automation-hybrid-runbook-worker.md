@@ -141,7 +141,7 @@ The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communica
 
    Verify the computer has outbound access to *.azure-automation.net on port 443.
 
-2. The computer the hybrid worker is running on has less than the minimum hardware [requirements](automation-offering-get-started.md#hybrid-runbook-worker).
+2. The computer the hybrid worker is running on has less than the minimum hardware requirements.
 
    Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before designating it to host this feature. Otherwise, depending on the resource utilization of other background processes and contention caused by runbooks during execution, the computer becomes over utilized and cause runbook job delays or timeouts.
 
