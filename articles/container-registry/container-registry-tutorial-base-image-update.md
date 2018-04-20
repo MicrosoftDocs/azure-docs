@@ -134,7 +134,7 @@ az acr login --name $ACR_NAME
 Now, run the container locally with `docker run`. Replace **\<build-id\>** with the Build ID found in the output from the previous step (for example, "eastus5").
 
 ```azurecli
-docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloacrbuild:<build-id>
+docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
 ```
 
 Navigate to http://localhost:8080 in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
