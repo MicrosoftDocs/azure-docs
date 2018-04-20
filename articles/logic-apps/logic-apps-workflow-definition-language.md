@@ -51,7 +51,7 @@ Here is the basic structure for a workflow definition:
 | $schema | Only when externally referencing a definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json` |   
 | contentVersion | No | The version number for your workflow definition, which is "1.0.0.0" by default. To identify and confirm the correct definition when deploying a workflow, specify a value to use. | 
 | parameters | No | The definitions for one or more parameters that can pass data into your workflow <p>Maximum parameters: 50 | 
-| triggers | No | The definitions for one or more triggers that start your workflow. <p>You can define more than one trigger, but only in code view with the Workflow Definition Language, not the Logic Apps Designer. <p>Maximum triggers: 10 | 
+| triggers | No | The definitions for one or more triggers that start your workflow. <p>You can define more than one trigger, but only with the Workflow Definition Language, not the Logic Apps Designer. <p>Maximum triggers: 10 | 
 | actions | No | The definitions for one or more actions that execute in the workflow at runtime <p>Maximum actions: 250 | 
 | outputs | No | The definitions for the outputs that can return from a workflow run <p>Maximum outputs: 10 |  
 |||| 
@@ -82,7 +82,7 @@ Here is the general structure for a parameter definition:
 
 | Element | Required | Type | Description |  
 |---------|----------|------|-------------|  
-| type | Yes | int, string, securestring, bool, object, secureobject, array <p>**Note**: The `securestring` and `secureobject` types are not returned by `GET` operations. All passwords, keys, and secrets should use this type. | See the following *Examples* section. | 
+| type | Yes | int, string, securestring, bool, object, secureobject, array <p>**Note**: The `securestring` and `secureobject` types are not returned by `GET` operations. All passwords, keys, and secrets should use this type. | See the following examples section. | 
 | defaultValue | No | The default parameter value to use when no value is specified when the workflow instantiates | 
 | allowedValues | No | An array with values that the parameter can accept |  
 | metadata | No | Any other parameter details, for example, a readable description or design-time data used by Visual Studio or other tools |  
