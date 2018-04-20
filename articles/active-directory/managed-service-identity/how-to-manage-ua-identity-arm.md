@@ -16,14 +16,18 @@ ms.date: 04/16/2018
 ms.author: daveba
 ---
 
-# Create and delete a user assigned Managed Service Identity (MSI) using Azure Resource Manager
+# Create, list and delete a user assigned identity using Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Managed Service Identity provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you learn how to create and delete a user assigned MSI using Azure Resource Manager.
+In this article, you create a user assigned managed identity using an Azure Resource Manager.
 
+It is not possible to list and delete a user assigned identity using an Azure Resource Manager template.  See the following articles to create and list a user assigned identity:
+
+- [List user assigned identity](how-to-manage-ua-identity-cli.md#list-user-assigned-msi)
+- [Delete user assigned identity](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-msi)
 ## Prerequisites
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
@@ -39,9 +43,9 @@ As with the Azure portal and scripting, Azure Resource Manager templates provide
 - Using a local [JSON editor (such as VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), and then uploading and deploying by using PowerShell or CLI.
 - Using the Visual Studio [Azure Resource Group project](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to both create and deploy a template. 
 
-## Create a user assigned MSI 
+## Create a user assigned identity 
 
-To create a user assigned MSI, use the following template. Replace the `<MSI NAME>` value with your own values:
+To create a user assigned identity, use the following template. Replace the `<USER ASSIGNED IDENTITY NAME>` value with your own values:
 
 ```json
 {
@@ -51,14 +55,14 @@ To create a user assigned MSI, use the following template. Replace the `<MSI NAM
     "resourceName": {
           "type": "string",
           "metadata": {
-            "description": "<MSI NAME>"
+            "description": "<USER ASSIGNED IDENTITY NAME>"
           }
         }
   },
   "resources": [
     {
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-      "name": "[parameters('<MSI NAME>')]",
+      "name": "[parameters('<USER ASSIGNED IDENTITY NAME>')]",
       "apiVersion": "2015-08-31-PREVIEW",
       "location": "[resourceGroup().location]"
     }
@@ -66,24 +70,11 @@ To create a user assigned MSI, use the following template. Replace the `<MSI NAM
   "outputs": {
       "identityName": {
           "type": "string",
-          "value": "[parameters('<MSI NAME>')]"
+          "value": "[parameters('<USER ASSIGNED IDENTITY NAME>')]"
       }
   }
 }
 ```
-
-## List user assigned MSI
-
-It is not possible to list a user assigned identity using an Azure Resource Manager template. 
-
-To list managed service identities, use the Azure CLI command listed here, [List user assigned MSI](how-to-manage-ua-identity-cli.md#list-user-assigned-msi)
-
-## Delete a user assigned MSI
-
-It is not possible to delete a user assigned identity using an Azure Resource Manager template. 
-
-To delete a managed service identity, use the Azure CLI command listed here, [List user assigned MSI](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-msi)
-
 ## Related content
 
 For information on how to assign a user assigned managed identity to an Azure VM using an Azure Resource Manager template see, [Configure a VM Managed Service Identity by using a template](qs-configure-template-windows-vm.md).

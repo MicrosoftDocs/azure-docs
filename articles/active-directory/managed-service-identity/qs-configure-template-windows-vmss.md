@@ -89,7 +89,7 @@ In this section, you will enable and disable a system assigned identity using an
 
 ### Remove a system assigned identity from an Azure virtual machine scale set
 
-If you have a virtual machine scale set that no longer needs an MSI:
+If you have a virtual machine scale set that no longer needs a system assigned identity:
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
@@ -101,9 +101,9 @@ In this section, you create a user assigned identity and an Azure VMSS using an 
 
 ### Create and assign a user assigned identity to an Azure VMSS
 
-1. Perform the first the step in the section [Enable system assigned identity during creation of an Azure VMSS, on an existing VMSS](#enable-system-assigned-identity-during-creation-of-an-azure-vmss-or-on-an-existing-vmss).
+1. Perform the first the step in the section [Enable system assigned identity during creation of an Azure VMSS, on an existing VMSS](qs-configure-template-windows-vmss.md#enable-system-assigned-identity-during-creation-of-an-azure-vmss-or-an-existing-azure-vmss).
 
-2. Under the variables section that contains the configuration variables for your Azure VMSS, add an entry for a user assigned identity name similar to the following.  This hold the value of your user assigned identity during the Azure VMSS creation process:
+2. Under the variables section that contains the configuration variables for your Azure VMSS, add an entry for a user assigned identity name similar to the following.  This holds the value of your user assigned identity during the Azure VMSS creation process:
 
     ```json
     "variables": {

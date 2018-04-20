@@ -34,14 +34,14 @@ If you choose to install and use PowerShell locally, this tutorial requires the 
 
 ## Create a user assigned MSI 
 
-To create a user assigned MSI, use the [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) command. The `ResourceGroupName` parameter specifies the resource group where to create the MSI, and the `-Name` parameter specifies its name. Replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
+To create a user assigned managed identity, use the [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) command. The `ResourceGroupName` parameter specifies the resource group where to create the user assigned identity, and the `-Name` parameter specifies its name. Replace the `<RESOURCE GROUP>` and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values:
 
  ```azurepowershell-interactive
-New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <MSI NAME>
+New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
 ```
 ## List user assigned MSIs
 
-To list managed service identities, use the [Get-AzureRmUserAssigned](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity) command.  The `-ResourceGroupName` parameter specifies the resource group where the MSI was created.  Replace the `<RESOURCE GROUP>` with your own value:
+To list managed service identities, use the [Get-AzureRmUserAssigned](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity) command.  The `-ResourceGroupName` parameter specifies the resource group where the user assigned identity was created.  Replace the `<RESOURCE GROUP>` with your own value:
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP>
@@ -50,12 +50,12 @@ In the response, user assigned identities have `"Microsoft.ManagedIdentity/userA
 
 `Type :Microsoft.ManagedIdentity/userAssignedIdentities`
 
-## Delete a user assigned MSI
+## Delete a user assigned managed identity
 
-To delete a user assigned MSI, use the [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity) command.  The `-ResourceGroupName` parameter specifies the resource group where the MSI was created and the `-Name` parameter specifies its name.  Replace the `<RESOURCE GROUP>` and the `<MSI NAME>` parameters values with your own values:
+To delete a user assigned identity, use the [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity) command.  The `-ResourceGroupName` parameter specifies the resource group where the user assigned identity was created and the `-Name` parameter specifies its name.  Replace the `<RESOURCE GROUP>` and the `<USER ASSIGNED IDENTITY NAME>` parameters values with your own values:
 
  ```azurecli-interactive
-Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <MSI NAME>
+Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER ASSIGNED IDENTITY NAME>
 ```
 
 ## Related content

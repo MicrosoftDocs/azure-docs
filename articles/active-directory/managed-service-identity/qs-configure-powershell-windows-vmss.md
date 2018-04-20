@@ -30,9 +30,9 @@ In this article, you learn how to enable and remove system and user assigned MSI
 
 Also, install [the latest version of Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) if you haven't already.
 
-## System assigned MSI
+## System assigned managed identity
 
-In this section, you will learn how to enable and remove a system assigned MSI using Azure PowerShell.
+In this section, you learn how to enable and remove a system assigned identity using Azure PowerShell.
 
 ### Enable system assigned identity during the creation of an Azure VMSS
 
@@ -54,7 +54,7 @@ To create a VMSS with a system assigned identity:
 
 ## Enable system assigned identity on an existing Azure VMSS
 
-If you need to enable MSI on an existing Azure VMSS:
+If you need to enable a system assigned identity on an existing Azure VMSS:
 
 1. Sign in to Azure using `Login-AzureRmAccount`. Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
 
@@ -114,6 +114,7 @@ To assign a user assigned identity to an existing Azure VMSS:
    $settings = @{ "port" = 50342 }
    Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
    ```
+
 ### Remove a user assigned identity from an Azure VMSS
 
 Removing the only user assigned identity from a VMSS is not supported at this time.  Check back for updates.

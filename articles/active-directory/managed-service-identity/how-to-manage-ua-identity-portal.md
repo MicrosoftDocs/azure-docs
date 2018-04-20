@@ -22,4 +22,4 @@ ms.author: daveba
 
 Managed Service Identity provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-At this time, it is not possible to create, list, or delete a user assigned MSI using the Azure portal.  When these operations are available via the Azure portal, this article will be updated accordingly.
+At this time, it is not possible to create, list, or delete a user assigned managed identity using the Azure portal.  Check back for updates.
