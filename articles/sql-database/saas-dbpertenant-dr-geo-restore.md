@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/16/2018
 ms.author: ayolubek
 ---
 # Use geo-restore to recover a multitenant SaaS application from database backups
@@ -20,14 +20,14 @@ This tutorial explores a full disaster recovery scenario for a multitenant SaaS 
 Geo-restore is the lowest-cost disaster recovery solution for Azure SQL Database. However, restoring from geo-redundant backups can result in data loss of up to one hour. It can take considerable time, depending on the size of each database. 
 
 > [!NOTE]
-> To recover applications with the lowest possible RPO and RTO, use geo-replication instead of geo-restore.
+> Recover applications with the lowest possible RPO and RTO by using geo-replication instead of geo-restore.
 
 This tutorial explores both restore and repatriation workflows. You learn how to:
 > [!div class="checklist"]
 
 >* Sync database and elastic pool configuration info into the tenant catalog.
 >* Set up a mirror image environment in a recovery region that includes application, servers, and pools.   
->* Use geo-restore to recover catalog and tenant databases.
+>* Recover catalog and tenant databases by using geo-restore.
 >* Use geo-replication to repatriate the tenant catalog and changed tenant databases after the outage is resolved.
 >* Update the catalog as each database is restored (or repatriated) to track the current location of the active copy of each tenant's database.
 >* Ensure that the application and tenant database are always co-located in the same Azure region to reduce latency. 
@@ -66,6 +66,7 @@ This tutorial uses features of Azure SQL Database and the Azure platform to addr
 
 The DR scripts in this tutorial are available in the [Wingtip Tickets SaaS database per tenant GitHub repository](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/tree/feature-DR-georestore). For steps to download and unblock the Wingtip Tickets management scripts, see the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md).
 
+The DR scripts used in this tutorial are available in the [Wingtip Tickets SaaS database per tenant GitHub repository](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets management scripts.
 > [!IMPORTANT]
 > Like all the Wingtip Tickets management scripts, the DR scripts are sample quality and are not to be used in production.
 
@@ -300,7 +301,7 @@ Before each database is geo-replicated, the corresponding database in the origin
 
 On failover, the database roles are reversed. The secondary in the original region becomes the primary read-write database, and the database in the recovery region becomes a read-only secondary. The tenant entry in the catalog is updated to reference the database in the original region, and the tenant is marked online. At this point, repatriation of the database is complete. 
 
-Applications should be written with retry logic to ensure that they reconnect automatically when connections are broken. When they use the catalog to broker the reconnection, they connect to the repatriated database in the original region. Although the brief disconnect is often not noticed, you could choose to repatriate databases out of business hours.
+Applications should be written with retry logic to ensure that they reconnect automatically when connections are broken. When they use the catalog to broker the reconnection, they connect to the repatriated database in the original region. Although the brief disconnect is often not noticed, you can choose to repatriate databases out of business hours.
 
 Once a database is repatriated, the secondary database in the recovery region can be deleted. The database in the original region then relies again on geo-restore for DR protection.
 
@@ -349,12 +350,12 @@ The restore process creates all the recovery resources in a recovery resource gr
 
 2. To run the script, select F5.
 
-After cleaning up the scripts, the application is back where it started. At this point, you could run the script again or try out other tutorials.
+After cleaning up the scripts, the application is back where it started. At this point, you can run the script again or try out other tutorials.
 
 ## Designing the application to ensure that the app and the database are co-located 
 The application is designed to always connect from an instance in the same region as the tenant's database. This design reduces latency between the application and the database. This optimization assumes the app-to-database interaction is chattier than the user-to-app interaction.  
 
-Tenant databases could be spread across recovery and original regions for some time during repatriation. For each database, the app looks up the region in which the database is located by doing a DNS lookup on the tenant server name. In SQL Database, the server name is an alias. The aliased server name contains the region name. If the application isn't in the same region as the database, it redirects to the instance in the same region as the database server. Redirecting to the instance in the same region as the database minimizes latency between the app and the database.  
+Tenant databases can be spread across recovery and original regions for some time during repatriation. For each database, the app looks up the region in which the database is located by doing a DNS lookup on the tenant server name. In SQL Database, the server name is an alias. The aliased server name contains the region name. If the application isn't in the same region as the database, it redirects to the instance in the same region as the database server. Redirecting to the instance in the same region as the database minimizes latency between the app and the database.  
 
 ## Next steps
 
@@ -362,7 +363,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 
 >* Use the tenant catalog to hold periodically refreshed configuration information, which allows a mirror image recovery environment to be created in another region.
->* Use geo-restore to recover Azure SQL databases into the recovery region.
+>* Recover Azure SQL databases into the recovery region by using geo-restore.
 >* Update the tenant catalog to reflect restored tenant database locations. 
 >* Use a DNS alias to enable an application to connect to the tenant catalog throughout without reconfiguration.
 >* Use geo-replication to repatriate recovered databases to their original region after an outage is resolved.

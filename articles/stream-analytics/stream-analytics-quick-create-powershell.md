@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a Stream Analytics job by using Azure PowerShell | Microsoft Docs
 description: This quickstart details using the Azure PowerShell module to deploy and run an Azure Stream Analytics job.
 services: stream-analytics
@@ -26,11 +26,11 @@ The Azure PowerShell module is used to create and manage Azure resources by usin
 
 ## Sign in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and enter your Azure credentials in the pop-up browser. After signing in, if you have multiple subscriptions, select the subscription that you would like to use for this quickstart by running the following cmdlets. Make sure to replace <your subscription> with the name of your subscription:  
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and enter your Azure credentials in the pop-up browser. After signing in, if you have multiple subscriptions, select the subscription that you would like to use for this quickstart by running the following cmdlets. Make sure to replace <your subscription> with the name of your subscription:  
 
 ```powershell
 # Log in to your Azure account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Select the Azure subscription you want to use to create the resource group.
 Get-AzureRmSubscription `

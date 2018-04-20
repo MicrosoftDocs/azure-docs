@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2018
+ms.date: 04/19/2018
 ms.author: twooley
 ms.reviewer: sasubram
 
@@ -23,11 +23,8 @@ ms.reviewer: sasubram
 
 # Allow or block invitations to B2B users from specific organizations
 
-You can use an allow list or a deny list to allow or block invitations to B2B users from specific organizations. For example, if you want to block personal email address domains, you can set up a deny list that contains domains like Gmail.com and Outlook.com. Or, if your business has a partnership with other businesses like Contoso.com, Fabrikam.com, and Litware.com, and you want to restrict invitations to only these organizations, you can add Contoso.com, Fabrikam.com and Litware.com to your allow list.
+You can use an allow list or a deny list to allow or block invitations to B2B users from specific organizations. For example, if you want to block personal email address domains, you can set up a deny list that contains domains like Gmail.com and Outlook.com. Or, if your business has a partnership with other businesses like Contoso.com, Fabrikam.com, and Litware.com, and you want to restrict invitations to only these organizations, you can add Contoso.com, Fabrikam.com, and Litware.com to your allow list.
   
-> [!NOTE]
-> Currently, you can only use deny lists. The ability to use allow lists is coming very soon.
-
 ## Important considerations
 
 - You can create either an allow list or a deny list. You can't set up both types of lists. By default, whatever domains are not in the allow list are on the deny list, and vice versa. 
@@ -49,22 +46,34 @@ To add a deny list:
 2. Select **Azure Active Directory** > **Users** > **User settings**.
 3. Under **External users**, select **Manage external collaboration settings**.
 4. Under **Collaboration restrictions**, select **Deny invitations to the specified domains**.
-5. Under **TARGET DOMAINS**, enter the name of one of the domains that you want to block. For multiple domains, enter each domain on a new line.
+5. Under **TARGET DOMAINS**, enter the name of one of the domains that you want to block. For multiple domains, enter each domain on a new line. For example:
 
    ![Shows the deny option with added domains](./media/active-directory-b2b-allow-deny-list/DenyListSettings.png)
  
 6. When you're done, click **Save**.
 
-After you set the policy, if you try to invite a user from a blocked domain, you receive a message saying that the user is currently blocked by your invitation policy.
+After you set the policy, if you try to invite a user from a blocked domain, you receive a message saying that the domain of the user is currently blocked by your invitation policy.
  
 ### Add an allow list
 
-> [!NOTE]
-> Currently, the **Allow invitations only to the specified domains (most restrictive)** setting is unavailable. The ability to use allow lists is coming very soon.
-
 This is a more restrictive configuration, where you can set specific domains in the allow list and restrict invitations to any other organizations or domains that aren't mentioned. 
 
-If you want to use an allow list, make sure that you spend time to fully evaluate what your business needs. If you make this policy too restrictive, your users may choose to send documents over email, or find other non-IT sanctioned ways of collaborating.
+If you want to use an allow list, make sure that you spend time to fully evaluate what your business needs are. If you make this policy too restrictive, your users may choose to send documents over email, or find other non-IT sanctioned ways of collaborating.
+
+
+To add an allow list:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **Azure Active Directory** > **Users** > **User settings**.
+3. Under **External users**, select **Manage external collaboration settings**.
+4. Under **Collaboration restrictions**, select **Allow invitations only to the specified domains (most restrictive)**.
+5. Under **TARGET DOMAINS**, enter the name of one of the domains that you want to allow. For multiple domains, enter each domain on a new line. For example:
+
+   ![Shows the allow option with added domains](./media/active-directory-b2b-allow-deny-list/AllowListSettings.png)
+ 
+6. When you're done, click **Save**.
+
+After you set the policy, if you try to invite a user from a domain that's not on the allow list, you receive a message saying that the domain of the user is currently blocked by your invitation policy.
 
 ### Switch from allow to deny list and vice versa 
 
@@ -114,9 +123,6 @@ If the module is not installed, or you don't have a required version, do one of 
     ````
 
 ### Use the AzureADPolicy cmdlets to configure the policy
-
-> [!NOTE]
-> Currently, you can only configure deny lists. The ability to use allow lists is coming very soon.
 
 To create an allow or deny list, use the [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet. The following example shows how to set a deny list that blocks the "live.com" domain.
 

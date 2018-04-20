@@ -4,9 +4,8 @@ description: Find out which countries and languages are supported by the Bing Cu
 services: cognitive-services
 author: mikedodaro
 manager: ronakshah
-
 ms.service: cognitive-services
-ms.technology: bing-custom-search
+ms.component: bing-custom-search
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: v-gedod

@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Bing News Search Documentation
+title: Bing News Search Documentation 
 metadata:
-  title: Bing News Search Documentation - Tutorials, API Reference
+  title: Bing News Search Documentation - Tutorials, API Reference - Azure Cognitive Services
   description: Learn how to use Bing News Search API to obtain news from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
   services: cognitive-services
   author: mikedodaro

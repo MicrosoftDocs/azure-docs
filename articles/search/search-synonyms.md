@@ -1,18 +1,13 @@
 ---
 pageTitle: "Synonyms in Azure Search (preview) | Microsoft Docs"
 description: "Preliminary documentation for the Synonyms (preview) feature, exposed in the Azure Search REST API."
-services: "search"
-documentationCenter: ""
 authors: "mhko"
-manager: "pablocas"
-editor: ""
-
+services: search
 ms.service: "search"
 ms.devlang: "rest-api"
-ms.workload: "search"
-ms.topic: "article"
-ms.tgt_pltfrm: "na"
+ms.topic: conceptual
 ms.date: "07/07/2016"
+manager: jlembicz
 ms.author: "nateko"
 ---
 # Synonyms in Azure Search (preview)

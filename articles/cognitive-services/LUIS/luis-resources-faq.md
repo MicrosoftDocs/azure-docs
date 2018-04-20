@@ -1,16 +1,15 @@
 ---
 title: Language Understanding Intelligent Services (LUIS) in Azure frequently asked questions | Microsoft Docs
 titleSuffix: Azure
-description:  Get answers to frequently asked questions about Language Understanding Intelligent Services (LUIS)
+description: Get answers to frequently asked questions about Language Understanding Intelligent Services (LUIS)
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 # Language Understanding FAQ
 
@@ -156,6 +155,10 @@ Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) in
 
 ## Why does LUIS add spaces to the query around or in the middle of words?
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).  
+
+## Why do I keep getting "Your sign in has expired" error?
+ 
+See [Website sign in time period](luis-boundaries.md#website-sign-in-time-period).
 
 ## Next steps
 

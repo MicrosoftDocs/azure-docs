@@ -1,4 +1,4 @@
----
+﻿---
 title: Govern Azure virtual machines with Azure PowerShell | Microsoft Docs
 description: Tutorial - Manage Azure virtual machines by applying RBAC, polices, locks and tags with Azure PowerShell
 services: virtual-machines-windows
@@ -22,7 +22,7 @@ ms.author: tomfitz
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. For local installations, you must also [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/) to create a new Azure Active Directory group.
+If you choose to install and use the PowerShell locally, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. For local installations, you must also [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/) to create a new Azure Active Directory group.
 
 ## Understand scope
 
