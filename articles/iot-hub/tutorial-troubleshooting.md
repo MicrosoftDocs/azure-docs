@@ -40,6 +40,12 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
+The CLI scripts you run in this tutorial use the [Microsoft Azure IoT Extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). To install this extension, run the following CLI command:
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 The device simulator application you run in this tutorial is written using Node.js. You need Node.js v4.x.x or later on your development machine.
 
 You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
@@ -100,12 +106,11 @@ In this section, you reset the device key and observe the error when the simulat
 To reset the primary device key for **MyTestDevice**, run the following commands:
 
 ```azurecli-interactive
-# Install the IoT Extension for Azure CLI 2.0
-#  if it's not already installed
-az extension add --name azure-cli-iot-ext
-
 # Generate a new Base64 encoded key using the current date
 read key < <(date +%s | sha256sum | base64 | head -c 32)
+
+# Requires the IoT Extension for Azure CLI 2.0
+# az extension add --name azure-cli-iot-ext
 
 # Reset the primary device key for MyTestDevice
 az iot hub device-identity update --device-id MyTestDevice --set authentication.symmetricKey.primaryKey=$key --hub-name {YourIoTHubName}
@@ -124,7 +129,7 @@ This time you see an authentication error when the application tries to connect:
 
 ### Generate shared access signature (SAS) token
 
-If your device uses one of the IoT Hub device SDKs, the SDK library generates the SAS token used to authenticate with the hub. A SAS token is generated from the name of your hub, the name of your device, and the device key.
+If your device uses one of the IoT Hub device SDKs, the SDK library code generates the SAS token used to authenticate with the hub. A SAS token is generated from the name of your hub, the name of your device, and the device key.
 
 In some scenarios, such as in a cloud protocol gateway or as part of a custom authentication scheme, you may need to generate the SAS token yourself. To troubleshoot issues with your SAS generation code, it's useful to be able to generate a known-good SAS token to use during testing.
 
@@ -134,11 +139,11 @@ To generate a known-good SAS token using the CLI, run the following command:
 az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubName}
 ```
 
-Make a note of the full text of the generated SAS token. A SAS token looks like the following: `'SharedAccessSignature sr=youriothubname.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307'`
+Make a note of the full text of the generated SAS token. A SAS token looks like the following: `'SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307'`
 
 In a terminal window on your development machine, navigate to the root folder of the sample Node.js project you downloaded. Then navigate to the **simulated-device** folder.
 
-Open the **SimulatedDevice-2.js** file in a text editor of your choice. Replace the value of the `test_token` variable with the value of the SAS token you made a note of previously. Then save your changes to **SimulatedDevice-2.js** file.
+Open the **SimulatedDevice-2.js** file in a text editor of your choice. Replace the value of the `test_token` variable with the value of the SAS token you generated using the CLI command. Then save your changes to **SimulatedDevice-2.js** file.
 
 In the terminal window, run the following commands to install the required libraries and run the simulated device application:
 
@@ -230,7 +235,7 @@ When the simulated device successfully receives the direct method call, it sends
 
 ## Twin synchronization
 
-Devices use twins to synchronize state between the device and the hub. In this section, you use a CLI command to send _desired properties_ to a device and read the _reported properties_ sent by the device.
+Devices use twins to synchronize state between the device and the hub. In this section, you use CLI commands to send _desired properties_ to a device and read the _reported properties_ sent by the device.
 
 The simulated device you use in this section sends reported properties to the hub whenever it starts up, and prints desired properties to the console whenever it receives them.
 
