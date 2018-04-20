@@ -22,9 +22,36 @@ Azure Monitor currently provides metrics for two resource types in Azure Contain
 
 CPU metrics are expressed in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500m) represents 50% utilization of a CPU core.
 
+![Container instance CPU chart][cpu-chart]
+
 ### Memory
 
 Memory metrics are expressed in **bytes**.
+
+![Container instance memory chart][memory-chart]
+
+```console
+$ az monitor metrics list --resource /subscriptions/<subscription-id>/resourceGroups/aci-monitor-test/providers/Microsoft.ContainerInstance/containerGroups/aci-monitor-test-aci1 --metric MemoryUsage -o table
+
+Timestamp            Name              Average
+-------------------  ------------  -----------
+2018-04-20 03:49:00  Memory Usage  1.63502e+07
+2018-04-20 03:50:00  Memory Usage  1.58269e+07
+2018-04-20 03:51:00  Memory Usage  1.57471e+07
+2018-04-20 03:52:00  Memory Usage  1.58628e+07
+2018-04-20 03:53:00  Memory Usage  1.60184e+07
+2018-04-20 03:54:00  Memory Usage  1.61884e+07
+2018-04-20 03:55:00  Memory Usage  1.64229e+07
+2018-04-20 03:56:00  Memory Usage  1.58505e+07
+2018-04-20 03:57:00  Memory Usage  1.58136e+07
+2018-04-20 03:58:00  Memory Usage  1.59826e+07
+2018-04-20 03:59:00  Memory Usage  1.61556e+07
+2018-04-20 04:00:00  Memory Usage  1.63011e+07
+2018-04-20 04:01:00  Memory Usage  1.63973e+07
+2018-04-20 04:02:00  Memory Usage  1.58966e+07
+2018-04-20 04:03:00  Memory Usage  1.57317e+07
+2018-04-20 04:04:00  Memory Usage  1.58843e+07
+2018-04-20 04:05:00  Memory Usage  1.60686e+07
 
 ## Alerts
 
@@ -76,5 +103,7 @@ You've created an alert that will send email to the address you specified when C
 Like all Azure services, Azure Container Instances includes certain default limits and quotas for resources and features. Find details on these limits and how to request quota increases in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
 
 <!-- IMAGES -->
+[cpu-chart]: ./media/container-instances-monitor/cpu.png
+[memory-chart]: ./media/container-instances-monitor/memory.png
 <!-- LINKS - External -->
 <!-- LINKS - Internal -->
