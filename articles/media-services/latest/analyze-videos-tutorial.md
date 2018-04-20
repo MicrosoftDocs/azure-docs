@@ -86,7 +86,7 @@ private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string 
 
 ### Create a transform and a job that analyzes videos
 
-When processing content in Media Services, it is a common pattern to set up the processing settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). In this tutorial, we define a recipe that analyzes videos. 
+When processing content in Media Services, it is a common pattern to set up the processing settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). In this tutorial, a recipe that analyzes videos is defined. 
 
 #### Transform
 
@@ -155,7 +155,7 @@ Polling is not a recommended best practice for production applications because o
 
 Event Grid is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.
 
-The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you will get the **Error** state. If the job is in the process of being canceled, you will get **Canceling** and **Canceled** when it is done.
+The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
 ```csharp
 private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, string jobName)
@@ -226,7 +226,7 @@ private static void DownloadResults(IAzureMediaServicesClient client, string res
 
 ### Clean up resource in your Media Services account
 
-Generally, you should clean up everything except objects that you are planning to reuse (commonly, you will want to reuse a transform). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes jobs.
+Generally, you should clean up everything except objects that you are planning to reuse (commonly, you want to reuse a transform). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes jobs.
 
 ```csharp
 static void CleanUp(IAzureMediaServicesClient client, string resourceGroupName, string accountName, String transformName)
