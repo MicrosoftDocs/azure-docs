@@ -38,7 +38,7 @@ Here is the high-level structure for a workflow definition:
 "definition": {
   "$schema": "<workflow-definition-language-schema-version>",
   "contentVersion": "<workflow-definition-version-number>",
-  "parameters": { &lt;workflow-parameter-definitions&gt; },
+  "parameters": { "<workflow-parameter-definitions>" },
   "triggers": { "<workflow-trigger-definitions>" },
   "actions": { "<workflow-action-definitions>" },
   "outputs": { "<workflow-output-definitions>" }
@@ -51,7 +51,7 @@ Here is the high-level structure for a workflow definition:
 | $schema | Only when externally referencing a definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |   
 | contentVersion | No | The version number for your workflow definition, which is "1.0.0.0" by default. To identify and confirm the correct definition when deploying a workflow, specify a value to use. | 
 | parameters | No | The definitions for one or more parameters that can pass data into your workflow <p>Maximum parameters: 50 | 
-| triggers | No | The definitions for one or more triggers that start your workflow. <p>You can define more than one trigger, but only with the Workflow Definition Language, not the Logic Apps Designer. <p>Maximum triggers: 10 | 
+| triggers | No | The definitions for one or more triggers that start your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not the Logic Apps Designer. <p>Maximum triggers: 10 | 
 | actions | No | The definitions for one or more actions that execute in the workflow at runtime <p>Maximum actions: 250 | 
 | outputs | No | The definitions for the outputs that can return from a workflow run <p>Maximum outputs: 10 |  
 |||| 
