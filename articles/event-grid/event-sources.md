@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
 ---
 
@@ -22,6 +22,10 @@ This article provides links to content for each event source.
 ### Azure Subscriptions (management operations)
 
 [Schema](event-schema-subscriptions.md)
+
+### Container Registry
+
+[Schema](event-schema-container-registry.md)
 
 ### Custom Topics
 
