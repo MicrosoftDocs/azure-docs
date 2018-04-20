@@ -75,4 +75,4 @@ The installation path is picked up from the registry from the previous PhoneFact
 
 - [Install the users portal](howto-mfaserver-deploy-userportal.md) for the Azure Multi-Factor Authentication Server.
 
-- [Configure Windows Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-server-windows.md) for your applications. 
+- [Configure Windows Authentication](howto-mfaserver-windows.md) for your applications. 
