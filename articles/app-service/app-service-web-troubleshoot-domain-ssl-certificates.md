@@ -3,8 +3,8 @@ title: Troubleshoot domain and SSL certificate problems in Azure web apps | Micr
 description: Troubleshoot domain and SSL certificate problems in Azure web apps
 services: app-service\web
 documentationcenter: ''
-author: genli
-manager: willchen
+author: genlin
+manager: cshepard
 editor: ''
 tags: top-support-issue
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: genlin
+ms.author: genli
 ---
 # Troubleshoot domain and SSL certificate problems in Azure web apps
 
