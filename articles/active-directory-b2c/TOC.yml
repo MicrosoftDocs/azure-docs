@@ -159,6 +159,8 @@
           href: active-directory-b2c-custom-setup-li-idp.md
         - name: Twitter
           href: active-directory-b2c-custom-setup-twitter-idp.md
+        - name: Multi-tenant
+          href: active-directory-b2c-setup-commonaad-custom.md 
       - name: Configure SAML providers
         items:
         - name: ADFS
@@ -195,12 +197,12 @@
           href: active-directory-b2c-reference-password-change-custom.md
         - name: Enable keep me signed in
           href: active-directory-b2c-reference-kmsi-custom.md
-      - name: Tracking user behavior
-        href: active-directory-b2c-custom-guide-eventlogger-appins.md
       - name: Troubleshooting
         items:
         - name: Collect logs using Application Insights
           href: active-directory-b2c-troubleshoot-custom.md
+        - name: Tracking user behavior
+          href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: Reference
       items:
       - name: Release notes
