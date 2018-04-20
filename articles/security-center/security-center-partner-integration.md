@@ -29,7 +29,7 @@ Security Center makes it easy to enable integrated security solutions in Azure. 
 
 Currently, integrated security solutions include:
 
-- Endpoint protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, Windows Defender, and System Center Endpoint Protection (SCEP))
+- Endpoint protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, McAfee, Windows Defender, and System Center Endpoint Protection (SCEP))
 - Web application firewall ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), and [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - Next-generation firewall ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), and [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html))
 - Vulnerability assessment ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
@@ -41,8 +41,8 @@ The endpoint protection integration experience may vary according to the solutio
 | Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | No, Built in to OS           | Yes                       |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 | Via Extension                | Yes                       |
 | Trend Micro – All version         | Windows Server Family                 | Via Extension                | Yes                       |
-| Symantec v12.1.1100+                     | Windows Server Family                 | No                           | Yes                        |
-| MacAfee                           | Windows Server Family                 | No                           | Yes                        |
+| Symantec v12.1.1100+              | Windows Server Family                 | No                           | Yes                       |
+| McAfee v10+                       | Windows Server Family                 | No                           | Yes                       |
 | Kaspersky                         | Windows Server Family                 | No                           | No                        |
 | Sophos                            | Windows Server Family                 | No                           | No                        |
 
