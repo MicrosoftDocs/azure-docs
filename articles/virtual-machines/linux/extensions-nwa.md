@@ -36,11 +36,13 @@ The Network Watcher Agent extension can be run against these Linux distributions
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS and 12.04 LTS |
 | Debian | 7 and 8 |
-| RedHat | 6.x and 7.x |
-| Oracle Linux | 7x |
-| Suse | 11 and 12 |
-| OpenSuse | 7.0 |
-| CentOS | 7.0 |
+| RedHat | 6 and 7 |
+| Oracle Linux | 6.8+ and 7 |
+| SUSE Linux Enterprise Server | 11 and 12 |
+| OpenSUSE Leap | 42.3+ |
+| CentOS | 6.5+ and 7 |
+| CoreOS | 899.17.0+ |
+| SLES | 11 and 12 |
 
 Note that CoreOS is not supported at this time.
 
