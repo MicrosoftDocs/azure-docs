@@ -4,12 +4,11 @@ description: LUIS apps require design iterations to train LUIS to get the best d
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 # Authoring cycle
 LUIS learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries. 

@@ -1,6 +1,6 @@
 ---
-title: Get started with Storage Explorer (Preview) | Microsoft Docs
-description: Manage Azure storage resources with Storage Explorer (Preview)
+title: Get started with Storage Explorer | Microsoft Docs
+description: Manage Azure storage resources with Storage Explorer
 services: storage
 documentationcenter: na
 author: cawa
@@ -17,27 +17,54 @@ ms.date: 07/17/2017
 ms.author: cawa
 
 ---
-# Get started with Storage Explorer (Preview)
+# Get started with Storage Explorer
 ## Overview
-Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux. In this article, you learn several ways of connecting to and managing your Azure storage accounts.
+Azure Storage Explorer is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux. In this article, you learn several ways of connecting to and managing your Azure storage accounts.
 
-![Microsoft Azure Storage Explorer (Preview)][0]
+![Microsoft Azure Storage Explorer][0]
 
 ## Prerequisites
-* [Download and install Storage Explorer (Preview)](http://www.storageexplorer.com)
 
-> [!NOTE]
-> For Linux distros other than Ubuntu 16.04, you may need to manually install some dependencies. In general, the following packages are required:
-> * libgconf-2-4
-> * libsecret
-> * Up-to-date GCC
->
-> Depending on your distro, there may be other packages you need to install. The Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distros.
->
->
+# [Windows](#tab/windows)
+Azure Storage Explorer is supported on the following versions of Windows:
+
+* Windows 10 (recommended)
+* Windows 8
+* Windows 7
+
+[Download and install Storage Explorer](http://www.storageexplorer.com)
+
+# [macOS](#tab/macos)
+Azure Storage Explorer is supported on the following versions of macOS:
+
+* macOS 10.12 "Sierra" and later versions
+
+[Download and install Storage Explorer](http://www.storageexplorer.com)
+
+# [Linux](#tab/linux)
+Azure Storage Explorer is supported on the following distros of Linux:
+
+* Ubuntu 16.04 x64 (recommended)
+* Ubuntu 17.10 x64
+* Ubuntu 14.04 x64
+
+Azure Storage Explorer may work on other distros, but only ones listed above are officially supported.
+
+You must also have the following dependencies/libraries installed to run Azure Storage Exploer on Linux:
+
+* [.NET Core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* libsecret (Note: libsecret-1.so.0 must be available on your machine. If you have a different version of libsecret installed, you can try soft linking its .so file to libsecret-1.so.0)
+* libgconf-2-4
+* Up-to-date GCC
+
+The Azure Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distros.
+
+[Download and install Storage Explorer](http://www.storageexplorer.com)
+
+---
 
 ## Connect to a storage account or service
-Storage Explorer (Preview) provides several ways to connect to storage accounts. For example, you can:
+Storage Explorer provides several ways to connect to storage accounts. For example, you can:
 * Connect to storage accounts associated with your Azure subscriptions.
 * Connect to storage accounts and services that are shared from other Azure subscriptions.
 * Connect to and manage local storage by using the Azure Storage Emulator. 
@@ -57,7 +84,7 @@ In addition, you can work with storage accounts in global and national Azure:
 >
 >
 
-1. In Storage Explorer (Preview), select **Manage Accounts** to go to the **Account Management Panel**.
+1. In Storage Explorer, select **Manage Accounts** to go to the **Account Management Panel**.
 
     ![Manage Accounts][1]
 
@@ -76,7 +103,7 @@ In addition, you can work with storage accounts in global and national Azure:
     ![Selected Azure subscriptions][4]
 
 ## Work with local development storage
-With Storage Explorer (Preview), you can work against local storage by using the Azure Storage Emulator. This approach lets you simulate working with Azure Storage without necessarily having a storage account deployed on Azure, because the storage account is being emulated by the Azure Storage Emulator.
+With Storage Explorer, you can work against local storage by using the Azure Storage Emulator. This approach lets you simulate working with Azure Storage without necessarily having a storage account deployed on Azure, because the storage account is being emulated by the Azure Storage Emulator.
 
 > [!NOTE]
 > The Azure Storage Emulator is currently supported only for Windows.
@@ -88,7 +115,7 @@ With Storage Explorer (Preview), you can work against local storage by using the
 >
 >
 
-1. In the left pane of Storage Explorer (Preview), expand the **(Local and Attached)** > **Storage Accounts** > **(Development)** > **Blob Containers** node.
+1. In the left pane of Storage Explorer, expand the **(Local and Attached)** > **Storage Accounts** > **(Development)** > **Blob Containers** node.
 
     ![Local development node][5]
 
@@ -99,12 +126,9 @@ With Storage Explorer (Preview), you can work against local storage by using the
 3. After the emulator is installed, you can create and work with local blobs, queues, and tables. To learn how to work with each storage account type, refer to the following guides:
 
     * [Manage Azure blob storage resources](vs-azure-tools-storage-explorer-blobs.md)
-    * Manage Azure file share storage resources: *Coming soon*
-    * Manage Azure queue storage resources: *Coming soon*
-    * Manage Azure table storage resources: *Coming soon*
 
 ## Attach or detach an external storage account
-With Storage Explorer (Preview), you can attach to external storage accounts so that storage accounts can be easily shared. This section explains how to attach to (and detach from) external storage accounts.
+With Storage Explorer, you can attach to external storage accounts so that storage accounts can be easily shared. This section explains how to attach to (and detach from) external storage accounts.
 
 ### Get the storage account credentials
 To share an external storage account, the owner of that account must first get the credentials (account name and key) for the account and then share that information with the person who wants to attach to said account. You can obtain the storage account credentials via the Azure portal by doing the following steps:
@@ -126,9 +150,9 @@ To share an external storage account, the owner of that account must first get t
     ![Access keys][8]
 
 ### Attach to an external storage account
-To attach to an external storage account, you need the account's name and key. The "Get the storage account credentials" section explains how to obtain these values from the Azure portal. However, in the portal, the account key is called **key1**. So, when Storage Explorer (Preview) asks for an account key, you enter the **key1** value.
+To attach to an external storage account, you need the account's name and key. The "Get the storage account credentials" section explains how to obtain these values from the Azure portal. However, in the portal, the account key is called **key1**. So, when Storage Explorer asks for an account key, you enter the **key1** value.
 
-1. In Storage Explorer (Preview), open the **Connect Dialog**.
+1. In Storage Explorer, open the **Connect Dialog**.
 
     ![Connect to Azure storage option][9]
 
@@ -169,10 +193,10 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 
 2. UserA shares the SAS with the person (UserB, in this example) who wants access to the storage account.  
 
-3. UserB uses Storage Explorer (Preview) to attach to the account that belongs to UserA by using the supplied SAS.
+3. UserB uses Storage Explorer to attach to the account that belongs to UserA by using the supplied SAS.
 
 ### Generate a SAS connection string for the account you want to share
-1. In Storage Explorer (Preview), right-click the storage account you want share, and then select **Get Shared Access Signature...**.
+1. In Storage Explorer, right-click the storage account you want share, and then select **Get Shared Access Signature...**.
 
     ![Get SAS context menu option][14]
 
@@ -183,7 +207,7 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 3. Next to the **Connection String** text box, select **Copy** to copy it to your clipboard, and then click **Close**.
 
 ### Attach to a storage account by using a SAS Connection String
-1. In Storage Explorer (Preview), open the **Connect Dialog**.
+1. In Storage Explorer, open the **Connect Dialog**.
 
     ![Connect to Azure storage option][9]
 
@@ -210,12 +234,9 @@ The "Attach a storage account by using a SAS" section explains how an Azure subs
 In this context, a service can be a blob container, queue, table, or file share. To generate the SAS for a listed service, see:
 
 * [Get the SAS for a blob container](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-* Get the SAS for a file share: *Coming soon*
-* Get the SAS for a queue: *Coming soon*
-* Get the SAS for a table: *Coming soon*
 
 ### Attach to the shared account service by using a SAS URI
-1. In Storage Explorer (Preview), open the **Connect Dialog**.
+1. In Storage Explorer, open the **Connect Dialog**.
 
     ![Connect to Azure storage option][9]
 
@@ -248,7 +269,7 @@ Besides manage Azure Cosmos DB accounts through Azure subscription, an alternati
 
  ## Connect to Azure Data Lake Store by URI
 If you want to get access to the resources, which do not exist in your subscription. But others grant you to get the Uri for the resources. In this case, you can connect to Data Lake Store using the Uri after you have signed in. Refer to following steps.
-1. Open Storage Explorer (Preview).
+1. Open Storage Explorer.
 2. In the left pane, expand **Local and Attached**.
 3. Right-click **Data Lake Store**, and - from the context menu - select **Connect to Data Lake Store...**.
 
@@ -273,9 +294,9 @@ As you type in the search box, the left pane displays all resources that match t
 >
 
 ## Next steps
-* [Manage Azure Blob Storage resources with Storage Explorer (Preview)](vs-azure-tools-storage-explorer-blobs.md)
+* [Manage Azure Blob Storage resources with Storage Explorer](vs-azure-tools-storage-explorer-blobs.md)
 * [Manage Azure Cosmos DB in Azure Storage Explorer  (Preview)](./cosmos-db/storage-explorer.md)
-* [Manage Azure Data Lake Store resources with Storage Explorer (preview)](./data-lake-store/data-lake-store-in-storage-explorer.md)
+* [Manage Azure Data Lake Store resources with Storage Explorer](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

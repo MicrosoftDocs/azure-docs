@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/16/2018
 ms.author: ayolubek
 ---
 # Use geo-restore to recover a multitenant SaaS application from database backups
@@ -64,7 +64,7 @@ This tutorial uses features of Azure SQL Database and the Azure platform to addr
 
 ## Get the disaster recovery scripts
 
-The DR scripts in this tutorial are available in the [Wingtip Tickets SaaS database per tenant GitHub repository](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/tree/feature-DR-georestore). For steps to download and unblock the Wingtip Tickets management scripts, see the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md).
+The DR scripts used in this tutorial are available in the [Wingtip Tickets SaaS database per tenant GitHub repository](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets management scripts.
 
 > [!IMPORTANT]
 > Like all the Wingtip Tickets management scripts, the DR scripts are sample quality and are not to be used in production.
