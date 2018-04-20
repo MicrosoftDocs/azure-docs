@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -69,7 +69,7 @@ The cloud apps condition is mandatory in a conditional access policy. In your po
 
 You can select:
 
-- **All cloud apps** to baseline policies to be applied to the entire organization. A common use case for this selection is a policy that requires multi-factor authentication when sign-in risk is detected for any cloud app.
+- **All cloud apps** to baseline policies to be applied to the entire organization. A common use case for this selection is a policy that requires multi-factor authentication when sign-in risk is detected for any cloud app. A policy applied to **All cloud apps** applies to access to all web site and services. This setting is not limited to the cloud apps that appear on the **Select Cloud apps** list.
 
 - Individual cloud apps to target specific services by policy. For example, you can require users to have a [compliant device](active-directory-conditional-access-policy-connected-applications.md) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content, for example, Microsoft Teams. 
 

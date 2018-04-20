@@ -87,6 +87,13 @@
 ### [MQTT support](iot-hub-mqtt-support.md)
 ### [Glossary](iot-hub-devguide-glossary.md)
 
+## Set up your device
+### [Simulate a device on your PC](iot-hub-get-started-simulated.md)
+#### [.NET](iot-hub-csharp-csharp-getstarted.md)
+#### [Java](iot-hub-java-java-getstarted.md)
+#### [Node.js](iot-hub-node-node-getstarted.md)
+#### [Python](iot-hub-python-getstarted.md)
+#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 ## [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
 ### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
@@ -177,6 +184,7 @@
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
+#### [iOS](iot-hub-ios-swift-c2d.md)
 ### Upload files from devices
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
