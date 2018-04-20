@@ -52,11 +52,6 @@ Adding an utterance to an intent means that it is labeled under that intent. You
 
 ![Screenshot of Intents details page, with Reassign option highlighted](./media/add-example-utterances/reassign-utterance.png) 
 
-
-## Add prebuilt entity label
-
-If you add the prebuilt entities to your LUIS app, you don't need to label utterances with these entities. To learn more about prebuilt entities and how to add them, see [Add entities](Add-entities.md).
-
 ## Add simple entity label
 In the following procedure, you create and label custom entities within the following utterance on the intent page:
 
@@ -77,24 +72,6 @@ book me 2 adult business tickets to Paris tomorrow on Air France
 
 > [!TIP]
 > Try the simple entity [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more.
-
-## Add regular expression entity label
-In the following procedure, you create a custom regular expression entity within the following utterance on the intent page:
-
-```
-book me 2 adult business tickets to Paris tomorrow on Air France (AFR1185)
-```
-
-This pulls out the flight number `AFR1185`.
-
-1. Select "AFR1185" in the utterance.
-
-2. In the entity drop-down box that appears, add a new entity by typing its name (`AirFrance flight number`) in the text box. Select **Create new entity**. Then select an entity type of **Regular expression**, and enter the regular expression "AFR[0-9]{3,4}" in the text box. Then select **Done**.
- 
-    ![Screenshot of Intents details page, with regular expression entity labeling option highlighted](./media/add-example-utterances/create-airline-regex-entity.png)
- 
-> [!TIP]
-> Try the regular expression [quickstart](luis-quickstart-intents-regex-entity.md) to learn more.
 
 ## Add hierarchical entity and label
 
@@ -190,8 +167,16 @@ To remove your own custom entity label from an utterance, select the entity in t
 
 Custom list entities cannot be removed, because they are predicted by LUIS.
 
-## Search in utterances
+## Add prebuilt entity label
+If you add the prebuilt entities to your LUIS app, you don't need to label utterances with these entities. To learn more about prebuilt entities and how to add them, see [Add entities](Add-entities.md#add-prebuilt-entity).
 
+## Add regular expression entity label
+If you add the regular expression entities to your LUIS app, you don't need to label utterances with these entities. To learn more about regular expression entities and how to add them, see [Add entities](Add-entities.md#add-regular-expression-entities).
+
+## Add pattern.any entity label
+If you add the pattern.any entities to your LUIS app, you don't need to label utterances with these entities. To learn more about pattern.any entities and how to add them, see [Add entities](Add-entities.md#add-pattern.any-entities).
+
+## Search in utterances
 You can search for utterances that contain text (words or phrases). For example, you might notice an error that involves a particular word, and you want to find all examples that include that particular word. 
 
 Type the word or phrase in the search box at the top right corner of the utterances list, and press Enter. The utterances list updates, to display only the utterances that include your search text. 

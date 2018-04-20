@@ -120,18 +120,16 @@ You can also define relationships between entities by creating composite entitie
 ## Add Pattern.any entities
 [Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md). This entity helps LUIS find entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance.
 
-1. Open the TravelAgent app by selecting its name on **My Apps** page and select **Entities** in the app's left panel.
+1. In your app, select **Entities** from the left navigation, and then select **Create new entity**. 
 
-2. On the **Entities** page, select **Create new entity**. 
-
-3. In the **Add Entity** dialog box, type "BookTitle" in the **Entity name** box and select **Pattern.any** as the **Entity type**.
+2. In the **Add Entity** dialog box, type `BookTitle` in the **Entity name** box and select **Pattern.any** as the **Entity type**.
  
     ![Add a pattern.any entity](./media/add-entities/create-pattern-any-entity.png)
 
     To use the pattern.any entity, add a [pattern](luis-how-to-model-intent-pattern.md#add-patterns) on the **Patterns** page under **Review endpoint utterances** with the correct curly brace syntax, such as "For **{BookTitle}** who is the author?".
 
 ## Add role to entity used in patterns
-A role is a named subtype of an entity. It is only available in a pattern. LUIS determines a role based on context.
+A role is a named subtype of an entity. It is only available in a [pattern](luis-how-to-patterns). LUIS determines a role based on context.
 
 For example, a plane ticket has an *origin city* and a *destination city*, but both are cities. LUIS determines that both are cities and can determine origin and destination cities based on context. 
 
