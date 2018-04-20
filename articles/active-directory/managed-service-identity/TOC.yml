@@ -42,7 +42,7 @@
         - name: Access Azure Resource Manager with a user assigned MSI
           href: msi-tutorial-linux-vm-access-arm.md
       - name: Azure Service Bus
-        href: https://review.docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/context/msi-context&branch=pr-en-us-38204
+        href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/context/msi-context&branch=pr-en-us-38204
       - name: Azure App Service and Functions
         href: /azure/app-service/app-service-managed-service-identity
       - name: Azure Event Hubs
