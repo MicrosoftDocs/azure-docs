@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
 
 ---
@@ -118,7 +118,6 @@ The services that enable moving to both a new resource group and subscription ar
 * Cognitive Services
 * Content Moderator
 * Data Catalog
-* Data Factory
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -160,11 +159,14 @@ The services that currently do not enable moving a resource are:
 * AD Domain Services
 * AD Hybrid Health Service
 * Application Gateway
+* Azure Database for MySQL
 * BizTalk Services
+* Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
 * Container Service
-* Express Route
+* Data Factory
 * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
+* Express Route
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Managed Applications
 * Managed Disks - see [Virtual Machines limitations](#virtual-machines-limitations)
