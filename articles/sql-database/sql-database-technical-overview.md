@@ -165,7 +165,7 @@ SQL Database supports building applications with Python, Java, Node.js, PHP, Rub
 
 - See the [pricing page](https://azure.microsoft.com/pricing/details/sql-database/) for single database and elastic pools cost comparisons and calculators.
 
-- See these quickstart tutorials to get you started:
+- See these quickstarts to get you started:
 
   - [Create a SQL database in the Azure portal](sql-database-get-started-portal.md)  
   - [Create a SQL database with the Azure CLI](sql-database-get-started-cli.md)
