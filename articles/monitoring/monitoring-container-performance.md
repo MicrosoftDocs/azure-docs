@@ -127,12 +127,68 @@ The following table describes the information presented when you view Containers
 | Node |  Node where the container resides  | 
 | Trend AVG% | Bar graph trend presenting average metric % of the container |
 
-
 ## Search logs to analyze data
 When you're interested in looking for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally, Log Analytics can help.  Pre-defined log searches are provided to immediately start using or to customize in order to return the information the way you want. 
 
 You can perform interactive analysis of data in the repository by selecting the **View Log** option, available on the far right when you expand a node, controller, or container and the **Log Search** page appears right above the page you were on in the portal, so you are never redirected directly to Log Analytics.<br><br> ![Analyze data in Log Analytics](./media/monitoring-container-performance/container-performance-and-health-view-logs-01.png)   
 
+## How to discontinue monitoring with Container Health
+After enabling monitoring of your AKS container you decide you no longer wish to monitor it, you can *opt out* using the provided Azure Resource Manager template with the PowerShell cmdlet **New-AzureRmResourceGroupDeployment**.  The JSON template is configured to prompt you for the AKS cluster resource Id and the name of the resource group the cluster is deployed to.  
+
+### Create and execute template
+
+1. Copy and paste the following JSON syntax into your file:
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "aksResourceId": {
+           "type": "string",
+           "metadata": {
+             "description": "AKS Cluster resource id"
+           }
+       },
+      "aksResourceLocation": {
+        "type": "string",
+        "metadata": {
+           "description": "Location of the AKS resource e.g. \"East US\""
+         }
+       }
+    },
+    "resources": [
+      {
+        "name": "[split(parameters('aksResourceId'),'/')[8]]",
+        "type": "Microsoft.ContainerService/managedClusters",
+        "location": "[parameters('aksResourceLocation')]",
+        "apiVersion": "2018-03-31",
+        "properties": {
+          "mode": "Incremental",
+          "id": "[parameters('aksResourceId')]",
+          "addonProfiles": {
+            "omsagent": {
+              "enabled": false,
+              "config": {
+                "logAnalyticsWorkspaceResourceID": null
+              }
+            }
+           }
+         }
+       }
+      ]
+    }
+    ```
+
+2. Save this file as **OptOutTemplate.json** to a local folder.
+3. You are ready to deploy this template. Use the following PowerShell commands from the folder containing the template:
+
+    ```powershell
+    Connect-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+    New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
+    ```
+The configuration change can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:br><br> ![Example result when deployment is complete](./media/monitoring-container-performance/template-output-01.png)
 
 ## Next steps
 
