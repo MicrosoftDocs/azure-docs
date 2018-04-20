@@ -22,7 +22,7 @@ ms.author: estfan
 When you create a logic app workflow with 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
 the workflow's underlying definition describes the 
-actual logic that runs for your logic app. This definition 
+actual logic that runs for your logic app. This description 
 follows a structure that's defined and validated 
 by the Workflow Definition Language schema, which uses 
 [JavaScript Object Notation (JSON)](https://www.json.org/) format. 
@@ -30,9 +30,9 @@ by the Workflow Definition Language schema, which uses
 ## Workflow definition structure
 
 A workflow definition includes at least 
-one trigger for starting the logic app, 
+one trigger that instantiates the logic app, 
 and one or more actions that the logic app takes. 
-Here is the basic structure for a workflow definition:  
+Here is the high-level structure for a workflow definition:  
   
 ```json
 "definition": {
@@ -266,7 +266,7 @@ as "January" and "myAge" as the number 42:
 
 These examples show how the following expressions are evaluated:
 
-| JSON value | Result |
+| Expression | Result |
 |------------|--------| 
 | "@parameters('myBirthMonth')" | Return this string: "January" |  
 | "@{parameters('myBirthMonth')}" | Return this string: "January" |  
