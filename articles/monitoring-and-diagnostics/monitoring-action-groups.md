@@ -90,7 +90,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 <dt>Webhook</dt>
 <dd>You may have up to 10 Webhook actions in an Action Group
-<dd>Retry logic - the webhook call will be retried a maximum of 3 times when the following HTTP status codes are returned: 408, 429, 503, 504</dd>
+<dd>Retry logic - the webhook call will be retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second and last retry happens after 100 seconds.</dd>
 </dl>
 
 ## Manage your action groups ##
