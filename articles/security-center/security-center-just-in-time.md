@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2018
+ms.date: 04/20/2018
 ms.author: terrylan
 
 ---
@@ -116,6 +116,16 @@ To request access to a VM:
 
 4. Under **Request access**, you configure for each VM the ports to open along with the source IP that the port is opened to and the time window for which the port is opened. You can request access only to the ports that are configured in the just in time policy. Each port has a maximum allowed time derived from the just in time policy.
 5. Select **Open ports**.
+
+> [!NOTE]
+> When a user requests access to a VM, Security Center checks that the user has [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) permissions that provide write access for the VM. If they have write permissions, the request is approved.
+>
+>
+
+> [!NOTE]
+> If a user who is requesting access is behind a proxy, the “My IP” option may not work. There may be a need to define the full range of the organization.
+>
+>
 
 ## Editing a just in time access policy
 
