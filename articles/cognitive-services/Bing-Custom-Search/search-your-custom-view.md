@@ -24,7 +24,7 @@ The following are the available options.
 
 - **Query**: The search term to search for. Only available for Web, Image, and Autosuggest endpoints.
 - **Custom Configuration ID**: The configuration ID of the selected Custom Search instance. This field is read only.
-- **Market**: The market where the results come from.
+- **Market**: The market where the results come from. Only available for Web, Image, and Hosted UI endpoints.
 - **Subscription Key**: The subscription key to test with. You may select a key from the dropdown or enter one manually.
 - **Safe Search**: A filter used to filter webpages for adult content. Only available for Web, Image, and Hosted UI endpoints.
 - **Count**: The number of search results to return in the response. Only available for Web and Image endpoints.
