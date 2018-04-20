@@ -223,7 +223,7 @@ To further understand how these four elements of Change Feed Processor work toge
 
 Before installing Change Feed Processor NuGet package, first install: 
 
-* Microsoft.Azure.DocumentDB, latesdt version 
+* Microsoft.Azure.DocumentDB, latest version.
 * Newtonsoft.Json, latest version
 
 Then install the [Microsoft.Azure.DocumentDB.ChangeFeedProcessor Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) and include it as a reference.
@@ -390,7 +390,7 @@ To implement the Change Feed Processor library you have to do following:
             Console.Read();
             await result.StopAsync();    ```
 
-That’s it. After these few steps documents will start showing up into the **DocumentFeedObserver ProcessChangesAsync** method.
+That’s it. After these few steps documents will start showing up into the **DocumentFeedObserver.ProcessChangesAsync** method.
 
 Above code is for illustration purpose to show different kind of objects and their interaction. You have to define proper variables and initiate them with correct values. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
 
