@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 
 ms.assetid: 58cdf029-bdc0-43c4-a469-b921c2a669bd
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 04/16/2017
 ms.author: jeedes
 
 ---
@@ -113,37 +113,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Springer Link Domain and URLs single sign-on information](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url.png)
 
-    In the **Sign-on URL** textbox, type the URL : `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
+    In the **Sign-on URL** textbox, type the URL : `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
 
-5. Click **Save** button.
+5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad. 
+
+	![The Certificate download link](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_certificate.png)    
+
+6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-springerlink-tutorial/tutorial_general_400.png)
 
-6. To generate the **Metadata** url, perform the following steps:
-
-    a. Click **App registrations**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_appregistrations.png)
-   
-    b. Click **Endpoints** to open **Endpoints** dialog box.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_endpointicon.png)
-
-    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_endpoint.png)
-     
-    d. Now go to the property page of **Springer Link** and copy the **Application Id** using **Copy** button and paste it into notepad.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_appid.png)
-
-    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. To configure single sign-on on **Springer Link** side, you need to send the generated **Metadata URL** to [Springer Link support team](mailto:identity@springernature.com).
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-
+7. To configure single sign-on on **Springer Link** side, you need to send the **App Federation Metadata Url** to [Springer Link support team](mailto:identity@springernature.com).
 
 ### Create an Azure AD test user
 
