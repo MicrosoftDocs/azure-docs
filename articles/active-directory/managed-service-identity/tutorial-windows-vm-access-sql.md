@@ -94,7 +94,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Next, add the VM's MSI to the group.  You need the MSI's **ObjectId**, which you can get using Azure PowerShell.  First, download [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Then sign in using `Login-AzureRmAccount`, and run the following commands to:
+Next, add the VM's MSI to the group.  You need the MSI's **ObjectId**, which you can get using Azure PowerShell.  First, download [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Then sign in using `Connect-AzureRmAccount`, and run the following commands to:
 - Ensure your session context is set to the desired Azure subscription, if you have multiple ones.
 - List the available resources in your Azure subscription, in verify the correct resource group and VM names.
 - Get the MSI VM's properties, using the appropriate values for `<RESOURCE-GROUP>` and `<VM-NAME>`.
@@ -228,7 +228,7 @@ Alternatively, a quick way to test the end to end setup without having to write 
 4.	Using PowerShell’s `Invoke-WebRequest`, make a request to the local MSI endpoint to get an access token for Azure SQL.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F -Method GET -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     Convert the response from a JSON object to a PowerShell object. 
