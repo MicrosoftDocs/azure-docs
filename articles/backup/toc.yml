@@ -80,7 +80,7 @@
       - name: Protect system state and bare metal recovery
         href: backup-mabs-system-state-and-bmr.md
       - name: Back up Azure Stack workloads
-        href: backup-mabs-files-application-azure-stack.md 
+        href: backup-mabs-files-applications-azure-stack.md 
     - name: Recover data from Azure Backup Server
       href: backup-azure-alternate-dpm-server.md
   - name: Azure File shares
