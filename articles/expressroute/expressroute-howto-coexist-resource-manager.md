@@ -25,17 +25,17 @@ ms.author: charwen,cherylmc
 > 
 > 
 
-Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several advantages. You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute, or use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. This configuration is not available in the Azure portal.
+Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several advantages. You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute. Alternatively, you can use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. This configuration is not available in the Azure portal.
 
 ## Limits and limitations
 * **Transit routing is not supported.** You cannot route (via Azure) between your local network connected via Site-to-Site VPN and your local network connected via ExpressRoute.
-* **Basic SKU gateway is not supported.** You must use a non-Basic SKU gateway for both the [ExpressRoute gateway](expressroute-about-virtual-network-gateways.md) and the [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-* **Only route-based VPN gateway is supported.** You must use a route-based [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* **Basic SKU gateway is not supported.** You have to use a non-Basic SKU gateway for both the [ExpressRoute gateway](expressroute-about-virtual-network-gateways.md) and the [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* **Only route-based VPN gateway is supported.** You have to use a route-based [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Static route should be configured for your VPN gateway.** If your local network is connected to both ExpressRoute and a Site-to-Site VPN, you must have a static route configured in your local network to route the Site-to-Site VPN connection to the public Internet.
 
 ## Configuration designs
 ### Configure a Site-to-Site VPN as a failover path for ExpressRoute
-You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. This applies only to virtual networks linked to the Azure private peering path. There is no VPN-based failover solution for services accessible through Azure Microsoft peering. The ExpressRoute circuit is always the primary link. Data flows through the Site-to-Site VPN path only if the ExpressRoute circuit fails. To avoid asymmetrical routing, your local network configuration should also prefer the ExpressRoute circuit over the Site-to-Site VPN. You can prefer the ExpressRoute path by setting higher local preference for the routes received the ExpressRoute. 
+You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. This connection applies only to virtual networks linked to the Azure private peering path. There is no VPN-based failover solution for services accessible through Azure Microsoft peering. The ExpressRoute circuit is always the primary link. Data flows through the Site-to-Site VPN path only if the ExpressRoute circuit fails. To avoid asymmetrical routing, your local network configuration should also prefer the ExpressRoute circuit over the Site-to-Site VPN. You can prefer the ExpressRoute path by setting higher local preference for the routes received the ExpressRoute. 
 
 > [!NOTE]
 > While ExpressRoute circuit is preferred over Site-to-Site VPN when both routes are the same, Azure will use the longest prefix match to choose the route towards the packet's destination.
@@ -64,7 +64,7 @@ There are two different sets of procedures to choose from. The configuration pro
   
     You may already have a virtual network in place with an existing Site-to-Site VPN connection or ExpressRoute connection. In this scenario if the gateway subnet mask is /28 or bigger, you have to delete the existing gateway. The [To configure coexisting connections for an already existing VNet](#add) section walks you through deleting the gateway, and then creating new ExpressRoute and Site-to-Site VPN connections.
   
-    Note that if you delete and recreate your gateway you will have downtime for your cross-premises connections. However, your VMs and services will still be able to communicate out through the load balancer while you configure your gateway if they are configured to do so.
+    If you delete and recreate your gateway you will have downtime for your cross-premises connections. However, your VMs and services will still be able to communicate out through the load balancer while you configure your gateway if they are configured to do so.
 
 ## <a name="new"></a>To create a new virtual network and coexisting connections
 This procedure walks you through creating a VNet and Site-to-Site and ExpressRoute connections that will coexist.
