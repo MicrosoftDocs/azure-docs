@@ -18,9 +18,15 @@ ms.author: mabrigg
 ms.custom: mvc
 ---
 
-# Quickstart: create a Windows virtual machine in Azure Stack using Azure CLI
+# Quickstart: create a Windows server virtual machine by using Azure CLI in Azure Stack
 
-Azure CLI is used to create and manage Azure Stack resources from the command line. This article shows how to use Azure CLI to create and access a Windows Server 2016 virtual machine in Azure Stack.
+‎*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
+You can create a Windows Server 2016 virtual machine by using the Azure CLI. Follow the steps in this article to create and use a virtual machine. This article also gives you the steps to:
+
+* Connect to the virtual machine with a remote client.
+* Install the IIS web server and view the default home page.
+* Clean up your resources.
 
 ## Prerequisites
 
@@ -55,7 +61,7 @@ When the VM is created, the *PublicIPAddress* parameter is output. Write down th
 
 ## Open port 80 for web traffic
 
-By default, only RDP connections are allowed to a Windows virtual machine deployed in Azure Stack. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.
+By default, only RDP connections are allowed to a Windows virtual machine deployed in Azure Stack. If this VM is going to be a web server, you need to open port 80 to Internet traffic. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -71,7 +77,7 @@ mstsc /v <Public IP Address>
 
 ## Install IIS using PowerShell
 
-After logging in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
+After logging in to the Azure VM, you can use PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
