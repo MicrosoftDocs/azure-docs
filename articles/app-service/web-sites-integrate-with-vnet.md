@@ -54,7 +54,8 @@ Here are some things to keep in mind before connecting your web app to a virtual
 
 * VNet Integration only works with apps in a **Standard**, **Premium**, or **Isolated** pricing plan. If you enable the feature, and then scale your App Service Plan to an unsupported pricing plan your apps lose their connections to the VNets they are using. 
 * If your target virtual network already exists, it must have point-to-site VPN enabled with a Dynamic routing gateway before it can be connected to an app. If your gateway is configured with Static routing, you cannot enable point-to-site Virtual Private Network (VPN).
-* The VNet must be in the same subscription as your App Service Plan(ASP). 
+* The VNet must be in the same subscription as your App Service Plan(ASP).
+* If your gateway already exists with point-to-site enabled, and it is not in the basic SKU, IKEV2 must be disabled in your point-to-site configuration.
 * The apps that integrate with a VNet use the DNS that is specified for that VNet.
 * By default your integrating apps only route traffic into your VNet based on the routes that are defined in your VNet. 
 
