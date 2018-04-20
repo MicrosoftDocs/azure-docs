@@ -272,7 +272,7 @@ The `-AsJob` parameter creates the VM as a background task, so the PowerShell pr
  
 Install IIS with a custom web page on both backend VMs as follows:
 
-1. Get the Public IP address of the Load Balancer. Using 'Get-AzureRmPublicIPAdress', obtain the Public IP address of the Load Balancer.
+1. Get the Public IP address of the Load Balancer. Using `Get-AzureRmPublicIPAdress`, obtain the Public IP address of the Load Balancer.
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `
@@ -280,8 +280,11 @@ Install IIS with a custom web page on both backend VMs as follows:
     -Name "myPublicIP" | select IpAddress
   ```
 2. Create a remote desktop connection to VM1
+
   ```azurepowershell-interactive
-  mstsc /v:<PublicIpAddress>:4221  
+
+      mstsc /v:PublicIpAddress:4221  
+  
   ```
 3. Enter the credentials for *VM1* to start the RDP session.
 4. Launch Windows PowerShell on VM1 and using the following commands to install IIS server and update the default htm file.
@@ -296,7 +299,7 @@ Install IIS with a custom web page on both backend VMs as follows:
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
     ```
 5. Close the RDP connection with *myVM1*.
-6. Create a RDP connection with *myVM2* by running 'mstsc /v:<PublicIpAddress>:4222' command, and repeat step 4 for *VM2*.
+6. Create a RDP connection with *myVM2* by running `mstsc /v:PublicIpAddress:4222` command, and repeat step 4 for *VM2*.
 
 ## Test load balancer
 Obtain the public IP address of your load balancer with [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
