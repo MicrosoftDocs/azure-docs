@@ -312,6 +312,11 @@ In the previous sections, you copied the transformed data at `/tutorials/flightd
 
 ## Next steps
 
+In this tutorial, you learned how to perform extract, transform, and load data operations using an Apache Hadoop cluster in HDInsight. Advance to the next tutorial to learn how to create HDInsight Hadoop clusters on-demand using Azure Data Factory.
+
+> [!div class="nextstepaction"]
+>[Create on-demand Hadoop clusters in HDInsight using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md)
+
 To learn more ways to work with data in HDInsight, see the following articles:
 
 * [Use Hive with HDInsight][hdinsight-use-hive]
