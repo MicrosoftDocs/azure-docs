@@ -1,7 +1,7 @@
 ---
 title: Monitoring Azure applications and resources | Microsoft Docs
-description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications. 
-author: robb
+description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications.
+author: rboucher
 manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
@@ -22,7 +22,7 @@ ms.author: robb,bwren
 
 Monitoring is the act of collecting and analyzing data to determine the performance, health, and availability of your business application and the resources that it depends on. An effective monitoring strategy helps you understand the detailed operation of the components of your application. It also helps you increase your uptime by proactively notifying you of critical issues so that you can resolve them before they become problems.
 
-Azure includes multiple services that individually perform a specific role or task in the monitoring space. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your application and the Azure resources that support them. They can also work to monitor critical on-premises resources in order to provide a hybrid monitoring environment. Understanding the tools and data that are available is the first step in developing a complete monitoring strategy for your application. 
+Azure includes multiple services that individually perform a specific role or task in the monitoring space. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your application and the Azure resources that support them. They can also work to monitor critical on-premises resources in order to provide a hybrid monitoring environment. Understanding the tools and data that are available is the first step in developing a complete monitoring strategy for your application.
 
 The following diagram shows a conceptual view of the components that work together to provide monitoring of Azure resources. The following sections describe these components and provide links to detailed technical information.
 
@@ -30,13 +30,13 @@ The following diagram shows a conceptual view of the components that work togeth
 
 
 ## Shared Capabilities
-The core and deep monitoring service share functionality which provides the following capabilities. 
+The core and deep monitoring service share functionality which provides the following capabilities.
 
 ### Alerts
 [Azure alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactively notify you of critical conditions and potentially take corrective action. Alert rules can use data from multiple sources, including metrics and logs. They use [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md), which contain unique sets of recipients and actions in response to an alert. Based on your requirements, you can have alerts start external actions by using webhooks and integrate with your ITSM tools.
 
 ### Dashboards
-You can use [Azure dashboards](../azure-portal/azure-portal-dashboards.md) to combine different kinds of data into a single pane in the [Azure portal](https://portal.azure.com). You can then share the dashboard with other Azure users. 
+You can use [Azure dashboards](../azure-portal/azure-portal-dashboards.md) to combine different kinds of data into a single pane in the [Azure portal](https://portal.azure.com). You can then share the dashboard with other Azure users.
 
 For example, you can create a dashboard that combines:
 - Tiles that show a graph of metrics
@@ -54,11 +54,18 @@ You can also export Log Analytics data to [Power BI](https://docs.microsoft.com/
 Core monitoring provides fundamental, required monitoring across Azure resources. These services require minimal configuration and collect core telemetry that the premium monitoring services use.    
 
 ### Azure Monitor
-[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) enables core monitoring for Azure services by allowing the collection of [metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). For example, the activity log tells you when new resources are created or modified. 
+[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) enables core monitoring for Azure services by allowing the collection of [metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). For example, the activity log tells you when new resources are created or modified.
 
-Metrics are available that provide performance statistics for different resources and even the operating system inside a virtual machine. You can view this data with one of the explorers in the Azure portal and create alerts based on these metrics. Azure Monitor provides the fastest metrics pipeline (5 minute down to 1 minute), so you should use it for time critical alerts and notifications. 
+Metrics are available that provide performance statistics for different resources and even the operating system inside a virtual machine. You can view this data with one of the explorers in the Azure portal and create alerts based on these metrics. Azure Monitor provides the fastest metrics pipeline (5 minute down to 1 minute), so you should use it for time critical alerts and notifications.
 
 You can also send these metrics and logs Azure Log Analytics for trending and detailed analysis, or create additional alert rules to proactively notify you of critical issues as a result of that analysis.  
+
+> [!NOTE]
+> Sending multi-dimensional metrics to Log Analytics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+>
+> *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported to Log Analytics the metric will be represented as all incoming messages across all queues in the Event Hub.
+>
+>
 
 ### Azure Advisor
 [Azure Advisor](../advisor/advisor-overview.md) constantly monitors your resource configuration and usage telemetry. It then gives you personalized recommendations based on best practices. Following these recommendations helps you improve the performance, security, and availability of the resources that support your applications.
@@ -71,9 +78,9 @@ The health of your application relies on the Azure services that it depends on. 
 - Configuration changes to the resource.
 - Service health incidents.
 - Recommendations on better utilizing the resource.
-- Information related to autoscale operations. 
+- Information related to autoscale operations.
 
-You can view logs for a particular resource on its page in the Azure portal. Or you can view logs from multiple resources in Activity Log Explorer. 
+You can view logs for a particular resource on its page in the Azure portal. Or you can view logs from multiple resources in Activity Log Explorer.
 
 You can also send activity log entries to Log Analytics. There, you can analyze the logs by using data collected by management solutions, agents on virtual machines, and other sources.
 
@@ -82,31 +89,31 @@ The following Azure services provide rich capabilities for collecting and analyz
 
 ## Deep application monitoring
 ### Application Insights
-You can use [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) to monitor availability, performance, and usage of your application, whether it's hosted in the cloud or on-premises. 
+You can use [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) to monitor availability, performance, and usage of your application, whether it's hosted in the cloud or on-premises.
 
-By instrumenting your application to work with Application Insights, you can achieve deep insights and implement DevOps scenarios. You can quickly identify and diagnose errors without waiting for a user to report them. With the information that you collect, you can make informed choices on your application's maintenance and improvements. 
+By instrumenting your application to work with Application Insights, you can achieve deep insights and implement DevOps scenarios. You can quickly identify and diagnose errors without waiting for a user to report them. With the information that you collect, you can make informed choices on your application's maintenance and improvements.
 
 Application Insights has extensive tools for interacting with the data that it collects. Application Insights stores its data in a common repository. It can take advantage of shared functionality such as alerts, dashboards, and deep analysis with the Log Analytics query language.
 
 ## Deep infrastructure monitoring
 ### Log Analytics
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) plays a central role in Azure monitoring by collecting data from a variety of resources (including non-Microsoft tools) into a single repository. There, you can analyze the data by using a powerful query language. 
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) plays a central role in Azure monitoring by collecting data from a variety of resources (including non-Microsoft tools) into a single repository. There, you can analyze the data by using a powerful query language.
 
 Application Insights and Azure Security Center store their data in the Log Analytics data store and use its analytics engine. Data is also collected from Azure Monitor, management solutions, and agents installed on virtual machines in the cloud or on-premises. This shared functionality helps you form a complete picture of your environment.
 
 ### Management solutions
-[Management solutions](../log-analytics/log-analytics-add-solutions.md) are packaged sets of logic that provide insights for a particular application or service. They rely on Log Analytics to store and analyze the monitoring data that they collect. 
+[Management solutions](../log-analytics/log-analytics-add-solutions.md) are packaged sets of logic that provide insights for a particular application or service. They rely on Log Analytics to store and analyze the monitoring data that they collect.
 
 Management solutions are available from Microsoft and partners to provide monitoring for various Azure and third-party services. Examples of monitoring solutions include:
 * [Container Monitoring](../log-analytics/log-analytics-containers.md), which helps you view and manage your container hosts.
 * [Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md), which collects and visualizes performance metrics for Azure SQL databases.
 
-You can view all available management solutions in the Azure Portal under the *Monitor* screen. 
+You can view all available management solutions in the Azure Portal under the *Monitor* screen.
 
 ### Network Monitoring
 There are several tools that work together to monitor various aspects of your network, whether in Azure or on-premises.  
 
-[Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) provides scenario-based monitoring and diagnostics for different network scenarios in Azure. It stores data in Azure metrics and diagnostics for further analysis. It works with the following solutions for monitoring various aspects of your network. 
+[Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) provides scenario-based monitoring and diagnostics for different network scenarios in Azure. It stores data in Azure metrics and diagnostics for further analysis. It works with the following solutions for monitoring various aspects of your network.
 
 [Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) is a cloud-based network monitoring solution that monitors connectivity across public clouds, datacenters, and on-premises environments.
 
@@ -118,7 +125,7 @@ There are several tools that work together to monitor various aspects of your ne
 
 
 ### Service Map
-[Service Map](../operations-management-suite/operations-management-suite-service-map.md) provides insight into your IaaS environment by analyzing virtual machines with their different processes and dependencies on other computers and external processes. It integrates events, performance data, and management solutions in Log Analytics. You can then view this data in the context of each computer and its relation to the rest of your environment. 
+[Service Map](../operations-management-suite/operations-management-suite-service-map.md) provides insight into your IaaS environment by analyzing virtual machines with their different processes and dependencies on other computers and external processes. It integrates events, performance data, and management solutions in Log Analytics. You can then view this data in the context of each computer and its relation to the rest of your environment.
 
 Service Map is similar to [Application Map in Application Insights](../application-insights/app-insights-app-map.md). It focuses on the infrastructure components that support your applications.
 
@@ -131,9 +138,9 @@ Consider a web application deployed in Azure through Azure App Service, Azure St
 
 You then go to Monitor in the portal in order to view metrics and logs for the different resources together. As you determine standard parameters for the metrics, you [create alert rules](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md). These rules proactively notify you when, for example, average response time increases beyond a threshold. To get a quick view of your application's daily performance, you create an Azure dashboard to show graphs of metrics that represent critical KPIs.
 
-To perform deeper monitoring of your application, you [configure it for Application Insights](../application-insights/quick-monitor-portal.md). You can now collect additional data that provides further insight into the operation and performance of your application. Application Insights detects the underlying relationships between your app’s components. It allows for visual representation via [Application Map](../application-insights/app-insights-app-map.md) coupled with [end-to-end tracing](../application-insights/app-insights-transaction-diagnostics.md) to diagnose the exact component, dependency, or exception where a problem has occurred. 
+To perform deeper monitoring of your application, you [configure it for Application Insights](../application-insights/quick-monitor-portal.md). You can now collect additional data that provides further insight into the operation and performance of your application. Application Insights detects the underlying relationships between your app’s components. It allows for visual representation via [Application Map](../application-insights/app-insights-app-map.md) coupled with [end-to-end tracing](../application-insights/app-insights-transaction-diagnostics.md) to diagnose the exact component, dependency, or exception where a problem has occurred.
 
-You create [Availability tests](../application-insights/app-insights-monitor-web-app-availability.md) to proactively test your application from different regions. To help your developers, you [enable the Profiler](../application-insights/enable-profiler-compute.md) so you can track requests and any exceptions down to a specific line of code. To gain further visibility into services used in your application, you add the [SQL Analytics solution](../log-analytics/log-analytics-azure-sql.md) to collect additional data in Log Analytics. 
+You create [Availability tests](../application-insights/app-insights-monitor-web-app-availability.md) to proactively test your application from different regions. To help your developers, you [enable the Profiler](../application-insights/enable-profiler-compute.md) so you can track requests and any exceptions down to a specific line of code. To gain further visibility into services used in your application, you add the [SQL Analytics solution](../log-analytics/log-analytics-azure-sql.md) to collect additional data in Log Analytics.
 
 After some time, you decide to investigate the root cause for periods when performance on the site has fallen below a threshold. You write a query by using Log Analytics. It helps you correlate the usage and performance data collected by Application Insights with configuration and performance data across the Azure resources that support your application.
 
@@ -141,9 +148,9 @@ After some time, you decide to investigate the root cause for periods when perfo
 ### Monitoring virtual machines
 You have a mix of Windows and Linux virtual machines running in Azure. You use Azure Monitor to view [activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) and [host-level metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md). You add the [Azure Diagnostics extension](../virtual-machines/linux/tutorial-monitoring.md#install-diagnostics-extension) to the virtual machines in order to collect metrics from the guest operating system. You then create [alert rules](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) to proactively notify you when basic metrics like processor utilization and memory cross thresholds.
 
-To collect more details about virtual machines running a business application, you [create a Log Analytics workspace and enable the VM extension](../log-analytics/log-analytics-quick-collect-azurevm.md) on each machine. You configure the [collection of different data sources](../log-analytics/log-analytics-data-sources.md) for your application and [create views](../log-analytics/log-analytics-view-designer.md) to report on its daily operation and performance. You then [create alert rules](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) to notify you when particular error events are received. 
+To collect more details about virtual machines running a business application, you [create a Log Analytics workspace and enable the VM extension](../log-analytics/log-analytics-quick-collect-azurevm.md) on each machine. You configure the [collection of different data sources](../log-analytics/log-analytics-data-sources.md) for your application and [create views](../log-analytics/log-analytics-view-designer.md) to report on its daily operation and performance. You then [create alert rules](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) to notify you when particular error events are received.
 
-To continuously monitor the health of the installed agent, you add the [Agent Health management solution](../operations-management-suite/oms-solution-agenthealth.md). To gain further insight into the application, you [add the dependency agent](../operations-management-suite/operations-management-suite-service-map-configure.md) to the virtual machines in order to add them to [Service Map](../operations-management-suite/operations-management-suite-service-map.md). Service Map discovers critical processes and identifies connections between machines with other services. 
+To continuously monitor the health of the installed agent, you add the [Agent Health management solution](../operations-management-suite/oms-solution-agenthealth.md). To gain further insight into the application, you [add the dependency agent](../operations-management-suite/operations-management-suite-service-map-configure.md) to the virtual machines in order to add them to [Service Map](../operations-management-suite/operations-management-suite-service-map.md). Service Map discovers critical processes and identifies connections between machines with other services.
 
 After a reported outage, you use Service Map to perform forensics to identify the particular machines that experienced the problem. You then create a [query on the Log Analytics data](../log-analytics/log-analytics-log-search-new.md) to identify the issue in the future. And you create an alert rule to proactively notify you when the condition is detected.
 

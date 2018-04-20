@@ -9,18 +9,18 @@
 
 ## Introduction
 
-In [Get started with IoT Hub device twins][lnk-twin-tutorial], you learned how to set device metadata from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
+In [Get started with IoT Hub device twins][lnk-twin-tutorial], you learned how to set device metadata using *tags*. You received device conditions from a device app using *reported properties*, and then queried this information using a SQL-like language.
 
-In this tutorial, you learn how to use the device twin's *desired properties* along with *reported properties*, to remotely configure device apps. More specifically, this tutorial shows how a device twin's reported and desired properties enable a multi-step configuration of a device application, and provide the visibility to the solution back end of the status of this operation across all devices. You can find more information regarding the role of device configurations in [Overview of device management with IoT Hub][lnk-dm-overview].
+This tutorial describes how to use the device twin's *desired properties* and *reported properties* to remotely configure device apps. Reported and desired properties in a device twin enable a multi-step configuration of a device application, and provide visibility of the status of this operation across all devices. You can find more information regarding the role of device configurations in [Overview of device management with IoT Hub][lnk-dm-overview].
 
-At a high level, using device twins enables the solution back end to specify the desired configuration for the managed devices, instead of sending specific commands. This puts the device in charge of setting up the best way to update its configuration (important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting to the solution back end the current state and potential error conditions of the update process. This pattern is instrumental to the management of large sets of devices, as it enables the solution back end to have full visibility of the state of the configuration process across all devices.
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
-> [!NOTE]
-> In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [direct methods][lnk-methods].
-> 
-> 
+At a high level, using device twins enables the solution back end to specify the desired configuration for the managed devices, instead of sending specific commands. The device is in charge of setting up the best way to update its configuration (important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting the current state and potential error conditions of the update process. This pattern is instrumental to the management of large sets of devices, as it gives the solution back-end full visibility of the state of the configuration process across all devices.
 
-In this tutorial, the solution back end changes the telemetry configuration of a target device and, as a result of that, the device app follows a multi-step process to apply a configuration update (for example, requiring a software module restart, which this tutorial simulates with a simple delay).
+> [!TIP]
+> In scenarios where devices are controlled in a more interactive fashion (for example, turning on a fan from a user-controlled app), consider using [direct methods][lnk-methods].
+
+In this tutorial, the solution back end changes the telemetry configuration of a target device so that the device app applies a configuration update. For example, a configuration update would be requiring a software module restart, which this tutorial simulates with a simple delay.
 
 The solution back end stores the configuration in the device twin's desired properties in the following way:
 
@@ -39,10 +39,8 @@ The solution back end stores the configuration in the device twin's desired prop
             ...
         }
 
-> [!NOTE]
-> Since configurations can be complex objects, they are assigned unique IDs (hashes or [GUIDs][lnk-guid]) to simplify their comparisons.
-> 
-> 
+Since configurations can be complex objects, they are assigned unique IDs (hashes or [GUIDs][lnk-guid]).
+
 
 The device app reports its current configuration mirroring the desired property **telemetryConfig** in the reported properties:
 
@@ -62,7 +60,7 @@ The device app reports its current configuration mirroring the desired property 
 
 Note how the reported **telemetryConfig** has an additional property **status**, used to report the state of the configuration update process.
 
-When a new desired configuration is received, the device app reports a pending configuration by changing the information:
+When a new desired configuration is received, the device app reports a pending configuration by changing the status:
 
         {
             "properties": {
@@ -82,8 +80,7 @@ When a new desired configuration is received, the device app reports a pending c
             }
         }
 
-Then, at some later time, the device app reports the success or failure of this operation by updating the above property.
-Note how the solution back end is able, at any time, to query the status of the configuration process across all the devices.
+Then, at some later time, the device app reports the success or failure of this operation by updating the property. The solution back end can query the status of the configuration process across all the devices at any time.
 
 This tutorial shows you how to:
 

@@ -174,6 +174,10 @@ CheckForMS17-010
 
 <i>Get-MsolDirSyncProvisioningError</i> will only return DirSync provisioning errors. Besides that, Connect Health portal also shows other sync error types such as export errors. This is consistent with Azure AD Connect delta result. Read more about [Azure AD Connect Sync errors](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
 
+**Q: Why are my ADFS audits not being generated?**
+
+Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure audit logs is not in disabled state. Read more about [ADFS audit logs](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notice if there are advanced audit settings pushed to the ADFS server, any changes with auditpol.exe will be overwritten (event if Application Generated is not configured). In this case, please set the local security policy to log Application Generated failures and success. 
+
 
 ## Related links
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

@@ -98,11 +98,11 @@ The NFS server uses a dedicated virtual hostname and virtual IP addresses for ev
   * 2049 TCP for NW2
   * 2049 UDP for NW2
 
-## Setting up a highly available NFS server
+## Set up a highly available NFS server
 
 You can either use a Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set and load balancer or you can deploy the resources manually.
 
-### Deploying Linux via Azure Template
+### Deploy Linux via Azure Template
 
 The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 that you can use to deploy new virtual machines.
 You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
@@ -121,7 +121,7 @@ Follow these steps to deploy the template:
    5. Subnet ID  
       The ID of the subnet to which the virtual machines should be connected to. Leave empty if you want to create a new virtual network or select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
 
-### Deploying Linux manually via Azure portal
+### Deploy Linux manually via Azure portal
 
 You first need to create the virtual machines for this NFS cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
 

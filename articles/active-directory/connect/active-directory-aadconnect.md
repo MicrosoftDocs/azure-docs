@@ -22,6 +22,9 @@ Azure AD Connect will integrate your on-premises directories with Azure Active D
 
 > [!IMPORTANT]
 > [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated are no longer supported as of April 13, 2017.](active-directory-aadconnect-dirsync-deprecated.md)  Also:
+
+
+
 > 
 > - Synchronizing users to Azure AD is a **free feature** and doesn’t require customers to have any paid subscription.
 >- Synchronized users are **not automatically granted** *any* license. Admins still have total control on the license assignment. 
@@ -47,6 +50,10 @@ Azure Active Directory Connect is made up of three primary components: the synch
 * Health Monitoring - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. For additional information, see [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 ## Install Azure AD Connect
+
+> [!IMPORTANT]
+> Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the actions that are formally documented. Any of these actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
+
 You can find the download for Azure AD Connect on [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Solution | Scenario |
@@ -69,7 +76,7 @@ You can find the download for Azure AD Connect on [Microsoft Download Center](ht
 |After installation | [Verify the installation and assign licenses ](active-directory-aadconnect-whats-next.md)|
 
 ### Learn more about Install Azure AD Connect
-You also want to prepare for [operational](active-directory-aadconnectsync-operations.md) concerns. You might want to have a stand-by server so you easily can fall over if there is a [disaster](active-directory-aadconnectsync-operations.md#disaster-recovery). If you plan to make frequent configuration changes, you should plan for a [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) server.
+You also want to prepare for [operational](active-directory-aadconnectsync-operations.md) concerns. You might want to have a stand-by server so you easily can fail over if there is a [disaster](active-directory-aadconnectsync-operations.md#disaster-recovery). If you plan to make frequent configuration changes, you should plan for a [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) server.
 
 |Topic |Link|  
 | --- | --- |
@@ -84,9 +91,9 @@ Azure AD Connect comes with several features you can optionally turn on or are e
 
 [Filtering](active-directory-aadconnectsync-configure-filtering.md) is used when you want to limit which objects are synchronized to Azure AD. By default all users, contacts, groups, and Windows 10 computers are synchronized. You can change the filtering based on domains, OUs, or attributes.
 
-[Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) synchronizes the password hash in Active Directory to Azure AD. The  end-user can use the same password on-premises and in the cloud but only manage it in one location. Since it uses your on-premises Active Directory as the authority, you can also use your own password policy.
+[Password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) synchronizes the password hash in Active Directory to Azure AD. The  end-user can use the same password on-premises and in the cloud but only manage it in one location. Since it uses your on-premises Active Directory as the authority, you can also use your own password policy.
 
-[Password writeback](../active-directory-passwords-getting-started.md) will allow your users to change and reset their passwords in the cloud and have your on-premises password policy applied.
+[Password writeback](../authentication/quickstart-sspr.md) will allow your users to change and reset their passwords in the cloud and have your on-premises password policy applied.
 
 [Device writeback](active-directory-aadconnect-feature-device-writeback.md) will allow a device registered in Azure AD to be written back to on-premises Active Directory so it can be used for conditional access.
 
@@ -98,8 +105,8 @@ The [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent
 |Topic |Link|  
 | --- | --- |
 |Configure filtering | [Azure AD Connect sync: Configure filtering](active-directory-aadconnectsync-configure-filtering.md)|
-|Password synchronization | [Azure AD Connect sync: Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)|
-|Password writeback | [Getting started with password management](../active-directory-passwords-getting-started.md)|
+|Password hash synchronization | [Azure AD Connect sync: Implement password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
+|Password writeback | [Getting started with password management](../authentication/quickstart-sspr.md)|
 |Device writeback | [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |Prevent accidental deletes | [Azure AD Connect sync: Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |Automatic upgrade | [Azure AD Connect: Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)|

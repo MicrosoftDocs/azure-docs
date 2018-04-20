@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 3/14/2018
+ms.date: 04/10/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -23,6 +23,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 - Before you start, make sure that the latest version of PowerShell is installed. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for detailed information.
 - Update your AzureRM PowerShell module to the latest version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+- Register the Policy Insights resource provider using Azure PowerShell. Registering the resource provider makes sure that your subscription works with it. To register a resource provider, you must have permission to perform the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
+
+  ```
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  ```
+
+  For more information about registering and viewing resource providers, see [Resource Providers and Types](../azure-resource-manager/resource-manager-supported-services.md)
 
 ## Create a policy assignment
 
@@ -32,11 +39,8 @@ Run the following commands to create a new policy assignment:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "<resourceGroupName>"
-
-$definition = Get-AzureRmPolicyDefinition -Name "Audit Virtual Machines without Managed Disks"
-
-New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition -Sku @{Name='A1';Tier='Standard'}
-
+$definition = Get-AzureRmPolicyDefinition | where {$_.properties.displayName -eq "Audit VMs that do not use managed disks"}
+New-AzureRMPolicyAssignment -Name "Audit Virtual Machines without Managed Disks" -Scope $rg.ResourceId -PolicyDefinition $definition -Sku @{Name='A1';Tier='Standard'}
 ```
 
 The preceding commands use the following information:

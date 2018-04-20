@@ -21,7 +21,7 @@ ms.author: azfuncdf
 The [Durable Functions](durable-functions-overview.md) extension for Azure Functions is provided in the NuGet package [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). This article shows how to install the package and a set of samples for the following development environments:
 
 * Visual Studio 2017 (Recommended) 
-
+* Visual Studio Code
 * Azure portal
 
 ## Visual Studio 2017
@@ -44,11 +44,8 @@ Visual Studio currently provides the best experience for developing apps that us
 Follow the same directions as for starting with the sample, but do the following steps instead of downloading the *.zip* file:
 
 1. Create a Function App project.
-2. Add the following NuGet package reference to your *.csproj* file:
-
-   ```xml
-   <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
-   ```
+2. Search for the following NuGet package reference using *Manage Nuget Packages* and add it to the project: 
+Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0-beta2 (check *Include prerelease* to search for this package)
    
 ## Visual Studio Code
 
@@ -125,6 +122,8 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 1. Create a new function app at [functions.azure.com](https://functions.azure.com/signin).
 
 2. Configure the function app to [use the 2.0 runtime version](set-runtime-version.md).
+
+   The Durable Functions extension works on both the 1.X runtime and the 2.0 runtime, but the Azure Portal templates are only available when targeting the 2.0 runtime.
 
 3. Create a new function by selecting **"create your own custom function."**.
 

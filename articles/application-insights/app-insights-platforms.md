@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Application Insights: languages, platforms and integrations| Microsoft Docs'
 description: Languages, platforms and integrations available for Application Insights
 services: application-insights
@@ -36,11 +36,13 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [ASP.NET - for apps that are already live](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET Core](app-insights-asp-net-core.md)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center, HockeyApp)
+* [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Azure Web Apps](app-insights-azure-web-apps.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
+* [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center, HockeyApp)
 * [J2EE](app-insights-java-get-started.md)
 * [J2EE - for apps that are already live](app-insights-java-live.md)
@@ -63,6 +65,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
+* [Logrus](https://github.com/jjcollinge/logrus-appinsights)
 
 ## Content Management Systems
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)

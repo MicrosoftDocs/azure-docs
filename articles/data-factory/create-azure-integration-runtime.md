@@ -27,7 +27,7 @@ Azure IR provides a fully managed compute to natively perform data movement and 
 This document introduces how you can create and configure Azure Integration Runtime. 
 
 ## Default Azure IR
-By default, each data factory has an Azure IR in the backend that supports  operations on cloud data stores and compute services in public network. The location of that Azure IR is auto-resolve. If **connectVia** property is not specified in the linked service definition, the specified Azure IR is used. You only need to explicitly create an Azure IR when you would like to explicitly define the location of the IR, or if you would like to virtually group the activity executions on different IRs for management purpose. 
+By default, each data factory has an Azure IR in the backend that supports  operations on cloud data stores and compute services in public network. The location of that Azure IR is auto-resolve. If **connectVia** property is not specified in the linked service definition, the default Azure IR is used. You only need to explicitly create an Azure IR when you would like to explicitly define the location of the IR, or if you would like to virtually group the activity executions on different IRs for management purpose. 
 
 ## Create Azure IR
 Integration Runtime can be created using the **Set-AzureRmDataFactoryV2IntegrationRuntime** PowerShell cmdlet. To create an Azure IR, you specify the name, location and type to the command. Here is a sample command to create an Azure IR with location set to "West Europe":

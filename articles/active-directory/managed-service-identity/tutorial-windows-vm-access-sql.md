@@ -53,17 +53,13 @@ For this tutorial, we create a new Windows VM.  You can also enable MSI on an ex
 
 ## Enable MSI on your VM 
 
-A VM MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your VM. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM, and it enables MSI in Azure Resource Manager.
+A VM MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling MSI tells Azure to create a managed identity for your VM. Under the covers, enabling MSI does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
 
 1.	Select the **Virtual Machine** that you want to enable MSI on.  
 2.	On the left navigation bar click **Configuration**. 
 3.	You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
 4.	Ensure you click **Save** to save the configuration.  
     ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. If you wish to check and verify which extensions are on this VM, click **Extensions**. If MSI is enabled, then **ManagedIdentityExtensionforWindows** appears in the list.
-
-    ![Alt image text](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## Grant your VM access to a database in an Azure SQL server
 
@@ -98,7 +94,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Next, add the VM's MSI to the group.  You need the MSI's **ObjectId**, which you can get using Azure PowerShell.  First, download [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Then sign in using `Login-AzureRmAccount`, and run the following commands to:
+Next, add the VM's MSI to the group.  You need the MSI's **ObjectId**, which you can get using Azure PowerShell.  First, download [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Then sign in using `Connect-AzureRmAccount`, and run the following commands to:
 - Ensure your session context is set to the desired Azure subscription, if you have multiple ones.
 - List the available resources in your Azure subscription, in verify the correct resource group and VM names.
 - Get the MSI VM's properties, using the appropriate values for `<RESOURCE-GROUP>` and `<VM-NAME>`.
@@ -191,7 +187,7 @@ using System.Web.Script.Serialization;
 //
 // Get an access token for SQL.
 //
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://database.windows.net/");
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
 string accessToken = null;
@@ -232,7 +228,7 @@ Alternatively, a quick way to test the end to end setup without having to write 
 4.	Using PowerShell’s `Invoke-WebRequest`, make a request to the local MSI endpoint to get an access token for Azure SQL.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://database.windows.net/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     Convert the response from a JSON object to a PowerShell object. 

@@ -187,11 +187,11 @@ The easiest way to configure where databases record their metrics is through the
 
 ### Install the SQL Analytics solution from the gallery
 
-1. After you create the Log Analytics resource and your data is flowing into it, install the SQL Analytics solution. On the Operations Management Suite home page, on the side menu, select **Solutions Gallery**. In the gallery, select the **Azure SQL Analytics** solution, and select **Add**.
+1. After you create the Log Analytics resource and your data is flowing into it, install the SQL Analytics solution. On the home page, on the side menu, select **Solutions Gallery**. In the gallery, select the **Azure SQL Analytics** solution, and select **Add**.
 
    ![Monitoring solution](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. On your Operations Management Suite home page, the **Azure SQL Analytics** tile appears. Select this tile to open the SQL Analytics dashboard.
+2. On your home page, the **Azure SQL Analytics** tile appears. Select this tile to open the SQL Analytics dashboard.
 
 ### Use the SQL Analytics solution
 

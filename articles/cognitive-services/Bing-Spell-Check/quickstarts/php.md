@@ -4,18 +4,16 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
-
 ms.service: cognitive-services
-ms.technology: spellcheck
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: v-jaswel
-
 ---
 # Quickstart for Bing Spell Check API with PHP 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) with PHP. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world".
+This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) with PHP. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!" The suggested replacements are "Hello" and "world."
 
 ## Prerequisites
 
@@ -43,17 +41,16 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 $host = 'https://api.cognitive.microsoft.com';
 $path = '/bing/v7.0/spellcheck?';
+$params = 'mkt=en-us&mode=proof';
 
 $input = "Hollo, wrld!";
 
 $data = array (
-	'mkt' => 'en-US',
-	'method' => 'proof',
 	'text' => urlencode ($input)
 );
 
 // NOTE: Replace this example key with a valid subscription key.
-$key = 'enter key here';
+$key = 'ENTER KEY HERE';
 
 // The following headers are optional, but it is recommended
 // that they are treated as required. These headers will assist the service
@@ -75,13 +72,14 @@ $options = array (
     )
 );
 $context  = stream_context_create ($options);
-$result = file_get_contents ($host . $path, false, $context);
+$result = file_get_contents ($host . $path . $params, false, $context);
 
 if ($result === FALSE) {
 	/* Handle error */
 }
 
-var_dump($result);
+$json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+echo $json;
 ?>
 ```
 

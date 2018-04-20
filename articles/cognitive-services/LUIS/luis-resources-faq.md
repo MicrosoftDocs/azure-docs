@@ -1,16 +1,15 @@
 ---
 title: Language Understanding Intelligent Services (LUIS) in Azure frequently asked questions | Microsoft Docs
 titleSuffix: Azure
-description:  Get answers to frequently asked questions about Language Understanding Intelligent Services (LUIS)
+description: Get answers to frequently asked questions about Language Understanding Intelligent Services (LUIS)
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 # Language Understanding FAQ
 
@@ -124,7 +123,7 @@ The Pattern feature is currently deprecated. Pattern features in LUIS are provid
 Each LUIS app has the authoring/starter key. LUIS subscription keys created during the GA time frame are visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS subscription keys do not appear on the publish page. 
 
 ## How do I secure my LUIS endpoint? 
-You can control who has access to your LUIS endpoint by calling it in a server-to-server environment. If you are using LUIS from a bot, the connection between the bot and LUIS is already secure. If you are calling the LUIS endpoint directly, you should create a server-side API (such as an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (such as [AAD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authentication and authorization are verified, pass the call on to LUIS. While this strategy doesn’t prevent man-in-the-middle attacks, it obfuscates your endpoint from your users, allows you to track access, and allows you to add endpoint response logging (such as [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
+See [Securing the endpoint](luis-concept-security.md#securing-the-endpoint).
 
 ## Where is my LUIS app created during the Azure web app bot subscription process?
 If you select a LUIS template, and select the **Select** button in the template pane, the left-side pane changes to include the template type, and asks in what region to create the LUIS template. The web app bot process doesn't create a LUIS subscription though.
@@ -156,6 +155,10 @@ Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) in
 
 ## Why does LUIS add spaces to the query around or in the middle of words?
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).  
+
+## Why do I keep getting "Your sign in has expired" error?
+ 
+See [Website sign in time period](luis-boundaries.md#website-sign-in-time-period).
 
 ## Next steps
 

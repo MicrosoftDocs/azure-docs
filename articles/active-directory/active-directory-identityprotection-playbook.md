@@ -98,7 +98,7 @@ The sign-in shows up in the Identity Protection dashboard within 2-4 hours.
 ## Simulating vulnerabilities
 Vulnerabilities are weaknesses in an Azure AD environment that can be exploited by a bad actor. Currently 3 types of vulnerabilities are surfaced in Azure AD Identity Protection that leverage other features of Azure AD. These Vulnerabilities will be displayed on the Identity Protection dashboard automatically once these features are set up.
 
-* Azure AD [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+* Azure AD [Multi-Factor Authentication](authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 

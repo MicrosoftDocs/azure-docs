@@ -1,18 +1,12 @@
 ---
 title: Indexing an Azure Cosmos DB data source for Azure Search | Microsoft Docs
 description: This article shows you how to create an Azure Search indexer with an Azure Cosmos DB data source.
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: 
-
-ms.assetid: 
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: search
+ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: eugenesh
 robot: noindex
@@ -30,6 +24,10 @@ In this article, learn how to:
 
 > [!NOTE]
 > Azure Cosmos DB is the next generation of DocumentDB. Although the product name is changed, the `documentdb` syntax in Azure Search indexers still exists for backwards compatibility in both the Azure Search APIs and portal pages. When configuring indexers, be sure to specify the `documentdb` syntax as instructed in this article.
+
+In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates how to add an Azure Search index to an Azure Cosmos DB container.
+
+>[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
 
 <a name="supportedAPIs"></a>
 ## Supported API types

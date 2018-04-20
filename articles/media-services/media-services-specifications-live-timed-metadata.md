@@ -142,7 +142,7 @@ Sparse track fragments consist of a Movie Fragment Box (‘moof’) and a Media 
 Box (‘mdat’).
 
 The MovieFragmentBox (‘moof’) box MUST contain a
-**TrackFragmentExtendedHeaderBox (‘uuid’)** box as defined in [FMP4] with the
+**TrackFragmentExtendedHeaderBox (‘uuid’)** box as defined in [MS-SSTR] with the
 following fields:
 
 | **Field Name**         | **Field Type**          | **Required?** | **Description**                                                                               |
@@ -190,7 +190,7 @@ with [SCTE-67] and/or the client’s streaming protocol:
 
 ## 3.1 Smooth Streaming Delivery
 
-Refer to sparse track handling details in the specifications [FMP4] and [MS-SSTR].
+Refer to sparse track handling details in [MS-SSTR].
 
 #### Smooth Client Manifest Example
 ~~~ xml
@@ -452,16 +452,13 @@ formats, 2nd edition
 
 **[AMF0]** ["Action Message Format AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
-**[FMP4]** [IIS Smooth Streaming File/Wire Format
-Specification](https://microsoft.sharepoint.com/teams/mediaservices/_layouts/15/WopiFrame.aspx?sourcedoc=%7bAC5A31A4-E455-4000-96E1-AB17BD083144%7d&file=IIS%20Smooth%20Streaming%20File%20Format%20Specification%20-%20v%202%203%2001%20latest%20draft.docx&action=default)
-
 **[LIVE-FMP4]** [Azure Media Services Fragmented MP4 Live Ingest
-Specification](https://microsoft.sharepoint.com/teams/mediaservices/_layouts/15/WopiFrame.aspx?sourcedoc=%7b5CEE1122-AA28-4368-BC8E-9C0048BF1529%7d&file=AMS%20F-MP4%20Live%20Ingest%20Specification.docx&action=default)
+Specification](https://docs.microsoft.com/en-us/azure/media-services/media-services-fmp4-live-ingest-overview)
 
 **[ISO-14496-12]** ISO/IEC 14496-12: Part 12 ISO base media file format, Fourth
 Edition 2012-07-15.
 
-**[RTMP]** [“Adobe’s Real-Time Messaging Protocol”, December 21, 2012](http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/rtmp/pdf/rtmp_specification_1.0.pdf) 
+**[RTMP]** [“Adobe’s Real-Time Messaging Protocol”, December 21, 2012](https://www.adobe.com/devnet/rtmp.html) 
 
 ------------------------------------------
 

@@ -32,6 +32,7 @@ In this tutorial, you learn how to:
 > * View VM metrics
 > * Create an alert
 > * Manage Windows updates
+> * Monitor changes and inventory
 > * Set up advanced monitoring
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
@@ -233,7 +234,7 @@ The chart shows changes that have occurred over time. After you have added an Ac
 
 ## Advanced monitoring
 
-You can do more advanced monitoring of your VM by using the solutions like Update Management and Change and Inventory provided by Azure Automation. [Operations Management Suite](../../automation/automation-intro.md).
+You can do more advanced monitoring of your VM by using the solutions like Update Management and Change and Inventory provided by [Azure Automation](../../automation/automation-intro.md).
 
 When you have access to the Log Analytics workspace, you can find the workspace key and workspace identifier on by selecting **Advanced settings** under **SETTINGS**. Use the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) command to add the Microsoft Monitoring agent extension to the VM. Update the variable values in the below sample to reflect you Log Analytics workspace key and workspace Id.
 
@@ -270,6 +271,7 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * View VM metrics
 > * Create an alert
 > * Manage Windows updates
+> * Monitor changes and inventory
 > * Set up advanced monitoring
 
 Advance to the next tutorial to learn about Azure security center.

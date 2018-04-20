@@ -1,12 +1,11 @@
 ---
-title: Integrate LUIS with a bot using the Bot Builder SDK for C# in Azure | Microsoft Docs 
-description: Build a bot integrated with a LUIS application using the Bot Framework. 
+title: Integrate LUIS with a bot using the Bot Builder SDK for C# in Azure | Microsoft Docs
+description: Build a bot integrated with a LUIS application using the Bot Framework.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr

@@ -59,7 +59,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >
     >We recommend increasing the resources allocated to Docker when testing large applications. This can be done by selecting the **Docker Icon**, then selecting **Advanced** to adjust the number of cores and memory.
 
-2. In a new directory create a file called `.Dockerfile` to build your Service Fabric Image:
+2. In a new directory create a file called `Dockerfile` to build your Service Fabric Image:
 
     ```dockerfile
     FROM microsoft/service-fabric-onebox
@@ -83,7 +83,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >[!TIP]
     > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page
 
-3. To build your reusable image from the `.Dockerfile` open a terminal and `cd` to the directly holding your `.Dockerfile` then run:
+3. To build your reusable image from the `Dockerfile` open a terminal and `cd` to the directly holding your `Dockerfile` then run:
 
     ```bash 
     docker build -t mysfcluster .
@@ -184,9 +184,9 @@ After you create and build your Service Fabric application, you can deploy your 
 
 Install the [.NET Core 2.0 SDK for Mac](https://www.microsoft.com/net/core#macos) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core 2.0 Service Fabric applications are hosted on NuGet.org, which is currently in preview.
 
-## Install the Service Fabric plug-in for Eclipse Neon on your Mac
+## Install the Service Fabric plug-in for Eclipse on your Mac
 
-Azure Service Fabric provides a plug-in for the Eclipse Neon for the Java IDE. The plug-in simplifies the process of creating, building, and deploying Java services. To install or update the Service Fabric plug-in for Eclipse to the latest version, follow [these steps](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon). The other steps in the [Service Fabric for Eclipse documentation](service-fabric-get-started-eclipse.md) are also applicable: build an application, add a service to an application, uninstall an application, and so on.
+Azure Service Fabric provides a plug-in for Eclipse Neon (or later) for the Java IDE. The plug-in simplifies the process of creating, building, and deploying Java services. To install or update the Service Fabric plug-in for Eclipse to the latest version, follow [these steps](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse). The other steps in the [Service Fabric for Eclipse documentation](service-fabric-get-started-eclipse.md) are also applicable: build an application, add a service to an application, uninstall an application, and so on.
 
 The last step is to instantiate the container with a path that is shared with your host. The plug-in requires this type of instantiation to work with the Docker container on your Mac. For example:
 

@@ -1,19 +1,12 @@
 ---
 title: Lucene query examples for Azure Search | Microsoft Docs
 description: Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard search.
-services: search
-documentationcenter: ''
 author: LiamCa
-manager: pablocas
-editor: ''
+manager: jlembicz
 tags: Lucene query analyzer syntax
-
-ms.assetid: 147f360d-a5ce-4d7b-a909-c8b65bfb748c
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: liamca
 ---

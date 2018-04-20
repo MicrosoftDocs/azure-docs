@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 03/23/2018
+ms.date: 03/27/2018
 ms.author: alehall
 
 ---
@@ -107,7 +107,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 To receive a stream of tweets, you create an application in Twitter. Follow the instructions create a Twitter application and record the values that you need to complete this tutorial.
 
-1. From a web browser, go to [Twitter Application Management](http://twitter.com/app), and select **Create New App**.
+1. From a web browser, go to [Twitter Application Management](https://apps.twitter.com/), and select **Create New App**.
 
     ![Create Twitter application](./media/databricks-stream-from-eventhubs/databricks-create-twitter-app.png "Create Twitter application")
 
@@ -171,6 +171,7 @@ In this section, you create two notebooks in Databricks workspace with the follo
 
 In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholders with values for your Event Hubs namesapce and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Event Hubs in real time.
 
+```scala
     import java.util._
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
@@ -240,6 +241,7 @@ In the **SendTweetsToEventHub** notebook, paste the following code, and replace 
 
     // Closing connection to the Event Hub
     eventHubClient.get().close()
+```
 
 To run the notebook, press **SHIFT + ENTER**. You see an output like the snippet below. Each event in the output is a tweet that is ingested into the Event Hubs containing the term "Azure".
 
@@ -262,6 +264,7 @@ To run the notebook, press **SHIFT + ENTER**. You see an output like the snippet
 
 In the **ReadTweetsFromEventHub** notebook, paste the following code, and replace the placeholder with values for your Azure Event Hubs that you created earlier. This notebook reads the tweets that you earlier streamed into Event Hubs using the **SendTweetsToEventHub** notebook.
 
+```scala
     import org.apache.spark.eventhubs._
 
     // Build connection string with the above information
@@ -280,6 +283,7 @@ In the **ReadTweetsFromEventHub** notebook, paste the following code, and replac
     // Sending the incoming stream into the console.
     // Data comes in batches!
     incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 You get the following output:
 
@@ -310,6 +314,7 @@ You get the following output:
 
 Because the output is in a binary mode, use the following snippet to convert it into string.
 
+```scala
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
 
@@ -326,6 +331,7 @@ Because the output is in a binary mode, use the following snippet to convert it 
     messages.printSchema
 
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+```
 
 The output now resembles the following snippet:
 
@@ -354,7 +360,7 @@ The output now resembles the following snippet:
     ...
     ...
 
-That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs in near real-time. You then consumed the stream data using the Event Hubs connector for Apache Spark.
+That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs in near real-time. You then consumed the stream data using the Event Hubs connector for Apache Spark. For more information on how to use the Event Hubs connector for Spark, see the [connector documentation](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 ## Clean up resources
 
