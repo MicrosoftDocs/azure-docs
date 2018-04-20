@@ -79,6 +79,8 @@ items:
       href: request-units.md
     - name: Consistency
       href: consistency-levels.md
+    - name: Unique keys
+      href: unique-keys.md
     - name: Serverless database
       href: serverless-computing-database.md
     - name: Security
@@ -186,8 +188,6 @@ items:
           href: programming.md
         - name: Change feed
           href: change-feed.md
-        - name: Unique keys
-          href: unique-keys.md
         - name: Data types
           items:
           - name: DateTimes
@@ -322,8 +322,6 @@ items:
           href: mongodb-indexing.md
         - name: Visualize your data with Power BI
           href: powerbi-visualize.md
-        - name: Unique keys
-          href: unique-keys.md
       - name: Resources
         items:
         - name: Visual Studio Code extension
