@@ -22,6 +22,7 @@ ACR Build supports automated build execution when a container's base image is up
 In this tutorial, the last in the series:
 
 > [!div class="checklist"]
+> * Build the base image
 > * Create an application image build task
 > * Update the base image to trigger an application image build
 > * Display the triggered build
@@ -82,9 +83,17 @@ This tutorial walks you through a base image update scenario. The [code sample][
 
 In the following sections, you create a build task, update the `NODE_VERSION` value in the base image Dockerfile, then use ACR Build to build the base image. When ACR Build pushes the new base image to your registry, it automatically triggers a build of the application image. Optionally, you run the application container image locally to see the different version strings in the built images.
 
+## Build base image
+
+Start by building the base image with an ACR Build *Quick Build*. As discussed in the [first tutorial](container-registry-tutorial-quick-build.md) in the series, this not only builds the image, but pushes it to your container registry if the build is successful.
+
+```azurecli-interactive
+az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base --context .
+```
+
 ## Create build task
 
-Start by creating a build task with [az acr build-task create][az-acr-build-task-create]:
+Next, create a build task with [az acr build-task create][az-acr-build-task-create]:
 
 ```azurecli-interactive
 az acr build-task create \
