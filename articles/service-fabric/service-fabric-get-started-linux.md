@@ -127,16 +127,19 @@ To install the SDK and the associated runtime package via the apt-get command-li
     ```bash
     sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
     ```
+
 5. Add Microsoft RHEL repository to your system.
-   ```bash
-      curl https://packages.microsoft.com/config/rhel/7.4/prod.repo > ./microsoft-prod.repo
-      sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
-   ```
+
+    ```bash
+    curl https://packages.microsoft.com/config/rhel/7.4/prod.repo > ./microsoft-prod.repo
+    sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
+    ```
+
 6. Install dotnet sdk.
-   ```bash
-      yum install rh-dotnet20 -y
-      scl enable rh-dotnet20 bash
-   ```
+
+    ```bash
+    yum install rh-dotnet20 -y
+    ```
 
 ## Install and set up the Service Fabric SDK for local cluster setup
 
