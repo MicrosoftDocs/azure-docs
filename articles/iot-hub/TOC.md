@@ -16,6 +16,7 @@
 # Tutorials
 
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
+## [6. Troubleshooting](tutorial-troubleshooting.md)
 ## Routing messages
 ### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 ### [Java](iot-hub-java-java-process-d2c.md)
