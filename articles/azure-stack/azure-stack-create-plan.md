@@ -29,7 +29,7 @@ ms.reviewer:
 2. To create a plan and offer that users can subscribe to, click **New** > **Offers + Plans** > **Plan**.  
    ![](media/azure-stack-create-plan/select-plan.png)
 
-3. In the **New Plan** blade, fill in **Display name** and **Resource name**. The Display name is the plan's friendly name that users see. Only the admin can see the Resource name which is the name that admins use to work with the plan as an Azure Resource Manager resource.  
+3. In the **New Plan** blade, fill in **Display name** and **Resource name**. The Display name is the plan's friendly name that users see. Only the admin can see the Resource name, which is the name that admins use to work with the plan as an Azure Resource Manager resource.  
    ![](media/azure-stack-create-plan/plan-name.png)
 
 4. Create a new **Resource Group**, or select an existing one, as a container for the plan.  
@@ -47,7 +47,7 @@ ms.reviewer:
    You then select the new quota you created. Selecting the quota assigns it and closes the selection pane.  
    ![](media/azure-stack-create-plan/assign-quota.png)
 
-8. Repeat steps 6 and 7 to create and assign quotas for **Microsoft.Network (local)** and **Microsoft.Compute (local)**.  When all three services have quoatas assigned, they appear similar to the following image.
+8. Repeat steps 6 and 7 to create and assign quotas for **Microsoft.Network (local)** and **Microsoft.Compute (local)**.  When all three services have quotas assigned, they appear similar to the following image.
    ![](media/azure-stack-create-plan/all-uotas-assigned.png)
 
 9. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.  
