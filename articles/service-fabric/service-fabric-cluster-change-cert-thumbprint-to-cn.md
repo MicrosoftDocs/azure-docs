@@ -17,7 +17,7 @@ ms.date: 04/19/2018
 ms.author: ryanwi;aljo
 
 ---
-# Rollover from thumbprint to common name
+# Change cluster from certificate thumbprint to common name
 This article describes how to update a running Service Fabric cluster to use the certificate common name instead of the certificate thumbprint.
  
 ## Get a certificate
@@ -32,7 +32,7 @@ PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSet
 Next, export the self-signed certificate to a PFX file. Open the certlm.msc application and navigate to **Personal**>**Certificates**. Right-click on the **myclustername.southcentralus.cloudapp.azure.com** certificate, and select **All Tasks**>**Export**.  In the export wizard, choose **Yes, export the private key**, enter a password, and choose the Personal Information Exchange (PFX) format. Export the file to *C:\Users\sfuser\myclustercert.pfx*.
 
 
-## Upload the certificate to keyvault and install in the virtual machine scale set
+## Upload the certificate and install it in the scale set
 In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  Upload the certificate to a key vault and then install it on the virtual machine scale set that the cluster is running on.
 
 ```powershell
@@ -141,7 +141,7 @@ Next, open the template file in a text editor and make three updates to support 
                   },
     ```
 
-3.  In the **Microsoft.ServiceFabric/clusters** resource, update the API version to "2018-02-01".  Also add a **certificateCommonNames** setting with a **commonNames** property as in the following example:
+3.  In the **Microsoft.ServiceFabric/clusters** resource, update the API version to "2018-02-01".  Also add a **certificateCommonNames** setting with a **commonNames** property and remove the **certificate** setting (with the thumbprint property) as in the following example:
     ```json
     {
         "apiVersion": "2018-02-01",
@@ -155,13 +155,7 @@ Next, open the template file in a text editor and make three updates to support 
         "addonFeatures": [
             "DnsService",
             "RepairManager"
-        ],
-        /*
-        "certificate": {
-            "thumbprint": "[parameters('certificateThumbprint')]",
-            "x509StoreName": "[parameters('certificateStoreValue')]"
-        },
-        */
+        ],        
         "certificateCommonNames": {
             "commonNames": [
             {
