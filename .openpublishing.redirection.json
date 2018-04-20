@@ -18847,6 +18847,46 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-with-redgate.md",
             "redirect_url": "/azure/sql-data-warehouse/design-elt-data-loading",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/key-vault/key-vault-manage-with-cli.md",
+            "redirect_url": "/azure/key-vault/key-vault-manage-with-cli2",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-dir-radius",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server-iis.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-iis",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-nps-rdg",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-nps-vpn",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-server-windows.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-windows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-manage-users-and-devices.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfa-userdevicesettings",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
+            "redirect_document_id": true
         }
     ]
 }
