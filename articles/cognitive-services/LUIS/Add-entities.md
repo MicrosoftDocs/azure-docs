@@ -129,7 +129,7 @@ You can also define relationships between entities by creating composite entitie
     To use the pattern.any entity, add a [pattern](luis-how-to-model-intent-pattern.md#add-patterns) on the **Patterns** page under **Review endpoint utterances** with the correct curly brace syntax, such as "For **{BookTitle}** who is the author?".
 
 ## Add role to entity used in patterns
-A role is a named subtype of an entity. It is only available in a [pattern](luis-how-to-patterns). LUIS determines a role based on context.
+A role is a named subtype of an entity. It is only available in a [pattern](luis-how-to-model-intent-pattern). LUIS determines a role based on context.
 
 For example, a plane ticket has an *origin city* and a *destination city*, but both are cities. LUIS determines that both are cities and can determine origin and destination cities based on context. 
 
