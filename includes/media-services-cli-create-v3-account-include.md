@@ -28,7 +28,7 @@ When creating a Media Services account, you need to supply the name of an Azure 
 
 You must have one **Primary** storage account and you can have  any number of **Secondary** storage accounts associated with your Media Services account. Media Services supports **General-purpose v2** (GPv2) or **General-purpose v1** (GPv1) accounts. Blob only accounts are not allowed as **Primary**. If you want to learn more about storage accounts, see [Azure Storage account options](../articles/storage/common/storage-account-options.md). 
 
-For more information about how storage accounts are used in Media Services, see [Storage accounts](../articles/media-services/latest/storage-account-concept.md).
+For more information about how storage accounts are used in Media Services, see [Storage accounts](../articles/media-services/previous/latest/storage-account-concept.md).
 
 The following command creates a Storage account that is going to be associated with the Media Services account. In the script below, you can substitute `storageaccountforams` with your value. The account name must have length less than 24.
 
