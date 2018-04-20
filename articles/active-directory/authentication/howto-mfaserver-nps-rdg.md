@@ -26,7 +26,7 @@ Install the Azure Multi-Factor Authentication Server on a separate server, which
 
 ## Prerequisites
 
-- A domain-joined Azure MFA Server. If you don't have one installed already, follow the steps in [Getting started with the Azure Multi-Factor Authentication Server](../active-directory/authentication/howto-mfaserver-deploy.md).
+- A domain-joined Azure MFA Server. If you don't have one installed already, follow the steps in [Getting started with the Azure Multi-Factor Authentication Server](howto-mfaserver-deploy.md).
 - A Remote Desktop Gateway that authenticates with Network Policy Services.
 
 ## Configure the Remote Desktop Gateway
@@ -71,10 +71,10 @@ The Azure Multi-Factor Authentication Server is configured as a RADIUS proxy bet
 3. Go to the **Target** tab and select the **RADIUS server(s)** radio button.
 4. Select **Add** and enter the IP address, shared secret, and ports of the NPS server. Unless using a central NPS, the RADIUS client and RADIUS target are the same. The shared secret must match the one setup in the RADIUS client section of the NPS server.
 
-![Radius Authentication](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
+![Radius Authentication](./media/howto-mfaserver-nps-rdg/radius.png)
 
 ## Next steps
 
-- Integrate Azure MFA and [IIS web apps](multi-factor-authentication-get-started-server-iis.md)
+- Integrate Azure MFA and [IIS web apps](howto-mfaserver-iis.md)
 
 - Get answers in the [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)

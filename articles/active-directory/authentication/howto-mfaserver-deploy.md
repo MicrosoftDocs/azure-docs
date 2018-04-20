@@ -186,7 +186,7 @@ The new server is now up and running with the original backed-up configuration a
 ## Next steps
 
 - Set up and configure the [User Portal](howto-mfaserver-deploy-userportal.md) for user self-service.
-- Set up and configure the Azure MFA Server with [Active Directory Federation Service](../../multi-factor-authentication/multi-factor-authentication-get-started-adfs.md), [RADIUS Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md), or [LDAP Authentication](howto-mfaserver-dir-ldap.md).
-- Set up and configure [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](../../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md).
+- Set up and configure the Azure MFA Server with [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [RADIUS Authentication](howto-mfaserver-dir-radius.md), or [LDAP Authentication](howto-mfaserver-dir-ldap.md).
+- Set up and configure [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md).
 - [Deploy the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md).
-- [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](../../multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md).
+- [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](howto-mfaserver-nps-vpn.md).
