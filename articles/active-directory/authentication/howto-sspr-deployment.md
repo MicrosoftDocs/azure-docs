@@ -64,6 +64,10 @@ Many customers choose to host a webpage and create a root DNS entry, like https:
 
 In any email communications or fliers you send out you can include a branded, memorable URL that users can go to when they need to use the services. For your benefit, we have created a [sample password reset page](https://github.com/ajamess/password-reset-page) that you can use and customize to your organization’s needs.
 
+## Project planning
+
+The Azure Active Directory product group has created a [customizable project planning guide](https://aka.ms/SSPRDeploymentPlan) that organizations can use in parallel with the documentation found on this site to make a business case for deployment of self-service password reset.
+
 ## Use enforced registration
 
 If you want your users to register for password reset, you can require that they register when they sign in through Azure AD. You can enable this option from your directory’s **Password reset** pane by enabling the **Require Users to Register when Signing in** option on the **Registration** tab.
