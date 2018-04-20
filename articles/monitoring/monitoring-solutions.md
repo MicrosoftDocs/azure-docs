@@ -1,9 +1,9 @@
 ---
-title: Add Azure Log Analytics management solutions | Microsoft Docs
-description: Management solutions in Azure are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.
+title: Management solutions in Azure | Microsoft Docs
+description: Management solutions in Azure are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.  This article provides information on installing and using management solutions.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
-ms.author: magoedte
+ms.date: 04/20/2018
+ms.author: bwren
 
 
 ---
@@ -103,4 +103,6 @@ To remove an installed solution, locate it in the [list of installed solutions](
 
 
 ## Next steps
-* [Search logs](../log-analytics/log-analytics-log-searches.md) to view detailed information gathered by management solutions.
+* Get a [list of management solutions from Microsoft](monitoring-solutions-inventory.md).
+* Learn how to [create queries](../log-analytics/log-analytics-log-searches.md) to analyze data collected by management solutions.
+

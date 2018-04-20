@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: bwren
 
 ---
@@ -34,7 +34,7 @@ Explanations of the columns are as follows:
 
 
 
-| Management solution | Platform | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
+| **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Activity Log Analytics](../log-analytics/log-analytics-activity.md) | Azure | | | | | | on notification |
 | [AD Assessment](../log-analytics/log-analytics-ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 days |
@@ -46,8 +46,8 @@ Explanations of the columns are as follows:
 | [Azure Site Recovery](../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/a |
 | [Application Insights Connector (Preview)](../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | on notification |
 | [Automation Hybrid Worker](../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/a |
-|  |  | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
 | [Azure Application Gateway Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | on notification |
+| **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
 | [Azure Network Security Group Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | on notification |
 | [Azure SQL Analytics (Preview)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 10 minutes |
 | [Backup](../backup/backup-introduction-to-azure-backup.md) | Azure |  |  |  |  |  | n/a |
@@ -57,18 +57,14 @@ Explanations of the columns are as follows:
 | [Containers](../log-analytics/log-analytics-containers.md) | Windows and Linux | &#8226; | &#8226; |  |  |  | 3 minutes |
 | [Key Vault Analytics](../log-analytics/log-analytics-azure-key-vault.md) |Windows | | | | | |on notification |
 | [Malware Assessment](../log-analytics/log-analytics-malware.md) |Windows |&#8226; |&#8226; | | |&#8226; |hourly |
-|  |  | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
 | [Network Performance Monitor](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP handshakes every 5 seconds, data sent every 3 minutes |
 | [Office 365 Analytics (Preview)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |on notification |
-| [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (Syslog) | Linux | &#8226; | | |  |  | on arrival |
-| [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (Security event logs) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | on arrival |
-| [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (Firewall logs) |Windows |&#8226; |&#8226; |  |  |  |on arrival |
+| **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
 | [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (Syslog) | Linux | &#8226; | | |  |  | on arrival |
 | [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (Security event logs) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | on arrival |
 | [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (Firewall logs) |Windows |&#8226; |&#8226; |  |  |  |on arrival |
 | [Service Fabric Analytics (Preview)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 minutes |
 | [Service Map](../operations-management-suite/operations-management-suite-service-map.md) | Windows and Linux | &#8226; | &#8226; |  |  |  | 15 seconds |
-|  |  | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
 | [SQL Assessment](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 days |
 | [SurfaceHub](../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |on arrival |
 | [System Center Operations Manager Assessment (Preview)](../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | seven days |
@@ -81,4 +77,4 @@ Explanations of the columns are as follows:
 
 
 ## Next steps
-* [Search logs](../log-analytics/log-analytics-log-searches.md) to view detailed information gathered by management solutions.
+* Learn how to [create queries](../log-analytics/log-analytics-log-searches.md) to analyze data collected by management solutions.
