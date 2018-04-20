@@ -89,13 +89,17 @@ az servicebus rule create --resource-group my-resourcegroup --namespace-name my-
 # Create subscription 2
 az servicebus subscription create --resource-group my-resourcegroup --namespace-name my-namespace-name --topic-name my-topic-name --name S2
 
-# Create filter 3 - use Message header properties via IN list and combine with custom properties.
+# Create filter 3 - use Message header properties via IN list and 
+# combine with custom properties.
 az servicebus rule create --resource-group my-resourcegroup --namespace-name my-namespace-name --topic-name my-topic-name --subscription-name S2 --name MyFilter --filter-sql-expression "sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'"
 
 # Create subscription 3
 az servicebus subscription create --resource-group my-resourcegroup --namespace-name my-namespace-name --topic-name my-topic-name --name S3
 
-# Create filter 4 - Get everything but messages for subscription 1 and 2. Also modify a add an action, in this case setting the Label to a certain value. Assume those stores might not be part of your main store and you only add specific items to them and for that you flag them specifically.
+# Create filter 4 - Get everything except messages for subscription 1 and 2. 
+# Also modify and add an action; in this case setting the label to a specified value. 
+# Assume those stores might not be part of your main store, so you only add 
+# specific items to them. For that, you flag them specifically.
 az servicebus rule create --resource-group DemoGroup --namespace-name DemoNamespaceSB --topic-name tutorialtest1
  --subscription-name S3 --name MyFilter --filter-sql-expression "sys.To NOT IN ('Store1','Store2','Store3','Store4','Sto
 re5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Stor
