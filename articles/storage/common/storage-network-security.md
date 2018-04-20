@@ -36,6 +36,8 @@ Virtual Machine Disk traffic (including mount and unmount operations, and disk I
 
 Classic Storage accounts **do not** support Firewalls and Virtual Networks.
 
+Backup and Restore of Virtual Machines using unmanaged disks in storage accounts with network rules applied is supported via creating an exception as documented in the [Exceptions](/storage/common/storage-network-security#exceptions) section of this article.  Firewall exceptions are not applicable with Managed Disks as they are already managed by Azure.
+
 ## Change the default network access rule
 By default, storage accounts accept connections from clients on any network.  To limit access to selected networks, you must first change the default action.
 
