@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/19/2017
+ms.date: 04/20/2017
 ms.author: justhu
 ms.custom: aaddev
 
 ---
 
 # Permissions in Azure AD
-Azure Active Directory makes extensive use of permissions for both OAuth and OpenID Connect (OIDC) flows. When your app receives an access token from Azure AD, it will include claims which describe the permissions (also referred to as scopes) which your app has in respect to a particular resource. This makes authorization easy for the resource because it only needs to check that your token contains the appropriate permission for whatever API you are calling. 
+Azure Active Directory (Azure AD) makes extensive use of permissions for both OAuth and OpenID Connect (OIDC) flows. When your app receives an access token from Azure AD, it will include claims that describe the permissions (also known as scopes) which your app has in respect to a particular resource. This makes authorization easy for the resource because it only needs to check that your token contains the appropriate permission for whatever API you are calling. 
 
 ## Types of permissions
-Azure Active Directory defines two kinds of permissions: 
-* *Delegated permissions* are used by apps that have a signed-in user present. For these apps either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to an API. Depending on the API, the user may not be able to consent to the API directly and would instead [require an administrator to provide "admin consent".](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
-* Application permissions are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons. Application permissions can only be [consented by an administrator](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) because they are typically very powerful and allow access to data across user-boundaries, or data which would otherwise be restricted to administrators. 
+Azure AD defines two kinds of permissions: 
+* **Delegated permissions** - Are used by apps that have a signed-in user present. For these apps either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to an API. Depending on the API, the user may not be able to consent to the API directly and would instead [require an administrator to provide "admin consent".](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
+* **Application permissions** - Are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons. Application permissions can only be [consented by an administrator](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) because they are typically very powerful and allow access to data across user-boundaries, or data which would otherwise be restricted to administrators. 
 
 Effective permissions are the permissions that your app will have when making requests to an API. It is important to understand the difference between the delegated and application permissions that your app is granted and its effective permissions when making calls to an API.
 
-* For delegated permissions, the effective permissions of your app will be the least privileged intersection of the delegated permissions the app has been granted (via consent) and the privileges of the currently signed-in user. Your app can never have more privileges than the signed-in user. Within organizations, the privileges of the signed-in user may be determined by policy or by membership in one or more administrator roles. For more information about administrator roles, see Assigning administrator roles in Azure Active Directory.
+* For delegated permissions, the effective permissions of your app will be the least privileged intersection of the delegated permissions the app has been granted (through consent) and the privileges of the currently signed-in user. Your app can never have more privileges than the signed-in user. Within organizations, the privileges of the signed-in user may be determined by policy or by membership in one or more administrator roles. For more information about administrator roles, see [Assigning administrator roles in Azure AD](/azure/active-directory/active-directory-assign-admin-roles-azure-portal.md).
 
     For example, assume your app has been granted the `User.ReadWrite.All` delegated permission in Microsoft Graph. This permission nominally grants your app permission to read and update the profile of every user in an organization. If the signed-in user is a global administrator, your app will be able to update the profile of every user in the organization. However, if the signed-in user is not in an administrator role, your app will be able to update only the profile of the signed-in user. It will not be able to update the profiles of other users in the organization because the user that it has permission to act on behalf of does not have those privileges.
 * For application permissions, the effective permissions of your app will be the full level of privileges implied by the permission. For example, an app that has the `User.ReadWrite.All` application permission can update the profile of every user in the organization. 
@@ -38,7 +38,7 @@ Effective permissions are the permissions that your app will have when making re
 Every permission in Azure Active Directory defines a number of properties which help users, administrators, or app developers make informed decisions about what the permission grants access to. 
 
 > [!NOTE]
-> You can get view the permissions which an Azure AD Application or Service Principal expose using the Azure Portal, or PowerShell. Try this script to view the permissions exposed by Microsoft Graph.
+> You can view the permissions which an Azure AD Application or Service Principal exposes using the Azure Portal, or PowerShell. Try this script to view the permissions exposed by Microsoft Graph.
 > ```powershell
 > Connect-AzureAD
 > 
@@ -61,26 +61,22 @@ Every permission in Azure Active Directory defines a number of properties which 
 | Value | This is the string that is used to identify the permission during OAuth 2.0 authorize flows. This may also be combined with the App ID URI string in order to form a fully qualified permission name.  | Mail.Read | 
 
 ## Types of consent
-Applications in Azure Active Directory rely on consent in order to gain access to necessary resources or APIs. There are a number of kinds of consent that your app may need to know about in order to be successful. If you are defining permissions, you will also need to understand how your users will gain access to your app or API.
+Applications in Azure AD rely on consent in order to gain access to necessary resources or APIs. There are a number of kinds of consent that your app may need to know about in order to be successful. If you are defining permissions, you will also need to understand how your users will gain access to your app or API.
 
-* *Static user consent* occurs automatically during the [OAuth 2.0 authorize flow](azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code) when you specify the resource that your app wants to interact with. In the static user consent scenario, your app must have already specified all the permissions it needs in the app's configuration in the Azure Portal. If the user (or administrator, as appropriate) has not granted consent for this app, then Azure AD will prompt the user to provide consent at this time. 
+* **Static user consent** - Occurs automatically during the [OAuth 2.0 authorize flow](/azure/active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) when you specify the resource that your app wants to interact with. In the static user consent scenario, your app must have already specified all the permissions it needs in the app's configuration in the Azure Portal. If the user (or administrator, as appropriate) has not granted consent for this app, then Azure AD will prompt the user to provide consent at this time. 
 
     Learn more about registering an Azure AD app which requests access to a static set of APIs.
-* *Dynamic user consent* is a feature of the v2 Azure Active Directory app model. In this scenario, your app requests a set of scopes that it needs in the [OAuth 2.0 authorize flow for v2 apps](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). If the user has not consented already, they will be prompted to consent at this time. 
+* **Dynamic user consent** - Is a feature of the v2 Azure AD app model. In this scenario, your app requests a set of scopes that it needs in the [OAuth 2.0 authorize flow for v2 apps](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). If the user has not consented already, they will be prompted to consent at this time. [Learn more about dynamic consent](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
 
     > [!NOTE]
-    > Dynamic consent can be convenient, but presents a big challenge for permissions which require admin consent, since the admin consent experience doesn't know about those permissions at consent time. If you require admin privileged scopes, your app must register them in the Azure Portal.
-
-    [Learn more about dynamic consent](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent)
-
-* *Admin consent* is required when your app needs access to certain high-privilege permissions. This ensures that administrators have some additional controls before authorizing apps or users to access highly privileged data from the organization. 
-
-    [Learn more about how to grant admin consent](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
+    > Dynamic consent can be convenient, but presents a big challenge for permissions that require admin consent, since the admin consent experience doesn't know about those permissions at consent time. If you require admin privileged scopes, your app must register them in the Azure Portal.
+  
+* **Admin consent** - Is required when your app needs access to certain high-privilege permissions. This ensures that administrators have some additional controls before authorizing apps or users to access highly privileged data from the organization. [Learn more about how to grant admin consent](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ## Best practices
 
 ### Resource best practices
-Resources which expose APIs should define permissions which are very specific to the data or actions that they are protecting. This helps to ensure that clients do not end up with permission to access data that they do not need and that users are well informed about what data they are consenting to.
+Resources which expose APIs should define permissions that are very specific to the data or actions that they are protecting. This helps to ensure that clients do not end up with permission to access data that they do not need and that users are well informed about what data they are consenting to.
 
 Resources should explicitly define `Read` and `ReadWrite` permissions separately in order to ensure that apps which only read data are not over-permissioned. 
 
