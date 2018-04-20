@@ -11,7 +11,7 @@ tags: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.date: 04/20/2017
+ms.date: 04/20/2018
 ms.author: twooley
 ms.reviewer: sasubram
 
