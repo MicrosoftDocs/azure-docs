@@ -64,9 +64,14 @@ This tutorial uses features of Azure SQL Database and the Azure platform to addr
 
 ## Get the disaster recovery scripts
 
+<<<<<<< HEAD
 The DR scripts in this tutorial are available in the [Wingtip Tickets SaaS database per tenant GitHub repository](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/tree/feature-DR-georestore). For steps to download and unblock the Wingtip Tickets management scripts, see the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md).
 
 The DR scripts used in this tutorial are available in the [Wingtip Tickets SaaS database per tenant GitHub repository](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets management scripts.
+=======
+The DR scripts used in this tutorial are available in the [Wingtip Tickets SaaS database per tenant GitHub repository](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets management scripts.
+
+>>>>>>> 03f3c3370ed7772d1e43323768bff10595af374e
 > [!IMPORTANT]
 > Like all the Wingtip Tickets management scripts, the DR scripts are sample quality and are not to be used in production.
 
