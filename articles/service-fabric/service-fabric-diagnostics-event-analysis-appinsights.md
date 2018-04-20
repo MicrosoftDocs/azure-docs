@@ -26,19 +26,19 @@ Azure Application Insights is an extensible platform for application monitoring 
 * How do I troubleshoot my application, especially services communicating with one another
 * How do I get metrics about how my services are performing, for example, page load time, http requests
 
-**The purpose of this article is to show how to gain insights and troubleshoot from within App Insights. If you'd like to learn how to set up and configure AI with service fabric, check out this [tutorial](service-fabric-tutorial-monitoring-aspnet.md).**
+The purpose of this article is to show how to gain insights and troubleshoot from within App Insights. If you'd like to learn how to set up and configure AI with Service Fabric, check out this [tutorial](service-fabric-tutorial-monitoring-aspnet.md).
 
 ## Monitoring in App Insights
 
-Application Insights has a rich out of the box with Service Fabric. In the overview page below, AI provides key information about your service such as the response time and number of requests processed. By clicking the 'Search' button above, you can see a list of recent requests in your application. Additionally, you would be able to see failed requests here and diagnose what errors may have occurred.
+Application Insights has a rich out of the box with Service Fabric. In the overview page, AI provides key information about your service such as the response time and number of requests processed. By clicking the 'Search' button at the top, you can see a list of recent requests in your application. Additionally, you would be able to see failed requests here and diagnose what errors may have occurred.
 
 ![AI Overview](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 
-On the right panel in the image above, there are two main types of entries in the list: requests and events. Requests are calls made to the app's API through HTTP requests in this case, and events are custom events, which act as telemetry you can add anywhere in your code. You can further explore instrumenting your applications in [Application Insights API for custom events and metrics](../application-insights/app-insights-api-custom-events-metrics.md). Clicking on a request would display further details as shown in the image below, including data specific to Service Fabric, which is collected in the AI Service Fabric nuget package. This info is useful for troubleshooting and knowing what the state of your application is, and all of this information is searchable within Application Insights
+On the right panel in the preceding image, there are two main types of entries in the list: requests and events. Requests are calls made to the app's API through HTTP requests in this case, and events are custom events, which act as telemetry you can add anywhere in your code. You can further explore instrumenting your applications in [Application Insights API for custom events and metrics](../application-insights/app-insights-api-custom-events-metrics.md). Clicking on a request would display further details as shown in the following image, including data specific to Service Fabric, which is collected in the AI Service Fabric nuget package. This info is useful for troubleshooting and knowing what the state of your application is, and all of this information is searchable within Application Insights
 
 ![AI Request Details](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
-Application Insights has a designated view for querying against all the data that comes in. Click "Metrics Explorer" on the top of the Overview page to navigate to the AI portal. Here you can run queries against custom events mentioned before, requests, exceptions, performance counters, and other metrics using the Kusto query language. Below is a basic example of all the requests in the last 1 hour.
+Application Insights has a designated view for querying against all the data that comes in. Click "Metrics Explorer" on the top of the Overview page to navigate to the AI portal. Here you can run queries against custom events mentioned before, requests, exceptions, performance counters, and other metrics using the Kusto query language. The following example shows all the requests in the last 1 hour.
 
 ![AI Request Details](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
@@ -81,12 +81,12 @@ In the "WadCfg" of the Resource Manager template, add a "Sink" by including the 
     "sinks": "applicationInsights"
     ```
 
-In both the code snippets above, the name "applicationInsights" was used to describe the sink. This is not a requirement and as long as the name of the sink is included in "sinks", you can set the name to any string.
+In both the preceding code snippets, the name "applicationInsights" was used to describe the sink. This is not a requirement and as long as the name of the sink is included in "sinks", you can set the name to any string.
 
 Currently, logs from the cluster show up as **traces** in AI's log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error." This can be done by adding "Channels" to your sink, as demonstrated in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 >[!NOTE]
->If you use an incorrect AI IKey either in portal or in your Resource Manager template, you will have to manually change the key and update the cluster / redeploy it.
+>If you use an incorrect AI Key either in portal or in your Resource Manager template, you will have to manually change the key and update the cluster / redeploy it.
 
 ### Configuring AI with EventFlow
 

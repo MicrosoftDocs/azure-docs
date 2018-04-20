@@ -1,6 +1,7 @@
 ---
 title: Choose a SKU or pricing tier for Azure Search | Microsoft Docs
 description: 'Azure Search can be provisioned at these SKUs: Free, Basic, and Standard, where Standard is available in various resource configurations and capacity levels.'
+services: search
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
