@@ -97,9 +97,82 @@ Download the template and parameters JSON files to your local computer.
 
 Next, open the template file in a text editor and make three updates to support certificate common name.
 
-1.
-2.
-3.
+1. In the **parameters** section, add a *certificateCommonName* parameter:
+    ```json
+    "certificateCommonName": {
+      "type": "string",
+      "metadata": {
+        "description": "Certificate Commonname"
+      }
+    },
+    ```
+
+    Also consider removing the *certificateThumbprint*, it may no longer be needed.
+
+2. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extenstionProfile**->**extensions**->**properties**->**settings**->**certificate**, add `"commonNames": "[parameters('certificateCommonName')]",` and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
+    ```json
+    "virtualMachineProfile": {
+              "extensionProfile": {
+                "extensions": [
+                  {
+                    "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+                    "properties": {
+                      "type": "ServiceFabricNode",
+                      "autoUpgradeMinorVersion": true,
+                      "protectedSettings": {
+                        "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+                        "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+                      },
+                      "publisher": "Microsoft.Azure.ServiceFabric",
+                      "settings": {
+                        "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                        "nodeTypeRef": "[variables('vmNodeType0Name')]",
+                        "dataPath": "D:\\SvcFab",
+                        "durabilityLevel": "Bronze",
+                        "enableParallelJobs": true,
+                        "nicPrefixOverride": "[variables('subnet0Prefix')]",
+                        "certificate": {
+                          "commonNames": "[parameters('certificateCommonName')]",                          
+                          "x509StoreName": "[parameters('certificateStoreValue')]"
+                        }
+                      },
+                      "typeHandlerVersion": "1.0"
+                    }
+                  },
+    ```
+
+3.  In the **Microsoft.ServiceFabric/clusters** resource, update the API version to "2018-02-01".  Also add a **certificateCommonNames** setting with a **commonNames** property as in the following example:
+    ```json
+    {
+        "apiVersion": "2018-02-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        "dependsOn": [
+        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+        ],
+        "properties": {
+        "addonFeatures": [
+            "DnsService",
+            "RepairManager"
+        ],
+        /*
+        "certificate": {
+            "thumbprint": "[parameters('certificateThumbprint')]",
+            "x509StoreName": "[parameters('certificateStoreValue')]"
+        },
+        */
+        "certificateCommonNames": {
+            "commonNames": [
+            {
+                "certificateCommonName": "[parameters('certificateCommonName')]",
+                "certificateIssuerThumbprint": ""
+            }
+            ],
+            "x509StoreName": "[parameters('certificateStoreValue')]"
+        },
+        ...
+    ```
 
 ## Deploy the updated template
 Redeploy the updated template after making the changes.
