@@ -19,8 +19,8 @@ Microsoft Azure Service Bus is a multi-tenant cloud messaging service that sends
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Create a Service Bus topic and one or more subscriptions to that topic
-> * Add topic filters
+> * Create a Service Bus topic and one or more subscriptions to that topic using the Azure portal
+> * Add topic filters using .NET code
 > * Create two messages with different content
 > * Send the messages and verify they arrived in the expected subscriptions
 > * Receive messages from the subscriptions
