@@ -5561,6 +5561,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cosmos-db/tutorial-develop-mongodb.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-mongodb-dotnet",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-security.md",
             "redirect_url": "/azure/log-analytics/log-analytics-data-security",
             "redirect_document_id": false
