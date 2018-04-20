@@ -22,7 +22,7 @@ ms.author: daveba
 
 Managed Service Identity (MSI) provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you learn how to enable and remove system and user assigned MSIs for an Azure VM, using PowerShell.
+In this article, you learn how to enable and remove system and user assigned managed identities for an Azure VM, using PowerShell.
 
 ## Prerequisites
 
@@ -30,13 +30,13 @@ In this article, you learn how to enable and remove system and user assigned MSI
 
 Also, install [the latest version of Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) if you haven't already.
 
-## System assigned MSI
+## System assigned identity
 
-In this section, you will learn how to enable and remove a system assigned MSI using Azure PowerShell
+In this section, you will learn how to enable and remove a system assigned identity using Azure PowerShell
 
-### Enable MSI during creation of an Azure VM
+### Enable system assigned identity during creation of an Azure VM
 
-To create an MSI-enabled VM:
+To create a system assigned enabled VM:
 
 1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Log in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
 
@@ -57,9 +57,9 @@ To create an MSI-enabled VM:
    Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
    ```
 
-## Enable MSI on an existing Azure VM
+### Enable system assigned identity on an existing Azure VM
 
-If you need to enable MSI on an existing Virtual Machine:
+If you need to enable a system assigned identity on an existing Virtual Machine:
 
 1. Sign in to Azure using `Login-AzureRmAccount`. Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
 
@@ -67,7 +67,7 @@ If you need to enable MSI on an existing Virtual Machine:
    Login-AzureRmAccount
    ```
 
-2. First retrieve the VM properties using the `Get-AzureRmVM` cmdlet. Then to enable MSI, use the `-AssignIdentity` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
+2. First retrieve the VM properties using the `Get-AzureRmVM` cmdlet. Then to enable a system assigned identity, use the `-AssignIdentity` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
 
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
@@ -81,9 +81,9 @@ If you need to enable MSI on an existing Virtual Machine:
    Set-AzureRmVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
    ```
 
-## Remove MSI from an Azure VM
+## Remove system assigned identity from an Azure VM
 
-If you have a Virtual Machine that no longer needs an MSI, you can use the `RemoveAzureRmVMExtension` cmdlet to remove MSI from the VM:
+If you have a Virtual Machine that no longer needs a system assigned identity, you can use the `RemoveAzureRmVMExtension` cmdlet to remove MSI from the VM:
 
 1. Sign in to Azure using `Login-AzureRmAccount`. Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
 
@@ -137,15 +137,15 @@ To assign a user assigned identity to an existing Azure VM:
    Connect-AzureRmAccount
    ```
 
-2. Create a user assigned MSI using the `New-AzureRmUserAssignedIdentity` cmdlet.  Note the `Id` in the output because you will needs this in the next step.
+2. Create a user assigned identity using the [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) cmdlet.  Note the `Id` in the output because you will need this in the next step.
   ```powershell
-  New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <MSI NAME>
+  New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
   ```
-3. Retrieve the VM properties using the `Get-AzureRmVM` cmdlet. Then to assign a user assigned identity to the Azure VM, use the `-IdentityType` and `-IdentityID` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet.  The value for the`-IdentityId` parameter is the `Id` you noted in the previous step.  Replace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, and `<MSI NAME>` with your own values.
+3. Retrieve the VM properties using the `Get-AzureRmVM` cmdlet. Then to assign a user assigned identity to the Azure VM, use the `-IdentityType` and `-IdentityID` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet.  The value for the`-IdentityId` parameter is the `Id` you noted in the previous step.  Replace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, and `<USER ASSIGNED IDENTITY NAME>` with your own values.
 
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
-   Update-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
+   Update-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
 4. Add the MSI VM extension using the `-Type` parameter on the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. You can pass either "ManagedIdentityExtensionForWindows" or "ManagedIdentityExtensionForLinux", depending on the type of VM, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition. Specify the correct `-Location` parameter, matching the location of the existing VM.
@@ -156,7 +156,7 @@ To assign a user assigned identity to an existing Azure VM:
    ```
 ### Remove a user assigned managed identity from an Azure VM
 
-Removing the only user assigned identity from a VMS is not supported at this time.  Check back for updates.
+Removing the only user assigned identity from a VM is not supported at this time.  Check back for updates.
 
 ## Related content
 
@@ -166,7 +166,6 @@ Removing the only user assigned identity from a VMS is not supported at this tim
   - [Create a Windows virtual machine with PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
   - [Create a Linux virtual machine with PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 
 
-Use the following comments section to provide feedback and help us refine and shape our content.
 
 
 

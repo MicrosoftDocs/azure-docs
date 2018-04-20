@@ -37,7 +37,7 @@ As with the Azure portal and scripting, Azure Resource Manager templates provide
    - Using a local [JSON editor (such as VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), and then uploading and deploying by using PowerShell or CLI.
    - Using the Visual Studio [Azure Resource Group project](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to both create and deploy a template.  
 
-Regardless of the option you choose, template syntax is the same during initial deployment and redeployment. Enabling MSI on a new or existing VM is done in the same manner. Also, by default, Azure Resource Manager does an [incremental update](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to deployments.
+Regardless of the option you choose, template syntax is the same during initial deployment and redeployment. Enabling a system or user assigned identity on a new or existing VM is done in the same manner. Also, by default, Azure Resource Manager does an [incremental update](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to deployments.
 
 ## System assigned identity
 
@@ -97,7 +97,7 @@ In this section, you will enable and disable a system assigned identity using an
 
 ### Remove a system assigned identity from an Azure VM
 
-If you have a VM that no longer needs an MSI:
+If you have a VM that no longer needs a managed service identity:
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also ensure that your account belongs to a role that gives you write permissions on the VM (for example, the role of “Virtual Machine Contributor”).
 
@@ -105,13 +105,13 @@ If you have a VM that no longer needs an MSI:
 
 ## User assigned identity
 
-In this section, you will create a user identity and Azure VM using an Azure Resource Manager template.
+In this section, you create a user identity and Azure VM using an Azure Resource Manager template.
 
  ### Create and assign a user assigned identity to an Azure VM
 
 1. Perform the first the step in the section [Enable system assigned identity during creation of an Azure VM, or on an existing VM](#enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm)
 
-2.  Under the variables section that contains the configuration variables for your Azure VM, add an entry to for a user assigned identity name similar to the following.  This will create the user assigned identity during the Azure VM creation process:
+2.  Under the variables section that contains the configuration variables for your Azure VM, add an entry for a user assigned identity name similar to the following.  This will create the user assigned identity during the Azure VM creation process:
 
     ```json
     "variables": {
@@ -120,7 +120,7 @@ In this section, you will create a user identity and Azure VM using an Azure Res
         "identityName": "[concat(variables('vmName'), 'id')]"
     ```
 
-3. Under the `resources` element add the following entry to create a user assigned identity:
+3. Under the `resources` element, add the following entry to create a user assigned identity:
 
     ```json
     {

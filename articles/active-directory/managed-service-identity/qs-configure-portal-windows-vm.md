@@ -72,4 +72,3 @@ If you have a Virtual Machine that no longer needs an MSI:
 
 - Using the Azure portal, give an Azure VM's MSI [access to another Azure resource](howto-assign-access-portal.md).
 
-Use the following comments section to provide feedback and help us refine and shape our content.

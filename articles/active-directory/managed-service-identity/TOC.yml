@@ -68,6 +68,7 @@
         - name: CLI
           href: qs-configure-cli-windows-vmss.md
         - name: PowerShell
+          href: qs-configure-powershell-windows-vmss.md
         - name: Azure Resource Manager Template
           href: qs-configure-template-windows-vmss.md
       - name: Use a VM MSI

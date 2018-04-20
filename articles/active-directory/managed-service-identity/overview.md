@@ -100,7 +100,7 @@ Azure services that support Managed Service Identity can use MSI to authenticate
 
 ## How much does Managed Service Identity cost?
 
-
+Managed Service Identity comes with Azure Active Directory Free, which is the default for Azure subscriptions. There is no additional cost for Managed Service Identity.
 
 ## Support and feedback
 
