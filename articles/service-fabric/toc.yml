@@ -517,6 +517,10 @@
         href: service-fabric-cluster-security-roles.md      
       - name: Open a port in the load balancer
         href: create-load-balancer-rule.md
+      - name: Change cluster certificate to common name
+        href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+      - name: Rollover a cluster certificate
+        href: service-fabric-cluster-rollover-cert-cn.md
       - name: Manage cluster certificates
         href: service-fabric-cluster-security-update-certs-azure.md
       - name: Delete
