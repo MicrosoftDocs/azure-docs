@@ -27,7 +27,7 @@
     maintainContext: true
   - name: Kafka Producer and Consumer API
     href: apache-kafka-producer-consumer-api.md
-  - name: Using Kafka Streams API
+  - name: Kafka Streams API
     href: apache-kafka-streams-api.md
 - name: Concepts
   items:
