@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory B2B collaboration for hybrid organizations | Microsoft Docs
-description: Give partners access to both local and cloud resources with Azure AD B2B collaboration
+title: B2B collaboration for hybrid organizations - Azure Active Directory | Microsoft Docs
+description: Give partners access to both on-premises and cloud resources with Azure AD B2B collaboration.
 services: active-directory
 documentationcenter: ''
 author: twooley
@@ -11,7 +11,7 @@ tags: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.date: 12/15/2017
+ms.date: 04/20/2018
 ms.author: twooley
 ms.reviewer: sasubram
 
@@ -19,27 +19,33 @@ ms.reviewer: sasubram
 
 # Azure Active Directory B2B collaboration for hybrid organizations
 
-In a hybrid organization, where you have both on-premises and cloud resources, you might want to give external partners access to both local and cloud resources. For access to local resources, you can manage partner accounts locally in your on-premises Active Directory environment. Partners sign in with their partner account credentials to access your organization's resources. To give partners access to cloud resources using these same credentials, you can now use Azure Active Directory (Azure AD) Connect to sync the partner accounts to the cloud as Azure AD B2B users (that is, users with UserType = Guest).
+Azure Active Directory (Azure AD) B2B collaboration makes it easy for you to give your external partners access to apps and resources in your organization. This is true even in a hybrid configuration where you have both on-premises and cloud-based resources. It doesn’t matter if you currently manage external partner accounts locally in your on-premises identity system, or if you manage the external accounts in the cloud as Azure AD B2B users. You can now grant these users access to resources in either location, using the same sign-in credentials for both environments.
 
-## Identify unique attributes for UserType
+## Grant B2B users in Azure AD access to your on-premises apps
 
-Before you enable synchronization of the UserType attribute, you must first decide how to derive the UserType attribute from on-premises Active Directory. In other words, what parameters in your on-premises environment are unique to your external collaborators? Determine a parameter that distinguishes these external collaborators from members of your own organization.
+If your organization uses Azure AD B2B collaboration capabilities to invite guest users from partner organizations to your Azure AD, you can now provide these B2B users access to on-premises apps.
 
-Two common approaches for this are to:
+For apps that use SAML-based authentication, you can make these apps available to B2B users through the Azure portal, using Azure AD Application Proxy for authentication.
 
-- Designate an unused on-premises Active Directory attribute (for example, extensionAttribute1) to use as the source attribute. 
-- Alternatively, derive the value for UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises Active Directory UserPrincipalName attribute ends with the domain *@partners.fabrikam123.org*.
+For apps that use Integrated Windows Authentication (IWA) with Kerberos constrained delegation (KCD), you also use Azure AD Proxy for authentication. However, for authorization to work, a user object is required in the on-premises Windows Server Active Directory. There are two methods you can use to create local user objects that represent your B2B guest users.
+
+- You can use Microsoft Identity Manager (MIM) 2016 SP1 and the MIM management agent for Microsoft Graph. (This requires an Azure AD Premium 1 subscription.)
+- You can use a PowerShell script. (This solution does not require MIM or AD Premium.)
+
+For details about how to implement these solutions, see [Grant B2B users in Azure AD access to your on-premises applications](active-directory-b2b-hybrid-cloud-to-on-premises.md).
+
+## Grant locally-managed partner accounts access to cloud resources
+
+Before Azure AD, organizations with on-premises identity systems have traditionally managed partner accounts in their on-premises directory. If you’re such an organization, you want to make sure that your partners continue to have access as you move your apps and other resources to the cloud. Ideally, you want these users to use the same set of credentials to access both cloud and on-premises resources. 
+
+We now offer methods where you can use Azure AD Connect to sync these local accounts to the cloud as "guest users," where the accounts behave just like Azure AD B2B users. This solution works even if you have an on-premises identity system that lets your partners use their own external email addresses as their sign-in name.
+
+To help protect your company data, you can control access to just the right resources, and configure authorization policies that treat these guest users differently from your employees.
+
+For implementation details, see [Grant locally-managed partner accounts access to cloud resources using Azure AD B2B collaboration](active-directory-b2b-hybrid-on-premises-to-cloud.md).
  
-For detailed attribute requirements, see [Enable synchronization of UserType](connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype). 
-
-## Configure Azure AD Connect to sync users to the cloud
-
-After you identify the unique attribute, you can configure Azure AD Connect to sync these users to the cloud as Azure AD B2B users (that is, users with UserType = Guest). From an authorization point of view, these users are indistinguishable from B2B users created through the Azure AD B2B collaboration invitation process.
-
-For implementation instructions, see [Enable synchronization of UserType](connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype).
-
 ## Next steps
 
-- For an overview of Azure AD B2B collaboration, see [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-- For an overview of Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](connect/active-directory-aadconnect.md).
+- [Grant B2B users in Azure AD access to your on-premises applications](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+- [Grant locally-managed partner accounts access to cloud resources using Azure AD B2B collaboration](active-directory-b2b-hybrid-on-premises-to-cloud.md).
 
