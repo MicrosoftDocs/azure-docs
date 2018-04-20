@@ -23,12 +23,15 @@ Jenkins is a popular tool for continuous integration and deployment of your apps
 ## General prerequisites
 - Make sure Git is installed locally. You can install the appropriate Git version from [the Git downloads page](https://git-scm.com/downloads), based on your operating system. If you are new to Git, learn more about it from the [Git documentation](https://git-scm.com/docs).
 
-## Requirements to install Service Fabric plug-in in an existing Jenkins environment
+## Install Service Fabric plug-in in an existing Jenkins environment
 If you are adding the Service Fabric plug-in to an existing Jenkins environment, you need the following:
 
 - The [Service Fabric CLI](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli) (sfctl).
+
    > [!NOTE]
    > Be sure to install the CLI at the system level rather than at the user level, so Jenkins can run CLI commands. 
+   >
+
 - To develop Java applications, install both [Gradle and Open JDK 8.0](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development). 
 - To develop .NetCore 2.0 applications, install the [.NET Core 2.0 SDK](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-net-core-20-development). 
 
@@ -56,9 +59,10 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    ```
 
 3. Persist the state of the Jenkins container in a file-share:
-   * Create an Azure storage account in the **same region** as your cluster with a name such as `sfjenkinsstorage1`.
-   * Create a **File Share** under the storage Account with a name such as `sfjenkins`.
-   * Click on **Connect** for the file-share and note the values it displays under **Connecting from Linux**, the value should look similar to the one below:
+   1. Create an Azure storage account in the **same region** as your cluster with a name such as `sfjenkinsstorage1`.
+   2. Create a **File Share** under the storage Account with a name such as `sfjenkins`.
+   3. Click on **Connect** for the file-share and note the values it displays under **Connecting from Linux**, the value should look similar to the one below:
+
       ```sh
       sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
       ```
@@ -231,13 +235,17 @@ If you choose to use Azure credentials, be sure to follow the instructions in th
    
    * **For Jenkins running outside your cluster:** Follow these steps to copy the cluster certificate to your container:
       1. Your certificate must be in PEM format. If you don't have a PEM file, you can create one from the certificate PFX file. If your PFX file is not password protected, run the following command from your host:
+
          ```sh
          openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
          ``` 
+
       If the PFX file is password protected, include the password in the `-passin` parameter. For example:
+
          ```sh
          openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
          ``` 
+
       2. To get the image name for your Jenkins container, run `docker ps` from your host and note the NAME value for your container.
       3. Copy the PEM file to your container with the following Docker command:
       
@@ -264,14 +272,15 @@ If you choose to use Azure credentials, be sure to follow the instructions in th
 
 11. To configure Jenkins to deploy the application post-build using an Azure Active Directory service principal, follow these steps: 
     > [!NOTE]
-    > Configuring an Azure credential is strongly recommended for production environments. These steps show you how to configure an Azure Active Directory  service principal as your Azure credential. You can assign service principals to roles to limit the permissions of the Jenkins job in your directory. For development and test, you can use configure Azure credentials or the cluster management endpoint to deploy your application. For details about how to configure a cluster management endpoint, see the previous step (10).   
+    > Configuring an Azure credential is strongly recommended for production environments. These steps show you how to configure an Azure Active Directory service principal as your Azure credential. You can assign service principals to roles to limit the permissions of the Jenkins job in your directory. For development and test environments, you can configure Azure credentials or the cluster management endpoint to deploy your application. For details about how to configure a cluster management endpoint, see the previous step (10).   
 
 
-   1. Click the **Post-build Actions** tab.
-   2. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. 
-   3. Under **Service Fabric Cluster Configuration**, Select the **Select the Service Fabric Cluster** radio button. Click **Add** next to **Azure Credentials**. Click **Jenkins** to select the Jenkins Credentials Provider.
-   4. In the Jenkins Credentials Provider, select **Microsoft Azure Service Principal** from the **Kind** drop-down.
-   5. From the values you saved when setting up your service principal in **Prerequisites**, enter the following:
+   1. Make sure you have followed the instructions in the **Prerequisites** in this section to create a service principal.
+   2. Click the **Post-build Actions** tab.
+   3. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. 
+   4. Under **Service Fabric Cluster Configuration**, Select the **Select the Service Fabric Cluster** radio button. Click **Add** next to **Azure Credentials**. Click **Jenkins** to select the Jenkins Credentials Provider.
+   5. In the Jenkins Credentials Provider, select **Microsoft Azure Service Principal** from the **Kind** drop-down.
+   6. From the values you saved when setting up your service principal in **Prerequisites**, enter the following:
 
        * **Client ID** : *Application ID*
        * **Client Secret** : *Application key*
