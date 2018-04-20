@@ -18,7 +18,7 @@ ms.author: juliako
 
 ---
 # Dynamic encryption: Configure a content key authorization policy
-[!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
+[!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## Overview
  You can use Azure Media Services to deliver your content encrypted (dynamically) with the Advanced Encryption Standard (AES) by using 128-bit encryption keys and PlayReady or Widevine digital rights management (DRM). Media Services also provides a service for delivering keys and PlayReady/Widevine licenses to authorized clients.
@@ -438,10 +438,10 @@ Add AuthorizationPolicy to ContentKey, as shown in the section "[Add an authoriz
 
 
 ## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Next steps
 Now that you have configured a content key's authorization policy, see [Configure asset delivery policy](media-services-rest-configure-asset-delivery-policy.md).

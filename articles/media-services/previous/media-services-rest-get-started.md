@@ -18,7 +18,7 @@ ms.author: juliako
 
 ---
 # Get started with delivering content on demand using REST
-[!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
+[!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 This quickstart walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) REST APIs.
 
@@ -914,7 +914,7 @@ To stream you video, use [Azure Media Services Player](http://amsplayer.azureweb
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
 
 ## Next Steps: Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

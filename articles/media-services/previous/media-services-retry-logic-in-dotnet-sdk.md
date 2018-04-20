@@ -79,8 +79,8 @@ When Query and SaveChanges operations throw DataServiceClientException, DataServ
 If you want to take a look at the actual implementation of the Media Services SDK for .NET retry logic, see [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
 
 ## Next steps
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -45,8 +45,8 @@ You can click the job to see more details.
 After your encoding job is one, you can publish and play your assets, as described [here](media-services-portal-publish.md).
 
 ## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

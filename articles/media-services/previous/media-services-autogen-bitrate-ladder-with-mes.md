@@ -199,10 +199,10 @@ Source with height "360" and framerate "29.970" produces 3 video layers:
 |2|270|480|440|
 |3|180|320|230|
 ## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## See Also
 [Media Services Encoding Overview](media-services-encode-asset.md)

@@ -78,10 +78,10 @@ Response:
 
 
 ## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Next Steps
 Now that you know how to get a media processor instance, go to the [How to Encode an Asset](media-services-rest-get-started.md) article which demonstrates how to use the Media Encoder Standard to encode an asset.

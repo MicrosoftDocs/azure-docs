@@ -124,7 +124,7 @@ Response:
 See [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Related articles
 See [Media Services Analytics announcement](https://azure.microsoft.com/blog/introducing-azure-media-analytics/).
@@ -136,4 +136,4 @@ See [Media Services Analytics announcement](https://azure.microsoft.com/blog/int
 ## Next steps
 Review Media Services learning paths.
 
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

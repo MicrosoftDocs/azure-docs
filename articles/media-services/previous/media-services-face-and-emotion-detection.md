@@ -47,7 +47,7 @@ The detected and tracked faces are returned with coordinates (left, top, width, 
 
 ## <a id="output_elements"></a>Elements of the output JSON file
 
-[!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
+[!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
 Face Detector uses techniques of fragmentation (where the metadata can be broken up in time-based chunks and you can download only what you need), and segmentation (where the events are broken up in case they get too large). Some simple calculations can help you transform the data. For example, if an event started at 6300 (ticks), with a timescale of 2997 (ticks/sec) and framerate of 29.97 (frames/sec), then:
 
@@ -510,10 +510,10 @@ namespace FaceDetection
 ```
 
 ## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Related links
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)

@@ -18,7 +18,7 @@ ms.author: juliako
 
 ---
 # Get started with the Java client SDK for Azure Media Services
-[!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
+[!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 This tutorial walks you through the steps of implementing a basic video content delivery service with Azure Media Services using the Java client SDK.
 
@@ -299,10 +299,10 @@ The code also relies on a locally stored video file. You must edit the code to p
 ```
 
 ## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Additional Resources
 For more information about developing Java apps on Azure, see [Azure Java Developer Center][Azure Java Developer Center] and [Azure for Java developers][Azure for Java developers].

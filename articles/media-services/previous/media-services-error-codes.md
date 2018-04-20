@@ -116,8 +116,8 @@ To handle this error, we recommend using exponential back-off retry logic. That 
 [Media Services Management Error Codes](http://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
 ## Next steps
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

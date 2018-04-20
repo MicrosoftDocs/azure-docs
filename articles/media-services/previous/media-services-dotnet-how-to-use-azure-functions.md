@@ -19,7 +19,7 @@ ms.author: juliako
 ---
 # Develop Azure Functions with Media Services
 
-This article shows you how to get started with creating Azure Functions that use Media Services. The Azure Function defined in this article monitors a storage account container named **input** for new MP4 files. Once a file is dropped into the storage container, the blob trigger executes the function. To review Azure functions, see  [Overview](../azure-functions/functions-overview.md) and other topics in the **Azure functions** section.
+This article shows you how to get started with creating Azure Functions that use Media Services. The Azure Function defined in this article monitors a storage account container named **input** for new MP4 files. Once a file is dropped into the storage container, the blob trigger executes the function. To review Azure functions, see  [Overview](../../azure-functions/functions-overview.md) and other topics in the **Azure functions** section.
 
 If you want to explore and deploy existing Azure Functions that use Azure Media Services, check out [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). This repository contains examples that use Media Services to show workflows related to ingesting content directly from blob storage, encoding, and writing content back to blob storage. It also includes examples of how to monitor job notifications via WebHooks and Azure Queues. You can also develop your Functions based on the examples in the [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) repository. To deploy the functions, press the **Deploy to Azure** button.
 
@@ -31,14 +31,14 @@ If you want to explore and deploy existing Azure Functions that use Azure Media 
 ## Create a function app
 
 1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
-2. Create a function app as described [here](../azure-functions/functions-create-function-app-portal.md).
+2. Create a function app as described [here](../../azure-functions/functions-create-function-app-portal.md).
 
 >[!NOTE]
 > A storage account that you specify in the **StorageConnection** environment variable (see the next step) should be in the same region as your app.
 
 ## Configure function app settings
 
-When developing Media Services functions, it is handy to add environment variables that will be used throughout your functions. To configure app settings, click the Configure App Settings link. For more information, see  [How to configure Azure Function app settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
+When developing Media Services functions, it is handy to add environment variables that will be used throughout your functions. To configure app settings, click the Configure App Settings link. For more information, see  [How to configure Azure Function app settings](../../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
 
 The function, defined in this article, assumes you have the following environment variables in your app settings:
 
@@ -76,7 +76,7 @@ Your Azure function is associated with code files and other files that are descr
 
 ### function.json
 
-The function.json file defines the function bindings and other configuration settings. The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution. For more information, see [Azure functions HTTP and webhook bindings](../azure-functions/functions-reference.md#function-code).
+The function.json file defines the function bindings and other configuration settings. The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution. For more information, see [Azure functions HTTP and webhook bindings](../../azure-functions/functions-reference.md#function-code).
 
 >[!NOTE]
 >Set the **disabled** property to **true** to prevent the function from being executed. 
@@ -345,5 +345,5 @@ For more details and complete samples/solutions of using Azure Functions and Log
 Also, see [Use Azure WebHooks to monitor Media Services job notifications with .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

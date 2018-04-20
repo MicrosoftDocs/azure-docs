@@ -192,7 +192,7 @@
 ### [Filters and dynamic manifests overview](media-services-dynamic-manifest-overview.md)
 #### [Create filters with .NET](media-services-dotnet-dynamic-manifest.md)
 #### [Create filters with REST](media-services-rest-dynamic-manifest.md)
-### [CDN Caching Policy in Media Services Extension](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
+### [CDN Caching Policy in Media Services Extension](../../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publish content
 #### [Azure portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)

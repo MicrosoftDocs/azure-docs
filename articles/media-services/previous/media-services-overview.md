@@ -90,4 +90,4 @@ For information about availability in datacenters, see the [Availability](scenar
 
 ## Provide feedback
 
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

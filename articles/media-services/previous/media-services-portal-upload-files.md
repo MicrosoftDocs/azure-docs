@@ -51,10 +51,10 @@ In Azure Media Services, you upload your digital files to an asset. The asset ca
 When the upload is finished, the new asset is listed in the **Assets** pane. 
 
 ## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Next steps
 * Learn how to [encode your uploaded assets](media-services-portal-encode.md).

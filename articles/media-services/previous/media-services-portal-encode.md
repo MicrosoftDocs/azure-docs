@@ -47,10 +47,10 @@ To encode your content by using Media Encoder Standard:
 5. Select **Create**.
 
 ## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Next steps
 * [Monitor the progress of your encoding job](media-services-portal-check-job-progress.md) in the Azure portal.  

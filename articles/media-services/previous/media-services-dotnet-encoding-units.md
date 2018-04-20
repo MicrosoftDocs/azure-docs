@@ -54,8 +54,8 @@ To change the reserved unit type and the number of encoding reserved units using
 By default every Media Services account can scale to up to 10 S2 or S3 Media Reserved Units (MRUs) or 25 S1 MRUs, and 5 On-Demand Streaming Reserved Units. You can request a higher limit by opening a support ticket.
 
 ## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

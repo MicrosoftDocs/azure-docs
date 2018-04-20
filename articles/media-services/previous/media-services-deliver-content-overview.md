@@ -177,10 +177,10 @@ In the July 2016 service release, the generated Smooth Streaming manifest confor
 Some of the legacy Smooth Streaming clients may not support the repeat tags and will fail to load the manifest. To mitigate this issue, you can use the legacy manifest format parameter **(format=fmp4-v20)** or update your client to the latest version, which supports repeat tags. For more information, see [Smooth Streaming 2.0](media-services-deliver-content-overview.md#fmp4_v20).
 
 ## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Related topics
 [Update Media Services locators after rolling storage keys](media-services-roll-storage-access-keys.md)

@@ -220,8 +220,8 @@ For more information, see [JWT token authentication in Azure Media Services and 
 
 For information on Azure AD:
 
-* You can find developer information in the [Azure Active Directory developer's guide](../active-directory/active-directory-developers-guide.md).
-* You can find administrator information in [Administer your Azure AD tenant directory](../active-directory/active-directory-administer.md).
+* You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/active-directory-developers-guide.md).
+* You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/active-directory-administer.md).
 
 ### Some issues in implementation
 Use the following troubleshooting information for help with implementation issues.
@@ -282,7 +282,7 @@ Signing key rollover is an important point to take into consideration in your im
 
 Azure AD uses industry standards to establish trust between itself and applications that use Azure AD. Specifically, Azure AD uses a signing key that consists of a public and private key pair. When Azure AD creates a security token that contains information about the user, it's signed by Azure AD with a private key before it's sent back to the application. To verify that the token is valid and originated from Azure AD, the application must validate the token's signature. The application uses the public key exposed by Azure AD that is contained in the tenant's federation metadata document. This public key, and the signing key from which it derives, is the same one used for all tenants in Azure AD.
 
-For more information on Azure AD key rollover, see [Important information about signing key rollover in Azure AD](../active-directory/active-directory-signing-key-rollover.md).
+For more information on Azure AD key rollover, see [Important information about signing key rollover in Azure AD](../../active-directory/active-directory-signing-key-rollover.md).
 
 Between the [public-private key pair](https://login.microsoftonline.com/common/discovery/keys/):
 
@@ -307,9 +307,9 @@ What if the key rollover happens after Azure AD generates a JWT but before the J
 Because a key can be rolled over at any moment, more than one valid public key is always available in the federation metadata document. Media Services license delivery can use any of the keys specified in the document. Because one key might be rolled soon, another might be its replacement, and so forth.
 
 ### Where is the access token?
-If you look at how a web app calls an API app under [Application identity with OAuth 2.0 client credentials grant](../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api), the authentication flow is as follows:
+If you look at how a web app calls an API app under [Application identity with OAuth 2.0 client credentials grant](../../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api), the authentication flow is as follows:
 
-* A user signs in to Azure AD in the web application. For more information, see [Web browser to web application](../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application).
+* A user signs in to Azure AD in the web application. For more information, see [Web browser to web application](../../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application).
 * The Azure AD authorization endpoint redirects the user agent back to the client application with an authorization code. The user agent returns the authorization code to the client application's redirect URI.
 * The web application needs to acquire an access token so that it can authenticate to the web API and retrieve the desired resource. It makes a request to the Azure AD token endpoint and provides the credential, client ID, and web API's application ID URI. It presents the authorization code to prove that the user consented.
 * Azure AD authenticates the application and returns a JWT access token that's used to call the web API.
@@ -464,8 +464,8 @@ This document discussed CENC with multi-native DRM and access control via token 
 * Some topics directly involved in the design and implementation were also discussed.
 
 ## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
  

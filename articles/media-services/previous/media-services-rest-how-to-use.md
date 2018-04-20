@@ -18,7 +18,7 @@ ms.author: juliako;johndeu
 
 ---
 # Media Services operations REST API overview
-[!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+[!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 The **Media Services Operations REST** API is used for creating Jobs, Assets, Live Channels and other resources in a Media Services account. For more information, see [Media Services Operations REST API reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -117,8 +117,8 @@ For details on writing code that connects to the REST API using Azure AD authent
 To learn how to use Azure AD authentication with Media Services REST API, see [Use Azure AD authentication to access the Azure Media Services API with REST](media-services-rest-connect-with-aad.md).
 
 ## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
