@@ -121,7 +121,7 @@ After the namespace and topic/subscriptions are provisioned, and you have the ne
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Navigate to the sample folder `/azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java/tutorial-topics-subscriptions-filters-java`. Note that in the Bash shell, the commands are case sensitive and the path separators must be forward slashes.
+2. Navigate to the sample folder `/azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java/tutorial-topics-subscriptions-filters-java`. Note that in the Bash shell, the commands are case-sensitive and path separators must be forward slashes.
 
 3. Issue the following command to build the application:
    
@@ -164,7 +164,7 @@ First, the code declares a set of variables, which drive the remaining execution
     int NrOfMessagesPerStore = 1; // Send at least 1.
 ```
 
-The connection string and the topic name are the only values added via command line parameters and passed to `main()`. The actual code execution is triggered in the `run()` method and sends, then receives messages from the topic:
+The connection string and the topic name are the only values added via command-line parameters and passed to `main()`. The actual code execution is triggered in the `run()` method and sends, then receives messages from the topic:
 
 ```java
 public static void main(String[] args) {
