@@ -1,5 +1,5 @@
 ---
-title: Workflow Definition Language for Azure Logic Apps | Microsoft Docs
+title: Workflow Definition Language - Azure Logic Apps | Microsoft Docs
 description: Author workflows with the Workflow Definition Language for Azure Logic Apps
 services: logic-apps
 author: ecfan
@@ -17,7 +17,7 @@ ms.date: 04/16/2018
 ms.author: estfan
 ---
 
-# Workflow Definition Language schema for Azure Logic Apps
+# Logic Apps workflow definitions with the Workflow Definition Language schema
 
 When you create a logic app workflow with 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
@@ -415,15 +415,15 @@ see the [alphabetical reference list](../logic-apps/workflow-definition-language
 
 | Comparison function | Task | 
 | ------------------- | ---- | 
-| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Check whether all Boolean values are true. | 
+| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Check whether all expressions are true. | 
 | [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Check whether both values are equivalent. | 
 | [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Check whether the first value is greater than the second value. | 
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Check whether the first value is greater than or equal to the second value. | 
 | [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Check whether an expression is true or false. Based on the result, return a specified value. | 
 | [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Check whether the first value is less than the second value. | 
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Check whether the first value is less than or equal to the second value. | 
-| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Check whether a Boolean value is false. | 
-| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | Check whether at least one Boolean value is true. |
+| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Check whether an expression is false. | 
+| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | Check whether at least one expression is true. |
 ||| 
 
 <a name="conversion-functions"></a>
