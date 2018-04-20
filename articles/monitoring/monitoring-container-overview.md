@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 04/19/2018
 ms.author: magoedte
 ---
 
@@ -24,6 +24,6 @@ Using [Container Monitoring for AKS](monitoring-container-performance.md), you c
 
 For containers running outside of the hosted Azure Kubernetes service, the Log Analytics [Container Solution](../log-analytics/log-analytics-containers.md) helps you view and manage your Windows and Docker container hosts. From your Log Analytics workspace, it shows you which containers are running, what container image they’re running, and where containers are running.  You can view detailed audit information showing commands used with containers, and you can troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker or Windows hosts.
 
-Once you have configured container monitoring, you should consider including any other application component dependencies (that is, Azure resources) to avoid any monitoring gaps with the application and ensure that you are able to meet operating and service availability requirements.  
+Once you have configured container monitoring, you should consider including any other application component dependencies (that is, Azure resources) to avoid any monitoring gaps with the application and verify you are able to meet operating and service availability requirements.  
 
-Finally, it is important to monitor the application running on one or more containers to identify issues that impact usability and responsiveness for users accessing those applications.  This can be accomplished with [Application Insights](../application-insights/app-insights-overview.md) and deliver end-to-end monitoring of application health.  
+It is important to monitor the application running on one or more containers to identify issues that impact usability and responsiveness for users accessing those applications.  This can be accomplished with [Application Insights](../application-insights/app-insights-overview.md) and deliver end-to-end monitoring of application health.  

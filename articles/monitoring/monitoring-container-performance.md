@@ -63,9 +63,9 @@ When you open Container Health, the page immediately presents the performance ut
 - Controllers  
 - Containers
 
-The row hierarchy follows the Kubernetes object model starting with a node in your cluster.  Expand the node and you see one or more pods running on the node, and if there is more than one container grouped to a pod, they will be shown as the last row in the hierarchy.<br><br> ![Example Kubernetes Node hierarchy in the performance view](./media/monitoring-container-performance/container-performance-and-health-view-03.png)
+The row hierarchy follows the Kubernetes object model starting with a node in your cluster.  Expand the node and you see one or more pods running on the node, and if there is more than one container grouped to a pod, they are shown as the last row in the hierarchy.<br><br> ![Example Kubernetes Node hierarchy in the performance view](./media/monitoring-container-performance/container-performance-and-health-view-03.png)
 
-You can select controllers or containers from the top of the page and review the status and resource utilization for those objects.  Use the dropdown boxes at the top of the screen to filter by namespace, service, and node.  The results will reflect your selection accordingly.  If instead you want to review memory utilization, from the **Metric** drop-down list select **Memory RSS** or **Memory working set**.
+You can select controllers or containers from the top of the page and review the status and resource utilization for those objects.  Use the dropdown boxes at the top of the screen to filter by namespace, service, and node.  The results reflect your selection accordingly.  If instead you want to review memory utilization, from the **Metric** drop-down list select **Memory RSS** or **Memory working set**.
 
 ![Container performance nodes performance view](./media/monitoring-container-performance/container-performance-and-health-view-04.png)
 
@@ -91,7 +91,7 @@ From the selector, choose **Controllers**.<br><br> ![Select controllers view](./
 
 Here we can see the performance health of your controllers.<br><br> ![<Name> controllers performance view](./media/monitoring-container-performance/container-performance-and-health-view-05.png)
 
-The row hierarchy starts with a controller and expand the controller and you see one or more pods or one ore more containers.  Expand a pod and the last row will show the container grouped to the pod.  
+The row hierarchy starts with a controller and expands the controller and you see one or more pods, or one or more containers.  Expand a pod and the last row show the container grouped to the pod.  
 
 The following table describes the information presented when you view Controllers.
 
@@ -133,7 +133,7 @@ When you're interested in looking for trends, diagnose bottlenecks, forecast, or
 You can perform interactive analysis of data in the repository by selecting the **View Log** option, available on the far right when you expand a node, controller, or container and the **Log Search** page appears right above the page you were on in the portal, so you are never redirected directly to Log Analytics.<br><br> ![Analyze data in Log Analytics](./media/monitoring-container-performance/container-performance-and-health-view-logs-01.png)   
 
 ## How to discontinue monitoring with Container Health
-After enabling monitoring of your AKS container you decide you no longer wish to monitor it, you can *opt out* using the provided Azure Resource Manager template with the PowerShell cmdlet **New-AzureRmResourceGroupDeployment**.  The JSON template is configured to prompt you for the AKS cluster resource Id and the name of the resource group the cluster is deployed to.  If you are not familiar with the concepts of deploying resources using a template with PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+After enabling monitoring of your AKS container you decide you no longer wish to monitor it, you can *opt out* using the provided Azure Resource Manager template with the PowerShell cmdlet **New-AzureRmResourceGroupDeployment**.  The JSON template is configured to prompt you for the AKS cluster resource ID and the name of the resource group the cluster is deployed to.  If you are not familiar with the concepts of deploying resources using a template with PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### Create and execute template
 
@@ -188,7 +188,7 @@ After enabling monitoring of your AKS container you decide you no longer wish to
     Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
     New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
     ```
-The configuration change can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:br><br> ![Example result when deployment is complete](./media/monitoring-container-performance/template-output-01.png)
+The configuration change can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:<br><br> ![Example result when deployment is complete](./media/monitoring-container-performance/template-output-01.png)
 
 ## Next steps
 
