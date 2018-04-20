@@ -38,10 +38,10 @@ Here is the high-level structure for a workflow definition:
 "definition": {
   "$schema": "<workflow-definition-language-schema-version>",
   "contentVersion": "<workflow-definition-version-number>",
-  "parameters": { <workflow-parameter-definitions> },
-  "triggers": [ { <workflow-trigger-definitions> } ],
-  "actions": [ { <workflow-action-definitions> } ],
-  "outputs": { <workflow-output-definitions> }
+  "parameters": { "<workflow-parameter-definitions>" },
+  "triggers": { "<workflow-trigger-definitions>" },
+  "actions": { "<workflow-action-definitions>" },
+  "outputs": { "<workflow-output-definitions>" }
 }
 ```
   
@@ -69,7 +69,7 @@ Here is the general structure for a parameter definition:
 "parameters": {
   "<parameter-name>": {
     "type": "<parameter-type>",
-    "defaultValue": <default-parameter-value>,
+    "defaultValue": "<default-parameter-value>",
     "allowedValues": [ <array-with-permitted-parameter-values> ],
     "metadata": { 
       "key": { 
@@ -82,87 +82,16 @@ Here is the general structure for a parameter definition:
 
 | Element | Required | Type | Description |  
 |---------|----------|------|-------------|  
-| type | Yes | int, string, securestring, bool, object, secureobject, array <p>**Note**: The `securestring` and `secureobject` types are not returned by `GET` operations. All passwords, keys, and secrets should use this type. | See the following examples section. | 
+| type | Yes | int, string, securestring, bool, object, secureobject, array <p>**Note**: The `securestring` and `secureobject` types are not returned by `GET` operations. All passwords, keys, and secrets should use this type. | For examples, see the *Examples* section as follows. | 
 | defaultValue | No | The default parameter value to use when no value is specified when the workflow instantiates | 
 | allowedValues | No | An array with values that the parameter can accept |  
 | metadata | No | Any other parameter details, for example, a readable description or design-time data used by Visual Studio or other tools |  
 ||||
   
-*Examples*
-
-```json
-"parameters": {
-  "numItems": {
-    "type": "int",
-    "defaultValue": 0 
-  }
-}
-``` 
-
-```json
-"parameters": {
-  "customerName": { 
-    "type": "string",
-    "defaultValue": ""
-  } 
-}
-```
-
-```json 
-"parameters": {
-  "securedString": {
-    "type": "securestring",
-    "defaultValue": "" 
-  }
-}
-```
-
-```json 
-"parameters": {
-  "isChecked": {
-    "type": "bool",
-    "defaultValue": false 
-  }
-}
-```
-
-```json 
-"parameters": {
-  "colorRange": {
-    "type": "array",
-    "defaultValue": [""] 
-  }
-}
-```
-
-```json 
-"parameters": {
-  "customer": {
-    "type": "object",
-    "defaultValue": { 
-      "customer": {
-        "name": "",
-        "accountNumber": 0,
-        "location": "",
-        "purchasedItems": [""]
-      }
-    }
-  }
-}
-```
-
-```json 
-"parameters": {
-  "securedObject": {
-    "type": "secureobject",
-    "defaultValue": { <JSON-object> }
-} 
-```
-
 ## Triggers and actions  
 
 Triggers and actions define the calls that can happen during workflow execution. 
-For details about this section, see [Workflow triggers and actions](logic-apps-workflow-actions-triggers.md).
+For details about this section, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
   
 ## Outputs 
 
@@ -247,7 +176,7 @@ These examples show how expressions are evaluated:
 Through string interpolation, you can also use expressions in 
 strings that are wrapped by the at-sign (@) and curly braces ({}): 
 
-`@{ <some-expression> }`
+`@{ "<some-expression>" }`
 
 The result is always a string and makes this capability 
 similar to the `concat()` function, for example: 
