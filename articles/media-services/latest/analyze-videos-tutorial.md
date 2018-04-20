@@ -1,6 +1,6 @@
 ---
-title: Analyze videos with Azure Media Services and Video Indexer | Microsoft Docs
-description: Follow the steps of this tutorial to analyze videos using Azure Video Indexer.
+title: Analyze videos with Azure Media Services | Microsoft Docs
+description: Follow the steps of this tutorial to analyze videos using Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,9 +15,9 @@ ms.date: 04/09/2018
 ms.author: juliako
 ---
 
-# Tutorial: Analyze videos with Azure Media Services and Video Indexer 
+# Tutorial: Analyze videos with Azure Media Services 
 
-This tutorial shows you how to analyze videos with Video Indexer. There are many scenarios in which you might want to gain valuable insights from recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can extract speech-to-text and build search indexes and dashboards. Then, they can extract intelligence around common complaints, sources of complaints, and other relevant data. 
+This tutorial shows you how to analyze videos with Azure Media Services. There are many scenarios in which you might want to gain valuable insights from recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can extract speech-to-text and build search indexes and dashboards. Then, they can extract intelligence around common complaints, sources of complaints, and other relevant data. 
 
 This tutorial shows you how to:    
 
@@ -28,7 +28,7 @@ This tutorial shows you how to:
 > * Configure the sample app
 > * Examine the sample code in detail
 > * Run the app
-> * Examine the Video Indexer output
+> * Examine the output
 > * Clean up resources
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -86,11 +86,11 @@ private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string 
 
 ### Create a transform and a job that analyzes videos
 
-When processing content in Media Services, it is a common pattern to set up the processing settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). In this tutorial, we define a recipe that analyzes videos using **Video Indexer**. 
+When processing content in Media Services, it is a common pattern to set up the processing settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). In this tutorial, we define a recipe that analyzes videos. 
 
 #### Transform
 
-When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, the **VideoAnalyzerPreset** preset is used. This preset analyzes videos using **Video Indexer**.  
+When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, the **VideoAnalyzerPreset** preset is used. This preset analyzes videos.  
 
 When creating a **Transform**, you should first check if one already exists using the **Get** method., as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist.
 
@@ -244,9 +244,9 @@ Press Ctrl+F5 to run the *AnalyzeVideos* application.
 
 When we run the program, the job produces thumbnails for each face that it finds in the video. It also produces the insights.json file.
 
-## Examine the Video Indexer output
+## Examine the output
 
-Media Services v3 uses **Video Indexer** to produce the insights for the specified videos. The output file is called insights.json. This file contains insights about your video. You can find details about elements in this file in the [Video Indexer documentation](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-output-json) article.
+The output file of analyzing videos is called insights.json. This file contains insights about your video. You can find details about elements in this file in the [Video Indexer documentation](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-output-json) article.
 
 ## Clean up resources
 
