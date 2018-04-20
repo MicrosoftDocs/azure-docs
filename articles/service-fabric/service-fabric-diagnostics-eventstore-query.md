@@ -13,14 +13,14 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2018
+ms.date: 04/20/2018
 ms.author: dekapur
 
 ---
 
 # Query EventStore APIs for cluster events
 
-This doc covers how to query the EventStore APIs that are available in Service Fabric version 6.2 and later - if you would like to learn more about the EventStore, please see the [EventStore Overview](service-fabric-diagnostics-eventstore.md).
+This doc covers how to query the EventStore APIs that are available in Service Fabric version 6.2 and later - if you would like to learn more about the EventStore service, please see the [EventStore service overview](service-fabric-diagnostics-eventstore.md). Currently, the EventStore service can only access data for the last 7 days (this is based on your cluster's diagnostics data retention policy).
 
 >[!NOTE]
 >As of Service Fabric version 6.2. the EventStore APIs are currently in preview for Windows clusters running on Azure only. We are working on porting this functionality to Linux as well as our Standalone clusters.
@@ -32,8 +32,8 @@ The EventStore APIs can be accessed directly via a REST endpoint, or programmati
 
 In addition to these, there are optional parameters available as well, such as:
 * `timeout`: override the default 60 seconds timeout for performing the request operation
-* `ExcludeAnalysisEvents`: do not return 'Analysis' events - these are "intelligent" operational channel events with additional context or info beyond a regular cluster event 
-* `SkipCorrelationLookup`: do not look for potential correlated events in the cluster
+* `ExcludeAnalysisEvents`: do not return 'Analysis' events. By default, EventStore queries will return with "analysis" events where possible - analysis events are richer operational channel events that contain additional context or information beyond a regular Service Fabric event and provide more depth.
+* `SkipCorrelationLookup`: do not look for potential correlated events in the cluster. By default, the EventStore will attempt to correlate events across a cluster, and link your events together when possible. 
 
 ## Query the EventStore via REST API endpoints
 
@@ -44,7 +44,7 @@ For example, in order to query for all Cluster events between `2018-04-03T18:00:
 
 ```
 Method: GET 
-URL: http://localhost:19080/EventsStore/Cluster/Events?api-version=6.2-preview&StartTimeUtc=2018-04-03T18:00:00Z&EndTimeUtc=2018-04-04T18:00:00Z
+URL: http://mycluster:19080/EventsStore/Cluster/Events?api-version=6.2-preview&StartTimeUtc=2018-04-03T18:00:00Z&EndTimeUtc=2018-04-04T18:00:00Z
 ```
 
 This could either return an error if no events are available, or if the query was successful:
@@ -122,6 +122,8 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 Here are few examples on how you can call the Event Store REST APIs to help identify and diagnose issues in your cluster.
 
 1. Failure to update your cluster's Service Fabric version
-If you are you unable to update your cluster's version, you should start by looking at whether or not the upgrade was iniated correctly and where it failed. Use this query to see all “cluster” level events: `https://vipinrtobit.cloudapp.net:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-03-24T17:01:51Z&endtimeutc=2019-03-29T17:02:51Z`. You'll see various events, including the successful initiation of the upgrade, and the UDs for which the upgrade rolled through succesfully. You will also see events for the point at which the rollback started and corresponding health events.
-
-## Next steps
+If you are you unable to update your cluster's version, you should start by looking at whether or not the upgrade was iniated correctly and where it failed. Use this query to see all “cluster” level events: `https://mycluster.cloudapp.net:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-03-24T17:01:51Z&endtimeutc=2019-03-29T17:02:51Z`. You'll see various events, including the successful initiation of the upgrade, and the UDs for which the upgrade rolled through succesfully. You will also see events for the point at which the rollback started and corresponding health events.
+1. Historical health for an application
+Sometimes we see that upgrading an application or a service version changes the stability of that application, i.e., if you've rolled out a new version of your application and seen it go unhealthy more than it used to, or its become more stable. You can use this query to get all the application health events for the past week that your cluster has written, and see if you can correlate changes in health stability with respect to the upgrade: `https://mycluster.cloudapp.net:19080/EventsStore/Application/Events?api-version=6.2-preview&starttimeutc=2017-03-24T17:01:51Z&endtimeutc=2019-03-29T17:02:51Z&EventsTypesFilter=ProcessApplicationReportOperational`. Historical health understands extends to several more scenarios as well, and should be one of the queries you should be using to check how your worklaods are holding up over time in your cluster. 
+1. Partition reconfiguration
+You may see health reports and several reconfigurations in your replica set for a stateful partition. You can use the EventStore APIs to  
