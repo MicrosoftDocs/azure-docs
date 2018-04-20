@@ -202,6 +202,8 @@ The arrows in the following table show the performative flow direction.
 
 The following sections explain which properties from the standard AMQP message sections are used by Service Bus and how they map to the Service Bus API set.
 
+Any property that application needs to defines should be mapped to AMQP's `application-properties` map.
+
 #### header
 
 | Field Name | Usage | API name |
@@ -229,6 +231,79 @@ The following sections explain which properties from the standard AMQP message s
 | group-id |Application-defined identifier for a related set of messages. Used for Service Bus sessions. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |Counter identifying the relative sequence number of the message inside a session. Ignored by Service Bus. |Not accessible through the Service Bus API. |
 | reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+
+#### Message annotations
+
+There are few other service bus message properties which are not part of AMQP message properties, and are passed along as `MessageAnnotations` on the message.
+
+| Annotation Map Key | Usage | API name |
+| --- | --- | --- |
+| x-opt-scheduled-enqueue-time | Declares at which time the message should appear on the entity |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
+| x-opt-partition-key | Application-defined key that dictates which partition the message should land in. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
+| x-opt-via-partition-key | Application-defined partition-key value when a transaction is to be used to send messages via a transfer queue. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
+| x-opt-enqueued-time | Service-defined UTC time representing the actual time of enqueuing the message. Ignored on input. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
+| x-opt-sequence-number | Service-defined unique number assigned to a message. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
+| x-opt-offset | Service-defined enqueued sequence number of the message. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
+| x-opt-locked-until | Service-defined. The date and time until which the message will be locked in the queue/subscription. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
+| x-opt-deadletter-source | Service-Defined. If the message is received from dead letter queue, the source of the original message. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+
+### Transaction capability
+
+Transactional messaging allows for the coordinated outcome of otherwise independent transfers. Multiple transfers are grouped together by an identifier `txn-id`.
+
+For transactional interaction, the client acts a `transaction controller` which controls the operations that should be grouped together. Service Bus Service acts as a `transactional resource` and performs work as requested by the `transaction controller`.
+
+The client and service communicate over a `control link` which is established by the client. The `declare` and `discharge` messages are sent by the controller over the control link to allocate and complete transactions respectively (they do not represent the demarcation of transactional work). The actual send/recieve is not performed on this link. Each transactional operation requested is explicitly identified with the desired `txn-id` and therefore may occur on any link on the Connection. If the control link is closed while there exist non-discharged transactions it created, then all such transactions are immediately rolled back, and attempts to perform further transactional work on them will lead to failure. Messages on control link must not be pre settled.
+
+Every connection has to initiate its own control link to be able to start and end transactions. The service defines a special target that functions as a `coordinator`. The client/controller establishes a control link to this target. Control link is outside the boundary of an entity, i.e., same control link can be used to initiate and discharge transactions for multiple entities.
+
+#### Starting a transaction
+
+To begin transactional work. the controller must obtain a `txn-id` from the coordinator. It does this by sending a `declare` type message. If the declaration is successful, the coordinator responds with a disposition outcome of `declared` which carries the assigned `txn-id`.
+
+| Client (Controller) | | Service Bus (Coordinator) |
+| --- | --- | --- |
+| attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
+|  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction id}<br/>))|
+
+#### Discharging a transaction
+
+The controller will conclude the transactional work by sending a `discharge` message to the coordinator. The controller indicates that it wishes to commit or rollback the transactional work by setting the `fail` flag on the discharge body. If the coordinator is unable to complete the discharge, the message is rejected with this outcome carrying the `transaction-error`.
+
+> Note: fail=true refers to Rollback of a transaction, and fail=false refers to Commit.
+
+| Client (Controller) | | Service Bus (Coordinator) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| | . . . <br/>Transactional work<br/>on other links<br/> . . . |
+| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
+| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
+
+#### Sending a message in a transaction
+
+All transactional work is done with the transactional delivery state `transactional-state` that carries the txn-id. In the case of sending messages, the transactional-state is carried by the message's transfer frame. 
+
+| Client (Controller) | | Service Bus (Coordinator) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
+| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
+
+#### Disposing a message in a transaction
+
+Message disposition includes operations like `Complete` / `Abandon` / `DeadLetter` / `Defer`. To perform these operations within a transaction, pass the `transactional-state` with the disposition.
+
+| Client (Controller) | | Service Bus (Coordinator) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
+| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
+
 
 ## Advanced Service Bus capabilities
 
@@ -312,6 +387,19 @@ The ANONYMOUS mechanism must therefore be supported by the chosen AMQP 1.0 clien
 Once the connection and session is established, attaching the links to the *$cbs* node and sending the *put-token* request are the only permitted operations. A valid token must be set successfully using a *put-token* request for some entity node within 20 seconds after the connection has been established, otherwise the connection is unilaterally dropped by Service Bus.
 
 The client is subsequently responsible for keeping track of token expiration. When a token expires, Service Bus promptly drops all links on the connection to the respective entity. To prevent this, the client can replace the token for the node with a new one at any time through the virtual *$cbs* management node with the same *put-token* gesture, and without getting in the way of the payload traffic that flows on different links.
+
+### Send-via functionality
+
+[Send-via / Transfer sender](service-bus-transactions.md#transfers-and-send-via) is a functionality that lets service bus forward a given message to a destination entity through another entity. This is mainly used to perform operations across entities in a single transaction.
+
+With this functionality, you create a sender and establish the link to the `via-entity`. While establishing the link, additional information is passed to establish the true destination of the messages/transfers on this link. Once the attach has been successful, all the messages sent on this link will be automatically forwarded to the *destination-entity* through *via-entity*. 
+
+> Note: Authentication has to be performed for both *via-entity* and *destination-entity* before establishing this link.
+
+| Client | | Service Bus |
+| --- | --- | --- |
+| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link id},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link id},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## Next steps
 

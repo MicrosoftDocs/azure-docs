@@ -67,7 +67,8 @@ role: RECEIVER,
 ### Transfer a request message  
 
 Transfers a request message.  
-  
+A transaction-state can be added optionally for operations which supports transaction.
+
 ```  
 requestLink.sendTransfer(  
         Message(  
@@ -77,8 +78,12 @@ requestLink.sendTransfer(
                 },  
                 application-properties: {  
                         "operation" -> "<operation>",  
-                },  
-        )  
+                }
+        ),
+        [Optional] State = transactional-state: {
+                txn-id: <txn-id>
+        }
+)
 ```  
   
 ### Receive a response message  
@@ -193,7 +198,7 @@ The map representing a message must contain the following entries:
   
 ### Schedule Message  
 
-Schedules messages.  
+Schedules messages. This operation supports transaction.
   
 #### Request  
 
@@ -215,8 +220,9 @@ The map representing a message must contain the following entries:
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |message-id|string|Yes|`amqpMessage.Properties.MessageId` as string|  
-|session-id|string|Yes|`amqpMessage.Properties.GroupId as string`|  
-|partition-key|string|Yes|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
+|session-id|string|No|`amqpMessage.Properties.GroupId as string`|  
+|partition-key|string|No|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|via-partition-key|string|No|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |message|array of byte|Yes|AMQP 1.0 wire-encoded message.|  
   
 #### Response  
@@ -535,6 +541,85 @@ The response message must include the following application properties:
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed|  
 |statusDescription|string|No|Description of the status.|  
   
+### Get Rules
+
+#### Request
+
+The request message must include the following application properties:
+
+|Key|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+|operation|string|Yes|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
+
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
+  
+|Key|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+|top|int|Yes|The number of rules to fetch in the page.|  
+|skip|int|Yes|The number of rules to skip. Defines the starting index (+1) on the list of rules. | 
+
+#### Response
+
+The response message includes the following properties:
+
+|Key|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+|statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed|  
+|rules| array of map|Yes|Array of rules. Each rule is represented by a map.|
+
+Each map entry in the array includes the following properties:
+
+|Key|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+|rule-description|array of described objects|Yes|`com.microsoft:rule-description:list` with AMQP described code 0x0000013700000004| 
+
+`com.microsoft.rule-description:list` is an array of described objects. The array includes the following:
+
+|Index|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+| 0 | array of described objects | Yes | `filter` as specified below. |
+| 1 | array of described object | Yes | `ruleAction` as specified below. |
+| 2 | string | Yes | name of the rule. |
+
+`filter` can be of either of the following types:
+
+| Descriptor Name | Descriptor code | Value |
+| --- | --- | ---|
+| `com.microsoft:sql-filter:list` | 0x000001370000006 | SQL filter |
+| `com.microsoft:correlation-filter:list` | 0x000001370000009 | Correlation filter |
+| `com.microsoft:true-filter:list` | 0x000001370000007 | True filter representing 1=1 |
+| `com.microsoft:false-filter:list` | 0x000001370000008 | False filter representing 1=0 |
+
+`com.microsoft:sql-filter:list` is a described array which includes:
+
+|Index|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | Yes | Sql Filter expression |
+
+`com.microsoft:correlation-filter:list` is a described array which includes:
+
+|Index (if exists)|Value Type|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | Correlation ID |
+| 1 | string | Message ID |
+| 2 | string | To |
+| 3 | string | Reply To |
+| 4 | string | Label |
+| 5 | string | Session ID |
+| 6 | string | Reply To Session ID|
+| 7 | string | Content Type |
+| 8 | Map | Map of application defined properties |
+
+`ruleAction` can be either of the following types:
+
+| Descriptor Name | Descriptor code | Value |
+| --- | --- | ---|
+| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Empty Rule Action - No rule action present |
+| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | SQL Rule Action |
+
+`com.microsoft:sql-rule-action:list` is an array of described objects whose first entry is a string which contains the SQL rule action's expression.
+
 ## Deferred message operations  
   
 ### Receive by sequence number  
@@ -581,7 +666,7 @@ The map representing a message must contain the following entries:
   
 ### Update disposition status  
 
-Updates the disposition status of deferred messages.  
+Updates the disposition status of deferred messages. This operation supports transactions.
   
 #### Request  
 
