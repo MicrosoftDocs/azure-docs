@@ -37,7 +37,7 @@ An API profile is a combination of resource providers and service versions. You 
 > [!note] 
 > You can combine all of the options in the same application.
 
-## Install the Azure Ruby SDK:
+## Install the Azure Ruby SDK
 
  - Follow official instructions to install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
  - Follow official instructions to install [Ruby](https://www.ruby-lang.org/en/documentation/installation/).
@@ -93,7 +93,7 @@ In order to use Ruby Azure SDK with Azure Stack, you must supply the following v
 
 The Microsoft Azure Resource Manager is a management framework that allows administrators to deploy, manage and monitor Azure resources. Azure Resource Manager can handle these tasks as a group, rather than individually, in a single operation.
 
-YUou can get the metadata information from the Resource Manager endpoint. The endpoint returns a JSON file with the information required to run your Go code.
+You can get the metadata information from the Resource Manager endpoint. The endpoint returns a JSON file with the information required to run your code.
   > [!note]  
   > The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`  
   > The **ResourceManagerUrl** in integrated systems is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
@@ -112,20 +112,13 @@ YUou can get the metadata information from the Resource Manager endpoint. The en
   }
   ```
 
-  Set `<activeDirectoryResourceID>` to one of the values in the "audience" list from the ResourceManagerUrl metadata retrieved on the previous section of this document.  
- 
-  
+### Set environmental variables
 
-
-### How to set environmental variables
-
-#### Microsoft Windows
-
+**Microsoft Windows**  
 To set the environment variables, in Windows Command Prompt, use the following format:  
 `set AZURE_TENANT_ID=<YOUR_TENANT_ID>`
 
-#### macOS, Linux, and Unix-based systems
-
+**macOS, Linux, and Unix-based systems**  
 In Unix based systems, you could use the command such as:  
 `export AZURE_TENANT_ID=<YOUR_TENANT_ID>`
 
@@ -137,6 +130,8 @@ The azure_sdk rollup gem has the following two profiles:
   Profile built for Azure Stack. Use this profile for services to be most compatible with the Azure Stack.
 2. **Latest**  
   Profile consists of latest versions of all services. Use the latest versions of all the services.
+
+For more information about Azure Stack and API profiles, see a [Summary of API profiles](azure-stack-version-profiles.md#summary-of-api-profiles).
 
 ## Azure Ruby SDK API profile usage
 
