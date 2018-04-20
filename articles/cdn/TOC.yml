@@ -15,7 +15,9 @@
   - name: Add a custom domain
     href: cdn-map-content-to-custom-domain.md    
   - name: Configure HTTPS on a custom domain
-    href: cdn-custom-ssl.md    
+    href: cdn-custom-ssl.md
+    name: Control caching behavior with caching rules
+    href: cdn-caching-rules-tutorial.md
 - name: Samples
   items:
   - name: Code samples

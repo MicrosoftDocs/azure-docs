@@ -7,14 +7,13 @@ author: dksimpson
 manager: akucer
 editor: ''
 
-ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/06/2018
-ms.author: mazha
+ms.author: v-deasim
 ms.custom: mvc
 # As a website owner, I want to add a custom domain to my CDN endpoint so that my users can use my custom domain to access my content.
 
