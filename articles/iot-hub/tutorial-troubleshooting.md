@@ -36,9 +36,9 @@ In this tutorial, you learn how to:
 > * Check cloud-to-device connectivity
 > * Check device twin synchronization
 
-## Prerequisites
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## Prerequisites
 
 The device simulator application you run in this tutorial is written using Node.js. You need Node.js v4.x.x or later on your development machine.
 
