@@ -38,7 +38,7 @@ Here is the high-level structure for a workflow definition:
 "definition": {
   "$schema": "<workflow-definition-language-schema-version>",
   "contentVersion": "<workflow-definition-version-number>",
-  "parameters": { "<workflow-parameter-definitions>" },
+  "parameters": { &lt;workflow-parameter-definitions&lt; },
   "triggers": { "<workflow-trigger-definitions>" },
   "actions": { "<workflow-action-definitions>" },
   "outputs": { "<workflow-output-definitions>" }
