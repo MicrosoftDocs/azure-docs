@@ -1,10 +1,11 @@
 ---
 title: include file
 description: include file
-services: 
+services: cognitive-services
 author: MikeDodaro
-ms.service:
+ms.service: cognitive-services
 ms.topic: include
+ms.custom: include file
 ms.date: 04/19/2018
 ms.author: rosh, v-gedod
 ---
