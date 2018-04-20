@@ -9,7 +9,7 @@
 # Get started
 
 ## [Choose where to deploy](../active-directory/authentication/concept-mfa-whichversion.md)
-## [Security best practices](../active-directory/authentication/multi-factor-authentication-security-best-practices.md)
+## [Security guidance](../active-directory/authentication/multi-factor-authentication-security-best-practices.md)
 ## [MFA for O365 users](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 
 # How to
