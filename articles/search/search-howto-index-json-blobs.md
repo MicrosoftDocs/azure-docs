@@ -3,7 +3,7 @@ title: Indexing JSON blobs with Azure Search blob indexer
 description: Indexing JSON blobs with Azure Search blob indexer
 author: chaosrealm
 manager: jlembicz
-
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual

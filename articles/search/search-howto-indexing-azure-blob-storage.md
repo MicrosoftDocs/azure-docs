@@ -3,7 +3,7 @@ title: Indexing Azure Blob Storage with Azure Search
 description: Learn how to index Azure Blob Storage and extract text from documents with Azure Search
 author: chaosrealm
 manager: jlembicz
-
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
