@@ -54,27 +54,27 @@
   - name: Solutions
     items:
     - name: IoT Suite Preconfigured Solutions
-      href: /azure/iot-suite/index.md
+      href: /azure/iot-suite
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
   - name: Platform services
     items:
     - name: IoT Hub
-      href: /azure/iot-hub/index.md
+      href: /azure/iot-hub
     - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps/index.yml
+      href: /azure/iot-dps
     - name: Location Based Services
-      href: /azure/location-based-services/index.yml
+      href: /azure/location-based-services
     - name: Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks.md#azure-iot-service-sdks
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
-      href: /azure/time-series-insights/index.yml
+      href: /azure/time-series-insights
   - name: Edge
     items:
     - name: IoT Edge
-      href: /azure/iot-edge/index.yml
+      href: /azure/iot-edge
     - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
 - name: Resources
   items:
   - name: Azure IoT Developer Center
