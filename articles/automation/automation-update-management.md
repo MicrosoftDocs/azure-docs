@@ -42,12 +42,12 @@ At the date and time specified in the update deployment, the target computers ex
 
 ### Supported client types
 
-The following table shows a list of supported operating systems: 
+The following table shows a list of supported operating systems:
 
 |Operating System  |Notes  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Only supports update assessments         |
-|Windows Server 2008 R2 SP1 and higher     |Windows PowerShell 4.0 or higher is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
+|Windows Server 2008 R2 SP1 and higher     |Windows PowerShell 4.0 or higher is required ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) is recommended for increased reliability.         |
 |CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
 |Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
@@ -118,7 +118,7 @@ Heartbeat
 
 On a Windows computer, you can review the following to verify agent connectivity with Log Analytics:
 
-1. Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to Log Analytics**.   
+1. Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to Log Analytics**.
 2. Open the Windows Event Log, navigate to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and 5002 from source Service Connector. These events indicate the computer has registered with the Log Analytics workspace and is receiving configuration.
 
 If the agent is not able to communicate with Log Analytics and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-agent-windows.md) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md).
@@ -142,7 +142,7 @@ The following table describes the connected sources that are supported by this s
 | --- | --- | --- |
 | Windows agents |Yes |The solution collects information about system updates from Windows agents and initiates installation of required updates. |
 | Linux agents |Yes |The solution collects information about system updates from Linux agents and initiates installation of required updates on supported distros. |
-| Operations Manager management group |Yes |The solution collects information about system updates from agents in a connected management group.<br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the Log Analytics workspace. |
+| Operations Manager management group |Yes |The solution collects information about system updates from agents in a connected management group.</br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the Log Analytics workspace. |
 
 ### Collection frequency
 
@@ -203,13 +203,13 @@ The following table provides sample log searches for update records collected by
 
 | Query | Description |
 | --- | --- |
-|Update<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; project Computer, Title, KBID, Classification, PublishedDate |All computers with missing updates<br>Add one of the following to limit the OS:<br>OSType = "Windows"<br>OSType == "Linux" |
-| Update<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; where Computer == "ContosoVM1.contoso.com"<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Missing updates for a specific computer (replace value with your own computer name)|
-| Event<br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")<br>&#124; where UpdateState == "Needed" and Optional == false <br>&#124; distinct Computer)) |Error events for machines that have missing critical or security required updates |
-| Update<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; distinct Title |Distinct missing updates across all computers |
-| UpdateRunProgress<br>&#124; where InstallationStatus == "failed" <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Computers with updates that failed in an update run<br>Add one of the following to limit the OS:<br>OSType = "Windows"<br>OSType == "Linux" |
-| Update<br>&#124; where OSType == "Linux"<br>&#124; where UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates")<br>&#124; summarize AggregatedValue = count() by Computer |List of all the Linux machines, which have a package update available, which addresses Critical or Security vulnerability | 
-| UpdateRunProgress<br>&#124; where UpdateRunName == "DeploymentName"<br>&#124; summarize AggregatedValue = count() by Computer|Computers that were updated in this update run (replace value with your Update Deployment name | 
+|Update</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; project Computer, Title, KBID, Classification, PublishedDate |All computers with missing updates</br>Add one of the following to limit the OS:</br>OSType = "Windows"</br>OSType == "Linux" |
+| Update</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; where Computer == "ContosoVM1.contoso.com"</br>&#124; project Computer, Title, KBID, Product, PublishedDate |Missing updates for a specific computer (replace value with your own computer name)|
+| Event</br>&#124; where EventLevelName == "error" and Computer in ((Update &#124; where (Classification == "Security Updates" or Classification == "Critical Updates")</br>&#124; where UpdateState == "Needed" and Optional == false </br>&#124; distinct Computer)) |Error events for machines that have missing critical or security required updates |
+| Update</br>&#124; where UpdateState == "Needed" and Optional == false</br>&#124; distinct Title |Distinct missing updates across all computers |
+| UpdateRunProgress</br>&#124; where InstallationStatus == "failed" </br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Computers with updates that failed in an update run</br>Add one of the following to limit the OS:</br>OSType = "Windows"</br>OSType == "Linux" |
+| Update</br>&#124; where OSType == "Linux"</br>&#124; where UpdateState != "Not needed" and (Classification == "Critical Updates" or Classification == "Security Updates")</br>&#124; summarize AggregatedValue = count() by Computer |List of all the Linux machines, which have a package update available, which addresses Critical or Security vulnerability |
+| UpdateRunProgress</br>&#124; where UpdateRunName == "DeploymentName"</br>&#124; summarize AggregatedValue = count() by Computer|Computers that were updated in this update run (replace value with your Update Deployment name |
 
 ## Integrate with System Center Configuration Manager
 
@@ -246,11 +246,11 @@ If you encounter issues while attempting to onboard the solution or a virtual ma
 
 | Message | Reason | Solution |
 |----------|----------|----------|
-| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.InvalidOperationException: {"Message":"Machine is already<br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the hybrid runbook group](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
-| Unable to  Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---><br>System.Net.WebException: The underlying connection<br>was closed: An unexpected error<br>occurred on a receive. ---> System.ComponentModel.Win32Exception:<br>The client and server cannot communicate,<br>because they do not possess a common algorithm | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-offering-get-started.md#network-planning)|
-| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-offering-get-started.md#network-planning)|
-| The certificate presented by the service <wsid>.oms.opinsights.azure.com<br>was not issued by a certificate authority<br>used for Microsoft services. Contact<br>your network administrator to see if they are running a proxy that intercepts<br>TLS/SSL communication. |Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-offering-get-started.md#network-planning)|
-| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Failed to create a self-signed certificate. ---><br>System.UnauthorizedAccessException: Access is denied. | Self-signed cert generation failure | Verify system account has<br>read access to folder:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>System.InvalidOperationException: {"Message":"Machine is already</br>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management | Perform cleanup of old artifacts by [deleting the hybrid runbook group](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Unable to Register Machine for Patch Management, Registration Failed with Exception</br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---></br>System.Net.WebException: The underlying connection</br>was closed: An unexpected error</br>occurred on a receive. ---> System.ComponentModel.Win32Exception:</br>The client and server cannot communicate,</br>because they do not possess a common algorithm | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-offering-get-started.md#network-planning)|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-offering-get-started.md#network-planning)|
+| The certificate presented by the service \<wsid\>.oms.opinsights.azure.com</br>was not issued by a certificate authority</br>used for Microsoft services. Contact</br>your network administrator to see if they are running a proxy that intercepts</br>TLS/SSL communication. |Proxy/Gateway/Firewall blocking communication | [Review network requirements](automation-offering-get-started.md#network-planning)|
+| Unable to Register Machine for Patch Management,</br>Registration Failed with Exception</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Failed to create a self-signed certificate. ---></br>System.UnauthorizedAccessException: Access is denied. | Self-signed cert generation failure | Verify system account has</br>read access to folder:</br>**C:\ProgramData\Microsoft\**</br>**Crypto\RSA**|
 
 ## Next steps
 
