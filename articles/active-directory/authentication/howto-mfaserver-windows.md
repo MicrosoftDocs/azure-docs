@@ -29,7 +29,7 @@ Use the Windows Authentication section of the Azure Multi-Factor Authentication 
 
 ## To secure an application with Windows Authentication, use the following procedure.
 1. In the Azure Multi-Factor Authentication Server click the Windows Authentication icon.
-   ![Windows Authentication](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
+   ![Windows Authentication](./media/howto-mfaserver-windows/windowsauth.png)
 2. Check the **Enable Windows Authentication** checkbox. By default, this box is unchecked.
 3. The Applications tab allows the administrator to configure one or more applications for Windows Authentication.
 4. Select a server or application – specify whether the server/application is enabled. Click **OK**.
@@ -43,6 +43,6 @@ Use the Windows Authentication section of the Azure Multi-Factor Authentication 
 
 ## Next steps
 
-- [Configure third-party VPN appliances for Azure MFA Server](multi-factor-authentication-advanced-vpn-configurations.md)
+- [Configure third-party VPN appliances for Azure MFA Server](howto-mfaserver-nps-vpn.md)
 
-- [Augment your existing authentication infrastructure with the NPS extension for Azure MFA](../active-directory/authentication/howto-mfa-nps-extension.md)
+- [Augment your existing authentication infrastructure with the NPS extension for Azure MFA](howto-mfa-nps-extension.md)
