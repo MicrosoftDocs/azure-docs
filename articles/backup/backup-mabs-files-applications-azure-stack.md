@@ -68,7 +68,7 @@ If shared with other virtual machines, the storage account size and IOPS limits 
     - data restored from the cloud (local staging area)
   
 ### Configuring Azure Backup temporary disk storage
-Each Azure Stack virtual machine comes with temporary disk storage, which is available to the user as volume D:`\`. The local staging area needed by Azure Backup can be configured to reside in D:`\`, and the cache location can be placed on C:`\`. In this way, no storage needs to be carved away from the data disks attached to the Azure Backup serer virtual machine.
+Each Azure Stack virtual machine comes with temporary disk storage, which is available to the user as volume D:`\`. The local staging area needed by Azure Backup can be configured to reside in D:`\`, and the cache location can be placed on C:`\`. In this way, no storage needs to be carved away from the data disks attached to the Azure Backup Server virtual machine.
 
 ### Scaling deployment
 If you want to scale your deployment, you have the following options:
@@ -79,7 +79,7 @@ If you want to scale your deployment, you have the following options:
 
 ## Bare Metal Recovery for Azure Stack VM
 
-When you backup bare metal recovery (BMR), you back up operating system files and all data except user data on critical volumes. A BMR backup includes a system state backup. The following procedures explain how to restore the BMR data. 
+A bare metal recovery (BMR) backup protects operating system files and all Critical volume data, except user data. A BMR backup includes a system state backup. The following procedures explain how to restore the BMR data. 
 
 ### Run Recovery on the Azure Backup Server 
 
@@ -89,7 +89,7 @@ Open the Azure Backup Server console.
 2. Available recovery points appear in bold on the calendar. Select the date and time for the recovery point you want to use.
 3. In **Select Recovery Type**, select **Copy to a network folder**.
 4. In **Specify Destination**, select where you want to copy the data. Remember the selected destination must have enough room for the recovery point. It is suggested you create a new folder.
-5. In **Specify Recovery Options**, select the security settings to apply and choose whether to use SAN-based hardware snapshots for quicker recovery. (SAN-based hardware snapshots are an option only if you have a SAN with this functionality enabled, and the ability to create and split a clone to make it writable. In addition, the protected machine and Azure Backup Server must be connected to the same network.)
+5. In **Specify Recovery Options**, select the security settings to apply, and choose whether to use SAN-based hardware snapshots for quicker recovery.     SAN-based hardware snapshots are an option only if you have a SAN with this functionality enabled, and the ability to create and split a clone to make it writable. Also for SAN-based hardware snapshots to work, the protected machine and Azure Backup Server must be connected to the same network.
 6. Set up notification options, and click **Recover** on the **Summary** page.
 
 ### Set up the share location
