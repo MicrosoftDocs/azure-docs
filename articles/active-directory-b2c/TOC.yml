@@ -201,7 +201,7 @@
         items:
         - name: Collect logs using Application Insights
           href: active-directory-b2c-troubleshoot-custom.md
-        - name: Tracking user behavior
+        - name: Track user behavior
           href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: Reference
       items:
