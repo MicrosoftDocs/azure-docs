@@ -229,9 +229,17 @@ Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 b
 
 In your web app page, in the left navigation, select **SSL settings**. Then, in **TLS version**, select the minimum TLS version you want.
 
-![Enforce HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+![Enforce TLS 1.1 or 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 When the operation is complete, your app rejects all connections with lower TLS versions.
+
+## Renew certificates
+
+Your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, follow these steps in order:
+
+1. Upload the new certificate.
+2. Bind the new certificate to the custom domain you want without deleting the old one. This action replaces the binding instead of removing the old one.
+3. Delete the old certificate. 
 
 ## Automate with scripts
 
