@@ -4,7 +4,7 @@ description: Build a search query in Azure search and use search parameters to f
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
-
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 04/20/2018

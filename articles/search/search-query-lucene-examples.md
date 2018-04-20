@@ -4,7 +4,7 @@ description: Lucene query syntax for fuzzy search, proximity search, term boosti
 author: LiamCa
 manager: jlembicz
 tags: Lucene query analyzer syntax
-
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018

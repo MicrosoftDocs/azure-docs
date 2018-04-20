@@ -3,7 +3,7 @@ title: Filters in Azure Search | Microsoft Docs
 description: Filter by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
-
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018

@@ -4,7 +4,7 @@ description: api-keys control access to the service endpoint. Admin keys grant w
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
-
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual

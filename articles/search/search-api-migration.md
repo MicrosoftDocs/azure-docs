@@ -3,7 +3,7 @@ title: Upgrading to the latest Azure Search Service REST API version | Microsoft
 description: Upgrading to the latest Azure Search Service REST API version
 author: brjohnstmsft
 manager: jlembicz
-
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual

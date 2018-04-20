@@ -3,6 +3,7 @@ title: Synonyms tutorial in Azure Search | Microsoft Docs
 description: Add the synonyms feature to an index in Azure Search.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: tutorial
 ms.date: 04/20/2018

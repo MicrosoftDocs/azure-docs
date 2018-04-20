@@ -4,7 +4,7 @@ description: In the Azure portal, use predefined sample data to generate an inde
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
-
+services: search
 ms.service: search
 ms.topic: tutorial
 ms.date: 04/20/2018

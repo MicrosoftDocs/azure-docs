@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/18/2018
 ms.author: mabrigg
 
 ---
@@ -65,7 +65,7 @@ If you need guidance for how to use available services, there may be different o
 
 If you need additional support, contact your organization or service provider for assistance.
 
-If you’re using the Azure Stack Development Kit, the [Azure Stack forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) is the only method of support.
+If you’re using the Azure Stack Development Kit, the [Azure Stack forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) is the only source of support.
 
 ## Next steps
 
