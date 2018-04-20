@@ -69,16 +69,18 @@
         href: backup-mabs-unattended-install.md
     - name: Protect workloads
       items:
-      - name: Use Azure Backup Server to back up a VMware server
+      - name: Back up a VMware server
         href: backup-azure-backup-server-vmware.md
-      - name: Use Azure Backup Server to back up Exchange
+      - name: Back up Exchange
         href: backup-azure-exchange-mabs.md
-      - name: Use Azure Backup Server to back up a SharePoint farm
+      - name: Back up a SharePoint farm
         href: backup-azure-backup-sharepoint-mabs.md
-      - name: Use Azure Backup Server to back up SQL
+      - name: Back up SQL
         href: backup-azure-sql-mabs.md
       - name: Protect system state and bare metal recovery
         href: backup-mabs-system-state-and-bmr.md
+      - name: Back up Azure Stack workloads
+        href: backup-mabs-files-application-azure-stack.md 
     - name: Recover data from Azure Backup Server
       href: backup-azure-alternate-dpm-server.md
   - name: Azure File shares
