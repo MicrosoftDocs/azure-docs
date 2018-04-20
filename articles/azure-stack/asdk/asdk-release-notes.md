@@ -29,16 +29,11 @@ These release notes provide information about improvements, fixes, and known iss
 ### New features and fixes
 This build includes the following improvements and fixes for Azure Stack.
 
-- <!--    --> **feature name 1** 
-
-- <!--    --> **feature name 2**  
-
-- <!--    --> **feature name 3** 
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
-### Changes
-- <!--    --> Change 1
+<!-- ### Changes  --> 
+
 
 ### Known issues
  
@@ -46,12 +41,8 @@ This build includes the following improvements and fixes for Azure Stack.
 - <!-- TBD - IS ASDK --> The ability [to open a new support request from the dropdown](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - For Azure Stack Development Kit, use https://aka.ms/azurestackforum.    
 
-- <!-- 2050709 - IS ASDK --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.  
-
 - <!-- TBD -  IS ASDK --> When you view the properties of a resource or resource group, the **Move** button is disabled. This behavior is expected. Moving resources or resource groups between resource groups or subscriptions is not currently supported.
  
-- <!-- TBD - ASDK --> You see an **Activation Required** warning alert that advises you to register your Azure Stack Development Kit. This behavior is expected.
-
 - <!-- TBD -  IS ASDK --> Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 
 - <!-- TBD -  IS ASDK --> You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
