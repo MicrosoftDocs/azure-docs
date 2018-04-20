@@ -7,15 +7,15 @@ manager: femila
 
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: brenduns
 ms.reviewer: 
 ms.custom: mvc
 ---
 
-# Quickstart: create a Windows virtual machine with the Azure Stack portal
+# Quickstart: create a Windows server virtual machine with the Azure Stack portal
 
-You can create a Windows virtual machine by using the Azure Stack portal. The portal is a browser-based user interface where you can create, configure, and manage resources.
+You can create a Windows Server 2016 virtual machine by using the Azure Stack portal. Follow the steps in this article to create and use a virtual machine.
 
 ## Sign in to the Azure Stack portal
 
@@ -42,7 +42,7 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 
 ## Clean up resources
 
-When you no longer need the virtual machine, delete the virtual machine and related resources. To do so, select the resource group from the virtual machine page and click **Delete**.
+When you're finished using the virtual machine, delete the virtual machine and its resources. To do so, select the resource group on the virtual machine page and click **Delete**.
 
 ## Next steps
 
