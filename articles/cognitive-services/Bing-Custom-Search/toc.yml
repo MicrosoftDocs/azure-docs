@@ -28,10 +28,10 @@
   items:        
     - name: Configure your custom search experience
       href: define-your-custom-view.md
-    - name: Search your custom view
-      href: search-your-custom-view.md
     - name: Configure your hosted UI experience
       href: hosted-ui.md
+    - name: Call your custom search
+      href: search-your-custom-view.md
     - name: Configure your custom autosuggest experience
       href: define-custom-suggestions.md
     - name: Get custom suggestions
