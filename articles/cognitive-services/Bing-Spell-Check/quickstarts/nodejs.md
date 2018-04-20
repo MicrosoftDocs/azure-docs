@@ -4,13 +4,11 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
-
 ms.service: cognitive-services
-ms.technology: spellcheck
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: v-jaswel
-
 ---
 # Quickstart for Bing Spell Check API with Node.JS 
 <a name="HOLTop"></a>

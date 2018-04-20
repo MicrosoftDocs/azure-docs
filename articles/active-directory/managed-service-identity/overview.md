@@ -29,14 +29,14 @@ When you enable Managed Service Identity on an Azure service, Azure automaticall
 
 Here's an example of how Managed Service Identity works with Azure Virtual Machines.
 
-![Virtual Machine MSI example](../media/msi-vm-example.png)
+![Virtual Machine MSI example](../media/msi-vm-imds-example.png)
 
-1. Azure Resource Manager receives a message to enable MSI on a VM.
+1. Azure Resource Manager receives a message to enable the Managed Service Identity (MSI) on a VM.
 2. Azure Resource Manager creates a Service Principal in Azure AD to represent the identity of the VM. The Service Principal is created in the Azure AD tenant that is trusted by this subscription.
-3. Azure Resource Manager configures the Service Principal details in the MSI VM Extension of the VM.  This step includes configuring client ID and certificate used by the extension to get access tokens from Azure AD.
-4. Now that the Service Principal identity of the VM is known, it can be granted access to Azure resources.  For example, if your code needs to call Azure Resource Manager, then you would assign the VM’s Service Principal the appropriate role using Role-Based Access Control (RBAC) in Azure AD.  If your code needs to call Key Vault, then you would grant your code access to the specific secret or key in Key Vault.
-5. Your code running on the VM requests a token from a local endpoint that is hosted by the MSI VM extension:  http://localhost:50342/oauth2/token.  The resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
-6. The MSI VM Extension uses its configured client ID and certificate to request an access token from Azure AD.  Azure AD returns a JSON Web Token (JWT) access token.
+3. Azure Resource Manager configures the Service Principal details for the VM in the Azure Instance Metadata Service of the VM. This step includes configuring client ID and certificate used to get access tokens from Azure AD. *Note: The MSI IMDS endpoint is replacing the current MSI VM Extension endpoint. For more infromation about this change, please see the FAQs and known issues page*
+4. Now that the Service Principal identity of the VM is known, it can be granted access to Azure resources. For example, if your code needs to call Azure Resource Manager, then you would assign the VM’s Service Principal the appropriate role using Role-Based Access Control (RBAC) in Azure AD.  If your code needs to call Key Vault, then you would grant your code access to the specific secret or key in Key Vault.
+5. Your code running on the VM requests a token from the Azure Instance Metadata Service (IMDS) MSI endpoint, which is only accessible from within the VM: http://169.254.169.254/metadata/identity/oauth2/token. The resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
+6. The Azure Instance Metadata requests an an access token from Azure AD, using the client ID and certificate for the VM. Azure AD returns a JSON Web Token (JWT) access token.
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
 
 Each Azure service that supports Managed Service Identity has its own method for your code to obtain an access token. Check out the tutorials for each service to find out the specific method to get a token.

@@ -279,7 +279,7 @@ choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 Each diagnostic event has details about your logic app and that event, 
 for example, the status, start time, end time, and so on. 
 To programmatically set up monitoring, tracking, and logging, 
-ou can use these details with the 
+you can use these details with the 
 [REST API for Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) 
 and the [REST API for Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
 

@@ -145,7 +145,7 @@ If you used IIS or _Certreq.exe_ to generate your certificate request, install t
 
 ### Upload your SSL certificate
 
-To upload your SSL certificate, click **SSL certificates** in the left navigation of your web app.
+To upload your SSL certificate, click **SSL settings** in the left navigation of your web app.
 
 Click **Upload Certificate**. 
 
@@ -155,7 +155,7 @@ Click **Upload**.
 
 ![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
-When App Service finishes uploading your certificate, it appears in the **SSL certificates** page.
+When App Service finishes uploading your certificate, it appears in the **SSL settings** page.
 
 ![Certificate uploaded](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
@@ -213,7 +213,7 @@ to `https://<your.custom.domain>` to see that it serves up your web app.
 
 By default, anyone can still access your web app using HTTP. You can redirect all HTTP requests to the HTTPS port.
 
-In your web app page, in the left navigation, select **Custom domains**. Then, in **HTTPS Only**, select **On**.
+In your web app page, in the left navigation, select **SSL settings**. Then, in **HTTPS Only**, select **On**.
 
 ![Enforce HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -222,6 +222,24 @@ When the operation is complete, navigate to any of the HTTP URLs that point to y
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
 - `http://www.contoso.com`
+
+## Enforce TLS 1.1/1.2
+
+Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 by default, which is no longer considered secure by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce higher TLS versions, follow these steps:
+
+In your web app page, in the left navigation, select **SSL settings**. Then, in **TLS version**, select the minimum TLS version you want.
+
+![Enforce TLS 1.1 or 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+
+When the operation is complete, your app rejects all connections with lower TLS versions.
+
+## Renew certificates
+
+Your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, follow these steps in order:
+
+1. Upload the new certificate.
+2. Bind the new certificate to the custom domain you want without deleting the old one. This action replaces the binding instead of removing the old one.
+3. Delete the old certificate. 
 
 ## Automate with scripts
 
@@ -265,7 +283,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## Public certificates (optional)
-You can upload [public certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) to your web app. You can use public certificates for apps in App Service Environments also. If you need to store the certificate in the LocalMachine certificate store, you need to use a web app on App Service Environment. For more information, see [How to configure public certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+You can upload [public certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) to your web app so the app can access an external service that requires certificate authentication.  For more details on loading and using a public certificate in your app, see [Use an SSL certificate in your application code in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load).  You can use public certificates with apps in App Service Environments also. If you need to store the certificate in the LocalMachine certificate store, you need to use a web app on App Service Environment. For more information, see [How to configure public certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Upload Public Certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

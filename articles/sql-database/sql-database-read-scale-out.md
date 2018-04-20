@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: sashan
 
 ---
@@ -28,7 +28,7 @@ After Read Scale-Out is enabled for a database, applications connecting to that 
 
 ## Data consistency
 
-One of the benefits of AlwasyON is that the replicas are always in the transactionally consistent state, but at different points in time there may be some small latency between different replicas. Read Scale-Out supports session-level consistency. It means, if the read-only session reconnects after a connection error caused by replica unavailability, it can be redirected to a replica that is not 100% up to date with the read-write replica. Likewise, if an application writes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest updates are not immediately visible. This is because the transaction log redo to the replicas is asynchronous.
+One of the benefits of Always ON is that the replicas are always in the transactionally consistent state, but at different points in time there may be some small latency between different replicas. Read Scale-Out supports session-level consistency. It means, if the read-only session reconnects after a connection error caused by replica unavailability, it can be redirected to a replica that is not 100% up to date with the read-write replica. Likewise, if an application writes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest updates are not immediately visible. This is because the transaction log redo to the replicas is asynchronous.
 
 > [!NOTE]
 > Replication latencies within the region are low and this situation is rare.
