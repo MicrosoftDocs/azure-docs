@@ -78,8 +78,6 @@ In this section, you configure and test Azure AD single sign-on with Shmoop For 
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Shmoop For Schools is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Shmoop For Schools needs to be established.
 
-In Shmoop For Schools, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
 To configure and test Azure AD single sign-on with Shmoop For Schools, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
@@ -118,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_attribute.png)
 
 	> [!NOTE]
-	> Shmoop for School supports two roles for users - **Teacher** and **Student**. These roles need to be set up in Azure AD so that users can be assigned the appropriate roles. Please refer the [link](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to understand how to configure roles in Azure AD.
+	> Shmoop for School supports two roles for users: **Teacher** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see  [Roles-based access control in cloud applications using Azure AD](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/).
 	
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
