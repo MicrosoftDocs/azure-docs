@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 05/07/2018
 ms.author: v-geberr
 --- 
 
@@ -106,11 +106,13 @@ Entities work in the **None** intent. If the top scoring intent is **None** but 
 ## Create a KnowledgeBase article regular expression entity from the Intent page
 Now that the two intents have utterances, LUIS needs to understand what a KB number is. Navigate back to the `FindKnowledgeBase` intent and label (mark) the KB number in an utterance by following the steps:
 
-1. Return to the `FindKnowledgeBase` intent by selecting **Intents** in the left panel.
+1. Select **Intents** in the left panel.
 
 2. Select `FindKnowledgeBase` from the intents list.
 
 3. In the utterance, `When was kb135135 released?`, select the word `kb135135`. A drop-down menu appears with a text box at the top to create a new entity. Enter the entity name `KBarticle` in the text box then select **Create new entity** in the drop-down menu. 
+
+    ![Verify entity type](./media/luis-quickstart-intents-regex-entity/create-entity.png)
 
 4. In the pop-up window, select the **Regular expression** entity type with `kb[0-9]{6,}` as the regular expression. Select **Done**.
 
@@ -136,9 +138,15 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-2. Select the **Publish to product slot**. 
+    ![All message utterances labeled](./media/luis-quickstart-intents-regex-entity/publish-button.png)
+
+2. Select the **Publish to production slot**. 
+
+    ![All message utterances labeled](./media/luis-quickstart-intents-regex-entity/publish-to-production.png)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
+
+    ![All message utterances labeled](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
 ## Query the endpoint with a different utterance
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
