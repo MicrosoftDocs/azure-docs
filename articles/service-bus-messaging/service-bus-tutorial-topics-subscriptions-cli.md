@@ -134,9 +134,9 @@ After the namespace and topic/subscriptions are provisioned, and you have the ne
   java -jar .\target\tutorial-topics-subscriptions-filters-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -t "myTopicName"
    ```
 
-Observe 10 messages being sent to the topic, and subsequently received from the individual subscriptions:
+   Observe 10 messages being sent to the topic, and subsequently received from the individual subscriptions:
 
-![program output](./media/service-bus-tutorial-topics-subscriptions-cli/service-bus-tutorial-topics-subscriptions-cli.png)
+   ![program output](./media/service-bus-tutorial-topics-subscriptions-cli/service-bus-tutorial-topics-subscriptions-cli.png)
 
 ## Clean up deployment
 
