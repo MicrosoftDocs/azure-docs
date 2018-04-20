@@ -105,7 +105,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstart tutorials. 
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstarts. 
 
    ![server name](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -144,7 +144,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Server type | Database engine | This value is required |
+   | Server type | Database engine | This value is required. |
    | Server name | The fully qualified server name | The name should be something like this: **mynewserver20170824.database.windows.net**. |
    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
    | Login | The server admin account | This is the account that you specified when you created the server. |
