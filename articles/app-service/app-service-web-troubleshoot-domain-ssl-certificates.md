@@ -84,8 +84,9 @@ This problem can occur for any of the following reasons:
 
     **Solution**: If the certificate is marked as Fraud and has not been resolved after 24 hours, then follow these steps:
 
-    1. Go to App Service certificate in Azure portal.
-    2. Select **Certificate Configuration** > **Step 2 : Verify** > **Domain Verification**. This sends an email notice to the Azure certificate provider to resolve the problem.
+    1. Log in to the [Azure portal](https://portal.azure.com).
+    2. Go to **App Service Certificates**, select the certificate.
+    3. Select **Certificate Configuration** > **Step 2 : Verify** > **Domain Verification**. This sends an email notice to the Azure certificate provider to resolve the problem.
 
 ## Purchased SSL certificate for wrong domain
 
@@ -111,9 +112,9 @@ The Web app service runs a background job every eight hours and syncs the certif
 
 You can force a sync of the certificate:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select the **App service certificate**.
+1. Log in to the [Azure portal](https://portal.azure.com). Select the **App service Certificates**, and then select the certificate.
 2. Click **Rekey and Sync**, and then click **Sync**. This takes some time to finish. 
-3. When the sync is completed, you see a notification that states that the certificate is synced successfully.  
+3. When the sync is completed, you see the following notification: "Successfully updated all the resources with the latest certificate".
 
 ## Domain verification is not working 
 
