@@ -210,7 +210,7 @@ If you choose to use Azure credentials, be sure to follow the instructions in th
 7. On the **Build Triggers** tab in Jenkins, select which build option you want. For this example, you want to trigger a build whenever a push to the repository happens, so select **GitHub hook trigger for GITScm polling**. (Previously, this option was called **Build when a change is pushed to GitHub**.)
 8. On the **Build** tab, do one of the following depending on whether you are building a Java application or a .NET Core application:
 
-   * **For Java Applications:** From the **Add build step** drop-down, select **Invoke Gradle Script**. Click **Advanced**. In the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly. For the [ActorCounter application](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), this is: `${WORKSPACE}/reliable-services-actor-sample/Actpr/ActorCounter`.
+   * **For Java Applications:** From the **Add build step** drop-down, select **Invoke Gradle Script**. Click **Advanced**. In the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly. For the [ActorCounter application](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), this is: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
 
      ![Service Fabric Jenkins Build action][build-step]
 
@@ -246,11 +246,11 @@ If you choose to use Azure credentials, be sure to follow the instructions in th
          openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
          ``` 
 
-      2. To get the image name for your Jenkins container, run `docker ps` from your host and note the NAME value for your container.
+      2. To get the container ID for your Jenkins container, run `docker ps` from your host.
       3. Copy the PEM file to your container with the following Docker command:
-      
+    
          ```sh
-         docker cp clustercert.pem <container-name>:/var/jenkins_home
+         docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
          ``` 
 
 10. To configure Jenkins to deploy the application post-build using the cluster management endpoint, follow these steps:
@@ -297,7 +297,7 @@ If you choose to use Azure credentials, be sure to follow the instructions in th
    12. Click **Verify Configuration**. On successful verification, click **Save**.
 
 ## Next steps
-GitHub and Jenkins are now configured. Consider making some sample change in your `MyActor` project in the repository example, https://github.com/{your-github-username}/service-fabric-java-getting-started. Push your changes to a remote `master` branch (or any branch that you have configured to work with). This triggers the Jenkins job, `MyJob`, that you configured. It fetches the changes from GitHub, builds them, and deploys the application to the cluster endpoint you specified in post-build actions.  
+GitHub and Jenkins are now configured. Consider making some sample change in the `reliable-services-actor-sample/Actors/ActorCounter` project in your fork of the repository, https://github.com/Azure-Samples/service-fabric-java-getting-started. Push your changes to the remote `master` branch (or any branch that you have configured to work with). This triggers the Jenkins job, `MyJob`, that you configured. It fetches the changes from GitHub, builds them, and deploys the application to the cluster you specified in post-build actions.  
 
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-application-with-jenkins/build-step.png
