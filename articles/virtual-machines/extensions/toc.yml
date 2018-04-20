@@ -77,7 +77,7 @@
     items:
     - name: Log Collector extension
       href: log-collector.md
-    - name: Trend
+    - name: Trend Micro Deep Security
       href: trend.md
   - name: Update Linux agent
     href: update-linux-agent.md
