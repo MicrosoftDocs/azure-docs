@@ -107,6 +107,8 @@
       href: search-get-started-java.md
     - name: Upgrade the SDK
       items:
+      - name: .NET SDK 5.0
+        href: search-dotnet-sdk-migration-version-5.md
       - name: .NET SDK 3.0
         href: search-dotnet-sdk-migration.md
       - name: .NET SDK 1.1
