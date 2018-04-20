@@ -1,7 +1,7 @@
 # [VPN Gateway Documentation](index.md)
 
 # Overview
-## [About VPN Gateway](vpn-gateway-overview.md)
+## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
 
 # Get Started
