@@ -20,7 +20,7 @@
   - name: Analyze your video
     items:
     - name: Using APIs    
-      href: analyze-videos-tutorial.md
+      href: analyze-videos-tutorial-with-api.md
 - name: Samples
   items:
   - name: Azure code samples
