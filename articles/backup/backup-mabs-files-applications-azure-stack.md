@@ -99,9 +99,11 @@ In the Azure Backup Server console:
 
 ### Restore the machine
 
-1. On the virtual machine where you want to restore BMR, open an elevated cmd prompt to boot the machine into the recovery environment. At the cmd prompt, enter the following commands:
-  ``C:\>reagent /boottore``<br/>
-  ``C:\>shutdown /r /t 0``
+1. On the virtual machine where you want to restore BMR, open an elevated cmd prompt and type the following commands. **/bootore** specifies that Windows RE starts automatically the next time the system start.
+```
+Reagent /boottore
+shutdown /r /t 0
+```
 
 2. In the opening dialog, select the language and locale settings. On the **Install** screen, select **Repair your computer**.
 3. On the **System Recovery Options** page, select **Restore your computer using a system image you created earlier**.
