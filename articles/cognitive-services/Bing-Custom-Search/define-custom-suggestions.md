@@ -13,7 +13,7 @@ ms.author: v-brapel
 ---
 
 # Configure your custom autosuggest experience
-If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), you can customize the search suggestions made in your Custom Search experience. The Custom Autosuggest API returns a list of suggested queries based on a partial query string that the user provides. With Custom Autosuggest, you add suggestions that appear before the suggestions that Autosuggest provides. 
+If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), you can customize the search suggestions made in your Custom Search experience. Custom Autosuggest returns a list of suggested queries based on a partial query string that the user provides. With Custom Autosuggest, you add suggestions that appear before the suggestions that Bing provides. Bing suggestions are restricted to the context of your Custom Search instance.
 
 ## Enable Custom Autosuggest
 Use the following instructions to enable Custom Autosuggest for your Custom Search instance.
