@@ -41,6 +41,8 @@ This app can be used for all Azure AD accounts.  It supports both single and mul
 
 ## Example Code
 
+The full sample code can be found [on Github](https://github.com/Azure-Samples/active-directory-android). 
+
 ```Java
 // Initialize your app with MSAL
 AuthenticationContext mAuthContext = new AuthenticationContext(
