@@ -55,7 +55,7 @@ The following is our initial effort at providing a list. Over time, this list wi
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
 * [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)
-* [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+* [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 
 ## Backup and Disaster Recovery
 * [Azure Backup](https://azure.microsoft.com/documentation/services/backup/)
