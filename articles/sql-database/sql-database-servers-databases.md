@@ -62,11 +62,11 @@ To help protect your data, a [SQL Database firewall](sql-database-firewall-confi
 
 ## Manage Azure SQL servers, databases, and firewalls using the Azure portal
 
-You can create the Azure SQL database's resource group ahead of time or while creating the server itself. There are multiple methods for getting to a new SQL server form, either by creating a new SQL server or as part of creating a new database. 
+You can create the Azure SQL database's resource group ahead of time or while creating the server itself. 
 
 ### Create a blank SQL server (logical server)
 
-To create an Azure SQL Database server (without a database) using the [Azure portal](https://portal.azure.com), navigate to a blank SQL server (logical server) form.  
+To create an Azure SQL Database server (without a database) using the [Azure portal](https://portal.azure.com), navigate to a blank SQL (logical) server form.  
 
 ### Create a blank or sample SQL database
 
