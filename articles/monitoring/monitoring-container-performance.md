@@ -42,7 +42,7 @@ Before starting, review the following details so you can understand the supporte
 This capability relies on the OMS Agent for Linux to collect performance and event data from all nodes in the cluster.  The agent is automatically deployed and registered with the specified Log Analytics workspace after you enable container performance monitoring. 
 
 >[!NOTE] 
->If you have already deployed an AKS cluster, you cannot enable monitoring afterwards with this feature.  It must be enabled during deployment of the cluster and it can only be performed through the portal, not from an Azure Resource Manager template, PowerShell, or CLI.
+>If you have already deployed an AKS cluster, you enable monitoring using a provided Azure Resource Manager template as demonstrated later in this article.  Support for enabling in the Azure portal will be enabled in a future release.  >
 >
 
 ## Log in to Azure portal
@@ -65,7 +65,7 @@ When you open Container Health, the page immediately presents the performance ut
 
 The row hierarchy follows the Kubernetes object model starting with a node in your cluster.  Expand the node and you see one or more pods running on the node, and if there is more than one container grouped to a pod, they are shown as the last row in the hierarchy.<br><br> ![Example Kubernetes Node hierarchy in the performance view](./media/monitoring-container-performance/container-performance-and-health-view-03.png)
 
-You can select controllers or containers from the top of the page and review the status and resource utilization for those objects.  Use the dropdown boxes at the top of the screen to filter by namespace, service, and node. If instead you want to review memory utilization, from the **Metric** drop-down list select **Memory RSS** or **Memory working set**.  **Memory RSS** is only supported for Kubernetes version 1.8 and later. Otherwise, you will see all NaN%, which is a numeric data type value representing an undefined or unrepresentable value. 
+You can select controllers or containers from the top of the page and review the status and resource utilization for those objects.  Use the dropdown boxes at the top of the screen to filter by namespace, service, and node. If instead you want to review memory utilization, from the **Metric** drop-down list select **Memory RSS** or **Memory working set**.  **Memory RSS** is only supported for Kubernetes version 1.8 and later. Otherwise, you see values for **AVG %** showing as *NaN%*, which is a numeric data type value representing an undefined or unrepresentable value. 
 
 ![Container performance nodes performance view](./media/monitoring-container-performance/container-performance-and-health-view-04.png)
 
@@ -79,7 +79,7 @@ The following table describes the information presented when you view Nodes.
 |--------|-------------|
 | Name | The name of the host |
 | Status | Kubernetes view of the node status |
-| AVG% | Average node percentage based on selected metric for the selected time duration |
+| AVG % | Average node percentage based on selected metric for the selected time duration |
 | AVERAGE | Average nodes actual value based on selected metric for the selected time duration.  The Average value is measured from the CPU/Memory limit set for a pod. |
 | Containers | Number of containers |
 | Uptime | Represents the time since a node started or was rebooted |
@@ -100,7 +100,7 @@ The following table describes the information presented when you view Controller
 |--------|-------------|
 | Name | The name of the controller|
 | Status | Roll up status of the containers, if any. |
-| AVG% | Roll up average of the average % of each entity for the selected metric |
+| AVG % | Roll up average of the average % of each entity for the selected metric |
 | AVERAGE | Roll up of the average CPU millicore or memory performance of the container.  The Average value is measured from the CPU/Memory limit set for a pod. |
 | Containers | Total number of containers for the controller|
 | Restarts | Roll up of the restart count from containers |
@@ -119,7 +119,7 @@ The following table describes the information presented when you view Containers
 |--------|-------------|
 | Name | The name of the controller|
 | Status | Roll up status of the containers, if any. |
-| AVG% | Roll up average of the average % of each entity for the selected metric |
+| AVG % | Roll up average of the average % of each entity for the selected metric |
 | AVERAGE | Roll up of the average CPU millicore or memory performance of the container. The Average value is measured from the CPU/Memory limit set for a pod. |
 | Containers | Total number of containers for the controller|
 | Restarts | Roll up of the restart count from containers |
@@ -136,7 +136,7 @@ You can perform interactive analysis of data in the workspace by selecting the *
 The container logs output forwarded to Log Analytics are STDOUT and STDERR. Kube-system is not being collected today, since this is monitoring Azure managed Kubernetes (AKS).   
 
 ## How to discontinue monitoring with Container Health
-After enabling monitoring of your AKS container you decide you no longer wish to monitor it, you can *opt out* using the provided Azure Resource Manager template with the PowerShell cmdlet **New-AzureRmResourceGroupDeployment**.  The JSON template is configured to prompt you for the AKS cluster resource ID and the name of the resource group the cluster is deployed to.  If you are not familiar with the concepts of deploying resources using a template with PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+After enabling monitoring of your AKS container you decide you no longer wish to monitor it, you can *opt out* using the provided Azure Resource Manager templates with the PowerShell cmdlet **New-AzureRmResourceGroupDeployment**.  One JSON template specifies the configuration to *opt out* and the other JSON template contains parameter values you configure to specify the AKS cluster resource ID and resource group the cluster is deployed to.  If you are not familiar with the concepts of deploying resources using a template with PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### Create and execute template
 
@@ -184,7 +184,26 @@ After enabling monitoring of your AKS container you decide you no longer wish to
     ```
 
 2. Save this file as **OptOutTemplate.json** to a local folder.
-3. You are ready to deploy this template. Use the following PowerShell commands from the folder containing the template:
+3. Copy and paste the following JSON syntax into your file:
+
+    ```json
+    {
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+       "aksResourceId": {
+         "value": "/subscriptions/692aea0b-2d89-4e7e-ae30-fffe40782ee2/resourcegroups/jobyaks2/providers/Microsoft.ContainerService/managedClusters/jobyaks2"
+      },
+      "aksResourceLocation": {
+        "value": "Canada East"
+        }
+      }
+    }
+    ```
+
+4. Edit the value for **aksResourceId** and **aksResourceLocation** with the values of the AKS cluster, which you can find on the **AKS Overview** page.  
+5. Save this file as **OptOutParam.json** to a local folder.
+6. You are ready to deploy this template. Use the following PowerShell commands from the folder containing the template:
 
     ```powershell
     Connect-AzureRmAccount
