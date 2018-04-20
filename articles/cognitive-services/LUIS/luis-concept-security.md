@@ -4,12 +4,11 @@ description: Learn what can be secured in Language Understanding (LUIS)
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Security

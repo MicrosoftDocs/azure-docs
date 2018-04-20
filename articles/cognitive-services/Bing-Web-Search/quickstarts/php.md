@@ -4,13 +4,11 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
-
 ms.service: cognitive-services
-ms.technology: bing-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 9/18/2017
 ms.author: v-jerkin
-
 ---
 # Call and response: your first Bing Web Search query in PHP
 

@@ -51,9 +51,9 @@ When you choose this authentication method Azure AD handles the sign-in process 
 ### Federated authentication
 When you choose this authentication method Azure AD hands off the authentication process to a separate trusted authentication system, for example, an on-premises Active Directory Federation Services (AD FS) to validate the user’s password. The authentication system can provide additional authentication requirements, such as smartcard-based authentication or a third-party multi-factor authentication. For more information, see [Deploying Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide).
 
-The following section will help you decide which authentication method is right for you, using a decision tree diagram. It will help you determine whether to deploy cloud or federated authentication for your Azure AD hybrid identity solution.
+The following section will help you decide which authentication method is right for you, using a decision tree. It will help you determine whether to deploy cloud or federated authentication for your Azure AD hybrid identity solution.
 
-## Azure AD authentication decision tree diagram
+## Azure AD authentication decision tree
 
 ![image1](media/azure-ad/azure-ad-authn-image1.png)
 
@@ -74,7 +74,7 @@ The following section will help you decide which authentication method is right 
 > [!NOTE] 
 > The password expired state is not currently synced to Azure AD with the Azure AD Connect. 
 
-For more information, on implementing Password Hash Sync refer to the following [article](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization).
+Refer to [implementing Password Hash Sync](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization) for deployment steps.
 
 ### Cloud authentication: Pass-through authentication  
 
@@ -82,13 +82,13 @@ For more information, on implementing Password Hash Sync refer to the following 
 
 * **User experience:** It is recommended that organizations deploy seamless single sign-on with Pass-through authentication to improve the user’s sign-in experience by avoiding unnecessary  prompts once they signed in.
 
-* **Advanced scenarios:** Pass-through authentication ensures authentication requests are immediately denied when an on-premises user’s account state is disabled, locked out or password expired. Organizations requiring multi-factor authentication with pass-through authentication must use Azure AD multi-factor authentication and cannot use a third party or on-premises multi-factor authentication method. Advanced features, such as the leaked credentials report of Identity Protection requires that Password Hash Sync is deployed regardless if you choose pass-through authentication.
+* **Advanced scenarios:** Pass-through authentication ensures authentication requests are immediately denied when an on-premises user’s account state is disabled, locked out, password expired or falls outside the user’s allowed logon hours. Organizations requiring multi-factor authentication with pass-through authentication must use Azure AD multi-factor authentication and cannot use a third party or on-premises multi-factor authentication method. Advanced features, such as the leaked credentials report of Identity Protection requires that Password Hash Sync is deployed regardless if you choose pass-through authentication.
 
 * **Business Continuity:** It is recommended that you deploy two extra pass-through agents, besides the first agent on the Azure AD Connect server to ensure high availability of authentication requests. When you have three agents deployed, one agent can still fail when another agent is down for maintenance. Another benefit of deploying Password Hash Sync in addition to pass-through authentication, is it can act as backup authentication method when the primary authentication method is no longer available, for example when the on-premises servers are not available.
 
-* **Considerations:** The failover from Pass-through authentication to Password Hash Sync does not happen automatically. You would need to switch the sign-on method manually using Azure AD Connect. Pass-through authentication only supports cloud apps that use modern authentication and specific Exchange Online protocols like ActiveSync, POP3 and IMAP4. For example, [Microsoft Office 2013 and later supports modern authentication, but not earlier versions](https://blogs.office.com/en-us/2015/11/19/updated-office-365-modern-authentication-public-preview/) on more information of Office app support. See [frequently asked questions](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq) and other considerations on pass-through authentication, including Alternate ID support.
+* **Considerations:** If you use Password Hash Sync as a backup authentication method for pass-through authentication and the agents cannot validate the user's credentials, then the failover to Password Hash Sync does not happen automatically. You would need to switch the sign-on method manually using Azure AD Connect. Pass-through authentication only supports cloud apps that use modern authentication and specific Exchange Online protocols like ActiveSync, POP3 and IMAP4. For example, [Microsoft Office 2013 and later supports modern authentication, but not earlier versions](https://blogs.office.com/en-us/2015/11/19/updated-office-365-modern-authentication-public-preview/) on more information of Office app support. See [frequently asked questions](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq) and other considerations on pass-through authentication, including Alternate ID support.
 
-For more information, on implementing Pass-through authentication refer to the following [article](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
+Refer to [implementing Pass-through authentication](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) for deployment steps.
 
 ### Federated Authentication
 
@@ -96,7 +96,7 @@ For more information, on implementing Pass-through authentication refer to the f
 
 * **User experience:** The user experience of federated authentication is dependent on the implementation of the features, topology, and configuration of the federation farm. Some organizations require this flexibility to adapt and configure the access to the federation farm to suit their security requirements. For example, it is possible to configure internally connected users and devices to sign in users automatically, without prompting them for credentials, because they have already signed-in to their devices. On the other hand, if necessary, some advanced security features can make the user’s sign-in process more difficult.
 
-* **Advanced scenarios:** Federated authentication solution is typically required when customers have an authentication requirement not natively supported by Azure AD, information are [listed here](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/), but common requirements include:
+* **Advanced scenarios:** Federated authentication solution is typically required when customers have an authentication requirement not natively supported by Azure AD, detailed information is [listed here](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/), but common requirements include:
 
 	* Authentication requiring smartcards or certificates
 	* Using on-premises MFA Server or third-party multi-factor provider.
@@ -108,7 +108,7 @@ For more information, on implementing Pass-through authentication refer to the f
 
 * **Considerations:** Federated systems typically require a more significant investment in on-premises infrastructure. Most organizations choose this option if they already have an on-premises federation investment and it is a strong business requirement to use a single identity provider. Federation is more complex to operate and troubleshoot compared to cloud authentication solutions. Using user IDs with a non-routable domain that cannot be verified in Azure AD to sign in need extra configuration to implement. This requirement is known as Alternate login ID support. See [Configuring Alternate Login ID](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) for limitations and requirements.
 
-For detailed information, on implementing federation services refer to [this article](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-federation-servers).
+Refer to [implementing federation services](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-federation-servers) for deployment steps.
 
 > [!NOTE] 
 > When you deploy your Azure AD hybrid identity solution, you must ensure you implement one of the supported topologies of Azure AD Connect. Learn more about supported and unsupported configurations at [Topologies for Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-topologies).
@@ -157,4 +157,4 @@ In today’s world, threats are present 24 hours a day and come from everywhere.
 
 [Get started](https://docs.microsoft.com/en-us/azure/active-directory/get-started-azure-ad) with Azure AD and deploy the right authentication solution for your organization.
 
-If you are considering migrating from federated to cloud authentication, learn more [about the migration process if you are already using Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-user-signin). To help you plan and implement the migration, you can use [these project plans to assist you](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/tree/master/PTA).
+If you are considering migrating from federated to cloud authentication, learn more [about the changing the sign in method](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). To help you plan and implement the migration, you can use [these project plans to assist you](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/tree/master/Authentication).

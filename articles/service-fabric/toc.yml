@@ -26,10 +26,12 @@
     - name: 1- Build a .NET application
       href: service-fabric-tutorial-create-dotnet-app.md
     - name: 2- Deploy the application
-      href: service-fabric-tutorial-deploy-app-to-party-cluster.md    
-    - name: 3- Configure CI/CD
+      href: service-fabric-tutorial-deploy-app-to-party-cluster.md
+    - name: 3- Enable HTTPS
+      href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
+    - name: 4- Configure CI/CD
       href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-    - name: 4- Monitor and Diagnose
+    - name: 5- Monitor and Diagnose
       href: service-fabric-tutorial-monitoring-aspnet.md
   - name: Deploy a Java app
     items:
@@ -238,6 +240,8 @@
         href: service-fabric-cluster-resource-manager-advanced-throttling.md
       - name: Service movement
         href: service-fabric-cluster-resource-manager-movement-cost.md
+      - name: Autoscaling services
+        href: service-fabric-cluster-resource-manager-autoscaling.md
   - name: Monitoring and diagnostics
     items:
     - name: Monitoring overview
@@ -261,8 +265,6 @@
       href: service-fabric-health-introduction.md
     - name: Report health events
       href: service-fabric-report-health.md
-    - name: Monitor with OMS
-      href: service-fabric-diagnostics-event-analysis-oms.md
   - name: Integration with API Management
     href: service-fabric-api-management-overview.md
 - name: How-to guides
@@ -405,6 +407,10 @@
         href: service-fabric-securing-containers.md
       - name: Set up gMSA for Windows containers 
         href: service-fabric-setup-gmsa-for-windows-containers.md
+    - name: Configure periodic backups (Clusters on Azure)
+      href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
+    - name: Configure periodic backups (Standalone Clusters)
+      href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
     - name: Migrate old Java Application to support Maven
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
   - name: Work in a Windows/VS dev environment
@@ -555,6 +561,8 @@
         href: service-fabric-diagnostics-oms-setup.md
       - name: Add the OMS Agent
         href: service-fabric-diagnostics-oms-agent.md
+      - name: Monitor with OMS
+        href: service-fabric-diagnostics-event-analysis-oms.md
       - name: Monitor containers
         href: service-fabric-diagnostics-oms-containers.md
     - name: Analyze with Application Insights

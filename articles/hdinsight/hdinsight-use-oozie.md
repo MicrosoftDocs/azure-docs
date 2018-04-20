@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Hadoop Oozie in HDInsight | Microsoft Docs
 description: Use Hadoop Oozie in HDInsight, a big data service. Learn how to define an Oozie workflow, and submit an Oozie job.
 services: hdinsight
@@ -239,7 +239,7 @@ Here is the script.  You can run the script from Windows PowerShell ISE. You onl
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
         Select-AzureRmSubscription -SubscriptionId $subscriptionID
     }
     #endregion
