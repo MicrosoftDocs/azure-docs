@@ -25,7 +25,7 @@ The following script uploads a new certificate to a key vault and then installs 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
-$SubscriptionId  =  0754ecc2-d80d-426a-902c-b83f4cfbdc95
+$SubscriptionId  =  <subscription ID>
 
 # Sign in to your Azure account and select your subscription
 Login-AzureRmAccount -SubscriptionId $SubscriptionId

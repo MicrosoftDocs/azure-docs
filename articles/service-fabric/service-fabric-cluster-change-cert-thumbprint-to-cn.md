@@ -13,31 +13,43 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/09/2018
+ms.date: 04/19/2018
 ms.author: ryanwi;aljo
 
 ---
 # Rollover from thumbprint to common name
+This article describes how to update a running Service Fabric cluster to use the certificate common name instead of the certificate thumbprint.
  
-## Get a CA signed certificate.
+## Get a certificate
+First, get a certificate from a [certificate authority](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be the host name of the cluster.  For example, "myclustername.southcentralus.cloudapp.azure.com".  
+
+You can use a self-signed certificate if the cluster is for testing and is not running production work loads. The Service Fabric SDK provides the CertSetup.ps1 script, which creates a self-signed certificate and imports it into the `Cert:\LocalMachine\My certificate` store. Open a command prompt as administrator and run the following command to create a cert with the subject "CN=myclustername.southcentralus.cloudapp.azure.com":
+
+```powershell
+PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=myclustername.southcentralus.cloudapp.azure.com
+```
+
+Next, export the self-signed certificate to a PFX file. Open the certlm.msc application and navigate to **Personal**>**Certificates**. Right-click on the **myclustername.southcentralus.cloudapp.azure.com** certificate, and select **All Tasks**>**Export**.  In the export wizard, choose **Yes, export the private key**, enter a password, and choose the Personal Information Exchange (PFX) format. Export the file to *C:\Users\sfuser\myclustercert.pfx*.
+
 
 ## Upload the certificate to keyvault and install in the VM scale set
+In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  Upload the certificate to a key vault and then install it on the VM scale set that the cluster is running on.
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
-$SubscriptionId  =  0754ecc2-d80d-426a-902c-b83f4cfbdc95
+$SubscriptionId  =  <subscription ID>
 
 # Sign in to your Azure account and select your subscription
 Login-AzureRmAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
-$KeyVaultResourceGroupName  = "commonnametest2"
-$VaultName = "cntestvault2"
-$certFilename = "C:\users\ryanwi\sftutorialcluster20180419110824.pfx"
-$certname = "cntestcert"
-$Password  = "NewJobYay!123"
-$VmssResourceGroupName     = "sfclustertutorialgroup"
+$KeyVaultResourceGroupName  = "mykeyvaultgropu"
+$VaultName = "mykeyvault"
+$certFilename = "C:\users\sfuser\myclustercert.pfx"
+$certname = "myclustercert"
+$Password  = "P@ssw0rd!123"
+$VmssResourceGroupName     = "myclustergroup"
 $VmssName                  = "prnninnxj"
 
 # Create new Resource Group 
@@ -75,15 +87,19 @@ $vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $Sour
 # Update the VM scale set 
 Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
 ```
-## Download the template from the portal
-Now, download the template for your cluster deployment.  Log in to the [Azure portal](https://portal.azure.com) and navigate to the resource group hosting the cluster.  In **Settings**, select **Deployments**.  Select the most recent deployment and click **View template**.
+
+## Download and update the template from the portal
+The certificate has been installed on the underlying scale set, but you also need to update the Service Fabric cluster to use that certificate and it's common name.  Now, download the template for your cluster deployment.  Log in to the [Azure portal](https://portal.azure.com) and navigate to the resource group hosting the cluster.  In **Settings**, select **Deployments**.  Select the most recent deployment and click **View template**.
 
 ![View templates][image1]
 
 Download the template and parameters JSON files to your local computer.
 
-## Update the template to support certificate common name
-Open the template file in a text editor and make three updates to support certificate common name.
+Next, open the template file in a text editor and make three updates to support certificate common name.
+
+1.
+2.
+3.
 
 ## Deploy the updated template
 Redeploy the updated template after making the changes.
@@ -92,11 +108,11 @@ Redeploy the updated template after making the changes.
 $groupname = "sfclustertutorialgroup"
 
 New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" -Verbose
-
 ```
 
 ## Next steps
 * Learn about [cluster security](service-fabric-cluster-security.md).
+* Learn how to [rollover a cluster certificate](service-fabric-cluster-rollover-cert-cn.md)
 * [Update and Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
