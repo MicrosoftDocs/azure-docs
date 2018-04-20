@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Control Azure CDN caching behavior with caching rules | Microsoft Docs
-description: In this tutorial, you set a global and a custom CDN caching rule.
+title: Tutorial - Setting Azure CDN caching rules | Microsoft Docs
+description: In this tutorial, you set an Azure CDN global and a custom caching rule.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -12,27 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: v-deasim
 ms.custom: mvc
 # As an Azure CDN administrator, I want to create custom rules on my CDN endpoint so that I can control how content is cached.
 
 ---
 
-# Tutorial: Control Azure CDN caching behavior with caching rules
+# Tutorial: Set Azure CDN caching rules
 
 > [!NOTE] 
-> Caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai**. For **Azure CDN Premium from Verizon**, use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
+> Azure CDN caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai**. For **Azure CDN Premium from Verizon**, use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
  
-Azure Content Delivery Network (CDN) offers two ways to control how your files are cached: 
 
-- Caching rules: This article describes how you can use content delivery network (CDN) caching rules to set or modify default cache expiration behavior both globally and with custom conditions, such as a URL path and file extension. Azure CDN provides two types of caching rules:
-   - Global caching rules: You can set one global caching rule for each endpoint in your profile, which affects all requests to the endpoint. The global caching rule overrides any HTTP cache-directive headers, if set.
-   - Custom caching rules: You can set one or more custom caching rules for each endpoint in your profile. Custom caching rules match specific paths and file extensions, are processed in order, and override the global caching rule, if set. 
-
-- Query string caching: You can adjust how the Azure CDN treats caching for requests with query strings. For information, see [Control Azure CDN caching behavior with query strings](cdn-query-string.md). If the file is not cacheable, the query string caching setting has no effect, based on caching rules and CDN default behaviors.
-
-For information about default caching behavior and caching directive headers, see [How caching works](cdn-how-caching-works.md).
+This tutorial describes how you can use Azure Content Delivery Network (CDN) caching rules to set or modify default cache expiration behavior both globally and with custom conditions, such as a URL path and file extension. Azure CDN provides two types of caching rules:
+- Global caching rules: You can set one global caching rule for each endpoint in your profile, which affects all requests to the endpoint. The global caching rule overrides any HTTP cache-directive headers, if set.
+- Custom caching rules: You can set one or more custom caching rules for each endpoint in your profile. Custom caching rules match specific paths and file extensions, are processed in order, and override the global caching rule, if set. 
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -112,10 +107,10 @@ What you learned:
 > - Created a global caching rule
 > - Created a custom caching rule
 
-Advance to the next tutorial to learn how to configure additional caching rule settings.
+Advance to the next article to learn how to configure additional caching rule settings.
 
 > [!div class="nextstepaction"]
-> [Control Azure CDN caching behavior with caching rules](cdn-caching rules.md)
+> [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md)
 
 
 

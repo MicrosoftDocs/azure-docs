@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: v-deasim
 ---
 
@@ -29,35 +29,48 @@ Azure Content Delivery Network (CDN) offers two ways to control how your files a
 
 - Query string caching: You can adjust how the Azure CDN treats caching for requests with query strings. For information, see [Control Azure CDN caching behavior with query strings](cdn-query-string.md). If the file is not cacheable, the query string caching setting has no effect, based on caching rules and CDN default behaviors.
 
-For information about default caching behavior and caching directive headers, see [How caching works](cdn-how-caching-works.md).
-
-    
-> [!NOTE] 
-> Files that are cached before a rule change maintain their origin cache duration setting. To reset their cache durations, you must [purge the file](cdn-purge-endpoint.md). For **Azure CDN from Verizon** endpoints, it can take up to 90 minutes for caching rules to take effect.
+For information about default caching behavior and caching directive headers, see [How caching works](cdn-how-caching-works.md). 
 
 
-### Caching behavior settings
+## Accessing Azure CDN caching rules
+
+1. Open the Azure portal, select a CDN profile, then select an endpoint.
+
+2. In the left pane under Settings, select **Caching rules**.
+
+   ![CDN Caching rules button](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+
+   The caching rules page appears.
+
+   ![CDN Caching rules page](./media/cdn-caching-rules/cdn-caching-rules-page.png)
+
+
+## Caching behavior settings
 For global and custom caching rules, you can specify the following **Caching behavior** settings:
 
 - **Bypass cache**: Do not cache and ignore origin-provided cache-directive headers.
 - **Override**: Ignore origin-provided cache-directive headers; use the provided cache duration instead.
 - **Set if missing**: Honor origin-provided cache-directive headers, if they exist; otherwise, use the provided cache duration.
 
-### Cache expiration duration
+![Global caching rules](./media/cdn-caching-rules/cdn-global-caching-rules.png)
+
+![Custom caching rules](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
+
+## Cache expiration duration
 For global and custom caching rules, you can specify the cache expiration duration in days, hours, minutes, and seconds:
 
 - For the **Override** and **Set if missing** **Caching behavior** settings, valid cache durations range between 0 seconds and 366 days. For a value of 0 seconds, the CDN caches the content, but must revalidate each request with the origin server.
 - For the **Bypass cache** setting, the cache duration is automatically set to 0 seconds and cannot be changed.
 
-### Custom caching rules match conditions
+## Custom caching rules match conditions
 
 For custom cache rules, two match conditions are available:
  
-- **Path**: This condition matches the path of the URL, excluding the domain name, and supports the wildcard symbol (\*). For example, `/myfile.html`, `/my/folder/*`, and `/my/images/*.jpg`. The maximum length is 260 characters.
+- **Path**: This condition matches the path of the URL, excluding the domain name, and supports the wildcard symbol (\*). For example, _/myfile.html_, _/my/folder/*_, and _/my/images/*.jpg_. The maximum length is 260 characters.
 
-- **Extension**: This condition matches the file extension of the requested file. You can provide a list of comma-separated file extensions to match. For example, `.jpg`, `.mp3`, or `.png`. The maximum number of extensions is 50 and the maximum number of characters per extension is 16. 
+- **Extension**: This condition matches the file extension of the requested file. You can provide a list of comma-separated file extensions to match. For example, _.jpg_, _.mp3_, or _.png_. The maximum number of extensions is 50 and the maximum number of characters per extension is 16. 
 
-### Global and custom rule processing order
+## Global and custom rule processing order
 Global and custom caching rules are processed in the following order:
 
 - Global caching rules take precedence over the default CDN caching behavior (HTTP cache-directive header settings). 
@@ -71,15 +84,22 @@ Global and custom caching rules are processed in the following order:
 
 - Custom caching rule #1:
    - Match condition: **Path**
-   - Match value: `/home/*`
+   - Match value: _/home/*_
    - Caching behavior: **Override**
    - Cache expiration duration: 2 days
 
 - Custom caching rule #2:
    - Match condition: **Extension**
-   - Match value: `.html`
+   - Match value: _.html_
    - Caching behavior: **Set if missing**
    - Cache expiration duration: 3 days
 
-When these rules are set, a request for `<endpoint>.azureedge.net/home/index.html` triggers custom caching rule #2, which is set to: **Set if missing** and 3 days. Therefore, if the `index.html` file has `Cache-Control` or `Expires` HTTP headers, they are honored; otherwise, if these headers are not set, the file is cached for 3 days.
+When these rules are set, a request for _&lt;endpoint hostname&gt;_.azureedge.net/home/index.html triggers custom caching rule #2, which is set to: **Set if missing** and 3 days. Therefore, if the *index.html* file has `Cache-Control` or `Expires` HTTP headers, they are honored; otherwise, if these headers are not set, the file is cached for 3 days.
 
+> [!NOTE] 
+> Files that are cached before a rule change maintain their origin cache duration setting. To reset their cache durations, you must [purge the file](cdn-purge-endpoint.md). For **Azure CDN from Verizon** endpoints, it can take up to 90 minutes for new caching rules to take effect.
+
+## See also
+
+- [How caching works](cdn-how-caching-works.md)
+- [Tutorial: Set Azure CDN caching rules](cdn-caching-rules-tutorial.md)
