@@ -36,6 +36,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-web.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/preview/index.md",
             "redirect_url": "/azure/machine-learning/service",
             "redirect_document_id": true
