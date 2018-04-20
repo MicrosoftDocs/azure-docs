@@ -19,13 +19,13 @@ ms.author: juliako
 ---
 # Azure Government Media Services 
  
-For details on this service and how to use it, see the [Azure Media Services documentation](../media-services/index.md).
+For details on this service and how to use it, see the [Azure Media Services documentation](../media-services/previous/index.md).
 
 Azure Media Services (AMS) is currently generally available in Azure Government.
 
 ## Connecting  
 
-For information on how to connect to AMS, see [connecting to AMS](../media-services/media-services-use-aad-auth-to-access-ams-api.md)
+For information on how to connect to AMS, see [connecting to AMS](../media-services/previous/media-services-use-aad-auth-to-access-ams-api.md)
 
 When connecting to Media Services in Azure Government, use the following values:
 
