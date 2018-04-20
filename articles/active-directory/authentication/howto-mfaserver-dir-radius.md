@@ -26,7 +26,7 @@ RADIUS is a standard protocol to accept authentication requests and to process t
 >
 > In this configuration, one-way SMS and OATH tokens don't work since the MFA Server can't initiate a successful RADIUS Challenge response using alternative protocols.
 
-![Radius Authentication](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
+![Radius Authentication](./media/howto-mfaserver-dir-radius/radius.png)
 
 ## Add a RADIUS client
 To configure RADIUS authentication, install the Azure Multi-Factor Authentication Server on a Windows server. If you have an Active Directory environment, the server should be joined to the domain inside the network. Use the following procedure to configure the Azure Multi-Factor Authentication Server:
@@ -53,7 +53,7 @@ Repeat steps 4 through 8 to add as many additional RADIUS clients as you need.
 2. If the Azure MFA Server is installed on a domain-joined server in an Active Directory environment, select Windows domain.
 3. If users should be authenticated against an LDAP directory, select **LDAP bind**.
 
-  Select the Directory Integration icon and edit the LDAP configuration on the Settings tab so that the Server can bind to your directory. Instructions for configuring LDAP can be found in the [LDAP Proxy configuration guide](../active-directory/authentication/howto-mfaserver-dir-ldap.md).
+  Select the Directory Integration icon and edit the LDAP configuration on the Settings tab so that the Server can bind to your directory. Instructions for configuring LDAP can be found in the [LDAP Proxy configuration guide](howto-mfaserver-dir-ldap.md).
 
 4. If users should be authenticated against another RADIUS server, select RADIUS server(s).
 5. Click **Add** to configure the server to which the Azure MFA Server will proxy the RADIUS requests.
@@ -77,4 +77,4 @@ To configure the RADIUS client, use the guidelines:
 
 ## Next steps
 
-Learn how to [integrate with RADIUS authentication](../active-directory/authentication/howto-mfa-nps-extension.md) if you have Azure Multi-Factor Authentication in the cloud. 
+Learn how to [integrate with RADIUS authentication](howto-mfa-nps-extension.md) if you have Azure Multi-Factor Authentication in the cloud. 

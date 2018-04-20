@@ -106,8 +106,8 @@ These instructions only apply if you run Multi-Factor Authentication Server sepa
 
 ## Next steps
 
-- Get examples of [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](../../multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md)
+- Get examples of [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](howto-mfaserver-nps-vpn.md)
 
 - [Synchronize MFA Server with Windows Server Active Directory](howto-mfaserver-dir-ad.md)
 
-- [Configure Windows Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-server-windows.md) for your applications
+- [Configure Windows Authentication](howto-mfaserver-windows.md) for your applications
