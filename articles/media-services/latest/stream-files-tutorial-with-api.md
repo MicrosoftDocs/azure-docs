@@ -336,4 +336,4 @@ The Azure Media Services v3 SDKs are not thread-safe. When working with multi-th
 Now that you know how to upload, encode, download, and stream your video, see the following article: 
 
 > [!div class="nextstepaction"]
-> [Analyze videos](analyze-videos-tutorial.md)
+> [Analyze videos](analyze-videos-tutorial-with-api.md)
