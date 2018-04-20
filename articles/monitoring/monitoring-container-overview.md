@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: magoedte
 ---
 
@@ -22,8 +22,6 @@ With Azure, you can effectively monitor and manage your workloads deployed on Az
 
 Using [Container Monitoring for AKS](monitoring-container-performance.md), you can view the performance and health of your Linux container infrastructure at a glance and investigate issues quickly. The telemetry is stored in a Log Analytics workspace and integrated in the Azure portal, where you can explore, filter, and segment aggregated data with dashboards to keep an eye on load, performance, and health.  
 
-For containers running outside of the hosted Azure Kubernetes service, the Log Analytics [Container Solution](../log-analytics/log-analytics-containers.md) helps you view and manage your Windows and Docker container hosts. From your Log Analytics workspace, it shows you which containers are running, what container image they’re running, and where containers are running.  You can view detailed audit information showing commands used with containers, and you can troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker or Windows hosts.
+For containers running outside of the hosted Azure Kubernetes service, the Log Analytics [Container Solution](../log-analytics/log-analytics-containers.md) helps you view and manage your Windows and Docker container hosts. From your Log Analytics workspace, you can view  inventory details, performance, and events from nodes and containers in the environment. You can view detailed audit information showing commands used with containers, and you can troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker or Windows hosts.
 
-Once you have configured container monitoring, you should consider including any other application component dependencies (that is, Azure resources) to avoid any monitoring gaps with the application and verify you are able to meet operating and service availability requirements.  
-
-It is important to monitor the application running on one or more containers to identify issues that impact usability and responsiveness for users accessing those applications.  This can be accomplished with [Application Insights](../application-insights/app-insights-overview.md) and deliver end-to-end monitoring of application health.  
+To avoid monitoring gaps, any application dependency whether it is an Azure resource or hosted on-premises should be monitored with Azure Monitor or Log Analytics, in order to meet operating and service availability requirements and maintain agreed upon service levels.  This includes monitoring the application running on one or more containers to identify issues that impact usability and responsiveness for users accessing those applications.  Application monitoring can be accomplished with [Application Insights](../application-insights/app-insights-overview.md) to deliver end-to-end monitoring of application health.  
