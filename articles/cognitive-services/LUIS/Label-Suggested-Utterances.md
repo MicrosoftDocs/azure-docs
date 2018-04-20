@@ -3,10 +3,9 @@ title: Label suggested utterances with LUIS | Microsoft Docs
 description: Use Language Understanding (LUIS) to label suggested utterances and help boost active machine learning.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: v-geberr

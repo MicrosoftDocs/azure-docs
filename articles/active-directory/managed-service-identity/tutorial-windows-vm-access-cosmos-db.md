@@ -54,17 +54,13 @@ For this tutorial, we create a new Windows VM.  You can also enable MSI on an ex
 
 ## Enable MSI on your VM 
 
-A Virtual Machine MSI enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling MSI on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and installs the MSI VM extension.
+A Virtual Machine MSI enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling MSI on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and configures the identity on the VM.
 
 1. Select the **Virtual Machine** that you want to enable MSI on.  
 2. On the left navigation bar click **Configuration**. 
 3. You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
 4. Ensure you click **Save** to save the configuration.  
    ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. If you wish to check and verify which extensions are on this VM, click **Extensions**. If MSI is enabled, then **ManagedIdentityExtensionforWindows** appears in the list.
-
-   ![Alt image text](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## Create a Cosmos DB account 
 
@@ -110,7 +106,7 @@ You will also need to install the latest version of [Azure CLI 2.0](https://docs
 4. Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
-        $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
 
     > [!NOTE]
