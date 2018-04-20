@@ -16,7 +16,7 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 
 * It provides an alternative to SQL Server authentication.
 * Helps stop the proliferation of user identities across database servers.
-* Allows password rotation in a single place
+* Allows password rotation in a single place.
 * Customers can manage database permissions using external (Azure AD) groups.
 * It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 * Azure AD authentication uses contained database users to authenticate identities at the database level.
@@ -71,7 +71,7 @@ Azure AD limitations related to Managed Instance:
 - Only Azure AD admin can create databases, Azure AD users are scoped to a single DB and do not have this permission
 - Database ownership:
   - Azure AD principal cannot change ownership of the database (ALTER AUTHORIZATION ON DATABASE) and cannot be set as owner.
-  - For databases created by Azure AD admin no ownership is set (owner_sid field in sys.sysdatabases is 0x1)
+  - For databases created by Azure AD admin no ownership is set (owner_sid field in sys.sysdatabases is 0x1).
 - SQL Agent cannot be managed when logged in using Azure AD principals. 
 - Azure AD admin cannot be impersonated using EXECUTE AS
 - DAC connection is not supported with Azure AD principals. 
@@ -93,7 +93,7 @@ Azure Active Directory authentication supports the following methods of connecti
 
 ### Additional considerations
 
-* To enhance manageability, we recommended you provision a dedicated Azure AD group as an administrator.   
+* To enhance manageability, we recommend you provision a dedicated Azure AD group as an administrator.   
 * Only one Azure AD administrator (a user or group) can be configured for an Azure SQL Database server, Managed Instance, or Azure SQL Data Warehouse at any time.   
 * Only an Azure AD administrator for SQL Server can initially connect to the Azure SQL Database server, Managed Instance, or Azure SQL Data Warehouse using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.   
 * We recommend setting the connection timeout to 30 seconds.   
