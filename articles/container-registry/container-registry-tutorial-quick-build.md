@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/20/2018
+ms.date: 04/23/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want to quickly build
@@ -125,7 +125,7 @@ Use ACR Build to build a container image from the sample code:
 az acr build --registry $ACR_NAME --image helloacrbuild:v1 --context .
 ```
 
-Output from the [az acr build][az-acr-build] command is similar to the following. You can see the upload of the source code (the "context") to Azure, and the details of the `docker build` operation that ACR Build runs in the cloud. Because ACR Build uses `docker build` to build your images just like you do, no changes to your Dockerfiles are required to start using ACR Build immediately.
+Output from the [az acr build][az-acr-build] command is similar to the following. You can see the upload of the source code (the "context") to Azure, and the details of the `docker build` operation that ACR Build runs in the cloud. Because ACR Build uses `docker build` to build your images, no changes to your Dockerfiles are required to start using ACR Build immediately.
 
 ```console
 $ az acr build --registry $ACR_NAME --image helloacrbuild:v1 --context .

@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/20/2018
+ms.date: 04/23/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want to trigger
@@ -87,13 +87,13 @@ GIT_PAT=personalaccesstoken  # The PAT you generated in the previous section
 
 Now, create the build task by executing following [az acr build-task create][az-acr-build-task-create] command.
 
-This build task specifies that any time code is committed to the *master* branch in the repository specified by `--context`, ACR Build will build the container image from the code in that branch. The `--image` argument specifies a parameterized value of `{{.Build.Id}}` for the version portion of the image's tag, ensuring the built image correlates to a specific build, and is tagged uniquely.
+This build task specifies that any time code is committed to the *master* branch in the repository specified by `--context`, ACR Build will build the container image from the code in that branch. The `--image` argument specifies a parameterized value of `{{.Build.ID}}` for the version portion of the image's tag, ensuring the built image correlates to a specific build, and is tagged uniquely.
 
 ```azurecli-interactive
 az acr build-task create \
     --registry $ACR_NAME \
     --name buildhelloworld \
-    --image helloworld:{{.Build.Id}} \
+    --image helloworld:{{.Build.ID}} \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node \
     --branch master \
     --git-access-token $GIT_PAT
@@ -105,7 +105,7 @@ Output from a successful [az acr build-task create][az-acr-build-task-create] co
 $ az acr build-task create \
 >     --registry $ACR_NAME \
 >     --name buildhelloworld \
->     --image helloworld:{{.Build.Id}} \
+>     --image helloworld:{{.Build.ID}} \
 >     --context https://github.com/$GIT_USER/acr-build-helloworld-node \
 >     --branch master \
 >     --git-access-token $GIT_PAT
@@ -146,11 +146,11 @@ You now have a build task that defines your build. To test the build definition,
 az acr build-task run --registry $ACR_NAME --name buildhelloworld
 ```
 
-By default, the `az acr build-task run` command streams the log output to your console when you execute the command. Here, the output shows that build **eastus-2** has been queued and built.
+By default, the `az acr build-task run` command streams the log output to your console when you execute the command. Here, the output shows that build **eastus2** has been queued and built.
 
 ```console
 $ az acr build-task run --registry mycontainerregistry --name buildhelloworld
-Queued a build with build-id: eastus-2.
+Queued a build with build-id: eastus2.
 Starting to stream the logs...
 Cloning into '/root/acr-builder/src'...
 time="2018-04-19T00:06:20Z" level=info msg="Running command git checkout master"
@@ -158,7 +158,7 @@ Already on 'master'
 Your branch is up to date with 'origin/master'.
 ffef1347389a008c9a8bfdf8c6a0ed78b0479894
 time="2018-04-19T00:06:20Z" level=info msg="Running command git rev-parse --verify HEAD"
-time="2018-04-19T00:06:20Z" level=info msg="Running command docker build --pull -f Dockerfile -t acr22818.azurecr.io/helloworld:eastus-2 ."
+time="2018-04-19T00:06:20Z" level=info msg="Running command docker build --pull -f Dockerfile -t acr22818.azurecr.io/helloworld:eastus2 ."
 Sending build context to Docker daemon  182.8kB
 Step 1/5 : FROM node:9-alpine
 9: Pulling from library/node
@@ -173,15 +173,15 @@ Step 2/5 : COPY . /src
 6e5e20cbf4a7: Layer already exists
 b69680cb4898: Pushed
 b54af9b858b7: Pushed
-eastus-2: digest: sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6 size: 2423
-time="2018-04-19T00:06:51Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" acr22818.azurecr.io/helloworld:eastus-2"
+eastus2: digest: sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6 size: 2423
+time="2018-04-19T00:06:51Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" acr22818.azurecr.io/helloworld:eastus2"
 "["acr22818.azurecr.io/helloworld@sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6"]"
 time="2018-04-19T00:06:51Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" node:9-alpine"
 "["node@sha256:bd7b9aaf77ab2ce1e83e7e79fc0969229214f9126ced222c64eab49dc0bdae90"]"
 ACR Builder discovered the following dependencies:
-[{"image":{"registry":"acr22818.azurecr.io","repository":"helloworld","tag":"eastus-2","digest":"sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6"},"runtime-dependency":{"registry":"registry.hub.docker.com","repository":"node","tag":"9","digest":"sha256:bd7b9aaf77ab2ce1e83e7e79fc0969229214f9126ced222c64eab49dc0bdae90"},"buildtime-dependency":null,"git":{"git-head-revision":"ffef1347389a008c9a8bfdf8c6a0ed78b0479894"}}]
+[{"image":{"registry":"acr22818.azurecr.io","repository":"helloworld","tag":"eastus2","digest":"sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6"},"runtime-dependency":{"registry":"registry.hub.docker.com","repository":"node","tag":"9","digest":"sha256:bd7b9aaf77ab2ce1e83e7e79fc0969229214f9126ced222c64eab49dc0bdae90"},"buildtime-dependency":null,"git":{"git-head-revision":"ffef1347389a008c9a8bfdf8c6a0ed78b0479894"}}]
 Build complete
-Build ID: eastus-2 was successful after 39.789138274s
+Build ID: eastus2 was successful after 39.789138274s
 ```
 
 ## View build status
@@ -205,12 +205,12 @@ The log for the currently running build is streamed to your console, and should 
 ```console
 $ az acr build-task logs --registry $ACR_NAME
 Showing logs for the last updated build...
-Build-id: eastus-3
+Build-id: eastus3
 
 [...]
 
 Build complete
-Build ID: eastus-3 was successful after 30.076988169s
+Build ID: eastus3 was successful after 30.076988169s
 ```
 
 ## Trigger a build with a commit
@@ -251,12 +251,32 @@ Output is similar to the following, showing the currently executing (or last-exe
 ```console
 $ az acr build-task logs --registry $ACR_NAME
 Showing logs for the last updated build...
-Build-id: eastus-4
+Build-id: eastus4
 
 [...]
 
 Build complete
-Build ID: eastus-4 was successful after 28.9587031s
+Build ID: eastus4 was successful after 28.9587031s
+```
+
+## List builds
+
+To see a list of the builds that ACR Build has completed for your registry, run the [az acr build-task list-builds][az-acr-build-task-list-builds] command:
+
+```azurecli-interactive
+az acr build-task list-builds --registry $ACR_NAME --output table
+```
+
+Output from the command should appear similar to the following. The builds that ACR Build has executed are displayed, and "Git Commit" appears in the TRIGGER column for the most recent build:
+
+```console
+$ az acr build-task list-builds --registry $ACR_NAME --output table
+BUILD ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
+----------  ---------------  ----------  ---------  ----------  --------------------  ----------
+eastus4     buildhelloworld  Linux       Succeeded  Git Commit  2018-04-20T22:50:27Z  00:00:35
+eastus3     buildhelloworld  Linux       Succeeded  Manual      2018-04-20T22:47:19Z  00:00:30
+eastus2     buildhelloworld  Linux       Succeeded  Manual      2018-04-20T22:46:14Z  00:00:55
+eastus1                                  Succeeded  Manual      2018-04-20T22:38:22Z  00:00:55
 ```
 
 ## Next steps
@@ -275,6 +295,7 @@ In this tutorial, you learned how to use a build task to automatically trigger c
 [az-acr-build-task]: /cli/azure/acr#az-acr-build-task
 [az-acr-build-task-create]: /cli/azure/acr#az-acr-build-task-create
 [az-acr-build-task-run]: /cli/azure/acr#az-acr-build-task-run
+[az-acr-build-task-list-builds]: /cli/azure/acr#az-acr-build-task-list-build
 
 <!-- IMAGES -->
 [build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png

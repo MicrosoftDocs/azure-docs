@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/20/2018
+ms.date: 04/23/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want container
@@ -99,7 +99,7 @@ Next, create a build task with [az acr build-task create][az-acr-build-task-crea
 az acr build-task create \
     --registry $ACR_NAME \
     --name buildhelloworld \
-    --image helloworld:{{.Build.Id}} \
+    --image helloworld:{{.Build.ID}} \
     --build-arg REGISTRY_NAME=$ACR_NAME.azurecr.io \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node \
     --file Dockerfile-app \
@@ -123,7 +123,7 @@ Once the build has completed, take note of the **Build ID** (for example, "eastu
 
 ### Optional: Run application container locally
 
-If you have Docker installed, run the container locally to see the application rendered in a web browser before you rebuild its base image. If you're using the Cloud Shell, skip this section (Cloud Shell does not support `az acr login` or `docker run`).
+If you're working locally (not in the Cloud Shell), and you have Docker installed, run the container to see the application rendered in a web browser before you rebuild its base image. If you're using the Cloud Shell, skip this section (Cloud Shell does not support `az acr login` or `docker run`).
 
 First, log in to your container registry with [az acr login][az-acr-login]:
 
@@ -139,10 +139,7 @@ docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
 
 Navigate to http://localhost:8080 in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
 
-```
-Hello World
-Version: 9.11.1
-```
+![Screenshot of sample application rendered in browser][base-update-01]
 
 ## List builds
 
@@ -207,18 +204,15 @@ If you'd like to perform the following optional step of running the newly built 
 
 ### Optional: Run newly built image
 
-If you have Docker installed, run the new application image locally once its build has completed. Replace `<build-id>` with the BUILD ID you obtained in the previous step.
+If you're working locally (not in the Cloud Shell), and you have Docker installed, run the new application image once its build has completed. Replace `<build-id>` with the BUILD ID you obtained in the previous step. If you're using the Cloud Shell, skip this section (Cloud Shell does not support `docker run`).
 
 ```bash
-docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
+docker run -d -p 8081:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
 ```
 
-Navigate to http://localhost:8080 in your browser, and you should see the updated Node.js version number (with the "a") in the web page:
+Navigate to http://localhost:8081 in your browser, and you should see the updated Node.js version number (with the "a") in the web page:
 
-```
-Hello World
-Version: 9.11.1a
-```
+![Screenshot of sample application rendered in browser][base-update-02]
 
 What's important to note is that you updated your **base** image with a new version number, but the last-built **application** image displays the new version. ACR Build picked up your change to the base image, and rebuilt your application image automatically.
 
@@ -244,8 +238,8 @@ In this tutorial, you learned how to use a build task to automatically trigger c
 [base-node]: https://hub.docker.com/_/node/
 [base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [code-sample]: https://github.com/Azure-Samples/acr-build-helloworld-node
-[dockerfile-base]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-base
 [dockerfile-app]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-app
+[dockerfile-base]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-base
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
@@ -256,6 +250,5 @@ In this tutorial, you learned how to use a build task to automatically trigger c
 [az-acr-login]: /cli/azure/acr#az-acr-login
 
 <!-- IMAGES -->
-[build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png
-[build-task-02-generated-token]: ./media/container-registry-tutorial-build-tasks/build-task-02-generated-token.png
-[build-task-03-fork]: ./media/container-registry-tutorial-build-tasks/build-task-03-fork.png
+[base-update-01]: ./media/container-registry-tutorial-base-image-update/base-update-01.png
+[base-update-02]: ./media/container-registry-tutorial-base-image-update/base-update-02.png
