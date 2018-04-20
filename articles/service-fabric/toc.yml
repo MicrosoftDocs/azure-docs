@@ -521,7 +521,7 @@
         href: create-load-balancer-rule.md
       - name: Change cluster certificate to common name
         href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
-      - name: Rollover a cluster certificate
+      - name: Manually rollover cluster certs
         href: service-fabric-cluster-rollover-cert-cn.md
       - name: Manage cluster certificates
         href: service-fabric-cluster-security-update-certs-azure.md

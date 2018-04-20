@@ -17,8 +17,8 @@ ms.date: 04/19/2018
 ms.author: ryanwi;aljo
 
 ---
-# Rollover a Service Fabric cluster certificate
-When a Service Fabric cluster certificate is close to expiring, you need to update the certificate.  Certificate rollover is simple if the cluster was set up to use certificates based on common name (instead of thumbprint).   Get a new certificate from a certificate authority with a new expiration date.  The new certificate must have the same common name as the older certificate. 
+# Manually rollover a Service Fabric cluster certificate
+When a Service Fabric cluster certificate is close to expiring, you need to update the certificate.  Certificate rollover is simple if the cluster was set up to use certificates based on common name (instead of thumbprint).  Get a new certificate from a certificate authority with a new expiration date.  The new certificate must have the same common name as the older certificate. 
 
 The following script uploads a new certificate to a key vault and then installs the certificate on the virtual machine scale set.  The Service Fabric cluster will automatically use the certificate with the latest expiration date.
 
