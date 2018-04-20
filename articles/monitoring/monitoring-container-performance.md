@@ -42,7 +42,7 @@ Before starting, review the following details so you can understand the supporte
 This capability relies on the OMS Agent for Linux to collect performance and event data from all nodes in the cluster.  The agent is automatically deployed and registered with the specified Log Analytics workspace after you enable container performance monitoring. 
 
 >[!NOTE] 
->If you have already deployed an AKS cluster, you enable monitoring using a provided Azure Resource Manager template as demonstrated later in this article.  Support for enabling in the Azure portal will be enabled in a future release.  >
+>If you have already deployed an AKS cluster, you enable monitoring using a provided Azure Resource Manager template as demonstrated later in this article.  
 >
 
 ## Log in to Azure portal
