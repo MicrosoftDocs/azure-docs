@@ -146,11 +146,3 @@ Suppose you determine that you need 700 MB of memory to get high-quality rowgrou
 
 To find more ways to improve performance in SQL Data Warehouse, see the [Performance overview](sql-data-warehouse-overview-manage-user-queries.md).
 
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->
