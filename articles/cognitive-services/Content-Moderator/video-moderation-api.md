@@ -4,9 +4,8 @@ description: Use video moderation to scan for possible adult and racy content.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: sajagtap

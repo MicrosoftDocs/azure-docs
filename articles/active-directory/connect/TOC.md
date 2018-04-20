@@ -50,7 +50,7 @@
 ### [Multiple domain support for federating](active-directory-aadconnect-multiple-domains.md)
 ### [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Use a SAML 2.0 Identity Provider (IdP) for Single Sign On](active-directory-aadconnect-federation-saml-idp.md)
-
+### [Synchronizing guest users user accounts that use email for sign-in](active-directory-aadconnect-guest-sync.md)
 
 
 ## Manage Azure AD Connect Sync

@@ -3,6 +3,7 @@ title: Connecting Azure SQL Database to Azure Search Using Indexers | Microsoft 
 description: Learn how to pull data from Azure SQL Database to an Azure Search index using indexers.
 author: chaosrealm
 manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
