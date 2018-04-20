@@ -14,7 +14,7 @@ ms.author: nepeters
 
 Azure Monitor provides insight into the compute resources used by your containers instances. Use Azure Monitor to track the CPU and memory utilization of container groups and their containers. Create alerts to be notified when certain resource metrics are outside thresholds you specify. This resource usage data helps you determine the best CPU and memory settings for your container groups. Alerts provide you with the opportunity to make configuration adjustments before applications running in your containers are impacted by low-resource situations.
 
-## Metrics
+## Get Metrics
 
 Azure Monitor currently provides metrics for two resource types in Azure Container instances: CPU and memory. Metrics for each are available both at the container group and individual container levels.
 
@@ -23,6 +23,20 @@ Azure Monitor currently provides metrics for two resource types in Azure Contain
 CPU metrics are expressed in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500m) represents 50% utilization of a CPU core.
 
 ![Container instance CPU chart][cpu-chart]
+
+```console
+$ az monitor metrics list --resource /subscriptions/<subscription-id>/resourceGroups/aci-monitor-test/providers/Microsoft.ContainerInstance/containerGroups/aci-monitor-test-aci1 --metric CPUUsage -o table
+
+Timestamp            Name              Average
+-------------------  ------------  -----------
+2018-04-20 18:15:00  CPU Usage
+2018-04-20 18:16:00  CPU Usage
+2018-04-20 18:17:00  CPU Usage        1.5
+2018-04-20 18:18:00  CPU Usage        5.5
+2018-04-20 18:19:00  CPU Usage        4
+2018-04-20 18:20:00  CPU Usage
+2018-04-20 18:21:00  CPU Usage
+```
 
 ### Memory
 
@@ -35,23 +49,24 @@ $ az monitor metrics list --resource /subscriptions/<subscription-id>/resourceGr
 
 Timestamp            Name              Average
 -------------------  ------------  -----------
-2018-04-20 03:49:00  Memory Usage  1.63502e+07
-2018-04-20 03:50:00  Memory Usage  1.58269e+07
-2018-04-20 03:51:00  Memory Usage  1.57471e+07
-2018-04-20 03:52:00  Memory Usage  1.58628e+07
-2018-04-20 03:53:00  Memory Usage  1.60184e+07
-2018-04-20 03:54:00  Memory Usage  1.61884e+07
-2018-04-20 03:55:00  Memory Usage  1.64229e+07
-2018-04-20 03:56:00  Memory Usage  1.58505e+07
-2018-04-20 03:57:00  Memory Usage  1.58136e+07
-2018-04-20 03:58:00  Memory Usage  1.59826e+07
-2018-04-20 03:59:00  Memory Usage  1.61556e+07
-2018-04-20 04:00:00  Memory Usage  1.63011e+07
-2018-04-20 04:01:00  Memory Usage  1.63973e+07
-2018-04-20 04:02:00  Memory Usage  1.58966e+07
-2018-04-20 04:03:00  Memory Usage  1.57317e+07
-2018-04-20 04:04:00  Memory Usage  1.58843e+07
-2018-04-20 04:05:00  Memory Usage  1.60686e+07
+2018-04-20 18:11:00  Memory Usage
+2018-04-20 18:12:00  Memory Usage
+2018-04-20 18:13:00  Memory Usage
+2018-04-20 18:14:00  Memory Usage
+2018-04-20 18:15:00  Memory Usage
+2018-04-20 18:16:00  Memory Usage  8.20634e+06
+2018-04-20 18:17:00  Memory Usage  1.79302e+07
+2018-04-20 18:18:00  Memory Usage  1.79794e+07
+2018-04-20 18:19:00  Memory Usage  1.67875e+07
+2018-04-20 18:20:00  Memory Usage  1.71172e+07
+2018-04-20 18:21:00  Memory Usage  1.69759e+07
+2018-04-20 18:22:00  Memory Usage  1.69267e+07
+2018-04-20 18:23:00  Memory Usage  1.71192e+07
+2018-04-20 18:24:00  Memory Usage  1.68714e+07
+2018-04-20 18:25:00  Memory Usage  1.66728e+07
+2018-04-20 18:26:00  Memory Usage  1.68632e+07
+2018-04-20 18:27:00  Memory Usage  1.69861e+07
+2018-04-20 18:28:00  Memory Usage  1.70885e+07
 ```
 
 ## Alerts
