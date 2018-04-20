@@ -32,8 +32,18 @@ In this scenario, we'll set up a site-to-site VPN so that DMS can connect to the
 
 ## Architecture
 
-TBD
+### Site Recovery
 
+![Site Recovery](media/migrate-scenarios-lift-and-shift/asr-architecture.png)  
+
+### DMS
+![DMS](media/migrate-scenarios-lift-and-shift/dms-architecture.png)  
+
+In this scenario:
+
+- Contoso has an on-premises datacenter (contoso-datacenter), with an on-premises domain controller (**contosodc1**).
+- The internal travel app is tiered across two VMs, WEBVM and SQLVM, and located on VMware ESXi host (**contosohost1.contoso.com**).
+- The VMware environment is managed by vCenter Server (**vcenter.contoso.com**) running on a VM.
 
 ## Prerequisites
 
