@@ -7,7 +7,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 05/07/2017
 ms.author: v-geberr
 ---
 
@@ -40,7 +40,7 @@ A simple entity describes a single concept.
 ![simple entity](./media/luis-plan-your-app/simple-entity.png)
 
 ### Hierarchical entity
- A hierarchical entity represents a category and its members. 
+ A hierarchical entity represents an entity that is learned contextually, allowing for more than one context. 
 
 ![hierarchical entity](./media/luis-plan-your-app/hierarchical-entity.png)
 
@@ -59,7 +59,10 @@ A list entity is an explicitly specified list of values. Each value consists of 
 
 ![list entity](./media/luis-plan-your-app/list-entity.png)
 
+### Regular expression entity
+A regular expression entity allows LUIS to extract data from an utterance based on a regex expression.
 
+![Regular expression entity](./media/luis-plan-your-app/regex-entity.png)
 
 <!-- With a planned outline of intents and entities, you can start creating your application in LUIS and define these intents and entities.-->
 
