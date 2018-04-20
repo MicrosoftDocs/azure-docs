@@ -31,7 +31,7 @@ You can take one of two approaches for requiring two-step verification. The firs
 
 **Enabling Azure Multi-Factor Authentication with a conditional access policy** is a more flexible approach for requiring two-step verification. It only works for Azure MFA in the cloud, though, and _conditional access_ is a [paid feature of Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features). You can create conditional access policies that apply to groups as well as individual users. High-risk groups can be given more restrictions than low-risk groups, or two-step verification can be required only for high-risk cloud apps and skipped for low-risk ones. 
 
-Both options prompt users to register for Azure Multi-Factor Authentication the first time they sign in after the requirements turn on. Both options also work with the configurable [Azure Multi-Factor Authentication settings](../active-directory/authentication/howto-mfa-mfasettings.md).
+Both options prompt users to register for Azure Multi-Factor Authentication the first time they sign in after the requirements turn on. Both options also work with the configurable [Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md).
 
 ## Enable Azure MFA by changing user status
 
@@ -54,25 +54,25 @@ Use the following steps to access the page where you can view and manage user st
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Go to **Azure Active Directory** > **Users and groups** > **All users**.
 3. Select **Multi-Factor Authentication**.
-   ![Select Multi-Factor Authentication](./media/multi-factor-authentication-get-started-user-states/selectmfa.png)
+   ![Select Multi-Factor Authentication](./media/howto-mfa-userstates/selectmfa.png)
 4. A new page that displays the user states opens.
-   ![multi-factor authentication user status - screenshot](./media/multi-factor-authentication-get-started-user-states/userstate1.png)
+   ![multi-factor authentication user status - screenshot](./media/howto-mfa-userstates/userstate1.png)
 
 ### Change the status for a user
 
 1. Use the preceding steps to get to the Azure Multi-Factor Authentication **users** page.
 2. Find the user you want to enable for Azure MFA. You might need to change the view at the top. 
-   ![Find user - screenshot](./media/multi-factor-authentication-get-started-cloud/enable1.png)
+   ![Find user - screenshot](./media/howto-mfa-userstates/enable1.png)
 3. Check the box next to their name.
 4. On the right, under **quick steps**, choose **Enable** or **Disable**.
-   ![Enable selected user - screenshot](./media/multi-factor-authentication-get-started-cloud/user1.png)
+   ![Enable selected user - screenshot](./media/howto-mfa-userstates/user1.png)
 
    >[!TIP]
    >*Enabled* users are automatically switched to *Enforced* when they register for Azure MFA. Do not manually change the user state to *Enforced*. 
 
 5. Confirm your selection in the pop-up window that opens. 
 
-After you enable users, notify them via email. Tell them that they'll be asked to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they need to create app passwords. You can also include a link to the [Azure MFA end-user guide](./end-user/multi-factor-authentication-end-user.md) to help them get started.
+After you enable users, notify them via email. Tell them that they'll be asked to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they need to create app passwords. You can also include a link to the [Azure MFA end-user guide](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md) to help them get started.
 
 ### Use PowerShell
 To change the user state by using [Azure AD PowerShell](/powershell/azure/overview), change `$st.State`. There are three possible states:
@@ -81,7 +81,7 @@ To change the user state by using [Azure AD PowerShell](/powershell/azure/overvi
 * Enforced
 * Disabled  
 
-Don't move users directly to the *Enforced* state. If you do, non-browser-based apps stop working because the user has not gone through Azure MFA registration and obtained an [app password](../active-directory/authentication/howto-mfa-mfasettings.md#app-passwords). 
+Don't move users directly to the *Enforced* state. If you do, non-browser-based apps stop working because the user has not gone through Azure MFA registration and obtained an [app password](howto-mfa-mfasettings.md#app-passwords). 
 
 Using PowerShell is a good option when you need to bulk enabling users. Create a PowerShell script that loops through a list of users and enables them:
 
@@ -105,7 +105,7 @@ The following script is an example:
 
 ## Enable Azure MFA with a conditional access policy
 
-_Conditional access_ is a paid feature of Azure Active Directory, with many configuration options. These steps walk through one way to create a policy. For more information, read about [Conditional Access in Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).
+_Conditional access_ is a paid feature of Azure Active Directory, with many configuration options. These steps walk through one way to create a policy. For more information, read about [Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Go to **Azure Active Directory** > **Conditional access**.
@@ -119,6 +119,6 @@ The other options in the conditional access policy give you the ability to speci
 
 ## Next steps
 
-- Get tips on the [Best practices for conditional access](../active-directory/active-directory-conditional-access-best-practices.md).
+- Get tips on the [Best practices for conditional access](../active-directory-conditional-access-best-practices.md).
 
-- Manage Azure Multi-Factor Authentication settings for [your users and their devices](multi-factor-authentication-manage-users-and-devices.md).
+- Manage Azure Multi-Factor Authentication settings for [your users and their devices](howto-mfa-userdevicesettings.md).
