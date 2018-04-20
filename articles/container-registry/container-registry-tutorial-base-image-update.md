@@ -76,7 +76,7 @@ When a base image is updated, you're presented with the need to rebuild your own
 
 This tutorial walks you through a base image update scenario. The [code sample][code-sample] includes two Dockerfiles: an application image, and an image it specifies as its base. In the following sections, you create an ACR Build task that automatically triggers a build of the application image when a new version of the base image is pushed to your container registry.
 
-[Dockerfile-app][dockerfile-app]: A very small Node.js web application that renders a static web page displaying the Node.js version on which it's based. The version string is actually simulated, in that it displays the contents of an environment variable, `NODE_VERSION`, that's defined in the base image.
+[Dockerfile-app][dockerfile-app]: A small Node.js web application that renders a static web page displaying the Node.js version on which it's based. The version string is simulated, in that it displays the contents of an environment variable, `NODE_VERSION`, that's defined in the base image.
 
 [Dockerfile-base][dockerfile-base]: The image that `Dockerfile-app` specifies as its base. It is itself based on a [Node][base-node] image, and includes the `NODE_VERSION` environment variable.
 
@@ -98,11 +98,11 @@ az acr build-task create \
     --git-access-token $GIT_PAT
 ```
 
-This build task specifies that any time the base image referenced in `Dockerfile-app` is updated, ACR Build will build the application container image from the code in the repository. In addition, any time code is committed to the repository specified in the `--context` parameter, ACR Build will build the image.
+This build task specifies that any time the base image referenced in `Dockerfile-app` is updated, ACR Build will build the application container image from the code in the repository. In addition, any time code is committed to the "master" branch of the repository specified in the `--context` parameter, ACR Build will build the image.
 
 ## Build application container
 
-In order for ACR Build determine and track a container image's dependencies--which include its base image--you must first trigger its build task at least once.
+To enable ACR Build to determine and track a container image's dependencies--which include its base image--you **must** first trigger its build task **at least once**.
 
 Use [az acr build-task run][az-acr-build-task-run] to manually trigger the build task and build the application image:
 
@@ -110,7 +110,7 @@ Use [az acr build-task run][az-acr-build-task-run] to manually trigger the build
 az acr build-task run --registry $ACR_NAME --name buildhelloworld
 ```
 
-Once the build has completed, take note of the **Build ID** if you wish to complete the following optional step.
+Once the build has completed, take note of the **Build ID** (for example, "eastus5") if you wish to complete the following optional step.
 
 ### Optional: Run application container locally
 
@@ -137,13 +137,13 @@ Version: 9.11.1
 
 ## List builds
 
-Next, list the builds that ACR Build tasks have completed for your registry:
+Next, list the builds that ACR Build has completed for your registry:
 
 ```azurecli-interactive
 az acr build-task list-builds --registry $ACR_NAME --output table
 ```
 
-If you completed the previous tutorial (and didn't deleted the registry), you should see output similar to the following. Take note of the number of builds, and the latest BUILD ID, so you can compare the output after you update the base image in the next section.
+If you completed the previous tutorial (and didn't delete the registry), you should see output similar to the following. Take note of the number of builds, and the latest BUILD ID, so you can compare the output after you update the base image in the next section.
 
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
@@ -164,7 +164,7 @@ Here you simulate a framework patch in the base image. Edit **Dockerfile-base**,
 ENV NODE_VERSION 9.11.1a
 ```
 
-Use ACR Build to build the updated base image. Take note of the **Build ID** in the output.
+Run a Quick Build in ACR Build to build the modified base image. Take note of the **Build ID** in the output.
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base --context .
@@ -174,13 +174,13 @@ Once the build is complete and ACR Build has pushed the new base image to your r
 
 ## List builds
 
-Now that you've updated the base image, list your builds again to compare to the earlier list. If at first the output doesn't differ, periodically run the command to see the new builds appear in the list.
+Now that you've updated the base image, list your builds again to compare to the earlier list. If at first the output doesn't differ, periodically run the command to see the new build appear in the list.
 
 ```azurecli-interactive
 az acr build-task list-builds --registry $ACR_NAME --output table
 ```
 
-Output is similar to the following. The TRIGGER for the last-executed build should be "Image Update", indicating that the build task was kicked off by your quick build of the base image.
+Output is similar to the following. The TRIGGER for the last-executed build should be "Image Update", indicating that the build task was kicked off by your Quick Build of the base image.
 
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
@@ -194,7 +194,7 @@ eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-19T23:
 eastus1                                  Succeeded  Manual        2018-04-19T22:51:13Z  00:00:30
 ```
 
-If you'd like to perform the following optional step of running the newly built container to see the updated version number, take note of the **BUILD ID** value for the Image Update-triggered build (in preceding output, it's "eastus6").
+If you'd like to perform the following optional step of running the newly built container to see the updated version number, take note of the **BUILD ID** value for the Image Update-triggered build (in the preceding output, it's "eastus6").
 
 ### Optional: Run newly built image
 
@@ -204,14 +204,14 @@ If you have Docker installed, run the new application image locally once its bui
 docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
 ```
 
-Navigate to http://localhost:8080 in your browser, and you should see your updated Node.js version number (with the "a") in the web page:
+Navigate to http://localhost:8080 in your browser, and you should see the updated Node.js version number (with the "a") in the web page:
 
 ```
 Hello World
 Version: 9.11.1a
 ```
 
-What's important to note is that you updated and built a new **base** image, which triggered a build of your application image. The new version number is now displayed in the output of the application, showing that it picked up your change in the base image.
+What's important to note is that you updated your **base** image with a new version number, but the last-built **application** image displays the new version. ACR Build picked up your change to the base image, and rebuilt your application image automatically.
 
 ## Clean up resources
 
