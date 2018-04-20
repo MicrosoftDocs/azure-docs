@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/23/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 
@@ -36,19 +36,32 @@ This topic helps you:
 ## Summary of API profiles
 
 - API Profiles are used to represent a set of Azure resource providers and their API versions.
-- API Profiles were created for developers to create templates across multiple Azure Clouds. They are designed to meet your need for a compatible and stable interfaces.
+- API Profiles were created for developers to create templates across multiple Azure Clouds. They are designed to meet your need for a compatible and stable interface.
 - Profiles are released four times a year.
 - Three profile naming conventions are:
     - **latest**  
         Most recent API versions released in Azure.
     - **yyyy-mm-dd-hybrid**  
-    Released at a biannual cadence, this release focused on consistency and stability across multiple clouds.
+    Released at a biannual cadence, this release focused on consistency and stability across multiple clouds. This profile targets optimal Azure Stack compatibility. 
     - **yyyy-mm-dd-profile**  
     Sits between optimal stability and the latest features.
 
+### API profiles and Azure Stack compatibility
+
+The newest API profiles are not compatible with Azure Stack. The naming conventions will help you identify the profiles to use in your Azure Stack solutions.
+
+**Latest**  
+This profile is the most up-to-date API versions found in global Azure, which will not work in Azure Stack. This profile has the largest number of breaking changes. The profile puts aside stability and compatibility with other clouds. If a you are trying to use the most up-to-date API versions, this is the profile you should use.
+
+**Yyyy-mm-dd-hybrid**  
+This profile is released on March and September every year. This profile has optimal stability and compatibility with the various clouds. This profile is designed to target both global Azure and Azure Stack. The Azure API versions listed in this profile will be the same as the ones that are listed on Azure Stack. You can use this profile to develop code for hybrid cloud solutions.
+
+**yyyy-mm-dd-profile**  
+This profile is released for global Azure in June and December. This profile will not work against Azure Stack; there will be many breaking changes. While it sits behind optimal stability and latest features, the difference between Latest and this profile is that Latest will always consist of the newest API versions regardless of when the API was released. If a new API version is created for the Compute API tomorrow, that API version will be listed in the Latest profile, but not in the yyyy-mm-dd-profile profile as this profile is established beforehand. It covers the most up-to-date versions released before June or December.
+
 ## Azure Resource Manager API profiles
 
-Azure Stack does not use the latest version of of the API versions found in global Azure. In creating your own solution, you need to find the API version for each resource provider in Azure that is compatible with Azure Stack.
+Azure Stack does not use the latest version of the API versions found in global Azure. In creating your own solution, you need to find the API version for each resource provider in Azure that is compatible with Azure Stack.
 
 Rather than research each resource provider and the specific version supported by Azure Stack, you can use an API profile. The profile specifies a set of resource providers and API versions. The SDK, or a tool built with the SDK, will revert to the target api-version specified in the profile. With API profiles, you can specify a profile version that applies to an entire template and, at runtime, the Azure Resource Manager selects the right version of the resource.
 
@@ -65,14 +78,13 @@ As a developer, you can focus on writing your solution. Rather than researching 
 You can find code samples to help you integrate your solution with your preferred language with Azure Stack by using profiles. Currently, you can find guidance and samples for the following languages:
 
 - **PowerShell**  
-You can use the  **AzureRM.Bootstrapper** module available through the PowerShell Gallery to get the PowerShell cmdlets required to work with API version profiles.  
-For information, see [Use API version profiles for PowerShell](azure-stack-version-profiles-powershell.md).
+You can use the  **AzureRM.Bootstrapper** module available through the PowerShell Gallery to get the PowerShell cmdlets required to work with API version profiles. For information, see [Use API version profiles for PowerShell](azure-stack-version-profiles-powershell.md).
 - **Azure CLI 2.0**  
-You can update your environment configuration to use the Azure Stack specific API version profile.  
-For information see [Use API version profiles for Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
+You can update your environment configuration to use the Azure Stack specific API version profile. For information see [Use API version profiles for Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
 - **GO**  
-In the GO SDK, a profile is a combination of different resource types with different versions from different services. profiles are available under the profiles/ path, with their version in the **YYYY-MM-DD** format.  
-For information see [Use API version profiles for GO](azure-stack-version-profiles-go.md).
+In the GO SDK, a profile is a combination of different resource types with different versions from different services. profiles are available under the profiles/ path, with their version in the **YYYY-MM-DD** format. For information, see [Use API version profiles for GO](azure-stack-version-profiles-go.md).
+- **Ruby**  
+The Ruby SDK for the Azure Stack Resource Manager provides tools to help you build and manage your infrastructure. Resource providers in the SDK include compute, virtual networks, and storage with the Ruby language. For information, see [Use API version profiles with Ruby](azure-stack-version-profiles-ruby.md)
 
 ## Next steps
 * [Install PowerShell for Azure Stack](azure-stack-powershell-install.md)

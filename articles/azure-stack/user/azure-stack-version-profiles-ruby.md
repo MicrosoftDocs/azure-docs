@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 
@@ -83,19 +83,49 @@ In order to use Ruby Azure SDK with Azure Stack, you must supply the following v
 
 | Value | Environment variables | Description | 
 | --- | --- | --- | --- |
-| Tenant ID | AZURE_TENANT_ID | Description |
-| Client ID | AZURE_CLIENT_ID | Description |
-| Subscription ID | AZURE_SUBSCRIPTION_ID | Description |
-| Client Secret | AZURE_CLIENT_SECRET | Description |
-| Resource Manager Endpoint | ARM_ENDPOINT | Description |
+| Tenant ID | AZURE_TENANT_ID | The value of your Azure Stack [tenant ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview). |
+| Client ID | AZURE_CLIENT_ID | The service principal application ID saved when service principal was created on the previous section of this document.  |
+| Subscription ID | AZURE_SUBSCRIPTION_ID | The [subscription ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) is how you access offers in Azure Stack. |
+| Client Secret | AZURE_CLIENT_SECRET | The service principal application Secret saved when service principal was created. |
+| Resource Manager Endpoint | ARM_ENDPOINT | See [The Azure Stack resource manager endpoin](#The-azure-stack-resource-manager-endpoint).  |
+
+### The Azure Stack resource manager endpoint
+
+The Microsoft Azure Resource Manager is a management framework that allows administrators to deploy, manage and monitor Azure resources. Azure Resource Manager can handle these tasks as a group, rather than individually, in a single operation.
+
+YUou can get the metadata information from the Resource Manager endpoint. The endpoint returns a JSON file with the information required to run your Go code.
+  > [!note]  
+  > The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`  
+  > The **ResourceManagerUrl** in integrated systems is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+  > To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+  
+  Sample JSON file:
+
+  ```json
+  { "galleryEndpoint": "https://portal.local.azurestack.external:30015/",  
+    "graphEndpoint": "https://graph.windows.net/",  
+    "portal Endpoint": "https://portal.local.azurestack.external/", 
+    "authentication": {
+      "loginEndpoint": "https://login.windows.net/", 
+      "audiences": ["https://management.<yourtenant>.onmicrosoft.com/3cc5febd-e4b7-4a85-a2ed-1d730e2f5928"]
+    }
+  }
+  ```
+
+  Set `<activeDirectoryResourceID>` to one of the values in the "audience" list from the ResourceManagerUrl metadata retrieved on the previous section of this document.  
+ 
+  
+
 
 ### How to set environmental variables
 
 #### Microsoft Windows
+
 To set the environment variables, in Windows Command Prompt, use the following format:  
 `set AZURE_TENANT_ID=<YOUR_TENANT_ID>`
 
 #### macOS, Linux, and Unix-based systems
+
 In Unix based systems, you could use the command such as:  
 `export AZURE_TENANT_ID=<YOUR_TENANT_ID>`
 
@@ -171,17 +201,18 @@ end
 
 ## Samples using API profiles
 
-The following samples could be used as a reference for Azure Stack profile usage:
+You can use the the following samples found in GitHub repositoreis as a reference creating solutions with Ruby and Azure Stack API profiles:
 
- - Resource Manager and Groups
- - Compute Manage VM
- - Template Deployment
+ - [Manage Azure resources and resource groups with Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)
+ - [Manage virtual machines using Ruby](https://github.com/Azure-Samples/compute-ruby-manage-vm/tree/master/Hybrid)
+ - [Deploy an SSH Enabled VM with a Template in Ruby](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/tree/master/Hybrid)
 
-### Sample 1: Resource Manager and groups
-
-The initial sample to test the Ruby SDK is available [here](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid). 
+### Sample Resource Manager and groups
 
 To run the sample, ensure that you have installed Ruby. If you are using Visual Studio Code, download the Ruby SDK as an extension as well. 
+
+> [!note]  
+> You can get the repository for the sample at "[Manage Azure resources and resource groups with Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)".
 
 1. Clone the repository.
 
@@ -191,16 +222,16 @@ To run the sample, ensure that you have installed Ruby. If you are using Visual 
 
 2. Install the dependencies using bundle.
 
-  ````Bash
-  cd resource-manager-ruby-resources-and-groups\Hybrid\
-  bundle install
-  ````
+    ````Bash
+    cd resource-manager-ruby-resources-and-groups\Hybrid\
+    bundle install
+    ````
 
 3. Create an Azure Service Principal using PowerShell and retrieve the values needed. 
 
-  For instructions on creating a service principal, see [Use Azure PowerShell to create a service principal with a certificate](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+  For instructions on creating a service principal, see [Use Azure PowerShell to create a service principal with a certificate](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
-  Values needed are
+  Values needed are:
   - Tenant ID
   - Client ID
   - Client Secret
@@ -267,6 +298,8 @@ To run the sample, ensure that you have installed Ruby. If you are using Visual 
   ````Ruby
     bundle exec ruby example.rb
   ````
+
+## 
 
 ## Next steps
 
