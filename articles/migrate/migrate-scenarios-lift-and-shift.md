@@ -28,7 +28,7 @@ In this scenario, we'll set up a site-to-site VPN so that DMS can connect to the
 
 ## Before you start
 
-**IMPORTANT**: You need to be enrolled in the SQL Managed Instance Limited Public Preview. You need an Azure subscription in order to [sign up](https://portal.azure.com#create/Microsoft.SQLManagedInstance). Sign up can take a few days to complete so make sure you do it before you start to deploy this scenario.
+**IMPORTANT**: You need to be enrolled in the SQL Managed Instance Limited Public Preview. You need an Azure subscription in order to [sign up](https://portal.azure.com#create/Microsoft.SQLManagedInstance). Sign-up can take a few days to complete so make sure you do it before you start to deploy this scenario.
 
 ## Architecture
 
@@ -191,7 +191,7 @@ Now verify that you can connect to the SQL Server VM over VPN. Use a Remote Desk
 
 
 
-## Step 2: Prepare a Azure SQL Managed Instance
+## Step 2: Prepare an Azure SQL Managed Instance
 
 ### Set up a virtual network
 
@@ -219,7 +219,7 @@ Set up the virtual network as follows:
 
     ![Managed Instance network](media/migrate-scenarios-lift-and-shift/network-mi.png)
 
-10. After the network is deployed, you need to change the DNS settings. In this scenario, the DNS first points to a domain contoller in the Identity subnet using a static private IP address (172.16.3.4),  and then the Azure DNS resolver 168.63.129.16.
+10. After the network is deployed, you need to change the DNS settings. In this scenario, the DNS first points to a domain controller in the Identity subnet using a static private IP address (172.16.3.4),  and then the Azure DNS resolver 168.63.129.16.
 
     ![Managed Instance network](media/migrate-scenarios-lift-and-shift/network-mi2.png)
 
@@ -594,7 +594,7 @@ Create a DMS project, and run the migration.
 
 ### Migrate the database
 
-1. After creating the project, the Migration Wizard apears.
+1. After creating the project, the Migration Wizard appears.
 2. Specify the credentials for the source and target servers, and click **Save**. The wizard attempts to log in to your on-premises SQL Server.
 
     ![DMS wizard](./media/migrate-scenarios-lift-and-shift/dms-wiz1.png)
