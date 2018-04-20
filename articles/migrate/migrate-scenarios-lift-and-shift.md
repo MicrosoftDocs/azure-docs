@@ -650,13 +650,13 @@ We suggest you run a test failover to make sure that everything's working as exp
 5. To delete Azure VMs created during the test failover, click **Cleanup test failover** on the
   VM. In **Notes**, record and save any observations associated with the test failover.
 
-## Migrate the machines
+### Migrate the machines
 
 After you've verified that the test failover works as expected, create a recovery plan to migrate to Azure.
 
 ### Create a recovery plan
 
-1. In the Recovery Services vault, select **Recovery Plans (Site Recovery)** > **+Recovery Plan**.
+1. In the vault, select **Recovery Plans (Site Recovery)** > **+Recovery Plan**.
 2. In **Create recovery plan**, specify a name for the plan.
 3. Choose the source configuration server, and Azure as the target. Select **Resource Manager** for the deployment model. The source location must have machines that are enabled for failover and recovery. 
 4. In **Select items**, add the machines (WEBVM) to the plan. Then click **OK**.
