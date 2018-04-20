@@ -3937,6 +3937,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/jenkins/azure-container-agents-plugin-run-container-as-an-agent.md",
+            "redirect_url": "/azure/container-instances/container-instances-jenkins",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-service/dcos-swarm/container-service-deployment.md",
             "redirect_url": "/azure/container-service/dcos-swarm",
             "redirect_document_id": false
