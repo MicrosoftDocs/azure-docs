@@ -168,9 +168,9 @@ public static string SayHello([ActivityTrigger] string name)
 
 ### Passing multiple parameters 
 
-It is not possible to pass multiple parameters to an activity function directly. The recommendation in this case is to pass in an array of objects or to use [ValueTuples](https://blogs.msdn.microsoft.com/mazhou/2017/05/26/c-7-series-part-1-value-tuples/) objects.
+It is not possible to pass multiple parameters to an activity function directly. The recommendation in this case is to pass in an array of objects or to use [ValueTuples](https://docs.microsoft.com/en-us/dotnet/csharp/tuples) objects.
 
-The following sample is using [ValueTuples](https://blogs.msdn.microsoft.com/mazhou/2017/05/26/c-7-series-part-1-value-tuples/):
+The following sample is using [ValueTuples](https://docs.microsoft.com/en-us/dotnet/csharp/tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
