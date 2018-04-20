@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 04/20/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
