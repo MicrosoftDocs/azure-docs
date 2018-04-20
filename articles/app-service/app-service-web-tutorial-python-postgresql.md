@@ -147,25 +147,8 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
   "location": "westeurope",
   "name": "<postgresql_name>",
   "resourceGroup": "myResourceGroup",
-  "sku": {
-    "additionalProperties": {},
-    "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
-    "size": null,
-    "tier": "GeneralPurpose"
-  },
-  "sslEnforcement": "Enabled",
-  "storageProfile": {
-    "additionalProperties": {},
-    "backupRetentionDays": 7,
-    "geoRedundantBackup": "Disabled",
-    "storageMb": 5120
-  },
-  "tags": null,
-  "type": "Microsoft.DBforPostgreSQL/servers",
-  "userVisibleState": "Ready",
-  "version": "9.6"
+    ...	+  
+    -  < Output has been truncated for readability >
 }
 ```
 
