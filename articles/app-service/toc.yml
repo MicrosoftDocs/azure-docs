@@ -247,7 +247,7 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Troubleshoot performance issues
       href: app-service-web-troubleshoot-performance-degradation.md
-    - name: Troubleshoot domain and certificate problems
+    - name: Troubleshoot domain and certificate issues
       href: app-service-web-troubleshoot-domain-ssl-certificates.md
     - name: FAQ
       items:
