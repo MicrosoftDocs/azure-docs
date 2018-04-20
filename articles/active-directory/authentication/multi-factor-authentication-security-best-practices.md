@@ -1,6 +1,6 @@
 ---
-title: Security best practices for MFA | Microsoft Docs
-description: This document provides best practices around using Azure MFA with Azure accounts
+title: Security guidance for MFA | Microsoft Docs
+description: This document provides guidance around using Azure MFA with Azure accounts
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -18,13 +18,13 @@ ms.reviewer: richagi
 ms.custom: it-pro
 ---
 
-# Security Best Practices for using Azure Multi-Factor Authentication with Azure AD accounts
+# Security guidance for using Azure Multi-Factor Authentication with Azure AD accounts
 
 Two-step verification is the preferred choice for most organizations that want to enhance their authentication process. Azure Multi-Factor Authentication (MFA) helps companies meet their security and compliance requirements while providing a simple sign-in experience for their users. This article covers some tips that you should consider when planning for the adoption of Azure MFA.
 
 ## Deploy Azure MFA in the cloud
 
-There are two ways to enable Azure MFA for all your users.
+There are two ways to [enable Azure MFA for all your users](howto-mfa-getstarted.md).
 
 * Buy licenses for each user (Either Azure MFA, Azure AD Premium, or Enterprise Mobility + Security)
 * Create a Multi-Factor Auth Provider and pay per-user or per-authentication
@@ -43,12 +43,12 @@ When setting up Multi-Factor Authentication, consider the following tips:
 ### Multi-Factor Auth Provider
 ![Multi-Factor Auth Provider](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
-If you don't have licenses that include Azure MFA, then you can create an MFA Auth Provider. 
+If you don't have licenses that include Azure MFA, then you can [create an MFA Auth Provider](concept-mfa-authprovider.md).
 
 When creating the Auth Provider, you need to select a directory and consider the following details:
 
-* You do not need an Azure AD directory to create a Multi-Factor Auth Provider, but you get more functionality with one. The following features are enabled when you associate the Auth Provider with an Azure AD directory:  
-  * Extend two-step verification to all your users  
+* You do not need an Azure AD directory to create a Multi-Factor Auth Provider, but you get more functionality with one. The following features are enabled when you associate the Auth Provider with an Azure AD directory:
+  * Extend two-step verification to all your users
   * Offer your global administrators additional features, such as the management portal, custom greetings, and reports.
 * If you synchronize your on-premises Active Directory environment with an Azure AD directory, you need DirSync or AAD Sync. If you use an Azure AD directory that is not synchronized with an on-premises instance of Active Directory, you do not need DirSync or AAD Sync.
 * Choose the consumption model that best suits your business. Once you select the usage model, you can’t change it. The two models are:
@@ -62,7 +62,7 @@ Since most users are accustomed to using only passwords to authenticate, it is i
 * Consider the [Trusted IPs capability](howto-mfa-mfasettings.md#trusted-ips) in Azure MFA as a way to minimize two-step verification. With this feature, administrators of a managed or federated tenant can bypass two-step verification for users that are signing in from the company’s local intranet. The features are available for Azure AD tenants that have Azure AD Premium, Enterprise Mobility Suite, or Azure Multi-Factor Authentication licenses.
 
 ## Best Practices for an on-premises deployment
-If your company decided to leverage its own infrastructure to enable MFA, then you need to deploy an Azure Multi-Factor Authentication Server on-premises. The MFA Server components are shown in the following diagram:
+If your company decided to leverage its own infrastructure to enable MFA, then you need to [deploy an Azure Multi-Factor Authentication Server on-premises](howto-mfaserver-deploy.md). The MFA Server components are shown in the following diagram:
 
 ![Default MFA Server components: console, sync engine, management portal, cloud service](./media/multi-factor-authentication-security-best-practices/server.png)
 \*Not installed by default \**Installed but not enabled by default
@@ -110,4 +110,3 @@ While this article highlights some best practices for Azure MFA, there are other
 * [Reports in Azure Multi-Factor Authentication](howto-mfa-reporting.md)
 * [The two-step verification registration experience](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
 * [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
-
