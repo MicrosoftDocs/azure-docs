@@ -86,6 +86,14 @@ Download the template and parameters JSON files to your local computer.
 Open the template file in a text editor and make three updates to support certificate common name.
 
 ## Deploy the updated template
+Redeploy the updated template after making the changes.
+
+```powershell
+$groupname = "sfclustertutorialgroup"
+
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" -Verbose
+
+```
 
 ## Next steps
 * Learn about [cluster security](service-fabric-cluster-security.md).
