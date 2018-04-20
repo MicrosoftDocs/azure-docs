@@ -55,10 +55,9 @@ After adding slices to the Active list, the service generates site and subpage s
 To add suggestions to your Active list, click the + icon.  Because the service generates suggestions based on your settings, be sure to click **Refresh** after adding the suggestions. 
 
 ## Preview pane
-At any time, you can test out your search instance by using the preview pane. This pane mimics the results that the instance would return for a specific query. You can also review Bing results by switching to Bing using the My Instance drop-down button next to the search button. 
+You can test out your search instance using the preview pane on the right to submit search queries and view results. Select **My Instance**, select a safe search filter, and what market to search (see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters). Enter a query and press enter or click the search icon to view the results from the current configuration. To see web results click **Web**, to see image results click **Image**. Image results are only available if your subscription includes it, see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
-> [!NOTE]
-> Searches will hit the en-US Bing market
+ Using the preview pane, you can also review Bing results by selecting **Bing** instead of **My Instance**. This can be useful to compare results from your search experience to the results returned by Bing.
 
 <a name="adjustrank"></a>
 ## Adjust rank
