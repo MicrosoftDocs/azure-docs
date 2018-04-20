@@ -63,6 +63,8 @@
       href: internal-lb.md
     - name: Ingress and TLS
       href: ingress.md
+    - name: Whitelist Egress Traffic
+      href: egress.md
   - name: Security and authentication
     items:
     - name: Create service principal
