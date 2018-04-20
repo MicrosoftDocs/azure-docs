@@ -133,7 +133,7 @@ When you're interested in looking for trends, diagnose bottlenecks, forecast, or
 You can perform interactive analysis of data in the repository by selecting the **View Log** option, available on the far right when you expand a node, controller, or container and the **Log Search** page appears right above the page you were on in the portal, so you are never redirected directly to Log Analytics.<br><br> ![Analyze data in Log Analytics](./media/monitoring-container-performance/container-performance-and-health-view-logs-01.png)   
 
 ## How to discontinue monitoring with Container Health
-After enabling monitoring of your AKS container you decide you no longer wish to monitor it, you can *opt out* using the provided Azure Resource Manager template with the PowerShell cmdlet **New-AzureRmResourceGroupDeployment**.  The JSON template is configured to prompt you for the AKS cluster resource Id and the name of the resource group the cluster is deployed to.  
+After enabling monitoring of your AKS container you decide you no longer wish to monitor it, you can *opt out* using the provided Azure Resource Manager template with the PowerShell cmdlet **New-AzureRmResourceGroupDeployment**.  The JSON template is configured to prompt you for the AKS cluster resource Id and the name of the resource group the cluster is deployed to.  If you are not familiar with the concepts of deploying resources using a template with PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### Create and execute template
 
