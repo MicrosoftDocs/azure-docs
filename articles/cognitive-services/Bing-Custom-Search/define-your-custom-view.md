@@ -110,7 +110,7 @@ After you share an instance with someone, they'll see the instance in their list
 To stop sharing an instance with someone, use the remove icon to remove their email address from the list.
 
 ## Publish or revert
-Changes you make to a Custom Search instance are made in the **Configure** tab so you can validate your changes. When you're done making changes and ready to publish, click on **Publish to Live State**. After you publish your changes, all new query results will be served using your new configuration.
+Changes you make to a Custom Search instance are made in the **Configuration** tab so you can validate your changes. When you're done making changes and ready to publish, click on **Push to Live State**. After you publish your changes, it may take up to 24 hours for your new configuration to take effect.
 
 If you decide that you don't want to keep the changes you've made, click **Revert to Live State**. When you revert your changes, the live state configuration is unchanged and the Configure tab is reverted to match the live state.
 
