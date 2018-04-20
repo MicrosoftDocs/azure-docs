@@ -5067,7 +5067,7 @@
         },
         {
             "source_path": "articles/documentdb/documentdb-mongodb-application.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-mongodb-dotnet",
             "redirect_document_id": false
         },
         {
