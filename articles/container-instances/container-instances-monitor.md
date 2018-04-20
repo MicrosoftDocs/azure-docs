@@ -24,8 +24,16 @@ CPU metrics are expressed in **millicores**. One millicore is 1/1000th of a CPU 
 
 ![Container instance CPU chart][cpu-chart]
 
+Get the container id:
+
 ```console
-$ az monitor metrics list --resource /subscriptions/<subscription-id>/resourceGroups/aci-monitor-test/providers/Microsoft.ContainerInstance/containerGroups/aci-monitor-test-aci1 --metric CPUUsage -o table
+CONTAINER=$(az container show --resource-group myacicontainer --name myacicontainer-mya1 --query id -o tsv)
+```
+
+Get CPU metrics for the container.
+
+```console
+$ az monitor metrics list --resource $CONTAINER --metric CPUUsage -o table
 
 Timestamp            Name              Average
 -------------------  ------------  -----------
@@ -45,7 +53,13 @@ Memory metrics are expressed in **bytes**.
 ![Container instance memory chart][memory-chart]
 
 ```console
-$ az monitor metrics list --resource /subscriptions/<subscription-id>/resourceGroups/aci-monitor-test/providers/Microsoft.ContainerInstance/containerGroups/aci-monitor-test-aci1 --metric MemoryUsage -o table
+CONTAINER = $(az container show --resource-group myacicontainer --name myacicontainer-mya1 --query id -o tsv)
+```
+
+Get CPU metrics for the container.
+
+```console
+$ az monitor metrics list --resource $CONTAINER --metric MemoryUsage -o table
 
 Timestamp            Name              Average
 -------------------  ------------  -----------
