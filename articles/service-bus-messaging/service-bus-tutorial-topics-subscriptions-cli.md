@@ -1,5 +1,5 @@
 ---
-title: Azure Tutorial - Learn about publish/subscribe channels and topic filters with CLI | Microsoft Docs
+title: Azure Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with CLI | Microsoft Docs
 description: How to send and receive messages from a topic and subscription, and how to add and use filter rules using Azure CLI.
 services: service-bus-messaging
 author: sethmanheim
@@ -13,9 +13,9 @@ ms.custom: mvc
 
 ---
 
-# Publish/subscribe channels and filters using CLI and Java
+# Update inventory using CLI and Java
 
-Microsoft Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. This tutorial shows how to use Service Bus topics and subscriptions with publish/subscribe channels using Azure CLI and Java.
+Microsoft Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. This tutorial shows how to use Service Bus topics and subscriptions in a retail inventory scenario, with publish/subscribe channels using Azure CLI and Java.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
