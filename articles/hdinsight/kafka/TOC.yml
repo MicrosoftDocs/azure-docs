@@ -27,6 +27,8 @@
     maintainContext: true
   - name: Kafka Producer and Consumer API
     href: apache-kafka-producer-consumer-api.md
+  - name: Using Kafka Streams API
+    href: apache-kafka-streams-api.md
 - name: Concepts
   items:
   - name: Capacity planning
@@ -63,8 +65,6 @@
       href: apache-kafka-azure-functions.md
   - name: Develop
     items:
-    - name: Using Kafka Streams API
-      href: apache-kafka-streams-api.md
     - name: Use empty edge nodes
       href: ../hdinsight-apps-use-edge-node.md
       maintainContext: true
