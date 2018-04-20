@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -63,6 +63,7 @@ The following section provides you with a complete overview of all possible erro
 |50055|Invalid password, entered expired password.|
 |50057|User account is disabled.|
 |50058|No information about user's identity is found among provided credentials or User was not found in tenant or A silent sign-in request was sent but no user is signed in or Service was unable to authenticate the user.|
+|50072|Users' needs to enroll for second factor authentication (interactive)|
 |50074|User did not pass the MFA challenge.|
 |50079|User needs to enroll for second factor authentication.|
 |50089|Flow token validation failed due to flow token expiry.|
@@ -95,7 +96,6 @@ The following section provides you with a complete overview of all possible erro
 |81013|Unable to find user object based on information in the user's Kerberos ticket.|
 |90014|Used in various cases when an expected field is not present in the credential.|
 |90093|Graph returned with forbidden error code for the request.|
-
 
 
 ## Next steps

@@ -93,7 +93,7 @@ The following table describes the available password policy settings that can be
 | Property | Requirements |
 | --- | --- |
 | Characters allowed |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Characters not allowed |<ul><li>Unicode characters.</li><li>Spaces.</li><li> Strong passwords only: Can't contain a dot character "." immediately preceding the "\@\" symbol.</li></ul> |
+| Characters not allowed |<ul><li>Unicode characters.</li><li>Spaces.</li><li> Strong passwords only</li></ul> |
 | Password restrictions |<ul><li>A minimum of 8 characters and a maximum of 16 characters.</li><li>Strong passwords only: Requires three out of four of the following:<ul><li>Lowercase characters.</li><li>Uppercase characters.</li><li>Numbers (0-9).</li><li>Symbols (see the previous password restrictions).</li></ul></li></ul> |
 | Password expiry duration |<ul><li>Default value: **90** days.</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
 | Password expiry notification |<ul><li>Default value: **14** days (before password expires).</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
