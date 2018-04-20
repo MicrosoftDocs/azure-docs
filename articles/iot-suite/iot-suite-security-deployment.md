@@ -20,9 +20,9 @@ ms.author: dobett
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
-## IoT Suite Cipher Suites
+## IoT solution accelerator cipher suites
 
-Azure IoT Suite supports the following Cipher Suites, in this order.
+The IoT solution accelerators support the following Cipher Suites, in this order.
 
 | Cipher Suite | Length |
 | --- | --- |
@@ -39,10 +39,10 @@ Azure IoT Suite supports the following Cipher Suites, in this order.
 | TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
 
 ## See also
-You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
-* [Frequently asked questions for IoT Suite][lnk-faq]
+* [Predictive maintenance solution accelerator overview][lnk-predictive-overview]
+* [Frequently asked questions for IoT solution accelerators][lnk-faq]
 
 You can read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-security] in the IoT Hub developer guide.
 

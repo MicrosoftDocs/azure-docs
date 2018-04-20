@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 To follow this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
 
-If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
+If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-suite-remote-monitoring-deploy.md) tutorial.
 
 ## View the rules in your solution
 

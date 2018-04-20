@@ -1,21 +1,21 @@
-# [IoT Suite Documentation](index.md)
+# [IoT solution accelerators documentation](index.md)
 
 # Overview
 ## [IoT architecture concepts](iot-suite-what-is-azure-iot.md)
 ## [Compare Azure IoT options](iot-suite-options.md)
-## [Preconfigured solutions overview](iot-suite-what-are-preconfigured-solutions.md)
+## [Solution accelerators overview](iot-suite-what-are-preconfigured-solutions.md)
 
 # Get started
 ## Remote monitoring
-### [Deploy the preconfigured solution](iot-suite-remote-monitoring-deploy.md)
-### [Operate the preconfigured solution](iot-suite-remote-monitoring-explore.md)
+### [Deploy the solution accelerator](iot-suite-remote-monitoring-deploy.md)
+### [Operate the solution accelerator](iot-suite-remote-monitoring-explore.md)
 
 ## Remote monitoring (previous version)
-### [What are the preconfigured solutions?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [What are the solution accelerators?](iot-suite-v1-what-are-preconfigured-solutions.md)
 ### [FAQ](iot-suite-v1-faq.md)
 
 ### Get Started
-#### [Get started with the preconfigured solutions](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [Get started with the solution accelerators](iot-suite-v1-getstarted-preconfigured-solutions.md)
 #### [Permissions on azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Remote monitoring solution walkthrough](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Connect your Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
@@ -35,7 +35,7 @@
 ##### [C on Linux](iot-suite-v1-connecting-devices-linux.md)
 ##### [Node.js](iot-suite-v1-connecting-devices-node.md)
 #### [Connect a Logic App to the remote monitoring solution](iot-suite-v1-logic-apps-tutorial.md)
-#### [Customize a preconfigured solution](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Customize a solution accelerator](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
 #### [Use dynamic telemetry with the remote monitoring solution](iot-suite-v1-dynamic-telemetry.md)
 #### [Create a custom rule in the remote monitoring solution](iot-suite-v1-custom-rule.md)
 #### [Device information in the remote monitoring solution](iot-suite-v1-remote-monitoring-device-info.md)
@@ -44,12 +44,12 @@
 
 
 ## Predictive maintenance
-### [Predictive maintenance solution overview](iot-suite-predictive-overview.md)
-### [Predictive maintenance solution walkthrough](iot-suite-predictive-walkthrough.md)
+### [Predictive Maintenance solution accelerator overview](iot-suite-predictive-overview.md)
+### [Predictive Maintenance solution accelerator walkthrough](iot-suite-predictive-walkthrough.md)
 
-## Connected factory
-### [Connected factory solution overview](iot-suite-connected-factory-overview.md)
-### [Connected factory solution walkthrough](iot-suite-connected-factory-sample-walkthrough.md)
+## Connected Factory
+### [Connected Factory solution overview](iot-suite-connected-factory-overview.md)
+### [Connected Factory solution walkthrough](iot-suite-connected-factory-sample-walkthrough.md)
 
 ## Device simulation
 ### [Deploy device simulation](iot-suite-device-simulation-deploy.md)
@@ -77,11 +77,11 @@
 ### Concepts
 #### [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
 
-## Connected factory
-### [Deploy a gateway for connected factory](iot-suite-connected-factory-gateway-deployment.md)
-### [Customize connected factory](iot-suite-connected-factory-customize.md)
-### [Use the OPC publisher for connected factory](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
-### [Configure connected factory](iot-suite-connected-factory-configure.md)
+## Connected Factory
+### [Deploy a gateway for Connected Factory](iot-suite-connected-factory-gateway-deployment.md)
+### [Customize Connected Factory](iot-suite-connected-factory-customize.md)
+### [Use the OPC publisher for Connected Factory](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
+### [Configure Connected Factory](iot-suite-connected-factory-configure.md)
 ## [Permissions on azureiotsuite.com](iot-suite-permissions.md)
 
 # Reference
@@ -103,6 +103,6 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [FAQ](iot-suite-faq.md)
 ## [Remote monitoring FAQ](iot-suite-faq-rm-v2.md)
-## [Connected factory FAQ](iot-suite-faq-cf.md)
+## [Connected Factory FAQ](iot-suite-faq-cf.md)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
-## [IoT Suite learning path](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+## [IoT solution accelerators learning path](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

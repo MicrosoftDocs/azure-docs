@@ -41,4 +41,4 @@ To invoke methods on your devices, use the **Devices** page in the remote monito
 
 ## Next steps
 
-The article [Customize the remote monitoring preconfigured solution](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) describes some ways to customize the preconfigured solution.
+The article [Customize the remote monitoring solution accelerator](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) describes some ways to customize the solution accelerator.

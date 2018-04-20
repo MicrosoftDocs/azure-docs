@@ -1,6 +1,6 @@
 ---
 title: Customize the remote monitoring solution - Azure | Microsoft Docs 
-description: This article provides information about how you can access the source code for the remote monitoring preconfigured solution.
+description: This article provides information about how you can access the source code for the remote monitoring solution accelerator.
 services: ''
 suite: iot-suite
 author: dominicbetts
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Customize the remote monitoring preconfigured solution
+# Customize the remote monitoring solution accelerator
 
-This article provides information about how you can access the source code and customize the remote monitoring preconfigured solution. The article describes:
+This article provides information about how you can access the source code and customize the remote monitoring solution accelerator. The article describes:
 
-* The GitHub repositories that contain the source code and resources for the microservices that make up the preconfigured solution.
+* The GitHub repositories that contain the source code and resources for the microservices that make up the solution accelerator.
 * Common customization scenarios such as adding a new device type.
 
-The following video presents an overview of the options for customizing the remote monitoring preconfigured solution:
+The following video presents an overview of the options for customizing the remote monitoring solution accelerator:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
@@ -36,7 +36,7 @@ The remote monitoring solution has both .NET and Java implementations. Both impl
 
 ### Microservices
 
-If you are interested in a specific feature of the solution, you can access the GitHub repositories for each individual microservice. Each microservice implements a different part of the solution functionality. To learn more about the overall architecture, see [Remote monitoring preconfigured solution architecture](iot-suite-remote-monitoring-sample-walkthrough.md).
+If you are interested in a specific feature of the solution, you can access the GitHub repositories for each individual microservice. Each microservice implements a different part of the solution functionality. To learn more about the overall architecture, see [Remote monitoring solution accelerator architecture](iot-suite-remote-monitoring-sample-walkthrough.md).
 
 This table summarizes the current availability of each microservice for each language:
 
@@ -162,7 +162,7 @@ To further modify the presentation and visualizations layer in the remote monito
 
 The following sections describe options to customize the device connectivity and streaming layer in the remote monitoring solution. [Device models](https://github.com/Azure/device-simulation-dotnet/wiki/Device-Models) describe the device types and telemetry in the solution. You use device models for both simulated and physical devices.
 
-For an example of a physical device implementation, see [Connect your device to the remote monitoring preconfigured solution](iot-suite-connecting-devices-node.md).
+For an example of a physical device implementation, see [Connect your device to the remote monitoring solution accelerator](iot-suite-connecting-devices-node.md).
 
 If you are using a _physical device_, you must provide the client application with a device model that contains the device metadata and telemetry specification.
 
@@ -251,9 +251,9 @@ To modify the infrastructure in the remote monitoring solution, you can edit the
 
 ## Next steps
 
-In this article, you learned about the resources available to help you customize the preconfigured solution.
+In this article, you learned about the resources available to help you customize the solution accelerator.
 
-For more conceptual information about the remote monitoring preconfigured solution, see [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
+For more conceptual information about the remote monitoring solution accelerator, see [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
 
 For more information about customizing the remote monitoring solution, see:
 

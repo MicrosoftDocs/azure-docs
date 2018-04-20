@@ -58,7 +58,7 @@ For example, in a predictive maintenance scenario, the cloud back-end stores his
 
 ### Presentation and business connectivity
 
-The presentation and business connectivity layer allows end users to interact with the IoT solution and the devices. It enables users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports that can display both historical data or near real-time data. For example, an operator can check on the status of particular pumping station and see any alerts raised by the system. This layer also allows integration of the IoT solution back-end with existing line-of-business applications to tie into enterprise business processes or workflows. For example, a predictive maintenance solution can integrate with a scheduling system to book an engineer to visit a pumping station when it identifies a pump in need of maintenance.
+The presentation and business connectivity layer allows end users to interact with the IoT solution and the devices. It enables users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports that can display both historical data or near real-time data. For example, an operator can check on the status of particular pumping station and see any alerts raised by the system. This layer also allows integration of the IoT solution back-end with existing line-of-business applications to tie into enterprise business processes or workflows. For example, a Predictive Maintenance solution accelerator can integrate with a scheduling system to book an engineer to visit a pumping station when it identifies a pump in need of maintenance.
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png
@@ -66,6 +66,6 @@ The presentation and business connectivity layer allows end users to interact wi
 [lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: ../articles/iot-suite/iot-suite-overview.md
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
+[Azure IoT solution accelerators]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf

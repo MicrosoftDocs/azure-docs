@@ -1,6 +1,6 @@
 ---
 title: Deploy the remote monitoring solution locally - Azure | Microsoft Docs 
-description: This tutorial shows you how to deploy the remote monitoring preconfigured solution to your local machine for testing and development.
+description: This tutorial shows you how to deploy the remote monitoring solution accelerator to your local machine for testing and development.
 services: iot-suite
 suite: iot-suite
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Deploy the remote monitoring preconfigured solution locally
+# Deploy the remote monitoring solution accelerator locally
 
-This article shows you how to deploy the remote monitoring preconfigured solution to your local machine for testing and development. This approach deploys the microservices to a local Docker container and uses IoT Hub, Cosmos DB, and Azure storage services in the cloud. You use the preconfigured solutions (PCS) CLI to deploy the Azure cloud services.
+This article shows you how to deploy the remote monitoring solution accelerator to your local machine for testing and development. This approach deploys the microservices to a local Docker container and uses IoT Hub, Cosmos DB, and Azure storage services in the cloud. You use the solution accelerators (PCS) CLI to deploy the Azure cloud services.
 
 ## Prerequisites
 
-To deploy the Azure services used by the remote monitoring preconfigured solution, you need an active Azure subscription.
+To deploy the Azure services used by the remote monitoring solution accelerator, you need an active Azure subscription.
 
 If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -51,7 +51,7 @@ Although this article shows you how to run the microservices locally, they depen
 
 ### Sign in to the CLI
 
-Before you can deploy the preconfigured solution, you must sign in to your Azure subscription using the CLI as follows:
+Before you can deploy the solution accelerator, you must sign in to your Azure subscription using the CLI as follows:
 
 ```cmd/sh
 pcs login
@@ -93,13 +93,13 @@ To install the .Net implementations of the microservices, run:
 git clone --recursive https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet
 ```
 
-These commands download the source code for all the microservices. Although you don't need the source code to run the microservices in Docker, the source code is useful if you later plan to modify the preconfigured solution and test your changes locally.
+These commands download the source code for all the microservices. Although you don't need the source code to run the microservices in Docker, the source code is useful if you later plan to modify the solution accelerator and test your changes locally.
 
 ## Run the microservices in Docker
 
 To run the microservices in Docker, first edit the **scripts\\local\\.env** file in your local copy of the repository. Replace the entire contents of the file with the environment variable definitions you made a note of when you ran the `pcs` command previously. These environment variables enable the microservices in the Docker container to connect to the Azure services created by the `pcs` tool.
 
-To run the preconfigured solution, navigate to the **scripts\local** folder in your command-line environment and run the following command:
+To run the solution accelerator, navigate to the **scripts\local** folder in your command-line environment and run the following command:
 
 ```cmd\sh
 docker-compose up
@@ -122,9 +122,9 @@ Use the `docker-compose down --rmi all` command to remove the Docker images and 
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Configure the preconfigured solution
-> * Deploy the preconfigured solution
-> * Sign in to the preconfigured solution
+> * Configure the solution accelerator
+> * Deploy the solution accelerator
+> * Sign in to the solution accelerator
 
 Now that you have deployed the remote monitoring solution, the next step is to [explore the capabilities of the solution dashboard](./iot-suite-remote-monitoring-deploy.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Customize the Connected factory solution - Azure | Microsoft Docs
-description: A description of how to customize the behavior of the Connected factory preconfigured solution.
+title: Customize the Connected Factory solution - Azure | Microsoft Docs
+description: A description of how to customize the behavior of the Connected Factory solution accelerator.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -18,9 +18,9 @@ ms.date: 12/14/2017
 ms.author: dobett
 
 ---
-# Customize how the Connected factory solution displays data from your OPC UA servers
+# Customize how the Connected Factory solution displays data from your OPC UA servers
 
-The Connected factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution. For more information about OPC UA, see the [Connected factory FAQ](iot-suite-faq-cf.md).
+The Connected Factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution. For more information about OPC UA, see the [Connected Factory FAQ](iot-suite-faq-cf.md).
 
 Examples of aggregated data in the solution include the Overall Equipment Efficiency (OEE) and Key Performance Indicators (KPIs) that you can view in the dashboard at the factory, line, and station levels. The following screenshot shows the OEE and KPI values for the **Assembly** station, on **Production line 1**, in the **Munich** factory:
 
@@ -41,7 +41,7 @@ This article describes:
 
 ## Data sources
 
-The Connected factory solution displays data from the OPC UA servers connected to the solution. The default installation includes several OPC UA servers running a factory simulation. You can add your own OPC UA servers that [connect through a gateway][lnk-connect-cf] to your solution.
+The Connected Factory solution displays data from the OPC UA servers connected to the solution. The default installation includes several OPC UA servers running a factory simulation. You can add your own OPC UA servers that [connect through a gateway][lnk-connect-cf] to your solution.
 
 You can browse the data items that a connected OPC UA server can send to your solution in the dashboard:
 
@@ -58,34 +58,34 @@ You can browse the data items that a connected OPC UA server can send to your so
 
     ![Published items][img-published]
 
-1. If you are an *Administrator* in the solution, you can choose to publish a data item to make it available in the Connected factory solution. As an Administrator, you can also change the value of data items and call methods in the OPC UA server.
+1. If you are an *Administrator* in the solution, you can choose to publish a data item to make it available in the Connected Factory solution. As an Administrator, you can also change the value of data items and call methods in the OPC UA server.
 
 ## Map the data
 
-The Connected factory solution maps and aggregates the published data items from the OPC UA server to the various views in the solution. The Connected factory solution deploys to your Azure account when you provision the solution. A JSON file in the Visual Studio Connected factory solution stores this mapping information. You can view and modify this JSON configuration file in the Connected factory Visual Studio solution. You can redeploy the solution after you make a change.
+The Connected Factory solution maps and aggregates the published data items from the OPC UA server to the various views in the solution. The Connected Factory solution deploys to your Azure account when you provision the solution. A JSON file in the Visual Studio Connected Factory solution stores this mapping information. You can view and modify this JSON configuration file in the Connected Factory Visual Studio solution. You can redeploy the solution after you make a change.
 
 You can use the configuration file to:
 
 - Edit the existing simulated factories, production lines, and stations.
 - Map data from real OPC UA servers that you connect to the solution.
 
-For more information about mapping and aggregating the data to meet your specific requirements, see [How to configure the Connected factory preconfigured solution
+For more information about mapping and aggregating the data to meet your specific requirements, see [How to configure the Connected Factory solution accelerator
 ](iot-suite-connected-factory-configure.md).
 
 ## Deploy the changes
 
-When you have finished making changes to the **ContosoTopologyDescription.json** file, you must redeploy the Connected factory solution to your Azure account.
+When you have finished making changes to the **ContosoTopologyDescription.json** file, you must redeploy the Connected Factory solution to your Azure account.
 
 The **azure-iot-connected-factory** repository includes a **build.ps1** PowerShell script you can use to rebuild and deploy the solution.
 
 ## Next Steps
 
-Learn more about the Connected factory preconfigured solution by reading the following articles:
+Learn more about the Connected Factory solution accelerator by reading the following articles:
 
-* [Connected factory preconfigured solution walkthrough][lnk-rm-walkthrough]
-* [Deploy a gateway for Connected factory][lnk-connect-cf]
+* [Connected Factory solution accelerator walkthrough][lnk-rm-walkthrough]
+* [Deploy a gateway for Connected Factory][lnk-connect-cf]
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
-* [Connected factory FAQ](iot-suite-faq-cf.md)
+* [Connected Factory FAQ](iot-suite-faq-cf.md)
 * [FAQ][lnk-faq]
 
 

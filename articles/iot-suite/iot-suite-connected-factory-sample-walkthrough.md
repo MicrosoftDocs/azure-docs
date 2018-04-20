@@ -1,6 +1,6 @@
 ---
-title: Connected factory solution walkthrough - Azure | Microsoft Docs
-description: A description of the Azure IoT preconfigured solution Connected factory and its architecture.
+title: Connected Factory solution walkthrough - Azure | Microsoft Docs
+description: A description of the Azure IoT solution accelerator Connected Factory and its architecture.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -18,11 +18,11 @@ ms.date: 12/12/2017
 ms.author: dobett
 
 ---
-# Connected factory preconfigured solution walkthrough
+# Connected Factory solution accelerator walkthrough
 
-The IoT Suite Connected factory [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end industrial solution that:
+The Connected Factory [solution accelerator][lnk-preconfigured-solutions] is an implementation of an end-to-end industrial solution that:
 
-* Connects to both simulated industrial devices running OPC UA servers in simulated factory production lines, and real OPC UA server devices. For more information about OPC UA, see the [Connected factory FAQ](iot-suite-faq-cf.md).
+* Connects to both simulated industrial devices running OPC UA servers in simulated factory production lines, and real OPC UA server devices. For more information about OPC UA, see the [Connected Factory FAQ](iot-suite-faq-cf.md).
 * Shows operational KPIs and OEE of those devices and production lines.
 * Demonstrates how a cloud-based application could be used to interact with OPC UA server systems.
 * Enables you to connect your own OPC UA server devices.
@@ -31,19 +31,19 @@ The IoT Suite Connected factory [preconfigured solution][lnk-preconfigured-solut
 
 You can use the solution as a starting point for your own implementation and [customize][lnk-customize] it to meet your own specific business requirements.
 
-This article walks you through some of the key elements of the Connected factory solution to enable you to understand how it works. The article also describes how data flows through the solution. This knowledge helps you to:
+This article walks you through some of the key elements of the Connected Factory solution to enable you to understand how it works. The article also describes how data flows through the solution. This knowledge helps you to:
 
 * Troubleshoot issues in the solution.
 * Plan how to customize to the solution to meet your own specific requirements.
 * Design your own IoT solution that uses Azure services.
 
-For more information, see the [Connected factory FAQ](iot-suite-faq-cf.md).
+For more information, see the [Connected Factory FAQ](iot-suite-faq-cf.md).
 
 ## Logical architecture
 
-The following diagram outlines the logical components of the preconfigured solution:
+The following diagram outlines the logical components of the solution accelerator:
 
-![Connected factory logical architecture][connected-factory-logical]
+![Connected Factory logical architecture][connected-factory-logical]
 
 ## Communication patterns
 
@@ -119,7 +119,7 @@ The IoT Hub in the solution also:
 The solution uses Azure blob storage as disk storage for the VM and to store deployment data.
 
 ## Web app
-The web app deployed as part of the preconfigured solution comprises of an integrated OPC UA client, alerts processing and telemetry visualization.
+The web app deployed as part of the solution accelerator comprises of an integrated OPC UA client, alerts processing and telemetry visualization.
 
 ## Telemetry data flow
 
@@ -159,17 +159,17 @@ The web app deployed as part of the preconfigured solution comprises of an integ
 
 9. Data at rest in TSI.
 
-10. Connected factory WebApp in Azure AppService queries required data from TSI.
+10. Connected Factory WebApp in Azure AppService queries required data from TSI.
     - Uses TCP/TLS secured communication.
     - This step is internal to the datacenter.
 
-11. Web browser connects to the Connected factory WebApp.
-    - Renders the Connected factory dashboard.
+11. Web browser connects to the Connected Factory WebApp.
+    - Renders the Connected Factory dashboard.
     - Connects over HTTPS.
-    - Access to the Connected factory App requires authentication of the user via Azure Active Directory.
-    - Any WebApi calls into Connected factory app are secured by Anti-Forgery-Tokens.
+    - Access to the Connected Factory App requires authentication of the user via Azure Active Directory.
+    - Any WebApi calls into Connected Factory app are secured by Anti-Forgery-Tokens.
 
-12. On data updates, the Connected factory WebApp sends updated data to the web browser.
+12. On data updates, the Connected Factory WebApp sends updated data to the web browser.
     - Uses the SignalR protocol.
     - Secured by TCP/TLS.
 
@@ -187,16 +187,16 @@ The web app deployed as part of the preconfigured solution comprises of an integ
     - Reads all it's known devices from IoT Hub.
     - Uses MQTT over TLS over Socket or Secure Websocket.
 
-3. Web browser connects to the Connected factory WebApp and renders the Connected factory dashboard.
+3. Web browser connects to the Connected Factory WebApp and renders the Connected Factory dashboard.
     - Uses HTTPS.
     - A user selects an OPC UA server to connect to.
 
-4. Connected factory WebApp establishes an OPC UA Session to the selected OPC UA server.
+4. Connected Factory WebApp establishes an OPC UA Session to the selected OPC UA server.
     - Uses OPC UA stack.
 
 5. OPC Proxy transport receives a request from the OPC UA stack to establish a TCP socket connection to OPC UA server.
     - It just retrieves the TCP payload and uses it unchanged.
-    - This step is internal to the Connected factory WebApp.
+    - This step is internal to the Connected Factory WebApp.
 
 6. OPC Proxy (client component) looks up OPC Proxy (server component) device in the IoT Hub device registry. Then calls a device method of the OPC Proxy (server component) device in IoT Hub.
     - Uses HTTPS over TCP/TLS to look up OPC Proxy.
@@ -212,24 +212,24 @@ The web app deployed as part of the preconfigured solution comprises of an integ
 
 10. The response is received by the socket of the OPC Proxy (server component).
     - OPC Proxy sends the data as return value of the device method to IoT Hub and the OPC Proxy (client component).
-    - This data is delivered to the OPC UA stack in the Connected factory app.
+    - This data is delivered to the OPC UA stack in the Connected Factory app.
 
-11. Connected factory WebApp returns OPC Browser UX enriched with the OPC UA-specific information it received from the OPC UA server to the Web Browser to render it.
-    - While browsing through the OPC address-space and applying functions to nodes in the OPC address-space, the OPC Browser UX client part uses AJAX calls over HTTPS secured with Anti-Forgery Tokens to get data from the Connected factory WebApp.
+11. Connected Factory WebApp returns OPC Browser UX enriched with the OPC UA-specific information it received from the OPC UA server to the Web Browser to render it.
+    - While browsing through the OPC address-space and applying functions to nodes in the OPC address-space, the OPC Browser UX client part uses AJAX calls over HTTPS secured with Anti-Forgery Tokens to get data from the Connected Factory WebApp.
     - If necessary, the client uses the communication explained in steps 4 through to 10 to exchange information with the OPC UA server.
 
 > [!NOTE]
 > The OPC Proxy (server component) and OPC Proxy (client) component complete steps #4 through #10 for all TCP traffic related to the OPC UA communication.
 
 > [!NOTE]
-> For the OPC UA server and the OPC UA stack within the Connected factory WebApp, the OPC Proxy communication is transparent and all OPC UA security features for authentication and encryption apply.
+> For the OPC UA server and the OPC UA stack within the Connected Factory WebApp, the OPC Proxy communication is transparent and all OPC UA security features for authentication and encryption apply.
 
 ## Next steps
 
-You can continue getting started with IoT Suite by reading the following articles:
+You can continue getting started with IoT solution accelerators by reading the following articles:
 
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
-* [Deploy a gateway on Windows or Linux for the Connected factory preconfigured solution](iot-suite-connected-factory-gateway-deployment.md)
+* [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator](iot-suite-connected-factory-gateway-deployment.md)
 * [OPC Publisher reference implementation](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png

@@ -1,6 +1,6 @@
 ---
-title: Predictive maintenance solution overview - Azure | Microsoft Docs
-description: A description of the Azure IoT Suite predictive maintenance preconfigured solution.
+title: Predictive Maintenance solution accelerator overview - Azure | Microsoft Docs
+description: A description of the Azure Predictive Maintenance solution accelerator solution accelerator.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -18,17 +18,17 @@ ms.date: 11/14/2017
 ms.author: dobett
 
 ---
-# Predictive maintenance preconfigured solution overview
+# Predictive maintenance solution accelerator overview
 
-The *predictive maintenance* [preconfigured solution][lnk_preconfigured_solutions] is one of the [Microsoft Azure IoT Suite][lnk_iot_suite] preconfigured solutions. This solution integrates real-time device telemetry collection with a predictive model created using [Azure Machine Learning][lnk-machine-learning].
+The *Predictive Maintenance* [solution accelerator][lnk_preconfigured_solutions] is one of the [Microsoft Azure IoT solution accelerators][lnk_iot_suite] solution accelerators. This solution integrates real-time device telemetry collection with a predictive model created using [Azure Machine Learning][lnk-machine-learning].
 
-With Azure IoT Suite, you can quickly and easily connect to and monitor assets, and analyze telemetry in real time in dashboards and visualizations. In the predictive maintenance solution, the dashboards and visualizations provide you with new intelligence that can drive efficiencies and enhance revenue streams.
+With Azure IoT solution accelerators, you can quickly and easily connect to and monitor assets, and analyze telemetry in real time in dashboards and visualizations. In the Predictive Maintenance solution accelerator, the dashboards and visualizations provide you with new intelligence that can drive efficiencies and enhance revenue streams.
 
 ## The Scenario
 
 Fabrikam is a regional airline that focuses on great customer experience at competitive prices. One cause of flight delays is maintenance issues and aircraft engine maintenance is particularly challenging. Fabrikam must avoid engine failure during flight at all costs, so it inspects its engines regularly and schedules maintenance according to a plan. However, aircraft engines don’t always wear the same. Some unnecessary maintenance is performed on engines. More importantly, issues arise which can ground an aircraft until maintenance is performed. If an aircraft is at a location where the right technicians or spare parts are not available, these issues can be especially costly.
 
-The engines of Fabrikam’s aircraft are instrumented with sensors that monitor engine conditions during flight. Fabrikam uses the predictive maintenance solution to collect the sensor data collected during the flight. After accumulating years of engine operational and failure data, Fabrikam’s data scientists have modeled a way to predict the Remaining Useful Life (RUL) of an aircraft engine. The model uses a correlation between data from four of the engine sensors and engine wear that leads to eventual failure. While Fabrikam continues to perform regular inspections to ensure safety, it can now use the models to compute the RUL for each engine after every flight. The model uses the telemetry collected from the engines during the flight. Fabrikam can now predict future points of failure and plan for maintenance and repair in advance.
+The engines of Fabrikam’s aircraft are instrumented with sensors that monitor engine conditions during flight. Fabrikam uses the Predictive Maintenance solution accelerator to collect the sensor data collected during the flight. After accumulating years of engine operational and failure data, Fabrikam’s data scientists have modeled a way to predict the Remaining Useful Life (RUL) of an aircraft engine. The model uses a correlation between data from four of the engine sensors and engine wear that leads to eventual failure. While Fabrikam continues to perform regular inspections to ensure safety, it can now use the models to compute the RUL for each engine after every flight. The model uses the telemetry collected from the engines during the flight. Fabrikam can now predict future points of failure and plan for maintenance and repair in advance.
 
 > [!NOTE]
 > The solution model uses actual engine wear data.
@@ -45,19 +45,19 @@ Inventory control managers receive maintenance plans, so they can optimize their
 
 These activities enable Fabrikam to minimize aircraft ground time and reduce operating costs while ensuring the safety of passengers and crew.
 
-To understand how [Azure IoT Suite][lnk_iot_suite] provides the capabilities customers need to realize the potential of predictive maintenance, review this [infographic][lnk_infographic].
+To understand how [Azure IoT solution accelerators][lnk_iot_suite] provides the capabilities customers need to realize the potential of predictive maintenance, review this [infographic][lnk_infographic].
 
-## How the predictive maintenance solution is built
+## How the Predictive Maintenance solution accelerator is built
 
-The solution uses an existing Azure Machine Learning model available as a template to show these capabilities working from device telemetry collected through IoT Suite services. Microsoft has built a [regression model][lnk_regression_model] of an aircraft engine based on publically available data<sup>\[1\]</sup>, and step-by-step guidance on how to use the model.
+The solution uses an existing Azure Machine Learning model available as a template to show these capabilities working from device telemetry collected through IoT solution accelerators services. Microsoft has built a [regression model][lnk_regression_model] of an aircraft engine based on publically available data<sup>\[1\]</sup>, and step-by-step guidance on how to use the model.
 
-The Azure IoT predictive maintenance solution uses the regression model created from this template. The model is deployed into your Azure subscription and exposed through an automatically generated API. The solution includes a subset of the testing data representing 4 (of 100 total) engines and the 4 (of 21 total) sensor data streams. This data is sufficient to provide an accurate result from the trained model.
+The Azure IoT Predictive Maintenance solution accelerator uses the regression model created from this template. The model is deployed into your Azure subscription and exposed through an automatically generated API. The solution includes a subset of the testing data representing 4 (of 100 total) engines and the 4 (of 21 total) sensor data streams. This data is sufficient to provide an accurate result from the trained model.
 
 *\[1\] A. Saxena and K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
 ## Get started with predictive maintenance
 
-This tutorial shows you how to provision the predictive maintenance solution. It also walks you through the basic features of the predictive maintenance solution. You can access many of these features through the solution dashboard that deploys along with the preconfigured solution.
+This tutorial shows you how to provision the Predictive Maintenance solution accelerator. It also walks you through the basic features of the Predictive Maintenance solution accelerator. You can access many of these features through the solution dashboard that deploys along with the solution accelerator.
 
 To complete this tutorial, you need an active Azure subscription.
 
@@ -66,7 +66,7 @@ To complete this tutorial, you need an active Azure subscription.
 
 1. Log on to [azureiotsuite.com][lnk-azureiotsuite] using your Azure account credentials, and click **+** to create a solution.
 1. Click **Select** the **Predictive maintenance** tile.
-1. Enter a **Solution name** for your predictive maintenance preconfigured solution.
+1. Enter a **Solution name** for your Predictive Maintenance solution accelerator.
 1. Select the **Region** and **Subscription** you want to use to provision the solution.
 1. Click **Create Solution** to begin the provisioning process. This process typically takes several minutes to run.
 
@@ -78,7 +78,7 @@ To complete this tutorial, you need an active Azure subscription.
 1. Click the tile to see the details of your solution in the right-hand pane. From this pane, you can launch the solution dashboard and access the Machine Learning workspace.
 
 > [!NOTE]
-> If you encounter issues deploying the preconfigured solution, review [Permissions on the azureiotsuite.com site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, create a service ticket on the [portal][lnk-portal].
+> If you encounter issues deploying the solution accelerator, review [Permissions on the azureiotsuite.com site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, create a service ticket on the [portal][lnk-portal].
 
 Are there details you'd expect to see that aren't listed for your solution? Make feature suggestions on [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
@@ -99,7 +99,7 @@ In the Azure portal, navigate to the resource group with the solution name you c
 
 ![][img-resource-group]
 
-When you provision the preconfigured solution, you receive an email with a link to the Machine Learning workspace. You can also navigate to the Machine Learning workspace from the [azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution. A tile is available on this page when the solution is in the **Ready** state.
+When you provision the solution accelerator, you receive an email with a link to the Machine Learning workspace. You can also navigate to the Machine Learning workspace from the [azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution. A tile is available on this page when the solution is in the **Ready** state.
 
 ![][img-machine-learning]
 
@@ -125,11 +125,11 @@ You can stop the simulation at any point, but clicking **Start Simulation** repl
 
 To learn more about how Azure IoT enables predictive maintenance scenarios, read [Capture value from the Internet of Things][lnk_capture_value].
 
-Take a [walkthrough][lnk-predictive-walkthrough] of the predictive maintenance solution.
+Take a [walkthrough][lnk-predictive-walkthrough] of the Predictive Maintenance solution accelerator.
 
-You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Frequently asked questions for IoT Suite][lnk-faq]
+* [Frequently asked questions for IoT solution accelerators][lnk-faq]
 * [IoT security from the ground up][lnk-security-groundup]
 
 [img-resource-group]: media/iot-suite-predictive-overview/resource-group.png

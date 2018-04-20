@@ -20,7 +20,7 @@ This tutorial shows the device management capabilities of the remote monitoring 
 
 Contoso has ordered new machinery to expand one of their facilities to increase output. While you wait for the new machinery to be delivered, you want to run a simulation to verify the behavior of your solution. As an operator, you want to manage and configure the devices in the remote monitoring solution.
 
-To provide an extensible way to manage and configure devices, the remote monitoring solution uses IoT Hub features such as [jobs](../iot-hub/iot-hub-devguide-jobs.md) and [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md). To learn how a device developer implements methods on a physical device, see [Customize the remote monitoring preconfigured solution](iot-suite-remote-monitoring-customize.md).
+To provide an extensible way to manage and configure devices, the remote monitoring solution uses IoT Hub features such as [jobs](../iot-hub/iot-hub-devguide-jobs.md) and [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md). To learn how a device developer implements methods on a physical device, see [Customize the remote monitoring solution accelerator](iot-suite-remote-monitoring-customize.md).
 
 In this tutorial, you learn how to:
 
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 To follow this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
 
-If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
+If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-suite-remote-monitoring-deploy.md) tutorial.
 
 ## Add a simulated device
 
@@ -46,7 +46,7 @@ Leave the number of devices to provision set to **1**. Choose the **Faulty Engin
 
 ![Provision a simulated engine device](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
-To learn how to provision a *physical* device, see [Connect your device to the remote monitoring preconfigured solution](iot-suite-connecting-devices-node.md).
+To learn how to provision a *physical* device, see [Connect your device to the remote monitoring solution accelerator](iot-suite-connecting-devices-node.md).
 
 ## Test the simulated device
 
@@ -109,6 +109,6 @@ Now that you have learned how to manage your devices, the suggested next steps a
 
 * [Troubleshoot and remediate device issues](iot-suite-remote-monitoring-maintain.md).
 * [Test your solution with simulated devices](iot-suite-remote-monitoring-test.md).
-* [Connect your device to the remote monitoring preconfigured solution](iot-suite-connecting-devices-node.md).
+* [Connect your device to the remote monitoring solution accelerator](iot-suite-connecting-devices-node.md).
 
 <!-- Next tutorials in the sequence -->
