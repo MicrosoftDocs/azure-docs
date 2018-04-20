@@ -49,7 +49,7 @@ tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-You can remove the extracted files once AzCopy on Linux is installed. Alternatively if you do not have superuser privileges, you can also run AzCopy using the shell script 'azcopy' in the extracted folder. 
+You can remove the extracted files once AzCopy on Linux is installed. Alternatively, if you do not have superuser privileges you can also run `azcopy` using the shell script azcopy in the extracted folder.
 
 ### Alternative Installation on Ubuntu
 
@@ -639,9 +639,9 @@ Option `--parallel-level` specifies the number of concurrent copy operations. By
 
 ## Installation Steps for AzCopy 7.1 and earlier versions
 
-AzCopy on Linux (v7.1 and earlier only) requires .NET Core framework on the platform. See the installation instructions on the [.NET Core](https://www.microsoft.com/net/core#linuxubuntu) page.
+AzCopy on Linux (v7.1 and earlier only) requires the .NET Core framework. Installation instructions are available on the [.NET Core installation](https://www.microsoft.com/net/core#linuxubuntu) page.
 
-As an example, let's install .NET Core on Ubuntu 16.10. For the latest installation guide, visit [.NET Core on Linux](https://www.microsoft.com/net/core#linuxubuntu) installation page.
+For example, begin by installing .NET Core on Ubuntu 16.10. For the latest installation guide, visit [.NET Core on Linux](https://www.microsoft.com/net/core#linuxubuntu) installation page.
 
 
 ```bash
@@ -659,7 +659,7 @@ tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-You can remove the extracted files once AzCopy on Linux is installed. Alternatively if you do not have superuser privileges, you can also run AzCopy using the shell script 'azcopy' in the extracted folder. 
+You can remove the extracted files once AzCopy on Linux is installed. Alternatively if you do not have superuser privileges, you can also run `azcopy` using the shell script azcopy in the extracted folder.
 
 ## Known issues and best practices
 ### Error Installing AzCopy
