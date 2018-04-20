@@ -1,35 +1,34 @@
 # [Multi-factor Authentication Documentation](index.md)
 
 # Overview
+
 ## [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
 ## [How it works](../active-directory/authentication/concept-mfa-howitworks.md)
 ## [How to get Azure MFA](../active-directory/authentication/concept-mfa-licensing.md)
 
 # Get started
+
 ## [Choose where to deploy](../active-directory/authentication/concept-mfa-whichversion.md)
-## [MFA in the cloud](../active-directory/authentication/howto-mfa-getstarted.md)
-## [MFA for O365 users](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [Security best practices](../active-directory/authentication/multi-factor-authentication-security-best-practices.md)
+## [MFA for O365 users](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 
 # How to
-## Deploy and use
-### [Configure settings](../active-directory/authentication/howto-mfa-mfasettings.md)
-### [Reports in MFA](../active-directory/authentication/howto-mfa-reporting.md)
-### [Use existing network policy servers](../active-directory/authentication/howto-mfa-nps-extension.md)
-#### [Advanced configuration for NPS extension](../active-directory/authentication/howto-mfa-nps-extension-advanced.md)
-### [Create an Auth Provider](../active-directory/authentication/concept-mfa-authprovider.md)
 
-## Manage users
+## Azure MFA
+### [Deploy cloud-based MFA](../active-directory/authentication/howto-mfa-getstarted.md)
+### [Create an Auth Provider](../active-directory/authentication/concept-mfa-authprovider.md)
 ### [Enable or disable MFA](../active-directory/authentication/howto-mfa-userstates.md)
 ### [User and device settings](../active-directory/authentication/howto-mfa-userdevicesettings.md)
-### [MFA user guide](./end-user/multi-factor-authentication-end-user.md)
-
-## Integrate
-### [Remote Desktop Gateway](../active-directory/authentication/howto-mfa-nps-extension-rdg.md)
-### [VPN](../active-directory/authentication/howto-mfa-nps-extension-vpn.md)
-### Integrate with ADFS
+### [Configure settings](../active-directory/authentication/howto-mfa-mfasettings.md)
+### Directory Federation
+#### [Windows Server 2016 AD FS Adapter](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa)
 #### [Federation Services](../active-directory/authentication/multi-factor-authentication-get-started-adfs.md)
-##### [Use AD FS](../active-directory/authentication/howto-mfa-adfs.md)
+#### [Use AD FS](../active-directory/authentication/howto-mfa-adfs.md)
+### RADIUS Integration
+#### [Use existing network policy servers](../active-directory/authentication/howto-mfa-nps-extension.md)
+#### [Advanced configuration for NPS extension](../active-directory/authentication/howto-mfa-nps-extension-advanced.md)
+#### [Remote Desktop Gateway](../active-directory/authentication/howto-mfa-nps-extension-rdg.md)
+#### [VPN](../active-directory/authentication/howto-mfa-nps-extension-vpn.md)
 
 ## MFA Server
 ### [Deploy MFA on-premises](../active-directory/authentication/howto-mfaserver-deploy.md)
@@ -53,6 +52,10 @@
 
 ## Develop
 ### [Building into custom apps (SDK)](../active-directory/authentication/howto-mfa-sdk.md)
+
+## [Reporting](../active-directory/authentication/howto-mfa-reporting.md)
+
+## [MFA user guide](./end-user/multi-factor-authentication-end-user.md)
 
 ## Troubleshoot
 ### [FAQ](../active-directory/authentication/multi-factor-authentication-faq.md)
