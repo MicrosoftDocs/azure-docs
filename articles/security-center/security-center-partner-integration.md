@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
+ms.date: 04/20/2018
 ms.author: yurid
 
 ---
@@ -42,7 +42,7 @@ The endpoint protection integration experience may vary according to the solutio
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 | Via Extension                | Yes                       |
 | Trend Micro – All version         | Windows Server Family                 | Via Extension                | Yes                       |
 | Symantec v12.1.1100+                     | Windows Server Family                 | No                           | Yes                        |
-| MacAfee                           | Windows Server Family                 | No                           | No                        |
+| MacAfee                           | Windows Server Family                 | No                           | Yes                        |
 | Kaspersky                         | Windows Server Family                 | No                           | No                        |
 | Sophos                            | Windows Server Family                 | No                           | No                        |
 
