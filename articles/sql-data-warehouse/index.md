@@ -10,7 +10,7 @@ ms.topic: landing-page
 ms.component: design
 ms.date: 04/11/2018
 ms.author: elbutter
-ms.reviewer: jrj
+ms.reviewer: igorstan
 ---
 
 # SQL Data Warehouse Documentation
