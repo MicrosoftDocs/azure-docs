@@ -195,6 +195,8 @@
           href: active-directory-b2c-reference-password-change-custom.md
         - name: Enable keep me signed in
           href: active-directory-b2c-reference-kmsi-custom.md
+      - name: Tracking user behavior
+        href: active-directory-b2c-custom-guide-eventlogger-appins.md
       - name: Troubleshooting
         items:
         - name: Collect logs using Application Insights
