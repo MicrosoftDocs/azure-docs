@@ -48,6 +48,6 @@ Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solu
 
 ## Next steps
 
-- Learn about [how Azure Multi-Factor Authentication works](../active-directory/authentication/concept-mfa-howitworks.md)
+- Learn about [how Azure Multi-Factor Authentication works](concept-mfa-howitworks.md)
 
-- Read about the different [versions and consumption methods for Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-licensing.md)
+- Read about the different [versions and consumption methods for Azure Multi-Factor Authentication](concept-mfa-licensing.md)
