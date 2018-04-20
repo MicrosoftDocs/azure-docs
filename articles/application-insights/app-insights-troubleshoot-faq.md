@@ -252,7 +252,7 @@ Allow your web server to send telemetry to our endpoints https://dc.services.vis
 ### Proxy
 
 Route traffic from your server to a gateway on your intranet, by overwritting these settings in the example ApplicationInsights.config.
-If these sections are not present in your config, these classes will be using the default values shown in the example below.
+If these "Endpoint" properties are not present in your config, these classes will be using the default values shown in the example below.
 
 #### Example ApplicationInsights.config:
 ```xml
@@ -268,6 +268,8 @@ If these sections are not present in your config, these classes will be using th
     ...
 </ApplicationInsights>
 ```
+
+_Note ApplicationIdProvider is available starting in v2.6.0_
 
 Your gateway should route the traffic to https://dc.services.visualstudio.com:443
 
