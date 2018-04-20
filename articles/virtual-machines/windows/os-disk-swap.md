@@ -6,7 +6,7 @@ documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: ''
-tags: azure-resource-manager,azure-service-management
+tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-windows
@@ -14,18 +14,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: cynthn
 
 ---
 # Change the OS disk used by an Azure VM using PowerShell
 
+If you have an existing VM, but you want to swap the disk for a backup disk or another OS disk, you can now swap the OS disk using Azure PowerShell. You don't have to delete and recreate the VM. 
 
-## Next steps
-
-If you have an existing VM, but you want to swap the disk for a backup disk or another OS disk, you can now swap the OS disk using Azure PowerShell. You dont' have to delete and recreate the VM. 
-
-The VM does need to be stopped\deallocated, then the resource ID of the managed disk can be replaced with the resource ID of the different managed disk. 
+The VM does need to be stopped\deallocated, then the resource ID of the managed disk can be replaced with the resource ID of a different managed disk. 
 
 Get a list of disks in a resource group using [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk)
 
@@ -55,3 +52,7 @@ Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 Start-AzureRmVM -Name $vm.Name -ResourceGroupName myResourceGroup
 
 ```
+
+## Next steps
+
+To create a copy of a disk, see [Snapshot a disk](snapshot-copy-managed-disk.md).
