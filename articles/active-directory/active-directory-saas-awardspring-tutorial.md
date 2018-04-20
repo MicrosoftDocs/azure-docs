@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: jeedes
 
 ---
@@ -104,15 +104,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![AwardSpring Domain and URLs single sign-on information](./media/active-directory-saas-awardspring-tutorial/tutorial_awardspring_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdoamin>.awardspring.com/SignIn/SamlMetaData`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.awardspring.com/SignIn/SamlMetaData`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdoamin>.awardspring.com/SignIn/SamlAcs`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.awardspring.com/SignIn/SamlAcs`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![AwardSpring Domain and URLs single sign-on information](./media/active-directory-saas-awardspring-tutorial/tutorial_awardspring_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdoamin>.awardspring.com/`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.awardspring.com/`
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [AwardSpring Client support team](mailto:support@awardspring.com) to get these values. 
@@ -129,10 +129,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| Last Name | user.surname |
 	| Email | user.mail |
 	| Username | user.userprinicipalname |
-	| studentID | < Student ID > |
+	| StudentID | < Student ID > |
 
 	> [!NOTE]
-	> The value of studentID attribute is not real. This value is only for demo purpose. To get the value of your studentID attribute contact [AwardSpring Client support team](mailto:support@awardspring.com).
+	> The StudentID attribute is mapped with the actual Student ID which needs to be passed back in claims. Contact [AwardSpring Client support team](mailto:support@awardspring.com) to get this value.
 
 	a. Remove existing attributes and add new attributes. Click **Add attribute** to open the **Add Attribute** dialog.
 
