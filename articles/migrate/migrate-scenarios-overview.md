@@ -4,10 +4,9 @@ description: Read an overview white paper about migrating your on-premises data 
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 04/08/2018
+ms.topic: conceptual
+ms.date: 04/21/2018
 ms.author: raynew
-ms.custom: MVC
 
 ---
 # Migrating your on-premises workloads to Azure
@@ -24,7 +23,7 @@ This series of migration articles shows you how you can plan and build a migrati
 **Scenario** | **Solution** | **Services** | **Article** 
 --- | --- | --- | ---
 [Scenario 1: Discovery and assessment](migrate-scenarios-assessment.md) | Discover and assess on-premises apps and data for migration to Azure | Data Migration Assistant, Azure Migrate service  | Available now
-**Scenario 2: Lift and shift migration** | Rehost internal apps on Azure. Optimize in Azure after migration. | Azure Site Recovery, Azure Database Migration Service, Azure SQL Managed Instance | Available now
+**[Scenario 2: Lift and shift migration](migrate-scenarios-lift-and-shift.md)** | Rehost internal apps on Azure. Optimize in Azure after migration. | Azure Site Recovery, Azure Database Migration Service, Azure SQL Managed Instance | Available now
 **Scenario 3: Refactor and migrate** | Modernize and refactor on-premises customer apps during migration to Azure. | In planning | Planned
 **Scenario 4: Rearchitect and migrate** | Rearchitect and migrate customer transactional websites during migration to Azure. | In planning | Planned
 **Scenario 5: Rebuild** |Rebuild and migrate customer app and data to Azure | In planning | Planned

@@ -19,7 +19,7 @@ In [Scenario 1: Assess migration to Azure](migrate-scenarios-assessment.md), the
 
 **Service** | **Description** | **Cost**
 --- | --- | ---
-[Database Management Service](https://docs.microsoft.com/azure/dms/dms-overview) | DMS enables seamless migrations from multiple database sources to Azure data platforms, with minimal downtime. | The service is currently in public preview (April 2018), and can be used free of charge during the preview. 
+[Database Management Service](https://docs.microsoft.com/azure/dms/dms-overview) | DMS enables seamless migrations from multiple database sources to Azure data platforms, with minimal downtime. | The service is currently in public preview (April 2018), and can be used free of charge during the preview.<br/><br/> Note that for the public preview DMS is limited to a [number of regions](https://docs.microsoft.com/azure/dms/dms-overview).
 [Azure SQL Managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) | Managed Instance is a managed database service that represents a fully-managed SQL Server Instance in the Azure cloud. It shares the same code with the latest version of SQL Server Database Engine and has the latest features, performance improvements, and security patches. | Using Azure SQL Database Managed Instances running in Azure incur charges based on capacity. [Learn more](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | The service orchestrates and manages migration and disaster recovery for Azure VMs, and on-premises VMs and physical servers.  | During replication to Azure, Azure Storage charges are incurred.  Azure VMs are created, and incur charges, when failover occurs. [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about charges and pricing.
 
@@ -694,8 +694,6 @@ The final step in the migration process is to update the connection string of th
 4. After updating the file and saving it, restart IIS on the WEBVM. This can be done using the IISRESET /RESTART from a cmd prompt.
 5. After IIS has been restarted, your application will now be using the database running on your SQL MI.
 6. At this point the SQLVM machine on-premises can be shut down, and the migration is complete.
-
-- The new connection string can be located using in the Azure portal by clicking Settings > Connection Strings
 
 
 
