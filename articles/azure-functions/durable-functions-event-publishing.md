@@ -102,7 +102,7 @@ Once configure the `host.json`, Your Durable Functions starts to send lifecycle 
 }
 ```
 
-Please make sure that [Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) is working. I recommend cleaning up using `AzureStorageEmulator.exe clear all` command before executing.
+Make sure that [Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) is working. I recommend cleaning up using `AzureStorageEmulator.exe clear all` command before executing.
 
 
 # Create Azure functions, which listen to the custom events
@@ -113,7 +113,7 @@ Create an Azure Functions, which receive the lifecycle events on your Azure port
 
 ### Create a Function App
 
-Go to the Resource Group which you created then press `Add` button.
+Go to the Resource Group, which you created then press `Add` button.
 
 ![Resource Group for Event Grid Topic](media/durable-functions-event-publishing/resource-group.png)
 
@@ -177,6 +177,7 @@ using Microsoft.Azure.WebJobs.Host;
 namespace LifeCycleEventSpike
 {
     public static class Sample
+    {
     {
         [FunctionName("Sample")]
         public static async Task<List<string>> RunOrchestrator(
