@@ -160,9 +160,24 @@ in an expression and assign that value to the `accountName` property:
 "accountName": "@parameters('customerName')"
 ```
 
+*String interpolation* also lets you use multiple expressions inside 
+strings that are wrapped by the @ character and curly braces ({}). 
+Here is the syntax:
+
+```json
+@{ "<expression1>", "<expression2>" }`
+```
+
+The result is always a string, making this capability 
+similar to the `concat()` function, for example: 
+
+```json
+"customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
+```
+
 When evaluating an expression for a JSON value, 
 the expression body is extracted by removing the at-sign (@), 
-always resulting in another JSON value. 
+which always results in another JSON value. 
 If you have a literal string that starts with the @ character, 
 prefix the @ character with another @ character as an escape character: @@
 
@@ -176,19 +191,7 @@ These examples show how expressions are evaluated:
 | " @" | Return these characters as a two-character string: ' @' |
 |||
 
-Through string interpolation, you can also use expressions in 
-strings that are wrapped by the @ character and curly braces ({}): 
-
-`@{ "<some-expression>" }`
-
-The result is always a string, making this capability 
-similar to the `concat()` function, for example: 
-
-```json
-"customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
-```
-
-As another example, suppose you define "myBirthMonth" 
+For these examples, suppose you define "myBirthMonth" 
 equal to "January" and "myAge" equal to the number 42:  
   
 ```json
