@@ -29,9 +29,8 @@ by the Workflow Definition Language schema, which uses
   
 ## Workflow definition structure
 
-A workflow definition includes at least 
-one trigger that instantiates the logic app, 
-and one or more actions that the logic app takes. 
+A workflow definition includes at least one trigger that instantiates your logic app, 
+plus one or more actions that the logic app takes. 
 Here is the high-level structure for a workflow definition:  
   
 ```json
@@ -47,21 +46,21 @@ Here is the high-level structure for a workflow definition:
   
 | Element | Required | Description | 
 |---------|----------|-------------| 
-| definition | Yes | The element that identifies the starting point for your workflow definition | 
-| $schema | Only when externally referencing a definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |   
-| contentVersion | No | The version number for your workflow definition, which is "1.0.0.0" by default. To identify and confirm the correct definition when deploying a workflow, specify a value to use. | 
-| parameters | No | The definitions for one or more parameters that can pass data into your workflow <p>Maximum parameters: 50 | 
-| triggers | No | The definitions for one or more triggers that start your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not the Logic Apps Designer. <p>Maximum triggers: 10 | 
-| actions | No | The definitions for one or more actions that execute in the workflow at runtime <p>Maximum actions: 250 | 
-| outputs | No | The definitions for the outputs that can return from a workflow run <p>Maximum outputs: 10 |  
+| definition | Yes | The starting element for your workflow definition | 
+| $schema | Only when externally referencing a workflow definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |   
+| contentVersion | No | The version number for your workflow definition, which is "1.0.0.0" by default. To help identify and confirm the correct definition when deploying a workflow, specify a value to use. | 
+| parameters | No | The definitions for one or more parameters that pass data into your workflow <p>Maximum parameters: 50 | 
+| triggers | No | The definitions for one or more triggers that instantiate your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not visually through the Logic Apps Designer. <p>Maximum triggers: 10 | 
+| actions | No | The definitions for one or more actions to execute at workflow runtime <p>Maximum actions: 250 | 
+| outputs | No | The definitions for the outputs that return from a workflow run <p>Maximum outputs: 10 |  
 |||| 
 
 ## Parameters
 
 In the `parameters` section, define all the parameters 
-that the workflow uses for accepting inputs at runtime. 
-Before you can use these parameters in other workflow 
-sections, make sure that you declare all the parameters in this section. 
+that accept inputs for the workflow at runtime. 
+Before you can use these parameters in other workflow sections, 
+make sure that you declare all the parameters in this section. 
 
 Here is the general structure for a parameter definition:  
 
@@ -82,20 +81,23 @@ Here is the general structure for a parameter definition:
 
 | Element | Required | Type | Description |  
 |---------|----------|------|-------------|  
-| type | Yes | int, string, securestring, bool, object, secureobject, array <p>**Note**: The `securestring` and `secureobject` types are not returned by `GET` operations. All passwords, keys, and secrets should use this type. | For examples, see the *Examples* section as follows. | 
-| defaultValue | No | The default parameter value to use when no value is specified when the workflow instantiates | 
-| allowedValues | No | An array with values that the parameter can accept |  
-| metadata | No | Any other parameter details, for example, a readable description or design-time data used by Visual Studio or other tools |  
+| type | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p>**Note**: `GET` operations don't return the `securestring` and `secureobject` types. All passwords, keys, and secrets should use this type. | 
+| defaultValue | No | Same as `type` | The default parameter value to use when no value is specified when the workflow instantiates | 
+| allowedValues | No | Same as `type` | An array with values that the parameter can accept |  
+| metadata | No | JSON object | Any other parameter details, for example, a readable description or design-time data used by Visual Studio or other tools |  
 ||||
   
 ## Triggers and actions  
 
-Triggers and actions define the calls that can happen during workflow execution. 
-For details about this section, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
+In a workflow definition, triggers and actions define 
+the calls that happen during workflow execution. 
+For details about this section, see 
+[Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
   
 ## Outputs 
 
-Outputs define the data that a workflow can return when finished running. 
+In the `outputs` section, define the data that 
+your workflow can return when finished running. 
 For example, to track a specific status or value from each run, 
 specify that the workflow output returns that data. 
 
@@ -106,21 +108,23 @@ Here is the general structure for an output definition:
   "<key-name>": {  
     "type": "<key-type>",  
     "value": "<key-value>"  
-  }  
+  }
 } 
 ```
 
 | Element | Required | Type | Description | 
 |---------|----------|------|-------------| 
 | <*key-name*> | Yes | String | The key name for the output return value |  
-| type | Yes | string, securestring, int, bool, array, or object | The type for the output return value | 
+| type | Yes | int, float, string, securestring, bool, array, JSON object | The type for the output return value | 
 | value | Yes | Same as `type` | The output return value |  
 ||||| 
 
 To get the output from a workflow run, 
-review the logic app's run history and details in the Azure portal 
-or use the [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
-You can also pass output to external systems such as PowerBI so that you can create dashboards. 
+review the logic app's run history and 
+details in the Azure portal or use the 
+[Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
+You can also pass output to external systems, for example, 
+PowerBI so that you can create dashboards. 
 
 > [!NOTE]
 > When responding to incoming requests from a service's REST API, 
@@ -141,16 +145,15 @@ With JSON, you can have literal values that exist at design time, for example:
 
 You can also have values that don't exist until run time. 
 To represent these values, you can use *expressions*, 
-which are evaluated at run time. An *expression* is a 
-sequence that can contain one or more [functions](#functions), 
+which are evaluated at run time. An expression is a sequence 
+that can contain one or more [functions](#functions), 
 [operators](#operators), variables, explicit values, 
-or constants. You can use an expression anywhere in 
-a JSON string value by prefixing the expression with 
-an at-sign (@). 
+or constants. You can use an expression anywhere in a JSON 
+string value by prefixing the expression with the at-sign (@). 
 
 For example, for the previously defined `customerName` property, 
-you can retrieve the property value by using the `parameters()` function 
-in an expression and assign that value to the `accountName` property: 
+you can get the property value by using the `parameters()` function 
+in an expression and assign that value to the `accountName` property:
 
 ```json
 "customerName": "Sophia Owen", 
@@ -159,9 +162,9 @@ in an expression and assign that value to the `accountName` property:
 
 When evaluating an expression for a JSON value, 
 the expression body is extracted by removing the at-sign (@), 
-and the result is always another JSON value. 
+always resulting in another JSON value. 
 If you have a literal string that starts with the @ character, 
-prefix that @ character with another @ character as an escape character: @@
+prefix the @ character with another @ character as an escape character: @@
 
 These examples show how expressions are evaluated:
 
@@ -174,11 +177,11 @@ These examples show how expressions are evaluated:
 |||
 
 Through string interpolation, you can also use expressions in 
-strings that are wrapped by the at-sign (@) and curly braces ({}): 
+strings that are wrapped by the @ character and curly braces ({}): 
 
 `@{ "<some-expression>" }`
 
-The result is always a string and makes this capability 
+The result is always a string, making this capability 
 similar to the `concat()` function, for example: 
 
 ```json
@@ -186,7 +189,7 @@ similar to the `concat()` function, for example:
 ```
 
 As another example, suppose you define "myBirthMonth" 
-as "January" and "myAge" as the number 42:  
+equal to "January" and "myAge" equal to the number 42:  
   
 ```json
 "myBirthMonth": "January",
@@ -195,15 +198,15 @@ as "January" and "myAge" as the number 42:
 
 These examples show how the following expressions are evaluated:
 
-| Expression | Result |
-|------------|--------| 
+| JSON expression | Result |
+|-----------------|--------| 
 | "@parameters('myBirthMonth')" | Return this string: "January" |  
 | "@{parameters('myBirthMonth')}" | Return this string: "January" |  
 | "@parameters('myAge')" | Return this number: 42 |  
 | "@{parameters('myAge')}" | Return this number as a string: "42" |  
 | "My age is @{parameters('myAge')}" | Return this string: "My age is 42" |  
 | "@concat('My age is ', string(parameters('myAge')))" | Return this string: "My age is 42" |  
-| "My age is @@{parameters('myAge')}" | Return this string, including the expression: "My age is @{parameters('myAge')}` | 
+| "My age is @@{parameters('myAge')}" | Return this string, which includes the expression: "My age is @{parameters('myAge')}` | 
 ||| 
 
 <a name="operators"></a>
@@ -216,10 +219,10 @@ property or a value in an array.
 
 | Operator | Task | 
 |----------|------|
-| . | To reference a property in an object, use the dot operator. For example, | 
-| [] | To reference a value at a specific position (index) in an array, use square brackets. For example, to get the second item in an array: <p>`myArray[2]` | 
-| ? | To reference null properties in an object without a runtime error, use the question mark operator. For example, to handle null outputs from a trigger, you can use this expression: <p>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` |
-| ' | To use a string literal as input or in expressions and functions, wrap the string only with single quotation marks. Do not use double quotation marks (""), which conflict with the JSON formatting for an entire expression. For example: <p>**Yes**: length('Hello') </br>**No**: length("Hello") <p>When you pass arrays or numbers, you don't need wrapping punctuation. For example: <p>**Yes**: length([1, 2, 3]) </br>**No**: length("[1, 2, 3]") | 
+| ' | To use a string literal as input or in expressions and functions, wrap the string only with single quotation marks, for example, ('<myString>'). Do not use double quotation marks (""), which conflict with the JSON formatting around an entire expression. For example: <p>**Yes**: length('Hello') </br>**No**: length("Hello") <p>When you pass arrays or numbers, you don't need wrapping punctuation. For example: <p>**Yes**: length([1, 2, 3]) </br>**No**: length("[1, 2, 3]") | 
+| [] | To reference a value at a specific position (index) in an array, use square brackets. For example, to get the second item in an array: <p>`myArray[1]` | 
+| . | To reference a property in an object, use the dot operator. For example, to get the `name` property for a `customer` JSON object: <p>`"@parameters('customer').name"` | 
+| ? | To reference null properties in an object without a runtime error, use the question mark operator. For example, to handle null outputs from a trigger, you can use this expression: <p>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` | 
 ||| 
 
 <a name="functions"></a>
@@ -227,33 +230,29 @@ property or a value in an array.
 ## Functions
 
 Some expressions get their values from runtime actions 
-that might not even exist at the start of logic app execution. 
-To retrieve or work with values in expressions, you can use functions. 
+that might not even exist at the start of a logic app run. 
+To reference or work with values in expressions, you can use *functions*. 
 For example, you can use math functions for calculations, such as the 
 [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function, 
 which returns the sum from integers or floats. 
 
 Here are just a couple example tasks that you can perform with functions: 
 
-| Task | Function syntax | Example result | 
+| Task | Function syntax | Result | 
 | ---- | --------------- | -------------- | 
-| Return a string in lowercase format. | toLower('<*text*>') </br>*Example*: toLower('Hello') | "hello" | 
+| Return a string in lowercase format. | toLower('<*text*>') <p>For example: toLower('Hello') | "hello" | 
 | Return a globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
 |||| 
 
-For example, the `parameters()` function helps you get the value from a parameter:
+This example shows how you can use a function in an expression. 
+Here, the `parameters()` function gets the value from `accountName` 
+and assigns the value to `customerName`:
 
 ```json
 "customerName": "@parameters('accountName')"
 ```
 
-To get the value from a parameter, you can use the `parameters()` function as shown:
-
-```json
-"customerName": "@parameters('customerName')" 
-```
-
-Here are a few other general ways that you can use functions in expressions:
+Here are some other general ways that you can use functions in expressions:
 
 | Task | Function syntax in an expression | 
 | ---- | -------------------------------- | 
@@ -272,20 +271,20 @@ so that you get a combined string, "SophiaOwen":
 "customerName": "@concat('Sophia', 'Owen')"
 ```
 
-Or, you can get string values from parameters, 
-for example, `firstName` and `lastName`, 
-by calling the nested `parameters()` function with each parameter. 
-You can then pass the resulting strings to the `concat()` function 
-so that you get a combined string, for example, "SophiaOwen":
+Or, you can get string values from parameters. This example 
+uses the `parameters()` function in each `concat()` parameter 
+and the `firstName` and `lastName` parameters. You then pass 
+the resulting strings to the `concat()` function so that 
+you get a combined string, for example, "SophiaOwen":
 
 ```json
 "customerName": "@concat(parameters('firstName'), parameters('lastName'))"
 ```
 
-Either way, both examples assign the result to the "customerName" property. 
+Either way, both examples assign the result to the `customerName` property. 
 
 For detailed information about each function, see the 
-[alphabetical reference list](../logic-apps/workflow-definition-language-functions-reference.md).
+[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
 Or, continue learning about functions based on their general purpose.
 
 <a name="string-functions"></a>
@@ -339,8 +338,8 @@ and sometimes, dictionaries, you can use these collection functions.
 
 To work with conditions, compare values and expression results, 
 or evaluate various kinds of logic, you can use these comparison functions. 
-For the full reference about each function, 
-see the [alphabetical reference list](../logic-apps/workflow-definition-language-functions-reference.md).
+For the full reference about each function, see the 
+[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
 
 | Comparison function | Task | 
 | ------------------- | ---- | 
@@ -363,8 +362,8 @@ To change a value's type or format, you can use these conversion functions.
 For example, you can change a value from a Boolean to an integer. 
 To learn how Logic Apps handles content types during 
 conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). 
-For the full reference about each function, 
-see the [alphabetical reference list](../logic-apps/workflow-definition-language-functions-reference.md).
+For the full reference about each function, see the 
+[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
 
 | Conversion function | Task | 
 | ------------------- | ---- | 
@@ -403,8 +402,8 @@ see the [alphabetical reference list](../logic-apps/workflow-definition-language
 ### Math functions
 
 To work with integers and floats, you can use these math functions. 
-For the full reference about each function, 
-see the [alphabetical reference list](../logic-apps/workflow-definition-language-functions-reference.md).
+For the full reference about each function, see the 
+[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
 
 | Math function | Task | 
 | ------------- | ---- | 
@@ -424,8 +423,8 @@ see the [alphabetical reference list](../logic-apps/workflow-definition-language
 ### Date and time functions
 
 To work with dates and times, you can use these date and time functions.
-For the full reference about each function, 
-see the [alphabetical reference list](../logic-apps/workflow-definition-language-functions-reference.md).
+For the full reference about each function, see the 
+[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
 
 | Date or time function | Task | 
 | --------------------- | ---- | 
@@ -462,8 +461,8 @@ These workflow functions can help you:
 
 For example, you can reference the outputs from 
 one action and use that data in a later action. 
-For the full reference about each function, 
-see the [alphabetical reference list](../logic-apps/workflow-definition-language-functions-reference.md).
+For the full reference about each function, see the 
+[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
 
 | Workflow function | Task | 
 | ----------------- | ---- | 
@@ -489,8 +488,8 @@ see the [alphabetical reference list](../logic-apps/workflow-definition-language
 To work with uniform resource identifiers (URIs) 
 and get various property values for these URIs, 
 you can use these URI parsing functions. 
-For the full reference about each function, 
-see the [alphabetical reference list](../logic-apps/workflow-definition-language-functions-reference.md).
+For the full reference about each function, see the 
+[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
 
 | URI parsing function | Task | 
 | -------------------- | ---- | 
@@ -508,7 +507,7 @@ see the [alphabetical reference list](../logic-apps/workflow-definition-language
 
 To work with objects and XML nodes, you can use these manipulation functions. 
 For the full reference about each function, see the 
-[alphabetical reference list](../logic-apps/workflow-definition-language-functions-reference.md).
+[alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
 
 | Manipulation function | Task | 
 | --------------------- | ---- | 
