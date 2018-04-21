@@ -3670,9 +3670,7 @@ by passing the specified arguments and returns this array:
 
 `[ <name>Gala</name>, <name>Honeycrisp</name> ]`
 
-```json
-xpath(xml(parameters('items')), '/produce/item/name')
-```
+`xpath(xml(parameters('items')), '/produce/item/name')`
 
 Arguments:
 
@@ -3693,9 +3691,7 @@ Arguments:
 This example computes values from XML content by adding all the 
 `<count></count>` node values, and returns the number 30:
 
-```json
-xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
-```
+`xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
 *Example 2*
 
@@ -3709,15 +3705,11 @@ and return this node:
 
 * Version 1: 
 
-  ```json
-  xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')
-  ```
+  `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
 
 * Version 2: 
 
-  ```json
-  xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')
-  ```
+  `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
 
 Arguments:
 
@@ -3739,9 +3731,7 @@ character (\\) as an escape character for the double quotation mark ("):
 This example finds the value for the `<location></location>` 
 node and returns the string "Paris": 
 
-```json
-xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')
-```
+`xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`
 
 ## Next steps
 
