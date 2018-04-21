@@ -52,7 +52,7 @@ az group create --name eventResourceGroup --location westus2
 
 ## Create a custom topic
 
-An event grid topic provides a user-defined endpoint that you post your event to. Replace `<topic_name>` with a unique name for your topic. The topic name must be unique because a DNS entry represents it.
+An event grid topic provides a user-defined endpoint that you post your event to. Replace `<topic_name>` with a unique name for your topic. The topic name must be unique because it becomes a DNS entry.
 
 ```bash
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup 
