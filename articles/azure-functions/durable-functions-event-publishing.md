@@ -266,7 +266,7 @@ Lifecycle event schema defines these columns.
 * **data** : Durable Functions Specific Parameters.
     * **hubName** : [TaskHub](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-task-hubs) name.
     * **functionName** : Orchestrator function name.
-    * **instanceId** : Durable Functions instance Id.
+    * **instanceId** : Durable Functions instanceId.
     * **reason** : Additional data associated with the tracking event. For more detail, please refer [Diagnostics in Durable Functions (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-diagnostics)
     * **eventType**: "orchestratorEvent"
 * **eventType** : "orchestratorEvent"
