@@ -56,11 +56,10 @@ You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot
 
 
 #### Create an ASA Edge job
-1. From the Azure portal, create a new "Stream Analytics job". [Direct link to create a new ASA job here](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
-
 > [!Note]
-> You can create Edge jobs in all regions supported by ASA, **except in "West US 2" region**.
-> This limitation will be removed shortly.
+> This tutorial focuses on ASA job creation using Azure portal. You can also [use Visual Studio plugin to create an ASA Edge job](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+
+1. From the Azure portal, create a new "Stream Analytics job". [Direct link to create a new ASA job here](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
 2. In the creation screen, select **Edge** as **hosting environment** (see the following picture)
 ![Job creation](media/stream-analytics-edge/ASAEdge_create.png)
@@ -208,6 +207,7 @@ For further assistance, try the [Azure Stream Analytics forum](https://social.ms
 * [More information on Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [ASA on IoT Edge tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Develop Stream Analytics Edge jobs using Visual Studio tools](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
