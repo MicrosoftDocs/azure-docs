@@ -154,9 +154,9 @@ Follow the instructions below to configure the client library:
 4. Add a dependency for our client library stored in the Maven Central Repository:
 
 ```
-	implementation {  
+	dependencies {  
 		...  
-		compile 'com.microsoft.projectoxford:face:1.4.3'  
+		implementation 'com.microsoft.projectoxford:face:1.4.3'  
 	}
 ```
 
