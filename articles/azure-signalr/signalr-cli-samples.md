@@ -26,5 +26,7 @@ The following table includes links to bash scripts for the Azure SignalR Service
 |-|-|
 |**Create**||
 | [Create a new Azure SignalR Service and resource group](scripts/signalr-cli-create-service.md) | Creates a new Azure SignalR Service and resource group.  |
-| [Create a new Azure SignalR Service with an App Service](scripts/signalr-cli-create-with-app-service.md) | Create a new Azure SignalR Service with an App Service. |
+| | |
+|**Integrate**||
+| [Create a new Azure SignalR Service with a Web App configured to use SignalR Service](scripts/signalr-cli-create-with-app-service.md) | Create a new Azure SignalR Service with a Web App configured to use the SignalR Service. |
 | | |

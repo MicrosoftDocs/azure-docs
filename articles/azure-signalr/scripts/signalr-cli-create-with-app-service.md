@@ -20,7 +20,7 @@ ms.custom: mvc
 
 # Create a SignalR Service with an App Service
 
-This Azure SignalR Service sample script creates a new SignalR Service resource, which is used to push real-time content updates to clients. This script also adds a new App Service and App Service plan to host your ASP.NET Core Web App that uses the Azure SignalR Service.
+This sample script creates a new Azure SignalR Service resource, which is used to push real-time content updates to clients. This script also adds a new Web App and App Service plan to host your ASP.NET Core Web App that uses the Azure SignalR Service. The web app is configured with an App Setting named *SignalRConnectionString* to connection to the SignalR service.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,11 +30,9 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Sample script
 
-This script creates a new SignalR Service resource with a new Azure App Service for pushing real-time updates to ASP.NET web app clients.
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-signalr/create-signalr-with-app-service/create-signalr-with-app-service.sh "Create a new Azure SignalR Service and Web App")]
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-signalr/create-signalr-with-app-service/create-signalr-with-app-service.sh "Creates a new Azure SignalR Service with a new Azure App Service")]
-
-Make a note of the actual name generated for the new resource group. You will use that generated resource group name when you want to delete all group resources.
+Make a note of the actual name generated for the new resource group. It will be shown in the output. You will use that resource group name when you want to delete all group resources.
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
