@@ -61,8 +61,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/azure-signalr/">Azure PowerShell</a>
-    - html: <a href="/azure/azure-signalr/">Azure CLI</a>
+    - html: <a href="/azure/azure-signalr/signalr-cli-samples">Azure CLI</a>
 - title: Reference
   items:
   - type: list

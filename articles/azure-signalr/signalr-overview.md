@@ -16,7 +16,7 @@ ms.author: wesmc
 #Customer intent: As a developer, I want to push real-time data in my ASP.NET apps. So that my clients are updated without the need to poll, or request updates.
 ---
 
-# What is Azure SignalR
+# What is Azure SignalR Service
 
 The Azure SignalR Service is an Azure managed service based on [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-2.1). SignalR for ASP.NET Core is an [open source library](https://github.com/aspnet/signalr) that simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the web server to push content updates to connected clients. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates. There are many application types that need real-time content updates. The following application types are good candidates for using the Azure SignalR Service:
 

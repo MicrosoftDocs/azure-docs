@@ -6,15 +6,18 @@
     href: signalr-overview.md
 - name: Quickstarts
   items:
-  - name: ASP.NET
+  - name: ASP.NET Core
     href: signalr-quickstart-dotnet-core.md
 - name: Tutorials
   items:
-  - name: Authentication and Authorization with OAuth
+  - name: Authenticate with OAuth
     href: signalr-authenticate-oauth.md  
   - name: Integration with Azure Functions
     href: signalr-integrate-functions.md
 - name: Samples
+  items:
+  - name: Azure CLI
+    href: signalr-cli-samples.md
 - name: Concepts
 - name: How-to guides
   items:

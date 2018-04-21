@@ -245,13 +245,13 @@ In this section, you will update the *AuthController* class to support OAuth aut
     }
     ```
 
-    After successful authentication, this code update uses the temporary authentication code returned from the GitHub OAuth API to send HTTP POST requests back to GitHub. These HTTP POST requests allow the *AuthController* class to get the following information about the GutHub user account being authenticated:
+    After successful authentication, this code uses the temporary authentication code returned from the GitHub OAuth API to send HTTP POST requests back to GitHub. These HTTP POST requests allow the *AuthController* class to get the following information about the GutHub user account being authenticated:
 
     * username
     * company
     * accessToken
     
-    *AuthController* adds cookies to the client response to allow client-side code to use this information, along with the *serviceURL*, when pushing content updates with Azure SignalR Service.
+    *AuthController* adds cookies to the client response for this information, along with the *serviceURL*. Client-side code will use the cookies when connecting and pushing content updates with Azure SignalR Service.
 
 
 ### Add the OAuth app secrets as constants
@@ -259,16 +259,19 @@ In this section, you will update the *AuthController* class to support OAuth aut
 1. Open *Constants.cs* and add the following members to the *Constants* class:
 
     ```csharp
-    public const string GitHubClientIdKey = "Enter the Client ID for the OAuth app you registered";
-    public const string GitHubClientSecretKey = "Enter the Client Secret for the OAuth app you registered";
+    public const string GitHubClientIdKey = "GitHubClientId";
+    public const string GitHubClientSecretKey = "GitHubClientSecret";
     ```
 
-    Replace the values for these members with the values of the new OAuth app you registered.
+2. In the command shell, add environment variables for the values of both of these constant string:
+
+    set GitHubClientId=<Enter your Client ID here>
+    set GitHubClientSecret=<Enter your Client Secret here>
+
+    Replace the placeholder values, including the brackets (<>), using the Client ID, and Client Secret values of the new OAuth app you registered.
 
 
-
-
-## Update the Hub class
+### Update the Hub class
 
 The hub class needs to be updated to use the user's claim for identification. In the previous tutorial, the `broadcastMessage()` method used the name parameter to let caller claim their own identity. This was not secure. In this section, you will remove that name parameter and read the username from the authenticated user's claim.
 
@@ -308,11 +311,13 @@ The hub class needs to be updated to use the user's claim for identification. In
 
 ## Build and Run the app locally
 
-1. To build the app using the .NET Core CLI, execute the following command in the command shell:
+1. Save changes to all files. 
+
+2. Build the app using the .NET Core CLI, execute the following command in the command shell:
 
         dotnet build
 
-2. Once the build successfully completes, execute the following command to run the web app locally:
+3. Once the build successfully completes, execute the following command to run the web app locally:
 
         dotnet run
 
@@ -324,9 +329,15 @@ The hub class needs to be updated to use the user's claim for identification. In
         Now listening on: http://localhost:5000
         Application started. Press Ctrl+C to shut down.    
 
-3. Launch two browser windows and navigate each browser to `http://localhost:5000`. You will be prompted to enter your name. Enter a client name for both clients and test pushing message content between both clients using the **Send** button.
+4. Launch two browser windows and navigate each browser to `http://localhost:5000`. You will be prompted to enter your name. Enter a client name for both clients and test pushing message content between both clients using the **Send** button.
 
     ![Quickstart Complete local](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
+
+
+
+## Deploy the app to Azure
+
+
 
 
 ## Clean up resources
