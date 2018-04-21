@@ -3622,17 +3622,16 @@ with a JSON object as the following XML:
 }
 ```
 
-```json
+```
 xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )
 ```
 
-``` xml
+```xml
 <person>
   <name>Sophia Owen</name>
   <city>Seattle</city>
 <person>
 ```
-
 
 <a name="xpath"></a>
 
@@ -3675,9 +3674,11 @@ Arguments:
 
 * XML represented by the "items" string: 
 
-  `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+  ```xml
+  "<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"
+  ```
 
-* The XPath expression: 
+* The XPath expression:
 
   `"/produce/item/name"`
 
@@ -3700,12 +3701,14 @@ Both of these examples find nodes that match the `<location></location>` node by
 passing the specified arguments, which include XML with a namespace, 
 and return this node: 
 
-`<location xmlns="https://contoso.com">Paris</location>`
+```xml
+<location xmlns="https://contoso.com">Paris</location>
+```
 
 * Version 1: 
 
   ```json
-  xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
+  xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')
   ```
 
 * Version 2: 
@@ -3719,7 +3722,9 @@ Arguments:
 * XML that includes an XML namespace for a document, 
 for example, where `xmlns="http://contoso.com"`: 
 
-  `<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>`
+  ```xml
+  <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
+  ```
 
 * Either of these XPath expressions, which use the backslash 
 character (\\) as an escape character for the double quotation mark ("):
@@ -3729,11 +3734,11 @@ character (\\) as an escape character for the double quotation mark ("):
 
 *Example 2.1*
 
-This example finds the value for the `<location></location>` node 
-and returns the string `"Paris"`: 
+This example finds the value for the `<location></location>` 
+node and returns the string "Paris": 
 
 ```json
-xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`
+xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')
 ```
 
 ## Next steps
