@@ -269,7 +269,7 @@ Lifecycle event schema defines these columns.
     * **functionName**: Orchestrator function name.
     * **instanceId**: Durable Functions instanceId.
     * **reason**: Additional data associated with the tracking event. For more detail, please refer [Diagnostics in Durable Functions (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-diagnostics)
-    * **eventType**: "orchestratorEvent"
+    * **eventType**: Orchestration Runtime Status. 0: Running, 1: Completed, 2: ContinuedAsNew, 3: Failed, 4: Canceled, 5: Terminated, 6: Pending. 
 * **eventType**: "orchestratorEvent"
 * **eventTime**: Event time (UTC).
 * **dataVersion**: Version of the Lifecycle event schema.
