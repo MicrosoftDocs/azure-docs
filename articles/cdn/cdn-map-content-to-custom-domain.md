@@ -25,9 +25,9 @@ After you create a CDN endpoint in your profile, the endpoint name, which is a s
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> - Create a CNAME DNS record
-> - Associate the custom domain with your CDN endpoint
-> - Verify the custom domain
+> - Create a CNAME DNS record.
+> - Associate the custom domain with your CDN endpoint.
+> - Verify the custom domain.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -208,16 +208,16 @@ In the preceding steps, you added a custom domain to a CDN endpoint. If you no l
 
 ## Next steps
 
-What you learned:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> - Created a CNAME DNS record
-> - Associated the custom domain with your CDN endpoint
-> - Verified the custom domain
+> - Create a CNAME DNS record.
+> - Associate the custom domain with your CDN endpoint.
+> - Verify the custom domain.
 
 Advance to the next tutorial to learn how to configure HTTPS on an Azure CDN custom domain.
 
 > [!div class="nextstepaction"]
-> [Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md)
+> [Tutorial: Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md)
 
 
