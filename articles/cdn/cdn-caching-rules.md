@@ -24,7 +24,9 @@ ms.author: v-deasim
 Azure Content Delivery Network (CDN) offers two ways to control how your files are cached: 
 
 - Caching rules: This article describes how you can use content delivery network (CDN) caching rules to set or modify default cache expiration behavior both globally and with custom conditions, such as a URL path and file extension. Azure CDN provides two types of caching rules:
+
    - Global caching rules: You can set one global caching rule for each endpoint in your profile, which affects all requests to the endpoint. The global caching rule overrides any HTTP cache-directive headers, if set.
+
    - Custom caching rules: You can set one or more custom caching rules for each endpoint in your profile. Custom caching rules match specific paths and file extensions, are processed in order, and override the global caching rule, if set. 
 
 - Query string caching: You can adjust how the Azure CDN treats caching for requests with query strings. For information, see [Control Azure CDN caching behavior with query strings](cdn-query-string.md). If the file is not cacheable, the query string caching setting has no effect, based on caching rules and CDN default behaviors.
@@ -40,7 +42,7 @@ For information about default caching behavior and caching directive headers, se
 
    ![CDN Caching rules button](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-   The caching rules page appears.
+   The **Caching rules** page appears.
 
    ![CDN Caching rules page](./media/cdn-caching-rules/cdn-caching-rules-page.png)
 
@@ -49,7 +51,9 @@ For information about default caching behavior and caching directive headers, se
 For global and custom caching rules, you can specify the following **Caching behavior** settings:
 
 - **Bypass cache**: Do not cache and ignore origin-provided cache-directive headers.
+
 - **Override**: Ignore origin-provided cache-directive headers; use the provided cache duration instead.
+
 - **Set if missing**: Honor origin-provided cache-directive headers, if they exist; otherwise, use the provided cache duration.
 
 ![Global caching rules](./media/cdn-caching-rules/cdn-global-caching-rules.png)
@@ -60,6 +64,7 @@ For global and custom caching rules, you can specify the following **Caching beh
 For global and custom caching rules, you can specify the cache expiration duration in days, hours, minutes, and seconds:
 
 - For the **Override** and **Set if missing** **Caching behavior** settings, valid cache durations range between 0 seconds and 366 days. For a value of 0 seconds, the CDN caches the content, but must revalidate each request with the origin server.
+
 - For the **Bypass cache** setting, the cache duration is automatically set to 0 seconds and cannot be changed.
 
 ## Custom caching rules match conditions
