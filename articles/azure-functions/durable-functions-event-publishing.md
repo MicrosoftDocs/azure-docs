@@ -20,11 +20,11 @@ ms.author: tdykstra
 
 This feature allows publishing orchestration lifecycle events (created, completed, failed, etc.) to a custom [Azure Event Grid Topic](https://docs.microsoft.com/en-us/azure/event-grid/overview). This feature is useful for these contexts.
 
-* **DevOps scenario like blue/green deployments** : You might want to know if there is running tasks to achieve Side-by-side deployment scenario describe in [Migration strategies](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#mitigation-strategies). For more detail, Please refer [Versioning in Durable Functions](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#mitigation-strategies)
+* **DevOps scenario like blue/green deployments**: You might want to know if there is running tasks to achieve Side-by-side deployment scenario describe in [Migration strategies](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#mitigation-strategies). For more detail, Please refer [Versioning in Durable Functions](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#mitigation-strategies)
 
-* **Advanced monitoring and diagnostics support** : You can keep track of orchestration status information in an external store (e.g., SQL, CosmosDB), optimized for queries.
+* **Advanced monitoring and diagnostics support**: You can keep track of orchestration status information in an external store (e.g., SQL, CosmosDB), optimized for queries.
 
-* **Long running background activity** : If you use Durable Functions as a long-running background activity, this feature helps you to know the current status.
+* **Long running background activity**: If you use Durable Functions as a long-running background activity, this feature helps you to know the current status.
 
 # Prerequisites
 
@@ -102,7 +102,7 @@ Once configure the `host.json` Your Durable Functions starts to send lifecycle e
 }
 ```
 
-Plase make sure that [Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) is working. I recommend to clean up using `AzureStorageEmulator.exe clear all` command before executing.
+Please make sure that [Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) is working. I recommend cleaning up using `AzureStorageEmulator.exe clear all` command before executing.
 
 
 # Create Azure functions which listen to the custom events
@@ -135,7 +135,7 @@ Choose Event Grid Trigger and click `C#`.
 
 ![Select the Event Grid Trigger.](media/durable-functions-event-publishing/eventgrid-trigger.png)
 
-Enter the name of the Function. Then press create.
+Enter the name of the Function. Then press `Create`.
 
 ![Create the Event Grid Trigger.](media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
 
@@ -261,19 +261,19 @@ If you call the `Sample_HttpStart` with Postman or your browser, Durable Functio
 
 Lifecycle event schema defines these columns.
 
-* **id** : Unique idendifier for the Event Grid event.
-* **subject** : Path to the event subject. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` will be `Running`, `Completed`, `Failed`, and `Terminated`.  
-* **data** : Durable Functions Specific Parameters.
-    * **hubName** : [TaskHub](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-task-hubs) name.
-    * **functionName** : Orchestrator function name.
-    * **instanceId** : Durable Functions instanceId.
-    * **reason** : Additional data associated with the tracking event. For more detail, please refer [Diagnostics in Durable Functions (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-diagnostics)
+* **id**: Unique identifier for the Event Grid event.
+* **subject**: Path to the event subject. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` will be `Running`, `Completed`, `Failed`, and `Terminated`.  
+* **data**: Durable Functions Specific Parameters.
+    * **hubName**: [TaskHub](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-task-hubs) name.
+    * **functionName**: Orchestrator function name.
+    * **instanceId**: Durable Functions instanceId.
+    * **reason**: Additional data associated with the tracking event. For more detail, please refer [Diagnostics in Durable Functions (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-diagnostics)
     * **eventType**: "orchestratorEvent"
-* **eventType** : "orchestratorEvent"
-* **eventTime** : Event time (UTC).
-* **dataVersion** : Version of the Lifecycle event schema.
-* **metadataVersion** :  Version of the metadata.
-* **topic** : EventGrid Topic resource.
+* **eventType**: "orchestratorEvent"
+* **eventTime**: Event time (UTC).
+* **dataVersion**: Version of the Lifecycle event schema.
+* **metadataVersion**:  Version of the metadata.
+* **topic**: EventGrid Topic resource.
 
 # How to test locally
 
