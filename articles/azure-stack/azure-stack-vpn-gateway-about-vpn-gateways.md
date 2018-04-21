@@ -84,13 +84,14 @@ When selecting a SKU, consider the following:
 ## Estimated aggregate throughput by SKU
 The following table shows the gateway types and the estimated aggregate throughput by gateway SKU.
 
-|	| VPN Gateway throughput *(1)* |VPN Gateway max IPsec tunnels |
+|	| VPN Gateway throughput *(1)* | VPN Gateway max IPsec tunnels *(2)* |
 |-------|-------|-------|
-|**Basic SKU** ***(2)*** 	| 100 Mbps	| 10	|
+|**Basic SKU** ***(3)*** 	| 100 Mbps	| 10	|
 |**Standard SKU** 		| 100 Mbps 	| 10	|
-|**High Performance SKU** | 200 Mbps	| 30	|
+|**High Performance SKU** | 200 Mbps	| 5	|
 ***(1)*** The VPN throughput is not a guaranteed throughput for cross-premises connections across the Internet. It is the maximum possible throughput measurement.  
-***(2)*** BGP is not supported for the Basic SKU.
+***(2)*** Max tunnels number is the total per Azure Stack deployment for ALL subscriptions.
+***(3)*** BGP is not supported for the Basic SKU.
 
 ## Next steps
 Learn about [settings for VPN gateways](azure-stack-vpn-gateway-settings.md) for Azure Stack.

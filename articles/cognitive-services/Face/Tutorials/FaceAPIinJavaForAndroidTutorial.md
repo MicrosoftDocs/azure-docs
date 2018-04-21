@@ -5,9 +5,8 @@ description: Create a simple Android app that uses the Cognitive Services Face A
 services: cognitive-services
 author: SteveMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: face
+ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles
