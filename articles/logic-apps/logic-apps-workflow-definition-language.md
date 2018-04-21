@@ -148,7 +148,8 @@ To represent these values, you can use *expressions*,
 which are evaluated at run time. An expression is a sequence 
 that can contain one or more [functions](#functions), 
 [operators](#operators), variables, explicit values, 
-or constants. You can use an expression anywhere in a JSON 
+or constants. In your workflow definition, 
+you can use an expression anywhere in a JSON 
 string value by prefixing the expression with the at-sign (@). 
 
 For example, for the previously defined `customerName` property, 
@@ -211,6 +212,33 @@ These examples show how the following expressions are evaluated:
 | "@concat('My age is ', string(parameters('myAge')))" | Return this string: "My age is 42" |  
 | "My age is @@{parameters('myAge')}" | Return this string, which includes the expression: "My age is @{parameters('myAge')}` | 
 ||| 
+
+When you're working visually in the Logic Apps Designer, 
+you can create expressions through the Expression builder, 
+for example: 
+
+![Logic Apps Designer > Expression builder](./media/logic-apps-workflow-definition-language/expression-builder.png)
+
+In this example, the previous expression appears in the 
+workflow definition for the `searchquery` property:
+
+```json
+"Search_tweets": {
+  "inputs": {
+    "host": {
+      "connection": {
+       "name": "@parameters('$connections')['twitter']['connectionId']"
+      }
+    }
+  },
+  "method": "get",
+  "path": "/searchtweets",
+  "queries": {
+    "maxResults": 20,
+    "searchQuery": "Azure @{concat('firstName','', 'LastName')}"
+  }
+},
+```
 
 <a name="operators"></a>
 
