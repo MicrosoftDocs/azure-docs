@@ -15,7 +15,7 @@ ms.author: sbowles
 
 # Getting Started with Face API in Java for Android Tutorial
 
-In this tutorial, you will learn to create and develop a simple Android application that invokes the Face API to detect human faces in an image. The application shows the result by framing the faces that it detects.     
+In this tutorial, you will learn to create and develop a simple Android application that invokes the Face API to detect human faces in an image. The application shows the result by framing the faces that it detects.
 
 ![GettingStartedAndroid](../Images/android_getstarted2.1.PNG)
 
@@ -24,7 +24,7 @@ In this tutorial, you will learn to create and develop a simple Android applicat
 To use the tutorial, you will need the following prerequisites:
 
 - Android Studio and SDK installed
-- Android device (optional for testing) 
+- Android device (optional for testing).
 
 ## <a name="step1"></a>Step 1: Subscribe for Face API and get your subscription key
 
@@ -50,7 +50,7 @@ In this step you will create an Android application project to implement the bas
     ![GettingStartAndroidNewProject4](../Images/AndroidNewProject4.png)
 
 7. Open **activity_main.xml**, you should see the Layout Editor of this activity.
-8. View Text source file and then edit the activity layout as follows:			 
+8. View Text source file and then edit the activity layout as follows:
 
     ```xml
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -75,7 +75,7 @@ In this step you will create an Android application project to implement the bas
     </RelativeLayout>
     ```  
 
-9. Open **MainActivity.java** and insert the following import directives at the beginning of the file:			 
+9. Open **MainActivity.java** and insert the following import directives at the beginning of the file:
 
 	```java
 	import java.io.*; 
@@ -138,7 +138,7 @@ The Face API is a cloud API which you can invoke using HTTPS requests. For a mor
 
 Follow the instructions below to configure the client library: 
 
-1. Locate the top-level **build.gradle** file of your project from the Project panel shown in the example. Note that there are several other **build.gradle** files in your project tree, and you need to open the top-level **build.gradle** file at first. 		 
+1. Locate the top-level **build.gradle** file of your project from the Project panel shown in the example. Note that there are several other **build.gradle** files in your project tree, and you need to open the top-level **build.gradle** file at first.
 2. Add **mavenCentral()** to your projects' repositories. You can also use jcenter(), which is the default repository of Android Studio, since jcenter() is a superset of mavenCentral().  
 
 ```
@@ -154,9 +154,9 @@ Follow the instructions below to configure the client library:
 4. Add a dependency for our client library stored in the Maven Central Repository:
 
 ```
-	dependencies {  
+	implementation {  
 		...  
-		compile 'com.microsoft.projectoxford:face:1.4.2'  
+		compile 'com.microsoft.projectoxford:face:1.4.3'  
 	}
 ```
 
@@ -175,7 +175,7 @@ Follow the instructions below to configure the client library:
 
    Replace the first parameter above with the API endpoint that was assigned to your key in step 1. For example:
    
-            https://eastus2.api.cognitive.microsoft.com/face/v1.0
+        https://eastus2.api.cognitive.microsoft.com/face/v1.0
    
    Replace the second parameter with the subscription key that you obtained in step 1.
    
@@ -243,7 +243,6 @@ The most straightforward way to detect faces is by calling the [Face – Detect]
             };
         detectTask.execute(inputStream);
     }
-
 ```
 
 ## <a name="step5"></a>Step 5: Mark faces in the image
@@ -275,7 +274,7 @@ In this last step, we combine all the above steps together and mark the detected
     }
 ```
 
-Now finish the TODO parts in the detectAndFrame method in order to frame faces and report status.   
+Now finish the TODO parts in the **detectAndFrame** method in order to frame faces and report status.
 
 ```java
     @Override
@@ -309,7 +308,7 @@ Finally, add a call to the **detectAndFrame** method from the **onActivityResult
                 ImageView imageView = (ImageView) findViewById(R.id.imageView1);
                 imageView.setImageBitmap(bitmap);
      
-     		// uncomment the following:
+                // This is the new addition.
                 // detectAndFrame(bitmap);
      
             } catch (IOException e) {
