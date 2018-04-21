@@ -89,7 +89,7 @@ Add `EventGridTopicEndpoint` and `EventGridKeySettingName` on it.
 * **EventGridTopicEndpoint** - The endpoint of the Event Grid Topic
 * **EventGridKeySettingName** - The key name of the Application settings on your Azure Function. Durable Functions will get the Event Grid Topic key from the value.
 
-Once configure the `host.json`, Your Durable Functions starts to send lifecycle events to the event grid topic. Both on Function App and Local debugging. Then you need to set the Event Grid Key to the App Settings for a Function App or `local.setting.json` to bind the `EventGridKeySettingName`. This json is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` to the Key.  
+Once configure the `host.json`, Your Durable Functions starts to send lifecycle events to the event grid topic. Both on Function App and Local debugging. Then you need to set the Event Grid Key to the App Settings for a Function App or `local.setting.json` to bind the `EventGridKeySettingName`. The following json is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` to the Key.  
 
 ```json
 {
