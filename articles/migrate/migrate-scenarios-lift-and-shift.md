@@ -16,6 +16,9 @@ The Contoso company are considering migration to Azure. To try this out, they wa
 
 In [Scenario 1: Assess migration to Azure](migrate-scenarios-assessment.md), they used the Data Migration Assistant (DMA) to assess the SQL Server database for the app. In addition, they used the Azure Migrate service to assess the app VMs. Now, in this scenario, after successfully completing the assessment, they want to migrate the database to an Azure SQL Managed instance using the Azure Database Migration Service (DMS), and on-premises machines to Azure VMs using the Azure Site Recovery service.
 
+If you'd like to try out [Scenario 1](migrate-scenarios-assessment.md), and then this scenario using this illustrative travel app, you can download it from [github](https://github.com/Microsoft/SmartHotel360).
+
+
 
 **Service** | **Description** | **Cost**
 --- | --- | ---
@@ -41,6 +44,7 @@ In this scenario, we'll set up a site-to-site VPN so that DMS can connect to the
 
 In this scenario:
 
+- - Contoso is a fictious name representing a typical enterprise organization. Contoso wants to assess and migrate their two-tier on-premises travel app.
 - Contoso has an on-premises datacenter (contoso-datacenter), with an on-premises domain controller (**contosodc1**).
 - The internal travel app is tiered across two VMs, WEBVM and SQLVM, and located on VMware ESXi host (**contosohost1.contoso.com**).
 - The VMware environment is managed by vCenter Server (**vcenter.contoso.com**) running on a VM.
