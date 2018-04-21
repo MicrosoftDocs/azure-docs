@@ -3601,18 +3601,12 @@ xml('<value>')
 
 *Example 1*
 
-This example returns the specified string 
-with a JSON object as the following XML: 
+This example returns the specified string, 
+which contains a JSON object, as XML: 
 
-```json
-{ 
-  "name": "Sophia Owen" 
-}
-```
+`xml( '{ \"name\": \"Sophia Owen\" }' )`
 
-```json
-xml( '{ \"name\": \"Sophia Owen\" }' )
-```
+Result: 
 
 ```xml
 <name>Sophia Owen</name>
@@ -3620,8 +3614,8 @@ xml( '{ \"name\": \"Sophia Owen\" }' )
 
 *Example 2*
 
-This example converts the specified string 
-with a JSON object as the following XML:
+This example converts the specified string, 
+which contains a JSON object, as XML:
 
 ```json
 { 
@@ -3632,9 +3626,9 @@ with a JSON object as the following XML:
 }
 ```
 
-```
-xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )
-```
+`xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )`
+
+Result:
 
 ```xml
 <person>
@@ -3674,7 +3668,7 @@ xpath('<xml>', '<xpath>')
 This example finds nodes that match the `<name></name>` node 
 by passing the specified arguments and returns this array: 
 
-`[<name>Gala</name>, <name>Honeycrisp</name>]`
+`[ <name>Gala</name>, <name>Honeycrisp</name> ]`
 
 ```json
 xpath(xml(parameters('items')), '/produce/item/name')
@@ -3684,9 +3678,7 @@ Arguments:
 
 * XML represented by the "items" string: 
 
-  ```xml
-  "<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"
-  ```
+  `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
 
 * The XPath expression:
 
