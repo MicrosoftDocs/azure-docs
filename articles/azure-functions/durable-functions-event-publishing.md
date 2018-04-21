@@ -2,8 +2,8 @@
 title: Automatic Azure Event Grid publishing - Azure
 description: Learn how to configure the automatic Azure Event Grid publish for the Durable Functions.
 services: functions
-author: cgillum
-manager: cfowler
+author: tdykstra
+manager: tdykstra
 editor: ''
 tags: ''
 keywords:
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/20/2018
-ms.author: azfuncdf
+ms.author: tdykstra
 ---
 
 # Automatic Azure Event Grid publishing
 
-This feature allows publishing orchestration lifecycle events (created, completed, failed, etc) to a custom [Azure Event Grid topic](https://docs.microsoft.com/en-us/azure/event-grid/overview). This feature is useful for these contexts.
+This feature allows publishing orchestration lifecycle events (created, completed, failed, etc.) to a custom [Azure Event Grid topic](https://docs.microsoft.com/en-us/azure/event-grid/overview). This feature is useful for these contexts.
 
-* **DevOps scenario like blue/green deployments** : You might want to know if there is runnning tasks to achieve Side-by-side dpeloyments scenario describe in [Migration strategies](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#mitigation-strategies). For more detail, Please refer [Versioning in Durable Functions](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#mitigation-strategies)
+* **DevOps scenario like blue/green deployments** : You might want to know if there is running tasks to achieve Side-by-side deployment scenario describe in [Migration strategies](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#mitigation-strategies). For more detail, Please refer [Versioning in Durable Functions](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#mitigation-strategies)
 
-* **Advanced monitoring and dignostics support** : You can keep track of orchestration status information in an external store (e.g. SQL, CosmosDB), optimized for quieries.
+* **Advanced monitoring and diagnostics support** : You can keep track of orchestration status information in an external store (e.g., SQL, CosmosDB), optimized for queries.
 
-* **Long runnning background activity** : If you use Durable Functions as a long-running backgraound activity, this feature helps you to know the current status.
+* **Long running background activity** : If you use Durable Functions as a long-running background activity, this feature helps you to know the current status.
 
 # Prerequisites
 
@@ -36,7 +36,7 @@ This feature allows publishing orchestration lifecycle events (created, complete
 
 # Create a custom Event Grid topic
 
-Create an Event Grid Topic for sending events from Durable Functions. In this section, we use Azure CLI, however, you can use PowerShell and Azure portal as well. For more detail, Please refer 
+Create an Event Grid Topic for sending events from Durable Functions. In this section, we use Azure CLI. However, you can use PowerShell and Azure portal as well. For more detail, Please refer 
 
 * [EventGrid Quickstarts: Create custom event - Azure CLI](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart)
 * [EvnetGrid Quickstarts: Create custom event - PowerShell](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-powershell)
@@ -52,7 +52,7 @@ az group create --name eventResourceGroup --location westus2
 
 ## Create a custom topic
 
-An event grid topic provides a user-definied endopoint that you post your event to. Replace `<topic_name>` with a unique name for your topic. The topic name must be unique because it is represented by a DNS entry.
+An event grid topic provides a user-defined endpoint that you post your event to. Replace `<topic_name>` with a unique name for your topic. The topic name must be unique because a DNS entry represents it.
 
 ```bash
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup 
@@ -72,9 +72,9 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 
 Now you can send events to the topic.
 
-# Configure Azure Envent Grid publishing
+# Configure Azure Event Grid publishing
 
-On your Durable Functions project, please find `host.json` to start publish your lifecycle event. 
+On your Durable Functions project, please find `host.json` to start publishing your lifecycle event. 
 Add `EventGridTopicEndpoint` and `EventGridKeySettingName` on it.
 
 ```json
@@ -89,7 +89,7 @@ Add `EventGridTopicEndpoint` and `EventGridKeySettingName` on it.
 * **EventGridTopicEndpoint** - The endpoint of the Event Grid topic
 * **EventGridKeySettingName** - The key name of the Application settings on your Azure Function. Durable Functions will get the Event Grid Topic key from the value.
 
-Once configure the `host.json` your Durable Functions starts to send lifecycle events to the Event Grid topic. Both on Function App and Local debugging. Then you need to set the Event Grid Key to the App Settings for a Function App or `local.setting.json` to bind the `EventGridKeySettingName`. This is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` to the Key.  
+Once configure the `host.json` Your Durable Functions starts to send lifecycle events to the Event Grid topic. Both on Function App and Local debugging. Then you need to set the Event Grid Key to the App Settings for a Function App or `local.setting.json` to bind the `EventGridKeySettingName`. This is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` to the Key.  
 
 ```json
 {
@@ -105,7 +105,7 @@ Once configure the `host.json` your Durable Functions starts to send lifecycle e
 Plase make sure that [Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) is working. I recommend to clean up using `AzureStorageEmulator.exe clear all` command before executing.
 
 
-# Create an Azure functions which listen to the custom events
+# Create Azure functions which listen to the custom events
 
 ## Create Azure Functions on your portal to receive the events
 
@@ -121,17 +121,17 @@ Click Function App
 
 ![Select a Function App.](media/durable-functions-event-publishing/functionapp.png)
 
-Enter the parameters. I recommend to use the same Location as the Event Grid Topic. Then Press `Create`.
+Enter the parameters. I recommend using the same Location as the Event Grid Topic. Then Press `Create`.
 
 ![Select a Function App.](media/durable-functions-event-publishing/functionapp-config.png)
 
 ### Create an Event Grid Trigger function
 
-Create a Azure Function for receive the lifecycle event. Click `Custom Function` 
+Create an Azure Function to receive the lifecycle event. Click `Custom Function` 
 
 ![Select a Create a custom function.](media/durable-functions-event-publishing/functions-portal.png)
 
-Choose Event Grid Trigger and press `C#`
+Choose Event Grid Trigger and click `C#`.
 
 ![Select the Event Grid Trigger.](media/durable-functions-event-publishing/eventgrid-trigger.png)
 
@@ -155,16 +155,16 @@ Click the `Add Event Grid Subscription`. This operation will add Event Grid subs
 
 ![Click the Event Grid Trigger link.](media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-Create a Event Grid subscription.  Select `Event Grid Topics` for Topic Type. Select a resource group which you created for the event grid topic. Then select instance of the Event Grid topic. Press create.
+Create an Event Grid subscription.  Select `Event Grid Topics` for Topic Type. Select a resource group which you created for the event grid topic. Then select the instance of the Event Grid topic. Press create.
 
 ![Create an Event Grid subscription.](media/durable-functions-event-publishing/eventsubscription.png)
 
 
-Now ready to try receive the lifecycle event. 
+Now ready to try to receive the lifecycle event. 
 
 ## Create Durable Functions to send the events.
 
-On your project, You can start the debugging on your local machine.  This code is just the template code of the Durable Functions. You already configure `host.json` and `local.settings.json` on your local machine. 
+On your project, You can start the debugging on your local machine.  This code is the template code for the Durable Functions. You already configure `host.json` and `local.settings.json` on your local machine. 
 
 ```csharp
 using System.Collections.Generic;
@@ -215,7 +215,7 @@ namespace LifeCycleEventSpike
 }
 ```
 
-If you call the `Sample_HttpStart` with Postman or your browser, Durable Function start to send lifecycle events. The endpoint is usually `http://localhost:7071/api/Sample_HttpStart` for local debugging.
+If you call the `Sample_HttpStart` with Postman or your browser, Durable Function starts to send lifecycle events. The endpoint is usually `http://localhost:7071/api/Sample_HttpStart` for local debugging.
 
 ```
 2018-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
@@ -259,7 +259,7 @@ If you call the `Sample_HttpStart` with Postman or your browser, Durable Functio
 
 ## Event Schema
 
-Lifecycle event schema defines these columns
+Lifecycle event schema defines these columns.
 
 * **id** : Unique idendifier for the Event Grid event.
 * **subject** : Path to the event subject. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` will be `Running`, `Completed`, `Failed`, and `Terminated`.  
