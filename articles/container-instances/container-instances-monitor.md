@@ -53,7 +53,7 @@ Memory metrics are expressed in **bytes**.
 ![Container instance memory chart][memory-chart]
 
 ```console
-CONTAINER = $(az container show --resource-group myacicontainer --name myacicontainer-mya1 --query id -o tsv)
+CONTAINER=$(az container show --resource-group myacicontainer --name myacicontainer-mya1 --query id -o tsv)
 ```
 
 Get CPU metrics for the container.
