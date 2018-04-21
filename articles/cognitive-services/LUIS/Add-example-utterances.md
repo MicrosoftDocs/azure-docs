@@ -171,7 +171,7 @@ If you add the prebuilt entities to your LUIS app, you don't need to label utter
 If you add the regular expression entities to your LUIS app, you don't need to label utterances with these entities. To learn more about regular expression entities and how to add them, see [Add entities](Add-entities.md#add-regular-expression-entities).
 
 ## Add pattern.any entity label
-If you add the pattern.any entities to your LUIS app, you don't need to label utterances with these entities. To learn more about pattern.any entities and how to add them, see [Add entities](Add-entities.md#add-patternany-entity-label).
+If you add the pattern.any entities to your LUIS app, you don't need to label utterances with these entities. To learn more about pattern.any entities and how to add them, see [Add entities](Add-entities.md#add-patternany-entities).
 
 ## Search in utterances
 You can search for utterances that contain text (words or phrases). For example, you might notice an error that involves a particular word, and you want to find all examples that include that particular word. 
