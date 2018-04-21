@@ -167,7 +167,7 @@ To make sure your deployment is compatible with settings in this article, make s
 
 **Name** | **Description** | **Details**
 --- | --- | --- | --- | ---
-Azure Site Recovery provider | Coordinates communications between on-premises servers and Azure <br/><br/> Hyper-V with Virtual Machine Manager: Installed on Virtual Machine Manager servers<br/><br/> Hyper-V without Virtual Machine Manager: Installed on Hyper-V hosts| Latest version: 5.1.2700.1 (available from the Azure portal)<br/><br/> [Latest features and fixes](https://support.microsoft.com/en-us/help/4091311/update-rollup-23-for-azure-site-recovery)
+Azure Site Recovery provider | Coordinates communications between on-premises servers and Azure <br/><br/> Hyper-V with Virtual Machine Manager: Installed on Virtual Machine Manager servers<br/><br/> Hyper-V without Virtual Machine Manager: Installed on Hyper-V hosts| Latest version: 5.1.2700.1 (available from the Azure portal)<br/><br/> [Latest features and fixes](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure Recovery Services agent | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without Virtual Machine Manager) | Latest agent available from the portal
 
 
