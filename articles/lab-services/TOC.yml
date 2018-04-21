@@ -54,7 +54,7 @@
     - name: Manage classroom labs
       href: how-to-manage-classroom-labs.md
     - name: Use classroom labs
-      href: how-to-use-classroom-labs.md
+      href: how-to-use-classroom-lab.md
   - name: Custom labs
     items:
     - name: Create a custom lab
