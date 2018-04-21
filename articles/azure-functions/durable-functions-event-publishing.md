@@ -155,7 +155,7 @@ Click the `Add Event Grid Subscription`. This operation will add Event Grid subs
 
 ![Click the Event Grid Trigger link.](media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-Create an Event Grid subscription.  Select `Event Grid Topics` for Topic Type. Select a resource group, which you created for the event grid topic. Then select the instance of the event grid topic. Press create.
+Create an Event Grid subscription.  Select `Event Grid Topics` for Topic Type. Select a resource group, which you created for the event grid topic. Then select the instance of the event grid topic. Press `Create`.
 
 ![Create an Event Grid subscription.](media/durable-functions-event-publishing/eventsubscription.png)
 
