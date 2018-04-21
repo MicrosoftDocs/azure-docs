@@ -22,7 +22,7 @@ This feature allows publishing orchestration lifecycle events (created, complete
 
 * **DevOps scenario like blue/green deployments**: You might want to know if there is running tasks to achieve Side-by-side deployment scenario describe in [Migration strategies](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#mitigation-strategies). For more detail, Please refer [Versioning in Durable Functions](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#mitigation-strategies)
 
-* **Advanced monitoring and diagnostics support**: You can keep track of orchestration status information in an external store (e.g., SQL, CosmosDB), optimized for queries.
+* **Advanced monitoring and diagnostics support**: You can keep track of orchestration status information in an external store (for example, SQL, CosmosDB), optimized for queries.
 
 * **Long running background activity**: If you use Durable Functions as a long-running background activity, this feature helps you to know the current status.
 
@@ -36,7 +36,7 @@ This feature allows publishing orchestration lifecycle events (created, complete
 
 # Create a custom event grid topic
 
-Create an event grid topic for sending events from Durable Functions. In this section, we use Azure CLI. However, you can use PowerShell and Azure portal as well. For more detail, Please refer 
+Create an event grid topic for sending events from Durable Functions. In this section, you can use Azure CLI. However, you can use PowerShell and Azure portal as well. For more detail, Please refer 
 
 * [EventGrid Quickstarts: Create custom event - Azure CLI](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart)
 * [EvnetGrid Quickstarts: Create custom event - PowerShell](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-powershell)
@@ -44,7 +44,7 @@ Create an event grid topic for sending events from Durable Functions. In this se
 
 ## Create a resource group
 
-Create a resource group with the `az group create` command. Currently, Event Grid doesn't support all regions. Please check the availability in [here](https://docs.microsoft.com/en-us/azure/event-grid/overview). 
+Create a resource group with the `az group create` command. Currently, Event Grid doesn't support all regions. Check the availability in [here](https://docs.microsoft.com/en-us/azure/event-grid/overview). 
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -58,13 +58,13 @@ An event grid topic provides a user-defined endpoint that you post your event to
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup 
 ```
 
-You can get the endpoint of the event grid topic. Please replace `<topic_name>` with the name you chose.
+You can get the endpoint of the event grid topic. Replace `<topic_name>` with the name you chose.
 
 ```bash
 az eventgrid topic show --name <topic_name> -g eventResourceGroup --query "endpoint" --output tsv
 ```
 
-Get the event grid topic key. Please replace `<topic_name>` with the name you chose.
+Get the event grid topic key. Replace `<topic_name>` with the name you chose.
 
 ```bash
 az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "key1" --output tsv
@@ -74,7 +74,7 @@ Now you can send events to the topic.
 
 # Configure Azure Event Grid publishing
 
-On your Durable Functions project, please find `host.json` to start publishing your lifecycle event. 
+On your Durable Functions project, find `host.json` to start publishing your lifecycle event. 
 Add `EventGridTopicEndpoint` and `EventGridKeySettingName` on it.
 
 ```json
@@ -89,7 +89,7 @@ Add `EventGridTopicEndpoint` and `EventGridKeySettingName` on it.
 * **EventGridTopicEndpoint** - The endpoint of the Event Grid Topic
 * **EventGridKeySettingName** - The key name of the Application settings on your Azure Function. Durable Functions will get the Event Grid Topic key from the value.
 
-Once configure the `host.json` Your Durable Functions starts to send lifecycle events to the event grid topic. Both on Function App and Local debugging. Then you need to set the Event Grid Key to the App Settings for a Function App or `local.setting.json` to bind the `EventGridKeySettingName`. This is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` to the Key.  
+Once configure the `host.json`, Your Durable Functions starts to send lifecycle events to the event grid topic. Both on Function App and Local debugging. Then you need to set the Event Grid Key to the App Settings for a Function App or `local.setting.json` to bind the `EventGridKeySettingName`. This json is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` to the Key.  
 
 ```json
 {
@@ -105,11 +105,11 @@ Once configure the `host.json` Your Durable Functions starts to send lifecycle e
 Please make sure that [Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) is working. I recommend cleaning up using `AzureStorageEmulator.exe clear all` command before executing.
 
 
-# Create Azure functions which listen to the custom events
+# Create Azure functions, which listen to the custom events
 
 ## Create Azure Functions on your portal to receive the events
 
-Create an Azure Functions which receive the lifecycle events on your Azure portal. On the portal, find the Resource Group which you created. 
+Create an Azure Functions, which receive the lifecycle events on your Azure portal. On the portal, find the Resource Group, which you created. 
 
 ### Create a Function App
 
@@ -151,11 +151,11 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-Click the `Add Event Grid Subscription`. This operation will add Event Grid subscription for subscribing the event grid topic which you created. For more detail, please refer  [Concepts in Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/concepts)
+Click the `Add Event Grid Subscription`. This operation will add Event Grid subscription for subscribing the event grid topic, which you created. For more detail, please refer  [Concepts in Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/concepts)
 
 ![Click the Event Grid Trigger link.](media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-Create an Event Grid subscription.  Select `Event Grid Topics` for Topic Type. Select a resource group which you created for the event grid topic. Then select the instance of the event grid topic. Press create.
+Create an Event Grid subscription.  Select `Event Grid Topics` for Topic Type. Select a resource group, which you created for the event grid topic. Then select the instance of the event grid topic. Press create.
 
 ![Create an Event Grid subscription.](media/durable-functions-event-publishing/eventsubscription.png)
 
