@@ -20,7 +20,7 @@ You can add, edit, or delete entities in your app through the **Entities list** 
 The following sections are only available inside a LUIS app, from the **Build** section. The **Build** link is in the top navigation bar. Once inside the **Build** section, select **Entities** from the left navigation menu. Once an entity is added to the application, if the entity is machine-learned, you can [label the entity](add-example-utterances.md) inside the utterance. Once the app is trained and published, you can receive entity data [extracted](luis-concept-data-extraction.md) from the prediction. 
 
 ## Add prebuilt entity
-A prebuilt entity is a regular expression match using the [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) open source project. Common prebuilt entities added to an application are *number* and *datetimeV2*. 
+A prebuilt entity is a regular expression match using the [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) open-source project. Common prebuilt entities added to an application are *number* and *datetimeV2*. 
 
 1. In your app, from the **Build** section, and then click **Entities** in the left panel.
  
@@ -86,7 +86,7 @@ To add hierarchical entities, complete the following steps:
     See [Data Extraction](luis-concept-data-extraction.md#hierarchical-entity-data) to learn more about extracting the hierarchical entity from the endpoint JSON query response. Try the hierarchical entity [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more about how to use a hierarchical entity.
 
 ## Add composite entities
-You can define relationships between several existing entities by creating a composite entity. In the following example, the entity contains count of tickets, origin and destination locations. 
+You can define relationships between several existing entities by creating a composite entity. In the following example, the entity contains count of tickets, origin, and destination locations. 
 
 In the utterance `Book 2 tickets from Seattle to Cairo`, the number 2 is matched to a prebuilt entity, Seattle is the origin location and Cairo is the destination location. Each entity is part of a larger, parent entity after the composite entity is created.
 
@@ -245,5 +245,5 @@ LUIS does not allow you to change the type of the entity because it doesn't know
 You can [search and filter](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances#search-in-utterances) utterances. 
 
 ## Next steps
-Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [train](luis-how-to-train.md), [test](train-test), and [publish](publishapp) your app.
+Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [train](luis-how-to-train.md), [test](train-test.md), and [publish](publishapp.md) your app.
  

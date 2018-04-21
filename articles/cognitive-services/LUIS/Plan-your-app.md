@@ -23,7 +23,7 @@ A LUIS app is usually centered around a domain-specific topic.  For example, you
 > Check to see if you can use a prebuilt domain as a starting point for your app.
 
 ## Identify your intents
-Think about the [intents](luis-concept-intent.md) that are important to your application’s task. Let's take the example of a travel app, with functions to book a flight and check the weather at the user's destination. You can define the "BookFlight" and "GetWeather" intents for these actions. In a more complex app with more functions, you will have more intents, and you should define them carefully so as to not be too specific. For example, "BookFlight" and "BookHotel" may need to be separate intents, but "BookInternationalFlight" and "BookDomesticFlight" may be too similar.
+Think about the [intents](luis-concept-intent.md) that are important to your application’s task. Let's take the example of a travel app, with functions to book a flight and check the weather at the user's destination. You can define the "BookFlight" and "GetWeather" intents for these actions. In a more complex app with more functions, you have more intents, and you should define them carefully so as to not be too specific. For example, "BookFlight" and "BookHotel" may need to be separate intents, but "BookInternationalFlight" and "BookDomesticFlight" may be too similar.
 
 > [!NOTE]
 > It is a best practice to use only as many intents as you need to perform the functions of your app. If you define too many intents, it becomes harder for LUIS to classify utterances correctly. If you define too few, they may be so general as to be overlapping.
@@ -39,30 +39,42 @@ A simple entity describes a single concept.
 
 ![simple entity](./media/luis-plan-your-app/simple-entity.png)
 
+See [Data Extraction](luis-concept-data-extraction.md#simple-entity-data) to learn more about extracting the simple entity from the endpoint JSON query response. Try the simple entity [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more about how to use a simple entity.
+
 ### Hierarchical entity
  A hierarchical entity represents an entity that is learned contextually, allowing for more than one context. 
 
 ![hierarchical entity](./media/luis-plan-your-app/hierarchical-entity.png)
+
+See [Data Extraction](luis-concept-data-extraction.md#hierarchical-entity-data) to learn more about extracting the hierarchical entity from the endpoint JSON query response. Try the hierarchical entity [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more about how to use a hierarchical entity.
 
 ### Composite entity
 A composite entity is made up of other entities that form parts of a whole. 
 
 ![composite entity](./media/luis-plan-your-app/composite-entity.png)
 
+See [Data Extraction](luis-concept-data-extraction.md#composite-entity-data) to learn more about extracting the composite entity from the endpoint JSON query response. Try the composite entity [tutorial](luis-tutorial-composite-entity.md) to learn more about how to use a composite entity.
+
 ### Prebuilt entity
 LUIS provides [prebuilt entities](Pre-builtEntities.md) for common types like `Number`, which you can use for the number of tickets in a ticket order.
 
 ![Number prebuilt entity](./media/luis-plan-your-app/number-entity.png)
+
+See [Data Extraction](luis-concept-data-extraction.md#prebuilt-entity-data) to learn more about extracting regular expression entities from the endpoint JSON query response. 
 
 ### List entity 
 A list entity is an explicitly specified list of values. Each value consists of one or more synonyms. In a travel app, you might choose to create a list entity to represent airport names.
 
 ![list entity](./media/luis-plan-your-app/list-entity.png)
 
+See [Data Extraction](luis-concept-data-extraction.md#list-entity-data) to learn more about extracting list entities from the endpoint JSON query response. Try the [quickstart](luis-quickstart-intent-and-list-entity.md) to learn more about how to use a list entity.
+
 ### Regular expression entity
 A regular expression entity allows LUIS to extract data from an utterance based on a regex expression.
 
 ![Regular expression entity](./media/luis-plan-your-app/regex-entity.png)
+
+See [Data Extraction](luis-concept-data-extraction.md#regular-expression-entity-data) to learn more about extracting regular expression entities from the endpoint JSON query response. Try the [quickstart](luis-quickstart-intents-regex-entity.md) to learn more about how to use a regular expression entity.
 
 <!-- With a planned outline of intents and entities, you can start creating your application in LUIS and define these intents and entities.-->
 

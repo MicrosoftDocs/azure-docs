@@ -14,54 +14,12 @@ ms.author: v-geberr
 
 # Add example utterances and label with entities
 
-Utterances are examples of user questions or commands. To teach Language Understanding (LUIS) apps, you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
+Utterances are examples of user questions or commands. To teach Language Understanding (LUIS), you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
 
 Generally, you add an utterance first, and then you create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](Add-entities.md).
 
-The following example uses the "BookFlight" intent in the TravelAgent app. 
-
 ## Add an utterance
-
-1. Open the TravelAgent app by selecting its name on the **My Apps** page. Then select **Intents** in the left panel. 
-
-2. On the **Intents** page, select the intent name **BookFlight** to open the details page.
-
-3. Type `book 2 adult business tickets to Paris tomorrow on Air France` as a new utterance in the text box, and then press Enter. 
- 
-    >[!NOTE]
-    >LUIS converts all utterances to lowercase.
-
-    ![Screenshot of Intents details page, with utterance highlighted](./media/add-example-utterances/add-new-utterance-to-intent.png) 
-
-Utterances are added to the utterances list for the current intent. 
-
-## Edit an utterance
-
-To edit an utterance, select the three dots (...) icon at the right end of the line for that utterance, and then select **Edit**. 
-
-![Screenshot of Intents details page, with three dots icon highlighted](./media/add-example-utterances/edit-utterance.png) 
-
-
-## Reassign utterances
-Adding an utterance to an intent means similar utterances should be predicted with that intent as well. You can change the intent of one or more utterances by moving them to another intent. 
-
-To change the intent of a single utterance, and the right end of the utterance's row, select the intent name under the **Labeled intent** column.
-
-![Screenshot of BookFlight intent page with an utterance's intent under Labeled intent column selected](./media/add-example-utterances/reassign-1-utterance.png)
-
-To change the intent of several utterances, select the checkbox to the left of the utterances, and then select **Reassign intent**. Select the correct intent from the list.
-
-![Screenshot of BookFlight intent page with an utterance checked and the Reassign intent button highlighted](./media/add-example-utterances/delete-several-utterances.png) 
-
-## Delete utterances
-
-To delete an utterance, select the three dots (...) icon at the right end of the line for that utterance, and then select **Delete**. 
-
-![Screenshot of Intents details page, with Delete option highlighted](./media/add-example-utterances/delete-utterance-ddl.png)
-
-To delete several utterances, select the checkbox to the left of the utterances, and then select **Delete utterances(s)**.
-
-![Screenshot of Intents details page, with utterances checked and Delete utterance(s) button highlighted](./media/add-example-utterances/delete-several-utterances.png)
+See [Manage Intents](add-intents.md#add-an-utterance) to learn how to add utterances to an intent. 
 
 ## Add simple entity label
 In the following procedure, you create and label custom entities within the following utterance on the intent page:
@@ -77,16 +35,20 @@ book me 2 adult business tickets to Paris tomorrow on Air France
     > * For a single word, just select it. 
     > * For a set of two or more words, select at the beginning and then at the end of the set.
 
-2. In the entity drop-down box that appears, you can either select an existing entity or add a new entity. To add a new entity, type its name in the text box, and then select **Create new entity**. To create the simple entity "Airline," type "Airline" in the text box and then select **Done**.
+2. In the entity drop-down box that appears, you can either select an existing entity or add a new entity. To add a new entity, type its name in the text box, and then select **Create new entity**. 
  
     ![Screenshot of Intents details page, with simple entity labeling option highlighted](./media/add-example-utterances/create-airline-simple-entity.png)
 
-> [!TIP]
-> Try the simple entity [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more.
+3. In the **What type of entity do you want to create?** pop-up dialog box, verify the entity name and select the correct entity type, and then select **Done**.
+
+    ![Image of confirmation dialog](./media/add-example-utterances/create-simple-airline-entity.png)
+
+    See [Data Extraction](luis-concept-data-extraction.md#simple-entity-data) to learn more about extracting the simple entity from the endpoint JSON query response. Try the simple entity [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more about how to use a simple entity.
 
 ## Add hierarchical entity and label
+A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
 
-When booking a plane ticket, `Book a ticket from Seattle to Cairo`, you can specify the origin city "Seattle" and the destination city "Cairo". For LUIS to understand both locations based on context, use a hierarchical entity type. 
+In the utterance `Book 2 tickets from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
 
 1. On the Intent page, in the utterance, select "Seattle", then enter the entity name `Location, and then select **Create new entity**.
 
@@ -96,69 +58,94 @@ When booking a plane ticket, `Book a ticket from Seattle to Cairo`, you can spec
 
     ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/add-example-utterances/create-location-hierarchical-entity.png)
 
-    To learn more about hierarchical entities and how to add them, see [Add entities](Add-entities.md).
-
-3. Return to the utterance on the Intent page. The entity is labeled with the name of the Location entity but the child of Origin is not yet set. Select "Seattle" in the utterance again, then select Location, then select Origin.
+3. The word in the utterance was labeled with the parent hierarchical entity. You need to assign the word to a child entity. Return to the utterance on the intent page. Select the word, then from the drop-down list choose the entity name you created, and follow the menu to the right to choose the correct child entity.
 
     ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/add-example-utterances/label-tolocation.png)
 
-> [!TIP]
-> Try the hierarchical [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more.
+    >[!CAUTION]
+    >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
+
+    See [Data Extraction](luis-concept-data-extraction.md#hierarchical-entity-data) to learn more about extracting the hierarchical entity from the endpoint JSON query response. Try the hierarchical entity [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more about how to use a hierarchical entity.
 
 ## Add list entity and label
+List entities represent a fixed, closed set (white list) of related words in your system. 
 
-List entities represent a fixed, closed set (white list) of related words in your system. In the utterance, 
-`1 water with a twist of lime`, water is an item on a Drink list entity. 
+For a drinks list entity, you can have two normalized values: water and soda pop. Each normalized name has synonyms. For water, synonyms are H20, gas, flat. For soda pop, synonyms are fruit, cola, ginger. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
 
-1. In the utterance, 
-`1 waters with a twist of lime`,
-select **water**, and then create a new entity named "Seat".  
+|Normalized name|Synonyms|
+|--|--|
+|Water|H20, gas, flat|
+|Soda pop|Fruit, cola, ginger|
+
+When creating a new list entity from the intent page, you are doing two things that may not be obvious. First, you are creating a new list by adding the first list item. Second, the first list item is named with the word or phrase you selected from the utterance. While you can change these later from the entity page, it may be faster to select an utterance that has the word that you want for the name of the list item.
+
+For example, if you wanted to create a list of types of drink and you selected the word `h2o` from the utterance to create the entity, the list would have one item, whose name was h20. If you wanted a more generic name, you should choose an utterance that uses the more generic name. 
+
+1. In the utterance, select the word that is the first item in the list, and then enter the name of the list in the textbox, then select **Create new entity**.   
 
     ![Screenshot of Intents details page, with Create new entity highlighted](./media/add-example-utterances/create-drink-list-entity.png)
 
-2. In the **What type of entity do you want to create?** dialog box, add `h20`, `perrier`, and `waters`, and select **Done**. Notice that waters is added because the list synonyms are matched at the token level. In the English culture, that level is at the word level so waters would not be matched to water unless it was in the list. 
+2. In the **What type of entity do you want to create?** dialog box, add synonyms of this list item. For the water item in a drink list, add `h20`, `perrier`, and `waters`, and select **Done**. Notice that "waters" is added because the list synonyms are matched at the token level. In the English culture, that level is at the word level so "waters" would not be matched to "water" unless it was in the list. 
 
     ![Screenshot of What type of entity do you want to create dialog box](./media/add-example-utterances/drink-list-ddl.png)
 
-    This list of drinks has only 1 drink type of water. You can add more drink types by labeling other utterances, or by editing the entity from the **Entities** in the left navigation. Editing the entities gives you the options of entering additional items with corresponding synonyms or importing a list. 
+    This list of drinks has only one drink type, water. You can add more drink types by labeling other utterances, or by editing the entity from the **Entities** in the left navigation. [Editing](add-entities.md#add-list-entities) the entities gives you the options of entering additional items with corresponding synonyms or [importing](add-entities.md#import-list-entity-values) a list. 
 
-> [!TIP]
-> Try the list entity [quickstart](luis-quickstart-intent-and-list-entity.md) to learn more.
+    See [Data Extraction](luis-concept-data-extraction.md#list-entity-data) to learn more about extracting list entities from the endpoint JSON query response. Try the [quickstart](luis-quickstart-intent-and-list-entity.md) to learn more about how to use a list entity.
 
 ## Add synonyms to the list entity 
 Add a synonym to the list entity by selecting the word or phrase in the utterance. If you have a Drink list entity, and want to add `agua` as a synonym for water, follow the steps:
 
-1. In the utterance `agua por favor`, select the word "aqua" then select **Drink**, then **Set as synonym**, then **water**.
+In the utterance, select the synonymous word, such as `aqua` for water, then select the list entity name in the drop-down list, such as **Drink**, then select **Set as synonym**, then select the list item it is synonymous with, such as **water**.
 
-    ![Screenshot of Intents details page, with Create a new synonym highlighted](./media/add-example-utterances/set-agua-as-synonym.png)
+![Screenshot of Intents details page, with Create a new synonym highlighted](./media/add-example-utterances/set-agua-as-synonym.png)
+
+## Create new item for list entity
+Create a new item for an existing list entity by selecting the word or phrase in the utterance. If you have a Drink list, and want to add `tea` as a new item, follow the steps:
+
+In the utterance, select the word for the new list item, such as `tea`, then select the list entity name in the drop-down list, such as **Drink**, then select **Create a new synonym**. 
+
+![Screenshot of adding new list item](./media/add-example-utterances/list-entity-create-new-item.png)
+
+The word is now highlighted in blue. If you hover over the word, a tag displays showing the list item name, such as tea.
+
+![Screenshot of new list item tag](./media/add-example-utterances/list-entity-item-name-tag.png)
 
 ## Wrap entities in composite label
 Composite entities are created from **Entities**. You can't create a composite entity from the Intent page. Once the composite entity is created, you can wrap the entities in an utterance on the Intent page. 
 
 Assuming the utterance, `book 2 tickets from Seattle to Cairo`, a composite utterance can return entity information of the count of tickets (2), the origin (Seattle), and destination (Cairo) locations in a single parent entity. 
 
-Follow these [steps](Add-entities.md#add-prebuilt-entity) to add the **number** prebuilt entity. After the entity is created, the `2` in the utterance is blue, indicating it is a labeled entity. Prebuilt entities are labeled by LUIS. 
+Follow these [steps](Add-entities.md#add-prebuilt-entity) to add the **number** prebuilt entity. After the entity is created, the `2` in the utterance is blue, indicating it is a labeled entity. Prebuilt entities are labeled by LUIS. You can't add or remove the prebuilt entity label from a single utterance. You can only add or remove all the prebuilt labels by adding or removing the prebuilt entity from the application.
 
 Follow these [steps](#add-hierarchical-entity-and-label) to create a **Location** hierarchical entity. Label the origin and destination locations in the example utterance. 
 
-1. To wrap the individual entities into a composite, select the first word in the utterance that represents the entities of the composite entity. In the example utterance, `book 2 tickets from Seattle to Cairo`, the first entity is the number 2. Select "number" (representing 2).
+Before you wrap the entities in a composite entity, make sure all the child entities are highlighted in blue, meaning they have been labeled in the utterance.
 
-2. Select **Wrap composite entity** from the drop-down list. The green line, indicating the composite entity, is now under the blue "number". 
+1. To wrap the individual entities into a composite, select the first labeled entity in the utterance for the composite entity. In the example utterance, `book 2 tickets from Seattle to Cairo`, the first entity is the number 2. A drop-down list appears showing the choices for this selection.
 
-3. Select the last word of the composite entity. In the utterance of this example, select "Location::Destination" (representing Cairo).
+    ![Screenshot of number selected and drop-down options highlighted](./media/add-example-utterances/wrap-1.png)
+
+2. Select **Wrap composite entity** from the drop-down list. 
+
+    ![Screenshot of drop-down options for wrapping composite entity with Wrap in composite entity highlighted](./media/add-example-utterances/wrap-2.png)
+
+3. Select the last word of the composite entity. In the utterance of this example, select "Location::Destination" (representing Cairo). The green line is now under all the words, including non-entity words, in the utterance that are the composite.
 
     ![Screenshot of BookFlight Intent page, with number highlighted](./media/add-example-utterances/wrap-composite.png)
 
 4. Select the composite entity name from the drop-down list. For this example, that is **TicketOrder**.
 
+    ![Screenshot of wrapping words with composite entity, with composite entity name highlighted in drop-down list](./media/add-example-utterances/wrap-4.png)
+
     When you wrap the entities correctly, a green line is under the entire phrase.
 
+    ![Screenshot of utterance with composite entity highlighted](./media/add-example-utterances/wrap-5.png)
 
-> [!TIP]
-> Try the composite [tutorial](luis-tutorial-composite-entity.md) to learn more.
+    See [Data Extraction](luis-concept-data-extraction.md#composite-entity-data) to learn more about extracting the composite entity from the endpoint JSON query response. Try the composite entity [tutorial](luis-tutorial-composite-entity.md) to learn more about how to use a composite entity.
 
 ## Remove entity labels from utterances
-You can remove machine-learned entity labels from an utterance on the Intent page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove the entity from the utterance, you need to delete the entity from the entire app. 
+You can remove machine-learned entity labels from an utterance on the Intent page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove a non-machine-learned entity from the utterance, you need to delete the entity from the entire app. 
 
 To remove a machine-learned entity label from an utterance, select the entity in the utterance. Then select **Remove Label** in the entity drop-down box that appears.
 
@@ -171,32 +158,22 @@ If you add the prebuilt entities to your LUIS app, you don't need to label utter
 If you add the regular expression entities to your LUIS app, you don't need to label utterances with these entities. To learn more about regular expression entities and how to add them, see [Add entities](Add-entities.md#add-regular-expression-entities).
 
 ## Add pattern.any entity label
-If you add the pattern.any entities to your LUIS app, you don't need to label utterances with these entities. To learn more about pattern.any entities and how to add them, see [Add entities](Add-entities.md#add-patternany-entities).
+If you add the pattern.any entities to your LUIS app, you can't label utterances with these entities. They are only valid in patterns. To learn more about pattern.any entities and how to add them, see [Add entities](Add-entities.md#add-patternany-entities).
+
+<!--
+Fix this - moved to add-intents.md - how ?
 
 ## Search in utterances
-You can search for utterances that contain text (words or phrases). For example, you might notice an error that involves a particular word, and you want to find all examples that include that particular word. 
-
-Type the word or phrase in the search box at the top right corner of the utterances list, and press Enter. The utterances list updates, to display only the utterances that include your search text. 
-
-To cancel the search and restore your full list of utterances, delete the search text you've typed.
-
 ## Prediction discrepancy errors
-An utterance in an intent might have a discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the score. 
-
-![Screenshot of BookFlight Intent page, with prediction discrepancy score highlighted](./media/add-example-utterances/score-discrepancy.png) 
-
 ## Filter by intent prediction discrepancy errors
-To filter the utterance list to only utterances with an intent prediction discrepancy, toggle from **Show All** to **Errors only** in the toolbar. 
-
 ## Filter by entity type
-Use the **Entity filters** drop-down om the toolbar to filter the utterances by entity. To remove the filter, select the blue filter box with that word or phrase under the toolbar.  
-
-![Screenshot of Intents page, with entity type filter highlighted](./media/add-example-utterances/filter-by-entities.png) 
-
 ## Switch to token view
-Toggle **Tokens View** to view the tokens instead of the entity type names. On the keyboard, you can also use **Control+E** to toggle the view. 
+## Delete utterances
+## Edit an utterance
+## Reassign utterances
 
-![Screenshot of BookFlight intent, with Token View highlighted](./media/add-example-utterances/toggle-tokens-view.png)
+-->
+
 
 ## Next steps
 
