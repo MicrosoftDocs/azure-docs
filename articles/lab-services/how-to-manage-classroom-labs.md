@@ -70,6 +70,23 @@ This article describes how to create and configure a classroom lab, view all cla
     ![Student registration link](./media/how-to-manage-classroom-labs/registration-link.png)
 
 ## View all labs
+1. Navigate to [Azure Lab Services portal](https://labs.azure.com).
+2. Confirm that you see all the labs in the selected lab account. 
+
+    ![All labs](./media/how-to-manage-classroom-labs/all-labs.png)
+3. Use the drop-down list at the top to select a different lab account. You see labs in the selected lab account. 
+
+## Deleete a lab
+1. On the tile for the lab, select three dots (...) in the corner. 
+
+    ![Select the lab](./media/how-to-manage-classroom-labs/select-three-dots.png)
+2. Select **Delete**. 
+
+    ![Delete button](./media/how-to-manage-classroom-labs/delete-button.png)
+3. On the **Delete lab** dialog box, select **Delete**. 
+
+    ![Delete dialog box](./media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
+ 
 
 ## Next steps
 Get started with setting up a lab using Azure Lab Services:
