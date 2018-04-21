@@ -19,26 +19,25 @@ You can add, edit, or delete entities in your app through the **Entities list** 
 
 ## Add prebuilt entity
 
-1. Open the TravelAgent app by clicking its name on **My Apps** page, and then click **Entities** in the left panel. 
-2. On the **Entities** page, click **Manage prebuilt entities**.
+1. In your app, select **Entities** from the left navigation.
 
-    ![Entities Page - Add first entity](./media/add-entities/manage-prebuilt-entities-button.png)
+2. On the **Entities** page, select **Manage prebuilt entities**.
 
-3. In **Add or remove prebuilt entities** dialog box, click the **number** and **datetimeV2** prebuilt entities. Then click **Done**.
+    ![Screenshot of adding prebuilt entity on Entities Page](./media/add-entities/manage-prebuilt-entities-button.png)
 
-    ![Add prebuilt entity dialog box](./media/add-entities/list-of-prebuilt-entities.png)
+3. In **Add or remove prebuilt entities** dialog box, select the **number** and **datetimeV2** prebuilt entities. Then select **Done**.
+
+    ![Screenshot of Add prebuilt entity dialog box](./media/add-entities/list-of-prebuilt-entities.png)
 
 
 ## Add simple entities
 A simple entity is a generic entity that describes a single concept. 
 
-1. Open the TravelAgent app by clicking its name on **My Apps** page, and then click **Entities** in the left panel. 
+1. In your app, select **Entities** from the left navigation, and then select **Create new entity**.
 
-2. On the **Entities** page, click **Create new entity**.
+2. In the pop-up dialog box, type `Airline` in the **Entity name** box,  select **Simple** from the **Entity type** list, and then select **Done**.
 
-3. In the **Add Entity** dialog box, type "Airline" in the **Entity name** box,  select **Simple** from the **Entity type** list, and then click **Done**.
-
-    ![Add Entity Dialog box - Simple](./media/add-entities/create-simple-airline-entity.png)
+    ![Screenshot of dialog box for creating Airline simple entity](./media/add-entities/create-simple-airline-entity.png)
 
 > [!TIP]
 > Try the simple entity [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more.
@@ -46,37 +45,35 @@ A simple entity is a generic entity that describes a single concept.
 ## Add regular expression entities
 A regular expression entity is used to pull out data from the utterance based on a regular expression you provide. 
 
-1. Open the TravelAgent app by selecting its name on **My Apps** page, and then select **Entities** in the left panel. 
+1. In your app, select **Entities** from the left navigation, and then select **Create new entity**.
 
-2. On the **Entities** page, select **Create new entity**.
+2. In the pop-up dialog box, , type `AirFrance Flight` in the **Entity name** box,  select **Regular expression** from the **Entity type** list, enter the regular expression `AFR[0-9]{3,4}`, and then select **Done**. 
 
-3. In the **Add Entity** dialog box, type "AirFrance Flight" in the **Entity name** box,  select **Regular expression** from the **Entity type** list, enter the regular expression `AFR[0-9]{3,4}`, and then select **Done**. This regular expression expects three characters, literally `AFR`, then 3 or 4 digits. The digits can be any number between 0 and 9. The regular expression matches AirFrance flight numbers such as: "AFR101", "ARF1302", and "AFR5006". See [Data Extraction](luis-concept-data-extraction.md) to learn more about extracting the entity from the endpoint JSON query response. 
+    This AirFrance Flight regular expression expects three characters, literally `AFR`, then 3 or 4 digits. The digits can be any number between 0 and 9. The regular expression matches AirFrance flight numbers such as: "AFR101", "ARF1302", and "AFR5006". See [Data Extraction](luis-concept-data-extraction.md) to learn more about extracting the entity from the endpoint JSON query response.
 
-    ![Add Entity Dialog box - Simple](./media/add-entities/regex-entity-create-dialog.png)
+    ![Image of dialog box to create regular expression entity](./media/add-entities/regex-entity-create-dialog.png)
 
 > [!TIP]
 > Try the regular expression [quickstart](luis-quickstart-intents-regex-entity.md) to learn more.
 
 ## Add hierarchical entities
-A hierarchical entity defines a relationship between a category and its members.
+A hierarchical entity is a category of contextually learned entities.
 
-To add hierarchical entities, complete the following steps: Make sure to add the child entities at the same time that you create the parent entity. You can add up to 10 child entities for each parent.
+To add hierarchical entities, complete the following steps: 
 
-1. Open the TravelAgent app by clicking its name on **My Apps** page, and then click **Entities** in the left panel. 
+1. In your app, select **Entities** from the left navigation, and then select **Create new entity**.
 
-2. On the **Entities** page, click **Create new entity**.
-
-3. In the **Add Entity** dialog box, type "Location" in the **Entity name** box, and then select **Hierarchical** from the **Entity type** list.
+2. In the pop-up dialog box, type `Location` in the **Entity name** box, and then select **Hierarchical** from the **Entity type** list.
 
     ![Add hierarchical entity](./media/add-entities/hier-location-entity-creation.png)
 
-4. Click **Add Child**, and then type "FromLocation" in **Child #1** box. 
+3. Select **Add Child**, and then type "FromLocation" in **Child #1** box. 
 
-5. Click **Add Child**, and then type "ToLocation" in **Child #2** box. 
+4. Select **Add Child**, and then type "ToLocation" in **Child #2** box. 
     >[!NOTE]
-    >To delete a child, click the trash bin icon next to it.
+    >To delete a child, select the trash bin icon next to it.
 
-6. Click **Done**.
+5. Select **Done**.
 
     >[!NOTE]
     >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
@@ -85,34 +82,30 @@ To add hierarchical entities, complete the following steps: Make sure to add the
 > Try the hierarchical [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more.
 
 ## Add composite entities
-You can also define relationships between entities by creating composite entities. A composite entity is created by combining two or more existing entities and treating them as one entity. 
+You can define relationships between several existing entities by creating a composite entity. 
 
-1. Add the prebuilt entity "number". For instructions, see [Add Prebuilt Entities](#add-prebuilt-entity). 
+1. In your app, add the prebuilt entity **number**. For instructions, see [Add Prebuilt Entities](#add-prebuilt-entity). 
 
-2. Add the hierarchical entity "Category", including the subtypes: "adult", "child" and "infant". 
+2. Add the hierarchical entity `Location`, including the subtypes: `origin`, `destination`. For more instructions, see [Add hierarchical entities](#add-hierarchical-entities). 
 
-3. Add the hierarchical entity "TravelClass" including "first", "business" and "economy". For more instructions, see [Add hierarchical entities](#add-hierarchical-entities). 
+3. Select **Entities** from the left navigation, and then select **Create new entity**.
 
-4. Open the TravelAgent app by clicking its name on **My Apps** page and click **Entities** in the app's left panel.
+3. In the pop-up dialog box, type `TicketsOrder` in the **Entity name** box, and then select **Composite** from the **Entity type** list.
 
-5. On the **Entities** page, click **Create new entity** to create a custom entity.
+7. Select **Add Child** to add a new child.
 
-6. In the **Add Entity** dialog box, type "TicketsOrder" in the **Entity name** box, and then select **Composite** from the **Entity type** list.
+8. In **Child #1**, select the entity **number** from the list.
 
-7. Click **Add Child** to add a new child.
+9. In **Child #2**, select the entity **Location::Origin** from the list. 
 
-8. In **Child #1**, select the entity "number" from the list.
+10. In **Child #3**, select the entity **Location::Destination** from the list. 
 
-9. In **Child #2**, select the parent entity "Category" from the list. 
+11. Select **Done**.
 
-10. In **Child #3**, select the parent entity "TravelClass" from the list. 
-
-    ![Add composite entity](./media/add-entities/ticketsorder-composite-entity.png)
-
-11. Click **Done**.
+    ![Image of dialog box to create a composite entity](./media/add-entities/ticketsorder-composite-entity.png)
 
     >[!NOTE]
-    >To delete a child, click the trash button next to it.
+    >To delete a child, select the trash button next to it.
 
 > [!TIP]
 > Try the composite [tutorial](luis-tutorial-composite-entity.md) to learn more.
@@ -124,7 +117,7 @@ You can also define relationships between entities by creating composite entitie
 
 2. In the **Add Entity** dialog box, type `BookTitle` in the **Entity name** box and select **Pattern.any** as the **Entity type**.
  
-    ![Add a pattern.any entity](./media/add-entities/create-pattern-any-entity.png)
+    ![Screenshot of creating a pattern.any entity](./media/add-entities/create-pattern-any-entity.png)
 
     To use the pattern.any entity, add a [pattern](luis-how-to-model-intent-pattern.md#add-patterns) on the **Patterns** page under **Review endpoint utterances** with the correct curly brace syntax, such as "For **{BookTitle}** who is the author?".
 
@@ -135,81 +128,89 @@ For example, a plane ticket has an *origin city* and a *destination city*, but b
 
 The syntax for a role is **{Entity:Role}** where the entity name is followed by a colon, then the role name. For example, "Book a ticket from {Location:Origin} to {Location:Destination}".
 
-1. Open the TravelAgent app by selecting its name on **My Apps** page and select **Entities** in the app's left panel.
+1. Open your app, and select **Entities** in the app's left panel.
 
 2. On the **Entities** page, select an entity with type of **Simple** or **Pattern.any**. 
 
-    ![Select simple or pattern.any entity](./media/add-entities/roles-entity-list.png)
+    ![Screenshot of Entities page with simple or pattern.any entities highlighted](./media/add-entities/roles-entity-list.png)
 
 3. On **Entity** page, select **Add Roles**.
 
-    ![Select add role button](./media/add-entities/roles-add-role-button.png)
+    ![Screenshot of City entity page with Add role button highlighted](./media/add-entities/roles-add-role-button.png)
 
 4. In the textbox, enter the name of the role. As an example, a plane trip can have an origin and a destination city. The two roles are "Origin" and "Destination".
 
-    ![Enter role name](./media/add-entities/roles-enter-role-name-text.png)
+    ![Screenshot of adding Origin role to Location entity](./media/add-entities/roles-enter-role-name-text.png)
 
 ## Add list entities
-A list entity is an entity that is defined by a list of all its values. 
+List entities represent a fixed, closed set (white list) of related words in your system. For a drinks entity, you can have 2 normalized values: water and soda pop. Each normalized name has synonyms. For water, synonyms are H20, gas, flat. For soda pop, synonyms are fruit, cola, ginger. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
 
-1. Open the TravelAgent app by clicking its name on **My Apps** page and click **Entities** in the app's left panel.
+|Normalized name|Synonyms|
+|--|--|
+|Water|H20, gas, flat|
+|Soda pop|Fruit, cola, ginger|
 
-2. On the **Entities** page, click **Create new entity**.
+1. Open your app, and select **Entities** in the app's left panel.
 
-3. In the **Add Entity** dialog box, type "Menu" in the **Entity name** box and select **List** as the **Entity type**.
+2. On the **Entities** page, select **Create new entity**.
+
+3. In the **Add Entity** dialog box, type `Drinks` in the **Entity name** box and select **List** as the **Entity type**. Select **Done**.
  
-    ![Add a list entity](./media/add-entities/menu-list-dialog.png)
+    ![Image of dialog box creating Drinks list entity](./media/add-entities/menu-list-dialog.png)
   
-4. Click **Done**. The list entity "Menu" is added and the details page where you add exact text matches is displayed. In the **Values** textbox, enter an item for the list, such as `Vegetarian` for the menu list, and click **Enter**. The menu item is added to the list. 
+4.  The list entity page allows you to add normalized names. In the **Values** textbox, enter an item for the list, such as `Water` for the drinks list. 
 
-    ![List entity details page](./media/add-entities/entity-list-normalized-name.png)
+    ![Screenshot of Drinks list entity with water normalized value in textbox](./media/add-entities/entity-list-normalized-name.png)
 
-5. Once a list item is added, LUIS recommends additional list items. Click the **recommend** button to see recommended list items. 
+5. To the right of the normalized value **water**, enter synonyms `h20`, `flat`, and `gas`.
 
-    ![List entity recommended items](./media/add-entities/entity-list-recommended-list.png)
+    ![Screenshot of Drinks list entity with synonym items for water hightlighted](./media/add-entities/menu-list-synonyms.png)
 
-6. Click on any item in the recommended list to add it the entity list. 
+6. If you want more normalized items for the list, select **Recommend**.
 
-    ![List entity items](./media/add-entities/entity-list-recommended-list-0.png)
+    ![Screenshot of Drink list entity with Recommended items highlighted](./media/add-entities/entity-list-recommended-list.png)
 
-7. Click on "Type a synonym and press Enter" to add additional text values for a normalized value.
+7. Select an item in the recommended list to add it as a normalized value or select **Add all** to add all the items. 
 
-    ![List item synonyms](./media/add-entities/entity-list-synonyms-list.png)
+    ![Screenshot of Drink list entity with recommended item of beer and Add all button highlighted](./media/add-entities/list-entity-add-suggestions.png)
 
 > [!TIP]
 > Try the list entity [quickstart](luis-quickstart-intent-and-list-entity.md) to learn more.
 
 ## Import list entity values
+You can import values into an existing list entity.
 
- 1. On the "Menu" list entity page, click **Import Lists**.
+ 1. On the list entity page, select **Import Lists**.
 
- 2. In **Import New Entries** dialog box, click **Choose File** and select the JSON file that includes the list.
+ 2. In **Import New Entries** dialog box, select **Choose File** and select the JSON file that includes the list.
 
-    ![Import list entity values](./media/add-entities/menu-list-import-json-dialog-with-file.png)
+    ![Screenshot of Import list entity values pop-up dialog box](./media/add-entities/menu-list-import-json-dialog-with-file.png)
 
     >[!NOTE]
     >LUIS imports files with the extension ".json" only.
 
- 3. To learn about the supported list syntax in JSON, click **Learn about supported list syntax** to expand the dialog and display an example of allowed syntax. To collapse the dialog and hide syntax, click the link title again.
+ 3. To learn about the supported list syntax in JSON, select **Learn about supported list syntax** to expand the dialog and display an example of allowed syntax. To collapse the dialog and hide syntax, select the link title again.
 
- 4. Click **Done**.
+ 4. Select **Done**.
 
-    An example of valid json for an entity list is shown in the following JSON-formatted code:
+    An example of valid json for a **Colors** list entity is shown in the following JSON-formatted code:
 
     ```
     [
         {
-            "canonicalForm": "Egypt",
+            "canonicalForm": "Blue",
             "list": [
-                "Cairo",
-                "Alexandria"
+                "navy",
+                "royal",
+                "baby"
             ]
         },
         {
-            "canonicalForm": "USA",
+            "canonicalForm": "Green",
             "list": [
-                "California",
-                "Texas"
+                "kelly",
+                "forest",
+                "avacado"
             ]
         }
     ]  
@@ -222,9 +223,9 @@ A list entity is an entity that is defined by a list of all its values.
 
 ## Delete entity
 
-On the **Entity** page, click the **Delete Entity** button. Then, click **Ok** in the confirmation message to confirm deletion.
+On the **Entity** page, select the **Delete Entity** button. Then, select **Ok** in the confirmation message to confirm deletion.
  
-![Delete Entity](./media/add-entities/entity-delete.png)
+![Screenshot of Location entity page with Delete Entity button highlighted](./media/add-entities/entity-delete.png)
 
 >[!NOTE]
 >* Deleting a hierarchical entity deletes all its children entities.
