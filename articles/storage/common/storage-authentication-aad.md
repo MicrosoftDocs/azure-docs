@@ -38,9 +38,9 @@ Azure Storage offers four built-in roles for use with Azure AD:
 - Storage Queue Data Contributor (Preview)
 - Storage Queue Data Reader (Preview)
 
-For more information on built-in roles, see [Built-in roles for Azure role-based access control](../../role-based-access-control/built-in-roles).
+For more information on built-in roles, see [Built-in roles for Azure role-based access control](../../role-based-access-control/built-in-roles.md).
 
-You can also define custom roles for use with Blob storage and Azure Queues. For more information, see [Create custom roles for Azure Role-Based Access Control](../../role-based-access-control/custom-roles). 
+You can also define custom roles for use with Blob storage and Azure Queues. For more information, see [Create custom roles for Azure Role-Based Access Control](../../role-based-access-control/custom-roles.md). 
 
 ## Assign a role to an Azure AD user, group, or application
 
