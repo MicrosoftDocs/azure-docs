@@ -3583,7 +3583,7 @@ workflow().run.name
 
 ## xml
 
-Return the XML version for a string with a JSON object. 
+Return the XML version for a string that contains a JSON object. 
 
 ```json
 xml('<value>')
@@ -3602,11 +3602,11 @@ xml('<value>')
 *Example 1*
 
 This example returns the specified string, 
-which contains a JSON object, as XML: 
+which contains a JSON object, to XML: 
 
 `xml( '{ \"name\": \"Sophia Owen\" }' )`
 
-Result: 
+Here is the result XML: 
 
 ```xml
 <name>Sophia Owen</name>
@@ -3615,7 +3615,7 @@ Result:
 *Example 2*
 
 This example converts the specified string, 
-which contains a JSON object, as XML:
+which contains a JSON object, to XML:
 
 ```json
 { 
@@ -3628,7 +3628,7 @@ which contains a JSON object, as XML:
 
 `xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )`
 
-Result:
+Here is the result XML: 
 
 ```xml
 <person>
@@ -3642,9 +3642,9 @@ Result:
 ## xpath
 
 Check XML for nodes or values that match an XPath (XML Path Language) expression, 
-and return the matching nodes or values. An XPath expression, 
-or just "XPath", helps you navigate an XML document structure so that you can 
-select nodes or compute values from XML content.
+and return the matching nodes or values. An XPath expression, or just "XPath", 
+helps you navigate an XML document structure so that you can select nodes 
+or compute values in the XML content.
 
 ```json
 xpath('<xml>', '<xpath>')
@@ -3675,22 +3675,22 @@ the [parameters()](#parameters) can getting the XML from the string.
 
 Here are the arguments:
 
-* The XML is this "items" string:
+* This XML, which is passed by the "items" string:
 
   `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
 
-* The XPath expression is this string:
+* This XPath expression passed as a string:
 
   `"/produce/item/name"`
 
-Result:
+Here is the resulting array:
 
 `[ <name>Gala</name>, <name>Honeycrisp</name> ]`
 
 *Example 2*
 
 Following on Example 1, this expression computes values in the XML by 
-adding the values in the `<count></count>` nodes and returning the number 30:
+adding the values in the `<count></count>` nodes, and returns the number 30:
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
@@ -3709,12 +3709,6 @@ character (\\) as an escape character for the double quotation mark (").
 
   `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
 
-Here is the result node:
-
-```xml
-<location xmlns="https://contoso.com">Paris</location>
-```
-
 Here are the arguments:
 
 * This XML that includes an XML document namespace, `xmlns="http://contoso.com"`: 
@@ -3723,18 +3717,24 @@ Here are the arguments:
   <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
   ```
 
-* Either XPath expression here:
+* You can use either XPath expression here:
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
 
   * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
 
+Here is the resulting node:
+
+```xml
+<location xmlns="https://contoso.com">Paris</location>
+```
+
 *Example 4*
 
 Following on Example 3, this example finds the value in the 
-`<location></location>` node and returns the string "Paris": 
+`<location></location>` node, and returns only the string "Paris": 
 
-`xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`
+`xpath(xml(body('Http')), 'string(/*[name()=\"file\"]/*[name()=\"location\"])')`
 
 ## Next steps
 
