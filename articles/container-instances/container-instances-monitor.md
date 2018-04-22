@@ -16,6 +16,10 @@ Azure Monitor provides insight into the compute resources used by your container
 
 This document details gathering CPU and memory usage for container instances using both the Azure portal and Azure CLI.
 
+> [!IMPORTANT]
+> At this time, resource usage metrics are only avaliabe for Linux contianers.
+>
+
 ## Available metrics
 
 CPU metrics are expressed in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500 m) represents 50% utilization of a CPU core. Memory metrics are expressed in **bytes**. Both CPU and memory metrics are available for a container group and individual containers.
