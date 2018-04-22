@@ -36,7 +36,7 @@ This feature allows publishing orchestration lifecycle events (created, complete
 
 # Create a custom event grid topic
 
-Create an event grid topic for sending events from Durable Functions. Azure CLI is used in the example. To send events from PowerShell and  Azure portal, please refer  
+Create an event grid topic for sending events from Durable Functions. Azure CLI is used in the example. To send events from PowerShell and  Azure portal, refer the following articles.
 
 * [EventGrid Quickstarts: Create custom event - Azure CLI](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart)
 * [EvnetGrid Quickstarts: Create custom event - PowerShell](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-powershell)
@@ -111,7 +111,7 @@ Make sure that [Storage Emulator](https://docs.microsoft.com/en-us/azure/storage
 
 ## Create Azure Functions on your portal to receive the events
 
-Create an Azure Functions, which receive the lifecycle events. I recommend to create a Function App, which is the same region with the Event Grid Topic's. For more detail
+Create an Azure Functions, which receive the lifecycle events. I recommend creating a Function App, which is the same region with the Event Grid Topic's. For more detail
 
 * [How to manage a function app in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings)
 
@@ -268,7 +268,7 @@ The following list explains the Lifecycle event schema that you can find in the 
 
 # How to test locally
 
-Instead of using Function App on Azure, you can use an open source tool [ngrok](https://ngrok.com/) for this purpose. You can refer the following documentation.
+Instead of using Function App on Azure, you can use an open-source tool [ngrok](https://ngrok.com/) for this purpose. You can refer the following documentation.
 
 * [Local testing with ngrok](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#local-testing-with-ngrok)
 
