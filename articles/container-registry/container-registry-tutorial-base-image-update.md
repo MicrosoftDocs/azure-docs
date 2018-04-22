@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Tutorial: Automate image builds on base image update with Azure Container Registry Build
 
-ACR Build supports automated build execution when a container's base image is updated, such as when a base image's OS or application framework has been patched. In this tutorial, you learn how to create a build task in ACR Build that triggers a build in the cloud when a container's base image has been pushed to your registry.
+ACR Build supports automated build execution when a container's base image is updated, such as when you patch the OS or application framework in one of your base images. In this tutorial, you learn how to create a build task in ACR Build that triggers a build in the cloud when a container's base image has been pushed to your registry.
 
 In this tutorial, the last in the series:
 
@@ -71,7 +71,7 @@ Dockerfiles defining most container images specify a parent image from which it 
 
 A base image is often updated by the image maintainer to include new features or improvements to the OS or framework in the image. Security patches are another common cause for a base image update.
 
-When a base image is updated, you're presented with the need to rebuild your own container images based on it to include the new features and fixes. ACR Build includes the ability to automatically build images for you when a container's base image is updated.
+When a base image is updated, you're presented with the need to rebuild any container images in your registry based on it to include the new features and fixes. ACR Build includes the ability to automatically build images for you when a container's base image is updated.
 
 ### Base image update scenario
 
@@ -119,7 +119,7 @@ Use [az acr build-task run][az-acr-build-task-run] to manually trigger the build
 az acr build-task run --registry $ACR_NAME --name buildhelloworld
 ```
 
-Once the build has completed, take note of the **Build ID** (for example, "eastus5") if you wish to complete the following optional step.
+Once the build has completed, take note of the **Build ID** (for example, "eastus6") if you wish to complete the following optional step.
 
 ### Optional: Run application container locally
 
@@ -153,13 +153,16 @@ If you completed the previous tutorial (and didn't delete the registry), you sho
 
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
-BUILD ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
-----------  ---------------  ----------  ---------  ----------  --------------------  ----------
-eastus5     buildhelloworld  Linux       Succeeded  Manual      2018-04-20T00:10:05Z  00:00:45
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit  2018-04-19T23:40:38Z  00:00:40
-eastus3     buildhelloworld  Linux       Succeeded  Manual      2018-04-19T23:36:37Z  00:00:40
-eastus2     buildhelloworld  Linux       Succeeded  Manual      2018-04-19T23:35:27Z  00:00:40
-eastus1                                  Succeeded  Manual      2018-04-19T22:51:13Z  00:00:30
+BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
+----------  ---------------  ----------  ---------  ------------  --------------------  ----------
+eastus8     buildhelloworld  Linux       Succeeded  Image Update  2018-04-22T00:09:24Z  00:00:50
+eastus7                                  Succeeded  Manual        2018-04-22T00:08:49Z  00:00:40
+eastus6     buildhelloworld  Linux       Succeeded  Manual        2018-04-22T00:03:46Z  00:00:40
+eastus5                                  Succeeded  Manual        2018-04-22T00:01:45Z  00:00:25
+eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-21T23:52:33Z  00:00:30
+eastus3     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:50:10Z  00:00:35
+eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:46:15Z  00:00:55
+eastus1                                  Succeeded  Manual        2018-04-21T23:24:05Z  00:00:35
 ```
 
 ## Update base image
