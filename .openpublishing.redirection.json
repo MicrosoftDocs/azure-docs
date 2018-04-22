@@ -9766,6 +9766,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "/azure/active-directory/develop/active-directory-v2-preview-oidc-changes",
+            "redirect_url": "/azure/active-directory/develop/active-directory-v2-protocols-oidc",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-appmodel-v2-overview.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-appmodel-v2-overview",
             "redirect_document_id": false
