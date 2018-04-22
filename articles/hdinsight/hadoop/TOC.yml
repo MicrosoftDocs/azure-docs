@@ -15,12 +15,7 @@
   - name: Create Hadoop cluster - Portal
     href: apache-hadoop-linux-create-cluster-get-started-portal.md
   - name: Create Hadoop cluster - Resource Manager
-    href: apache-hadoop-linux-tutorial-get-started.md
-  - name: Hadoop sandbox
-    href: apache-hadoop-emulator-get-started.md
-  - name: Install HDInsight apps
-    href: ../hdinsight-apps-install-applications.md
-    maintainContext: true  
+    href: apache-hadoop-linux-tutorial-get-started.md      
 - name: Tutorials
   items:
   - name: Perform ETL operations
@@ -39,6 +34,8 @@
     maintainContext: true
 - name: How to
   items:
+  - name: Use Hadoop sandbox
+    href: apache-hadoop-emulator-get-started.md
   - name: Use cluster storage
     items:
     - name: Using Azure Storage
@@ -176,6 +173,9 @@
       maintainContext: true
   - name: Extend clusters
     items:
+    - name: Install HDInsight apps
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: Customize clusters using Bootstrap
       href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
       maintainContext: true
