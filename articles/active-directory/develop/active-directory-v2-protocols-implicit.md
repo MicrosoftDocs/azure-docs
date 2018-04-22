@@ -19,9 +19,9 @@ ms.custom: aaddev
 
 ---
 # v2.0 Protocols - SPAs using the implicit flow
-With the v2.0 endpoint, you can sign users into your single page apps with both personal and work/school accounts from Microsoft.  Single page and other JavaScript apps that run primarily in a browser face a few interesting challenges when it comes to authentication:
+With the v2.0 endpoint, you can sign users into your single page apps with both personal and work/school accounts from Microsoft. Single page and other JavaScript apps that run primarily in a browser face a few interesting challenges when it comes to authentication:
 
-* The security characteristics of these apps are significantly different from traditional server based web applications.
+* The security characteristics of these apps are significantly different from traditional server-based web applications.
 * Many authorization servers & identity providers do not support CORS requests.
 * Full page browser redirects away from the app become particularly invasive to the user experience.
 
@@ -37,7 +37,7 @@ However, if you would prefer not to use a library in your single page app and se
 > 
 
 ## Protocol diagram
-The entire implicit sign in flow looks something like this - each of the steps are described in detail below.
+The entire implicit sign-in flow looks something like this - each of the steps are described in detail below.
 
 ![OpenId Connect Swimlanes](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
@@ -80,6 +80,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | login_hint |optional |Can be used to pre-fill the username/email address field of the sign in page for the user, if you know their username ahead of time.  Often apps will use this parameter during re-authentication, having already extracted the username from a previous sign-in using the `preferred_username` claim. |
 | domain_hint |optional |Can be one of `consumers` or `organizations`.  If included, it will skip the email-based discovery process that user goes through on the v2.0 sign in page, leading to a slightly more streamlined user experience.  Often apps will use this parameter during re-authentication, by extracting the `tid` claim from the id_token.  If the `tid` claim value is `9188040d-6c67-4c5b-b112-36a304b66dad` (the Microsoft Account consumer tenant), you should use `domain_hint=consumers`.  Otherwise, use `domain_hint=organizations`. |
 
+
 At this point, the user will be asked to enter their credentials and complete the authentication.  The v2.0 endpoint will also ensure that the user has consented to the permissions indicated in the `scope` query parameter.  If the user has not consented to any of those permissions, it will ask the user to consent to the required permissions.  Details of [permissions, consent, and multi-tenant apps are provided here](active-directory-v2-scopes.md).
 
 Once the user authenticates and grants consent, the v2.0 endpoint will return a response to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.
@@ -99,12 +100,12 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | Parameter | Description |
 | --- | --- |
-| access_token |Included if `response_type` includes `token`. The access token that the app requested, in this case for the Microsoft Graph.  The access token should not be decoded or otherwise inspected, it can be treated as an opaque string. |
-| token_type |Included if `response_type` includes `token`.  Will always be `Bearer`. |
-| expires_in |Included if `response_type` includes `token`.  Indicates the number of seconds the token is valid, for caching purposes. |
+| access_token |Included if `response_type` includes `token`. The access token that the app requested, in this case for the Microsoft Graph. The access token should not be decoded or otherwise inspected, it can be treated as an opaque string. |
+| token_type |Included if `response_type` includes `token`. Will always be `Bearer`. |
+| expires_in |Included if `response_type` includes `token`. Indicates the number of seconds the token is valid, for caching purposes. |
 | scope |Included if `response_type` includes `token`.  Indicates the scope(s) for which the access_token will be valid. |
 | id_token |The id_token that the app requested. You can use the id_token to verify the user's identity and begin a session with the user.  More details on id_tokens and their contents is included in the [v2.0 endpoint token reference](active-directory-v2-tokens.md). |
-| state |If a state parameter is included in the request, the same value should appear in the response. The  app should verify that the state values in the request and response are identical. |
+| state |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 #### Error response
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
@@ -167,7 +168,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 | Parameter |  | Description |
 | --- | --- | --- |
 | tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers.  For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
-| client_id |required |The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) assigned your app. |
+| client_id |required |The Application ID that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) assigned your app. |
 | response_type |required |Must include `id_token` for OpenID Connect sign-in.  It may also include other response_types, such as `code`. |
 | redirect_uri |recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
 | scope |required |A space-separated list of scopes.  For getting tokens, include all [scopes](active-directory-v2-scopes.md) you require for the resource of interest. |
@@ -215,6 +216,16 @@ error=user_authentication_required
 | error_description |A specific error message that can help a developer identify the root cause of an authentication error. |
 
 If you receive this error in the iframe request, the user must interactively sign in again to retrieve a new token.  You can choose to handle this case in whatever way makes sense for your application.
+
+## Validating access tokens
+
+Once you receive an access_token, make sure to validate the signature of the token as well as the following claims. You may also choose to validate additional claims based on your scenario. 
+
+* **audience** claim, to ensure that the token was intended to be given to your app
+* **issuer** claim, to verify that the token was issued to your app by the v2.0 endpoint
+* **not before** and **expiration time** claims, to verify that the token has not expired
+
+For more information about the claims present in the access token, see the [v2.0 endpoint token reference](active-directory-v2-tokens.md)
 
 ## Refreshing tokens
 The implicit grant does not provide refresh tokens.  Both `id_token`s and `access_token`s will expire after a short period of time, so your app must be prepared to refresh these tokens periodically.  To refresh either type of token, you can perform the same hidden iframe request from above using the `prompt=none` parameter to control Azure AD's behavior.  If you want to receive a new `id_token`, be sure to use `response_type=id_token` and `scope=openid`, as well as a `nonce` parameter.

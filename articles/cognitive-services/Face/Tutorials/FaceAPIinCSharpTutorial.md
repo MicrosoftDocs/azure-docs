@@ -5,9 +5,8 @@ description: Create a simple Windows app that uses the Cognitive Services Emotio
 services: cognitive-services
 author: SteveMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: face
+ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles

@@ -15,7 +15,7 @@ metadata:
   ms.date: 11/22/2017
   ms.author: philmea
 abstract:
-  description: Azure Location Based Services (preview) provides developers from all industries, powerful geospatial capabilities, packed with fresh mapping data necessary to provide geographic context to web and mobile applications. This service is an Azure One API compliant set of REST APIs, accompanied with a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums.
+  description: Azure Location Based Services (preview) provides developers from all industries, powerful geospatial capabilities, packed with fresh mapping data necessary to provide geographic context to web and mobile applications. This service is an Azure OneAPI compliant set of REST APIs, accompanied with a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums.
 sections:
 - title: 5-minute quickstarts
   items:
