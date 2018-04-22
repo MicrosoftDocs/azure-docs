@@ -3667,23 +3667,24 @@ xpath('<xml>', '<xpath>')
 
 This example finds nodes that match the `<name></name>` node 
 by passing the specified arguments and returning an array. 
-The example must first convert the "items" string 
-to XML by using the [xml()](#xml) function before 
-the [parameters()](#parameters) can getting the XML from the string. 
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
 Here are the arguments:
 
-* This XML, which is passed by the "items" string:
+* The "items" string, which contains this XML:
 
   `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
 
-* This XPath expression passed as a string:
+  The example uses the [parameters()](#parameters) function to get 
+  the XML string from the "items" argument, but must also convert 
+  the string to XML format by using the [xml()](#xml) function. 
+
+* This XPath expression, which is passed as a string:
 
   `"/produce/item/name"`
 
-Here is the resulting array:
+Here is the resulting array with the nodes that match `<name></name`:
 
 `[ <name>Gala</name>, <name>Honeycrisp</name> ]`
 
@@ -3696,8 +3697,8 @@ adding the values in the `<count></count>` nodes, and returns the number 30:
 
 *Example 3*
 
-In this example, both expressions here find nodes that match the 
-`<location></location>` node by passing the specified arguments, 
+In this example, both expressions find nodes that match the 
+`<location></location>` node in the specified arguments, 
 which include XML with a namespace. The expressions use the backslash 
 character (\\) as an escape character for the double quotation mark (").
 
@@ -3711,19 +3712,19 @@ character (\\) as an escape character for the double quotation mark (").
 
 Here are the arguments:
 
-* This XML that includes an XML document namespace, `xmlns="http://contoso.com"`: 
+* This XML, which includes the XML document namespace, `xmlns="http://contoso.com"`: 
 
   ```xml
   <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
   ```
 
-* You can use either XPath expression here:
+* Either XPath expression here:
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
 
   * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
 
-Here is the resulting node:
+Here is the resulting node that matches `<location></location`:
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>
