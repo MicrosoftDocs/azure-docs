@@ -102,7 +102,7 @@ Timestamp            Name              Average
 
 For a multi-container group, the `containerName` dimension can be added to return this data per container.
 
-```
+```console
 $ az monitor metrics list --resource $CONTAINER --metric CPUUsage --dimension containerName -o table
 
 Timestamp            Name          Containername             Average
@@ -136,8 +136,6 @@ Like all Azure services, Azure Container Instances includes certain default limi
 [dimension]: ./media/container-instances-monitor/dimension.png
 [dual-chart]: ./media/container-instances-monitor/metrics.png
 [memory-chart]: ./media/container-instances-monitor/memory-multi.png
-
-<!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
 [monitor-dimension]: ./azure/monitoring-and-diagnostics/monitoring-metric-charts#what-are-multi-dimensional-metrics
