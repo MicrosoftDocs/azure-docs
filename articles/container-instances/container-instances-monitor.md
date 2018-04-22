@@ -18,7 +18,7 @@ This document details gathering CPU and memory usage for container instances usi
 
 ## Available metrics
 
-CPU metrics are expressed in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500 m) represents 50% utilization of a CPU core. Memory metrics are expressed in bytes. Both CPU and memory metrics are available for a container group and individual container.
+CPU metrics are expressed in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500 m) represents 50% utilization of a CPU core. Memory metrics are expressed in **bytes**. Both CPU and memory metrics are available for a container group and individual containers.
 
 ## Get metrics portal
 
@@ -26,21 +26,21 @@ When a container group is created, Azure Monitor data is available in the Azure 
 
 ![dual-chart][dual-chart]
 
-If you have a container group that contains multiple containers, use a dimension to present metrics for each individual container. To create an Azure Monitor chart with individual container metrics, perform the following steps.
+If you have a container group that contains multiple containers, use a [dimension][monitor-dimension] to present metrics for each individual container. To create an Azure Monitor chart with individual container metrics, perform the following steps.
 
-Navigate to the Azure Monitoring hub by selecting **Monitor** from the left-hand Azure menu and select **Metrics (preview)**. Select your container group, a metric (CPU or Memory). To display metric for the individual containers, select the green dimension button, and select **Container Name**.
+Navigate to the Azure Monitoring hub by selecting **Monitor** from the left-hand Azure menu and select **Metrics (preview)**. Select your container group and a metric (CPU or Memory). To display metric for the individual containers, select the green dimension button, and select **Container Name**.
 
-Example CPU usage per container.
+Example CPU usage per container:
 
 ![Container instance CPU chart][cpu-chart]
 
-Example memory usage per container.
+Example memory usage per container:
 
 ![Container instance memory chart][memory-chart]
 
 ## Get metrics Azure CLI
 
-Container instances CPU and memory usage can also be gathered using the Azure CLI. First, get the ID of the container group.
+Container instances CPU and memory usage can also be gathered using the Azure CLI. First, get the ID of the container group. Replace the resource group name and container group name with your values.
 
 
 ```console
@@ -134,4 +134,6 @@ Like all Azure services, Azure Container Instances includes certain default limi
 [memory-chart]: ./media/container-instances-monitor/memory-multi.png
 
 <!-- LINKS - External -->
+
 <!-- LINKS - Internal -->
+[monitor-dimension]: ./azure/monitoring-and-diagnostics/monitoring-metric-charts#what-are-multi-dimensional-metrics
