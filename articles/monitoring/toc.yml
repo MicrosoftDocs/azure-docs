@@ -46,6 +46,8 @@
       href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=%2fazure%2fmonitoring%2ftoc.json
   - name: Containers
     items:
+    - name: Monitoring Containers overview
+      href: monitoring-container-overview.md
     - name: AKS container performance
       href: monitoring-container-performance.md
     - name: Non-AKS Container Monitoring
