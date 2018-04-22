@@ -19,17 +19,17 @@ ms.author: wesmc
 ---
 # Tutorial: Azure SignalR Service authentication with OAuth
 
-This tutorial builds on the chat room application introduced in the quickstart. If you have not completed [Quickstart: Create a chat room with Azure SignalR](signalr-quickstart-dotnet-core.md), complete that first. 
+This tutorial builds on the chat room application introduced in the quickstart. If you have not completed [Quickstart: Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), complete that first. 
 
 In this tutorial you'll learn how to implement your own authentication and integrate it with the Azure SignalR Service. 
 
-The authentication used in the quickstart's chat room application is too simple for real-world scenarios. In the application, you claim who you are, and the authentication API on the server simply accepts that, and gives you a token with that name. This is not very useful in real-world applications where a rogue user would impersonate other users to access sensitive data. 
+The authentication used in the quickstart's chat room application is too simple for real-world scenarios. In the application, you claim who you are, and the authentication API on the server simply accepts that, and gives you a token with that name. This is not very useful in real-world applications where a rogue user would impersonate others to access sensitive data. 
 
 [GitHub](https://github.com/) provides authentication APIs based on a popular industry-standard protocol called [OAuth](https://oauth.net/). These APIs allow third-party applications to authenticate GitHub accounts. In this tutorial you will use these APIs to require true authentication through a Guthub account before allowing client logins to the chat room application. 
 
 For more information on the OAuth authentication APIs provided through GitHub, see [Basics of Authentication](https://developer.github.com/v3/guides/basics-of-authentication/).
 
-The code for this tutorial is available in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat).
+The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat).
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -46,13 +46,9 @@ In this tutorial, you learn how to:
 To complete this tutorial, you must have the following prerequisites:
 
 * An account created on [GitHub](https://github.com/). 
+* Install the [.NET Core SDK](https://www.microsoft.com/net/download/windows)
+* Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github repository.
 
-* This tutorial continues to update the *ContosoTeamStats* ASP.NET web app created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md). If you have not completed those steps to set up your cache and Azure App service, complete that first.
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-    * ASP.NET and web development
-    * Azure Development
-    * .NET desktop development with SQL Server Express LocalDB or [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express).
-* You need an Azure account to complete the quickstart. You can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
 
 ## Create an OAuth app
 
@@ -342,6 +338,26 @@ The hub class needs to be updated to use the user's claim for identification. In
 
 ## Clean up resources
 
+If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them with the next tutorial.
+
+Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
+
+> [!IMPORTANT]
+> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
+> 
+> 
+
+Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+
+In the **Filter by name...** textbox, type the name of your resource group. The instructions for this topic used a resource group named *SignalRTestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+
+   
+![Delete](./media/signalr-authenticate-oauth/signalr-delete-resource-group.png)
+
+
+You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
+   
+After a few moments the resource group and all of its contained resources are deleted.
 
 ## Next steps
 

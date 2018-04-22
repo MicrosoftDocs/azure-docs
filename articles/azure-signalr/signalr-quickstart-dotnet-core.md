@@ -17,13 +17,13 @@ ms.date: 04/17/2018
 ms.author: wesmc
 
 ---
-# Quickstart: Create a chat room with Azure SignalR
+# Quickstart: Create a chat room with SignalR Service
 
 Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on [SignalR for ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/09/14/announcing-signalr-for-asp-net-core-2-0/).
 
-This topic shows you how to get started with the Azure SignalR Service. In this quickstart you will create a chat application using an ASP.NET Core MVC Web App web app with an Azure SignalR Service. 
+This topic shows you how to get started with the SignalR Service. In this quickstart you will create a chat application using an ASP.NET Core MVC Web App web app with the SignalR Service. 
 
-The code for this article can be downloaded from the AzureSignalR-samples repository, [here](https://github.com/aspnet/AzureSignalR-samples/blob/master/tutorials/chat-room-service.md).
+The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom).
 
 ![Quickstart Complete local](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
@@ -63,13 +63,13 @@ In this section you use the [.NET Core command-line interface (CLI)](https://doc
         dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview-10001
 
 
-2. Add a new environment variable named *AzureSignalRConnectionStringKey*. This variable will contain the connection string to access your Azure Signalr Service resource. Based on the example command below, paste in your connection string for the value:
+2. Add a new environment variable named *AzureSignalRConnectionStringKey*. This variable will contain the connection string to access your Signalr Service resource. Based on the example command below, paste in your connection string for the value:
 
         set AzureSignalRConnectionStringKey=Endpoint=<your hostname>;AccessKey=<Your access key>;
 
-    This environment variable is only used for testing the web app while it is hosted locally. Once the web app is deployed to Azure, you will add an application setting in place of the environment variable.
+    This environment variable is only used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the web app to Azure. Once the web app is deployed to Azure, you will use an application setting in place of the environment variable.
 
-3. In your project directory, add a new code file named *Constants.cs*. This file will contain the constant name of the connection string used to access your Azure SignalR Service resource. Add the following code:
+3. In your project directory, add a new code file named *Constants.cs*. This file will contain the constant name of the connection string used to access your SignalR Service resource. Add the following code:
 
     ```cscharp
     namespace Microsoft.Azure.SignalR.Samples.ChatRoom
@@ -81,7 +81,7 @@ In this section you use the [.NET Core command-line interface (CLI)](https://doc
     }
     ```
 
-4. Open *Startup.cs* and update the `ConfigureServices` method to make the web app a singleton and use Azure SignalR by calling the `services.AddAzureSignalR()` method:
+4. Open *Startup.cs* and update the `ConfigureServices` method to make the web app a singleton and use the SignalR Service resource by calling the `services.AddAzureSignalR()` method:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -140,11 +140,11 @@ Both methods use the `Clients` interface provided by the SignalR Core SDK. This 
 
 ## Add an authentication controller
 
-The connection string contains sensitive access data and should only be used by server-side code to connect to the Azure SignalR Service resources. You would not normally want to allow client-side code direct access to the service using the connection string. Code running as a client of the web app should authenticate with the web app in order to authorize access to SignalR functionality. 
+The connection string contains sensitive access data and should only be used by server-side code to connect to the SignalR Service resource. You would not normally want to allow client-side code direct access to the service using the connection string. Code running as a client of the web app should authenticate with the web app in order to authorize access to SignalR functionality. 
 
-Azure SignalR Service gives you the flexibility to implement your own authentication. In this section you will implement an API that authenticates your clients and issues a token to the client. Code running client-side can then use this token to connect to the service to push content updates.
+Azure SignalR Service gives you the flexibility to implement your own authentication. In this article, you aren't going to include real authentication. Instead you will simply issue the token when requested. You will implement real authentication in a later tutorial. 
 
-In this article, you aren't going to include real authentication. Instead you will directly issue the token when requested. You will implement real authentication in a later tutorial.
+In this section you will implement an API issues a token to the client. Code running client-side can then use this token to connect to the service to push content updates.
 
 1. Add a new controller code file to the *chattest\Controllers* directory. Name the file *AuthController.cs*.
 
@@ -234,6 +234,26 @@ The client user interface for this chat room app will be composed of HTML and Ja
 
 ## Clean up resources
 
+If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them with the next tutorial.
+
+Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
+
+> [!IMPORTANT]
+> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
+> 
+> 
+
+Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+
+In the **Filter by name...** textbox, type the name of your resource group. The instructions for this topic used a resource group named *SignalRTestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+
+   
+![Delete](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
+
+
+You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
+   
+After a few moments the resource group and all of its contained resources are deleted.
 
 
 

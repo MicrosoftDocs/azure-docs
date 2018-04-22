@@ -20,7 +20,7 @@ ms.custom: mvc
 
 # Create a SignalR Service with an App Service
 
-This sample script creates a new Azure SignalR Service resource, which is used to push real-time content updates to clients. This script also adds a new Web App and App Service plan to host your ASP.NET Core Web App that uses the Azure SignalR Service. The web app is configured with an App Setting named *SignalRConnectionString* to connection to the SignalR service.
+This sample script creates a new Azure SignalR Service resource, which is used to push real-time content updates to clients. This script also adds a new Web App and App Service plan to host your ASP.NET Core Web App that uses the SignalR Service. The web app is configured with an App Setting named *AzureSignalRConnectionString* to connect to the new SignalR service resource.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -42,11 +42,11 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az signalr create](/cli/azure/signalr#az_signalr_create) | Creates an Azure SignalR Service resource. |
-| [az signalr key list](/cli/azure/signalr/key#az_signalr_key_list) | List the keys which will be used by your aaplication when pushing real-time content updates with SignalR. |
-| [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an Azure App Service Plan for hosting web apps. |
-| [az webapp create](/cli/azure/webapp#az_webapp_create) | Creates an Azure Web app using the App Service hosting plan. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az signalr create](/cli/azure/signalr#az-signalr-create) | Creates an Azure SignalR Service resource. |
+| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | List the keys which will be used by your aaplication when pushing real-time content updates with SignalR. |
+| [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Creates an Azure App Service Plan for hosting web apps. |
+| [az webapp create](/cli/azure/webapp#az-webapp-create) | Creates an Azure Web app using the App Service hosting plan. |
 
 ## Next steps
 

@@ -20,7 +20,7 @@ ms.custom: mvc
 
 # Create a SignalR Service 
 
-This Azure SignalR Service sample script creates a new SignalR Service resource, which is used to push real-time content updates to clients.
+This sample script creates a new Azure SignalR Service resource in a new resource group with a random name.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +34,7 @@ This script creates a new SignalR Service resource and a new resource group.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-signalr/create-signalr-service-and-group/create-signalr-service-and-group.sh "Creates a new Azure SignalR Service resource and resource group")]
 
-Make a note of the actual name generated for the new resource group. You will use that generated resource group name when you want to delete all group resources.
+Make a note of the actual name generated for the new resource group. You will use that resource group name when you want to delete all group resources.
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -44,8 +44,10 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az signalr create](/cli/azure/group#az_group_create) | Creates an Azure SignalR Service resource. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az signalr create](/cli/azure/group#az-group-create) | Creates an Azure SignalR Service resource. |
+| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | List the keys which will be used by your aaplication when pushing real-time content updates with SignalR. |
+
 
 ## Next steps
 
