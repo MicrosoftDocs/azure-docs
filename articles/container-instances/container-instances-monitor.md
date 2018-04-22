@@ -22,7 +22,7 @@ CPU metrics are expressed in **millicores**. One millicore is 1/1000th of a CPU 
 
 When a container group is deployed, Azure Monitor data is imediatley avaliable in the Azure portal. To see metrics for a container group navigate to the resourece group and select the container group. Here you will find pre-create charts for both CPU and memory metrics of the container group.
 
-[dual-chart]
+![dual-chart][dual-chart]
 
 If you have a container group that contains multiple containers, an Azure Monitoring dimension can be used to present metrics for each individual container. To create a Azure Monitor chart with individual container metrics perform the following:
 
@@ -105,6 +105,7 @@ Timestamp            Name              Average
 2018-04-22 04:48:00  CPU Usage  aci-tutorial-app           4.5
 2018-04-22 04:49:00  CPU Usage  aci-tutorial-app           2.25
 2018-04-22 04:50:00  CPU Usage  aci-tutorial-app           0.25
+```
 
 ## Alerts
 
@@ -117,6 +118,6 @@ Like all Azure services, Azure Container Instances includes certain default limi
 <!-- IMAGES -->
 [cpu-chart]: ./media/container-instances-monitor/cpu-multi.png
 [memory-chart]: ./media/container-instances-monitor/memory-multi.png
-[dual-chart]: ./media/metrics.png
+[dual-chart]: ./media/container-instances-monitor/metrics.png
 <!-- LINKS - External -->
 <!-- LINKS - Internal -->
