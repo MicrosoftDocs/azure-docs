@@ -3696,39 +3696,42 @@ adding the values in the `<count></count>` nodes and returning the number 30:
 
 *Example 3*
 
-In this example, both expressions find nodes that match the `<location></location>` 
-node by passing the specified arguments, including XML that has a namespace, 
-and returning this node: 
+In this example, both expressions here find nodes that match the 
+`<location></location>` node by passing the specified arguments, 
+which include XML with a namespace. The expressions use the backslash 
+character (\\) as an escape character for the double quotation mark (").
+
+* *Expression 1*
+
+  `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
+
+* *Expression 2* 
+
+  `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
+
+Here is the result node:
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>
 ```
 
-* *Expression 1*: 
-
-  `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
-
-* *Expression 2*: 
-
-  `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
-
 Here are the arguments:
 
-* XML that includes an XML document namespace where `xmlns="http://contoso.com"`: 
+* This XML that includes an XML document namespace, `xmlns="http://contoso.com"`: 
 
   ```xml
   <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
   ```
 
-* Either XPath expression herefs, which uses the backslash character (\\) 
-as an escape character for the double quotation mark ("):
+* Either XPath expression here:
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
+
   * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
 
 *Example 4*
 
-Following on Example 3, this example finds the value for the 
+Following on Example 3, this example finds the value in the 
 `<location></location>` node and returns the string "Paris": 
 
 `xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`
