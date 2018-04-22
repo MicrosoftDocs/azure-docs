@@ -77,7 +77,7 @@ When your web app needs to authenticate the user, it can direct the user to the 
 * The request must include the `nonce` parameter.
 
 > [!IMPORTANT]
-> In order to succesfully request an ID token, the app registration in the [App Registration Portal](https://apps.dev.microsoft.com) must have the **[Implicit grant](active-directory-v2-protocols-implicit.md)** enabled for the the Web client.  If it is not enabled, an `unsupported_response` error will be returned: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'"
+> In order to succesfully request an ID token, the app registration in the [registration portal](https://apps.dev.microsoft.com) must have the **[Implicit grant](active-directory-v2-protocols-implicit.md)** enabled for the the Web client.  If it is not enabled, an `unsupported_response` error will be returned: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'"
 
 For example:
 
