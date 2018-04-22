@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Create Spark applications for Azure HDInsight using Azure Toolkit for IntelliJ | Microsoft Docs'
+title: 'Azure Toolkit for IntelliJ: Create Spark applications for an HDInsight cluster | Microsoft Docs'
 description: Use the Azure Toolkit for IntelliJ to develop Spark applications written in Scala, and submit them to an HDInsight Spark cluster.
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -13,11 +13,11 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2018
-ms.author: jgao
+ms.date: 11/25/2017
+ms.author: maxluk,jejiang
 
 ---
-# Tutorial: Create Spark applications for Azure HDInsight using Azure Toolkit for IntelliJ
+# Use Azure Toolkit for IntelliJ to create Spark applications for an HDInsight cluster
 
 Use the Azure Toolkit for IntelliJ plug-in to develop Spark applications written in Scala, and then submit them to an HDInsight Spark cluster directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
 
@@ -25,7 +25,11 @@ Use the Azure Toolkit for IntelliJ plug-in to develop Spark applications written
 * Access your Azure HDInsight Spark cluster resources.
 * Develop and run a Scala Spark application locally.
 
-To create your project, view the [Create Spark Applications with the Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) video.
+To create your project, view the [Create Spark Applications with the Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) video.
+
+> [!IMPORTANT]
+> You can use this plug-in to create and submit applications only for an HDInsight Spark cluster on Linux.
+> 
 
 ## Prerequisites
 
@@ -317,4 +321,3 @@ If you have any suggestions or feedback, or if you encounter any problems when y
 ### Managing resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)
-
