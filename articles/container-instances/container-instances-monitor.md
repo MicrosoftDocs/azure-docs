@@ -12,23 +12,29 @@ ms.author: nepeters
 ---
 # Monitor container resources in Azure Container Instances
 
-Azure Monitor provides insight into the compute resources used by your containers instances. Use Azure Monitor to track the CPU and memory utilization of container groups and their containers. Create alerts to be notified when certain resource metrics are outside thresholds you specify. This resource usage data helps you determine the best CPU and memory settings for your container groups. Alerts provide you with the opportunity to make configuration adjustments before applications running in your containers are impacted by low-resource situations.
+Azure Monitor provides insight into the compute resources used by your containers instances. Use Azure Monitor to track the CPU and memory utilization of container groups and their containers. This resource usage data helps you determine the best CPU and memory settings for your container groups.
 
-## Avaliable metrics
+This document details gathering CPU and memory usage for container instances using both the Azure portal and Azure CLI.
 
-CPU metrics are expressed in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500m) represents 50% utilization of a CPU core. CPU metrics are avaliable both for a container group and individual container.
+## Available metrics
+
+CPU metrics are expressed in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500m) represents 50% utilization of a CPU core. Memory metrics are expressed in bytes. Both CPU and memory metrics are available for a container group and individual container.
 
 ## Get metrics portal
 
-When a container group is deployed, Azure Monitor data is imediatley avaliable in the Azure portal. To see metrics for a container group navigate to the resourece group and select the container group. Here you will find pre-create charts for both CPU and memory metrics of the container group.
+When a container group is deployed, Azure Monitor data is immediately available in the Azure portal. To see metrics for a container group, navigate to the resource group and select the container group. Here you will find pre-create charts for both CPU and memory usage of the container group.
 
 ![dual-chart][dual-chart]
 
-If you have a container group that contains multiple containers, an Azure Monitoring dimension can be used to present metrics for each individual container. To create a Azure Monitor chart with individual container metrics perform the following:
+If you have a container group that contains multiple containers, an Azure Monitoring dimension can be used to present metrics for each individual container. To create an Azure Monitor chart with individual container metrics, perform the following:
 
-Navigate to the Azure Monitoring hub by selecting **Monitor** from the left hand Azure menu and select **Metrics (preview)**.
+Navigate to the Azure Monitoring hub by selecting **Monitor** from the left-hand Azure menu and select **Metrics (preview)**. Select your container group, a metric (CPU or Memory). To display metric for the individual containers, select the dimension button ![dimension][dimension], and select **Container Name**.
+
+Example CPU usage per container.
 
 ![Container instance CPU chart][cpu-chart]
+
+Example memory usage per container.
 
 ![Container instance memory chart][memory-chart]
 
@@ -117,7 +123,8 @@ Like all Azure services, Azure Container Instances includes certain default limi
 
 <!-- IMAGES -->
 [cpu-chart]: ./media/container-instances-monitor/cpu-multi.png
-[memory-chart]: ./media/container-instances-monitor/memory-multi.png
+[dimension]: ./media/container-instances-monitor/dimension.png
 [dual-chart]: ./media/container-instances-monitor/metrics.png
+[memory-chart]: ./media/container-instances-monitor/memory-multi.png
 <!-- LINKS - External -->
 <!-- LINKS - Internal -->
