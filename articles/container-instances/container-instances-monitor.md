@@ -32,7 +32,7 @@ Navigate to the Azure Monitoring hub by selecting **Monitor** from the left hand
 
 ![Container instance memory chart][memory-chart]
 
-## Get metrics portal
+## Get metrics Azure CLI
 
 Get the container id:
 
@@ -88,6 +88,23 @@ Timestamp            Name              Average
 2018-04-22 04:52:00  Memory Usage  9.2416e+06
 2018-04-22 04:53:00  Memory Usage  9.1008e+06
 ```
+
+```
+$ az monitor metrics list --resource $CONTAINER --metric CPUUsage --dimension containerName -o table
+
+Timestamp            Name              Average
+-------------------  ------------  -----------
+2018-04-22 04:40:00  CPU Usage  aci-tutorial-app
+2018-04-22 04:41:00  CPU Usage  aci-tutorial-app
+2018-04-22 04:42:00  CPU Usage  aci-tutorial-app
+2018-04-22 04:43:00  CPU Usage  aci-tutorial-app
+2018-04-22 04:44:00  CPU Usage  aci-tutorial-app           0.75
+2018-04-22 04:45:00  CPU Usage  aci-tutorial-app           1
+2018-04-22 04:46:00  CPU Usage  aci-tutorial-app           6.25
+2018-04-22 04:47:00  CPU Usage  aci-tutorial-app           2
+2018-04-22 04:48:00  CPU Usage  aci-tutorial-app           4.5
+2018-04-22 04:49:00  CPU Usage  aci-tutorial-app           2.25
+2018-04-22 04:50:00  CPU Usage  aci-tutorial-app           0.25
 
 ## Alerts
 
