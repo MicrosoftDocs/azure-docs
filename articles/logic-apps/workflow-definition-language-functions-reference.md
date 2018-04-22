@@ -3666,70 +3666,70 @@ xpath('<xml>', '<xpath>')
 *Example 1*
 
 This example finds nodes that match the `<name></name>` node 
-by passing the specified arguments and returns this array: 
-
-`[ <name>Gala</name>, <name>Honeycrisp</name> ]`
+by passing the specified arguments and returning an array. 
+The example must first convert the "items" string 
+to XML by using the [xml()](#xml) function before 
+the [parameters()](#parameters) can getting the XML from the string. 
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
-Arguments:
+Here are the arguments:
 
-* XML represented by the "items" string: 
+* The XML is this "items" string:
 
   `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
 
-* The XPath expression:
+* The XPath expression is this string:
 
   `"/produce/item/name"`
 
-> [!NOTE]
-> The example gets the XML from "items" with the [parameters()](#parameters) function, 
-> but must also convert the string to XML by using the [xml()](#xml) function.
+Result:
 
-*Example 1.1*
-
-This example computes values from XML content by adding all the 
-`<count></count>` node values, and returns the number 30:
-
-`xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
+`[ <name>Gala</name>, <name>Honeycrisp</name> ]`
 
 *Example 2*
 
-Both of these examples find nodes that match the `<location></location>` node by 
-passing the specified arguments, which include XML with a namespace, 
-and return this node: 
+Following on Example 1, this expression computes values in the XML by 
+adding the values in the `<count></count>` nodes and returning the number 30:
+
+`xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
+
+*Example 3*
+
+In this example, both expressions find nodes that match the `<location></location>` 
+node by passing the specified arguments, including XML that has a namespace, 
+and returning this node: 
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>
 ```
 
-* Version 1: 
+* *Expression 1*: 
 
   `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
 
-* Version 2: 
+* *Expression 2*: 
 
   `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
 
-Arguments:
+Here are the arguments:
 
-* XML that includes an XML namespace for a document, 
-for example, where `xmlns="http://contoso.com"`: 
+* XML that includes an XML document namespace where `xmlns="http://contoso.com"`: 
 
   ```xml
   <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
   ```
 
-* Either of these XPath expressions, which use the backslash 
-character (\\) as an escape character for the double quotation mark ("):
+* Either XPath expression herefs, which uses the backslash character (\\) 
+as an escape character for the double quotation mark ("):
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
   * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
 
-*Example 2.1*
+*Example 4*
 
-This example finds the value for the `<location></location>` 
-node and returns the string "Paris": 
+Following on Example 3, this example finds the value for the 
+`<location></location>` node and returns the string "Paris": 
 
 `xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`
 
