@@ -4,9 +4,8 @@ description: Learn how to use the Translator text service to translate text, get
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
-
 ms.service: cognitive-services
-ms.technology: translator
+ms.component: translator-text
 ms.devlang: csharp
 ms.topic: article
 ms.date: 10/25/2017

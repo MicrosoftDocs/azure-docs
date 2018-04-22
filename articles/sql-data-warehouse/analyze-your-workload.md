@@ -2,13 +2,14 @@
 title: Analyze your workload - Azure SQL Data Warehouse | Microsoft Docs
 description: Techniques for analyzing query prioritization for your workload in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: sqlmojo
+author: kevinvngo
 manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/11/2018
-ms.author: joeyong
-ms.reviewer: jrj
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
 ---
 
 # Analyze your workload in Azure SQL Data Warehouse
@@ -225,16 +226,6 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## Next steps
-For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Rebuilding indexes to improve segment quality].
+For more information about managing database users and security, see [Secure a database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Rebuilding indexes to improve segment quality](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
 
-<!--Image references-->
 
-<!--Article references-->
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-[Rebuilding indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-
-<!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
-
-<!--Other Web references-->

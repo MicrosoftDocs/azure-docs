@@ -3,7 +3,7 @@ title: Create a VM (Classic) with multiple NICs - Azure PowerShell | Microsoft D
 description: Learn how to create a VM (Classic) with multiple NICs using PowerShell.
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: ''
 tags: azure-service-management

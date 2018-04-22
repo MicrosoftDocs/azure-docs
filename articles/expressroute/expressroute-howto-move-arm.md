@@ -68,7 +68,7 @@ Sign in to the Resource Manager environment and create a new resource group.
 1. Sign in to your Azure Resource Manager environment.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 2. Select the appropriate Azure subscription.

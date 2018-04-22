@@ -1,4 +1,4 @@
----
+﻿---
 title: Delete an Azure cluster and its resources | Microsoft Docs
 description: Learn how to completely delete a Service Fabric cluster either deleting the resource group containing the cluster or by selectively deleting resources.
 services: service-fabric
@@ -35,7 +35,7 @@ You can also delete the resource group by running the following Azure PowerShell
 Open a PowerShell window and run the following PS cmdlets:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
@@ -79,7 +79,7 @@ You can delete the resources one-by-one by running the following Azure PowerShel
 Open a PowerShell window and run the following PS cmdlets:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 For each of the resources you want to delete, run the following script:
 
