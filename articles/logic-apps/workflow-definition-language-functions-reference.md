@@ -1343,15 +1343,15 @@ endsWith('<text>', '<searchText>')
 
 *Example* 
 
-This example checks whether the string "hello world" 
-ends with the string "world" and returns true:
+This example checks whether the "hello world" string 
+ends with the "world" string and returns true:
 
 ```json
 endsWith('hello world', 'world')
 ```
 
-This example checks whether the string "hello world" 
-ends with the string "universe" and returns false:
+This example checks whether the "hello world" string 
+ends with the "universe" string and returns false:
 
 ```json
 endsWith('hello world', 'universe')
@@ -2184,9 +2184,9 @@ listCallbackUrl()
 
 *Example*
 
-This example shows a callback URL that this function might return:
+This example shows a sample callback URL that this function might return:
 
-"https://prod-01.westus.logic.azure.com:443/workflows/<*workflow-ID*>/triggers/manual/run?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<*signature-ID*>"
+`"https://prod-01.westus.logic.azure.com:443/workflows/<*workflow-ID*>/triggers/manual/run?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<*signature-ID*>"`
 
 <a name="max"></a>
 
@@ -2783,15 +2783,15 @@ startsWith('<text>', '<searchText>')
 
 *Example* 
 
-This example checks whether the substring "hello" 
-starts with the string "hello world" and returns true:
+This example checks whether the "hello world" string 
+starts with the "hello" substring and returns true:
 
 ```json
 startsWith('hello world', 'hello')
 ```
 
-This example checks whether the substring "greetings" 
-starts with the string "hello world" and returns false:
+This example checks whether the "hello world" string 
+starts with the "greetings" substring and returns false:
 
 ```json
 startsWith('hello world', 'greetings')
@@ -3019,6 +3019,7 @@ toUpper('<text>')
 | --------- | -------- | ---- | ----------- | 
 | <*text*> | Yes | String | The string to return in uppercase format | 
 ||||| 
+
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
 | "*uppercase-text*" | String | The original string in uppercase format | 
