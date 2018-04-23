@@ -107,7 +107,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	*   In the **Admin Password** field, populate the password corresponding to the admin username.
 
-	*   In the **Domain** field, populate the webservice URL of the Cornerstone OnDemand tenant. Example: The service is located at `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, for Contoso the domain is `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. For more information, see [Help](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf) available to tenant users upon successful login.
+	*   In the **Domain** field, populate the webservice URL of the Cornerstone OnDemand tenant. Example: The service is located at `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, for Contoso the domain is `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. For more information on how to retrieve the webservice URL, see [here](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
 6. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Cornerstone OnDemand. If the connection fails, ensure your Cornerstone OnDemand account has Admin permissions and try again.
 
@@ -147,7 +147,7 @@ This operation starts the initial synchronization of all users and/or groups def
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](./active-directory-saas-provisioning-reporting.md).
 ## Connector Limitations
 
-* The Cornerstone OnDemand **Position** attribute expects a value that corresponds to the roles on the Cornerstone OnDemand Portal. The list of valid **Position** values can be obtained by clicking on **Edit User Record/Organization Structure/Position**
+* The Cornerstone OnDemand **Position** attribute expects a value that corresponds to the roles on the Cornerstone OnDemand portal. The list of valid **Position** values can be obtained by navigating to **Edit User Record > Organization Structure > Position** in the Cornerstone OnDemand portal.
 	![Cornerstone OnDemand Provisioning Edit User](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/UserEdit.png)
 	![Cornerstone OnDemand Provisioning Position](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/UserPosition.png)
 	![Cornerstone OnDemand Provisioning Positions List](./media/active-directory-saas-cornerstone-ondemand-provisioning-tutorial/PostionId.png)
