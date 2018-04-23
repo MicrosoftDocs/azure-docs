@@ -144,7 +144,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Connector Limitations
 
-* Bluejeans does not allow Usernames exceeding 30 characters.
+* Bluejeans does not allow usernames that exceed 30 characters.
 
 ## Additional resources
 
