@@ -34,9 +34,11 @@ When a container group is created, Azure Monitor data is available in the Azure 
 
 ![dual-chart][dual-chart]
 
-If you have a container group that contains multiple containers, use a [dimension][monitor-dimension] to present metrics for each individual container. To create an Azure Monitor chart with individual container metrics, perform the following steps.
+If you have a container group that contains multiple containers, use a [dimension][monitor-dimension] to present metrics for each individual container. To create an Azure Monitor chart with individual container metrics, perform the following steps:
 
-Navigate to the Azure Monitoring hub by selecting **Monitor** from the left-hand Azure menu and select **Metrics (preview)**. Select your container group and a metric (CPU or Memory). To display metric for the individual containers, select the green dimension button, and select **Container Name**.
+- Navigate to the Azure Monitoring hub by selecting **Monitor** from the left-hand Azure menu and select **Metrics (preview)**.
+- Select your container group and a metric (CPU or Memory).
+- Select the green dimension button ![dimension][dimension], and select **Container Name**.
 
 Example CPU usage per container:
 
@@ -142,4 +144,4 @@ Like all Azure services, Azure Container Instances includes certain default limi
 [memory-chart]: ./media/container-instances-monitor/memory-multi.png
 
 <!-- LINKS - Internal -->
-[monitor-dimension]: ./azure/monitoring-and-diagnostics/monitoring-metric-charts#what-are-multi-dimensional-metrics
+[monitor-dimension]: ../monitoring-and-diagnostics/monitoring-metric-charts#what-are-multi-dimensional-metrics
