@@ -200,7 +200,7 @@ When you ran the `Test-AzureRmNetworkWatcherIPFlow` command to test outbound com
 
 The rule lists **0.0.0.0/0** as the **DestinationAddressPrefix**. The rule denies the outbound communication to 172.131.0.100, because the address is not within the **DestinationAddressPrefix** of any of the other outbound rules in the output from the `Get-AzureRmEffectiveNetworkSecurityGroup` command. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 at 172.131.0.100.
 
-When you ran the `Test-AzureRmNetworkWatcherIPFlow` command to test inbound communication from 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DefaultInboundDenyAll** rule denied the communication. The **DefaultInboundDenyAll** rule equates to the the **DenyAllInBound** rule listed in the following output from the `Get-AzureRmEffectiveNetworkSecurityGroup` command:
+When you ran the `Test-AzureRmNetworkWatcherIPFlow` command to test inbound communication from 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DefaultInboundDenyAll** rule denied the communication. The **DefaultInboundDenyAll** rule equates to the **DenyAllInBound** rule listed in the following output from the `Get-AzureRmEffectiveNetworkSecurityGroup` command:
 
 ```powershell
 {
