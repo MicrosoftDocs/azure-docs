@@ -19,7 +19,7 @@ When you finish building and testing your LUIS app, you publish it on Azure. Aft
 You can optionally [test](train-test.md) your app before publishing it. 
 
 ## Product and staging slot
-You can publish your app to the **Staging slow** or the **Production Slot**. Part of the slot choice is the time zone selection. This allows LUIS to [alter](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimeV2-entity) any prebuilt datetimeV2 time values during prediction so that the returned entity data is correct according to the selected time zone. 
+You can publish your app to the **Staging slow** or the **Production Slot**. Part of the slot choice is the time zone selection. This allows LUIS to [alter](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) any prebuilt datetimeV2 time values during prediction so that the returned entity data is correct according to the selected time zone. 
 
 ## Include all intent scores with prediction response
 The **Include all predicted intent scores** checkbox allows the endpoint query response to include the prediction score for each utterance for each intent. This allows your chat bot or LUIS-calling application to make a programming decision based on the scores of the returned intents. Generally the top two intents are the most interesting. The intents and their scores are also included the endpoint logs. You can [export](create-new-app.md#export-app) those logs and analyze the scores. 
