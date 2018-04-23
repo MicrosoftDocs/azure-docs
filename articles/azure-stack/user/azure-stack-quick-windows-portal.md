@@ -29,6 +29,7 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 ## Create a virtual machine
 
 1. Click **New** > **Compute** > **Windows Server 2016 Datacenter Eval** > **Create**. If you don't see **Windows Server 2016 Datacenter Eval** entry, contact your Azure Stack operator. Ask that they add it to the marketplace as explained in the [Add the Windows Server 2016 VM image to the Azure Stack marketplace](../azure-stack-add-default-image.md) article.
+
     ![Steps to create a Windows virtual machine in portal](media/azure-stack-quick-windows-portal/image01.png)
 2. Under **Basics**, type a **Name**, **User name**, and **Password**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, select a **Location**, and then click **OK**.
 
@@ -48,4 +49,4 @@ When you're finished using the virtual machine, delete the virtual machine and i
 
 ## Next steps
 
-In this quick start, you deployed a basic Windows server virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
+In this quick start, you deployed a basic Windows Server virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
