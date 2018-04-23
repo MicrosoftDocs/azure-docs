@@ -64,9 +64,9 @@ Many customers choose to host a webpage and create a root DNS entry, like https:
 
 In any email communications or fliers you send out you can include a branded, memorable URL that users can go to when they need to use the services. For your benefit, we have created a [sample password reset page](https://github.com/ajamess/password-reset-page) that you can use and customize to your organization’s needs.
 
-## Project planning
+## Step-by-step deployment plan
 
-The Azure Active Directory product group has created a [customizable project planning guide](https://aka.ms/SSPRDeploymentPlan) that organizations can use in parallel with the documentation found on this site to make a business case for deployment of self-service password reset.
+The Azure Active Directory product group has created a [step-by-step deployment plan](https://aka.ms/SSPRDeploymentPlan) that organizations can use in parallel with the documentation found on this site to make a business case and plan for deployment of self-service password reset.
 
 ## Use enforced registration
 
