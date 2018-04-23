@@ -18,5 +18,6 @@ ms.author: rasquill
 
 ---
 # AzureLogCollector Extension
+[!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
 [!INCLUDE [virtual-machines-common-log-collector-extension](../../../includes/virtual-machines-common-log-collector-extension.md)]
 
