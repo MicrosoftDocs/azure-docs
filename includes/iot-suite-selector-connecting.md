@@ -5,7 +5,7 @@
 > * [Node.js on Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
 > * [C on Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
 
-In this tutorial, you implement a **Chiller** device that sends the following telemetry to the remote monitoring [solution accelerator](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md):
+In this tutorial, you implement a **Chiller** device that sends the following telemetry to the remote monitoring [solution accelerator](../articles/iot-suite/iot-suite-what-are-solutions-accelerators.md):
 
 * Temperature
 * Pressure

@@ -3,7 +3,7 @@
 # Overview
 ## [IoT architecture concepts](iot-suite-what-is-azure-iot.md)
 ## [Compare Azure IoT options](iot-suite-options.md)
-## [Solution accelerators overview](iot-suite-what-are-preconfigured-solutions.md)
+## [Solution accelerators overview](iot-suite-what-are-solutions-accelerators.md)
 
 # Get started
 ## Remote monitoring
