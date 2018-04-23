@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Disk Encryption for Windows and Linux IaaS VMs | Microsoft Docs
 description: This article provides an overview of Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
-ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.author: devtiw
 
 ---
 # Azure Disk Encryption for Windows and Linux IaaS VMs
@@ -723,7 +723,7 @@ Before you proceed, review the *Prerequisites* section in this article. After yo
 
 1. Start an Azure PowerShell session, and sign in to your Azure account with the following command:
 
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 
 2. If you have multiple subscriptions and want to specify one to use, type the following to see the subscriptions for your account:
 
@@ -783,14 +783,10 @@ Use the [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) comm
 > Prepare the VM with a separate data/resource VHD for getting the external key by using BitLocker.
 
 #### Encrypting an OS drive on a running Linux VM
-Encryption of an OS drive on a running Linux VM is supported on the following distributions:
-
-* RHEL 7.2
-* CentOS 7.2
-* Ubuntu 16.04
 
 ##### Prerequisites for OS disk encryption
 
+* The VM must be using a distribution compatible with OS disk encryption as listed in the [Azure Disk Encryption FAQ](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * The VM must be created from the Marketplace image in Azure Resource Manager.
 * Azure VM with at least 4 GB of RAM (recommended size is 7 GB).
 * (For RHEL and CentOS) Disable SELinux. To disable SELinux, see "4.4.2. Disabling SELinux" in the [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) on the VM.

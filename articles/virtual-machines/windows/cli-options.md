@@ -3,8 +3,8 @@ title: Using the Azure CLI on Windows | Microsoft Docs
 description: Using the Azure CLI on Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
-ms.author: nepeters
+ms.author: cynthn
 ---
 
 # Using the Azure CLI on Windows

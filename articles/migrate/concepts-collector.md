@@ -122,7 +122,7 @@ Once connected to the vCenter, you can select a scope to discover. Selecting a s
 
 1. The scope can be either a datacenter, a folder, or a ESXi host. 
 2. You can only select one scope at a time. To select more virtual machines, you can complete one discovery, and restart the discovery process with a new scope.
-3. You can only select a scope that has *less than 1000 virtual machines*. If you select a scope that has more than 1000 virtual machines, you need to split the scope into smaller units by creating folders. Next, you need to run independent discoveries of the smaller folders.
+3. You can only select a scope that has *less than 1500 virtual machines*.
 
 ## Specify migration project
 
@@ -193,6 +193,16 @@ You can upgrade the Collector to the latest version without downloading the OVA 
 5. Right-click on Setup.ps1 and select Run with PowerShell and follow the instructions on screen to install the update.
 
 ### List of updates
+
+#### Upgrade to version 1.0.9.7
+
+For Upgrade to version 1.0.9.7 download [package](https://aka.ms/migrate/col/upgrade_9_7)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | 01ccd6bc0281f63f2a672952a2a25363
+SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
+SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
 #### Upgrade to version 1.0.9.5
 

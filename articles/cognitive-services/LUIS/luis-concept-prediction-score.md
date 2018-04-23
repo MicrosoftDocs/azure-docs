@@ -1,15 +1,14 @@
 ---
 title: Understand the prediction score returned by LUIS - Azure | Microsoft Docs
-description: Learn what the prediction score means in LUIS 
+description: Learn what the prediction score means in LUIS
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/08/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Prediction score

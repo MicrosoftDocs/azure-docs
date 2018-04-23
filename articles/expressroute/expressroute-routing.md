@@ -180,6 +180,8 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | Japan East | 12076:51012 |
 | Japan West | 12076:51013 |
 | **Australia** | |
+| Australia Central | 12076:51032 |
+| Australia Central 2 | 12076:51033 |
 | Australia East | 12076:51015 |
 | Australia Southeast | 12076:51016 |
 | **India** | |
@@ -194,7 +196,7 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
 > [!IMPORTANT]
-> Global prefixes are tagged with an appropriate community value and will be advertised only when ExpressRoute premium add-on is enabled.
+> Global prefixes are tagged with an appropriate community value.
 > 
 > 
 

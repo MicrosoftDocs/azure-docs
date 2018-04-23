@@ -3,7 +3,7 @@ title: Triggers and bindings in Azure Functions
 description: Learn how to use triggers and bindings in Azure Functions to connect your code execution to online events and cloud-based services.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
-ms.author: glenga
+ms.author: tdykstra
 ---
 
 # Azure Functions triggers and bindings concepts
@@ -46,7 +46,7 @@ In version 2.x of the Azure Functions runtime, you must explicitly register the 
 
 Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  The way you install and register binding extensions depends on how you develop your functions: 
 
-+ [Locally in C# using Visual Studio or VS Code](#precompiled-functions-c)
++ [Locally in C# using Visual Studio or VS Code](#local-c-development-using-visual-studio-or-vs-code)
 + [Locally using Azure Functions Core Tools](#local-development-azure-functions-core-tools)
 + [In the Azure portal](#azure-portal-development) 
 

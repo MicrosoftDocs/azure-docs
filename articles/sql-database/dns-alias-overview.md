@@ -58,7 +58,7 @@ The following properties apply to each DNS alias for your SQL Database server:
 - *Not bound to any region:* DNS aliases are not bound to a region. Any DNS aliases can be updated to refer to an Azure SQL Database server that resides in any geographic region.
     - However, when updating an alias to refer to another server, both servers must exist in the same Azure *subscription*.
 
-- *Permissions:* To manage a DNS alias, the user must have *Server Contributor* permissions, or higher. For more information, see [Get started with Role-Based Access Control in the Azure portal](../active-directory/role-based-access-control-what-is.md).
+- *Permissions:* To manage a DNS alias, the user must have *Server Contributor* permissions, or higher. For more information, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).
 
 
 

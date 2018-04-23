@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: ''
 keywords: Azure Cosmos DB Emulator
 author: David-Noble-at-work
-manager: jhubbard
+manager: kfile
 editor: ''
 
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2018
+ms.date: 03/27/2018
 ms.author: danoble
 
 ---
@@ -339,17 +339,41 @@ Here is a summary of the commands for controlling the emulator from PowerShell:
 
 ### `Get-CosmosDbEmulatorStatus`
 
+#### Syntax
+
+`Get-CosmosDbEmulatorStatus`
+
+#### Remarks
+
 Returns one of these ServiceControllerStatus values: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running, or ServiceControllerStatus.Stopped.
 
-### `Start-CosmosDbEmulator [-NoWait]`
+### `Start-CosmosDbEmulator`
+
+#### Syntax
+
+`Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>]  [<CommonParameters>]`
+
+#### Remarks
 
 Starts the emulator. By default, the command waits until the emulator is ready to accept requests. Use the -NoWait option, if you wish the cmdlet to return as soon as it starts the emulator.
 
-### `Stop-CosmosDbEmulator [-NoWait]`
+### `Stop-CosmosDbEmulator`
+
+#### Syntax
+
+ `Stop-CosmosDbEmulator [-NoWait]`
+
+#### Remarks
 
 Stops the emulator. By default, this command waits until the emulator is fully shutdown. Use the -NoWait option, if you wish the cmdlet to return as soon as the emulator begins to shut down.
 
-### `Uninstall-CosmosDbEmulator [-RemoveData]`
+### `Uninstall-CosmosDbEmulator`
+
+#### Syntax
+
+`Uninstall-CosmosDbEmulator [-RemoveData]`
+
+#### Remarks
 
 Uninstalls the emulator and optionally removes the full contents of $env:LOCALAPPDATA\CosmosDbEmulator.
 The cmdlet ensures the emulator is stopped before uninstalling it.
@@ -452,6 +476,20 @@ To collect debugging traces, run the following commands from an administrative c
 ## Change list
 
 You can check the version number by right clicking the local emulator icon on the task bar and clicking the about menu item.
+
+### 1.21.0.6 Released on March 27, 2018
+
+In addition to updating Emulator services for parity with Cosmos DB cloud services, we've included one new feature and two bug fixes in this release.
+
+#### Features
+
+1. The Start-CosmosDbEmulator command now includes startup options.
+
+#### Bug fixes
+
+1. The Microsoft.Azure.CosmosDB.Emulator PowerShell module now ensures that the `ServiceControllerStatus` enumeration is loaded.
+
+2. The Microsoft.Azure.CosmosDB.Emulator PowerShell module now includes a manifest; an omission from the first release.
 
 ### 1.20.108.4 Released on February 14, 2018
 

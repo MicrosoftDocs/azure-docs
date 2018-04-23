@@ -26,7 +26,7 @@ You must meet the following prerequisites before completing the steps in this ar
 
 * An instance of Network Watcher in the region you want to monitor a connection for. If you don't already have one, you can create one by completing the steps in [Create an Azure Network Watcher instance](network-watcher-create.md).
 * A VM to monitor from. To learn how to create a VM, see Create a [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) VM.
-* Have the `AzureNetworkWatcherExtension` installed in the VM you want to monitor a connection from. To install the extension in a Windows VM, see [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and to install the extension in a Linux VM see [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+* Have the `AzureNetworkWatcherExtension` installed in the VM you want to monitor a connection from. To install the extension in a Windows VM, see [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and to install the extension in a Linux VM see [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint you want to monitor.
 
 ## Sign in to Azure 
 

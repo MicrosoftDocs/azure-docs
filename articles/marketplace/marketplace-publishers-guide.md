@@ -121,7 +121,7 @@ Each storefront supports multiple publishing options and offer types. Select an 
 Use Contact Me when trial-level or transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with an in-market solution to immediately begin receiving leads that can be nurtured into the foundational deals to start your business flywheel. However, the drawback is that customer engagement is limited, as compared with other offer types.
 
 >[!IMPORTANT]
->We don't recommend the Contact Me listing type. You should use it only in situations where there is no way to establish a trial experience. Customer engagement is best with trial and transaction offers. If you have any type of trial experience, our onboarding process will guide you to one of those options, depending on your scenario.
+>Customer engagement is best with Trial and Transact offers. The value of Contact Me is the lead that you receive, so if you choose this type of listing, ensure that your lead destination is configured and you are ready to maximize the lead. 
 
 When the offer consists primarily of professional services (for example, assessments, implementations, workshops), use the Consulting Services offer type. Offer scope, duration, and price must be fixed, must be for a single customer, and must be conducted on site.
 
@@ -335,7 +335,7 @@ Before you start the publishing process, it's helpful to understand the required
 |You'll need this publishing artifact  |For this offer type  |
 |---------|---------|
 |**Offer name (200 characters) and description (2,000 characters)**    |  All        |
-|**MPN ID and competencies**   |  Consulting Services       |
+|**Microsoft Partner Network (MPN) ID**   |  All       |
 |**Country/region availability**   | All        |
 |**Duration of engagement**     |   Consulting Services      |
 |**Applicable industries, categories, and search keywords**     |  All       |
@@ -412,6 +412,7 @@ In this section, we explain the steps to:
 
 |Marketplace registration step  |Time  |Description  |
 |---------|---------|---------|
+| Register in Microsoft Partner Network | 15 min | Publishers need to be registered in Microsoft Partner Network (MPN) in order to have first level of account validation and receive additional benefits and support for being an Azure Marketplace Publisher |
 |Create a Microsoft ID     |   15 minutes      |   Partners need to have a Microsoft ID. This Microsoft ID will be used to access the Cloud Partner Portal.       |
 |Submit the marketplace nomination form     |  1-3 days       |  Partners need to submit the nomination form to start the approval process for the marketplace. After the form is submitted, the marketplace onboarding team will review the application and validate the request.       |
 |Register in the Developer Center     |    5-10 days     | Registration with the Microsoft Developer Center is required for Microsoft to validate that the partner is a valid legal entity with a valid tax ID for the country in which it is registered. The Developer Center will enable the partner to be a registered Microsoft developer and provide them with access to the Azure developer program. <br><br>Note that if you haven't completed the marketplace nomination form, you'll be asked to pay a $99 registration fee. To have this fee waived, complete the marketplace nomination form and you'll receive a promotional code via email.  |
@@ -425,6 +426,9 @@ You should have only one Microsoft ID account for your Azure Marketplace and App
 
 The selected email address should preferably be in your corporate domain and controlled by your IT team. For guidelines prior to creating an ID, review the sections in [Guidelines and how-tos](#guidelines-and-how-tos). 
 
+#### Register in Microsoft Partner Network 
+Becoming an Azure Marketplace or AppSource Publisher your company will be partnering with Microsoft. By participating in Microsoft Partner Network (MPN) you will be getting access to set of core benefits to help your company develop the technical solutions   and grow your business (ex: includes technical support). By participating in the Marketplace as a publisher will accrue to your benefits in the Microsoft Partner Network. To register in MPN, please visit [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/). You should validate if your company is already registered in MPN. Once registered, we will ask for your MPN id to validate your account to validate your publisher profile in [Cloud Partner Portal](https://cloudpartner.azure.com/). 
+
 #### Submit the marketplace nomination form
 As part of the marketplace onboarding process, you need to submit a nomination form. The form includes information about your application or service offer, your company's information, and the level of support that you will provide. 
 
@@ -435,7 +439,7 @@ After you submit the form, the Marketplace team will review the application and 
 
 #### Register in the Developer Center
 
-The [Microsoft Developer Center](https://developer.microsoft.com/) is used to register your company's information. The registrant must be a valid representative of the company and must provide their personal information to validate their identity. The registrant must use a Microsoft ID that's shared for the company, and the same account must be used in the [Cloud Partner Portal](https://cloudpartner.azure.com/). 
+The [Microsoft Developer Center](https://developer.microsoft.com/) is required for publishing applications that will have transact capabilities such as Virtual Machines, Solution Templates and Azure Managed Apps. This requirement will allow Microsoft to  validate your company information company's legal, tax and banking entities. The registrant must be a valid representative of the company and must provide their personal information to validate their identity. The person registering must use a Microsoft ID that is shared for the company, and the same account must be used in the [Cloud Partner Portal](https://cloudpartner.azure.com/). 
 
 >[!IMPORTANT]
 >Before you try to create a Microsoft Developer Center account, make sure your company doesn't already have one.
@@ -453,9 +457,10 @@ For a step-by-step explanation of this process, see [Instructions on how to regi
 
 #### Sign in to the Cloud Partner Portal
 
-After you receive approval from the Marketplace team that the nomination has been approved and you have registered in the [Microsoft Developer Center](https://dev.windows.com), an account is created for you to access the [Cloud Partner Portal](https://cloudpartner.azure.com). First-time sign-in credentials are included in the nomination approval email. 
+Once you have received the approval from the Marketplace Team that the Nomination has been approved and you have registered in the
+[Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/) and in [Microsoft Developer Center](https://dev.windows.com) (if required), an account will be created for you to access the [Cloud Partner Portal](https://cloudpartner.azure.com). First-time sign-in credentials will be included in the Nomination approval email. 
 
-Use your Marketplace account (Microsoft ID) to access your publisher profile. When you're in the Cloud Partner Portal, the last step is to associate the Developer Center account with the respective Marketplace publisher profile to publish. You can make this association in the Cloud Partner Portal, in your publisher profile, via the button at the bottom of the screen.
+Use your Marketplace account (Microsoft ID) to access your publisher profile. Once in the Cloud Partner Portal, the last step is to associate the Microsoft Partner Network and Developer Center account (if required) with the respective Marketplace Publisher Profile to publish. This can be done in the Cloud Partner Portal in your Publisher Profile via the button at the bottom of the screen.
 
 For detailed information on how to use the Cloud Partner Portal, go to the [Learn](https://cloudpartner.azure.com/#Learn) menu in the portal and review the **Documentation** section. 
 
@@ -488,7 +493,6 @@ This is the list of the support options for the Azure Marketplace:
 
 |Support channel  |Description  |
 |---------|---------|
-|Slack: [Join Marketplace Slack](https://join.marketplace.azure.com)    |   Slack environment to support partners with technical issues. There are more than 350 partners currently working in this environment.        |
 |MSDN forums: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network forum.         |
 |Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Stack Overflow environment to get solutions and ask questions about everything related to Azure and the Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 
@@ -621,6 +625,5 @@ If you have issues with Developer Center registration, log a support ticket:
    !["Submit an incident" button](./media/marketplace-publishers-guide/devcentersubmitincident.png)
 
 3. Select **Help with Dev Center** as **Problem type**, and select **Publish and manage apps** as **Category**. After that, select the **Start email** button.   
-
 4. On the sign-in page, use any Microsoft account to sign in. If you don't have a Microsoft account, create one by using the link. 
 5. Fill in the details of the issue, and submit the ticket by selecting the **Submit** button.

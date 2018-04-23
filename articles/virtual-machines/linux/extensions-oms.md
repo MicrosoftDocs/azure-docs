@@ -4,7 +4,7 @@ description: Deploy the OMS agent on Linux virtual machine using a virtual machi
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

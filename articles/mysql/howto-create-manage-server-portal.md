@@ -3,7 +3,7 @@ title: Create and manage Azure Database for MySQL server using Azure portal
 description: This article describes how you can quickly create a new Azure Database for MySQL server and manage the server using the Azure Portal.
 services: mysql
 author: ajlam
-ms.author: nolanwu
+ms.author: andrela
 editor: jasonwhowell
 manager: kfile
 ms.service: mysql-database

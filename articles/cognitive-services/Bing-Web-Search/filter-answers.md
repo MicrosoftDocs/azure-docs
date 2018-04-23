@@ -4,10 +4,9 @@ description: Shows how to use responseFilter to filter the answers that the Bing
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: scottwhi
