@@ -557,13 +557,7 @@
       href: service-fabric-patch-orchestration-application-linux.md
   - name: Monitor and diagnose
     items:
-<<<<<<< HEAD
-    - name: Query the EventStore
-      href: service-fabric-diagnostics-eventstore-query.md  
-    - name: Analyze with OMS
-=======
     - name: Monitor applications
->>>>>>> 8984f7a1679bb9b959563ce2ca4a2601cf396c9c
       items:
       - name: Analyze with Application Insights
         href: service-fabric-diagnostics-event-analysis-appinsights.md
@@ -638,7 +632,7 @@
     href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
   - name: REST
     href: /rest/api/servicefabric
-  - name: Service Faric events
+  - name: Service Fabric events
     href: service-fabric-diagnostics-event-generation-operational.md
   - name: Configure cluster settings and fabric upgrade policy
     href: service-fabric-cluster-fabric-settings.md
