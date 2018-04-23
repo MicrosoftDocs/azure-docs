@@ -38,12 +38,14 @@ or values from other JSON name-and-value pairs,
 which you can assign to an expression. By default, 
 the function references the entire action object, 
 but you can optionally specify a property whose value that you want. 
-You can use this function in these places: 
+You can use this function only in these places: 
 
 * The `unsubscribe` property for a webhook action 
 so you can access the result from the original `subscribe` request
 * The `trackedProperties` property for an action
 * The `do-until` loop condition for an action
+
+See also [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions).
 
 ```json
 action()
@@ -177,8 +179,9 @@ or values from other JSON name-and-value pairs,
 which you can assign to an expression. By default, 
 the function references the entire action object, 
 but you can optionally specify a property whose value that you want. 
-Also, this function has shorthand versions available, 
-see [actionBody()](#actionBody), [actionOutputs()](#actionOutputs), and [body()](#body). 
+For shorthand versions, see [actionBody()](#actionBody), 
+[actionOutputs()](#actionOutputs), and [body()](#body). 
+For the current action, see [action](#action).
 
 > [!NOTE] 
 > Previously, you could use the `actions()` function or 
@@ -420,13 +423,22 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | "*updated-timestamp*" | String | The timestamp plus the specified number of seconds  | 
 |||| 
 
-*Example*
+*Example 1*
 
-This example adds 30 seconds to the specified timestamp 
-and returns "2018-03-15T13:27:30.0000000Z":
+This example adds 10 seconds to the specified 
+timestamp and returns "2018-03-15T00:00:10.0000000Z":
 
 ```json
-addSeconds('2018-03-15T13:27:00Z', 30)
+addSeconds('2018-03-15T00:00:00Z', 10)
+```
+
+*Example 2*
+
+This example subtracts 5 seconds to the specified 
+timestamp and returns "2018-03-15T00:00:25.0000000Z":
+
+```json
+addSeconds('2018-03-15T00:00:30Z', -5)
 ```
 
 <a name="addToTime"></a>
