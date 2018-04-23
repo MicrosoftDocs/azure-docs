@@ -18,7 +18,7 @@ ms.author: spelluru
 
 ---
 # How to access and use a classroom lab in Azure Lab Services
-
+This article describes how to access a classroom lab, connect to the VM in the lab, and stop the VM. 
 
 ## View all the labs
 
