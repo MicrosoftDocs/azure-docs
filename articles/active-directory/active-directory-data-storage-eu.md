@@ -17,10 +17,10 @@ ms.custom: it-pro
 ---
 
 # Where does Microsoft Azure Active Directory (Azure AD) store identity data for European customers
-Most European identity-related data remain in Europe and isn't replicated outside of Europe. The only exceptions are a few attributes that can identify customers, and some metadata that's required for some identity services to function properly. This article provides details about the stored identity-related data, including what customers need to know while planning for their own data storage requirements.
+Most European identity-related data stays in Europe and isn't replicated outside of Europe. The only exceptions are a few attributes that can identify customers, and some metadata that's required for some identity services to function properly. This article provides details about the stored identity-related data, including what customers need to know while they plan for their own data storage requirements.
 
 ## Data storage and datacenter locations
-Most identity data for European-based companies will remain within the European datacenters, managed by Microsoft. Data that's not stored in the European datacenters, includes:
+Most identity data for European-based companies stays within the European datacenters, managed by Microsoft. Data that's not stored in the European datacenters, includes:
 
 - **Identity-related attributes.** A small set of identity-related info is replicated to the United States (US). However, Microsoft is actively working to remove this requirement for the future.
 
