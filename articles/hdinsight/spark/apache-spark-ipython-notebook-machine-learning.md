@@ -197,5 +197,5 @@ In this tutorial, you learned how to:
 
 Advance to the next tutorial to learn how to use IntelliJ IDEA for Spark jobs. 
 > [!div class="nextstepaction"]
-> [Create Spark applications for Azure HDInsight using Azure Toolkit for IntelliJ](./apache-spark-intellij-tool-plugin.md)
+> [Create a Scala Maven appliction for Azure HDInsight using IntelliJ](./apache-spark-create-standalone-application.md)
 
