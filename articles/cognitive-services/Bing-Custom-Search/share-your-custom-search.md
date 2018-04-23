@@ -21,4 +21,4 @@ To stop sharing an instance with someone, use the remove icon to remove their em
 
 ## Next steps
 
-- [Analyze your traffic](analyze-traffic.md)
+- [Configure your Custom Autosuggest experience](define-custom-suggestions.md)
