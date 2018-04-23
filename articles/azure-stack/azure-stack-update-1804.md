@@ -34,31 +34,23 @@ The Azure Stack 1804 update build number is **201804xx.x**.
 ### New features and fixes
 This update includes the following improvements and fixes for Azure Stack.
 
-- <!--    --> **feature name 1** 
-
-- <!--    --> **feature name 2**  
-
-- <!--    --> **feature name 3** 
+- <!-- 15028744 -->  **Visual Studio support for disconnected Azure Stack deployments using AD FS**. Within Visual Studio you now can add subscriptions and authenticate using AD FS federated User credentials. 
  
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
-### Changes
-- <!--    --> Change 1
-
-
+<!-- ### Changes -->
+ 
 
 
 ## Before you begin    
-
 
 ### Prerequisites
 - Install the Azure Stack [1803 Update](azure-stack-update-1803.md) before you apply the Azure Stack 1804 update.    
 
 ### Known issues with the update process   
-
 - <!-- TBD - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
  
-- <!-- 2328416 --> During installation of the 1804 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
+- <!-- 2328416 - IS --> During installation of the 1804 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
 
 ### Post-update steps
 *There are no post-update steps for update 1804.*
@@ -69,8 +61,6 @@ The following are post-installation known issues for build  **201804xx.x**.
 #### Portal
 - <!-- TBD -  IS ASDK -->The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - For Azure Stack integrated systems, use https://aka.ms/newsupportrequest.
-
-- <!-- 2050709 - IS ASDK --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
 
 - <!-- TBD - IS --> It might not be possible to view compute or storage resources in the administrator portal. The cause of this issue is an error during the installation of the update that causes the update to be incorrectly reported as successful. If this issue occurs, contact Microsoft Customer Support Services for assistance.
 
@@ -87,8 +77,6 @@ The following are post-installation known issues for build  **201804xx.x**.
 
   This alert can be safely ignored. 
 
-<!-- #### Health and monitoring --> 
-<!-- #### Marketplace --> 
 
 #### Compute
 - <!-- TBD - IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
@@ -211,11 +199,12 @@ The following are post-installation known issues for build  **201804xx.x**.
 
 
 <!-- #### Identity -->
-
+<!-- #### Health and monitoring --> 
+<!-- #### Marketplace --> 
 
 
 ## Download the update
-You can download the Azure Stack 1803 update package from [here](https://aka.ms/azurestackupdatedownload).
+You can download the Azure Stack 1804 update package from [here](https://aka.ms/azurestackupdatedownload).
 
 
 ## See also
