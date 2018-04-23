@@ -5,11 +5,8 @@
 
 # Get Started
 ## [Diagnose VM traffic filter problem - Portal](diagnose-vm-network-traffic-filtering-problem.md)
-## [Diagnose VM traffic filter problem - PowerShell](diagnose-vm-network-traffic-filtering-problem.md)
+## [Diagnose VM traffic filter problem - PowerShell](diagnose-vm-network-traffic-filtering-problem-powershell.md)
 ## [Diagnose VM traffic filter problem - Azure CLI](diagnose-vm-network-traffic-filtering-problem-cli.md)
-
-# Tutorials
-## [Diagnose VM routing problem](diagnose-vm-network-routing-problem.md)
 
 # Concepts
 ## [Diagnose VM network traffic filter problems](network-watcher-ip-flow-verify-overview.md)
@@ -23,13 +20,12 @@
 
 # How-to guides
 ## [Configure Network Watcher](network-watcher-create.md)
-## [Monitor network connections](connection-monitor.md)
-
 ## Diagnose VM network problems
 ### Install VM extension
 #### [Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 #### [Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ### Diagnose a VM routing problem
+## [Azure portal](diagnose-vm-network-routing-problem.md)
 #### [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md)
 #### [Azure CLI](diagnose-vm-network-routing-problem-cli.md)
 ### Diagnose outbound connections
@@ -41,26 +37,25 @@
 #### Manage a packet capture
 ##### [Azure portal](network-watcher-packet-capture-manage-portal.md)
 ##### [Azure PowerShell](network-watcher-packet-capture-manage-powershell.md)
-##### [Azure CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 ##### [Azure CLI](network-watcher-packet-capture-manage-cli.md)
+##### [Azure CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 ##### [REST](network-watcher-packet-capture-manage-rest.md)
 #### Analyze a packet capture
 ##### [Find anomalies](network-watcher-deep-packet-inspection.md)
 ##### [Proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md)
 ##### [Perform intrusion detection using open source tools](network-watcher-intrusion-detection-open-source-tools.md)
 ##### [Visualize network traffic patterns using open source tools](network-watcher-using-open-source-tools.md)
-## Work with network security group logs
+## [Monitor network connections](connection-monitor.md)
+## Work with network security groups
 ### Configure NSG flow logs
 #### [Azure portal](network-watcher-nsg-flow-logging-portal.md)
 #### [Azure PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-#### [Azure CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 #### [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
+#### [Azure CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 #### [REST](network-watcher-nsg-flow-logging-rest.md)
-### [Perform compliance and audit on your network using PowerShell](network-watcher-nsg-auditing-powershell.md)
 ### Analyze NSG flow logs
 #### [Read NSG flow logs](network-watcher-read-nsg-flow-logs.md)
-#### Use traffic analytics
-##### [Analyze with traffic analytics](traffic-analytics.md)
+#### [Use traffic analytics](traffic-analytics.md)
 ##### [Frequently asked questions](traffic-analytics-faq.md)
 #### [Use Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 #### [Use Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
@@ -68,22 +63,23 @@
 #### [Use Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
 ### View network security groups
 #### [Azure PowerShell](network-watcher-security-group-view-powershell.md)
-#### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 #### [Azure CLI](network-watcher-security-group-view-cli.md)
+#### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 #### [REST](network-watcher-security-group-view-rest.md)
+#### [Perform compliance and audit your network](network-watcher-nsg-auditing-powershell.md)
 ## Diagnose VPN gateway and connections
 ### Troubleshoot
 #### [Azure portal](network-watcher-troubleshoot-manage-portal.md)
 #### [Azure PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-#### [Azure CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 #### [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
+#### [Azure CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 #### [REST](network-watcher-troubleshoot-manage-rest.md)
 ### [Monitor VPN gateway with Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ### [Diagnose on-premises connectivity via VPN gateway](network-watcher-diagnose-on-premises-connectivity.md)
 ## View your network topology
 ### [Azure PowerShell](network-watcher-topology-powershell.md)
-### [Azure CLI 1.0](network-watcher-topology-cli-nodejs.md)
 ### [Azure CLI](network-watcher-topology-cli.md)
+### [Azure CLI 1.0](network-watcher-topology-cli-nodejs.md)
 ### [REST](network-watcher-topology-rest.md)
 ## [Determine relative latency between a location and Azure region](view-relative-latencies.md)
 
@@ -91,15 +87,10 @@
 ## [Azure CLI](/cli/azure/network/watcher)
 ## [Azure PowerShell](/powershell/module/azurerm.network/#network_watcher)
 ## [Java](/java/api/com.microsoft.azure.management.network)
-## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher) 
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html#azure.mgmt.network.NetworkManagementClient.network_watchers)
-
 ## [.NET](/dotnet/api)
 ## [REST](/rest/api/networkwatcher/)
-# Related
-## [Virtual network](/azure/virtual-network/)
-## [Virtual machines](/azure/virtual-machines/)
-## [VPN gateway](/azure/vpn-gateway/)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

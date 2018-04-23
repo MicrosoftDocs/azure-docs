@@ -52,7 +52,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 ## Test network communication
 
-To test network communication with Network Watcher, you must first enable a network watcher in at least one Azure region and then use Network Watcher's IP flow verify capability to test communication.
+To test network communication with Network Watcher, first enable a network watcher in at least one Azure region, and then use Network Watcher's IP flow verify capability.
 
 ### Enable network watcher
 
@@ -61,7 +61,7 @@ If you already have a network watcher enabled in at least one region, skip to [U
 1. In the portal, select **All services**. In the **Filter box**, enter *Network Watcher*. When **Network Watcher** appears in the results, select it.
 2. Enable a network watcher in the East US region, because that's the region the VM was deployed to in a previous step. Select **Regions**, to expand it, and then select **...** to the right of **East US**, as shown in the following picture:
 
-    ![Enable Network Watcher](./media/diagnose-vm-network-traffic-filtering-problems/enable-network-watcher.png)
+    ![Enable Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
 3. Select **Enable Network Watcher**.
 
@@ -82,7 +82,7 @@ When you create a VM, Azure allows and denies network traffic to and from the VM
     | Direction         | Outbound                                                                                          |
     | Local IP address  | 10.0.0.4                                                                                          |
     | Local port      | 60000                                                                                                |
-    | Remote IP address | 13.107.21.200 - One address for www.bing.com.                                             |
+    | Remote IP address | 13.107.21.200 - One of the addresses for www.bing.com.                                             |
     | Remote port       | 80                                                                                                |
 
     ![IP flow verify](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
@@ -91,23 +91,23 @@ When you create a VM, Azure allows and denies network traffic to and from the VM
 4. Complete step 3 again, but change the **Remote IP address** to **172.31.0.100**. The result returned informs you that access is denied because of a security rule named **DefaultOutboundDenyAll**.
 5. Complete step 3 again, but change the **Direction** to **Inbound**, the **Local port** to **80** and the **Remote port** to **60000**. The result returned informs you that access is denied because of a security rule named **DefaultInboundDenyAll**.
 
-Now that you know which security rules are allowing traffic from, or denying traffic to a VM, you can determine how to resolve the issues.
+Now that you know which security rules are allowing or denying traffic to or from a VM, you can determine how to resolve the problems.
 
 ## View details of a security rule
 
-1. To determine why the rules in steps 3-5 of [Test network communication](#test-network-communication) allow or deny communication, review the effective security rules for the network interface in the VM. In the search box at the top of the portal, enter *myvm* (or the name of the network interface you checked is). When the  **myvm** network interface appears in the search results, select it.
+1. To determine why the rules in steps 3-5 of [Test network communication](#test-network-communication) allow or deny communication, review the effective security rules for the network interface in the VM. In the search box at the top of the portal, enter *myvm*. When the  **myvm** (or whatever the name of your network interface is) network interface appears in the search results, select it.
 2. Select **Effective security rules** under **SUPPORT + TROUBLESHOOTING**, as shown in the following picture:
 
     ![Effective security rules](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
 
-    In step 3 of [Test network communication](#test-network-communication), you learned that the reason the communication was allowed is because of the **AllowInternetOutbound** rule. You can see in the previous picture that the **DESTINATION** for the rule is **Internet**. It's not clear how 13.107.21.200 relates to **Internet** though.
-3. Select the **AllowInternetOutBound** rule, and then select **Destination**.
+    In step 3 of [Use IP flow verify](#use-ip-flow-verify), you learned that the reason the communication was allowed is because of the **AllowInternetOutbound** rule. You can see in the previous picture that the **DESTINATION** for the rule is **Internet**. It's not clear how 13.107.21.200, the address you tested in step 3 of [Use IP flow verify](#use-ip-flow-verify), relates to **Internet** though.
+3. Select the **AllowInternetOutBound** rule, and then select **Destination**, as shown in the following picture:
 
     ![Security rule prefixes](./media/diagnose-vm-network-traffic-filtering-problem/security-rule-prefixes.png)
 
-    One of the prefixes in the list is **12.0.0.0/6**, which encompasses the 12.0.0.1-15.255.255.254 range of IP addresses. Since 13.107.21.200 is within that address range, the **AllowInternetOutBound** rule allows the outbound traffic. Additionally, there are no higher priority (lower number) rules shown in the picture in step 2 that override this rule. Close the **Address prefixes** box. To deny outbound communication to an IP address, you could add a security rule with a higher priority, that allows port 80 outbound to the IP address.
-4. When you ran the outbound check to 172.131.0.100 in step 4 of [Test network communication](#test-network-communication), you learned that the **DefaultOutboundDenyAll** rule denied communication. That rule equates to the **DenyAllOutBound** rule shown in the picture in step 2 that specifies **0.0.0.0/0** as the **DESTINATION**. This rule denies the outbound communication to 172.131.0.100, because the address is not within the **DESTINATION** of any of the other **Outbound rules** shown in the picture. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 at 172.131.0.100.
-5. When you ran the inbound check from 172.131.0.100 in step 5 of [Test network communication](#test-network-communication), you learned that the **DefaultInboundDenyAll** rule denied communication. That rule equates to the **DenyAllInBound** rule shown in the picture in step 2. The **DenyAllInBound** rule is enforced because no other higher priority rule exists that allows port 80 inbound to the VM from 172.31.0.100. To allow the inbound communication, you could add a security rule with a higher priority, that allows port 80 inbound from 172.31.0.100.
+    One of the prefixes in the list is **12.0.0.0/6**, which encompasses the 12.0.0.1-15.255.255.254 range of IP addresses. Since 13.107.21.200 is within that address range, the **AllowInternetOutBound** rule allows the outbound traffic. Additionally, there are no higher priority (lower number) rules shown in the picture in step 2 that override this rule. Close the **Address prefixes** box. To deny outbound communication to 13.107.21.200, you could add a security rule with a higher priority, that denies port 80 outbound to the IP address.
+4. When you ran the outbound check to 172.131.0.100 in step 4 of [Use IP flow verify](#use-ip-flow-verify), you learned that the **DefaultOutboundDenyAll** rule denied communication. That rule equates to the **DenyAllOutBound** rule shown in the picture in step 2 that specifies **0.0.0.0/0** as the **DESTINATION**. This rule denies the outbound communication to 172.131.0.100, because the address is not within the **DESTINATION** of any of the other **Outbound rules** shown in the picture. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 for the 172.131.0.100 address.
+5. When you ran the inbound check from 172.131.0.100 in step 5 of [Use IP flow verify](#use-ip-flow-verify), you learned that the **DefaultInboundDenyAll** rule denied communication. That rule equates to the **DenyAllInBound** rule shown in the picture in step 2. The **DenyAllInBound** rule is enforced because no other higher priority rule exists that allows port 80 inbound to the VM from 172.31.0.100. To allow the inbound communication, you could add a security rule with a higher priority, that allows port 80 inbound from 172.31.0.100.
 
 The checks in this article tested Azure configuration. If the checks return expected results and you still have network problems, ensure that you don't have a firewall between your VM and the endpoint you're communicating with and that the operating system in your VM doesn't have a firewall that is allowing or denying communication.
 
@@ -123,4 +123,4 @@ When no longer needed, delete the resource group and all of the resources it con
 
 In this article, you created a VM and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a VM. Learn more about [security rules](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
-Even with the proper network traffic filters in place, communication to a VM can still fail due to routing configuration. To learn how to diagnose VM network routing problems, see [Diagnose VM routing problems](diagnose-outbound-vm-network-problem.md).
+Even with the proper network traffic filters in place, communication to a VM can still fail, due to routing configuration. To learn how to diagnose VM network routing problems, see [Diagnose VM routing problems](diagnose-vm-network-routing-problem.md) or, to diagnose outbound routing, latency, and traffic filtering problems, with one tool, see [Connection troubleshoot](network-watcher-connectivity.md).

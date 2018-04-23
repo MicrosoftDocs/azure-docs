@@ -74,13 +74,13 @@ Azure automatically creates routes to default destinations. You may create custo
 1. In the Azure portal, select **Next hop**, under **Network Watcher**.
 2. Select your subscription, enter or select the following values, and then select **Next hop**, as shown in the picture that follows:
 
-    |Setting                  |Value                                                  |
-    |---------                |---------                                              |
-    | Resource group          | Select myResourceGroup                                |
-    | Virtual machine         | Select myVm                                           |
-    | Network interface       | myvm - Your network interface name may be different.  |
-    | Source IP address       | 10.0.0.4                                              |
-    | Destination IP address  | 13.107.21.200 - One of bing.com's IP addresses.       |
+    |Setting                  |Value                                                   |
+    |---------                |---------                                               |
+    | Resource group          | Select myResourceGroup                                 |
+    | Virtual machine         | Select myVm                                            |
+    | Network interface       | myvm - Your network interface name may be different.   |
+    | Source IP address       | 10.0.0.4                                               |
+    | Destination IP address  | 13.107.21.200 - One of the addresses for www.bing.com. |
 
     ![Next hop](./media/diagnose-vm-network-routing-problem/next-hop.png)
 
@@ -95,7 +95,7 @@ Azure automatically creates routes to default destinations. You may create custo
 
     ![Effective routes](./media/diagnose-vm-network-routing-problem/effective-routes.png)
 
-    When you ran the test using 13.107.21.200, the route with the address prefix 0.0.0.0/0 was used to route traffic to the address, since no other route includes the address. By default, all addresses not specified within the address prefix of another route are routed to the internet.
+    When you ran the test using 13.107.21.200 in [Use next hop](#use-next-hop), the route with the address prefix 0.0.0.0/0 was used to route traffic to the address, since no other route includes the address. By default, all addresses not specified within the address prefix of another route are routed to the internet.
 
     When you ran the test using 172.31.0.100 however, the result informed you that there was no next hop type. As you can see in the previous picture, though there is a default route to the 172.16.0.0/12 prefix, which includes the 172.31.0.100 address, the **NEXT HOP TYPE** is **None**. Azure creates a default route to 172.16.0.0/12, but doesn't specify a next hop type until there is a reason to. If, for example, you added the 172.16.0.0/12 address range to the address space of the virtual network, Azure changes the **NEXT HOP TYPE** to **Virtual network** for the route. A check would then show **Virtual network** as the **NEXT HOP TYPE**.
 
@@ -111,4 +111,4 @@ When no longer needed, delete the resource group and all of the resources it con
 
 In this article, you created a VM and diagnosed network routing from the VM. You learned that Azure creates several default routes and tested routing to two different destinations. Learn more about [routing in Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create custom routes](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 
-You can monitor communication between a VM and an endpoint, such as an IP address or URL, over time using the Network Watcher connection monitor capability. To learn how, see [Monitor a network connection](connection-monitor.md).
+For outbound VM connections, you can also determine the latency and allowed and denied network traffic between the VM and an endpoint using Network Watcher's [connection troubleshoot](network-watcher-connectivity-portal.md) capability. You can monitor communication between a VM and an endpoint, such as an IP address or URL, over time using the Network Watcher connection monitor capability. To learn how, see [Monitor a network connection](connection-monitor.md).

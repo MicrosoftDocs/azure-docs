@@ -53,11 +53,11 @@ The VM takes a few minutes to create. Don't continue with remaining steps until 
 
 ## Test network communication
 
-To test network communication with Network Watcher, you must first enable a network watcher in at least one Azure region and then use Network Watcher's next hop capability to test communication.
+To test network communication with Network Watcher, you must first enable a network watcher in the region the VM that you want to test is in, and then use Network Watcher's next hop capability to test communication.
 
 ### Enable network watcher
 
-If you already have a network watcher enabled in at least one region, skip to [Use next hop](#use-next-hop). Use the [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) command to create a network watcher in the EastUS region:
+If you already have a network watcher enabled in the East US region, skip to [Use next hop](#use-next-hop). Use the [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) command to create a network watcher in the East US region:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -78,10 +78,11 @@ az network watcher show-next-hop \
   --resource-group myResourceGroup \
   --source-ip 10.0.0.4 \
   --vm myVm \
-  --nic myVmVMNic
+  --nic myVmVMNic \
+  --out table
 ```
 
-After a few seconds, the output informs you that the next hop type is **Internet**, and that the **Route table ID** is **System Route**. This result lets you know that there is a valid route to the destination.
+After a few seconds, the output informs you that the **nextHopType** is **Internet**, and that the **routeTableId** is **System Route**. This result lets you know that there is a valid route to the destination.
 
 Test outbound communication from the VM to 172.31.0.100:
 
@@ -91,24 +92,25 @@ az network watcher show-next-hop \
   --resource-group myResourceGroup \
   --source-ip 10.0.0.4 \
   --vm myVm \
-  --nic myVmVMNic
+  --nic myVmVMNic \
+  --out table
 ```
 
-The output returned informs you that **None** is the **Next hop type**, and that the **Route table ID** is also **System Route**. This result lets you know that, while there is a valid system route to the destination, there is no next hop to route the traffic to the destination.
+The output returned informs you that **None** is the **nextHopType**, and that the **routeTableId** is also **System Route**. This result lets you know that, while there is a valid system route to the destination, there is no next hop to route the traffic to the destination.
 
 ## View details of a route
 
 To analyze routing further, review the effective routes for the network interface with the [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) command:
 
 ```azurecli-interactive
-az network watcher nic show-effective-route-table \
+az network nic show-effective-route-table \
   --resource-group myResourceGroup \
   --name myVmVMNic
 ```
 
 The following text is included in the returned output:
 
-```json
+```azurecli
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -124,11 +126,11 @@ The following text is included in the returned output:
 },
 ```
 
-When you used the `az network watcher show-next-hop` command to test outbound communication to 13.107.21.200, the route with the **addressPrefix** 0.0.0.0/0** was used to route traffic to the address, since no other route in the output includes the address. By default, all addresses not specified within the address prefix of another route are routed to the internet.
+When you used the `az network watcher show-next-hop` command to test outbound communication to 13.107.21.200 in [Use next hop](#use-next-hop), the route with the **addressPrefix** 0.0.0.0/0** was used to route traffic to the address, since no other route in the output includes the address. By default, all addresses not specified within the address prefix of another route are routed to the internet.
 
 When you used the `az network watcher show-next-hop` command to test outbound communication to 172.31.0.100 however, the result informed you that there was no next hop type. In the returned output you also see the following text:
 
-```json
+```azurecli
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -158,4 +160,4 @@ az group delete --name myResourceGroup --yes
 
 In this article, you created a VM and diagnosed network routing from the VM. You learned that Azure creates several default routes and tested routing to two different destinations. Learn more about [routing in Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create custom routes](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 
-You can monitor communication between a VM and an endpoint, such as an IP address or URL, over time using the Network Watcher connection monitor capability. To learn how, see [Monitor a network connection](connection-monitor.md).
+For outbound VM connections, you can also determine the latency and allowed and denied network traffic between the VM and an endpoint using Network Watcher's [connection troubleshoot](network-watcher-connectivity-cli.md) capability. You can monitor communication between a VM and an endpoint, such as an IP address or URL, over time using the Network Watcher connection monitor capability. To learn how, see [Monitor a network connection](connection-monitor.md).

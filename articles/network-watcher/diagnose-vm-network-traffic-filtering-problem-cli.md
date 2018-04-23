@@ -53,11 +53,11 @@ The VM takes a few minutes to create. Don't continue with remaining steps until 
 
 ## Test network communication
 
-To test network communication with Network Watcher, you must first enable a network watcher in at least one Azure region and then use Network Watcher's IP flow verify capability to test communication.
+To test network communication with Network Watcher, you must first enable a network watcher in the region the VM that you want to test is in, and then use Network Watcher's IP flow verify capability to test communication.
 
 ### Enable network watcher
 
-If you already have a network watcher enabled in at least one region, skip to [Use IP flow verify](#use-ip-flow-verify). Use the [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) command to create a network watcher in the EastUS region:
+If you already have a network watcher enabled in the East US region, skip to [Use IP flow verify](#use-ip-flow-verify). Use the [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) command to create a network watcher in the EastUS region:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -80,7 +80,8 @@ az network watcher test-ip-flow \
   --remote 13.107.21.200:80 \
   --vm myVm \
   --nic myVmVMNic \
-  --resource-group myResourceGroup
+  --resource-group myResourceGroup \
+  --out table
 ```
 
 After several seconds, the result returned informs you that access is allowed by a security rule named **AllowInternetOutbound**.
@@ -95,7 +96,8 @@ az network watcher test-ip-flow \
   --remote 172.31.0.100:80 \
   --vm myVm \
   --nic myVmVMNic \
-  --resource-group myResourceGroup
+  --resource-group myResourceGroup \
+  --out table
 ```
 
 The result returned informs you that access is denied by a security rule named **DefaultOutboundDenyAll**.
@@ -110,16 +112,15 @@ az network watcher test-ip-flow \
   --remote 172.31.0.100:60000 \
   --vm myVm \
   --nic myVmVMNic \
-  --resource-group myResourceGroup
+  --resource-group myResourceGroup \
+  --out table
 ```
 
-The result returned informs you that access is denied because of a security rule named **DefaultInboundDenyAll**.
-
-Now that you know which security rules are allowing traffic from, or denying traffic to a VM, you can determine how to resolve the issues.
+The result returned informs you that access is denied because of a security rule named **DefaultInboundDenyAll**. Now that you know which security rules are allowing or denying traffic to or from a VM, you can determine how to resolve the problems.
 
 ## View details of a security rule
 
-To determine why the rules in [Test network communication](#test-network-communication) are allowing or preventing communication, review the effective security rules for the network interface with the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
+To determine why the rules in [Use IP flow verify](#use-ip-flow-verify) are allowing or preventing communication, review the effective security rules for the network interface with the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
@@ -127,9 +128,9 @@ az network nic list-effective-nsg \
   --name myVmVMNic
 ```
 
-The returned output includes the following text for the **AllowInternetOutbound** rule that allowed outbound access to www.bing.com in a previous step under [Test network communication](#test-network-communication):
+The returned output includes the following text for the **AllowInternetOutbound** rule that allowed outbound access to www.bing.com in a previous step under [Use IP flow verify](#use-ip-flow-verify):
 
-```json
+```azurecli
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -166,11 +167,11 @@ The returned output includes the following text for the **AllowInternetOutbound*
 },
 ```
 
-You can see in the previous output that **destinationAddressPrefix** is **Internet**. It's not clear how 13.107.21.200 relates to **Internet** though. You see several address prefixes listed under **expandedDestinationAddressPrefix**. One of the prefixes in the list is **12.0.0.0/6**, which encompasses the 12.0.0.1-15.255.255.254 range of IP addresses. Since 13.107.21.200 is within that address range, the **AllowInternetOutBound** rule allows the outbound traffic. Additionally, there are no higher priority (lower number) rules shown in the previous output that override this rule. To deny outbound communication to an IP address, you could add a security rule with a higher priority, that allows port 80 outbound to the IP address.
+You can see in the previous output that **destinationAddressPrefix** is **Internet**. It's not clear how 13.107.21.200 relates to **Internet** though. You see several address prefixes listed under **expandedDestinationAddressPrefix**. One of the prefixes in the list is **12.0.0.0/6**, which encompasses the 12.0.0.1-15.255.255.254 range of IP addresses. Since 13.107.21.200 is within that address range, the **AllowInternetOutBound** rule allows the outbound traffic. Additionally, there are no higher priority (lower number) rules shown in the previous output that override this rule. To deny outbound communication to an IP address, you could add a security rule with a higher priority, that denies port 80 outbound to the IP address.
 
-When you ran the `az network watcher test-ip-flow` command to test outbound communication to 172.131.0.100, the output informed you that the **DefaultOutboundDenyAll** rule denied the communication. The **DefaultOutboundDenyAll** rule equates to the **DenyAllOutBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
+When you ran the `az network watcher test-ip-flow` command to test outbound communication to 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DefaultOutboundDenyAll** rule denied the communication. The **DefaultOutboundDenyAll** rule equates to the **DenyAllOutBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
 
-```json
+```azurecli
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -201,9 +202,9 @@ When you ran the `az network watcher test-ip-flow` command to test outbound comm
 
 The rule lists **0.0.0.0/0** as the **destinationAddressPrefix**. The rule denies the outbound communication to 172.131.0.100, because the address is not within the **destinationAddressPrefix** of any of the other outbound rules in the output from the `az network nic list-effective-nsg` command. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 at 172.131.0.100.
 
-When you ran the `az network watcher test-ip-flow` command to test inbound communication from 172.131.0.100, the output informed you that the **DefaultInboundDenyAll** rule denied the communication. The **DefaultInboundDenyAll** rule equates to the **DenyAllInBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
+When you ran the `az network watcher test-ip-flow` command in [Use IP flow verify](#use-ip-flow-verify) to test inbound communication from 172.131.0.100, the output informed you that the **DefaultInboundDenyAll** rule denied the communication. The **DefaultInboundDenyAll** rule equates to the **DenyAllInBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
 
-```json
+```azurecli
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -248,4 +249,4 @@ az group delete --name myResourceGroup --yes
 
 In this article, you created a VM and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a VM. Learn more about [security rules](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
-Even with the proper network traffic filters in place, communication to a VM can still fail due to routing configuration. To learn how to diagnose VM network routing problems, see [Diagnose VM routing problems](diagnose-outbound-vm-network-problem-cli.md).
+Even with the proper network traffic filters in place, communication to a VM can still fail, due to routing configuration. To learn how to diagnose VM network routing problems, see [Diagnose VM routing problems](diagnose-vm-network-routing-problem-cli.md) or, to diagnose outbound routing, latency, and traffic filtering problems, with one tool, see [Connection troubleshoot](network-watcher-connectivity-cli.md).

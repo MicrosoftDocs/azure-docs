@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this quickstart requires the AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run ` Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Create a VM
 
@@ -39,7 +39,7 @@ Before you can create a VM, you must create a resource group to contain the VM. 
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-Create the VM with New-AzureRmVM. If the resources don't already exist, the [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet creates them for you. When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the VM.
+Create the VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the VM.
 
 ```azurepowershell-interactive
 $vM = New-AzureRmVm `
@@ -52,11 +52,19 @@ The VM takes a few minutes to create. Don't continue with remaining steps until 
 
 ## Test network communication
 
-To test network communication with Network Watcher, you must first enable a network watcher in at least one Azure region and then use Network Watcher's next hop capability to test communication.
+To test network communication with Network Watcher, you must first enable a network watcher in the region the VM that you want to test is in, and then use Network Watcher's next hop capability to test communication.
 
 ## Enable network watcher
 
-If you already have a network watcher enabled in at least one region, skip to [Use next hop](#use-next-hop). Use the [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) command to create a network watcher in the East US region:
+If you already have a network watcher enabled in the East US region, use [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) to retrieve the network watcher. The following example retrieves an existing network watcher named *NetworkWatcher_eastus* that is in the *NetworkWatcherRG* resource group:
+
+```azurepowershell-interactive
+$networkWatcher = Get-AzureRmNetworkWatcher `
+  -Name NetworkWatcher_eastus `
+  -ResourceGroupName NetworkWatcherRG
+```
+
+If you don't already have a network watcher enabled in the East US region, use [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) to create a network watcher in the East US region:
 
 ```azurepowershell-interactive
 $networkWatcher = New-AzureRmNetworkWatcher `
@@ -79,7 +87,7 @@ Get-AzureRmNetworkWatcherNextHop `
   -DestinationIPAddress 13.107.21.200
 ```
 
-After a few seconds, the output informs you that the next hop type is **Internet**, and that the **Route table ID** is **System Route**. This result lets you know that there is a valid route to the destination.
+After a few seconds, the output informs you that the **NextHopType** is **Internet**, and that the **RouteTableId** is **System Route**. This result lets you know that there is a valid route to the destination.
 
 Test outbound communication from the VM to 172.31.0.100:
 
@@ -91,7 +99,7 @@ Get-AzureRmNetworkWatcherNextHop `
   -DestinationIPAddress 172.31.0.100
 ```
 
-The output returned informs you that **None** is the **Next hop type**, and that the **Route table ID** is also **System Route**. This result lets you know that, while there is a valid system route to the destination, there is no next hop to route the traffic to the destination.
+The output returned informs you that **None** is the **NextHopType**, and that the **RouteTableId** is also **System Route**. This result lets you know that, while there is a valid system route to the destination, there is no next hop to route the traffic to the destination.
 
 ## View details of a route
 
@@ -116,9 +124,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
      Active Default {172.16.0.0/12}         None        {}              
 ```
 
-As you can see in the previous output, the route with the **AaddressPrefix** of **0.0.0.0/0** routes all traffic not destined for addresses within other route's address prefixes with a next hop of **Internet**.
-
-As you can see in the output from the `az network watcher nic show-effective-route-table` command, though there is a default route to the 172.16.0.0/12 prefix, which includes the 172.31.0.100 address, the **nextHopType** is **None**. Azure creates a default route to 172.16.0.0/12, but doesn't specify a next hop type until there is a reason to. If, for example, you added the 172.16.0.0/12 address range to the address space of the virtual network, Azure changes the **nextHopType** to **Virtual network** for the route. A check would then show **Virtual network** as the **nextHopType**.
+As you can see in the previous output, the route with the **AaddressPrefix** of **0.0.0.0/0** routes all traffic not destined for addresses within other route's address prefixes with a next hop of **Internet**. As you can also see in the output , though there is a default route to the 172.16.0.0/12 prefix, which includes the 172.31.0.100 address, the **nextHopType** is **None**. Azure creates a default route to 172.16.0.0/12, but doesn't specify a next hop type until there is a reason to. If, for example, you added the 172.16.0.0/12 address range to the address space of the virtual network, Azure changes the **nextHopType** to **Virtual network** for the route. A check would then show **Virtual network** as the **nextHopType**.
 
 ## Clean up resources
 
@@ -132,4 +138,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 In this article, you created a VM and diagnosed network routing from the VM. You learned that Azure creates several default routes and tested routing to two different destinations. Learn more about [routing in Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create custom routes](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 
-You can monitor communication between a VM and an endpoint, such as an IP address or URL, over time using the Network Watcher connection monitor capability. To learn how, see [Monitor a network connection](connection-monitor.md).
+For outbound VM connections, you can also determine the latency and allowed and denied network traffic between the VM and an endpoint using Network Watcher's [connection troubleshoot](network-watcher-connectivity-powershell.md) capability. You can monitor communication between a VM and an endpoint, such as an IP address or URL, over time using the Network Watcher connection monitor capability. To learn how, see [Monitor a network connection](connection-monitor.md).

@@ -32,7 +32,7 @@ The next hops that might be returned by the next hop capability are as follows:
 * VnetPeering
 * None
 
-To learn more about each next hop type, see [Routing overview](virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+To learn more about each next hop type, see [Routing overview](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## Next steps
 
