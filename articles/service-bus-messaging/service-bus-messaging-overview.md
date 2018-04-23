@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/12/2018
+ms.date: 04/23/2018
 ms.custom: mvc
 ms.author: chwolf;sethm
 
 ---
 # What is Azure Service Bus?
 
-Microsoft Azure Service Bus is a fully managed enterprise integration message broker. Service Bus is most commonly used to decouple applications and services from each other, and is a highly reliable and secure platform for asynchronous data and state transfer. Data is transferred between different applications and services using *messages*. A message is in binary format, which can contain JSON, XML, or just text. 
+Microsoft Azure Service Bus is a fully managed enterprise integration message broker. Service Bus is most commonly used to decouple applications and services from each other, and is a reliable and secure platform for asynchronous data and state transfer. Data is transferred between different applications and services using *messages*. A message is in binary format, which can contain JSON, XML, or just text. 
 
 Some common messaging scenarios are:
 
@@ -39,9 +39,7 @@ Messages are sent to and received from *queues*. Queues enable you to store mess
 
 ![Queue](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Messages in queues are ordered and timestamped on arrival. Once accepted, the message is held safely in redundant storage. 
-
-The standard delivery mode is *pull*, which delivers messages on request.
+Messages in queues are ordered and timestamped on arrival. Once accepted, the message is held safely in redundant storage. Messages are delivered in *pull* mode, which delivers messages on request.
 
 ## Topics
 
@@ -49,35 +47,33 @@ You can also use *topics* to send and receive messages. While a queue is often u
 
 ![Topic](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
-Topics can have multiple, independent subscriptions. A subscriber to a topic is eligible to receive a copy of each message sent to that topic. Subscriptions are named entities, which are durably created but can optionally expire or auto-delete.
+Topics can have multiple, independent subscriptions. A subscriber to a topic can receive a copy of each message sent to that topic. Subscriptions are named entities, which are durably created but can optionally expire or auto-delete.
 
-In some scenarios you may not want individual subscriptions to receive all messages sent to a topic. If so, you can use [rules and filters](topic-filters.md) to define conditions that trigger optional [actions](topic-filters.md#actions), filter specified messages, and set or modify message properties.
+In some scenarios, you may not want individual subscriptions to receive all messages sent to a topic. If so, you can use [rules and filters](topic-filters.md) to define conditions that trigger optional [actions](topic-filters.md#actions), filter specified messages, and set or modify message properties.
 
 ## Advanced features
 
-Service Bus has many advanced features that enable you to solve more complex messaging problems. For example, Service Bus supports enforcing first in, first out (FIFO) receiving via [sessions](message-sessions.md), chaining multiple entities with [auto-forwarding](service-bus-auto-forwarding.md), or [dead-letter queues](service-bus-dead-letter-queues.md) if messages cannot be processed for any reason.
+Service Bus also has advanced features that enable you to solve more complex messaging problems. The following sections describe these key features:
 
-The following sections describe these key features:
+### Message sessions
 
-### Scheduled delivery
-
-You can submit messages to a queue or topic [for delayed processing](message-sequencing.md#scheduled-messages); for example, to schedule a job to become available for processing by a system at a certain time.
-
-### Dead-lettering
-
-Service Bus supports a [dead-letter queue](service-bus-dead-letter-queues.md) (DLQ) to hold messages that cannot be delivered to any receiver, or messages that cannot be processed. Messages can then be removed from the DLQ and inspected.
+To realize a first-in, first-out (FIFO) guarantee in Service Bus, use sessions. [Message sessions](message-sessions.md) enable joint and ordered handling of unbounded sequences of related messages. 
 
 ### Auto-forwarding
 
 The [auto-forwarding](service-bus-auto-forwarding.md) feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When auto-forwarding is enabled, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination).
 
+### Dead-lettering
+
+Service Bus supports a [dead-letter queue](service-bus-dead-letter-queues.md) (DLQ) to hold messages that cannot be delivered to any receiver, or messages that cannot be processed. You can then remove messages from the DLQ and inspect them.
+
+### Scheduled delivery
+
+You can submit messages to a queue or topic [for delayed processing](message-sequencing.md#scheduled-messages); for example, to schedule a job to become available for processing by a system at a certain time.
+
 ### Message deferral
 
 When a queue or subscription client receives a message that it is willing to process, but for which processing is not currently possible due to special circumstances within the application, the entity has the option to [defer retrieval of the message](message-deferral.md) to a later point. The message remains in the queue or subscription, but it is set aside.
-
-### Message sessions
-
-To realize a FIFO guarantee in Service Bus, use sessions. [Message sessions](message-sessions.md) enable joint and ordered handling of unbounded sequences of related messages. 
 
 ### Batching
 
@@ -105,7 +101,7 @@ Service Bus supports security protocols such as [Shared Access Signatures](servi
 
 ### Geo-disaster recovery
 
-When Azure regions or datacenters experience downtime, [Geo-disaster recovery](service-bus-geo-dr.md) enables data processing to continue to operate in a different region or datacenter.
+When Azure regions or datacenters experience downtime, [Geo-disaster recovery](service-bus-geo-dr.md) enables data processing to continue operating in a different region or datacenter.
 
 ### Security
 
