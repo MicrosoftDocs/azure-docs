@@ -170,7 +170,7 @@ public static string SayHello([ActivityTrigger] string name)
 
 It is not possible to pass multiple parameters to an activity function directly. The recommendation in this case is to pass in an array of objects or to use [ValueTuples](https://docs.microsoft.com/en-us/dotnet/csharp/tuples) objects.
 
-The following sample is using [ValueTuples](https://docs.microsoft.com/en-us/dotnet/csharp/tuples):
+The following sample is using new features of [ValueTuples](https://docs.microsoft.com/en-us/dotnet/csharp/tuples) added with [C# 7](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -188,19 +188,19 @@ public static async Task<dynamic> RunOrchestrator(
 public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContext inputs)
 {
     // parse input for student's major and year in university 
-    (string, int) studentInfo = inputs.GetInput<(string, int)>();
+    (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();
 
     // retrieve and return course recommendations by major and university year
     return new {
-        major = studentInfo.Item1,
-        universityYear = studentInfo.Item2,
+        major = studentInfo.Major,
+        universityYear = studentInfo.UniversityYear,
         recommendedCourses = new []
         {
             "Introduction to .NET Programming",
             "Introduction to Linux",
             "Becoming an Entrepreneur"
         }
-     };
+    };
 }
 ```
 
