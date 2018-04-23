@@ -75,10 +75,14 @@
     href: luis-tutorial-composite-entity.md
   - name: Add list entity for increased entity detection using Node.js
     href: luis-tutorial-list-entity.md
-  - name: Learn synonyms with a phrase list
-    href: luis-tutorial-interchangeable-phrase-list.md
-  - name: Improve accuracy with batch testing
-    href: luis-tutorial-batch-testing.md
+  - name: Improve prediction accuracy
+    items:
+    - name: Learn synonyms with a phrase list
+      href: luis-tutorial-interchangeable-phrase-list.md
+    - name: Use patterns to improve prediction scores
+      href: luis-tutorial-pattern.md
+    - name: Improve accuracy with batch testing
+      href: luis-tutorial-batch-testing.md
   - name: Correct spelling with Bing Spell Check API v7
     href: luis-tutorial-bing-spellcheck.md
 - name: Samples
@@ -153,8 +157,14 @@
       href: Add-example-utterances.md
     - name: Add entities
       href: Add-entities.md
-  - name: Improve prediction accuracy using features
-    href: Add-Features.md
+  - name: Improve prediction accuracy 
+    items: 
+    - name: Review endpoint utterances
+      href: Label-Suggested-Utterances.md
+    - name: Phrase list
+      href: Add-Features.md
+    - name: Patterns
+      href: luis-how-to-model-intent-pattern.md
   - name: Train
     href: luis-how-to-train.md
   - name: Test
@@ -163,8 +173,6 @@
       href: Train-Test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
-  - name: Use active learning
-    href: Label-Suggested-Utterances.md
   - name: Publish your app
     href: PublishApp.md
   - name: Use prebuilt models
