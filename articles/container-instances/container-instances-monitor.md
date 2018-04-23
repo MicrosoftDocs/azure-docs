@@ -17,16 +17,20 @@ Azure Monitor provides insight into the compute resources used by your container
 This document details gathering CPU and memory usage for container instances using both the Azure portal and Azure CLI.
 
 > [!IMPORTANT]
-> At this time, resource usage metrics are only avaliabe for Linux contianers.
+> At this time, resource usage metrics are only available for Linux containers.
 >
 
 ## Available metrics
 
-CPU metrics are expressed in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500 m) represents 50% utilization of a CPU core. Memory metrics are expressed in **bytes**. Both CPU and memory metrics are available for a container group and individual containers.
+Azure Monitor provides metrics on both **CPU** and **memory** usage for Azure Container Instances. Both metrics are available for a container group and individual containers.
 
-## Get metrics portal
+CPU metrics are expressed in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500 m) represents 50% utilization of a CPU core.
 
-When a container group is created, Azure Monitor data is available in the Azure portal. To see metrics for a container group, select the resource group and then the container group. Here you can see pre-create charts for both CPU and memory usage.
+Memory metrics are expressed in **bytes**.
+
+## Get metrics - Azure portal
+
+When a container group is created, Azure Monitor data is available in the Azure portal. To see metrics for a container group, select the resource group and then the container group. Here you can see pre-created charts for both CPU and memory usage.
 
 ![dual-chart][dual-chart]
 
@@ -42,19 +46,19 @@ Example memory usage per container:
 
 ![Container instance memory chart][memory-chart]
 
-## Get metrics Azure CLI
+## Get metrics - Azure CLI
 
-Container instances CPU and memory usage can also be gathered using the Azure CLI. First, get the ID of the container group. Replace the resource group name and container group name with your values.
+Container instances CPU and memory usage can also be gathered using the Azure CLI. First, get the ID of the container group using the following command. Replace the <resource-gorup> name and <container-name> name with your values.
 
 
 ```console
-CONTAINER=$(az container show --resource-group myacicontainer --name myacicontainer-mya1 --query id -o tsv)
+CONTAINER=$(az container show --resource-group myacicontainer --name myacicontainer-mya1 --query id --output tsv)
 ```
 
-Use the following command to get CPU usage metrics.
+Use the following command to get **CPU** usage metrics.
 
 ```console
-$ az monitor metrics list --resource $CONTAINER --metric CPUUsage -o table
+$ az monitor metrics list --resource $CONTAINER --metric CPUUsage --output table
 
 Timestamp            Name              Average
 -------------------  ------------  -----------
@@ -78,7 +82,7 @@ Timestamp            Name              Average
 And the following command to get memory usage metrics.
 
 ```console
-$ az monitor metrics list --resource $CONTAINER --metric MemoryUsage -o table
+$ az monitor metrics list --resource $CONTAINER --metric MemoryUsage --output table
 
 Timestamp            Name              Average
 -------------------  ------------  -----------
@@ -103,7 +107,7 @@ Timestamp            Name              Average
 For a multi-container group, the `containerName` dimension can be added to return this data per container.
 
 ```console
-$ az monitor metrics list --resource $CONTAINER --metric CPUUsage --dimension containerName -o table
+$ az monitor metrics list --resource $CONTAINER --metric CPUUsage --dimension containerName --output table
 
 Timestamp            Name          Containername             Average
 -------------------  ------------  --------------------  -----------
