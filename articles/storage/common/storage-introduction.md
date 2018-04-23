@@ -25,7 +25,7 @@ Azure Storage is Microsoft's cloud storage solution for modern data storage scen
 
 Azure Storage includes these data services: 
 
-- [Azure Blobs](../blobs/storage-blobs-introduction.md): A massively scalable object store for text and binary day.
+- [Azure Blobs](../blobs/storage-blobs-introduction.md): A massively scalable object store for text and binary data.
 - [Azure Files](../files/storage-files-introduction.md): Managed file shares for cloud or on-premises deployments.
 - [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components. 
 - [Azure Tables](../../cosmos-db/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
