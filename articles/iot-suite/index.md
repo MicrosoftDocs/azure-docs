@@ -17,7 +17,7 @@ Use the solution accelerators to accelerate the development of your Internet of 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/iot-suite/iot-suite-what-are-solutions-accelerators">
+        <a href="/azure/iot-suite/iot-suite-what-are-solution-accelerators">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
