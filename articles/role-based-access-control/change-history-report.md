@@ -17,8 +17,28 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ---
-# Create an access report for Role-Based Access Control
-Any time someone grants or revokes access within your subscriptions, the changes get logged in Azure events. You can create access change history reports to see all changes for the past 90 days.
+# View activity logs for role-based access control changes
+
+Any time someone makes changes to role definitions or role assignments within your subscriptions, the changes get logged in [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in the Administrative category. You can view the activity logs to see all the role-based access control changes for the past 90 days.
+
+## Operations that are logged
+
+Here are the RBAC-related operations that are logged in Activity Log:
+
+- Get role definition
+- Create or update custom role definition
+- Delete custom role definition
+- Get role assignment
+- Create role assignment
+- Delete role assignment
+
+## View activity logs using the Azure portal
+
+The easiest way to get started is to view the activity logs using the Azure portal. The following screenshot shows an example of an activity log that has been filtered to display the **Administrative** category along with role definition and role assignment operations.
+
+![Activity logs using the portal - screenshot](./media/change-history-report/activity-log-portal.png)
+
+For information more information, see [View events in activity log](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## Create a report with Azure PowerShell
 To create an access change history report in PowerShell, use the [Get-AzureRMAuthorizationChangeLog](/powershell/module/azurerm.resources/get-azurermauthorizationchangelog) command.
