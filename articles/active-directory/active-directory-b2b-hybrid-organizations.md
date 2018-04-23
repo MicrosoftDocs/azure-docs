@@ -34,5 +34,5 @@ For implementation details, see [Grant locally-managed partner accounts access t
 ## Next steps
 
 - [Grant B2B users in Azure AD access to your on-premises applications](active-directory-b2b-hybrid-cloud-to-on-premises.md)
-- [Grant locally-managed partner accounts access to cloud resources using Azure AD B2B collaboration](active-directory-b2b-hybrid-on-premises-to-cloud.md).
+
 
