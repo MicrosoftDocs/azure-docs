@@ -22,14 +22,12 @@ ms.author: dekapur
 
 Service Fabric exposes a primary set of cluster events to inform you of the status of your cluster. These are based on actions performed by Service Fabric on your nodes and your cluster or management decisions made by a cluster owner/operator. These events can be accessed by querying the [EventStore](service-fabric-diagnostics-eventstore.md) in your cluster, or through the operational channel. On Windows machines, the operational channel is also hooked up to the EventLog - so you can see Service Fabric Events in Event Viewer. 
 
-## List of events
-
 >[!NOTE]
 >For a list of Service Fabric events for clusters in versions < 6.2, please refer to the following section. 
 
-Here is a list of all the events exposed by the platform, sorted by the entity that they map to.
+Here is a list of all the events available in the platform, sorted by the entity that they map to.
 
-### Cluster
+## Cluster events
 
 **Cluster upgrade events**
 
@@ -55,7 +53,7 @@ Here is a list of all the events exposed by the platform, sorted by the entity t
 | 50021 | ChaosStartedEvent | Testability | Informational | 1 |
 | 50023 | ChaosStoppedEvent | Testability | Informational | 1 |
 
-### Node
+## Node events
 
 **Node lifecycle events** 
 
@@ -89,7 +87,7 @@ Here is a list of all the events exposed by the platform, sorted by the entity t
 | 50033 | ChaosRestartNodeFaultScheduledEvent | Testability | Informational | 1 |
 | 50087 | ChaosRestartNodeFaultCompletedEvent | Testability | Informational | 1 |
 
-### Application
+## Application events
 
 **Application lifecycle events**
 
@@ -127,7 +125,7 @@ Here is a list of all the events exposed by the platform, sorted by the entity t
 | 50053 | ChaosRestartCodePackageFaultScheduledEvent | Testability | Informational | 1 |
 | 50101 | ChaosRestartCodePackageFaultCompletedEvent | Testability | Informational | 1 |
 
-### Service
+## Service events
 
 **Service lifecycle events**
 
@@ -143,9 +141,9 @@ Here is a list of all the events exposed by the platform, sorted by the entity t
 | 54424 | ProcessServiceReportOperational | HM | Informational | 1 |
 | 54433 | ExpiredServiceEventOperational | HM | Informational | 1 |
 
-### Partition
+## Partition events
 
-**Parition move events**
+**Partition move events**
 
 | EventId | Name | Source (Task) | Level | Version |
 | --- | --- | --- | --- | --- |
@@ -171,7 +169,7 @@ Here is a list of all the events exposed by the platform, sorted by the entity t
 | --- | --- | --- | --- | --- |
 | 65003 | PrimaryMoveAnalysisEvent | Testability | Informational | 1 |
 
-### Replica
+## Replica events
 
 **Replica health report events**
 
@@ -190,7 +188,7 @@ Here is a list of all the events exposed by the platform, sorted by the entity t
 | 50051 | ChaosRemoveReplicaFaultScheduledEvent | Testability | Informational | 1 |
 | 50093 | ChaosRemoveReplicaFaultCompletedEvent | Testability | Informational | 1 |
 
-### Container
+## Container events
 
 **Container lifecycle events** 
 
@@ -200,7 +198,7 @@ Here is a list of all the events exposed by the platform, sorted by the entity t
 | 23075 | ContainerDeactivatedOperational | Hosting | Informational | 1 |
 | 23082 | ContainerExitedOperational | Hosting | Informational | 1 |
 
-### Other
+## Other events
 
 **Correlation events**
 

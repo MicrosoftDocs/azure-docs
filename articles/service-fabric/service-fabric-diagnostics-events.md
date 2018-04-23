@@ -35,8 +35,8 @@ Here are some examples of important scenarios that you should see events for in 
 1. Application upgrades: similarly to cluster upgrades, there is a comprehensive set of events as the upgrade rolls through. These events can be useful to understand when an upgrade was scheduled, the current state of an upgrade, and the overall sequence of events. This is useful for looking back to see what upgrades have been rolled out successfully.
 1. Application/Service deployment / deletion: there are events for each application, service, and container, being created or deleted.
 1. Partition moves (reconfiguration): whenever a stateful partition goes through a reconfiguration (a change in the replica set), an event is logged. This is useful if you are trying to understand how often your partition replica set is changing, or track which node was running your primary replica at any point in time.
-1. Chaos Events: when using Service Fabric's [Chaos](service-fabric-controlled-chaos.md) service, you will see events everytime the service is started or stopped, or when it injects a fault in the system.
-1. Health Events: Service Fabric exposes health events everytime a Warning or an Error health report is created, or an entity goes back to an OK health state, or a health report expires. These events are very helpful to track historical health statistics for an entity. 
+1. Chaos Events: when using Service Fabric's [Chaos](service-fabric-controlled-chaos.md) service, you will see events every time the service is started or stopped, or when it injects a fault in the system.
+1. Health Events: Service Fabric exposes health events every time a Warning or an Error health report is created, or an entity goes back to an OK health state, or a health report expires. These events are very helpful to track historical health statistics for an entity. 
 
 ## How to access events
 

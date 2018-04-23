@@ -123,16 +123,21 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 Here are few examples on how you can call the Event Store REST APIs to understand the status of your cluster.
 
 1. Cluster upgrades
-To see the last time your cluster was successfully or attempted to be upgraded last week, you can query the APIs for recently completed upgrades to your cluster, by quering for the "ClusterUpgradeComplete" events in the EventStore:
+To see the last time your cluster was successfully or attempted to be upgraded last week, you can query the APIs for recently completed upgrades to your cluster, by querying for the "ClusterUpgradeComplete" events in the EventStore:
 `https://mycluster.cloudapp.net:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&eventstypesfilter=ClusterUpgradeComplete`
 
 1. Cluster upgrade issues
 Similarly, if there were issues with a recent cluster upgrade, you could query for all events for the cluster entity, using the following query: 
 `https://mycluster.cloudapp.net:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
-You'll see various events, including the initiation of upgrades and each UD for which the upgrade rolled through succesfully. You will also see events for the point at which the rollback started and corresponding health events.
+You'll see various events, including the initiation of upgrades and each UD for which the upgrade rolled through successfully. You will also see events for the point at which the rollback started and corresponding health events.
+
+1. Node status changes
+Track your node status changes over the last few days to see when nodes went up or down, or were activated or deactivated (either by the platform, the chaos service, or from user input):
+``https://mycluster.cloudapp.net:19080/EventsStore/Applications/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 1. Application events
-You can also use the EventStore APIs to track your recent application deployments and upgrades. Use the following query to see all application related events in your cluster: `https://mycluster.cloudapp.net:19080/EventsStore/Applications/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+You can also use the EventStore APIs to track your recent application deployments and upgrades. Use the following query to see all application related events in your cluster: 
+`https://mycluster.cloudapp.net:19080/EventsStore/Nodes/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 1. Historical health for an application
 In addition to just seeing application lifecycle events, you may also want to see historical data on the health of a specific application. You can do this by specifying the application name for which you want to gather the data. Use this query to get all the application health events: `https://mycluster.cloudapp.net:19080/EventsStore/Applications/myApp/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ProcessApplicationReport`. If you want to include health events that may have expired (gone passed their time to live (TTL)), add `,ExpiredDeployedApplicationEvent` to the end of the query, to filter on two types of events.
@@ -142,3 +147,8 @@ To track each of your containers coming up or going down over the last few days,
 
 1. Partition reconfiguration
 To see all the partition movements that happened in your cluster, query for the `ReconfigurationCompleted` event. This can help you figure out what workloads ran on which node at specific times, when diagnosing issues in your cluster. Here's a sample query that does that: `https://mycluster.cloudapp.net:19080/EventsStore/Partitions/myApp/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ReconfigurationCompleted`
+
+1. Chaos service
+There is an event for when the Chaos service is started or stopped that is exposed at the cluster level. To see your recent use of the Chaos service, use the following query:
+`https://mycluster.cloudapp.net:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&eventstypesfilter=ChaosStartedEvent,ChaosStoppedEvent`
+
