@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 04/23/2018
 ms.author: marsma
 ---
 
@@ -40,6 +40,13 @@ az container create \
     --registry-username <service-principal-ID> \
     --registry-password <service-principal-password>
 ```
+
+## Sample scripts
+
+You can find the preceding sample scripts for Azure CLI on GitHub, as well versions for Azure PowerShell:
+
+* [Azure CLI][acr-scripts-cli]
+* [Azure PowerShell][acr-scripts-psh]
 
 ## Next steps
 
