@@ -32,6 +32,8 @@ You can upload a list of suggestions from a file, place each suggestion on a sep
 ## Remove suggestions
 To remove a suggestion, click the remove icon next to the suggestion you want to remove.
 
+[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+
   >[!NOTE]  
   >It may take up to 24 hours for changes to take effect.
 

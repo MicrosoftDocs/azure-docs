@@ -101,11 +101,7 @@ Follow these steps to use Bing to add slices to your Custom Search instance.
 5.	Click **Add site** next to the result you want to include.
 6.	Click the **Ok** button.
 
-
-## Publish or revert
-Changes you make to a Custom Search instance are made in the **Configuration** tab so you can validate your changes. When you're done making changes and ready to publish, click on **Push to Live State**. After you publish your changes, it may take up to 24 hours for your new configuration to take effect.
-
-If you decide that you don't want to keep the changes you've made, click **Revert to Live State**. When you revert your changes, the live state configuration is unchanged and the Configure tab is reverted to match the live state.
+[!INCLUDE[publish or revert](./includes/publish-revert.md)]
 
 ## View statistics
 If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), a **Statistics** tab is added to your production instances. The statistics tab shows details about how your Custom Search endpoints are used, including call volume and most frequent queries. You can filter details using the provided controls. See [Analyze your traffic](analyze-traffic.md).
