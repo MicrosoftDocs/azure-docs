@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/21/2018
+ms.date: 04/23/2018
 ms.author: jgao
 
 ---
