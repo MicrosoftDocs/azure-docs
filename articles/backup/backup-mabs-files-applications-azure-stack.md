@@ -43,7 +43,7 @@ Azure Backup Server protects the following Azure Stack virtual machine workloads
 To install Azure Backup Server on an Azure Stack virtual machine, see the article, [Preparing to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md). Before installing and configuring Azure Backup Server, be aware of the following:
 
 ### Determining size of virtual machine
-To run Azure Backup Server on an Azure Stack virtual machine, use size A2 or larger. For assistance in choosing a virtual machine size, download the [DPM IaaS VM calculator](http://go.microsoft.com/fwlink/?linkid=512026). System Center DPM and Azure Backup Server are similar, and the calculator helps determine the needed VM size.
+To run Azure Backup Server on an Azure Stack virtual machine, use size A2 or larger. For assistance in choosing a virtual machine size, download the [Azure Stack VM size calculator](https://www.microsoft.com/download/details.aspx?=56832).
 
 ### Virtual Networks on Azure Stack virtual machines
 All virtual machines used in an Azure Stack workload must belong to the same Azure virtual network and Azure Subscription. 
