@@ -495,10 +495,10 @@ And returns this result: `"2018-01-02T00:00:00:0000000Z"`
 This example adds one day to the specified timestamp:
 
 ```json
-addToTime('2018-01-05T00:00:00Z', 1, 'Day', 'D')
+addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 ```
 
-And returns the date in the optional "D" format: `"Tuesday, January 6, 2018"`
+And returns the result in the optional "D" format: `"Tuesday, January 2, 2018"`
 
 <a name="and"></a>
 
@@ -1794,6 +1794,7 @@ getPastTime(5, 'Day')
 And returns this result: `"2018-01-27T00:00:00.0000000Z"`
 
 *Example 2*
+
 Suppose the current timestamp is "2018-02-01T00:00:00.0000000Z". 
 This example subtracts five days and converts the result to "D" format:
 
@@ -2436,13 +2437,14 @@ max([<number1>, <number2>, ...])
 
 *Example* 
 
-Both these examples get the highest value from the 
-set of numbers or from the array, and return the number 3:
+These examples get the highest value from the set of numbers and the array:
 
 ```json
 max(1, 2, 3)
 max([1, 2, 3])
 ```
+
+And return this result: `3`
 
 <a name="min"></a>
 
@@ -2468,13 +2470,14 @@ min([<number1>, <number2>, ...])
 
 *Example* 
 
-Both examples get the lowest value in either the 
-set of numbers or the array, and return the number 1:
+These examples get the lowest value in the set of numbers and the array:
 
 ```json
 min(1, 2, 3)
 min([1, 2, 3])
 ```
+
+And return this result: `1`
 
 <a name="mod"></a>
 
@@ -2500,12 +2503,13 @@ mod(<dividend>, <divisor>)
 
 *Example* 
 
-This example divides the first number by the 
-second number and returns the number 1:
+This example divides the first number by the second number:
 
 ```json
 mod(3, 2)
 ```
+
+And return this result: `1`
 
 <a name="mul"></a>
 
@@ -2530,14 +2534,17 @@ mul(<multiplicand1>, <multiplicand2>)
 
 *Example* 
 
-The first example multiplies the first number 
-by the second number and returns the number 2, 
-while the second example returns the number 3:
+These examples multiple the first number by the second number:
 
 ```json
 mul(1, 2)
 mul(1.5, 2)
 ```
+
+And return these results:
+
+* First example: `2`
+* Second example `3`
 
 <a name="multipartBody"></a>
 
@@ -2585,23 +2592,31 @@ not(<expression>)
 
 *Example 1*
 
-The first example returns true because the expression is false. 
-The second example returns false because the expression is true.
+These examples check whether the specified expressions are false: 
 
 ```json
 not(false)
 not(true)
 ```
 
+And return these results:
+
+* First example: The expression is false, so the function returns `true`.
+* Second example: The expression is true, so the function returns `false`.
+
 *Example 2*
 
-The first example returns true because `equals(1, 2)` is false. 
-The second example returns false because `equals(1, 1)` is true.
+These examples check whether the specified expressions are false: 
 
 ```json
-not(equals(1, 1))
 not(equals(1, 2))
+not(equals(1, 1))
 ```
+
+And return these results:
+
+* First example: The expression is false, so the function returns `true`.
+* Second example: The expression is true, so the function returns `false`.
 
 <a name="or"></a>
 
@@ -2627,23 +2642,31 @@ or(<expression1>, <expression2>, ...)
 
 *Example 1*
 
-The first example returns true because at least one expression is true. 
-The second example returns false because both expressions are false.
+These examples check whether at least one expression is true:
 
 ```json
 or(true, false)
 or(false, false)
 ```
 
+And return these results:
+
+* First example: At least one expression is true, so the function returns `true`.
+* Second example: Both expressions are false, so the function returns `false`.
+
 *Example 2*
 
-The first example returns true because at least one expression is true. 
-The second example returns false because both expressions are false.
+These examples check whether at least one expression is true:
 
 ```json
 or(equals(1, 1), equals(1, 2))
 or(equals(1, 2), equals(1, 3))
 ```
+
+And return these results:
+
+* First example: At least one expression is true, so the function returns `true`.
+* Second example: Both expressions are false, so the function returns `false`.
 
 <a name="parameters"></a>
 
@@ -2668,11 +2691,21 @@ parameters('<parameterName>')
 
 *Example* 
 
-This example returns "Sophia Owen" as the value from the specified parameter:
+Suppose that you have this JSON value:
+
+```json
+{
+  "fullName": "Sophia Owen"
+}
+```
+
+This example gets the value for the specified parameter:
 
 ```json
 parameters('fullName')
 ```
+
+And returns this result: `"Sophia Owen"`
 
 <a name="rand"></a>
 
@@ -2698,12 +2731,13 @@ rand(<minValue>, <maxValue>)
 
 *Example*
 
-This example gets a random integer from the specified range, 
-excluding the maximum value, and returns one of these numbers: 1, 2, 3, or 4 
+This example gets a random integer from the specified range, excluding the maximum value: 
 
 ```json
 rand(1, 5)
 ```
+
+And returns one of these numbers as the result: `1`, `2`, `3`, or `4` 
 
 <a name="range"></a>
 
@@ -2728,11 +2762,15 @@ range(<startIndex>, <count>)
 
 *Example*
 
-This example creates and returns this array: [1, 2, 3, 4] 
+This example creates an integer array that starts from 
+the specified index and has the specified number of integers:
+
 
 ```json
 range(1, 4)
 ```
+
+And returns this result: `[1, 2, 3, 4]`
 
 <a name="replace"></a>
 
@@ -2760,12 +2798,14 @@ replace('<text>', '<oldText>', '<newText>')
 
 *Example* 
 
-This example finds the substring "old" in "the old string", 
-replaces "old" with "new", and returns "the new string": 
+This example finds the "old" substring in "the old string" 
+and replaces "old" with "new": 
 
 ```json
 replace('the old string', 'old', 'new')
 ```
+
+And returns this result: `"the new string"`
 
 <a name="removeProperty"></a>
 
@@ -2790,9 +2830,8 @@ removeProperty(<object>, '<property>')
 
 *Example*
 
-This example removes the property "accountLocation" from 
-the "customerProfile" object, which is converted to JSON with the [JSON()](#json) function, 
-and returns the updated object:
+This example removes the `"accountLocation"` property from a `"customerProfile"` object, 
+which is converted to JSON with the [JSON()](#json) function, and returns the updated object:
 
 ```json
 removeProperty(json('customerProfile'), 'accountLocation')
@@ -2824,7 +2863,7 @@ setProperty(<object>, '<property>', <value>)
 
 *Example*
 
-This example sets the "accountNumber" property on a "customerProfile" object, 
+This example sets the `"accountNumber"` property on a `"customerProfile"` object, 
 which is converted to JSON with the [JSON()](#json) function. 
 The function assigns a value generated by [guid()](#guid) function, 
 and returns the updated JSON object:
@@ -2857,12 +2896,14 @@ skip([<collection>], <count>)
 
 *Example*
 
-This example removes the number 0 at the front of the array, 
-and returns the array with the remaining items: [1,2,3] 
+This example removes one item, the number 0, 
+from the front of the specified array: 
 
 ```json
 skip([0, 1, 2, 3], 1)
 ```
+
+And returns this array with the remaining items: `[1,2,3]`
 
 <a name="split"></a>
 
@@ -2888,11 +2929,14 @@ split('<text>', '<separator>')
 
 *Example* 
 
-This example splits the string "abc" and returns the array [a, b, c]: 
+This example creates an array from the specified string, 
+separating each character with a comma (**,**) as the delimiter:
 
 ```json
 split('abc', ',')
 ```
+
+And returns this result: `[a, b, c]`
 
 <a name="startOfDay"></a>
 
@@ -2917,11 +2961,13 @@ startOfDay('<timestamp>', '<format>'?)
 
 *Example* 
 
-This example returns "2018-03-15T00:00:00Z" for the specified timestamp:
+This example finds the start of the day for this timestamp:
 
 ```json
-startOfDay('2018-03-15T13:27:36Z')
+startOfDay('2018-03-15T13:30:30Z')
 ```
+
+And returns this result: `"2018-03-15T00:00:00.0000000Z"`
 
 <a name="startOfHour"></a>
 
@@ -2946,11 +2992,13 @@ startOfHour('<timestamp>', '<format>'?)
 
 *Example* 
 
-This example returns "2018-03-15T13:00:00Z" for the specified timestamp:
+This example finds the start of the hour for this timestamp:
 
 ```json
-startOfHour('2018-03-15T13:27:36Z')
+startOfHour('2018-03-15T13:30:30Z')
 ```
+
+And returns this result: `"2018-03-15T13:00:00.0000000Z"`
 
 <a name="startOfMonth"></a>
 
@@ -2975,11 +3023,13 @@ startOfMonth('<timestamp>', '<format>'?)
 
 *Example* 
 
-This example returns "2018-03-01T00:00:00Z" for the specified timestamp:
+This example returns the start of the month for this timestamp:
 
 ```json
-startOfMonth('2018-03-15T13:27:36Z')
+startOfMonth('2018-03-15T13:30:30Z')
 ```
+
+And returns this result: `"2018-03-01T00:00:00.0000000Z"`
 
 <a name="startswith"></a>
 
@@ -3004,21 +3054,27 @@ startsWith('<text>', '<searchText>')
 | true or false  | Boolean | Return true when the starting substring is found. Return false when not found. | 
 |||| 
 
-*Example* 
+*Example 1* 
 
-This example checks whether the "hello world" string 
-starts with the "hello" substring and returns true:
+This example checks whether the "hello world" 
+string starts with the "hello" substring:
 
 ```json
 startsWith('hello world', 'hello')
 ```
 
-This example checks whether the "hello world" string 
-starts with the "greetings" substring and returns false:
+And returns this result: `true`
+
+*Example 2*
+
+This example checks whether the "hello world" 
+string starts with the "greetings" substring:
 
 ```json
 startsWith('hello world', 'greetings')
 ```
+
+And returns this result: `false`
 
 <a name="string"></a>
 
@@ -3040,21 +3096,27 @@ string(<value>)
 | "*string-value*" | String | The string version for the specified value | 
 |||| 
 
-*Example* 
+*Example 1* 
 
-This example returns "10" as the string version for specified number:
+This example creates the string version for this number:
 
 ```json
 string(10)
 ```
 
-This example returns the string "{ \\"name\\": \\"Sophie Owen\\" }" 
-for the specified JSON object and uses the backslash character (\\) 
+And returns this result: `"10"`
+
+*Example 2*
+
+This example creates a string for the specified JSON object 
+and uses the backslash character (\\) 
 as an escape character for the double-quotation mark (").
 
 ```json
 string( { "name": "Sophie Owen" } )
 ```
+
+And returns this result: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 <a name="sub"></a>
 
@@ -3079,11 +3141,13 @@ sub(<minuend>, <subtrahend>)
 
 *Example* 
 
-This example subtracts 0.3 from 10.3 and returns 10:
+This example subtracts the second number from the first number:
 
 ```json
 sub(10.3, .3)
 ```
+
+And returns this result: `10`
 
 <a name="substring"></a>
 
@@ -3111,12 +3175,14 @@ substring('<text>', <startIndex>, <length>)
 
 *Example* 
 
-This example starts at index value 6 in the string "hello world", 
-and returns the five characters "world" as a string:
+This example creates a five-character substring from the specified string, 
+starting from the index value 6:
 
 ```json
 substring('hello world', 6, 5)
 ```
+
+And returns this result: `"world"`
 
 <a name="subtractFromTime"></a>
 
@@ -3142,6 +3208,26 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | "*updated-timestamp*" | String | The timestamp minus the specified number of time units | 
 |||| 
 
+*Example 1*
+
+This example subtracts one day from this timestamp:
+
+```json
+subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day') 
+```
+
+And returns this result: `"2018-01-01T00:00:00:0000000Z"`
+
+*Example 2*
+
+This example subtracts one day from this timestamp:
+
+```json
+subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day') 
+```
+
+And returns this result in the optional "D" format: `"Monday, January, 1, 2018"`
+
 <a name="take"></a>
 
 ## take
@@ -3166,13 +3252,18 @@ take([<collection>], <count>)
 
 *Example*
 
-The first example returns the string "abc", 
-while the second example returns the array [0 ,1, 2]: 
+These examples get the specified number of 
+items from the front of these collections:
 
 ```json
 take('abcde`, 3)
 take([0, 1, 2, 3, 4], 3)
 ```
+
+And return these results:
+
+* First example: `"abc"`
+* Second example: `[0, 1, 2]`
 
 <a name="ticks"></a>
 
@@ -3219,12 +3310,13 @@ toLower('<text>')
 
 *Example* 
 
-This example converts the string "Hello World" 
-to lowercase, and returns the string "hello world": 
+This example converts this string to lowercase: 
 
 ```json
 toLower('Hello World')
 ```
+
+And returns this result: `"hello world"`
 
 <a name="toUpper"></a>
 
@@ -3250,12 +3342,13 @@ toUpper('<text>')
 
 *Example* 
 
-This example converts the string "Hello World" 
-to uppercase, and returns the string "HELLO WORLD":  
+This example converts this string to uppercase:
 
 ```json
 toUpper('Hello World')
 ```
+
+And returns this result: `"HELLO WORLD"`
 
 <a name="trigger"></a>
 
@@ -3324,26 +3417,26 @@ triggerFormDataMultiValues('<key>')
 
 *Example* 
 
-This example searches for the "feedUrl" key value in 
-an RSS trigger's form-data or form-encoded output 
-and returns the value in an array, 
-for example, ["http://feeds.reuters.com/reuters/topNews"]: 
+This example creates an array from the "feedUrl" key value in 
+an RSS trigger's form-data or form-encoded output: 
 
 ```json
 triggerFormDataMultiValues('feedUrl')
 ```
 
+And returns this array as an example result: `["http://feeds.reuters.com/reuters/topNews"]`
+
 <a name="triggerFormDataValue"></a>
 
 ## triggerFormDataValue
 
-Return a single value that matches a key name 
-in a trigger's *form-data* or *form-encoded* output. 
+Return a string with a single value that matches a key 
+name in a trigger's *form-data* or *form-encoded* output. 
 If the function finds more than one match, 
 the function throws an error.
 
 ```json
-formDataValue('<key>')
+triggerFormDataValue('<key>')
 ```
 
 | Parameter | Required | Type | Description | 
@@ -3358,14 +3451,14 @@ formDataValue('<key>')
 
 *Example* 
 
-This example searches for the "feedUrl" key value in 
-an RSS trigger's form-data or form-encoded output 
-and returns the value as a string, 
-for example, "http://feeds.reuters.com/reuters/topNews": 
+This example creates a string from the "feedUrl" key value in 
+an RSS trigger's form-data or form-encoded output:
 
 ```json
 triggerFormDataValue('feedUrl')
 ```
+
+And returns this string as an example result: `"http://feeds.reuters.com/reuters/topNews"` 
 
 <a name="triggerMultipartBody"></a>
 
@@ -3427,12 +3520,13 @@ trim('<text>')
 *Example* 
 
 This example removes the leading and trailing 
-whitespace from the string " Hello World  ", 
-and returns the string "Hello World":  
+whitespace from the string " Hello World  ":  
 
 ```json
 trim(' Hello World  ')
 ```
+
+And returns this result: `"Hello World"`
 
 <a name="union"></a>
 
@@ -3460,11 +3554,13 @@ union([<collection1>], [<collection2>], ...)
 
 *Example* 
 
-This example returns an array with *all* these items: [1, 2, 3, 10, 101]
+This example gets *all* the items from these collections: 
 
 ```json
 union([1, 2, 3], [1, 2, 10, 101])
 ```
+
+And returns this result: `[1, 2, 3, 10, 101]`
 
 <a name="uriComponent"></a>
 
@@ -3492,12 +3588,13 @@ uriComponent('<value>')
 
 *Example*
 
-This example encodes the string "https://contoso.com" 
-and returns the encoded string "http%3A%2F%2Fcontoso.com":
+This example creates a URI-encoded version for this string:
 
 ```json
 uriComponent('https://contoso.com')
 ```
+
+And returns this result: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
@@ -3521,16 +3618,18 @@ uriComponentToBinary('<value>')
 
 *Example*
 
-This example returns a binary version for the specified URI-encoded string as follows: 
-
-"001000100110100001110100011101000111000000100101001100
-1101000001001001010011001001000110001001010011001001000
-1100110001101101111011011100111010001101111011100110110
-11110010111001100011011011110110110100100010"
+This example creates the binary version for this URI-encoded string: 
 
 ```json
 uriComponentToBinary('http%3A%2F%2Fcontoso.com')
 ```
+
+And returns this result: 
+
+`"001000100110100001110100011101000111000000100101001100
+1101000001001001010011001001000110001001010011001001000
+1100110001101101111011011100111010001101111011100110110
+11110010111001100011011011110110110100100010"`
 
 <a name="uriComponentToString"></a>
 
@@ -3555,12 +3654,13 @@ uriComponentToString('<value>')
 
 *Example*
 
-This example returns "https://contoso.com" as the decoded version 
-for the URI-encoded string "http%3A%2F%2Fcontoso.com" as follows: 
+This example creates the decoded string version for this URI-encoded string: 
 
 ```json
 uriComponentToString('http%3A%2F%2Fcontoso.com')
 ```
+
+And returns this result: `"https://contoso.com"` 
 
 <a name="uriHost"></a>
 
@@ -3584,11 +3684,13 @@ uriHost('<uri>')
 
 *Example*
 
-This example returns this `host` value: `"www.localhost.com"`
+This example finds the `host` value for this URI: 
 
 ```json
-uriPathAndQuery('https://www.localhost.com:8080')
+uriHost('https://www.localhost.com:8080')
 ```
+
+And returns this result: `"www.localhost.com"`
 
 <a name="uriPath"></a>
 
@@ -3612,11 +3714,13 @@ uriPath('<uri>')
 
 *Example*
 
-This example returns this `path` value: `"/catalog/shownew.htm"`
+This example finds the `path` value for this URI: 
 
 ```json
-uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
+
+And returns this result: `"/catalog/shownew.htm"`
 
 <a name="uriPathAndQuery"></a>
 
@@ -3640,11 +3744,13 @@ uriPathAndQuery('<uri>')
 
 *Example*
 
-This example returns these `path` and `query` values: `"/catalog/shownew.htm?date=today"`
+This example finds the `path` and `query` values for this URI:
 
 ```json
 uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
+
+And returns this result: `"/catalog/shownew.htm?date=today"`
 
 <a name="uriPort"></a>
 
@@ -3668,11 +3774,13 @@ uriPort('<uri>')
 
 *Example*
 
-This example returns this `port` value: `8080`
+This example returns the `port` value for this URI:
 
 ```json
 uriPort('http://www.localhost:8080')
 ```
+
+And returns this result: `8080`
 
 <a name="uriQuery"></a>
 
@@ -3696,11 +3804,13 @@ uriQuery('<uri>')
 
 *Example*
 
-This example returns this `query` value: `"?date=today"`
+This example returns the `query` value for this URI: 
 
 ```json
 uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
+
+And returns this result: `"?date=today"`
 
 <a name="uriScheme"></a>
 
@@ -3722,32 +3832,60 @@ uriScheme('<uri>')
 | "*scheme-value*" | String | The `scheme` value for the specified URI | 
 |||| 
 
+*Example*
+
+This excample returns the `scheme` value for this URI:
+
+```json
+uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
+```
+
+And returns this result: `"http"`
+
 <a name="utcNow"></a>
 
 ## utcNow
 
-Return the current timestamp. So, if today was April 15, 2018 at 1:00:00 PM, 
-the function returns: "2018-04-15T13:00:00.0000000Z"
+Return the current timestamp. 
 
 ```json
 utcNow('<format>')
 ```
 
-The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 
-(yyyy-MM-ddT:mm:ss:fffffffK), which complies with 
-[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 
-and preserves time zone information. Optionally, 
-you can specify a different format with the <*format*> parameter.
+Optionally, you can specify a different format with the <*format*> parameter. 
+
 
 | Parameter | Required | Type | Description | 
 | --------- | -------- | ---- | ----------- | 
-| <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). | 
+| <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddT:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. | 
 ||||| 
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
 | "*currentTimestamp*" | String | The current date and time | 
 |||| 
+
+*Example 1*
+
+Suppose today is April 15, 2018 at 1:00:00 PM. 
+This example gets the current timestamp: 
+
+```json
+utcNow()
+```
+
+And returns this result: `"2018-04-15T13:00:00.0000000Z"`
+
+*Example 2*
+
+Suppose today is April 15, 2018 at 1:00:00 PM. 
+This example gets the current timestamp: 
+
+```json
+utcNow('D')
+```
+
+And returns this result in the optional "D" format: `"Sunday, April 15, 2018"`
 
 <a name="variables"></a>
 
@@ -3771,11 +3909,14 @@ variables('<variableName>')
 
 *Example*
 
-This example returns an integer value for the variable "numItems":
+Suppose the current value for a "numItems" variable is 20. 
+This example gets the integer value for this variable:
 
 ```json
 variables('numItems')
 ```
+
+And returns this result: `20`
 
 <a name="workflow"></a>
 
@@ -3822,12 +3963,12 @@ xml('<value>')
 
 *Example 1*
 
-This example returns the specified string, 
-which contains a JSON object, to XML: 
+This example creates the XML version for this string, 
+which contains a JSON object: 
 
 `xml( '{ \"name\": \"Sophia Owen\" }' )`
 
-Here is the result XML: 
+And returns this result XML: 
 
 ```xml
 <name>Sophia Owen</name>
@@ -3835,8 +3976,7 @@ Here is the result XML:
 
 *Example 2*
 
-This example converts the specified string, 
-which contains a JSON object, to XML:
+Suppose you have this JSON object:
 
 ```json
 { 
@@ -3847,9 +3987,11 @@ which contains a JSON object, to XML:
 }
 ```
 
+This example creates XML for a string that contains this JSON object:
+
 `xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )`
 
-Here is the result XML: 
+And returns this result XML: 
 
 ```xml
 <person>
@@ -3887,7 +4029,7 @@ xpath('<xml>', '<xpath>')
 *Example 1*
 
 This example finds nodes that match the `<name></name>` node 
-by passing the specified arguments and returning an array. 
+in the specified arguments, and returns an array with those node values: 
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
@@ -3905,21 +4047,23 @@ Here are the arguments:
 
   `"/produce/item/name"`
 
-Here is the resulting array with the nodes that match `<name></name`:
+Here is the result array with the nodes that match `<name></name`:
 
 `[ <name>Gala</name>, <name>Honeycrisp</name> ]`
 
 *Example 2*
 
-Following on Example 1, this expression computes values in the XML by 
-adding the values in the `<count></count>` nodes, and returns the number 30:
+Following on Example 1, this example finds nodes that match the 
+`<count></count>` node and adds those node values with the `sum()` function:
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
+And returns this result: `30`
+
 *Example 3*
 
-In this example, both expressions find nodes that match the 
-`<location></location>` node in the specified arguments, 
+For this example, both expressions find nodes that match the 
+`<location></location>` node, in the specified arguments, 
 which include XML with a namespace. The expressions use the backslash 
 character (\\) as an escape character for the double quotation mark (").
 
@@ -3945,7 +4089,7 @@ Here are the arguments:
 
   * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
 
-Here is the resulting node that matches `<location></location`:
+Here is the result node that matches the `<location></location` node:
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>
@@ -3954,9 +4098,11 @@ Here is the resulting node that matches `<location></location`:
 *Example 4*
 
 Following on Example 3, this example finds the value in the 
-`<location></location>` node, and returns only the string "Paris": 
+`<location></location>` node: 
 
 `xpath(xml(body('Http')), 'string(/*[name()=\"file\"]/*[name()=\"location\"])')`
+
+And returns this result: `"Paris"`
 
 ## Next steps
 
