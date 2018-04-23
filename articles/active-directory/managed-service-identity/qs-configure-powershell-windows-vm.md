@@ -27,7 +27,7 @@ In this article, you learn how to perform the following Managed Service Identity
 
 ## Prerequisites
 
-- If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **[Be sure to review the difference between a system assigned and user assigned identity](overview.md#overview.md#how-does-it-work)**.
+- If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **Be sure to review the [difference between a system assigned and user assigned identity](overview.md#how-does-it-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/en-us/free/) before continuing.
 - Install [the latest version of Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) if you haven't already.
 
