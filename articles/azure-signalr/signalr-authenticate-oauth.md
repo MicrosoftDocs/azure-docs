@@ -526,6 +526,7 @@ The last thing you need to do is update the **Homepage URL** and **Authroization
 
 3. Navigate to your web app URL and test the application.
 
+    ![OAuth Complete hosted in Azure](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
 
 
 ## Clean up resources
