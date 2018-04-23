@@ -157,8 +157,9 @@ the expression body is extracted by removing the @ character,
 and always results in another JSON value. 
 
 For example, for the previously defined `customerName` property, 
-you can get the property value by using the `parameters()` function 
-in an expression and assign that value to the `accountName` property:
+you can get the property value by using the 
+[parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 
+function in an expression and assign that value to the `accountName` property:
 
 ```json
 "customerName": "Sophia Owen", 
@@ -222,7 +223,7 @@ for example:
 
 When you're done, the expression appears for the 
 corresponding property in your workflow definition, 
-for example, the `searchquery` property here:
+for example, the `searchQuery` property here:
 
 ```json
 "Search_tweets": {
@@ -263,8 +264,8 @@ property or a value in an array.
 ## Functions
 
 Some expressions get their values from runtime actions 
-that might not even exist at the start of a logic app run. 
-To reference or work with values in expressions, you can use *functions*. 
+that might not yet exist when a logic app starts to run. 
+To reference or work with these values in expressions, you can use *functions*. 
 For example, you can use math functions for calculations, such as the 
 [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function, 
 which returns the sum from integers or floats. 
@@ -277,12 +278,13 @@ Here are just a couple example tasks that you can perform with functions:
 | Return a globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
 |||| 
 
-This example shows how you can use a function in an expression. 
-Here, the `parameters()` function gets the value from `accountName` 
-and assigns the value to `customerName`:
+This example shows how you can get the value from the `customerName` parameter 
+and assign that value to the `accountName` property by using the 
+[parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 
+function in an expression:
 
 ```json
-"customerName": "@parameters('accountName')"
+"accountName": "@parameters('customerName')"
 ```
 
 Here are some other general ways that you can use functions in expressions:
