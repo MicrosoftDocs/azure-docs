@@ -39,8 +39,10 @@ OpenID Connect describes a metadata document that contains most of the informati
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
->[!TIP] Try it! Click [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) to see the `common` tenants configuration. 
+> [!TIP] 
+> Try it! Click [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) to see the `common` tenants configuration. 
 >
+
 The `{tenant}` can take one of four values:
 
 | Value | Description |
