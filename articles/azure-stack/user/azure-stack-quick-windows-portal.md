@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 04/20/2018
+ms.date: 04/23/2018
 ms.author: brenduns
 ms.reviewer: 
 ms.custom: mvc
@@ -39,7 +39,7 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
     ![Configure virtual machine settings](media/azure-stack-quick-windows-portal/image04.png)
 5. Under **Summary**, click **OK** to create the virtual machine.
     ![View summary and create virtual machine](media/azure-stack-quick-windows-portal/image05.png)
-6. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
+6. To see your new virtual machine, click **All resources**, search for the virtual machine name, and then click its name in the search results.
     ![See virtual machine](media/azure-stack-quick-windows-portal/image06.png)
 
 ## Clean up resources
