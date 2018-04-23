@@ -538,18 +538,18 @@ For the full reference about each function, see the
 
 <a name="manipulation-functions"></a>
 
-### Object and XML functions
+### JSON and XML functions
 
-To work with objects and XML nodes, you can use these manipulation functions. 
+To work with JSON objects and XML nodes, you can use these manipulation functions. 
 For the full reference about each function, see the 
 [alphabetical reference article](../logic-apps/workflow-definition-language-functions-reference.md).
 
 | Manipulation function | Task | 
 | --------------------- | ---- | 
-| [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Add a property and its value, or name-value pair, to an object, and return the updated object. | 
+| [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Add a property and its value, or name-value pair, to a JSON object, and return the updated object. | 
 | [coalesce](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Return the first non-null value from one or more parameters. | 
-| [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Remove a property from an object and return the updated object. | 
-| [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Set the value for an object's property and return the updated object. | 
+| [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Remove a property from a JSON object and return the updated object. | 
+| [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Set the value for a JSON object's property and return the updated object. | 
 | [xpath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Check XML for nodes or values that match an XPath (XML Path Language) expression, and return the matching nodes or values. | 
 ||| 
 

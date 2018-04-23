@@ -370,7 +370,7 @@ addMinutes('2018-03-15T00:20:00Z', -5)
 
 ## addProperty
 
-Add a property and its value, or name-value pair, to an object, 
+Add a property and its value, or name-value pair, to a JSON object, 
 and return the updated object. If the object already exists at runtime, 
 the function throws an error.
 
@@ -3214,6 +3214,24 @@ for example, "http://feeds.reuters.com/reuters/topNews":
 ```json
 triggerFormDataValue('feedUrl')
 ```
+
+<a name="triggerMultipartBody"></a>
+
+Return the body for a specific part in a trigger's output that has multiple parts. 
+
+```json
+triggerMultipartBody(<index>)
+```
+
+| Parameter | Required | Type | Description | 
+| --------- | -------- | ---- | ----------- | 
+| <*index*> | Yes | Integer | The index value for the part that you want |
+||||| 
+
+| Return value | Type | Description | 
+| ------------ | ---- | ----------- | 
+| "*body*" | String | The body for the specified part in a trigger's multipart output | 
+|||| 
 
 <a name="triggerOutputs"></a>
 
