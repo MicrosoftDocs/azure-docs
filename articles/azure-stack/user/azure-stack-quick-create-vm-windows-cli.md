@@ -18,7 +18,7 @@ ms.author: mabrigg
 ms.custom: mvc
 ---
 
-# Quickstart: create a Windows server virtual machine by using Azure CLI in Azure Stack
+# Quickstart: create a Windows Server virtual machine by using Azure CLI in Azure Stack
 
 ‎*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
@@ -106,4 +106,4 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you deployed a basic Windows server virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
+In this quickstart, you deployed a basic Windows Server virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
