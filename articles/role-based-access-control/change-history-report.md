@@ -40,9 +40,9 @@ The easiest way to get started is to view the activity logs with the Azure porta
 
 For information more information, see [View events in activity log](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
-## Azure PowerShell
+## PowerShell
 
-To view activity logs with PowerShell use the [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) command.
+To view activity logs with Azure PowerShell use the [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) command.
 
 This command lists all role assignment changes in a subscription for the past seven days:
 
