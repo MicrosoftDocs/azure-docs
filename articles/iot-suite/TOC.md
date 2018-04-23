@@ -41,8 +41,6 @@
 #### [Device information in the remote monitoring solution](iot-suite-v1-remote-monitoring-device-info.md)
 
 
-
-
 ## Predictive maintenance
 ### [Predictive Maintenance solution accelerator overview](iot-suite-predictive-overview.md)
 ### [Predictive Maintenance solution accelerator walkthrough](iot-suite-predictive-walkthrough.md)
