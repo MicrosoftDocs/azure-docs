@@ -140,8 +140,10 @@ In the **New update deployment** screen, specify the following information:
 
    |OS  |Type  |
    |---------|---------|
-   |Windows     | Critical updates<br>Security updates<br>Update rollups<br>Feature packs<br>Service packs<br>Definition updates<br>Tools<br>Updates        |
-   |Linux     | Critical and security updates<br>Other updates       |
+   |Windows     | Critical updates</br>Security updates</br>Update rollups</br>Feature packs</br>Service packs</br>Definition updates</br>Tools</br>Updates        |
+   |Linux     | Critical and security updates</br>Other updates       |
+
+   For a description of the classification types, see [update classifications](automation-update-management.md#update-classifications).
 
 * **Schedule settings** - This opens the Schedule Settings page. The default start time is 30 minutes after the current time. It can be set any time from 10 minutes in the future.
 

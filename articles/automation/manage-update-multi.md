@@ -132,11 +132,11 @@ In the **New update deployment** pane, specify the following:
 
 - **Name**: Provide a unique name to identify the update deployment.
 - **OS Type**: Select Windows or Linux.
-- **Computers to update**: Select the virtual machines that you want to update. The readiness of the machine is shown in the **UPDATE AGENT READINESS** column. This lets you see the health state of the machine before scheduling the update deployment.
+- **Machines to update**: Select the virtual machines that you want to update. The readiness of the machine is shown in the **UPDATE AGENT READINESS** column. This lets you see the health state of the machine before scheduling the update deployment.
 
   !["New update deployment" pane](./media/manage-update-multi/update-select-computers.png)
 
-- **Update classification**: Select the types of software that the update deployment will include. The classification types are:
+- **Update classification**: Select the types of software that the update deployment will include. For a description of the classification types, see [update classifications](automation-update-management.md#update-classifications). The classification types are:
   - Critical updates
   - Security updates
   - Update rollups

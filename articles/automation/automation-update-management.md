@@ -11,7 +11,7 @@ manager: carmonm
 ---
 # Update Management solution in Azure
 
-The Update Management solution in Azure automation allows you to manage operating system security updates for your Windows and Linux computers deployed in Azure, on-premises environments, or other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
+The Update Management solution in Azure automation allows you to manage operating system updates for your Windows and Linux computers deployed in Azure, on-premises environments, or other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
 You can enable Update management for virtual machines directly from your [Azure Automation](automation-offering-get-started.md) account.
 To learn how to enable update management for virtual machines from your Automation account, see
@@ -51,7 +51,7 @@ The following table shows a list of supported operating systems:
 |CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
 |Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 12.04 LTS and newer x86/x64       |Linux agents must have access to an update repository.         |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
 
 ### Unsupported client types
 
@@ -192,6 +192,30 @@ Create a new Update Deployment by clicking the **Schedule update deployment** bu
 |Updates to exclude|Enter all the KBs to exclude without the 'KB' prefix|
 |Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
 | Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
+
+## Update classifications
+
+The following tables provide a listing of the Update classifications in Update Management along with a definition for each classification.
+
+### Windows
+
+|Classification  |Description  |
+|---------|---------|
+|Critical updates     | An update for a specific problem that addresses a critical, non-security-related bug.        |
+|Security updates     | An update for a product-specific, security-related issue.        |
+|Update rollups     | A cumulative set of hotfixes that are packaged together for easy deployment.        |
+|Feature packs     | New product features that are distributed outside of a product release.        |
+|Service packs     | A cumulative set of hotfixes that are applied to an application.        |
+|Definition updates     | An update to virus or other definition files.        |
+|Tools     | A utility or feature that helps to complete one or more tasks.        |
+|Updates     | An update to an application or file that is currently installed.        |
+
+### Linux
+
+|Classification  |Description  |
+|---------|---------|
+|Critical and security updates     | Updates for a specific problem or a product-specific, security-related issue.         |
+|Other updates     | All other updates that are not critical in nature or security updates.        |
 
 ## Search logs
 
