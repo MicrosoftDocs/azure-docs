@@ -6,10 +6,10 @@ author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: luis
 ms.topic: article
 ms.date: 03/28/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 --- 
 
 # Use composite entity to extract complex data
@@ -124,7 +124,7 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
     ![Select publish button](./media/luis-tutorial-composite-entity/publish.png)
 
-2. Select the **Publish to product slot**. 
+2. Select the **Publish to production slot**. 
 
     ![publish app](./media/luis-tutorial-composite-entity/publish-to-production.png)
 

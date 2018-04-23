@@ -6,10 +6,10 @@ author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: luis
 ms.topic: article
-ms.date: 03/26/2018
-ms.author: v-geberr;
+ms.date: 05/07/2018
+ms.author: v-geberr
 --- 
 
 # Simple app with intents and a list entity
@@ -58,19 +58,19 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
 
 4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
 
-    ![Intents page](./media/luis-quickstart-intent-and-list-entity/intents-page-none-only.png)
+    [![](media/luis-quickstart-intent-and-list-entity/intents-page-none-only.png "Screenshot of Intents page")](media/luis-quickstart-intent-and-list-entity/intents-page-none-only.png#lightbox)
 
 ## Create a new intent
 
 1. On the **Intents** page, select **Create new intent**. 
 
-    ![Create new intents button](./media/luis-quickstart-intent-and-list-entity/create-new-intent.png)
+    [![](media/luis-quickstart-intent-and-list-entity/create-new-intent.png "Screenshot of Intents page with Create new intent button highlighted")](media/luis-quickstart-intent-and-list-entity/create-new-intent.png#lightbox)
 
 2. Enter the new intent name `OrderDrinks`. This intent should be selected any time a user wants to order a drink.
 
     By creating an intent, you are creating the primary category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer or take appropriate action. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
 
-    ![Create new OrderDrinks intent](./media/luis-quickstart-intent-and-list-entity/intent-create-dialog-order-drinks.png)
+    [![](media/luis-quickstart-intent-and-list-entity/intent-create-dialog-order-drinks.png "Screenshot of creating new OrderDrings intent")](media/luis-quickstart-intent-and-list-entity/intent-create-dialog-order-drinks.png#lightbox)
 
 3. Add several utterances to the `OrderDrinks` intent that you expect a user to ask for, such as:
 
@@ -80,7 +80,7 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
     |2 perriers with a twist of lime|
     |h20|
 
-    ![Enter utterances for intent](./media/luis-quickstart-intent-and-list-entity/intent-order-drinks-utterance.png)
+    [![](media/luis-quickstart-intent-and-list-entity/intent-order-drinks-utterance.png "Screenshot of entering utterance on OrderDrinks intent page")](media/luis-quickstart-intent-and-list-entity/intent-order-drinks-utterance.png#lightbox)
 
 ## Add utterances to None intent
 
@@ -88,7 +88,7 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
 
 1. Select **Intents** from the left panel. 
 
-    ![Enter utterances for intent](./media/luis-quickstart-intent-and-list-entity/left-panel-intents.png)
+    [![](media/luis-quickstart-intent-and-list-entity/left-panel-intents.png "Screenshot of selecting Intents link from left panel")](media/luis-quickstart-intent-and-list-entity/left-panel-intents.png#lightbox)
 
 2. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app:
 
@@ -110,32 +110,32 @@ Now that the two intents have utterances, LUIS needs to understand what a drink 
 
 2. Select `OrderDrinks` from the intents list.
 
-3. In the utterance, `h2o`, select the word `h2o`. A drop-down menu appears with a text box at the top to create a new entity. Enter the entity name `Drink` in the text box then select **Create new entity** in the drop-down menu then select enter. 
+3. In the utterance, `Please send 2 cokes and a bottle of water to my room`, select the word `water`. A drop-down menu appears with a text box at the top to create a new entity. Enter the entity name `Drink` in the text box then select **Create new entity** in the drop-down menu. 
 
-    ![Label utterance](./media/luis-quickstart-intent-and-list-entity/intent-label-h2o-in-utterance.png)
+    [![](media/luis-quickstart-intent-and-list-entity/intent-label-h2o-in-utterance.png "Screenshot of creating new entity by selecting word in utterance")](media/luis-quickstart-intent-and-list-entity/intent-label-h2o-in-utterance.png#lightbox)
 
-5. In the pop-up window, select the **List** entity type with `Water` as the synonym. Select **Done**.
+4. In the pop-up window, select the **List** entity type. Add synonym `h20`. Select the enter key after each synonym. Don't add `perrier` to the synonym list. That is added in the next step as an example. Select **Done**.
 
-    ![Verify entity type](./media/luis-quickstart-intent-and-list-entity/create-list-ddl.png)
+    [![](media/luis-quickstart-intent-and-list-entity/create-list-ddl.png "Screenshot of configuring new entity")](media/luis-quickstart-intent-and-list-entity/create-list-ddl.png#lightbox)
 
-6. Now that the entity is created, and one utterance is labeled, label the other synonyms for water by selecting `perriers` from ` 2 perriers with a twist of lime`, then select `Drink` in the drop-down list. Follow the menu to the right, then select `Set as synonym`, then select `h2o`.
+5. Now that the entity is created, label the other synonyms for water by selecting the synonym for water, then select `Drink` in the drop-down list. Follow the menu to the right, then select `Set as synonym`, then select `water`.
 
-    ![Label utterance with existing entity](./media/luis-quickstart-intent-and-list-entity/intent-label-perriers.png)
+    [![](media/luis-quickstart-intent-and-list-entity/intent-label-perriers.png "Screenshot of labeling utterance with existing entity")](media/luis-quickstart-intent-and-list-entity/intent-label-perriers.png#lightbox)
 
 ## Modify the list entity from the Entity page
 The drink list entity is created but doesn't have many items and synonyms. If you know some of the terms, abbreviations, and slang, it is quicker to fill in the list on the **Entity** page. 
 
 1. Select **Entities** from the left panel.
 
-    ![Select from left navigation](./media/luis-quickstart-intent-and-list-entity/intent-select-entities.png)
+    [![](media/luis-quickstart-intent-and-list-entity/intent-select-entities.png "Screenshot of selecting Entities from left panel")](media/luis-quickstart-intent-and-list-entity/intent-select-entities.png#lightbox)
 
 2. Select `Drink` from entities list.
 
-    ![Select from list](./media/luis-quickstart-intent-and-list-entity/entities-select-drink-entity.png)
+    [![](media/luis-quickstart-intent-and-list-entity/entities-select-drink-entity.png "Screenshot of selecting Drink entity from entities list")](media/luis-quickstart-intent-and-list-entity/entities-select-drink-entity.png#lightbox)
 
 3. In the text box, enter `Soda pop`, then select enter. This is a term that is broadly applied to carbonated drinks. Every culture has a nick-name or slang term for this type of drink.
 
-    ![Enter canonical name](./media/luis-quickstart-intent-and-list-entity/drink-entity-enter-canonical-name.png)
+    [![](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-canonical-name.png "Screenshot of entering canonical name")](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-canonical-name.png#lightbox)
 
 4. On the same row as `Soda pop`, enter synonyms such as: 
 
@@ -150,17 +150,7 @@ The drink list entity is created but doesn't have many items and synonyms. If yo
 
     This article has a few synonyms, to keep the example short. A production-level LUIS app would have many synonyms and would be reviewed and expanded on a regular basis. 
 
-    ![Add synonyms](./media/luis-quickstart-intent-and-list-entity/drink-entity-enter-synonyms.png)
-
-5. Add several synonyms to the `h2o` row:
-
-    ```
-    waters
-    h20 (using numeric 0)
-    h2o (using letter o)
-    ```
-
-    If you don't add `waters`, an utterance of `3 waters please` would not pull out the drink type because it is an exact match at the [token](luis-supported-languages.md#tokenization) level.
+    [![](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-synonyms.png "Screenshot of adding synonyms")](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-synonyms.png#lightbox)
 
 ## Train the LUIS app
 LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
@@ -178,18 +168,18 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-    ![Select publish button](./media/luis-quickstart-intent-and-list-entity/publish.png)
+    [![](media/luis-quickstart-intent-and-list-entity/publish.png "Screenshot of selecting publish button")](media/luis-quickstart-intent-and-list-entity/publish.png#lightbox)
 
-2. Select the **Publish to product slot**. 
+2. Select the **Publish to production slot**. 
 
-    ![publish app](./media/luis-quickstart-intent-and-list-entity/publish-to-production.png)
+    [![](media/luis-quickstart-intent-and-list-entity/publish-to-production.png "Screenshot of selecting Publish to production slot button")](media/luis-quickstart-intent-and-list-entity/publish-to-production.png#lightbox)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with a different utterance
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-    ![Select endpoint URL](./media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png)
+    [![](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png "Screenshot of endpoint url on Publish page")](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png#lightbox)
 
 2. Go to the end of the URL in the address and enter `2 cokes and 3 waters`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `OrderDrinks` intent with the two drink types of `cokes` and `waters`.
 

@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 03/27/2018
+ms.date: 04/18/2018
 ms.author: jingwang
 ms.custom: include file
 ---
@@ -22,6 +22,7 @@ Data factory is a multi-tenant service that has the following default limits in 
 | Triggers within a data factory | 2500 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Linked services within a data factory | 2500 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Integration runtimes within a data factory <sup>4</sup> | 2500 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Total CPU cores for Azure-SSIS Integration Runtime(s) under one subscription | 100 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Concurrent pipeline runs per pipeline | 20 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Max activities per pipeline | 20 | 30 |
 | Max parameters per pipeline | 20 | 30 |

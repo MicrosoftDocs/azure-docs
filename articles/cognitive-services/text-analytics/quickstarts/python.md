@@ -4,7 +4,7 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 author: luiscabrer
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: luisca

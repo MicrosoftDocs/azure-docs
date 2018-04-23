@@ -4,9 +4,8 @@ description: The review tool allows human moderators to review images.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 08/06/2017
 ms.author: sajagtap
