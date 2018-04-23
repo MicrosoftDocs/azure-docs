@@ -77,7 +77,7 @@ Customers who purchased Microsoft Operations Management Suite E1 and E2 are elig
 Depending on the number of nodes of the suite that your organization purchased, moving some subscriptions to the new pricing model could be advantageous, but this requires careful consideration. In general, it is advisable simply to stay in the pre-April 2018 model as described above.
 
 > [!WARNING]
-> If your organization has purchased the Microsoft Operations Management Suite E1 and E2, you are usually best to keep your subscriptions in the pre-April 2018 pricing model. 
+> If your organization has purchased the Microsoft Operations Management Suite E1 and E2, it is usually best to keep your subscriptions in the pre-April 2018 pricing model. 
 >
 
 ## Changes when you're moving to the new pricing model
