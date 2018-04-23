@@ -20,7 +20,7 @@ ms.author: wesmc
 
 The Azure SignalR Service is an Azure-managed service based on [*ASP.NET Core SignalR (SignalR Core)*](https://docs.microsoft.com/aspnet/core/signalr/introduction). ASP.NET Core SignalR is an [open source library](https://github.com/aspnet/signalr) that simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the web server to push content updates to connected clients. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates.
 
-This topic provides an overview of the Azure SignalR Service. If you want to get started, start with the [ASP.NET Core quickstart](signalr-quickstart-dotnet-core.md).
+This article provides an overview of the Azure SignalR Service. If you want to get started, start with the [ASP.NET Core quickstart](signalr-quickstart-dotnet-core.md).
 
 ## What is SignalR Service used for? 
 
@@ -41,14 +41,14 @@ SignalR Core is a rewrite of the previous version. As a result, SignalR Core is 
 
 With Azure SignalR Service, the server-side component of SignalR Core is hosted in Azure. However, since the technology is built on top of ASP.NET Core, you have the ability to run your actual web application on multiple platforms (Azure, Windows, Linux, and MacOS) while hosting with [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache), [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index), or self-hosting in your own process.
 
-If goal for your application include: supporting the latest functionality for updating web clients with real-time content updates, running across multiple platforms (Azure, Windows, Linux, and MacOS), ans hosting in different environments, then the best choice could be leveraging the Azure SignalR Service.
+If goal for your application includes: supporting the latest functionality for updating web clients with real-time content updates, running across multiple platforms (Azure, Windows, Linux, and MacOS), and hosting in different environments, then the best choice could be leveraging the Azure SignalR Service.
 
 
 ## Why not deploy SignalR myself?
 
 It is still a valid approach to deploy your own Azure web app supporting SignalR Core as a backend component to your overall web application.
 
-One of the obvious key reasons to use Azure SignalR Service instead of deploying your own Azure web app hosting SignalR is simplicity. With Azure SignalR Service, you don't need to handle problems like performance, scalability, availability. These are handled for you with a 99.9% service-level agreement.
+One of the obvious key reasons to use the Azure SignalR Service, instead of deploying your own Azure web app hosting SignalR, is simplicity. With Azure SignalR Service, you don't need to handle problems like performance, scalability, availability. These issues are handled for you with a 99.9% service-level agreement.
 
 Depending on the scenario, another reason may be you have no requirements to actually host a web application at all. The logic of your web application may leverage [Serverless computing](https://azure.microsoft.com/overview/serverless-computing/). For example, maybe your code is only hosted and executed on demand with [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) triggers. This scenario can be tricky because your code only runs on-demand and doesn't maintain long connections with clients. Azure SignalR Service can handle this since the service already manages connections for you.
 

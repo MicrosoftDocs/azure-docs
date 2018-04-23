@@ -21,7 +21,7 @@ ms.author: wesmc
 
 Azure SignalR Service is an Azure-managed service that helps developers easily build web applications with real-time features. This service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
 
-This topic shows you how to get started with the SignalR Service. In this quickstart you will create a chat application using an ASP.NET Core MVC Web App web app with the SignalR Service. You will host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients. 
+This article shows you how to get started with the SignalR Service. In this quickstart, you will create a chat application using an ASP.NET Core MVC Web App web app with the SignalR Service. You will host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients. 
 
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom).  Also, the creation of the Azure resources used in this quickstart can be accomplished with the [Create a SignalR Service script](scripts/signalr-cli-create-service.md).
 
@@ -41,9 +41,9 @@ The code for this tutorial is available for download in the [AzureSignalR-sample
 
 ## Create an ASP.NET Core web app
 
-In this section you use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) to create a new ASP.NET Core MVC Web App project. The advantage of using the .NET Core CLI is that it is available across the Windows, Linux, and MacOS platforms. You could also use Visual Studio on the Windows and MacOS platforms.
+In this section, you use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) to create a new ASP.NET Core MVC Web App project. The advantage of using the .NET Core CLI is that it is available across the Windows, Linux, and MacOS platforms. You could also use Visual Studio on the Windows and MacOS platforms.
 
-1. Create a new folder for your project. In this article the *E:\Testing\chattest* folder is created and used.
+1. Create a new folder for your project. In this article, the *E:\Testing\chattest* folder is created and used.
 
 2. In the new folder, execute the following command to create a new ASP.NET Core MVC Web App project:
 
@@ -109,7 +109,7 @@ In this section you use the [.NET Core command-line interface (CLI)](https://doc
 
 ## Add a hub class
 
-In SignalR, a hub is a core concept that exposes a set of methods that can be called from client. In this section you define a hub class with two methods: 
+In SignalR, a hub is a core concept that exposes a set of methods that can be called from client. In this section, you define a hub class with two methods: 
 
 * `Broadcast`: This method broadcasts a message to all clients.
 * `Echo`: This method sends a message back to the caller.
@@ -148,7 +148,7 @@ The connection string contains sensitive access data and should only be used by 
 
 Azure SignalR Service gives you the flexibility to implement your own authentication. In this article, you aren't going to include real authentication. Instead you will simply issue the token when requested. You will implement real authentication in a later tutorial. 
 
-In this section you will implement an API that issues a token to the client. Code running client-side can then use this token to connect to the service to push content updates.
+In this section, you will implement an API that issues a token to the client. Code running client-side can then use this token to connect to the service to push content updates.
 
 1. Add a new controller code file to the *chattest\Controllers* directory. Name the file *AuthController.cs*.
 
@@ -207,7 +207,7 @@ The client user interface for this chat room app will be composed of HTML and Ja
 
 2. Copy *index.html* from the [sample repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoomLocal/wwwroot) into your *wwwroot* folder.
 
-    In the code for *index.html*, the `getAccessToken` JavaScript function calls into *AuthController* on the server-side in order to authenticate and request an access token for the client. If successul, this token is returned in the body of the response along with the *serviceURL*. The token and *serviceURL* will be used by the `startConnection` JavaScript function to authenticate a connection to the Azure SignalR resource.
+    In the code for *index.html*, the `getAccessToken` JavaScript function calls into *AuthController* on the server-side in order to authenticate and request an access token for the client. If successful, this token is returned in the body of the response along with the *serviceURL*. The token and *serviceURL* will be used by the `startConnection` JavaScript function to authenticate a connection to the Azure SignalR resource.
     
     If the connection is successfully authenticated, that connection is passed to the `onConnected` JavaScript function, which adds the button event handlers. These handlers use the connection to push content updates to all connected clients.
 
@@ -249,7 +249,7 @@ Otherwise, if you are finished with the quickstart sample application, you can d
 
 Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
 
-In the **Filter by name...** textbox, type the name of your resource group. The instructions for this topic used a resource group named *SignalRTestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+In the **Filter by name...** textbox, type the name of your resource group. The instructions for this quickstart used a resource group named *SignalRTestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
 
    
 ![Delete](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
@@ -257,7 +257,7 @@ In the **Filter by name...** textbox, type the name of your resource group. The 
 
 You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
    
-After a few moments the resource group and all of its contained resources are deleted.
+After a few moments, the resource group and all of its contained resources are deleted.
 
 
 
