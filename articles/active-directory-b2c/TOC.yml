@@ -159,6 +159,8 @@
           href: active-directory-b2c-custom-setup-li-idp.md
         - name: Twitter
           href: active-directory-b2c-custom-setup-twitter-idp.md
+        - name: Multi-tenant
+          href: active-directory-b2c-setup-commonaad-custom.md 
       - name: Configure SAML providers
         items:
         - name: ADFS
@@ -199,6 +201,8 @@
         items:
         - name: Collect logs using Application Insights
           href: active-directory-b2c-troubleshoot-custom.md
+        - name: Track user behavior
+          href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: Reference
       items:
       - name: Release notes

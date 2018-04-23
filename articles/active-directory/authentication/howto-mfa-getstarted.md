@@ -38,7 +38,7 @@ If you don't have one of these three licenses, or you don't have enough licenses
 
 ## Turn on two-step verification for users
 
-Use one of the procedures listed in [How to require two-step verification for a user or group](../../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) to start using Azure MFA. You can choose to enforce two-step verification for all sign-ins, or you can create conditional access policies to require two-step verification only when it matters to you.
+Use one of the procedures listed in [How to require two-step verification for a user or group](howto-mfa-userstates.md) to start using Azure MFA. You can choose to enforce two-step verification for all sign-ins, or you can create conditional access policies to require two-step verification only when it matters to you.
 
 ## Next Steps
 Now that you have set up Azure Multi-Factor Authentication in the cloud, you can configure and set up your deployment. See [Configuring Azure Multi-Factor Authentication](howto-mfa-mfasettings.md) for more details.

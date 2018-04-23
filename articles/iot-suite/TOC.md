@@ -47,9 +47,10 @@
 ### [Predictive Maintenance solution accelerator overview](iot-suite-predictive-overview.md)
 ### [Predictive Maintenance solution accelerator walkthrough](iot-suite-predictive-walkthrough.md)
 
-## Connected Factory
-### [Connected Factory solution overview](iot-suite-connected-factory-overview.md)
-### [Connected Factory solution walkthrough](iot-suite-connected-factory-sample-walkthrough.md)
+## Connected factory
+### [What is Connected factory?](iot-suite-connected-factory-features.md)
+### [Connected factory solution overview](iot-suite-connected-factory-overview.md)
+### [Connected factory solution walkthrough](iot-suite-connected-factory-sample-walkthrough.md)
 
 ## Device simulation
 ### [Deploy device simulation](iot-suite-device-simulation-deploy.md)
