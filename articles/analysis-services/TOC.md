@@ -35,7 +35,7 @@
 ### [Manage server administrators](analysis-services-server-admins.md)
 ### [Monitor server metrics](analysis-services-monitor.md)
 ### [Setup diagnostic logging](analysis-services-logging.md)
-### [Use gateway for datasources on VNet](analysis-services-vnet-gateway.md)
+### [Use gateway for data sources on VNet](analysis-services-vnet-gateway.md)
 ## Connect
 ### [Get client libraries](analysis-services-data-providers.md)
 ### [Connect with Excel](analysis-services-connect-excel.md)
