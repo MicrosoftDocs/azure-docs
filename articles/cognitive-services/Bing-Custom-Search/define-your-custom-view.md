@@ -118,7 +118,7 @@ If you subscribed to Custom Search at the appropriate level (see the [pricing pa
 
 ## Next steps
 
-- [Search your custom instance](./search-your-custom-view.md)
-- [Configure and consume custom hosted UI](./hosted-ui.md)
+- [Call your custom search](./search-your-custom-view.md)
+- [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

@@ -122,6 +122,6 @@ To run this example, follow these steps.
     </pre>
 
 ## Next steps
-- [Configure and consume custom hosted UI](./hosted-ui.md)
+- [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)
