@@ -34,21 +34,21 @@ When a container group is created, Azure Monitor data is available in the Azure 
 
 ![dual-chart][dual-chart]
 
-If you have a container group that contains multiple containers, use a [dimension][monitor-dimension] to present metrics for each individual container. To create an Azure Monitor chart with individual container metrics, perform the following steps:
+If you have a container group that contains multiple containers, use a [dimension][monitor-dimension] to present metrics for each individual container. To create a chart with individual container metrics, perform the following steps:
 
 1. Select **Monitor** from the left-hand navigation menu.
-2. Select your container group and a metric (CPU or Memory).
+2. Select a container group and a metric (CPU or Memory).
 3. Select the green dimension button, and select **Container Name**.
 
 ![dimension][dimension]
 
 ## Get metrics - Azure CLI
 
-Container instances CPU and memory usage can also be gathered using the Azure CLI. First, get the ID of the container group using the following command. Replace the <resource-gorup> name and <container-name> name with your values.
+Container instances CPU and memory usage can also be gathered using the Azure CLI. First, get the ID of the container group using the following command. Replace `<resource-group>` with your resource group name and `<container-group>` with the name of your container group.
 
 
 ```console
-CONTAINER=$(az container show --resource-group myacicontainer --name myacicontainer-mya1 --query id --output tsv)
+CONTAINER=$(az container show --resource-group <resource-group> --name <container-group> --query id --output tsv)
 ```
 
 Use the following command to get **CPU** usage metrics.
