@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/06/2018
-ms.author: rli
+ms.date: 04/20/2018
+ms.author: v-deasim
 ms.custom: mvc
 
 ---
@@ -74,5 +74,5 @@ For a complete list of features that each Azure CDN product supports, see [Azure
 - Manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 - Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
 - To see Azure CDN in action, watch the [Azure CDN videos](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
-- For information about the lastest Azure CDN features, see [Azure CDN blog](https://azure.microsoft.com/en-us/blog/tag/azure-cdn/).
+- For information about the latest Azure CDN features, see [Azure CDN blog](https://azure.microsoft.com/blog/tag/azure-cdn/).
 
