@@ -108,7 +108,7 @@ Changes you make to a Custom Search instance are made in the **Configuration** t
 If you decide that you don't want to keep the changes you've made, click **Revert to Live State**. When you revert your changes, the live state configuration is unchanged and the Configure tab is reverted to match the live state.
 
 ## View statistics
-If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), a **Statistics** tab is added to your production instances. The statistics tab shows details about how your Custom Search endpoints are used, including call volume and most frequent queries. You can filter details using the provided controls.
+If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), a **Statistics** tab is added to your production instances. The statistics tab shows details about how your Custom Search endpoints are used, including call volume and most frequent queries. You can filter details using the provided controls. See [Analyze your traffic](analyze-traffic.md).
 
 ## Understanding Quota
 - For each custom search instance, the maximum number of ranking adjustments that you may make to **Active** and **Blocked** slices is limited to 400.
@@ -118,7 +118,7 @@ If you subscribed to Custom Search at the appropriate level (see the [pricing pa
 
 ## Next steps
 
-- [Search your custom instance](./search-your-custom-view.md)
-- [Configure and consume custom hosted UI](./hosted-ui.md)
+- [Call your custom search](./search-your-custom-view.md)
+- [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

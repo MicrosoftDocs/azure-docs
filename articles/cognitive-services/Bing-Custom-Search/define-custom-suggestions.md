@@ -18,7 +18,7 @@ If you subscribed to Custom Search at the appropriate level (see the [pricing pa
 ## Enable Custom Autosuggest
 Use the following instructions to enable Custom Autosuggest for your Custom Search instance.
 
-1.	Sign in to Custom Search [portal](https://customsearch.ai).
+1.	Sign in to [Custom Search](https://customsearch.ai).
 2.	Click a Custom Search instance. To create an instance, see [Create your first Bing Custom Search instance](quick-start.md).
 3.  Click the **Autosuggest** tab.
 4.  Toggle the **Enable autosuggest** slider to the on position. The slider becomes blue.

@@ -30,8 +30,8 @@ To create a Bing Custom Search instance:
 
 ## Next steps
 
-- [Define your custom view](./define-your-custom-view.md)
-- [Search your custom instance](./search-your-custom-view.md)
-- [Configure and consume custom hosted UI](./hosted-ui.md)
+- [Configure your custom search experience](./define-your-custom-view.md)
+- [Call your custom search](./search-your-custom-view.md)
+- [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)
