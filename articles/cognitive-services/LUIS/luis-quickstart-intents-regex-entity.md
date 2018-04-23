@@ -6,9 +6,9 @@ author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: luis
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 05/07/2018
 ms.author: v-geberr
 --- 
 
@@ -50,27 +50,27 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
 
 2. On the [LUIS][LUIS] website, select **Create new app**.  
 
-    ![LUIS apps list](./media/luis-quickstart-intents-regex-entity/app-list.png)
+    ![Screenshot of LUIS apps list](./media/luis-quickstart-intents-regex-entity/app-list.png)
 
 3. In the pop-up dialog, enter the name `MyKnowledgebase`. 
 
-    ![Create new app](./media/luis-quickstart-intents-regex-entity/create-new-app.png)
+    ![Screenshot of Create new app pop-up dialog with app name MyKnowledgebase](./media/luis-quickstart-intents-regex-entity/create-new-app.png)
 
 4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
 
-    ![Intents page shows None intent](./media/luis-quickstart-intents-regex-entity/intents-page-none-only.png)
+    ![Screenshot of Intents page ](./media/luis-quickstart-intents-regex-entity/intents-page-none-only.png)
 
 ## Create a new intent
 
 1. On the **Intents** page, select **Create new intent**. 
 
-    ![Create new intents button](./media/luis-quickstart-intents-regex-entity/create-new-intent.png)
+    ![Screenshot of Intents page with Create new intents button highlighted](./media/luis-quickstart-intents-regex-entity/create-new-intent.png)
 
 2. Enter the new intent name `FindKnowledgeBase`. This intent should be selected any time a user wants information about a knowledge base article.
 
     By creating an intent, you are creating the primary category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer or take appropriate action. LUIS won't answer these questions, only identify what type of information is being asked for. 
 
-    ![Create new intent](./media/luis-quickstart-intents-regex-entity/create-new-intent-ddl.png)
+    ![Screenshot of Create new intent pop-up dialog box](./media/luis-quickstart-intents-regex-entity/create-new-intent-ddl.png)
 
 3. Add several utterances to the `FindKnowledgeBase` intent that you expect a user to ask for, such as:
 
@@ -80,7 +80,7 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
     |Let the author of KB121212 know to update the how-to|
     |When was kb135135 released?|
 
-    ![Enter utterances for intent](./media/luis-quickstart-intents-regex-entity/enter-utterances-for-intent.png)
+    ![Screenshot of FindKnowledgeBase intent with examples utterances entered](./media/luis-quickstart-intents-regex-entity/enter-utterances-for-intent.png)
 
 ## Add utterances to None intent
 
@@ -88,7 +88,7 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
 
 1. Select **Intents** from the left panel. 
 
-    ![Enter utterances for intent](./media/luis-quickstart-intents-regex-entity/intents-link-in-navigation.png)
+    ![Screenshot of FindKnowledgeBase intent with Intents left navigation highlighted](./media/luis-quickstart-intents-regex-entity/intents-link-in-navigation.png)
 
 2. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app:
 
@@ -103,42 +103,48 @@ In your LUIS-calling application (such as a chat bot), when LUIS returns the **N
 
 Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chat bot, your chat bot can follow up with a question that focuses the customer's intent. 
 
-## Create a KnowledgeBase article regular expression entity from the Intent page
-Now that the two intents have utterances, LUIS needs to understand what a KB number is. Navigate back to the `FindKnowledgeBase` intent and label (mark) the KB number in an utterance by following the steps:
+## Create a KnowledgeBase article regular expression entity 
+Now that the two intents have utterances, LUIS needs to understand what a KB number is. Create a regular expression entity by following the steps:
 
-1. Return to the `FindKnowledgeBase` intent by selecting **Intents** in the left panel.
+1. Select **Entities** in the left panel.
 
-2. Select `FindKnowledgeBase` from the intents list.
+2. Select **Create new entity** button on the Entities Page. 
 
-3. In the utterance, `When was kb135135 released?`, select the word `kb135135`. A drop-down menu appears with a text box at the top to create a new entity. Enter the entity name `KBarticle` in the text box then select **Create new entity** in the drop-down menu. 
+    ![Screenshot of Entities page with Create new entity button highlighted](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png)
 
-4. In the pop-up window, select the **Regular expression** entity type with `kb[0-9]{6,}` as the regular expression. Select **Done**.
+3. In the pop-up dialog, enter the new entity name `KBarticle`, select **RegEx** as the entity type, enter `kb[0-9]{6,}` as the Regex, and then select **Done**.
 
-    ![Verify entity type](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
+    ![Screenshot of pop-up dialog setting new entity properties](./media/luis-quickstart-intents-regex-entity/create-entity.png)
 
-5. Now that the entity is created, and one utterance is labeled, <!--label the other Knowledge base article numbers by selecting the word (KB+number) in each utterance, then select the entity from the drop-down list. --> the other KB articles are automatically labeled. 
+4. Now that the entity is created, select **Intents** then **FindKnowledgeBase** entity to see the regular expression labeled in the utterances. 
 
-    ![Label utterance with existing entity](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-kbnumber.png)
+    ![Screenshot of Label utterance with existing entity and regex pattern](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-kbnumber.png)
 
 ## Train the LUIS app
 LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
-    ![All message utterances labeled](./media/luis-quickstart-intents-regex-entity/train-button.png)
+    ![Image of training button](./media/luis-quickstart-intents-regex-entity/train-button.png)
 
 2. Training is complete when you see the green status bar at the top of the website confirming success.
 
-    ![All message utterances labeled](./media/luis-quickstart-intents-regex-entity/trained.png)
+    ![Image of success notification bar](./media/luis-quickstart-intents-regex-entity/trained.png)
 
 ## Publish the app to get the endpoint URL
 In order to get a LUIS prediction in a chat bot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-2. Select the **Publish to product slot**. 
+    ![Screenshot of FindKnowledgeBase with top navigation Publish button highlighted](./media/luis-quickstart-intents-regex-entity/publish-button.png)
+
+2. Select the **Publish to production slot**. 
+
+    ![Screenshot of Publish page with Publish to production slot button highlighted](./media/luis-quickstart-intents-regex-entity/publish-to-production.png)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
+
+    ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
 ## Query the endpoint with a different utterance
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 

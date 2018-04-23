@@ -6,7 +6,7 @@ author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: luis
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: v-geberr

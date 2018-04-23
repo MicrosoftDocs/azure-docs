@@ -16,7 +16,7 @@
    ;; do not remove the spaces at the end of lines! That is markdown for
    ;; linebreak
    :template-change
-   "| **${github/filename}** | ${acrolinx/qualityscore} | ${acrolinx/flags/issues} | [link](${acrolinx/scorecarda}) |
+   "| **${github/filename}** | ${acrolinx/qualityscore} | ${acrolinx/flags/issues} | [link](${acrolinx/scorecard}) |
 "
 
  :template-footer
