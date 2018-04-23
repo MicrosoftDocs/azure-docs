@@ -32,6 +32,9 @@ For more information on the OAuth authentication APIs provided through GitHub, s
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat).
 
 
+![OAuth Complete hosted in Azure](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
+
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 In this tutorial, you learn how to:
@@ -46,8 +49,10 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you must have the following prerequisites:
 
-* An account created on [GitHub](https://github.com/). 
-* Install the [.NET Core SDK](https://www.microsoft.com/net/download/windows)
+* An account created on [GitHub](https://github.com/)
+* [Git](https://git-scm.com/)
+* [.NET Core SDK](https://www.microsoft.com/net/download/windows) 
+* [Azure Cloud Shell configured](https://docs.microsoft.com/azure/cloud-shell/quickstart)
 * Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github repository.
 
 
@@ -363,14 +368,163 @@ The hub class needs to be updated to use the user's claim for identification. In
         Now listening on: http://localhost:5000
         Application started. Press Ctrl+C to shut down.    
 
-4. Launch two browser windows and navigate each browser to `http://localhost:5000`. You will be prompted to enter your name. Enter a client name for both clients and test pushing message content between both clients using the **Send** button.
+4. Launch a browser window and navigate to `http://localhost:5000`. Click the **here** link atthe top to login with GitHub. 
 
-    ![Quickstart Complete local](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
+    ![OAuth Complete hosted in Azure](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
+
+    You will be prompted to authorize the chat app's access to your GitHub account. Click the **Authorize** button. You should be logged in with your GitHub account name. The web application determined you account name by authenticating you using the new authentication you added.
+
+    Now that the chat app performs authentication with GitHub and stores the authentication information as cookies, we should deploy it to Azure so other users can authenticate with their accounts and communicate from other workstations. 
 
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Deploy the app to Azure
 
+In this section, you will use the Azure command-line interface (CLI) from the Azure Cloud Shell to create a new [Azure Web App](https://docs.microsoft.com/azure/app-service/) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
+
+When creating these resources make sure to use the same resource group that your SignalR Service resource resides in. This will make clean up alot easier later when you want to remove all the resources. The examples given assume you used the recommended group name, *SignalRTestResources*.
+
+Update the values for the variables shown below. These variables will be reused for other operations. In the Azure Cloud Shell, execute the following commands to create the variables:
+
+```azurecli-interactive
+#========================================================================
+#=== Update this with the actual name of your SignalR Service         ===
+#=== resource. For example, signalrtestsvc48778624.                   ===
+#========================================================================
+ResourceName=mySignalRresourcename
+
+#========================================================================
+#=== Update this group name if you did not use the recommended group  ===
+#=== name, SignalRTestResources.                                      ===
+#========================================================================
+ResourceGroupName=SignalRTestResources
+
+#========================================================================
+#=== Update these values based on your desired deployment username    ===
+#=== and password.                                                    ===
+#========================================================================
+deploymentUser=myUserName
+deploymentUserPassword=myPassword
+
+#========================================================================
+#=== Update these values based on your GitHub OAuth App registration. ===
+#========================================================================
+GitHubClientId=1234567890
+GitHubClientSecret=1234567890
+
+let randomNum=$RANDOM*$RANDOM
+WebAppName=SignalRTestWebApp$randomNum
+WebAppPlanName=$myWebAppName"Plan"
+```
+
+
+### Create the web app and plan
+
+In the Azure Cloud Shell, execute the following command to create a new app plan for your web app.
+
+```azurecli-interactive
+# Create an App Service plan.
+az appservice plan create --name $WebAppPlanName --resource-group $ResourceGroupName --sku FREE
+```
+
+Execute the followng command to create the web app:
+
+```azurecli-interactive
+# Create the new Web App
+az webapp create --name $WebAppName --resource-group $ResourceGroupName --plan $WebAppPlanName
+```
+
+### Add app settings to the web app
+
+In this section, you will add app settings for the following:
+
+* SignalR Service resource connection string
+* GitHub OAuth app client ID
+* GitHub OAuth app client secret
+
+Execute the following commands:
+
+```azurecli-interactive
+# Get the SignalR Service resource
+signalRresource=$(az signalr show --name $ResourceName --resource-group $ResourceGroupName)
+
+# Get the SignalR primary key 
+signalRkeys=$(az signalr key list --name $ResourceName --resource-group $ResourceGroupName)
+signalRprimarykey=$(echo "$signalRkeys" | grep -Po '(?<="primaryKey": ")[^"]*')
+
+# Form the connection string for use in your application
+signalRhostname=$(echo "$signalRresource" | grep -Po '(?<="hostName": ")[^"]*')
+connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
+
+#Add an app setting to the web app for the SignalR connection
+az webapp config appsettings set --name $WebAppName --resource-group $ResourceGroupName \
+  --settings "AzureSignalRConnectionString=$connstring" 
+
+#Add app settings to use with GitHub authentication
+az webapp config appsettings set --name $WebAppName --resource-group $ResourceGroupName \
+  --settings "GitHubClientId=$GitHubClientId" 
+az webapp config appsettings set --name $WebAppName --resource-group $ResourceGroupName \
+  --settings "GitHubClientSecret=$GitHubClientSecret" 
+```
+
+
+### Configure the web app for local git deployment
+
+Execute the command below to create a new deployment user name and password that you will use when deploying your code to the web app with Git. 
+
+```azurecli-interactive
+# Add the desired deployment user name and password
+az webapp deployment user set --user-name $deploymentUser --password $deploymentUserPassword
+
+# Configure Git deployment and note the deployment URL in the output
+az webapp deployment source config-local-git --name $WebAppName --resource-group $ResourceGroupName \
+--query [url] -o tsv
+```
+
+Make a note the git deployment URL returned from this command. You will use this for deployment with Git.
+
+
+### Deploy your code to the Azure web app
+
+To deploy your code execute the following commands in a Git shell.
+
+1. Navigate to the root of your project directory. If you don't have the project initialized with a Git repository, execute following command:
+
+        git init
+
+2. Add a remote for the git deployment URL you noted earlier:
+
+        git remote add Azure <your git deployment url>
+
+3. Stage all files in the initialized repository.
+
+        git add -A
+
+4. Commit the staged files:
+
+        git commit -m "init commit"
+
+5. Deploy your code to the web app        
+
+        git push Azure master
+
+
+### Update the GitHub OAuth app 
+
+The last thing you need to do is update the **Homepage URL** and **Authroization callback URL** of the GitHub OAuth app to point to the new hosted app.
+
+1. Open [http://github.com](http://github.com) in a browser and navigate to your account's **Settings** > **Developer settings** > **Oauth Apps**.
+
+2. Click on your authentication app and update the **Homepage URL** and **Authroization callback URL** as shown below:
+
+    | Setting | Example |
+    | ------- | ------- |
+    | Homepage URL | https://signalrtestwebapp22XX5120.azurewebsites.net/home |
+    | Authroization callback URL | https://signalrtestwebapp22XX5120.azurewebsites.net/api/auth/callback |
+
+
+3. Navigate to your web app URL and test the application.
 
 
 

@@ -36,7 +36,6 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you must have the following prerequisites:
 
-* This tutorial continues to update the *ContosoTeamStats* ASP.NET web app created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md). If you have not completed those steps to set up your cache and Azure App service, complete that first.
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
     * ASP.NET and web development
     * Azure Development
