@@ -16,12 +16,12 @@
     href: signalr-integrate-functions.md
 - name: Samples
   items:
+  - name: Code samples
+    href: https://github.com/aspnet/AzureSignalR-samples
   - name: Azure CLI
     href: signalr-cli-samples.md
 - name: Reference
   items:
-  - name: Code samples
-    href: https://github.com/aspnet/AzureSignalR-samples
   - name: Azure CLI Preview
     href: /cli/azure/signalr
   - name: .NET

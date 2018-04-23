@@ -30,9 +30,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Sample script
 
-<!---
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-signalr/create-signalr-with-app-service/create-signalr-with-app-service-github-oauth.sh "Create a new SignalR Service and Web App configured to use SignalR, and GitHub OAuth")]
---->
 
 Make a note of the actual name generated for the new resource group. It will be shown in the output. You will use that resource group name when you want to delete all group resources.
 
