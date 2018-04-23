@@ -95,7 +95,7 @@ Now that you know which security rules are allowing or denying traffic to or fro
 
 ## View details of a security rule
 
-1. To determine why the rules in steps 3-5 of [Test network communication](#test-network-communication) allow or deny communication, review the effective security rules for the network interface in the VM. In the search box at the top of the portal, enter *myvm*. When the  **myvm** (or whatever the name of your network interface is) network interface appears in the search results, select it.
+1. To determine why the rules in steps 3-5 of [Use IP flow verify](#use-ip-flow-verify) allow or deny communication, review the effective security rules for the network interface in the VM. In the search box at the top of the portal, enter *myvm*. When the  **myvm** (or whatever the name of your network interface is) network interface appears in the search results, select it.
 2. Select **Effective security rules** under **SUPPORT + TROUBLESHOOTING**, as shown in the following picture:
 
     ![Effective security rules](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
