@@ -9,9 +9,7 @@
 ## [Diagnose VM traffic filter problem - Azure CLI](diagnose-vm-network-traffic-filtering-problem-cli.md)
 
 # Tutorials
-## [Diagnose VM routing problem - Portal](diagnose-vm-network-routing-problem.md)
-## [Diagnose VM routing problem - PowerShell](diagnose-vm-network-routing-problem-powershell.md)
-## [Diagnose VM routing problem - Azure CLI](diagnose-vm-network-routing-problem-cli.md)
+## [Diagnose VM routing problem](diagnose-vm-network-routing-problem.md)
 
 # Concepts
 ## [Diagnose VM network traffic filter problems](network-watcher-ip-flow-verify-overview.md)
@@ -31,6 +29,9 @@
 ### Install VM extension
 #### [Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 #### [Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
+### Diagnose a VM routing problem
+#### [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md)
+#### [Azure CLI](diagnose-vm-network-routing-problem-cli.md)
 ### Diagnose outbound connections
 #### [Azure portal](network-watcher-connectivity-portal.md)
 #### [Azure PowerShell](network-watcher-connectivity-powershell.md)
@@ -48,7 +49,6 @@
 ##### [Proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md)
 ##### [Perform intrusion detection using open source tools](network-watcher-intrusion-detection-open-source-tools.md)
 ##### [Visualize network traffic patterns using open source tools](network-watcher-using-open-source-tools.md)
-
 ## Work with network security group logs
 ### Configure NSG flow logs
 #### [Azure portal](network-watcher-nsg-flow-logging-portal.md)

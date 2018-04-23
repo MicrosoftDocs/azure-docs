@@ -25,6 +25,8 @@ ms.custom:
 
 In this article, you deploy a virtual machine (VM), and then check communications to an IP address and URL. You determine the cause of a communication failure and how you can resolve it.
 
+If you prefer, you can diagnose a virtual machine network routing problem using the [Azure CLI](diagnose-vm-network-routing-problem-cli.md) or [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md).
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Log in to Azure
@@ -41,7 +43,7 @@ Log in to the Azure portal at https://portal.azure.com.
     |---|---|
     |Name|myVm|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Select your subscription.|
     |Resource group| Select **Create new** and enter **myResourceGroup**.|
     |Location| Select **East US**|
@@ -80,7 +82,7 @@ Azure automatically creates routes to default destinations. You may create custo
     | Source IP address       | 10.0.0.4                                              |
     | Destination IP address  | 13.107.21.200 - One of bing.com's IP addresses.       |
 
-    ![Next hop](./media/diagnose-vm-network-traffic-filtering-problem/next-hop.png)
+    ![Next hop](./media/diagnose-vm-network-routing-problem/next-hop.png)
 
     After a few seconds, the result informs you that the next hop type is **Internet**, and that the **Route table ID** is **System Route**. This result lets you know that there is a valid system route to the destination.
 
@@ -91,7 +93,7 @@ Azure automatically creates routes to default destinations. You may create custo
 1. To analyze routing further, review the effective routes for the network interface. In the search box at the top of the portal, enter *myvm* (or whatever the name was of the network interface you checked). When **myvm** appears in the search results, select it.
 2. Select **Effective routes** under **SUPPORT + TROUBLESHOOTING**, as shown in the following picture:
 
-    ![Effective routes](./media/diagnose-vm-network-traffic-filtering-problem/effective-routes.png)
+    ![Effective routes](./media/diagnose-vm-network-routing-problem/effective-routes.png)
 
     When you ran the test using 13.107.21.200, the route with the address prefix 0.0.0.0/0 was used to route traffic to the address, since no other route includes the address. By default, all addresses not specified within the address prefix of another route are routed to the internet.
 
@@ -107,6 +109,6 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ## Next steps
 
-In this article, you created a VM and diagnosed network routing from the VM. You learned that Azure creates several default routes and tested routing to two different destinations. Learn more about [routing in Azure](../virtual-network/virtual-networks-udr-overview?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create custom routes](manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
+In this article, you created a VM and diagnosed network routing from the VM. You learned that Azure creates several default routes and tested routing to two different destinations. Learn more about [routing in Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create custom routes](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 
 You can monitor communication between a VM and an endpoint, such as an IP address or URL, over time using the Network Watcher connection monitor capability. To learn how, see [Monitor a network connection](connection-monitor.md).

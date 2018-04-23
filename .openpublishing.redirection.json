@@ -18896,7 +18896,7 @@
         {
             "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-cli.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },        
         {
             "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-portal.md",
@@ -18921,7 +18921,7 @@
         {
             "source_path": "articles/network-watcher/network-watcher-check-next-hop-cli-nodejs.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-cli",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },        
         {
             "source_path": "articles/network-watcher/network-watcher-check-next-hop-rest.md",
