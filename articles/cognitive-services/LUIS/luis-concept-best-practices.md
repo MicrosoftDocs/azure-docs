@@ -63,8 +63,9 @@ Use the phrase list when you want to emphasis domain vocabulary. Use a phrase li
 * That are overly common in general but significant in your domain 
 * That are obscure in general but significant in your domain. 
 
+<!-- TBD: add pattern concept link in the paragraph after concepts are in -->
 ### Patterns
-If you have users from a common culture or work-place organization, utterances may take on a pattern in word order and word choice. When you find these patterns, instead of adding each unique utterance to the intent, create a [pattern](luis-concept-patterns.md). This use of patterns allows you to maintain a few patterns instead of many utterances. It also helps LUIS understand the importance of word choice and word order. The result is better prediction of intent and better data extraction of entities. 
+If you have users from a common culture or work-place organization, utterances may take on a pattern in word order and word choice. When you find these patterns, instead of adding each unique utterance to the intent, create a pattern. This use of patterns allows you to maintain a few patterns instead of many utterances. It also helps LUIS understand the importance of word choice and word order. The result is better prediction of intent and better data extraction of entities. 
 
 ## Data extraction
 Data extraction is based on intent and entity detection. The code that consumes the LUIS response should be flexible enough to make choices based on the response. The topScoring intent may not be different enough from the next intent's score or the None intent score. Your consuming code should be able to use this information in combination with knowledge of the entities extracted from the utterance to present choices to the user on how the conversation should continue. These can be clarifying questions or a menu of choices. 
@@ -79,7 +80,7 @@ A LUIS app operates successfully until the endpoint quota runs out. If you are c
 
 * [Review endpoint utterances](label-suggested-utterances.md) to improve LUIS predictions.
 * Verify that the number of utterances in the **None** intent is about 10% of all the other utterances in the app.
-* Review [endpoint quota usage](viewing-summary-usage).
+* Review [endpoint quota usage](azureibizasubscription.md#viewing-summary-usage).
 * Back up application by [cloning](luis-how-to-manage-versions.md#clone-a-version) the app.
 * Review [collaborators](luis-how-to-collaborate.md) in case someone has left the company or no longer needs access to modeling the app. 
 
