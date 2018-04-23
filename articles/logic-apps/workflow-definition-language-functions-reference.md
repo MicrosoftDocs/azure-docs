@@ -105,12 +105,77 @@ actionBody('Get_user')
 }
 ```
 
+<a name="actionOutputs"></a>
+
+## actionOutputs
+
+Return an action's output at runtime. Also, 
+shorthand for `actions('<actionName>').outputs`. 
+See [actions()](#actions).
+
+```json
+actionOutputs('<actionName>')
+```
+
+| Parameter | Required | Type | Description | 
+| --------- | -------- | ---- | ----------- | 
+| <*actionName*> | Yes | String | The name for the action's output that you want | 
+||||| 
+
+| Return value | Type | Description | 
+| ------------ | -----| ----------- | 
+| "*output*" | String | The output from the specified action | 
+|||| 
+
+*Example*
+
+This example gets the output from the Twitter action "Get user": 
+
+```json
+actionOutputs('Get_user')
+```
+
+```json
+{ 
+  "statusCode": 200,
+  "headers": {
+    "Pragma": "no-cache",
+    "Vary": "Accept-Encoding",
+    "x-ms-request-id": "a916ec8f52211265d98159adde2efe0b",
+    "X-Content-Type-Options": "nosniff",
+    "Timing-Allow-Origin": "*",
+    "Cache-Control": "no-cache",
+    "Date": "Mon, 09 Apr 2018 18:47:12 GMT",
+    "Set-Cookie": "ARRAffinity=b9400932367ab5e3b6802e3d6158afffb12fcde8666715f5a5fbd4142d0f0b7d;Path=/;HttpOnly;Domain=twitter-wus.azconn-wus.p.azurewebsites.net",
+    "X-AspNet-Version": "4.0.30319",
+    "X-Powered-By": "ASP.NET",
+    "Content-Type": "application/json; charset=utf-8",
+    "Expires": "-1",
+    "Content-Length": "339"
+  },
+  "body": {
+    "FullName": "Contoso Corporation",
+    "Location": "Generic Town, USA",
+    "Id": 283541717,
+    "UserName": "ContosoInc",
+    "FollowersCount": 172,
+    "Description": "Leading the way in transforming the digital workplace.",
+    "StatusesCount": 93,
+    "FriendsCount": 126,
+    "FavouritesCount": 46,
+    "ProfileImageUrl": "https://pbs.twimg.com/profile_images/908820389907722240/gG9zaHcd_400x400.jpg"
+  }
+}
+```
+
 <a name="actions"></a>
 
 ## actions
 
-Return an action's output at runtime, or values from other JSON name-and-value pairs, 
-which you can assign to an expression. By default, the function references the entire action object, 
+Return an action's output at runtime, 
+or values from other JSON name-and-value pairs, 
+which you can assign to an expression. By default, 
+the function references the entire action object, 
 but you can optionally specify a property whose value that you want. 
 Also, this function has shorthand versions available, 
 see [actionBody()](#actionBody), [actionOutputs()](#actionOutputs), and [body()](#body). 
@@ -150,69 +215,6 @@ and returns "Succeeded":
 actions('Get_user').outputs.body.status 
 ```
 
-<a name="actionOutputs"></a>
-
-## actionOutputs
-
-Return an action's output at runtime. Also, 
-shorthand for `actions('<actionName>').outputs`. 
-See [actions()](#actions).
-
-```json
-actionOutputs('<actionName>')
-```
-
-| Parameter | Required | Type | Description | 
-| --------- | -------- | ---- | ----------- | 
-| <*actionName*> | Yes | String | The name for the action's output that you want | 
-||||| 
-
-| Return value | Type | Description | 
-| ------------ | -----| ----------- | 
-| "*output*" | String | The output from the specified action | 
-|||| 
-
-*Example*
-
-This example gets the output from the Twitter action "Get user": 
-
-```json
-actionOutputs('Get_user')
-```
-
-```json
-{ 
-    "statusCode": 200,
-    "headers": {
-        "Pragma": "no-cache",
-        "Vary": "Accept-Encoding",
-        "x-ms-request-id": "a916ec8f52211265d98159adde2efe0b",
-        "X-Content-Type-Options": "nosniff",
-        "Timing-Allow-Origin": "*",
-        "Cache-Control": "no-cache",
-        "Date": "Mon, 09 Apr 2018 18:47:12 GMT",
-        "Set-Cookie": "ARRAffinity=b9400932367ab5e3b6802e3d6158afffb12fcde8666715f5a5fbd4142d0f0b7d;Path=/;HttpOnly;Domain=twitter-wus.azconn-wus.p.azurewebsites.net",
-        "X-AspNet-Version": "4.0.30319",
-        "X-Powered-By": "ASP.NET",
-        "Content-Type": "application/json; charset=utf-8",
-        "Expires": "-1",
-        "Content-Length": "339"
-    },
-    "body": {
-        "FullName": "Contoso Corporation",
-        "Location": "Generic Town, USA",
-        "Id": 283541717,
-        "UserName": "ContosoInc",
-        "FollowersCount": 172,
-        "Description": "Leading the way in transforming the digital workplace.",
-        "StatusesCount": 93,
-        "FriendsCount": 126,
-        "FavouritesCount": 46,
-        "ProfileImageUrl": "https://pbs.twimg.com/profile_images/908820389907722240/gG9zaHcd_400x400.jpg"
-    }
-}
-```
-
 <a name="add"></a>
 
 ## add
@@ -241,6 +243,46 @@ This example adds the specified numbers and returns 2.5:
 add(1, 1.5)
 ```
 
+<a name="addDays"></a>
+
+## addDays
+
+Add a number of days to a timestamp.
+
+```json
+addDays('<timestamp>', <days>, '<format>'?)
+```
+
+| Parameter | Required | Type | Description | 
+| --------- | -------- | ---- | ----------- | 
+| <*timestamp*> | Yes | String | The string that contains the timestamp | 
+| <*days*> | Yes | Integer | The positive or negative number of days to add | 
+| <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddT:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+||||| 
+
+| Return value | Type | Description | 
+| ------------ | ---- | ----------- | 
+| "*updated-timestamp*" | String | The timestamp plus the specified number of days  | 
+|||| 
+
+*Example 1*
+
+This example adds 10 days to the specified 
+timestamp and returns "2018-03-25T00:00:0000000Z":
+
+```json
+addDays('2018-03-15T13:00:00Z', 10)
+```
+
+*Example 2*
+
+This example subtracts 5 days from the specified 
+timestamp and returns "2018-03-10T00:00:0000000Z":
+
+```json
+addDays('2018-03-15T00:00:00Z', -5)
+```
+
 <a name="addHours"></a>
 
 ## addHours
@@ -263,13 +305,22 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | "*updated-timestamp*" | String | The timestamp plus the specified number of hours  | 
 |||| 
 
-*Example*
+*Example 1*
 
-This example 10 hours to the specified timestamp 
-and returns "2018-03-15T23:27:0000000Z":
+This example adds 10 hours to the specified 
+timestamp and returns "2018-03-15T10:00:0000000Z":
 
 ```json
-addHours('2018-03-15T13:27:00Z', 10)
+addHours('2018-03-15T00:00:00Z', 10)
+```
+
+*Example 2*
+
+This example subtracts 5 hours from the specified 
+timestamp and returns "2018-03-15T10:00:0000000Z":
+
+```json
+addHours('2018-03-15T15:00:00Z', -5)
 ```
 
 <a name="addMinutes"></a>
@@ -294,13 +345,22 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | "*updated-timestamp*" | String | The timestamp plus the specified number of minutes | 
 |||| 
 
-*Example*
+*Example 1*
 
-This example adds 10 minutes to the specified timestamp 
-and returns "2018-03-15T13:37:00.0000000Z":
+This example adds 10 minutes to the specified 
+timestamp and returns "2018-03-15T00:20:00.0000000Z":
 
 ```json
-addMinutes('2018-03-15T13:27:00Z', 10)
+addMinutes('2018-03-15T00:10:00Z', 10)
+```
+
+*Example 2*
+
+This example subtracts 5 minutes from the specified 
+timestamp and returns "2018-03-15T00:15:00.0000000Z":
+
+```json
+addMinutes('2018-03-15T00:20:00Z', -5)
 ```
 
 <a name="addProperty"></a>
@@ -461,9 +521,8 @@ and(equals(1, 2), equals(1, 3))
 
 ## array
 
-Create an array from a single specified input 
-and return that array. For multiple inputs, 
-see [createArray()](#createArray). 
+Return an array from a single specified input. 
+For multiple inputs, see [createArray()](#createArray). 
 
 ```json
 array('<value>')
@@ -915,7 +974,7 @@ convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time', 'D')
 
 ## createArray
 
-Create an array from multiple inputs and return that array. 
+Return an array from multiple inputs. 
 For single input arrays, see [array()](#array).
 
 ```json
@@ -1478,6 +1537,39 @@ This example converts a timestamp to the specified format and returns "2018-03-1
 formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
 ```
 
+<a name="formDataMultiValues"></a>
+
+## formDataMultiValues
+
+Return an array with values that match a key name 
+in an action's *form-data* or *form-encoded* output. 
+
+```json
+formDataMultiValues('<actionName>', '<key>')
+```
+
+| Parameter | Required | Type | Description | 
+| --------- | -------- | ---- | ----------- | 
+| <*actionName*> | Yes | String | The action whose output has the key value you want | 
+| <*key*> | Yes | String | The name for the key whose value you want | 
+||||| 
+
+| Return value | Type | Description | 
+| ------------ | ---- | ----------- | 
+| [*array-with-key-values*] | Array | An array with all the values that match the specified key | 
+|||| 
+
+*Example* 
+
+This example searches for the "Subject" key value 
+in the specified action's form-data or form-encoded 
+output and returns the subject text in an array, 
+for example, ["Hello world"]:  
+
+```json
+formDataMultiValues('Send_an_email', 'Subject')
+```
+
 <a name="formDataValue"></a>
 
 ## formDataValue
@@ -1511,39 +1603,6 @@ output and returns the subject text, for example:
 
 ```json
 formDataValue('Send_an_email', 'Subject')
-```
-
-<a name="formDataMultiValues"></a>
-
-## formDataMultiValues
-
-Return an array with values that match a key name 
-in an action's *form-data* or *form-encoded* output. 
-
-```json
-formDataMultiValues('<actionName>', '<key>')
-```
-
-| Parameter | Required | Type | Description | 
-| --------- | -------- | ---- | ----------- | 
-| <*actionName*> | Yes | String | The action whose output has the key value you want | 
-| <*key*> | Yes | String | The name for the key whose value you want | 
-||||| 
-
-| Return value | Type | Description | 
-| ------------ | ---- | ----------- | 
-| [*array-with-key-values*] | Array | An array with all the values that match the specified key | 
-|||| 
-
-*Example* 
-
-This example searches for the "Subject" key value 
-in the specified action's form-data or form-encoded 
-output and returns the subject text in an array, 
-for example, ["Hello world"]:  
-
-```json
-formDataMultiValues('Send_an_email', 'Subject')
 ```
 
 <a name="getFutureTime"></a>
@@ -3078,23 +3137,37 @@ triggerBody()
 | "*trigger-body-output*" | String | The `body` output from the trigger | 
 |||| 
 
-<a name="triggerOutputs"></a>
+<a name="triggerFormDataMultiValues"></a>
 
-## triggerOutputs
+## triggerFormDataMultiValues
 
-Return a trigger's output at runtime, 
-or values from other JSON name-and-value pairs. 
-Also, shorthand for `trigger().outputs`. 
-See [trigger()](#trigger). 
+Return an array with values that match a key name 
+in a trigger's *form-data* or *form-encoded* output. 
 
 ```json
-triggerOutputs()
+triggerFormDataMultiValues('<key>')
 ```
+
+| Parameter | Required | Type | Description | 
+| --------- | -------- | ---- | ----------- | 
+| <*key*> | Yes | String | The name for the key whose value you want | 
+||||| 
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*trigger-output*" | String | The output from a trigger at runtime  | 
+| [*array-with-key-values*] | Array | An array with all the values that match the specified key | 
 |||| 
+
+*Example* 
+
+This example searches for the "feedUrl" key value in 
+an RSS trigger's form-data or form-encoded output 
+and returns the value in an array, 
+for example, ["http://feeds.reuters.com/reuters/topNews"]: 
+
+```json
+triggerFormDataMultiValues('feedUrl')
+```
 
 <a name="triggerFormDataValue"></a>
 
@@ -3130,57 +3203,22 @@ for example, "http://feeds.reuters.com/reuters/topNews":
 triggerFormDataValue('feedUrl')
 ```
 
-<a name="triggerFormDataMultiValues"></a>
+<a name="triggerOutputs"></a>
 
-## triggerFormDataMultiValues
+## triggerOutputs
 
-Return an array with values that match a key name 
-in a trigger's *form-data* or *form-encoded* output. 
+Return a trigger's output at runtime, 
+or values from other JSON name-and-value pairs. 
+Also, shorthand for `trigger().outputs`. 
+See [trigger()](#trigger). 
 
 ```json
-triggerFormDataMultiValues('<key>')
+triggerOutputs()
 ```
-
-| Parameter | Required | Type | Description | 
-| --------- | -------- | ---- | ----------- | 
-| <*key*> | Yes | String | The name for the key whose value you want | 
-||||| 
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| [*array-with-key-values*] | Array | An array with all the values that match the specified key | 
-|||| 
-
-*Example* 
-
-This example searches for the "feedUrl" key value in 
-an RSS trigger's form-data or form-encoded output 
-and returns the value in an array, 
-for example, ["http://feeds.reuters.com/reuters/topNews"]: 
-
-```json
-triggerFormDataMultiValues('feedUrl')
-```
-
-<a name="triggerMultipartBody"></a>
-
-## triggerMultipartBody
-
-Return the body for a specific part in a 
-trigger's output that has multiple parts.
-
-```json
-triggerMultipartBody(<index>)
-```
-
-| Parameter | Required | Type | Description | 
-| --------- | -------- | ---- | ----------- | 
-| <*index*> | Yes | Integer | The index value for the part that you want | 
-||||| 
-
-| Return value | Type | Description | 
-| ------------ | ---- | ----------- | 
-| "*body*" | String | The body for the specified part in a trigger's multipart output | 
+| "*trigger-output*" | String | The output from a trigger at runtime  | 
 |||| 
 
 <a name="trim"></a>

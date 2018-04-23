@@ -400,13 +400,13 @@ For the full reference about each function, see the
 
 | Conversion function | Task | 
 | ------------------- | ---- | 
-| [array](../logic-apps/workflow-definition-language-functions-reference.md#array) | Create an array from a single specified input. For multiple inputs, see [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). | 
+| [array](../logic-apps/workflow-definition-language-functions-reference.md#array) | Return an array from a single specified input. For multiple inputs, see [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). | 
 | [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Return the base64-encoded version for a string. | 
 | [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Return the binary version for a base64-encoded string. | 
 | [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Return the string version for a base64-encoded string. | 
 | [binary](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Return the binary version for an input value. | 
 | [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Return the Boolean version for an input value. | 
-| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Create an array from multiple inputs. | 
+| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Return an array from multiple inputs. | 
 | [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Return the data URI for an input value. | 
 | [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Return the binary version for a data URI. | 
 | [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | Return the string version for a data URI. | 
@@ -415,15 +415,9 @@ For the full reference about each function, see the
 | [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Return a string that replaces escape characters with decoded versions. | 
 | [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | Return a string that replaces URL-unsafe characters with escape characters. | 
 | [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Return a floating point number for an input value. | 
-| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Return a single value that matches a key name in an action's *form-data* or *form-encoded output*. | 
-| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Create an array with the values that match a key name in *form-data* or *form-encoded* action outputs. | 
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Return the integer version for a string. | 
 | [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Return the JavaScript Object Notation (JSON) type value or object for a string or XML. | 
-| [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. | 
 | [string](../logic-apps/workflow-definition-language-functions-reference.md#string) | Return the string version for an input value. | 
-| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Return a single value matching a key name in *form-data* or *form-encoded* trigger outputs. | 
-| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | Create an array whose values match a key name in *form-data* or *form-encoded* trigger outputs. | 
-| [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | Return the body for a specific part in a trigger's multipart output. | 
 | [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Return the URI-encoded version for an input value by replacing URL-unsafe characters with escape characters. | 
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Return the binary version for a URI-encoded string. | 
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Return the string version for a URI-encoded string. | 
@@ -461,6 +455,7 @@ For the full reference about each function, see the
 
 | Date or time function | Task | 
 | --------------------- | ---- | 
+| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Add a number of days to a timestamp. | 
 | [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Add a number of hours to a timestamp. | 
 | [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Add a number of minutes to a timestamp. | 
 | [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Add a number of seconds to a timestamp. |  
@@ -503,12 +498,18 @@ For the full reference about each function, see the
 | [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Return an action's output at runtime, or values from other JSON name-and-value pairs. See also [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs).  | 
 | [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Return an action's output at runtime. See [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
 | [body](#body) | Return an action's `body` output at runtime. See also [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). | 
+| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Create an array with the values that match a key name in *form-data* or *form-encoded* action outputs. | 
+| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Return a single value that matches a key name in an action's *form-data* or *form-encoded output*. | 
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | When inside a repeating action over an array, return the current item in the array during the action's current iteration. | 
 | [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | When inside a for-each or do-until-loop, return the current item from the specified loop.| 
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Return the "callback URL" that calls a trigger or action. | 
+| [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. | 
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your logic app definition. | 
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Return a trigger's output at runtime, or from other JSON name-and-value pairs. See also [triggerOutputs](#triggerOutputs) and [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). | 
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Return a trigger's `body` output at runtime. See [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
+| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Return a single value matching a key name in *form-data* or *form-encoded* trigger outputs. | 
+| [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | Return the body for a specific part in a trigger's multipart output. | 
+| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | Create an array whose values match a key name in *form-data* or *form-encoded* trigger outputs. | 
 | [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | Return a trigger's output at runtime, or values from other JSON name-and-value pairs. See [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
 | [variables](../logic-apps/workflow-definition-language-functions-reference.md#variables) | Return the value for a specified variable. | 
 | [workflow](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | Return all the details about the workflow itself during run time. | 
