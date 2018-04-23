@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: create a Scala Maven application for Spark in HDInsight using IntelliJ | Microsoft Docs
+title: 'Tutorial: create a Scala Maven application for Spark in HDInsight using IntelliJ | Microsoft Docs'
 description: Create a Spark application written in Scala with Apache Maven as the build system and an existing Maven archetype for Scala provided by IntelliJ IDEA.
 services: hdinsight
 documentationcenter: ''
@@ -17,8 +17,8 @@ ms.date: 04/22/2018
 ms.author: jgao
 
 #customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a Scala Maven application for Spark in HDInsight using IntelliJ.
-
 ---
+
 # Tutorial: create a Scala Maven application for Spark in HDInsight using IntelliJ
 
 In this tutorial, you learn how to create a Spark application written in Scala using Maven with IntelliJ IDEA. The article uses Apache Maven as the build system and starts with an existing Maven archetype for Scala provided by IntelliJ IDEA.  Creating a Scala application in IntelliJ IDEA involves the following steps:
