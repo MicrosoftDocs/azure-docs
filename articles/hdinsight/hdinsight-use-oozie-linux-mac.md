@@ -262,13 +262,13 @@ To create a SQL database, follow the steps in the [Create a SQL database](../sql
 3. At the `1>` prompt, enter the following lines:
 
     ```sql
-CREATE TABLE [dbo].[mobiledata](
-[deviceplatform] [nvarchar](50),
-[count] [bigint])
-GO
-CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(deviceplatform)
-GO
-```
+    CREATE TABLE [dbo].[mobiledata](
+    [deviceplatform] [nvarchar](50),
+    [count] [bigint])
+    GO
+    CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(deviceplatform)
+    GO
+    ```
 
     When the `GO` statement is entered, the previous statements are evaluated. These statements create a table, named **mobiledata**, that's used by the workflow.
 
