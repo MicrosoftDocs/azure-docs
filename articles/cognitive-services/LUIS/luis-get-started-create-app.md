@@ -27,7 +27,7 @@ You can create and manage your applications on **My Apps** page of [LUIS][LUIS].
 
 2. In the dialog box, name your application "Home Automation".
 
-    ![A new app form](./media/luis-quickstart-new-app/create-new-app-dialog.png)
+    [![](media/luis-quickstart-new-app/create-new-app-dialog.png "Screenshot of Create new app pop-up dialog")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
 3. Choose your application culture (for this Home Automation app, choose English), and then click **Done**. 
 
@@ -40,17 +40,17 @@ LUIS creates the Home Automation app.
 
 Click on **Prebuilt domains** in the left-side navigation pane. Then search for "Home". Click on **Add domain**.
 
-![Home Automation domain called out in prebuilt domain menu](./media/luis-quickstart-new-app/home-automation.png)
+[![](media/luis-quickstart-new-app/home-automation.png "Screenshot of Home Automation domain called out in prebuilt domain menu")](media/luis-quickstart-new-app/home-automation.png)
 
 When the domain is successfully added, the prebuilt domain box displays a **Remove domain** button.
 
-![Home Automation domain called out in prebuilt domain menu](./media/luis-quickstart-new-app/remove-domain.png)
+[![](media/luis-quickstart-new-app/remove-domain.png "Screenshot of Home Automation domain with remove button")](media/luis-quickstart-new-app/remove-domain.png)
 
 ## Intents and entities
 
 Click on **Intents** in the left-side navigation pane to review the HomeAutomation domain intents. 
 
-![Home Automation domain prompt](./media/luis-quickstart-new-app/home-automation-intents.png)
+[![](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot of Intents list with Intent names in table highlighted")](media/luis-quickstart-new-app/home-automation-intents.png)
 
 Each intent has sample utterances.
 
@@ -59,13 +59,13 @@ Each intent has sample utterances.
 
 Click on the **HomeAutomation.TurnOff** intent. You can see that the intent contains a list of utterances that are labeled with entities.
 
-![Home Automation domain prompt](./media/luis-quickstart-new-app/home-automation-turnon.png)
+[![](media/luis-quickstart-new-app/home-automation-turnon.png "Screenshot of HomeAutomation.TurnOff intent")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
 ## Train your app
 
 Click on **Train** in the top navigation.
 
-![Home Automation test](./media/luis-quickstart-new-app/trained.png)
+[![](media/luis-quickstart-new-app/trained.png "Screeeshot of HomeAutomation.TurnOff intent with green success notification")](media/luis-quickstart-new-app/trained.png)
 
 ## Test your app
 Once you've trained your app, you can test it. Click **Test** in the top navigation. Type a test utterance like "Turn off the lights" into the Interactive Testing pane, and press Enter. 
@@ -78,30 +78,32 @@ Check that the top scoring intent corresponds to the intent you expected for eac
 
 In this example, "Turn off the lights" is correctly identified as the top scoring intent of "HomeAutomation.TurnOff."
 
-![Home Automation test](./media/luis-quickstart-new-app/test.png)
+[![](media/luis-quickstart-new-app/test.png "Screenshot of Test panel with utterance highlighted")](media/luis-quickstart-new-app/test.png)
+
 
 Click **Test** again to collapse the test pane. 
 
 ## Publish your app
 Select **Publish** from the top navigation. 
 
-![Home Automation test](./media/luis-quickstart-new-app/publish.png)
+[![](media/luis-quickstart-new-app/publish.png "Screenshot of app with publish button highlighted")](media/luis-quickstart-new-app/publish.png)
 
 Click **Publish to production slot**.
 
 The green notification bar at the top indicates the app successfully published.
 
-![Publish success](./media/luis-quickstart-new-app/published.png)
-
+[![](media/luis-quickstart-new-app/published.png "Screenshot of app with publish success")](media/luis-quickstart-new-app/published.png)
 
 After you've successfully published, you can use the endpoint URL displayed in the **Publish app** page.
 
-![Endpoint url](./media/luis-quickstart-new-app/endpoint.png)
+[![](media/luis-quickstart-new-app/endpoint.png "Screenshot of publish page with endpoint url highlighted")](media/luis-quickstart-new-app/endpoint.png)
 
 ## Use your app
-You can test your published endpoint in a browser using the generated URL. Open this URL in your browser, set the URL parameter "&q" to your test query. For example, add `turn off the living room light` to the end of your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint.  
+You can test your published endpoint in a browser using the generated URL. Open this URL in your browser, set the URL parameter "&q" to your test query. For example, add `turn off the living room light` to the end of your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint.
 
-![JSON result detects the intent TurnOff](./media/luis-get-started-node-get-intent/turn-off-living-room.png)
+
+[![](media/luis-quickstart-new-app/turn-off-living-room.png "Screenshot of browser with JSON result detects the intent TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+
 
 ## Next steps
 
