@@ -86,4 +86,4 @@ For each of the mappings below, refer to the documentation of the custom identit
 
 ## Next Steps
 
-Add the custom OpenID Connect identity provider to your built-in policy.
+Add the custom OpenID Connect identity provider to your [built-in policy](active-directory-b2c-reference-policies.md).
