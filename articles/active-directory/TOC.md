@@ -6,7 +6,7 @@
 ## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
 ## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
 ## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md)
-## [Where Azure AD stores identity data for European customers](active-directory-data-storage-eu.md)
+## [Residency and data considerations](active-directory-data-storage-eu.md)
 ## [FAQs](active-directory-faq.md)
 ## [What's New](whats-new.md)
 
