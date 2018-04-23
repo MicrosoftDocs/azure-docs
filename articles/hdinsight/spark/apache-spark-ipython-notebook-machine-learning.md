@@ -39,7 +39,7 @@ You must have the following item:
 
 ## Understand the data set
 
-The application uses the sample HVAC.csv data that is available on all clusters by default. The file is located at **\HdiSamples\HdiSamples\SensorSampleData\hvac**. The data shows the target temperature and the actual temperature of some buildings that have HVAC systems installed. The **System** column represents the system ID and the **SystemAge** column represents the number of years the HVAC system has been in place at the building. Using the data, you can predict whether a building will be hotter or colder based on the target temperature, given a system ID and system age.
+The application uses the sample HVAC.csv data that is available on all clusters by default. The file is located at **\HdiSamples\HdiSamples\SensorSampleData\hvac**. The data shows the target temperature and the actual temperature of some buildings that have HVAC systems installed. The **System** column represents the system ID and the **SystemAge** column represents the number of years the HVAC system has been in place at the building. Using the data, you can predict whether a building will be hotter or colder based on the target temperature, given a system ID, and system age.
 
 ![Snapshot of data used for Spark machine learning example](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Snapshot of data used for Spark machine learning example")
 
@@ -100,7 +100,7 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    For more information about what is a pipeline and how it works see <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning pipeline</a>.
+    For more information about pipeline and how it works, see <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning pipeline</a>.
 
 5. Fit the pipeline to the training document.
    
@@ -114,7 +114,7 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
     training.show()
     ```
    
-    This should give the output similar to the following:
+    The output is similar to:
 
     ```
     +----------+----------+-----+
@@ -172,7 +172,7 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
         print row
     ```
 
-    You should see an output similar to the following:
+    The output is similar to:
 
     ```   
     Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
@@ -184,10 +184,10 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
     ```
    
    From the first row in the prediction, you can see that for an HVAC system with ID 20 and system age of 25 years, the building is hot (**prediction=1.0**). The first value for DenseVector (0.49999) corresponds to the  prediction 0.0 and the second value (0.5001) corresponds to the prediction 1.0. In the output, even though the second value is only marginally higher, the model shows **prediction=1.0**.
-10. Shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, select **Close and Halt**. This will shut down and close the notebook.
+10. Shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, select **Close and Halt**. This action shuts down and closes the notebook.
 
 ## Use Anaconda scikit-learn library for Spark machine learning
-Apache Spark clusters in HDInsight include Anaconda libraries. This also includes the **scikit-learn** library for machine learning. The library also includes various data sets that you can use to build sample applications directly from a Jupyter notebook. For examples on using the scikit-learn library, see [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Apache Spark clusters in HDInsight include Anaconda libraries. It also includes the **scikit-learn** library for machine learning. The library also includes various data sets that you can use to build sample applications directly from a Jupyter notebook. For examples on using the scikit-learn library, see [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
 ## Next steps
 

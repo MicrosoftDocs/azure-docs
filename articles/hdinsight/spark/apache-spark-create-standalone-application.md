@@ -47,7 +47,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 * A Java IDE. This article uses IntelliJ IDEA 18.1.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
 
 ## Install Scala plugin for IntelliJ IDEA
-If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, launch IntelliJ IDEA and go through the following steps to install the plugin:
+To install the Scala plugin, use the following steps:
 
 1. Open IntelliJ IDEA.
 2. On the welcome screen, select **Configure** and then select **Plugins**.
@@ -62,14 +62,14 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
 ## Create a standalone Scala project
 1. Open IntelliJ IDEA.
 2. From the **File** menu, select **New > Project** to create a new project.
-3. In the new project dialog box, make the following choices:.
+3. In the new project dialog box, make the following choices:
    
     ![Create Maven project](./media/apache-spark-create-standalone-application/create-maven-project.png)
    
    * Select **Maven** as the project type.
    * Specify a **Project SDK**. Select **New** and navigate to the Java installation directory, typically `C:\Program Files\Java\jdk1.8.0_66`.
    * Select the **Create from archetype** option.
-   * From the list of archetypes, select **org.scala-tools.archetypes:scala-archetype-simple**. This creates the right directory structure and download the required default dependencies to write Scala program.
+   * From the list of archetypes, select **org.scala-tools.archetypes:scala-archetype-simple**. This archetype creates the right directory structure and download the required default dependencies to write Scala program.
 4. Select **Next**.
 5. Provide relevant values for **GroupId**, **ArtifactId**, and **Version**. The following values are used in this tutorial:
 
@@ -77,8 +77,8 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
     - ArtifactId: SparkSimpleApp
 6. Select **Next**.
 7. Verify the settings and then select **Next**.
-8. Verify the pojrect name and location, and then select **Finish**.
-9. In the left pane, select **src > test > scala > com > microsoft > spark > example**, right-click **MySpec**, annd then select **Delete**. You do not need this for the application.
+8. Verify the project name and location, and then select **Finish**.
+9. In the left pane, select **src > test > scala > com > microsoft > spark > example**, right-click **MySpec**, and then select **Delete**. You do not need this file for the application.
   
 10. In the subsequent steps, you update the pom.xml to define the dependencies for the Spark Scala application. For those dependencies to be downloaded and resolved automatically, you must configure Maven accordingly.
    
@@ -115,12 +115,12 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
         }
 13. In the left pane, double-click **pom.xml**.
    
-   1. Within `<project>\<properties>` add the following:
+   1. Within `<project>\<properties>` add the following segments:
       
           <scala.version>2.10.4</scala.version>
           <scala.compat.version>2.10.4</scala.compat.version>
           <scala.binary.version>2.10</scala.binary.version>
-   2. Within `<project>\<dependencies>` add the following:
+   2. Within `<project>\<dependencies>` add the following segments:
       
            <dependency>
              <groupId>org.apache.spark</groupId>
@@ -135,31 +135,31 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
     2. In the **Project Structure** dialog box, select **Artifacts** and then select the plus symbol. From the pop-up dialog box, select **JAR**, and then select **From modules with dependencies**.
        
         ![Create JAR](./media/apache-spark-create-standalone-application/create-jar-1.png)
-    3. In the **Create JAR from Modules** dialog box, select the ellipsis (![ellipsis](./media/apache-spark-create-standalone-application/ellipsis.png) ) against the **Main Class**.
+    3. In the **Create JAR from Modules** dialog box, select the ellipsis (![ellipsis](./media/apache-spark-create-standalone-application/ellipsis.png)) against the **Main Class**.
     4. In the **Select Main Class** dialog box, select the class that appears by default and then select **OK**.
        
         ![Create JAR](./media/apache-spark-create-standalone-application/create-jar-2.png)
-    5. In the **Create JAR from Modules** dialog box, make sure that the option to **extract to the target JAR** is selected, and then select **OK**. This creates a single JAR with all dependencies.
+    5. In the **Create JAR from Modules** dialog box, make sure the **extract to the target JAR** option is selected, and then select **OK**.  This setting creates a single JAR with all dependencies.
        
         ![Create JAR](./media/apache-spark-create-standalone-application/create-jar-3.png)
-    6. The output layout tab lists all the jars that are included as part of the Maven project. You can select and delete the ones on which the Scala application has no direct dependency. For the application we are creating here, you can remove all but the last one (**SparkSimpleApp compile output**). Select the jars to delete and then select the **Delete** icon.
+    6. The output layout tab lists all the jars that are included as part of the Maven project. You can select and delete the ones on which the Scala application has no direct dependency. For the application, you are creating here, you can remove all but the last one (**SparkSimpleApp compile output**). Select the jars to delete and then select the **Delete** icon.
        
         ![Create JAR](./media/apache-spark-create-standalone-application/delete-output-jars.png)
        
-        Make sure **Include in project build** box is selected, which ensures that the jar is created every time the project is built or updated. select **Apply** and then **OK**.
+        Make sure the **Include in project build** box is selected, which ensures that the jar is created every time the project is built or updated. select **Apply** and then **OK**.
     7. From the **Build** menu, select **Build Artifacts** to create the jar. The output jar is created under **\out\artifacts**.
        
         ![Create JAR](./media/apache-spark-create-standalone-application/output.png)
 
 ## Run the application on the Spark cluster
-To run the application on the cluster, you must do the following:
+To run the application on the cluster, you can use the following approaches:
 
-* **Copy the application jar to the Azure storage blob** associated with the cluster. You can use [**AzCopy**](../../storage/common/storage-use-azcopy.md), a command line utility, to do so. There are a lot of other clients as well that you can use to upload data. You can find more about them at [Upload data for Hadoop jobs in HDInsight](../hdinsight-upload-data.md).
+* **Copy the application jar to the Azure storage blob** associated with the cluster. You can use [**AzCopy**](../../storage/common/storage-use-azcopy.md), a command-line utility, to do so. There are many other clients as well that you can use to upload data. You can find more about them at [Upload data for Hadoop jobs in HDInsight](../hdinsight-upload-data.md).
 * **Use Livy to submit an application job remotely** to the Spark cluster. Spark clusters on HDInsight includes Livy that exposes REST endpoints to remotely submit Spark jobs. For more information, see [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight](apache-spark-livy-rest-interface.md).
 
 ## Next step
 
-In this article you learned how to create a Spark scala application. Advance to the next article to learn how to run this application on an HDInsight Spark cluster using Livy.
+In this article, you learned how to create a Spark scala application. Advance to the next article to learn how to run this application on an HDInsight Spark cluster using Livy.
 
 > [!div class="nextstepaction"]
 >[Run jobs remotely on a Spark cluster using Livy](./apache-spark-livy-rest-interface.md)
