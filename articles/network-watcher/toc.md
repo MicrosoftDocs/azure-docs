@@ -25,7 +25,7 @@
 #### [Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 #### [Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ### Diagnose a VM routing problem
-## [Azure portal](diagnose-vm-network-routing-problem.md)
+#### [Azure portal](diagnose-vm-network-routing-problem.md)
 #### [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md)
 #### [Azure CLI](diagnose-vm-network-routing-problem-cli.md)
 ### Diagnose outbound connections
