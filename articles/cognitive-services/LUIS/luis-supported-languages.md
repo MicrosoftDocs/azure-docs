@@ -23,20 +23,20 @@ If you need a multi-language LUIS client application such as a chat bot, you hav
 LUIS understands utterances in the following languages:
 
 
-| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | Speech to intent |
-|--|--|:--:|:--:|:--:|:--:|:--:|
-| American English |`en-US` | ✔ | ✔  |✔|✔||
-| Canadian French |`fr-CA` |-|   -   |-|✔||
-| *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-||
-| Dutch |`nl-NL` |-|  -   |-|✔||
-| French (France) |`fr-FR` |-| ✔ |✔ |✔||
-| German |`de-DE` |-| ✔ |✔ |✔||
-| Italian |`it-IT` |-| ✔ |✔|✔||
-| *[Japanese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Key phrase only||
-| Korean |`ko-KR` |-|   -   |-|Key phrase only||
-| Portuguese (Brazil) |`pt-BR` |-| ✔ |✔ |not all sub-cultures||
-| Spanish (Spain) |`es-ES` |-| ✔ |✔|✔||
-| Spanish (Mexico)|`es-MX` |-|  -   |✔|✔||
+| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | 
+|--|--|:--:|:--:|:--:|:--:|
+| American English |`en-US` | ✔ | ✔  |✔|✔|
+| Canadian French |`fr-CA` |-|   -   |-|✔|
+| *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
+| Dutch |`nl-NL` |-|  -   |-|✔|
+| French (France) |`fr-FR` |-| ✔ |✔ |✔|
+| German |`de-DE` |-| ✔ |✔ |✔|
+| Italian |`it-IT` |-| ✔ |✔|✔|
+| *[Japanese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Key phrase only|
+| Korean |`ko-KR` |-|   -   |-|Key phrase only|
+| Portuguese (Brazil) |`pt-BR` |-| ✔ |✔ |not all sub-cultures|
+| Spanish (Spain) |`es-ES` |-| ✔ |✔|✔|
+| Spanish (Mexico)|`es-MX` |-|  -   |✔|✔|
 
 
 Language support varies for [prebuilt entities](luis-reference-prebuilt-entities.md) and [prebuilt domains](luis-reference-prebuilt-domains.md). 
