@@ -23,7 +23,7 @@ ms.author: kumud
 Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. This tutorial steps through creating a public Load Balancer Standard that load balances VMs across availability zones. This helps to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy. You learn how to:
 
 > [!div class="checklist"]
-> * Create an Azure Standard Load Balancer with a zone-redundant frontend
+> * Create a Standard Load Balancer
 > * Create network security groups to define incoming traffic rules
 > * Create zone-redundant VMs across multiple zones and attach to a load balancer
 > * Create load balancer health probe
