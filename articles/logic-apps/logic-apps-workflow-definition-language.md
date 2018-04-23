@@ -13,7 +13,7 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: reference
-ms.date: 04/16/2018
+ms.date: 04/27/2018
 ms.author: estfan
 ---
 
@@ -21,16 +21,17 @@ ms.author: estfan
 
 When you create a logic app workflow with 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
-the workflow's underlying definition describes the 
-actual logic that runs for your logic app. This description 
+your workflow's underlying definition describes the actual 
+logic that runs for your logic app. This description 
 follows a structure that's defined and validated 
 by the Workflow Definition Language schema, which uses 
 [JavaScript Object Notation (JSON)](https://www.json.org/) format. 
   
 ## Workflow definition structure
 
-A workflow definition includes at least one trigger that instantiates your logic app, 
-plus one or more actions that the logic app takes. 
+A workflow definition has at least one trigger that instantiates your logic app, 
+plus one or more actions that your logic app runs. 
+
 Here is the high-level structure for a workflow definition:  
   
 ```json
@@ -49,10 +50,10 @@ Here is the high-level structure for a workflow definition:
 | definition | Yes | The starting element for your workflow definition | 
 | $schema | Only when externally referencing a workflow definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |   
 | contentVersion | No | The version number for your workflow definition, which is "1.0.0.0" by default. To help identify and confirm the correct definition when deploying a workflow, specify a value to use. | 
-| parameters | No | The definitions for one or more parameters that pass data into your workflow <p>Maximum parameters: 50 | 
-| triggers | No | The definitions for one or more triggers that instantiate your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not visually through the Logic Apps Designer. <p>Maximum triggers: 10 | 
-| actions | No | The definitions for one or more actions to execute at workflow runtime <p>Maximum actions: 250 | 
-| outputs | No | The definitions for the outputs that return from a workflow run <p>Maximum outputs: 10 |  
+| parameters | No | The definitions for one or more parameters that pass data into your workflow <p><p>Maximum parameters: 50 | 
+| triggers | No | The definitions for one or more triggers that instantiate your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not visually through the Logic Apps Designer. <p><p>Maximum triggers: 10 | 
+| actions | No | The definitions for one or more actions to execute at workflow runtime <p><p>Maximum actions: 250 | 
+| outputs | No | The definitions for the outputs that return from a workflow run <p><p>Maximum outputs: 10 |  
 |||| 
 
 ## Parameters
@@ -81,17 +82,17 @@ Here is the general structure for a parameter definition:
 
 | Element | Required | Type | Description |  
 |---------|----------|------|-------------|  
-| type | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p>**Note**: `GET` operations don't return the `securestring` and `secureobject` types. All passwords, keys, and secrets should use this type. | 
-| defaultValue | No | Same as `type` | The default parameter value to use when no value is specified when the workflow instantiates | 
+| type | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Note**: For all passwords, keys, and secrets, use the `securestring` and `secureobject` types because the `GET` operation doesn't return these types. | The type for the parameter |
+| defaultValue | No | Same as `type` | The default parameter value when no value is specified when the workflow instantiates | 
 | allowedValues | No | Same as `type` | An array with values that the parameter can accept |  
-| metadata | No | JSON object | Any other parameter details, for example, a readable description or design-time data used by Visual Studio or other tools |  
+| metadata | No | JSON object | Any other parameter details, for example, the name or a readable description for your logic app, or design-time data used by Visual Studio or other tools |  
 ||||
   
 ## Triggers and actions  
 
 In a workflow definition, triggers and actions define 
-the calls that happen during workflow execution. 
-For details about this section, see 
+the calls that happen during your workflow's execution. 
+For syntax and more information about this section, see 
 [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
   
 ## Outputs 
@@ -128,7 +129,7 @@ PowerBI so that you can create dashboards.
 
 > [!NOTE]
 > When responding to incoming requests from a service's REST API, 
-> do not use `outputs`, but instead, use the `Response` action type. 
+> do not use `outputs`. Instead, use the `Response` action type. 
 > For more information, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 <a name="expressions"></a>
@@ -151,6 +152,9 @@ that can contain one or more [functions](#functions),
 or constants. In your workflow definition, 
 you can use an expression anywhere in a JSON 
 string value by prefixing the expression with the at-sign (@). 
+When evaluating an expression that represents a JSON value, 
+the expression body is extracted by removing the @ character, 
+and always results in another JSON value. 
 
 For example, for the previously defined `customerName` property, 
 you can get the property value by using the `parameters()` function 
@@ -166,7 +170,7 @@ strings that are wrapped by the @ character and curly braces ({}).
 Here is the syntax:
 
 ```json
-@{ "<expression1>", "<expression2>" }`
+@{ "<expression1>", "<expression2>" }
 ```
 
 The result is always a string, making this capability 
@@ -176,9 +180,6 @@ similar to the `concat()` function, for example:
 "customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
 ```
 
-When evaluating an expression for a JSON value, 
-the expression body is extracted by removing the at-sign (@), 
-which always results in another JSON value. 
 If you have a literal string that starts with the @ character, 
 prefix the @ character with another @ character as an escape character: @@
 
@@ -219,8 +220,9 @@ for example:
 
 ![Logic Apps Designer > Expression builder](./media/logic-apps-workflow-definition-language/expression-builder.png)
 
-In this example, the previous expression appears in the 
-workflow definition for the `searchquery` property:
+When you're done, the expression appears for the 
+corresponding property in your workflow definition, 
+for example, the `searchquery` property here:
 
 ```json
 "Search_tweets": {
