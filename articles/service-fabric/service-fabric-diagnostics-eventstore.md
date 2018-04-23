@@ -47,8 +47,8 @@ The EventStore service can be queried for events that are available for each ent
 
 The EventStore service also has the ability to correlate events in your cluster. By looking at events that were written at the same time from different entities that may have impacted each other, the EventStore service is able to link these events to help with identifying causes for activities in your cluster. For example, if one of your applications happens to become unhealthy without any induced changes, the EventStore will also look at other events exposed by the platform and could correlate this with a `NodeDown` event. This helps with faster failure detection and root causes analysis.
 
-To get started with using the EventStore service, see [Query EventStore APIs for cluster events](service-fabric-diagnostics-eventstore.md).
+To get started with using the EventStore service, see [Query EventStore APIs for cluster events](service-fabric-diagnostics-eventstore-query.md).
 
 ## Next steps
-* Overview of monitoring and diagnostics in Service Fabric - [Monitoring and Diagnostics overview](service-fabric-diagnostics-overview.md)
+* Overview of monitoring and diagnostics in Service Fabric - [Monitoring and Diagnostics for Service Fabric](service-fabric-diagnostics-overview.md)
 * Learn more about monitoring your cluster - [Monitoring the cluster and platform](service-fabric-diagnostics-event-generation-infra.md).

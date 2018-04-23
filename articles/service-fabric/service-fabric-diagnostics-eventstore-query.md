@@ -20,7 +20,7 @@ ms.author: dekapur
 
 # Query EventStore APIs for cluster events
 
-This doc covers how to query the EventStore APIs that are available in Service Fabric version 6.2 and later - if you would like to learn more about the EventStore service, please see the [EventStore service overview](service-fabric-diagnostics-eventstore.md). Currently, the EventStore service can only access data for the last 7 days (this is based on your cluster's diagnostics data retention policy).
+This article covers how to query the EventStore APIs that are available in Service Fabric version 6.2 and later - if you would like to learn more about the EventStore service, see the [EventStore service overview](service-fabric-diagnostics-eventstore.md). Currently, the EventStore service can only access data for the last 7 days (this is based on your cluster's diagnostics data retention policy).
 
 >[!NOTE]
 >As of Service Fabric version 6.2. the EventStore APIs are currently in preview for Windows clusters running on Azure only. We are working on porting this functionality to Linux as well as our Standalone clusters.
