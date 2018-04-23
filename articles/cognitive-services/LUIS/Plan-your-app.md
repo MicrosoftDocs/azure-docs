@@ -42,7 +42,7 @@ A simple entity describes a single concept.
 See [Data Extraction](luis-concept-data-extraction.md#simple-entity-data) to learn more about extracting the simple entity from the endpoint JSON query response. Try the simple entity [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more about how to use a simple entity.
 
 ### Hierarchical entity
- A hierarchical entity represents an entity that is learned contextually, allowing for more than one context. 
+A hierarchical entity is a special type of a **simple** entity; defining a category and its members in the form of parent-child relationship.
 
 ![hierarchical entity](./media/luis-plan-your-app/hierarchical-entity.png)
 
