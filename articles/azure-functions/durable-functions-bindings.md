@@ -174,29 +174,33 @@ The following sample is using [ValueTuples](https://docs.microsoft.com/en-us/dot
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
-public static async Task<List<string>> RunOrchestrator(
+public static async Task<dynamic> RunOrchestrator(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
     string major = "ComputerScience";
-    int universityYear =  context.GetInput<int>();
+    int universityYear = context.GetInput<int>();
 
-    List<string> courseRecommendations = await context.CallActivityAsync<List<string>>("CourseRecommendations", (major, universityYear));
+    dynamic courseRecommendations = await context.CallActivityAsync<dynamic>("CourseRecommendations", (major, universityYear));
     return courseRecommendations;
 }
 
 [FunctionName("CourseRecommendations")]
-public static async Task<List<string>> Mapper([ActivityTrigger] DurableActivityContext inputs)
+public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContext inputs)
 {
     // parse input for student's major and year in university 
     (string, int) studentInfo = inputs.GetInput<(string, int)>();
 
     // retrieve and return course recommendations by major and university year
-    return new List<string>
-    {
-        "Introduction to .NET Programming",
-        "Introduction to Linux",
-        "Becoming an Entrepreneur"
-    };
+    return new {
+        major = studentInfo.Item1,
+        universityYear = studentInfo.Item2,
+        recommendedCourses = new []
+        {
+            "Introduction to .NET Programming",
+            "Introduction to Linux",
+            "Becoming an Entrepreneur"
+        }
+     };
 }
 ```
 
