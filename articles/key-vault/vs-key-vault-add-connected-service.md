@@ -61,7 +61,7 @@ For details on the changes that Connected Services makes in your project to enab
 2. 
 3. ![Create a secret](media/create-a-secret.jpg)
 4. 
-5. (optional) Enter another secret, but this time put it into a category by naming it "Secrets--MySecret". This syntax creates a category "Secrets" that contains a secret "MySecret."
+5. (optional) Enter another secret, but this time put it into a category by naming it "Secrets--MySecret". This syntax specifies a category "Secrets" that contains a secret "MySecret."
 6. In Visual Studio, in your project, you can now reference these secrets by using the following expressions in code:
  
    ```csharp
