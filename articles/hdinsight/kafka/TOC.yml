@@ -1,7 +1,5 @@
 - name: Azure HDInsight documentation
   href: /azure/hdinsight
-- name: Kafka on HDInsight
-  href: /azure/hdinsight
 - name: Overview
   items:
   - name: About Kafka on HDInsight
