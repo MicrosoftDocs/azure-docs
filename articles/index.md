@@ -520,7 +520,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/prod-test/hubs/azure/integrations/index">
+                                            <a href="/azure/integrations/index">
                                                 <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
                                                 <p>DevOps Tool Integrations</p>
                                             </a>
@@ -1132,19 +1132,19 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/prod-test/hubs/azure/sdks">
+                                            <a href="/azure/sdks">
                                                 <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
                                                 <p>SDKs</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/prod-test/hubs/azure/cli">
+                                            <a href="/azure/cli">
                                                 <img src="https://docs.microsoft.com/media/common/i_cligeneric.svg" alt="" />
                                                 <p>CLI</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/prod-test/hubs/azure/integrations">
+                                            <a href="/azure/integrations">
                                                 <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
                                                 <p>DevOps Tool integrations</p>
                                             </a>
@@ -4204,7 +4204,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/prod-test/hubs/azure/sdks/index">
+                                <a href="/azure/sdks/index">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4223,7 +4223,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/prod-test/hubs/azure/cli/index">
+                                <a href="/azure/cli/index">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4242,7 +4242,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/prod-test/hubs/azure/integrations/index">
+                                <a href="/azure/integrations/index">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
