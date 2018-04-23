@@ -32,12 +32,12 @@
       href: hosted-ui.md
     - name: Call your custom search
       href: search-your-custom-view.md
+    - name: Share your custom search
+      href: share-your-custom-search.md
     - name: Configure your custom autosuggest experience
       href: define-custom-suggestions.md
     - name: Get custom suggestions
       href: get-custom-suggestions.md
-    - name: Share your custom search
-      href: share-your-custom-search.md
     - name: Analyze your traffic
       href: analyze-traffic.md
 - name: References

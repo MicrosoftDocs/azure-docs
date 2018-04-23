@@ -45,5 +45,5 @@ If the user selects a suggested query from the drop-down list, you'd use the que
 
 ## Next steps
 
-- [Search your custom instance](./search-your-custom-view.md)
-- [Configure and consume custom hosted UI](./hosted-ui.md)
+- [Call your custom search](./search-your-custom-view.md)
+- [Configure your hosted UI experience](./hosted-ui.md)
