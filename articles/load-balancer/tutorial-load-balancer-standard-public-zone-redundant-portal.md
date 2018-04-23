@@ -18,9 +18,9 @@ ms.date: 04/20/2018
 ms.author: kumud
 ---
 
-# Tutorial:Load balance VMs across availability zones with a Standard Load Balancer using the Azure portal
+# Tutorial: Load balance VMs across availability zones with a Standard Load Balancer using the Azure portal
 
-This tutorial steps through creating a public Load Balancer Standard with a zone redundant frontend to achieve achieve zone-redundancy without dependency on multiple DNS records. A single front-end IP address in a Standard Load Balancer is automatically zone-redundant. Using a zone redundant frontend for your load balancer, with a single IP address you can now reach any VM in a virtual network within a region that is across all Availability Zones. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more Availability Zones can fail and the data path survives as long as one zone in the region remains healthy. You learn how to:
+Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. This tutorial steps through creating a public Load Balancer Standard that load balances VMs across availability zones. This helps to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy. You learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Standard Load Balancer with a zone-redundant frontend
@@ -35,11 +35,11 @@ For more information about using Availability zones with Standard Load Balancer,
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 
-## Create a public Standard Load Balancer
+## Create a Standard Load Balancer
 
 Standard Load Balancer only supports a Standard Public IP address. When you create a new public IP while creating the load balancer, it is automatically configured as a Standard SKU version, and is also automatically zone-redundant.
 
@@ -57,9 +57,11 @@ Standard Load Balancer only supports a Standard Public IP address. When you crea
 
 ## Create backend servers
 
-In this section, you create a virtual network, create virtual machines in different zones (zone 1, zone 2, and zone 3) for the region to add to the the backend pool of your load balancer, and then install IIS on the virtual machines to help test the zone-redundant load balancer. Hence, if a zone fails, the health probe for VM in the same zone fails, and traffic continues to be served by VMs in the other zones.
+In this section, you create a virtual network, virtual machines in different zones for the region, and then install IIS on the virtual machines to help test the zone-redundant load balancer. Hence, if a zone fails, the health probe for VM in the same zone fails, and traffic continues to be served by VMs in the other zones.
 
 ### Create a virtual network
+Create a virtual network for deploying your backend servers.
+
 1. On the top left-hand side of the screen click **Create a resource** > **Networking** > **Virtual network** and enter these values for the virtual network:
     - *myVnet* - for the name of the virtual network.
     - *myResourceGroupLBAZ* - for the name of the existing resource group
@@ -70,6 +72,8 @@ In this section, you create a virtual network, create virtual machines in differ
 
 ## Create a network security group
 
+Create network security group to define inbound connections to your virtual network.
+
 1. On the top left-hand side of the screen, click **Create a resource**, in the search box type *Network Security Group*, and in the network security group page, click **Create**.
 2. In the Create network security group page, enter these values:
     - *myNetworkSecurityGroup*  - for the name of the network security group.
@@ -77,9 +81,9 @@ In this section, you create a virtual network, create virtual machines in differ
    
 ![Create a virtual network](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
-### Create NSG rules
+### Create network security group rules
 
-In this section, you create NSG rules to allow inbound connections using HTTP and RDP using the Azure portal.
+In this section, you create network security group rules to allow inbound connections using HTTP and RDP using the Azure portal.
 
 1. In the Azure portal, click **All resources** in the left-hand menu, and then search and click **myNetworkSecurityGroup** that is located in the **myResourceGroupLBAZ** resource group.
 2. Under **Settings**, click **Inbound security rules**, and then click **Add**.
@@ -105,8 +109,9 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
     - *myRDPRule* for name
     - *Allow RDP* - for description
 
-
 ### Create virtual machines
+
+Create virtual machines in different zones (zone 1, zone 2, and zone 3) for the region that can act as backend servers to the load balancer.
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Compute** > **Windows Server 2016 Datacenter** and enter these values for the virtual machine:
     - *myVM1* - for the name of the virtual machine.        
@@ -146,17 +151,17 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
 
 ## Create load balancer resources
 
-In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer and NAT rules.
+In this section, you configure load balancer settings for a backend address pool and a health probe, and specify load balancer and NAT rules.
 
 
 ### Create a backend address pool
 
-To distribute traffic to the VMs, a back-end address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to include *VM1* and *VM2*.
+To distribute traffic to the VMs, a back-end address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to include *VM1*, *VM2*, and *VM3*.
 
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then click **Add**.
 3. On the **Add a backend pool** page, do the following:
-    - For name, type *myBackEndPool, as the name for your backend pool.
+    - For name, type *myBackEndPool*, as the name for your backend pool.
     - For **Virtual network**, in the drop-down menu, click **myVNet**
     - For **Virtual machine**, in the drop-down menu, click, **myVM1**.
     - For **IP address**, in the drop-down menu, click the IP address of myVM1.
@@ -206,6 +211,8 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
 2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
       ![IIS Web server](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+
+To see the load balancer distribute traffic across the VMs distributed across the zone you can force-refresh your web browser.
 
 ## Clean up resources
 
