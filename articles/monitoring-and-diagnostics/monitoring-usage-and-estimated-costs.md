@@ -41,7 +41,6 @@ In April 2018, a [new monitoring pricing model was released](https://azure.micro
 For customers onboarding to Log Analytics or Application Insights after April 2, 2018, the new pricing model is the only option. For customers who already use these services, moving to the new pricing model is optional.
 
 ## Assessing the impact of the new pricing model
-
 The new pricing model will have different impacts on each customer based on their monitoring usage patterns. For customers who were using Log Analytics or Application Insights before April 2, 2018, the **Usage and estimated cost** page in Azure Monitor estimates any change in costs if they move to the new pricing model. It provides the way to move a subscription into the new model. For most customers, the new pricing model will be advantageous. For customers with especially high data usage patterns or in higher-cost regions, this may not be the case.
 
 To see an estimate of your costs for the subscriptions that you chose on the **Usage and estimated costs** page, select the blue banner near the top of the page. It’s best to do this one subscription at a time, because that's the level at which the new pricing model can be adopted.
@@ -84,8 +83,8 @@ Depending on the number of nodes of the suite that your organization purchased, 
 
 The new pricing model simplifies Log Analytics and Application Insights pricing options to only a single tier (or plan). Moving a subscription into the new pricing model will:
 
-1. Change the pricing tier for each Log Analytics to a new Per-GB tier (called “pergb2018” in Azure Resource Manager)
-2. Any Application Insights resources in the Enterprise plan is changed to the Basic plan.
+- Change the pricing tier for each Log Analytics to a new Per-GB tier (called “pergb2018” in Azure Resource Manager)
+- Any Application Insights resources in the Enterprise plan is changed to the Basic plan.
 
 The cost estimation shows the effects of these changes.
 
