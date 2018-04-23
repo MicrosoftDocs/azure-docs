@@ -29,9 +29,8 @@ If you'd like to try out [Scenario 1](migrate-scenarios-assessment.md), and then
 In this scenario, we'll set up a site-to-site VPN so that DMS can connect to the on-premises database, create an Azure SQL Managed Instance in Azure, and migrate the database. For Site Recovery, we'll prepare the on-premises VMware environment, set up replication, and migrate the VMs to Azure.  
 
 
-## Before you start
-
-**IMPORTANT**: You need to be enrolled in the SQL Managed Instance Limited Public Preview. You need an Azure subscription in order to [sign up](https://portal.azure.com#create/Microsoft.SQLManagedInstance). Sign-up can take a few days to complete so make sure you do it before you start to deploy this scenario.
+> [!IMPORTANT]
+> You need to be enrolled in the SQL Managed Instance Limited Public Preview. You need an Azure subscription in order to [sign up](https://portal.azure.com#create/Microsoft.SQLManagedInstance). Sign-up can take a few days to complete so make sure you do it before you start to deploy this scenario.
 
 ## Architecture
 
@@ -44,7 +43,7 @@ In this scenario, we'll set up a site-to-site VPN so that DMS can connect to the
 
 In this scenario:
 
-- - Contoso is a fictious name representing a typical enterprise organization. Contoso wants to assess and migrate their two-tier on-premises travel app.
+- Contoso is a fictious name representing a typical enterprise organization. Contoso wants to assess and migrate their two-tier on-premises travel app.
 - Contoso has an on-premises datacenter (contoso-datacenter), with an on-premises domain controller (**contosodc1**).
 - The internal travel app is tiered across two VMs, WEBVM and SQLVM, and located on VMware ESXi host (**contosohost1.contoso.com**).
 - The VMware environment is managed by vCenter Server (**vcenter.contoso.com**) running on a VM.
