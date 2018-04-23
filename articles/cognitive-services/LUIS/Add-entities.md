@@ -131,7 +131,7 @@ In the utterance `Who wrote the book Ask and when was it published?`, the book t
 
     To use the pattern.any entity, add a pattern on the **Patterns** page (under the **Improve app performance** section) with the correct curly brace syntax, such as "For **{BookTitle}** who is the author?".
 
-    See [Data Extraction](luis-concept-data-extraction.md#patternany-entity-data) to learn more about extracting the composite entity from the endpoint JSON query response. Try the pattern tutorial to learn more about how to use a Pattern.any entity.
+    See [Data Extraction](luis-concept-data-extraction.md) to learn more about extracting the composite entity from the endpoint JSON query response. Try the pattern tutorial to learn more about how to use a Pattern.any entity.
 
 ## Add role to pattern-based entity
 A role is a named subtype of an entity based on context. It is comparable to a [hierarchical](#add-hierarchical-entities) entity but roles are only used in [patterns](luis-how-to-model-intent-pattern.md). 
