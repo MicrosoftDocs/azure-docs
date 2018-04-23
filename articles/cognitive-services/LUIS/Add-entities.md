@@ -119,7 +119,9 @@ In the utterance `Book 2 tickets from Seattle to Cairo`, the number 2 is matched
 ## Add Pattern.any entities
 [Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md). This entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance.
 
-In the utterance `Who wrote the book Ask and when was it published?`, the book title, Ask, is tricky because it is not contextually obvious where the title ends and where the rest of the utterance begins. Book titles can be any order of words including a single word, complex phrases with punctuation, and nonsensical ordering of words. A pattern allows you to create an entity where the full and exact entity can be extracted.
+If an app has a `FindBookInfo` intent, the title of the book may interfere with the intent prediction. In order to clarify which words are in the book title, use a Pattern.any within a pattern. The LUIS prediction begins with the utterance. First, the utterance is checked and matched for entities, when the entities are found, then the pattern is checked and matched. 
+
+In the utterance `Who wrote the book Ask and when was it published?`, the book title, Ask, is tricky because it is not contextually obvious where the title ends and where the rest of the utterance begins. Book titles can be any order of words including a single word, complex phrases with punctuation, and nonsensical ordering of words. A pattern allows you to create an entity where the full and exact entity can be extracted. Once the book title is found, the `FindBookInfo` intent is predicted because that is the intent for the pattern.
 
 1. In your app, from the **Build** section, and then click **Entities** in the left panel, and then select **Create new entity**.
 
