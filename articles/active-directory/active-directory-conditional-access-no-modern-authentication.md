@@ -96,7 +96,7 @@ To effectively protect access to Exchange Online from Exchange ActiveSync, you c
 
         @RuleName = "Block Exchange ActiveSync"
         c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
-        => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "false");
+        => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "true");
 
 
 
