@@ -35,7 +35,7 @@ ms.reviewer:
 4. Create a new **Resource Group**, or select an existing one, as a container for the plan.  
    ![Specify the resource group](media/azure-stack-create-plan/resource-group.png)
 
-5. select **Services** and then select the checkbox for **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**. Next, choose **Select** to save the configuration. Checkboxes appear when the mouse hovers over each option.  
+5. Select **Services** and then select the checkbox for **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**. Next, choose **Select** to save the configuration. Checkboxes appear when the mouse hovers over each option.  
    ![Select services](media/azure-stack-create-plan/services.png)
 
 6. Select **Quotas**, **Microsoft.Storage (local)**, and then choose either the default quota or select **Create new quota** to customize the quota.  
