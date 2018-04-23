@@ -25,7 +25,8 @@ A common challenge when building cloud applications is how to manage the credent
 
 ## How does it work?
 
-There are two types of Managed Service Identities: System Assigned and User Assigned.
+There are two types of Managed Service Identities: **System Assigned** and **User Assigned**.
+
 - A **System Assigned Identity** is enabled directly on an Azure service instance. When enabled, Azure creates an identity for the service instance in the Azure AD tenant trusted by the subscription of the service instance. Once the identity is created, its credentials get provisioned onto the service instance. The life cycle of a system assigned identity is directly tied to the Azure service instance it is enabled on. If the service instance is deleted, Azure automatically cleans up the credentials and the identity in Azure AD.
 - A **User Assigned Identity** (public preview) is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Azure AD tenant trusted by the subscription being used. After the identity is created, it can be assigned to one or more Azure service instances. The life cycle of a user assigned identity is managed separately from the life cycle of the Azure service instances it is assigned to.
 

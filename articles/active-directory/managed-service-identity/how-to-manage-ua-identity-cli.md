@@ -69,7 +69,7 @@ az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>
 
 For a full list of Azure CLI identity commands, see [az identity](/cli/azure/identity).
 
-For information on how to assign a user assigned managed identity to an Azure VM see, [Configure Managed Service Identity (MSI) using Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-msi)
+For information on how to assign a user assigned managed identity to an Azure VM see, [Configure Managed Service Identity (MSI) using Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-identity)
 
 
  
