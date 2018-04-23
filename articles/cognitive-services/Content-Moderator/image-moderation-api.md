@@ -4,9 +4,8 @@ description: Use image moderation to moderate inappropriate images
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: sajagtap

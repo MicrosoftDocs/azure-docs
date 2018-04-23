@@ -4,9 +4,8 @@ description: Integrate the Microsoft Translator Text API into your applications,
 services: cognitive-services
 author: chriswendt1
 manager: arulm
-
 ms.service: cognitive-services
-ms.technology: translator
+ms.component: translator-text
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: christw

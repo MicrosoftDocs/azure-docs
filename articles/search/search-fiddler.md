@@ -3,11 +3,11 @@ title: Explore REST APIs in Fiddler or Postman (Azure Search REST) | Microsoft D
 description: How to use Fiddler or Postman to issue HTTP requests and REST API calls to Azure Search.
 author: HeidiSteen
 manager: cgronlun
-
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 04/20/2018
 ms.author: heidist
 ---
 
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following tools are widely used in web development, but if you are familiar with another tool, the instructions in this article should still apply.
 
-+ [Postman (Google Chrome add-in)](https://www.getpostman.com/)
++ [Postman desktop app](https://www.getpostman.com/)
 + [Telerik Fiddler](http://www.telerik.com/fiddler)
 
 ## Get the api-key and endpoint
@@ -44,14 +44,14 @@ REST calls require the service URL and an access key on every request. A search 
 
 Each tool persists request header information for the session, which means you only have to enter the URL endpoint, api-version, api-key, and content-type once.
 
-The full URL should look similar to the following example, only yours should have a valid replacement for the **`my-app`** placeholder name: `https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01`
+The full URL should look similar to the following example, only yours should have a valid replacement for the **`my-app`** placeholder name: `https://my-app.search.windows.net/indexes/hotels?api-version=2017-11-11`
 
 Service URL composition includes the following elements:
 
 + HTTPS prefix.
 + Service URL, obtained from the portal.
 + Resource, an operation that creates an object on your service. In this step, it is an index named hotels.
-+ api-version, a required lowercase string specified as "?api-version=2016-09-01" for the current version. [API versions](search-api-versions.md) are updated regularly. Including the api-version on each request gives you full control over which one is used.  
++ api-version, a required lowercase string specified as "?api-version=2017-11-11" for the current version. [API versions](search-api-versions.md) are updated regularly. Including the api-version on each request gives you full control over which one is used.  
 
 Request header composition includes two elements, content type and the api-key described in the previous section:
 
@@ -120,7 +120,7 @@ Copy the index definition to the request body, similar to the following screen s
 Creating the index and populating the index are separate steps. In Azure Search, the index contains all searchable data, which you can provide as JSON documents. To review the API for this operation, see [Add, update, or delete documents (REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 + Change the verb to **POST** for this step.
-+ Change the endpoint to include `/docs/index`. The full URL should look like `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01`
++ Change the endpoint to include `/docs/index`. The full URL should look like `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
 + Keep the request headers as-is. 
 
 The Request Body contains four documents to be added to the hotels index.
@@ -209,7 +209,7 @@ Change the verb to **POST**. Change the URL to include `/docs/index`. Copy the d
 Now that an index and documents are loaded, you can issue queries against them. For more information about this API, see [Search Documents (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents)  
 
 + Change the verb to **GET** for this step.
-+ Change the endpoint to include query parameters, including search strings. A query URL might look like `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2016-09-01`
++ Change the endpoint to include query parameters, including search strings. A query URL might look like `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
 + Keep the request headers as-is
 
 This query searches on the term "motel" and returns a count of the documents in the search results. The request and response should look similar to the following screen shot for Postman after you click **Send**. The status code should be 200.
@@ -222,14 +222,14 @@ The following example query is from the [Search Index operation (Azure Search AP
 
 **Before spaces are replaced (in lastRenovationDate desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
 **After spaces are replaced with + (in lastRenovationDate+desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
 ## Query index properties
-You can also query system information to get document counts and storage consumption: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01`
+You can also query system information to get document counts and storage consumption: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 In Postman, your request should look similar to the following, and the response includes a document count and space used in bytes.
 

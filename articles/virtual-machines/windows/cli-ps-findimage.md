@@ -77,7 +77,7 @@ Fill in your chosen SKU name and run the following commands:
 
 ```powershell
 $skuName="<SKU>"
-Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku skuName | Select Version
+Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
 From the output of the `Get-AzureRMVMImage` command, you can select a version image to deploy a new virtual machine.

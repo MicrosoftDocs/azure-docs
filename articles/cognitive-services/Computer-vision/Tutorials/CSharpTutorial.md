@@ -4,9 +4,8 @@ description: Explore a basic Windows app that uses the Computer Vision API in Mi
 services: cognitive-services
 author: KellyDF
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: kefre

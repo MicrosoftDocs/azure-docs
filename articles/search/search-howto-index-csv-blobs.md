@@ -3,7 +3,7 @@ title: Indexing CSV blobs with Azure Search blob indexer | Microsoft Docs
 description: Learn how to index CSV blobs with Azure Search
 author: chaosrealm
 manager: jlembicz
-
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual

@@ -4,9 +4,8 @@ description: Explains how to use the Bing News Search API in a single-page Web a
 services: cognitive-services
 author: mikedodaro
 manager: ronakshah
-
 ms.service: cognitive-services
-ms.technology: bing-news-search
+ms.component: bing-news-search
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: v-gedod
