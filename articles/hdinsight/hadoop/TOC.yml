@@ -1,8 +1,8 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Hadoop on HDInsight
+- name: Overview
   items:
-  - name: Overview
+  - name: About Hadoop on HDInsight
     href: apache-hadoop-introduction.md
   - name: Hadoop architecture in HDInsight
     href: ../hdinsight-hadoop-architecture.md
@@ -10,22 +10,32 @@
   - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
-- name: Get started
+- name: Quickstart
   items:
-  - name: Start with Hadoop - Portal
+  - name: Create Hadoop cluster - Portal
     href: apache-hadoop-linux-create-cluster-get-started-portal.md
-  - name: Start with Hadoop - Resource Manager
-    href: apache-hadoop-linux-tutorial-get-started.md
-  - name: Hadoop sandbox
-    href: apache-hadoop-emulator-get-started.md
-  - name: Install HDInsight apps
-    href: ../hdinsight-apps-install-applications.md
+  - name: Create Hadoop cluster - Resource Manager
+    href: apache-hadoop-linux-tutorial-get-started.md      
+- name: Tutorials
+  items:
+  - name: Perform ETL operations
+    href: ../hdinsight-analyze-flight-delay-data-linux.md
     maintainContext: true
+  - name: Create on-demand clusters
+    href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+    maintainContext: true
+- name: Concepts
+  items:
   - name: Cluster capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
+  - name: Availability and reliability
+    href: ../hdinsight-high-availability-linux.md
+    maintainContext: true
 - name: How to
   items:
+  - name: Use Hadoop sandbox
+    href: apache-hadoop-emulator-get-started.md
   - name: Use cluster storage
     items:
     - name: Using Azure Storage
@@ -146,9 +156,6 @@
     - name: Analyze stored tweets
       href: ../hdinsight-analyze-twitter-data-linux.md
       maintainContext: true
-    - name: Analyze flight delay data
-      href: ../hdinsight-analyze-flight-delay-data-linux.md
-      maintainContext: true
     - name: Generate recommendations with Mahout
       href: apache-hadoop-mahout-linux-mac.md
     - name: Analyze website logs with Hive
@@ -166,6 +173,9 @@
       maintainContext: true
   - name: Extend clusters
     items:
+    - name: Install HDInsight apps
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: Customize clusters using Bootstrap
       href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
       maintainContext: true
@@ -262,9 +272,6 @@
       - name: Use Azure Resource Manager templates
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
-    - name: Create on-demand clusters
-      href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-      maintainContext: true
     - name: Manage Hadoop clusters
       href: ../hdinsight-administer-use-portal-linux.md
       maintainContext: true
@@ -331,9 +338,6 @@
       maintainContext: true
     - name: Migrate to Resource Manager development tools
       href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
-      maintainContext: true
-    - name: Availability and reliability
-      href: ../hdinsight-high-availability-linux.md
       maintainContext: true
     - name: Upgrade HDInsight cluster to newer version
       href: ../hdinsight-upgrade-cluster.md
