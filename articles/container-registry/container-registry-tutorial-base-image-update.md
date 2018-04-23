@@ -107,7 +107,7 @@ az acr build-task create \
     --git-access-token $GIT_PAT
 ```
 
-This build task is similar to the task created in the [previous tutorial](container-registry-tutorial-buid-task.md). It instructs ACR Build to trigger an image build when commits are pushed to the repository specified by `--context`.
+This build task is similar to the task created in the [previous tutorial](container-registry-tutorial-build-task.md). It instructs ACR Build to trigger an image build when commits are pushed to the repository specified by `--context`.
 
 Where it differs is in its behavior, in that it also triggers a build of the image when its *base image* is updated. The Dockerfile specified by the `--file` argument, [Dockerfile-app][dockerfile-app], supports specifying an image from within the same registry as its base:
 
@@ -115,7 +115,7 @@ Where it differs is in its behavior, in that it also triggers a build of the ima
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 ```
 
-When you run this build task for first time, ACR Build detects the image's dependencies. If the base image specified in the `FROM` statement resides within the same registry, it adds a hook to ensure this image is rebuilt any time its base is updated.
+When you run a build task, ACR Build detects an image's dependencies. If the base image specified in the `FROM` statement resides within the same registry, it adds a hook to ensure this image is rebuilt any time its base is updated.
 
 > [!NOTE]
 > During preview, ACR Build supports triggering a derived image build only when both the base image and the image referencing it reside in the same Azure container registry.
