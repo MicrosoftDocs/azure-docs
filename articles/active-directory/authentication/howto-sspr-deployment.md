@@ -27,7 +27,7 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
 2. [Configure on-premises Active Directory permissions for password writeback](howto-sspr-writeback.md#active-directory-permissions).
 3. [Configure password writeback](howto-sspr-writeback.md#configure-password-writeback) to write passwords from Azure AD back to your on-premises directory.
 4. [Assign and verify the required licenses](concept-sspr-licensing.md).
-5. Determine if you want to do a gradual rollout. If you want to roll out SSPR gradually, you can limit access to a group of users so you can pilot the program with a specific group. To roll out to a specific group, set the **Self Service Password Reset Enabled** switch to **Selected** and select the security group you want to  be able use password reset. 
+5. Determine if you want to do a gradual rollout. If you want to roll out SSPR gradually, you can limit access to a group of users so you can pilot the program with a specific group. To roll out to a specific group, set the **Self Service Password Reset Enabled** switch to **Selected** and select the security group you want to  be able use password reset.  Nesting of security groups is supported here.
 6. Populate the [authentication data](howto-sspr-authenticationdata.md) needed for your users to register, such as their office phone, mobile phone, and alternate email address.
 7. [Customize the Azure AD sign-in experience to include your company branding](concept-sspr-customization.md).
 8. Teach your users how to use SSPR. Send them instructions to show them how to register and how to reset their passwords.
