@@ -59,7 +59,7 @@ The response type describes what kind of information will be sent back in the in
 
 #### Response Mode
 
-The method that should be used to send the data back from the custom identity provider to Azure AD B2C.
+The response mode defines the method that should be used to send the data back from the custom identity provider to Azure AD B2C.
 
 * `form_post`: This response mode is recommended for best security. The response is transmitted via the HTTP `POST` method, with the code or token being encoded in the body using the `application/x-www-form-urlencoded` format.
 * `query`: The code or token will be returned as a query parameter.
@@ -78,11 +78,11 @@ After the custom identity provider sends an ID token back to Azure AD B2C, Azure
 
 For each of the mappings below, refer to the documentation of the custom identity provider to understand the claims that are returned back in the identity provider's tokens.
 
-*`User ID`: Enter the claim that provides the unique identifier for the signed in user.
-*`Display Name`: Enter the claim that provides the display name or full name for the user.
-*`Given Name`: Enter the claim that provides the first name of the user.
-*`Surname`: Enter the claim that provides the last name of the user.
-*`Email`: Enter the claim that provides the email address of the user.
+* `User ID`: Enter the claim that provides the unique identifier for the signed in user.
+* `Display Name`: Enter the claim that provides the display name or full name for the user.
+* `Given Name`: Enter the claim that provides the first name of the user.
+* `Surname`: Enter the claim that provides the last name of the user.
+* `Email`: Enter the claim that provides the email address of the user.
 
 ## Next Steps
 
