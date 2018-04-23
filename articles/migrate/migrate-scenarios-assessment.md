@@ -29,9 +29,8 @@ In this scenario, we'll download and run the DMA to assess the on-premises SQL S
 
 ## Architecture
 
-In this scenario, we're going to set up 
 
- ![Migration assessment architecture](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
+![Migration assessment architecture](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
 
 In this scenario:
 - Contoso has an on-premises datacenter (**contoso-datacenter**), with an on-premises domain controller ( **contosodc1**).
@@ -485,7 +484,7 @@ In this scenario we've:
 
 ## Next steps
 
-Let's continue with the next scenario, to do a lift-and-shift migration of the on-premises VMs to Azure.
+Let's continue with the next scenario, to do a [lift-and-shift migration](migrate-scenarios-lift-and-shift.md) of the on-premises VMs and database to Azure.
 
 
 
