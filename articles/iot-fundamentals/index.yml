@@ -98,7 +98,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/iot">Azure CLI</a></p><p><a href="/azure/azure-iot-cli-extension">Azure IoT CLI Extension</a></p>
+      html: <p><a href="/cli/azure/iot">Azure CLI</a></p><p><a href="https://github.com/Azure/azure-iot-cli-extension">Azure IoT CLI Extension</a></p>
     - title: Languages
       html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">Azure IoT SDKs for .Net,C,Java,Node.js, Python</a></p>
     - title: REST
