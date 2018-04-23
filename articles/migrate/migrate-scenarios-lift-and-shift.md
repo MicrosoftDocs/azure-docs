@@ -276,7 +276,7 @@ Set up the virtual network as follows:
 
 After the Managed Instance deployment finishes, two new resources appear in the ContosoRG resource group: Virtual Cluster for the Managed Instances, and the SQL Managed Instance. Both are in the East US 2 location.
 
-    ![Managed instance](media/migrate-scenarios-lift-and-shift/managed-instance2.png)
+![Managed instance](media/migrate-scenarios-lift-and-shift/managed-instance2.png)
 
 
 ## Step 3: Get a SAS URI for DMS
