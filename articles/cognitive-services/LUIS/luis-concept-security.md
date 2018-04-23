@@ -60,4 +60,4 @@ You can control who can see your LUIS endpoint key by calling it in a server-to-
 
 See [Best Practices](luis-concept-best-practices.md) to learn how to use intents and entities for the best predictions.
 
-[LUIS]:luis-reference-regions.md##luis-website
+[LUIS]:luis-reference-regions.md#luis-website
