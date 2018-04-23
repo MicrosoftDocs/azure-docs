@@ -19,7 +19,7 @@ Utterances are examples of user questions or commands. To teach Language Underst
 Generally, you add an utterance first, and then you create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](Add-entities.md).
 
 ## Add an utterance
-See [Manage Intents](add-intents.md#add-an-utterance) to learn how to add utterances to an intent. 
+See [Manage Intents](add-intents.md) to learn how to add utterances to an intent. 
 
 ## Add simple entity label
 In the following procedure, you create and label custom entities within the following utterance on the intent page:

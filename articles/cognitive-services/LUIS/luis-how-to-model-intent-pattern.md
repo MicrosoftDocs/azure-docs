@@ -14,7 +14,7 @@ ms.author: v-geberr;
 ---
 
 # How to add Patterns to improve prediction accuracy
-After a LUIS app receives endpoint utterances, use Patterns to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use [entities](luis-concept-entity-types.md) and their [roles](luis-concept-roles) to extract data using [specific pattern syntax](luis-concept-patterns#pattern-syntax). 
+After a LUIS app receives endpoint utterances, use Patterns to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use [entities](luis-concept-entity-types.md) and their roles to extract data using specific pattern syntax. 
 
 ## Add template utterance to create pattern
 1. Open your app by selecting its name on **My Apps** page, and then select **Patterns** in the left panel, under **Improve app performance**.
@@ -25,7 +25,7 @@ After a LUIS app receives endpoint utterances, use Patterns to improve predictio
 
     ![Select intent](./media/luis-how-to-model-intent-pattern/patterns-2.png)
 
-3. In the template textbox, type the template utterance and select Enter. When you want to enter the entity name, use the [correct pattern entity syntax](luis-concept-patterns#pattern-syntax). Begin the entity syntax with `{`. The list of entities displays. Select the correct entity, and then select Enter. 
+3. In the template textbox, type the template utterance and select Enter. When you want to enter the entity name, use the correct pattern entity syntax. Begin the entity syntax with `{`. The list of entities displays. Select the correct entity, and then select Enter. 
 
     ![Screenshot of entity for pattern](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 

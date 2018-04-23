@@ -129,9 +129,9 @@ In the utterance `Who wrote the book Ask and when was it published?`, the book t
  
     ![Screenshot of creating a pattern.any entity](./media/add-entities/create-pattern-any-entity.png)
 
-    To use the pattern.any entity, add a [pattern](luis-how-to-model-intent-pattern.md#add-patterns) on the **Patterns** page (under the **Improve app performance** section) with the correct curly brace syntax, such as "For **{BookTitle}** who is the author?".
+    To use the pattern.any entity, add a pattern on the **Patterns** page (under the **Improve app performance** section) with the correct curly brace syntax, such as "For **{BookTitle}** who is the author?".
 
-    See [Data Extraction](luis-concept-data-extraction.md#patternany-entity-data) to learn more about extracting the composite entity from the endpoint JSON query response. Try the pattern [tutorial](luis-tutorial-pattern.md) to learn more about how to use a Pattern.any entity.
+    See [Data Extraction](luis-concept-data-extraction.md#patternany-entity-data) to learn more about extracting the composite entity from the endpoint JSON query response. Try the pattern tutorial to learn more about how to use a Pattern.any entity.
 
 ## Add role to pattern-based entity
 A role is a named subtype of an entity based on context. It is comparable to a [hierarchical](#add-hierarchical-entities) entity but roles are only used in [patterns](luis-how-to-model-intent-pattern.md). 
@@ -150,7 +150,7 @@ The syntax for a role is **{Entity name:Role name}** where the entity name is fo
 
     ![Screenshot of adding Origin role to Location entity](./media/add-entities/roles-enter-role-name-text.png)
 
-    See [Data Extraction](luis-concept-data-extraction.md#pattern-roles-data) to learn more about extracting roles from the endpoint JSON query response. Try the pattern [tutorial](luis-tutorial-pattern.md) to learn more about how to use a Pattern.any entity.
+    See [Data Extraction](luis-concept-data-extraction.md) to learn more about extracting roles from the endpoint JSON query response. Try the pattern tutorial to learn more about how to use a Pattern.any entity.
 
 ## Add list entities
 List entities represent a fixed, closed set (white list) of related words in your system. 
