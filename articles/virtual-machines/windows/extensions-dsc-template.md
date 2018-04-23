@@ -37,7 +37,7 @@ For more information, see
 {
     "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-    "apiVersion": "2017-12-01",
+    "apiVersion": "2017-03-30",
     "location": "[resourceGroup().location]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -70,7 +70,7 @@ For more information, see
                     }
                 ]
             }
-        },
+        }
     }
 }
 ```
