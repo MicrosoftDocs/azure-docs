@@ -33,33 +33,29 @@ see [Workflow Definition Language for Azure Logic Apps](../logic-apps/logic-apps
 
 ## action
 
-Return the current action's output at runtime, 
+Return the *current* action's output at runtime, 
 or values from other JSON name-and-value pairs, 
-which you can assign to an expression. By default, 
-the function references the entire action object, 
+which you can assign to an expression. 
+By default, this function references the entire action object, 
 but you can optionally specify a property whose value that you want. 
-You can use this function only in these places: 
+See also [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions).
+
+You can use the `action()` function only in these places: 
 
 * The `unsubscribe` property for a webhook action 
 so you can access the result from the original `subscribe` request
 * The `trackedProperties` property for an action
 * The `do-until` loop condition for an action
 
-See also [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions).
-
 ```json
 action()
 action().outputs.body.<property> 
 ```
 
-#### Parameters
-
 | Parameter | Required | Type | Description | 
 | --------- | -------- | ---- | ----------- | 
 | <*property*> | No | String | The name for the action object's property whose value you want: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId**, and **clientTrackingId**. In the Azure portal, you can find these properties by reviewing a specific run history's details. For more information, see [REST API - Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). | 
 ||||| 
-
-#### Return values
 
 | Return value | Type | Description | 
 | ------------ | -----| ----------- | 
@@ -90,24 +86,26 @@ actionBody('<actionName>')
 
 *Example*
 
-This example gets the `body` output from the Twitter action "Get user": 
+This example gets the `body` output from the Twitter action `Get user`: 
 
 ```json
 actionBody('Get_user')
 ```
 
+And returns this result:
+
 ```json
 "body": {
-    "FullName": "Contoso Corporation",
-    "Location": "Generic Town, USA",
-    "Id": 283541717,
-    "UserName": "ContosoInc",
-    "FollowersCount": 172,
-    "Description": "Leading the way in transforming the digital workplace.",
-    "StatusesCount": 93,
-    "FriendsCount": 126,
-    "FavouritesCount": 46,
-    "ProfileImageUrl": "https://pbs.twimg.com/profile_images/908820389907722240/gG9zaHcd_400x400.jpg"
+  "FullName": "Contoso Corporation",
+  "Location": "Generic Town, USA",
+  "Id": 283541717,
+  "UserName": "ContosoInc",
+  "FollowersCount": 172,
+  "Description": "Leading the way in transforming the digital workplace.",
+  "StatusesCount": 93,
+  "FriendsCount": 126,
+  "FavouritesCount": 46,
+  "ProfileImageUrl": "https://pbs.twimg.com/profile_images/908820389907722240/gG9zaHcd_400x400.jpg"
 }
 ```
 
@@ -135,11 +133,13 @@ actionOutputs('<actionName>')
 
 *Example*
 
-This example gets the output from the Twitter action "Get user": 
+This example gets the output from the Twitter action `Get user`: 
 
 ```json
 actionOutputs('Get_user')
 ```
+
+And returns this result:
 
 ```json
 { 
@@ -215,12 +215,13 @@ actions('<actionName>').outputs.body.<property>
 *Example*
 
 This example gets the `status` property value 
-from the Twitter action "Get user" at runtime 
-and returns "Succeeded": 
+from the Twitter action `Get user` at runtime: 
 
 ```json
 actions('Get_user').outputs.body.status 
 ```
+
+And returns this result: `"Succeeded"`
 
 <a name="add"></a>
 
@@ -244,11 +245,13 @@ add(<summand_1>, <summand_2>)
 
 *Example*
 
-This example adds the specified numbers and returns 2.5:
+This example adds the specified numbers:
 
 ```json
 add(1, 1.5)
 ```
+
+And returns this result: `2.5`
 
 <a name="addDays"></a>
 
@@ -274,21 +277,23 @@ addDays('<timestamp>', <days>, '<format>'?)
 
 *Example 1*
 
-This example adds 10 days to the specified 
-timestamp and returns "2018-03-25T00:00:0000000Z":
+This example adds 10 days to the specified timestamp:
 
 ```json
 addDays('2018-03-15T13:00:00Z', 10)
 ```
 
+And returns this result: `"2018-03-25T00:00:0000000Z"`
+
 *Example 2*
 
-This example subtracts 5 days from the specified 
-timestamp and returns "2018-03-10T00:00:0000000Z":
+This example subtracts 5 days from the specified timestamp:
 
 ```json
 addDays('2018-03-15T00:00:00Z', -5)
 ```
+
+And returns this result: `"2018-03-10T00:00:0000000Z"`
 
 <a name="addHours"></a>
 
@@ -314,21 +319,23 @@ addHours('<timestamp>', <hours>, '<format>'?)
 
 *Example 1*
 
-This example adds 10 hours to the specified 
-timestamp and returns "2018-03-15T10:00:0000000Z":
+This example adds 10 hours to the specified timestamp:
 
 ```json
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
+And returns this result: `"2018-03-15T10:00:0000000Z"`
+
 *Example 2*
 
-This example subtracts 5 hours from the specified 
-timestamp and returns "2018-03-15T10:00:0000000Z":
+This example subtracts 5 hours from the specified timestamp:
 
 ```json
 addHours('2018-03-15T15:00:00Z', -5)
 ```
+
+And returns this result: `"2018-03-15T10:00:0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -354,21 +361,23 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 
 *Example 1*
 
-This example adds 10 minutes to the specified 
-timestamp and returns "2018-03-15T00:20:00.0000000Z":
+This example adds 10 minutes to the specified timestamp:
 
 ```json
 addMinutes('2018-03-15T00:10:00Z', 10)
 ```
 
+And returns this result: `"2018-03-15T00:20:00.0000000Z"`
+
 *Example 2*
 
-This example subtracts 5 minutes from the specified 
-timestamp and returns "2018-03-15T00:15:00.0000000Z":
+This example subtracts 5 minutes from the specified timestamp:
 
 ```json
 addMinutes('2018-03-15T00:20:00Z', -5)
 ```
+
+And returns this result: `"2018-03-15T00:15:00.0000000Z"`
 
 <a name="addProperty"></a>
 
@@ -429,21 +438,23 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 
 *Example 1*
 
-This example adds 10 seconds to the specified 
-timestamp and returns "2018-03-15T00:00:10.0000000Z":
+This example adds 10 seconds to the specified timestamp:
 
 ```json
 addSeconds('2018-03-15T00:00:00Z', 10)
 ```
 
+And returns this result: `"2018-03-15T00:00:10.0000000Z"`
+
 *Example 2*
 
-This example subtracts 5 seconds to the specified 
-timestamp and returns "2018-03-15T00:00:25.0000000Z":
+This example subtracts 5 seconds to the specified timestamp:
 
 ```json
 addSeconds('2018-03-15T00:00:30Z', -5)
 ```
+
+And returns this result: `"2018-03-15T00:00:25.0000000Z"`
 
 <a name="addToTime"></a>
 
@@ -471,21 +482,23 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 *Example 1*
 
-This example adds one day to the specified timestamp, 
-and returns "2018-01-02T00:00:00:0000000Z":
+This example adds one day to the specified timestamp:
 
 ```json
 addToTime('2018-01-01T00:00:00Z', 1, 'Day') 
 ```
 
+And returns this result: `"2018-01-02T00:00:00:0000000Z"`
+
 *Example 2*
 
-This example adds one day to the specified timestamp, 
-and returns this date in optional "D" format: "Tuesday, January 6, 2018":
+This example adds one day to the specified timestamp:
 
 ```json
 addToTime('2018-01-05T00:00:00Z', 1, 'Day', 'D')
 ```
+
+And returns the date in the optional "D" format: `"Tuesday, January 6, 2018"`
 
 <a name="and"></a>
 
@@ -511,9 +524,7 @@ and(<expression1>, <expression2>, ...)
 
 *Example 1*
 
-The first example returns true because both expressions are true. 
-The second example returns false because one expression is false.
-The third example returns false because both expressions are false.
+These examples check whether the specified Boolean values are all true:
 
 ```json
 and(true, true)
@@ -521,17 +532,27 @@ and(false, true)
 and(false, false)
 ```
 
+And returns these results:
+
+* First example: Both expressions are true, so returns `true`. 
+* Second example: One expression is false, so returns `false`.
+* Third example: Both expressions are false, so returns `false`.
+
 *Example 2*
 
-The first example returns true because both expressions are true. 
-The second example returns false because at least one expression is false.
-The third example returns false because both expressions are false.
+These examples check whether the specified expressions are all true:
 
 ```json
 and(equals(1, 1), equals(2, 2))
 and(equals(1, 1), equals(1, 2))
 and(equals(1, 2), equals(1, 3))
 ```
+
+And returns these results:
+
+* First example: Both expressions are true, so returns `true`. 
+* Second example: One expression is false, so returns `false`.
+* Third example: Both expressions are false, so returns `false`.
 
 <a name="array"></a>
 
@@ -556,11 +577,13 @@ array('<value>')
 
 *Example*
 
-This example creates the array ["hello"] from the string "hello":
+This example creates an array from the "hello" string:
 
 ```json
 array('hello')
 ```
+
+And returns this result: `["hello"]`
 
 <a name="base64"></a>
 
@@ -584,11 +607,13 @@ base64('<value>')
 
 *Example*
 
-This example returns "aGVsbG8=" for the string "hello":
+This example converts the "hello" string to a base64-encoded string:
 
 ```json
 base64('hello')
 ```
+
+And returns this result: `"aGVsbG8="`
 
 <a name="base64ToBinary"></a>
 
@@ -612,13 +637,15 @@ base64ToBinary('<value>')
 
 *Example*
 
-This example returns the binary version for the base64-encoded string "aGVsbG8=" as follows:
-
-"0110000101000111010101100111001101100010010001110011100000111101"
+This example converts the "aGVsbG8=" base64-encoded string to a binary string:
 
 ```json
 base64ToBinary('aGVsbG8=')
 ```
+
+And returns this result: 
+
+`"0110000101000111010101100111001101100010010001110011100000111101"`
 
 <a name="base64ToString"></a>
 
@@ -646,12 +673,13 @@ base64ToString('<value>')
 
 *Example*
 
-This example returns the string "hello" 
-for the base64-encoded string "aGVsbG8=":
+This example converts the "aGVsbG8=" base64-encoded string to just a string:
 
 ```json
 base64ToString('aGVsbG8=')
 ```
+
+And returns this result: `"hello"`
 
 <a name="binary"></a>
 
@@ -675,13 +703,15 @@ binary('<value>')
 
 *Example*
 
-This example returns the binary version for the string "hello" as follows:
-
-"0110100001100101011011000110110001101111" 
+This example converts the "hello" string to a binary string:
 
 ```json
 binary('hello')
 ```
+
+And returns this result: 
+
+`"0110100001100101011011000110110001101111"`
 
 <a name="body"></a>
 
@@ -707,11 +737,13 @@ body('<actionName>')
 
 *Example*
 
-This example gets the `body` output from the Twitter action "Get user": 
+This example gets the `body` output from the `Get user` Twitter action: 
 
 ```json
 body('Get_user')
 ```
+
+And returns this result: 
 
 ```json
 "body": {
@@ -750,13 +782,17 @@ bool(<value>)
 
 *Example*
 
-The first example converts the number 1 to true, 
-while the second example converts the number 0 to false:
+These examples convert the specified values to Boolean values: 
 
 ```json
 bool(1)
 bool(0)
 ```
+
+And returns these results: 
+
+* First example: `true` 
+* Second example: `false`
 
 <a name="coalesce"></a>
 
@@ -781,13 +817,20 @@ coalesce(<object_1>, <object_2>, ...)
 
 *Example*
 
-The first example returns null, while the second example 
-returns the string "hello" as the first non-null item:
+These examples return the first non-null value from the specified values, 
+or null when all the values are null:
 
 ```json
-coalesce(null)
+coalesce(null, true, false)
 coalesce(null, 'hello', 'world')
+coalesce(null, null, null)
 ```
+
+And returns these results: 
+
+* First example: `true` 
+* Second example: `"hello"`
+* Third example: `null`
 
 <a name="concat"></a>
 
@@ -811,12 +854,13 @@ concat('<text1>', '<text2>', ...)
 
 *Example*
 
-This example combines the strings "Hello" 
-and "World" into the string "HelloWorld":
+This example combines the strings "Hello" and "World":
 
 ```json
 concat('Hello', 'World')
 ```
+
+And returns this result: `"HelloWorld"`
 
 <a name="contains"></a>
 
@@ -849,7 +893,7 @@ Specifically, this function works on these collection types:
 | true or false | Boolean | Return true when the item is found. Return false when not found. |
 |||| 
 
-*Example*
+*Example 1*
 
 This example checks the string "hello world" for 
 the substring "world" and returns true:
@@ -857,6 +901,8 @@ the substring "world" and returns true:
 ```json
 contains('hello world', 'world')
 ```
+
+*Example 2*
 
 This example checks the string "hello world" for 
 the substring "universe" and returns false:
@@ -889,21 +935,23 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 
 *Example 1*
 
-This example converts a timestamp to the specified time zone 
-and returns "2018-01-01T00:00:00.0000000": 
+This example converts a timestamp to the specified time zone: 
 
 ```json
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time')
 ```
 
+And returns this result: `"2018-01-01T00:00:00.0000000"`
+
 *Example 2*
 
-This example converts a timestamp to the specified time zone 
-and format and returns "Monday, January 1, 2018":
+This example converts a timestamp to the specified time zone and format:
 
 ```json
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time', 'D')
 ```
+
+And returns this result: `"Monday, January 1, 2018"`
 
 <a name="convertTimeZone"></a>
 
@@ -930,21 +978,23 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 
 *Example 1*
 
-This example converts the source time zone to the target time zone 
-and returns "2018-01-01T00:00:00.0000000": 
+This example converts the source time zone to the target time zone: 
 
 ```json
 convertTimeZone('2018-01-01T08:00:00.0000000Z', 'UTC', 'Pacific Standard Time')
 ```
 
+And returns this result: `"2018-01-01T00:00:00.0000000"`
+
 *Example 2*
 
-This example converts a time zone to the specified time zone 
-and format and returns "Monday, January 1, 2018":
+This example converts a time zone to the specified time zone and format:
 
 ```json
 convertTimeZone('2018-01-01T80:00:00.0000000Z', 'UTC', 'Pacific Standard Time', 'D')
 ```
+
+And returns this result: `"Monday, January 1, 2018"`
 
 <a name="convertToUtc"></a>
 
@@ -970,21 +1020,23 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 
 *Example 1*
 
-This example converts a timestamp to UTC 
-and returns "2018-01-01T08:00:00.0000000Z": 
+This example converts a timestamp to UTC: 
 
 ```json
 convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time')
 ```
 
+And returns this result: `"2018-01-01T08:00:00.0000000Z"`
+
 *Example 2*
 
-This example converts a timestamp to UTC 
-and returns "Monday, January 1, 2018":
+This example converts a timestamp to UTC:
 
 ```json
 convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time', 'D')
 ```
+
+And returns this result: `"Monday, January 1, 2018"`
 
 <a name="createArray"></a>
 
@@ -1009,11 +1061,13 @@ createArray('<object1>', '<object2>', ...)
 
 *Example*
 
-This example creates the array ["h", "e", "l", "l", "o"] from these inputs:
+This example creates an array from these inputs:
 
 ```json
 createArray('h', 'e', 'l', 'l', 'o')
 ```
+
+And returns this result: `["h", "e", "l", "l", "o"]`
 
 <a name="dataUri"></a>
 
@@ -1037,12 +1091,13 @@ dataUri('<value>')
 
 *Example*
 
-This example creates a data URI for the input string "hello" 
-and returns "data:text/plain;charset=utf-8;base64,aGVsbG8=":
+This example creates a data URI for the "hello" string:
 
 ```json
 dataUri('hello') 
 ```
+
+And returns this result: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 
 <a name="dataUriToBinary"></a>
 
@@ -1069,17 +1124,19 @@ dataUriToBinary('<value>')
 
 *Example*
 
-This example returns the binary version for the specified data URI as follows:
-
-"01100100011000010111010001100001001110100111010001100101011110000111010000
-101111011100000110110001100001011010010110111000111011011000110110100001100
-001011100100111001101100101011101000011110101110101011101000110011000101101
-001110000011101101100010011000010111001101100101001101100011010000101100011
-0000101000111010101100111001101100010010001110011100000111101"
+This example creates a binary version for this data URI:
 
 ```json
 dataUriToBinary('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
+
+And returns this result: 
+
+`"01100100011000010111010001100001001110100111010001100101011110000111010000
+101111011100000110110001100001011010010110111000111011011000110110100001100
+001011100100111001101100101011101000011110101110101011101000110011000101101
+001110000011101101100010011000010111001101100101001101100011010000101100011
+0000101000111010101100111001101100010010001110011100000111101"`
 
 <a name="dataUriToString"></a>
 
@@ -1103,12 +1160,13 @@ dataUriToString('<value>')
 
 *Example*
 
-This example creates the string "hello" 
-for the input data URI as follows:
+This example creates a string for this data URI:
 
 ```json
 dataUriToString('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
+
+And returns this result: `"hello"`
 
 <a name="dayOfMonth"></a>
 
@@ -1132,11 +1190,14 @@ dayOfMonth('<timestamp>')
 
 *Example*
 
-This example returns the number 15 from this timestamp:
+This example returns the number for the day 
+of the month from this timestamp:
 
 ```json
 dayOfMonth('2018-03-15T13:27:36Z')
 ```
+
+And returns this result: `15`
 
 <a name="dayOfWeek"></a>
 
@@ -1160,11 +1221,13 @@ dayOfWeek('<timestamp>')
 
 *Example*
 
-This example returns the number 3 from this timestamp:
+This example returns the number for the day of the week from this timestamp:
 
 ```json
 dayOfWeek('2018-03-15T13:27:36Z')
 ```
+
+And returns this result: `3`
 
 <a name="dayOfYear"></a>
 
@@ -1188,11 +1251,13 @@ dayOfYear('<timestamp>')
 
 *Example*
 
-This example returns the number 74 from this timestamp:
+This example returns the number of the day of the year from this timestamp:
 
 ```json
 dayOfYear('2018-03-15T13:27:36Z')
 ```
+
+And returns this result: `74`
 
 <a name="decodeBase64"></a>
 
@@ -1221,12 +1286,13 @@ decodeBase64('<value>')
 
 *Example*
 
-This example creates the string "hello" 
-for a base64-encoded string as follows:
+This example creates a string for a base64-encoded string:
 
 ```json
 decodeBase64('aGVsbG8=')
 ```
+
+And returns this result: `"hello"`
 
 <a name="decodeDataUri"></a>
 
@@ -1254,17 +1320,19 @@ decodeDataUri('<value>')
 
 *Example*
 
-This example returns the binary version for the specified data URI as follows:
-
-"01100100011000010111010001100001001110100111010001100101011110000111010000
-101111011100000110110001100001011010010110111000111011011000110110100001100
-001011100100111001101100101011101000011110101110101011101000110011000101101
-001110000011101101100010011000010111001101100101001101100011010000101100011
-0000101000111010101100111001101100010010001110011100000111101"
+This example returns the binary version for this data URI:
 
 ```json
 decodeDataUri('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
+
+And returns this result: 
+
+`"01100100011000010111010001100001001110100111010001100101011110000111010000
+101111011100000110110001100001011010010110111000111011011000110110100001100
+001011100100111001101100101011101000011110101110101011101000110011000101101
+001110000011101101100010011000010111001101100101001101100011010000101100011
+0000101000111010101100111001101100010010001110011100000111101"`
 
 <a name="decodeUriComponent"></a>
 
@@ -1288,12 +1356,13 @@ decodeUriComponent('<value>')
 
 *Example*
 
-This example decodes the string "http%3A%2F%2Fcontoso.com" 
-and returns the string "https://contoso.com":
+This example replaces the escape characters in this string with decoded versions:
 
 ```json
 decodeUriComponent('http%3A%2F%2Fcontoso.com')
 ```
+
+And returns this result: `"https://contoso.com"`
 
 <a name="div"></a>
 
@@ -1319,12 +1388,14 @@ div(<dividend>, <divisor>)
 
 *Example*
 
-Both examples divide the first number by the second number and return the number 2:
+Both examples divide the first number by the second number:
 
 ```json
 div(10, 5)
 div(11, 5)
 ```
+
+And return this result: `2`
 
 <a name="encodeUriComponent"></a>
 
@@ -1353,12 +1424,13 @@ encodeUriComponent('<value>')
 
 *Example*
 
-This example encodes the string "https://contoso.com" 
-and returns the string "http%3A%2F%2Fcontoso.com":
+This example creates a URI-encoded version for this string:
 
 ```json
 encodeUriComponent('https://contoso.com')
 ```
+
+And returns this result: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
@@ -1385,13 +1457,17 @@ empty([<collection>])
 
 *Example* 
 
-The first example passes an empty string, so the function returns true. 
-The second example passes the string "abc", so the function returns false. 
+These examples check whether the specified collections are empty:
 
 ```json
 empty('')
 empty('abc')
 ```
+
+And returns these results: 
+
+* First example: Passes an empty string, so the function returns `true`. 
+* Second example: Passes the string "abc", so the function returns `false`. 
 
 <a name="endswith"></a>
 
@@ -1416,21 +1492,27 @@ endsWith('<text>', '<searchText>')
 | true or false  | Boolean | Return true when the ending substring is found. Return false when not found. | 
 |||| 
 
-*Example* 
+*Example 1* 
 
-This example checks whether the "hello world" string 
-ends with the "world" string and returns true:
+This example checks whether the "hello world" 
+string ends with the "world" string:
 
 ```json
 endsWith('hello world', 'world')
 ```
 
-This example checks whether the "hello world" string 
-ends with the "universe" string and returns false:
+And returns this result: `true`
+
+*Example 2*
+
+This example checks whether the "hello world" 
+string ends with the "universe" string:
 
 ```json
 endsWith('hello world', 'universe')
 ```
+
+And returns this result: `false`
 
 <a name="equals"></a>
 
@@ -1455,13 +1537,17 @@ equals('<object1>', '<object2>')
 
 *Example*
 
-The first example returns true because both values are equivalent, 
-while the second example returns false because the values aren't equivalent.
+These examples check whether the specified inputs are equivalent. 
 
 ```json
 equals(true, 1)
 equals('abc', 'abcd')
 ```
+
+And returns these results: 
+
+* First example: Both values are equivalent, so the function returns `true`.
+* Second exmaple: Both values aren't equivalent, sot he function returns `false`.
 
 <a name="first"></a>
 
@@ -1486,12 +1572,17 @@ first([<collection>])
 
 *Example*
 
-The first example returns "h", while the second example returns the number 0:
+These examples find the first item in these collections:
 
 ```json
 first('hello')
 first([0, 1, 2])
 ```
+
+And return these results: 
+
+* First example: `"h"`
+* Second exmaple: `0`
 
 <a name="float"></a>
 
@@ -1518,11 +1609,13 @@ float('<value>')
 
 *Example*
 
-This example converts the string "10.333" to the floating-point number `10.333`:
+This example creates a string version for this floating-point number:
 
 ```json
 float('10.333')
 ```
+
+And returns this result: `10.333`
 
 <a name="formatDateTime"></a>
 
@@ -1547,11 +1640,13 @@ formatDateTime('<timestamp>', '<format>'?)
 
 *Example*
 
-This example converts a timestamp to the specified format and returns "2018-03-15T12:00:00":
+This example converts a timestamp to the specified format:
 
 ```json
 formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
 ```
+
+And returns this result: `"2018-03-15T12:00:00"`
 
 <a name="formDataMultiValues"></a>
 
@@ -1577,14 +1672,14 @@ formDataMultiValues('<actionName>', '<key>')
 
 *Example* 
 
-This example searches for the "Subject" key value 
-in the specified action's form-data or form-encoded 
-output and returns the subject text in an array, 
-for example, ["Hello world"]:  
+This example creates an array from the "Subject" key's value 
+in the specified action's form-data or form-encoded output:  
 
 ```json
 formDataMultiValues('Send_an_email', 'Subject')
 ```
+
+And returns the subject text in an array, for example: `["Hello world"]`
 
 <a name="formDataValue"></a>
 
@@ -1612,14 +1707,14 @@ formDataValue('<actionName>', '<key>')
 
 *Example* 
 
-This example searches for the "Subject" key value 
-in the specified action's form-data or form-encoded 
-output and returns the subject text, for example: 
-"Hello world", as a string:  
+This example creates a string from the "Subject" key's value 
+in the specified action's form-data or form-encoded output:  
 
 ```json
 formDataValue('Send_an_email', 'Subject')
 ```
+
+And returns the subject text as a string, for example: `"Hello world"`
 
 <a name="getFutureTime"></a>
 
@@ -1645,19 +1740,25 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 *Example 1*
 
-This example returns the current time plus five days:
+Suppose the current timestamp is "2018-03-01T00:00:00.0000000Z". 
+This example adds five days to that timestamp:
 
 ```json
 getFutureTime(5, 'Day')
 ```
 
+And returns this result: `"2018-03-06T00:00:00.0000000Z"`
+
 *Example 2*
 
-This example returns the current time plus five days in "D" format:
+Suppose the current timestamp is "2018-03-01T00:00:00.0000000Z". 
+This example adds five days and converts the result to "D" format:
 
 ```json
 getFutureTime(5, 'Day', 'D')
 ```
+
+And returns this result: `"Tuesday, March 6, 2018"`
 
 <a name="getPastTime"></a>
 
@@ -1683,19 +1784,24 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 
 *Example 1*
 
-This example returns the current time minus five days:
+Suppose the current timestamp is "2018-02-01T00:00:00.0000000Z". 
+This example subtracts five days from that timestamp:
 
 ```json
 getPastTime(5, 'Day')
 ```
 
-*Example 2*
+And returns this result: `"2018-01-27T00:00:00.0000000Z"`
 
-This example returns the current time minus five days in "D" format:
+*Example 2*
+Suppose the current timestamp is "2018-02-01T00:00:00.0000000Z". 
+This example subtracts five days and converts the result to "D" format:
 
 ```json
 getPastTime(5, 'Day', 'D')
 ```
+
+And returns this result: `"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
@@ -1723,12 +1829,17 @@ greater('<value>', '<compareTo>')
 
 *Example*
 
-The first example returns true, while the second example returns false:
+These examples check whether the first value is greater than the second value:
 
 ```json
 greater(10, 5)
 greater('apple', 'banana')
 ```
+
+And return these results: 
+
+* First example: `true`
+* Second example: `false`
 
 <a name="greaterOrEquals"></a>
 
@@ -1756,12 +1867,17 @@ greaterOrEquals('<value>', '<compareTo>')
 
 *Example*
 
-The first example returns true, while the second example returns false:
+These examples check whether the first value is greater or equal than the second value:
 
 ```json
 greaterOrEquals(5, 5)
 greaterOrEquals('apple', 'banana')
 ```
+
+And return these results: 
+
+* First example: `true`
+* Second example: `false`
 
 <a name="guid"></a>
 
@@ -1794,13 +1910,14 @@ guid('<format>')
 
 *Example* 
 
-This example returns a GUID that is 32 digits, 
-separated by hyphens, and enclosed in parentheses, 
-for example, "(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)":
+This example generates the same GUID, but as 32 digits, 
+separated by hyphens, and enclosed in parentheses: 
 
 ```json
 guid('P')
 ```
+
+And returns this result: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
@@ -1827,9 +1944,9 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 
 *Example* 
 
-This example returns "yes" because the 
+This example returns `"yes"` because the 
 specified expression returns true. 
-Otherwise, the example returns "no":
+Otherwise, the example returns `"no"`:
 
 ```json
 if(equals(1, 1), 'yes', 'no')
@@ -1860,12 +1977,14 @@ indexOf('<text>', '<searchText>')
 
 *Example* 
 
-This example checks for the substring "world" in the string 
-"hello world" and returns 6 as the starting index value:
+This example finds the starting index value for the 
+"world" substring in the "hello world" string:
 
 ```json
 indexOf('hello world', 'world')
 ```
+
+And returns this result: `6`
 
 <a name="int"></a>
 
@@ -1889,11 +2008,13 @@ int('<value>')
 
 *Example* 
 
-This example returns the number 10 for the string "10":
+This example creates an integer version for the string "10":
 
 ```json
 int('10')
 ```
+
+And returns this result: `10`
 
 <a name="item"></a>
 
@@ -1971,23 +2092,25 @@ json('<value>')
 | *result-JSON* | JSON native type or object | The JSON native type value or object for the specified string or XML. If the string is null, the function returns an empty object. | 
 |||| 
 
-*Example* 
+*Example 1* 
 
-This example returns the string "[1, 2, 3]" as an array:
+This example converts this string to the JSON value:
 
 ```json
 json('[1, 2, 3]')
 ```
 
-Result: `[1, 2, 3]`
+And returns this result: `[1, 2, 3]`
 
-This example returns the specified string as a JSON type: 
+*Example 2*
+
+This example converts this string to JSON: 
 
 ```json
 json('{"fullName": "Sophia Owen"}')
 ```
 
-Result:
+And returns this result:
 
 ```json
 {
@@ -1995,13 +2118,15 @@ Result:
 }
 ```
 
-This example returns the specified XML as JSON: 
+*Example 3*
+
+This example converts this XML to JSON: 
 
 ```json
 json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
 ```
 
-Result:
+And returns this result:
 
 ```json
 { 
@@ -2044,11 +2169,13 @@ intersection('<collection1>', '<collection2>', ...)
 
 *Example* 
 
-This example returns an array with *only* these items: [1, 2]
+This example finds the common items across these arrays:  
 
 ```json
 intersection([1, 2, 3], [101, 2, 1, 10], [6, 8, 1, 2])
 ```
+
+And returns an array with *only* these items: `[1, 2]`
 
 <a name="join"></a>
 
@@ -2074,12 +2201,14 @@ join([<collection>], '<delimiter>')
 
 *Example* 
 
-This example creates a string from all the items in the array [a, b, c], 
-and returns those items as string "a.b.c":
+This example creates a string from all the items in this 
+array with the specified character as the delimiter:
 
 ```json
 join([a, b, c], '.')
 ```
+
+And returns this result: `"a.b.c"`
 
 <a name="last"></a>
 
@@ -2104,12 +2233,17 @@ last([<collection>])
 
 *Example* 
 
-The first example returns "d", while the second example returns the number 3: 
+These examples find the last item in these collections:
 
 ```json
 last('abcd')
 last([0, 1, 2, 3])
 ```
+
+And returns these results: 
+
+* First example: `"d"`
+* Second example: `3`
 
 <a name="lastindexof"></a>
 
@@ -2136,12 +2270,14 @@ lastIndexOf('<text>', '<searchText>')
 
 *Example* 
 
-This example checks for the substring "world" in the string 
-"hello world" and returns 10 as the ending index value: 
+This example find the ending index value for 
+the "world" substring in the "hello world" string:
 
 ```json
 lastIndexOf('hello world', 'world')
 ```
+
+And returns this result: `10`
 
 <a name="length"></a>
 
@@ -2166,12 +2302,14 @@ length([<collection>])
 
 *Example*
 
-Both examples return the number 4: 
+These examples count the number of items in these collections: 
 
 ```json
 length('abcd')
 length([0, 1, 2, 3])
 ```
+
+And return this result: `4`
 
 <a name="less"></a>
 
@@ -2199,12 +2337,17 @@ less('<value>', '<compareTo>')
 
 *Example*
 
-The first example returns true, while the second example returns false:
+These examples check whether the first value is less than the second value.
 
 ```json
 less(5, 10)
 less('banana', 'apple')
 ```
+
+And return these results: 
+
+* First example: `true`
+* Second example: `false`
 
 <a name="lessOrEquals"></a>
 
@@ -2232,12 +2375,17 @@ lessOrEquals('<value>', '<compareTo>')
 
 *Example*
 
-The first example returns true, while the second example returns false:
+These examples check whether the first value is less or equal than the second value.
 
 ```json
 lessOrEquals(10, 10)
 lessOrEquals('apply', 'apple')
 ```
+
+And return these results: 
+
+* First example: `true`
+* Second example: `false`
 
 <a name="listCallbackUrl"></a>
 
