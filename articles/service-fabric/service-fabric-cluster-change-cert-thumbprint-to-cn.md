@@ -21,16 +21,9 @@ ms.author: ryanwi;aljo
 This article describes how to update a running Service Fabric cluster to use the certificate common name instead of the certificate thumbprint.
  
 ## Get a certificate
-First, get a certificate from a [certificate authority](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be the host name of the cluster.  For example, "myclustername.southcentralus.cloudapp.azure.com".  
+First, get a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be the host name of the cluster.  For example, "myclustername.southcentralus.cloudapp.azure.com".  
 
-You can use a self-signed certificate if the cluster is for testing and is not running production work loads. The Service Fabric SDK provides the CertSetup.ps1 script, which creates a self-signed certificate and imports it into the `Cert:\LocalMachine\My certificate` store. Open a command prompt as administrator and run the following command to create a cert with the subject "CN=myclustername.southcentralus.cloudapp.azure.com":
-
-```powershell
-PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=myclustername.southcentralus.cloudapp.azure.com
-```
-
-Next, export the self-signed certificate to a PFX file. Open the certlm.msc application and navigate to **Personal**>**Certificates**. Right-click on the **myclustername.southcentralus.cloudapp.azure.com** certificate, and select **All Tasks**>**Export**.  In the export wizard, choose **Yes, export the private key**, enter a password, and choose the Personal Information Exchange (PFX) format. Export the file to *C:\Users\sfuser\myclustercert.pfx*.
-
+For testing purposes, you could get a CA signed certificate from a free or open certificate authority.
 
 ## Upload the certificate and install it in the scale set
 In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  Upload the certificate to a key vault and then install it on the virtual machine scale set that the cluster is running on.
@@ -132,7 +125,7 @@ Next, open the template file in a text editor and make three updates to support 
                         "enableParallelJobs": true,
                         "nicPrefixOverride": "[variables('subnet0Prefix')]",
                         "certificate": {
-                          "commonNames": "[parameters('certificateCommonName')]",                          
+                          "commonNames": ["[parameters('certificateCommonName')]"],                          
                           "x509StoreName": "[parameters('certificateStoreValue')]"
                         }
                       },
