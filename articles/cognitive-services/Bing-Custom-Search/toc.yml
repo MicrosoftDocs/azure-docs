@@ -38,8 +38,6 @@
       href: define-custom-suggestions.md
     - name: Get custom suggestions
       href: get-custom-suggestions.md
-    - name: Analyze your traffic
-      href: analyze-traffic.md
 - name: References
   items:
     - name: Bing Custom Search API Reference

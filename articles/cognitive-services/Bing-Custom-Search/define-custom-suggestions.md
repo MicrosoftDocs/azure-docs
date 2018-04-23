@@ -37,7 +37,7 @@ To remove a suggestion, click the remove icon next to the suggestion you want to
 [!INCLUDE[publish or revert](./includes/publish-revert.md)]
 
   >[!NOTE]  
-  >It may take up to 24 hours for changes to take effect.
+  >It may take up to 24 hours for Custom Autosuggest configuration changes to take effect.
 
 ## Next steps
 
