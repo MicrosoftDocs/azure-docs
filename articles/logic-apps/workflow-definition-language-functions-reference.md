@@ -52,10 +52,14 @@ action()
 action().outputs.body.<property> 
 ```
 
+#### Parameters
+
 | Parameter | Required | Type | Description | 
 | --------- | -------- | ---- | ----------- | 
 | <*property*> | No | String | The name for the action object's property whose value you want: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId**, and **clientTrackingId**. In the Azure portal, you can find these properties by reviewing a specific run history's details. For more information, see [REST API - Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). | 
 ||||| 
+
+#### Return values
 
 | Return value | Type | Description | 
 | ------------ | -----| ----------- | 
