@@ -29,8 +29,8 @@ For apps that use SAML-based authentication, you can make these apps available t
 
 For apps that use Integrated Windows Authentication (IWA) with Kerberos constrained delegation (KCD), you also use Azure AD Proxy for authentication. However, for authorization to work, a user object is required in the on-premises Windows Server Active Directory. There are two methods you can use to create local user objects that represent your B2B guest users.
 
-- You can use Microsoft Identity Manager (MIM) 2016 SP1 and the MIM management agent for Microsoft Graph. (This requires an Azure AD Premium 1 subscription.)
-- You can use a PowerShell script. (This solution does not require MIM or AD Premium.)
+- You can use Microsoft Identity Manager (MIM) 2016 SP1 and the [MIM management agent for Microsoft Graph](http://go.microsoft.com/fwlink/?LinkId=717495).
+- You can use a PowerShell script. (This solution does not require MIM.)
 
 For details about how to implement these solutions, see [Grant B2B users in Azure AD access to your on-premises applications](active-directory-b2b-hybrid-cloud-to-on-premises.md).
 
