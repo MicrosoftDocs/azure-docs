@@ -4,9 +4,8 @@ description: The glossary explains terms that you might encounter as you work wi
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: v-geberr
@@ -168,6 +167,9 @@ The endpoint includes timezoneOffset. This is the number in minutes you want to 
 |:--|--|
 |-120|subtract 2 hours|
 |30|add 30 minutes|
+
+## <a name="token"></a>Token
+A token is the smallest unit that can be labeled in an entity. Tokenization is based on the application's [culture](luis-supported-languages.md#tokenization).
 
 ## <a name="train"></a>Train
 

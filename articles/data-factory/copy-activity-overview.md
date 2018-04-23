@@ -4,8 +4,8 @@ description: Learn about the copy activity in Azure Data Factory that you can us
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services

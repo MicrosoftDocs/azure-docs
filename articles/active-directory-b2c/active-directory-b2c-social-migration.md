@@ -1,20 +1,17 @@
-﻿---
+---
 title: 'Azure Active Directory B2C: Migrate users with social identities'
 description: 'Discuss core concepts on the migration of users with social identities into Azure AD B2C using Graph API'
 services: active-directory-b2c
 documentationcenter: ''
-author: yoelhor
-manager: joroja
-editor: 
+author: davidmu
+manager: mtillman
+editor: ''
 
-ms.assetid:
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
-ms.date: 14/03/2018
-ms.author: yoelh
+ms.date: 03/03/2018
+ms.author: davidmu
 ---
 
 # Azure Active Directory B2C: Migrate users with social identities
@@ -43,7 +40,7 @@ This article is a continuation of the user migration article, and focuses on soc
     ]
     ```
 
-* Depending on the identity provider, the **Social user ID** is a unique value for a given user `per application` or development account. Configure the Azure AD B2C policy with the same application ID that was previously assigned by the social provider. Or another application `within the same development account`.
+* Depending on the identity provider, the **Social user ID** is a unique value for a given user per application or development account. Configure the Azure AD B2C policy with the same application ID that was previously assigned by the social provider. Or another application within the same development account.
 
 ## Use Graph API to migrate users
 You create the Azure AD B2C user account via [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). 

@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
 
 ---
@@ -84,6 +84,11 @@ There are some important steps to perform before moving a resource. By verifying
   az provider register --namespace Microsoft.Batch
   ```
 
+4. The account moving the resources must have at least the following permissions:
+
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
+
 ## When to call support
 
 You can move most resources through the self-service operations shown in this article. Use the self-service operations to:
@@ -102,6 +107,7 @@ The services that enable moving to both a new resource group and subscription ar
 
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
+* App Service Certificates
 * Application Insights
 * Automation
 * Azure Cosmos DB
@@ -112,7 +118,6 @@ The services that enable moving to both a new resource group and subscription ar
 * Cognitive Services
 * Content Moderator
 * Data Catalog
-* Data Factory
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -122,7 +127,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Key Vault
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Logic Apps
-* Machine Learning
+* Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
 * Media Services
 * Mobile Engagement
 * Notification Hubs
@@ -154,11 +159,14 @@ The services that currently do not enable moving a resource are:
 * AD Domain Services
 * AD Hybrid Health Service
 * Application Gateway
+* Azure Database for MySQL
 * BizTalk Services
+* Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
 * Container Service
-* Express Route
+* Data Factory
 * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
+* Express Route
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Managed Applications
 * Managed Disks - see [Virtual Machines limitations](#virtual-machines-limitations)
@@ -184,13 +192,17 @@ Virtual Machines with certificate stored in Key Vault can be moved to a new reso
 
 ## Virtual Networks limitations
 
+When moving a virtual network, you must also move its dependent resources. For example, you must move gateways with the virtual network.
+
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
 You cannot move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if a Redis Cache resource is deployed into a subnet, that subnet has a resource navigation link.
 
 ## App Service limitations
 
-The limitations for moving App Service resources differ based on whether you are moving the resources within a subscription or to a new subscription.
+The limitations for moving App Service resources differ based on whether you are moving the resources within a subscription or to a new subscription. 
+
+The limitations described in these sections apply to uploaded certificates, not App Service Certificates. You can move App Service Certificates to a new resource group or subscription without limitations. If you have multiple web apps that use the same App Service Certificate, first move all the web apps, then move the certificate.
 
 ### Moving within the same subscription
 

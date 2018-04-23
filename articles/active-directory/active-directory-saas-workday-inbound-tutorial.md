@@ -442,10 +442,10 @@ After installing agent, run the Powershell commands below to configure the agent
 
 **Command #1**
 
-> cd C:\\Program Files\\Microsoft Azure Active Directory Synchronization
+> cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent"
 Agent\\Modules\\AADSyncAgent
 
-> import-module AADSyncAgent.psd1
+> Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
 **Command #2**
 
@@ -462,6 +462,9 @@ Agent\\Modules\\AADSyncAgent
 
 >[!IMPORTANT]
 >There is presently a known issue with global administrator credentials not working if they use a custom domain (example: admin@contoso.com). As a workaround, create and use a global administrator account with an onmicrosoft.com domain (example: admin@contoso.onmicrosoft.com)
+
+>[!IMPORTANT]
+>There is presently a known issue with global administrator credentials not working if they have multi-factor authentication enabled. As a workaround, disable multi-factor authentication for the global administrator.
 
 
 **Command #4**

@@ -2,11 +2,10 @@
 title: Bing Entity Search single-page web app | Microsoft Docs
 description: Shows how to use the Bing Entity Search API in a single-page Web application.
 services: cognitive-services
-author: jerrykindall
+author: v-jerkin
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-entity-search
+ms.component: bing-entity-search
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: v-jerkin

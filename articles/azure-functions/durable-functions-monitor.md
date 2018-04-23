@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: azfuncdf
 ---
 
@@ -22,8 +22,8 @@ The monitor pattern refers to a flexible *recurring* process in a workflow - for
 
 ## Prerequisites
 
-* Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
-* This article assumes you have already gone through the [Hello Sequence](durable-functions-sequence.md) sample walkthrough.
+* [Install Durable Functions](durable-functions-install.md).
+* Complete the [Hello Sequence](durable-functions-sequence.md) walkthrough.
 
 ## Scenario overview
 
@@ -60,7 +60,7 @@ This article explains the following functions in the sample app:
 * `E3_GetIsClear`: An activity function that checks the current weather conditions for a location.
 * `E3_SendGoodWeatherAlert`: An activity function that sends an SMS message via Twilio.
 
-The following sections explain the configuration and code that are used for Azure portal development. The code for Visual Studio development is shown at the end of the article.
+The following sections explain the configuration and code that are used for C# scripting. The code for Visual Studio development is shown at the end of the article.
  
 ## The weather monitoring orchestration (Visual Studio Code and Azure portal sample code)
 

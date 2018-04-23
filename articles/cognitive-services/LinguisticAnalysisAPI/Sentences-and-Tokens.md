@@ -4,9 +4,8 @@ description: Learn about sentence separation and tokenization in the Linguistic 
 services: cognitive-services
 author: DavidLiCIG
 manager: wkwok
-
 ms.service: cognitive-services
-ms.technology: linguisticanalysisapi
+ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: davl

@@ -5,16 +5,16 @@ services: azure-security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
-#editor: 
+editor: 
 
-#ms.assetid:
+ms.assetid:
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/19/2018
-ms.author:tomsh
+ms.author: tomsh
 
 ---
 # Azure Security white papers

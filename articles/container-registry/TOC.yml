@@ -21,6 +21,14 @@
     href: ../aks/tutorial-kubernetes-prepare-app.md
   - name: Service Fabric
     href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+  - name: Build container images (Preview)
+    items:
+    - name: 1 - Build images in Azure
+      href: container-registry-tutorial-quick-build.md
+    - name: 2 - Automate image builds
+      href: container-registry-tutorial-build-task.md
+    - name: 3 - Base image update builds
+      href: container-registry-tutorial-base-image-update.md
   - name: Geo-replication (preview)
     items:
     - name: 1 - Prepare container registry
@@ -33,6 +41,8 @@
   items:
   - name: Container registry SKUs
     href: container-registry-skus.md
+  - name: Image storage
+    href: container-registry-storage.md
   - name: Geo-replication (preview)
     href: container-registry-geo-replication.md
   - name: Registry best practices

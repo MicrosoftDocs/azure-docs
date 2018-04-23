@@ -8,15 +8,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 
 ---
 # Database Transaction Units (DTUs) and elastic Database Transaction Units (eDTUs)
-This article explains Database Transaction Units (DTUs) and elastic Database Transaction Units (eDTUs) and what happens when you hit the maximum DTUs or eDTUs.  
+This article explains Database Transaction Units (DTUs) and elastic Database Transaction Units (eDTUs) and what happens when you hit the maximum DTUs or eDTUs. For specific pricing information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ## What are Database Transaction Units (DTUs)?
-For a single Azure SQL database at a specific performance level within a [service tier](sql-database-single-database-resources.md), Microsoft guarantees a certain level of resources for that database (independent of any other database in the Azure cloud) and providing a predictable level of performance. This amount of resources is calculated as a number of Database Transaction Units or DTUs, and is a blended measure of CPU, memory, I/O (data and transaction log I/O). The ratio amongst these resources was originally determined by an [OLTP benchmark workload](sql-database-benchmark-overview.md) designed to be typical of real-world OLTP workloads. When your workload exceeds the amount of any of these resources, your throughput is throttled - resulting in slower performance and timeouts. The resources used by your workload do not impact the resources available to other SQL databases in the Azure cloud, and the resource used by other workloads do not impact the resources available to your SQL database.
+For a single Azure SQL database at a specific performance level within a [service tier](sql-database-single-database-resources.md), Microsoft guarantees a certain level of resources for that database (independent of any other database in the Azure cloud) and providing a predictable level of performance. This amount of resources is calculated as a number of Database Transaction Units or DTUs, and is a bundled measure of compute, storage, and IO resources. The ratio amongst these resources was originally determined by an [OLTP benchmark workload](sql-database-benchmark-overview.md) designed to be typical of real-world OLTP workloads. When your workload exceeds the amount of any of these resources, your throughput is throttled - resulting in slower performance and timeouts. The resources used by your workload do not impact the resources available to other SQL databases in the Azure cloud, and the resource used by other workloads do not impact the resources available to your SQL database.
 
 ![bounding box](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
@@ -24,7 +24,7 @@ DTUs are most useful for understanding the relative amount of resources between 
 
 To gain deeper insight into the resource (DTU) consumption of your workload, use [Azure SQL Database Query Performance Insight](sql-database-query-performance.md) to:
 
-- Identify the top queries by CPU/Duration/Execution count that can potentially be tuned for improved performance. For example, an I/O intensive query might benefit from the use of [in-memory optimization techniques](sql-database-in-memory.md) to make better use of the available memory at a certain service tier and performance level.
+- Identify the top queries by CPU/Duration/Execution count that can potentially be tuned for improved performance. For example, an IO intensive query might benefit from the use of [in-memory optimization techniques](sql-database-in-memory.md) to make better use of the available memory at a certain service tier and performance level.
 - Drill down into the details of a query, view its text and history of resource utilization.
 - Access performance tuning recommendations that show actions performed by [SQL Database Advisor](sql-database-advisor.md).
 
@@ -48,9 +48,9 @@ If you are looking to migrate an existing on-premises or SQL Server virtual mach
 Pools are suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes. SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. For more information, see [when should an elastic pool be used?](sql-database-elastic-pool.md)
 
 ## What happens when I hit my maximum DTUs?
-Performance levels are calibrated and governed to provide the needed resources to run your database workload up to the max limits allowed for your selected service tier/performance level. If your workload is hitting the limits in one of CPU/Data IO/Log IO limits, you continue to receive the resources at the maximum allowed level, but you are likely to see increased latencies for your queries. These limits do not result in any errors, but rather a slowdown in the workload, unless the slowdown becomes so severe that queries start timing out. If you are hitting limits of maximum allowed concurrent user sessions/requests (worker threads), you see explicit errors. See [Azure SQL Database resource limits]( sql-database-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) for information on limit on resources other than CPU, memory, data I/O, and transaction log I/O.
+Performance levels are calibrated and governed to provide the needed resources to run your database workload up to the max limits allowed for your selected service tier/performance level. If your workload is hitting the limits in one of CPU/Data IO/Log IO limits, you continue to receive the resources at the maximum allowed level, but you are likely to see increased latencies for your queries. These limits do not result in any errors, but rather a slowdown in the workload, unless the slowdown becomes so severe that queries start timing out. If you are hitting limits of maximum allowed concurrent user sessions/requests (worker threads), you see explicit errors. See [Azure SQL Database resource limits]( sql-database-dtu-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) for information on limit on resources other than CPU, memory, data IO, and transaction log IO.
 
 ## Next steps
-* See [Service tier](sql-database-service-tiers.md) for information on the DTUs and eDTUs available for single databases and for elastic pools, as well as limits on resources other than CPU, memory, data I/O, and transaction log I/O.
+* See [Service tier](sql-database-service-tiers.md) for information on the DTUs and eDTUs available for single databases and for elastic pools, as well as limits on resources other than CPU, memory, data IO, and transaction log IO.
 * See [SQL Database Query Performance Insight](sql-database-query-performance.md) to understand your (DTUs) consumption.
 * See [SQL Database benchmark overview](sql-database-benchmark-overview.md) to understand the methodology behind the OLTP benchmark workload used to determine the DTU blend.

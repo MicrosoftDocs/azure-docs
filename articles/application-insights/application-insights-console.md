@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: lmolkova
+ms.author: lmolkova; mbullwin
 
 ---
 
@@ -24,8 +24,8 @@ You need a subscription with [Microsoft Azure](http://azure.com). Sign in with a
 
 ## Getting started
 
-* In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](app-insights-create-new-resource.md). For application type, choose ASP.NET app.
-* Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you created. 
+* In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](app-insights-create-new-resource.md). For application type, choose **General**.
+* Take a copy of the Instrumentation Key. Find the key in the **Essentials** drop-down of the new resource you created. 
 * Install latest [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) package.
 * Set the instrumentation key in your code before tracking any telemetry (or set APPINSIGHTS_INSTRUMENTATIONKEY environment variable). After that, you should be able to manually track telemetry and see it on the Azure portal
 
@@ -37,7 +37,10 @@ telemetryClient.TrackTrace("Hello World!");
 
 * Install latest version of [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL, or some other external dependency calls.
 
-You may initialize and configure Application Insights from the code or using `ApplicationInsights.config` file. Make sure initialization happens as early as possible.
+You may initialize and configure Application Insights from the code or using `ApplicationInsights.config` file. Make sure initialization happens as early as possible. 
+
+> [!NOTE]
+> Instructions referring to **ApplicationInsights.config** are only applicable to apps that are targeting .NET Standard, and do not apply to .NET Core applications. 
 
 ### Using config file
 

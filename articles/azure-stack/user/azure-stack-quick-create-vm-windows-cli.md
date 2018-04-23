@@ -13,25 +13,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 04/19/2018
 ms.author: mabrigg
 ms.custom: mvc
 ---
 
-# Create a Windows virtual machine on Azure Stack using Azure CLI
+# Quickstart: create a Windows virtual machine in Azure Stack using Azure CLI
 
-Azure CLI is used to create and manage Azure Stack resources from the command line. This guide details using Azure CLI to create a Windows Server 2016 virtual machine in Azure Stack. Once the virtual machine is created, you will connect with Remote Desktop, Install IIS, then view the default website. 
+Azure CLI is used to create and manage Azure Stack resources from the command line. This article shows how to use Azure CLI to create and access a Windows Server 2016 virtual machine in Azure Stack.
 
-## Prerequisites 
+## Prerequisites
 
-* Make sure that your Azure Stack operator has added the “Windows Server 2016” image to the Azure Stack marketplace.  
+* Make sure that your Azure Stack operator has added the “Windows Server 2016” image to the Azure Stack marketplace.
 
-* Azure Stack requires a specific version of Azure CLI to create and manage the resources. If you don't have Azure CLI configured for Azure Stack, follow the steps to [install and configure Azure CLI](azure-stack-connect-cli.md).
+* Azure Stack requires a specific version of Azure CLI to create and manage the resources. If you don't have Azure CLI configured for Azure Stack, follow the steps to [install and configure Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure Stack resources are deployed and managed. From your development kit or the Azure Stack integrated system, run the [az group create](/cli/azure/group#az_group_create) command to create a resource group. We have assigned values for all variables in this document, you can use them as is or assign a different value. 
-The following example creates a resource group named myResourceGroup in the local location.
+A resource group is a logical container into which Azure Stack resources are deployed and managed. From your development kit or the Azure Stack integrated system, run the [az group create](/cli/azure/group#az_group_create) command to create a resource group. Values are assigned for all the variables in this document, you can use these values or assign new values. The following example creates a resource group named myResourceGroup in the local location.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -52,8 +51,8 @@ az vm create \
   --location local
 ```
 
-When the VM is created, make note of the *PublicIPAddress* parameter that is output, which you will use to access the VM.
- 
+When the VM is created, the *PublicIPAddress* parameter is output. Write down this address because you need it to access the VM.
+
 ## Open port 80 for web traffic
 
 By default, only RDP connections are allowed to a Windows virtual machine deployed in Azure Stack. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.
@@ -72,7 +71,7 @@ mstsc /v <Public IP Address>
 
 ## Install IIS using PowerShell
 
-Now that you have logged in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
+After logging in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -80,13 +79,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## View the IIS welcome page
 
-With IIS installed and port 80 now open on your VM from the Internet, you can use a web browser of your choice to view the default IIS welcome page. Be sure to use the public IP address you documented above to visit the default page. 
+You can use a web browser of your choice to view the default IIS welcome page. Use the public IP address documented in the previous section to visit the default page.
 
-![IIS default site](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png) 
+![IIS default site](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, VM, and all related resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, the VM, and all related resources.
 
 ```cli
 az group delete --name myResourceGroup

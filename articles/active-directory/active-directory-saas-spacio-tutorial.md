@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/16/2018
 ms.author: jeedes
 
 ---
@@ -110,22 +110,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Spacio Client support team](mailto:support@spac.io) to get these values. 
- 
 
-
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
-
-	![The Certificate download link](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_certificate.png) 
-
-5. Click **Save** button.
+4. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-spacio-tutorial/tutorial_general_400.png)
 
-6. To configure single sign-on on **Spacio** side, you need to send the downloaded **Metadata XML** to [Spacio support team](mailto:support@spac.io). They set this setting to have the SAML SSO connection set properly on both sides.
+5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad. 
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+	![The Certificate download link](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_certificate.png)
+
+6. To configure single sign-on on **Spacio** side, you need to send the **App Federation Metadata Url** to [Spacio support team](mailto:support@spac.io). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 

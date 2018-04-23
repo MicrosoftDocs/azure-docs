@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Bing Videos Search Documentation
+title: Bing Videos Search Documentation 
 metadata:
-  title: Bing Videos Search Documentation - Tutorials, API Reference
+  title: Bing Videos Search Documentation - Tutorials, API Reference - Azure Cognitive Services
   description: Learn how to use Bing Videos Search API to obtain videos from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
   services: cognitive-services
   author: mikedodaro

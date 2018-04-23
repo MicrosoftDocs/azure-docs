@@ -1,13 +1,12 @@
 ---
 title: Manage your account settings in LUIS | Microsoft Docs
-description: Use LUIS website to manage your account settings. 
+description: Use LUIS website to manage your account settings.
 titleSuffix: Azure
 services: cognitive-services
 author: v-geberr
 manager: Kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: v-geberr
@@ -35,6 +34,6 @@ See [Data storage and removal](luis-concept-data-storage.md#accounts) for inform
 
 ## Next steps
 
-Learn more about your [authoring key](manage-keys.md). 
+Learn more about your [authoring key](luis-concept-keys.md#authoring-key). 
 
 [LUIS]: luis-reference-regions.md

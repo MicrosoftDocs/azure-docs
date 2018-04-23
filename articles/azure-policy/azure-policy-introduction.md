@@ -4,8 +4,9 @@ description: Azure Policy is a service in Azure, that you use to create, assign 
 services: azure-policy
 keywords:
 author: bandersmsft
-ms.author: banders; nini
-ms.date: 03/14/2018
+ms.author: banders
+ms.reviewer: nini
+ms.date: 04/18/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
@@ -48,13 +49,17 @@ In Azure Policy, we offer some built-in policies that are available to you by de
 - **Enforce tag and its value**: This policy enforces a required tag and its value to a resource.
 - **Not allowed resource types**: This policy enables you to specify the resource types that your organization cannot deploy.
 
-You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
+You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI. After you make changes to a policy definition, policy reevaluation happens about once an hour.
 
 To learn more about the structures of policy definitions, look at this article - [Policy Definition Structure](policy-definition.md).
 
 ## Policy assignment
 
-A policy assignment is a policy definition that has been assigned to take place within a specific scope. This scope could range from a management group to a resource group. The term *scope* refers to all the resource groups, subscriptions, or management groups that the policy definition is assigned to. Policy assignments are inherited by all child resources. So, if a policy is applied to a resource group, it is applied to all the resources in that resource group. However, you can exclude a subscope from the policy assignment. For example, at the subscription scope, you can assign a policy that prevents the creation of networking resources. However, you exclude one resource group within the subscription that is intended for networking infrastructure. You grant access to this networking resource group to users that you trust with creating networking resources.
+A policy assignment is a policy definition that has been assigned to take place within a specific scope. This scope could range from a management group to a resource group. The term *scope* refers to all the resource groups, subscriptions, or management groups that the policy definition is assigned to. Policy assignments are inherited by all child resources. So, if a policy is applied to a resource group, it is applied to all the resources in that resource group. However, you can exclude a subscope from the policy assignment.
+
+For example, at the subscription scope, you can assign a policy that prevents the creation of networking resources. However, you exclude one resource group within the subscription that is intended for networking infrastructure. You grant access to this networking resource group to users that you trust with creating networking resources.
+
+In another example, you might want to assign a resource type whitelist policy at the management group level. And then assign a more permissive policy (allowing more resource types) on a child management group or even directly on subscriptions. However, this example wouldn't work because policy is an explicit deny system. Instead, you need to exclude the child management group or subscription from the management group-level policy assignment. Then, assign the more permissive policy on the child management group or subscription level. To summarize, if any policy results in a resource getting denied, then the only way to allow the resource is to modify the denying policy.
 
 For more information on setting policy definitions and assignments, see [Create a policy assignment to identify non-compliant resources in your Azure environment](assign-policy-definition.md).
 

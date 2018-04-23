@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Custom Policies Landing Page | Microsoft Doc
 description: Developing consumer-facing applications with Azure Active Directory B2C using Custom Policies
 services: active-directory-b2c
 documentationcenter: ''
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
+editor: ''
 
-ms.assetid: f2079f53-a637-4f2d-b3a0-61a9647ad433
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 5/06/2017
-ms.author: parakhj
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: Sign up and sign in consumers in your applications using custom policies

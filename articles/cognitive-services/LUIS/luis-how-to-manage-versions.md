@@ -3,43 +3,42 @@ title: Manage versions in LUIS apps in Azure | Microsoft Docs
 description: Learn how to manage versions in Language Understanding (LUIS) applications.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/13/2017
-ms.author: v-geberr;
+ms.date: 03/29/2017
+ms.author: v-geberr
 ---
 
 # Manage versions
 
-Create different models of the same app with [versions](luis-concept-version.md). 
+Each time you work on the model, create a different [version](luis-concept-version.md) of the app. 
 
 ## Set active version
 To work with versions, open your app by selecting its name on **My Apps** page, and then select **Settings** in the top bar.
 
 ![Versions page](./media/luis-how-to-manage-versions/settings.png)
 
-The **Settings** page allows you to configure settings for the entire app including versions, and contributors. 
+The **Settings** page allows you to configure settings for the entire app including versions, and collaborators. 
 
 ## Clone a version
-1. On the **Settings** page, after the App Settings and Contributors sections, find the row with the version you want to clone. Select the three dots (...) on the far-right. 
+1. On the **Settings** page, after the App Settings and Collaborators sections, find the row with the version you want to clone. Select the three dots (...) on the far-right. 
 
     ![Version row properties](./media/luis-how-to-manage-versions/version-section.png)
 
-2. Select **Clone Version** from the list.
+2. Select **Clone** from the list.
 
     ![Version row properties choice](./media/luis-how-to-manage-versions/version-three-dots-modal.png)
 
-3. In the **Clone Version** dialog box, type a name for the new version such as "0.2".
+3. In the **Clone version** dialog box, type a name for the new version such as "0.2".
 
    ![Clone Version dialog box](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
  
  > [!NOTE]
  > Version ID can consist only of characters, digits or '.' and cannot be longer than 10 characters.
  
- A new version with the specified name is created and added to the list.
+ A new version with the specified name is created and set as the active version.
  
   ![Version is created and added to the list](./media/luis-how-to-manage-versions/new-version.png)
 
@@ -47,7 +46,7 @@ The **Settings** page allows you to configure settings for the entire app includ
  > As shown in the preceding image, a published version is associated with a colored mark, indicating the type of slot where it has been published: Production (green), Staging (red) and both (black). The training and publishing dates are displayed for each published version.
 
 ## Set active version
-1. On the **Settings** page, in the **Versions** list, on the row of the version you want to clone, select the three dots (...) at the far right.
+1. On the **Settings** page, in the **Versions** list, select the three dots (...) at the far right.
 
 2. From the pop-up list, select **Set as active**.
 
@@ -78,19 +77,27 @@ You can export a version to a JSON file.
 
 **To export a version:**
 
-1. On the **Settings** page, in the **Versions** list, on the row of the version you want to clone, select the three dots (...) at the far right.
+1. On the **Settings** page, in the **Versions** list, select the three dots (...) at the far right.
 
-2. Select **Export version** in the pop-up list of actions and select where you want to save the file.
+2. Select **Export** in the pop-up list of actions and select where you want to save the file.
 
 ## Delete a version
 You can delete versions, but you have to keep at least one version of the app. You can delete all versions except the active version. 
 
-**To delete a version:** 
+1. On the **Settings** page, in the **Versions** list, select the three dots (...) at the far right.
 
-1. On the **Settings** page, in the **Versions** list, on the row of the version you want to delete, select the three dots (...) at the far right.
+2. Select **Delete** in the pop-up list of actions and select where you want to save the file.
 
-2. Select **Delete version** in the pop-up list of actions and select where you want to save the file.
-
-    ![Delete version confirmation](./media/luis-how-to-manage-versions/delete-version.png) 
+    ![Delete version confirmation](./media/luis-how-to-manage-versions/delete-menu.png) 
 
 
+## Rename a version
+You can rename versions as long as the version name is not already in use.  
+
+1. On the **Settings** page, in the **Versions** list, select the three dots (...) at the far right.
+
+2. Select **Rename** in the pop-up list of actions.
+
+3. Enter the new version name and select **Done**.
+
+    ![Rename version confirmation](./media/luis-how-to-manage-versions/rename-popup.png) 
