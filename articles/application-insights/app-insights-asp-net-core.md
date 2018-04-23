@@ -183,7 +183,7 @@ Now that you have completed the previous steps you can test out and confirm that
 
    ![Screenshot of Live Metrics Stream](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
 
-   (If your PowerShell script is still running you should see live metrics, if has stopped run the script again with Live Stream open.)
+   (If your PowerShell script is still running you should see live metrics, if it has stopped run the script again with Live Stream open.)
 
 ## App Insights SDK Comparison
 
