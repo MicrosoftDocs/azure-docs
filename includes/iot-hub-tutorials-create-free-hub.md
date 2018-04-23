@@ -22,7 +22,7 @@ To create an IoT Hub using the Azure portal:
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | The following screenshot uses the name **tutorials-iot-hub**. You must choose your own unique name when you complete this step. |
+    | Name | The following screenshot uses the name **tutorials-iot-hub**. You must choose your own unique name when you create your hub. |
     | Pricing and scale tier | F1 Free. You can only have one free tier hub in a subscription. |
     | IoT Hub units | 1 |
     | Device-to-cloud partitions | 2 partitions |

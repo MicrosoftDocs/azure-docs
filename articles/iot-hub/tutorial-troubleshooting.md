@@ -25,13 +25,13 @@ ms.service: iot-hub
 
 # Tutorial: Troubleshoot device connectivity
 
-In this tutorial, you use a selection of Azure IoT Hub portal tools and Azure CLI commands to troubleshoot device connectivity issues. This tutorial also uses a simple device simulator that you run on your desktop machine.
+In this tutorial, you use Azure IoT Hub portal tools and Azure CLI commands to troubleshoot device connectivity issues. This tutorial also uses a simple device simulator that you run on your desktop machine.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Check your device keys
+> * Check your device authentication
 > * Check device-to-cloud connectivity
 > * Check cloud-to-device connectivity
 > * Check device twin synchronization
@@ -64,7 +64,7 @@ If you created a free or standard tier IoT hub in a previous quickstart or tutor
 
 [!INCLUDE [iot-hub-tutorials-create-free-hub](../../includes/iot-hub-tutorials-create-free-hub.md)]
 
-## Device keys
+## Check device authentication
 
 A device must authenticate with your hub before it can exchange any data with the hub. You can use the **IoT Devices** tool in the **Device Management** section of the portal to manage your devices and check the authentication keys they're using. In this section of the tutorial, you add a new test device, retrieve its key, and check that the test device can connect to the hub. Later you reset the authentication key to observe what happens when a device tries to use an outdated key. This section of the tutorial uses the Azure portal to create, manage, and monitor a device, and the sample Node.js device simulator.
 
@@ -174,7 +174,7 @@ If the outbound port is blocked by a firewall, the device can't connect:
 
 ![Port blocked](media/tutorial-troubleshooting/port-blocked.png)
 
-## Device-to-cloud connectivity
+## Check device-to-cloud connectivity
 
 After a device connects, it typically tries to send telemetry to your IoT hub. This section shows you how you can verify that the telemetry sent by the device reaches your hub.
 
@@ -209,7 +209,7 @@ Set the time range to **Last 30 minutes**, select your IoT hub in the **Resource
 
 It takes a few minutes for the metrics to become available after you start the simulated device. You can also click **Refresh** on the chart to update the display.
 
-## Cloud-to-device connectivity
+## Check cloud-to-device connectivity
 
 This section shows how you can make a test direct method call to a device to check cloud-to-device connectivity. You run a simulated device on your development machine to listen for direct method calls from your hub.
 
@@ -233,7 +233,7 @@ When the simulated device successfully receives the direct method call, it sends
 
 ![Receive direct method acknowledgement](media/tutorial-troubleshooting/method-acknowledgement.png)
 
-## Twin synchronization
+## Check twin synchronization
 
 Devices use twins to synchronize state between the device and the hub. In this section, you use CLI commands to send _desired properties_ to a device and read the _reported properties_ sent by the device.
 
