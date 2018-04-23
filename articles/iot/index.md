@@ -72,7 +72,7 @@ Azure IoT technologies and solutions are designed to facilitate the end-to-end d
                         <h3>Edge computing</h3>
                         <a href="/azure/iot-edge">IoT Edge</a><br/>
                         <a href="/azure/iot-edge/how-iot-edge-works">What is IoT Edge?</a><br/>
-                        <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks">IoT Device SDKs</a>                        
+                        <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks">IoT Device SDKs</a>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@ Azure IoT technologies and solutions are designed to facilitate the end-to-end d
                     <div class="cardText">
                         <h3>Provision devices</h3>
                         <a href="/azure/iot-edge">IoT Hub Device Provisioning Service</a><br/>
-                        <a href="/azure/iot-hub/iot-hub-devguide-identity-registry">Understand the identity registry in your IoT hub</a><br/>            
+                        <a href="/azure/iot-hub/iot-hub-devguide-identity-registry">Understand the identity registry in your IoT hub</a>
                     </div>
                 </div>
             </div>
@@ -101,19 +101,14 @@ Azure IoT technologies and solutions are designed to facilitate the end-to-end d
                         <a href="https://github.com/Azure/azure-iot-cli-extension">Azure CLI IoT Extension</a><br/>
                         <a href="/azure/iot-hub/iot-hub-devguide-sdks">Azure IoT SDKs</a><br/>
                         <a href="/rest/api/iothub">IoT Hub (REST)</a><br/>
-                        <a href="/rest/api/iot-dps">IoT Hub Device Provisioning Service (REST)</a><br/>                                      
+                        <a href="/rest/api/iot-dps">IoT Hub Device Provisioning Service (REST)</a><br/>
                         <a href="/rest/api/location-based-services-management/">Location Based Services management (REST)</a><br/>
                         <a href="/rest/api/location-based-services/">Location Based Services data (REST)</a><br/>
                         <a href="/rest/api/time-series-insights-management/">Time Series Insights management (REST)</a><br/>
-                        <a href="/rest/api/time-series-insights/">Time Series Insights data (REST)</a><br/>       
+                        <a href="/rest/api/time-series-insights/">Time Series Insights data (REST)</a>
                     </div>
                 </div>
             </div>
         </div>
     </li>                   
 </ul>
-
-
-href="">Location Based Services management</a></p><p><a href="">Location Based Services functional</a></p><p><a href=""></a></p><p><a href="">Time Series Insights</a></p>
-
-
