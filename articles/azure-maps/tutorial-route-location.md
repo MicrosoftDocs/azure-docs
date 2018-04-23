@@ -32,7 +32,7 @@ Before you proceed, make sure to [create your Azure Maps account](./tutorial-sea
 
 ## Get address coordinates
 
-Use the following steps to create a static HTML page embedded with the Maps' Map Control API. 
+Use the following steps to create a static HTML page embedded with the map control API. 
 
 1. On your local machine, create a new file and name it **MapRoute.html**. 
 2. Add the following HTML components to the file:
@@ -72,7 +72,7 @@ Use the following steps to create a static HTML page embedded with the Maps' Map
 
     </html>
     ```
-    Note how the HTML header embeds the resource locations for CSS and JavaScript files for the Azure Maps library. Notice also the *script* segment in the body of the HTML file, that will contain the inline JavaScript code to access the Azure Location Based Service's APIs.
+    Note how the HTML header embeds the resource locations for CSS and JavaScript files for the Azure Maps library. Notice also the *script* segment in the body of the HTML file, that will contain the inline JavaScript code to access the Azure Maps APIs.
 
 3. Add the following JavaScript code to the *script* block of the HTML file. Use the primary key from your Maps account in the script.
 
