@@ -1,3 +1,22 @@
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file 
+---
 
 ## Set up your project
 
@@ -51,25 +70,6 @@ In this step, you create a class to handle interaction with MSAL, such as handli
     ```
 
 ## Create the application UI
----
-title: include file
-description: include file
-services: active-directory
-documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
-editor: ''
-
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
-ms.custom: include file 
----
 
 This section shows how an application can query a protected back-end server such as Microsoft Graph. 
 
