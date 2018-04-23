@@ -36,7 +36,9 @@ A control for selecting a size for one or more virtual machine instances.
   ],
   "constraints": {
     "allowedSizes": [],
-    "excludedSizes": []
+    "excludedSizes": [],
+    "numAvailabilityZonesRequired": 3,
+    "zone": "3"
   },
   "osPlatform": "Windows",
   "imageReference": {
@@ -62,6 +64,7 @@ used to determine the hardware costs of the virtual machines.
 - `count` is used to set the appropriate multiplier for the element. It supports
 a static value, like **2**, or a dynamic value from another element, like
 `[steps('step1').vmCount]`. The default value is **1**.
+- The `numAvailabilityZonesRequired` can be 1, 2, or 3.
 
 ## Sample output
 ```json

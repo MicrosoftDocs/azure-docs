@@ -55,7 +55,7 @@ validation messages are used. The default value is **null**.
 ## Sample output
 
 ```json
-"foobar"
+"my value"
 ```
 
 ## Next steps
