@@ -87,4 +87,4 @@ A LUIS app operates successfully until the endpoint quota runs out. If you are c
 ## Next steps
 
 * Learn how to [plan your app](plan-your-app.md) in your LUIS app.
-
+[LUIS]: luis-reference-regions.md#luis-website
