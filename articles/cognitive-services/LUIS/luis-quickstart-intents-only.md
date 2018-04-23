@@ -69,7 +69,7 @@ Once the type of utterance is identified, LUIS is done. The calling application 
 
     ![Trained status bar](./media/luis-quickstart-intents-only/trained.png)
 
-9. In the top right side of the LUIS website, select the **Publish** button. Select the **Publish to product slot**. Publishing is complete when you see the green status bar at the top of the website confirming success.
+9. In the top right side of the LUIS website, select the **Publish** button. Select the **Publish to production slot**. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 10. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `When do you open next?`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the example utterances in step 4 so it is a good test and should return the `GetStoreInfo` utterances. 
 
