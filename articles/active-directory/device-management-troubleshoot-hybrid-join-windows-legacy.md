@@ -46,17 +46,17 @@ This article provides you with troubleshooting guidance on how to resolve potent
 
 **What you should know:** 
 
-- The maximum number of devices per user is device-centric. For example, if *jdoe* and *jharnett* sign in to a device, a separate registration (DeviceID) is created for each of them in the **USER** info tab.  
+- The maximum number of devices per user is device-centric. For example, if *jdoe* and *jharnett* sign-in to a device, a separate registration (DeviceID) is created for each of them in the **USER** info tab.  
 
 - The initial registration / join of devices is configured to perform an attempt at either logon or lock / unlock. There could be 5-minute delay triggered by a task scheduler task. 
 
-- A reinstall of the operating system or a manual unregister and re-register may create a new registration on Azure AD and results in multiple entries under the USER info tab in the Azure portal. 
+- Reinstalling the operating system or manual re-registrations may create a new registration on Azure AD, which results in multiple entries under the USER info tab in the Azure portal. 
 
 ## Step 1: Retrieve the registration status 
 
 **To verify the registration status:**  
 
-1. Sign-on with the user account that has performed a hybrid Azure AD join.
+1. Sign on with the user account that has performed a hybrid Azure AD join.
 
 2. Open the command prompt as an administrator 
 
@@ -101,7 +101,7 @@ You can also find the status information in the event log under: **Applications 
   
 **The most common causes for a failed hybrid Azure AD join are:** 
 
-- Your computer is neither on your organization’s internal network nor on a VPN with a connection to your on-premises AD domain controller.
+- Your computer is neither connected to your organization’s internal network nor to a VPN with a connection to your on-premises AD domain controller.
 
 - You are logged on to your computer with a local computer account. 
 
@@ -109,7 +109,7 @@ You can also find the status information in the event log under: **Applications 
 
   - The federation server has been configured to support **WIAORMULTIAUTHN**. 
 
-  - You computer's forest has no Service Connection Point object that points to your verified domain name in Azure AD 
+  - Your computer's forest has no Service Connection Point object that points to your verified domain name in Azure AD 
 
   - A user has reached the limit of devices. 
 
