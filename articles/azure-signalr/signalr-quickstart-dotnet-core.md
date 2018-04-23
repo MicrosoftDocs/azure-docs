@@ -1,6 +1,6 @@
 ---
 title: Quickstart to learn how to use SignalR with Azure | Microsoft Docs
-description: Use SignalR to create a chat room.
+description: A quickstart for using SignalR to create a chat room with ASP.NET Core MVC apps.
 services: signalr
 documentationcenter: ''
 author: wesmc7777
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 04/17/2018
 ms.author: wesmc
-
+#Customer intent: As an ASP.NET Core developer, I want to push real-time data in my ASP.NET Core apps. So that my clients are updated without the need to poll, or request updates.
 ---
 # Quickstart: Create a chat room with SignalR Service
 
