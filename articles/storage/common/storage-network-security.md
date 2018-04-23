@@ -34,11 +34,9 @@ Once network rules are applied, they are enforced for all requests.  SAS tokens 
 
 Virtual Machine Disk traffic (including mount and unmount operations, and disk IO) is **not** affected by network rules.  REST access to page blobs is protected by network rules.
 
-> [!NOTE]
-> Backup and Restore of Virtual Machines using unmanaged disks in storage accounts with network rules applied is not currently supported.  For more information, see [Limitations when backing up and restoring a VM](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
->
-
 Classic Storage accounts **do not** support Firewalls and Virtual Networks.
+
+Backup and Restore of Virtual Machines using unmanaged disks in storage accounts with network rules applied is supported via creating an exception as documented in the [Exceptions](/storage/common/storage-network-security#exceptions) section of this article.  Firewall exceptions are not applicable with Managed Disks as they are already managed by Azure.
 
 ## Change the default network access rule
 By default, storage accounts accept connections from clients on any network.  To limit access to selected networks, you must first change the default action.
@@ -288,6 +286,7 @@ When the "Trusted Microsoft Services" exception is enabled, the following servic
 
 |Service|Resource Provider Name|Purpose|
 |:------|:---------------------|:------|
+|Azure Backup|Microsoft.Backup|Perform backups and restores of unmanaged disks in IAAS virtual machines. (not required for managed disks). [Learn more](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Custom image creation and artifact installation.  [Learn more](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Enable Blob Storage event publishing.  [Learn more](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Archive data with Event Hubs Capture.  [Learn More](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|

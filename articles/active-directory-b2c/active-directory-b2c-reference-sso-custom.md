@@ -65,6 +65,9 @@ This provider can be used for storing claims in a session. This provider is typi
 
 To add claims in the session, use the `<PersistedClaims>` element of the technical profile. When the provider is used to repopulate the session, the persisted claims are added to the claims bag. `<OutputClaims>` is used for retrieving claims from the session.
 
+> [!NOTE]
+> When using the DefaultSSOSessionProvider to store claims in a session, you need to ensure that any claims that need to be returned to the application or used by pre-conditions in subsequent steps, are stored in the session or augmented by a read from the users profile in directory. This will ensure that your authentication journeys will not fail on missing claims.
+
 ### ExternalLoginSSOSessionProvider
 
 This provider is used to suppress the “choose identity provider” screen. It is typically referenced in a technical profile configured for an external identity provider, such as Facebook. 
