@@ -1,6 +1,6 @@
 ---
-title: Access reporting - Azure RBAC | Microsoft Docs
-description: Generate a report that lists all changes in access to your Azure subscriptions with Role-Based Access Control over the past 90 days.
+title: View activity logs for RBAC changes | Microsoft Docs
+description: View activity logs for role-based access control changes for the past 90 days.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -32,7 +32,7 @@ Here are the RBAC-related operations that are logged in Activity Log:
 - Create role assignment
 - Delete role assignment
 
-## View activity logs with the Azure portal
+## Portal
 
 The easiest way to get started is to view the activity logs with the Azure portal. The following screenshot shows an example of an activity log that has been filtered to display the **Administrative** category along with role definition and role assignment operations. It also includes a link to download the logs as a CSV file.
 
@@ -40,9 +40,9 @@ The easiest way to get started is to view the activity logs with the Azure porta
 
 For information more information, see [View events in activity log](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
-## View activity logs using Azure PowerShell
+## Azure PowerShell
 
-To view activity logs with the PowerShell use the [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) command.
+To view activity logs with PowerShell use the [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) command.
 
 This command lists all role assignment changes in a subscription for the past seven days:
 
@@ -79,7 +79,7 @@ Properties              :
 
 ```
 
-## View activity logs using Azure CLI
+## Azure CLI
 
 To view activity logs with the Azure CLI use the [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) command.
 
