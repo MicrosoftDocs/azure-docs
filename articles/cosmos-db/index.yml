@@ -115,11 +115,13 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: SQL APIs
+    - title: SQL API
       html: <p><a href="sql-api-sdk-dotnet">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">.NET Change feed</a></p><p><a href="sql-api-sdk-dotnet-core">.NET Core</a></p><p><a href="sql-api-sdk-node">Node.js</a></p><p><a href="sql-api-sdk-async-java">Async Java</a></p><p><a href="sql-api-sdk-java">Java</a></p><p><a href="sql-api-sdk-python">Python</a></p><p><a href="/rest/api/cosmos-db/">REST</a></p><p><a href="/rest/api/cosmos-db-resource-provider/">REST Resource Provider</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
-    - title: MongoDB APIs
+    - title: MongoDB API
       html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Wire Protocol</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
-    - title: Table APIs
+    - title: Table API
       html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.js</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
-    - title: Gremlin APIs
+    - title: Gremlin API
       html: <p><a href="http://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="http://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>
+    - title: Cassandra API
+      html: <p><a href="https://github.com/datastax/nodejs-driver">Node.js</a></p><p><a href="https://github.com/datastax/python-driver">Python</a></p><p><a href="https://github.com/datastax/java-driver">Java</a></p>

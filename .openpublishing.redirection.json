@@ -661,11 +661,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/active-directory/active-directory-saas-zendesk-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/active-directory/active-directory-saas-samanage-provisioning-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": false
