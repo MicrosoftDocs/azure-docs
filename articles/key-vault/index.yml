@@ -30,7 +30,7 @@ sections:
       text: Azure CLI
       href: /azure/key-vault/quick-create-cli
     - image: 
-        src: media/index/powershell.svg
+        src: media/index/logo_powershell.svg
       text: PowerShell
       href: /azure/key-vault/quick-create-powershell
     - image: 
