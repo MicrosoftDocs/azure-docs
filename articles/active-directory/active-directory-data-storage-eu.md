@@ -24,7 +24,7 @@ Most identity data for European-based companies stays within the European datace
 
 - **Identity-related attributes**
 
-    A small set of identity-related info is replicated to the United States (US). However, Microsoft is actively working to remove this requirement for the future.
+    A small set of identity-related info is replicated to the United States (US):
 
     -   SourceAnchor
     -   PasswordHash
@@ -40,7 +40,7 @@ Most identity data for European-based companies stays within the European datace
 
 - **Microsoft Azure multi-factor authentication (MFA) and Azure AD self-service password reset (SSPR)**
 
-    Multi-factor authentication stores all at-rest customer data in European datacenters. However, second-factor authentication and its related personal data can be completed in the US while using MFA or SSPR (all authentication types). Some MFA and SSPR logs may also be stored in the US for 30 days, regardless of the authentication type.
+    Multi-factor authentication stores all customer data at-rest in European datacenters. However, second-factor authentication and its related personal data can be completed in the US while using MFA or SSPR (all authentication types). Some MFA and SSPR logs may also be stored in the US for 30 days, regardless of the authentication type.
 
 - **Microsoft Azure role-based access control (RBAC)**
 
@@ -48,7 +48,7 @@ Most identity data for European-based companies stays within the European datace
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
 
-    Azure AD B2C stores all at-rest customer data in European datacenters. However, operational logs (with all personal data removed) stay at the location from where the person is accessing the services. All policy configuration data is currently stored only in the US. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-policies) article.
+    Azure AD B2C stores all customer data at-rest in European datacenters. However, operational logs (with all personal data removed) stay at the location from where the person is accessing the services. All policy configuration data is currently stored only in the US. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-policies) article.
 
 - **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
     
