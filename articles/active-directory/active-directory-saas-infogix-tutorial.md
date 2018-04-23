@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 04/23/2018
 ms.author: jeedes
 
 ---
@@ -106,7 +106,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Identifier** textbox, type a URL: `https://data3sixty.com/ui`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.preview.data3sixty.com/sso/acs`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.data3sixty.com/sso/acs`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -115,21 +115,47 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.data3sixty.com`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Infogix Data3Sixty Govern Client support team](maito:data3sixtysupport@infogix.com) to get these values. 
+	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Infogix Data3Sixty Govern Client support team](maito:data3sixtysupport@infogix.com) to get these values.
 
-5. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
+5. Infogix Data3Sixty Govern application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
+	
+	![Configure Single Sign-On attb](./media/active-directory-saas-infogix-tutorial/tutorial_infogix_attribute.png)
+	
+6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
+	
+	| Attribute Name | Attribute Value |
+	| ------------------- | -------------------- |    
+	| firstname 		  | user.givenname |
+	| lastname 		  | user.surname |
+	| username       | user.mail    |
+	
+	a. Remove the highlighted existing attributes. click **Add attribute** to open the **Add Attribute** dialog.
 
-	![The Certificate download link](./media/active-directory-saas-infogix-tutorial/tutorial_infogix_certificate.png) 
+	![Configure Single Sign-On Add](./media/active-directory-saas-infogix-tutorial/tutorial_attribute_04.png)
 
-6. Click **Save** button.
+	![Configure Single Sign-On Addattb](./media/active-directory-saas-infogix-tutorial/tutorial_attribute_05.png)
+
+	b. In the **Name** textbox, type the attribute name shown for that row.
+
+	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. Leave the **Namespace** blank.
+	
+	e. Click **Ok**.
+
+7. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
+
+	![The Certificate download link](./media/active-directory-saas-infogix-tutorial/tutorial_infogix_certificate.png)
+
+8. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-infogix-tutorial/tutorial_general_400.png)
 	
-7. On the **Infogix Data3Sixty Govern Configuration** section, click **Configure Infogix Data3Sixty Govern** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+9. On the **Infogix Data3Sixty Govern Configuration** section, click **Configure Infogix Data3Sixty Govern** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Infogix Data3Sixty Govern Configuration](./media/active-directory-saas-infogix-tutorial/tutorial_infogix_configure.png) 
 
-8. To configure single sign-on on **Infogix Data3Sixty Govern** side, you need to send the downloaded **Certificate (Raw), Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Infogix Data3Sixty Govern support team](maito:data3sixtysupport@infogix.com). They set this setting to have the SAML SSO connection set properly on both sides.
+10. To configure single sign-on on **Infogix Data3Sixty Govern** side, you need to send the downloaded **Certificate (Raw), Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Infogix Data3Sixty Govern support team](maito:data3sixtysupport@infogix.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
