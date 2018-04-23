@@ -30,7 +30,9 @@ This tutorial assumes that you have acquired the OpenSSL binaries. You may eithe
 ## Create X.509 certificates
 The following steps show an example of how to create the X.509 root certificates locally. 
 
-1. Open a PowerShell window as an *Administrator*. 
+1. Open a PowerShell window as an *Administrator*.  
+   **NOTE:** You must open this in PowerShell itself, not PowerShell ISE, Visual Studio Code, or other tools that wrap the underlying PowerShell console.  Using a non-console based PowerShell will result in `openssl` commands below hanging.
+
 2. Navigate to your working directory. Run the following script to set the global variables. 
     ```PowerShell
     $openSSLBinSource = "<full_path_to_the_binaries>\OpenSSL\bin"
