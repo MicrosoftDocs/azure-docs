@@ -26,11 +26,11 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /azure/media/index/cli.svg
+        src: media/index/cli.svg
       text: Azure CLI
       href: /azure/key-vault/quick-create-cli
     - image: 
-        src: /azure/media/index/powershell.svg
+        src: media/index/powershell.svg
       text: PowerShell
       href: /azure/key-vault/quick-create-powershell
     - image: 
