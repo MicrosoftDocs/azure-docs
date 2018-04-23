@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.component: design
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan

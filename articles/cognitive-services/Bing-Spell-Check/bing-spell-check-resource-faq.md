@@ -4,9 +4,8 @@ description: Get answers to common questions about Microsoft Cognitive Services 
 services: cognitive-services
 author: HeidiSteen
 manager: jhubbard
-
 ms.service: cognitive-services
-ms.technology: spell-check
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: heidist

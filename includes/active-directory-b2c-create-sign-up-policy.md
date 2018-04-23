@@ -1,4 +1,4 @@
-To enable sign-up on your application, you need to create a sign-up policy. This policy describes the experiences that consumers go through during sign-up and the contents of tokens that the application receives on successful sign-ups.
+If you want to only enable sign-up on your application, you use a **sign-up** policy. This policy describes the experiences that customers go through during sign-up and the contents of tokens that the application receives on successful sign-ups.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

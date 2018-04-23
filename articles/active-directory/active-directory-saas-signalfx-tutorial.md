@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
 
 ---
@@ -138,49 +138,33 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	e. Click **Ok**.
  
-6. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+6. On the **SAML Signing Certificate** section, perform the following steps: 
 
-	![The Certificate download link](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png) 
+	![The Certificate download link](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png)
+
+	a. Click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+
+	b. Click **Certificate(Base64)** and then save the certificate file on your computer.
 
 7. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-signalfx-tutorial/tutorial_general_400.png)
 
-8. To generate the **Metadata url**, perform the following steps:
-
-    a. Click **App registrations**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appregistrations.png)
-   
-    b. Click **Endpoints** to open **Endpoints** dialog box.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpointicon.png)
-
-    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpoint.png)
-     
-    d. Now go to the property page of **SignalFx** and copy the **Application Id** using **Copy** button and paste it into notepad.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appid.png)
-
-    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-9. On the **SignalFx Configuration** section, click **Configure SignalFx** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
+8. On the **SignalFx Configuration** section, click **Configure SignalFx** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
 
 	![SignalFx Configuration](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-10. Sign-on to your SignalFx company site as administrator.
+9. Sign-on to your SignalFx company site as administrator.
 
-11. In SignalFx, on the top click **Integrations** to open the Integrations page.
+10. In SignalFx, on the top click **Integrations** to open the Integrations page.
 
 	![SignalFx Integration](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intg.png)
 
-12. Click on **Azure Active Directory** tile under **Login Services** section.
+11. Click on **Azure Active Directory** tile under **Login Services** section.
  
 	![SignalFx saml](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_saml.png)
 
-13. Click on **NEW INTEGRATION** and under the **INSTALL** tab perform the following steps:
+12. Click on **NEW INTEGRATION** and under the **INSTALL** tab perform the following steps:
  
 	![SignalFx samlintgpage](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -192,12 +176,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. In the **Issuer URL** textbox, paste the value of **SAML Entity ID**, which you have copied from the Azure portal.
 
-	e. In the **Metadata URL** textbox, paste the **Metadata url** pattern which you have generated from the Azure portal.
+	e. In the **Metadata URL** textbox, paste the **App Federation Metadata Url** which you have copied from the Azure portal.
 
 	f. Click **Save**.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### Create an Azure AD test user
 
