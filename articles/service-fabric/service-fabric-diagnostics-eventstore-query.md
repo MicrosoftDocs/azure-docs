@@ -32,6 +32,7 @@ The EventStore APIs can be accessed directly via a REST endpoint, or programmati
 
 In addition to these, there are optional parameters available as well, such as:
 * `timeout`: override the default 60 seconds timeout for performing the request operation
+* `eventstypesfilter`: this gives you the option to filter for specific event types
 * `ExcludeAnalysisEvents`: do not return 'Analysis' events. By default, EventStore queries will return with "analysis" events where possible - analysis events are richer operational channel events that contain additional context or information beyond a regular Service Fabric event and provide more depth.
 * `SkipCorrelationLookup`: do not look for potential correlated events in the cluster. By default, the EventStore will attempt to correlate events across a cluster, and link your events together when possible. 
 
@@ -119,11 +120,25 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 
 ## Sample scenarios and queries
 
-Here are few examples on how you can call the Event Store REST APIs to help identify and diagnose issues in your cluster.
+Here are few examples on how you can call the Event Store REST APIs to understand the status of your cluster.
 
-1. Failure to update your cluster's Service Fabric version
-If you are you unable to update your cluster's version, you should start by looking at whether or not the upgrade was iniated correctly and where it failed. Use this query to see all “cluster” level events: `https://mycluster.cloudapp.net:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-03-24T17:01:51Z&endtimeutc=2019-03-29T17:02:51Z`. You'll see various events, including the successful initiation of the upgrade, and the UDs for which the upgrade rolled through succesfully. You will also see events for the point at which the rollback started and corresponding health events.
+1. Cluster upgrades
+To see the last time your cluster was successfully or attempted to be upgraded last week, you can query the APIs for recently completed upgrades to your cluster, by quering for the "ClusterUpgradeComplete" events in the EventStore:
+`https://mycluster.cloudapp.net:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&eventstypesfilter=ClusterUpgradeComplete`
+
+1. Cluster upgrade issues
+Similarly, if there were issues with a recent cluster upgrade, you could query for all events for the cluster entity, using the following query: 
+`https://mycluster.cloudapp.net:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+You'll see various events, including the initiation of upgrades and each UD for which the upgrade rolled through succesfully. You will also see events for the point at which the rollback started and corresponding health events.
+
+1. Application events
+You can also use the EventStore APIs to track your recent application deployments and upgrades. Use the following query to see all application related events in your cluster: `https://mycluster.cloudapp.net:19080/EventsStore/Applications/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+
 1. Historical health for an application
-Sometimes we see that upgrading an application or a service version changes the stability of that application, i.e., if you've rolled out a new version of your application and seen it go unhealthy more than it used to, or its become more stable. You can use this query to get all the application health events for the past week that your cluster has written, and see if you can correlate changes in health stability with respect to the upgrade: `https://mycluster.cloudapp.net:19080/EventsStore/Application/Events?api-version=6.2-preview&starttimeutc=2017-03-24T17:01:51Z&endtimeutc=2019-03-29T17:02:51Z&EventsTypesFilter=ProcessApplicationReportOperational`. Historical health understands extends to several more scenarios as well, and should be one of the queries you should be using to check how your worklaods are holding up over time in your cluster. 
+In addition to just seeing application lifecycle events, you may also want to see historical data on the health of a specific application. You can do this by specifying the application name for which you want to gather the data. Use this query to get all the application health events: `https://mycluster.cloudapp.net:19080/EventsStore/Applications/myApp/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ProcessApplicationReport`. If you want to include health events that may have expired (gone passed their time to live (TTL)), add `,ExpiredDeployedApplicationEvent` to the end of the query, to filter on two types of events.
+
+1. Container state
+To track each of your containers coming up or going down over the last few days, use `https://mycluster.cloudapp.net:19080/EventsStore/Containers/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z`.
+
 1. Partition reconfiguration
-You may see health reports and several reconfigurations in your replica set for a stateful partition. You can use the EventStore APIs to  
+To see all the partition movements that happened in your cluster, query for the `ReconfigurationCompleted` event. This can help you figure out what workloads ran on which node at specific times, when diagnosing issues in your cluster. Here's a sample query that does that: `https://mycluster.cloudapp.net:19080/EventsStore/Partitions/myApp/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ReconfigurationCompleted`
