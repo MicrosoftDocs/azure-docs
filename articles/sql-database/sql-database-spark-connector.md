@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: 
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: xiwu
 
 ---
@@ -35,6 +35,10 @@ The dataflow is as follows:
 1. The Spark master node connects to SQL Server or Azure SQL Database and loads data from a specific table or using a specific SQL query
 2. The Spark master node distributes data to worker nodes for transformation. 
 3. The Worker node connects to SQL Server or Azure SQL Database and writes data to the database. User can choose to use row-by-row insertion or bulk insert.
+
+The following diagram illustrates the data flow.
+
+   ![architecture](./media/sql-database-spark-connector/architecture.png)
 
 ### Build the Spark to SQL DB connector
 Currently, the connector project uses maven. To build the connector without dependencies, you can run:
