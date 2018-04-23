@@ -29,6 +29,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [Phrase list][phrase-list]|10 phrase lists, 5,000 items per list|
 | [Prebuilt entities](./Pre-builtEntities.md) | no limit|
 | [Regular expression entities](./luis-concept-entity-types.md)|20 entities<br>500 character max. per regular expression entity pattern|
+| [Pattern.any](./luis-concept-entity-types.md)|3 pattern.any entities per pattern |
 | [Simple](./luis-concept-entity-types.md)| 30|
 | [Utterance][utterances] | 500 characters|
 | [Utterances][utterances] | 15,000|
