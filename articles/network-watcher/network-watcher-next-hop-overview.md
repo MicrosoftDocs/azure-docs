@@ -35,7 +35,7 @@ The following is a list of the next hop types that can be returned when querying
 
 ### Next steps
 
-Learn how to use next hop to find issues with network connectivity by visiting [Check the next hop on a VM](network-watcher-check-next-hop-portal.md)
+Learn how to use next hop to find issues with network connectivity by visiting [Check the next hop on a VM](diagnose-vm-network-routing-problem.md)
 
 <!--Image references-->
 [1]: ./media/network-watcher-next-hop-overview/figure1.png

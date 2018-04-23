@@ -29,7 +29,7 @@ An instance of Network Watcher needs to be created in all regions that you plan 
 
 ## Next steps
 
-Visit the following article to learn if a packet is allowed or denied for a specific virtual machine through the portal. [Check if traffic is allowed on a VM with IP Flow Verify using the portal](network-watcher-check-ip-flow-verify-portal.md)
+Visit the following article to learn if a packet is allowed or denied for a specific virtual machine through the portal. [Check if traffic is allowed on a VM with IP Flow Verify using the portal](diagnose-vm-network-traffic-filtering-problem.md)
 
 [1]: ./media/network-watcher-ip-flow-verify-overview/figure1.png
 

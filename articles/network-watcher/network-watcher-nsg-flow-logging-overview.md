@@ -104,7 +104,7 @@ Learn how to enable Flow logs by visiting [Enabling Flow logging](network-watche
 
 Learn about NSG logging by visiting [Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md).
 
-Find out if traffic is allowed or denied on a VM by visiting [Verify traffic with IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
+Find out if traffic is allowed or denied on a VM by visiting [Verify traffic with IP flow verify](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
 [1]: ./media/network-watcher-nsg-flow-logging-overview/figure1.png
