@@ -50,6 +50,7 @@ Each command in the table links to command specific documentation. This script u
 | [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Creates an Azure App Service Plan for hosting web apps. |
 | [az webapp create](/cli/azure/webapp#az-webapp-create) | Creates an Azure Web app using the App Service hosting plan. |
 | [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Adds new app settings for the web app. These app settings are used to store the SignalR connection string and GitHub OAuth app secrets. |
+| [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) | Update deployment credentials. |
 | [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) | Get a URL for a git repository endpoint to clone and push to for web app deployment. |
 
 ## Next steps

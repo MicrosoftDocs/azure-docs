@@ -19,11 +19,11 @@ ms.author: wesmc
 ---
 # Quickstart: Create a chat room with SignalR Service
 
-Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on [SignalR for ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/09/14/announcing-signalr-for-asp-net-core-2-0/).
+Azure SignalR Service is an Azure-managed service that helps developers easily build web applications with real-time features. This service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
 
 This topic shows you how to get started with the SignalR Service. In this quickstart you will create a chat application using an ASP.NET Core MVC Web App web app with the SignalR Service. You will host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients. 
 
-The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom).
+The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom).  Also, the creation of the Azure resources used in this quickstart can be accomplished with the [Create a SignalR Service script](scripts/signalr-cli-create-service.md).
 
 ![Quickstart Complete local](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
