@@ -27,33 +27,33 @@ ms.reviewer:
 1. Sign in to the Azure Stack administrator portal (https://adminportal.local.azurestack.external).
 
 2. To create a plan and offer that users can subscribe to, click **New** > **Offers + Plans** > **Plan**.  
-   ![](media/azure-stack-create-plan/select-plan.png)
+   ![Select a plan](media/azure-stack-create-plan/select-plan.png)
 
 3. In the **New Plan** blade, fill in **Display name** and **Resource name**. The Display name is the plan's friendly name that users see. Only the admin can see the Resource name, which is the name that admins use to work with the plan as an Azure Resource Manager resource.  
-   ![](media/azure-stack-create-plan/plan-name.png)
+   ![Specify details](media/azure-stack-create-plan/plan-name.png)
 
 4. Create a new **Resource Group**, or select an existing one, as a container for the plan.  
-   ![](media/azure-stack-create-plan/resource-group.png)
+   ![Specify the resource group](media/azure-stack-create-plan/resource-group.png)
 
 5. Click **Services** and then select the checkbox for **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**. Then click **Select**. Checkboxes appear when the mouse hovers over each option.
-   ![](media/azure-stack-create-plan/services.png)
+   ![Select services](media/azure-stack-create-plan/services.png)
 
 6. Click **Quotas**, click **Microsoft.Storage (local)**, and then either select the default quota or click **Create new quota** to customize the quota.  
-   ![](media/azure-stack-create-plan/quotas.png)
+   ![QUotas](media/azure-stack-create-plan/quotas.png)
 
 7. If you're creating a new quota, enter a **Name** for the quota > set the quota values > click **OK**. The **Create quota** pane closes.
-   ![](media/azure-stack-create-plan/new-quota.png)
+   ![New quota](media/azure-stack-create-plan/new-quota.png)
 
    You then select the new quota you created. Selecting the quota assigns it and closes the selection pane.  
-   ![](media/azure-stack-create-plan/assign-quota.png)
+   ![Assign the quota](media/azure-stack-create-plan/assign-quota.png)
 
 8. Repeat steps 6 and 7 to create and assign quotas for **Microsoft.Network (local)** and **Microsoft.Compute (local)**.  When all three services have quotas assigned, they appear similar to the following image.
-   ![](media/azure-stack-create-plan/all-quotas-assigned.png)
+   ![Complete quota assignments](media/azure-stack-create-plan/all-quotas-assigned.png)
 
 9. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.  
-    ![](media/azure-stack-create-plan/create.png)
+    ![Create the plan](media/azure-stack-create-plan/create.png)
 10. To see your new plan, click **All resources**, then search for the plan and click its name. If your list of resources is long, use **Search** to locate your plan by name.  
-   ![](media/azure-stack-create-plan/plan-overview.png)
+   ![Review the plan](media/azure-stack-create-plan/plan-overview.png)
 
 ### Next steps
 [Create an offer](azure-stack-create-offer.md)
