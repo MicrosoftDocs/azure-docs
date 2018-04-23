@@ -23,7 +23,7 @@ This tutorial builds on the chat room application introduced in the quickstart. 
 
 In this tutorial, you'll learn how to implement your own authentication and integrate it with the Azure SignalR Service. 
 
-The authentication used in the quickstart's chat room application is too simple for real-world scenarios. In the application, you claim who you are, and the authentication API on the server simply accepts that, and gives you a token with that name. This is not very useful in real-world applications where a rogue user would impersonate others to access sensitive data. 
+The authentication used in the quickstart's chat room application is too simple for real-world scenarios. In the application, you claim who you are, and the authentication API on the server simply accepts that, and gives you a token with that name. This approach is not very useful in real-world applications where a rogue user would impersonate others to access sensitive data. 
 
 [GitHub](https://github.com/) provides authentication APIs based on a popular industry-standard protocol called [OAuth](https://oauth.net/). These APIs allow third-party applications to authenticate GitHub accounts. In this tutorial, you will use these APIs to require true authentication through a Github account before allowing client logins to the chat room application. 
 
@@ -71,13 +71,13 @@ To complete this tutorial, you must have the following prerequisites:
     | Application description | *A chat room sample using the Azure SignalR Service with Github authentication* | A useful description of the application that will help your application users understand the context of the authentication being used. |
     | Authorization callback URL | *http://localhost:5000/api/auth/callback* | This setting is the most important setting for your OAuth application. It's the callback URL that GitHub returns the user to after successful authentication. |
 
-4. Once the new OAuth app registration is complete, copy the *Client ID* and *Client Secret*, you'll use these later when implementing the OAuth flow.
+4. Once the new OAuth app registration is complete, copy the *Client ID* and *Client Secret*, you'll use these values later when implementing the OAuth flow.
 
 ## Implement the OAuth flow
 
 ### Prompt the user for GitHub authentication
 
-The first step of OAuth flow is to prompt the user to login with a GitHub account. This can be done by redirecting the user to the GitHub login page.
+The first step of OAuth flow is to prompt the user to login with a GitHub account. This login can be done by redirecting the user to the GitHub login page.
 
 1. Open *wwwroot\index.html* and remove the JavaScript code that prompts for the username.
 
@@ -138,7 +138,7 @@ The first step of OAuth flow is to prompt the user to login with a GitHub accoun
     }
     ```
 
-    This new code looks for stored cookies representing the: *accessToken*, *serviceURL*, and *username*. If they are not present, the user is provided a link to login through our *AuthController* in the web app.
+    This new code looks for stored cookies representing the: *accessToken*, *serviceURL*, and *username*. If they are not present, the user is provided a link to login through the *AuthController* in the web app.
 
 ### Handle OAuth in the controller
 
@@ -275,7 +275,7 @@ In this section, you will update the *AuthController* class to support OAuth aut
 
 ### Update the Hub class to support claims
 
-The hub class needs to be updated to use the user's claim for identification. In the previous tutorial, the `broadcastMessage()` method used the name parameter to let caller claim their own identity. This code did not verify who the user actually was. In this section, you will remove that name parameter and read the username from the authenticated user's claim.
+The hub class will now be updated to use the user's claim for identification. In the previous tutorial, the `broadcastMessage()` method used the name parameter to let caller claim their own identity. This code did not verify who the user actually was. In this section, you will remove that name parameter and read the username from the authenticated user's claim.
 
 1. Open *Hub\Chat.cs* and add the following updates for the *Chat* hub class:
 
@@ -374,7 +374,7 @@ The hub class needs to be updated to use the user's claim for identification. In
 
     You will be prompted to authorize the chat app's access to your GitHub account. Click the **Authorize** button. You should be logged in with your GitHub account name. The web application determined you account name by authenticating you using the new authentication you added.
 
-    Now that the chat app performs authentication with GitHub and stores the authentication information as cookies, we should deploy it to Azure so other users can authenticate with their accounts and communicate from other workstations. 
+    Now that the chat app performs authentication with GitHub and stores the authentication information as cookies, you should deploy it to Azure so other users can authenticate with their accounts and communicate from other workstations. 
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -383,7 +383,7 @@ The hub class needs to be updated to use the user's claim for identification. In
 
 In this section, you will use the Azure command-line interface (CLI) from the Azure Cloud Shell to create a new [Azure Web App](https://docs.microsoft.com/azure/app-service/) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
 
-When creating these resources make sure to use the same resource group that your SignalR Service resource resides in. This will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the recommended group name, *SignalRTestResources*.
+When creating these resources, make sure to use the same resource group that your SignalR Service resource resides in. This approach will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the recommended group name, *SignalRTestResources*.
 
 Update the values for the variables shown below. These variables will be reused for other operations. In the Azure Cloud Shell, execute the following commands to create the variables:
 
@@ -482,7 +482,7 @@ az webapp deployment source config-local-git --name $WebAppName --resource-group
 --query [url] -o tsv
 ```
 
-Make a note the git deployment URL returned from this command. You will use this for deployment with Git.
+Make a note the git deployment URL returned from this command. You will use this URL later.
 
 
 ### Deploy your code to the Azure web app
@@ -550,7 +550,7 @@ In the **Filter by name...** textbox, type the name of your resource group. The 
 
 You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
    
-After a few moments the resource group and all of its contained resources are deleted.
+After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
 
