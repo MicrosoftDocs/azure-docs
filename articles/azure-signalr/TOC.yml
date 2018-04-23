@@ -18,20 +18,10 @@
   items:
   - name: Azure CLI
     href: signalr-cli-samples.md
-- name: Concepts
-- name: How-to guides
-  items:
-  - name: Plan
-  - name: Automate
-  - name: Manage
-  - name: Monitor and troubleshoot
-  - name: Scale
 - name: Reference
   items:
   - name: Code samples
-    href: https://github.com/aspnet/signalr-samples
-  - name: Azure PowerShell
-    href: /powershell/module/azurerm.signalr
+    href: https://github.com/aspnet/AzureSignalR-samples
   - name: Azure CLI Preview
     href: /cli/azure/signalr
   - name: .NET
@@ -44,7 +34,6 @@
     href: https://github.com/aspnet/Home/wiki/Roadmap
   - name: Pricing
     href: https://azure.microsoft.com
-  - name: Azure SignalR Service FAQ
   - name: Videos
     href: https://www.youtube.com/results?search_query=Azure+SignalR
   - name: ASP.NET Forums

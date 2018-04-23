@@ -520,8 +520,8 @@ The last thing you need to do is update the **Homepage URL** and **Authorization
 
     | Setting | Example |
     | ------- | ------- |
-    | Homepage URL | https://signalrtestwebapp22XX5120.azurewebsites.net/home |
-    | Authorization callback URL | https://signalrtestwebapp22XX5120.azurewebsites.net/api/auth/callback |
+    | Homepage URL | https://signalrtestwebapp22665120.azurewebsites.net/home |
+    | Authorization callback URL | https://signalrtestwebapp22665120.azurewebsites.net/api/auth/callback |
 
 
 3. Navigate to your web app URL and test the application.
