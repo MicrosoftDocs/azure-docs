@@ -4,9 +4,8 @@ description: The glossary explains terms that you might encounter as you work wi
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: v-geberr
