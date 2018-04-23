@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Quickstart: create a Windows server virtual machine by using PowerShell in Azure Stack
+# Quickstart: create a Windows Server virtual machine by using PowerShell in Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
