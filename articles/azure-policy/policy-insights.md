@@ -23,7 +23,7 @@ Before you begin, make sure that the following prerequisites are met:
 2. Update your AzureRM PowerShell module to the latest version. For more information about the latest version, see Azure PowerShell https://github.com/Azure/azure-powershell/releases.
 3. Register the Policy Insights resource provider using Azure PowerShell to ensure that your subscription works with the resource provider. To register a resource provider, you must have permission to perform the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
 
-  ```powershell
+  ```azurepowershell-interactive
   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
   ```
 
@@ -62,14 +62,14 @@ The following commands create policy definitions for the Standard tier. The Stan
   For more information about authoring a policy definition, see [Azure Policy Definition Structure](policy-definition.md).
 2. Run the following command to create a policy definition using the AuditStorageAccounts.json file.
 
-  ```powershell
-  PS> New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy AuditStorageAccounts.json
+  ```azurepowershell-interactive
+  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy AuditStorageAccounts.json
   ```
 
-  The command creates a policy definition named _Audit Storage Accounts Open to Public Networks_. For more information about other parameters that you can use, see [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition?view=azurermps-4.4.1).
+  The command creates a policy definition named _Audit Storage Accounts Open to Public Networks_. For more information about other parameters that you can use, see [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
 3. After you create your policy definition, you can create a policy assignment by running the following commands:
 
-  ```powershell
+  ```azurepowershell-interactive
   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
 
   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
@@ -79,7 +79,7 @@ The following commands create policy definitions for the Standard tier. The Stan
 
   Replace _ContosoRG_ with the name of your intended resource group.
 
-For more information about managing resource policies using the Azure Resource Manager PowerShell module, see [AzureRM.Resources](/powershell/module/azurerm.resources/?view=azurermps-4.4.1#policies).
+For more information about managing resource policies using the Azure Resource Manager PowerShell module, see [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
 
 ### Create and assign a policy definition using ARMClient
 
@@ -180,19 +180,19 @@ To create a policy definition, use the following procedure:
 
 2. Run the following command to create a policy definition:
 
-  ```azurecli
+  ```azurecli-interactive
 az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
   ```
 
 3. Use the following command to create a policy assignment. Replace example information in &lt;&gt; symbols with your own values.
 
-  ```azurecli
+  ```azurecli-interactive
   az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
   ```
 
 You can get the Policy Definition ID by using PowerShell with the following command:
 
-```azurecli
+```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
 ```
 
@@ -231,13 +231,13 @@ Use the following procedure to identify resources in a resource group that aren'
 
 1. Get the policy assignment ID by running the following commands:
 
-  ```powershell
+  ```azurepowershell-interactive
   $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object {$_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks'}
 
   $policyAssignment.PolicyAssignmentId
   ```
 
-  For more information about getting a policy assignment's ID, see [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment?view=azurermps-4.4.1).
+  For more information about getting a policy assignment's ID, see [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
 
 2. Run the following command to have the resource IDs of the non-compliant resources copied into a JSON file:
 
@@ -302,17 +302,17 @@ Like policy states, you can only view policy events with HTTP requests. For more
 
 You can use the *Set-AzureRmPolicyAssignment* PowerShell cmdlet to update the pricing tier to Standard or Free for an existing policy assignment. For example:
 
-```powershell
-Set-AzureRmPolicyAssignment -Id /subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID> -Sku @{Name='A1';Tier='Standard'}
+```azurepowershell-interactive
+Set-AzureRmPolicyAssignment -Id '/subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID>' -Sku @{Name='A1';Tier='Standard'}
 ```
 
-For more information about the cmdlet, see [Set-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment?view=azurermps-4.4.1).
+For more information about the cmdlet, see [Set-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment).
 
 ## Next steps
 
 Review the following articles for more information about the commands and queries in this article.
 
 - [Azure REST API Resources](/rest/api/resources/)
-- [Azure RM PowerShell Modules](/powershell/module/azurerm.resources/?view=azurermps-4.4.1#policies)
+- [Azure RM PowerShell Modules](/powershell/module/azurerm.resources/#policies)
 - [Azure CLI Policy Commands](/cli/azure/policy?view=azure-cli-latest)
 - [Policy Insights resource provider REST API reference](/rest/api/policy-insights)
