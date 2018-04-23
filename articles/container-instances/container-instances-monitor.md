@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 04/25/2018
+ms.date: 04/24/2018
 ms.author: nepeters
 ---
 # Monitor container resources in Azure Container Instances
@@ -48,13 +48,13 @@ Container instances CPU and memory usage can also be gathered using the Azure CL
 
 
 ```console
-CONTAINER=$(az container show --resource-group <resource-group> --name <container-group> --query id --output tsv)
+CONTAINER_GROUP=$(az container show --resource-group <resource-group> --name <container-group> --query id --output tsv)
 ```
 
 Use the following command to get **CPU** usage metrics.
 
 ```console
-$ az monitor metrics list --resource $CONTAINER --metric CPUUsage --output table
+$ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output table
 
 Timestamp            Name              Average
 -------------------  ------------  -----------
@@ -78,7 +78,7 @@ Timestamp            Name              Average
 And the following command to get **memory** usage metrics.
 
 ```console
-$ az monitor metrics list --resource $CONTAINER --metric MemoryUsage --output table
+$ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
 
 Timestamp            Name              Average
 -------------------  ------------  -----------
@@ -103,7 +103,7 @@ Timestamp            Name              Average
 For a multi-container group, the `containerName` dimension can be added to return this data per container.
 
 ```console
-$ az monitor metrics list --resource $CONTAINER --metric CPUUsage --dimension containerName --output table
+$ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --dimension containerName --output table
 
 Timestamp            Name          Containername             Average
 -------------------  ------------  --------------------  -----------
