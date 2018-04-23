@@ -287,7 +287,7 @@ And returns this result: `"2018-03-25T00:00:0000000Z"`
 
 *Example 2*
 
-This example subtracts 5 days from the specified timestamp:
+This example subtracts five days from the specified timestamp:
 
 ```json
 addDays('2018-03-15T00:00:00Z', -5)
@@ -329,7 +329,7 @@ And returns this result: `"2018-03-15T10:00:0000000Z"`
 
 *Example 2*
 
-This example subtracts 5 hours from the specified timestamp:
+This example subtracts five hours from the specified timestamp:
 
 ```json
 addHours('2018-03-15T15:00:00Z', -5)
@@ -371,7 +371,7 @@ And returns this result: `"2018-03-15T00:20:00.0000000Z"`
 
 *Example 2*
 
-This example subtracts 5 minutes from the specified timestamp:
+This example subtracts five minutes from the specified timestamp:
 
 ```json
 addMinutes('2018-03-15T00:20:00Z', -5)
@@ -448,7 +448,7 @@ And returns this result: `"2018-03-15T00:00:10.0000000Z"`
 
 *Example 2*
 
-This example subtracts 5 seconds to the specified timestamp:
+This example subtracts five seconds to the specified timestamp:
 
 ```json
 addSeconds('2018-03-15T00:00:30Z', -5)
@@ -1547,7 +1547,7 @@ equals('abc', 'abcd')
 And returns these results: 
 
 * First example: Both values are equivalent, so the function returns `true`.
-* Second exmaple: Both values aren't equivalent, sot he function returns `false`.
+* Second exmaple: Both values aren't equivalent, so the function returns `false`.
 
 <a name="first"></a>
 
@@ -2271,7 +2271,7 @@ lastIndexOf('<text>', '<searchText>')
 
 *Example* 
 
-This example find the ending index value for 
+This example finds the ending index value for 
 the "world" substring in the "hello world" string:
 
 ```json
@@ -2930,7 +2930,7 @@ split('<text>', '<separator>')
 *Example* 
 
 This example creates an array from the specified string, 
-separating each character with a comma (**,**) as the delimiter:
+separating each character with a comma as the delimiter:
 
 ```json
 split('abc', ',')
@@ -3834,7 +3834,7 @@ uriScheme('<uri>')
 
 *Example*
 
-This excample returns the `scheme` value for this URI:
+This example returns the `scheme` value for this URI:
 
 ```json
 uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
