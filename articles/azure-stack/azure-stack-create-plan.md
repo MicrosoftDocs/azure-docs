@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2018
+ms.date: 04/23/2018
 ms.author: brenduns
 ms.reviewer:
 
@@ -48,7 +48,7 @@ ms.reviewer:
    ![](media/azure-stack-create-plan/assign-quota.png)
 
 8. Repeat steps 6 and 7 to create and assign quotas for **Microsoft.Network (local)** and **Microsoft.Compute (local)**.  When all three services have quotas assigned, they appear similar to the following image.
-   ![](media/azure-stack-create-plan/all-uotas-assigned.png)
+   ![](media/azure-stack-create-plan/all-quotas-assigned.png)
 
 9. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.  
     ![](media/azure-stack-create-plan/create.png)
