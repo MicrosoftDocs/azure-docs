@@ -21,11 +21,11 @@ ms.author: wesmc
 
 This tutorial builds on the chat room application introduced in the quickstart. If you have not completed [Quickstart: Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), complete that first. 
 
-In this tutorial you'll learn how to implement your own authentication and integrate it with the Azure SignalR Service. 
+In this tutorial, you'll learn how to implement your own authentication and integrate it with the Azure SignalR Service. 
 
 The authentication used in the quickstart's chat room application is too simple for real-world scenarios. In the application, you claim who you are, and the authentication API on the server simply accepts that, and gives you a token with that name. This is not very useful in real-world applications where a rogue user would impersonate others to access sensitive data. 
 
-[GitHub](https://github.com/) provides authentication APIs based on a popular industry-standard protocol called [OAuth](https://oauth.net/). These APIs allow third-party applications to authenticate GitHub accounts. In this tutorial you will use these APIs to require true authentication through a Guthub account before allowing client logins to the chat room application. 
+[GitHub](https://github.com/) provides authentication APIs based on a popular industry-standard protocol called [OAuth](https://oauth.net/). These APIs allow third-party applications to authenticate GitHub accounts. In this tutorial, you will use these APIs to require true authentication through a Github account before allowing client logins to the chat room application. 
 
 For more information on the OAuth authentication APIs provided through GitHub, see [Basics of Authentication](https://developer.github.com/v3/guides/basics-of-authentication/).
 
@@ -66,10 +66,10 @@ To complete this tutorial, you must have the following prerequisites:
 
     | Setting Name | Suggested Value | Description |
     | ------------ | --------------- | ----------- |
-    | Application name | *Azure SignalR Chat* | The github user should be able to recognize and trust the app that he is authenticating with.   |
+    | Application name | *Azure SignalR Chat* | The github user should be able to recognize and trust the app they are authenticating with.   |
     | Homepage URL | *http://localhost:5000/home* | |
-    | Application description | *A chat room sample using the Azure SignalR Service with Github authentication* | A useful decription of the application that will help your application users understand the context of the authentication being used. |
-    | Authorization callback URL | *http://localhost:5000/api/auth/callback* | This is the most important setting for your OAuth application. It's the callback URL that GitHub returns the user to after successful authentication. |
+    | Application description | *A chat room sample using the Azure SignalR Service with Github authentication* | A useful description of the application that will help your application users understand the context of the authentication being used. |
+    | Authorization callback URL | *http://localhost:5000/api/auth/callback* | This setting is the most important setting for your OAuth application. It's the callback URL that GitHub returns the user to after successful authentication. |
 
 4. Once the new OAuth app registration is complete, copy the *Client ID* and *Client Secret*, you'll use these later when implementing the OAuth flow.
 
@@ -265,7 +265,7 @@ In this section, you will update the *AuthController* class to support OAuth aut
     public const string GitHubClientSecretKey = "GitHubClientSecret";
     ```
 
-2. In the command shell, add environment variables for the values of both of these constant string:
+2. In the command shell, add environment variables for the values of both of these constant strings:
 
     set GitHubClientId=<Enter your Client ID here>
     set GitHubClientSecret=<Enter your Client Secret here>
@@ -275,7 +275,7 @@ In this section, you will update the *AuthController* class to support OAuth aut
 
 ### Update the Hub class to support claims
 
-The hub class needs to be updated to use the user's claim for identification. In the previous tutorial, the `broadcastMessage()` method used the name parameter to let caller claim their own identity. This was not secure. In this section, you will remove that name parameter and read the username from the authenticated user's claim.
+The hub class needs to be updated to use the user's claim for identification. In the previous tutorial, the `broadcastMessage()` method used the name parameter to let caller claim their own identity. This code did not verify who the user actually was. In this section, you will remove that name parameter and read the username from the authenticated user's claim.
 
 1. Open *Hub\Chat.cs* and add the following updates for the *Chat* hub class:
 
@@ -368,7 +368,7 @@ The hub class needs to be updated to use the user's claim for identification. In
         Now listening on: http://localhost:5000
         Application started. Press Ctrl+C to shut down.    
 
-4. Launch a browser window and navigate to `http://localhost:5000`. Click the **here** link atthe top to login with GitHub. 
+4. Launch a browser window and navigate to `http://localhost:5000`. Click the **here** link at the top to login with GitHub. 
 
     ![OAuth Complete hosted in Azure](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
 
@@ -383,7 +383,7 @@ The hub class needs to be updated to use the user's claim for identification. In
 
 In this section, you will use the Azure command-line interface (CLI) from the Azure Cloud Shell to create a new [Azure Web App](https://docs.microsoft.com/azure/app-service/) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
 
-When creating these resources make sure to use the same resource group that your SignalR Service resource resides in. This will make clean up alot easier later when you want to remove all the resources. The examples given assume you used the recommended group name, *SignalRTestResources*.
+When creating these resources make sure to use the same resource group that your SignalR Service resource resides in. This will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the recommended group name, *SignalRTestResources*.
 
 Update the values for the variables shown below. These variables will be reused for other operations. In the Azure Cloud Shell, execute the following commands to create the variables:
 
@@ -428,7 +428,7 @@ In the Azure Cloud Shell, execute the following command to create a new app plan
 az appservice plan create --name $WebAppPlanName --resource-group $ResourceGroupName --sku FREE
 ```
 
-Execute the followng command to create the web app:
+Execute the following command to create the web app:
 
 ```azurecli-interactive
 # Create the new Web App
@@ -487,7 +487,7 @@ Make a note the git deployment URL returned from this command. You will use this
 
 ### Deploy your code to the Azure web app
 
-To deploy your code execute the following commands in a Git shell.
+To deploy your code, execute the following commands in a Git shell.
 
 1. Navigate to the root of your project directory. If you don't have the project initialized with a Git repository, execute following command:
 
@@ -512,16 +512,16 @@ To deploy your code execute the following commands in a Git shell.
 
 ### Update the GitHub OAuth app 
 
-The last thing you need to do is update the **Homepage URL** and **Authroization callback URL** of the GitHub OAuth app to point to the new hosted app.
+The last thing you need to do is update the **Homepage URL** and **Authorization callback URL** of the GitHub OAuth app to point to the new hosted app.
 
 1. Open [http://github.com](http://github.com) in a browser and navigate to your account's **Settings** > **Developer settings** > **Oauth Apps**.
 
-2. Click on your authentication app and update the **Homepage URL** and **Authroization callback URL** as shown below:
+2. Click on your authentication app and update the **Homepage URL** and **Authorization callback URL** as shown below:
 
     | Setting | Example |
     | ------- | ------- |
     | Homepage URL | https://signalrtestwebapp22XX5120.azurewebsites.net/home |
-    | Authroization callback URL | https://signalrtestwebapp22XX5120.azurewebsites.net/api/auth/callback |
+    | Authorization callback URL | https://signalrtestwebapp22XX5120.azurewebsites.net/api/auth/callback |
 
 
 3. Navigate to your web app URL and test the application.
