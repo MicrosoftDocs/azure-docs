@@ -1,12 +1,10 @@
 ---
 layout: LandingPage
-description: IoT services mini-hub.
-title: IoT services mini-hub
-description: IoT services mini-hub.
+description: Azure IoT technologies and solutions.
+title: Azure IoT technologies and solutions.
 services: iot
 author: bryanla
 manager: timlt
-layout: LandingPage
 ms.assetid:	
 ms.service: iot
 ms.tgt_pltfrm: na
