@@ -156,6 +156,8 @@
       href: cdn-pop-locations.md
     - name: POP locations by abbreviation
       href: cdn-pop-abbreviations.md
+  - name: Understanding Azure CDN billing
+    href: cdn-billing.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
