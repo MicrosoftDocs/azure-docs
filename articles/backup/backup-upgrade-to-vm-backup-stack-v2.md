@@ -40,7 +40,7 @@ A recovery point is considered created only after phases 1 and 2 are done. As pa
 By default, snapshots are kept for seven days. This feature allows the restore to finish faster from these snapshots. It reduces the time that's required to copy data back from the vault to the customer's storage account. 
 
 ## Considerations before upgrade
-* The upgrade of the VM backup stack is one directional. So all backups go into this flow. Because it's enabled at the subscription level, all VMs go onto this flow. All new feature additions are based on the same stack. Ability to control this at policy level is coming in future releases.
+* The upgrade of the VM backup stack is one directional. So all backups go into this flow. Because it's enabled at the subscription level, all VMs go into this flow. All new feature additions are based on the same stack. Ability to control this at policy level is coming in future releases.
 
 * For VMs with premium disks, during and until the first backup finishes, make sure there's enough storage space in the storage account. It should be equal to the size of the VM.
 
