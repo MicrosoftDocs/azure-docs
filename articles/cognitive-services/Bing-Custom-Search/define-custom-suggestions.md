@@ -24,13 +24,16 @@ Use the following instructions to enable Custom Autosuggest for your Custom Sear
 4.  Toggle the **Enable autosuggest** slider to the on position. The slider becomes blue.
 
 ## Add suggestions
-To add a suggestion, enter it into the text box whose place-holder reads **Type in a search suggestion**. Press the enter key or click the **+** icon.
+To add a suggestion, enter it into the text box whose place-holder reads **Type in a search suggestion**. Press the enter key or click the **+** icon. Custom suggestions can be in any language.
 
 ## Upload suggestions
 You can upload a list of suggestions from a file, place each suggestion on a separate line. Click the upload icon and select your file.
 
 ## Remove suggestions
 To remove a suggestion, click the remove icon next to the suggestion you want to remove.
+
+  >[!NOTE]  
+  >It may take up to 24 hours for changes to take effect.
 
 ## Next steps
 
