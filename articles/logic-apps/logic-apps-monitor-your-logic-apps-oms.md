@@ -1,6 +1,6 @@
 ---
-title: Monitor and get insights about your logic app runs using OMS - Azure Logic Apps | Microsoft Docs
-description: Monitor your logic app runs with Log Analytics and Operations Management Suite (OMS) to get insights and richer debugging details for troubleshooting and diagnostics
+title: Monitor and get insights about your logic app runs using Log Analytics - Azure Logic Apps | Microsoft Docs
+description: Monitor your logic app runs with Log Analytics to get insights and richer debugging details for troubleshooting and diagnostics
 author: divyaswarnkar
 manager: anneta
 editor: ''
@@ -17,30 +17,29 @@ ms.date: 08/9/2017
 ms.author: LADocs; divswa
 ---
 
-# Monitor and get insights about logic app runs with Operations Management Suite (OMS) and Log Analytics
+# Monitor and get insights about logic app runs with Log Analytics
 
 For monitoring and richer debugging information, 
 you can turn on Log Analytics at the same time 
 when you create a logic app. Log Analytics provides 
 diagnostics logging and monitoring for your 
-logic app runs through the Operations Management Suite (OMS) portal. 
-When you add the Logic Apps Management solution to OMS, 
+logic app runs through the Azure portal. 
+When you add the Logic Apps Management solution, 
 you get aggregated status for your logic app runs and 
 specific details like status, execution time, 
 resubmission status, and correlation IDs.
 
-This topic shows how to turn on Log Analytics or install 
-the Logic Apps Management solution in OMS so you can 
+This topic shows how to turn on Log Analytics so you can 
 view runtime events and data for your logic app run.
 
  > [!TIP]
  > To monitor your existing logic apps, follow these steps to 
- > [turn on diagnostic logging and send logic app runtime data to OMS](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+ > [turn on diagnostic logging and send logic app runtime data to Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 ## Requirements
 
-Before you start, you need to have an OMS workspace. 
-Learn [how to create an OMS workspace](../log-analytics/log-analytics-get-started.md). 
+Before you start, you need to have a Log Analytics workspace. 
+Learn [how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md). 
 
 ## Turn on diagnostics logging when creating logic apps
 
@@ -54,25 +53,25 @@ Choose **Create a resource** > **Enterprise Integration** > **Logic App**.
    1. Provide a name for your logic app and select your Azure subscription. 
    2. Create or select an Azure resource group.
    3. Set **Log Analytics** to **On**. 
-   Select the OMS workspace where you want to 
+   Select the Log Analytics workspace where you want to 
    send data for your logic app runs. 
    4. When you're ready, choose **Pin to dashboard** > **Create**.
 
       ![Create logic app](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app.png)
 
       After you finish this step, Azure creates your logic app, 
-      which is now associated with your OMS workspace. 
+      which is now associated with your Log Analytics workspace. 
       Also, this step also automatically installs the 
-      Logic Apps Management solution in your OMS workspace.
+      Logic Apps Management solution in your workspace.
 
-3. To view your logic app runs in OMS, 
+3. To view your logic app runs, 
 [continue with these steps](#view-logic-app-runs-oms).
 
-## Install the Logic Apps Management solution in OMS
+## Install the Logic Apps Management solution
 
 If you already turned on Log Analytics when you created your logic app, 
 skip this step. You already have the Logic Apps Management 
-solution installed in OMS.
+solution installed.
 
 1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
 Search for "log analytics" as your filter, 
@@ -80,42 +79,32 @@ and choose **Log Analytics** as shown:
 
    ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-2. Under **Log Analytics**, find and select your OMS workspace. 
+2. Under **Log Analytics**, find and select your Log Analytics workspace. 
 
-   ![Select your OMS workspace](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
+   ![Select your Log Analytics workspace](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
 3. Under **Management**, choose **OMS Portal**.
 
    ![Choose "OMS Portal"](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
 
-4. On your OMS homepage, if the upgrade banner appears, choose the banner so that you 
-upgrade your OMS workspace first. Then choose **Solutions Gallery**.
-
-   ![Choose "Solutions Gallery"](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
-
-5. Under **All solutions**, find and choose the tile 
+4. Under **All solutions**, find and choose the tile 
 for the **Logic Apps Management** solution.
 
    ![Choose "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
 
-6. To install the solution in your OMS workspace, choose **Add**.
+5. To install the solution in your Log Analytics workspace, choose **Add**.
 
    ![Choose "Add" for "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
-## View your logic app runs in your OMS workspace
+## View your logic app runs in your Log Analytics workspace
 
 1. To view the count and status for your logic app runs, 
-go to the overview page for your OMS workspace. 
+go to the overview page for your Log Analytics workspace. 
 Review the details on the **Logic Apps Management** tile.
 
    ![Overview tile showing logic app run count and status](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
-
-   > [!Note]
-   > If this upgrade banner appears instead of the Logic Apps Management tile, choose the banner so that you upgrade your OMS workspace first.
-  
-   > ![Upgrade "OMS Workspace"](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
 
 2. To view a summary with more details about your logic app runs, 
 choose the **Logic Apps Management** tile.

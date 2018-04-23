@@ -3,10 +3,10 @@ title: Dedicated Capacity for Machine Learning Batch Execution Service Jobs | Mi
 description: Overview of Azure Batch services for Machine Learning jobs.
 services: machine-learning
 documentationcenter: ''
-author: serinakaye
-ms.author: serinak
-manager: mwinkle
-editor: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 
 ms.service: machine-learning
 ms.workload: tbd

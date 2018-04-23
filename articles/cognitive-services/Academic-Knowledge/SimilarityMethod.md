@@ -4,9 +4,8 @@ description: Use the Similarity method to calculate the academic similarity of t
 services: cognitive-services
 author: alch-msft
 manager: kuansanw
-
 ms.service: cognitive-services
-ms.technology: academic-knowledge
+ms.component: academic-knowledge
 ms.topic: article
 ms.date: 01/18/2017
 ms.author: alch
@@ -45,17 +44,17 @@ HTTP Status | Reason | Response
 **500**         |Internal server error | Error message
 **Timed out**     | Request timed out.  | Error message
 <br>
-##Example: Calculate similarity of two partial abstracts
-####Request:
+## Example: Calculate similarity of two partial abstracts
+#### Request:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?s1=Using complementary priors, we derive a fast greedy algorithm that can learn deep directed belief networks one layer at a time, provided the top two layers form an undirected associative memory
 &s2=Deepneural nets with a large number of parameters are very powerful machine learning systems. However, overfitting is a serious problem in such networks
 ```
 In this example, we generate the similarity score between two partial abstracts using the **similarity** API.
-####Response:
+#### Response:
 ```
 0.520
 ```
-####Remarks:
+#### Remarks:
 The similarity score is determined by assessing the academic concepts through word embedding. In this example, 0.52 means that the two partial abstracts are somewhat similar.
 <br>

@@ -1,6 +1,6 @@
 ---
-title: 'Microsoft Azure Active Directory single sign-on Plugin FAQ | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Microsoft Azure Active Directory single sign-on for JIRA.
+title: 'FAQ for the Azure Active Directory SSO plug-in | Microsoft Docs'
+description: Get answers to frequently asked questions about configuring single sign-on between Azure Active Directory and Jira/Confluence.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,64 +17,62 @@ ms.date: 02/06/2018
 ms.author: jeedes
 
 ---
-# Microsoft Azure Active Directory single sign-on Plugin FAQ 
+# FAQ for the Azure Active Directory SSO plug-in 
 
-## 1. What's the Microsoft SSO Add-on?
+## What does the plug-in do?
 
-This add-on provides Single Sign On capability for Atlassian’s JIRA (including JIRA Core, JIRA Software, JIRA Service Desk) and Confluence On-premise software. The Add-on works with Azure AD as IdP.
+The plug-in provides single sign-on (SSO) capability for Atlassian Jira (including Jira Core, Jira Software, Jira Service Desk) and Confluence on-premises software. The plug-in works with Azure Active Directory (Azure AD) as an identity provider (IdP).
 
-## 2. Add-on works with which Atlassian products?
+## Which Atlassian products does the plug-in work with?
 
-As of now the Add-on works with On-premise versions of JIRA and Confluence.
+The plug-in works with on-premises versions of Jira and Confluence.
 
-## 3. Does this Add-on work on cloud version?
+## Does the plug-in work on cloud versions?
 
-No. Only On-premise versions of JIRA and Confluence are supported.
+No. The plug-in supports only on-premises versions of Jira and Confluence.
 
-## 4. Which versions of JIRA and Confluence are supported?
+## Which versions of Jira and Confluence does the plug-in support?
 
-Below is the list of versions which are supported:
+The plug-in supports these versions:
 
-* JIRA Core and Software: 6.0 to 7.2.2 
-* JIRA Service Desk: 3.0 to 3.2 
+* Jira Core and Software: 6.0 to 7.2.2 
+* Jira Service Desk: 3.0 to 3.2 
 * Confluence: 5.0 to 5.10
 
-## 5. Is this add-on Free or Paid?
+## Is the plug-in free or paid?
 
-This is a free add-on and can be installed from Atlassian market place.
+It's a free add-on. You can install it from the Atlassian Marketplace.
 
-## 6. Do I need to restart JIRA/Confluence once I deploy the add-on
+## Do I need to restart Jira or Confluence after I deploy the plug-in?
 
-Restart is not required post add-on deployment. You can start using the add-on immediately after deployment.
+A restart is not required. You can start using the plug-in immediately.
 
-## 7. How do I get support for the add-on?
+## How do I get support for the plug-in?
 
-Reach out to us on: <email> .We will respond within <> hours. You can also raise a support ticket with Microsoft through the Azure portal channel. You can also call us on: <Number> between <> am to <> pm on weekdays.
+Reach out to the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). The team responds in 24-48 business hours. 
 
-## 8. Would this Add-on work on Mac or Ubuntu installation of JIRA and Confluence?
+You can also raise a support ticket with Microsoft through the Azure portal channel.
 
-We have tested this add-on only on 64 bit Windows server installations of JIRA and confluence.
+## Would the plug-in work on a Mac or Ubuntu installation of Jira and Confluence?
 
-## 9. Does this add-on work with other IdPs than Azure AD?
+We have tested the plug-in only on 64-bit Windows Server installations of Jira and Confluence.
 
-No. Add-on works only with Azure AD.
+## Does the plug-in work with IdPs other than Azure AD?
 
-## 10. What version of SAML does the Add-on work with?
+No. It works only with Azure AD.
 
-Add-On works with SAML 2.0.
+## What version of SAML does the plug-in work with?
 
-## 11. Does the add-on do use provisioning as well?
+It works with SAML 2.0.
 
-No. As of now add-on provides only SAML 2.0 based SSO. User has to be provisioned in the application before the SSO login.
+## Does the plug-in do user provisioning?
 
-## 12. Are cluster versions of JIRA and confluence supported by add-on?
+No. The plug-in provides only SAML 2.0-based SSO. The user has to be provisioned in the application before the SSO sign-in.
 
-No. The Add-on works with On-premise versions of JIRA and Confluence.
+## Does the plug-in support cluster versions of Jira and Confluence?
 
-## 13. Would this plugin work with HTTP version of JIRA and Confluence?
+No. The plug-in works with on-premises versions of Jira and Confluence.
 
-No. The Add-on works with HTTPS enabled installations only.
+## Does the plug-in work with HTTP versions of Jira and Confluence?
 
-## 14. Do I need to buy license of the add-on?
-
-It is a free add-on.
+No. The plug-in works with HTTPS-enabled installations only.

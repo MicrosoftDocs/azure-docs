@@ -1,4 +1,4 @@
----
+﻿---
 title: Quickstart - Create a private Docker registry in Azure with PowerShell
 description: Quickly learn to create a private Docker container registry with PowerShell.
 services: container-registry
@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Create an Azure Container Registry using PowerShell
+# Quickstart: Create an Azure Container Registry using PowerShell
 
 Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using PowerShell, pushing a container image into the registry and finally deploying the container from your registry into Azure Container Instances (ACI).
 
@@ -22,10 +22,10 @@ You must also have Docker installed locally. Docker provides packages that easil
 
 ## Log in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## Create resource group
@@ -70,7 +70,7 @@ To push an image to an Azure Container registry, you must first have an image. I
 docker pull microsoft/aci-helloworld
 ```
 
-The image must be tagged with the ACR login server name. Use the [docker tag][docker-tag] command to do this. 
+The image must be tagged with the ACR login server name. Use the [docker tag][docker-tag] command to do this.
 
 ```powershell
 $image = $registry.LoginServer + "/aci-helloworld:v1"

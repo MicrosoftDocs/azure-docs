@@ -6,7 +6,7 @@ author: irvingk
 manager: gurprep 
 
 ms.service: cognitive-services
-ms.technology: cognitive-services
+ms.component: 
 ms.topic: article
 ms.date: 01/02/2017
 ms.author: irvingk 

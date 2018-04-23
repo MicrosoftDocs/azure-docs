@@ -1,10 +1,10 @@
----
+﻿---
 title: Managing Storage in the Azure independent clouds Using Azure PowerShell | Microsoft Docs
 description: Managing Storage in the China Cloud, Government Cloud, and German Cloud Using Azure PowerShell
 services: storage
 documentationcenter: na
-author: robinsh
-manager: timlt
+author: roygara
+manager: jeconnoc
 
 ms.assetid: 
 ms.service: storage
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: robinsh
+ms.author: rogarana
 ---
 
 # Managing Storage in the Azure independent clouds using PowerShell
@@ -45,7 +45,7 @@ Get-AzureRmEnvironment
 Sign in to your account that has access to the cloud to which you want to connect and set the environment. This example shows how to sign into an account that uses the Azure Government Cloud.   
 
 ```powershell
-Login-AzureRmAccount –Environment AzureUSGovernment
+Connect-AzureRmAccount –Environment AzureUSGovernment
 ```
 
 To access the China Cloud, use the environment **AzureChinaCloud**. To access the German Cloud, use **AzureGermanCloud**.

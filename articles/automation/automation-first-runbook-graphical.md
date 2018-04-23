@@ -6,7 +6,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
 ---
@@ -82,7 +82,7 @@ The runbook that you created is still in Draft mode. It needs to be published be
 
 1. Select **Publish** to publish the runbook and then **Yes** when prompted.
 1. If you scroll left to view the runbook in the **Runbooks** page, it shows an **Authoring Status** of **Published**.
-1. Scroll back to the right to view the page for **MyFirstRunbook**.
+1. Scroll back to the right to view the page for **MyFirstRunbook-Graphical**.
 
    The options across the top allow us to start the runbook, schedule it to start at some time in the future, or create a [webhook](automation-webhooks.md) so it can be started through an HTTP call.
 
@@ -91,7 +91,7 @@ The runbook that you created is still in Draft mode. It needs to be published be
 1. Once the runbook status shows *Completed*, click **Output**. The **Output** page is opened, and you can see the *Hello World* in the pane.
 1. Close the Output page.
 1. Click **All Logs** to open the Streams page for the runbook job. You should only see *Hello World* in the output stream, but this can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.
-1. Close the All Logs page and the Job page to return to the MyFirstRunbook page.
+1. Close the All Logs page and the Job page to return to the MyFirstRunbook-Graphical page.
 1. To view all the jobs for the runbook close the **Job** page and select **Jobs** under **RESOURCES**. This lists all the jobs created by this runbook. You should only see one job listed since you only ran the job once.
 1. You can click this job to open the same Job pane that you viewed when you started the runbook. This allows you to go back in time and view the details of any job that was created for a particular runbook.
 
@@ -106,18 +106,18 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 
 ## Add authentication
 
-Now that you have a variable to hold the subscription ID, you can configure the runbook to authenticate with the Run As credentials that are referred to in the [prerequisites](#prerequisites). You do that by adding the Azure Run As connection **Asset** and **Add-AzureRMAccount** cmdlet to the canvas.
+Now that you have a variable to hold the subscription ID, you can configure the runbook to authenticate with the Run As credentials that are referred to in the [prerequisites](#prerequisites). You do that by adding the Azure Run As connection **Asset** and **Connect-AzureRmAccount** cmdlet to the canvas.
 
-1. Navigate back to your runbook and select **Edit** on the MyFirstRunbook page.
+1. Navigate back to your runbook and select **Edit** on the MyFirstRunbook-Graphical page.
 1. You don't need the **Write Hello World to output** anymore, so click the ellipses (...) and select **Delete**.
 1. In the Library control, expand **ASSETS**, **Connections**, and add **AzureRunAsConnection** to the canvas by selecting **Add to canvas**.
-1. In the Library control, type **Add-AzureRmAccount** in the search textbox.
-1. Add **Add-AzureRmAccount** to the canvas.
-1. Hover over **Get Run As Connection** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to **Add-AzureRmAccount**. The arrow that you created is a *link*. The runbook starts with **Get Run As Connection** and then run **Add-AzureRmAccount**.<br> ![Create link between activities](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
-1. On the canvas, select **Add-AzureRmAccount** and in the Configuration control pane type **Login to Azure** in the **Label** textbox.
+1. In the Library control, type **Connect-AzureRmAccount** in the search textbox.
+1. Add **Connect-AzureRmAccount** to the canvas.
+1. Hover over **Get Run As Connection** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to **Connect-AzureRmAccount**. The arrow that you created is a *link*. The runbook starts with **Get Run As Connection** and then run **Connect-AzureRmAccount**.<br> ![Create link between activities](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
+1. On the canvas, select **Connect-AzureRmAccount** and in the Configuration control pane type **Login to Azure** in the **Label** textbox.
 1. Click **Parameters** and the Activity Parameter Configuration page appears.
-1. **Add-AzureRmAccount** has multiple parameter sets, so you need to select one before you can provide parameter values. Click **Parameter Set** and then select the **ServicePrincipalCertificate** parameter set.
-1. Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration page. Click **APPLICATIONID**.<br> ![Add Azure RM account parameters](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
+1. **Connect-AzureRmAccount** has multiple parameter sets, so you need to select one before you can provide parameter values. Click **Parameter Set** and then select the **ServicePrincipalCertificate** parameter set.
+1. Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration page. Click **APPLICATIONID**.<br> ![Add Azure RM account parameters](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
 1. In the Parameter Value page, select **Activity output** for the **Data source** and select **Get Run As Connection** from the list, in the **Field path** textbox type **ApplicationId**, and then click **OK**. You are specifying the name of the property for the Field path because the activity outputs an object with multiple properties.
 1. Click **CERTIFICATETHUMBPRINT**, and in the Parameter Value page, select **Activity output** for the **Data source**. Select **Get Run As Connection** from the list, in the **Field path** textbox type **CertificateThumbprint**, and then click **OK**.
 1. Click **SERVICEPRINCIPAL**, and in the Parameter Value page, select **ConstantValue** for the **Data source**, click the option **True**, and then click **OK**.
@@ -130,6 +130,9 @@ Now that you have a variable to hold the subscription ID, you can configure the 
 1. Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration page. Click **SubscriptionID**
 1. In the Parameter Value page, select **Variable Asset** for the **Data source** and select **AzureSubscriptionId** from the list and then click **OK** twice.
 1. Hover over **Login to Azure** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to **Specify Subscription Id**.
+
+> [!IMPORTANT]
+> **Connect-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Connect-AzureRmAccount**, or you can update your modules in your Automation Account.
 
 Your runbook should look like the following at this point: <br>![Runbook authentication configuration](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
@@ -152,7 +155,7 @@ Your runbook should look like the following at this point: <br>![Runbook authent
 
 Our runbook currently starts the virtual machine in the resource group that you specified in the **Start-AzureRmVM** cmdlet. The runbook would be more useful if we could specify both when the runbook is started. You now add input parameters to the runbook to provide that functionality.
 
-1. Open the graphical editor by clicking **Edit** on the **MyFirstRunbook** pane.
+1. Open the graphical editor by clicking **Edit** on the **MyFirstRunbook-Graphical** pane.
 1. Select **Input and output** and then **Add input** to open the Runbook Input Parameter pane.
 1. Specify *VMName* for the **Name**. Keep *string* for the **Type**, but change **Mandatory** to *Yes*. Click **OK**.
 1. Create a second mandatory input parameter called *ResourceGroupName* and then click **OK** to close the **Input and Output** pane.<br> ![Runbook Input Parameters](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
@@ -170,7 +173,7 @@ Our runbook currently starts the virtual machine in the resource group that you 
 
 You now modify the runbook so that it only attempts to start the virtual machine if it is not already started. You do this by adding a **Get-AzureRmVM** cmdlet to the runbook that gets the instance level status of the virtual machine. Then you add a PowerShell Workflow code module called **Get Status** with a snippet of PowerShell code to determine if the virtual machine state is running or stopped. A conditional link from the **Get Status** module only runs **Start-AzureRmVM** if the current running state is stopped. Finally, You output a message to inform you if the VM was successfully started or not using the PowerShell Write-Output cmdlet.
 
-1. Open **MyFirstRunbook** in the graphical editor.
+1. Open **MyFirstRunbook-Graphical** in the graphical editor.
 1. Remove the link between **Specify Subscription Id** and **Start-AzureRmVM** by clicking on it and then pressing the *Delete* key.
 1. In the Library control, type **Get-AzureRm** in the search textbox.
 1. Add **Get-AzureRmVM** to the canvas.

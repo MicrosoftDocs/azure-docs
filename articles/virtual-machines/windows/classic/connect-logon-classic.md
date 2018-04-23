@@ -4,7 +4,7 @@ description: Use the Azure portal to log on to a Windows virtual machine created
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX

@@ -3,7 +3,7 @@ title: Make web, and API apps available to your Azure Stack users | Microsoft Do
 description: Tutorial to install the App Service resource provider and create offers that give your Azure Stack users the ability to create web, and API apps.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,13 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
+ms.date: 03/22/2018
+ms.author: jeffgilb
 ms.reviewer: 
 ms.custom: mvc
 ---
 # Make web, and API apps available to your Azure Stack users
-
 As an Azure Stack cloud administrator, you can create offers that let your users (tenants) create Azure Functions and web, and API applications. By providing access to these on-demand, cloud-based apps to your users, you can save them time and resources. To set this up, you will:
 
 > [!div class="checklist"]

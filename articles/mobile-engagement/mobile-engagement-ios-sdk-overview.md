@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # iOS SDK for Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 Start here to get all the details on how to integrate Azure Mobile Engagement in an iOS App. If you'd like to give it a try first, make sure you do our [15 minutes tutorial](mobile-engagement-ios-get-started.md).
 
 Click to see the [SDK Content](mobile-engagement-ios-sdk-content.md)

@@ -2,52 +2,52 @@
 
 # Overview
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
-## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
 
-# Get started
-## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
-## [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)
-## [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md)
+# Quickstarts
+## [Create a job - Azure portal](stream-analytics-quick-create-portal.md)
+## [Create a job - PowerShell](stream-analytics-quick-create-powershell.md)
+
+# Tutorials
+## [1 - Create / manage a job](stream-analytics-manage-job.md)
+## [2 - Run Azure Functions](stream-analytics-with-azure-functions.md)
+## [3 - Run a Javascript UDF](stream-analytics-javascript-user-defined-functions.md)
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 
 # Concepts
-## Input types for a job
+## [Input types for a job](stream-analytics-add-inputs.md)
 ### [Streaming data inputs](stream-analytics-define-inputs.md)
 ### [Reference data inputs](stream-analytics-use-reference-data.md)
 ## [Output types for a job](stream-analytics-define-outputs.md)
+### [Output to Cosmos DB](stream-analytics-documentdb-output.md)
 ## [Window functions](stream-analytics-window-functions.md)
 ## [Compatibility level](stream-analytics-compatibility-level.md)
 ## [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
 ## [Event ordering considerations](stream-analytics-out-of-order-and-late-events.md)
-
+## [Checkpoint and replay](stream-analytics-concepts-checkpoint-replay.md)
 
 # How-to-guides
-
-## Create jobs
-### [Test queries and sample input data](stream-analytics-sample-data-input.md)
-### [Test queries](stream-analytics-test-query.md)
-### [Run a JavaScript UDF](stream-analytics-javascript-user-defined-functions.md)
-### [Output to Data Lake Store](stream-analytics-data-lake-output.md)
-### [Output to Cosmos DB](stream-analytics-documentdb-output.md)
-### [Configure alerts](stream-analytics-set-up-alerts.md)
 
 ## Manage
 ### [Update a job](stream-analytics-job-reliability.md)
 ### [Update credentials](stream-analytics-login-credentials-inputs-outputs.md)
+### [Configure alerts](stream-analytics-set-up-alerts.md)
+### [Test your job](stream-analytics-test-query.md)
+### [View results on a dashboard](stream-analytics-power-bi-dashboard.md)
 
 ## Build solutions
 ### [Twitter sentiment analysis](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Real time fraud detection](stream-analytics-real-time-fraud-detection.md)
 ### [Run jobs on IoT edge](stream-analytics-edge.md) 
+### [Toll booth sensor data analysis](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [Run a JavaScript UDA](stream-analytics-javascript-user-defined-aggregates.md)
 ### [High-frequency trading](stream-analytics-high-frequency-trading.md)
-### [Run Azure Functions](stream-analytics-with-azure-functions.md)
+### [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 
 ## Monitor
 
-### [Monitor jobs- Portal](stream-analytics-monitoring.md)
+### [Monitor jobs- Azure portal](stream-analytics-monitoring.md)
 ### [Monitor jobs- PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Monitor jobs- Azure .Net SDK](stream-analytics-monitor-jobs.md)
 
@@ -69,7 +69,7 @@
 
 ## Troubleshoot
 ### [Troubleshooting steps](stream-analytics-troubleshooting-guide.md)
-### [Common troubleshooting issues](stream-analytics-common-troubleshooting-issues.md)
+### [Common issues](stream-analytics-common-troubleshooting-issues.md)
 ### [Job diagram](stream-analytics-job-diagram-with-metrics.md)
 ### [Diagnostic logs](stream-analytics-job-diagnostic-logs.md)
 ### [Check resource health](stream-analytics-resource-health.md)
@@ -80,7 +80,6 @@
 ### [Sentiment analysis with ML models](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Anomaly detection](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Use REST APIs](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-
 
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
@@ -93,18 +92,11 @@
 ## [Blog](http://blogs.msdn.com/b/streamanalytics/)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest)
 ## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics)
-## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 ## [Pricing](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-## [Release notes](stream-analytics-release-notes.md)
 ## [Service updates](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [Customer case studies](https://azure.microsoft.com/case-studies/?service=stream-analytics)
-## [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
-
-
-
-
-
-
+## [Whitepaper - Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)

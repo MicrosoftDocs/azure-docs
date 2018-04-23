@@ -4,15 +4,14 @@ description: Here's a list of languages supported by Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 Tms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 03/21/2018
 ms.author: sajagtap
 ---
 
-# Supported languages by feature
+# Text moderation - supported languages by feature
 
 > [!NOTE]
 > For the **language** parameter, assign `eng` or leave it empty to see the machine-assisted **classification** response (preview feature). **This feature supports English only**.
@@ -20,25 +19,25 @@ ms.author: sajagtap
 > For **profanity terms** detection, use the [ISO 639-3 code](http://www-01.sil.org/iso639-3/codes.asp) of the supported languages listed in this article, or leave it empty.
 
 
-| Auto-detected | Profanity   | OCR    |
-| -------------------- |-------------|--------|
-| Arabic (Romanized)   | Afrikaans   | Arabic
-| Balinese | Albanian | Chinese (Simplified)
-| Bengali | Amharic | Chinese (Traditional)
-| Buginese | Arabic | Czech
-| Buhid | Armenian | Danish
-| Carian | Assamese | Dutch
-| Chinese (Simplified) | Azerbaijani | English
-| Chinese (Traditional) | Bangla - Bangladesh | Finnish
-| Church (Slavic) | Bangla - India | French
-| Coptic | Basque | German
-| Dhivehi | Belarusian | Greek (modern)
-| Farsi | Bosnian - Cyrillic | Hungarian
-| Greek | Bosnian - Latin | Italian
-| Haitian (Creole) | Breton [non-GeoPol] | Japanese
-| Hebrew | Bulgarian | Korean
-| Hmong | Catalan | Norwegian
-| Kurdish (Arabic) | Central Kurdish | Polish
+| Language detection | Profanity   | OCR    | Auto-correction     |
+| -------------------- |-------------|--------|---------------------|
+| Arabic (Romanized)   | Afrikaans   | Arabic   | Arabic
+| Balinese | Albanian | Chinese (Simplified)    | Danish
+| Bengali | Amharic | Chinese (Traditional)     | Dutch
+| Buginese | Arabic | Czech                     | English
+| Buhid | Armenian | Danish                     | Finnish
+| Carian | Assamese | Dutch                     | French
+| Chinese (Simplified) | Azerbaijani | English  | Greek (modern)
+| Chinese (Traditional) | Bangla - Bangladesh | Finnish  | Italian
+| Church (Slavic) | Bangla - India | French     | Korean
+| Coptic | Basque | German                      | Norwegian
+| Dhivehi | Belarusian | Greek (modern)         | Polish
+| Farsi | Bosnian - Cyrillic | Hungarian        | Portuguese
+| Greek | Bosnian - Latin | Italian             | Romanian
+| Haitian (Creole) | Breton [non-GeoPol] | Japanese  | Russian
+| Hebrew | Bulgarian | Korean                        | Slovak
+| Hmong | Catalan | Norwegian                        | Spanish
+| Kurdish (Arabic) | Central Kurdish | Polish        | Turkish
 | Kurdish (Latin) | Cherokee | Portuguese
 | Lepcha | Chinese (Simplified) | Romanian
 | Limbu | Chinese (Traditional) - Hong Kong SAR | Russian
@@ -136,4 +135,3 @@ ms.author: sajagtap
 | | Welsh
 | | Wolof
 | | Yoruba
-

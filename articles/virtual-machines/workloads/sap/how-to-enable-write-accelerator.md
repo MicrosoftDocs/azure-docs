@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -23,13 +23,12 @@ ms.custom: H1Hack27Feb2017
 # Azure Write Accelerator for SAP deployments
 Azure Write Accelerator is a functionality that is getting rolled out for M-Series VMs exclusively. The Azure Write Accelerator is not available with any other VM-Series in Azure, except the M-Series. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure Premium Storage. 
 
->[!NOTE]
-> At this point, the Azure Write Accelerator is in public preview and requires white-listing of your Azure subscription ID
-
-The Azure Write Accelerator functionality is available as public preview in:
+The Azure Write Accelerator functionality is available for M-Series deployment as public preview in:
 
 - West US2
+- East US2
 - Western Europe
+- Southeast Asia
 
 ## Planning for using Azure Write Accelerator
 Azure Write Accelerator should be used for the volumes, which contain the transaction log or redo logs of a DBMS. It is not recommended to use Azure Write Accelerator for the data volumes of a DBMS. Reason to this restriction is that Azure Write Accelerator requires the Azure Premium Storage VHDs to be mounted without the additional read caching that is available for Premium Storage. Larger advantages with this type of caching can be observed with traditional databases. Since Write Accelerator is only affecting the write activities and does not speed up reads, the supported design for SAP is to use Write Accelerator against the transaction log or redo log drives of SAP supported databases. 
@@ -41,8 +40,15 @@ Azure Write Accelerator only works in conjunction with [Azure managed disks](htt
 
 There are limits of Azure Premium Storage VHDs per VM that can be supported by Azure Write Accelerator. The current limits are:
 
-- 16 VHDs for an M128xx VM
-- 8 VHDs for an M64xx VM
+
+| VM SKU | Number of Write Accelerator disks | Write Accelerator IOPS per VM |
+| --- | --- | --- |
+| M128ms | 16 | 8000 |
+| M128s | 16 | 8000 |
+| M64ms | 8 | 4000 |
+| M64s | 8 | 4000 | 
+
+
 
 > [!IMPORTANT]
 > If you want to enable or disable Azure Write Accelerator for an existing volume that is built out of multiple Azure Premium Storage disks and striped using Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM or MDADM, all disks building the volume must be enabled or disabled for Write Accelerator in separate steps. **Before enabling or disabling Write Accelerator in such a configuration, shut down the Azure VM**. 
@@ -52,15 +58,16 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by A
 > To enable Azure Write Accelerator to an existing Azure disk that is NOT part of a volume build out of multiple disks with Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM, or MDADM, the workload accessing the Azure disk needs to be shut down. Database applications using the Azure disk MUST be shut down.
 
 > [!IMPORTANT]
-> Enabling Write Accelerator for Azure operating system disk of the VM will reboot the VM. 
+> Enabling Write Accelerator for Azure VM operating system disk of the VM will reboot the VM. 
 
 Enabling Azure Write Accelerator for operating disks should not be necessary for SAP related VM configurations
 
 ### Restrictions when using Azure Write Accelerator
 When using Azure Write Accelerator for an Azure disk/VHD, these restrictions apply:
 
-- The Premium disk caching needs to be set to 'None'. All other caching modes are not supported.
+- The Premium disk caching needs to be set to 'None' or 'Read Only'. All other caching modes are not supported.
 - Snapshot on the Write Accelerator enabled disk is not supported yet. This restriction blocks Azure Backup Service ability to perform an application consistent snapshot of all disks of the virtual machine.
+- Only smaller I/O sizes are taking the accelerated path. In workload situations where data is getting bulk loaded or where the transaction log buffers of the different DBMS are filled to a larger degree before getting persisted to the storage, chances are that the I/O written to disk is not taking the accelerated path.
 
 
 ## Enabling Write Accelerator on a specific disk
@@ -287,7 +294,7 @@ The output could look like:
 
 ```
 
-Next step is to update the JSON file and to enable Write Accelerator on the disk called 'log1'. this can be done by adding this attribute into the JSON file after the cache entry of the disk. 
+Next step is to update the JSON file and to enable Write Accelerator on the disk called 'log1'. This step can be accomplished by adding this attribute into the JSON file after the cache entry of the disk. 
 
 ```
         {

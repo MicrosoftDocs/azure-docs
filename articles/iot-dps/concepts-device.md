@@ -18,7 +18,7 @@ ms.custom: mvc
 
 # IoT Hub Device Provisioning Service device concepts
 
-IoT Hub Device Provisioning Service is a helper service for IoT Hub that you use to configure zero-touch device provisioning to a specified IoT hub. With the Device Provisioning Service you can provision millions of devices in a secure and scalable manner.
+IoT Hub Device Provisioning Service is a helper service for IoT Hub that you use to configure zero-touch device provisioning to a specified IoT hub. With the Device Provisioning Service, you can provision millions of devices in a secure and scalable manner.
 
 This article gives an overview of the *device* concepts involved in device provisioning. This article is most relevant to personas involved in the [manufacturing step](about-iot-dps.md#manufacturing-step) of getting a device ready for deployment.
 
@@ -31,7 +31,7 @@ The attestation mechanism is the method used for confirming a device's identity.
 
 The Device Provisioning Service supports two forms of attestation:
 * **X.509 certificates** based on the standard X.509 certificate authentication flow.
-* **SAS tokens** based on a nonce challenge using the TPM standard for keys. This does not require a physical TPM on the device, but the service expects to attest using the endorsement key per the [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Trusted Platform Module (TPM)** based on a nonce challenge, using the TPM standard for keys to present a signed Shared Access Signature (SAS) token. This does not require a physical TPM on the device, but the service expects to attest using the endorsement key per the [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## Hardware security module
 

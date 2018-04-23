@@ -32,8 +32,10 @@ The Azure Machine Learning module that you create in this tutorial reads the env
 
 * The Azure IoT Edge device that you created in the quickstart or first tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.
-* An Azure Machine Learning account. To create an account, follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
-* Module Management for Azure ML on your machine. To set up your environment and create an account, follow the instructions in [Model management setup](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
+* An Azure Machine Learning account. To create an account, follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
+* Module Management for Azure ML on your machine. To set up your environment and create an account, follow the instructions in [Model management setup](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration).
+
+The Azure Machine Learning module does not support ARM processors. 
 
 ## Create the Azure ML container
 In this section, you download the trained model files and convert them into an Azure ML container.  
@@ -43,7 +45,7 @@ On the machine running Module Management for Azure ML, download and save [iot_sc
 Use the trained model to create a container that can be deployed to IoT Edge devices. Use the following command to:
 
    * Register your model.
-   * Create a manafest.
+   * Create a manifest.
    * Create a Docker container image named *machinelearningmodule*.
    * Deploy the image to your Azure Container Service (AKS) cluster.
 

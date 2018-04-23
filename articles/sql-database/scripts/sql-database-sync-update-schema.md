@@ -1,5 +1,5 @@
----
-title: PowerShell example - Update SQL Data Sync sync schema | Microsoft Docs
+﻿---
+title: PowerShell example - Update SQL Data Sync (Preview) sync schema | Microsoft Docs
 description: Azure PowerShell example script to update the sync schema for SQL Data Sync
 services: sql-database
 documentationcenter: sql-database
@@ -20,7 +20,7 @@ ms.reviewer: douglasl
 ---
 # Use PowerShell to update the sync schema in an existing sync group
 
-This PowerShell example updates the sync schema in an existing sync group. When you're syncing multiple tables, this script helps you to update the sync schema efficiently.
+This PowerShell example updates the sync schema in an existing SQL Data Sync (Preview) sync group. When you're syncing multiple tables, this script helps you to update the sync schema efficiently.
 
 This example demonstrates the use of the **UpdateSyncSchema** script, which is available on GitHub as [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
 
@@ -29,7 +29,7 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 
 This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
-Run `Login-AzureRmAccount` to create a connection with Azure.
+Run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Examples
 
@@ -92,7 +92,7 @@ For more info about SQL Data Sync, see:
 -   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md)
 -   [Set up Azure SQL Data Sync](../sql-database-get-started-sql-data-sync.md)
 -   [Best practices for Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
--   [Monitor Azure SQL Data Sync with OMS Log Analytics](../sql-database-sync-monitor-oms.md)
+-   [Monitor Azure SQL Data Sync with Log Analytics](../sql-database-sync-monitor-oms.md)
 -   [Troubleshoot issues with Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
 
 -   Complete PowerShell examples that show how to configure SQL Data Sync:

@@ -7,9 +7,9 @@
 ### [Overview](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
-### [.NET](active-directory-devquickstarts-dotnet.md)
-### [Windows](active-directory-devquickstarts-windowsstore.md)
-### [Xamarin](active-directory-devquickstarts-xamarin.md)
+### [.NET (Windows Desktop)](active-directory-devquickstarts-dotnet.md)
+### [.NET (Windows Universal)](active-directory-devquickstarts-windowsstore.md)
+### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## Web apps
@@ -17,6 +17,7 @@
 ### [ASP.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)
 ### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
 ### [Java](active-directory-devquickstarts-webapp-java.md)
+### [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ## Single Page Apps
@@ -40,11 +41,12 @@
 ### [OAuth 2.0 auth code grant](active-directory-protocols-oauth-code.md)
 ### [OAuth 2.0 implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
+### [Configuring Role claim](active-directory-enterprise-app-role-management.md)
 ### [Customize claims](active-directory-saml-claims-customization.md)
 ### [Debug SAML-based SSO](active-directory-saml-debugging.md)
 ### [Single sign-on SAML protocol](active-directory-single-sign-on-protocol-reference.md)
 ### [Single sign-out SAML protocol](active-directory-single-sign-out-protocol-reference.md)
-### [Create a tenant](active-directory-howto-tenant.md)
+## [Create a tenant](active-directory-howto-tenant.md)
 ## [Branding guidelines](active-directory-branding-guidelines.md)
 ## Mobile & Desktop SSO
 ### [Enable SSO on Android](active-directory-sso-android.md)
@@ -77,6 +79,7 @@
 ### [Service to service calls](active-directory-protocols-oauth-service-to-service.md)
 ### [On-behalf-of flow](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Supported token and claim types](active-directory-token-and-claims.md)
+### [Configure application optional and custom claims](active-directory-optional-claims.md)
 ### [Signing key rollover](active-directory-signing-key-rollover.md)
 ### [Federation metadata](active-directory-federation-metadata.md)
 ### [Certificate credentials](active-directory-certificate-credentials.md)
@@ -95,10 +98,16 @@
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
 #### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
+#### [Universal Windows Platform](guidedsetups/active-directory-uwp-v2.md)
 ### Web apps
-#### [JavaScript SPA](guidedsetups/active-directory-javascriptspa.md)
-#### [ASP.NET Web Server](guidedsetups/active-directory-aspnetwebapp.md)
-#### [NodeJS Web App](active-directory-v2-devquickstarts-node-web.md)
+#### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
+#### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+### Single page apps
+#### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
+### Web APIs
+#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
+### Service to service
+#### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Guides
 ### [Register an app](active-directory-v2-app-registration.md)
 ## Reference
@@ -107,11 +116,11 @@
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [OAuth 2.0 authorization code grant](active-directory-v2-protocols-oauth-code.md)
 #### [OAuth 2.0 implicit grant](active-directory-v2-protocols-implicit.md)
-#### [Oauth 2.0 client credentials grant](active-directory-v2-protocols-oauth-client-creds.md)
-#### [Oauth 2.0 on-behalf-of flow](active-directory-v2-protocols-oauth-on-behalf-of.md)
-#### [Token reference](active-directory-v2-tokens.md)
+#### [OAuth 2.0 client credentials grant](active-directory-v2-protocols-oauth-client-creds.md)
+#### [OAuth 2.0 on-behalf-of flow](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Certificate credentials](active-directory-certificate-credentials.md)
-### [Scopes](active-directory-v2-scopes.md)
+### [Tokens](active-directory-v2-tokens.md)
+### [Scopes & Consent](active-directory-v2-scopes.md)
 # Resources
 ## [Getting help](active-directory-develop-help-support.md)
 ## [Azure roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)

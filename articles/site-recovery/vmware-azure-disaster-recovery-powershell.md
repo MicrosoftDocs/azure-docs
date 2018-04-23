@@ -1,4 +1,4 @@
----
+﻿---
 title: Replicate and fail over VMware VMs to Azure using PowerShell in Azure Site Recovery | Microsoft Docs
 description: Learn how to set up replication and failover to Azure for VMware VMs using PowerShell in Azure Site Recovery.
 services: site-recovery
@@ -39,10 +39,10 @@ Before you start:
 
 ## Log in to your Microsoft Azure subscription
 
-Log in to your Azure subscription using the Login-AzureRmAccount cmdlet
+Log in to your Azure subscription using the Connect-AzureRmAccount cmdlet
 
 ```azurepowershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 Select the Azure subscription you want to replicate your VMware virtual machines to. Use the Get-AzureRmSubscription cmdlet to get the list of Azure subscriptions you have access to. Select the Azure subscription to work with using the Select-AzureRmSubscription cmdlet.
 
@@ -112,6 +112,18 @@ ResourceName      ResourceGroupName ResourceNamespace          ResouceType
 ------------      ----------------- -----------------          -----------
 VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
 ```
+
+> [!TIP]
+> As an alternative to the Set-ASRVaultContext cmdlet, one can also use the Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet to set the vault context. Specify the path at which the vault registration key file is located as the -path parameter to the Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet.
+>
+>For example:
+>
+>```azurepowershell
+>Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+>
+>Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
+>```
+>
 
 Subsequent sections of this article assume that the vault context for Azure Site Recovery operations has been set.
 

@@ -18,6 +18,9 @@ ms.author: wesmc;ricksal
 
 ---
 # Authenticate with Mobile Engagement REST APIs
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
 
 ## Overview
 
@@ -61,7 +64,7 @@ Optionally, you can also follow the instructions in the [manual setup](mobile-en
         Import-Module Azure
 3. Sign in to Azure Resource Manager from PowerShell by running the following command. Provide the user name and password for your Azure account: 
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 4. If you have multiple subscriptions, take the following steps:
 
     a. Get a list of all your subscriptions. Then copy the **SubscriptionId** of the subscription that you want to use. Make sure this subscription has the Mobile Engagement app. You are going to use this app to interact with the APIs. 

@@ -35,12 +35,16 @@
     href: container-instances-multi-container-group.md
   - name: Deploy from Azure Container Registry
     href: container-instances-using-azure-container-registry.md
+  - name: Execute a command (exec)
+    href: container-instances-exec.md
   - name: Run containerized tasks
     href: container-instances-restart-policy.md
-  - name: Set environment variables
+  - name: Set environment variables (env)
     href: container-instances-environment-variables.md
   - name: Troubleshoot deployments
     href: container-instances-troubleshooting.md
+  - name: Jenkins build agents on ACI
+    href: container-instances-jenkins.md
   - name: Configure data volumes
     items:
     - name: Azure Files
@@ -66,7 +70,7 @@
   - name: Java
     href: /java/api/overview/azure/containerinstance
   - name: Node.js
-    href: /javascript/api/overview/azure/containerinstance
+    href: /javascript/api/overview/azure/containerinstances
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Resources
