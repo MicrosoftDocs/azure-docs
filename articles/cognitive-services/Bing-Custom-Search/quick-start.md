@@ -25,13 +25,14 @@ To create a Bing Custom Search instance:
 3.	After signing in, click **New instance** and name the instance. Use a name that’s meaningful and describes the type of content the search returns. You can change the name at any time. 
 4.  On the **Active** tab of the **Definition Editor**, enter the URL of one or more sites you want to include in your search.
 5.	To confirm that your instance returns results, enter a query in the preview pane on the right. If there are no results, specify a new site. Bing returns results only for public sites that it has indexed.
-6.  Click **Publish** to publish configuration changes to production. When prompted, click **Publish** to confirm.
+6.  Click **Publish to Live State** to publish configuration changes to production. When prompted, click **Publish** to confirm.
 7.  Click **Production** > **API Endpoint** and copy the **Custom Configuration ID**. You need this ID to call the Custom Search API.
 
 ## Next steps
 
 - [Configure your custom search experience](./define-your-custom-view.md)
 - [Call your custom search](./search-your-custom-view.md)
+- [Share your custom search](./share-your-custom-search.md)
 - [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)
