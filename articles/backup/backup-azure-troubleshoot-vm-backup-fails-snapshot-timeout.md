@@ -60,7 +60,8 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 
 ## Backup fails because the VM agent is unresponsive
 
-Error message: "Unable to perform the operation as the VM Agent is not responsive"
+Error message: "Unable to perform the operation as the VM Agent is not responsive" <br>
+Error code: "GuestAgentSnapshotTaskStatusError"
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
 **Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -69,7 +70,8 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 
 ## Backup fails, with an internal error
 
-Error message: "Backup failed with an internal error - Please retry the operation in a few minutes"
+Error message: "Backup failed with an internal error - Please retry the operation in a few minutes" <br>
+Error code: "BackUpOperationFailed"/ "BackUpOperationFailedV2"
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
 **Cause 1: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**  
@@ -94,6 +96,8 @@ To resolve the issue, try one of the following methods:
 You can use [service tags](../virtual-network/security-overview.md#service-tags) to allow connections to storage of the specific region. Ensure that the rule that allows access to the storage account has higher priority than the rule that blocks internet access. 
 
 ![Network security group with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+To understand the step by step procedure to configure service tags, watch [this video](https://youtu.be/1EjLQtbKm1M).
 
 > [!WARNING]
 > Storage service tags are in preview. They are available only in specific regions. For a list of regions, see [Service tags for storage](../virtual-network/security-overview.md#service-tags).

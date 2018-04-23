@@ -132,7 +132,7 @@ Now that you have a variable to hold the subscription ID, you can configure the 
 1. Hover over **Login to Azure** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to **Specify Subscription Id**.
 
 > [!IMPORTANT]
-> **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRMAccount**, or you can update your modules in your Automation Account.
+> **Connect-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Connect-AzureRmAccount**, or you can update your modules in your Automation Account.
 
 Your runbook should look like the following at this point: <br>![Runbook authentication configuration](media/automation-first-runbook-graphical/runbook-auth-config.png)
 

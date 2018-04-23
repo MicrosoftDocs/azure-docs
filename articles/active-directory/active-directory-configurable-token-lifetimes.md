@@ -22,8 +22,8 @@ ms.reviewer: anchitn
 # Configurable token lifetimes in Azure Active Directory (Public Preview)
 You can specify the lifetime of a token issued by Azure Active Directory (Azure AD). You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization.
 
-> [!NOTE]
-> This capability currently is in Public Preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory subscription during Public Preview. However, when the feature becomes generally available, some aspects of the feature might require an [Azure Active Directory Premium](active-directory-get-started-premium.md) subscription.
+> [!IMPORTANT]
+> This method of controlling token lifetimes will be deprecated.  While it will remain available until the replacement feature is ready, once it is deprecated token lifetime policies created using this method will cease to function. 
 >
 >
 

@@ -51,9 +51,9 @@ When you choose this authentication method Azure AD handles the sign-in process 
 ### Federated authentication
 When you choose this authentication method Azure AD hands off the authentication process to a separate trusted authentication system, for example, an on-premises Active Directory Federation Services (AD FS) to validate the user’s password. The authentication system can provide additional authentication requirements, such as smartcard-based authentication or a third-party multi-factor authentication. For more information, see [Deploying Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide).
 
-The following section will help you decide which authentication method is right for you, using a decision tree diagram. It will help you determine whether to deploy cloud or federated authentication for your Azure AD hybrid identity solution.
+The following section will help you decide which authentication method is right for you, using a decision tree. It will help you determine whether to deploy cloud or federated authentication for your Azure AD hybrid identity solution.
 
-## Azure AD authentication decision tree diagram
+## Azure AD authentication decision tree
 
 ![image1](media/azure-ad/azure-ad-authn-image1.png)
 
@@ -82,7 +82,7 @@ Refer to [implementing Password Hash Sync](https://docs.microsoft.com/en-us/azur
 
 * **User experience:** It is recommended that organizations deploy seamless single sign-on with Pass-through authentication to improve the user’s sign-in experience by avoiding unnecessary  prompts once they signed in.
 
-* **Advanced scenarios:** Pass-through authentication ensures authentication requests are immediately denied when an on-premises user’s account state is disabled, locked out or password expired. Organizations requiring multi-factor authentication with pass-through authentication must use Azure AD multi-factor authentication and cannot use a third party or on-premises multi-factor authentication method. Advanced features, such as the leaked credentials report of Identity Protection requires that Password Hash Sync is deployed regardless if you choose pass-through authentication.
+* **Advanced scenarios:** Pass-through authentication ensures authentication requests are immediately denied when an on-premises user’s account state is disabled, locked out, password expired or falls outside the user’s allowed logon hours. Organizations requiring multi-factor authentication with pass-through authentication must use Azure AD multi-factor authentication and cannot use a third party or on-premises multi-factor authentication method. Advanced features, such as the leaked credentials report of Identity Protection requires that Password Hash Sync is deployed regardless if you choose pass-through authentication.
 
 * **Business Continuity:** It is recommended that you deploy two extra pass-through agents, besides the first agent on the Azure AD Connect server to ensure high availability of authentication requests. When you have three agents deployed, one agent can still fail when another agent is down for maintenance. Another benefit of deploying Password Hash Sync in addition to pass-through authentication, is it can act as backup authentication method when the primary authentication method is no longer available, for example when the on-premises servers are not available.
 
