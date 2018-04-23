@@ -5,9 +5,8 @@ description: Use the Microsoft Translator Speech Translation API to add speech t
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
-
 ms.service: cognitive-services
-ms.technology: translator
+ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jansko

@@ -17,7 +17,7 @@
 ## [Configure company branding](customize-branding.md)
 ## [Add users to Azure AD](add-users-azure-active-directory.md)
 ## [Assign licenses to users](license-users-groups.md)
-## [Configure Self-service password reset](active-directory-passwords-getting-started.md)
+## [Configure Self-service password reset](authentication/quickstart-sspr.md)
 
 
 # How to
@@ -63,6 +63,8 @@
 #### [Dynamic groups and B2B users](active-directory-b2b-dynamic-groups.md)
 #### [Auditing and reports](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B for hybrid organizations](active-directory-b2b-hybrid-organizations.md)
+##### [Grant B2B users access to local apps](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+##### [Grant local users access to cloud apps](active-directory-b2b-hybrid-on-premises-to-cloud.md)
 #### [B2B and Office 365 external sharing](active-directory-b2b-o365-external-user.md)
 #### [B2B licensing](active-directory-b2b-licensing.md)
 #### [Current limitations](active-directory-b2b-current-limitations.md)
@@ -119,6 +121,7 @@
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
+#### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Troubleshoot
@@ -141,7 +144,7 @@
 #### [Register for self-service password reset](active-directory-passwords-reset-register.md)
 ### [SSPR How it works](authentication/concept-sspr-howitworks.md)
 ### [SSPR Deployment guide](authentication/howto-sspr-deployment.md)
-### [SSPR and Windows 10](active-directory-passwords-login.md)
+### [SSPR and Windows 10](authentication/tutorial-sspr-windows.md)
 ### [SSPR Policies ](authentication/concept-sspr-policy.md)
 ### [SSPR Customization](authentication/concept-sspr-customization.md)
 ### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
@@ -149,7 +152,7 @@
 ### IT Admins: Reset passwords
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
 ### [License SSPR](authentication/concept-sspr-licensing.md)
-### [Password writeback](active-directory-passwords-writeback.md)
+### [Password writeback](authentication/howto-sspr-writeback.md)
 ### [Troubleshoot](authentication/active-directory-passwords-troubleshoot.md)
 ### [FAQ](authentication/active-directory-passwords-faq.md)
 
