@@ -121,7 +121,7 @@ Create the Basic Load Balancer with [New-AzureRmLoadBalancer](/powershell/module
 
 ```azurepowershell-interactive
 $lb = New-AzureRmLoadBalancer `
--ResourceGroupName 'myResourceGroupBLB' `
+-ResourceGroupName 'myResourceGroupLB' `
 -Name 'MyLoadBalancer' `
 -Location 'eastus' `
 -FrontendIpConfiguration $frontendIP `
@@ -276,10 +276,10 @@ Install IIS with a custom web page on both backend VMs as follows:
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `
-    -ResourceGroupName "myResourceGroupBLB" `
+    -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
   ```
-2. Create a remote desktop connection to VM1
+2. Create a remote desktop connection to VM1 using the Public Ip address that you obtained from the previous step. 
 
   ```azurepowershell-interactive
 
