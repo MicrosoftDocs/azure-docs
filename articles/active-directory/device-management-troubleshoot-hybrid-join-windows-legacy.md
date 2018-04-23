@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -56,9 +56,11 @@ This topic provides you with troubleshooting guidance on how to resolve potentia
 
 **To verify the registration status:**  
 
-1. Open the command prompt as an administrator 
+1. Sign-on with the user account that has performed a hybrid Azure AD join.
 
-2. Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
+2. Open the command prompt as an administrator 
+
+3. Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
 
 This command displays a dialog box that provides you with more details about the join status.
 
