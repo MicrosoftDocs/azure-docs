@@ -37,9 +37,9 @@ Some of the key attributes of the HTTPS feature are:
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> - Enable the HTTPS protocol on your custom domain
-> - Validate the domain
-> - Disable the HTTPS protocol on your custom domain
+> - Enable the HTTPS protocol on your custom domain.
+> - Validate the domain.
+> - Disable the HTTPS protocol on your custom domain.
 
 ## Prerequisites
 
@@ -221,15 +221,15 @@ The following table shows the operation progress that occurs when you disable HT
 
 ## Next steps
 
-What you learned:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> - Enabled the HTTPS protocol on your custom domain
-> - Validated the domain
-> - Disabled the HTTPS protocol on your custom domain
+> - Enable the HTTPS protocol on your custom domain.
+> - Validate the domain.
+> - Disable the HTTPS protocol on your custom domain.
 
 Advance to the next tutorial to learn how to configure caching on your CDN endpoint.
 
 > [!div class="nextstepaction"]
-> [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md)
+> [Tutorial: Set Azure CDN caching rules](cdn-caching-rules-tutorial.md)
 

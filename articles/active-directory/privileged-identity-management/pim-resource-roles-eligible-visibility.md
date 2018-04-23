@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management for Azure Resources - Eligible assignments and resource visibility | Microsoft Docs
-description: Describes how to assign members as Eligible to resource roles.
+title: Eligible assignments and resource visibility for Azure in Privileged Identity Management | Microsoft Docs
+description: Describes how to assign members as eligible for resource roles when using PIM.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,9 +17,9 @@ ms.custom: pim
 ---
 
 
-# Eligible assignments and resource visibility
+# Eligible assignments and resource visibility with Privileged Identity Management
 
-PIM for Azure resource roles provides enhanced security for organizations with critical Azure resoruces. PIM provides resource administrators the ability to assign members as Eligible to resource roles. Read more about the different assignment types and states for Azure resource roles below. 
+Privileged Identity Management (PIM) for Azure resource roles provides enhanced security for organizations that have critical Azure resources. Resource administrators can use PIM to assign members as eligible for resource roles. Learn more about the different assignment types and assignment states for Azure resource roles in the following sections. 
 
 ## Assignment types
 
@@ -28,40 +28,41 @@ PIM for Azure resources provides two distinct assignment types:
 - Eligible
 - Active
 
-Eligible assignments require the member of the role to perform an action to use the role. These actions may include succeeding a Multi-Factor Authentication check, providing a justification, and requesting approval from designated approvers.
+Eligible assignments require the member of the role to perform an action to use the role. Actions might include succeeding a multi-factor authentication check, providing a business justification, or requesting approval from designated approvers.
 
-Active assignments do not require the member to perform any action to use the role. Members assigned as Active have the privileges provided by the role at all times.
+Active assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role at all times.
 
 ## Assignment duration
 
-Resource administrators can choose one of two options for each Assignment Type when configuring PIM settings on a role. These options become the default maximum duration when a member is assigned to the role in PIM.
+Resource administrators can choose from two options for each assignment type when they configure PIM settings for a role. These options become the default maximum duration when a member is assigned to the role in PIM. 
+
+An administrator can choose one of these assignment types:
 
 - Allow permanent eligible assignment
 - Allow permanent active assignment
 
-or
+Or, an administrator can choose one of these assignment types:
 
 - Expire eligible assignments after
 - Expire active assignments after
 
-If a resource administrator chooses to "Allow permanent eligible assignment" and/or "Allow permanent active assignment", all administrators that assign members to the resource will have the ability to assign permanent memberships.
+If a resource administrator chooses **Allow permanent eligible assignment** or **Allow permanent active assignment**, all administrators that assign members to the resource can assign permanent memberships.
 
-Choosing "Expire eligible assignments after" and/or "Expire active assignments after" enables control over the assignment lifecycle by requiring all assignments have a specified start and end date.
+If a resource administrator chooses **Expire eligible assignments after** or **Expire active assignments after**, the resource administrator controls the assignment lifecycle by requiring that all assignments have a specified start and end date.
 
->[!NOTE] 
->All assignments with a specified end date can be renewed by resource administrators and members can initiate self-service requests to [extend or renew assignments](pim-resource-roles-renew-extend.md).
+> [!NOTE] 
+> All assignments that have a specified end date can be renewed by resource administrators. Also, members can initiate self-service requests to [extend or renew assignments](pim-resource-roles-renew-extend.md).
 
 
 ## Assignment states
 
-PIM for Azure resources has two distinct assignment states that appear on the "Active roles" tab in My roles, Roles, and Members views of PIM. These states are:
+PIM for Azure resources has two distinct assignment states that appear on the **Active roles** tab in the **My roles**, **Roles**, and **Members** views of PIM. These states are:
 
 - Assigned
 - Activated
 
-When viewing a membership listed in "Active roles" the "STATE" column enables you to differentiate between users that are "Assigned" as active versus users that "Activated" an eligible assignment and are now active.
+When you view a membership that's listed in **Active roles**, you can use the value in the **STATE** column to differentiate between users that are **Assigned** as active and users that **Activated** an eligible assignment, and are now active.
 
 ## Next steps
 
-[Assign roles in PIM](pim-resource-roles-assign-roles.md)
-
+[Assign roles in Privileged Identity Manager](pim-resource-roles-assign-roles.md)
