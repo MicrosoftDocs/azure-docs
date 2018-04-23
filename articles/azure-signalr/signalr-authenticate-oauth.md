@@ -39,6 +39,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Register a new OAuth app with your GitHub account
 > * Update your authentication controller to support OAuth authentication
+> * Deploy your ASP.NET Core web app to Azure
 
 
 ## Prerequisites
@@ -267,7 +268,7 @@ In this section, you will update the *AuthController* class to support OAuth aut
     Replace the placeholder values, including the brackets (<>), using the Client ID, and Client Secret values of the new OAuth app you registered.
 
 
-### Update the Hub class
+### Update the Hub class to support claims
 
 The hub class needs to be updated to use the user's claim for identification. In the previous tutorial, the `broadcastMessage()` method used the name parameter to let caller claim their own identity. This was not secure. In this section, you will remove that name parameter and read the username from the authenticated user's claim.
 
@@ -304,6 +305,43 @@ The hub class needs to be updated to use the user's claim for identification. In
         Clients.Client(Context.ConnectionId).SendAsync("echo", username, message + " (echo from server)");
     }
     ```
+
+2. Open *wwwroot\Index.html* and update the *onConnected** function to use the new signatures for calling *broadcastMessage*, and *echo*.
+
+    ```javascript
+    function onConnected(connection) {
+        console.log('connection started');
+        connection.send('broadcastMessage', '_SYSTEM_', username + ' JOINED');
+        document.getElementById('sendmessage').addEventListener('click', function (event) {
+            // Call the broadcastMessage method on the hub supporting claims.            
+            if (messageInput.value) {
+                connection.send('broadcastMessage', messageInput.value);
+            }
+
+            // Clear text box and reset focus for next comment.
+            messageInput.value = '';
+            messageInput.focus();
+            event.preventDefault();
+        });
+        document.getElementById('message').addEventListener('keypress', function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById('sendmessage').click();
+                return false;
+            }
+        });
+        document.getElementById('echo').addEventListener('click', function (event) {
+            // Call the echo method on the hub supporting claims.
+            connection.send('echo', messageInput.value);
+
+            // Clear text box and reset focus for next comment.
+            messageInput.value = '';
+            messageInput.focus();
+            event.preventDefault();
+        });
+    }
+    ```
+
 
 ## Build and Run the app locally
 

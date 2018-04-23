@@ -21,7 +21,7 @@ ms.author: wesmc
 
 Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on [SignalR for ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/09/14/announcing-signalr-for-asp-net-core-2-0/).
 
-This topic shows you how to get started with the SignalR Service. In this quickstart you will create a chat application using an ASP.NET Core MVC Web App web app with the SignalR Service. 
+This topic shows you how to get started with the SignalR Service. In this quickstart you will create a chat application using an ASP.NET Core MVC Web App web app with the SignalR Service. You will host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients. 
 
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom).
 
@@ -41,13 +41,9 @@ The code for this tutorial is available for download in the [AzureSignalR-sample
 
 ## Create an ASP.NET Core web app
 
-In this section you use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x) to create a new ASP.NET Core MVC Web App project.
+In this section you use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) to create a new ASP.NET Core MVC Web App project. The advantage of using the .NET Core CLI is that it is available across the Windows, Linux, and MacOS platforms. You could also use Visual Studio on the Windows and MacOS platforms.
 
-1. Open a command prompt and create a new folder for your project. In this article the *E:\Testing\chattest* folder is created and used.
-
-        E:\Testing>md chattest
-        E:\Testing>cd chattest
-        E:\Testing\chattest>
+1. Create a new folder for your project. In this article the *E:\Testing\chattest* folder is created and used.
 
 2. In the new folder, execute the following command to create a new ASP.NET Core MVC Web App project:
 
@@ -65,7 +61,15 @@ In this section you use the [.NET Core command-line interface (CLI)](https://doc
 
 2. Add a new environment variable named *AzureSignalRConnectionStringKey*. This variable will contain the connection string to access your Signalr Service resource. Based on the example command below, paste in your connection string for the value:
 
+    Windows:
+
         set AzureSignalRConnectionStringKey=Endpoint=<your hostname>;AccessKey=<Your access key>;
+
+    Linux and MacOS (bash shell)        
+
+    ```bash
+    export AzureSignalRConnectionStringKey="Endpoint=<your hostname>;AccessKey=<Your access key>;"   
+    ```
 
     This environment variable is only used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the web app to Azure. Once the web app is deployed to Azure, you will use an application setting in place of the environment variable.
 
@@ -107,8 +111,8 @@ In this section you use the [.NET Core command-line interface (CLI)](https://doc
 
 In SignalR, a hub is a core concept that exposes a set of methods that can be called from client. In this section you define a hub class with two methods: 
 
-* `Broadcast()`: This method broadcasts a message to all clients.
-* `Echo()`: This method sends a message back to the caller.
+* `Broadcast`: This method broadcasts a message to all clients.
+* `Echo`: This method sends a message back to the caller.
 
 Both methods use the `Clients` interface provided by the SignalR Core SDK. This interface gives you access to all connected clients enabling you to push content to your clients.
 
@@ -144,7 +148,7 @@ The connection string contains sensitive access data and should only be used by 
 
 Azure SignalR Service gives you the flexibility to implement your own authentication. In this article, you aren't going to include real authentication. Instead you will simply issue the token when requested. You will implement real authentication in a later tutorial. 
 
-In this section you will implement an API issues a token to the client. Code running client-side can then use this token to connect to the service to push content updates.
+In this section you will implement an API that issues a token to the client. Code running client-side can then use this token to connect to the service to push content updates.
 
 1. Add a new controller code file to the *chattest\Controllers* directory. Name the file *AuthController.cs*.
 
