@@ -3292,7 +3292,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Lab Services</h3>
-                                                    <p>Azure Lab Services (formerly Azure DevTest Labs) provides secure, sharable labs in the cloud for classroom, development and testing, and other scenarios</p>
+                                                    <p>Create labs in the cloud for classroom, development and testing, and other scenarios (formerly DevTest Labs) </p>
                                                 </div>
                                             </div>
                                         </div>
