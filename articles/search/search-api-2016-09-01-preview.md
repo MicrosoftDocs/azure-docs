@@ -12,7 +12,7 @@ ms.author: nateko
 
 ---
 # Azure Search Service REST API: Version 2016-09-01-Preview
-This article is the reference documentation for `api-version=2016-09-01-Preview`. This preview extends the current generally available version, [api-version=2016-09-01](https://docs.microsoft.com/azure/search/search-api-versions), by providing the following experimental features:
+This article is the reference documentation for `api-version=2016-09-01-Preview`. This preview extends the current generally available version, [api-version=2016-09-01](https://docs.microsoft.com/rest/api/searchservice), by providing the following experimental features:
 
 * [`moreLikeThis` query parameter](search-more-like-this.md) to find documents that are relevant to a specific document.
 
