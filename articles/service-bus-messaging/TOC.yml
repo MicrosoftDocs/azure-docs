@@ -60,6 +60,8 @@
   items:
   - name: Plan and design
     items:
+    - name: Service Bus architecture
+      href: service-bus-architecture.md
     - name: Managed Service Identity (preview)
       href: service-bus-managed-service-identity.md
     - name: Role-Based Access Control (preview)
