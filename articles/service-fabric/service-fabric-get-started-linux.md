@@ -8,6 +8,7 @@ manager: timlt
 editor: ''
 
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
+
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -38,16 +39,17 @@ Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is 
 
     * Ubuntu 16.04 (`Xenial Xerus`)
 
-* Ensure that the `apt-transport-https` package is installed:
-
-      ```bash
-      sudo apt-get install apt-transport-https
-      ```
+      * Ensure that the `apt-transport-https` package is installed:
+         
+         ```bash
+         sudo apt-get install apt-transport-https
+         ```
+    * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 
 ## Installation Methods
 
-### 1. Script installation
+### 1. Script installation (Ubuntu)
 
 A script is provided for convenience for installing the Service Fabric runtime and the Service Fabric common SDK along with **sfctl** CLI. Run the manual installation steps in the next section to determine what is being installed and the licenses that are being agreed to. Running the script assumes you agree to the licenses for all the software that is being installed. 
 
@@ -60,8 +62,10 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 ### 2. Manual Installation
 For manual installation of Service Fabric runtime and common SDK, follow the rest of this guide.
 
-## Update your APT sources
+## Update your APT sources/Yum Repositories
 To install the SDK and the associated runtime package via the apt-get command-line tool, you must first update your Advanced Packaging Tool (APT) sources.
+
+### Ubuntu
 
 1. Open a terminal.
 2. Add the Service Fabric repo to your sources list.
@@ -102,9 +106,46 @@ To install the SDK and the associated runtime package via the apt-get command-li
     sudo apt-get update
     ```
 
+
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+
+1. Open a terminal.
+2. Download and install Extra Packages for Enterprise Linux(EPEL).
+
+    ```bash
+    wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    sudo yum install epel-release-latest-7.noarch.rpm
+    ```
+3. Add EfficiOS RHEL7 package repository to your system.
+
+    ```bash
+    sudo wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
+    ```
+
+4. Import the efficios package signing key to the local GPG keyring.
+
+    ```bash
+    sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
+    ```
+
+5. Add Microsoft RHEL repository to your system.
+
+    ```bash
+    curl https://packages.microsoft.com/config/rhel/7.4/prod.repo > ./microsoft-prod.repo
+    sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
+    ```
+
+6. Install dotnet sdk.
+
+    ```bash
+    yum install rh-dotnet20 -y
+    ```
+
 ## Install and set up the Service Fabric SDK for local cluster setup
 
 After you have updated your sources, you can install the SDK. Install the Service Fabric SDK package, confirm the installation, and agree to the license agreement.
+
+### Ubuntu
 
 ```bash
 sudo apt-get install servicefabricsdkcommon
@@ -117,11 +158,18 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+
+```bash
+sudo yum install servicefabricsdkcommon
+```
+
 The Service Fabric runtime which comes with the above installation includes the packages in the table below. 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
 Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit from npm | latest |
+RHEL | - | OpenJDK 1.8 | Implicit from npm | latest |
 
 ## Set up a local cluster
   Once the installation completes, you should be able to start a local cluster.
@@ -165,6 +213,11 @@ Ubuntu
   sudo apt install nodejs-legacy
   ```
 
+Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+  ```bash
+  sudo yum install nodejs
+  sudo yum install npm
+  ```
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
 
   ```bash
@@ -187,11 +240,20 @@ Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#li
 
 To build Service Fabric services using Java, install JDK 1.8 and Gradle to run build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
 
+
+Ubuntu 
  ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```
 
+Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+  ```bash
+  sudo yum install java-1.8.0-openjdk-devel
+  curl -s https://get.sdkman.io | bash
+  sdk install gradle
+  ```
+ 
 ## Install the Eclipse plug-in (optional)
 
 You can install the Eclipse plug-in for Service Fabric from within the Eclipse IDE for Java Developers or Java EE Developers. You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.
@@ -235,11 +297,22 @@ To update the Java SDK binaries from Maven, you need to update the version detai
 ## Remove the SDK
 To remove the Service Fabric SDKs, run the following:
 
+### Ubuntu
+
 ```bash
 sudo apt-get remove servicefabric servicefabicsdkcommon
 sudo npm uninstall generator-azuresfcontainer
 sudo npm uninstall generator-azuresfguest
 sudo apt-get install -f
+```
+
+
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+
+```bash
+sudo yum remote servicefabric servicefabicsdkcommon
+sudo npm uninstall generator-azuresfcontainer
+sudo npm uninstall generator-azuresfguest
 ```
 
 ## Next steps

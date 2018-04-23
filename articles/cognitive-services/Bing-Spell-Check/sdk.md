@@ -7,7 +7,7 @@ author: mikedodaro
 manager: rosh
 ms.assetid: 
 ms.service: cognitive-services
-ms.technology: bing-spell-check
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 1/24/2018
 ms.author: v-gedod

@@ -1,4 +1,4 @@
----
+﻿---
 title: Add a VM image to Azure Stack | Microsoft Docs
 description: Add your organization's custom Windows or Linux VM image for tenants to use.
 services: azure-stack
@@ -78,7 +78,7 @@ To add the image to the Azure Stack Marketplace, complete the following steps:
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Connect-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID
       ```
@@ -106,7 +106,7 @@ To add the image to the Azure Stack Marketplace, complete the following steps:
           -ADFS `
           -EnvironmentName AzureStackAdmin
 
-        Login-AzureRmAccount `
+        Connect-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
           -TenantId $TenantID
         ```
