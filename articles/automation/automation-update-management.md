@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2018
+ms.date: 04/23/2018
 ms.topic: article
 manager: carmonm
 ---
@@ -15,7 +15,7 @@ The Update Management solution in Azure automation allows you to manage operatin
 
 You can enable Update management for virtual machines directly from your [Azure Automation](automation-offering-get-started.md) account.
 To learn how to enable update management for virtual machines from your Automation account, see
-[Manage updates for multiple virtual machines](manage-update-multi.md).
+[Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a single virtual machine from the virtual machine page in the Azure portal. This scenario is available to both [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtual machines.
 
 ## Solution overview
 
@@ -281,7 +281,7 @@ If you encounter issues while attempting to onboard the solution or a virtual ma
 Continue to the tutorial to learn how to manage updates for your Windows VMs.
 
 > [!div class="nextstepaction"]
-> [Manage updates and patches for your Azure Windows VMs](automation-tutorial-troubleshoot-changes.md)
+> [Manage updates and patches for your Azure Windows VMs](automation-tutorial-update-management.md)
 
 * Use Log Searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
 * [Create alerts](../log-analytics/log-analytics-alerts.md) when critical updates are detected as missing from computers or a computer has automatic updates disabled.
