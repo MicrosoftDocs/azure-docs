@@ -1,6 +1,6 @@
-- name: Latest
+- name: Azure Media Services v3 (preview)
   href: latest/media-services-overview.md
-- name: Previous
+- name: Azure Media Services v2 (GA)
   href: previous/media-services-overview.md
 - name: Resources
   items:
@@ -8,3 +8,4 @@
     href: https://azure.microsoft.com/roadmap/?category=media
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+    
