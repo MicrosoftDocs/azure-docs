@@ -107,6 +107,13 @@ az acr build-task create \
     --git-access-token $GIT_PAT
 ```
 
+This build task is similar to the task created in the [previous tutorial](container-registry-tutorial-buid-task.md), and instructs ACR Build to trigger an image build when commits are pushed to the repository. Where its behavior differs is that the Dockerfile, [Dockerfile-app][dockerfile-app], uses an image from within the same registry as its base:
+
+```Dockerfile
+
+```
+
+
 This build task specifies that any time the base image referenced in `Dockerfile-app` is updated, ACR Build will build the application container image from the code in the repository. In addition, any time code is committed to the "master" branch of the repository specified in the `--context` parameter, ACR Build will build the image.
 
 ## Build application container
