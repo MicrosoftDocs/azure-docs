@@ -107,13 +107,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	*   In the **Admin Password** field, populate the password corresponding to the admin username.
 
-	*   In the **CompanyId** field, populate the CompanyId of your Replicon tenant. Example: The CompanyID based on the below log-in, is Contoso.
+	*   In the **CompanyId** field, populate the CompanyId of your Replicon tenant. Example: The CompanyID based on the log-in below is Contoso.
 
 	![Replicon Login](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconLogin.png)
 
 	*   In the **Domain** field, populate the Domain as described in Step 6.
 	
-6. Obtain **serviceEndpointRootURL** for your Replicon tenant account based on steps mentioned at, [Replicon Service Help](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Upon obtaining the URL , the **domain** would be the subdomain of **serviceEndpointRootURL** as highlighted. 
+6. Obtain **serviceEndpointRootURL** for your Replicon tenant account based on steps mentioned in [Replicon Service Help](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Upon obtaining the URL , the **domain** would be the subdomain of **serviceEndpointRootURL** as highlighted. 
 
 	![Replicon Provisioning](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconEndpoint.png)
 
