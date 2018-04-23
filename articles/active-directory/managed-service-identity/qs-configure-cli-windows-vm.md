@@ -22,27 +22,31 @@ ms.author: daveba
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you will learn how to enable and remove system and user assigned identities using Azure CLI.
+In this article, you learn how to perform the following Managed Service Identity operations on an Azure VM, using the Azure CLI:
+- Enable and disable the system assigned identity on an Azure VM
+- Add and remove a user assigned identity on an Azure VM
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+- If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **[Be sure to review the difference between a system assigned and user assigned identity](overview.md#how-do-i-enable-my-resources-to-use-a-managed-service-identity)**.
 
-To run the CLI script examples, you have three options:
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/en-us/free/) before continuing.
 
-- Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
-- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
-- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. 
+- To run the CLI script examples, you have three options:
+
+    - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
+    - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
+    - [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## System assigned identity
 
-In this section, you learn how to enable and remove a system assigned identity using Azure CLI.
+In this section, you learn how to enable and disable the system assigned identity on an Azure VM using Azure CLI.
 
 ### Enable system assigned identity during creation of an Azure VM
 
-To create an MSI-enabled VM:
+To create an Azure VM with the system assigned identity enabled:
 
 1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
@@ -64,7 +68,7 @@ To create an MSI-enabled VM:
 
 ### Enable system assigned identity on an existing Azure VM
 
-If you need to enable a system assigned identity on an existing VM:
+If you need to enable the system assigned identity on an existing VM:
 
 1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
 
@@ -72,35 +76,35 @@ If you need to enable a system assigned identity on an existing VM:
    az login
    ```
 
-2. Use [az vm identity assign](/cli/azure/vm/identity/#az_vm_identity_assign) with the `identity assign` command to add a system assigned identity to an existing VM:
+2. Use [az vm identity assign](/cli/azure/vm/identity/#az_vm_identity_assign) with the `identity assign` command enable the system assigned identity to an existing VM:
 
    ```azurecli-interactive
    az vm identity assign -g myResourceGroup -n myVm
    ```
 
-### Remove system assigned identity from an Azure VM
+### Disable the system assigned identity from an Azure VM
 
-If you have a Virtual Machine that no longer needs a system assigned identity:
+> [!NOTE]
+> Disabling Managed Service Identity from a Virtual Machine is currently not supported. In the meantime, you can switch between using System Assigned and User Assigned Identities.
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
+If you have a Virtual Machine that no longer needs the system assigned identity but still needs user assigned identities, use the following command:
 
-   ```azurecli-interactive
-   az login
-   ```
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned' 
+```
+To remove the MSI VM extension, user `-n ManagedIdentityExtensionForWindows` or `-n ManagedIdentityExtensionForLinux` switch (depending on the type of VM) with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
 
-2. Use the `-n ManagedIdentityExtensionForWindows` or `-n ManagedIdentityExtensionForLinux` switch (depending on the type of VM) with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) to remove the system assigned identity:
+```azurecli-interactive
+az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
+```
 
-   ```azurecli-interactive
-   az vm extension delete --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
-   ```
+## User Assigned identity
 
-## User Assigned MSI
+In this section, you will learn how to add and remove a user assigned identity from an Azure VM, using Azure CLI.
 
-In this section, you will learn how to enable and remove a user assigned identity using Azure CLI.
+### Assign a user assigned identity during the creation of an Azure VM
 
-### Assign a user assigned MSI during the creation of an Azure VM
-
-This section walks you through creation of the VM and assignment of the user assigned identity to the VM. If you already have a VM you want to use, skip this section and proceed to the next.
+This section walks you through creation of a VM with assignment of a user assigned identity. If you already have a VM you want to use, skip this section and proceed to the next.
 
 1. You can skip this step if you already have a resource group you would like to use. Create a [resource group](~/articles/azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your MSI, using [az group create](/cli/azure/group/#az_group_create). Be sure to replace the `<RESOURCE GROUP>` and `<LOCATION>` parameter values with your own values. :
 
@@ -108,12 +112,12 @@ This section walks you through creation of the VM and assignment of the user ass
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Create a user assigned MSI using [az identity create](/cli/azure/identity#az_identity_create).  The `-g` parameter specifies the resource group where the user assigned identity is created, and the `-n` parameter specifies its name.
+2. Create a user assigned identity using [az identity create](/cli/azure/identity#az_identity_create).  The `-g` parameter specifies the resource group where the user assigned identity is created, and the `-n` parameter specifies its name.
 
     ```azurecli-interactive
     az identity create -g myResourceGroup -n myUserAssignedIdentity
     ```
-The response contains details for the user assigned MSI created, similar to the following. The resource `id` value assigned to the user assigned identity is used in the following step.
+The response contains details for the user assigned identity created, similar to the following. The resource id value assigned to the user assigned identity is used in the following step.
 
    ```json
    {
@@ -168,10 +172,18 @@ The response contains details for the user assigned MSI created, similar to the 
 
 ### Remove a user assigned identity from an Azure VM
 
-Remove the user assigned identity from your VM using [az vm identity remove](/cli/azure/vm#az-vm-identity-remove). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI NAME>` will be the user assigned identity's `name` property, as given during the `az identity create` command (see examples in the previous sections):
+> [!NOTE]
+> Removing all user assigned identities from a Virtual Machine is currently not supported, unless you have a system assigned identity.
+
+If your VM has multiple user assigned identities, you can remove all but the last one using [az vm identity remove](/cli/azure/vm#az-vm-identity-remove). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI NAME>` will be the user assigned identity's `name` property, which can be found by in the identity section of the VM using `az vm show`:
 
 ```azurecli-interactive
 az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+```
+If your VM has both system assigned and user assigned identities, you can remove all the user assigned identities by switching to use only system assigned. Use the following command:
+
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' 
 ```
 
 ## Related content

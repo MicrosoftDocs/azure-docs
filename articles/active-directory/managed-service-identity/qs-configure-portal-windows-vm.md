@@ -22,51 +22,58 @@ ms.author: daveba
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you will learn how to enable and remove MSI for an Azure VM, using the Azure portal.
+In this article, you will learn how to enable and disable the system assigned identity for an Azure VM, using the Azure portal. Assigning and removing user assigned identities from Azure VMs is not currently supported via the Azure Portal.
 
 > [!NOTE]
-> Currently, it is not supported to enable or remove a user assigned managed identity on an Azure VM using the Azure portal. Check back for updates. 
+> Currently, user assigned identity operations are not supported via the Azure Portal. Check back for updates. 
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+- If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md).
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/en-us/free/) before continuing.
 
-## Enable MSI during creation of an Azure VM
+## Managed Service Identity during creation of an Azure VM
 
-As of the time of this writing, enabling MSI during creation of a VM in the Azure portal is not supported. Instead, please refer to one of the following VM creation Quickstart articles to first create a VM:
+Currently, VM creation via the Azure portal does not support Managed Service Identity operations. Instead, please refer to one of the following VM creation Quickstart articles to first create a VM:
 
 - [Create a Windows virtual machine with the Azure portal](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
 
-Then proceed to the next section for details on enabling MSI on the VM.
+Then proceed to the next section for details on enabling Managed Service Identity on the VM.
 
-## Enable MSI on an existing Azure VM
+## Enable Managed Service Identity on an existing Azure VM
 
-If you have a VM that was originally provisioned without an MSI:
+To enable the system assigned identity on a VM that was originally provisioned without it:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”.
 
-2. Navigate to the desired Virtual Machine.
+2. Navigate to the desired Virtual Machine and select the "Configuration" page.
 
-2. Click the "Configuration" page, enable MSI on the VM by selecting "Yes" under "Managed service identity", then click **Save**. This operation can take 60 seconds or more to complete:
+3. Enable the system assigned identity on the VM by selecting "Yes" under "Managed service identity" and then click **Save**. This operation can take 60 seconds or more to complete:
+
+    > [!NOTE]
+    > Adding a user assigned identity to a VM is not currently supported via the Azure Portal.
 
    ![Configuration page screenshot](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
-## Remove MSI from an Azure VM
+## Remove Managed Service Identity from an Azure VM
 
-If you have a Virtual Machine that no longer needs an MSI:
+If you have a Virtual Machine that no longer needs the system assigned identity:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”.
 
-2. Navigate to the desired Virtual Machine.
+2. Navigate to the desired Virtual Machine and select the "Configuration" page.
 
-3. Click the "Configuration" page, remove MSI from the VM by selecting "No" under "Managed service identity", then click **Save**. This operation can take 60 seconds or more to complete:
+3. Disable the system assigned identity on the VM by selecting "No" under "Managed service identity", then click Save. This operation can take 60 seconds or more to complete:
+
+    > [!NOTE]
+    > Adding a user assigned identity to a VM is not currently supported via the Azure Portal.
 
    ![Configuration page screenshot](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md).
+- For an overview of Managed Service Identity, see [overview](overview.md).
 
 ## Next steps
 

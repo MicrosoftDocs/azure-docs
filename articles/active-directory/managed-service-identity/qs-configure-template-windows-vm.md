@@ -20,13 +20,14 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed Service Identity (MSI) provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you learn how to enable and remove a system assigned and user assigned identity for an Azure VM, using an Azure Resource Manager deployment template.
+In this article, you learn how to perform the following Managed Service Identity operations on an Azure VM, using Azure Resource Manager deployment template:
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+- If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **[Be sure to review the difference between a system assigned and user assigned identity](overview.md#how-do-i-enable-my-resources-to-use-a-managed-service-identity)**.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/en-us/free/) before continuing.
 
 ## Azure Resource Manager templates
 
@@ -55,7 +56,7 @@ In this section, you will enable and disable a system assigned identity using an
 
    ![Screenshot of template - locate VM](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
-3. Add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property. Use the following syntax:
+3. To enable system assigned identity, add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property. Use the following syntax:
 
    ```JSON
    "identity": { 
@@ -63,7 +64,7 @@ In this section, you will enable and disable a system assigned identity using an
    },
    ```
 
-4. Then add the VM MSI extension as a `resources` element. Use the following syntax:
+4. (Optional) Add the VM MSI extension as a `resources` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  Use the following syntax:
 
    >[!NOTE] 
    > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements.
