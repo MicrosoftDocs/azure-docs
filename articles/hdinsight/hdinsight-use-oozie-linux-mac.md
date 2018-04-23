@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 04/23/2018
 ms.author: larryfr
 
 ---
@@ -103,6 +103,9 @@ Because this workflow uses Sqoop to export data to the SQL database, you must pr
 ```bash
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
+
+> [!NOTE]
+> You may receive a message that the file already exists.
 
 If your workflow used other resources, such as a jar that contains a MapReduce application, you need to add those resources as well.
 
@@ -259,13 +262,13 @@ To create a SQL database, follow the steps in the [Create a SQL database](../sql
 3. At the `1>` prompt, enter the following lines:
 
     ```sql
-    CREATE TABLE [dbo].[mobiledata](
-    [deviceplatform] [nvarchar](50),
-    [count] [bigint])
-    GO
-    CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(deviceplatform)
-    GO
-    ```
+CREATE TABLE [dbo].[mobiledata](
+[deviceplatform] [nvarchar](50),
+[count] [bigint])
+GO
+CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(deviceplatform)
+GO
+```
 
     When the `GO` statement is entered, the previous statements are evaluated. These statements create a table, named **mobiledata**, that's used by the workflow.
 
