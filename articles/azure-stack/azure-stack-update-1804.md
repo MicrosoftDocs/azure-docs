@@ -31,13 +31,21 @@ This article describes the improvements and fixes in the 1804 update package, kn
 ## Build reference    
 The Azure Stack 1804 update build number is **201804xx.x**.
 
-### New features and fixes
-This update includes the following improvements and fixes for Azure Stack.
+### New features
+This update includes the following improvements for Azure Stack.
 
 - <!-- 15028744 -->  **Visual Studio support for disconnected Azure Stack deployments using AD FS**. Within Visual Studio you now can add subscriptions and authenticate using AD FS federated User credentials. 
  
-- **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
+- <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](/user/azure-stack-vm-sizes.md).
 
+- <!-- 1951191 --> Doubled the VPN Gateway capacity.
+ 
+- <!-- 1660015 --> Infrastructure backups on the external share are deleted based on a retention period of 7 days. 
+
+
+## Fixed issues
+
+- **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 <!-- ### Changes -->
  
 
