@@ -65,13 +65,8 @@ Once your Maps account is successfully created, follow the steps to link it to i
 
 <a id="createmap"></a>
 
-<<<<<<< HEAD
 ## Create a new map web app
 The Map Control API is a convenient client library that allows you to easily integrate Maps into your web application. It hides the complexity of the bare REST service calls and boosts your productivity with styleable and customizable components. The following steps show you how to create a static HTML page embedded with the Map Control API. 
-=======
-## Create new web page using Azure Map Control API
-Azure Map Control API is a convenient client library that allows you to easily integrate Azure Maps into your web application. It hides the complexity of the bare REST service calls and boosts your productivity with styleable and customizable components. The following steps show you how to create a static HTML page embedded with the map control API. 
->>>>>>> cf31203dbb6ab5a176b708266d865625c44eaafc
 
 1. On your local machine, create a new file and name it **MapSearch.html**. 
 2. Add the following HTML components to the file:
@@ -128,7 +123,7 @@ Azure Map Control API is a convenient client library that allows you to easily i
     
 4. Save your changes to the file and opening the HTML page in a browser. This is the most basic map that you can make, by calling **atlas.map** and providing your account key. 
 
-   ![View the map][./media/tutorial-search-location/basic-map.png]
+   ![View the map](./media/tutorial-search-location/basic-map.png)
 
 
 <a id="usesearch"></a>
@@ -209,7 +204,7 @@ This section shows how to use the Maps Search API to find a point of interest on
     
 4. Save the **MapSearch.html** file, and refresh your browser. You should now see that the map is centered on Seattle, and blue pins mark the locations of gasoline stations in the area. 
 
-   ![View the map with search results][./media/tutorial-search-location/pins-map.png]
+   ![View the map with search results](./media/tutorial-search-location/pins-map.png)
 
 5. You can see the raw data that the map is rendering by taking the XMLHTTPRequest that you build in the file and entering it in your browser. Replace \<your account key\> with your primary key. 
 
