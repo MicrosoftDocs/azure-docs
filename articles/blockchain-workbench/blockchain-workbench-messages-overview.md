@@ -14,11 +14,15 @@ manager: femila
 
 # Azure Blockchain Workbench messages overview
 
-You can use Azure Blockchain Workbench messaging API to integrate with other applications and systems. Developers can create Azure Message Bus applications to ingest data or perform actions in Blockchain Workbench. Developers can also register to be notified about events that happen in blockchain applications. Messages can be used with Azure Service Bus and Azure Event Grid in your Workbench deployment.
+You can use Azure Blockchain Workbench messaging API to integrate with other applications and systems. Developers can create Azure Message Bus applications to ingest data or perform actions in Blockchain Workbench. Service Bus is used for reliable message delivery. For example, ingesting messages from IoT devices into Service Bus.
 
-## Using Service Bus
+Developers can register to be notified about events that happen in blockchain applications. Event notifications are available using Azure Service Bus or Azure Event Grid in your Workbench deployment. For example, you can use Event Grid to notify a logic app to perform a task based on a subscribed event.
 
-In order to send messages to Service Bus, you need to create a Service Bus client. To get started developing a Service Bus client, see [Get started with Service Bus queues](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues#3-send-messages-to-the-queue).
+For more information about the components of Azure Blockchain Workbench, see [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md).
+
+## Ingestion
+
+To ingest message data into Blockchain Workbench, you use Service Bus. In order to send messages to Service Bus, you need to create a Service Bus client. To get started developing a Service Bus client, see [Get started with Service Bus queues](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues#3-send-messages-to-the-queue).
 
 > [!IMPORTANT]
 > Your Service Bus client requires an access key to the **activityhub** Service Bus in your Workbench deployment.
@@ -36,6 +40,9 @@ Use the `CreateUser` operation to create users. Send a message using the followi
 | UserId | string | The ID of the user. For example, the ObjectID of the user in Azure Active Directory |
 | UserName | string | The name of the user. For example,  `DOMAIN\user` |
 
+> [!NOTE]
+> You can also use the [REST API to create users](https://review.docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/users/userspost?branch=master). 
+
 ## Create new contract instance
 
 Use the `CreateWorkflowInstance` operation to create a new instance of a contract. Send a message using the following values:
@@ -48,6 +55,9 @@ Use the `CreateWorkflowInstance` operation to create a new instance of a contrac
 | LedgerImplementationBlobStorageURL | string | The URL to the ledger implementation. For example, a Solidity smart contract (.sol) file. |
 | UserChainIdentifier | string | The identifier for the user on the chain. For example, an Ethereum address. |
 | Parameters | object | A JSON list of key value pairs. |
+
+> [!NOTE]
+> You can also use the [REST API to create a contract instance](https://review.docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/workflowinstances/workflowinstancepost?branch=master).
 
 ## Take action on a contract 
 
@@ -66,13 +76,16 @@ Use the `CreateWorkflowInstanceAction` operation to take an action on a contract
 | WorkflowName | string | The name of the workflow |
 | WorkflowInstanceActionParameters | object | A JSON list of key value pairs. |
 
-## Event notifications
+> [!NOTE]
+> You can also use the [REST API to take an action on a contract](https://review.docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/workflowinstances/workflowinstanceactionpost?branch=master). 
+
+## Events
 
 Event notifications can be used to notify users of events that happen in Blockchain Workbench. Event notifications can also be used to trigger flow of data to downstream systems.
 
 ## Using Event grid for notifications
 
-If a user wants to use Event Grid to be notified about events that happen in workbench, you can consume events from Event Grid by using Azure Functions. 
+If a user wants to use Event Grid to be notified about events that happen in workbench, one example to consume events from Event Grid is by using Azure Functions. 
 
 1. Create an **Azure Function App** in Azure portal.
 2. Create a new function.
