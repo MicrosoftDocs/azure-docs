@@ -1,5 +1,5 @@
 ---
-title: How to Manage the Azure Storage Lifecycle
+title: Managing the Azure Storage Lifecycle
 description: 
 services: storage
 author: yzheng-msft
@@ -12,18 +12,25 @@ ms.date: 04/30/2018
 ms.author: yzheng
 ---
 
-# How to Manage the Azure Storage Lifecycle
+# Managing the Azure Storage Lifecycle
 
-Data stored in the cloud can be different in terms of how it is generated, processed, and accessed over its lifetime. Some data is accessed frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored. Some data must to be expired days or months after it is created. Some data is actively accessed and modified throughout its lifetime. Azure Blob Storage lifecycle management offers a rule-based automation to transition your data to the best access tier and expire data at the end of its lifecycle. 
+Data stored in the cloud often has special considerations in how  it is generated, processed, and accessed over time. Some data is accessed often early in the lifecycle, but the need for retrieval drops drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored. Further, some data expires days or months after creation while other sets of data are actively read and modified throughout its lifetime. Azure Blob Storage lifecycle management offers rule-based automation to transition your data to the best access tier and expire data at the end of its lifecycle. 
 
- A lifecycle management policy can be added at a storage account level. It applies to all or a subset of blobs within the account using blob name prefix as filters. You can use it to store data at different lifecycle stages in different storage tiers ([Hot, Cool and Archive](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers)) to optimize for performance and cost.
+Lifecycle management policies include the following features:
+
+- Defined at the storage account level
+- Applies to all or a subset of blobs (using the blob name prefixes as filters)
+- Stores data lifecycle stages in different storage tiers ([Hot, Cool and Archive](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers)) to optimize for performance and cost
+
+Consider a set of data that is accessed frequently during the early stage of the lifecycle, is needed only occasionally after two weeks, and is rarely accessed after a month and beyond.
+
+In this scenario, hot storage is best during the early stages, cool storage is most appropriate for occasional access, and archive storage is the best tier option after the data ages over a month.
+
+By adjusting storage tiers in respect to the age of data, you can design the least expensive storage options for your needs. To achieve this transition, lifecycle management policies are available to move aging data to cooler tiers.
 
 ## Move data to a cooler tier as it ages
------------------------------------
 
-Some data in cloud is accessed frequently early in its lifetime. Hot storage is the best place to store it. Within weeks, data access drops. Cool storage offers a cheaper storage option for the data at this stage. Months later, data access becomes rare. Archive storage offers the lowest storage cost for the data.
-
-A lifecycle management policy can be set up to transition data to cooler tiers as it ages. This example shows all block blobs in the storage account with prefix “foo” or prefix "bar" will be tiered to Cool storage 30 days after it is last modified, and tier to Archive storage 90 days after it is last modified:
+The following example demonstrates how to transition block blobs prefixed with `foo` or `bar`. The policy transitions blobs that haven't been modified in over 30 days to cool storage, and blobs not modified in 90 days to the archive tier:
 
 ```json
 {
@@ -49,7 +56,6 @@ A lifecycle management policy can be set up to transition data to cooler tiers a
   ]
 }
 ```
-
 
 ## Archive data at ingest 
 
@@ -84,9 +90,9 @@ A lifecycle policy can be set up to archive data at ingest. This example shows a
 
 ## Expire data
 
-Some data must to be expired days or months after it is created to save cost or comply with government regulations. A lifecycle management policy can be set up to expire date by deletion based on data age.
+Some data must be expired days or months after it is created to save cost or comply with government regulations. A lifecycle management policy can be set up to expire date by deletion based on data age.
 
-This example shows a policy which deletes all block blobs (with no prefix specified) in the storage account older than 365 days.
+This example shows a policy that deletes all block blobs (with no prefix specified) in the storage account older than 365 days.
 
 ```json
 {
@@ -185,9 +191,9 @@ Parameters required within a rule are:
 
 | Parameter name | Parameter type                             | Notes                                                                                                                                                                       |
 |----------------|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name           | String                                     | A rule name can contain any combination of alpha numeric characters. Rule name is case sensitive. It must be unique within a policy. |
+| Name           | String                                     | A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy. |
 | type           | An enum value                              | The valid value for preview is “lifecycle”                                                                                                                                  |
-| definition     | An object which defines the lifecycle rule | Each definition is made up with a filter set and an action set.                                                                                                             |
+| definition     | An object that defines the lifecycle rule | Each definition is made up with a filter set and an action set.                                                                                                             |
 
 ## Construct a lifecycle management rule
 
@@ -251,5 +257,5 @@ In preview, the action execution conditions are based on age. Base blob uses las
 
 | Action execution condition       | Condition value                        | Description                               |
 |----------------------------------|----------------------------------------|-------------------------------------------|
-| daysAfterLastModifiedGreaterThan | Integer value indicate the age in days | Valid condition for base blob actions     |
-| daysAfterCreationGreaterThan     | Integer value indicate the age in days | Valid condition for blob snapshot actions |
+| daysAfterLastModifiedGreaterThan | Integer value indicating the age in days | Valid condition for base blob actions     |
+| daysAfterCreationGreaterThan     | Integer value indicating the age in days | Valid condition for blob snapshot actions |
