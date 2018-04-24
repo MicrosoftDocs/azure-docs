@@ -95,10 +95,6 @@ The application includes the Azure AD access token in the request to the protect
 
 You have successfully used your Azure AD B2C user account to make an authorized call an Azure AD B2C protected web API.
 
-## Clean up resources
-
-You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quickstarts or tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
-
 ## Next steps
 
 The next step is to create your own Azure AD B2C tenant and configure the sample to run using your tenant. 
