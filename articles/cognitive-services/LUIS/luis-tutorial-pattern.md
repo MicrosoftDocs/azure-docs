@@ -298,7 +298,7 @@ Create a new intent for any utterances that are about moving people or assets.
     ```
     ![Screenshot of example utterance for MoveAssetsOrPeople intent](./media/luis-tutorial-pattern/intent-moveasserts-example-utt.png)
 
-    The purpose of the example utterances is to give enough examples. If, later in the test, the location entity isn't detected, and consequently the pattern isn't detected, come back to this step and add more example. Then test again. 
+    The purpose of the example utterances is to give enough examples. If, later in the test, the location entity isn't detected, and consequently the pattern isn't detected, come back to this step and add more example. Then train and test again. 
 
 5. Mark the entities in the example utterances with the Employee entity by selecting the first name then the last name in an utterance, then selecting the Employee entity in the list.
 
@@ -365,11 +365,11 @@ Create a new intent for utterances that are looking for forms.
     ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/intent-findform.png)
 
 ### Create a Pattern.any entity for the form title
-The Pattern.any entity allows for entities for varying length. It only works in a pattern because the pattern marks the beginning and end of the entity. 
+The Pattern.any entity allows for entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity. 
 
 1. Select **Entities** in the left navigation.
 2. Select **Create new entity**. 
-3. Name the entity `FormName` with type **Pattern.any**. Do not add any roles to the entity.
+3. Name the entity `FormName` with type **Pattern.any**. For this specific tutorial, you do not need to add any roles to the entity.
 
 ### Add a pattern that uses the Pattern.any
 Add patterns that use the new entity.
