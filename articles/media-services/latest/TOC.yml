@@ -67,4 +67,6 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
-        
+  - nane: Quotas and limitations
+    href: limits_quotas_constraints.md
+
