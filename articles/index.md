@@ -164,6 +164,7 @@ featureFlags:
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_gopher.svg" alt="" />
                                                             Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
