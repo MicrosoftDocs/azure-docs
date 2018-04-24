@@ -29,7 +29,7 @@ The following options are available with the `az aks create` command.
 | Argument | Description | Required |
 |---|---|:---:|
 | `--name` `-n` | Resource name for the managed cluster. | yes |
-| `--resource-group` `-g` | Name of the Azure  Kubernetes Service resource group. | yes |
+| `--resource-group` `-g` | Name of the Azure Kubernetes Service resource group. | yes |
 | `--admin-username` `-u` | User name for the Linux Virtual Machines.  Default: azureuser. | no |
 | ` --client-secret` | The secret associated with the service principal. | no |
 | `--dns-name-prefix` `-p` | DNS prefix for the clusters public ip address. | no |

@@ -48,7 +48,7 @@ Click **Save**, and take note of the password value. The password is needed when
 
 ## Create AKS cluster
 
-Select **Create a resource** > **Containers** > **Azure  Kubernetes Service - AKS (preview)**.
+Select **Create a resource** > **Containers** > **Azure Kubernetes Service - AKS (preview)**.
 
 Provide a cluster name, DNS prefix, resource group name, location, and Kubernetes version for the cluster. Take note of the cluster name and resource group name, these are needed when connecting to the cluster.
 
