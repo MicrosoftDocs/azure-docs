@@ -80,6 +80,24 @@ Configure the container port-to-host port mapping so that incoming requests to t
 
 A full ApplicationManifest.xml example file is provided at the end of this article.
 
+## Specify the OS build for your container image
+Containers built for a specific version of Windows Server may not be compatible with different versions of the OS. For example, Windows Server containers built using Windows Server 2016 do not work on Windows Server version 1709. With version 6.1 of the Service Fabric runtime and newer, you can specify multiple OS images per container and tag them with the build versions of the OS. The build version for WIndows Server 2016 is 14393 and the build version for Windows Server version 1709 is 16299. OS tagging ensures that Service Fabric deploys the correct container for the OS running 
+
+Microsoft publishes different containers for different versions of IIS. To have Service Fabric pull the correct IIS/nanoserver container for the OS running on the nodes where it deploys your application, add the following lines to the ApplicationManifest.xml file:
+
+```xml
+    <ContainerHostPolicies CodePackageRef="Code"> 
+      <ImageOverrides> 
+        ...
+	      <Image Name="microsoft/iis:nanoserverDefault" /> 
+          <Image Name= "microsoft/iis:nanoserver" Os="14393" /> 
+          <Image Name="microsoft/iis:nanoserver:windowsservercore-1709" Os="16299" /> 
+      </ImageOverrides> 
+    </ContainerHostPolicies> 
+```
+
+The service manifest continues to specify only one image for the nanoserver, `microsoft/iis:nanoserver`. To learn more, see [Specify OS build specific container images](service-fabric-get-started-containers.md#specify-os-build-specific-container-images).
+
 ## Create a cluster
 To deploy the application to a cluster in Azure, you can join a party cluster. Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform.  The cluster uses a single self-signed certificate for-node-to node as well as client-to-node security. Party clusters support containers. If you decide to set up and use your own cluster, the cluster must be running on a SKU that supports containers (such as Windows Server 2016 Datacenter with Containers).
 
