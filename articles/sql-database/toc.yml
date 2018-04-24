@@ -412,10 +412,12 @@
         href: saas-tenancy-schema-management.md
       - name: Cross-tenant reporting
         href: saas-tenancy-cross-tenant-reporting.md
-      - name: Tenant Analytics With SQL DB
-        href: saas-tenancy-tenant-analytics.md
-      - name: Tenant Analytics With SQL DW
-        href: saas-tenancy-tenant-analytics-adf.md
+      - name: Tenant analytics
+        items:
+        - name: With SQL Database
+          href: saas-tenancy-tenant-analytics.md
+        - name: With SQL Data Warehouse
+          href: saas-tenancy-tenant-analytics-adf.md
       - name: Disaster recovery using geo-restore
         href: saas-dbpertenant-dr-geo-restore.md
       - name: Disaster recovery using database geo-replication
