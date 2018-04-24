@@ -132,6 +132,16 @@ var policyName = "B2C_1_SiUpIn";  // Sign-in / sign-up policy name
 ### Configure the desktop app
 
 1. Open the `active-directory-b2c-wpf` solution from [Authenticate users with Azure Active Directory B2C in a desktop app tutorial](active-directory-b2c-tutorials-desktop-app.md) in Visual Studio.
+2. In the `active-directory-b2c-wpf` project, open the **App.xaml.cs** file.
+3. Update the **ApiScopes** variable with the *scope* you created earlier:
+
+    ```C#
+    public static string[] ApiScopes = { "https://<your-tenant-name>.onmicrosoft.com/demoapi/demo.read" };
+    ```
+4. Change the **ApiEndpoint** variable to point to your Node.js Web API `hello` endpoint running locally a:
+    ```C#
+    public static string ApiEndpoint = "http://localhost:5000/hello";
+    ```
 
 ## Run the sample
 
