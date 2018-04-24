@@ -16,15 +16,15 @@ ms.author: carlrab
 Azure SQL Database provides [recommendations](sql-database-advisor.md) that you can use to improve performance of your database, or you can let Azure SQL Database [automatically adapt to your application](sql-database-automatic-tuning.md) and apply changes that will improve performance of your workload.
 
 In you don't have any applicable recommendations, and you still have performance issues, you might use the following methods to improve performances:
-1. Increase [service tiers](sql-database-service-tiers.md) and provide more resources to your database.
+1. Increase the service tiers in your [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md) or your [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)(preview) to provide more resources to your database.
 2. Tune your application and apply some best practices that can improve performance. 
 3. Tune the database by changing indexes and queries to more efficiently work with data.
 
-These are manual methods because you need to decide what [service tiers](sql-database-service-tiers.md) you would choose or you would need to rewrite application or database code and deploy the changes.
+These are manual methods because you need to decide what [DTU-based nodel resource limits](sql-database-dtu-resource-limits.md) and [vCore-based model resource limits (preview)](sql-database-vcore-resource-limits.md) meet your needs. Otherwise, you would need to rewrite the application or database code and deploy the changes.
 
 ## Increasing performance tier of your database
 
-Azure SQL Database offers two purchasing models, a DTU-based purchasing model and a v-Core-based purchasing model. Each model has multiple [service tiers](sql-database-service-tiers.md) that you can choose from. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
+Azure SQL Database offers two purchasing models, a [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md) and a [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)(preview) that you can choose from. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
 
 > [!NOTE]
 > This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic pool, and get similar performance benefits.
@@ -44,7 +44,7 @@ The service level that you need for your SQL database depends on the peak load r
 
 ### Service tier capabilities and limits
 
-At each service tier, you set the performance level, so you have the flexibility to pay only for the capacity you need. You can [adjust capacity](sql-database-service-tiers.md), up or down, as workload changes. For example, if your database workload is high during the back-to-school shopping season, you might increase the performance level for the database for a set time, July through September. You can reduce it when your peak season ends. You can minimize what you pay by optimizing your cloud environment to the seasonality of your business. This model also works well for software product release cycles. A test team might allocate capacity while it does test runs, and then release that capacity when they finish testing. In a capacity request model, you pay for capacity as you need it, and avoid spending on dedicated resources that you might rarely use.
+At each service tier, you set the performance level, so you have the flexibility to pay only for the capacity you need. You can [adjust capacity](sql-database-service-tiers-dtu.md), up or down, as workload changes. For example, if your database workload is high during the back-to-school shopping season, you might increase the performance level for the database for a set time, July through September. You can reduce it when your peak season ends. You can minimize what you pay by optimizing your cloud environment to the seasonality of your business. This model also works well for software product release cycles. A test team might allocate capacity while it does test runs, and then release that capacity when they finish testing. In a capacity request model, you pay for capacity as you need it, and avoid spending on dedicated resources that you might rarely use.
 
 ### Why service tiers?
 Although each database workload can differ, the purpose of service tiers is to provide performance predictability at various performance levels. Customers with large-scale database resource requirements can work in a more dedicated computing environment.
@@ -266,7 +266,8 @@ Some applications are write-intensive. Sometimes you can reduce the total IO loa
 Some database applications have read-heavy workloads. Caching layers might reduce the load on the database and might potentially reduce the performance level required to support a database by using Azure SQL Database. With [Azure Redis Cache](https://azure.microsoft.com/services/cache/), if you have a read-heavy workload, you can read the data once (or perhaps once per application-tier machine, depending on how it is configured), and then store that data outside your SQL database. This is a way to reduce database load (CPU and read IO), but there is an effect on transactional consistency because the data being read from the cache might be out of sync with the data in the database. Although in many applications some level of inconsistency is acceptable, that's not true for all workloads. You should fully understand any application requirements before you implement an application-tier caching strategy.
 
 ## Next steps
-* For more information about service tiers, see [SQL Database options and performance](sql-database-service-tiers.md)
+* For more information about DTU-Based service tiers, see [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md) and [DTU-based model resource limits](sql-database-dtu-resource-limits.md)
+* For more information about vCore-Based service tiers, see [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)(preview) and [vCore-based purchasing model limits (preview)](sql-database-vcore-resource-limits.md)
 * For more information about elastic pools, see [What is an Azure elastic pool?](sql-database-elastic-pool.md)
 * For information about performance and elastic pools, see [When to consider an elastic pool](sql-database-elastic-pool-guidance.md)
 

@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Define variables
 
@@ -74,7 +74,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 ## Create a database in the server with sample data
 
-Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server using the [az sql db create](/cli/azure/sql/db#az_sql_db_create) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (other quickstarts in this collection build upon the values in this quickstart).
+Create a database with an [S0 performance level](sql-database-service-tiers-dtu.md) in the server using the [az sql db create](/cli/azure/sql/db#az_sql_db_create) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (other quickstart tutorials in this collection build upon the values in this quickstart).
 
 ```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \
@@ -83,10 +83,10 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 
 ## Clean up resources
 
-Other quickstarts in this collection build upon this quickstart. 
+Other quickstart tutorials in this collection build upon this quickstart. 
 
 > [!TIP]
-> If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
+> If you plan to continue on to work with subsequent quickstart tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
 >
 
 ```azurecli-interactive

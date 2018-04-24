@@ -21,10 +21,10 @@ We guarantee at least 99.99% of the time, you have connectivity between your Mic
 
 ## Whatis the new vCore-based purchasing model for Azure SQL Database?
 
-The new purchasing model is in addition to the existing DTU-based model. The vCore-based model is designed to give customers flexibility, control, transparency and a straightforward way to translate on-premises workload requirements to the cloud. It also allows customers to scale compute and storage based upon their workload needs. Single database and elastic pool options using the vCore model are also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). See [Service tiers](sql-database-service-tiers.md) for details on both the DTU-based purchasing model and the vCore-based purchasing model.
+The new purchasing model is in addition to the existing DTU-based model. The vCore-based model is designed to give customers flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. It also allows customers to scale compute and storage based upon their workload needs. Single database and elastic pool options using the vCore model are also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). See [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md) and [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)(preview) for more information. 
 
 ## What is a vCore? 
-A virtual core represents the logical CPU offered with an option to choose between generations of hardware. Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors and Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors.
+A virtual core represents the logical CPU offered with an option to choose between generations of hardware. Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors and Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors.
 
 ## Is moving to the vCore-based model required?
 No, the introduction of the vCore-based model to the Elastic Pool and Single Database deployment options reflects our commitment to customer choice and flexibility. If customers want to continue using the DTU-based model, they don’t need to take any action with this announcement and their experience and billing will remain unchanged. 
@@ -44,7 +44,7 @@ You have 180 days of dual use rights of the license to ensure migrations are run
 
 
 ## How does Azure Hybrid Benefit for SQL Server differ from license mobility?
-Today, we offer SQL Server customers with Software Assurance license mobility benefits which allows re-assignment of their licenses to third party shared servers. This benefit can be used on Azure IaaS and AWS EC2.
+Today, we offer SQL Server customers with Software Assurance license mobility benefits which allows re-assignment of their licenses to third-party shared servers. This benefit can be used on Azure IaaS and AWS EC2.
 Azure Hybrid Benefit for SQL Server differs from license mobility in two key areas:
 - It provides economic benefits for moving highly virtualized workloads to Azure. SQL EE customers can get 4 cores in Azure in the General Purpose SKU for every core they own on-premises for highly virtualized applications. License mobility does not allow any special cost benefits for moving virtualized workloads to the cloud.
 - It provides for a PaaS destination on Azure that is highly compatible with SQL Server on-premises – SQL Database Managed Instance.
@@ -82,7 +82,7 @@ The new service tiers support a superset of the features available with the curr
 Yes, you can independently select the level of compute your application needs and keep the storage unchanged. The storage can be set as low as 32GB. 
 
 ## Will the new vCore-based tiers support point in time restore (PITR) for 35 days as today? 
-You can configure the backup retention for PITR between 7 and 35 days. The backups storage will be charged separately based on the actual storage consumption if it exceeds the storage amount equal to the maximum data size. In preview, by default the PITR retention period is set to 7 days. In many cases the maximum data size is sufficient for storing 7 days of backups.
+You can configure the backup retention for PITR between 7 and 35 days. The backups storage will be charged separately based on the actual storage consumption if it exceeds the storage amount equal to the maximum data size. In preview, by default the PITR retention period is set to 7 days. In many cases, the maximum data size is sufficient for storing 7 days of backups.
 
 ## Why do you allow selection of the hardware generation for compute?
 Our goal is to enable maximum flexibility so that you can choose a performance configuration that closely matches the needs of the application. The table above shows the differences between Gen4 and Gen5. In particular, Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute much higher. We want to make these differences transparent so that you can achieve the optimal price/performance ratio for your application.
@@ -105,13 +105,13 @@ Because the vCore model allows independent control over the amount of provisione
 As often as you want. See [Manage elastic pools](sql-database-elastic-pool.md).
 
 ## How long does it take to change the service tier or performance level of a single database or move a database in and out of an elastic pool?
-Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. Changing the service tier can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases, see [Change the service tier of a database](sql-database-service-tiers.md). 
+Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. Changing the service tier can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases, see [Change the service tier of a database](sql-database-service-tiers-dtu.md). 
 
 ## When should I use a single database vs. elastic databases?
 In general, elastic pools are designed for a typical [software-as-a-service (SaaS) application pattern](sql-database-design-patterns-multi-tenancy-saas-applications.md), where there is one database per customer or tenant. Purchasing individual databases and overprovisioning to meet the variable and peak demand for each database is often not cost efficient. With pools, you manage the collective performance of the pool, and the databases scale up and down automatically. Azure's intelligent engine recommends a pool for databases when a usage pattern warrants it. For details, see [Elastic pool guidance](sql-database-elastic-pool.md).
 
 ## How does the usage of SQL Database using the DTU-based purchasing model show up on my bill?
-SQL Database bills on a predictable hourly rate based on the [purchasing model](sql-database-service-tiers.md). Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. 
+SQL Database bills on a predictable hourly rate based on the [purchasing model](sql-database-service-tiers-dtu.md). Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. 
 
 ## What if a single database is active for less than an hour or uses a higher service tier for less than an hour?
 You are billed for each hour a database exists using the highest service tier + performance level that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour. 
@@ -139,7 +139,7 @@ Elastic pools are billed per the following characteristics:
 * If an elastic pool is resized, then the pool is not billed according to the new amount of resources until the resizing operation completes. This follows the same pattern as changing the performance level of single databases.
 * The price of an elastic pool is based on the resources of the pool. The price of an elastic pool is independent of the number and utilization of the elastic databases within it.
 
-For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/) and [Service tiers](sql-database-service-tiers.md).
+For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/), [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md), and [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)(preview).
 
 ## How does the vCore-based usage show up in my bill? 
 In the vCore-based model, the service is billed on a predictable, hourly rate based on the service tier, provisioned compute in vCores, provisioned storage in GB/month, and consumed backup storage. If the storage for backups exceeds the total database size (that is, 100% of the database size), there are additional charges. vCore hours, configured database storage, consumed IO, and backup storage are clearly itemized in the bill, making it easier for you to see the details of resources you have used. Backup storage up to 100% of the maximum database size is included, beyond which you are billed in GB/month consumed in a month.

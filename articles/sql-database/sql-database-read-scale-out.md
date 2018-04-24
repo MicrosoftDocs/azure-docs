@@ -17,7 +17,7 @@ ms.author: sashan
 
 ## Overview of Read Scale-Out
 
-Each database in the Premium tier ([DTU-based purchasing model](sql-database-service-tiers.md#dtu-based-purchasing-model)) or in the Business Critical tier ([vCore-based purchasing model](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)) is automatically provisioned with several Always ON replicas to support the availability SLA. These replicas are provisioned with the same performance level as the read-write replica used by the regular database connections. The **Read Scale-Out** feature allows you to load balance SQL Database read-only workloads using the capacity of the read-only replicas instead of sharing the read-write replica. This way the read-only workload will be isolated from the main read-write workload and will not affect its performance.The feature is intended for the applications that include logically separated read-only workloads, such as analytics, and therefore could gain performance benefits using this additional capacity at no extra cost.
+Each database in the Premium tier ([DTU-based purchasing model](sql-database-service-tiers-dtu.md)) or in the Business Critical tier ([vCore-based purchasing model](sql-database-service-tiers-vcore.md)) is automatically provisioned with several Always ON replicas to support the availability SLA. These replicas are provisioned with the same performance level as the read-write replica used by the regular database connections. The **Read Scale-Out** feature allows you to load balance SQL Database read-only workloads using the capacity of the read-only replicas instead of sharing the read-write replica. This way the read-only workload will be isolated from the main read-write workload and will not affect its performance. The feature is intended for the applications that include logically separated read-only workloads, such as analytics, and therefore could gain performance benefits using this additional capacity at no extra cost.
 
 To use the Read Scale-Out feature with a particular database, you must explicitly enable it when creating the database or afterwards by altering its configuration using PowerShell by invoking the [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) or the [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets or through the Azure Resource Manager REST API using the [Databases - Create or Update](/rest/api/sql/databases/createorupdate) method. 
 
@@ -28,7 +28,7 @@ After Read Scale-Out is enabled for a database, applications connecting to that 
 
 ## Data consistency
 
-One of the benefits of Always ON is that the replicas are always in the transactionally consistent state, but at different points in time there may be some small latency between different replicas. Read Scale-Out supports session-level consistency. It means, if the read-only session reconnects after a connection error caused by replica unavailability, it can be redirected to a replica that is not 100% up to date with the read-write replica. Likewise, if an application writes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest updates are not immediately visible. This is because the transaction log redo to the replicas is asynchronous.
+One of the benefits of Always ON is that the replicas are always in the transactionally consistent state, but at different points in time there may be some small latency between different replicas. Read Scale-Out supports session-level consistency. It means, if the read-only session reconnects after a connection error caused by replica unavailability, it can be redirected to a replica that is not 100% up-to-date with the read-write replica. Likewise, if an application writes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest updates are not immediately visible. This is because the transaction log redo to the replicas is asynchronous.
 
 > [!NOTE]
 > Replication latencies within the region are low and this situation is rare.
@@ -78,7 +78,7 @@ New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserve
 
 ## Enabling and disabling Read Scale-Out using the Azure SQL Database REST API
 
-To create a database with read scale-out enabled, or to enable or disable read scale-out for an existing database, create or update the corresponding database entity with the `readScale` property set to `Enabled` or `Disabled` as in the below sample request.
+To create a database with read scale-out enabled, or to enable or disable read scale-out for an existing database, create, or update the corresponding database entity with the `readScale` property set to `Enabled` or `Disabled` as in the below sample request.
 
 ```rest
 Method: PUT
@@ -92,7 +92,7 @@ Body:
 } 
 ```
 
-For additional information, see [Databases - Create or Update](/rest/api/sql/databases/createorupdate).
+For more information, see [Databases - Create or Update](/rest/api/sql/databases/createorupdate).
 
 ## Next steps
 

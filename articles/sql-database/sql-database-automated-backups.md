@@ -40,13 +40,16 @@ Full database backups happen weekly, differential database backups generally hap
 The backup storage geo-replication occurs based on the Azure Storage replication schedule.
 
 ## How long do you keep my backups?
-Each SQL Database backup has a retention period that is based on the [service-tier](sql-database-service-tiers.md) of the database. The retention period for a database in the:
+Each SQL Database backup has a retention period that is based on the service tier of the database, and differs between the [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md) and the [vCore-Based Purchasing Model)](sql-database-service-tiers-vcore.md). 
 
+
+### Database Retention for DTU-Based Purchasing Model
+The retention period for a database in the DTU-based purchasing model depends on the service tier. The retention period for a database for the:
 
 * Basic service tier is 7 days.
 * Standard service tier is 35 days.
 * Premium service tier is 35 days.
-* General purpose tier is configurable with 35 days maximum (7 days by default)*
+* General-purpose tier is configurable with 35 days maximum (7 days by default)*
 * Business Critical tier (preview) is configurable with 35 days maximum (7 days by default)*
 
 \* During preview, the backups retention period is not configurable and is fixed to 7 days.
@@ -59,7 +62,13 @@ If you delete a database, SQL Database keeps the backups in the same way it woul
 
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
-> 
+
+### Database Retention for the vCore-Based Purchasing Model
+
+Storage for database backups is allocated to support the Point in Time Restore (PITR) and Long Term Retention (LTR) capabilities of SQL Database. This storage is allocated separately for each database and billed as two separate per-database charges. 
+
+- **PITR**: Individual database backups are copied to RA-GRS storage are automatically. The storage size increases dynamically as the new backups are created.  The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The storage consumption depends on the rate of change of the database and the retention period. You can configure a separate retention period for each database between 7 and 35 days. A minimum storage amount equal to 1x of data size is provided at no extra charge. For most databases, this amount is enough to store 7 days of backups. For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **LTR**: SQL Database offers the option configuring long-term retention of full backups for up to 10 years. If LTR policy is enabled, theses backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. This configuration will define how much storage will be used for the LTR backups. You can use the LTR pricing calculator to estimate the cost of LTR storage. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 ## How to extend the backup retention period?
 
@@ -72,7 +81,7 @@ Once you add the LTR policy to a database using Azure portal or API, the weekly 
 When TDE is enabled for an Azure SQL database, backups are also encrypted. All new Azure SQL databases are configured with TDE enabled by default. For more information on TDE, see [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## Are the automatic backups compliant with GDPR?
-If the backup contains personal data, which is subject to General Data Protection Regulation (GDPR), you are required to apply enhanced security measures to protect the data from unauthorized access. In order to comply with the GDPR, you need a way to manage the data requests of data owners without having to access backups.  For short term backups, one solution can be to shorten the backup window to under 30 days, which is the time allowed to complete the data access requests.  If longer term backups are required, it is recommended to store only "pseudonymized" data in backups. For example, if data about a person needs to be deleted or updated, it will not require deleting or updating the existing backups. You can find more information about the GDPR best practices in [Data Governance for GDPR Compliance](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html).
+If the backup contains personal data, which is subject to General Data Protection Regulation (GDPR), you are required to apply enhanced security measures to protect the data from unauthorized access. In order to comply with the GDPR, you need a way to manage the data requests of data owners without having to access backups.  For short-term backups, one solution can be to shorten the backup window to under 30 days, which is the time allowed to complete the data access requests.  If longer term backups are required, it is recommended to store only "pseudonymized" data in backups. For example, if data about a person needs to be deleted or updated, it will not require deleting or updating the existing backups. You can find more information about the GDPR best practices in [Data Governance for GDPR Compliance](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html).
 
 ## Next steps
 

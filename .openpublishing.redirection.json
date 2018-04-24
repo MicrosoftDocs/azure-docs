@@ -7306,7 +7306,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-manage-single-databases-portal.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
             "redirect_document_id": false
         },
         {
@@ -7371,7 +7371,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-scale-on-the-fly.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
             "redirect_document_id": false
         },
         {
@@ -7395,13 +7395,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-service-tiers.md",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-server-overview.md",
             "redirect_url": "/azure/sql-database/sql-database-servers-databases",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-service-tier-advisor.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
             "redirect_document_id": false
         },
         {

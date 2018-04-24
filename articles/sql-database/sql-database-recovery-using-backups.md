@@ -46,7 +46,7 @@ The recovery time to restore a database using automated database backups is impa
   
   For a very large and/or active database, the restore may take several hours. If there is prolonged outage in a region, it is possible that there are large numbers of geo-restore requests being processed by other regions. When there are many requests, the recovery time may increase for databases in that region. Most database restores complete within 12 hours.
 
-For a single subscription, there’re some limitations on number of concurrent restore requests (including point in time restore, geo restore and restore from long term retention backup) being submitted and proceeded:
+For a single subscription, there are some limitations on number of concurrent restore requests (including point in time restore, geo restore and restore from long-term retention backup) being submitted and proceeded:
 |  | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
 |Single database (per subscription)|10|60|
@@ -93,7 +93,7 @@ You can restore a deleted database to the deletion time for a deleted database o
 
 ### Azure portal
 
-To recover a deleted database during its [retention period](sql-database-service-tiers.md) using the Azure portal, open the page for your server and in the Operations area, click **Deleted databases**.
+To recover a deleted database during its [DTU-based model retention period](sql-database-service-tiers-dtu.md) or [vCore-Based model retention period](sql-database-service-tiers-vcore.md) using the Azure portal, open the page for your server and in the Operations area, click **Deleted databases**.
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
@@ -119,7 +119,7 @@ Point-in-time restore on a geo-secondary is not currently supported. Point-in-ti
 
 ### Azure portal
 
-To geo-restore a database during its [retention period](sql-database-service-tiers.md) using the Azure portal, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice. 
+To geo-restore a database during its [DTU-based model retention period](sql-database-service-tiers-dtu.md) or [vCore-based model retention period](sql-database-service-tiers-vcore.md) using the Azure portal, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice. 
 
 ## Programmatically performing recovery using automated backups
 As previously discussed, in addition to the Azure portal, database recovery can be performed programmatically using Azure PowerShell or the REST API. The following tables describe the set of commands available.

@@ -1,5 +1,5 @@
 ---
-title: Design your first Azure SQL database using SSMS | Microsoft Docs
+title: "Tutorial: Design your first Azure SQL database using SSMS | Microsoft Docs"
 description: Learn to design your first Azure SQL database with SQL Server Management Studio.
 services: sql-database
 author: CarlRabeler
@@ -12,12 +12,12 @@ ms.author: carlrab
 
 ---
 
-# Design your first Azure SQL database using SSMS
+# Tutorial: Design your first Azure SQL database using SSMS
 
-Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to: 
+Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud (Azure). In this Tutorial, you learn how to use the Azure portal and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to: 
 
 > [!div class="checklist"]
-> * Create a database in the Azure portal
+> * Create a database in the Azure portal*
 > * Set up a server-level firewall rule in the Azure portal
 > * Connect to the database with SSMS
 > * Create tables with SSMS
@@ -26,6 +26,9 @@ Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsof
 > * Restore the database to a previous [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) in the Azure portal
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
+   >[!NOTE]
+   > For the purpose of this Tutorial, we are using the [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)] (preview). 
 
 ## Prerequisites
 
@@ -39,7 +42,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank SQL database
 
-An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](sql-database-features.md). 
+An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers-dtu.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](sql-database-features.md). 
 
 Follow these steps to create a blank SQL database. 
 
@@ -71,7 +74,7 @@ Follow these steps to create a blank SQL database.
 
 5. Click **Select**.
 
-6. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. Explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. 
+6. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. Explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. For the purpose of this Tutorial, we are using the [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)] (preview). 
 
 7. For this tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
 
@@ -105,7 +108,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstarts. 
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstart tutorials. 
 
    ![server name](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -144,7 +147,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Server type | Database engine | This value is required. |
+   | Server type | Database engine | This value is required |
    | Server name | The fully qualified server name | The name should be something like this: **mynewserver20170824.database.windows.net**. |
    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
    | Login | The server admin account | This is the account that you specified when you created the server. |
@@ -312,7 +315,7 @@ Imagine you have accidentally deleted a table. This is something you cannot easi
 
    ![restore-point](./media/sql-database-design-first-database/restore-point.png)
 
-3. Click **OK** to restore the database to [restore to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore) before the tables were added. Restoring a database to a different point in time creates a duplicate database in the same server as the original database as of the point in time you specify, as long as it is within the retention period for your [service tier](sql-database-service-tiers.md).
+3. Click **OK** to restore the database to [restore to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore) before the tables were added. Restoring a database to a different point in time creates a duplicate database in the same server as the original database as of the point in time you specify, as long as it is within the retention period for your [service tier](sql-database-service-tiers-dtu.md).
 
 ## Next steps 
 In this tutorial, you learned basic database tasks such as create a database and tables, load and query data, and restore the database to a previous point in time. You learned how to:

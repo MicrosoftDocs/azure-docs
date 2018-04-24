@@ -74,8 +74,10 @@
     href: sql-database-servers-databases.md
   - name: Managed instance
     href: sql-database-managed-instance.md
-  - name: Service tiers
-    href: sql-database-service-tiers.md
+  - name: DTU-Based Service tiers
+    href: sql-database-service-tiers-dtu.md
+  - name: vCore-Based Service tiers
+    href: sql-database-service-tiers-vcore.md
   - name: Read Scale-Out
     href: sql-database-read-scale-out.md
   - name: DTU-based resource limits
