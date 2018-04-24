@@ -76,8 +76,8 @@ Before you start the recovery process, review the normal healthy state of the ap
 	
 	Scroll to the bottom of the page and notice the catalog server name and location in the footer. The location is the region in which you deployed the app.	
 
-> [!TIP]
-> Hover the mouse over the location to enlarge the display.
+        > [!TIP]
+        > Hover the mouse over the location to enlarge the display.
 
 	![Events hub healthy state in original region](media/saas-dbpertenant-dr-geo-restore/events-hub-original-region.png)
 
@@ -126,7 +126,7 @@ The geo-restore recovery process deploys the application and restores databases 
 
 The recovery process does the following:
 
-1. Disables the Traffic Manager endpoint for the web app in the original region. Disabling the endpoint prevents users from connecting to the app in an invalid state should the original region come online during recovery.
+1. Disables the Azure Traffic Manager endpoint for the web app in the original region. Disabling the endpoint prevents users from connecting to the app in an invalid state should the original region come online during recovery.
 
 2. Provisions a recovery catalog server in the recovery region, geo-restores the catalog database, and updates the activecatalog alias to point to the restored catalog server. Changing the catalog alias ensures that the catalog sync process always syncs to the active catalog.
 
@@ -183,7 +183,7 @@ Imagine there's an outage in the region in which the application is deployed, an
 > To explore the code for the recovery jobs, review the PowerShell scripts in the ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\RecoveryJobs folder.
 
 ## Review the application state during recovery
-While the application endpoint is disabled in Traffic Manager, the application is unavailable. The catalog is restored, and all the tenants are marked offline. The application endpoint in the recovery region is then enabled, and the application is back online. Although the application is available, tenants appear offline in the Events Hub until their databases are restored. It's important to design your application to handle offline tenant databases.
+While the application endpoint is disabled in Traffic Manager, the application is unavailable. The catalog is restored, and all the tenants are marked offline. The application endpoint in the recovery region is then enabled, and the application is back online. Although the application is available, tenants appear offline in the events hub until their databases are restored. It's important to design your application to handle offline tenant databases.
 
 1. After the catalog database has been recovered but before the tenants are back online, refresh the Wingtip Tickets events hub in your web browser.
 
@@ -206,7 +206,7 @@ Even before tenant databases are restored, you can provision new tenants in the 
 
 2. To run the script, select F5.
 
-3. The Hawthorn Hall events page opens in the browser when provisioning completes. 
+3. The Hawthorn Hall events page opens in the browser when provisioning finishes. 
 
 	Notice that the Hawthorn Hall database is located in the recovery region.
 
@@ -218,7 +218,7 @@ Even before tenant databases are restored, you can provision new tenants in the 
 
 ## Review the recovered state of the application
 
-When the recovery process completes, the application and all tenants are fully functional in the recovery region. 
+When the recovery process finishes, the application and all tenants are fully functional in the recovery region. 
 
 1. After the display in the PowerShell console window indicates all the tenants are recovered, refresh the events hub. 
 
@@ -259,7 +259,7 @@ In this task, you update one of the restored tenant databases. The repatriation 
 
 3. To execute the script, select F5.
 
-4. Refresh the Contoso Concert Hall events page (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall), and notice that the event Seriously Strauss, is missing.
+4. Refresh the Contoso Concert Hall events page (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall), and notice that the event Seriously Strauss is missing.
 
 At this point in the tutorial, you have recovered the application, which is now running in the recovery region. You have provisioned a new tenant in the recovery region and modified data of one of the restored tenants.  
 
@@ -331,7 +331,7 @@ If you've followed the tutorial, the script immediately reactivates Fabrikam Jaz
 
 5. Open or refresh the Contoso Concert Hall events page. Notice from the footer that, initially, the database is still on the -recovery server. 
 
-6. Refresh the Contoso Concert Hall events page when the repatriation process completes, and notice that the database is now in your original region.
+6. Refresh the Contoso Concert Hall events page when the repatriation process finishes, and notice that the database is now in your original region.
 
 7. Refresh the events hub again and open Hawthorn Hall. Notice that its database is also located in the original region. 
 
@@ -367,7 +367,7 @@ In this tutorial, you learned how to:
 >* Use a DNS alias to enable an application to connect to the tenant catalog throughout without reconfiguration.
 >* Use geo-replication to repatriate recovered databases to their original region after an outage is resolved.
 
-Try the [Disaster recovery for a multitenant SaaS application using database geo-replication](saas-dbpertenant-dr-geo-replication.md) to learn how to use geo-replication to dramatically reduce the time needed to recover a large-scale multitenant application.
+Try the [Disaster recovery for a multitenant SaaS application using database geo-replication](saas-dbpertenant-dr-geo-replication.md) tutorial to learn how to use geo-replication to dramatically reduce the time needed to recover a large-scale multitenant application.
 
 ## Additional resources
 
