@@ -31,9 +31,9 @@ Given the requirement of IP retention (such as for application bindings), Compan
 
 Here’s what the network architecture looks like before failover:
 - Application VMs are hosted in Azure East Asia, utilizing an Azure virtual network with address space 10.1.0.0/16. This virtual network is named **Source VNet**.
-- Application workloads are split across three subnets – 10.1.0.0/24, 10.1.1.0/24, 10.1.2.0/24, respectively named **Subnet 1**, **Subnet 2**, **Subnet 3**.
+- Application workloads are split across three subnets – 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24, respectively named **Subnet 1**, **Subnet 2**, **Subnet 3**.
 - Azure Southeast Asia is the target region and has a recovery virtual network that mimics the address space and subnet configuration on source. This virtual network is named **Recovery VNet**.
-- Replica nodes such as those needed for Always On, domain controller, etc. are placed in a virtual network with address space 20.1.0.0/16 inside Subnet 4 with address 20.1.0.0/24. The virtual network is named **Azure VNet** and is on Azure Southeast Asia.
+- Replica nodes such as those needed for Always On, domain controller, etc. are placed in a virtual network with address space 10.2.0.0/16 inside Subnet 4 with address 10.2.4.0/24. The virtual network is named **Azure VNet** and is on Azure Southeast Asia.
 - **Source VNet** and **Azure VNet** are connected through VPN site-to-site connectivity.
 - **Recovery VNet** is not connected with any other virtual network.
 - **Company A** assigns/verifies target IP address for replicated items. For this example, target IP is the same as source IP for each VM.
@@ -59,10 +59,10 @@ A better way to account for subnet-level application failover requirements is to
 To architect individual applications for resiliency, it is advised to house an application in its own dedicated virtual network and establish connectivity between these virtual networks as required. This allows for isolated application failover while retaining original private IP addresses.
 
 The pre-failover configuration then looks as follows:
-- Application VMs are hosted in Azure East Asia, utilizing an Azure virtual network with address space 10.1.0.0/16 for the first application and 15.1.0.0/16 for the second application. The virtual networks are named **Source VNet1** and **Source VNet2** for the first and second application, respectively.
+- Application VMs are hosted in Azure East Asia, utilizing an Azure virtual network with address space 10.1.0.0/16 for the first application and 10.2.0.0/16 for the second application. The virtual networks are named **Source VNet1** and **Source VNet2** for the first and second application, respectively.
 - Each VNet is further split into two subnets each.
 - Azure Southeast Asia is the target region and has recovery virtual networks Recovery VNet1 and Recovery VNet2.
-- Replica nodes such as those needed for Always On, domain controller, etc. are placed in a virtual network with address space 20.1.0.0/16 inside **Subnet 4** with address 20.1.0.0/24. The virtual network is called Azure VNet and is on Azure Southeast Asia.
+- Replica nodes such as those needed for Always On, domain controller, etc. are placed in a virtual network with address space 10.3.0.0/16 inside **Subnet 4** with address 10.3.4.0/24. The virtual network is called Azure VNet and is on Azure Southeast Asia.
 - **Source VNet1** and **Azure VNet** are connected through VPN site-to-site connectivity. Similarly, **Source VNet2** and **Azure VNet** are also connected through VPN site-to-site connectivity.
 - **Source VNet1** and **Source VNet2** are also connected through S2S VPN in this example. Since the two VNets are in the same region, VNet peering can also be used instead of S2S VPN.
 - **Recovery VNet1** and **Recovery VNet2** are not connected with any other virtual network.
@@ -89,7 +89,7 @@ For the second scenario, we consider **Company B** that has a part of its applic
 
 Here’s what the network architecture looks like before failover:
 - Application VMs are hosted in Azure East Asia, utilizing an Azure virtual network with address space 10.1.0.0/16. This virtual network is named **Source VNet**.
-- Application workloads are split across three subnets – 10.1.0.0/24, 10.1.1.0/24, 10.1.2.0/24, respectively named **Subnet 1**, **Subnet 2**, **Subnet 3**.
+- Application workloads are split across three subnets – 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24, respectively named **Subnet 1**, **Subnet 2**, **Subnet 3**.
 - Azure Southeast Asia is the target region and has a recovery virtual network that mimics the address space and subnet configuration on source. This virtual network is named **Recovery VNet**.
 - VMs in Azure East Asia are connected to on-premises datacenter through ExpressRoute or Site-to-Site VPN.
 - To reduce recovery time objective (RTO), Company B provisions gateways on Recovery VNet in Azure Southeast Asia prior to failover.
