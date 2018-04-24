@@ -4,11 +4,10 @@ description: Learn what kind of data can be extracted from Language Understandin
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 05/07/2018
 ms.author: v-geberr;
 ---
 
@@ -416,6 +415,137 @@ Another example utterance, using a synonym for Paris:
     }
   ]
 }
+```
+## Pattern roles data
+Roles are contextual differences of entities. 
+
+```JSON
+{
+  "query": "move bob jones from seattle to redmond",
+  "topScoringIntent": {
+    "intent": "MoveAssetsOrPeople",
+    "score": 0.9999998
+  },
+  "intents": [
+    {
+      "intent": "MoveAssetsOrPeople",
+      "score": 0.9999998
+    },
+    {
+      "intent": "None",
+      "score": 1.02040713E-06
+    },
+    {
+      "intent": "GetEmployeeBenefits",
+      "score": 6.12244548E-07
+    },
+    {
+      "intent": "GetEmployeeOrgChart",
+      "score": 6.12244548E-07
+    },
+    {
+      "intent": "FindForm",
+      "score": 1.1E-09
+    }
+  ],
+  "entities": [
+    {
+      "entity": "bob jones",
+      "type": "Employee",
+      "startIndex": 5,
+      "endIndex": 13,
+      "score": 0.922820568,
+      "role": ""
+    },
+    {
+      "entity": "seattle",
+      "type": "Location",
+      "startIndex": 20,
+      "endIndex": 26,
+      "score": 0.948008537,
+      "role": "Origin"
+    },
+    {
+      "entity": "redmond",
+      "type": "Location",
+      "startIndex": 31,
+      "endIndex": 37,
+      "score": 0.7047979,
+      "role": "Destination"
+    }
+  ]
+}
+```
+
+## Pattern.any entity data
+Pattern.any entities are variable-length entities used in template utterances of a [pattern](luis-concept-patterns.md). 
+
+```JSON
+{
+  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
+  "topScoringIntent": {
+    "intent": "FindForm",
+    "score": 0.999999464
+  },
+  "intents": [
+    {
+      "intent": "FindForm",
+      "score": 0.999999464
+    },
+    {
+      "intent": "GetEmployeeBenefits",
+      "score": 4.883697E-06
+    },
+    {
+      "intent": "None",
+      "score": 1.02040713E-06
+    },
+    {
+      "intent": "GetEmployeeOrgChart",
+      "score": 9.278342E-07
+    },
+    {
+      "intent": "MoveAssetsOrPeople",
+      "score": 9.278342E-07
+    }
+  ],
+  "entities": [
+    {
+      "entity": "understand your responsibilities as a member of the community",
+      "type": "FormName",
+      "startIndex": 18,
+      "endIndex": 78,
+      "role": ""
+    }
+  ]
+}
+```
+
+
+## Sentiment analysis
+If Sentiment analysis is configured, the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) documentation.
+
+### Sentiment data
+Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data.
+
+<!-- TBD: verify JSON-->
+```JSON
+{
+    "score": 0.9999237060546875,
+    "id": "1"
+}
+```
+
+### Key phrase extraction entity data
+The key phrase extraction entity returns key phrases in the utterance, provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+
+<!-- TBD: verify JSON-->
+```JSON
+"keyPhrases": [
+    "places",
+    "beautiful views",
+    "favorite trail"
+]
 ```
 
 ## Data matching multiple entities

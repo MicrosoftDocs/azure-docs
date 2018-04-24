@@ -1,13 +1,12 @@
 ---
 title: Publish your LUIS app | Microsoft Docs
-description: After you build and test your app by using Language Understanding (LUIS), publish it as a web service on Azure. 
+description: After you build and test your app by using Language Understanding (LUIS), publish it as a web service on Azure.
 services: cognitive-services
 titleSuffix: Azure
 author: cahann
 manager: hsalama
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: cahann;v-geberr;
@@ -15,11 +14,77 @@ ms.author: cahann;v-geberr;
 
 
 # Publish your trained app
-When you finish building and testing your LUIS app, you publish it as a web service on Azure. The associated HTTP [endpoint](luis-glossary.md#endpoint) is then integrated into any client or backend application. 
+When you finish building and testing your LUIS app, you publish it on Azure. After the app is published, the Publish page shows all associated HTTP [endpoints](luis-glossary.md#endpoint). These endpoints, per [region](luis-reference-regions.md) and per [key](Manage-Keys.md), are then integrated into any client, chat bot, or backend application. 
 
-You can optionally test your app before publishing it. For instructions, see [Train and test your app](Train-Test.md).
+You can optionally [test](train-test.md) your app before publishing it. 
 
-You can either publish your app directly to the **Production Slot**, or you can publish to a **Staging Slot** to validate changes before publishing to the production slot. 
+## Product and staging slot
+You can publish your app to the **Staging slow** or the **Production Slot**. Part of the slot choice is the time zone selection. This allows LUIS to [alter](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) any prebuilt datetimeV2 time values during prediction so that the returned entity data is correct according to the selected time zone. 
+
+## Include all intent scores with prediction response
+The **Include all predicted intent scores** checkbox allows the endpoint query response to include the prediction score for each utterance for each intent. This allows your chat bot or LUIS-calling application to make a programming decision based on the scores of the returned intents. Generally the top two intents are the most interesting. The intents and their scores are also included the endpoint logs. You can [export](create-new-app.md#export-app) those logs and analyze the scores. 
+
+```
+{
+  "query": "book a flight to Cairo",
+  "topScoringIntent": {
+    "intent": "None",
+    "score": 0.5223427
+  },
+  "intents": [
+    {
+      "intent": "None",
+      "score": 0.5223427
+    },
+    {
+      "intent": "BookFlight",
+      "score": 0.372391433
+    }
+  ],
+  "entities": []
+}
+```
+
+The checkbox is useful if you are copying the endpoint URLs from the publish page. If you are constructing your own URLs for your LUIS-calling application, make sure the **verbose=true** parameter is added to the endpoint URL querystring. 
+
+## Enable Bing spell checker to correct utterances 
+The **Enable Bing spell checker** checkbox allows LUIS to correct misspelled words before prediction. This requires you to create a **[Bing Spell Check key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. Once the key is created, two querystring parameters are added to the endpoint URL on the publish page. 
+
+If you are constructing your own URLs for your LUIS-calling application, make sure the **spellCheck=true** querystring parameter and the **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}**. Replace the `{YOUR_BING_KEY_HERE}` with your Bing spell checker key.
+
+```JSON
+{
+  "query": "Book a flite to London?",
+  "alteredQuery": "Book a flight to London?",
+  "topScoringIntent": {
+    "intent": "BookFlight",
+    "score": 0.780123
+  },
+  "entities": []
+}
+```
+
+## Enable Sentiment Analysis
+The **Enable Sentiment Analysis** checkbox allows LUIS to integrate with [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis. You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account. Once you check this setting, it is persistent. 
+
+Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data.
+
+<!-- TBD: verify JSON-->
+```JSON
+{
+    "score": 0.9999237060546875,
+    "id": "1"
+}
+```
+
+<!-- TBD: verify JSON-->
+```JSON
+"keyPhrases": [
+    "places",
+    "beautiful views",
+    "favorite trail"
+]
+```
 
 ## Publish your trained app to an HTTP endpoint
 

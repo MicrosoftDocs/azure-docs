@@ -4,12 +4,11 @@ description: Learn what can be secured in Language Understanding (LUIS)
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Security
@@ -61,4 +60,4 @@ You can control who can see your LUIS endpoint key by calling it in a server-to-
 
 See [Best Practices](luis-concept-best-practices.md) to learn how to use intents and entities for the best predictions.
 
-[LUIS]:luis-reference-regions.md##luis-website
+[LUIS]:luis-reference-regions.md#luis-website

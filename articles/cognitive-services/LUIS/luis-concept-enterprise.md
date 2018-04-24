@@ -4,12 +4,11 @@ description: Understand design concepts for large LUIS apps.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/15/2018
-ms.author: v-geberr;
+ms.date: 05/07/2018
+ms.author: v-geberr
 ---
 
 # Enterprise strategies for a LUIS app
@@ -29,8 +28,12 @@ If your app is meant to predict a wide variety of user utterances, consider impl
 
 Schedule a periodic [review of endpoint utterances](label-suggested-utterances.md) for active learning, such as every two weeks, then retrain and republish. 
 
+## When you need to combine several LUIS apps into a single app
+Use the [Dispatch command line tool][dispatcher-application] to combine multiple LUIS apps into a single app. **Dispatch** is a tool to create and evaluate LUIS model used to dispatch intent across multiple bot components such as LUIS model(s), [QnA knowledge base](https://azure.microsoft.com/en-us/services/cognitive-services/qna-maker/)(s) and others.
+
 ## Next steps
 
 * Learn how to [test a batch](luis-how-to-batch-test.md)
 
 [LUIS]:luis-reference-regions.md
+[dispatcher-application]:https://aka.ms/bot-dispatch

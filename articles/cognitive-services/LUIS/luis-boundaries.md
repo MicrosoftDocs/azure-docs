@@ -1,16 +1,15 @@
 ---
 title: Language Understanding (LUIS) boundaries | Microsoft Docs
 titleSuffix: Azure
-description:  This article contains known limits of LUIS.
+description: This article contains known limits of LUIS.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 # LUIS boundaries
 LUIS has several boundary areas. The first is the [model boundary](#model-boundaries), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of boundaries is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS [endpoint](luis-glossary.md#endpoint) APIs. 
@@ -23,13 +22,17 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [App name][luis-get-started-create-app] | 50 characters |
 | [Batch testing][batch-testing]| 10 datasets, 1000 utterances per dataset|
 | [Composite entities](./luis-concept-entity-types.md) | Parent: 30, child: 10|
+| Explicit list | 50 |
 | [Hierarchical](./luis-concept-entity-types.md)|Parent: 30, child: 10|
 | [Intents][intents]|500|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items | 
-| Total machine-learned entities:<br> simple, composite parent(s) and hierarchical parent(s) | 100, or 30 parent entities with 10   children each|
+| Total machine-learned entities:<br> simple, composite parent(s) and hierarchical parent(s), Pattern.any | 100, or 30 parent entities with 10 children each|
+| [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
+| [Pattern.any](./luis-concept-entity-types.md)|100 per application, 3 pattern.any entities per pattern |
 | [Phrase list][phrase-list]|10 phrase lists, 5,000 items per list|
 | [Prebuilt entities](./Pre-builtEntities.md) | no limit|
 | [Regular expression entities](./luis-concept-entity-types.md)|20 entities<br>500 character max. per regular expression entity pattern|
+| [Roles](luis-concept-roles.md)|300 roles per application. 10 roles per entity|
 | [Simple](./luis-concept-entity-types.md)| 30|
 | [Utterance][utterances] | 500 characters|
 | [Utterances][utterances] | 15,000|

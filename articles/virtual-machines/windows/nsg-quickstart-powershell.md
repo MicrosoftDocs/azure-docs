@@ -1,4 +1,4 @@
----
+﻿---
 title: Open ports to a VM using Azure PowerShell | Microsoft Docs
 description: Learn how to open a port / create an endpoint to your Windows VM using the Azure resource manager deployment mode and Azure PowerShell
 services: virtual-machines-windows
@@ -26,7 +26,7 @@ To create a Network Security Group and ACL rules you need [the latest version of
 Log in to your Azure account:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 In the following examples, replace parameter names with your own values. Example parameter names included *myResourceGroup*, *myNetworkSecurityGroup*, and *myVnet*.
