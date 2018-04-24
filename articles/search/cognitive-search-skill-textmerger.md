@@ -1,5 +1,5 @@
 ---
-title: Microsoft.Skills.Util.TextMerger cognitive search skill (Azure Search) | Microsoft Docs
+title: Text Merge cognitive search skill (Azure Search) | Microsoft Docs
 description: Merge text from a collection of fields into one consolidated field. Use this cognitive skill in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
@@ -8,19 +8,19 @@ author: luiscabrer
 ms.service: search
 ms.devlang: NA
 ms.workload: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ---
 
-#	Microsoft.Skills.Util.TextMerger cognitive skill
+#	 Text Merge cognitive skill
 
-The **TextMerger** skill consolidates text from a collection of fields into a single field. 
+The **Text Merge** skill consolidates text from a collection of fields into a single field. 
 
 ## @odata.type  
 Microsoft.Skills.Util.TextMerger
 
-## Skill Parameters
+## Skill parameters
 
 Parameters are case-sensitive.
 
@@ -30,13 +30,48 @@ Parameters are case-sensitive.
 | insertPostTag	| String to be included before every insertion. The default value is " ". To omit the space, set the value to "".  |
 
 
-## Sample Skillset Definition: Merging text extracted from embedded images with the content of the document.
+##	Sample input
+A JSON document providing usable input for this skill could be:
 
-A common use case for TextMerger is the ability to merge the textual representation of images (text from an OCR skill, or the caption of an image)  into the content field of a document. 
+```json
+{
+    "values": [
+      {
+        "recordId": "1",
+        "data":
+           {
+             "text": "The brown fox jumps over the dog" ,
+             "itemsToInsert": ["quick", "lazy"],
+             "offsets": [3, 28],
+           }
+      }
+    ]
+}
+```
 
-The following example skillset creates a *merged_text* field to contain the textual content of your document, as well as the OCRed text from each of the images embedded in that document. 
+##	Sample output
+This example shows the output of the previous input, assuming that the *insertPreTag* is set to " ", and *insertPostTag* is set to "". 
 
-#### Request Body Syntax
+```json
+{
+    "values": [
+      {
+        "recordId": "1",
+        "data":
+           {
+             "mergedText": "The quick brown fox jumps over the lazy dog" 
+           }
+      }
+    ]
+}
+```
+
+## Extended sample skillset definition
+
+A common use case for Text Merge is the ability to merge the textual representation of images (text from an OCR skill, or the caption of an image)  into the content field of a document. 
+
+This example skillset uses the OCR skill to extract text from images embedded in the document. Next, it creates a *merged_text* field to contain both original and OCRed text from each image. 
+
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -91,41 +126,6 @@ The example above assumes that a normalized-images field exists. To get normaliz
 
 ```json
 {
-  //...rest of your indexer definition goes here ...
-  "parameters":
-  {
-  	"configuration": 
-    {
-    	"dataToExtract": "contentAndMetadata",
-     	"imageAction": "generateNormalizedImages"
-		}
-  }
-}
-```
-
-###	Sample Input
-A JSON document providing usable input for this skill could be:
-
-```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-             "text": "The brown fox jumps over the dog" ,
-             "itemsToInsert": ["quick", "lazy"],
-             "offsets": [3, 28],
-           }
-      }
-    ]
-```
-
-###	Sample Output
-This example shows the output of the previous input, assuming that the *insertPreTag* is set to " ", and *insertPostTag* is set to "". 
-
-```json
-{
     "values": [
       {
         "recordId": "1",
@@ -135,7 +135,9 @@ This example shows the output of the previous input, assuming that the *insertPr
            }
       }
     ]
+}
 ```
+
 ## See also
 
 + [Predefined skills](cognitive-search-predefined-skills.md)

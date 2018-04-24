@@ -26,31 +26,33 @@ The body of the request is structured as follows:
 
 ```json
 {
-  "name" : "myIndexer",
-  "dataSourceName" : "myDataSource",
-  "targetIndexName" : "myIndex",
-  "skillsetName" : "myFirstSkillSet",
-  "fieldMappings" : [
+    "name": "myIndexer",
+    "dataSourceName": "myDataSource",
+    "targetIndexName": "myIndex",
+    "skillsetName": "myFirstSkillSet",
+    "fieldMappings": [
         {
-          "sourceFieldName" : "metadata_storage_path",
-          "targetFieldName" : "id",
-          "mappingFunction" : { "name" : "base64Encode" }
+            "sourceFieldName": "metadata_storage_path",
+            "targetFieldName": "id",
+            "mappingFunction": {
+                "name": "base64Encode"
+            }
         }
-   ],
-  "outputFieldMappings" : [
+    ],
+    "outputFieldMappings": [
         {
-          "sourceFieldName" : "/document/content/organizations/*/description", 
-          "targetFieldName" : "descriptions"
+            "sourceFieldName": "/document/content/organizations/*/description",
+            "targetFieldName": "descriptions"
         },
         {
-          "sourceFieldName" : "/document/content/organizations", 
-          "targetFieldName" : "orgNames"
+            "sourceFieldName": "/document/content/organizations",
+            "targetFieldName": "orgNames"
         },
         {
-          "sourceFieldName" : "/document/content/sentiment", 
-          "targetFieldName" : "sentiment"
+            "sourceFieldName": "/document/content/sentiment",
+            "targetFieldName": "sentiment"
         }
-   ]
+    ]
 }
 ```
 For each output field mapping, set the name of the enriched field (sourceFieldName), and the name of the field as referenced in the index (targetFieldName).
@@ -61,6 +63,6 @@ The path in a sourceFieldName can represent one element or multiple elements. In
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
 
-Once you have mapped your enriched fields to searchable fields, you can set the field attributes for each of the searchable fields [as part of the index definition](https://docs.microsoft.com/azure/search/search-what-is-an-index).
+Once you have mapped your enriched fields to searchable fields, you can set the field attributes for each of the searchable fields [as part of the index definition](search-what-is-an-index).
 
-For more information about field mapping, see [Field mappings in Azure Search indexers](https://docs.microsoft.com/azure/search/search-indexer-field-mappings).
+For more information about field mapping, see [Field mappings in Azure Search indexers](search-indexer-field-mappings).

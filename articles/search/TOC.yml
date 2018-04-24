@@ -151,7 +151,9 @@
     items:
     - name: Define a skillset
       href: cognitive-search-defining-skillset.md
-    - name: Map fields
+    - name: Reference an annotation
+      href: cognitive-search-concept-annotations-syntax.md
+    - name: Map to index fields
       href: cognitive-search-output-field-mapping.md
     - name: Create a custom skill
       href: cognitive-search-custom-skill-interface.md
@@ -220,24 +222,24 @@
     - name: Predefined skills 
       href: cognitive-search-predefined-skills.md
       items:
-      - name: Microsoft.Skills.Text.KeyPhrase
+      - name: Key Phrase Extraction 
         href: cognitive-search-skill-keyphrases.md
-      - name: Microsoft.Skills.Text.LanguageDetection
+      - name: Language Detection
         href: cognitive-search-skill-language-detection.md
-      - name: Microsoft.Skills.Text.NamedEntityRecognition
+      - name: Named Entity Recognition
         href: cognitive-search-skill-named-entity-recognition.md
-      - name: Microsoft.Skills.Text.Pagination
-        href: cognitive-search-skill-pagination.md
-      - name: Microsoft.Skills.Text.Sentiment
-        href: cognitive-search-skill-sentiment.md
-      - name: Microsoft.Skills.Vision.ImageAnalysis
-        href: cognitive-search-skill-image-analysis.md
-      - name: Microsoft.Skills.Vision.Ocr
-        href: cognitive-search-skill-ocr.md
-      - name: Microsoft.Skills.Util.Shaper
-        href: cognitive-search-skill-shaper.md
-      - name: Microsoft.Skills.Util.TextMerger
+      - name: Text Merger
         href: cognitive-search-skill-textmerger.md
+      - name: Text Split
+        href: cognitive-search-skill-textsplit.md 
+      - name: Sentiment
+        href: cognitive-search-skill-sentiment.md
+      - name: Image Analysis
+        href: cognitive-search-skill-image-analysis.md
+      - name: Ocr
+        href: cognitive-search-skill-ocr.md
+      - name: Shaper
+        href: cognitive-search-skill-shaper.md
 - name: Resources
   items:
   - name: FAQ - Frequently Asked Questions
@@ -246,6 +248,8 @@
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=search
+  - name: Cognitive search documentation
+    href: cognitive-search-resources-documentation.md
   - name: Courseware & tutorials
     items:
     - name: Videos & tutorials

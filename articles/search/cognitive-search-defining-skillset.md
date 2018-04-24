@@ -245,4 +245,4 @@ Recall that this structure is internal. You cannot actually retrieve this graph 
 
 ## Next steps
 
-Now that you are familiar with the enrichment pipeline and skillsets, continue with [mapping fields into your index](cognitive-search-output-field-mapping.md).
+Now that you are familiar with the enrichment pipeline and skillsets, continue with [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) or [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md). 

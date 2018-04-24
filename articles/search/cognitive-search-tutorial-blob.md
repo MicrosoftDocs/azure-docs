@@ -33,7 +33,7 @@ To issue REST calls to Azure Search, use a web test tool such as Telerik Fiddler
 
 Use the [Azure portal](https://portal.azure.com/) to create services used in an end-to-end workflow. 
 
- ![Dashboard portal](./media/cognitive-search-get-start-preview/create-service-full-portal.png)
+ ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-service-full-portal.png)
 
 ### Set up Azure Search
 
@@ -53,11 +53,11 @@ First, sign up for the Azure Search service. If you don't have an Azure subscrip
 
 1. Pin the service to the dashboard for fast access to service information.
 
-  ![Service definition page in the portal](./media/cognitive-search-get-start-preview/create-search-service.png)
+  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service.png)
 
 1. After the service is created, collect the following information once the search service is created: "endpoint", "api-key" (either primary or secondary).
 
-  ![Endpoint and key information in the portal](./media/cognitive-search-get-start-preview/create-search-collect-info.png)
+  ![Endpoint and key information in the portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png)
 
 ### Set up Azure Blob service and load sample data
 
@@ -123,13 +123,13 @@ For this exercise, start with built-in skills, defining four enrichment steps to
 
 3. Extract the top key phrases from the document using the [key phrase extraction skill](cognitive-search-skill-keyphrases.md). Use the language detected in the previous step as an input. 
 
-4. Since the key phrase skill only works with text that is at most 5,000 characters, use the [pagination skill](cognitive-search-skill-pagination.md) to break the content into several pages first before calling the key phrase extraction skill.
+4. Since the key phrase skill only works with text that is at most 5,000 characters, use the [Text Split skill](cognitive-search-skill-textsplit.md) to break the content into several pages first before calling the key phrase extraction skill.
 
 Each step executes on the content of the document. During processing, Azure Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, set the input as ```"/document/content"```.
 
 A graphical representation of the skillset is shown below:
 
-![](media/cognitive-search-get-start-preview/skillset.png)
+![](media/cognitive-search-tutorial-blob/skillset.png)
 
 ### Sample Request
 Make sure to replace the service name and the admin key in the request below. Reference the skillset name ```demoskillset``` for the rest of this demo.
@@ -385,7 +385,7 @@ The response tells you whether the indexer is running. After indexing is finishe
  
 ## Verify content
 
-After indexing is finished, run queries that return the contents of individual fields. By default, Azure Search returns the top 50 results. The sample data is small so the defaults work fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Search](https://docs.microsoft.com/azure/search/search-pagination-page-layout).
+After indexing is finished, run queries that return the contents of individual fields. By default, Azure Search returns the top 50 results. The sample data is small so the defaults work fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Search](search-pagination-page-layout).
 
 As a verification step, query the index for all of the fields.
 
@@ -491,7 +491,7 @@ Content-Type: application/json
 
 Status code 204 is returned on successful deletion.
 
-As your code matures, this approach becomes impractical, especially if you want to preserve existing computations such as analyzed images. For more guidance, see [How to perform incremental indexing](search-howto-index-incremental.md).
+As your code matures, this approach becomes impractical, especially if you want to preserve existing computations such as analyzed images. For more guidance, see [How to perform incremental indexing](search-howto-reindex.md).
 
 ## Takeaways
 

@@ -23,7 +23,7 @@ To issue REST calls to Azure Search, use a web test tool such as Telerik Fiddler
 
 Use the [Azure portal](https://portal.azure.com/) to create services used in an end-to-end workflow. 
 
- ![Dashboard portal](./media/cognitive-search-get-start-preview/create-service-full-portal.png)
+ ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-service-full-portal.png)
 
 ### Set up Azure Search
 
@@ -43,11 +43,11 @@ First, sign up for the Azure Search service. If you don't have an Azure subscrip
 
 1. Pin the service to the dashboard for fast access to service information.
 
-  ![Service definition page in the portal](./media/cognitive-search-get-start-preview/create-search-service.png)
+  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service.png)
 
 1. After the service is created, collect the following information once the search service is created: "endpoint", "api-key" (either primary or secondary).
 
-  ![Endpoint and key information in the portal](./media/cognitive-search-get-start-preview/create-search-collect-info.png)
+  ![Endpoint and key information in the portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png)
 
 ### Set up Azure Blob service and load sample data
 

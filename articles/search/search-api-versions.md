@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 03/15/2018
 ms.author: brjohnst

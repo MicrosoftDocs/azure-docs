@@ -56,7 +56,7 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 <a name="feature-concepts"></a>
 
-## Key concepts and terms
+## Key features and concepts
 
 | Concept | description|
 |---------|------------|
@@ -68,9 +68,9 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 | Skillset | A top-level named resource containing a collection of skills. A skillset is the augmentation pipeline. |
 | Enriched documents | A transitory internal structure, not directly accessible in code. Enriched documents are generated during processing, but only final outputs are persisted in a search index. Field mappings determine which data elements are added to the index. |
 
-## Get started
+## Where do I start?
 
-**Step 1: Create a service in a region providing the APIs** 
+**Step 1: Create a search service in a region providing the APIs** 
 
 + South Central US
 + West Europe
@@ -81,7 +81,21 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 + [Tutorial (HTTP requests)](cognitive-search-tutorial-blob.md)
 + [Example custom skills (C#)](cognitive-search-create-custom-skill-example.md)
 
-**Step 3: Apply what you learned**
+**Step 3: Review the API (REST only)**
+
+Currently, only REST supports cognitive search solutions, but the .NET SDK is expected to follow shortly after the feature officially moves into public preview. Support for .NET will be announced as a service update. It will also be announced on this page if you want to check back later.
+
+Use `api-version=2017-11-11-Preview` on all requests. Use the following APIs to build a cognitive search solution. Only two APIs are added or extended for cognitive search. Other APIs have the same syntax as the generally available versions.
+
+| REST API | Description |
+|-----|-------------|
+| [Create Data Source](rhttps://docs.microsoft.com/rest/api/searchservice/create-data-source)  | A resource identifying an external data source providing source data used to create enriched documents.  |
+| [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource coordinating the use of [predefined skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
+| [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
+| [Create Indexer (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search corpus based on the index schema, populated with source data, enriched through skillsets.  |
+| [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) | A command for rebuilding an index. Because pipeline development is an iterative process, plan for frequent index rebuilds.
+
+**Checklist: a typical workflow**
 
 1. Subset your Azure source data into a representative sample. Indexing takes time so start with a small, representative data set and then build it up incrementally as your solution matures.
 
@@ -100,48 +114,6 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 1. Evaluate results and modify code to update skillsets, schema, or indexer configuration.
 
 1. Reset the indexer before rebuilding the pipeline.
-
-**Documentation**
-
-The following articles are the complete documentation for cognitive search.
-
-+ [Cognitive search overview](cognitive-search-concept-intro.md)
-+ [Quickstart: Try cognitive search (Portal)](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Enriched indexing of Azure blobs](cognitive-search-tutorial-blob.md)
-+ [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [How to map fields](cognitive-search-output-field-mapping.md)
-+ [How to define a custom skills interface](cognitive-search-custom-skill-interface.md)
-+ [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)
-
-+ [Predefined skills](cognitive-search-predefined-skills.md)
-  + [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
-  + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
-  + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
-  + [Microsoft.Skills.Text.PaginationSkill](cognitive-search-skill-pagination.md)
-  + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
-  + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
-  + [Microsoft.Skills.Vision.OcrSkill]( cognitive-search-skill-ocr.md)
-  + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
-  + [Microsoft.Skills.Util.TextMergerSkill](cognitive-search-skill-textmerger.md)
-
-+ Reference (Preview REST APIs)
-  + [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)
-  + [Create Indexer (api-version=2017-11-11-Preview)](ref-create-indexer.md)
-
-
-**API (REST only)**
-
-Currently, only REST is available, but the .NET SDK is expected to follow shortly after the feature officially moves into public preview. Support for .NET will be announced as a service update. It will also be announced on this page if you want to check back later.
-
-Use `api-version=2017-11-11-Preview` on all requests. Use the following APIs to build a cognitive search solution. Only two APIs are added or extended for cognitive search. Other APIs have the same syntax as the generally available versions.
-
-| REST API | Description |
-|-----|-------------|
-| [Create Data Source](rhttps://docs.microsoft.com/rest/api/searchservice/create-data-source)  | A resource identifying an external data source providing source data used to create enriched documents.  |
-| [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource coordinating the use of [predefined skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
-| [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
-| [Create Indexer (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search corpus based on the index schema, populated with source data, enriched through skillsets.  |
-| [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) | A command for rebuilding an index. Because pipeline development is an iterative process, plan for frequent index rebuilds.
 
 ## Next steps
 
