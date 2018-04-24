@@ -74,10 +74,7 @@ In these book title examples, the contextual words of the book title are not con
 
 ### Syntax to mark optional text in a template utterance
 Mark optional text in the utterance using the regular expression square bracket syntax []. The optional text can nest square brackets up to two brackets only.
-
-```
-Book {number} [^[a-z]{0,10}$] ticket from {Location:Origin} to {Location:Destination}
-```
+<!-- TBD: add example with square brackets -->
 
 ## Best practices
 Do not create a pattern when you first create the app. Give LUIS the opportunity to learn from the provided utterances before adding patterns. 
