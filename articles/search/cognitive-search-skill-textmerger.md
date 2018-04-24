@@ -26,8 +26,8 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| insertPreTag	| String to be included before every insertion. The default value is " ". To omit the space, set the value to "".  |
-| insertPostTag	| String to be included before every insertion. The default value is " ". To omit the space, set the value to "".  |
+| insertPreTag	| String to be included before every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
+| insertPostTag	| String to be included before every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
 
 
 ##	Sample input
@@ -50,7 +50,7 @@ A JSON document providing usable input for this skill could be:
 ```
 
 ##	Sample output
-This example shows the output of the previous input, assuming that the *insertPreTag* is set to " ", and *insertPostTag* is set to "". 
+This example shows the output of the previous input, assuming that the *insertPreTag* is set to `" "`, and *insertPostTag* is set to `""`. 
 
 ```json
 {
