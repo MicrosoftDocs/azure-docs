@@ -13,7 +13,7 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: reference
-ms.date: 04/27/2018
+ms.date: 04/25/2018
 ms.author: estfan
 ---
 
