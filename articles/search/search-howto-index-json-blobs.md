@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 09/07/2017
+ms.date: 04/20/2018
 ms.author: eugenesh
 ---
 
@@ -33,7 +33,7 @@ Indexing JSON blobs is similar to the regular document extraction in a three-par
 The first step is to provide data source connection information used by the indexer. 
 The data source type, specified here as `azureblob`, determines which data extraction behaviors are invoked by the indexer. For JSON blob indexing, data source is definition is the same for both JSON documents and arrays. 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -85,7 +85,7 @@ Configuration is provided in the body of an indexer operation. Recall that the d
 
 A fully specified request might look as follows:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -187,7 +187,7 @@ You can also refer to individual array elements by using a zero-based index. For
 
 The following example is a fully specified indexer payload, including field mappings:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
