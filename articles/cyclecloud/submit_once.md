@@ -34,7 +34,7 @@ Before installing and configuring SubmitOnce, please verify that your HPC enviro
 
    - A common directory on the shared filesystem of all clusters owned by the functional user
      account (cycle_server by default) and world readable (see: $SO_HOME in the setup section below)
-**OR** 
+**OR**
    - At least one execute slot on the Submitter host and the "slot_type=master" complex
      applied to that host
 
@@ -78,14 +78,13 @@ Next, the cluster administrator must create a bin directory within $SO_HOME and 
 
 SubmitOnce will create additional directories for it's own use as needed.  After the first submission to a remote cluster, $SO_HOME will contain, at least, the following directory structure:
 
-   $SO_HOME
-       |
-       |-- bin: contains various SubmitOnce executables
-       |
-       |-- presubmit: contains files that will be used by each submission
-       |
-       |-- tickets: used by jobs as a dropbox to initiate file transfers
-
+     $SO_HOME
+         |
+         |-- bin: contains various SubmitOnce executables
+         |
+         |-- presubmit: contains files that will be used by each submission
+         |
+         |-- tickets: used by jobs as a dropbox to initiate file transfers
 
 ## SubmitOnce Cluster Setup
 
@@ -123,14 +122,13 @@ SubmitOnce uses CycleServer's file transfer functionality to send data back and 
 
 2. Click the "Advanced" link in the dialog box, and change the following fields:
 
-a. Uncheck "Block remotely initiated transfers to remote hosts". This is disabled by default, but is required by SubmitOnce so that jobs on remote clusters may initiate file transfers.
+    - Uncheck "Block remotely initiated transfers to remote hosts". This is disabled by default, but is required by SubmitOnce so that jobs on remote clusters may initiate file transfers.
 
-b. Add the following value to "RSync Options":
+    - Add the following value to "RSync Options":
 
-   ={"--owner","--group","--numeric-ids"}
+    ={"--owner","--group","--numeric-ids"}
 
 3. Click the "Ok" button to close the advanced dialog box, then click "Save" to save your changes.
-
 
 ## Setup Data Endpoints
 
@@ -138,35 +136,14 @@ SubmitOnce uses the Data Management file transfer features to move job input & r
 
 Log into the CycleServer web interface as an administrator, navigate to the "Data Browser" and select "Endpoints" in the types table. This will bring up a list of configured endpoints. First, we will define the host which CycleServer is running on. Click the 'Create' link above the enpoints table and enter the following information:
 
-+----------------------------+-----------------------------------------------------+----------------------------------------------------------------------------+
-| Attribute                  | Example Value                                       | Description                                                                |
-+============================+=====================================================+============================================================================+
-| Name                       | cycle_server                                        | A user-friendly name for the local host.                                   |
-+----------------------------+-----------------------------------------------------+----------------------------------------------------------------------------+
-| Local                      | (checked)                                           | If checked, this represents the local host.                                |
-+----------------------------+-----------------------------------------------------+----------------------------------------------------------------------------+
-| AllowedPaths               | ={"/shared", "/home"}                               | A list of paths on remote hosts under which transfers are allowed.         |
-+----------------------------+-----------------------------------------------------+----------------------------------------------------------------------------+
+table
+
 
 This configuration tells CycleServer that we have a filesystem that is local, which can transfer files from /shared/ss on any remote host to /shared/ss on the local host.
 
 For each cluster, configure a remote host which will handle file transfer. By convention, this should generally be the same host which CycleServer uses to monitor the cluster's scheduler. When naming these hosts, be sure to name them the same as the cluster which they are in. This will tell SubmitOnce which host to use for each cluster:
 
-+----------------------------+-----------------------------------------------------+----------------------------------------------------------------------------+
-| Attribute                  | Example Value                                       | Description                                                                |
-+============================+=====================================================+============================================================================+
-| Name                       | my_cluster                                          | The name of the cluster that this host is for.                             |
-+----------------------------+-----------------------------------------------------+----------------------------------------------------------------------------+
-| Address                    | my_host.example.com                                 | The fully-qualified hostname of the remote host.                           |
-+----------------------------+-----------------------------------------------------+----------------------------------------------------------------------------+
-| Username                   | cycle_server                                        | The user that will be initiating the rsync command (in this case           |
-|                            |                                                     | cycle_server is the correct user).                                         |
-+----------------------------+-----------------------------------------------------+----------------------------------------------------------------------------+
-| SshKeyPath                 | ~cycle_server/.ssh                                  | Absolute path to an SSH key which the cycle_server user can use for        |
-|                            | /id_rsa_my_host                                     | passwordless SSH.                                                          |
-+----------------------------+-----------------------------------------------------+----------------------------------------------------------------------------+
-| AllowedPaths               | ={"/shared", "/home"}                               | A list of paths on remote hosts under which transfers are allowed.         |
-+----------------------------+-----------------------------------------------------+----------------------------------------------------------------------------+
+table
 
 ## Configure Recurring Syncs
 
@@ -176,31 +153,7 @@ A file transfer ticket is a small text file that tells CycleServer to initiate a
 
 For each cluster, configure a recurring sync. Click the "Data > Recurring Syncs" menu item, then click the "Create" button. Fill in the following information:
 
-+-------------------+---------------------------------------------+----------------------------------------------------------------------------+
-| Attribute         | Example Value                               | Description                                                                |
-+===================+=============================================+============================================================================+
-| Name              | fetch_from_my_cluster                       | A user-friendly name for this recurring sync.                              |
-+-------------------+---------------------------------------------+----------------------------------------------------------------------------+
-| Schedule          | 60                                          | How often to look for new file transfer tickets (in seconds)               |
-+-------------------+---------------------------------------------+----------------------------------------------------------------------------+
-| Type              | fetch_tickets                               | The type of sync to perform. In this case, this value should always be     |
-|                   |                                             | "fetch_tickets".                                                           |
-+-------------------+---------------------------------------------+----------------------------------------------------------------------------+
-| Source Host       | my_cluster                                  | The name of a remote file transfer host configured in the previous step.   |
-+-------------------+---------------------------------------------+----------------------------------------------------------------------------+
-| Destination Host  | cycle_server                                | The name of the local file transfer host configured in the previous step.  |
-+-------------------+---------------------------------------------+----------------------------------------------------------------------------+
-| Source Path       | $SO_HOME/tickets/                           | Where to look for ticket files on the remote host (an absolute path).      |
-+-------------------+---------------------------------------------+----------------------------------------------------------------------------+
-| Destination Path  | $SO_HOME/tickets/                           | Where to look for ticket files on the local host (an absolute path).       |
-+-------------------+---------------------------------------------+----------------------------------------------------------------------------+
-| Recursive         | checked                                     | Recurse into subdirectories when performing file transfer.                 |
-+-------------------+---------------------------------------------+----------------------------------------------------------------------------+
-| Rsync Options     | --delete                                    | Additional options passed to the rsync command. In this case, the --delete |
-|                   |                                             | flag will remove files that exist in the destination directory but not the |
-|                   |                                             | source directory.                                                          |
-+-------------------+---------------------------------------------+----------------------------------------------------------------------------+
-
+table
 
 ## Configure QMasters
 
@@ -208,13 +161,7 @@ SubmitOnce relies on the QMaster configurations from the CycleServer GridEngine 
 
 Whether you are installing GridEngine monitoring for the first time or adding SubmitOnce capabilities to an existing CycleServer installation, SubmitOnce requires configuration of 2 QMaster attributes which are not required for pure monitoring:
 
-+----------------------------+-----------------------------------+----------------------------------------------------------------------------+
-| Attribute                  | Example Value                     | Description                                                                |
-+============================+===================================+============================================================================+
-| TotalCores                 | 1000                              | The total number of cores allocated for compute in the cluster.            |
-+----------------------------+-----------------------------------+----------------------------------------------------------------------------+
-| JobBuffer                  | 100                               | Desired numer of Queued Jobs to be submitted beyond TotalCores.            |
-+----------------------------+-----------------------------------+----------------------------------------------------------------------------+
+table
 
 The TotalCores attribute provides a hint to SubmitOnce of how many concurrent Jobs may run on the cluster. The JobBuffer attribute gives SubmitOnce a hint as to how many additional jobs beyond the TotalCore count should be queued to maintain full utilization across clusters. The JobBuffer number may require some tweaking based on workload, but goal is to avoid "long-tail" scenarios where any single cluster holds too large a backlog of queued jobs.
 
