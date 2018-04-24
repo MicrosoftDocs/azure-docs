@@ -437,7 +437,7 @@ az webapp create --name $WebAppName --resource-group $ResourceGroupName --plan $
 
 ### Add app settings to the web app
 
-In this section, you will add app settings for the following:
+In this section, you will add app settings for the following components:
 
 * SignalR Service resource connection string
 * GitHub OAuth app client ID
@@ -542,7 +542,7 @@ Otherwise, if you are finished with the quickstart sample application, you can d
 
 Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
 
-In the **Filter by name...** textbox, type the name of your resource group. The instructions for this topic used a resource group named *SignalRTestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
+In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *SignalRTestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
 
    
 ![Delete](./media/signalr-authenticate-oauth/signalr-delete-resource-group.png)

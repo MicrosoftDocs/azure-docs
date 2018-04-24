@@ -50,7 +50,7 @@ It is still a valid approach to deploy your own Azure web app supporting SignalR
 
 One of the obvious key reasons to use the Azure SignalR Service, instead of deploying your own Azure web app hosting SignalR, is simplicity. With Azure SignalR Service, you don't need to handle problems like performance, scalability, availability. These issues are handled for you with a 99.9% service-level agreement.
 
-Depending on the scenario, another reason may be you have no requirements to actually host a web application at all. The logic of your web application may leverage [Serverless computing](https://azure.microsoft.com/overview/serverless-computing/). For example, maybe your code is only hosted and executed on demand with [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) triggers. This scenario can be tricky because your code only runs on-demand and doesn't maintain long connections with clients. Azure SignalR Service can handle this since the service already manages connections for you.
+Depending on the scenario, another reason may be you have no requirements to actually host a web application at all. The logic of your web application may leverage [Serverless computing](https://azure.microsoft.com/overview/serverless-computing/). For example, maybe your code is only hosted and executed on demand with [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) triggers. This scenario can be tricky because your code only runs on-demand and doesn't maintain long connections with clients. Azure SignalR Service can handle this situation since the service already manages connections for you.
 
 ## How does it scale?
 
