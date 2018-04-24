@@ -280,7 +280,7 @@ To implement the Change Feed Processor library you have to do following:
         /// <param name="context">The context specifying partition for this observer, etc.</param>
         /// <param name="reason">Specifies the reason the observer is closed.</param>
         /// <returns>A Task to allow asynchronous execution</returns>
-        public Task CloseAsync(IChangeFeedObserverContext context, Microsoft.Azure.Documents.ChangeFeedProcessor.ChangeFeedObserverCloseReason reason)
+        public Task CloseAsync(IChangeFeedObserverContext context, ChangeFeedObserverCloseReason reason)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Observer closed, {0}", context.PartitionKeyRangeId);
@@ -370,18 +370,17 @@ To implement the Change Feed Processor library you have to do following:
 
             feedOptions.StartFromBeginning = true;
         
-            ChangeFeedHostOptions feedHostOptions = new ChangeFeedHostOptions();
+            ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();
 
             // ie. customizing lease renewal interval to 15 seconds
             // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
-            feedHostOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+            feedProcessorOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
 
             this.builder
                 .WithHostName(hostName)
                 .WithFeedCollection(documentCollectionInfo)
                 .WithLeaseCollection(leaseCollectionInfo)
-                .WithChangeFeedHostOptions(feedHostOptions)
-                .WithChangeFeedOptions(feedOptions)
+                .WithProcessorOptions (feedProcessorOptions)
                 .WithObserverFactory(new DocumentFeedObserverFactory());               
                 //.WithObserver<DocumentFeedObserver>();  If no factory then just pass an observer
 
