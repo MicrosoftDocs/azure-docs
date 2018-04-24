@@ -14,7 +14,7 @@ metadata:
   ms.date: 11/02/2017
   ms.author: v-gedod
 abstract:
-  description: Bing news Search API provides an experience similar to Bing.com/News by returning images that Bing determines are relevant to a user's query.
+  description: Bing News Search API provides an experience similar to [Bing News](https://www.bing.com/news), by returning a list of news articles that Bing determines are relevant to a user's query.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -47,7 +47,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to develop applications using the Bing News Search API:'
+    text: 'Develop applications using the Bing News Search API:'
   - type: list
     style: ordered
     items:
@@ -58,7 +58,7 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: REST v7 API
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference">API Reference</a></p>
-    - title: REST v5 API
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference/">API Reference</a> (old version)</p>
+    - title: APIs
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference">Bing News Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference">Bing News Search API v5</a></p>
+    - title: SDKs
+      html: <p><a href="sdk.md">Bing Search SDK</a></p>
