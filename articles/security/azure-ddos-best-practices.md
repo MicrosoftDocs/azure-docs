@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: barclayn
 
 ---
@@ -169,7 +169,7 @@ We have partnered with [BreakingPoint Cloud](https://www.ixiacom.com/products/br
 
 - Train your network security teams
 
-Cybersecurity is a relentless battle requiring constant innovation in defense. Azure’s DDoS Standard protection is a state of the art offering tstate-of-the-artstomers with an effective solution to mitigate increasingly complex DDoS attacks.
+Cybersecurity is a relentless battle requiring constant innovation in defense. Azure’s DDoS Standard protection is a state of the art offering state of the art offering for customers with an effective solution to mitigate increasingly complex DDoS attacks.
 
 ## Components of a DDoS response strategy
 

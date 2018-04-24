@@ -1,10 +1,10 @@
 ---
- title: Deprecated extension include file
- description: This indclude file will be used in all deprecated extensions
+ title: include file
+ description: include file
  services: virtual-machines-linux
  author: RicksterCDN
  ms.service: virtual-machines-linux
- ms.topic: include
+ ms.topic: include file
  ms.date: 04/20/2018
  ms.author: rclaus
  ms.custom: include file
