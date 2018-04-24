@@ -12,10 +12,8 @@ ms.assetid: 00a80dea-011f-44f0-92a4-25d09db9d996
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/06/2017
+ms.topic: conceptual
+ms.date: 02/22/2018
 ms.author: jgao
 
 ---

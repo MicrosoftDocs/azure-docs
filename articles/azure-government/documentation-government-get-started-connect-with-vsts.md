@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect to Azure Government from Visual Studio Team Services | Microsoft Docs
 description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from Visual Studio Team Services
 services: azure-government
@@ -69,7 +69,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 4. Navigate to the directory that has the edited script above. 
 5. Edit the following command with the name of your script and run:
     `./<name of script file you saved> `
-6. The "subscriptionName" parameter can be found by logging into your Azure Government subscription with `Login-AzureRmAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
+6. The "subscriptionName" parameter can be found by logging into your Azure Government subscription with `Connect-AzureRmAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
 7. When prompted for the "password" parameter, you can enter your desired password. 
 
     ![ps2](./media/documentation-government-vsts-img9.png)
@@ -102,7 +102,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 4. Click on the blue text in order to set up the service principal. 
 	
     ![vsts3](./media/documentation-government-vsts-img14.png)
-5. Fill out the dialog with "USGovernment cloud" for the "Environment" parameter and choose a friendly name for "Connection Name". Fill out the rest of dialog with the Service Connection values generated in **Step 9 of the "Generate a Service Principal" section above**. Click "Verify Connection" in the bottom right corner, make sure it says "Verified", and then click "Ok".
+5. Fill out the dialog with "AzureUSGovernment" for the "Environment" parameter and choose a friendly name for "Connection Name". Fill out the rest of dialog with the Service Connection values generated in **Step 9 of the "Generate a Service Principal" section above**. Click "Verify Connection" in the bottom right corner, make sure it says "Verified", and then click "Ok".
 
     ![vsts4](./media/documentation-government-vsts-img15.png)
 6. Confirm your build has been created successfully.

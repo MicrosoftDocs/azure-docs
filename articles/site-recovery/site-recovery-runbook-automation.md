@@ -1,4 +1,4 @@
----
+﻿---
 title: Add Azure Automation runbooks to recovery plans in Azure Site Recovery | Microsoft Docs
 description: Learn how Azure Site Recovery can help you extend recovery plans by using Azure Automation. Learn how to complete complex tasks during recovery to Azure.
 services: site-recovery
@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: ruturajd@microsoft.com
 
 ---
 # Add Azure Automation runbooks to recovery plans
 In this article, we describe how Azure Site Recovery integrates with Azure Automation to help you extend your recovery plans. Recovery plans can orchestrate recovery of VMs that are protected with Site Recovery. Recovery plans work both for replication to a secondary cloud, and for replication to Azure. Recovery plans also help make the recovery **consistently accurate**, **repeatable**, and **automated**. If you fail over your VMs to Azure, integration with Azure Automation extends your recovery plans. You can use it to execute runbooks, which offer powerful automation tasks.
 
-If you are new to Azure Automation, you can [sign up](https://azure.microsoft.com/services/automation/) and [download sample scripts](https://azure.microsoft.com/documentation/scripts/). For more information, and to learn how to orchestrate recovery to Azure by using [recovery plans](https://azure.microsoft.com/blog/?p=166264), see [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
+If you are new to Azure Automation, you can [sign up](https://azure.microsoft.com/services/automation/) and [download sample scripts](https://azure.microsoft.com/documentation/scripts/). For more information, and to learn how to orchestrate recovery to Azure by using [recovery plans](./site-recovery-create-recovery-plans.md), see [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
 
 In this article, we describe how you can integrate Azure Automation runbooks into your recovery plans. We use examples to automate basic tasks that previously required manual intervention. We also describe how to convert a multi-step recovery to a single-click recovery action.
 
@@ -190,14 +190,14 @@ For each recovery plan, create independent variables so that you can reuse the s
 
 ### Use a complex variable to store more information
 
-Consider a scenario in which you want a single script to turn on a public IP on specific VMs. In another scenario, you might want to apply different NSGs on different VMs (not on all VMs). You can make a script that is reusable for any recovery plan. Each recovery plan can have a variable number of VMs. For example, a SharePoint recovery has two front ends. A basic line-of-business (LOB) application has only one front end. You cannot create separate variables for each recovery plan. 
+Consider a scenario in which you want a single script to turn on a public IP on specific VMs. In another scenario, you might want to apply different NSGs on different VMs (not on all VMs). You can make a script that is reusable for any recovery plan. Each recovery plan can have a variable number of VMs. For example, a SharePoint recovery has two front ends. A basic line-of-business (LOB) application has only one front end. You cannot create separate variables for each recovery plan.
 
 In the following example, we use a new technique and create a [complex variable](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) in the Azure Automation account assets. You do this by specifying multiple values. You must use Azure PowerShell to complete the following steps:
 
 1. In PowerShell, sign in to your Azure subscription:
 
 	```
-	login-azurermaccount
+	Connect-AzureRmAccount
 	$sub = Get-AzureRmSubscription -Name <SubscriptionName>
 	$sub | Select-AzureRmSubscription
 	```
@@ -253,8 +253,10 @@ For another example, see the following video. It demonstrates how to recover a t
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-
 ## Additional resources
-* [Azure Automation service Run As account](../automation/automation-sec-configure-azure-runas-account.md)
+* [Azure Automation service Run As account](../automation/automation-create-runas-account.md)
 * [Azure Automation overview](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation overview")
 * [Azure Automation sample scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation sample scripts")
+
+## Next steps
+[Learn more](site-recovery-failover.md) about running failovers.

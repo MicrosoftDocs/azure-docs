@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 04/09/2018
 ms.author: andret
 ms.custom: aaddev 
 
@@ -23,4 +23,4 @@ ms.custom: aaddev
 [!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-aspnetwebapp-setup.md)]
 [!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-aspnetwebapp-use.md)]
 [!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-aspnetwebapp-configure.md)]
-[!INCLUDE  [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-aspnetwebapp-test.md)]
+[!INCLUDE [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-aspnetwebapp-test.md)]

@@ -20,7 +20,7 @@ ms.author: cephalin
 # Scale up an app in Azure
 
 > [!NOTE]
-> The new **PremiumV2** tier gives you faster CPUs, SSD storage, and double the memory-to-core ratio than the existing pricing tiers. To scale up to **PremiumV2** tier, see [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md).
+> The new **PremiumV2** tier gives you faster CPUs, SSD storage, and doubles the memory-to-core ratio of the existing pricing tiers. With the performance advantage, you could save money by running your apps on fewer instances. To scale up to **PremiumV2** tier, see [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md).
 >
 
 This article shows you how to scale your app in Azure App Service. There are two workflows for scaling, scale up and scale out, and this article explains the scale up workflow.
@@ -31,11 +31,11 @@ This article shows you how to scale your app in Azure App Service. There are two
 * [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of VM instances that run your app.
   You can scale out to as many as 20 instances, depending on your pricing tier. [App Service Environments](environment/intro.md)
   in **Isolated** tier further increases your scale-out count to 100 instances. For more information about scaling out, see
-  [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md). There you find out how
+  [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md). There, you find out how
   to use autoscaling, which is to scale instance count automatically based on predefined rules and schedules.
 
 The scale settings take only seconds to apply and affect all apps in your [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-They do not require you to change your code or redeploy your application.
+They don't require you to change your code or redeploy your application.
 
 For information about the pricing and features of individual App Service plans, see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/).  
 
@@ -59,7 +59,7 @@ For information about the pricing and features of individual App Service plans, 
 <a name="ScalingSQLServer"></a>
 
 ## Scale related resources
-If your app depends on other services, such as Azure SQL Database or Azure Storage, you can scale up these resources separately. These resources are not managed by the App Service plan.
+If your app depends on other services, such as Azure SQL Database or Azure Storage, you can scale up these resources separately. These resources aren't managed by the App Service plan.
 
 1. In **Essentials**, click the **Resource group** link.
    
@@ -84,11 +84,6 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
 ## Compare pricing tiers
 For detailed information, such as VM sizes for each pricing tier, see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/).
 For a table of service limits, quotas, and constraints, and supported features in each tier, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits).
-
-> [!NOTE]
-> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/) where you can immediately create a short-lived starter web app in App Service. No credit cards are required and there are no commitments.
-> 
-> 
 
 <a name="Next Steps"></a>
 

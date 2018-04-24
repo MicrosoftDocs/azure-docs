@@ -27,7 +27,7 @@ This feature is used by tenant admins to customize the claims emitted in tokens 
 - Choose or change the source of data emitted in specific claims.
 
 >[!NOTE]
->This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory (Azure AD) subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure Active Directory premium subscription.
+>This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory (Azure AD) subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure Active Directory premium subscription. This feature supports configuring claim mapping policies for WS-Fed, SAML, OAuth and OpenID Connect protocols.
 
 ## Claims mapping policy type
 In Azure AD, a **Policy** object represents a set of rules enforced on individual applications, or on all applications in an organization. Each type of policy has a unique structure, with a set of properties that are then applied to objects to which they are assigned.
@@ -231,7 +231,7 @@ Restricted claims cannot be modified by using policy. The data source cannot be 
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## Claims mapping policy properties
-Use the properties of a claims mapping policy to control which claims are emitted, and where the data is sourced from. If no policy is set, the system issues tokens containing the core claim set, the basic claim set, and any optional claims that the application has chosen to receive.
+Use the properties of a claims mapping policy to control which claims are emitted, and where the data is sourced from. If no policy is set, the system issues tokens containing the core claim set, the basic claim set, and any [optional claims](develop/active-directory-optional-claims.md) that the application has chosen to receive.
 
 ### Include basic claim set
 

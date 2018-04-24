@@ -3,7 +3,7 @@ title: Integrating Applications with Azure Active Directory
 description: How to add, update, or remove an application in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: PatAltimore
+author: mtillman
 manager: mtillman
 editor: mbaldwin
 
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
-ms.author: bryanla
+ms.date: 04/18/2018
+ms.author: mtillman
 ms.custom: aaddev
 ms.reviewer: luleon
 ---
@@ -52,7 +52,7 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 5. When finished, click **Create**. Azure AD assigns a unique Application ID to your application, and you're taken to your application's main registration page. Depending on whether your application is a web or native application, different options are provided to add additional capabilities to your application. See the next section for an overview of consent, and details on enabling additional configuration features in your application registration (credentials, permissions, enable sign-in for users from other tenants.)
 
   > [!NOTE]
-  > By default, the newly registered application is configured to allow **only** users from the same tenant to sign in to your application.
+  > By default, a newly registered web application is configured to allow **only** users from the same tenant to sign in to your application.
   > 
   > 
 
@@ -61,7 +61,7 @@ Once your application has been registered with Azure AD, it may need to be updat
 
 ### Overview of the consent framework
 
-The Azure AD consent framework makes it easy to develop multi-tenant web and native client applications, including multi-tier applications. These applications allow sign-in by user accounts from an Azure AD tenant, different from the one where the application is registered. They may also need to access web APIs such as the Microsoft Graph API (to access Azure Active Directory, Intune, and services in Office 365) and other Microsoft services' APIs, in addition to your own web APIs. The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory, which may involve accessing directory data.
+The Azure AD consent framework makes it easy to develop multi-tenant web and native client applications. These applications allow sign-in by user accounts from an Azure AD tenant, different from the one where the application is registered. They may also need to access web APIs such as the Microsoft Graph API (to access Azure Active Directory, Intune, and services in Office 365) and other Microsoft services' APIs, in addition to your own web APIs. The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory, which may involve accessing directory data.
 
 For example, if a web client application needs to read calendar information about the user from Office 365, that user is required to consent to the client application first. After consent is given, the client application will be able to call the Microsoft Graph API on behalf of the user, and use the calendar information as needed. The [Microsoft Graph API](https://graph.microsoft.io) provides access to data in Office 365 (like calendars and messages from Exchange, sites and lists from SharePoint, documents from OneDrive, notebooks from OneNote, tasks from Planner, workbooks from Excel, etc.), as well as users and groups from Azure AD and other data objects from more Microsoft cloud services. 
 
@@ -89,17 +89,17 @@ The following steps show you how the consent experience works for both the appli
 
 5. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see the [web Application to web API section in Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md#web-application-to-web-api).
 
-6. As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog from appearing for every user in the tenant, and is done your application page in the [Azure portal](https://portal.azure.com). From the **Settings** page for your application, click **Required Permissions** and click on the **Grant Permissions** button. 
+6. As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog from appearing for every user in the tenant, and can be done in the [Azure portal](https://portal.azure.com) by users with the administrator role. From the **Settings** page for your application, click **Required Permissions** and click on the **Grant Permissions** button. 
 
   ![Grant permissions for explicit admin consent](./media/active-directory-integrating-applications/grantpermissions.png)
     
   > [!NOTE]
-  > Granting explicit consent using the **Grant Permissions** button is currently required for single page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested.   
+  > Granting explicit consent using the **Grant Permissions** button is currently required for single page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested. 
 
 ### Configure a client application to access web APIs
-In order for a web/confidential client application to be able to participate in an authorization grant flow that requires authentication (and obtain an access token), it must establish secure credentials. The default authentication method supported by the Azure portal is Client ID + secret key. This section covers the configuration steps required to provide the secret key your client's credentials.
+In order for a web/confidential client application to be able to participate in an authorization grant flow that requires authentication (and obtain an access token), it must establish secure credentials. The default authentication method supported by the Azure portal is client ID + secret key. This section covers the configuration steps required to provide the secret key with your client's credentials.
 
-Additionally, before a client can access a web API exposed by a resource application (such as Microsoft Graph API), the consent framework ensures the client obtains the permission grant required, based on the permissions requested. By default, all applications can choose permissions from "Windows Azure Active Directory" (Graph API) and "Windows Azure Service Management API." The [Graph API “Sign-in and read user profile” permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) is also selected by default. If your client is being registered in a tenant that has accounts subscribed to Office 365, Web APIs and permissions for SharePoint and Exchange Online are available for selection. You can select from [two types of permissions](active-directory-dev-glossary.md#permissions) for each desired web API:
+Additionally, before a client can access a web API exposed by a resource application (such as the Microsoft Graph API), the consent framework ensures the client obtains the permission grant required, based on the permissions requested. By default, all applications can choose permissions from "Windows Azure Active Directory" (Graph API) and "Windows Azure Service Management API." The [Graph API “Sign-in and read user profile” permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) is also selected by default. If your client is being registered in a tenant that has accounts subscribed to Office 365, web APIs and permissions for SharePoint and Exchange Online are available for selection. You can select from [two types of permissions](active-directory-dev-glossary.md#permissions) for each desired web API:
 
 - Application Permissions: Your client application needs to access the web API directly as itself (no user context). This type of permission requires administrator consent and is also not available for native client applications.
 
@@ -116,7 +116,7 @@ Additionally, before a client can access a web API exposed by a resource applica
    ![Update an application's registration](./media/active-directory-integrating-applications/update-app-registration.png)
 
 4. You are taken to the application's main registration page, which opens up the **Settings** page for the application. To add a secret key for your web application's credentials:
-  - Click the **Keys** section on the **Settings** page.  
+  - Click the **Keys** section on the **Settings** page. 
   - Add a description for your key.
   - Select either a one or two year duration.
   - Click **Save**. The right-most column will contain the key value, after you save the configuration changes. **Be sure to copy the key** for use in your client application code, as it is not accessible once you leave this page.
@@ -137,7 +137,7 @@ Additionally, before a client can access a web API exposed by a resource applica
 6. When finished, click the **Select** button on **Enable Access** page, then the  **Done** button on the **Add API access** page. You are returned to the **Required permissions** page, where the new resource is added to the list of APIs.
 
   > [!NOTE]
-  > Clicking the **Done** button also automatically sets the permissions for your application in your directory based on the permissions to other applications that you configured.  You can view these application permissions by looking at the application **Settings** page.
+  > Clicking the **Done** button also automatically sets the permissions for your application in your directory based on the permissions to other applications that you configured. You can view these application permissions by looking at the application **Settings** page.
   > 
   > 
 
@@ -178,7 +178,7 @@ The following section shows you how to expose access scopes, by modifying the re
   > You can expose additional scopes later as necessary. Consider that your web API might expose multiple scopes associated with a variety of different functions. Your resource can control access to the web API at runtime, by evaluating the scope (`scp`) claim(s) in the received OAuth 2.0 access token.
   > 
 
-6. When finished, click **Save**. Now your web API is configured for use by other applications in your directory.  
+6. When finished, click **Save**. Now your web API is configured for use by other applications in your directory. 
 
   ![Update an application's registration](./media/active-directory-integrating-applications/update-app-registration-manifest.png)
 
@@ -206,7 +206,7 @@ For more information on application manifest concepts in general, see [Understan
 
 As mentioned earlier, in addition to exposing/accessing APIs for your own applications, you can register your client application to access APIs exposed by Microsoft resources. The Microsoft Graph API, referred to as “Microsoft Graph” in the portal's resource/API list, is available to all applications that are registered with Azure AD. If you are registering your client application in a tenant containing accounts that have signed up for an Office 365 subscription, you can also access the scopes exposed by the various Office 365 resources.
 
-For a complete discussion on scopes exposed by Microsoft Graph API, see the [Permission scopes | Microsoft Graph API concepts](https://graph.microsoft.io/docs/authorization/permission_scopes) article.
+For a complete discussion on scopes exposed by Microsoft Graph API, see the [Microsoft Graph permissions reference](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) article.
 
 > [!NOTE]
 > Due to a current limitation, native client applications can only call into the Azure AD Graph API if they use the “Access your organization's directory” permission. This restriction does not apply for web applications.
@@ -244,7 +244,7 @@ After you have made the changes, users and administrators in other organizations
 
 #### Changing the application to support multi-tenant
 
-Support for multi-tenant applications relies heavily on the Azure AD consent framework. Consent is the mechanism that allows a user from another tenant, to grant the application access to resources secured by the user's tenant. This experience is referred to as "user consent."
+Support for multi-tenant applications relies heavily on the Azure AD consent framework. Consent is the mechanism that allows a user from another tenant to grant the application access to resources secured by the user's tenant. This experience is referred to as "user consent."
 
 Your web application may also offer:
 
@@ -286,7 +286,7 @@ By default, OAuth 2.0 implicit Grant is disabled for applications. You can enabl
 This section describes how to remove an application's registration from your Azure AD tenant.
 
 ### Removing an application authored by your organization
-Applications that your organization has registered show under the "My apps" filter on your tenant's main "App registrations" page. These applications are ones you registered manually via the Azure portal, or programmatically via PowerShell or the Graph API. More specifically, they are represented by both an Application and Service Principal object in your tenant. For more information, see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
+Applications that your organization has registered appear under the "My apps" filter on your tenant's main "App registrations" page. These applications are ones you registered manually via the Azure portal, or programmatically via PowerShell or the Graph API. More specifically, they are represented by both an Application and Service Principal object in your tenant. For more information, see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
 
 #### To remove a single-tenant application from your directory
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -304,15 +304,15 @@ Applications that your organization has registered show under the "My apps" filt
 6. Click **Yes** in the confirmation message.
 
 ### Removing a multi-tenant application authorized by another organization
-A subset of the applications that show under the "All apps" filter (excluding the "My apps" registrations) on your tenant's main "App registrations" page, are multi-tenant applications. In technical terms, these multi-tenant applications are from another tenant, and were registered into your tenant during the consent process. More specifically, they are represented by only a service principal object in your tenant, with no corresponding application object. For more information on the differences between application and service principal objects, see [Application and service principal objects in Azure AD](active-directory-application-objects.md).
+A subset of the applications that appear under the "All apps" filter (excluding the "My apps" registrations) on your tenant's main "App registrations" page, are multi-tenant applications. In technical terms, these multi-tenant applications are from another tenant, and were registered into your tenant during the consent process. More specifically, they are represented by only a service principal object in your tenant, with no corresponding application object. For more information on the differences between application and service principal objects, see [Application and service principal objects in Azure AD](active-directory-application-objects.md).
 
-In order to remove a multi-tenant application’s access to your directory (after having granted consent), the company administrator must remove its service principal. The administrator must have global admin access, and can remove through the Azure portal the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) to remove access.
+In order to remove a multi-tenant application’s access to your directory (after having granted consent), the company administrator must remove its service principal. The administrator must have global admin access and can remove it through the Azure portal or use the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## Next steps
 - For more information on how authentication works in Azure AD, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 - See the [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md) for tips on visual guidance for your app.
 - For more information on the relationship between an application's Application and Service Principal object(s), see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
 - To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md)
-- See the [Azure AD developer glossary](active-directory-dev-glossary.md) for definitions of some of the core Azure Active Directory (AD) developer concepts.
+- See the [Azure AD developer glossary](active-directory-dev-glossary.md) for definitions of some of the core Azure AD developer concepts.
 - Visit the [Active Directory developer's guide](active-directory-developers-guide.md) for an overview of all developer-related content.
 

@@ -1,4 +1,14 @@
-
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: cynthn
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 03/09/2018
+ ms.author: cynthn
+ ms.custom: include file
+---
 
 ## Use the portal to move a VM to a different subscription
 You can move a VM and it's associated resources to a different subscription using the portal.

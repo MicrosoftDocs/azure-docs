@@ -1,40 +1,34 @@
 ---
-title: Design guidance for distributed tables - Azure SQL Data Warehouse | Microsoft Docs
-description: Recommendations for designing hash-distributed and round-robin tables in Azure SQL Data Warehouse.
+title: Distributed tables design guidance - Azure SQL Data Warehouse | Microsoft Docs
+description: Recommendations for designing hash-distributed and round-robin distributed tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
-
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 01/18/2018
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
 
 # Guidance for designing distributed tables in Azure SQL Data Warehouse
+Recommendations for designing hash-distributed and round-robin distributed tables in Azure SQL Data Warehouse.
 
-This article gives recommendations for designing distributed tables in Azure SQL Data Warehouse. Hash-distributed tables improve query performance on large fact tables, and are the focus of this article. Round-robin tables are useful for improving loading speed. These design choices have a significant impact on improving query and loading performance.
+This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see [Azure SQL Data Warehouse - Massively Parallel Processing (MPP) architecture](massively-parallel-processing-mpp-architecture.md). 
 
-## Prerequisites
-This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article. 
+## What is a distributed table?
+A distributed table appears as a single table, but the rows are actually stored across 60 distributions. The rows are distributed with a hash or round-robin algorithm.  
+
+**Hash-distributed tables** improve query performance on large fact tables, and are the focus of this article. **Round-robin tables** are useful for improving loading speed. These design choices have a significant impact on improving query and loading performance.
+
+Another table storage option is to replicate a small table across all the Compute nodes. For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md). To quickly choose among the three options, see Distributed tables in the [tables overview](sql-data-warehouse-tables-overview.md). 
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 
 - How large is the table?   
 - How often is the table refreshed?   
 - Do I have fact and dimension tables in a data warehouse?   
-
-## What is a distributed table?
-A distributed table appears as a single table, but the rows are actually stored across 60 distributions. The rows are distributed with a hash or round-robin algorithm. 
-
-Another table storage option is to replicate a small table across all the Compute nodes. For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md). To quickly choose among the three options, see Distributed tables in the [tables overview](sql-data-warehouse-tables-overview.md). 
 
 
 ### Hash distributed
@@ -65,7 +59,7 @@ Consider using the round-robin distribution for your table in the following scen
 - If the join is less significant than other joins in the query
 - When the table is a temporary staging table
 
-The tutorial [Loading data from Azure Storage blob](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) gives an example of loading data into a round-robin staging table.
+The tutorial [Load New York taxicab data to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) gives an example of loading data into a round-robin staging table.
 
 
 ## Choosing a distribution column
@@ -89,7 +83,7 @@ WITH
 ;
 ``` 
 
-Choosing a distribution column is an important design decision since the values in this column determine how the rows are distributed. The best choice depends on several factors, and usually involves tradeoffs. However, if you don't choose the best column the first time, you can use [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) to re-create the table with a different distribution column. 
+Choosing a distribution column is an important design decision since the values in this column determine how the rows are distributed. The best choice depends on several factors, and usually involves tradeoffs. However, if you don't choose the best column the first time, you can use [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) to re-create the table with a different distribution column. 
 
 ### Choose a distribution column that does not require updates
 You cannot update a distribution column unless you delete the row and insert a new row with the updated values. Therefore, select a column with static values. 
@@ -119,7 +113,7 @@ To minimize data movement, select a distribution column that:
 
 ### What to do when none of the columns are a good distribution column
 
-When no good candidate columns exist, then consider using round-robin as the distribution method.
+If none of your columns have enough distinct values for a distribution column, you can create a new column as a composite of one or more values. To avoid data movement during query execution, use the composite distribution column as a join column in queries.
 
 Once you design a hash-distributed table, the next step is to load data into the table.  For loading guidance, see [Loading overview](sql-data-warehouse-overview-load.md). 
 
@@ -127,7 +121,7 @@ Once you design a hash-distributed table, the next step is to load data into the
 After data is loaded into a hash-distributed table, check to see how evenly the rows are distributed across the 60 distributions. The rows per distribution can vary up to 10% without a noticeable impact on performance. 
 
 ### Determine if the table has data skew
-A quick way to check for data skew is to use [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). The following SQL code returns the number of table rows that are stored in each of the 60 distributions. For balanced performance, the rows in your distributed table should be spread evenly across all the distributions.
+A quick way to check for data skew is to use [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). The following SQL code returns the number of table rows that are stored in each of the 60 distributions. For balanced performance, the rows in your distributed table should be spread evenly across all the distributions.
 
 ```sql
 -- Find data skew for a distributed table

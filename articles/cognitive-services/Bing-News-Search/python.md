@@ -2,9 +2,9 @@
 title: Python Quickstart for Azure Cognitive Services, Bing News Search API | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Bing News Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-author: jerrykindall
+author: v-jerkin
 ms.service: cognitive-services
-ms.technology: bing-search
+ms.component: bing-news-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
@@ -26,7 +26,7 @@ First, set `subscription_key` to your API key for the Bing API service.
 
 
 ```python
-subscription_key = "96d05359d76f4e758906539daeab939e"
+subscription_key = None
 assert subscription_key
 ```
 

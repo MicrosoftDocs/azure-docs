@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/29/2018
 ms.author: mbullwin
 
 ---
@@ -45,7 +45,7 @@ Status Monitor Configuration - needed only when making changes.
 | Configuration |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configuration |`auth.gfx.ms` | |`443` |
 | Configuration |`login.live.com` | |`443` |
-| Installation |`packages.nuget.org` | |`443` |
+| Installation |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (NuGet Downloads) | |`443` |
 
 ## HockeyApp
 | Purpose | URL | IP | Ports |
@@ -58,44 +58,34 @@ This is the list of addresses from which [availability web tests](app-insights-m
 Open ports 80 (http) and 443 (https) for incoming traffic from these addresses (IP addresses are grouped by location):
 
 ```
-AU : Sydney
+Australia East
 13.70.83.252
 13.75.150.96
 13.75.153.9
 13.75.158.185
-BR : Sao Paulo
+Brazil South
 191.232.32.122
 191.232.172.45
 191.232.176.218
 191.232.191.225
-CH : Zurich
-94.245.66.43
-94.245.66.44
-94.245.66.45
-94.245.66.48
+France South
 52.136.140.221
 52.136.140.222
 52.136.140.223
 52.136.140.226
-FR : Paris
-94.245.72.44
-94.245.72.45
-94.245.72.46
-94.245.72.49
-94.245.72.52
-94.245.72.53
-52.143.140.242 
+France Central
+52.143.140.242
 52.143.140.246
 52.143.140.247
 52.143.140.249
-HK : Hong Kong
+East Asia
 13.75.121.122
 23.99.115.153
 23.99.123.38
 23.102.232.186
 52.175.38.49
 52.175.39.103
-IE : Dublin
+North Europe
 13.74.184.101
 13.74.185.160
 40.69.200.198
@@ -104,12 +94,12 @@ IE : Dublin
 52.169.14.11
 52.169.237.149
 52.178.183.105
-JP : Kawaguchi
+Japan East
 52.243.33.33
 52.243.33.141
 52.243.35.253
 52.243.41.117
-NL : Amsterdam
+West Europe
 52.174.166.113
 52.174.178.96
 52.174.31.140
@@ -118,33 +108,24 @@ NL : Amsterdam
 52.178.109.190
 52.178.111.139
 52.233.166.221
-RU : Moscow
-94.245.82.32
-94.245.82.33
-94.245.82.37
-94.245.82.38
+UK South
 51.140.79.229
 51.140.84.172
 51.140.87.211
 51.140.105.74
-SE : Stockholm
-94.245.78.40
-94.245.78.41
-94.245.78.42
-94.245.78.45
-GB : United Kingdom
+UK West
 51.141.25.219
 51.141.32.101
 51.141.35.167
 51.141.54.177
-SG : Singapore
+Southeast Asia
 52.187.29.7
 52.187.179.17
 52.187.76.248
 52.187.43.24
 52.163.57.91
 52.187.30.120
-US : CA-San Jose
+West US
 104.45.228.236
 104.45.237.251
 13.64.152.110
@@ -155,15 +136,7 @@ US : CA-San Jose
 40.118.131.182
 40.83.189.192
 40.83.215.122
-US : FL-Miami
-65.54.78.49
-65.54.78.50
-65.54.78.51
-65.54.78.54
-65.54.78.57
-65.54.78.58
-65.54.78.59
-65.54.78.60
+Central US
 52.165.130.58
 52.173.142.229
 52.173.147.190
@@ -172,7 +145,7 @@ US : FL-Miami
 52.173.244.190
 52.173.36.222
 52.176.1.226
-US : IL-Chicago
+North Central US
 23.96.247.139
 23.96.249.113
 52.162.124.242
@@ -185,7 +158,7 @@ US : IL-Chicago
 52.237.156.14
 52.237.157.218
 52.237.157.37
-US : TX-San Antonio
+South Central US
 104.210.145.106
 13.84.176.24
 13.84.49.16
@@ -196,7 +169,7 @@ US : TX-San Antonio
 52.171.141.253
 52.171.57.172
 52.171.58.140
-US : VA-Ashburn
+East US
 13.82.218.95
 13.90.96.71
 13.90.98.52

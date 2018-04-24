@@ -11,11 +11,9 @@ tags: azure-portal
 ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/06/2017
+ms.topic: conceptual
+ms.date: 01/29/2018
 ms.author: larryfr
 
 ---
@@ -47,12 +45,12 @@ Additionally, if you are creating an HDInsight cluster, someone with at least **
 
 For more information on working with access management, see the following documents:
 
-* [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md)
-* [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md)
+* [Get started with access management in the Azure portal](../role-based-access-control/overview.md)
+* [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md)
 
 ## Understanding script actions
 
-A script action is Bash script that you provide a URI to, and parameters for. The script runs on nodes in the HDInsight cluster. The following are characteristics and features of script actions.
+A script action is Bash script that runs on the nodes in an HDInsight cluster. The following are characteristics and features of script actions.
 
 * Must be stored on a URI that is accessible from the HDInsight cluster. The following are possible storage locations:
 
@@ -76,9 +74,7 @@ A script action is Bash script that you provide a URI to, and parameters for. Th
 
 * Can be **persisted** or **ad hoc**.
 
-    **Persisted** scripts are applied to worker nodes added to the cluster after the script runs. For example, when scaling up the cluster.
-
-    A persisted script might also apply changes to another node type, such as a head node.
+    **Persisted** scripts are used to customize new worker nodes added to the cluster through scaling operations. A persisted script might also apply changes to another node type, such as a head node, when scaling operations occur.
 
   > [!IMPORTANT]
   > Persisted script actions must have a unique name.
@@ -91,30 +87,32 @@ A script action is Bash script that you provide a URI to, and parameters for. Th
   > Scripts that fail are not persisted, even if you specifically indicate that they should be.
 
 * Can accept **parameters** that are used by the script during execution.
+
 * Run with **root level privileges** on the cluster nodes.
-* Can be used through the **Azure portal**, **Azure PowerShell**, **Azure CLI**, or **HDInsight .NET SDK**
+
+* Can be used through the **Azure portal**, **Azure PowerShell**, **Azure CLI v1.0**, or **HDInsight .NET SDK**
 
 The cluster keeps a history of all scripts that have been ran. The history is useful when you need to find the ID of a script for promotion or demotion operations.
 
 > [!IMPORTANT]
 > There is no automatic way to undo the changes made by a script action. Either manually reverse the changes or provide a script that reverses them.
 
-
 ### Script action in the cluster creation process
 
 Script actions used during cluster creation are slightly different from script actions ran on an existing cluster:
 
 * The script is **automatically persisted**.
+
 * A **failure** in the script can cause the cluster creation process to fail.
 
 The following diagram illustrates when script action is executed during the creation process:
 
 ![HDInsight cluster customization and stages during cluster creation][img-hdi-cluster-states]
 
-The script runs while HDInsight is being configured. At this stage, the script runs in parallel on all the specified nodes in the cluster, and runs with root privileges on the nodes.
+The script runs while HDInsight is being configured. The script runs in parallel on all the specified nodes in the cluster, and runs with root privileges on the nodes.
 
 > [!NOTE]
-> Because the script runs with root level privilege on the cluster nodes, you can perform operations like stopping and starting services, including Hadoop-related services. If you stop services, you must ensure that the Ambari service and other Hadoop-related services are up and running before the script finishes running. These services are required to successfully determine the health and state of the cluster while it is being created.
+> You can perform operations like stopping and starting services, including Hadoop-related services. If you stop services, you must ensure that the Ambari service and other Hadoop-related services running before the script completes. These services are required to successfully determine the health and state of the cluster while it is being created.
 
 
 During cluster creation, you can use multiple script actions at once. These scripts are invoked in the order in which they were specified.
@@ -127,12 +125,12 @@ During cluster creation, you can use multiple script actions at once. These scri
 
 ### Script action on a running cluster
 
-Unlike script actions used during cluster creation, a failure in a script ran on an already running cluster does not automatically cause the cluster to change to a failed state. Once a script completes, the cluster should return to a "running" state.
+A failure in a script ran on an already running cluster does not automatically cause the cluster to change to a failed state. Once a script completes, the cluster should return to a "running" state.
 
 > [!IMPORTANT]
 > Even if the cluster has a 'running' state, the failed script may have broken things. For example, a script could delete files needed by the cluster.
 >
-> Scripts actions run with root privileges, so you should make sure that you understand what a script does before applying it to your cluster.
+> Scripts actions run with root privileges. Make sure that you understand what a script does before applying it to your cluster.
 
 When applying a script to a cluster, the cluster state changes from **Running** to **Accepted**, then **HDInsight configuration**, and finally back to **Running** for successful scripts. The script status is logged in the script action history, and you can use this information to determine whether the script succeeded or failed. For example, the `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet can be used to view the status of a script. It returns information similar to the following text:
 
@@ -141,7 +139,7 @@ When applying a script to a cluster, the cluster state changes from **Running** 
     EndTime           : 8/14/2017 7:41:05 PM
     Status            : Succeeded
 
-> [!NOTE]
+> [!IMPORTANT]
 > If you have changed the cluster user (admin) password after the cluster was created, script actions ran against this cluster may fail. If you have any persisted script actions that target worker nodes, these scripts may fail when you scale the cluster.
 
 ## Example script action scripts
@@ -150,7 +148,7 @@ Script action scripts can be used through the following utilities:
 
 * Azure portal
 * Azure PowerShell
-* Azure CLI
+* Azure CLI v1.0
 * HDInsight .NET SDK
 
 HDInsight provides scripts to install the following components on HDInsight clusters:
@@ -191,8 +189,8 @@ This section provides examples on the different ways you can use script actions 
     | --- | --- |
     | Select a script | To use your own script, select __Custom__. Otherwise, select one of the provided scripts. |
     | Name |Specify a name for the script action. |
-    | Bash script URI |Specify the URI to the script that is invoked to customize the cluster. |
-    | Head/Worker/Zookeeper |Specify the nodes (**Head**, **Worker**, or **ZooKeeper**) on which the customization script is run. |
+    | Bash script URI |Specify the URI of the script. |
+    | Head/Worker/Zookeeper |Specify the nodes (**Head**, **Worker**, or **ZooKeeper**) on which the script is run. |
     | Parameters |Specify the parameters, if required by the script. |
 
     Use the __Persist this script action__ entry to ensure that the script is applied during scaling operations.
@@ -211,13 +209,15 @@ Script actions can be used with Azure Resource Manager templates. For an example
 
 In this example, the script action is added using the following code:
 
-    "scriptActions": [
-        {
-            "name": "setenvironmentvariable",
-            "uri": "[parameters('scriptActionUri')]",
-            "parameters": "headnode"
-        }
-    ]
+```json
+"scriptActions": [
+    {
+        "name": "setenvironmentvariable",
+        "uri": "[parameters('scriptActionUri')]",
+        "parameters": "headnode"
+    }
+]
+```
 
 For information on how to deploy a template, see the following documents:
 
@@ -268,8 +268,8 @@ In this section, learn how to apply script actions to a running cluster.
     | --- | --- |
     | Select a script | To use your own script, select __custom__. Otherwise, select a provided script. |
     | Name |Specify a name for the script action. |
-    | Bash script URI |Specify the URI to the script that is invoked to customize the cluster. |
-    | Head/Worker/Zookeeper |Specify the nodes (**Head**, **Worker**, or **ZooKeeper**) on which the customization script is run. |
+    | Bash script URI |Specify the URI of the script. |
+    | Head/Worker/Zookeeper |Specify the nodes (**Head**, **Worker**, or **ZooKeeper**) on which the script is run. |
     | Parameters |Specify the parameters, if required by the script. |
 
     Use the __Persist this script action__ entry to make sure the script is applied during scaling operations.
@@ -295,21 +295,28 @@ Once the operation completes, you receive information similar to the following t
 
 ### Apply a script action to a running cluster from the Azure CLI
 
-Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI](../cli-install-nodejs.md).
+Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI 1.0](../cli-install-nodejs.md).
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+> [!IMPORTANT]
+> HDInsight requires Azure CLI 1.0. Currently Azure CLI 2.0 does not provide commands for working with HDInsight.
 
 1. To switch to Azure Resource Manager mode, use the following command at the command line:
 
-        azure config mode arm
+    ```bash
+    azure config mode arm
+    ```
 
 2. Use the following to authenticate to your Azure subscription.
 
-        azure login
+    ```bash
+    azure login
+    ```
 
 3. Use the following command to apply a script action to a running cluster
 
-        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```bash
+    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```
 
     If you omit parameters for this command, you are prompted for them. If the script you specify with `-u` accepts parameters, you can specify them using the `-p` parameter.
 
@@ -455,7 +462,7 @@ If cluster creation fails due to a script error, the logs are kept in the cluste
 
     * **Zookeeper node** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* All stdout and stderr of the corresponding host is uploaded to the storage account. There is one **output-\*.txt** and **errors-\*.txt** for each script action. The output-*.txt file contains information about the URI of the script that got run on the host. For example
+* All stdout and stderr of the corresponding host is uploaded to the storage account. There is one **output-\*.txt** and **errors-\*.txt** for each script action. The output-*.txt file contains information about the URI of the script that got run on the host. The following text is an example of this information:
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -490,7 +497,7 @@ __Cause__: This error occurs if you upgrade the Python Azure Storage client that
 
 __Resolution__: To resolve this error, manually connect to each cluster node using `ssh` and use the following command to reinstall the correct storage client version:
 
-```
+```bash
 sudo pip install azure-storage==0.20.0
 ```
 

@@ -1,39 +1,38 @@
 ---
-title: Enhance LUIS understanding of synonyms with a phrase list  | Microsoft Docs 
+title: Enhance LUIS understanding of synonyms with a phrase list - Azure  | Microsoft Docs
 description: Learn how to add a phrase list to a LUIS app and see the improvement of the score.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: v-geberr
 ---
 
 # Enhance LUIS understanding of synonyms with a phrase list 
-Improve accuracy of intent score and identify entities for words that have the same meaning (synonyms) by adding an interchangeable **[phrase list feature](./luis-concept-feature.md)**.
+Improve the accuracy of intent scores and identify entities for words that have the same meaning (synonyms) by adding an interchangeable [phrase list feature](./luis-concept-feature.md).
 
-## Import new app
-1. Download [example LUIS app][LuisSampleApp] designed for this tutorial. You will need it in the next step. 
+## Import a new app
+1. Download the [example LUIS app][LuisSampleApp] that's designed for this tutorial. You will use it in the next step. 
 
-2. [Import](Create-new-app.md#import-new-app) the file you downloaded into [www.LUIS.ai][www.luis.ai] as a new app. The app name is "My Phrase List tutorial". This app has intents, entities, and utterances. 
+2. As described in [Create an app](Create-new-app.md#import-new-app), import the file that you downloaded into the [LUIS][LUIS] website as a new app. The app name is "My Phrase List tutorial." It has intents, entities, and utterances. 
 
-3. [Train]() your app. You cannot [interactively test](Train-Test.md#interactive-testing) your app in [www.LUIS.ai][www.luis.ai] until the app is trained. 
+3. [Train]() your app. Until it is trained, you cannot [interactively test](Train-Test.md#interactive-testing) it in the [LUIS][LUIS] website. 
 
-4. Check **Include all predicted intent scores** on the [Publish](PublishApp.md) page. With this checked, all intents are returned. Without this checked, only the top intent is returned. 
+4. On the [Publish](PublishApp.md) page, select the **Include all predicted intent scores** check box. When the check box is selected, all intents are returned. When the check box is cleared, only the top intent is returned. 
 
-5. [Publish](PublishApp.md) the app.  Publishing the app allows you to test using the HTTPS endpoint. 
+5. [Publish](PublishApp.md) the app. Publishing the app allows you to test it by using the HTTPS endpoint. 
 
 ## Test a trained utterance
-Use the published endpoint to query an utterance the app already knows. Because LUIS already knows about the utterance, the score is high and the entity is detected.
+Use the published endpoint to query an utterance that the app already knows. Because LUIS already knows the utterance, the score is high and the entity is detected.
 
-1. In [www.LUIS.ai][www.luis.ai], on the **Publish** page for the new app, click on the endpoint URL in the **Resources and Keys** section. 
+1. On the [Language Understanding (LUIS)][LUIS] website, on the **Publish** page for the new app, select the endpoint URL in the **Resources and Keys** section. 
 
-    ![Publish endpoint url](./media/luis-tutorial-interchangeable-phrase-list/luis-publish-url.png)
+    ![Publish the endpoint URL](./media/luis-tutorial-interchangeable-phrase-list/luis-publish-url.png)
 
-2. In the browser, add the following query after the `q=` at the end of the URL.
+2. In the browser, at the end of the URL, add the following query after the `q=`.
 
     `I want a computer replacement`
 
@@ -80,21 +79,21 @@ Use the published endpoint to query an utterance the app already knows. Because 
     }
     ```
 
-    The intent score of 0.973 and the entity detection of 0.846 is high because the app was trained with this utterance. This utterance is in the LUIS app on the intent page for **GetHardware**. The utterance's text of `computer` is labeled as the **Hardware** entity. 
+    The intent score of 0.973 and the entity detection score of 0.846 are high because the app was trained with this utterance. The utterance is in the LUIS app on the intent page for **GetHardware**. The utterance's text, `computer`, is labeled as the **Hardware** entity. 
     
-    |status|word| intent score | entity score |
+    |Status|Word| Intent score | Entity score |
     |--|--|--|--|
-    |trained| want | 0.973 | 0.846 |
+    |Trained| want | 0.973 | 0.846 |
     
     
 ## Test an untrained utterance
-In the browser, use the same published endpoint to query with an utterance the app doesn't know about:
+In the browser, use the same published endpoint to query with an utterance that the app doesn't already know:
 
 `I require a computer replacement`
 
 This utterance uses a synonym of the previous utterance:
 
-| trained word | untrained synonym |
+| Trained word | Untrained synonym |
 |--|--|
 | want | require |
 
@@ -133,61 +132,61 @@ The endpoint response is:
 }
 ```
 
-| status | word | intent score | entity score |
+| Status | Word | Intent score | Entity score |
 |--|--|--|--|
-| trained| want | 0.973 | 0.846 |
-| untrained| require | 0.840 | - |
+| Trained| want | 0.973 | 0.846 |
+| Untrained| require | 0.840 | - |
 
-The untrained utterance intent score is lower than the labeled utterance because LUIS knows the sentence is grammatically the same but LUIS doesn't know the utterances have the same meaning. Also, without the phrase list, the entity of **hardware** is not found.
+The untrained utterance intent score is lower than that of the labeled utterance because LUIS knows that the sentence is grammatically the same. But LUIS doesn't know that the utterances have the same meaning. Also, without the phrase list, the **Hardware** entity is not found.
 
-You need to teach LUIS that **want** and **require** mean the same thing in this app domain because a word can have more than one meaning. 
+You must teach LUIS that *want* and *require* mean the same thing in this app domain because a word can have more than one meaning. 
 
-## Improve score of untrained utterance with phrase list 
-1. Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`. Click on **Enter**.
+## Improve the score of untrained utterance with phrase list 
+1. Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`, and then select **Enter**.
 
     > [!TIP]
-    > Press the **Enter** key after every word or phrase. The word or phrase is added to the **Phrase list values** box while the cursor stays on the **Value** box. You can enter many values quickly with this feature.
+    > After each word or phrase, select the **Enter** key. The word or phrase is added to the **Phrase list values** box while the cursor stays in the **Value** box. You can enter many values quickly with this feature.
 
-2. Click on **Recommend** to see what words LUIS recommends. 
+2. To view the words that LUIS recommends, select **Recommend**. 
 
     ![Recommend values](./media/luis-tutorial-interchangeable-phrase-list/recommend.png)
 
 3. Add all the words. If `require` is not in the recommended list, add it as a required value. 
 
-4. Keep the setting of interchangeable because these words are synonyms. Click **save**.
+4. Because these words are synonyms, keep the *interchangeable* setting, and then select **Save**.
 
     ![Phrase list values](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
 
-5. Train the app but don't publish it. Now you have two models. You can compare values in the two models.
+5. Train the app, but don't publish it. Now you have two models. You can compare values in the two models.
 
-## Compare phrase list model to published model
-In this app, the published model is not trained with the synonyms. Only the currently edited model includes the phrase list of synonyms. Use [interactive testing](Train-Test.md#interactive-testing) to compare the differences. 
+## Compare the phrase list model to the published model
+In this app, the published model is not trained with the synonyms. Only the currently edited model includes the phrase list of synonyms. To compare the models, use [interactive testing](Train-Test.md#interactive-testing). 
 
-1. Open the test pane and enter the utterance:
+1. Open the test pane, and enter the following utterance:
 
     `I require a computer replacement`
 
-2. Click on **Inspect** to open the inspection panel. 
+2. To open the inspection panel, select **Inspect**. 
 
-    ![Click on inspect](./media/luis-tutorial-interchangeable-phrase-list/inspect-button.png)
+    ![Select inspect](./media/luis-tutorial-interchangeable-phrase-list/inspect-button.png)
 
-3. Click on **Compare with published** to compare the published model to the new phrase list model.
+3. To compare the published model to the new phrase list model, select **Compare with published**.
 
-    ![Inspect Published versus current](./media/luis-tutorial-interchangeable-phrase-list/inspect.png)
+    ![Inspect published versus current](./media/luis-tutorial-interchangeable-phrase-list/inspect.png)
 
-After adding the phrase list, the accuracy increased for the utterance and the entity of hardware is found. 
+After you add the phrase list, the increased accuracy of the utterance and the **Hardware** entity is found. 
 
-|status | phrase list| intent score | entity score |
+|Status | Phrase list| Intent score | Entity score |
 |--|--|--|--|
-| published | - | 0.84 | - |
-| currently editing |✔| 0.92 | Hardware entity identified |
+| Published | - | 0.84 | - |
+| Currently editing |✔| 0.92 | Hardware entity identified |
 
 > [!TIP]
-> * [Interactive testing](Train-Test.md#interactive-testing) allows you to compare the published model to any trained changes made after you published. 
-> * [Endpoint testing](PublishApp.md#test-your-published-endpoint-in-a-browser) allows you to see the exact LUIS response JSON. 
+> * By using [Interactive testing](Train-Test.md#interactive-testing), you can compare the published model to any trained changes that are made after you publish. 
+> * By using [Endpoint testing](PublishApp.md#test-your-published-endpoint-in-a-browser), you can view the exact LUIS response JSON. 
 
-## Get entity score with endpoint test
-To see the entity score, [publish](PublishApp.md) the model and query the endpoint. 
+## Get the entity score with the endpoint test
+To view the entity score, [publish the model](PublishApp.md) and query the endpoint. 
 
 `I require a computer replacement`
 
@@ -232,13 +231,13 @@ To see the entity score, [publish](PublishApp.md) the model and query the endpoi
 }
 ```
 
-The entity **Hardware** shows a score of 0.595 with the phrase list. Before the phrase list, the entity was not detected. 
+The **Hardware** entity shows a score of 0.595 with the phrase list. Before the phrase list existed, the entity was not detected. 
 
-|status | phrase list| intent score | entity score |
+|Status | Phrase list| Intent score | Entity score |
 |--|--|--|--|
-| published | - | 0.84 | - |
-| currently editing |✔| 0.92 | 0.595 |
+| Published | - | 0.84 | - |
+| Currently editing |✔| 0.92 | 0.595 |
 
-  [www.luis.ai]:https://www.luis.ai
+  [LUIS]:luis-reference-regions.md
   [LuisFeatures]: luis-concept-feature.md
   [LuisSampleApp]:https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json

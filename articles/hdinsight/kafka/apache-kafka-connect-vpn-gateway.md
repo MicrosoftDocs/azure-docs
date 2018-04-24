@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect to Kafka using virtual networks - Azure HDInsight | Microsoft Docs
 description: Learn how to directly connect to Kafka on HDInsight through an Azure Virtual Network. Learn how to connect to Kafka from development clients using a VPN gateway, or from clients in your on-premises network by using a VPN gateway device.
 services: hdinsight
@@ -11,10 +11,10 @@ tags: azure-portal
 ms.service: hdinsight
 ms.devlang: ''
 ms.custom: hdinsightactive
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 02/05/2018
 ms.author: larryfr
 
 ---
@@ -45,7 +45,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
 * Connect individual machines to the virtual network using a VPN gateway and VPN client. To enable this configuration, perform the following tasks:
 
     1. Create a virtual network.
-    2. Create a VPN gateway that uses a point-to-site configuration. This configuration provides a VPN client that can be installed on Windows clients.
+    2. Create a VPN gateway that uses a point-to-site configuration. This configuration can be used with both Windows and MacOS clients.
     3. Install Kafka on HDInsight into the virtual network.
     4. Configure Kafka for IP advertising. This configuration allows the client to connect using IP addressing instead of domain names.
     5. Download and use the VPN client on the development system.
@@ -55,7 +55,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
     > [!WARNING]
     > This configuration is only recommended for development purposes because of the following limitations:
     >
-    > * Each client must connect using a VPN software client. Azure only provides a Windows-based client.
+    > * Each client must connect using a VPN software client.
     > * The VPN client does not pass name resolution requests to the virtual network, so you must use IP addressing to communicate with Kafka. IP communication requires additional configuration on the Kafka cluster.
 
 For more information on using HDInsight in a virtual network, see [Extend HDInsight by using Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
@@ -90,7 +90,7 @@ Use the steps in this section to create the following configuration:
 2. Open a PowerShell prompt and use the following code to log in to your Azure subscription:
 
     ```powershell
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
     # If you have multiple subscriptions, uncomment to set the subscription
     #Select-AzureRmSubscription -SubscriptionName "name of your subscription"
     ```
@@ -230,22 +230,13 @@ Use the steps in this section to create the following configuration:
         -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
         -DefaultStorageAccountKey $defaultStorageKey `
         -DefaultStorageContainer $defaultContainerName `
+        -DisksPerWorkerNode 2 `
         -VirtualNetworkId $network.Id `
         -SubnetName $defaultSubnet.Id
     ```
 
   > [!WARNING]
   > This process takes around 15 minutes to complete.
-
-8. Use the following cmdlet to retrieve the URL for the Windows VPN client for the virtual network:
-
-    ```powershell
-    Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName `
-        -VirtualNetworkGatewayName $vpnName `
-        -ProcessorArchitecture Amd64
-    ```
-
-    To download the Windows VPN client, use the returned URI in your web browser.
 
 ### Configure Kafka for IP advertising
 
@@ -297,7 +288,7 @@ By default, Zookeeper returns the domain name of the Kafka brokers to clients. T
 
 ### Connect to the VPN gateway
 
-To connect to the VPN gateway from a __Windows client__, use the __Connect to Azure__ section of the [Configure a Point-to-Site connection](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate) document.
+To connect to the VPN gateway, use the __Connect to Azure__ section of the [Configure a Point-to-Site connection](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) document.
 
 ## <a id="python-client"></a> Example: Python client
 

@@ -1,6 +1,6 @@
----
-title: Automated script to create Service Manager Web app to connect with IT Service Management Connector in OMS | Microsoft Docs
-description: Create a Service Manager Web app using an automated script to connect with IT Service Management Connector in OMS, and centrally monitor and manage the ITSM work items.  
+﻿---
+title: Automated script to create Service Manager Web app to connect with IT Service Management Connector in Azure | Microsoft Docs
+description: Create a Service Manager Web app using an automated script to connect with IT Service Management Connector in Azure, and centrally monitor and manage the ITSM work items.  
 services: log-analytics
 documentationcenter: ''
 author: JYOTHIRMAISURI
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/23/2018
 ms.author: v-jysur
 
 ---
 
-# Create Service Manager Web app using the automated script (Preview)
+# Create Service Manager Web app using the automated script
 
 Use the following script to create the Web app for your Service Manager instance. More information about Service Manager connection is here: [Service Manager Web app](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
@@ -123,7 +123,7 @@ if(!$siteNamePrefix)
     $siteNamePrefix = "smoc"
 }
 
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 $context = Set-AzureRmContext -SubscriptionName $azureSubscriptionName -WarningAction SilentlyContinue
 

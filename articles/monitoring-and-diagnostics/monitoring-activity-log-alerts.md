@@ -1,8 +1,7 @@
 ---
-title: Create activity log alerts | Microsoft Docs
+title: Create classic activity log alerts | Microsoft Docs
 description: Be notified via SMS, webhook, and email when certain events occur in the activity log.
 author: johnkemnetz
-manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,14 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 03/18/2017
 ms.author: johnkem
 
 ---
-# Create activity log alerts
+# Create activity log alerts (classic)
 
 ## Overview
 Activity log alerts are alerts that activate when a new activity log event occurs that matches the conditions specified in the alert. They are Azure resources, so they can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. This article introduces the concepts behind activity log alerts. It then shows you how to use the Azure portal to set up an alert on activity log events.
+
+> [!NOTE]
+
+>  The new [Alerts](monitoring-overview-unified-alerts.md) experience has replaced this procedure. This article is provided as reference for the previous experience. [Learn more](monitoring-activity-log-alerts-new-experience.md).
 
 Typically, you create activity log alerts to receive notifications when:
 
@@ -40,25 +43,23 @@ You can configure an activity log alert based on any top-level property in the J
 - **Status**: The status of the event, typically Started, Failed, or Succeeded.
 - **Event initiated by**: Also known as the "caller." The email address or Azure Active Directory identifier of the user who performed the operation.
 
->[!NOTE]
->You must specify at least two of the preceding criteria in your alert, with one being the category. You may not create an alert that activates every time an event is created in the activity logs.
->
->
+> [!NOTE]
+> When the category is "administrative", you must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
 
 When an activity log alert is activated, it uses an action group to generate actions or notifications. An action group is a reusable set of notification receivers, such as email addresses, webhook URLs, or SMS phone numbers. The receivers can be referenced from multiple alerts to centralize and group your notification channels. When you define your activity log alert, you have two options. You can:
 
-* Use an existing action group in your activity log alert. 
-* Create a new action group. 
+* Use an existing action group in your activity log alert.
+* Create a new action group.
 
 To learn more about action groups, see [Create and manage action groups in the Azure portal](monitoring-action-groups.md).
 
 To learn more about service health notifications, see [Receive activity log alerts on service health notifications](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## Create an alert on an activity log event with a new action group by using the Azure portal
+## Create an alert (classic) on an activity log event with a new action group by using the Azure portal
 1. In the [portal](https://portal.azure.com), select **Monitor**.
 
     ![The "Monitor" service](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. In the **Activity log** section, select **Alerts**.
+2. In the **Activity log** section, select **Alerts (classic)**.
 
     ![The "Alerts" tab](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. Select **Add activity log alert**, and fill in the fields.

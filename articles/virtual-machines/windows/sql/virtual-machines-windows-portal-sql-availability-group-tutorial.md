@@ -4,7 +4,7 @@ description: "This tutorial shows how to create a SQL Server Always On Availabil
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 
@@ -354,7 +354,7 @@ On Azure virtual machines, a SQL Server Availability Group requires a load balan
    | **Virtual network** |Use the name of the Azure virtual network. |
    | **Subnet** |Use the name of the subnet that the virtual machine is in.  |
    | **IP address assignment** |Static |
-   | **IP address** |Use an available address from subnet. |
+   | **IP address** |Use an available address from subnet. Note that this is different from your cluster IP address |
    | **Subscription** |Use the same subscription as the virtual machine. |
    | **Location** |Use the same location as the virtual machine. |
 
@@ -372,22 +372,14 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 
    ![Find Load Balancer in Resource Group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Click the load balancer, click **Backend pools**, and click **+Add**. Set the backend pool as follows:
+1. Click the load balancer, click **Backend pools**, and click **+Add**. 
 
-   | Setting | Description | Example
-   | --- | --- |---
-   | **Name** | Type a text name | SQLLBBE
-   | **Associated to** | Pick from list | Availability set
-   | **Availability set** | Use a name of the availability set that your SQL Server VMs are in | sqlAvailabilitySet |
-   | **Virtual machines** |The two Azure SQL Server VM names | sqlserver-0, sqlserver-1
+1. Associate the backend pool with the availability set that contains the VMs.
 
-1. Type the name for the back end pool.
+1. Under **Target network IP configurations**, check **VIRTUAL MACHINE** and choose both of the virtual machines that will host availability group replicas. Do not include the file share witness server.
 
-1. Click **+ Add a virtual machine**.
-
-1. For the availability set, choose the availability set that the SQL Servers are in.
-
-1. For virtual machines, include both of the SQL Servers. Do not include the file share witness server.
+   >[!NOTE]
+   >If both virtual machines are not specified, connections will only succeed to the primary replica.
 
 1. Click **OK** to create the backend pool.
 

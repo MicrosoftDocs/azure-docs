@@ -1,28 +1,34 @@
 ---
-title: Review usage and costs in Azure Cost Management | Microsoft Docs
-description: Review usage and costs to track trends, detect inefficiencies, and create alerts.
+title: Tutorial - Review usage and costs in Azure Cost Management | Microsoft Docs
+description: In this tutorial, you review usage and costs to track trends, detect inefficiencies, and create alerts.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 04/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
 ---
+<!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
+-->
 
+# Tutorial: Review usage and costs
 
-# Review usage and costs
-
-Azure Cost Management by Cloudyn shows you usage and costs so that you can track trends, detect inefficiencies, and create alerts. All usage and cost data is displayed in Cloudyn dashboards and reports. The examples in this tutorial walk you though reviewing usage and costs using dashboards and reports. In this tutorial, you learn how to:
+Azure Cost Management shows you usage and costs so that you can track trends, detect inefficiencies, and create alerts. All usage and cost data is displayed in Cloudyn dashboards and reports. The examples in this tutorial walk you though reviewing usage and costs using dashboards and reports. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Track usage and cost trends
 > * Detect usage inefficiencies
 > * Create alerts for unusual spending or overspending
 
+If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Prerequisites
+
+- You must have an Azure account.
+- You must have either a trial registration or paid subscription for Azure Cost Management.
 
 ## Open the Cloudyn portal
 
@@ -30,7 +36,7 @@ You review all usage and costs in the Cloudyn portal. Open the Cloudyn portal fr
 
 ## Track usage and cost trends
 
-You track actual money spent for usage and costs with Over Time reports to identify trends. To start looking at trends, use the Actual Cost Over Time report. On the reports menu at the top of the portal, click **Cost** > **Cost Analysis** > **Actual Cost Over Time**. When you first open the report, no groups or filters are applied to it.
+You track actual money spent for usage and costs with Over Time reports to identify trends. To start looking at trends, use the Actual Cost Over Time report. On the menu at the top of the portal, click **Costs** > **Cost Analysis** > **Actual Cost Over Time**. When you first open the report, no groups or filters are applied to it.
 
 Here is an example report:
 
@@ -46,7 +52,7 @@ In the preceding example, less money was spent starting on 2017-08-31 than befor
 
 In the example, you clearly see that Azure Storage cost dropped starting on 2017-08-31 while spending on other Azure services remained level. So, what caused that reduction in spending? In this example, some employees were on vacation away from work and did not use the Storage service.
 
-To watch a tutorial video about tracking usage and cost trends, see [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g).
+To watch a tutorial video about tracking usage and cost trends, see [Analyzing your cloud billing data vs. time with Azure Cost Management](https://youtu.be/7LsVPHglM0g).
 
 ## Detect usage inefficiencies
 
@@ -58,7 +64,7 @@ The problem is that their existing infrastructure was already paid for. Users co
 
 The Cost Effective Sizing Recommendations report identifies potential annual savings by comparing VM instance type capacity to their historical CPU and memory usage data.  
 
-On the reports menu at the top of the portal, click **Optimizer** > **Pricing Optimization** > **Cost Effective Sizing Recommendations**. Filter the provider to Azure to look at only Azure VMs. Here’s an example image.
+On the menu at the top of the portal, click **Optimizer** > **Sizing Optimization** > **Cost Effective Sizing Recommendations**. Filter the provider to Azure to look at only Azure VMs. Here’s an example image.
 
 ![Azure VMs](./media/tutorial-review-usage/sizing01.png)
 
@@ -70,15 +76,15 @@ View VM instance IDs by clicking the plus symbol next to **List of Candidates**.
 
 ![List of Candidates](./media/tutorial-review-usage/sizing03.png)
 
-To watch a tutorial video about detecting usage inefficiencies, see [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704).
+To watch a tutorial video about detecting usage inefficiencies, see [Optimizing VM Size in Azure Cost Management](https://youtu.be/1xaZBNmV704).
 
 ## Create alerts for unusual spending
 
 You can alert stakeholders automatically for spending anomalies and overspending risks. You can quickly and easily create alerts using reports that support alerts based on budget and cost thresholds.
 
-You create an alert for any spending using any Cost report. In this example, use the Actual Cost Over Time report to notify you when Azure VM spending nears your total budget. On the reports menu at the top of the portal, click **Cost** > **Cost Analysis** > **Actual Cost Over Time**. Set **Groups** to **Service** and set **Filter on the service** to **Azure/VM**. In the top right of the report, click **Actions** and then select **Schedule report**.
+You create an alert for any spending using any Cost report. In this example, use the Actual Cost Over Time report to notify you when Azure VM spending nears your total budget. All the following steps are needed to create the alert. On the menu at the top of the portal, click **Costs** > **Cost Analysis** > **Actual Cost Over Time**. Set **Groups** to **Service** and set **Filter on the service** to **Azure/VM**. In the top right of the report, click **Actions** and then select **Schedule report**.
 
-Use the **Scheduling** tab to send yourself an email of the report using the frequency that you want. Any tags, grouping, and filtering you used are included in the emailed report. Click the **Threshold** tab and select choose **Actual Cost vs. Threshold**. If you had a total budget of $500,000 and you wanted notification when costs near about half, create a **Red alert** at $250,000 and a **Yellow alert** at $240,000. Then, choose the number of consecutive alerts. When you receive total number of alerts that you specified, no additional alerts are sent. Save the scheduled report.
+Use the **Scheduling** tab to send yourself an email of the report using the frequency that you want. Be sure to select **Send via email**. Any tags, grouping, and filtering you used are included in the emailed report. Click the **Threshold** tab and select choose **Actual Cost vs. Threshold**. If you had a total budget of $500,000 and you wanted notification when costs near about half, create a **Red alert** at $250,000 and a **Yellow alert** at $240,000. Don't include commas in values that you enter. Then, choose the number of consecutive alerts. When you receive the total number of alerts that you specified, no additional alerts are sent. Save the scheduled report.
 
 ![example report](./media/tutorial-review-usage/schedule-alert01.png)
 
@@ -95,7 +101,7 @@ In this tutorial, you learned how to:
 > * Create alerts for unusual spending or overspending
 
 
-Advance to the next tutorial to learn about controlling access to data.
+Advance to the next tutorial to learn how to forecast spending using historical data.
 
 > [!div class="nextstepaction"]
-> [Control access to data](tutorial-user-access.md)
+> [Forecast future spending](tutorial-forecast-spending.md)

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Storage migration FAQ | Microsoft Docs
 description: Answers to common questions about migrating Azure Storage
 services: storage
@@ -145,7 +145,7 @@ Follow these steps:
     following Azure PowerShell script:
 
     ```
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Select-AzureRmSubscription -SubscriptionId <ID>
 
@@ -186,7 +186,7 @@ with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on
 **How do I change the secondary location to the Europe region for a storage account?**
 
 When you create a storage account, you select the primary region for the
-account. The selection of the secondary region is based on the primary region, and it cannot be changed. For more information, see [Azure Storage replication](storage-redundancy.md).
+account. The selection of the secondary region is based on the primary region, and it cannot be changed. For more information, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy.md).
 
 **Where can I get more information about Azure Storage Service Encryption (SSE)?**  
   
@@ -328,6 +328,10 @@ see [Configure a custom domain name for your Blob storage endpoint](../blobs/sto
 There is no way to access a storage account directly by using FTP. However, you can set up an Azure virtual machine, and then install an FTP server on the virtual machine. You can have the FTP server store files on an Azure Files share or on a data disk that is available to the virtual machine.
 
 If you want only to download data without having to use Storage Explorer or a similar application, you might be able to use an SAS token. For more information, see [Using shared access signatures](storage-dotnet-shared-access-signature-part-1.md).
+
+**How do I migrate Blobs from one storage account to another?**
+
+ You can do this using our [Blob migration script](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## Need help? Contact support.
 

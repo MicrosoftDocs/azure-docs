@@ -19,28 +19,32 @@
     href: automation-watchers-tutorial.md
   - name: Manage updates for your VM
     href: automation-tutorial-update-management.md
-  - name: Onboard update and change tracking
+  - name: Onboard update and change tracking by runbook
     href: automation-onboard-solutions.md
-  - name: Identify software on a VM
+  - name: Identify software in your environment
     href: automation-tutorial-installed-software.md
   - name: Troubleshoot changes on a VM
     href: automation-tutorial-troubleshoot-changes.md
 - name: How to
   items:
-    - name: Update management
+    - name: Onboarding
       items:
-      - name: Overview
-        href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+      - name: Onboard from an Azure VM
+        href: automation-onboard-solutions-from-vm.md
+      - name: Onboard from Automation account
+        href: automation-onboard-solutions-from-automation-account.md
+    - name: Update Management
+      items:
+      - name: Update Management overview
+        href: automation-update-management.md
       - name: Manage updates for multiple VMs
         href: manage-update-multi.md
-      - name: Integrate SCCM with OMS Update Management
+      - name: Integrate SCCM with Update Management
         href: oms-solution-updatemgmt-sccmintegration.md
-    - name: Change tracking
+    - name: Change Tracking
       items:
-      - name: Overview
-        href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-      - name: Track changes in your VMs
-        href: automation-vm-change-tracking.md
+      - name: Change Tracking overview
+        href: automation-change-tracking.md
     - name: Inventory
       items:
       - name: Manage a VM with inventory collection
@@ -67,6 +71,14 @@
           href: automation-runbook-types.md
         - name: Create and import runbooks
           href: automation-creating-importing-runbook.md
+        - name: Create a graphical runbook
+          href: automation-first-runbook-graphical.md
+        - name: Create a PowerShell runbook
+          href: automation-first-runbook-textual-powershell.md
+        - name: Create a PowerShell workflow runbook
+          href: automation-first-runbook-textual.md
+        - name: Create a Python runbook
+          href: automation-first-runbook-textual-python2.md
         - name: Edit textual runbooks
           href: automation-edit-textual-runbook.md
         - name: Edit graphical runbooks

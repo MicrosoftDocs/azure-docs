@@ -84,14 +84,19 @@
       items: 
         - name: Use with Data Lake Store
           href: apache-spark-use-with-data-lake-store.md
+        - name: Connect to Azure SQL database
+          href: apache-spark-connect-to-sql-database.md
+        - name: Implement a lambda architecture using Spark and Cosmos DB
+          href: ../../cosmos-db/lambda-architecture.md
+          maintainContext: true
     - name: Spark streaming
       items:
-        - name: Overview
+        - name: Streaming overview
           href: apache-spark-streaming-overview.md
-        - name: Process streaming events
-          href: apache-spark-eventhub-streaming.md
-        - name: Structured streaming using Event Hubs
-          href: apache-spark-eventhub-structured-streaming.md
+        - name: Structured Streaming overview
+          href: apache-spark-structured-streaming-overview.md
+        - name: Create highly available Spark streaming jobs in YARN
+          href: apache-spark-streaming-high-availability.md
         - name: Structured streaming with Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
@@ -101,6 +106,8 @@
         - name: Spark streaming (DStream) with Kafka
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
+        - name: Create Spark streaming jobs with exactly-once event processing
+          href: apache-spark-streaming-exactly-once.md
     - name: Spark and Machine Learning
       items:
         - name: Predict HVAC performance
@@ -167,6 +174,21 @@
           - name: Publish HDInsight apps to Azure Marketplace
             href: ../hdinsight-apps-publish-applications.md
             maintainContext: true
+          - name: Install published app - Cask Data Application Platform (CDAP)
+            href: ../hdinsight-apps-install-cask.md
+            maintainContext: true
+          - name: Install published app - Dataiku
+            href: ../hdinsight-apps-install-dataiku.md
+            maintainContext: true
+          - name: Install published app - Datameer
+            href: ../hdinsight-apps-install-datameer.md
+            maintainContext: true
+          - name: Install published app - H2O
+            href: ../hdinsight-apps-install-h2o.md
+            maintainContext: true
+          - name: Install published app - Streamsets
+            href: ../hdinsight-apps-install-streamsets.md
+            maintainContext: true
     - name: Secure
       items:
       - name: Use SSH with HDInsight
@@ -183,6 +205,8 @@
         maintainContext: true
     - name: Manage
       items:
+      - name: Configure Spark settings
+        href: apache-spark-settings.md
       - name: Optimize Spark jobs
         href: apache-spark-perf.md
       - name: Cluster capacity planning

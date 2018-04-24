@@ -3,12 +3,11 @@ title: Frequently Asked Questions (FAQ) about Azure Text Analytics API | Microso
 description: Get answers to common questions about Microsoft Cognitive Services Text Analytics API on Azure.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
-
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 3/07/2018
 ms.author: heidist
 ---
 

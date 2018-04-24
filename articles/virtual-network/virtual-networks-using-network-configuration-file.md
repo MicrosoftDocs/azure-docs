@@ -3,8 +3,8 @@ title: Configure an Azure Virtual Network (classic) - Network configuration file
 description: Learn how to create and modify virtual networks (classic) by exporting, changing, and importing a network configuration file.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: timlt
+author: genlin
+manager: cshepard
 editor: ''
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/23/2017
-ms.author: jdial
+ms.author: genli
 ms.custom: 
 
 ---
@@ -53,7 +53,7 @@ You can use PowerShell or the Azure CLI to export a network configuration file. 
 
 ## Create or modify a network configuration file
 
-A network configuration file is an XML file (when using PowerShell) or a json file (when using the Azure CLI). You can edit the file in any text, or XML/json editor. The [Network configuration file schema settings](https://msdn.microsoft.com/library/azure/jj157100.aspx) article includes details for all settings. For additional explanation of the settings, see [View virtual networks and settings](virtual-network-manage-network.md#view-vnet). The changes you make to the file:
+A network configuration file is an XML file (when using PowerShell) or a json file (when using the Azure CLI). You can edit the file in any text, or XML/json editor. The [Network configuration file schema settings](https://msdn.microsoft.com/library/azure/jj157100.aspx) article includes details for all settings. For additional explanation of the settings, see [View virtual networks and settings](manage-virtual-network.md#view-virtual-networks-and-settings). The changes you make to the file:
 
 - Must comply with the schema, or importing the network configuration file will fail.
 - Overwrite any existing network settings for your subscription, so use extreme caution when making modifications. For example, reference the example network configuration files that follow. Say the original file contained two **VirtualNetworkSite** instances, and you changed it, as shown in the examples. When you import the file, Azure deletes the virtual network for the **VirtualNetworkSite** instance you removed in the file. This simplified scenario assumes no resources were in the virtual network, as if there were, the virtual network could not be deleted, and the import would fail.

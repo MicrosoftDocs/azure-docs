@@ -1,6 +1,6 @@
 ﻿---
   title: Manage personal data in Microsoft Azure | Microsoft Docs
-  description: guidance on how to correct, update, delete, and export personal data in Azure Active Directory and Azure SQL Database
+  description: how to correct, update, delete, and export personal data to help you comply with General Data Protection Regulation (GDPR) in Azure Active Directory and Azure SQL Database
   services: security
   documentationcenter: na
   author: barclayn
@@ -13,7 +13,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 11/21/2017
+  ms.date: 03/06/2018
   ms.author: barclayn
 
 
@@ -21,7 +21,7 @@
 ---
 # Manage personal data in Microsoft Azure
 
-This article provides guidance on how to correct, update, delete, and export personal data in Azure Active Directory and Azure SQL Database.
+This article provides guidance on how to correct, update, delete, and export personal data to comply with General Data Protection Regulation (GDPR) in Azure Active Directory and Azure SQL Database.
 
 ## Scenario
 
@@ -58,7 +58,7 @@ You must sign in with an account that’s a global admin for the directory.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+2. Select **All services**, enter **Users and groups** in the text box, and then select **Enter**.
 
     ![media/image1.png](media/manage-personal-data-azure/image001.png)
 
@@ -82,7 +82,7 @@ You must sign in with an account that’s a global admin for the directory.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+2. Select **All services**, enter **Users and groups** in the text box, and then select **Enter**.
 
     ![](media/manage-personal-data-azure/image001.png)
 

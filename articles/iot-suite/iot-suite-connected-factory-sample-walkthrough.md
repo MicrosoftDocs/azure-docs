@@ -230,7 +230,7 @@ You can continue getting started with IoT Suite by reading the following article
 
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
 * [Deploy a gateway on Windows or Linux for the Connected factory preconfigured solution](iot-suite-connected-factory-gateway-deployment.md)
-* [OPC Publisher reference implementation](iot-suite-connected-factory-publisher.md).
+* [OPC Publisher reference implementation](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 

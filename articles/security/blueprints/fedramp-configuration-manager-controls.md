@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Azure Blueprint Automation - Configuration Management
-description: Web Applications for FedRAMP - Configuration Management
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Configuration Management
+description: FedRAMP Web Applications Automation - Configuration Management
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
 
 ---
@@ -48,7 +48,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The Azure Resource Manager templates and accompanying resources that comprise this Azure Blueprint represent a "configuration as code" baseline for the deployed architecture. The solution is provided though GitHub, which can be used for configuration control. The solution includes a Desired State Configuration (DSC) baseline for each deployed virtual machine. |
+| **Customer** | The Azure Resource Manager templates and accompanying resources that comprise this blueprint represent a "configuration as code" baseline for the deployed architecture. The solution is provided though GitHub, which can be used for configuration control. The solution includes a Desired State Configuration (DSC) baseline for each deployed virtual machine. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -104,7 +104,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The Azure Resource Manager templates and accompanying resources that comprise this Azure Blueprint represent a "configuration as code" baseline for the deployed architecture. The solution is provided though GitHub, which can be used for configuration control. In the Azure portal, an automation script is available for all deployed resources and provides an always up-to-date representation of those resources.  |
+| **Customer** | The Azure Resource Manager templates and accompanying resources that comprise this blueprint represent a "configuration as code" baseline for the deployed architecture. The solution is provided though GitHub, which can be used for configuration control. In the Azure portal, an automation script is available for all deployed resources and provides an always up-to-date representation of those resources.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -454,7 +454,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Virtual machines deployed by this Azure Blueprint implement Windows AppLocker to specify which users can install and/or run particular applications. Further, all Windows operating system updates are digitally singed. |
+| **Customer** | Virtual machines deployed by this blueprint implement Windows AppLocker to specify which users can install and/or run particular applications. Further, all Windows operating system updates are digitally singed. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -496,7 +496,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint includes a Desired State Configuration (DSC) baseline for each deployed virtual machine. These declarative PowerShell scripts define and configure the resources to which they are applied. The baseline DSC included for resources deployed by this solution can be extended by the customer to meet mission needs. |
+| **Customer** | This blueprint includes a Desired State Configuration (DSC) baseline for each deployed virtual machine. These declarative PowerShell scripts define and configure the resources to which they are applied. The baseline DSC included for resources deployed by this solution can be extended by the customer to meet mission needs. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -510,7 +510,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint includes a Desired State Configuration (DSC) baseline for each deployed virtual machine. The baselines is automatically applied to virtual machines during deployment using the custom script virtual machine extension. |
+| **Customer** | This blueprint includes a Desired State Configuration (DSC) baseline for each deployed virtual machine. The baselines is automatically applied to virtual machines during deployment using the custom script virtual machine extension. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -538,7 +538,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the Automation DSC. Automation DSC aligns machine configurations with a specific organization-defined configuration. |
+| **Customer** | This blueprint deploys the Automation DSC. Automation DSC aligns machine configurations with a specific organization-defined configuration. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -552,7 +552,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys Azure Automation DSC. Automation DSC aligns machine configurations with a specific organization-defined configuration and continually monitors for changes. |
+| **Customer** | This blueprint deploys Azure Automation DSC. Automation DSC aligns machine configurations with a specific organization-defined configuration and continually monitors for changes. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -566,7 +566,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys Azure Automation DSC. Part of Azure's Operations Management Suite (OMS), Automation DSC can be configured to generate an alert or to remedy misconfigurations when detected. |
+| **Customer** | This blueprint deploys Azure Automation DSC. Automation DSC can be configured to generate an alert or to remedy misconfigurations when detected. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -580,7 +580,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The resources deployed by this Azure Blueprint are configured to provide the least functionality for their intended purpose. A Desired State Configuration (DSC) baseline is included for each deployed virtual machine. These declarative PowerShell scripts define and configure the resources to which they are applied. The baseline DSC included for resources deployed by this solution can be extended by the customer to further limit functionality to meet mission needs. |
+| **Customer** | The resources deployed by this blueprint are configured to provide the least functionality for their intended purpose. A Desired State Configuration (DSC) baseline is included for each deployed virtual machine. These declarative PowerShell scripts define and configure the resources to which they are applied. The baseline DSC included for resources deployed by this solution can be extended by the customer to further limit functionality to meet mission needs. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -594,7 +594,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys Azure Application Gateway and network security groups to restrict the use of ports and protocols to only those necessary. Application Gateway, network security groups, and DSC baselines for virtual machines can be further configured by the customer to restrict the use of functions, ports, protocols, and services to provide only the functionality intended. |
+| **Customer** | This blueprint deploys Azure Application Gateway and network security groups to restrict the use of ports and protocols to only those necessary. Application Gateway, network security groups, and DSC baselines for virtual machines can be further configured by the customer to restrict the use of functions, ports, protocols, and services to provide only the functionality intended. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -692,7 +692,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. Azure Resource Manager provides an always up-to-date list of deployed resources and can be customized to tag and group resources for inventory management. Resources deployed by this solution are given a specific resource tag that can be associated with the system boundary. |
+| **Customer** | This blueprint deploys all resources to an Azure Resource Manager resource group. Azure Resource Manager provides an always up-to-date list of deployed resources and can be customized to tag and group resources for inventory management. Resources deployed by this solution are given a specific resource tag that can be associated with the system boundary. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -706,7 +706,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. Azure Resource Manager provides an always up-to-date list of deployed resources available for review in the Azure portal. |
+| **Customer** | This blueprint deploys all resources to an Azure Resource Manager resource group. Azure Resource Manager provides an always up-to-date list of deployed resources available for review in the Azure portal. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -720,7 +720,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. The resources blade in the Azure portal lists all deployed resources, providing an always up-to-date inventory as resources are deployed and removed. |
+| **Customer** | This blueprint deploys all resources to an Azure Resource Manager resource group. The resources blade in the Azure portal lists all deployed resources, providing an always up-to-date inventory as resources are deployed and removed. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -734,7 +734,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. The resources blade in the Azure portal lists all deployed resources, providing an always up-to-date inventory as resources are deployed and removed. |
+| **Customer** | This blueprint deploys all resources to an Azure Resource Manager resource group. The resources blade in the Azure portal lists all deployed resources, providing an always up-to-date inventory as resources are deployed and removed. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -776,7 +776,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. Azure resource tags are key / value pairs that can be employed to categorize resources for accountability and/or management purposes. |
+| **Customer** | This blueprint deploys all resources to an Azure Resource Manager resource group. Azure resource tags are key / value pairs that can be employed to categorize resources for accountability and/or management purposes. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -790,7 +790,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. Azure Resource Manager provides an always up-to-date list of deployed resources. Resources deployed by this solution are given a specific resource tag that can be associated with the system boundary. |
+| **Customer** | This blueprint deploys all resources to an Azure Resource Manager resource group. Azure Resource Manager provides an always up-to-date list of deployed resources. Resources deployed by this solution are given a specific resource tag that can be associated with the system boundary. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -860,7 +860,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Windows and SQL Server licenses are included for the resources deployed by this Azure Blueprint. This is a built-in feature of Azure. Organizations with existing software license agreements may consider deploying alternative license models. |
+| **Customer** | Windows and SQL Server licenses are included for the resources deployed by this blueprint. This is a built-in feature of Azure. Organizations with existing software license agreements may consider deploying alternative license models. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -874,7 +874,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Windows and SQL Server licenses are included for the resources deployed by this Azure Blueprint. The user is not required to separately track use of the licenses. |
+| **Customer** | Windows and SQL Server licenses are included for the resources deployed by this blueprint. The user is not required to separately track use of the licenses. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -888,7 +888,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | There is no peer-to-peer file sharing capability deployed by this Azure Blueprint. |
+| **Customer** | There is no peer-to-peer file sharing capability deployed by this blueprint. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 

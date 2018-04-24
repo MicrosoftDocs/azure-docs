@@ -33,14 +33,30 @@
   items:
   - name: Deploy multi-container groups
     href: container-instances-multi-container-group.md
-  - name: Persist data with Azure Files
-    href: container-instances-mounting-azure-files-volume.md
   - name: Deploy from Azure Container Registry
     href: container-instances-using-azure-container-registry.md
+  - name: Execute a command (exec)
+    href: container-instances-exec.md
   - name: Run containerized tasks
     href: container-instances-restart-policy.md
+  - name: Set environment variables (env)
+    href: container-instances-environment-variables.md
   - name: Troubleshoot deployments
     href: container-instances-troubleshooting.md
+  - name: Jenkins build agents on ACI
+    href: container-instances-jenkins.md
+  - name: Monitor CPU and memory usage
+    href: container-instances-monitor.md
+  - name: Configure data volumes
+    items:
+    - name: Azure Files
+      href: container-instances-volume-azure-files.md
+    - name: emptyDir
+      href: container-instances-volume-emptydir.md
+    - name: gitRepo
+      href: container-instances-volume-gitrepo.md
+    - name: secret
+      href: container-instances-volume-secret.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -56,7 +72,7 @@
   - name: Java
     href: /java/api/overview/azure/containerinstance
   - name: Node.js
-    href: /javascript/api/overview/azure/containerinstance
+    href: /javascript/api/overview/azure/containerinstances
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Resources

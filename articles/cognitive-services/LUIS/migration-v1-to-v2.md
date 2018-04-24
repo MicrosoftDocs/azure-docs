@@ -1,15 +1,14 @@
 ---
-title: API Migrate guide from v1 to v2 | Microsoft Docs 
+title: API Migrate guide from v1 to v2 | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to migration to the latest API set.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 03/01/2018
 ms.author: v-geberr
 ---
 
@@ -147,6 +146,23 @@ LUIS suggests utterances from existing [endpoint utterances](label-suggested-utt
 |/luis/api/v2.0/apps/customprebuiltdomains  |get, post|
 |/luis/api/v2.0/apps/customprebuiltdomains/{culture}  |get|
 
+## Importing 1.x app into 2.x
+The exported 1.x app's JSON has some areas that you need to change before importing into [LUIS][LUIS] 2.0. 
+
+### Prebuilt entities 
+The [prebuilt entities](Pre-builtEntities.md) have changed. Make sure you are using the V2 prebuilt entities. This includes using [datetimeV2](pre-builtentities.md?#use-a-prebuilt-datetimev2-entity), instead of datetime. 
+
+### Actions
+The actions property is no longer valid. It should be an empty 
+
+### Labeled utterances
+V1 allowed labeled utterances to include spaces at the beginning or end of the word or phrase. Removed the spaces. 
+
+## Common reasons for HTTP response status codes
+See [LUIS API response codes](luis-reference-response-codes.md).
+
 ## Next steps
 
 Use the v2 API documentation to update existing REST calls to LIUS [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
+
+[LUIS]: luis-reference-regions.md

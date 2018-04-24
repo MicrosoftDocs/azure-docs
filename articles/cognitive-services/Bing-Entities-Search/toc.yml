@@ -1,11 +1,13 @@
-- name: Bing Entities Search Documentation
-  name: Overview
+- name: Bing Entity Search Documentation
+  href: index.yml
+- name: Overview
   items:
     - name: Search the web for entities and places
       href: search-the-web.md
     - name: Entity Search endpoint
       href: entity-search-endpoint.md
-- name: Quickstarts
+- name: API Quickstarts
+  expanded: true
   items:
   - name: C#
     href: quickstarts/csharp.md
@@ -19,20 +21,33 @@
     href: quickstarts/php.md
   - name: Ruby
     href: quickstarts/ruby.md
+- name: Tutorials
+  items:
+  - name: Single-page web app
+    href: tutorial-bing-entities-search-single-page-app.md
 - name: How To Guides
   items:
   - name: Use and display requirements
     href: use-display-requirements.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
-- name: Tutorials
-  items:
-  - name: Single-page web app
-    href: tutorial-bing-entities-search-single-page-app.md
 - name: Reference
+  expanded: true
   items:
   - name: REST v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
+  - name: SDK
+    items:
+    - name: SDK samples overview 
+      href: sdk.md
+    - name: Entity Search C# quickstart
+      href: entity-search-sdk-quickstart.md
+    - name: Entity Search Node.js quickstart (preview)
+      href: entity-search-sdk-node-quickstart.md  
+    - name: Entity Search Python quickstart (preview)
+      href: entity-sdk-python-quickstart.md 
+    - name: Entity Search Java quickstart (preview)
+      href: entity-sdk-java-quickstart.md
 - name: Resources
   items:
   - name: Subscription key

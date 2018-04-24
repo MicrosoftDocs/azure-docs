@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 09/14/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -35,13 +35,13 @@ This tutorial requires that you are running the Azure CLI version 2.0.4 or later
 
 When deploying an Azure Container Registry, you first need a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. In this example, a resource group named `myResourceGroup` is created in the `westeurope` region.
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. In this example, a resource group named `myResourceGroup` is created in the `westeurope` region.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**.
+Create an Azure Container registry with the [az acr create](/cli/azure/acr#az_acr_create) command. The name of a Container Registry **must be unique**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -84,10 +84,10 @@ To get the loginServer name, run the following command.
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Now, tag the `azure-vote-front` image with the loginServer of the container registry. Also, add `:redis-v1` to the end of the image name. This tag indicates the image version.
+Now, tag the `azure-vote-front` image with the loginServer of the container registry. Also, add `:v1` to the end of the image name. This tag indicates the image version.
 
 ```bash
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
 Once tagged, run [docker images] (https://docs.docker.com/engine/reference/commandline/images/) to verify the operation.
@@ -101,7 +101,7 @@ Output:
 ```bash
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                                     latest              eaf2b9c57e5e        8 minutes ago       716 MB
-mycontainerregistry082.azurecr.io/azure-vote-front   redis-v1            eaf2b9c57e5e        8 minutes ago       716 MB
+mycontainerregistry082.azurecr.io/azure-vote-front   v1            eaf2b9c57e5e        8 minutes ago       716 MB
 redis                                                latest              a1b99da73d05        7 days ago          106MB
 tiangolo/uwsgi-nginx-flask                           flask               788ca94b2313        8 months ago        694 MB
 ```
@@ -113,14 +113,14 @@ Push the `azure-vote-front` image to the registry.
 Using the following example, replace the ACR loginServer name with the loginServer from your environment.
 
 ```bash
-docker push <acrLoginServer>/azure-vote-front:redis-v1
+docker push <acrLoginServer>/azure-vote-front:v1
 ```
 
 This takes a couple of minutes to complete.
 
 ## List images in registry
 
-To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the ACR instance name.
+To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) command. Update the command with the ACR instance name.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -145,7 +145,7 @@ Output:
 ```azurecli
 Result
 --------
-redis-v1
+v1
 ```
 
 At tutorial completion, the container image has been stored in a private Azure Container Registry instance. This image is deployed from ACR to a Kubernetes cluster in subsequent tutorials.

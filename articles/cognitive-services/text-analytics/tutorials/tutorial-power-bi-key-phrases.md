@@ -3,12 +3,11 @@ title: Azure Cognitive Services, Text Analytics With Power BI | Microsoft Docs
 description: Learn how to use Text Analytics to extract key phrases from text stored in Power BI.
 services: cognitive-services
 author: luiscabrer
-manager: jhubbard
-
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
-ms.date: 9/6/2017
+ms.date: 3/07/2018
 ms.author: luisca
 ---
 # Text Analytics with Power BI

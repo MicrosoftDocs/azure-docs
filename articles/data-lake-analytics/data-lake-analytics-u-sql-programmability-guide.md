@@ -36,7 +36,7 @@ Look at the following U-SQL script:
     (VALUES
        ("Contoso",   1500.0, "2017-03-39"),
        ("Woodgrove", 2700.0, "2017-04-10")
-    ) AS D( customer, amount );
+    ) AS D( customer, amount, date );
 
 @results =
   SELECT
@@ -1365,7 +1365,7 @@ public class HTMLOutputter : IOutputter
     }
 
     // The Close method is used to write the footer to the file. It's executed only once, after all rows
-    public override void Close().
+    public override void Close()
     {
 	//Reference to IO.Stream object - g_writer
 	StreamWriter streamWriter = new StreamWriter(g_writer, this.encoding);

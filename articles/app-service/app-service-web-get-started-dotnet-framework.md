@@ -25,6 +25,8 @@ Watch the video to see this quickstart in action and then follow the steps yours
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this tutorial:
@@ -35,7 +37,7 @@ To complete this tutorial:
 
     ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 
 ## Create an ASP.NET web app
 
@@ -45,7 +47,7 @@ In the **New Project** dialog, select **Visual C# > Web > ASP.NET Web Applicatio
 
 Name the application _myFirstAzureWebApp_, and then select **OK**.
    
-![New Project dialog box](./media/app-service-web-get-started-dotnet-framework/new-project.png)
+![New Project dialog box](./media/app-service-web-get-started-dotnet/new-project.png)
 
 You can deploy any type of ASP.NET web app to Azure. For this quickstart, select the **MVC** template, and make sure authentication is set to **No Authentication**.
       

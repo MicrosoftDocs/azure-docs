@@ -144,7 +144,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
-| tenant |Required |The directory tenant that you want to request permission from. Can be provided in GUID or friendly name format. |
+| tenant |Required |The directory tenant that you want to request permission from. Can be provided in GUID or friendly name format OR generically referenced with "common" as seen in the example. |
 | client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
 | redirect_uri |Required |The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the app registration portal. |
 | state |Recommended |A value included in the request that will also be returned in the token response. It can be a string of any content you want. Use the state to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |

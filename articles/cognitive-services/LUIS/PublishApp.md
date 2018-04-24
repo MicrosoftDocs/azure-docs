@@ -1,20 +1,20 @@
 ---
 title: Publish your LUIS app | Microsoft Docs
-description: After you build and test your app by using Language Understanding (LUIS), publish it as a web service on Azure. 
+description: After you build and test your app by using Language Understanding (LUIS), publish it as a web service on Azure.
 services: cognitive-services
+titleSuffix: Azure
 author: cahann
 manager: hsalama
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
-ms.author: cahann
+ms.date: 01/25/2018
+ms.author: cahann;v-geberr;
 ---
 
 
 # Publish your trained app
-When you finish building and testing your LUIS app, you publish it as a web service on Azure. The associated HTTP endpoint is then integrated into any client or backend application. 
+When you finish building and testing your LUIS app, you publish it as a web service on Azure. The associated HTTP [endpoint](luis-glossary.md#endpoint) is then integrated into any client or backend application. 
 
 You can optionally test your app before publishing it. For instructions, see [Train and test your app](Train-Test.md).
 
@@ -34,13 +34,15 @@ You can either publish your app directly to the **Production Slot**, or you can 
 
 3. Choose whether to publish to **Production** or to **Staging** by selecting from the drop-down menu under **Publish to**. 
 
-4. If you want to enable Bing Spell Check, click the **Enable Bing Spell Checker** check box. 
-
-    >[!NOTE]
-    >* You need to add `spellCheck=true` to the URL when you call the LUIS app endpoint to turn on spell checking. Checking the **Enable Bing Spell Checker** check box appends `spellCheck=true` to the URL that displays in the **Publish app** page when publish is complete. 
-    >* You need to have a [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/) Azure account in order to use this feature.  
+4. If you want to enable Bing Spell Check, click the **Enable Bing Spell Checker** check box.
 
     ![Bing Spell Checker](./media/luis-how-to-publish-app/luis-enable-bing-spell-checker.png)
+
+    This checkbox changes your endpoint URL to include the two name/value pairs associated with the Bing Spell Checker: **spellCheck=true** and **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}**. If you call the LUIS endpoint from a bot or other application, you need to change the endpoint URL there as well.
+
+    |Endpoint Url with Bing Spell Check enabled|
+    |--|
+    |https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={LUISKey}&verbose=true&timezoneOffset=0&q={query}**&spellCheck=true&bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}**|
 
 5. If you want the JSON response of your published app to include all intents defined in your app and their prediction scores, click **Include all predicted intent scores** checkbox to append a `verbose=true` parameter to the end-point URL. Otherwise, it includes only the top scoring intent.
 

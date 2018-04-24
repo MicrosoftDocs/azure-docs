@@ -1,4 +1,4 @@
----
+﻿---
 title: Upload large amounts of data into Data Lake Store by using offline methods | Microsoft Docs
 description: Use the AdlCopy tool to copy data from Azure Storage blobs to Data Lake Store
 services: data-lake-store
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
 
 ---
@@ -30,6 +30,7 @@ Before you begin, you must have the following:
 * **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## Preparing the data
+
 Before using the Import/Export service, break the data file to be transferred **into copies that are less than 200 GB** in size. The import tool does not work with files greater than 200 GB. In this tutorial, we split the file into chunks of 100 GB each. You can do this by using [Cygwin](https://cygwin.com/install.html). Cygwin supports Linux commands. In this case, use the following command:
 
     split -b 100m 319GB.tsv
@@ -191,7 +192,7 @@ We started with a file that was 319 GB, and broke it down into files of smaller 
 
 ````
 # Login to our account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List your subscriptions
 Get-AzureRmSubscription

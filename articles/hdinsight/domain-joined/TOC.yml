@@ -6,8 +6,6 @@
     href: apache-domain-joined-introduction.md
   - name: Plan for domain-joined clusters
     href: apache-domain-joined-architecture.md
-  - name: Configure domain-joined sandbox environment
-    href: apache-domain-joined-configure.md
   - name: Configure domain-joined clusters using Azure AD DS
     href: apache-domain-joined-configure-using-azure-adds.md
   - name: Synchronize Azure AD users to an HDInsight cluster
@@ -16,8 +14,12 @@
   - name: Configure Hive policies
     href: apache-domain-joined-run-hive.md
     maintainContext: true
-  - name: Manage domain-joined clusters
-    href: apache-domain-joined-manage.md
+  - name: Use VSCode to link to domain joined cluster
+    href: ../hdinsight-for-vscode.md
+  - name: Use IntelliJ to link to domain joined cluster
+    href: ../spark/apache-spark-intellij-tool-plugin.md
+  - name: Use Eclipse to link to domain joined cluster
+    href: ../spark/apache-spark-eclipse-tool-plugin.md
 - name: Securing data
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true

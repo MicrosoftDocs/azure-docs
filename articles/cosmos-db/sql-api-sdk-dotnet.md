@@ -4,7 +4,7 @@ description: Learn all about the SQL .NET API and SDK including release dates, r
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -24,15 +24,14 @@ ms.custom: H1Hack27Feb2017
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -50,6 +49,29 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="1.22.0"/>1.22.0
+
+* Added ConsistencyLevel Property to FeedOptions.
+* Added JsonSerializerSettings to RequestOptions and FeedOptions.
+* Added EnableReadRequestsFallback to ConnectionPolicy.
+
+### <a name="1.21.1"/>1.21.1
+
+* Fixed KeyNotFoundException for cross partition order by queries in corner cases.
+* Fixed bug where JsonProperty attribute in select clause for LINQ queries was not being honored.
+
+### <a name="1.20.2"/>1.20.2
+
+* Fixed bug that is hit under certain race conditions, that results in intermittent “Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token” errors when using Session consistency level.
+
+### <a name="1.20.1"/>1.20.1
+
+* Fixed regression where FeedOptions.MaxItemCount = -1 threw an System.ArithmeticException: page size is negative.
+* Added a new ToString() function to QueryMetrics.
+* Exposed partition statistics on reading collections.
+* Added PartitionKey property to ChangeFeedOptions.
+* Minor bug fixes.
+
 ### <a name="1.19.1"/>1.19.1
 
 * Adds the ability to specify unique indexes for the documents by using UniqueKeyPolicy property on the DocumentCollection.
@@ -274,6 +296,10 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.22.0](#1.22.0) |April 19, 2018 |--- |
+| [1.21.1](#1.20.1) |March 09, 2018 |--- |
+| [1.20.2](#1.20.1) |February 21, 2018 |--- |
+| [1.20.1](#1.20.1) |February 05, 2018 |--- |
 | [1.19.1](#1.19.1) |November 16, 2017 |--- |
 | [1.19.0](#1.19.0) |November 10, 2017 |--- |
 | [1.18.1](#1.18.1) |November 07, 2017 |--- |

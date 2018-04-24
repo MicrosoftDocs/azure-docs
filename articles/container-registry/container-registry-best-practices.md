@@ -98,7 +98,7 @@ Azure Container Registry is available in several tiers, called SKUs, that each p
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
-[azure-cli]: /cli/azure/overview
+[azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-skus]: container-registry-skus.md

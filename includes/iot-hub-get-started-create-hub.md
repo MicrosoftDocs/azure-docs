@@ -25,11 +25,11 @@ Create an IoT hub for your simulated device app to connect to. The following ste
 
 1. Click **Create**. Your IoT hub might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
 
-1. When the IoT hub has been created successfully, click the new tile for your IoT hub in the Azure portal to open the properties window for the new IoT hub. Now that you have created an IoT hub, locate the important information that you use to connect devices and applications to your IoT hub. Make a note of the **Hostname**, and then click **Shared access policies**.
+1. When your new IoT hub is ready, click its tile in the Azure portal to open its properties window. Now that you have created an IoT hub, locate the important information that you use to connect devices and applications to your IoT hub. Make a note of the **Hostname**, and then click **Shared access policies**.
    
     ![New IoT hub window][4]
 
-1. In **Shared access policies**, click the **iothubowner** policy, and then copy and make note of the IoT Hub connection string in the **iothubowner** window. For more information, see [Access control][lnk-access-control] in the "IoT Hub developer guide."
+1. In **Shared access policies**, click the **iothubowner** policy, and then make note of the IoT Hub connection string in the **iothubowner** window. For more information, see [Access control][lnk-access-control] in the "IoT Hub developer guide."
    
     ![Shared access policies][5]
 

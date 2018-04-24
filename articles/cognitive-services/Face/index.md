@@ -1,16 +1,16 @@
 ---
-title: Azure Cognitive Services, Face API Documentation - Tutorials, API Reference | Microsoft Docs
+title: Face API Documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
 description: Learn how to create and develop apps invoking the Face API
 services: cognitive-services
-author: czeumault
-manager: carolz
+author: SteveMSFT
+manager: corncar
 layout: LandingPage
 ms.service: cognitive-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
+ms.author: sbowles
 ---
 <div class="content">
     <h1>Face API Documentation</h1>

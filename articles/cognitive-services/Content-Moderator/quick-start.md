@@ -4,9 +4,8 @@ description: How to get started with Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: sajagtap
@@ -16,8 +15,9 @@ ms.author: sajagtap
 
 You get started with Content Moderator APIs and the review tool in the following ways:
 
-- [Start with the review tool](#start-with-the-review-tool) to create both the API keys and a review team.
-- [Start with the APIs](#start-with-the-apis) by subscribing in the Azure portal. You still need to sign up online to create a review team.
+- [Start with the review tool](#start-with-the-review-tool) to create both the API keys and a review team. Explore the review tool and learn how to integrate by using the Content Moderator APIs.
+- [Subscribe to Content Moderator](#start-with-the-apis) in the Azure portal. You still need to sign up online to create a review team.
+- [Use the Flow connector and templates](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/) to check out a wide range of integrations with an easy-to-use designer.
 
 Regardless of the option you choose, see the [Managing credentials](review-tool-user-guide/credentials.md) article to find your API credentials.
 
@@ -42,15 +42,19 @@ Submit your content for automated moderation. Internally, the review tool calls 
 ![Moderate files](images/submitted.png)
 
 ### Review and confirm results
-Review the auto-moderated tags, change if needed, and submit by using the **Next** button. As your business application calls the Moderator APIs, the tagged content starts queuing up, ready to be reviewed by the human review teams. You can quickly review large volumes of content using this approach.
+Review the auto-moderated tags, change if needed, and submit by using the **Next** button. As your business application calls the Moderator APIs, the tagged content starts queuing up, ready to be reviewed by the human review teams. You quickly review large volumes of content using this approach.
 
 ![Review results](images/reviewresults.png)
 
-Learn how to use all the [review tool's features](Review-Tool-User-Guide/human-in-the-loop.md) or continue with the next section to learn about the APIs. Skip the sign up step because you have the API key provisioned for you in the review tool as shown in the [Managing credentials](review-tool-user-guide/credentials.md) article.
+Learn how to use all the [review tool's features](Review-Tool-User-Guide/human-in-the-loop.md) or continue with the next section to learn about the APIs. Skip the sign-up step because you have the API key provisioned for you in the review tool as shown in the [Managing credentials](review-tool-user-guide/credentials.md) article.
+
+### Use the APIs
+
+Now that you have explored the content moderation and review tool experience, learn how to integrate Content Moderator with your business applications. Use the following section to learn more and fast-track your understanding with the [SDKs and samples](sdk-and-samples.md).
 
 ## Start with the APIs
 
-[Subscribe to Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) in the Azure portal. You need to create an Azure account if you do not have one already. Start with one of the following APIs:
+[Subscribe to Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) in the Azure portal. Start with one of the following APIs:
 
 ### Image moderation
 
@@ -58,7 +62,7 @@ Start with the [API console](try-image-api.md) or use the [.NET quickstart](imag
 
 ### Text moderation
 
-Start with the [API console](try-text-api.md) or use the [.NET quickstart](text-moderation-quickstart-dotnet.md) to scan text content for potential profanity and personally identifiable information (PII). 
+Start with the [API console](try-text-api.md) or use the [.NET quickstart](text-moderation-quickstart-dotnet.md) to scan text content for potential profanity, machine-assisted unwanted text classification (preview), and personally identifiable information (PII). 
 
 
 ### Video moderation
@@ -72,7 +76,7 @@ Start here by choosing from the Job, Review, and Workflow APIs.
 
 - The [Job API](try-review-api-job.md) scans your content by using the moderation APIs and generates reviews in the review tool. 
 - The [Review API](try-review-api-review.md) directly creates image, text, or video reviews for human moderators without first scanning the content. 
-- The [Workflow API](try-review-api-workflow.md) creates, updates, and get details about the custom workflows that your team creates.
+- The [Workflow API](try-review-api-workflow.md) creates, updates, and gets details about the custom workflows that your team creates.
 
 ## Next steps
 

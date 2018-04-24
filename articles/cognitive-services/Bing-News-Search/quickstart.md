@@ -4,10 +4,9 @@ description: Shows how to get started using the Bing News Search API.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 9CF6EAF3-42D8-4321-983C-4AC3896E8E03
 ms.service: cognitive-services
-ms.technology: bing-news-search
+ms.component: bing-news-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi

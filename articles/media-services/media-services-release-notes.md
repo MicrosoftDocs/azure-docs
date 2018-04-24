@@ -44,7 +44,7 @@ For information about the Media Services REST API version history, see the [Azur
 
 ## October 2017 release
 > [!IMPORTANT] 
-> Media Services is deprecating support for Azure Access Control Service authentication keys. On June 1, 2018, you can no longer authenticate with the Media Services back end via code by using Access Control Service keys. You must update your code to use Azure Active Directory (Azure AD) per [Azure AD-based authentication](media-services-use-aad-auth-to-access-ams-api.md). Watch for warnings about this change in the Azure portal.
+> Media Services is deprecating support for Azure Access Control Service authentication keys. On June 22, 2018, you can no longer authenticate with the Media Services back end via code by using Access Control Service keys. You must update your code to use Azure Active Directory (Azure AD) per [Azure AD-based authentication](media-services-use-aad-auth-to-access-ams-api.md). Watch for warnings about this change in the Azure portal.
 
 ### Updates for October 2017
 #### SDKs
@@ -345,8 +345,8 @@ The Media Services SDK for .NET is now version 3.0.0.7
 * Live streaming preview. For more information, see [Work with Media Services live streaming](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Key delivery service. For more information, see [Use AES-128 dynamic encryption and the key delivery service](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * AES dynamic encryption. For more information, see [Use AES-128 dynamic encryption and the key delivery service](http://msdn.microsoft.com/library/azure/dn783457.aspx).
-* PlayReady license delivery service. For more information, see [Use PlayReady dynamic encryption and the license delivery service](http://msdn.microsoft.com/library/azure/dn783467.aspx).
-* PlayReady dynamic encryption. For more information, see [Use PlayReady dynamic encryption and the license delivery service](http://msdn.microsoft.com/library/azure/dn783467.aspx).
+* PlayReady license delivery service. 
+* PlayReady dynamic encryption. 
 * Media Services PlayReady license template. For more information, see the [Media Services PlayReady license template overview].
 * Stream storage-encrypted assets. For more information, see [Stream storage-encrypted content](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 

@@ -4,10 +4,9 @@ description: Shows how to use the Bing Entities Search API to search the web for
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 0B54E747-61BF-42AA-8788-E25D63F625FC
 ms.service: cognitive-services
-ms.technology: bing-entities-search
+ms.component: bing-entity-search
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: scottwhi
@@ -324,10 +323,6 @@ The following shows an example that includes an image's `provider` field and con
   
 ![Media attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)  
 
-
-### United States-Based queries only  
-
-Entity Search API is intended for use only within the United States. Partners must use reasonable and best effort to ensure that all users for whom they are originating calls to the API are physically located within the United States. If the user is not physically located within the United States, then do not call this API.  
   
 ### Search or search-like experience  
 

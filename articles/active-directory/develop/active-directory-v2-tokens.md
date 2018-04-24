@@ -3,7 +3,7 @@ title: Azure Active Directory v2.0 tokens reference | Microsoft Docs
 description: The types of tokens and claims emitted by the Azure AD v2.0 endpoint
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: hpsin
 manager: mtillman
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
 
 ---
@@ -70,9 +70,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | object ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | The immutable identifier for an object in the Microsoft identity system, in this case, a user account.  It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim.  This means that it can be used when making queries to Microsoft online services, such as the Microsoft Graph.  The Microsoft Graph will return this ID as the `id` property for a given user account.  Because the `oid` allows multiple apps to correlate users, the `profile` scope is required in order to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials. |
 
 ### Access tokens
-Currently, access tokens issued by the v2.0 endpoint can be consumed only by Microsoft Services. Your apps shouldn't need to perform any validation or inspection of access tokens for any of the currently supported scenarios. You can treat access tokens as completely opaque. They are just strings that your app can pass to Microsoft in HTTP requests.
 
-In the near future, the v2.0 endpoint will introduce the ability for your app to receive access tokens from other clients. At that time, the information in this reference topic will be updated with the information that you need for your app to perform access token validation and other similar tasks.
+The v2.0 endpoint allows third party apps that are registered with Azure AD to issue access tokens for secured resources such as Web APIs. For more information about setting up an application to issue access tokens, please see [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md). Upon registering the application with the v2.0 endpoint, the developer can specify levels of access, called **scopes**, for which access tokens may be issued. For example, the **calendars.read** scope defined in the Microsoft Graph API grants permission to read the user's calendar. When your application receives an access token from the v2.0 endpoint, you must validate the token's signature, issuer, audience, expiration time and any other claims depending on your scenario. 
 
 When you request an access token from the v2.0 endpoint, the v2.0 endpoint also returns metadata about the access token for your app to use. This information includes the expiry time of the access token and the scopes for which it is valid. Your app uses this metadata to perform intelligent caching of access tokens without having to parse open the access token itself.
 
@@ -83,7 +82,7 @@ Refresh tokens are multi-resource. A refresh token received during a token reque
 
 To receive a refresh in a token response, your app must request and be granted the `offline_acesss` scope. To learn more about the `offline_access` scope, see the [consent and scopes](active-directory-v2-scopes.md) article.
 
-Refresh tokens are, and always will be, completely opaque to your app. They are issued by the Azure AD v2.0 endpoint and can only be inspected and interpreted by the v2.0 endpoint. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time. Refresh tokens can be invalidated at any moment for various reasons. The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to the v2.0 endpoint.
+Refresh tokens are, and always will be, completely opaque to your app. They are issued by the Azure AD v2.0 endpoint and can only be inspected and interpreted by the v2.0 endpoint. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time. Refresh tokens can be invalidated at any moment for various reasons - for details, see [token revocation](active-directory-token-and-claims.md#token-revocation). The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to the v2.0 endpoint.
 
 When you redeem a refresh token for a new access token (and if your app had been granted the `offline_access` scope), you receive a new refresh token in the token response. Save the newly issued refresh token, to replace the one you used in the request. This guarantees that your refresh tokens remain valid for as long as possible.
 

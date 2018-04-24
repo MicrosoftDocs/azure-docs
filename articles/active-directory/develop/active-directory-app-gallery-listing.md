@@ -1,10 +1,10 @@
 ---
-title: Listing your application in the Azure Active Directory application gallery
-description: How to list an application that supports single sign-on in the Azure Active Directory gallery | Microsoft Azure
+title: Listing your application in the Azure Active Directory application gallery | Microsoft Docs
+description: How to list an application that supports single sign-on in the Azure Active Directory app gallery
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mtillman
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -13,82 +13,77 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 03/20/2018
 ms.author: bryanla
 ms.custom: aaddev
 
 ---
-# Listing your application in the Azure Active Directory application gallery
-To list an application that supports single sign-on with Azure Active Directory in the [Azure AD gallery](https://azure.microsoft.com/marketplace/active-directory/all/), the application first needs to implement one of the following integration modes:
+# List your application in the Azure Active Directory application gallery
 
-* **OpenID Connect** - Direct integration with Azure AD using OpenID Connect for authentication and the Azure AD consent API for configuration. If you are just starting an integration and your application does not support SAML, then this is the recommend mode.
-* **SAML** – Your application already has the ability to configure third-party identity providers using the SAML protocol.
 
-Listing requirements for each mode are below.
+##	What is the Azure AD application gallery?
 
-## OpenID Connect Integration
-To integrate your application with Azure AD, following the [developer instructions](active-directory-authentication-scenarios.md). Then complete the questions below and send to waadpartners@microsoft.com.
+Azure Active Directory (Azure AD) is a cloud-based identity service. The [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/) is in the Azure Marketplace app store, where all application connectors are published for single sign-on and user provisioning. Customers who use Azure AD as an identity provider find the different SaaS application connectors published here. IT administrators add connectors from the app gallery, and then configure and use the connectors for single sign-on and provisioning. Azure AD supports all major federation protocols for single sign-on, including SAML 2.0, OpenID Connect, OAuth, and WS-Fed.
 
-* Provide credentials for a test tenant or account with your application that can be used by the Azure AD team to test the integration.  
-* Provide instructions on how the Azure AD team can sign in and connect an instance of Azure AD to your application using the [Azure AD consent framework](active-directory-integrating-applications.md#overview-of-the-consent-framework). 
-* Provide any further instructions required for the Azure AD team to test single sign-on with your application. 
-* Provide the info below:
+## What are the benefits of listing an application in the gallery?
 
-> Company Name:
-> 
-> Company Website:
-> 
-> Application Name:
-> 
-> Application Description (200 character limit):
-> 
-> Application Website (informational):
-> 
-> Application Technical Support Website or Contact Info:
-> 
-> Application  ID of the application, as shown in the application details at https://portal.azure.com:
-> 
-> Application Sign-Up URL where customers go to sign up for and /or purchase the application:
-> 
-> Choose up to three categories for your application to be listed under (for available categories see the Azure Active Directory Marketplace):
-> 
-> Attach Application Small Icon (PNG file, 45px by 45px, solid background color):
-> 
-> Attach Application Large Icon (PNG file, 215px by 215px, solid background color):
-> 
-> Attach Application Logo (PNG file, 150px by 122px, transparent background color):
-> 
-> 
+*  Customers find the best possible single sign-on experience.
 
-## SAML Integration
-Any app that supports SAML 2.0 can be integrated directly with an Azure AD tenant using [these instructions to add a custom application](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). Once you have tested that your application integration works with Azure AD, send the following information to <mailto:waadpartners@microsoft.com>.
+*  Configuration of the application is simple and minimal. 
 
-* Provide credentials for a test tenant or account with your application that can be used by the Azure AD team to test the integration.  
-* Provide the SAML Sign-On URL, Issuer URL (entity ID), and Reply URL (assertion consumer service) values for your application, as described [here](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). If you typically provide these values as part of a SAML metadata file, then please send that as well.
-* Provide a brief description of how to configure Azure AD as an identity provider in your application using SAML 2.0. If your application supports configuring Azure AD as an identity provider through a self-service administrative portal, then please ensure the credentials provided above include the ability to set this up.
-* Provide the info below:
+*  A quick search finds your application in the gallery.
 
-> Company Name:
-> 
-> Company Website:
-> 
-> Application Name:
-> 
-> Application Description (200 character limit):
-> 
-> Application Website (informational):
-> 
-> Application Technical Support Website or Contact Info:
-> 
-> Application Sign-Up URL where customers go to sign up for and /or purchase the application:
-> 
-> Choose up to three categories for your application to be listed under (for available categories see the [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/))):
-> 
-> Attach Application Small Icon (PNG file, 45px by 45px, solid background color):
-> 
-> Attach Application Large Icon (PNG file, 215px by 215px, solid background color):
-> 
-> Attach Application Logo (PNG file, 150px by 122px, transparent background color):
-> 
-> 
+*  Free, Basic, and Premium Azure AD customers can all use this integration. 
 
+*  Mutual customers get a step-by-step configuration tutorial. 
+
+*  Customers who use SCIM can use provisioning for the same app.
+
+
+##	Prerequisites: Implement federation protocol
+
+To list an application in the Azure AD app gallery, you first need to implement one of the following federation protocols supported by Azure AD. Read the terms and conditions of the Azure AD application gallery from here. 
+
+*   **OpenID Connect**: Create the multitenant application in Azure AD and implement the [Azure AD consent framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) for your application. Send the login request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token. To integrate your application with Azure AD, follow the [developers' instructions](active-directory-authentication-scenarios.md).
+
+*   **SAML 2.0** or **WS-Fed**: Your application needs to have the capability to do the SAML/WS-Fed SSO integration in SP or IDP mode. If your app supports SAML 2.0, you can integrate it directly with an Azure AD tenant by using the [instructions to add a custom application](../active-directory-saas-custom-apps.md).
+
+*   **Password SSO**: Create a web application that has an HTML sign-in page to configure [password-based single sign-on](../active-directory-appssoaccess-whatis.md). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts.
+
+##	Update/Remove existing listing
+
+To update or remove an existing application in the Azure AD app gallery, you first need to submit the request in the [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account (such as Outlook or Hotmail) to sign in.
+
+* Select appropriate option from the below image
+
+    ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/updateorremove.png)
+
+    * If you want to update an existing application, select **Update existing application listing**.
+
+    * If you want to remove an existing application from the Azure AD gallery, select **Remove existing application listing**
+
+    * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
+## Submit the request in the portal
+
+After you've tested that your application integration works with Azure AD, submit your request for access on our [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account (such as Outlook or Hotmail) to sign in.
+
+After you sign in, the following page appears. Provide a business justification for needing access in the text box, and then select **Request Access**. Our team reviews the details and gives you access accordingly. After that, you can sign in to the portal and submit your detailed request for the application.
+
+If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+![Access Request on SharePoint portal](./media/active-directory-app-gallery-listing/accessrequest.png)
+
+## Timelines
+    
+The timeline for the process of listing a SAML 2.0 or WS-Fed application in the gallery is 7-10 business days.
+
+   ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/timeline.png)
+
+The timeline for the process of listing an OpenID Connect application in the gallery is 2-5 business days.
+
+   ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/timeline2.png)
+
+## Escalations
+
+For any escalations, send email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com)  which is SaaSApplicationIntegrations@service.microsoft.com and we'll respond as soon as possible.

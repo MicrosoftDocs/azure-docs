@@ -1,42 +1,67 @@
 ---
-
-title: Configure LinkedIn integration in Azure AD | Microsoft Docs
-description: Explains how to enable or disable LinkedIn integration for Microsoft apps in Azure Active Directory.
+title: Enable LinkedIn connections for Microsoft apps and services in Azure Active Directory | Microsoft Docs
+description: Explains how to enable or disable LinkedIn account connections for Microsoft apps in Azure Active Directory
 services: active-directory
-author: jeffgilb
+author: curtand
 manager: mtillman
-ms.assetid: 
+
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: jeffgilb
-ms.reviewer: jsnow
+ms.date: 03/22/2018
+ms.author: curtand
+ms.reviewer: beengen
 ms.custom: it-pro
-
 ---
-# Enabling LinkedIn integration in Azure Active Directory
-Enabling LinkedIn integration lets your users access both public LinkedIn data and, if they choose to, their personal LinkedIn network from within Microsoft apps. Each user can independently choose to connect their work account to their LinkedIn account.
 
-### LinkedIn integration from your end users’ perspective
-When end users in your organization connect their LinkedIn accounts to their work accounts, they are able to better identify the people they work with inside and outside the organization. Connecting the two accounts allows the user’s LinkedIn connections and profile data to be used in your organization's Microsoft apps, but they can always opt out by removing permission for LinkedIn to share that data. The integration also uses publicly available profile information, and users can choose whether to share their public profile and network information with Microsoft applications through LinkedIn privacy settings.
-
->[!NOTE]
-> Enabling LinkedIn integration in Azure AD enables apps and services to access some of your end users' information. Read the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement/) to learn more about the privacy considerations when enabling LinkedIn integration in Azure AD. 
-
-## Enable LinkedIn integration
-LinkedIn integration for enterprises is enabled by default in Azure AD. So, when this feature is made available for your tenant, all users in your organization can see LinkedIn features and profiles. Enabling LinkedIn integration allows users in your organization to use LinkedIn features within Microsoft services, such as viewing profiles when receiving an email in Outlook. Disabling this feature prevents access to LinkedIn features and stops user account connections and data sharing between LinkedIn and your organization via Microsoft services.
+# LinkedIn account connections for Microsoft apps and services
+In this article, you can learn how to manage LinkedIn account connections for your tenant in the Azure Active Directory (Azure AD) admin center. 
 
 > [!IMPORTANT]
-> This feature is not available for go-local, sovereign, and government tenants. In addition, Azure AD service updates, such as LinkedIn integration capabilities, are not deployed to all Azure tenants at the same time. You cannot enable LinkedIn integration with Azure AD until this capability has been rolled out to your Azure tenant.
+> LinkedIn account connections functionality is currently being rolled out to Azure AD tenants. When it is rolled out to your tenant, it is enabled by default. It is not available for United States government customers, and organizations with Exchange Online mailboxes hosted in Australia, Canada, China, France, Germany, India, South Korea, United Kingdom, Japan, and South Africa. Support for these mailbox locations is coming soon.  For an up-to-date view of rollout information, see the [Office 365 Roadmap](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) page.
 
-1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com/) with an account that's a global admin for the directory.
-2. Select **Users and groups**.
-3. On the **Users and groups** blade, select **User settings**.
-4. Under **LinkedIn Integration**, select Yes or No to enable or disable LinkedIn integration.
-   ![Enabling LinkedIn integration](./media/linkedin-integration/LinkedIn-integration.PNG)
+## How LinkedIn account connections appear to the user
+LinkedIn account connections allow users to see public LinkedIn profile information within some of their Microsoft apps. Users in your tenant can choose to connect their LinkedIn and Microsoft work or school accounts to see additional LinkedIn profile information. For more information, see [LinkedIn information and features in Microsoft apps and services](https://go.microsoft.com/fwlink/?linkid=850740).
+
+When users in your organization connect their LinkedIn and Microsoft work or school accounts, they have two options: 
+* Give permission to share data between both accounts. This means that they give permission for their LinkedIn account to share data with their Microsoft work or school account, as well as their Microsoft work or school account to share data with their LinkedIn account. Data that is shared with LinkedIn leaves the online services. 
+* Give permission to share data only from their LinkedIn account to their Microsoft work and school account
+
+For more information about data that is shared between users’ LinkedIn and Microsoft work or school accounts, see [LinkedIn in Microsoft applications at your work or school](https://www.linkedin.com/help/linkedin/answer/84077). 
+* [Users can disconnect accounts](https://www.linkedin.com/help/linkedin/answer/85097) and remove data sharing permissions at any time. 
+* [Users can control how their own LinkedIn profile is viewed](https://www.linkedin.com/help/linkedin/answer/83), including whether their profile can be viewed in Microsoft apps.
+
+## Privacy considerations
+Enabling LinkedIn account connections allows Microsoft apps and services to access some of your users' LinkedIn information. Read the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement/) to learn more about the privacy considerations when enabling LinkedIn account connections in Azure AD. 
+
+## Manage LinkedIn account connections
+LinkedIn account connections functionality is on by default for your entire tenant. You can choose to disable LinkedIn account connections for your entire tenant, or enable LinkedIn account connections for selected users in your tenant. 
+
+### Enable or disable LinkedIn account connection for your tenant in the Azure portal
+
+1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com/) with an account that's a global admin for the Azure AD tenant.
+2. Select **Users**.
+3. On the **Users** blade, select **User settings**.
+4. Under **LinkedIn account connections**:
+  * Select **Yes** to enable LinkedIn account connections for all users in your tenant
+  * Select **Selected** to enable LinkedIn account connections for only selected tenant users
+  * Select **No** to disable LinkedIn account connections for all users
+  ![Enabling LinkedIn account connections](./media/linkedin-integration/LinkedIn-integration.png)
+5. Save your settings when you're done by selecting **Save**.
+
+### Enable or disable LinkedIn account connections for your organization's Office 2016 apps using Group Policy
+
+1. Download the [Office 2016 Administrative Template files (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
+2. Extract the **ADMX** files and copy them to your central store.
+3. Open Group Policy Management.
+4. Create a Group Policy Object with the following setting: **User Configuration** > **Administrative Templates** > **Microsoft Office 2016** > **Miscellaneous** > **Show LinkedIn features in Office applications**.
+5. Select **Enabled** or **Disabled**.
+  * When the policy is **Enabled**, the **Show LinkedIn features in Office applications** setting found in the Office 2016 Options dialog is enabled. This also means that users in your organization can use LinkedIn features in their Office applications.
+  * When the policy is **Disabled**, the **Show LinkedIn features in Office applications** setting found in the Office 2016 Options dialog is set to the disabled state, and end users can't change this setting. Users in your organization can't use LinkedIn features in their Office 2016 applications. 
+
+This group policy affects only Office 2016 apps for a local computer. Users can see LinkedIn features in profile cards throughout Office 365 even if they disable LinkedIn in their Office 2016 apps. 
 
 ### Learn more 
 * [LinkedIn information and features in your Microsoft apps](https://go.microsoft.com/fwlink/?linkid=850740)
@@ -44,6 +69,6 @@ LinkedIn integration for enterprises is enabled by default in Azure AD. So, when
 * [LinkedIn help center](https://www.linkedin.com/help/linkedin)
 
 ## Next steps
-You can use the following link to enable or disable LinkedIn integration with Azure AD from the Azure portal:
+Use the following link to see your current LinkedIn account connections setting in the Azure portal:
 
-[Configure LinkedIn integration](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 
+[Configure LinkedIn account connections](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 

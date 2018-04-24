@@ -41,4 +41,4 @@ This script uses the following command to deploy the managed application. Each c
 ## Next steps
 
 * For an introduction to managed applications, see [Azure Managed Application overview](../overview.md).
-* For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+* For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).

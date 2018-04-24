@@ -15,7 +15,7 @@
 ## [Configure company branding](customize-branding.md)
 ## [Add users to Azure AD](add-users-azure-active-directory.md)
 ## [Assign licenses to users](license-users-groups.md)
-## [Configure Self-service password reset](active-directory-passwords-getting-started.md)
+## [Configure Self-service password reset](authentication/quickstart-sspr.md)
 
 
 # How to
@@ -44,7 +44,6 @@
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](active-directory-users-assign-role-azure-portal.md)
-### [Restore a deleted user](active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Admins adding B2B users](active-directory-b2b-admin-add-users.md)
 #### [Information workers adding B2B users](active-directory-b2b-iw-add-users.md)
@@ -60,6 +59,7 @@
 #### [Dynamic groups and B2B users](active-directory-b2b-dynamic-groups.md)
 #### [Auditing and reports](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B for hybrid organizations](active-directory-b2b-hybrid-organizations.md)
+##### [Grant B2B users access to local apps](active-directory-b2b-hybrid-cloud-to-on-premises.md)
 #### [B2B and Office 365 external sharing](active-directory-b2b-o365-external-user.md)
 #### [B2B licensing](active-directory-b2b-licensing.md)
 #### [Current limitations](active-directory-b2b-current-limitations.md)
@@ -113,6 +113,7 @@
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
+#### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Troubleshoot
@@ -128,24 +129,24 @@
 #### [Using certificates](active-directory-reporting-api-with-certificates.md)
 
 ## Manage passwords
-### [Passwords overview](active-directory-passwords-overview.md)
+### [Passwords overview](authentication/active-directory-passwords-overview.md)
 ### User documents
 #### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
 #### [Password best practices](active-directory-secure-passwords.md)
 #### [Register for self-service password reset](active-directory-passwords-reset-register.md)
-### [SSPR How it works](active-directory-passwords-how-it-works.md)
-### [SSPR Deployment guide](active-directory-passwords-best-practices.md)
-### [SSPR and Windows 10](active-directory-passwords-login.md)
-### [SSPR Policies ](active-directory-passwords-policy.md)
-### [SSPR Customization](active-directory-passwords-customize.md)
-### [SSPR Data requirements](active-directory-passwords-data.md)
-### [SSPR Reporting](active-directory-passwords-reporting.md)
+### [SSPR How it works](authentication/concept-sspr-howitworks.md)
+### [SSPR Deployment guide](authentication/howto-sspr-deployment.md)
+### [SSPR and Windows 10](authentication/tutorial-sspr-windows.md)
+### [SSPR Policies ](authentication/concept-sspr-policy.md)
+### [SSPR Customization](authentication/concept-sspr-customization.md)
+### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
+### [SSPR Reporting](authentication/howto-sspr-reporting.md)
 ### IT Admins: Reset passwords
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
-### [License SSPR](active-directory-passwords-licensing.md)
-### [Password writeback](active-directory-passwords-writeback.md)
-### [Troubleshoot](active-directory-passwords-troubleshoot.md)
-### [FAQ](active-directory-passwords-faq.md)
+### [License SSPR](authentication/concept-sspr-licensing.md)
+### [Password writeback](authentication/howto-sspr-writeback.md)
+### [Troubleshoot](authentication/active-directory-passwords-troubleshoot.md)
+### [FAQ](authentication/active-directory-passwords-faq.md)
 
 
 ## Manage devices
@@ -217,7 +218,7 @@
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Manage single sign-on for enterprise apps](active-directory-enterprise-apps-manage-sso.md)
 #### [Advanced certificate signing for SAML apps](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Hide an application from a user's experience](active-directory-coreapps-hide-third-party-app.md)
+#### [Hide a third-party app from a user's experience](active-directory-coreapps-hide-third-party-app.md)
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
@@ -279,16 +280,16 @@
 ### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-controls.md)
 
-
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
 #### [Controls](active-directory-conditional-access-controls.md)
-#### [Location condition](active-directory-conditional-access-locations.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
 #### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### [Migrate classic policies](active-directory-conditional-access-migration.md)
 #### [What if tool](active-directory-conditional-access-whatif.md)
+#### Quickstart
+##### [Configure per cloud app MFA](active-directory-conditional-access-app-based-mfa.md)
 #### Tasks
 ##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
 ##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)

@@ -2,14 +2,13 @@
 title: Real-time video analysis with the Computer Vision API | Microsoft Docs
 description: Learn how to perform near-real-time analysis on frames taken from a live video stream by using the Computer Vision API in Cognitive Services.
 services: cognitive-services
-author: JuliaNik
-manager: ytkuo
-
+author: KellyDF
+manager: corncar
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 01/20/2017
-ms.author: juliakuz
+ms.author: kefre
 ---
 
 # How to Analyze Videos in Real-time

@@ -2,14 +2,14 @@
 title: Computer Vision API Java quick starts | Microsoft Docs 
 description: Get information and code samples to help you quickly get started using Java and the Computer Vision API in Cognitive Services. 
 services: cognitive-services 
-author: v-royhar 
-manager: ytkuo 
+author: KellyDF 
+manager: corncar 
 
 ms.service: cognitive-services 
-ms.technology: computer-vision 
+ms.component: computer-vision 
 ms.topic: article
 ms.date: 06/15/2017 
-ms.author: v-royhar 
+ms.author: kefre 
 --- 
 
 # Computer Vision Java Quick Starts

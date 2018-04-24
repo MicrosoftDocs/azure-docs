@@ -69,7 +69,7 @@ with your Azure account credentials.
 ## Create your logic app
 
 1. From the main Azure menu, 
-choose **New** > **Enterprise Integration** > **Logic App**.
+choose **Create a resource** > **Enterprise Integration** > **Logic App**.
 
    ![Create logic app](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
 

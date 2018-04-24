@@ -1,15 +1,15 @@
 ---
 title: Face API Python tutorial | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Learn how to use the Face API with the Python SDK to detect human faces in an image in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
-
+author: SteveMSFT
+manager: corncar
 ms.service: cognitive-services
-ms.technology: face
+ms.component: face-api
 ms.topic: article
-ms.date: 02/24/2017
-ms.author: anroth
+ms.date: 03/01/2018
+ms.author: sbowles
 ---
 
 # Getting Started with Face API in Python Tutorial
@@ -35,10 +35,8 @@ pip install cognitive_face
 ```python
 import cognitive_face as CF
 
-KEY = 'subscription key'  # Replace with a valid subscription key (keeping the quotes in place).
+KEY = '<Subscription Key>'  # Replace with a valid subscription key (keeping the quotes in place).
 CF.Key.set(KEY)
-# If you need to, you can change your base API url with:
-#CF.BaseUrl.set('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/')
 
 BASE_URL = 'https://westus.api.cognitive.microsoft.com/face/v1.0/'  # Replace with your regional Base URL
 CF.BaseUrl.set(BASE_URL)

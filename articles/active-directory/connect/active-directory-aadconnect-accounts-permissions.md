@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 03/27/2018
 ms.author: billmath
 
 ---
@@ -54,7 +54,7 @@ The [account](#active-directory-account) created for reading and writing to AD D
 
 | Permission | Used for |
 | --- | --- |
-| <li>Replicate Directory Changes</li><li>Replicate Directory Changes All |Password sync |
+| <li>Replicate Directory Changes</li><li>Replicate Directory Changes All |Password hash sync |
 | Read/Write all properties User |Import and Exchange hybrid |
 | Read/Write all properties iNetOrgPerson |Import and Exchange hybrid |
 | Read/Write all properties Group |Import and Exchange hybrid |
@@ -83,10 +83,10 @@ Which permissions you require depends on the optional features you enable. If yo
 | Feature | Permissions |
 | --- | --- |
 | msDS-ConsistencyGuid feature |Write permissions to the msDS-ConsistencyGuid attribute documented in [Design Concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
-| Password sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
+| Password hash sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
 | Exchange hybrid deployment |Write permissions to the attributes documented in [Exchange hybrid writeback](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
 | Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
-| Password writeback |Write permissions to the attributes documented in [Getting started with password management](../active-directory-passwords-writeback.md) for users. |
+| Password writeback |Write permissions to the attributes documented in [Getting started with password management](../authentication/howto-sspr-writeback.md) for users. |
 | Device writeback |Permissions granted with a PowerShell script as described in [device writeback](active-directory-aadconnect-feature-device-writeback.md). |
 | Group writeback |Read, Create, Update, and Delete group objects for synchronized **Office 365 groups**.  For more information see [Group Writeback](active-directory-aadconnect-feature-preview.md#group-writeback).|
 
@@ -94,7 +94,7 @@ Which permissions you require depends on the optional features you enable. If yo
 When you upgrade from one version of Azure AD Connect to a new release, you need the following permissions:
 
 >[!IMPORTANT]
->Starting with build 1.1.484, Azure AD Connect introduced a regression bug which requires sysadmin permissions to upgrade the SQL database.  This bug is still present in the latest build 1.1.614.  If you are upgrading to this build, you will need sysadmin permissions.  Dbo permissions are not sufficient.  If you attempt to upgrade Azure AD Connect without having sysadmin permissions, the upgrade will fail and Azure AD Connect will no longer function correctly afterwards.  Microsoft is aware of this and is working to correct this.
+>Starting with build 1.1.484, Azure AD Connect introduced a regression bug which requires sysadmin permissions to upgrade the SQL database.  This bug is corrected in build 1.1.647.  If you are upgrading to this build, you will need sysadmin permissions.  Dbo permissions are not sufficient.  If you attempt to upgrade Azure AD Connect without having sysadmin permissions, the upgrade will fail and Azure AD Connect will no longer function correctly afterwards.  Microsoft is aware of this and is working to correct this.
 
 
 | Principal | Permissions required | Used for |

@@ -21,7 +21,7 @@ ms.author: zsk0646
 ## Key Vault
 Key Vault is generally available in Azure Government.
 
-For details on this service and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.md).
+For details on this service and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.yml).
 
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Key Vault:
@@ -34,27 +34,41 @@ The following information identifies the Azure Government boundary for Azure Key
 
 For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md).
 
-## Azure Active Directory Premium
-Azure Active Directory Premium is in Limited Preview in Azure Government.
+## Azure Active Directory Premium P1 and P2 
 
-For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md). For details on how to sign up for Preview, see the [announcement blog](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/07/azure-active-directory-premium-is-now-in-limited-preview-in-us-government-cloud/).
+Azure Active Directory Premium is available in Azure Government. For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md).  
 
-### Variations
+For a list of features in Azure Active Directory Premium P1, please see [Azure Active Directory Features](https://www.microsoft.com/cloud-platform/azure-active-directory-features) for a list of all capabilities available. This same feature list applies to the US Government cloud instance. 
+All features covered in the above list are available in the US Government cloud instance, with the following known limitations: 
 
-Following Azure Active Directory Premium features are currently not available in Azure Government:
+### Variations 
 
-  * B2B Collaboration [Vote for this feature](https://feedback.azure.com/forums/558487-azure-government/suggestions/20588554-azure-ad-b2b-in-azure-government)
+The following Azure Active Directory Premium P1 features are currently not available in Azure Government: 
 
-  * Group-Based Licensing
+ - B2B Collaboration ([vote for this feature](https://feedback.azure.com/forums/558487-azure-government/suggestions/20588554-azure-ad-b2b-in-azure-government)) 
+ - Group-Based Licensing 
+ - Azure Active Directory Domain Services 
+ - Intune enabled Conditional Access scenarios 
+ - Cloud App Security 
 
-  * Azure Active Directory App Gallery
+The following features have known limitations in Azure Government: 
 
-  * Azure Active Directory Domain Services
+ - Limitations with the Azure Active Directory App Gallery: 
+    - Pre-integrated SAML and password SSO applications from the Azure AD Application Gallery are not yet available. Instead, please use a custom application to support federated single sign-on with SAML or password SSO. 
+    - Rich provisioning connectors for featured apps are not yet available. Instead, please use SCIM for automated provisioning. 
 
-  * Intune enabled Conditional Access scenarios
+ - Limitations with Multi-factor Authentication: 
+   - Oath tokens, SMS, and Voice verification can be used as factors, though SMS and Voice traverse outside the Azure Government Cloud.
+   - Trusted IPs are not supported in Azure Government. Instead, please use Conditional Access policies with named locations to establish when Multi-Factor Authentication should and should not be required based off the user’s current IP address. 
 
+ - Limitations with Azure AD Join: 
+   - Joining cloud and hybrid devices to Azure AD is not yet available 
+   - Features related to Azure AD joined devices not yet available are Desktop SSO, Windows Hello and Self-service BitLocker recovery
+   - MDM auto-enrollment for Windows 10 devices in Azure AD is not yet available 
+   - Enterprise State Roaming for Windows 10 devices is not available  
+   
 ## Azure Multi-Factor Authentication
-For details on this service and how to use it, see the [Azure Multi-Factor Authentication Documentation](../multi-factor-authentication/multi-factor-authentication.md). 
+For details on this service and how to use it, see the [Azure Multi-Factor Authentication Documentation](../active-directory/authentication/multi-factor-authentication.md). 
 
 ## Next Steps
 For supplemental information and updates, subscribe to the

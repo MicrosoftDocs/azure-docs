@@ -2,11 +2,10 @@
 title: Emotion API Java for Android quick start | Microsoft Docs
 description: Get information and a code sample to help you quickly get started using the Emotion API with Java for Android in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
-
+author: anrothMSFT
+manager: corncar
 ms.service: cognitive-services
-ms.technology: emotion
+ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth

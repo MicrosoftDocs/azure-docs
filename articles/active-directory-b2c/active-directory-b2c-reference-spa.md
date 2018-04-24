@@ -3,25 +3,18 @@ title: 'Azure Active Directory B2C: Single-page apps using implicit flow | Micro
 description: Learn how to build single-page apps directly by using OAuth 2.0 implicit flow with Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
+editor: ''
 
-ms.assetid: a45cc74c-a37e-453f-b08b-af75855e0792
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
-ms.author: parakhj
+ms.author: davidmu
 
 ---
 # Azure AD B2C: Single-page app sign-in by using OAuth 2.0 implicit flow
-
-> [!NOTE]
-> This feature is in preview.
-> 
 
 Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, the app is written by using a framework like AngularJS, Ember.js, or Durandal. Single-page apps and other JavaScript apps that run primarily in a browser have some additional challenges for authentication:
 

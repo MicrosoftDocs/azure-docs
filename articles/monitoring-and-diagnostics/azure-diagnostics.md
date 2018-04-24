@@ -72,6 +72,6 @@ Get started at [Monitor a Service Fabric application](../service-fabric/service-
 ## General Azure Diagnostics articles
 * [Azure Diagnostics Schema Configuration](https://msdn.microsoft.com/library/azure/mt634524.aspx) - Learn how to change the schema file to collect and route diagnostics data. Note that you can also use Visual Studio to change the schema file.
 * [How Azure Diagnostics data is stored in Azure Storage](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) - Know the names of the tables and blobs where the diagnostic data is written.
-* Learn to [use Performance Counters in Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
+* Learn to [use Performance Counters in Azure Diagnostics](../cloud-services/diagnostics-performance-counters.md).
 * Learn to [Route Azure diagnostics information to Application Insights](azure-diagnostics-configure-application-insights.md)
 * If you have trouble with diagnostics starting or finding your data in Azure Storage tables, see [TroubleShooting Azure Diagnostics](azure-diagnostics-troubleshooting.md)

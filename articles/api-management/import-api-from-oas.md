@@ -20,6 +20,9 @@ ms.author: apimpm
 
 This article shows how to import an "OpenAPI specification" back-end API residing at http://conferenceapi.azurewebsites.net?format=json. This back-end API is provided by Microsoft and hosted on Azure. The article also shows how to test the APIM API.
 
+> [!IMPORTANT]
+> See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
+
 In this article, you learn how to:
 
 > [!div class="checklist"]
@@ -56,7 +59,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
 ## Test the new APIM API in the Azure portal
 
-Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.  
+Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.
 
 1. Select the API you created in the previous step.
 2. Press the **Test** tab.
@@ -64,14 +67,14 @@ Operations can be called directly from the Azure portal, which provides a conven
     ![Test API](./media/api-management-get-started/test-api.png)
 1. Click on **GetSpeakers**.
 
-    The page displays fields for query parameters but in this case we don't have any. The page also displays fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically. 
+    The page displays fields for query parameters but in this case we don't have any. The page also displays fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically.
 4. Press **Send**.
 
     Backend responds with **200 OK** and some data.
 
 ## <a name="call-operation"> </a>Call an operation from the Developer portal
 
-Operations can also be called **Developer portal** to test APIs. 
+Operations can also be called **Developer portal** to test APIs.
 
 1. Select the API you created in the "Import and publish a back-end API" step.
 2. Press **Developer portal**.
@@ -82,11 +85,11 @@ Operations can also be called **Developer portal** to test APIs.
 3. Select **API**.
 4. Select **Demo Conference API**.
 5. Click **GetSpeakers**.
-    
+
     The page displays fields for query parameters but in this case we don't have any. The page also displays fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically.
 6. Press **Try it**.
 7. Press **Send**.
-    
+
     After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]

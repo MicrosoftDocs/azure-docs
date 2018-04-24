@@ -4,9 +4,8 @@ description: Use machine-assisted video moderation and human review tools to mod
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: sajagtap
@@ -96,4 +95,10 @@ Videos typically have voice over that needs moderation as well for offensive spe
 
 ## Next steps
 
-Get started with the [video moderation quickstart](video-moderation-api.md), the [video review .NET quickstart](video-reviews-quickstart-dotnet.md), and the [video transcript review .NET quickstart](video-transcript-reviews-quickstart-dotnet.md).
+Get started with the [video moderation quickstart](video-moderation-api.md). 
+
+Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) for your human reviewers from your moderated output.
+
+Add [video transcript reviews](video-transcript-reviews-quickstart-dotnet.md) to your video reviews.
+
+Check out the detailed tutorial on how to develop a [complete video moderation solution](video-transcript-moderation-review-tutorial-dotnet.md). 

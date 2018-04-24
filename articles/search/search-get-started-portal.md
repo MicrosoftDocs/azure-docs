@@ -1,20 +1,13 @@
 ---
 title: Azure Search tutorial on indexing, query, and filtering using the portal | Microsoft Docs
 description: In the Azure portal, use predefined sample data to generate an index in Azure Search. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
+manager: cgronlun
 tags: azure-portal
-
-ms.assetid: 
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.date: 12/04/2017
+ms.topic: tutorial
+ms.date: 04/20/2018
 ms.author: heidist
 
 ---
@@ -43,7 +36,7 @@ If you don't want to provision a service immediately, you can watch a 6-minute d
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Open the service dashboard of your Azure Search service. If you didn't pin the service tile to your dashboard, you can find your service this way: 
    
-   * In the Jumpbar, click **More services** at the bottom of the left navigation pane.
+   * In the Jumpbar, click **All services** on the left navigation pane.
    * In the search box, type *search* to get a list of search services for your subscription. Your service should appear in the list. 
 
 ## Check for space
@@ -113,7 +106,7 @@ You now have a search index that's ready to query. **Search explorer** is a quer
 
    ![Index and API commands][6]
 
-3. Click **Set API version** on the command bar to see which REST APIs are available. Preview APIs give you access to new features not yet generally released. For the queries below, use the generally available version (2016-09-01) unless directed. 
+3. Click **Set API version** on the command bar to see which REST APIs are available. Preview APIs give you access to new features not yet generally released. For the queries below, use the generally available version (2017-11-11) unless directed. 
 
     > [!NOTE]
     > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) and the [.NET library](search-howto-dotnet-sdk.md#core-scenarios) are fully equivalent, but **Search explorer** is only equipped to handle REST calls. It accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document](https://docs.microsoft.com/rest/api/searchservice/search-documents) operations.

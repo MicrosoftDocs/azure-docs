@@ -2,11 +2,10 @@
 title: Real-time video analysis with the Emotion API | Microsoft Docs
 description: Use the Emotion API in Cognitive Services to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
-
+author: anrothMSFT
+manager: corncar
 ms.service: cognitive-services
-ms.technology: emotion
+ms.component: emotion-api
 ms.topic: article
 ms.date: 01/25/2017
 ms.author: anroth

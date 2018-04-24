@@ -4,8 +4,8 @@ description: 'Learn how to copy blob data in Azure Data Factory. Use our sample:
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: bec8160f-5e07-47e4-8ee1-ebb14cfb805d
 ms.service: data-factory
@@ -181,8 +181,8 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
     ```
 ### Create the data factory
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **+ NEW** from the top-left corner, click **Intelligence + analytics**, and click **Data Factory**.
-3. In the **New data factory** blade:   
+2. Click **Create a resource** from the top-left corner, click **Intelligence + analytics**, and click **Data Factory**.
+3. In the **New data factory** pane:   
     1. Enter **ADFBlobConnectorDF** for the **name**. The name of the Azure data factory must be globally unique. If you receive the error: `*Data factory name “ADFBlobConnectorDF” is not available`, change the name of the data factory (for example, yournameADFBlobConnectorDF) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
     2. Select your Azure **subscription**.
     3. For Resource Group, select **Use existing** to select an existing resource group (or) select **Create new** to enter a name for a resource group.
