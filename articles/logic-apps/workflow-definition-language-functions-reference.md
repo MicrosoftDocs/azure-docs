@@ -38,7 +38,7 @@ or values from other JSON name-and-value pairs,
 which you can assign to an expression. 
 By default, this function references the entire action object, 
 but you can optionally specify a property whose value that you want. 
-See also [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions).
+See also [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
 
 You can use the `action()` function only in these places: 
 
@@ -185,7 +185,7 @@ the function references the entire action object,
 but you can optionally specify a property whose value that you want. 
 For shorthand versions, see [actionBody()](#actionBody), 
 [actionOutputs()](#actionOutputs), and [body()](#body). 
-For the current action, see [action](#action).
+For the current action, see [action()](#action).
 
 > [!NOTE] 
 > Previously, you could use the `actions()` function or 
