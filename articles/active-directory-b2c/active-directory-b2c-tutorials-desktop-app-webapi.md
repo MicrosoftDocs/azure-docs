@@ -61,7 +61,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
 
 Registered APIs are displayed in the applications list for the Azure AD B2C tenant. Select your web API from the list. The web API's property pane is displayed.
 
-![Web API properties](./media/active-directory-b2c-tutorials-web-api/b2c-web-api-properties.png)
+![Web API properties](media/active-directory-b2c-tutorials-desktop-app-webapi/b2c-web-api-properties.png)
 
 Make note of the **Application Client ID**. The ID uniquely identifies the API and is needed when configuring the API later in the tutorial.
 
@@ -79,7 +79,7 @@ Click **Published scopes (Preview)**.
 
 To configure scopes for the API, add the following entries. 
 
-![scopes defined in web api](media/active-directory-b2c-tutorials-web-api/scopes-defined-in-web-api.png)
+![scopes defined in web api](media/active-directory-b2c-tutorials-desktop-app-webapi/scopes-defined-in-web-api.png)
 
 | Setting      | Suggested value  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
@@ -101,7 +101,7 @@ To call a protected web API from an app, you need to grant your app permissions 
 
 4. In the **Select Scopes** dropdown, select the scopes you defined in the web API registration.
 
-    ![selecting scopes for app](media/active-directory-b2c-tutorials-web-api/selecting-scopes-for-app.png)
+    ![selecting scopes for app](media/active-directory-b2c-tutorials-desktop-app-webapi/selecting-scopes-for-app.png)
 
 5. Click **OK**.
 
