@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Solution Accelerators Documentation - Tutorials, API Reference | Microsoft Docs
-description: Documentation for Azure IoT Solution Accelerators includes Getting started guides, How-to articles, Tutorials, and API Reference.
+title: Azure IoT Suite Documentation - Tutorials, API Reference | Microsoft Docs
+description: Documentation for Azure IoT Suite includes Getting started guides, How-to articles, Tutorials, and API Reference.
 services: iot-suite
 author: czeumault
 manager: carolz
@@ -11,23 +11,23 @@ ms.date: 11/27/2017
 ms.author: carolz
 ---
 
-# IoT Solution Accelerators Documentation
+# IoT Suite Documentation
 
-Use the solution accelerators to accelerate the development of your Internet of Things (IoT) solution. Add new devices—and connect existing ones—using device SDKs for multiple platforms, including Linux, Windows, and real-time operating systems. Easily scale from just a few sensors to millions of simultaneously connected devices, and rely on the global availability of Azure&mdash;no matter how large or small your project.
+Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions, and accelerate the development of your Internet of Things (IoT) solution. Add new devices—and connect existing ones—using device SDKs for multiple platforms, including Linux, Windows, and real-time operating systems. Easily scale from just a few sensors to millions of simultaneously connected devices, and rely on the global availability of Azure&mdash;no matter how large or small your project.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/iot-suite/iot-suite-what-are-solution-accelerators">
+        <a href="/azure/iot-suite/iot-suite-what-are-preconfigured-solutions">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/iot-suite.svg" alt="Learn about IoT solution accelerators" />
+                            <img src="media/index/iot-suite.svg" alt="Learn about IoT Suite" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about IoT solution accelerators</h3>
+                        <h3>Learn about IoT Suite</h3>
                     </div>
                 </div>
             </div>
@@ -59,11 +59,11 @@ Use the solution accelerators to accelerate the development of your Internet of 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="Deploy the remote monitoring solution accelerator" />
+                            <img src="media/index/get-started.svg" alt="Deploy the remote monitoring preconfigured solution" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Deploy the remote monitoring solution accelerator</h3>
+                        <h3>Deploy the remote monitoring preconfigured solution</h3>
                     </div>
                 </div>
             </div>
