@@ -36,7 +36,7 @@ sections:
       - image:
           src: media/index/logo_ruby.svg
     rows:
-        values:
+      - values:
         - html: <a href="csharp">C#</a>
         - html: <a href="java">Java</a>
         - html: <a href="nodejs">Node.js</a>
@@ -48,7 +48,7 @@ sections:
   - type: paragraph
     text: 'Develop applications using the Bing News Search API:'
   - type: paragraph
-  - html: <p><a href="tutorial-bing-news-search-single-page-app">Single-Page Web app</a> | <a href="tutorial-bing-news-search-single-page-app-source">Source code</a></p>
+    html: <p><a href="tutorial-bing-news-search-single-page-app">Single-Page Web app</a> | <a href="tutorial-bing-news-search-single-page-app-source">Source code</a></p>
 - title: Reference
   items:
   - type: list
