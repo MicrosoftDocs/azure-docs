@@ -17,7 +17,7 @@ ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
-ms.custom:
+ms.custom: mvc
 
 ---
 

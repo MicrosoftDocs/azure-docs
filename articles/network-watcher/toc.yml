@@ -11,7 +11,7 @@
     href: diagnose-vm-network-traffic-filtering-problem.md
   - name: Diagnose VM traffic filter problem - PowerShell
     href: diagnose-vm-network-traffic-filtering-problem-powershell.md
-  - name: Diagnose VM traffic filter problem - Azure CLI]
+  - name: Diagnose VM traffic filter problem - Azure CLI
     href: diagnose-vm-network-traffic-filtering-problem-cli.md
 - name: Tutorials
   items:

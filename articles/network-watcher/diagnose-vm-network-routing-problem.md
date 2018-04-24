@@ -114,4 +114,4 @@ In this tutorial, you created a VM and diagnosed network routing from the VM. Yo
 For outbound VM connections, you can also determine the latency and allowed and denied network traffic between the VM and an endpoint using Network Watcher's [connection troubleshoot](network-watcher-connectivity-portal.md) capability. Learn how you can monitor communication between a VM and an endpoint, such as an IP address or URL, over time using the Network Watcher connection monitor capability.
 
 > [!div class="nextstepaction"]
-> [Monitor a network connection](Monitor a network connection)
+> [Monitor a network connection](connection-monitor.md)

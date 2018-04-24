@@ -4,7 +4,7 @@ title: Network Watcher
 metadata:
   document_id: 
   title: Network Watcher 
-  meta.description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture, and NSG flows logs, and to diagnose problems with traffic filtering and routing, and monitor connections.
+  meta.description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
   services: network-watcher
   author: jdial
   manager: jeconnoc
@@ -15,7 +15,7 @@ metadata:
   ms.date: 04/24/2018
   ms.author: jdial
 abstract:
-  description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture, and NSG flows logs, and to diagnose problems with traffic filtering and routing, and monitor connections.
+  description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
 sections:
 - title: 5-Minute Quickstarts
   items:
