@@ -1,8 +1,5 @@
 # Cluster Management
 
-Cluster Management
-==================
-
 Clusters can be defined in a text file and imported into CycleCloud via a command line tool.
 When a cluster is imported, it is in the ''Off'' state. When the cluster is started,
 CycleCloud runs through the orchestration sequence for each node defined in the cluster:
@@ -38,7 +35,7 @@ create additional clusters through the web interface.
 You may log on to a node that is in the “Preparing” or “Ready” phase. CycleCloud provides two convenient
 methods to connect to instances: the “Connect” button on the Nodes tab in the web interface, and via the
 command line tool. From the web user interface, the “Connect” button displays instructions on initiating
-ssh or RDP connections. The command line command ''cyclecloud connect <nodename>'' initiates an ssh
+ssh or RDP connections. The command line command ``''cyclecloud connect <nodename>`` initiates an ssh
 connection on Linux, or an RDP session on Windows.
 
 Finally, terminating the cluster will stop and remove the instances and delete any non­-persistent
@@ -47,8 +44,8 @@ remain in the cluster in the Off state. Terminating is also an orchestration pro
 status of Terminating, then Off. If there is an error during the process, that node will be marked
 as Failed, and can be retried.
 
-Creating Clusters
-------------------
+## Creating Clusters
+
 As stated above, clusters can be defined in a template file and created using the command line interface. Another option is to create a new cluster using the web interface. To create a new cluster, click the large **+** in the bottom left corner of the page. You will be prompted to select your cluster type from the list of Cycle-supported clusters. Once selected, you will need to enter or select a number of variables for your cluster, starting with your Cloud Provider, credentials, and region. Click **Next** to continue, or save/cancel your cluster.
 
 On the Cluster Software screen, you will select the OS of the manager and execute region for your cluster. Use the file picker to select the Cluster-Init specification file(s) to be used. You can have more than one spec file. Enter the path of the local keypair to allow CycleCloud the access required to run your job(s).
@@ -57,16 +54,14 @@ The Compute Backend parameters allow you to select the instance types needed for
 
 Check the box for Return Proxy on the Networking screen to have the node act as a proxy for communication from the cluster to CycleCloud. Lastly, for Azure users, select a Subnet ID for your Virtual Network Configuration. Click Save to finish the cluster creation.
 
-Starting Clusters
-------------------
+## Starting Clusters
 
 Clusters are started through the web interface by clicking the “Start” button, or from the
 command line with ``cyclecloud start_cluster <clustername>``. By default, all nodes defined in the
 cluster template will be started, but nodearrays will only start instances if the InitialCoreCount
 setting is non­-zero.
 
-Adding and Removing Nodes
---------------------------
+## Adding and Removing Nodes
 
 Using autoscale will cause the cluster to add or remove nodes from a nodearray based on the
 current workload. You can also add or remove nodes manually when desired. To add
@@ -79,15 +74,13 @@ click the “remove” button. To remove nodes from the command line, use ``cycl
 remove_node <clustername nodename>``. To remove multiple nodes, filter expressions can be
 provided.
 
-Terminating Clusters
---------------------
+## Terminating Clusters
 
 Terminating a cluster will terminate all instances running in that cluster. Terminated
 clusters through the web interface by clicking the “Terminate" link or from the
 command line with ``cyclecloud terminate_cluster <clustername>``.
 
-Reimporting Clusters
---------------------
+## Reimporting Clusters
 
 An existing cluster can be reimported by appending the ``--force`` argument to the command
 used to import the cluster. Any configuration changes will be applied to new instances, but not

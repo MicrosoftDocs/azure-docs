@@ -9,15 +9,15 @@ The Jetpack installer includes:
 
 All Jetpack files are installed inside a singular directory tree.
 
-Windows: C:\cycle\jetpack
-Linux: /opt/cycle/Jetpack
+- Windows: C:\cycle\jetpack
+- Linux: /opt/cycle/Jetpack
 
 In addition to creating this directory, the Jetpack installer:
 
   - Creates system init startup scripts which configure an instance as a
     cluster member.
   - Creates udev rules on Linux.
-  - Creates the 'cyclecloud' user with administrative sudo privileges.
+  - Creates the *cyclecloud* user with administrative sudo privileges.
   - Installs the [HealthCheck
     service](https://docs.cyclecomputing.com/admin-guide-v6.5.6/healthcheck)
   - Sets the environment variable `CYCLECLOUD_HOME`.
@@ -79,7 +79,7 @@ CycleCloud.
 | `jetpack log`       | Log a message to CycleCloud cluster UI.                  |
 | `jetpack send`      | Send an arbitrary AMQP message to the CycleCloud server. |
 
-Jetpack Subcommands
+# Jetpack Subcommands
 
 ## jetpack config
 
