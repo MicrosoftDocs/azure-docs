@@ -44,9 +44,9 @@
       - name: Azure Service Bus
         href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/context/msi-context
       - name: Azure App Service and Functions
-        href: /azure/app-service/app-service-managed-service-identity
+        href: /azure/app-service/app-service-managed-service-identity?context=azure/active-directory/context/msi-context
       - name: Azure Event Hubs
-        href: /azure/event-hubs/event-hubs-managed-service-identity
+        href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/context/msi-context
     - name: How-to guides
       items:
       - name: Configure Identity for an Azure VM

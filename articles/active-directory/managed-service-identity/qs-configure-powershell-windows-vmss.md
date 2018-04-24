@@ -96,6 +96,7 @@ If you have a Virtual Machine Scale Set that no longer needs the system assigned
     ```powershell
     Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"
     ```
+
 ## User assigned identity
 
 In this section, you learn how to add and remove a user assigned identity from a VMSS using Azure PowerShell.
@@ -117,7 +118,7 @@ To assign a user assigned identity to an existing Azure VMSS:
 2. First retrieve the VM properties using the `Get-AzureRmVM` cmdlet. Then to assign a user assigned identity to the Azure VMSS, use the `-IdentityType` and `-IdentityID` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet. Replace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` with your own values.
 
    ```powershell
-   $vm = Get-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME>
+   $vmss = Get-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME>
    Update-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -VM $vmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"
    ```
 
@@ -159,7 +160,6 @@ Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -VirtualMachi
   - [Create a Windows virtual machine with PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
   - [Create a Linux virtual machine with PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 
 
-Use the following comments section to provide feedback and help us refine and shape our content.
 
 
 

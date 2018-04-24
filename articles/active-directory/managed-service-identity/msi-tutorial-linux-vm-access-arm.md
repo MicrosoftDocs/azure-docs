@@ -16,7 +16,7 @@ ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# Use a user-assigned Managed Service Identity (MSI) on a Linux VM, to access Azure Resource Manager
+# Use a user assigned identity on a Linux VM, to access Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -27,7 +27,7 @@ Managed Service Identities are automatically managed by Azure. They enable authe
 You learn how to:
 
 > [!div class="checklist"]
-> * Create a user-assigned identity
+> * Create a user assigned identity
 > * Assign the user assigned identity to a Linux VM 
 > * Grant the user assigned identity access to a Resource Group in Azure Resource Manager 
 > * Get an access token using the user assigned identity and use it to call Azure Resource Manager 
@@ -58,7 +58,7 @@ For this tutorial, you first create a new Linux VM. You can also opt to use an e
 5. To select a new **Resource Group** you would like the virtual machine to be created in, choose **Create New**. When complete, click **OK**.
 6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. On the settings blade, keep the defaults and click **OK**.
 
-## Create a user-assigned MSI
+## Create a user assigned identity
 
 1. If you are using the CLI console (instead of an Azure Cloud Shell session), start by signing in to Azure. Use an account that is associated with the Azure subscription under which you would like to create the new user assigned identity:
 
@@ -99,7 +99,7 @@ Assign the user-assigned MSI to your Linux VM using [az vm assign-identity](/cli
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
 ```
 
-## Grant your user-assigned identity access to a Resource Group in Azure Resource Manager 
+## Grant your user assigned identity access to a Resource Group in Azure Resource Manager 
 
 Managed Service Identity (MSI) provides identities that your code can use to request access tokens to authenticate to resource APIs that support Azure AD authentication. In this tutorial, your code will access the Azure Resource Manager API.  
 

@@ -94,7 +94,7 @@ Type: Microsoft.ManagedIdentity/userAssignedIdentities
 }
 ```
 
-## Assign the user assigned MSI to a Windows VM
+## Assign the user assigned identity to a Windows VM
 
 A user assigned identity can be used by clients on multiple Azure resources. Use the following commands to assign the user assigned identity to a single VM. Use the `Id` property returned in the previous step for the `-IdentityID` parameter.
 
@@ -147,6 +147,7 @@ For the remainder of the tutorial, you will work from the VM we created earlier.
     $content = $response.Content | ConvertFrom-Json
     $ArmToken = $content.access_token
     ```
+
 ## Read the properties of a Resource Group
 
 Use the access token retrieved in the previous step to access Azure Resource Manager, and read the properties of the Resource Group you granted your user assigned identity access. Replace <SUBSCRIPTION ID> with the subscription id of your environment.
