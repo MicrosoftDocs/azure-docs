@@ -18952,11 +18952,6 @@
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
             "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-b2b-hybrid-on-premises-to-cloud.md",
-            "redirect_url": "/azure/active-directory/active-directory-b2b-hybrid-organizations",
-            "redirect_document_id": true
         }
     ]
 }
