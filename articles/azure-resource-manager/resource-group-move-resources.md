@@ -118,6 +118,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Cognitive Services
 * Content Moderator
 * Data Catalog
+* Data Factory - V1 can be moved, but moving V2 (preview) is not supported
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -163,7 +164,6 @@ The services that currently do not enable moving a resource are:
 * BizTalk Services
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
 * Container Service
-* Data Factory
 * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
 * Express Route
