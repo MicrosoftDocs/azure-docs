@@ -128,9 +128,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| firstname 		  | user.givenname |
 	| lastname 		  | user.surname |
 	| username       | user.mail    |
-	| name       | user.userprincipalname    |
 	
-	a. Remove existing attributes and add new attributes. Click **Add attribute** to open the **Add Attribute** dialog.
+	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
 	![Configure Single Sign-On Add](./media/active-directory-saas-infogix-tutorial/tutorial_attribute_04.png)
 
