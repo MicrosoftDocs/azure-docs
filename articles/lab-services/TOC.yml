@@ -10,7 +10,7 @@
     items: 
     - name: 1. Set up a custom lab
       href: tutorial-create-custom-lab.md 
-    - name: 2. Access and use a custom lab
+    - name: 2. Access a custom lab
       href: tutorial-use-custom-lab.md
   - name: Classroom labs
     items: 
@@ -18,7 +18,7 @@
       href: tutorial-setup-lab-account.md
     - name: 2. Set up a classroom lab
       href: tutorial-setup-classroom-lab.md 
-    - name: 3. Connect to a VM in the classroom lab
+    - name: 3. Access a classroom lab
       href: tutorial-connect-virtual-machine-classroom-lab.md      
 - name: Samples
   items:

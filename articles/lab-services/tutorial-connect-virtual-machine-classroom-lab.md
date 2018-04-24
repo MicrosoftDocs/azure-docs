@@ -1,5 +1,5 @@
 ---
-title: Connect to a VM in a classroom lab in Azure Lab Services | Microsoft Docs
+title: Access a classroom lab in Azure Lab Services | Microsoft Docs
 description: In this tutorial, you access virtual machines in a classroom lab that's set up by a professor. 
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 04/09/2018
 ms.author: spelluru
 
 ---
-# Tutorial: Connect to a VM in a classroom lab in Azure Lab Services
+# Tutorial: Access a classroom lab in Azure Lab Services
 In this tutorial, you, as a student, connect to a virtual machine (VM) in a classroom lab. 
 
 In this tutorial, you do the following actions:
