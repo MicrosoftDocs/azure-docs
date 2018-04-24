@@ -22,7 +22,7 @@ This article explains how a tenant admin can add privacy-related info to an orga
 
 We strongly recommend you add both your global privacy contact and your organization’s privacy statement, so your internal employees and external guests can review your policies. For info about what to include in your privacy statement, see the <!--need link from Gregg Brown (CELA)--> article. 
 
-<!--not yet in master[!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]-->
+[!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
 **To access the Properties area to add your privacy info**
 
