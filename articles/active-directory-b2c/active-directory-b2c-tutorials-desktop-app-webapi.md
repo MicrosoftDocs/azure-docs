@@ -137,7 +137,7 @@ var policyName = "B2C_1_SiUpIn";  // Sign-in / sign-up policy name
 
 Run the Node.js web API:
 
-1. Launch a Node.js command prompt.
+1. Launch a **Node.js command prompt**.
 2. Change to the directory containing the Node.js sample. For example `cd c:\active-directory-b2c-javascript-nodejs-webapi`
 3. Run the following commands:
     ```
