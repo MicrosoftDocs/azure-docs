@@ -76,7 +76,7 @@ This article describes how to create and configure a classroom lab, view all cla
     ![All labs](./media/how-to-manage-classroom-labs/all-labs.png)
 3. Use the drop-down list at the top to select a different lab account. You see labs in the selected lab account. 
 
-## Deleete a lab
+## Delete a lab
 1. On the tile for the lab, select three dots (...) in the corner. 
 
     ![Select the lab](./media/how-to-manage-classroom-labs/select-three-dots.png)
