@@ -109,12 +109,16 @@
       href: luis-concept-entity-types.md
     - name: Utterances
       href: luis-concept-utterance.md
+    - name: Roles
+      href: luis-concept-roles.md
   - name: Predictions
     items:
     - name: Prediction score
       href: luis-concept-prediction-score.md
     - name: Features
       href: luis-concept-feature.md
+    - name: Patterns
+      href: luis-concept-patterns.md
   - name: Data management
     items: 
     - name: Altering data

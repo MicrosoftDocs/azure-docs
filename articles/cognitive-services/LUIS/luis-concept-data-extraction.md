@@ -416,6 +416,110 @@ Another example utterance, using a synonym for Paris:
   ]
 }
 ```
+## Pattern roles data
+Roles are contextual differences of entities. 
+
+```JSON
+{
+  "query": "move bob jones from seattle to redmond",
+  "topScoringIntent": {
+    "intent": "MoveAssetsOrPeople",
+    "score": 0.9999998
+  },
+  "intents": [
+    {
+      "intent": "MoveAssetsOrPeople",
+      "score": 0.9999998
+    },
+    {
+      "intent": "None",
+      "score": 1.02040713E-06
+    },
+    {
+      "intent": "GetEmployeeBenefits",
+      "score": 6.12244548E-07
+    },
+    {
+      "intent": "GetEmployeeOrgChart",
+      "score": 6.12244548E-07
+    },
+    {
+      "intent": "FindForm",
+      "score": 1.1E-09
+    }
+  ],
+  "entities": [
+    {
+      "entity": "bob jones",
+      "type": "Employee",
+      "startIndex": 5,
+      "endIndex": 13,
+      "score": 0.922820568,
+      "role": ""
+    },
+    {
+      "entity": "seattle",
+      "type": "Location",
+      "startIndex": 20,
+      "endIndex": 26,
+      "score": 0.948008537,
+      "role": "Origin"
+    },
+    {
+      "entity": "redmond",
+      "type": "Location",
+      "startIndex": 31,
+      "endIndex": 37,
+      "score": 0.7047979,
+      "role": "Destination"
+    }
+  ]
+}
+```
+
+## Pattern.any entity data
+Pattern.any entities are variable-length entities used in template utterances of a [pattern](luis-concept-patterns.md). 
+
+```JSON
+{
+  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
+  "topScoringIntent": {
+    "intent": "FindForm",
+    "score": 0.999999464
+  },
+  "intents": [
+    {
+      "intent": "FindForm",
+      "score": 0.999999464
+    },
+    {
+      "intent": "GetEmployeeBenefits",
+      "score": 4.883697E-06
+    },
+    {
+      "intent": "None",
+      "score": 1.02040713E-06
+    },
+    {
+      "intent": "GetEmployeeOrgChart",
+      "score": 9.278342E-07
+    },
+    {
+      "intent": "MoveAssetsOrPeople",
+      "score": 9.278342E-07
+    }
+  ],
+  "entities": [
+    {
+      "entity": "understand your responsibilities as a member of the community",
+      "type": "FormName",
+      "startIndex": 18,
+      "endIndex": 78,
+      "role": ""
+    }
+  ]
+}
+```
 
 
 ## Sentiment analysis

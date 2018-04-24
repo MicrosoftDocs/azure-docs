@@ -12,7 +12,6 @@ ms.author: v-geberr
 ---
 # Entities in LUIS
 
-
 Entities are key data in your application’s domain.<!-- An entity represents a class including a collection of similar objects (places, things, people, events or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Bookflight" intent). 
 --> 
 ## Entities represent data
@@ -30,6 +29,8 @@ If your utterances do not have details your bot needs to continue, you do not ne
 
 If you are not sure how you would use the information, add a few common prebuilt entities such as datetimeV2, ordinal, email, and phone number.
 
+All intents, including the **None** intent, should have entities labeled. This helps LUIS learn more about where the entities are in the utterances and what words are around the entities. 
+
 ## Entities are shared across intents
 Entities are shared among intents. They don't belong to any single intent. Intents and entities can be semantically associated but it is not an exclusive relationship.
 
@@ -42,10 +43,11 @@ LUIS offers many types of entities; prebuilt entities, custom machine learned en
 | -- |--|--|--|
 | **Prebuilt** |[Custom](#prebuilt)| |  **Definition**<br>Built-in types that represent common concepts like numbers, dates, and email. <br><br>Prebuilt entity names are reserved. <br><br>All prebuilt entities that are added to the application are returned in the [endpoint](luis-glossary.md#endpoint) query. For more information, see [Prebuilt entities](./Pre-builtEntities.md). <!-- TBD: is this where the Sentiment Analysis Key phrase extraction entity concept should be? --><br/><br/>[Example response for entity](luis-concept-data-extraction.md#prebuilt-entity-data)|
 |<!-- added week of 3/21/08 --> **Regular Expression** | [RegEx](#regex)||**Definition**<br>Custom regular expression that ignores case and ignores cultural variant.  <br><br>Regular expression matching is applied after spell-check alterations. <br><br>If the regular expression is too complex, such as using many brackets, you are not able to add the expression to the model. <br><br>**Example**<br>`kb[0-9]{6,}` matches kb123456.<br/><br/>[Quickstart](luis-quickstart-intents-regex-entity.md)<br>[Example response for entity](luis-concept-data-extraction.md)|
-| **List** | [Exact match](#exact-match)|| **Definition**<br>List entities represent a fixed, closed set (white list) of related words in your system. <br><br>Each list entity may have one or more forms. Best used for a known set of variations on ways to represent the same concept.<br/><br/> LUIS does not discover additional values for list entities. <br/><br>If there is more than one list entity with the same value, each entity is returned in the endpoint query. <br/><br/>[Quickstart](luis-quickstart-intent-and-list-entity.md)<br>[Example response for entity](luis-concept-data-extraction.md#list-entity-data)| 
 | **Simple** | [Machine-learned](#machine-learned) | ✔ | **Definition**<br>A simple entity is a generic entity that describes a single concept and is learned from machine-learned context.<br/><br/>[Quickstart](luis-quickstart-primary-and-secondary-data.md)<br>[Example response for entity](luis-concept-data-extraction.md#simple-entity-data)|  
-| **Hierarchical** | [Machine-learned](#machine-learned) |✔ | **Definition**<br>A hierarchical entity is a category of contextually learned entities.<br><br>**Example**<br>Given a hierarchical entity of `Location` with children `ToLocation` and `FromLocation`, each child can be determined based on the **context** within the utterance. In the utterance, `Book 2 tickets from Seattle to New York`, the `ToLocation` and `FromLocation` are contextually different based the words around them. <br/><br/>**Do not use if**<br>If you are looking for an entity that has exact text matches for children regardless of context, you should use a List entity. If you are looking for a parent-child relationship with other entity types, you should use the Composite entity.<br/><br/>[Quickstart](luis-quickstart-intent-and-hier-entity.md)<br>[Example response for entity](luis-concept-data-extraction.md#hierarchical-entity-data)|
+| **List** | [Exact match](#exact-match)|| **Definition**<br>List entities represent a fixed, closed set of related words in your system. <br><br>Each list entity may have one or more forms. Best used for a known set of variations on ways to represent the same concept.<br/><br/> LUIS does not discover additional values for list entities. <br/><br>If there is more than one list entity with the same value, each entity is returned in the endpoint query. <br/><br/>[Quickstart](luis-quickstart-intent-and-list-entity.md)<br>[Example response for entity](luis-concept-data-extraction.md#list-entity-data)| 
+| **Pattern.any** | [Mixed](#mixed) | ✔|**Definition**<br>Patterns.any is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.  <br><br>**Example**<br>Given an utterance search for books based on title, the pattern.any extracts the complete title. A template utterance using pattern.any is `Who wrote {BookTitle}?`.<br/><br/>[Tutorial](luis-tutorial-pattern.md)<br>[Example response for entity](luis-concept-data-extraction.md#composite-entity-data)|  
 | **Composite** | [Machine-learned](#machine-learned) | ✔|**Definition**<br>A composite entity is made up of other entities, such as prebuilt entities, and simple. The separate entities form a whole entity. List entities are not allowed in composite entities. <br><br>**Example**<br>A composite entity named PlaneTicketOrder may have child entities prebuilt `number` and `ToLocation`. <br/><br/>[Tutorial](luis-tutorial-composite-entity.md)<br>[Example response for entity](luis-concept-data-extraction.md#composite-entity-data)|  
+| **Hierarchical** | [Machine-learned](#machine-learned) |✔ | **Definition**<br>A hierarchical entity is a category of contextually learned entities.<br><br>**Example**<br>Given a hierarchical entity of `Location` with children `ToLocation` and `FromLocation`, each child can be determined based on the **context** within the utterance. In the utterance, `Book 2 tickets from Seattle to New York`, the `ToLocation` and `FromLocation` are contextually different based the words around them. <br/><br/>**Do not use if**<br>If you are looking for an entity that has exact text matches for children regardless of context, you should use a List entity. If you are looking for a parent-child relationship with other entity types, you should use the Composite entity.<br/><br/>[Quickstart](luis-quickstart-intent-and-hier-entity.md)<br>[Example response for entity](luis-concept-data-extraction.md#hierarchical-entity-data)|
 
 <a name="prebuilt"></a>
 **Prebuilt** entities are custom entities provided by LUIS. Some of these entities are defined in the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. There are many [examples](https://github.com/Microsoft/Recognizers-Text/tree/master/Specs) of the regular expressions in the /Specs directory for the supported cultures. If your specific culture or regular expression isn't currently supported, contribute to the project. 
@@ -58,6 +60,10 @@ LUIS offers many types of entities; prebuilt entities, custom machine learned en
 
 <a name="exact-match"></a>
 **Exact-match** entities use the text provided in the entity to make an exact text match.
+
+<a name="mixed"></a>
+**Mixed** entities use a combination of entity detection methods.
+
 
 ## Entity limits
 Review [limits](luis-boundaries.md#model-boundaries) to understand how many of each type of entity you can add to a model.

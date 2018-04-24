@@ -661,11 +661,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/active-directory/active-directory-saas-zendesk-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/active-directory/active-directory-saas-samanage-provisioning-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": false
@@ -3933,6 +3928,11 @@
         {
             "source_path": "articles/container-service/container-service-setup-ci-cd.md",
             "redirect_url": "https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/jenkins/azure-container-agents-plugin-run-container-as-an-agent.md",
+            "redirect_url": "/azure/container-instances/container-instances-jenkins",
             "redirect_document_id": false
         },
         {
@@ -18886,6 +18886,11 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-b2b-hybrid-on-premises-to-cloud.md",
+            "redirect_url": "/azure/active-directory/active-directory-b2b-hybrid-organizations",
             "redirect_document_id": true
         }
     ]
