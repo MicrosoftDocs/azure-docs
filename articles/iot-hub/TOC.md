@@ -156,6 +156,7 @@
 ### [Usage metrics](iot-hub-metrics.md)
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Configure IP filtering](iot-hub-ip-filtering.md)
+### [Configure devices at scale](iot-hub-ota-config.md)
 
 ## Secure
 ### [Security from the ground up](iot-hub-security-ground-up.md)

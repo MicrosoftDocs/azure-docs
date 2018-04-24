@@ -19,13 +19,13 @@ ms.author: chrisgre
 # Configure and monitor IoT devices at scale - preview
 
 Over-the-air configuration in Azure IoT Hub provides the ability to perform IoT device configuration at scale.  You can build the set of golden configurations for your IoT solution, configure sets of devices, summarize completion and compliance, ensure devices are configured as they go in and out of scope, and roll out configurations in a phased approach.
-Over-the-air configuration works by updating a set of device twins with desired properties and reporting a summary based on device twin reported properties.  It introduces a new class and JSON document called a Configuration which has three major parts:
+Over-the-air configuration works by updating a set of device twins with desired properties and reporting a summary based on device twin reported properties.  It introduces a new class and JSON document called a _Configuration_ which has three parts:
 
-* The **target condition** defines the scope of device twins that will be updated. The target condition is specified as a query on device twin tags and/or reported properties.
+* The **target condition** defines the scope of device twins to be updated. The target condition is specified as a query on device twin tags and/or reported properties.
 
 * The **target content** defines the desired properties to be added or updated in the targeted device twins. The content includes a path to the section of desired properties to be changed.
 
-* The **metrics** define the summary counts of various configuration states such as Success, In Progress, and Error. Custom metrics are specified as queries on device twin reported properties.  System metrics are default metrics that measure twin update status, such as the number of device twins that are targeted and the number of twins that have been successfully updated. 
+* The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on device twin reported properties.  System metrics are default metrics that measure twin update status, such as the number of device twins that are targeted and the number of twins that have been successfully updated. 
 
 ## Implement device twins to configure devices
 
@@ -60,13 +60,8 @@ There are five steps to create a configuration. The following sections walk thro
 
 ### Step 2: Specify Settings
 
-This section specifies the target content to be set in targeted device twins. There are two inputs for each set of settings. The first is the device twin path, which is the path to the JSON section within the twin desired properties that will be set.  The second is the JSON content to be inserted in that section. For example, set the Device Twin Path to `properties.desired.chiller-water` and set the Content to:
-```json
-{
-	"temperature": "66",
-	"pressure": "28"
-}
-```
+This section specifies the target content to be set in targeted device twins. There are two inputs for each set of settings. The first is the device twin path, which is the path to the JSON section within the twin desired properties that will be set.  The second is the JSON content to be inserted in that section. For example, set the Device Twin Path and Content to the following:
+![Set the Device Twin Path and Content](/media/iot-hub-ota-config/create-configuration-full-browser.png)
 
 You can also set individual settings by specifying the entire path in the Device Twin Path and the value in the Content with no brackets. For example, set the Device Twin Path to `properties.desired.chiller-water.temperature` and set the Content to: `66`
 
@@ -154,3 +149,25 @@ When you delete a configuration, any device twins take on their next highest pri
 1. A prompt will ask you to confirm.
 
 ## Next steps
+In this article, you learned how configure and monitor IoT devices at scale. Follow these links to learn more about managing Azure IoT Hub:
+
+* [Manage your IoT Hub device identities in bulk][lnk-bulkIDs]
+* [IoT Hub metrics][lnk-metrics]
+* [Operations monitoring][lnk-monitor]
+
+To further explore the capabilities of IoT Hub, see:
+
+* [IoT Hub developer guide][lnk-devguide]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
+
+To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
+
+* [Azure IoT Hub Device Provisioning Service][lnk-dps]
+
+[lnk-bulkIDs]: iot-hub-bulk-identity-mgmt.md
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

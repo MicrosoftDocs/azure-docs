@@ -63,6 +63,9 @@ A cloud gateway enables connectivity for devices that cannot connect directly to
 ## Cloud-to-device
 Refers to messages sent from an IoT hub to a connected device. Often, these messages are commands that instruct the device to take an action. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
+## Configuration
+In the context of [over-the-air configuration](iot-hub-ota-config.md), a configuration within IoT Hub defines the desired configuration for a set of devices twins and provides a set of metrics to report status and progress.
+
 ## Connection string
 You use connection strings in your app code to encapsulate the information required to connect to an endpoint. A connection string typically includes the address of the endpoint and security information, but connection string formats vary across services. There are two types of connection string associated with the IoT Hub service:
 - *Device connection strings* enable devices to connect to the device-facing endpoints on an IoT hub.
@@ -195,6 +198,9 @@ The [Jobs REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) enables y
 
 ## Operations monitoring
 IoT Hub [operations monitoring](iot-hub-operations-monitoring.md) enables you to monitor the status of operations on your IoT hub in real time. [IoT Hub](#iot-hub) tracks events across several categories of operations. You can opt into sending events from one or more categories to an IoT Hub endpoint for processing. You can monitor the data for errors or set up more complex processing based on data patterns.
+
+## Over-the-air configuration 
+Your solution back end can use [over-the-air configuration](iot-hub-ota-config.md) to assign desired configuration to a set of [device twins](#device-twin) and report status using system metrics and custom metrics. 
 
 ## Physical device
 A physical device is a real device such as a Raspberry Pi that connects to an IoT hub. For convenience, many of the IoT Hub tutorials use [simulated devices](#simulated-device) to enable you to run samples on your local machine.
