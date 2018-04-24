@@ -287,7 +287,7 @@
 
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
-## [Manage access to Azure](toc.yml)
+## [Manage access to Azure](../role-based-access-control/toc.yml)
 
 ## Delegate access to resources
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
