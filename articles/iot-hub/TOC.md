@@ -1,4 +1,4 @@
-# [IoT Hub Documentation](index.md)
+﻿# [IoT Hub Documentation](index.md)
 
 # Overview
 ## [Azure and IoT](iot-hub-what-is-azure-iot.md)
@@ -169,7 +169,7 @@
 ##### [Create certificates - PowerShell](iot-hub-security-x509-create-certificates.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)

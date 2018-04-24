@@ -42,7 +42,7 @@ Other important details to consider when planning your migration are:
 
 * **Tools**. We recommend that you use the [Azure Data Factory Copy Activity](../data-factory/connector-azure-data-lake-store.md) to copy Data Lake Store files. Data Factory supports data movement with high performance and reliability. Keep in mind that Data Factory copies only the folder hierarchy and content of the files. You need to manually apply any access control lists (ACLs) that you use in the old account to the new account. For more information, including performance targets for best-case scenarios, see the [Copy Activity performance and tuning guide](../data-factory/copy-activity-performance.md). If you want data copied more quickly, you might need to use additional Cloud Data Movement Units. Some other tools, like AdlCopy, don't support copying data between regions.  
 
-* **Bandwidth charges**. [Bandwidth charges](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) apply because data is transferred out of an Azure region.
+* **Bandwidth charges**. [Bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) apply because data is transferred out of an Azure region.
 
 * **ACLs on your data**. Secure your data in the new region by applying ACLs to files and folders. For more information, see [Securing data stored in Azure Data Lake Store](data-lake-store-secure-data.md). We recommend that you use the migration to update and adjust your ACLs. You might want to use settings similar to your current settings. You can view the ACLs that are applied to any file by using the Azure portal, [PowerShell cmdlets](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission), or SDKs.  
 

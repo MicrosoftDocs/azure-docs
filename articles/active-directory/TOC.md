@@ -1,4 +1,4 @@
-# [Azure Active Directory Documentation](index.md)
+﻿# [Azure Active Directory Documentation](index.md)
 
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
@@ -373,7 +373,7 @@
 
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlets](/powershell/azure/overview)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)

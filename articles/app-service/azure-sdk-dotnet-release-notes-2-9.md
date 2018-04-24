@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SDK for .NET 2.9 Release Notes
 description: Azure SDK for .NET 2.9 Release Notes
 services: app-service\web
@@ -38,7 +38,7 @@ No breaking changes to the Azure SDK 2.9 have been introduced in this release. T
  
 ### Windows Server 2016 virtual machines
 
-- Visual Studio now supports deploying Cloud Services to OS Family 5 (Windows Server 2016) virtual machines. For existing cloud services, you can change your settings to target the new OS Family. When creating new cloud services, if you choose to create the service using .net 4.6 or higher, it will default the service to use OS Family 5.  For more information, you can review the [Guest OS Family support table](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
+- Visual Studio now supports deploying Cloud Services to OS Family 5 (Windows Server 2016) virtual machines. For existing cloud services, you can change your settings to target the new OS Family. When creating new cloud services, if you choose to create the service using .net 4.6 or higher, it will default the service to use OS Family 5.  For more information, you can review the [Guest OS Family support table](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/).
 
 #### Known issues
 
@@ -47,7 +47,7 @@ No breaking changes to the Azure SDK 2.9 have been introduced in this release. T
  
 ### Azure In-Role Cache 
 
-- Support for Azure In-Role Cache ends on November 30, 2016. For more details, click [here](https://azure.microsoft.com/en-us/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
+- Support for Azure In-Role Cache ends on November 30, 2016. For more details, click [here](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
 
 ### Azure Resource Manager Templates for Azure Stack
 
