@@ -26,12 +26,10 @@
     - name: 1- Build a .NET application
       href: service-fabric-tutorial-create-dotnet-app.md
     - name: 2- Deploy the application
-      href: service-fabric-tutorial-deploy-app-to-party-cluster.md
-    - name: 3- Enable HTTPS
-      href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
-    - name: 4- Configure CI/CD
+      href: service-fabric-tutorial-deploy-app-to-party-cluster.md    
+    - name: 3- Configure CI/CD
       href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-    - name: 5- Monitor and Diagnose
+    - name: 4- Monitor and Diagnose
       href: service-fabric-tutorial-monitoring-aspnet.md
   - name: Deploy a Java app
     items:
@@ -555,40 +553,36 @@
       href: service-fabric-patch-orchestration-application-linux.md
   - name: Monitor and diagnose
     items:
-    - name: Monitor applications
+    - name: Analyze with OMS
       items:
-      - name: Analyze with Application Insights
-        href: service-fabric-diagnostics-event-analysis-appinsights.md
-      - name: Add logging to your application
-        href: service-fabric-how-to-diagnostics-log.md
-      - name: Aggregate events with EventFlow
-        href: service-fabric-diagnostics-event-aggregation-eventflow.md    
-      - name: Monitor containers
-        href: service-fabric-diagnostics-oms-containers.md
-    - name: Monitor clusters
-      items:      
-      - name: Windows Azure Diagnostics
-        href: service-fabric-diagnostics-event-aggregation-wad.md
-      - name: Linux Azure Diagnostics
-        href: service-fabric-diagnostics-event-aggregation-lad.md 
       - name: Set up OMS Log Analytics
         href: service-fabric-diagnostics-oms-setup.md
-      - name: Monitor with OMS
-        href: service-fabric-diagnostics-event-analysis-oms.md  
-    - name: Monitor infrastructure
-      items:
-      - name: Performance monitoring with WAD
-        href: service-fabric-diagnostics-perf-wad.md
-      - name: Performance monitoring with the OMS Agent
+      - name: Add the OMS Agent
         href: service-fabric-diagnostics-oms-agent.md
-    - name: Monitor health
+      - name: Monitor with OMS
+        href: service-fabric-diagnostics-event-analysis-oms.md
+      - name: Monitor containers
+        href: service-fabric-diagnostics-oms-containers.md
+    - name: Analyze with Application Insights
+      href: service-fabric-diagnostics-event-analysis-appinsights.md
+    - name: Aggregate events - EventFlow
+      href: service-fabric-diagnostics-event-aggregation-eventflow.md
+    - name: Aggregate events - Azure Diagnostics
       items:
-      - name: Report and check health
-        href: service-fabric-diagnostics-how-to-report-and-check-service-health.md   
-      - name: Troubleshoot with system health reports
-        href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-      - name: View health reports
-        href: service-fabric-view-entities-aggregated-health.md
+      - name: Windows
+        href: service-fabric-diagnostics-event-aggregation-wad.md
+      - name: Linux
+        href: service-fabric-diagnostics-event-aggregation-lad.md
+    - name: Performance monitoring with WAD
+      href: service-fabric-diagnostics-perf-wad.md
+    - name: Report and check health
+      href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+    - name: Add logging to your service
+      href: service-fabric-how-to-diagnostics-log.md
+    - name: Troubleshoot with system health reports
+      href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+    - name: View health reports
+      href: service-fabric-view-entities-aggregated-health.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Reference
