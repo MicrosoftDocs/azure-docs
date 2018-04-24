@@ -31,7 +31,7 @@ In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
-$SubscriptionId  =  <subscription ID>
+$SubscriptionId  =  "<subscription ID>"
 
 # Sign in to your Azure account and select your subscription
 Login-AzureRmAccount -SubscriptionId $SubscriptionId
@@ -88,6 +88,13 @@ The certificate has been installed on the underlying scale set, but you also nee
 
 Download the template and parameters JSON files to your local computer.
 
+First, open the parameters file in a text editor and add the following parameter value:
+```json
+"certificateCommonName": {
+            "value": "myclustername.southcentralus.cloudapp.azure.com"
+        },
+```
+
 Next, open the template file in a text editor and make three updates to support certificate common name.
 
 1. In the **parameters** section, add a *certificateCommonName* parameter:
@@ -102,7 +109,7 @@ Next, open the template file in a text editor and make three updates to support 
 
     Also consider removing the *certificateThumbprint*, it may no longer be needed.
 
-2. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extenstionProfile**->**extensions**->**properties**->**settings**->**certificate**, add `"commonNames": "[parameters('certificateCommonName')]",` and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
+2. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extenstionProfile**->**extensions**->**properties**->**settings**->**certificate**, add `"commonNames": ["[parameters('certificateCommonName')]"],` and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json
     "virtualMachineProfile": {
               "extensionProfile": {
