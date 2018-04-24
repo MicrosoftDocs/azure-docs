@@ -38,7 +38,7 @@ In this case, start with the list of attributes in this topic and identify those
 | cn |X | |
 | displayName |X | |
 | objectSID |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
-| pwdLastSet |X |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
+| pwdLastSet |X |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | sourceAnchor |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | usageLocation |X |mechanical property. The user’s country. Used for license assignment. |
 | userPrincipalName |X |UPN is the login ID for the user. Most often the same as [mail] value. |
@@ -230,7 +230,7 @@ In this case, start with the list of attributes in this topic and identify those
 | postOfficeBox |X |X | |This attribute is currently not consumed by SharePoint Online. |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
+| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
 | securityEnabled | | |X |Derived from groupType |
@@ -285,7 +285,7 @@ In this case, start with the list of attributes in this topic and identify those
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
+| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | securityEnabled | | |X |Derived from groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
@@ -327,7 +327,7 @@ In this case, start with the list of attributes in this topic and identify those
 | member | | |X | |
 | objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
+| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | securityEnabled | | |X |Derived from groupType |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
@@ -355,7 +355,7 @@ In this case, start with the list of attributes in this topic and identify those
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
-| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
+| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | securityEnabled | | |X |Derived from groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
@@ -386,7 +386,7 @@ This group is a set of attributes that can be used if the Azure AD directory is 
 | member | | |X | |
 | objectSID |X | | |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
+| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
