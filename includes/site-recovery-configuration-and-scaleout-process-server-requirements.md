@@ -13,5 +13,5 @@
 | IIS | - No preexisting default website <br> - Enable  [Anonymous Authentication](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx) setting  <br> - No preexisting website/application listening on port 443<br>|
 | NIC type | VMXNET3 (when deployed as a VMware VM) |
 | IP address type | Static |
-| Internet access | The server needs access to these URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (not required for scale-out process servers) <br> - time.nist.gov <br> - time.windows.com <br> *.visualstudio.com |
+| Internet access | The server needs access to these URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (not required for scale-out process servers) <br> - time.nist.gov <br> - time.windows.com <br> \*.visualstudio.com |
 | Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
