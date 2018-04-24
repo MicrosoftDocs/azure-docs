@@ -35,13 +35,13 @@ To set or reset your deployment credentials, see [Azure App Service Deployment C
 ## Step 2: Get FTP connection information
 
 1. In the [Azure portal](https://portal.azure.com), open your app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources).
-2. Select **Overview** in the left menu, then note the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**. 
+2. Select **Overview** in the left navigation, then note the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**. 
 
     ![FTP Connection Information](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
 
     > [!NOTE]
     > To provide proper context for the FTP server, the **FTP/Deployment User** value displayed by the Azure portal includes the app name.
-    > You can find the same information when you select **Properties** in the left menu. 
+    > You can find the same information when you select **Properties** in the left navigation. 
     >
     > Also, the deployment password is never shown. If you forget your deployment password, go back to [step 1](#step1) and reset your deployment password.
     >
@@ -64,6 +64,16 @@ use the connection information you gathered to connect to your app.
 > Generate these necessary files manually on your local machine, and then deploy them together with your app.
 >
 >
+
+## Disable FTP/S
+
+If you don't use FTP/S deployment you can disable it to improve security. To remove unencrypted access, you can also enable just FTPS. 
+
+In your app's resource page in [Azure portal](https://portal.azure.com), select **App settings** in the left navigation.
+
+To disable unencrypted FTP, select **FTPS Only**. To disable FTP/S entirely, select **Disable**. When finished, click **Save**.
+
+![Disable FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 
 ## Next steps
 
