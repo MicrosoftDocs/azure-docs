@@ -12,7 +12,7 @@ ms.author: heidist
 ---
 # What is cognitive search?
 
-Cognitive search, now in public preview, is a new extensible enrichment pipeline in Azure Search. It uses new AI powered skills to finds latent information in non-text sources and unstructured text, transforming data into searchable content. New capabilities for content enrichment are:
+Cognitive search, now in public preview, is a new extensible enrichment pipeline in Azure Search. It uses AI powered algorithms to find latent information in non-text sources and unstructured text, transforming data into searchable content. New capabilities for content enrichment are:
 
 +	Natural language processing - in the form of entity recognition, sentiment analysis, key phrase extraction, and language detection - bring AI-powered modeling that extracts information that can amplify a search experience.
 +	Image processing can make scanned documents searchable through optical character recognition. You can even analyze photographs to identify faces or automatically create searchable tags.

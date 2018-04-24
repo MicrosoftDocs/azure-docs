@@ -48,10 +48,8 @@ The following articles are the complete documentation for cognitive search.
 
 
 
-## Next steps
+## See also
 
-+ [Quickstart: Try cognitive search](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Enriched indexing of Azure blob content](cognitive-search-tutorial-blob.md)
-+ [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)
-+ [How to create a skillset or augmentation pipeline](cognitive-search-defining-skillset.md)
-+ [How to define a custom interface](cognitive-search-custom-skill-interface.md)
++ [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)
++ [Indexers in Azure Search](search-indexer-overview.md)
++ [What is Azure Search](search-what-is-azure-search.md)
