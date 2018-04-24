@@ -84,7 +84,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 When you create the virtual network gateway for a VPN gateway configuration, you must specify a VPN type. The VPN type that you choose depends on the connection topology that you want to create.  A VPN type can also depend on the hardware that you are using. S2S configurations require a VPN device. Some VPN devices only support a certain VPN type.
 
 > [!IMPORTANT]  
-> At this time, Azure Stack only supports the Route Based VPN type. If your device only supports Policy Based VPNs, then connections to those devices from Azure Stack are not supported.  Additionally, Azure Stack does not support using Policy Based Traffic Selectors for Route Based Gateways at ths time, as custom IPSec/IKE policy configurations are not yet supported.
+> At this time, Azure Stack only supports the Route Based VPN type. If your device only supports Policy Based VPNs, then connections to those devices from Azure Stack are not supported.  Additionally, Azure Stack does not support using Policy Based Traffic Selectors for Route Based Gateways at this time, as custom IPSec/IKE policy configurations are not yet supported.
 
 - **PolicyBased**: *(Supported by Azure, but not by Azure Stack)* Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies that are configured with the combinations of address prefixes between your on-premises network and the Azure Stack VNet. The policy (or traffic selector) is usually defined as an access list in the VPN device configuration.
 
