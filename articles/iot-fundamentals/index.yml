@@ -36,11 +36,11 @@ sections:
 - title: Technologies and solutions
   items:
   - type: paragraph
-    text: Get started fast with solution accelerators and SaaS offerings.
+    text: Get started fast with preconfigured solutions and SaaS offerings.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/iot-suite">IoT solution accelerators</a>
+    - html: <a href="/azure/iot-suite">IoT Suite</a>
     - html: <a href="/azure/iot-central">IoT Central</a>
   - type: paragraph
     text: Build on Platform as a Service (PaaS) offerings.
@@ -49,7 +49,7 @@ sections:
     items:
     - html: <a href="/azure/iot-hub">IoT Hub</a>
     - html: <a href="/azure/iot-dps">IoT Hub Device Provisioning Services</a>
-    - html: <a href="/azure/location-based-services">Azure Maps</a>
+    - html: <a href="/azure/location-based-services">Azure Location Based Services</a>
     - html: <a href="/azure/time-series-insights">Azure Time Series Insights</a>
     - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">IoT Service SDKs</a>
   - type: paragraph

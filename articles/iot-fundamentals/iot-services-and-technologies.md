@@ -61,14 +61,14 @@ With the most comprehensive IoT portfolio of platform services, Platform-as-a-Se
 
 ### Device support
 
-Get started on your IoT project with confidence by leveraging [Azure IoT Starter Kits](https://catalog.azureiotsuite.com/kits) or choosing from hundred of Certified for IoT devices in our [device catalog](http://catalog.azureiotsuite.com/). All devices are platform-agnostic and tested to connect seamlessly to IoT Hub.
+Get started on your IoT project with confidence by leveraging [Azure IoT Starter Kits](https://catalog.azureiotsuite.com/kits) or choosing from hundreds of Certified for IoT devices in the [device catalog](http://catalog.azureiotsuite.com/). All devices are platform-agnostic and tested to connect seamlessly to IoT Hub.
 Connect all your devices to Azure IoT using the open-source [device SDKs](/azure/iot-hub/iot-hub-devguide-sdks). The SDKs support multiple operating systems, such as Linux, Windows, and real-time operating systems, as well as multiple programming languages, such as [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), and [Python](https://github.com/Azure/azure-iot-sdk-python).
 
 ### IoT 
 Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end. The Azure IoT Hub Device Provisioning Service is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, enabling customers to provision millions of devices in a secure and scalable manner.
 
 ### Edge
-Azure IoT Edge is an Internet of Things (IoT) service. This service is meant for customers who want to analyze data on devices, a.k.a. "at the edge". By moving parts of your workload to the edge, you will experience reduced latency and have the option for off-line scenarios.
+Azure IoT Edge is an Internet of Things (IoT) service. This service is meant for customers who want to analyze data on devices, a.k.a. "at the edge." By moving parts of your workload to the edge, you will experience reduced latency and have the option for off-line scenarios.
 
 
 ### Data and analytics

@@ -99,7 +99,7 @@ Azure IoT simplifies the complexity of IoT projects and addresses the challenges
 Accelerate your IoT journey
 * Scale: start small, grow to any size, anywhere and everywhere — millions of devices, terabytes of data, in the most regions worldwide.
 
-* Open: use what you have, or modernize for the future by connecting to any device, software or service.
+* Open: use what you have, or modernize for the future by connecting to any device, software, or service.
 
 * Hybrid: build according to your needs by deploying your IoT solution at the edge, in the cloud, or anywhere in between.
 
