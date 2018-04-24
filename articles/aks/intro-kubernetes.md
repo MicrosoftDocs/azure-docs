@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure Kubernetes Service for Kubernetes
-description: Azure Kubernetes Service for Kubernetes makes it simple to deploy and manage container-based applications on Azure.
+title: Introduction to Azure Kubernetes Service
+description: Azure Kubernetes Service makes it simple to deploy and manage container-based applications on Azure.
 services: container-service
 author: gabrtv
 manager: timlt
