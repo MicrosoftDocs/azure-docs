@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
+ms.custom: mvc test
 ---
 # Tutorial: Build a .NET Core and SQL Database web app in Azure App Service
 
