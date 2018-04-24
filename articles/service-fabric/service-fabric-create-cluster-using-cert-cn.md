@@ -40,7 +40,7 @@ $SubscriptionId  =  "<subscription ID>"
 Login-AzureRmAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
-$KeyVaultResourceGroupName  = "mykeyvaultgropu"
+$KeyVaultResourceGroupName  = "mykeyvaultgroup"
 $VaultName = "mykeyvault"
 $certFilename = "C:\users\sfuser\myclustercert.pfx"
 $certname = "myclustercert"
@@ -175,9 +175,18 @@ Next, open the *azuredeploy.json* file in a text editor and make three updates t
 Redeploy the updated template after making the changes.
 
 ```powershell
-$groupname = "sfclustertutorialgroup"
+# Variables.
+$groupname = "testclustergroup"
+$clusterloc="southcentralus"  
+$id="<subscription ID"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\azuredeploy.parameters.json" -TemplateFile "C:\temp\cluster\azuredeploy.json" -Verbose
+# Sign in to your Azure account and select your subscription
+Login-AzureRmAccount -SubscriptionId $id 
+
+# Create a new resource group and deploy the cluster.
+New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
 ```
 
 ## Next steps
