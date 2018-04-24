@@ -87,7 +87,7 @@ The first step for troubleshooting FTP deployment is isolating a deployment issu
 
 A deployment issue typically results in no files or wrong files deployed to your app. It can be addressed by investigating your FTP deployment or selecting an alternate deployment path (such as source control).
 
-A runtime application issue typically results in the right set of files deployed to your app but incorrect app behavior. Application issues can be addressed by focusing on code behavior at runtime and investigating specific failure paths.
+A runtime application issue typically results in the right set of files deployed to your app but incorrect app behavior. It can be addressed by focusing on code behavior at runtime and investigating specific failure paths.
 
 To determine a deployment or runtime issue, see [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
@@ -99,7 +99,7 @@ Check that you've entered the correct hostname and [credentials](#step-1--set-de
 - FTP data connection port: 989, 10001-10300
  
 ### How can I connect to FTP in Azure App Service via passive mode?
-Azure App Service supports connecting via both Active and Passive mode. Passive mode is preferred as companies and users are generally behind a firewall (in the operating system or as part of a home or business network). Here is an [example from the WinSCP documentation](https://winscp.net/docs/ui_login_connection). 
+Azure App Service supports connecting via both Active and Passive mode. Passive mode is preferred because your deployment machines are usually behind a firewall (in the operating system or as part of a home or business network). See an [example from the WinSCP documentation](https://winscp.net/docs/ui_login_connection). 
 
 ## Next steps
 
