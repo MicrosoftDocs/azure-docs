@@ -36,22 +36,19 @@ sections:
       - image:
           src: media/index/logo_ruby.svg
     rows:
-      - title: 'Call and response: your first query'
         values:
-        - href: csharp
-        - href: java
-        - href: nodejs
-        - href: python
-        - href: php
-        - href: ruby
+        - html: <a href="csharp">C#</a>
+        - html: <a href="java">Java</a>
+        - html: <a href="nodejs">Node.js</a>
+        - html: <a href="python">Python</a>
+        - html: <a href="php">PHP</a>
+        - html: <a href="ruby">Ruby"</a>
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: 'Develop applications using the Bing News Search API:'
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="tutorial-bing-news-search-single-page-app">Single-Page Web app</a> | <a href="tutorial-bing-news-search-single-page-app-source">Source code</a>
+  - type: paragraph
+  - html: <p><a href="tutorial-bing-news-search-single-page-app">Single-Page Web app</a> | <a href="tutorial-bing-news-search-single-page-app-source">Source code</a></p>
 - title: Reference
   items:
   - type: list
