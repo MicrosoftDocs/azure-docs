@@ -49,10 +49,10 @@ The following example shows the definition of the device state object for a simu
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:05",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -62,7 +62,7 @@ The state of the simulated device, as defined in the `InitialState` section, is 
 The following shows the outline of a typical `main` function:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   // Use the previous device state to
   // generate the new device state
@@ -104,7 +104,7 @@ function restoreState(previousState) {
   }
 }
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   restoreState(previousState);
 
@@ -129,7 +129,7 @@ function vary(avg, percentage, min, max) {
 }
 
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     restoreState(previousState);
 
@@ -188,7 +188,7 @@ The state of the simulated device, as defined in the `InitialState` section of t
 The following shows the outline of a typical `main` function:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
 }
 ```
@@ -201,15 +201,18 @@ The `context` parameter has the following properties:
 
 The `state` parameter contains the state of the device as maintained by the device simulation service.
 
-There are two global functions you can use to help implement the behavior of the method:
+The `properties` parameter contains the properties of the device that are writtem as reported properties to the IoT Hub device twin.
+
+There are three global functions you can use to help implement the behavior of the method:
 
 - `updateState` to update the state held by the simulation service.
+- `updateProperty` to update a single device property.
 - `sleep` to pause execution to simulate a long-running task.
 
 The following example shows an abbreviated version of the **IncreasePressure-method.js** script used by the simulated chiller devices:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     log("Starting 'Increase Pressure' method simulation (5 seconds)");
 
