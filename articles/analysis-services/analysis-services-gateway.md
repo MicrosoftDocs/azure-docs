@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/24/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -78,6 +78,11 @@ You can force the gateway to communicate with Azure Service Bus by using HTTPS i
     <value>Https</value>
 </setting>
 ```
+
+## Tenant level administration 
+
+There is currently no single place where tenant administrators  can manage all the gateways that other users have installed and configured.  If you’re a tenant administrator, it's recommended you ask users in your organization to add you as an administrator to every gateway they install. This allows you to manage all the gateways in your organization through the Gateway Settings page or through [PowerShell commands](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="faq"></a>Frequently asked questions
 
