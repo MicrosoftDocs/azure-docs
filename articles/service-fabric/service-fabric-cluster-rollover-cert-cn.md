@@ -1,6 +1,6 @@
 ---
 title: Rollover an Azure Service Fabric cluster certificate | Microsoft Docs
-description: Learn how to rollover a Service Fabric cluster certificate.
+description: Learn how to rollover a Service Fabric cluster certificate identified by the certificate common name.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/19/2018
+ms.date: 04/24/2018
 ms.author: ryanwi;aljo
 
 ---
 # Manually rollover a Service Fabric cluster certificate
-When a Service Fabric cluster certificate is close to expiring, you need to update the certificate.  Certificate rollover is simple if the cluster was set up to use certificates based on common name (instead of thumbprint).  Get a new certificate from a certificate authority with a new expiration date.  The new certificate must have the same common name as the older certificate. 
+When a Service Fabric cluster certificate is close to expiring, you need to update the certificate.  Certificate rollover is simple if the cluster was [set up to use certificates based on common name](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (instead of thumbprint).  Get a new certificate from a certificate authority with a new expiration date.  Self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, are not supported..  The new certificate must have the same common name as the older certificate. 
 
 The following script uploads a new certificate to a key vault and then installs the certificate on the virtual machine scale set.  The Service Fabric cluster will automatically use the certificate with the latest expiration date.
 

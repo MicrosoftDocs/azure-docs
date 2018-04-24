@@ -1,29 +1,32 @@
 ---
-title: Azure Service Fabric cluster scaling | Microsoft Docs
-description: Learn about scaling Service Fabric clusters in or out and up or down.
+title: Update a Azure Service Fabric cluster to use certificate common name | Microsoft Docs
+description: Learn how to switch a Service Fabric cluster from using certificate thumbprints to using certificate common name.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
 editor: ''
 
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
+ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/19/2018
+ms.date: 04/24/2018
 ms.author: ryanwi;aljo
 
 ---
 # Change cluster from certificate thumbprint to common name
-This article describes how to update a running Service Fabric cluster to use the certificate common name instead of the certificate thumbprint.
+No two certificates can have the same thumbprint, which makes cluster certificate rollover or management difficult. Multiple certificates, however, can have the same common name or subject.  Switching a deployed cluster from using certificate thumbprints to using certificate common names makes certificate management much simpler. This article describes how to update a running Service Fabric cluster to use the certificate common name instead of the certificate thumbprint.
  
 ## Get a certificate
 First, get a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be the host name of the cluster.  For example, "myclustername.southcentralus.cloudapp.azure.com".  
 
 For testing purposes, you could get a CA signed certificate from a free or open certificate authority.
+
+> [!NOTE]
+> Self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, are not supported.
 
 ## Upload the certificate and install it in the scale set
 In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  Upload the certificate to a key vault and then install it on the virtual machine scale set that the cluster is running on.
