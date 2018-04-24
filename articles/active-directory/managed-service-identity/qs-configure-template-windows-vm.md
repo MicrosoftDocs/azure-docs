@@ -116,6 +116,9 @@ In this section, you create a user identity and Azure VM using an Azure Resource
 1. Perform the first the step in the section [Enable system assigned identity during creation of an Azure VM, or on an existing VM](#enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm)
 
 2.  Under the variables section that contains the configuration variables for your Azure VM, add an entry for a user assigned identity name similar to the following.  This will create the user assigned identity during the Azure VM creation process:
+    
+    > [!IMPORTANT]
+    > Creating user assigned identities with special characters (i.e. underscore) in the name is not currently supported. Please use alphanumeric characters. Check back for updates.  For more information see [FAQs and known issues](known-issues.md)
 
     ```json
     "variables": {
