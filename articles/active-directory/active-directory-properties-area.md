@@ -20,9 +20,9 @@ ms.custom: it-pro
 # How-to: Add privacy info to the Properties area in Azure Active Directory
 This article explains how a tenant admin can add privacy-related info to an organization’s Azure Active Directory (Azure AD) tenant, through the Azure portal.
 
-We strongly recommend you add both your global privacy contact and your organization’s privacy statement, so your internal employees and external guests can review your policies. For info about what to include in your privacy statement, see the <!--need link--> article. 
+We strongly recommend you add both your global privacy contact and your organization’s privacy statement, so your internal employees and external guests can review your policies. For info about what to include in your privacy statement, see the <!--need link from Gregg Brown (CELA)--> article. 
 
-[!INCLUDE [active-directory-gdpr-note](../../includes/active-directory-gdpr-note.md)]
+[!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
 **To access the Properties area to add your privacy info**
 
