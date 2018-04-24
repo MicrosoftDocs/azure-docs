@@ -74,22 +74,22 @@ Before you start the recovery process, review the normal healthy state of the ap
 
 1. In your web browser, open the Wingtip Tickets events hub (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net, replace &lt;user&gt; with your deployment's user value).
 	
-	Scroll to the bottom of the page and notice the catalog server name and location in the footer. The location is the region in which you deployed the app.	
+   Scroll to the bottom of the page and notice the catalog server name and location in the footer. The location is the region in which you deployed the app.	
 
-        > [!TIP]
-        > Hover the mouse over the location to enlarge the display.
+   > [!TIP]
+   > Hover the mouse over the location to enlarge the display.
 
-	![Events hub healthy state in original region](media/saas-dbpertenant-dr-geo-restore/events-hub-original-region.png)
+   ![Events hub healthy state in original region](media/saas-dbpertenant-dr-geo-restore/events-hub-original-region.png)
 
 2. Select the Contoso Concert Hall tenant and open its event page.
 
-	In the footer, notice the tenant's server name. The location is the same as the catalog server's location.
+   In the footer, notice the tenant's server name. The location is the same as the catalog server's location.
 
-	![Contoso Concert Hall original region](media/saas-dbpertenant-dr-geo-restore/contoso-original-location.png)	
+   ![Contoso Concert Hall original region](media/saas-dbpertenant-dr-geo-restore/contoso-original-location.png)	
 
 3. In the [Azure portal](https://portal.azure.com), review and open the resource group in which you deployed the app.
 
-	Notice the resources and the region in which the app service components and SQL Database servers are deployed.
+   Notice the resources and the region in which the app service components and SQL Database servers are deployed.
 
 ## Sync the tenant configuration into the catalog
 
@@ -185,7 +185,7 @@ Imagine there's an outage in the region in which the application is deployed, an
 ## Review the application state during recovery
 While the application endpoint is disabled in Traffic Manager, the application is unavailable. The catalog is restored, and all the tenants are marked offline. The application endpoint in the recovery region is then enabled, and the application is back online. Although the application is available, tenants appear offline in the events hub until their databases are restored. It's important to design your application to handle offline tenant databases.
 
-1. After the catalog database has been recovered but before the tenants are back online, refresh the Wingtip Tickets events hub in your web browser.
+* After the catalog database has been recovered but before the tenants are back online, refresh the Wingtip Tickets events hub in your web browser.
 
 	* In the footer, notice that the catalog server name now has a -recovery suffix and is located in the recovery region.
 
