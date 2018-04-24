@@ -28,25 +28,21 @@ Use the following instructions to configure a hosted UI to include in your web a
    > Be sure to include the query parameter when selecting the **Results only** layout.
 
 5.	Under **Additional Configurations**, provide values as appropriate for your app. These settings are optional. To see the effect of applying or removing them, see the preview pane on the right.  Available configuration options are:
-    - Search bar configurations:
-        - Search box text placeholder &mdash; Text displayed in the search box prior to input
     - Web search configurations:
         - Web results enabled &mdash; Determines if web search results are returned
+        - Enable autosuggest &mdash; Determines if custom autosuggest is enabled
         - Web results per page &mdash; Number of web search results to display at a time
         - Image caption &mdash; Determines if images are displayed with search results
         - Highlight words &mdash; Determines if results are displayed with search terms in bold
-        - Enable filters &mdash; Determines if a dropdown is displayed to filter web search results
-        - Enable autosuggest &mdash; Determines if custom autosuggest is enabled
     - Image search configurations:
         - Image results enabled &mdash; Determines if image search results are returned
-        - Image results per page &mdash; Number of image search results to display at a time
-        - Enable filters &mdash; Determines if dropdowns are displayed to filter image search results
-    - Html endpoint configurations:
+    - Miscellaneous configurations:
         - Page title &mdash;  Text displayed in the page title area
+        - Toolbar theme &mdash; Determines the background color of the page title area
+        - Search box text placeholder &mdash; Text displayed in the search box prior to input
         - Title link url &mdash;  Target for the title link
         - Logo url &mdash; Image displayed next to the title 
         - Favicon url &mdash; Icon displayed in the browser title bar
-        - Toolbar theme &mdash; Determines the background color of the page title area
 
    > [!IMPORTANT]
    > At least one of Image search or Web search must be enabled.
