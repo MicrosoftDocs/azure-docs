@@ -79,6 +79,8 @@ items:
       href: request-units.md
     - name: Consistency
       href: consistency-levels.md
+    - name: Unique keys
+      href: unique-keys.md
     - name: Serverless database
       href: serverless-computing-database.md
     - name: Security
@@ -180,14 +182,12 @@ items:
             href: sql-api-sql-query-metrics.md
         - name: Index
           href: indexing-policies.md
-        - name: Partition data
+        - name: SQL data partitioning
           href: sql-api-partition-data.md
         - name: Stored procedures, triggers, and UDFs
           href: programming.md
         - name: Change feed
           href: change-feed.md
-        - name: Unique keys
-          href: unique-keys.md
         - name: Data types
           items:
           - name: DateTimes
@@ -211,17 +211,17 @@ items:
           - name: Connect to Spark
             href: spark-connector.md
           - name: Streaming with Kafka and Spark on HDInsight
-            href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+            href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
           - name: Deploy a website with Azure App Service
             href: create-website.md
           - name: Application logging with Logic Apps
-            href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
+            href: https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json
           - name: Bind to Azure Functions
-            href: ../azure-functions/functions-bindings-cosmosdb.md
+            href: https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json
           - name: Integrate with Azure Search
-            href: ../search/search-howto-index-cosmosdb.md
+            href: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json
           - name: Move data with Azure Data Factory
-            href: ../data-factory/connector-azure-cosmos-db.md
+            href: https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json
           - name: Analyze real-time data with Azure Stream Analytics
             href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
           - name: Get changed HL7 FHIR record using Logic Apps
@@ -233,7 +233,7 @@ items:
           - name: Leverage the ODBC driver for data visualization
             href: odbc-driver.md
           - name: Use Spring Boot Starter with SQL APIs
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+            href: https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: Reference
         items:
         - name: Async Java
@@ -322,8 +322,6 @@ items:
           href: mongodb-indexing.md
         - name: Visualize your data with Power BI
           href: powerbi-visualize.md
-        - name: Unique keys
-          href: unique-keys.md
       - name: Resources
         items:
         - name: Visual Studio Code extension
@@ -346,6 +344,8 @@ items:
           href: tutorial-global-distribution-graph.md
       - name: How To Guides
         items:
+        - name: Graph partitioning
+          href: graph-partitioning.md
         - name: Integrate
           items:
           - name: Connect to Spark GraphX
@@ -381,7 +381,7 @@ items:
         - name: .NET
           href: table-storage-how-to-use-dotnet.md
         - name: F#
-          href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+          href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
         - name: Node.js 
           href: table-storage-cloud-service-nodejs.md
         - name: Java

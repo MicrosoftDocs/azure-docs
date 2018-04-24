@@ -4,7 +4,7 @@ description: Learn all about the SQL .NET Core API and SDK including release dat
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: f899b314-26ac-4ddb-86b2-bfdf05c2abf2
@@ -51,6 +51,12 @@ ms.custom: H1Hack27Feb2017
 ## Release Notes
 
 The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
+
+### <a name="1.10.0"/>1.10.0
+
+* Added ConsistencyLevel Property to FeedOptions.
+* Added JsonSerializerSettings to RequestOptions and FeedOptions.
+* Added EnableReadRequestsFallback to ConnectionPolicy.
 
 ### <a name="1.9.1"/>1.9.1
 

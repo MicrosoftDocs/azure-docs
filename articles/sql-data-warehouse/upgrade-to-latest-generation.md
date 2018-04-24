@@ -1,20 +1,22 @@
 ---
 title: Upgrade to the latest generation of Azure SQL Data Warehouse | Microsoft Docs
-description: Steps to upgrade Azure SQL Data Warehouse to latest generation of Azure hardware and storage architecture.
+description: Upgrade Azure SQL Data Warehouse to latest generation of Azure hardware and storage architecture.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
-ms.services: sql-data-warehouse
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/02/2018
+ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ---
 
 # Optimize performance by upgrading SQL Data Warehouse
+Upgrade Azure SQL Data Warehouse to latest generation of Azure hardware and storage architecture.
 
-You can now seamlessly upgrade to the Optimized for Compute performance tier in the Azure portal. If you have an Optimized for Elasticity data warehouse, it is recommended you upgrade for the latest generation of Azure hardware and an enhanced storage architecture. You will be able to take advantage of faster performance, higher scalability, and unlimited columnar storage. 
+## Why upgrade?
+You can now seamlessly upgrade to the Optimized for Compute performance tier in the Azure portal. If you have an Optimized for Elasticity data warehouse, upgrading is recommended. By upgrading, you can use the latest generation of Azure hardware and enhanced storage architecture. You can take advantage of faster performance, higher scalability, and unlimited columnar storage. 
 
 ## Applies to
 This upgrade applies to data warehouses in the Optimized for Elasticity performance tier.
@@ -24,12 +26,6 @@ This upgrade applies to data warehouses in the Optimized for Elasticity performa
 Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Before you begin
-
-> [!NOTE]
-> As of 3/30, you must have [server level auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing#subheading-8) turned off before starting the upgrade.
-> 
->
-
 > [!NOTE]
 > If your existing Optimized for Elasticity data warehouse is not in a region where Optimized for Compute is available, you can [geo-restore to Optimized for Compute](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) through PowerShell to a supported region.
 > 

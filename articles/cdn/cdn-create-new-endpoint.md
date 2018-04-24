@@ -1,5 +1,5 @@
 ---
-title: Create an Azure CDN profile and endpoint | Microsoft Docs
+title: Quickstart - Create an Azure CDN profile and endpoint | Microsoft Docs
 description: This quickstart shows how to enable Azure CDN by creating a new CDN profile and endpoint.
 services: cdn
 documentationcenter: ''
@@ -82,6 +82,6 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 To learn about adding a custom domain to your CDN endpoint, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Add a custom domain](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
 
 

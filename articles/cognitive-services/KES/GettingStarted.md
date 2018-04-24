@@ -4,9 +4,8 @@ description: Use Knowledge Exploration Service (KES) to create an engine for an 
 services: cognitive-services
 author: bojunehsu
 manager: stesp
-
 ms.service: cognitive-services
-ms.technology: kes
+ms.component: knowledge-exploration
 ms.topic: article
 ms.date: 03/26/2016
 ms.author: paulhsu

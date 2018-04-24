@@ -102,6 +102,8 @@
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: How to enable write accelerator
+      href: how-to-enable-write-accelerator.md
     - name: Troubleshoot attached VHDs
       href: troubleshoot-vhds.md      
   - name: Networking
@@ -159,7 +161,7 @@
     - name: Use WinRM
       href: winrm.md
     - name: Use access controls
-      href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Use policies
       href: policy.md
     - name: Create a Key Vault
@@ -421,6 +423,8 @@
       href: troubleshoot-activation-problems.md
     - name: Allocation failures
       href: allocation-failure.md
+    - name: Allocation failures-classic VM
+      href: allocation-failure-classic.md
     - name: Redeploy a VM
       href: redeploy-to-new-node.md
     - name: Common error messages

@@ -30,7 +30,7 @@
     href: storage-quickstart-blobs-ruby.md
   - name: Work with blobs - Node.js
     href: storage-quickstart-blobs-nodejs.md
-  - name: Work with blobs - JavaScript/HTML
+  - name: Work with blobs - JS/HTML
     href: storage-quickstart-blobs-javascript-client-libraries.md
 
   - name: Work with blobs - PHP
@@ -172,6 +172,8 @@
         href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Enable and view metrics
         href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Migrate to new Storage Metrics
+        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: How to
   items:
   - name: Create a storage account

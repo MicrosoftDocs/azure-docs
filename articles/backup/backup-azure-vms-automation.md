@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy and manage backups for Resource Manager-deployed VMs using PowerShell | Microsoft Docs
 description: Use PowerShell to deploy and manage backups in Azure for Resource Manager-deployed VMs
 services: backup
@@ -76,9 +76,9 @@ To begin:
     Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
     Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
     ```
-3. Sign in to your Azure account using **Login-AzureRmAccount**. This cmdlet brings up a web page prompts you for your account credentials: 
-    - Alternately, you can include your account credentials as a parameter in the **Login-AzureRmAccount** cmdlet, using the **-Credential** parameter.
-    - If you are CSP partner working on behalf of a tenant, specify the customer as a tenant, by using their tenantID or tenant primary domain name. For example: **Login-AzureRmAccount -Tenant "fabrikam.com"**
+3. Sign in to your Azure account using **Connect-AzureRmAccount**. This cmdlet brings up a web page prompts you for your account credentials: 
+    - Alternately, you can include your account credentials as a parameter in the **Connect-AzureRmAccount** cmdlet, using the **-Credential** parameter.
+    - If you are CSP partner working on behalf of a tenant, specify the customer as a tenant, by using their tenantID or tenant primary domain name. For example: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 4. Associate the subscription you want to use with the account, since an account can have several subscriptions:
 
     ```PS
@@ -359,7 +359,7 @@ Once you restore the disks, go to the next section to create the VM.
 After you have restored the disks, use these steps to create and configure the virtual machine from disk.
 
 > [!NOTE]
-> To create encrypted VMs from restored disks, your Azure role must have permission to perform the action, **Microsoft.KeyVault/vaults/deploy/action**. If your role does not have this permission, create a custom role with this action. For more information, see [Custom Roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md).
+> To create encrypted VMs from restored disks, your Azure role must have permission to perform the action, **Microsoft.KeyVault/vaults/deploy/action**. If your role does not have this permission, create a custom role with this action. For more information, see [Custom Roles in Azure RBAC](../role-based-access-control/custom-roles.md).
 >
 >
 
