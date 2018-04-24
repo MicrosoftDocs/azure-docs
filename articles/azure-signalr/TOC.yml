@@ -35,8 +35,8 @@
   - name: Pricing
     href: https://azure.microsoft.com
   - name: Videos
-    href: https://www.youtube.com/results?search_query=Azure+SignalR
+    href: https://www.youtube.com/results?search_query=Azure+SignalR+Core
   - name: ASP.NET Forums
-    href: https://forums.asp.net/search?q=title%3A%28SignalR%29+OR+body%3A%28SignalR%29+AND+forumid%3A%281255%29
+    href: https://forums.asp.net/search?q=title%3A%28SignalR%20Core%29+OR+body%3A%28SignalR%20Core%29+AND+forumid%3A%281255%29
   - name: Twitter
     href: https://twitter.com/SignalR

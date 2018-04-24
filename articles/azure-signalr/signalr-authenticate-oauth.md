@@ -1,6 +1,6 @@
 ---
 title: Tutorial for authenticating Azure SignalR Service clients with OAuth | Microsoft Docs
-description: Learn how to authenticate Azure SignalR Service clients with OAuth
+description: In this tutorial, you learn how to authenticate Azure SignalR Service clients with OAuth
 services: signalr
 documentationcenter: ''
 author: wesmc7777
