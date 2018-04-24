@@ -3,7 +3,7 @@
   items:
     - name: Quickstarts
       items:
-      - name: Use a VM MSI to acess Azure Resource Manager
+      - name: Use a VM MSI to access Azure Resource Manager
         items: 
         - name: Windows VM
           href: tutorial-windows-vm-access-arm.md
@@ -17,7 +17,7 @@
           href: tutorial-windows-vm-access-datalake.md
         - name: Access Azure Storage using an access key
           href: tutorial-windows-vm-access-storage.md
-        - name: Acess Azure Storage using SAS
+        - name: Access Azure Storage using SAS
           href: tutorial-windows-vm-access-storage-sas.md
         - name: Access Azure SQL
           href: tutorial-windows-vm-access-sql.md
