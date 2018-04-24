@@ -1,6 +1,6 @@
 ---
-title: Use OpenFaaS with Azure Container Service (AKS)
-description: Deploy and use OpenFaaS with Azure Container Service (AKS)
+title: Use OpenFaaS with Azure Kubernetes Service (AKS)
+description: Deploy and use OpenFaaS with Azure Kubernetes Service (AKS)
 services: container-service
 author: justindavies
 manager: timlt
@@ -14,14 +14,14 @@ ms.custom: mvc
 
 # Using OpenFaaS on AKS
 
-[OpenFaaS][open-faas] is a framework for building Serverless functions on top of containers. As an Open Source project, it has gained large-scale adoption within the community. This document details installing and using OpenFaas on an Azure Container Service (AKS) cluster.
+[OpenFaaS][open-faas] is a framework for building Serverless functions on top of containers. As an Open Source project, it has gained large-scale adoption within the community. This document details installing and using OpenFaas on an Azure Kubernetes Service (AKS) cluster.
 
 ## Prerequisites
 
 In order to complete the steps within this article, you need the following.
 
 * Basic understanding of Kubernetes.
-* An Azure Container Service (AKS) cluster and AKS credentials configured on your development system.
+* An Azure Kubernetes Service (AKS) cluster and AKS credentials configured on your development system.
 * Azure CLI installed on your development system.
 * Git command-line tools installed on your system.
 
@@ -36,7 +36,7 @@ git clone https://github.com/openfaas/faas-netes
 Change into the directory of the cloned repository.
 
 ```azurecli-interactive
-cd faas-netes 
+cd faas-netes
 ```
 
 ## Deploy OpenFaaS
@@ -51,7 +51,7 @@ kubectl create namespace openfaas
 
 Create a second namespace for OpenFaaS functions.
 
-```azurecli-interactive 
+```azurecli-interactive
 kubectl create namespace openfaas-fn
 ```
 
@@ -61,7 +61,7 @@ A Helm chart for OpenFaaS is included in the cloned repository. Use this chart t
 helm install --namespace openfaas -n openfaas \
   --set functionNamespace=openfaas-fn, \
   --set serviceType=LoadBalancer, \
-  --set rbac=false chart/openfaas/ 
+  --set rbac=false chart/openfaas/
 ```
 
 Output:
@@ -92,7 +92,7 @@ A public IP address is created for accessing the OpenFaaS gateway. To retrieve t
 kubectl get service -l component=gateway --namespace openfaas
 ```
 
-Output. 
+Output.
 
 ```console
 NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
@@ -127,8 +127,8 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 Output:
 
 ```console
- _   _      _ _            _                        
-| | | | ___| | | ___      / \    _____   _ _ __ ___ 
+ _   _      _ _            _
+| | | | ___| | | ___      / \    _____   _ _ __ ___
 | |_| |/ _ \ | |/ _ \    / _ \  |_  / | | | '__/ _ \
 |  _  |  __/ | | (_) |  / ___ \  / /| |_| | | |  __/
 |_| |_|\___|_|_|\___/  /_/   \_\/___|\__,_|_|  \___|
@@ -137,7 +137,7 @@ Output:
 
 ## Create second function
 
-Now create a second function. This example will be deployed using the OpenFaaS CLI and includes a custom container image and retrieving data from a Cosmos DB. Several items need to be configured before creating the function. 
+Now create a second function. This example will be deployed using the OpenFaaS CLI and includes a custom container image and retrieving data from a Cosmos DB. Several items need to be configured before creating the function.
 
 First, create a new resource group for the Cosmos DB.
 
@@ -145,13 +145,13 @@ First, create a new resource group for the Cosmos DB.
 az group create --name serverless-backing --location eastus
 ```
 
-Deploy a CosmosDB instance of kind `MongoDB`. The instance needs a unique name, update `openfaas-cosmos` to something unique to your environment. 
+Deploy a CosmosDB instance of kind `MongoDB`. The instance needs a unique name, update `openfaas-cosmos` to something unique to your environment.
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
-Get the Cosmos database connection string and store it in a variable. 
+Get the Cosmos database connection string and store it in a variable.
 
 Update the value for the `--resource-group` argument to the name of your resource group, and the `--name` argument to the name of your Cosmos DB.
 
@@ -177,7 +177,7 @@ Now populate the Cosmos DB with test data. Create a file named `plans.json` and 
 }
 ```
 
-Use the *mongoimport* tool to load the CosmosDB instance with data. 
+Use the *mongoimport* tool to load the CosmosDB instance with data.
 
 If needed, install the MongoDB tools. The following example installs these tools using brew, see the [MongoDB documentation][install-mongo] for other options.
 
@@ -229,7 +229,7 @@ You can also test the function within the OpenFaaS UI.
 
 ## Next Steps
 
-The default deployment of OpenFaas needs to be locked down for both OpenFaaS Gateway and Functions. [Alex Ellis' Blog post](https://blog.alexellis.io/lock-down-openfaas/) has more details on secure configuration options. 
+The default deployment of OpenFaas needs to be locked down for both OpenFaaS Gateway and Functions. [Alex Ellis' Blog post](https://blog.alexellis.io/lock-down-openfaas/) has more details on secure configuration options.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

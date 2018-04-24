@@ -1,6 +1,6 @@
 ---
-title: Get kubelet logs from Azure Container Service (AKS)
-description: Get kubelet logs from Azure Container Service (AKS) cluster nodes
+title: Get kubelet logs from Azure Kubernetes Service (AKS)
+description: Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -12,13 +12,13 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Get kubelet logs from Azure Container Service (AKS) cluster nodes
+# Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes
 
-Occasionally, you may need to get kubelet logs from an Azure Container Service (AKS) node for troubleshooting purposes. This document details one option for pulling these logs.
+Occasionally, you may need to get kubelet logs from an Azure Kubernetes Service (AKS) node for troubleshooting purposes. This document details one option for pulling these logs.
 
 ## Create an SSH connection
 
-First, create an SSH connection with the node on which you need to pull kubelet logs. This operation is detailed in the [SSH into Azure Container Service (AKS) cluster nodes][aks-ssh] document.
+First, create an SSH connection with the node on which you need to pull kubelet logs. This operation is detailed in the [SSH into Azure Kubernetes Service (AKS) cluster nodes][aks-ssh] document.
 
 ## Get kubelet logs
 

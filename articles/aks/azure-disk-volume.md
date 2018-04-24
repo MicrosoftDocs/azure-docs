@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Volumes with Azure disks
 
-Container-based applications often need to access and persist data in an external data volume. Azure disks can be used as this external data store. This article details using an Azure disk as a Kubernetes volume in an Azure Container Service (AKS) cluster.
+Container-based applications often need to access and persist data in an external data volume. Azure disks can be used as this external data store. This article details using an Azure disk as a Kubernetes volume in an Azure Kubernetes Service (AKS) cluster.
 
 For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-volumes].
 
@@ -35,7 +35,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Use the [az disk create][az-disk-create] command to create the Azure disk. 
+Use the [az disk create][az-disk-create] command to create the Azure disk.
 
 Using this example, update `--resource-group` with the name of the resource group, and `--name` to a name of your choice.
 
@@ -55,7 +55,7 @@ Once the disk has been created, you should see output similar to the following. 
 
 ## Mount disk as volume
 
-Mount the Azure disk into your pod by configuring the volume in the container spec. 
+Mount the Azure disk into your pod by configuring the volume in the container spec.
 
 Create a new file named `azure-disk-pod.yaml` with the following contents. Update `diskName` with the name of the newly created disk and `diskURI` with the disk ID. Also, take note of the `mountPath`, this is the path at which the Azure disk is mounted in the pod.
 

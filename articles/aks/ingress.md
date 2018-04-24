@@ -1,6 +1,6 @@
 ---
-title: Configure ingress with Azure Container Service (AKS) cluster
-description: Install and configure an NGINX ingress controller in an Azure Container Service (AKS) cluster.
+title: Configure ingress with Azure Kubernetes Service (AKS) cluster
+description: Install and configure an NGINX ingress controller in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -12,11 +12,11 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# HTTPS Ingress on Azure Container Service (AKS)
+# HTTPS Ingress on Azure Kubernetes Service (AKS)
 
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single external address can be used to route traffic to multiple services in a Kubernetes cluster.
 
-This document walks through a sample deployment of the [NGINX ingress controller][nginx-ingress] in an Azure Container Service (AKS) cluster. Additionally, the [KUBE-LEGO][kube-lego] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single address.
+This document walks through a sample deployment of the [NGINX ingress controller][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. Additionally, the [KUBE-LEGO][kube-lego] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single address.
 
 ## Prerequisite
 

@@ -1,6 +1,6 @@
 ---
-title: Use Azure Container Service with Kafka on HDInsight | Microsoft Docs
-description: 'Learn how to use Kafka on HDInsight from container images hosted in Azure Container Service (AKS).'
+title: Use Azure  Kubernetes Service with Kafka on HDInsight | Microsoft Docs
+description: 'Learn how to use Kafka on HDInsight from container images hosted in Azure Kubernetes Service (AKS).'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -16,14 +16,14 @@ ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
 ---
-# Use Azure Container Services with Kafka on HDInsight
+# Use Azure  Kubernetes Service with Kafka on HDInsight
 
-Learn how to use Azure Container Services (AKS) with Kafka on HDInsight cluster. The steps in this document use a Node.js application hosted in AKS to verify connectivity with Kafka. This application uses the [kafka-node](https://www.npmjs.com/package/kafka-node) package to communicate with Kafka. It uses [Socket.io](https://socket.io/) for event driven messaging between the browser client and the back-end hosted in AKS.
+Learn how to use Azure  Kubernetes Service (AKS) with Kafka on HDInsight cluster. The steps in this document use a Node.js application hosted in AKS to verify connectivity with Kafka. This application uses the [kafka-node](https://www.npmjs.com/package/kafka-node) package to communicate with Kafka. It uses [Socket.io](https://socket.io/) for event driven messaging between the browser client and the back-end hosted in AKS.
 
-[Apache Kafka](https://kafka.apache.org) is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Azure Container Service manages your hosted Kubernetes environment, and makes it quick and easy to deploy containerized applications. Using an Azure Virtual Network, you can connect the two services.
+[Apache Kafka](https://kafka.apache.org) is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Azure  Kubernetes Service manages your hosted Kubernetes environment, and makes it quick and easy to deploy containerized applications. Using an Azure Virtual Network, you can connect the two services.
 
 > [!NOTE]
-> The focus of this document is on the steps required to enable Azure Container Services to communicate with Kafka on HDInsight. The example itself is just a basic Kafka client to demonstrate that the configuration works.
+> The focus of this document is on the steps required to enable Azure  Kubernetes Service to communicate with Kafka on HDInsight. The example itself is just a basic Kafka client to demonstrate that the configuration works.
 
 ## Prerequisites
 
@@ -33,10 +33,10 @@ Learn how to use Azure Container Services (AKS) with Kafka on HDInsight cluster.
 This document assumes that you are familiar with creating and using the following Azure services:
 
 * Kafka on HDInsight
-* Azure Container Service
+* Azure  Kubernetes Service
 * Azure Virtual Networks
 
-This document also assumes that you have walked through the [Azure Container Services tutorial](../../aks/tutorial-kubernetes-prepare-app.md). This tutorial creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
+This document also assumes that you have walked through the [Azure  Kubernetes Service tutorial](../../aks/tutorial-kubernetes-prepare-app.md). This tutorial creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
 
 ## Architecture
 
@@ -52,12 +52,12 @@ The following diagram illustrates the network topology used in this document:
 > [!IMPORTANT]
 > Name resolution is not enabled between the peered networks, so IP addressing is used. By default, Kafka on HDInsight is configured to return host names instead of IP addresses when clients connect. The steps in this document modify Kafka to use IP advertising instead.
 
-## Create an Azure Container Service (AKS)
+## Create an Azure Kubernetes Service (AKS)
 
 If you do not already have an AKS cluster, use one of the following documents to learn how to create one:
 
-* [Deploy an Azure Container Service (AKS) cluster - Portal](../../aks/kubernetes-walkthrough-portal.md)
-* [Deploy an Azure Container Service (AKS) cluster - CLI](../../aks/kubernetes-walkthrough.md)
+* [Deploy an Azure Kubernetes Service (AKS) cluster - Portal](../../aks/kubernetes-walkthrough-portal.md)
+* [Deploy an Azure Kubernetes Service (AKS) cluster - CLI](../../aks/kubernetes-walkthrough.md)
 
 > [!NOTE]
 > AKS creates a virtual network during installation. This network is peered to the one created for HDInsight in the next section.
@@ -150,11 +150,11 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 ## Test the configuration
 
-At this point, Kafka and Azure Container Service are in communication through the peered virtual networks. To test this connection, use the following steps:
+At this point, Kafka and Azure  Kubernetes Service are in communication through the peered virtual networks. To test this connection, use the following steps:
 
 1. Create a Kafka topic that is used by the test application. For information on creating Kafka topics, see the [Create a Kafka cluster](apache-kafka-get-started.md) document.
 
-2. Download the example application from [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test). 
+2. Download the example application from [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test).
 
 3. Edit the `index.js` file and change the following lines:
 
@@ -180,7 +180,7 @@ At this point, Kafka and Azure Container Service are in communication through th
     ```
 
     > [!NOTE]
-    > If you don't know your Azure Container Registry name, or are unfamiliar with using the Azure CLI to work with the Azure Container Service, see the [AKS tutorials](../../aks/tutorial-kubernetes-prepare-app.md).
+    > If you don't know your Azure Container Registry name, or are unfamiliar with using the Azure CLI to work with the Azure  Kubernetes Service, see the [AKS tutorials](../../aks/tutorial-kubernetes-prepare-app.md).
 
 6. Tag the local `kafka-aks-test` image with the loginServer of your ACR. Also add `:v1` to the end to indicate the image version:
 

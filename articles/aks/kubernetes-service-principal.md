@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Service principals with Azure Container Service (AKS)
+# Service principals with Azure Kubernetes Service (AKS)
 
 An AKS cluster requires an [Azure Active Directory service principal][aad-service-principal] to interact with Azure APIs. The service principal is needed to dynamically create and manage resources such as the [Azure Load Balancer][azure-load-balancer-overview].
 

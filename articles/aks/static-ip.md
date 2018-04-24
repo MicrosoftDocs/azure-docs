@@ -1,6 +1,6 @@
 ---
-title: Use a static IP address with the Azure Container Service (AKS) load balancer
-description: Use a static IP address with the Azure Container Service (AKS) load balancer.
+title: Use a static IP address with the Azure Kubernetes Service (AKS) load balancer
+description: Use a static IP address with the Azure Kubernetes Service (AKS) load balancer.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -12,9 +12,9 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Use a static IP address with the Azure Container Service (AKS) load balancer
+# Use a static IP address with the Azure Kubernetes Service (AKS) load balancer
 
-In some cases, such as when the Azure Container Service (AKS) load balancer is recreated, or Kubernetes services with a type of LoadBalancer are recreated, the public IP address of the Kubernetes service may change. This document details configuring a static IP address for your Kubernetes services.
+In some cases, such as when the Azure Kubernetes Service (AKS) load balancer is recreated, or Kubernetes services with a type of LoadBalancer are recreated, the public IP address of the Kubernetes service may change. This document details configuring a static IP address for your Kubernetes services.
 
 ## Create static IP address
 
@@ -109,7 +109,7 @@ Events:
 ```
 
 <!-- LINKS - External -->
-[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/ 
+[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

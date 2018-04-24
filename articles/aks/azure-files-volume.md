@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Volumes with Azure files
 
-Container-based applications often need to access and persist data in an external data volume. Azure files can be used as this external data store. This article details using Azure files as a Kubernetes volume in Azure Container Service.
+Container-based applications often need to access and persist data in an external data volume. Azure files can be used as this external data store. This article details using Azure files as a Kubernetes volume in Azure  Kubernetes Service.
 
 For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-volumes].
 
