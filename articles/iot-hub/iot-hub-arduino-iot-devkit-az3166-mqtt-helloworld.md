@@ -44,11 +44,6 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-
 2. Start VS Code.
 
 3. Connect the DevKit to your computer.
-    VS Code automatically detects your DevKit and opens the following pages:
-    * The DevKit introduction page.
-    * Arduino Examples: Hands-on samples to get you started with your DevKit.
-
-    ![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/vscode-start.png)
 
 ## Open the MQTTClient Sample
 
