@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-suite
+ author: dominicbetts
+ ms.service: iot-suite
+ ms.topic: include
+ ms.date: 04/24/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 ## View device telemetry
 
 You can view the telemetry sent from your device on the **Devices** page in the solution.

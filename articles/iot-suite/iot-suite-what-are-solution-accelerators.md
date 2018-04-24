@@ -20,7 +20,7 @@ ms.author: dobett
 ---
 # What are the IoT solution accelerators?
 
-The Azure IoT _solution accelerators_ are set of solutions that:
+The Azure IoT _solution accelerators_ are a set of solutions that:
 
 * Deploy in minutes
 * Help you get started quickly

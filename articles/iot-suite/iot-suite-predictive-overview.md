@@ -1,6 +1,6 @@
 ---
 title: Predictive Maintenance solution accelerator overview - Azure | Microsoft Docs
-description: A description of the Azure Predictive Maintenance solution accelerator solution accelerator.
+description: A description of the Azure Predictive Maintenance solution accelerator.
 services: iot-suite
 suite: iot-suite
 documentationcenter: ''

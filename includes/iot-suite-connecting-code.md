@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-suite
+ author: dominicbetts
+ ms.service: iot-suite
+ ms.topic: include
+ ms.date: 04/24/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 ## Specify the behavior of the IoT device
 
 The IoT Hub serializer client library uses a model to specify the format of the messages the device exchanges with IoT Hub.

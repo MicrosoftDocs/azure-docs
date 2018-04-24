@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-suite
+ author: dominicbetts
+ ms.service: iot-suite
+ ms.topic: include
+ ms.date: 04/24/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 > [!div class="op_single_selector"]
 > * [C on Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
 > * [C on Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
