@@ -24,7 +24,7 @@ The extension lets you define stateful workflows in a new type of function calle
 
 * They define workflows in code. No JSON schemas or designers are needed.
 * They can call other functions synchronously and asynchronously. Output from called functions can be saved to local variables.
-* They automatically checkpoint their progress whenever the function awaits. Local state is never lost if the process recycles or the VM reboots. T
+* They automatically checkpoint their progress whenever the function awaits. Local state is never lost if the process recycles or the VM reboots.
 
 > [!NOTE]
 > Durable Functions is in preview and is an advanced extension for Azure Functions that is not appropriate for all applications. The rest of this article assumes that you have a strong familiarity with [Azure Functions](functions-overview.md) concepts and the challenges involved in serverless application development.
