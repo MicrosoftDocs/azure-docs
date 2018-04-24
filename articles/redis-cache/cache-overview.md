@@ -18,15 +18,15 @@ ms.custom: mvc
 #As a developer, I want to understand what Azure Redis cache is and how it can improve performance in my application.
 
 ---
-# What is Azure Redis Cache?
+# What is Azure Redis Cache
 
-Azure Redis Cache is based on the popular open-source [Redis cache](https://redis.io/). It is typically used as a cache to improve the performance and scalability of systems that rely heavily on backend data-stores. Performance is improved by temporarily copying frequently accessed data to fast storage located close to the application. With [Redis cache](https://redis.io/), this fast storage is located in-memory with Redis Cache instead of being loaded from disk by a database.  
+Azure Redis Cache is based on the popular open-source [Redis cache](https://redis.io/). It is typically used as a cache to improve the performance and scalability of systems that rely heavily on backend data-stores. Performance is improved by temporarily copying frequently accessed data to fast storage located close to the application. With [Redis cache](https://redis.io/), this fast storage is located in-memory with Redis Cache instead of being loaded from disk by a database.
 
-Azure Redis Cache can also be used as an in-memory data structure store, distributed non-relational database, and message broker. Application performance is improved by taking advantage of the low-latency, high-throughput performance of the Redis engine. 
+Azure Redis Cache can also be used as an in-memory data structure store, distributed non-relational database, and message broker. Application performance is improved by taking advantage of the low-latency, high-throughput performance of the Redis engine.
 
-Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft, hosted within Azure, and accessible to any application within Azure. 
+Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft, hosted within Azure, and accessible to any application within Azure.
 
-## Why use Azure Redis Cache?
+## Why use Azure Redis Cache
 
 There are many common patterns where Redis Cache is used to support application architecture or to improve application performance. Some of the most common include the following:
 
