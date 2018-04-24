@@ -27,7 +27,7 @@ This article provides you with an overview to Apache Spark in Azure HDInsight. <
 
 ## What is Spark?
 
-Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computer is much more quickly than disk-based systems, such as Hadoop, which shares data through HDFS. Spark also integrates into the Scala programming language to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.
+Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computer is much faster than disk-based systems, such as Hadoop, which shares data through HDFS. Spark also integrates into the Scala programming language to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.
 
 ![Traditional MapReduce vs. Spark](./media/apache-spark-overview/mapreduce-vs-spark.png)
 
