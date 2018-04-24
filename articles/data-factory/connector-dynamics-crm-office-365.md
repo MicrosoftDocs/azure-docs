@@ -1,4 +1,4 @@
----
+﻿---
 title: Copy data from and to Dynamics CRM or Dynamics 365 (Common Data Service) by using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 (Common Data Service) to supported sink data stores, or from supported source data stores to Dynamics CRM or Dynamics 365, by using a copy activity in a data factory pipeline.
 services: data-factory
@@ -207,7 +207,7 @@ To copy data from Dynamics, set the source type in the copy activity to **Dynami
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **DynamicsSource**. | Yes |
-| query | FetchXML is a proprietary query language that is used in Dynamics (online and on-premises). See the following example. To learn more, see [Build queries with FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | No (if "entityName" in the dataset is specified) |
+| query | FetchXML is a proprietary query language that is used in Dynamics (online and on-premises). See the following example. To learn more, see [Build queries with FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | No (if "entityName" in the dataset is specified) |
 
 **Example:**
 
