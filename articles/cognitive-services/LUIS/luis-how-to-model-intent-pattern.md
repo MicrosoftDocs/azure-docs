@@ -116,6 +116,17 @@ When the pattern list is filtered, the entity or intent name appears below the t
 
 The filter is removed and all patterns display.
 
+## Add pattern from existing utterance on intent or entity page
+You can create a pattern from an existing utterance on either the **Intent** or **Entity** page. All utterances on any intent or entity page are displayed in a list with the right column providing access to utterance-level options such as **Edit**, **Delete**, and **Add as pattern**.
+
+1. On the selected row of the utterance, select the three dots (...) to the right of the utterance, and select **Add as pattern**.
+
+    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Screenshot of utterances table with Add pattern highlighted in options menu")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+
+2. Modify the pattern according to the [syntax rules](luis-concept-patterns.md#pattern-syntax). If the utterance you selected is labeled with entities, those entities are already in the pattern with the correct syntax.
+
+    ![Screenshot of filtered patterns by entity](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
+
 ## Next steps
 
 > [!div class="nextstepaction"]
