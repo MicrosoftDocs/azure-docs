@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
 
 ---
@@ -27,11 +27,13 @@ To complete the procedure in this topic, you must have a Google account that has
 ## <a name="register"> </a>Register your application with Google
 1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**, which you use later to configure your Google app.
 2. Navigate to the [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) website, sign in with your Google account credentials, click **Create Project**, provide a **Project name**, then click **Create**.
-3. Under **Social APIs** click **Google+ API** and then **Enable**.
-4. In the left navigation, **Credentials** > **OAuth consent screen**, then select your **Email address**,  enter a **Product Name**, and click **Save**.
-5. In the **Credentials** tab, click **Create credentials** > **OAuth client ID**, then select **Web application**.
-6. Paste the App Service **URL** you copied earlier into **Authorized JavaScript Origins**, then paste your redirect URI into **Authorized Redirect URI**. The redirect URI is the URL of your application appended with the path, */.auth/login/google/callback*. For example, `https://contoso.azurewebsites.net/.auth/login/google/callback`. Make sure that you are using the HTTPS scheme. Then click **Create**.
-7. On the next screen, make a note of the values of the client ID and client secret.
+3. Once the project is created, select it. From the project dashboard, click **Go to APIs overview**.
+4. Select **Enable APIs and services**. Search for **Google+ API**, and select it. Then click **Enable**.
+6. In the left navigation, **Credentials** > **OAuth consent screen**, then select your **Email address**,  enter a **Product Name**, and click **Save**.
+7. In the **Credentials** tab, click **Create credentials** > **OAuth client ID**. Click **Configure consent screen**, provide a **Product name**. Then click **Save**
+8. On the "Create client ID" screen, select **Web application**.
+9. Paste the App Service **URL** you copied earlier into **Authorized JavaScript Origins**, then paste your redirect URI into **Authorized Redirect URI**. The redirect URI is the URL of your application appended with the path, */.auth/login/google/callback*. For example, `https://contoso.azurewebsites.net/.auth/login/google/callback`. Make sure that you are using the HTTPS scheme. Then click **Create**.
+10. On the next screen, make a note of the values of the client ID and client secret.
 
     > [!IMPORTANT]
     > The client secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
