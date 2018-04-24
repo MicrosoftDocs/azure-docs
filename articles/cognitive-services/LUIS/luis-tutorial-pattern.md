@@ -6,6 +6,7 @@ services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
 
+
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
@@ -221,7 +222,7 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
 
 7. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` then select enter. Select **Inspect** under the utterance to see more information about the test.
     
-    The employee name, Patti Owens, has not been used in an example utterance yet. This is a test to see how well LUIS learned this utterance is for the `GetEmployeeOrgChart` intent and the Employee entity should be `Patti Owens`. The result should be below 50% (.50) for the `GetEmployeeOrgChart` intent. While the intent is correct, the score is low. The Employee entity is also correctly identified as `Patti Owens`. Patterns will increase this initial prediction score. 
+    The employee name, Patti Owens, has not been used in an example utterance yet. This is a test to see how well LUIS learned this utterance is for the `GetEmployeeOrgChart` intent and the Employee entity should be `Patti Owens`. The result should be below 50% (.50) for the `GetEmployeeOrgChart` intent. While the intent is correct, the score is low. The Employee entity is also correctly identified as `Patti Owens`. Patterns increase this initial prediction score. 
 
     ![Screenshot of Test panel](media/luis-tutorial-pattern/original-test.png)
 
@@ -297,7 +298,7 @@ Create a new intent for any utterances that are about moving people or assets.
     ```
     ![Screenshot of example utterance for MoveAssetsOrPeople intent](./media/luis-tutorial-pattern/intent-moveasserts-example-utt.png)
 
-    The purpose of the example utterances is to give enough examples. If, later in the test, the location entity isn't detected, and consequently the pattern isn't detected, come back to this step and add more example. Then test again. 
+    The purpose of the example utterances is to give enough examples. If, later in the test, the location entity isn't detected, and consequently the pattern isn't detected, come back to this step and add more example. Then train and test again. 
 
 5. Mark the entities in the example utterances with the Employee entity by selecting the first name then the last name in an utterance, then selecting the Employee entity in the list.
 
@@ -364,11 +365,11 @@ Create a new intent for utterances that are looking for forms.
     ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/intent-findform.png)
 
 ### Create a Pattern.any entity for the form title
-The Pattern.any entity allows for entities for varying length. It only works in a pattern because the pattern marks the beginning and end of the entity. 
+The Pattern.any entity allows for entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity. 
 
 1. Select **Entities** in the left navigation.
 2. Select **Create new entity**. 
-3. Name the entity `FormName` with type **Pattern.any**. Do not add any roles to the entity.
+3. Name the entity `FormName` with type **Pattern.any**. For this specific tutorial, you do not need to add any roles to the entity.
 
 ### Add a pattern that uses the Pattern.any
 Add patterns that use the new entity.

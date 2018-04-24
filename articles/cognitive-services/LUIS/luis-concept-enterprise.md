@@ -36,4 +36,4 @@ Use the [Dispatch command line tool][dispatcher-application] to combine multiple
 * Learn how to [test a batch](luis-how-to-batch-test.md)
 
 [LUIS]:luis-reference-regions.md
-[dispatcher-application]:https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[dispatcher-application]:https://aka.ms/bot-dispatch
