@@ -87,6 +87,8 @@ This build includes the following improvements and fixes for Azure Stack.
 #### SQL and MySQL 
 - <!-- TBD - ASDK --> The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.- 
+
 #### App Service
 - <!-- TBD -  IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
 
@@ -180,6 +182,8 @@ The new features and fixes released for Azure Stack integrated systems version 1
 - It can take up to one hour before users can create databases in a new SQL or MySQL SKU.
 
 - The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
+
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 #### App Service
 - Users must register the storage resource provider before they create their first Azure Function in the subscription.
@@ -293,6 +297,8 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 - It can take up to one hour before users can create databases in a new SQL or MySQL SKU.
 
 - The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
+
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 #### App Service
 - Users must register the storage resource provider before they create their first Azure Function in the subscription.

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2018
+ms.date: 04/27/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -178,6 +178,8 @@ The following are post-installation known issues for build  **201804xx.x**.
 #### SQL and MySQL
 
 - <!-- TBD - IS --> Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.  
+
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 
 > [!NOTE]  
