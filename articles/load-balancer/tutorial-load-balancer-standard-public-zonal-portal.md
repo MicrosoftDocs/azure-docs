@@ -7,6 +7,7 @@ author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region. 
 
 ms.assetid:
 ms.service: load-balancer
@@ -16,6 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
+ms.custom: mvc
 ---
 
 # Tutorial:Load balance VMs within an availability zone with a Standard Load Balancer using the Azure portal
