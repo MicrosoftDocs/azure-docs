@@ -16,7 +16,7 @@ ms.author: luisca
 
 As the content of a document flows through a skill, it gets enriched with annotations that could be used as inputs for further downstream enrichment, or mapped to an output field in an index. Depending on the skill and source inputs, annotations can assume different shapes, with single and multi-branched constructions. The syntax used for referencing an annotation varies based on its structure.
 
-This article explains how to create references to simple and complex annotations using examples to illustrate common use cases. Examples are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the document cracking phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the *content* field is part of the *document*. 
+This article explains how to create references to simple and complex annotations using examples to illustrate each use case. Examples are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the document cracking phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the *content* field is part of the *document*. 
 
 ## Background concepts
 
@@ -89,7 +89,7 @@ When annotations are arrays or collections of strings, you might want to target 
 
 <a name="example-3"></a>
 
-# Example 3: Reference members within an array
+## Example 3: Reference members within an array
 
 Sometimes you need to group all annotations of a particular type to pass them to a particular skill. Consider a hypothetical custom skill that identifies the most common last name from all the last names extracted in Example 2. To provide just the last names to the custom skill, specify the context as `"/document"` and the input as `"/document/people/*/lastname"`.
 
@@ -119,7 +119,7 @@ Note that the cardinality of `"/document/people/*/lastname"` is larger than that
 
 
 ## See also
-+ [Custom Skill Interface](cognitive-search-custom-skill-interface.md)
++ [How to integrate a custom skill into an enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Skillset (REST)](ref-create-skillset.md)
-+ [How to map enriched fields](cognitive-search-output-field-mapping.md)
++ [How to map enriched fields to an index](cognitive-search-output-field-mapping.md)
