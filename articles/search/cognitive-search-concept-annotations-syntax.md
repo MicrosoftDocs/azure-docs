@@ -14,9 +14,10 @@ ms.author: luisca
 ---
 # How to reference annotations in a cognitive search skillset
 
-As the content of a document flows through a skill, it gets enriched with annotations that could be used as inputs for further downstream enrichment, or mapped to an output field in an index. Depending on the skill and source inputs, annotations can assume different shapes, with single and multi-branched constructions. The syntax used for referencing annotations at a specific level varies depending on its structure.
+As the content of a document flows through a set of skills, it gets enriched with annotations. Annotations can be  used as inputs for further downstream enrichment, or mapped to an output field in an index. 
+This article explains how to reference annotations in skill definitions, using examples to illustrate various scenarios. 
 
-This article explains how to create references to simple and complex annotations using examples to illustrate each use case. Examples are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the document cracking phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the *content* field is part of the *document*. 
+Examples are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the document cracking phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the *content* field is part of the *document*. 
 
 ## Background concepts
 
@@ -24,7 +25,7 @@ Before diving into syntax, revisiting a few important concepts can help you make
 
 | Term | Description |
 |------|-------------|
-| Enriched Document | An enriched document is an internal structure created and used by the pipeline to hold all annotations related to a document. Once content is mapped to the search index, the enriched document is released. Although you don't interact with it directly, it's useful to have a mental model of enriched documents when creating a skillset.<br/><br/>Think of an enriched document as a tree of annotations, with branch and leaf nodes. A branch node is typically input for a downstream skill. A leaf node gets mapped to field in an index. During indexing, an enriched document has the full set of annotations available to it. A downstream skill can reference the output of a skip-level upstream skill, bypassing its parent.|
+| Enriched Document | An enriched document is an internal structure created and used by the pipeline to hold all annotations related to a document. You can think of the enriched document as a tree of annotations. Generally, an annotation created from a previous annotation becomes its child.<p/>Enriched documents only exist for the duration of skillset execution. Once content is mapped to the search index, the enriched document is no longer needed. Although you don't interact with it directly, it's useful to have a mental model of enriched documents when creating a skillset. |
 | Enrichment Context | The context in which the enrichment takes place, in terms of which element is enriched. By default, the enrichment context is at the `"/document"` level, scoped to individual documents. When a skill runs, the outputs of that skill become [properties of the defined context](#example-2).|
 
 <a name="example-1"></a>
