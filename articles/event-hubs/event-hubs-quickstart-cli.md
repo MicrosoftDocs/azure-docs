@@ -19,9 +19,9 @@ ms.author: sethm
 
 ---
 
-# Process event streams using Azure CLI and .NET Standard
+# Process event streams using Azure CLI and Java
 
-Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create an event hub using Azure CLI, and then send to and receive from an event hub using the .NET Standard SDK.
+Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create an event hub using Azure CLI, and then send to and receive from an event hub using Java.
 
 ## Prerequisites
 
@@ -163,15 +163,13 @@ The try/finally block send 3 events: one event is sent round robin to a non-spec
 ```java
 try {
     // Type-1 - Send - not tied to any partition
-    // EventHubs service will round-robin the events across all EventHubs partitions.
-    // This is the recommended & most reliable way to send to EventHubs.
     ehClient.send(sendEvent).get();
 
-    // Type-2 - Send using PartitionKey - all Events with Same partitionKey will land on the Same Partition
+    // Type-2 - Send using PartitionKey - all events with same partitionKey will land on the same partition
     final String partitionKey = "partitionTheStream";
     ehClient.sendSync(sendEvent, partitionKey);
 
-    // Type-3 - Send to a Specific Partition
+    // Type-3 - Send to a specific partition
     sender = ehClient.createPartitionSenderSync("0");
     sender.sendSync(sendEvent);
 
@@ -243,8 +241,6 @@ public static class EventProcessor implements IEventProcessor
 The `onEvents()` method is called when events are received on this partition of the event hub:
 
 ```java
-// onEvents is called when events are received on this partition of the Event Hub. The maximum number of 
-// events in a batch can be controlled via EventProcessorOptions.
 @Override
 public void onEvents(PartitionContext context, Iterable<EventData> events) throws Exception
 {
@@ -252,8 +248,6 @@ public void onEvents(PartitionContext context, Iterable<EventData> events) throw
     int eventCount = 0;
     for (EventData data : events)
     {
-    	// It is important to have a try-catch around the processing of each event. Throwing out of onEvents deprives
-    	// you of the chance to process any remaining events in the batch. 
     	try
     	{
          System.out.println("SAMPLE (" + context.getPartitionId() + "," + data.getSystemProperties().getOffset() + "," +

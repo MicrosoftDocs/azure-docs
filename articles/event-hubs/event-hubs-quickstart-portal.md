@@ -19,7 +19,7 @@ ms.author: sethm
 
 ---
 
-# Process event streams using the Azure portal and .NET Standard
+# Process event streams using the Azure portal and .NET
 
 Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create an event hub using the [Azure portal](https://portal.azure.com), and then send to and receive from an event hub using the .NET Standard SDK.
 
