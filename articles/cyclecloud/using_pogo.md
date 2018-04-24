@@ -61,13 +61,13 @@ To upload a file, use `pogo put <filename> <URL>`. For example, to
 upload data.zip from the local directory to the data_backups
 directory:
 
-    ``pogo put data.zip http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups``
+    `pogo put data.zip http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups`
 
 To give the file a different name in Azure, append the desired name:
 
-    ``pogo put data.zip http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data-20150311.zip``
+    `pogo put data.zip http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data-20150311.zip`
 
-``pogo put`` will recursively upload a directory with pogo put <directory>
+`pogo put` will recursively upload a directory with pogo put <directory>
 <URL>. The behavior is identical to the sync behavior described below.
 
 >[!Warning]
@@ -78,16 +78,16 @@ To give the file a different name in Azure, append the desired name:
 
 ## Downloading Files
 
-To download a file, use ``pogo get <URL> [<filename>]```. For example,
+To download a file, use `pogo get <URL> [<filename>]`. For example,
 to download /mycontainer/my/path/data_backups/data.zip to the local
 directory:
 
-    ``pogo get http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip``
+    pogo get http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip`
 
 To save the file as data-download.zip, use the optional filename
 argument:
 
-    ``pogo get http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip data-download.zip``
+    `pogo get http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip data-download.zip`
 
 ## Synchronizing Directories
 
