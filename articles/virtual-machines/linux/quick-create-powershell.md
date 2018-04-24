@@ -124,27 +124,29 @@ To see the public IP address of the VM, use the [Get-AzureRmPublicIpAddress](/po
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-Use an SSH client to connect to the VM. You can use the Azure Cloud Shell from a web browser, or if you use Windows, you can use [Putty](ssh-from-windows.md) or the [Windows Subsystem for Linux](/windows/wsl/install-win10).
+Use an SSH client to connect to the VM. You can use the Azure Cloud Shell from a web browser, or if you use Windows, you can use [Putty](ssh-from-windows.md) or the [Windows Subsystem for Linux](/windows/wsl/install-win10). Provide the public IP address of your VM:
 
 ```bash
-ssh <Public IP Address>
+ssh azureuser@IpAddress
 ```
 
 When prompted, the login user name is *azureuser*. If a passphrase is used with your SSH keys, you need to enter that when prompted.
 
-## Install NGINX
+## Install web server
 
-Use `apt-get` to update the list of available packages and then install the NGINX web server as follows:
+To see your VM in action, install the NGINX web server. To update package sources and install the latest NGINX package, run the following commands from your SSH session:
 
 ```bash
-# update package source
+# update packages
 sudo apt-get -y update
 
 # install NGINX
 sudo apt-get -y install nginx
 ```
 
-## View the NGINX welcome page
+When done, `exit` the SSH session
+
+## View the web server in action
 
 With NGINX installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default NGINX welcome page. Use the public IP address of your VM obtained in a previous step. The following example shows the default NGINX web site:
 

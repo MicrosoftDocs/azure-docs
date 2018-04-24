@@ -53,7 +53,7 @@ Log in to the Azure portal at http://portal.azure.com
 
     ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 
-5. Choose to **Create new** resource group, then provide a name, such as *myResourceGroup*. Select your desired **Location**.
+5. Choose to **Create new** resource group, then provide a name, such as *myResourceGroup*. Choose your desired **Location**, then select **OK**.
 
 4. Select a size for the VM. You can filter by *Compute type* or *Disk type*, for example. A suggested VM size is *D2s_v3*.
 
@@ -63,25 +63,25 @@ Log in to the Azure portal at http://portal.azure.com
 
 6. On the summary page, select **Create** to start the VM deployment.
 
-7. The VM will be pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary automatically opens.
+7. The VM is pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary automatically opens.
 
 ## Connect to virtual machine
 
 Create an SSH connection with the VM.
 
-1. Select the **Connect** button on the virtual machine properties page in the Azure portal. The **Connect** button displays an SSH connection string that can be used to connect to the VM. Copy this connection string.
+1. Select the **Connect** button on the overview page for your VM. The **Connect** button displays an SSH connection command that includes the username and public IP address for the VM. Copy this connection command.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. Paste the SSH connection string from a shell, such as the Azure Cloud Shell or Windows Substem for Linux. The following example shows what the SSH connection looks like:
+2. Paste the SSH connection command into a shell, such as the Azure Cloud Shell or Windows Substem for Linux. The following example shows what the SSH connection command looks like:
 
 ```bash
 ssh azureuser@40.112.21.50
 ```
 
-## Install NGINX
+## Install web server
 
-To update package sources and install the latest NGINX package, run the following commands from your SSH session:
+To see your VM in action, install the NGINX web server. To update package sources and install the latest NGINX package, run the following commands from your SSH session:
 
 ```bash
 # update packages
@@ -102,9 +102,9 @@ A Network Security Group (NSG) secures inbound and outbound traffic. When a VM i
 3. Select the **Basic** option across the top, then choose *HTTP* from the list of available services. Port 80, a priority, and name, are provided for you.
 4. To create the rule, select **Add**.
 
-## View the NGINX welcome page
+## View the web server in action
 
-With NGINX installed and port 80 open to your VM, the web server can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. The public IP address can be found on the VM overview page, or at the the top of the *Networking* page where you add the inbound port rule.
+With NGINX installed and port 80 open to your VM, the web server can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. The public IP address can be found on the VM overview page, or at the top of the *Networking* page where you add the inbound port rule.
 
 ![NGINX default site](./media/quick-create-cli/nginx.png)
 
