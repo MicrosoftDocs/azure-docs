@@ -208,7 +208,7 @@ Congratulations!  You've authenticated to the Data Lake Store filesystem using a
 ## Related content
 
 - For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
-- For management operations Data Lake Store uses Azure Resource Manager.  For more information on using a VM MSI to authenticate to Resource Manager, read [Use a Linux VM Managed Service Identity (MSI) to access Resource Manager](msi-tutorial-linux-vm-access-arm.md).
+- For management operations Data Lake Store uses Azure Resource Manager.  For more information on using a VM MSI to authenticate to Resource Manager, read [Use a Linux VM Managed Service Identity (MSI) to access Resource Manager](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - Learn more about [Authentication with Data Lake Store using Azure Active Directory](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
 - Learn more about [Filesystem operations on Azure Data Lake Store using REST API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) or the [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Learn more about [Access Control in Data Lake Store](~/articles/data-lake-store/data-lake-store-access-control.md).
