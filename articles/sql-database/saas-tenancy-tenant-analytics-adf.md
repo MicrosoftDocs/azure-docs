@@ -34,7 +34,7 @@ In this tutorial you learn how to:
 > -	Query the analytics data warehouse.
 > -	Use Power BI for data visualization to highlight trends in tenant data and make recommendation for improvements.
 
-![architectureOverView](media/saas-tenancy-tenant-analytics/adf_overview.JPG)
+![architectureOverView](media/saas-tenancy-tenant-analytics/adf_overview.png)
 
 ## Analytics over extracted tenant data
 
