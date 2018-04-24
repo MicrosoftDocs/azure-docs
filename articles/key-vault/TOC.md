@@ -1,4 +1,4 @@
-# [Key Vault Documentation](index.md)
+# [Key Vault Documentation](index.yml)
 
 # Overview
 ## [Key Vault Overview](key-vault-overview.md)

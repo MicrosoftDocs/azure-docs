@@ -87,6 +87,8 @@
     href: concepts-security.md
   - name: Service
     href: concepts-service.md
+  - name: TPM attestation
+    href: concepts-tpm-attestation.md
 - name: How-to guides
   items:
   - name: Connect MXChip IoT DevKit to IoT Hub
