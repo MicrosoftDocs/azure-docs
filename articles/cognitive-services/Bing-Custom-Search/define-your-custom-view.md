@@ -104,7 +104,7 @@ Follow these steps to use Bing to add slices to your Custom Search instance.
 [!INCLUDE[publish or revert](./includes/publish-revert.md)]
 
 ## View statistics
-If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), a **Statistics** tab is added to your production instances. The statistics tab shows details about how your Custom Search endpoints are used, including call volume and most frequent queries. You can filter details using the provided controls. See [Analyze your traffic](analyze-traffic.md).
+If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), a **Statistics** tab is added to your production instances. The statistics tab shows details about how your Custom Search endpoints are used, including call volume, top queries, geographic distribution, response codes, and safe search. You can filter details using the provided controls.
 
 ## Understanding Quota
 - For each custom search instance, the maximum number of ranking adjustments that you may make to **Active** and **Blocked** slices is limited to 400.
