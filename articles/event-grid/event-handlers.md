@@ -21,14 +21,18 @@ This article provides links to content for each event handler.
 
 ### Azure Automation
 
-[Integrate Azure Automation with Event Grid and Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md)
+|Title  |Type  |Description  |
+|---------|---------|---------|
+|[Integrate Azure Automation with Event Grid and Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Tutorial |Create a virtual machine which sends an event. The event triggers an Automation runbook that tags the virtual machine, and triggers a message that is sent to a Microsoft Teams channel. |
 
 ### Azure Functions
 
-* [Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid.md)
-* [Automate resizing uploaded images using Event Grid](resize-images-on-storage-blob-upload-event.md)
-* [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
-* [Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+|Title  |Type  |Description  |
+|---------|---------|---------|
+| [Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid.md)
+| [Automate resizing uploaded images using Event Grid](resize-images-on-storage-blob-upload-event.md) | Tutorial | Users upload images through web app to storage account. When a storage blob is created, Event Grid sends an event to the function app, which resizes the uploaded image. |
+| [Stream big data into a data warehouse](event-grid-event-hubs-integration.md) | Tutorial | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
+| [Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Tutorial | Event Grid sends messages from Service Bus topic to function app and logic app. |
 
 ### Logic Apps
 

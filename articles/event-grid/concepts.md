@@ -39,6 +39,22 @@ A subscription instructs Event Grid on which events on a topic a subscriber is i
 
 From an Event Grid perspective, an event handler is the place where the event is sent. The handler takes some further action to process the event. Event Grid supports multiple subscriber types. Depending on the type of subscriber, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service is able to successfully process the message push into the queue.
 
+### Azure Automation
+
+|Title  |Type  |Description  |
+|---------|---------|---------|
+|[Integrate Azure Automation with Event Grid and Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) | Tutorial |Create a virtual machine which sends an event. The event triggers an Automation runbook that tags the virtual machine, and triggers a message that is sent to a Microsoft Teams channel. |
+
+### Azure Functions
+
+|Title  |Type  |Description  |
+|---------|---------|---------|
+| [Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Conceptual | Overview of using the Event Grid trigger in Functions. |
+| [Automate resizing uploaded images using Event Grid](resize-images-on-storage-blob-upload-event.md) | Tutorial | Users upload images through web app to storage account. When a storage blob is created, Event Grid sends an event to the function app, which resizes the uploaded image. |
+| [Stream big data into a data warehouse](event-grid-event-hubs-integration.md) | Tutorial | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
+| [Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Tutorial | Event Grid sends messages from Service Bus topic to function app and logic app. |
+
+
 ## Filters
 
 When subscribing to a topic, you can filter the events that are sent to the endpoint. You can filter by event type, or subject pattern. For more information, see [Event Grid subscription schema](subscription-creation-schema.md).
