@@ -62,6 +62,8 @@ Once the webhook is created, copy the URL by clicking on the *Get function URL* 
 
 When you register your own WebHook endpoint with Event Grid, it sends you a POST request with a simple validation code to prove endpoint ownership. Your app needs to respond by echoing back the validation code. Event Grid doesn't deliver events to WebHook endpoints that haven't passed the validation. For more information, see [Event Grid security and authentication](https://docs.microsoft.com/azure/event-grid/security-authentication). This section defines two parts that must be defined for the validation to pass.
 
+#### Update the source code
+
 After you created your webhook, the **run.csx** file appears in the browser. Replace the default code with the following code. 
 
 ```csharp
@@ -100,6 +102,8 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 }
 ```
 
+#### Update test request body
+
 On the right of the **Azure** portal window you see two tabs: **View files** and **Test**. Select the **Test** tab. In the **Request body**, paste the following json. You can paste it as is, no need to change any values.
 
 ```json
@@ -118,7 +122,7 @@ On the right of the **Azure** portal window you see two tabs: **View files** and
 
 Press **Save and run** at the top of the window.
 
-![Request body](./media/job-state-events-cli-how-to/generic_webhook_files.png)
+![Request body](./media/job-state-events-cli-how-to/generic_webhook_test.png)
 
 ## Register for the EventGrid subscription 
 
