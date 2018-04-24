@@ -71,7 +71,6 @@ Within your Resource Manager templates, an additional parameter `licenseType` mu
         "vmSize": "[variables('vmSize')]"
    }
 ```
-You can read a more descriptive guide on the different steps to [create a Windows VM using Resource Manager and PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## How to convert an existing VM using Azure Hybrid Benefit for Windows Server
 If you have an existing VM that you would like to convert to take advantage of Azure Hybrid Benefit for Windows Server, you can update your VM's license type as follows:
