@@ -183,4 +183,4 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutor
 In this tutorial, you learned how to create an Azure AD B2C tenant, create policies, and update the sample desktop app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a protected web API from a desktop app.
 
 > [!div class="nextstepaction"]
-> 
+> [Tutorial: Use Azure Active Directory B2C to protect an ASP.NET web API from a desktop app](active-directory-b2c-tutorials-desktop-app-webapi.md)

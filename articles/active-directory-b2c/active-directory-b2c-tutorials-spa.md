@@ -193,7 +193,7 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutor
 
 ## Next steps
 
-In this tutorial, you learned how to create an Azure AD B2C tenant, create policies, and update the sample single page app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a protected web API from a desktop app.
+In this tutorial, you learned how to create an Azure AD B2C tenant, create policies, and update the sample single page app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a protected web API from a single page app.
 
 > [!div class="nextstepaction"]
-> 
+> [Tutorial: Use Azure Active Directory B2C to protect an ASP.NET web API from a single page app](active-directory-b2c-tutorials-spa-webapi.md)
