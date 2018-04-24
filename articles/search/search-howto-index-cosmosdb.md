@@ -3,11 +3,11 @@ title: Indexing an Azure Cosmos DB data source for Azure Search | Microsoft Docs
 description: This article shows you how to create an Azure Search indexer with an Azure Cosmos DB data source.
 author: chaosrealm
 manager: jlembicz
-
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 04/20/2018
 ms.author: eugenesh
 robot: noindex
 
@@ -69,7 +69,7 @@ This article shows how to use the REST API. If you opt for the portal, the [Impo
 ## Step 1: Create a data source
 To create a data source, do a POST:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -144,7 +144,7 @@ Create a target Azure Search index if you don’t have one already. You can crea
 
 The following example creates an index with an id and description field:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -190,7 +190,7 @@ Ensure that the schema of your target index is compatible with the schema of the
 
 Once the index and data source have been created, you're ready to create the indexer:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -209,7 +209,7 @@ For more details on the Create Indexer API, check out [Create Indexer](https://d
 ### Running indexer on-demand
 In addition to running periodically on a schedule, an indexer can also be invoked on demand:
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -221,7 +221,7 @@ You can monitor the indexer status in the portal or using the Get Indexer Status
 ### Getting indexer status
 You can retrieve the status and execution history of an indexer:
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2016-09-01
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
     api-key: [Search service admin key]
 
 The response contains overall indexer status, the last (or in-progress) indexer invocation, and the history of recent indexer invocations.
@@ -295,7 +295,7 @@ If you are using a custom query, make sure that the property referenced by `soft
 
 The following example creates a data source with a soft-deletion policy:
 
-	POST https://[Search service name].search.windows.net/datasources?api-version=2016-09-01
+	POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 

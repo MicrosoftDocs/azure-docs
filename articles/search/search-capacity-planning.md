@@ -3,7 +3,7 @@ title: Capacity planning for Azure Search | Microsoft Docs
 description: Adjust partition and replica computer resources in Azure Search, where each resource is priced in billable search units.
 author: HeidiSteen
 manager: cgronlun
-
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017

@@ -3,11 +3,11 @@ title: Full text search engine (Lucene) architecture in Azure Search | Microsoft
 description: Explanation of Lucene query processing and document retrieval concepts for full text search, as related to Azure Search.
 manager: jlembicz
 author: yahnoosh
-
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/06/2017
+ms.date: 04/20/2018
 ms.author: jlembicz
 ---
 
@@ -48,7 +48,7 @@ A search request is a complete specification of what should be returned in a res
 The following example is a search request you might send to Azure Search using the [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2016-09-01 
+POST /indexes/hotels/docs/search?api-version=2017-11-11 
 {  
     "search": "Spacious, air-condition* +\"Ocean view\"",  
     "searchFields": "description, title",  
