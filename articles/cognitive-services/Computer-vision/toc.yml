@@ -5,10 +5,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: cURL
-    href: QuickStarts/curl.md
   - name: C#
     href: QuickStarts/CSharp.md
+  - name: cURL
+    href: QuickStarts/curl.md
   - name: Java
     href: QuickStarts/Java.md
   - name: JavaScript
@@ -39,7 +39,7 @@
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Reference
   items: 
-  - name: API reference
+  - name: Computer Vision API
     href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
   - name: SDKs
     items:
@@ -51,15 +51,19 @@
       href: https://github.com/Microsoft/Cognitive-vision-windows
 - name: Resources
   items: 
+  - name: FAQ
+    href: FAQ.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
   - name: Category taxonomy
     href: Category-Taxonomy.md
-  - name: FAQ
-    href: FAQ.md
   - name: Research papers    
     href: Research.md
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/128472-computer-vision
