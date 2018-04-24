@@ -1,7 +1,7 @@
 ---
 title: Azure IoT solution accelerators and Azure Active Directory | Microsoft Docs
 description: Describes how Azure IoT solution accelerators uses Azure Active Directory to manage permissions.
-services: ''
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts

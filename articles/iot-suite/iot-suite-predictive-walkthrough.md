@@ -1,7 +1,7 @@
 ---
 title: Predictive Maintenance solution accelerator walkthrough - Azure | Microsoft Docs
 description: A walkthrough of the Azure IoT Predictive Maintenance solution accelerator.
-services: ''
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts

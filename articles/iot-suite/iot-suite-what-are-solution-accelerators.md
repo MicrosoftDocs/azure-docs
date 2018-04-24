@@ -1,7 +1,7 @@
 ---
 title: Azure IoT solution accelerators overview | Microsoft Docs
 description: A description of the Azure IoT solution accelerators and their architecture with links to additional resources.
-services: ''
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts

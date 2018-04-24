@@ -1,7 +1,7 @@
 ---
 title: Customize the Connected Factory solution - Azure | Microsoft Docs
 description: A description of how to customize the behavior of the Connected Factory solution accelerator.
-services: ''
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts

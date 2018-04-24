@@ -1,7 +1,7 @@
 ﻿---
 title: Configure the Connected Factory topology | Microsoft Docs
 description: How to configure the topology of a Connected Factory solution accelerator.
-services: ''
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts

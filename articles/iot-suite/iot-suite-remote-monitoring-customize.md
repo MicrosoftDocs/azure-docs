@@ -1,7 +1,7 @@
 ---
 title: Customize the remote monitoring solution - Azure | Microsoft Docs 
 description: This article provides information about how you can access the source code for the remote monitoring solution accelerator.
-services: ''
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt

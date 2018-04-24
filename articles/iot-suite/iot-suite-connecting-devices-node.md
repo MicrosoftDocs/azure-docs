@@ -1,7 +1,7 @@
 ---
 title: Provision devices to Remote Monitoring in Node.js - Azure | Microsoft Docs
 description: Describes how to connect a device to the Remote Monitoring solution accelerator using an application written in Node.js.
-services: ''
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts

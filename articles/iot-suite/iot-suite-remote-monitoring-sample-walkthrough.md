@@ -1,7 +1,7 @@
 ---
 title: Architecture of remote monitoring solution - Azure | Microsoft Docs
 description: A walkthrough of the architecture of the remote monitoring solution accelerator.
-services: ''
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts

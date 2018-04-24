@@ -1,7 +1,7 @@
 ---
 title: Secure your Internet of Things deployment | Microsoft Docs
 description: This article details how to secure your IoT deployment
-services: ''
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts

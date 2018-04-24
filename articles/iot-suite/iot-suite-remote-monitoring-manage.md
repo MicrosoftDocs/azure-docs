@@ -1,7 +1,7 @@
 ---
 title: Device management in remote monitoring solution - Azure | Microsoft Docs
 description: This tutorial shows you how to manage devices connected to the remote monitoring solution.
-services: ''
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt

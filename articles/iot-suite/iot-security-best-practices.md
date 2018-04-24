@@ -1,7 +1,7 @@
 ---
 title: IoT security best practices | Microsoft Docs
 description: Security best practices for securing your IoT infrastructure
-services: ''
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts

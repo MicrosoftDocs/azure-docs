@@ -1,7 +1,7 @@
 ---
 title: Device simulation in remote monitoring solution - Azure | Microsoft Docs
 description: This tutorial shows you how to use the device simulator with the remote monitoring solution accelerator.
-services: ''
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt

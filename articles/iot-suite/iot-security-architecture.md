@@ -1,7 +1,7 @@
 ---
 title: IoT Security Architecture | Microsoft Docs
 description: IoT security architecture guidelines and considerations
-services: ''
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts

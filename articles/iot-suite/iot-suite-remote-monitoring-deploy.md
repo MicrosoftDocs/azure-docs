@@ -1,7 +1,7 @@
 ---
 title: Deploy the remote monitoring solution - Azure | Microsoft Docs 
 description: This tutorial shows you how to provision the remote monitoring solution accelerator from azureiotsuite.com.
-services: ''
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
