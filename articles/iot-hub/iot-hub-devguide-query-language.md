@@ -24,9 +24,11 @@ IoT Hub provides a powerful SQL-like language to retrieve information regarding 
 * An introduction to the major features of the IoT Hub query language, and
 * The detailed description of the language.
 
-## Device twin queries
-[Device twins][lnk-twins] can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins as a single JSON document containing all device twin information.
-Assume, for instance, that your IoT hub device twins have the following structure:
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+## Device and module twin queries
+[Device twins][lnk-twins] and module twins can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins and module twins as a single JSON document containing all twin information.
+Assume, for instance, that your IoT hub device twins have the following structure (module twin would be similar just with an additional moduleId):
 
 ```json
 {
@@ -77,6 +79,8 @@ Assume, for instance, that your IoT hub device twins have the following structur
     }
 }
 ```
+
+### Device twin queries
 
 IoT Hub exposes the device twins as a document collection called **devices**.
 So the following query retrieves the whole set of device twins:
@@ -153,6 +157,26 @@ Projection queries allow developers to return only the properties they care abou
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
+### Module twin queries
+
+Querying on module twins is similar to query on device twins, but using a different collection/namespace, i.e. instead of “from devices” you can query
+
+```sql
+SELECT * FROM devices.modules
+```
+
+We don't allow join between the devices and devices.modules collections. If you want to query module twins across devices, you do do it based on tags. This query will return all module twins across all devices with the scanning status:
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning'
+```
+
+This query will return all module twins with the scanning status, but only on the specified subset of devices.
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### C# example

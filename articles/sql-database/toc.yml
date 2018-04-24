@@ -48,14 +48,18 @@
     href: sql-database-design-first-database.md
   - name: 1 - Design DB using .NET
     href: sql-database-design-first-database-csharp.md
-  - name: 2 - Migrate to SQL Server DB
+  - name: 2 - Migrate to SQL Server DB using DMS
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Secure your SQL DB
     href: sql-database-security-tutorial.md
   - name: 4 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
   - name: 5 - Create Managed Instance
-    href: sql-database-managed-instance-tutorial-portal.md
+    href: sql-database-managed-instance-create-tutorial-portal.md
+  - name: 6 - Restore a backup to a Managed Instance
+    href: sql-database-managed-instance-restore-from-backup-tutorial.md
+  - name: 7 - Migrate to a Managed Instance using DMS
+    href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Samples
   items:
   - name: Code samples
@@ -72,8 +76,12 @@
     href: sql-database-managed-instance.md
   - name: Service tiers
     href: sql-database-service-tiers.md
-  - name: Resource limits
-    href: sql-database-resource-limits.md  
+  - name: Read Scale-Out
+    href: sql-database-read-scale-out.md
+  - name: DTU-based resource limits
+    href: sql-database-dtu-resource-limits.md  
+  - name: vCore-based resource limits
+    href: sql-database-vcore-resource-limits.md  
   - name: Single databases
     href: sql-database-single-database-resources.md
   - name: Elastic pools
@@ -126,7 +134,7 @@
       href: sql-database-business-continuity.md
     - name: Database backups
       href: sql-database-automated-backups.md
-    - name: Backup retention
+    - name: Long-term backup retention
       href: sql-database-long-term-retention.md
     - name: Failover groups
       href: sql-database-geo-replication-overview.md
@@ -306,10 +314,12 @@
       href: sql-database-vnet-service-endpoint-rule-powershell.md
   - name: Business continuity
     items:
-    - name: Configure vault - backups
-      href: sql-database-long-term-backup-retention-configure.md
     - name: Geo-replicate - Portal
       href: sql-database-geo-replication-portal.md
+    - name: Configure long-term backup retention - SQL storage
+      href: sql-database-long-term-backup-retention-configure.md
+    - name: Configure long-term backup retention - Azure vault
+      href: sql-database-long-term-backup-retention-configure-vault.md
   - name: Load & move data
     items:
     - name: Load data with BCP
@@ -404,6 +414,10 @@
         href: saas-tenancy-cross-tenant-reporting.md
       - name: ETL for analytics
         href: saas-tenancy-tenant-analytics.md
+      - name: Disaster recovery using geo-restore
+        href: saas-dbpertenant-dr-geo-restore.md
+      - name: Disaster recovery using database geo-replication
+        href: saas-dbpertenant-dr-geo-replication.md
     - name: Multi-tenant database
       items:
       - name: Deploy example app
@@ -424,6 +438,8 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
+    - name: Use Spark Connector
+      href: sql-database-spark-connector.md
 - name: Reference
   items:
   - name: Azure PowerShell

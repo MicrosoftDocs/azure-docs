@@ -10,10 +10,8 @@ tags: azure-portal
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
 
@@ -30,7 +28,7 @@ Learn some basic scenarios on how to use Azure Log Analytics to monitor Azure HD
 
 * You must have configured an HDInsight cluster to use Azure Log Analytics. For instructions, see [Use Azure Log Analytics with HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
-* You must have added the HDInsight cluster-specific management solutions to the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) workspace as described in [Add HDInsight cluster management solutions to Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
+* You must have added the HDInsight cluster-specific management solutions to the [Log Analytics](../operations-management-suite/operations-management-suite-overview.md) workspace as described in [Add HDInsight cluster management solutions to Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
 
 ## Analyze HDInsight cluster metrics
 
@@ -83,7 +81,7 @@ Learn how to  look error messages during a specific time window. The steps here 
 
     ![Open OMS dashboard](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS dashboard")
 
-2. In the OMS dashboard, from the home screen, click **Log Search**.
+2. In the OMS portal, from the home screen, click **Log Search**.
 
     ![Open Log Search](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Open Log Search")
 
@@ -123,7 +121,7 @@ You can use any query that you want to create an alert.
 
     ![Open OMS dashboard](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS dashboard")
 
-2. In the OMS dashboard, from the home screen, click **Log Search**.
+2. In the OMS portal, from the home screen, click **Log Search**.
 
     ![Open Log Search](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Open Log Search")
 
@@ -149,5 +147,5 @@ You can use any query that you want to create an alert.
 
 ## See also
 
-* [Working with Operations Management Suite Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Working with Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Create alert rules in Log Analytics](../log-analytics/log-analytics-alerts-creating.md)

@@ -108,7 +108,7 @@ See [Azure Resource Manager overview](azure-resource-manager/resource-group-over
 
 ## role
 A means for controlling access that can be assigned to users, groups, and services. Roles are able to perform actions such as create, manage, and read on Azure resources.  
-See [RBAC: Built-in roles](active-directory/role-based-access-built-in-roles.md)
+See [RBAC: Built-in roles](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>service level agreement (SLA)
 The agreement that describes Microsoft’s commitments for uptime and connectivity. Each Azure service has a specific SLA.  

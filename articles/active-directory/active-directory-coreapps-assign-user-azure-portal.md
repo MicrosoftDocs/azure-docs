@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 04/19/2018
 ms.author: markvi
 
 ms.reviewer: luleon
@@ -70,6 +70,8 @@ To assign a user or group to an enterprise app, you must have the appropriate pe
 
 For more information about how to assign a user to an application role visit the documentation for [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
+To assign a group to an enterprise app, you need to replace `Get-AzureADUser` with `Get-AzureADGroup`.
+
 ### Example
 
 This example assigns the user Britta Simon to the [Microsoft Workplace Analytics](https://products.office.com/en-us/business/workplace-analytics) application using PowerShell.
@@ -99,6 +101,7 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
     ```powershell
     # Assign the values to the variables
     $app_role_name = "Analyst (Limited access)"
+    $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
     ```
 
 5. Run the following command to assign the user to the app role:

@@ -1,6 +1,6 @@
----
-title: Filter network traffic - Azure PowerShell | Microsoft Docs
-description: In this article, you learn how to filter network traffic to a subnet, with a network security group, using PowerShell.
+﻿---
+title: Filter network traffic - tutorial - Azure PowerShell | Microsoft Docs
+description: In this tutorial, you learn how to filter network traffic to a subnet, with a network security group, using PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -12,17 +12,17 @@ Customer intent: I want to filter network traffic to virtual machines that perfo
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: 
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
-ms.custom: 
+ms.custom: mvc
 ---
 
-# Filter network traffic with a network security group using PowerShell
+# Tutorial: Filter network traffic with a network security group using PowerShell
 
-You can filter network traffic inbound to and outbound from a virtual network subnet with a network security group. Network security groups contain security rules that filter network traffic by IP address, port, and protocol. Security rules are applied to resources deployed in a subnet. In this article, you learn how to:
+You can filter network traffic inbound to and outbound from a virtual network subnet with a network security group. Network security groups contain security rules that filter network traffic by IP address, port, and protocol. Security rules are applied to resources deployed in a subnet. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a network security group and security rules
@@ -30,13 +30,13 @@ You can filter network traffic inbound to and outbound from a virtual network su
 > * Deploy virtual machines (VM) into a subnet
 > * Test traffic filters
 
-If you prefer, you can complete this article using the [Azure CLI](tutorial-filter-network-traffic-cli.md).
+If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-filter-network-traffic-cli.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
+If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell module version 5.4.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
 
 ## Create a network security group
 
@@ -44,7 +44,7 @@ A network security group contains security rules. Security rules specify a sourc
 
 ### Create application security groups
 
-First create a resource group for all the resources created in this article with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group in the *eastus* location: 
+First create a resource group for all the resources created in this tutorial with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group in the *eastus* location: 
 
 
 ```azurepowershell-interactive
@@ -95,7 +95,7 @@ $mgmtRule = New-AzureRmNetworkSecurityRuleConfig `
   -DestinationPortRange 3389
 ```
 
-In this article, RDP (port 3389) is exposed to the internet for the *myAsgMgmtServers* VM. For production environments, instead of exposing port 3389 to the internet, it's recommended that you connect to Azure resources that you want to manage using a [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [private](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) network connection.
+In this tutorial, RDP (port 3389) is exposed to the internet for the *myAsgMgmtServers* VM. For production environments, instead of exposing port 3389 to the internet, it's recommended that you connect to Azure resources that you want to manage using a [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [private](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) network connection.
 
 ### Create a network security group
 
@@ -298,9 +298,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## Next steps
 
-In this article, you created a network security group and associated it to a virtual network subnet. To learn more about network security groups, see [Network security group overview](security-overview.md) and [Manage a network security group](virtual-network-manage-nsg-arm-ps.md).
+In this tutorial, you created a network security group and associated it to a virtual network subnet. To learn more about network security groups, see [Network security group overview](security-overview.md) and [Manage a network security group](manage-network-security-group.md).
 
-Azure routes traffic between subnets by default. You may instead, choose to route traffic between subnets through a VM, serving as a firewall, for example. To learn how to create a route table, advance to the next article.
+Azure routes traffic between subnets by default. You may instead, choose to route traffic between subnets through a VM, serving as a firewall, for example. To learn how to create a route table, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Create a route table](./tutorial-create-route-table-portal.md)

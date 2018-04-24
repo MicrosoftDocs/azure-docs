@@ -104,7 +104,7 @@ The report provides the following information:
 | User ID |Shows the user ID that was used. This value is what the user typed, which in some cases is the wrong user ID being used. |
 | Failed Attempts |Shows the total # of failed attempts for that specific user ID. The table is sorted with the most number of failed attempts in descending order. |
 | Last Failure |Shows the time stamp when the last failure occurred. |
-| Last Failure IP |Shows the Client IP address from the latest bad request. |
+| Last Failure IP |Shows the Client IP address from the latest bad request. If you see more than one IP addresses in this value, it may include forward client IP together with user's last attempt request IP.  |
 
 > [!NOTE]
 > This report is automatically updated after every 12 hours with the new information collected within that time. As a result, login attempts within the last 12 hours may not be included in the report.
@@ -122,7 +122,7 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 
 > [!NOTE]
 > To use this report, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> To access preview, Global Admin or [Security Reader](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#security-reader) permission is required.  
+> To access preview, Global Admin or [Security Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) permission is required.  
 > 
 
 ### What is in the report
@@ -190,11 +190,14 @@ Alerting threshold can be updated through Threshold Settings. To start with, sys
 1. Why am I seeing private IP address ranges in the report?  <br />
 Private IP addresses (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) and Exchange IP addresses are filtered and marked as True in the IP whitelist. If you are seeing private IP address ranges, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server.
 
-2. What do I do to block the IP address?  <br />
+2. Why am I seeing load balancer IP addresses in the report?  <br />
+If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Please configure your load balancer correctly to pass forward client IP address. 
+
+3. What do I do to block the IP address?  <br />
 You should add identified malicious IP address to the firewall or block in Exchange.   <br />
 For AD FS 2016 + 1803.C+ QFE, you can block the IP address directly at AD FS. 
 
-3. Why am I not seeing any items in this report? <br />
+4. Why am I not seeing any items in this report? <br />
    - Failed sign-in activities are not exceeding the threshold settings. 
    - Ensure no “Health service is not up to date” alert active in your AD FS server list.  Read more about [how to troubleshoot this alert](active-directory-aadconnect-health-data-freshness.md).
    - Audits is not enabled in AD FS farms.

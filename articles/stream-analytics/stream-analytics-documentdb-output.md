@@ -1,23 +1,16 @@
 ---
-title: JSON output for Stream Analytics | Microsoft Docs
-description: Learn how Stream Analytics can target Azure Cosmos DB for JSON output, for data archiving and low-latency queries on unstructured JSON data.
-keywords: JSON output
-documentationcenter: ''
-services: stream-analytics,documentdb
+title: Azure Stream Analytics output to Cosmos DB 
+description: This article describes how to use Azure Stream Analytics to save output to Azure Cosmos DB for JSON output, for data archiving and low-latency queries on unstructured JSON data.
+services: stream-analytics
 author: jseb225
-manager: ryanw
-
-ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
 ---
-# Target Azure Cosmos DB for JSON output from Stream Analytics
+# Azure Stream Analytics output to Azure Cosmos DB  
 Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) for JSON output, enabling data archiving and low-latency queries on unstructured JSON data. This document covers some best practices for implementing this configuration.
 
 For those who are unfamiliar with Cosmos DB, take a look at [Azure Cosmos DB’s learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to get started. 
@@ -32,7 +25,7 @@ The Azure Cosmos DB output in Stream Analytics enables writing your stream proce
 Some of the Cosmos DB collection options are detailed below.
 
 ## Tune consistency, availability, and latency
-To match your application requirements, Cosmos DB allows you to fine tune the database and collections and make trade-offs between consistency, availability and latency. Depending on what levels of read consistency your scenario needs against read and write latency, you can choose a consistency level on your database account. Also by default, Cosmos DB enables synchronous indexing on each CRUD operation to your collection. This is another useful option to control the write/read performance in Cosmos DB. For further information on this topic, review the [change your database and query consistency levels](../cosmos-db/consistency-levels.md) article.
+To match your application requirements, Cosmos DB allows you to fine tune the database and collections and make trade-offs between consistency, availability and latency. Depending on what levels of read consistency your scenario needs against read and write latency, you can choose a consistency level on your database account. Also by default, Cosmos DB enables synchronous indexing on each CRUD operation to your collection. This is another useful option to control the write/read performance in Cosmos DB. For more information, review the [change your database and query consistency levels](../cosmos-db/consistency-levels.md) article.
 
 ## Upserts from Stream Analytics
 Stream Analytics integration with Cosmos DB allows you to insert or update records in your Cosmos DB collection based on a given Document ID column. This is also referred to as an *Upsert*.

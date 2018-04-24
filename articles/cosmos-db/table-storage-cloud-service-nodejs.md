@@ -3,9 +3,8 @@ title: 'Azure Table storage: Build a web app Node.js | Microsoft Docs'
 description: A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module.
 services: cosmos-db
 documentationcenter: nodejs
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c
 ms.service: cosmos-db
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: mimig
+ms.author: sngun
 
 ---
 # Azure Table storage: Node.js Web Application
@@ -47,6 +46,15 @@ The following screenshot shows the completed application:
 
 ![The completed web page in internet explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
+## Create an Azure service account
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+
+### Create an Azure storage account
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### Create an Azure Cosmos DB Table API account
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
+
 ## Setting Storage Credentials in Web.Config
 You must pass in storage credentials to access Azure Storage or Azure Cosmos DB. This is done by utilizing the web.config application settings.
 The web.config settings are passed as environment variables to Node, which are then read by the Azure SDK.
@@ -66,7 +74,7 @@ and add them to the web.config settings:
 3. From the Azure Powershell window, enter the following cmdlet to retrieve the storage account information:
 
     ```powershell
-    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
+    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccount
     ```
 
    The preceding cmdlet retrieves the list of storage accounts and account keys associated with your hosted service.
@@ -353,7 +361,8 @@ The **layout.jade** file in the **views** directory is used as a global template
 
 1. Download and extract the files for [Twitter Bootstrap](http://getbootstrap.com/). Copy the **bootstrap.min.css** file from the **bootstrap\\dist\\css** folder to the **public\\stylesheets** directory of your tasklist application.
 2. From the **views** folder, open the **layout.jade** file in your text editor and replace the contents with the following:
-
+ 
+```jade
     doctype html
     html
       head
@@ -365,7 +374,7 @@ The **layout.jade** file in the **views** directory is used as a global template
           div.navbar-header
             a.navbar-brand(href='/') My Tasks
         block content
-
+```
 3. Save the **layout.jade** file.
 
 ### Running the Application in the Emulator

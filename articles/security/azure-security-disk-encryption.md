@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Disk Encryption for Windows and Linux IaaS VMs | Microsoft Docs
 description: This article provides an overview of Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
-ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.author: devtiw
 
 ---
 # Azure Disk Encryption for Windows and Linux IaaS VMs
@@ -723,7 +723,7 @@ Before you proceed, review the *Prerequisites* section in this article. After yo
 
 1. Start an Azure PowerShell session, and sign in to your Azure account with the following command:
 
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 
 2. If you have multiple subscriptions and want to specify one to use, type the following to see the subscriptions for your account:
 

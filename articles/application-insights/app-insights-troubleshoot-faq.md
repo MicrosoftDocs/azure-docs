@@ -57,7 +57,7 @@ The Enterprise plan incurs a charge for each day that each web server node sends
 
 ## How much is it costing?
 
-* Open the **Features + pricing** page in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
+* Open the **Usage and estimated costs page** page in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
 * Open the [Azure Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) to see your bills across all resources.
 
 ## <a name="q14"></a>What does Application Insights modify in my project?
