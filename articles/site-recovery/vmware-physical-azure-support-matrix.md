@@ -142,6 +142,7 @@ Azure Virtual Network service endpoints<br/><br/> (Azure Storage firewalls and v
 Host NFS | Yes for VMware<br/><br/> No for physical servers
 Host SAN (ISCSI) | Yes
 Host multipath (MPIO) | Yes, tested with Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
+Host Virtual Volumes (VVols) | Yes<br/><br/> N/A for physical servers
 Guest/server VMDK | Yes
 Guest/server EFI/UEFI| Partial (migration to Azure for Windows Server 2012 and later VMware virtual machines only) </br></br> See the note at the end of the table
 Guest/server shared cluster disk | No
