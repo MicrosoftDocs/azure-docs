@@ -29,9 +29,7 @@ To understand the basic scenario for each sample type, see [Authentication Scena
 
 Contribute to our samples on GitHub: [Microsoft Azure Active Directory Samples and Documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 
-## Desktop and mobile applications calling Microsoft Graph or a Web API
-
-### Desktop and mobile public client applications calling Microsoft Graph or a Web API
+## Desktop and mobile public client applications calling Microsoft Graph or a Web API
 
 The following samples show public client applications (desktop/mobile applications) which access the Microsoft Graph or a Web API in the name of a user.
 
