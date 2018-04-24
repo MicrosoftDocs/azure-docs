@@ -65,11 +65,13 @@ This tutorial provides basic examples of insights that can be gleaned from the W
 
 ### Prerequisites
 
-To complete this tutorial, make sure the following prerequisites are met:
+> [!NOTE]
+> This tutorial uses features of the Azure Data Factory that are currently in a limited preview (linked service parameterization). If you wish to do this tutorial, provide your subscription ID [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu). We will send you a confirmation as soon as your subscription has been enabled.
 
-- The Wingtip Tickets SaaS Database Per Tenant application is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
+To complete this tutorial, make sure the following prerequisites are met:
+- The Wingtip Tickets SaaS Database Per Tenant application is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md).
 - The Wingtip Tickets SaaS Database Per Tenant scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) are downloaded from GitHub. See download instructions. Be sure to *unblock the zip file* before extracting its contents.
-- Power BI Desktop is installed. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+- Power BI Desktop is installed. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 - The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](saas-dbpertenant-provision-and-catalog.md).
 
 ### Create data for the demo
@@ -107,11 +109,11 @@ In the Object Explorer:
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
 #### Blob storage
-1. In the [Azure Portal](https://ms.portal.azure.com), navigate to the resource group that you used for deploying the application. Verify that a storage account called **wingtipstaging<username>** has been added.
+1. In the [Azure Portal](https://ms.portal.azure.com), navigate to the resource group that you used for deploying the application. Verify that a storage account called **wingtipstaging\<username\>** has been added.
 
   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
-1. Click **wingtipstaging<username>** storage account to explore the objects present.
+1. Click **wingtipstaging\<username\>** storage account to explore the objects present.
 1. Click **Blobs** tile
 1. Click the container **configfile**
 1. Verify that **configfile** contains a JSON file called **TableConfig.json**. This file contains the source and destination table names, column names, and tracker column name.
@@ -123,7 +125,7 @@ In the Object Explorer:
 
 This section explores the data factory created. 
 Follow the steps below to launch the data factory:
-1. In the portal, click the data factory called **dbtodwload-<username>**.
+1. In the portal, click the data factory called **dbtodwload-\<username\>**.
 2. Click **Author & Monitor** tile to launch the Data Factory designer in a separate tab. 
 
 ## Extract, Load, and Transform data
@@ -256,9 +258,9 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > - Deploy a SQL Data Warehouse populated with a star schema for tenant analytics 
 > - Use Azure Data Factory to:
->   * Extract data from tenant databases
->   * Load it into staging tables with PolyBase
->   * Use a stored procedure to transform new and changed data into the star schema 
+> - Extract data from tenant databases
+> - Load it into staging tables with PolyBase
+> - Use a stored procedure to transform new and changed data into the star schema 
 > -	Query a data warehouse 
 > -	Use Power BI to visualize trends in data across all the tenants 
 
