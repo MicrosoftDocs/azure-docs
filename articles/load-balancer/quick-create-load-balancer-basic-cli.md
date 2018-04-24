@@ -6,7 +6,6 @@ documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 
 tags: azure-resource-manager
 ms.assetid: 
@@ -17,9 +16,9 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: kumud
-ms.custom: mvc
+
 ---
-# Quickstart: Create a Load Balancer to load balance VMs using the Azure CLI
+# Create a Load Balancer to load balance VMs using the Azure CLI
 
 This quickstart shows you how to create network resources, backend servers, and a basic Load Balancer that helps distribute internet traffic across the backend servers. You can use the Azure CLI to create a load balancer to load balance internet traffic to virtual machines.
 

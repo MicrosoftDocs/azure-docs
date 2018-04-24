@@ -7,7 +7,7 @@ author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 
 ms.assetid: 
 ms.service: load-balancer

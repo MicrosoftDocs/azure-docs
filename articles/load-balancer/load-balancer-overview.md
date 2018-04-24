@@ -8,15 +8,17 @@ manager: jeconnoc
 editor: ''
 ms.assetid: 
 ms.service: load-balancer
+Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
+ms.custom: mvc
 ---
 
-# Azure Load Balancer overview
+# What is Azure Load Balancer?
 
 Azure Load Balancer allows you to scale your applications and create high availability for your services. Load Balancer supports inbound as well as outbound scenarios, and provides low latency, high throughput, and scales up to millions of flows for all TCP and UDP applications.   
 
