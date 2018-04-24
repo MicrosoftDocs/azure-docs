@@ -28,7 +28,7 @@ Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsof
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
    >[!NOTE]
-   > For the purpose of this Tutorial, we are using the [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)] (preview). 
+   > For the purpose of this Tutorial, we are using the [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md) (preview). 
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ Follow these steps to create a blank SQL database.
 
 5. Click **Select**.
 
-6. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. Explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. For the purpose of this Tutorial, we are using the [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)] (preview). 
+6. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. Explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. For the purpose of this Tutorial, we are using the [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)(preview). 
 
 7. For this tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
 

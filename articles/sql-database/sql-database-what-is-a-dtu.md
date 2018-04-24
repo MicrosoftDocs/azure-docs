@@ -28,7 +28,7 @@ To gain deeper insight into the resource (DTU) consumption of your workload, use
 - Drill down into the details of a query, view its text and history of resource utilization.
 - Access performance tuning recommendations that show actions performed by [SQL Database Advisor](sql-database-advisor.md).
 
-You can [change service tiers](sql-database-service-tiers-dtu.md) or [compute resources](sql-database-services-tiers-vcore.md) at any time with minimal downtime to your application (generally averaging under four seconds). For many businesses and apps, being able to create databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. For this scenario, you use an elastic pool with a certain number of eDTUs that are shared among multiple databases in the pool.
+You can [change service tiers](sql-database-service-tiers-dtu.md) or [compute resources](sql-database-service-tiers-vcore.md) at any time with minimal downtime to your application (generally averaging under four seconds). For many businesses and apps, being able to create databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. For this scenario, you use an elastic pool with a certain number of eDTUs that are shared among multiple databases in the pool.
 
 ![Intro to SQL Database: Single database DTUs by tier and level](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
