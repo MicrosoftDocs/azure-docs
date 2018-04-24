@@ -14,7 +14,14 @@ manager: femila
 
 # Azure Blockchain Workbench troubleshooting
 
-A PowerShell script is available to assist with developer debugging or support. The script generates a summary and detailed logs for troubleshooting. You can use the information to determine next steps and determine root cause of issues. 
+A PowerShell script is available to assist with developer debugging or support. The script generates a summary and collects detailed logs for troubleshooting. Collected logs include:
+
+* Blockchain network, such as Ethereum
+* Blockchain Workbench microservices
+* Application Insights
+* Azure Monitoring (OMS)
+
+You can use the information to determine next steps and determine root cause of issues. 
 
 ## Troubleshooting script
 
