@@ -21,7 +21,7 @@ ms.custom: aaddev
 
 # Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
 
-This guide demonstrates how a native Universal Windows Platform (XAML) application can get an access token and then use this access toke to call Microsoft Graph API, or other APIs that require access tokens from Azure Active Directory v2 endpoint.
+This guide demonstrates how a native Universal Windows Platform (XAML) application can get an access token and then use this access token to call Microsoft Graph API, or other APIs that require access tokens from Azure Active Directory v2 endpoint.
 
 At the end of this guide, your application will be able to call a protected API using personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has Azure Active Directory.  
 
@@ -31,7 +31,7 @@ At the end of this guide, your application will be able to call a protected API 
 
 ![How this guide works](media/active-directory-mobileanddesktopapp-windowsuniversalplatform-introduction/uwp-intro.png)
 
-The sample application created by this guide enables a UWP app to query Microsoft Graph API or a Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. Token acquisitions and renewals are handled by the Microsoft Authentication Library (MSAL).
+The sample application created by this guide enables a UWP app to query Microsoft Graph API or a Web API that accepts tokens from the Azure Active Directory v2 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. Token acquisitions and renewals are handled by the Microsoft Authentication Library (MSAL).
 
 ### NuGet Packages
 
@@ -46,7 +46,7 @@ This guide uses the following NuGet packages:
 
 This section provides step-by-step instructions for how to integrate a Windows Desktop .NET application (XAML) with *Sign-In with Microsoft* so it can query Web APIs that require a token, such as Microsoft Graph API.
 
-The application created by this guide display a button to query Graph API, a sign-out button, and text boxes that display the results of the calls.
+The application created by this guide displays a button used to query Graph API, a sign-out button, and text boxes that display the results of the calls.
 
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip) and skip to the [application registration](#register-your-application "application registration step") step to configure the code sample before executing.
 
@@ -325,7 +325,7 @@ To test your application, press `F5` to run your project in Visual Studio. Your 
 
 ![Application's user interface](media/active-directory-uwp-v2.md/testapp-ui.png)
 
-When you're ready to test, click *Call Microsoft Graph API* and use a Microsoft Azure Active Directory (organizational account) or a Microsoft Account (live.com, outlook.com) account to sign in. If it is your first time, you will see a window asking user to sign in:
+When you're ready to test, click *Call Microsoft Graph API* and use a Microsoft Azure Active Directory (organizational account) or a Microsoft Account (live.com, outlook.com) account to sign in. If it is your first time, you will see a window asking the user to sign in:
 
 ![Sign-in page](media/active-directory-uwp-v2.md/sign-in-page.png)
 
@@ -363,16 +363,16 @@ To access the user’s calendars in the context of an application, add the *Cale
 
 ### Issue 1:
 You may receive one of the following errors when sign-in on your application on a federated Azure Active Directory Domain:
- - 'No valid client certificate found in the request.
+ - No valid client certificate found in the request.
  - No valid certificates found in the user's certificate store.
- - Try again choosing a different authentication method.'
+ - Try again choosing a different authentication method.
 
 **Cause:** Enterprise and certificates capabilities are not enabled
 
 **Solution:** follow the steps in [integrated authentication on federated domains](#enable-integrated-authentication-on-federated-domains-optional)
 
 ### Issue 2:
-Ater you enable [integrated authentication on federated domains](#enable-integrated-authentication-on-federated-domains-optional) and try to use Windows Hello on a Windows 10 computer to sign in on an environment with Multi-factor-authentication configured, the list of certificates is presented, however if you choose to use your PIN, the PIN window is never presented.
+After you enable [integrated authentication on federated domains](#enable-integrated-authentication-on-federated-domains-optional) and try to use Windows Hello on a Windows 10 computer to sign in on an environment with Multi-factor-authentication configured, the list of certificates is presented, however if you choose to use your PIN, the PIN window is never presented.
 
 **Cause:** Known limitation with Web authentication broker in UWP applications running on Windows 10 desktop (works fine on Windows 10 Mobile)
 
