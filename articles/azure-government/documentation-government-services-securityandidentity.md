@@ -21,7 +21,7 @@ ms.author: zsk0646
 ## Key Vault
 Key Vault is generally available in Azure Government.
 
-For details on this service and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.md).
+For details on this service and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.yml).
 
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Key Vault:
