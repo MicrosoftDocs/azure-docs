@@ -42,10 +42,10 @@ There are few ways to use Windows virtual machines with the Azure Hybrid Benefit
 ## How to create a VM with Azure Hybrid Benefit for Windows Server
 All Windows Server OS based images are supported for Azure Hybrid Benefit for Windows Server. You can use Azure platform support images or upload your own custom Windows Server images. 
 
-#### Portal
+### Portal
 To create a VM with Azure Hybrid Benefit for Windows Server, use the toggle under the "Save money" section.
 
-#### Powershell
+### Powershell
 ```Azure Powershell
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
@@ -54,7 +54,7 @@ New-AzureRmVm `
     -ImageName "Win2016Datacenter" `
     -LicenseType "Windows_Server"
 ```
-#### CLI
+### CLI
 ```Azure CLI
 az vm create \
     --resource-group myResourceGroup \
@@ -62,7 +62,7 @@ az vm create \
     --location eastus \
     --license-type Windows_Server
 ```
-#### Template
+### Template
 Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md)
 ```json
 "properties": {  
