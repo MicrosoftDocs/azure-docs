@@ -124,7 +124,7 @@ To see the public IP address of the VM, use the [Get-AzureRmPublicIpAddress](/po
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-Use an SSH client to connect to the VM. You can use the Azure Cloud Shell from a web browser, or if you use Windows, you can use [Putty](ssh-from-windows.md#use-putty-to-ssh-to-a-linux-machine) or the [Windows Subsystem for Linux](/windows/wsl/install-win10).
+Use an SSH client to connect to the VM. You can use the Azure Cloud Shell from a web browser, or if you use Windows, you can use [Putty](ssh-from-windows.md) or the [Windows Subsystem for Linux](/windows/wsl/install-win10).
 
 ```bash
 ssh <Public IP Address>
