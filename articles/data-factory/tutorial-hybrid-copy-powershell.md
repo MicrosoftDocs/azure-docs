@@ -1,4 +1,4 @@
----
+﻿---
 title: Copy data from SQL Server to Blob storage by using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from an on-premises data store to the Azure cloud by using a self-hosted integration runtime in Azure Data Factory.
 services: data-factory
@@ -129,7 +129,7 @@ For detailed instructions, see [How to install and configure Azure PowerShell](/
 2. Run the following command, and then enter the Azure username and password that you use to sign in to the Azure portal:
        
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
 
 3. If you have multiple Azure subscriptions, run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
@@ -199,7 +199,7 @@ In this section, you create a self-hosted integration runtime and associate it w
 2. Create a self-hosted integration runtime. 
 
     ```powershell
-	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```	
     Here is the sample output:
 

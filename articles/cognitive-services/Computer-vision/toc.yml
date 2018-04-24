@@ -2,14 +2,6 @@
   href: index.md
 - name: Overview
   href: Home.md
-- name: How-to
-  items:
-  - name: Obtain subscription keys
-    href: Vision-API-How-to-Topics/HowToSubscribe.md
-  - name: Call the Computer Vision API
-    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
-  - name: Analyze videos in real time
-    href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Quickstarts
   expanded: true
   items:
@@ -37,6 +29,14 @@
     href: Tutorials/javascript-tutorial.md
   - name: Python
     href: Tutorials/PythonTutorial.md
+- name: How-to
+  items:
+  - name: Obtain subscription keys
+    href: Vision-API-How-to-Topics/HowToSubscribe.md
+  - name: Call the Computer Vision API
+    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - name: Analyze videos in real time
+    href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Reference
   items: 
   - name: API reference
@@ -61,3 +61,5 @@
     href: FAQ.md
   - name: Research papers    
     href: Research.md
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/128472-computer-vision

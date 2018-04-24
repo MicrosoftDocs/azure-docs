@@ -3,9 +3,8 @@ title: Consistency levels in Azure Cosmos DB | Microsoft Docs
 description: Azure Cosmos DB has five consistency levels to help balance eventual consistency, availability, and latency trade-offs.
 keywords: eventual consistency, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
@@ -14,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
-ms.author: mimig
+ms.date: 03/27/2018
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -23,6 +22,10 @@ ms.custom: H1Hack27Feb2017
 Azure Cosmos DB is designed from the ground up with global distribution in mind for every data model. It is designed to offer predictable low latency guarantees and multiple well-defined relaxed consistency models. Currently, Azure Cosmos DB provides five consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. Bounded-staleness, session, consistent prefix, and eventual are referred to as "relaxed consistency models" as they provide less consistency than strong, which is the most highly consistent model available. 
 
 Besides the **strong** and **eventual consistency** models commonly offered by distributed databases, Azure Cosmos DB offers three more carefully codified and operationalized consistency models: **bounded staleness**, **session**, and **consistent prefix**. The usefulness of each of these consistency levels has been validated against real world use cases. Collectively these five consistency levels enable you to make well-reasoned trade-offs between consistency, availability, and latency. 
+
+In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates the turnkey global distribution features.
+
+>[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 
 ## Distributed databases and consistency
 Commercial distributed databases fall into two categories: databases that do not offer well-defined provable consistency choices at all, and databases that offer two extreme programmability choices (strong vs. eventual consistency). 

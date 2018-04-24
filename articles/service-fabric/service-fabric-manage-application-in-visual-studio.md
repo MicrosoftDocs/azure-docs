@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/23/2018
+ms.date: 03/26/2018
 ms.author: mikhegn
 
 ---
@@ -29,7 +29,7 @@ By default, deploying an application combines the following steps into one simpl
 4. Removing any running application instances
 5. Creating an application instance
 
-In Visual Studio, pressing **F5** deploys your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile. 
+In Visual Studio, pressing **F5** deploys your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile.
 
 ### Application Debug Mode
 Visual Studio provide a property called **Application Debug Mode**, which controls how you want Visual Studios to handle Application deployment as part of debugging.
@@ -42,7 +42,7 @@ Visual Studio provide a property called **Application Debug Mode**, which contro
 
 #### Application Debug Modes
 
-1. **Refresh Application** This mode enables you to quickly change and debug your code and supports editing static web files while debugging. This mode only works if your local development cluster is in [1-Node mode](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). This is the default Application Debug Mode.
+1. **Refresh Application** This mode enables you to quickly change and debug your code and supports editing static web files while debugging. This mode only works if your local development cluster is in [1-Node mode]. This is the default Application Debug Mode.(/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
 2. **Remove Application** causes the application to be removed when the debug session ends.
 3. **Auto Upgrade** The application continues to run when the debug session ends. The next debug session will treat the deployment as an upgrade. The upgrade process preserves any data that you entered in a previous debug session.
 4. **Keep Application** The application keeps running in the cluster when the debug session ends. At the beginning of the next debug session, the application will be removed.

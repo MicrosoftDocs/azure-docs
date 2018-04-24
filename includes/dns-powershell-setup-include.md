@@ -1,4 +1,4 @@
----
+﻿---
  title: include file for PowerShell for Azure DNS
  description: include file for PowerShell for Azure DNS
  services: dns
@@ -23,7 +23,17 @@ In addition, to use Private Zones (Public Preview), you need to ensure you have 
 * AzureRM.Dns - [version 4.1.0](https://www.powershellgallery.com/packages/AzureRM.Dns/4.1.0) or above
 * AzureRM.Network - [version 5.4.0](https://www.powershellgallery.com/packages/AzureRM.Network/5.4.0) or above
 
-You can download the above modules from the PowerShell Gallery, using the links above next to the Module versions. You can then install them using the below commands. Both the modules are required and are fully backwards compatible. 
+```powershell 
+Find-Module -Name AzureRM.Dns 
+``` 
+ 
+```powershell 
+Find-Module -Name AzureRM.Network 
+``` 
+ 
+The output of the above commands need to show that the version of AzureRM.Dns is 4.1.0 or higher version, and for AzureRM.Network is 5.4.0 or higher version.  
+
+In case your system has earlier versions, you can either install the latest version of Azure PowerShell, or download and install the above modules from the PowerShell Gallery, using the links above next to the Module versions. You can then install them using the below commands. Both the modules are required and are fully backwards compatible. 
 
 ```powershell
 Install-Module -Name AzureRM.Dns -Force
@@ -38,7 +48,7 @@ Install-Module -Name AzureRM.Network -Force
 Open your PowerShell console and connect to your account. For more information, see [Using PowerShell with Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ### Select the subscription

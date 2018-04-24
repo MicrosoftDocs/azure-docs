@@ -3,7 +3,7 @@ title: Provision a device using Azure IoT Hub Device Provisioning Service (.NET)
 description: Provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service (.NET)
 services: iot-dps
 keywords: 
-author: msebolt
+author: bryanla
 ms.author: v-masebo
 ms.date: 09/05/2017
 ms.topic: tutorial

@@ -57,7 +57,7 @@ The [algorithm used for preallocating ephemeral ports](#ephemeralports) for PAT 
 
 In this scenario, the VM has an Instance Level Public IP (ILPIP) assigned to it. As far as outbound connections are concerned, it doesn't matter whether the VM has  load balanced endpoint or not. This scenario takes precedence over the others. When an ILPIP is used, the VM uses the ILPIP for all outbound flows.  
 
-Port masquerading (PAT) is not used, and the VM has all ephemeral ports available for use.
+A public IP assigned to a VM is a 1:1 relationship (rather than 1:many) and implemented as a stateless 1:1 NAT.  Port masquerading (PAT) is not used, and the VM has all ephemeral ports available for use.
 
 If your application initiates many outbound flows and you experience SNAT port exhaustion, consider assigning an [ILPIP to mitigate SNAT constraints](#assignilpip). Review [Managing SNAT exhaustion](#snatexhaust) in its entirety.
 
@@ -111,8 +111,6 @@ The following table shows the SNAT port preallocations for tiers of backend pool
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
-| 401-800 | 64 |
-| 801-1,000 | 32 |
 
 Remember that the number of SNAT ports available does not translate directly to number of flows. A single SNAT port can be reused for multiple unique destinations. Ports are consumed only if it's necessary to make flows unique. For design and mitigation guidance, refer to the section about [how to manage this exhaustible resource](#snatexhaust) and the section that describes [PAT](#pat).
 

@@ -3,19 +3,17 @@ title: Python Quickstart for Azure Cognitive Services, Microsoft Translator Text
 description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
-author: v-jaswel
-
+author: Jann-Skotdal
 ms.service: cognitive-services
-ms.technology: translator-text
+ms.component: translator-text
 ms.topic: article
 ms.date: 09/14/2017
-ms.author: v-jaswel
-
+ms.author: v-jansko
 ---
 # Quickstart for Microsoft Translator Text API with Python 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method to translate text from one language to another. For information on how to use the other Translator Text APIs, see [this Github repository](https://github.com/MicrosoftTranslator/Translator-Text-API-Quickstarts/tree/master/Python).
+This article shows you how to use the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method to translate text from one language to another. For information on how to use the other Translator Text APIs, see [this Github repository](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/tree/master/quickstarts/Python).
 
 ## Prerequisites
 

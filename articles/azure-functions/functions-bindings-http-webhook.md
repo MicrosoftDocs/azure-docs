@@ -3,7 +3,7 @@ title: Azure Functions HTTP and webhook bindings
 description: Understand how to use HTTP and webhook triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: mattchenderson
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: mahender
+ms.author: tdykstra
 ---
 
 # Azure Functions HTTP and webhook bindings
@@ -135,7 +135,6 @@ public static string Run(CustomObject req, TraceWriter log)
 
 public class CustomObject {
      public String name {get; set;}
-}
 }
 ```
 
@@ -390,7 +389,7 @@ The following table explains the binding configuration properties that you set i
 | **direction** | n/a| Required - must be set to `in`. |
 | **name** | n/a| Required - the variable name used in function code for the request or request body. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determines what keys, if any, need to be present on the request in order to invoke the function. The authorization level can be one of the following values: <ul><li><code>anonymous</code>&mdash;No API key is required.</li><li><code>function</code>&mdash;A function-specific API key is required. This is the default value if none is provided.</li><li><code>admin</code>&mdash;The master key is required.</li></ul> For more information, see the section about [authorization keys](#authorization-keys). |
-| **methods** |**Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the http endpoint](#trigger---customize-the-http-endpoint). |
+| **methods** |**Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the http endpoint](#customize-the-http-endpoint). |
 | **route** | **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the http endpoint](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. Don't set the `methods` property if you set this property. The webhook type can be one of the following values:<ul><li><code>genericJson</code>&mdash;A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.</li><li><code>github</code>&mdash;The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Do not use the  _authLevel_ property with GitHub webhooks. For more information, see the GitHub webhooks section later in this article.</li><li><code>slack</code>&mdash;The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Do not use the _authLevel_ property with Slack webhooks. For more information, see the Slack webhooks section later in this article.</li></ul>|
 
@@ -533,7 +532,7 @@ Webhook authorization is handled by the webhook receiver component, part of the 
 
 ## Trigger - limits
 
-The HTTP request length is limited to 100K (102,400) bytes, and the URL length is limited to 4k (4,096) bytes. These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+The HTTP request length is limited to 100MB (104,857,600 bytes), and the URL length is limited to 4KB (4,096 bytes). These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
 If a function that uses the HTTP trigger doesn't complete within about 2.5 minutes, the gateway will timeout and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#consumption-plan). 
 

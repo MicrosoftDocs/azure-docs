@@ -1,4 +1,4 @@
----
+﻿---
  title: include file
  description: include file
  services: expressroute
@@ -31,7 +31,7 @@ The steps for this task use a VNet based on the values in the following configur
 1. Connect to your Azure Subscription.
 
   ```powershell 
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   Get-AzureRmSubscription 
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
   ```
@@ -58,7 +58,7 @@ The steps for this task use a VNet based on the values in the following configur
 5. Set the configuration.
 
   ```powershell
-  Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+  $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
 6. Store the gateway subnet as a variable.
 

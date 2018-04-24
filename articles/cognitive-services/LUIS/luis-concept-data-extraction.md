@@ -4,12 +4,11 @@ description: Learn what kind of data can be extracted from Language Understandin
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/19/2018
-ms.author: v-geberr;
+ms.date: 03/26/2018
+ms.author: v-geberr
 ---
 
 # Data extraction
@@ -142,7 +141,7 @@ For example, in German, the word `das Bauernbrot` is tokenized into `das bauern 
 
 ## Simple entity data
 
-A simple entity is a machine-learned value. It can be a word or phrase. 
+A [simple entity](luis-concept-entity-types.md) is a machine-learned value. It can be a word or phrase. 
 
 `Bob Jones wants 3 meatball pho`
 
@@ -168,7 +167,7 @@ The data returned from the endpoint includes the entity name, the discovered tex
 
 ## Hierarchical entity data
 
-Hierarchical entities are machine-learned and can include a word or phrase. Children are identified by context. If you are looking for a parent-child relationship with exact text match, use a [List](#list-entity-data) entity. 
+[Hierarchical](luis-concept-entity-types.md) entities are machine-learned and can include a word or phrase. Children are identified by context. If you are looking for a parent-child relationship with exact text match, use a [List](#list-entity-data) entity. 
 
 `book 2 tickets to paris`
 
@@ -193,7 +192,7 @@ The data returned from the endpoint includes the entity name and child name, the
 |Hierarchical Entity|Location|ToLocation|"paris"|
 
 ## Composite entity data
-Composite entities are machine-learned and can include a word or phrase. For example, consider a composite entity of prebuilt `number` and `Location::ToLocation` with the following utterance:
+[Composite](luis-concept-entity-types.md) entities are machine-learned and can include a word or phrase. For example, consider a composite entity of prebuilt `number` and `Location::ToLocation` with the following utterance:
 
 `book 2 tickets to paris`
 
@@ -254,7 +253,7 @@ Composite entities are returned in a `compositeEntities` array and all entities 
 
 ## List entity data
 
-A list entity is not machine-learned. It is an exact text match. A list represents items in the list along with synonyms for those items. LUIS marks any match to an item in any list as an entity in the response. A synonym can be in more than one list. 
+A [list](luis-concept-entity-types.md) entity is not machine-learned. It is an exact text match. A list represents items in the list along with synonyms for those items. LUIS marks any match to an item in any list as an entity in the response. A synonym can be in more than one list. 
 
 Suppose the app has a list, named `Cities`, allowing for variations of city names including city of airport (Sea-tac), airport code (SEA), postal zip code (98101), and phone area code (206). 
 
@@ -304,7 +303,7 @@ Another example utterance, using a synonym for Paris:
 ```
 
 ## Prebuilt entity data
-Prebuilt entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`. The following is an example utterance with the returned prebuilt entities:
+[Prebuilt](luis-concept-entity-types.md) entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`. The following is an example utterance with the returned prebuilt entities:
 
 `Dec 5th send to +1 360-555-1212`
 
@@ -386,6 +385,37 @@ Prebuilt entities are discovered based on a regular expression match using the o
     }
   ]
 ``` 
+
+## Regular expression entity data
+[Regular expression](luis-concept-entity-types.md) entities are discovered based on a regular expression match using an expression you provide when you create the entity. When using `kb[0-9]{6}` as the regular expression entity definition, the following is an example utterance with the returned regular expression entities for the query `When was kb123456 published?`:
+
+```JSON
+{
+  "query": "when was kb123456 published?",
+  "topScoringIntent": {
+    "intent": "FindKBArticle",
+    "score": 0.933641255
+  },
+  "intents": [
+    {
+      "intent": "FindKBArticle",
+      "score": 0.933641255
+    },
+    {
+      "intent": "None",
+      "score": 0.04397359
+    }
+  ],
+  "entities": [
+    {
+      "entity": "kb123456",
+      "type": "KB number",
+      "startIndex": 9,
+      "endIndex": 16
+    }
+  ]
+}
+```
 
 ## Data matching multiple entities
 LUIS returns all entities discovered in the utterance. As a result, your chat bot may need to make decision based on the results. An utterance can have many entities in an utterance:

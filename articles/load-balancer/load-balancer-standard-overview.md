@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 04/02/2018
 ms.author: kumud
 ---
 
@@ -27,7 +27,7 @@ This article is focused on Standard Load Balancer.  For a more general overview 
 
 Standard Load Balancer is a new Load Balancer product for all TCP and UDP applications with an expanded and more granular feature set over Basic Load Balancer.  While there are many similarities, it is important to familiarize yourself with the differences as outlined in this article.
 
-You can use Standard Load Balancer Standard as a public or internal Load Balancer. And a virtual machine can be connected to one public and one internal Load Balancer resource.
+You can use Standard Load Balancer as a public or internal Load Balancer. And a virtual machine can be connected to one public and one internal Load Balancer resource.
 
 The Load Balancer resource's functions are always expressed as a frontend, a rule, a health probe, and a backend pool definition.  A resource can contain multiple rules. You can place virtual machines into the backend pool by specifying the backend pool from the virtual machine's NIC resource.  In the case of a virtual machine scale set, this parameter is passed through the network profile and expanded.
 
@@ -36,11 +36,11 @@ One key aspect is the scope of the virtual network for the resource.  While Basi
 Load Balancer resources are objects within which you can express how Azure should program its multi-tenant infrastructure to achieve the scenario you wish to create.  There is no direct relationship between Load Balancer resources and actual infrastructure; creating a Load Balancer doesn't create an instance, capacity is always available, and there are no start-up or scaling delays to consider. 
 
 >[!NOTE]
-> Azure provides a suite of fully managed load balancing solutions for your scenarios.  If you are looking for TLS termination ("SSL offload") or HTTP/HTTPS application layer processing, review [Application Gateway](../application-gateway/application-gateway-introduction.md).  If you are looking for global DNS load balancing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Your end-to-end scenarios may benefit from combining these solutions as needed.
+> Azure provides a suite of fully managed load balancing solutions for your scenarios.  If you are looking for TLS termination ("SSL offload") or per HTTP/HTTPS request application layer processing, review [Application Gateway](../application-gateway/application-gateway-introduction.md).  If you are looking for global DNS load balancing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Your end-to-end scenarios may benefit from combining these solutions as needed.
 
 ## Why use Standard Load Balancer?
 
-You can use Standard Load Balancer for the full range of virtual data centers, from small scale deployments to large and complex multi-zone architectures.
+Standard Load Balancer enables you to scale your applications and create high availability for small scale deployments to large and complex multi-zone architectures.
 
 Review the table below for an overview of the differences between Standard Load Balancer and Basic Load Balancer:
 
@@ -55,7 +55,7 @@ Review the table below for an overview of the differences between Standard Load 
 | Diagnostics | Azure Monitor, multi-dimensional metrics including byte and packet counters, health probe status, connection attempts (TCP SYN), outbound connection health (SNAT successful and failed flows), active data plane measurements | Azure Log Analytics for public Load Balancer only, SNAT exhaustion alert, backend pool health count |
 | HA Ports | internal Load Balancer | / |
 | Secure by default | default closed for public IP and Load Balancer endpoints and a network security group must be used to explicitly whitelist for traffic to flow | default open, network security group optional |
-| Outbound connections | Multiple frontends with per rule opt-out. An outbound scenario _must_ be explicitly created for the virtual machine to be able to use outbound connectivity.  [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) can be reached without outbound connectivity and do not count towards data processed.  Any public IP addresses, including Azure PaaS services not available as VNet Service Endpoints, must be reached via outbound connectivity and count towards data processed. When only an internal Load Balancer is serving a virtual machine, outbound connections via default SNAT are not available. | Single frontend, selected at random when multiple frontends are present.  When only internal Load Balancer is serving a virtual machine, default SNAT is used.  Outbound SNAT programming is transport protocol specific. |
+| Outbound connections | Multiple frontends with per rule opt-out. An outbound scenario _must_ be explicitly created for the virtual machine to be able to use outbound connectivity.  [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) can be reached without outbound connectivity and do not count towards data processed.  Any public IP addresses, including Azure PaaS services not available as VNet Service Endpoints, must be reached via outbound connectivity and count towards data processed. When only an internal Load Balancer is serving a virtual machine, outbound connections via default SNAT are not available. Outbound SNAT programming is transport protocol specific based on protocol of the inbound load balancing rule. | Single frontend, selected at random when multiple frontends are present.  When only internal Load Balancer is serving a virtual machine, default SNAT is used. |
 | Multiple frontends | Inbound and outbound | Inbound only |
 | Management Operations | Most operations < 30 seconds | 60-90+ seconds typical |
 | SLA | 99.99% for data path with two healthy virtual machines | Implicit in VM SLA | 
@@ -73,9 +73,6 @@ The backend pool can contain standalone virtual machines, availability sets, or 
 When considering how to design your backend pool, you can design for the least number of individual backend pool resources to further optimize the duration of management operations.  There is no difference in data plane performance or scale.
 
 ## <a name="az"></a>Availability Zones
-
->[!NOTE]
-> To use [Availability Zones Preview](https://aka.ms/availabilityzones) with Standard Load Balancer requires [sign-up for Availability Zones](https://aka.ms/availabilityzones).
 
 Standard Load Balancer supports additional abilities in regions where Availability Zones are available.  These features are incremental to all Standard Load Balancer provides.  Availability Zones configurations are available for public and internal Standard Load Balancer.
 
@@ -173,6 +170,9 @@ You can modify Standard Load Balancer resources and move a Standard public IP ad
 
 SKUs are not mutable. Follow the steps in this section to move from one resource SKU to another.
 
+>[!IMPORTANT]
+>Review this document in its entirety to understand the differences between SKUs and have carefully examined your scenario.  You may need to make additional changes to align your scenario.
+
 ### Migrate from Basic to Standard SKU
 
 1. Create a new Standard resource (Load Balancer and Public IPs, as needed). Recreate your rules and probe definitions.
@@ -215,13 +215,9 @@ Standard Load Balancer is a charged product based on number of load balancing ru
 
 ## Limitations
 
-The following limitations apply at the time of preview and are subject to change:
-
 - Load Balancer backend instances cannot be located in peered virtual networks at this time. All back-end instances must be in the same region.
 - SKUs are not mutable. You may not change the SKU of an existing resource.
 - A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
-- Enabling Azure DDoS protection on the virtual network impacts the duration of management operations.
-- IPv6 is not supported.
 - [Azure Monitor Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) are not supported at this time.
 - [Move subscription operations](../azure-resource-manager/resource-group-move-resources.md) are not supported for Standard SKU LB and PIP resources.
 

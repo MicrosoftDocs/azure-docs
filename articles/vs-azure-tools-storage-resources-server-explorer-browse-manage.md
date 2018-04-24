@@ -2,19 +2,15 @@
 title: Browse and manage storage resources by using Server Explorer | Microsoft Docs
 description: Browsing and managing storage resources by using Server Explorer
 services: visual-studio-online
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: ''
-
-ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
-ms.service: storage
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ghogen
+manager: douge
+assetId: 658dc064-4a4e-414b-ae5a-a977a34c930d
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 8/24/2017
-ms.author: kraigb
+ms.author: ghogen
 
 ---
 # Browse and manage storage resources by using Server Explorer

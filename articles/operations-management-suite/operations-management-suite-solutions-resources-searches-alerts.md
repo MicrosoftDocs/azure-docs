@@ -1,6 +1,6 @@
 ---
-title: Saved searches and alerts in OMS solutions | Microsoft Docs
-description: Solutions in OMS typically include saved searches in Log Analytics to analyze data collected by the solution.  They may also define alerts to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a Resource Manager template so they can be included in management solutions.
+title: Saved searches and alerts in management solutions | Microsoft Docs
+description: Management solutions typically include saved searches in Log Analytics to analyze data collected by the solution.  They may also define alerts to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a Resource Manager template so they can be included in management solutions.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -12,33 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/16/2018
-ms.author: bwren
+ms.date: 04/16/2018
+ms.author: bwren, vinagara
 
 ms.custom: H1Hack27Feb2017
 
 ---
 
-# Adding Log Analytics saved searches and alerts to OMS management solution (Preview)
+# Adding Log Analytics saved searches and alerts to management solution (Preview)
 
 > [!NOTE]
-> This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.   
+> This is preliminary documentation for creating management solutions which are currently in preview. Any schema described below is subject to change.   
 
 
-[Management solutions in OMS](operations-management-suite-solutions.md) will typically include 
+[Management solutions](operations-management-suite-solutions.md) will typically include 
 [saved searches](../log-analytics/log-analytics-log-searches.md) in Log Analytics to analyze data collected by the solution.  They may also define [alerts](../log-analytics/log-analytics-alerts.md) to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../resource-manager-template-walkthrough.md) so they can be included in [management solutions](operations-management-suite-solutions-creating.md).
 
 > [!NOTE]
-> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
+> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure](operations-management-suite-solutions-creating.md)  
 
 ## Prerequisites
 This article assumes that you're already familiar with how to [create a management solution](operations-management-suite-solutions-creating.md) and the structure of a [Resource Manager template](../resource-group-authoring-templates.md) and solution file.
 
 
 ## Log Analytics Workspace
-All resources in Log Analytics are contained in a [workspace](../log-analytics/log-analytics-manage-access.md).  As described in [OMS workspace and Automation account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), the workspace isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install fails.
+All resources in Log Analytics are contained in a [workspace](../log-analytics/log-analytics-manage-access.md).  As described in [Log Analytics workspace and Automation account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), the workspace isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install fails.
 
-The name of the workspace is in the name of each Log Analytics resource.  This is done in the solution with the **workspace** parameter as in the following example of a savedsearch resource.
+The name of the workspace is in the name of each Log Analytics resource.  This is done in the solution with the **workspace** parameter as in the following example of a SavedSearch resource.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
@@ -77,7 +77,7 @@ Include [saved searches](../log-analytics/log-analytics-log-searches.md) in a so
 
 
 
-Each property of a saved search are described in the following table. 
+Each property of a saved search is described in the following table. 
 
 | Property | Description |
 |:--- |:--- |
@@ -86,17 +86,22 @@ Each property of a saved search are described in the following table.
 | query | Query to run. |
 
 > [!NOTE]
-> You may need to use escape characters in the query if it includes characters that could be interpreted as JSON.  For example, if your query was **Type:AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, it should be written in the solution file as **Type:AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**.
+> You may need to use escape characters in the query if it includes characters that could be interpreted as JSON.  For example, if your query was **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, it should be written in the solution file as **Type: AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## Alerts
 [Log Analytics alerts](../log-analytics/log-analytics-alerts.md) are created by alert rules that run a saved search on a regular interval.  If the results of the query match specified criteria, an alert record is created and one or more actions are run.  
+
+> [!NOTE]
+> Beginning May 14, 2018, all alerts in a workspace will automatically begin to extend into Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Alert rules in a management solution are made up of the following three different resources.
 
 - **Saved search.**  Defines the log search that is run.  Multiple alert rules can share a single saved search.
 - **Schedule.**  Defines how often the log search is run.  Each alert rule has one and only one schedule.
-- **Alert action.**  Each alert rule has one action resource with a type of **Alert** that defines the details of the alert such as the criteria for when an alert record is created and the alert's severity.  The action resource will optionally define a mail and runbook response.
-- **Webhook action (optional).**  If the alert rule calls a webhook, then it requires an additional action resource with a type of **Webhook**.    
+- **Alert action.**  Each alert rule has one action group resource or action resource (legacy) with a type of **Alert** that defines the details of the alert such as the criteria for when an alert record is created and the alert's severity. [Action group](../monitoring-and-diagnostics/monitoring-action-groups.md) resource can have a list of configured actions to take when alert is fired - such as voice call, SMS, email, webhook, ITSM tool, automation runbook, logic app, etc.
+ 
+The action resource (legacy) will optionally define a mail and runbook response.
+- **Webhook action (legacy).**  If the alert rule calls a webhook, then it requires an additional action resource with a type of **Webhook**.    
 
 Saved search resources are described above.  The other resources are described below.
 
@@ -133,20 +138,25 @@ The properties for schedule resources are described in the following table.
 
 The schedule resource should depend on the saved search so that it's created before the schedule.
 
+> [!NOTE]
+> Schedule Name must be unique in a given workspace; two schedules cannot have the same ID even if they are associated with different saved searches. Also name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
+
 
 ### Actions
-There are two types of action resource specified by the **Type** property.  A schedule requires one **Alert** action which defines the details of the alert rule and what actions are taken when an alert is created.  It may also include a **Webhook** action if a webhook should be called from the alert.  
+A schedule can have multiple actions. An action may define one or more processes to perform such as sending a mail or starting a runbook, or it may define a threshold that determines when the results of a search match some criteria.  Some actions will define both so that the processes are performed when the threshold is met.
 
-Action resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
+Actions can be defined using [action group] resource or action resource.
 
-#### Alert actions
+> [!NOTE]
+> Beginning May 14, 2018, all alerts in a workspace will automatically begin to extend into Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
-Every schedule has one **Alert** action.  This defines the details of the alert and optionally notification and remediation actions.  A notification sends an email to one or more addresses.  A remediation starts a runbook in Azure Automation to attempt to remediate the detected issue.
+
+There are two types of action resource specified by the **Type** property.  A schedule requires one **Alert** action, which defines the details of the alert rule and what actions are taken when an alert is created. Action resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
 
 Alert actions have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
 
-
+```
 	{
 		"name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
 		"type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
@@ -167,20 +177,16 @@ Alert actions have the following structure.  This includes common variables and 
 					"triggerCondition": "[variables('Alert').Threshold.Trigger.Condition]",
 					"operator": "[variables('Alert').Trigger.Operator]",
 					"value": "[variables('Alert').Trigger.Value]"
-				},
-			},
-			"emailNotification": {
-				"recipients": [
-					"[variables('Alert').Recipients]"
-				],
-				"subject": "[variables('Alert').Subject]"
-			},
-			"remediation": {
-				"runbookName": "[variables('Alert').Remedition.RunbookName]",
-				"webhookUri": "[variables('Alert').Remedition.WebhookUri]"
-			}
+				  },
+			  },
+      "AzNsNotification": {
+        "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+        "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]",
+        "CustomWebhookPayload": "[variables('MyAlert').AzNsNotification.CustomWebhookPayload]"
+        }
 		}
 	}
+```
 
 The properties for Alert action resources are described in the following tables.
 
@@ -189,17 +195,16 @@ The properties for Alert action resources are described in the following tables.
 | Type | Yes | Type of the action.  This is **Alert** for alert actions. |
 | Name | Yes | Display name for the alert.  This is the name that's displayed in the console for the alert rule. |
 | Description | No | Optional description of the alert. |
-| Severity | Yes | Severity of the alert record from the following values:<br><br> **Critical**<br>**Warning**<br>**Informational** |
+| Severity | Yes | Severity of the alert record from the following values:<br><br> **Critical**<br>**Warning**<br>**Informational**
 
 
-##### Threshold
+#### Threshold
 This section is required.  It defines the properties for the alert threshold.
 
 | Element name | Required | Description |
 |:--|:--|:--|
 | Operator | Yes | Operator for the comparison from the following values:<br><br>**gt = greater than<br>lt = less than** |
 | Value | Yes | The value to compare the results. |
-
 
 ##### MetricsTrigger
 This section is optional.  Include it for a metric measurement alert.
@@ -213,12 +218,33 @@ This section is optional.  Include it for a metric measurement alert.
 | Operator | Yes | Operator for the comparison from the following values:<br><br>**gt = greater than<br>lt = less than** |
 | Value | Yes | Number of the times the criteria must be met to trigger the alert. |
 
-##### Throttling
+
+#### Throttling
 This section is optional.  Include this section if you want to suppress alerts from the same rule for some amount of time after an alert is created.
 
 | Element name | Required | Description |
 |:--|:--|:--|
 | DurationInMinutes | Yes if Throttling element included | Number of minutes to suppress alerts after one from the same alert rule is created. |
+
+
+#### Azure action group
+All alerts in Azure, use Action Group as the default mechanism for handling actions. With Action Group, you can specify your actions once and then associate the action group to multiple alerts - across Azure. Without the need, to repeatedly declare the same actions over and over again. Action Groups support multiple actions - including email, SMS, Voice Call, ITSM Connection, Automation Runbook, Webhook URI and more. 
+
+For user's who have extended their alerts into Azure - a schedule should now have Action Group details passed along with threshold, to be able to create an alert. E-mail details, Webhook URLs, Runbook Automation details, and other Actions, need to be defined in side an Action Group first before creating an alert; one can create [Action Group from Azure Monitor](../monitoring-and-diagnostics/monitoring-action-groups.md) in Portal or use [Action Group - Resource Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+
+| Element name | Required | Description |
+|:--|:--|:--|
+| AzNsNotification | Yes | The resource ID of the Azure action group to be associated with alert for taking necessary actions when alert criteria is met. |
+| CustomEmailSubject | No | Custom subject line of the mail sent to all addresses specified in associated action group. |
+| CustomWebhookPayload | No | Customized payload to be sent to all webhook endpoints defined in associated action group. The format depends on what the webhook is expecting and should be a valid serialized JSON. |
+
+
+#### Actions for OMS (legacy)
+
+Every schedule has one **Alert** action.  This defines the details of the alert and optionally notification and remediation actions.  A notification sends an email to one or more addresses.  A remediation starts a runbook in Azure Automation to attempt to remediate the detected issue.
+
+> [!NOTE]
+> Beginning May 14, 2018, all alerts in a workspace will automatically begin to extend into Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### EmailNotification
  This section is optional  Include it if you want the alert to send mail to one or more recipients.
@@ -239,7 +265,7 @@ This section is optional  Include it if you want a runbook to start in response 
 | WebhookUri | Yes | Uri of the webhook for the runbook. |
 | Expiry | No | Date and time that the remediation expires. |
 
-#### Webhook actions
+##### Webhook actions
 
 Webhook actions start a process by calling a URL and optionally providing a payload to be sent. They are similar to Remediation actions except they are meant for webhooks that may invoke processes other than Azure Automation runbooks. They also provide the additional option of providing a payload to be delivered to the remote process.
 
@@ -271,19 +297,17 @@ The properties for Webhook action resources are described in the following table
 | customPayload | No | Custom payload to be sent to the webhook. The format depends on what the webhook is expecting. |
 
 
-
-
 ## Sample
 
 Following is a sample of a solution that includes that includes the following resources:
 
 - Saved search
 - Schedule
-- Alert action
-- Webhook action
+- Action group
 
 The sample uses [standard solution parameters](operations-management-suite-solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
 
+```
 	{
 	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	    "contentVersion": "1.0",
@@ -294,34 +318,16 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	          "Description": "Name of Log Analytics workspace"
 	        }
 	      },
-	      "accountName": {
-	        "type": "string",
-	        "metadata": {
-	          "Description": "Name of Automation account"
-	        }
-	      },
 	      "workspaceregionId": {
 	        "type": "string",
 	        "metadata": {
 	          "Description": "Region of Log Analytics workspace"
 	        }
 	      },
-	      "regionId": {
+	      "actiongroup": {
 	        "type": "string",
 	        "metadata": {
-	          "Description": "Region of Automation account"
-	        }
-	      },
-	      "pricingTier": {
-	        "type": "string",
-	        "metadata": {
-	          "Description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-	        }
-	      },
-	      "recipients": {
-	        "type": "string",
-	        "metadata": {
-	          "Description": "List of recipients for the email alert separated by semicolon"
+	          "Description": "List of action groups for alert actions separated by semicolon"
 	        }
 	      }
 	    },
@@ -331,7 +337,7 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	      "SolutionPublisher": "Contoso",
 	      "ProductName": "SampleSolution",
 	
-	      "LogAnalyticsApiVersion": "2015-11-01-preview",
+	      "LogAnalyticsApiVersion": "2015-03-20",
 	
 	      "MySearch": {
 	        "displayName": "Error records by hour",
@@ -357,20 +363,11 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	          "Value": 3
 	        },
 	        "ThrottleMinutes": 60,
-	        "Notification": {
-	          "Recipients": [
-	            "[parameters('recipients')]"
+	        "AzNsNotification": {
+	          "GroupIds": [
+	            "[parameters('actiongroup')]"
 	          ],
-	          "Subject": "Sample alert"
-	        },
-	        "Remediation": {
-	          "RunbookName": "MyRemediationRunbook",
-	          "WebhookUri": "https://s1events.azure-automation.net/webhooks?token=TluBFH3GpX4IEAnFoImoAWLTULkjD%2bTS0yscyrr7ogw%3d"
-	        },
-	        "Webhook": {
-	          "Name": "MyWebhook",
-	          "Uri": "https://MyService.com/webhook",
-	          "Payload": "{\"field1\":\"value1\",\"field2\":\"value2\"}"
+	          "CustomEmailSubject": "Sample alert"
 	        }
 	      }
 	    },
@@ -394,8 +391,7 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	          "containedResources": [
 	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
 	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
-	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]",
-	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Webhook.Name)]"
+	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]"
 	          ]
 	        },
 	        "plan": {
@@ -458,39 +454,18 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	          "Throttling": {
 	            "DurationInMinutes": "[variables('MyAlert').ThrottleMinutes]"
 	          },
-	          "EmailNotification": {
-	            "Recipients": "[variables('MyAlert').Notification.Recipients]",
-	            "Subject": "[variables('MyAlert').Notification.Subject]",
-	            "Attachment": "None"
-	          },
-	          "Remediation": {
-	            "RunbookName": "[variables('MyAlert').Remediation.RunbookName]",
-	            "WebhookUri": "[variables('MyAlert').Remediation.WebhookUri]"
-	          }
-	        }
-	      },
-	      {
-	        "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name, '/', variables('MyAlert').Webhook.Name)]",
-	        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-	        "dependsOn": [
-	          "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]",
-	          "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name, '/actions/',variables('MyAlert').Name)]"
-	        ],
-	        "properties": {
-	          "etag": "*",
-	          "Type": "Webhook",
-	          "Name": "[variables('MyAlert').Webhook.Name]",
-	          "WebhookUri": "[variables('MyAlert').Webhook.Uri]",
-	          "CustomPayload": "[variables('MyAlert').Webhook.Payload]"
+            "AzNsNotification": {
+              "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+              "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]"
+            }	          
 	        }
 	      }
 	    ]
 	}
-
+```
 
 The following parameter file provides samples values for this solution.
-
+```
 	{
 		"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 		"contentVersion": "1.0.0.0",
@@ -510,12 +485,12 @@ The following parameter file provides samples values for this solution.
 			"pricingTier": {
 				"value": "Free"
 			},
-			"recipients": {
-				"value": "recipient1@contoso.com;recipient2@contoso.com"
+			"actiongroup": {
+				"value": "/subscriptions/3b540246-808d-4331-99aa-917b808a9166/resourcegroups/myTestGroup/providers/microsoft.insights/actiongroups/sample"
 			}
 		}
 	}
-
+```
 
 ## Next steps
 * [Add views](operations-management-suite-solutions-resources-views.md) to your management solution.

@@ -22,7 +22,7 @@ ms.author: tdykstra
 
 This article explains how to handle [Event Grid](../event-grid/overview.md) events in Azure Functions.
 
-Event Grid is an Azure service that sends HTTP requests to notify you about events that happen in *publishers*. A publisher is the service or resource that originates the event. For example, an Azure blob storage account is a publisher, and a blob upload or deletion is an event. Some [Azure services have built-in support for publishing events to Event Grid](../event-grid/overview.md#event-publishers). 
+Event Grid is an Azure service that sends HTTP requests to notify you about events that happen in *publishers*. A publisher is the service or resource that originates the event. For example, an Azure blob storage account is a publisher, and a blob upload or deletion is an event. Some [Azure services have built-in support for publishing events to Event Grid](../event-grid/overview.md#event-sources). 
 
 Event *handlers* receive and process events. Azure Functions is one of several [Azure services that have built-in support for handling Event Grid events](../event-grid/overview.md#event-handlers). In this article, you learn how to use an Event Grid trigger to invoke a function when an event is received from Event Grid.
 
@@ -334,6 +334,9 @@ Alternatively, you can send an HTTP PUT to specify the key value yourself.
 
 ## Local testing with RequestBin
 
+> [!NOTE]
+> The RequestBin site is currently not available, but you can use this approach with https://hookbin.com instead. If that site is down, you can use [ngrok](#local-testing-with-ngrok).
+
 To test an Event Grid trigger locally, you have to get Event Grid HTTP requests delivered from their origin in the cloud to your local machine. One way to do that is by capturing requests online and manually resending them on your local machine:
 
 2. [Create a RequestBin endpoint](#create-a-RequestBin-endpoint).
@@ -345,7 +348,7 @@ When you're done testing, you can use the same subscription for production by up
 
 ### Create a RequestBin endpoint
 
-RequestBin is an open-source tool that accepts HTTP requests and shows you the request body. The http://requestb.in URL gets special treatment by Azure Event Grid. To facilitate testing, Event Grid sends events to the RequestBin URL without requiring a correct response to subscription validation requests. Two other testing tools are given the same treatment: http://webhookinbox.com and http://hookbin.com.
+RequestBin is an open-source tool that accepts HTTP requests and shows you the request body. The http://requestb.in URL gets special treatment by Azure Event Grid. To facilitate testing, Event Grid sends events to the RequestBin URL without requiring a correct response to subscription validation requests. One other testing tool is given the same treatment: http://hookbin.com.
 
 RequestBin is not intended for high throughput usage. If you push more than one event at a time, you might not see all of your events in the tool.
 

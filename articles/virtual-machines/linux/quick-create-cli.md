@@ -4,7 +4,7 @@ description: Quickly learn to create virtual machines with the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -43,10 +43,15 @@ az group create --name myResourceGroup --location eastus
 
 Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. 
 
-The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
+The following example creates a VM named *myVM*, adds a user account named *azureuser*, and generates SSH keys if they do not already exist in the default key location (*~/.ssh*). To use a specific set of keys, use the `--ssh-key-value` option:
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys
 ```
 
 When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.

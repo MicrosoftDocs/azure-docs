@@ -32,7 +32,7 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-
 
 An active Azure subscription. If you do not have one, you can register via one of these two methods:
 
-* Activate a [free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html)
+* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/en-us/free/)
 * Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are MSDN or Visual Studio subscriber
 
 ## Step 1. Open the project folder
@@ -43,17 +43,14 @@ An active Azure subscription. If you do not have one, you can register via one o
 - Start VS Code
 - Connect the DevKit to your computer.
 
-VS Code automatically finds the DevKit and opens an introduction page:
-
-![Introduction page](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_start.png)
-
 ### B. Open the Arduino Examples folder
 
 Expand left side **ARDUINO EXAMPLES > Examples for MXCHIP AZ3166 > AzureIoT**, and select **DevKitTranslator**. It opens a new VS Code window with the DEVKITTRANSLATOR project folder in it.
 
 ![IoT DevKit samples](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
-If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
+> [!NOTE]
+> You can also open example from command palette. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
 ## Step 2. Provision Azure services
 

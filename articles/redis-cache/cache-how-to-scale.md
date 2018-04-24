@@ -117,7 +117,7 @@ The following list contains answers to commonly asked questions about Azure Redi
 * You can't scale from a **Premium** cache down to a **Basic** or **Standard** pricing tier.
 * You can scale from one **Premium** cache pricing tier to another.
 * You can't scale from a **Basic** cache directly to a **Premium** cache. First, scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
-* If you enabled clustering when you created your **Premium** cache, you can [change the cluster size](cache-how-to-premium-clustering.md#cluster-size). If your cache was created without clustering enabled, you can't configure clustering at a later time.
+* If you enabled clustering when you created your **Premium** cache, you can [change the cluster size](cache-how-to-premium-clustering.md#cluster-size). If your cache was created without clustering enabled, you can configure clustering at a later time.
   
   For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 

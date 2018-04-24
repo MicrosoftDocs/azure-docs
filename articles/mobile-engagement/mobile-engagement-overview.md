@@ -18,6 +18,10 @@ ms.author: piyushjo;matt-gibbs
 
 ---
 # Azure Mobile Engagement overview
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platform that provides data-driven insights into app usage, real-time user segmentation, and enables contextually-aware push notifications and in-app messaging.
 
 ### Overview video

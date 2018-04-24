@@ -3,8 +3,8 @@ title: Azure Quick Start - Create Windows VM CLI | Microsoft Docs
 description: Quickly learn to create a Windows virtual machines with the Azure CLI.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/11/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
 ---
 
@@ -51,7 +51,7 @@ The following example creates a VM named *myVM*. This example uses *azureuser* f
 az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
 ```
 
-When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAaddress`. This address is used to access the VM.
+When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
 
 ```azurecli-interactive 
 {

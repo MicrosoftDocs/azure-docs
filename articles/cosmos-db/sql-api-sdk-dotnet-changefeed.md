@@ -4,8 +4,7 @@ description: Learn all about the Change Feed Processor API and SDK including rel
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
-manager: kirillg
-editor: mimig1
+manager: kfile
 
 ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
@@ -13,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/19/2018
 ms.author: maquaran
 
 ---
@@ -26,11 +25,9 @@ ms.author: maquaran
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 |   |   |
 |---|---|
@@ -40,6 +37,9 @@ ms.author: maquaran
 |**Current supported framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## Release notes
+
+### <a name="1.3.2"/>1.3.2
+* Fixes in the pending work estimation.
 
 ### <a name="1.3.1"/>1.3.1
 * Stability improvements.
@@ -74,6 +74,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |April 18, 2018 |--- |
 | [1.3.1](#1.3.1) |March 13, 2018 |--- |
 | [1.2.0](#1.2.0) |October 31, 2017 |--- |
 | [1.1.1](#1.1.1) |August 29, 2017 |--- |

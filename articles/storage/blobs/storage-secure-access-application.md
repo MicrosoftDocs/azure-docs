@@ -31,7 +31,7 @@ To complete this tutorial you must have completed the previous Storage tutorial:
 
 ## Set container public access
 
-In this part of the tutorial series, SAS tokens are used for accessing the thumbnails. In this step, you set the public access of the _thumbs_ container to `off`.
+In this part of the tutorial series, SAS tokens are used for accessing the thumbnails. In this step, you set the public access of the _thumbnails_ container to `off`.
 
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -39,7 +39,7 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbs  \
+az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
 --public-access off
 ``` 
 
