@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 04/24/2018
 ms.author: cynthn
 
 ---
 # Change the OS disk used by an Azure VM using PowerShell
 
-If you have an existing VM, but you want to swap the disk for a backup disk or another OS disk, you can now swap the OS disk using Azure PowerShell. You don't have to delete and recreate the VM. 
+If you have an existing VM, but you want to swap the disk for a backup disk or another OS disk, you can use Azure PowerShell to swap the OS disks. You don't have to delete and recreate the VM. You can even use a managed disk in another resource group, as long as it isn't already in use.
 
 The VM does need to be stopped\deallocated, then the resource ID of the managed disk can be replaced with the resource ID of a different managed disk.
 
