@@ -30,9 +30,9 @@ Suppose that you want to create a simple enricher that identifies the first date
 
 Your Web API should be ready to receive a batch of input records. Each member of the *values* array represents the input for a particular record. Each record is required to have the following elements:
 
-+ a *recordId* member that is the unique identifier for a particular record. When your enricher returns the results, it must provide this *recordId* in order to allow the caller to match the record results to their input.
++ A *recordId* member that is the unique identifier for a particular record. When your enricher returns the results, it must provide this *recordId* in order to allow the caller to match the record results to their input.
 
-+ a *data* member, which is essentially a bag of input fields for each record.
++ A *data* member, which is essentially a bag of input fields for each record.
 
 To be more concrete, for our example above, your Web API should expect requests that look like this:
 

@@ -1,6 +1,7 @@
 ---
 title: Cognitive search documentation resources (Azure Search) | Microsoft Docs
 description: An annotated list of articles, tutorials, samples, and blog posts related to cognitive search workloads in Azure Search.
+services: search
 manager: cgronlun
 author: HeidiSteen
 

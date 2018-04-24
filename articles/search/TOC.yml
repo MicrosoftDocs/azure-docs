@@ -147,6 +147,8 @@
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
     - name: Field mappings in indexers
       href: search-indexer-field-mappings.md
+    - name: Re-index existing indexes
+      href: search-howto-reindex.md 
   - name: Cognitive search (Preview)
     items:
     - name: Define a skillset

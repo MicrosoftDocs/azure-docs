@@ -4,6 +4,7 @@ description: In the preview API, indexers are extended to include outputFieldMap
 services: search
 manager: pablocas
 author: luiscabrer
+ms.author: luisca
 ms.date: 05/01/2018
 ms.prod: "azure"
 ms.service: search

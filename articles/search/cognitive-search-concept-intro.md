@@ -58,7 +58,7 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 ## Key features and concepts
 
-| Concept | description|
+| Concept | Description|
 |---------|------------|
 | Indexer |  A crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source for document cracking. For cognitive search enrichments, the indexer invokes a skillset, and contains the field mappings associating enrichment output to target fields in the index. The indexer definition contains all of the instructions and references for pipeline operations, and the pipeline is invoked when you run the indexer. |
 | Data Source  | An object used by an indexer to connect to an external data source of supported types on Azure. |
@@ -83,9 +83,7 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 **Step 3: Review the API (REST only)**
 
-Currently, only REST supports cognitive search solutions, but the .NET SDK is expected to follow shortly after the feature officially moves into public preview. Support for .NET will be announced as a service update. It will also be announced on this page if you want to check back later.
-
-Use `api-version=2017-11-11-Preview` on all requests. Use the following APIs to build a cognitive search solution. Only two APIs are added or extended for cognitive search. Other APIs have the same syntax as the generally available versions.
+Currently, only REST APIs are provided. Use `api-version=2017-11-11-Preview` on all requests. Use the following APIs to build a cognitive search solution. Only two APIs are added or extended for cognitive search. Other APIs have the same syntax as the generally available versions.
 
 | REST API | Description |
 |-----|-------------|
@@ -95,7 +93,7 @@ Use `api-version=2017-11-11-Preview` on all requests. Use the following APIs to 
 | [Create Indexer (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search corpus based on the index schema, populated with source data, enriched through skillsets.  |
 | [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) | A command for rebuilding an index. Because pipeline development is an iterative process, plan for frequent index rebuilds.
 
-**Checklist: a typical workflow**
+**Checklist: A typical workflow**
 
 1. Subset your Azure source data into a representative sample. Indexing takes time so start with a small, representative data set and then build it up incrementally as your solution matures.
 
