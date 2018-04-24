@@ -9,7 +9,7 @@ ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
-ms.author: carlrab
+ms.author: carlrab test
 
 ---
 # Database Transaction Units (DTUs) and elastic Database Transaction Units (eDTUs)
