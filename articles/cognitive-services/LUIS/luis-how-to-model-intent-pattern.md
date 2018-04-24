@@ -123,7 +123,7 @@ You can create a pattern from an existing utterance on either the **Intent** or 
 
     [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Screenshot of utterances table with Add pattern highlighted in options menu")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
-2. Modify the pattern according to the [syntax rules](luis-concept-patterns#pattern-syntax). If the utterance you selected is labeled with entities, those entities are already in the pattern with the correct syntax.
+2. Modify the pattern according to the [syntax rules](luis-concept-patterns.md#pattern-syntax). If the utterance you selected is labeled with entities, those entities are already in the pattern with the correct syntax.
 
     ![Screenshot of filtered patterns by entity](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
 
