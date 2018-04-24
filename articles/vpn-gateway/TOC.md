@@ -87,7 +87,7 @@
 ### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ## [Gateway SKUs (legacy)](vpn-gateway-about-skus-legacy.md)
-## Configure third party VPN devices
+## Configure third-party VPN devices
 ### [Overview & Azure configuration](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Sample: Cisco ASA device (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 
