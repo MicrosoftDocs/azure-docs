@@ -2,18 +2,18 @@
 title: LUIS Prebuilt entities reference | Microsoft Docs
 description: This article contains lists of the prebuilt entities that are included in Language Understanding (LUIS).
 services: cognitive-services
-author: DeniseMak
-manager: rstand
+author: v-geberr
+manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 05/07/2017
 ms.author: v-geberr
 ---
 
 # Prebuilt entities reference
 
-Language Understanding (LUIS) includes a set of prebuilt entities. When a prebuilt entity is included in your application, its predictions are included in your published application and can be used in the LUIS web UI to label utterances. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
+Language Understanding (LUIS) includes a set of prebuilt entities. When a prebuilt entity is included in your application, LUIS includes its prediction in endpoint response. All utterances are also labeled with the entity. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
 
 > [!NOTE]
 > **builtin.datetime** is deprecated. It is replaced by [**built-in.datetimeV2**](#builtindatetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
@@ -42,9 +42,9 @@ Phone number   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   - 
 ## Deprecated prebuilt entities
 
 The following prebuilt entities are deprecated and can't be added to new LUIS apps.
-* **Datetime**: Existing LUIS apps that use **builtin.datetime** should be migrated to **builtin.datetimeV2**, although the datetime entity continues to function in preexisting apps that use it.
-* **Geography**: Existing LUIS apps that use **builtin.geography** will be supported until December 2018.
-* **Encyclopedia**: Existing LUIS apps that use **builtin.encyclopedia** will be supported until December 2018.
+* **Datetime**: Existing LUIS apps that use **builtin.datetime** should be migrated to **builtin.datetimeV2**, although the datetime entity continues to function in pre-existing apps that use it.
+* **Geography**: Existing LUIS apps that use **builtin.geography** is supported until December 2018.
+* **Encyclopedia**: Existing LUIS apps that use **builtin.encyclopedia** is supported until December 2018.
 
 ## Examples of prebuilt entities
 The following table lists prebuilt entities with example utterances and their return values.
@@ -69,11 +69,11 @@ Prebuilt entity   |   Example utterance   |   JSON
  ```builtin.geography``` | See separate table | See separate table following this table |
  ```builtin.encyclopedia``` | See separate table | See separate table following this table |
  
- The last 3 built-in entity types listed in the table above encompass multiple subtypes. These are covered later in this article.
+ The last three built-in entity types listed in the table preceding encompass multiple subtypes. These entities are covered later in this article.
 
 ## builtin.number resolution
 
-There are many ways in which numeric values are used to quantify, express, and describe pieces of information, with more possibilities than the examples listed. LUIS interprets the variations in user utterances and returns consistent numeric values. 
+There are many ways in which numeric values are used to quantify, express, and describe pieces of information. This article covers only some of the possible examples. LUIS interprets the variations in user utterances and returns consistent numeric values. 
 
 | Utterance        | Entity   | Resolution |
 | ------------- |:----------------:| --------------:|
@@ -267,13 +267,13 @@ The following example shows the resolution of the **builtin.currency** entity.
 
 ## builtin.datetimeV2
 
-The **builtin.datetimeV2** prebuilt entity automatically recognizes dates, times, and ranges of dates and times. This entity also resolves dates, times, and date ranges to values in a standardized format for client programs to consume. If an utterance contains a date or time that isn't fully specified, both past and future values are included in the resolution. 
+The **builtin.datetimeV2** prebuilt entity automatically recognizes dates, times, and ranges of dates and times. This entity also resolves dates, times, and date ranges to values in a standardized format for client programs to consume. If an utterance contains a date or time that isn't fully specified, LUID includes both past and future values in the endpoint response. 
 
 
 <table>
 <th> example </th><th>property descriptions</th>
 <tr><td>
-The following is an example of a JSON response containing a builtin.datetimeV2 entity, of type <code>datetime</code>. For examples of other types of datetimeV2 entities, see <a href="#subtypes-of-datetimev2">Subtypes of datetimeV2</a>.
+The following JSON response is an example containing a builtin.datetimeV2 entity, of type <code>datetime</code>. For examples of other types of datetimeV2 entities, see <a href="#subtypes-of-datetimev2">Subtypes of datetimeV2</a>.
 <pre>
   "entities": [
     {
@@ -313,7 +313,7 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
    <ul><li>The array has one element if the date or time in the utterance is fully specified and unambiguous.</li><li>The array has two elements if the date or date range is ambiguous as to year, or a time or time range is ambiguous as to AM or PM. When there is an ambiguous date, `values` contains the most recent past and most immediate future instances of the date. See <a href="#ambiguous-dates">Ambiguous dates</a> for more examples. When there is an ambiguous time, `values` contains both the AM and PM times.</li><li>The array has four elements if the utterance contains both a date or date range that is ambiguous as to year, and a time or time range that is ambiguous as to AM or PM. For example, 3:00 April 3rd.</li>
    </ul>
    <br/>Each element of <code>values</code> may contain the following fields: <br/>
-   <table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 standard</a> as well as using the TIMEX3 attributes for  annotation using the TimeML language. This annotation is described in the <a href="http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf">TIMEX guidelines</a>.</td></tr><tr><td>type</td><td>The subtype, which can be one of the following: datetime, date, time, daterange, timerange, datetimerange, duration, set.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If <code>type</code> is <code>duration</code>, the value is the number of seconds (duration) <br/> Only used if <code>type</code> is <code>datetime</code> or <code>date</code>, <code>time</code>, or <code>duration</code>.</td></tr>
+   <table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 standard</a> as well as using the TIMEX3 attributes for  annotation using the TimeML language. This annotation is described in the <a href="http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf">TIMEX guidelines</a>.</td></tr><tr><td>type</td><td>The subtype, which can be one of the following items: datetime, date, time, daterange, timerange, datetimerange, duration, set.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If <code>type</code> is <code>duration</code>, the value is the number of seconds (duration) <br/> Only used if <code>type</code> is <code>datetime</code> or <code>date</code>, <code>time</code>, or <code>duration</code>.</td></tr>
    <tr><td>start</td><td>A value representing the start of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code>, or <code>datetimerange</code>.</td></tr></table>
    </td></tr>
    <tr><td>end</td><td>A value representing the end of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code, or <code>datetimerange</code>.</td></tr></table>
@@ -333,7 +333,7 @@ The **builtin.datetimeV2** entity's `resolution` field has a `values` array that
 
 -->
 
-The **builtin.datetimeV2** supports dates between the following ranges.
+The **builtin.datetimeV2** supports dates between the following ranges:
 
 | Min | Max |
 |----------|-------------|
@@ -341,7 +341,7 @@ The **builtin.datetimeV2** supports dates between the following ranges.
 
 ### Ambiguous dates
 
-If it's unclear from an utterance whether a date refers to that date in the past or the future, LUIS provides both the most immediate past and future instances of that date. One case of this occurrence is an utterance that includes the month and date, but not the year. If today's date precedes the date in the utterance in the current year, the most immediate past instance of that date is in the previous year. Otherwise the most immediate past date is in the current year. 
+If it's unclear from an utterance whether a date is in the past or the future, LUIS provides both the past and future instances of that date. One case of this occurrence is an utterance that includes the month and date, but not the year. If today's date precedes the date in the utterance in the current year, the most immediate past instance of that date is in the previous year. Otherwise the most immediate past date is in the current year. 
 
 For example, given the utterance "May 2nd":
 * If today's date is May 3rd 2017, LUIS provides both "2017-05-02" and "2018-05-02" as values. 
@@ -377,7 +377,7 @@ Fields containing `X` in the `timex` field represent parts of the date that are 
 
 ### Date range resolution examples
 
-The datetimeV2 entity can recognize date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the following year. In the `timex` field, the `XXXX` values represent the year that is not explicitly specified in the utterance, and `P3D` indicates that the time period is 3 days long.
+The datetimeV2 entity can recognize date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the next year. In the `timex` field, the `XXXX` values represent the year that is not explicitly specified in the utterance. `P3D` indicates that the time period is three days long.
 
 ```
 "entities": [
@@ -437,7 +437,7 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
 
 ### Date range resolution examples
 
-The datetimeV2 entity can recognize date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the following year. In the `timex` field, the `XXXX` values represent the year that is not explicitly specified in the utterance, and `P3D` indicates that the time period is 3 days long.
+The datetimeV2 entity can recognize date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the next year: In the `timex` field, the `XXXX` values represent the year that is not explicitly specified in the utterance. `P3D` indicates that the time period is three days long.
 
 ```
 "entities": [
@@ -525,7 +525,7 @@ Prebuilt entity   |   Example utterance   |   JSON
 
 The **builtin.datetime** prebuilt entity is deprecated and replaced by [builtin.datetimeV2](#builtindatetimev2). 
 
-To replace **builtin.datetime** with **builtin.datetimeV2** in your LUIS app, do the following:
+To replace **builtin.datetime** with **builtin.datetimeV2** in your LUIS app, complete the following steps:
 
 1. Open the **Entities** pane of the LUIS web interface. 
 2. Delete the **datetime** prebuilt entity.
@@ -580,7 +580,7 @@ builtin.datetimeV2.date      |   week of september 30th   |```{ "entity": "septe
 > [!NOTE]
 > **builtin.geography** is available only in the en-us locale.
 
-#### The builtin.geography built-in entity type has 3 sub-types:
+#### The builtin.geography built-in entity type has three subtypes:
 
 Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
@@ -596,7 +596,7 @@ Prebuilt entity   |   Example utterance   |   JSON
 > [!NOTE]
 > **builtin.encyclopedia** is available only in the ```en-US``` locale.
 
-##### The builtin.encyclopedia built-in entity includes over 100 sub-types in the following table. In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
+##### The builtin.encyclopedia built-in entity includes over 100 sub-types in the following table: In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
 ```
 {
       "entity": "ronald reagan",
