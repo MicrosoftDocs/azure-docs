@@ -49,7 +49,7 @@ sections:
   - type: paragraph
     text: 'Develop applications using the Bing News Search API:'
   - type: paragraph
-    text: <a href="tutorial-bing-news-search-single-page-app">Single-Page Web app</a> | <a href="tutorial-bing-news-search-single-page-app-source">Source code</a>
+    text: <a href="tutorial-bing-news-search-single-page-app">Single-Page Web app</a>
 - title: Reference
   items:
   - type: list
