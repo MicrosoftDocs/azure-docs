@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2017
+ms.date: 04/24/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
 
@@ -175,7 +175,7 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by A
 - 16 VHDs for an M128xx VM
 - 8 VHDs for an M64xx VM
 
-More detailed instructions on how to enable Azure Write Accelerator can be found in the article [Azure Write Accelerator for SAP deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator).
+More detailed instructions on how to enable Azure Write Accelerator can be found in the article [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 Details and restrictions for Azure Write Accelerator can be found in the same documentation.
 
