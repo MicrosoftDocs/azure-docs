@@ -19,11 +19,11 @@ ms.author: ghogen
 > - [Getting Started](vs-key-vault-aspnet-get-started.md)
 > - [What Happened](vs-key-vault-aspnet-what-happened.md)
 
-This article provides additional guidance after you've added Key Vault to an ASP.NET project through the Project > Connected Services command of Visual Studio. If you've not already added the service to your project, you can do so at any time by following the instructions in [Add Key Vault to your web application by using Visual Studio Connected Services](vs-key-vault-add-connected-service).
+This article provides additional guidance after you've added Key Vault to an ASP.NET project through the Project > Connected Services command of Visual Studio. If you've not already added the service to your project, you can do so at any time by following the instructions in [Add Key Vault to your web application by using Visual Studio Connected Services](vs-key-vault-add-connected-service.md).
 
-See [What happened to my ASP.NET project?](vs-key-vault-aspnet-core-what-happened) for the changes made to your project when adding the connected service.
+See [What happened to my ASP.NET project?](vs-key-vault-aspnet-core-what-happened.md) for the changes made to your project when adding the connected service.
 
-1. Add a secret in your Key Vault in Azure. To get to the right place in the portal, click on the link for Manage secrets stored in this Key Vault. If you closed the page or the project, you can navigate to it in the [Azure portal](https://portal.azure.com) by choosing **All Services**, under **Security**, choose **Key Vault**, then choose the Key Vault you just created.
+1. Add a secret in your Key Vault in Azure. To get to the right place in the portal, click on the link for **Manage secrets stored in this Key Vault**. If you closed the page or the project, you can navigate to it in the [Azure portal](https://portal.azure.com) by choosing **All Services**, under **Security**, choose **Key Vault**, then choose the Key Vault you just created.
 
    ![Navigating to the portal](media/vs-key-vault-add-connected-service/manage-secrets-link.jpg)
 
@@ -31,7 +31,7 @@ See [What happened to my ASP.NET project?](vs-key-vault-aspnet-core-what-happene
 
    ![Generate/Import a secret](media/vs-key-vault-add-connected-service/generate-secrets.jpg)
 
-1. Enter a secret, such as "MySecret", and give it any string value as a test, then choose the **Create** button.
+1. Enter a secret, such as **MySecret**, and give it any string value as a test, then choose the **Create** button.
 
    ![Create a secret](media/vs-key-vault-add-connected-service/create-a-secret.jpg)
  

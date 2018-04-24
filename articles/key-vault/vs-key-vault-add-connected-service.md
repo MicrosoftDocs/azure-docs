@@ -50,15 +50,15 @@ For details on the changes that Connected Services makes in your project to enab
 
 1. Now, add a secret in your Key Vault in Azure. To get to the right place in the portal, click on the link for Manage secrets stored in this Key Vault. If you closed the page or the project, you can navigate to it in the [Azure portal](https://portal.azure.com) by choosing **All Services**, under **Security**, choose **Key Vault**, then choose the Key Vault you just created.
 
-   ![Navigating to the portal](media/manage-secrets-mvlink.jpg)
+   ![Navigating to the portal](media/vs-key-vault-add-connected-service/manage-secrets-link.jpg)
 
 1. In the Key Vault section for the key vault you created, choose **Secrets**, then **Generate/Import**.
 
-   ![Generate/Import a secret](media/generate-import-secret.jpg)
+   ![Generate/Import a secret](media/vs-key-vault-add-connected-service/generate-secret.jpg)
 
 1. Enter a secret, such as "MySecret", and give it any string value as a test, then choose the **Create** button.
 2. 
-3. ![Create a secret](media/create-a-secret.jpg)
+3. ![Create a secret](media/vs-key-vault-add-connected-service/create-a-secret.jpg)
 4. 
 5. (optional) Enter another secret, but this time put it into a category by naming it "Secrets--MySecret". This syntax specifies a category "Secrets" that contains a secret "MySecret."
 6. In Visual Studio, in your project, you can now reference these secrets by using the following expressions in code:
@@ -87,4 +87,4 @@ For details on the changes that Connected Services makes in your project to enab
 
 ## Next steps
 
-Add code to get an access token to manage your secrets, and test your Key Vault with a certificate: [Use Azure Key Vault from a Web Application](/azure/key-vault/key-vault-use-from-web-application#gettoken)
+Learn more about Key Vault development by reading the [Key Vault Developer's Guide](key-vault-developers-guide.md)

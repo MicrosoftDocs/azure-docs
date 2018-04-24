@@ -30,14 +30,6 @@ Affects the project file *.NET references and NuGet package references.
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
-## Code changes in Program.cs
-
--  Add Microsoft.AspNetCore.Hosting.HostingStartup assembly attribute to Program.cs.
-
-   ```csharp
-      [assembly: HostingStartup(typeof(Microsoft.AspNetCore.AzureKeyVault.HostingStartup.AzureKeyVaultHostingStartup))]
-   ```
-
 ## Added files
 
 - ConnectedService.json added, which records some information about the Connected Service provider, version, and a link the documentation.
@@ -62,8 +54,3 @@ Affects the project file *.NET references and NuGet package references.
 - Created a resource group (or used an existing one).
 - Created a Key Vault in the specified resource group.
 
-[Learn more about Azure Key Vault](index.md).
-
-## Next steps
-
-- [Use Azure Key Vault from a Web Application](/azure/key-vault/key-vault-use-from-web-application)

@@ -57,4 +57,3 @@ Affects the project file *.NET references and `packages.config` (NuGet reference
 - Created a resource group (or used an existing one).
 - Created a Key Vault in the specified resource group.
 
-[Learn more about Azure Key Vault](index.md).
