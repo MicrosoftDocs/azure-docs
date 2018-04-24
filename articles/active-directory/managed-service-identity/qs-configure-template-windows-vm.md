@@ -96,13 +96,16 @@ In this section, you will enable and disable a system assigned identity using an
 
    ![Screenshot of template after update](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
-### Remove a system assigned identity from an Azure VM
+### Disable a system assigned identity from an Azure VM
+
+> [!NOTE]
+> Disabling Managed Service Identity from a Virtual Machine is currently not supported. In the meantime, you can switch between using System Assigned and User Assigned Identities.
 
 If you have a VM that no longer needs a managed service identity:
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also ensure that your account belongs to a role that gives you write permissions on the VM (for example, the role of “Virtual Machine Contributor”).
 
-2. Remove the two elements that were added in the previous section: the VM's `"identity"` property and the `"Microsoft.Compute/virtualMachines/extensions"` resource.
+2. Change the identity type to `UserAssigned`.
 
 ## User assigned identity
 

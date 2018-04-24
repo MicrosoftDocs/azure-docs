@@ -20,13 +20,16 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed Service Identity (MSI) provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you learn how to enable and remove a system and user assigned managed identity for an Azure virtual machine scale set, using an Azure Resource Manager deployment template.
+In this article, you learn how to perform the following Managed Service Identity operations on an Azure VMSS, using Azure Resource Manager deployment template:
+- Enable and disable the system assigned identity on an Azure VMSS
+- Add and remove a user assigned identity on an Azure VMSS
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+- If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **Be sure to review the [difference between a system assigned and user assigned identity](overview.md#how-does-it-work)**.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/en-us/free/) before continuing.
 
 ## Azure Resource Manager templates
 
@@ -41,7 +44,7 @@ Regardless of the option you choose, template syntax is the same during initial 
 
 ## System assigned identity
 
-In this section, you will enable and disable a system assigned identity using an Azure Resource Manager template.
+In this section, you will enable and disable the system assigned identity using an Azure Resource Manager template.
 
 ### Enable system assigned identity during creation of an Azure VMSS, or an existing Azure VMSS
 
@@ -51,7 +54,7 @@ In this section, you will enable and disable a system assigned identity using an
    
    ![Screenshot of template - locate VM](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
 
-3. Add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachineScaleSets"` property. Use the following syntax:
+3. To enable the system assigned identity, add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachineScaleSets"` property. Use the following syntax:
 
    ```JSON
    "identity": { 
@@ -59,7 +62,7 @@ In this section, you will enable and disable a system assigned identity using an
    },
    ```
 
-4. Then add the virtual machine scale set MSI extension as an `extensionsProfile` element. Use the following syntax:
+4. (Optional) Add the virtual machine scale set MSI extension as an `extensionsProfile` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity, to retrieve tokens as well.  Use the following syntax:
 
    >[!NOTE] 
    > The following example assumes a Windows virtual machine scale set extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements.
@@ -87,13 +90,16 @@ In this section, you will enable and disable a system assigned identity using an
 
    ![Screenshot of template after update](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
 
-### Remove a system assigned identity from an Azure virtual machine scale set
+### Disable a system assigned identity from an Azure virtual machine scale set
 
-If you have a virtual machine scale set that no longer needs a system assigned identity:
+> [!NOTE]
+> Disabling Managed Service Identity from a Virtual Machine is currently not supported. In the meantime, you can switch between using System Assigned and User Assigned Identities.
+
+If you have a virtual machine scale set that no longer needs a system assigned identity but still needs user assigned identities:
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
-2. Remove the two elements that were added in the previous section: the virtual machine scale set's `"identity"` and `"extensionsProfile"` properties.
+2. Change the identity type to `'UserAssigned'`
 
 ## User assigned identity
 
@@ -138,7 +144,7 @@ In this section, you create a user assigned identity and an Azure VMSS using an 
 
     }
     ```
-5. Then, add the following entry under the `extensionProfile` element to assign the managed identity extension to your VMSS:
+5. (Optional) Add the following entry under the `extensionProfile` element to assign the managed identity extension to your VMSS. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well. Use the following syntax:
    
     ```JSON
        "extensionProfile": {

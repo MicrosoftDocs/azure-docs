@@ -28,7 +28,7 @@ In this article, you learn how to perform the following Managed Service Identity
 
 ## Prerequisites
 
-- If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **[Be sure to review the difference between a system assigned and user assigned identity](overview.md#how-does-it-work)**.
+- If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **Be sure to review the [difference between a system assigned and user assigned identity](overview.md#how-does-it-work)**.
 
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/en-us/free/) before continuing.
 
@@ -183,7 +183,7 @@ az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
 If your VM has both system assigned and user assigned identities, you can remove all the user assigned identities by switching to use only system assigned. Use the following command:
 
 ```azurecli-interactive
-az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' 
+az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null 
 ```
 
 ## Related content

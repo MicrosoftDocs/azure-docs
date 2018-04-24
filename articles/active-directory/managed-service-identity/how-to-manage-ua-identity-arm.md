@@ -30,7 +30,8 @@ It is not possible to list and delete a user assigned identity using an Azure Re
 - [Delete user assigned identity](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-identity)
 ## Prerequisites
 
-[!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
+- If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **Be sure to review the [difference between a system assigned and user assigned identity](overview.md#how-does-it-work)**.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/en-us/free/) before continuing.
 
 Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also ensure that your account belongs to a role that gives you write permissions on the VM (for example, the role of “Virtual Machine Contributor”).
 
@@ -77,7 +78,7 @@ To create a user assigned identity, use the following template. Replace the `<US
 ```
 ## Related content
 
-For information on how to assign a user assigned managed identity to an Azure VM using an Azure Resource Manager template see, [Configure a VM Managed Service Identity by using a template](qs-configure-template-windows-vm.md).
+For information on how to assign a user assigned identity to an Azure VM using an Azure Resource Manager template see, [Configure a VM Managed Service Identity by using a template](qs-configure-template-windows-vm.md).
 
 
  
