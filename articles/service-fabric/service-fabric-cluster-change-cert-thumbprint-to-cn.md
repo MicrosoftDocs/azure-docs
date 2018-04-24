@@ -91,8 +91,8 @@ Download the template and parameters JSON files to your local computer.
 First, open the parameters file in a text editor and add the following parameter value:
 ```json
 "certificateCommonName": {
-            "value": "myclustername.southcentralus.cloudapp.azure.com"
-        },
+    "value": "myclustername.southcentralus.cloudapp.azure.com"
+},
 ```
 
 Next, open the template file in a text editor and make three updates to support certificate common name.
