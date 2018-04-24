@@ -16,7 +16,7 @@ ms.date: 04/16/2018
 ms.author: daveba
 ---
 
-# Create, list and delete a user assigned Managed Service Identity (MSI) using the Azure portal
+# Create, list or delete a user assigned Managed Service Identity (MSI) using the Azure portal
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 

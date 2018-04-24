@@ -16,7 +16,7 @@ ms.date: 04/16/2018
 ms.author: daveba
 ---
 
-# Create, list and delete a user assigned identity using Azure PowerShell
+# Create, list or delete a user assigned identity using Azure PowerShell
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 

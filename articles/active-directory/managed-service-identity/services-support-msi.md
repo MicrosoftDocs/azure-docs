@@ -1,5 +1,5 @@
 ---
-title: Services that support Managed Service Identity
+title: Azure Services that support Managed Service Identity
 description: List of services that support Managed Service Identity and Azure AD authentication
 services: active-directory
 author: daveba
@@ -14,7 +14,7 @@ manager: mtillman
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any service that supports Azure AD authentication without having credentials in your code. We are in the process of integrating MSI and Azure AD authentication across Azure. Check back often for updates.
 
-### Azure services that support Managed Service Identity
+## Azure services that support Managed Service Identity
 
 The following Azure services support Managed Service Identity.
 
@@ -25,7 +25,7 @@ The following Azure services support Managed Service Identity.
 | Azure Functions | Preview | September 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager template](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Data Factory V2 | Preview | November 2017 | [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
 
-### Azure services that support Azure AD authentication
+## Azure services that support Azure AD authentication
 
 The following services support Azure AD authentication, and have been tested with client services that use Managed Service Identity.
 
