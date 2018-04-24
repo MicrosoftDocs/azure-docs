@@ -117,14 +117,13 @@ In this section, you learn how to add and remove a user assigned identity from a
 To assign a user assigned identity to an Azure VM when creating the VM:
 
 1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Log in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
-
-    
+  
     When you get to the "Create the VM" section, make a slight modification to the [`New-AzureRmVMConfig`](/powershell/module/azurerm.compute/new-azurermvm) cmdlet syntax. Add the `-IdentityType UserAssigned` and `-IdentityID ` parameters to provision the VM with a user assigned identity.  Replace `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, and `<MSI NAME>` with your own values.  For example:
-
+    
     ```powershell 
     $vmConfig = New-AzureRmVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>..."
     ```
-
+    
     - [Create a Windows virtual machine using PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
     - [Create a Linux virtual machine using PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
