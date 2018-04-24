@@ -65,8 +65,13 @@ Once your Maps account is successfully created, follow the steps to link it to i
 
 <a id="createmap"></a>
 
+<<<<<<< HEAD
 ## Create a new map web app
 The Map Control API is a convenient client library that allows you to easily integrate Maps into your web application. It hides the complexity of the bare REST service calls and boosts your productivity with styleable and customizable components. The following steps show you how to create a static HTML page embedded with the Map Control API. 
+=======
+## Create new web page using Azure Map Control API
+Azure Map Control API is a convenient client library that allows you to easily integrate Azure Maps into your web application. It hides the complexity of the bare REST service calls and boosts your productivity with styleable and customizable components. The following steps show you how to create a static HTML page embedded with the map control API. 
+>>>>>>> cf31203dbb6ab5a176b708266d865625c44eaafc
 
 1. On your local machine, create a new file and name it **MapSearch.html**. 
 2. Add the following HTML components to the file:
@@ -108,7 +113,7 @@ The Map Control API is a convenient client library that allows you to easily int
 
     </html>
     ``` 
-    Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. 
+    Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. Note the *script* segment added to the *body* of the HTML file. This segment will contain the inline JavaScript code to access the Azure Maps APIs.
  
 3.  Add the following JavaScript code to the *script* block of the HTML file. Use the primary key from your Maps account in the script. 
 
