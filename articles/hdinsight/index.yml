@@ -22,7 +22,7 @@ abstract:
       src: media/index/video.png
       width: 250  
     title: Apache Kafka on HDInsight (17:19)
-    href: https://azure.microsoft.com/en-us/resources/videos/azure-friday-apache-kafka-on-hdinsight-ga/
+    href: https://azure.microsoft.com/resources/videos/azure-friday-apache-kafka-on-hdinsight-ga/
     width: 250
 sections:
 - title: 5-Minute Quickstarts
