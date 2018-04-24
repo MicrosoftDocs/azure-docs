@@ -14,8 +14,10 @@
     href: service-bus-quickstart-cli.md
 - name: Tutorials
   items:
-  - name: Publish/subscribe channels and filters
+  - name: Update inventory - .NET
     href: service-bus-tutorial-topics-subscriptions-portal.md
+  - name: Update inventory - Java
+    href: service-bus-tutorial-topics-subscriptions-cli.md
 - name: Samples
   items:
   - name: Service Bus samples
@@ -58,6 +60,8 @@
   items:
   - name: Plan and design
     items:
+    - name: Service Bus architecture
+      href: service-bus-architecture.md
     - name: Managed Service Identity (preview)
       href: service-bus-managed-service-identity.md
     - name: Role-Based Access Control (preview)

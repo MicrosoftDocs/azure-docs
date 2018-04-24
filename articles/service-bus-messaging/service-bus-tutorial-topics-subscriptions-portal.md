@@ -1,6 +1,6 @@
 ---
-title: Azure Tutorial - Learn about publish/subscribe channels and topic filters | Microsoft Docs
-description: How to send and receive messages from a topic and subscription, and how to add and use filter rules.
+title: Azure Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with Azure portal | Microsoft Docs
+description: How to send and receive messages from a topic and subscription, and how to add and use filter rules using .NET.
 services: service-bus-messaging
 author: sethmanheim
 manager: timlt
@@ -13,14 +13,14 @@ ms.custom: mvc
 
 ---
 
-# Publish/subscribe channels and filters using Azure portal and .NET
+# Update inventory using Azure portal and .NET
 
-Microsoft Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. This tutorial shows how to use Service Bus topics and subscriptions with publish/subscribe channels.
+Microsoft Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. This tutorial shows how to use Service Bus topics and subscriptions in a retail inventory scenario, with publish/subscribe channels using the Azure portal and .NET.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Create a Service Bus topic and one or more subscriptions to that topic
-> * Add topic filters
+> * Create a Service Bus topic and one or more subscriptions to that topic using the Azure portal
+> * Add topic filters using .NET code
 > * Create two messages with different content
 > * Send the messages and verify they arrived in the expected subscriptions
 > * Receive messages from the subscriptions
