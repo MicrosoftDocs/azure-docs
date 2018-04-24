@@ -23,7 +23,7 @@ This article explains how a tenant admin can add privacy-related info to an orga
 We strongly recommend you add both your global privacy contact and your organization’s privacy statement, so your internal employees and external guests can review your policies. For info about what to include in your privacy statement, see the <!--need link from Gregg Brown (CELA)--> article.
 
 >[!Note] 
-> This article provides steps for how to add your privacy-related information and can be used to support your obligations under the GDPR. If you’re looking for general info about GDPR, see the [GDPR section of the Service Trust Center](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
+> This article provides steps for how to add your privacy-related information, which can be used to support your obligations under the GDPR. If you’re looking for general info about GDPR, see the [GDPR section of the Service Trust Center](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
 
 **To access the Properties area to add your privacy info**
 
