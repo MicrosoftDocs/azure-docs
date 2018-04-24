@@ -34,8 +34,8 @@ Before installing and configuring SubmitOnce, please verify that your HPC enviro
 
    - A common directory on the shared filesystem of all clusters owned by the functional user
      account (cycle_server by default) and world readable (see: $SO_HOME in the setup section below)
-
-   - **OR** At least one execute slot on the Submitter host and the "slot_type=master" complex
+**OR** 
+   - At least one execute slot on the Submitter host and the "slot_type=master" complex
      applied to that host
 
 ## Installation
@@ -57,10 +57,10 @@ Note that when CycleServer itself is installed, it creates a local `cycle_server
 
 ## Setup the SubmitOnce Home Directory
 
-In **each** cluster, create a directory that SubmitOnce can use as scratch space. By default, the absolute path for this directory is "/shared/ss":
+In **each** cluster, create a directory that SubmitOnce can use as scratch space. By default, the absolute path for this directory is `/shared/ss`:
 
-  mkdir /shared/ss
-  chown cycle_server:cycle_server /shared/ss
+    mkdir /shared/ss
+    chown cycle_server:cycle_server /shared/ss
 
 If you use a path other than /shared/ss, you must configure this inside of CycleServer. Log in as an administrator, click the "Admin > System Settings" menu, double-click the settings item for SubmitOnce and change the value of "SubmitOnce Home".
 
@@ -70,11 +70,11 @@ Alternatively, if there is no appropriate shared file system available for $SO_H
 
 Next, the cluster administrator must create a bin directory within $SO_HOME and copy the SubmitOnce scheduler tools to it from the SubmitOnce distribution:
 
-   cd /tmp
-   tar xzfv submitonce-schedtools.tar.gz
-   mkdir /shared/ss/bin
-   cp /tmp/submitonce-schedtools/* /shared/ss/bin
-   chown -R cycle_server:cycle_server /shared/ss/bin
+    cd /tmp
+    tar xzfv submitonce-schedtools.tar.gz
+    mkdir /shared/ss/bin
+    cp /tmp/submitonce-schedtools/* /shared/ss/bin
+    chown -R cycle_server:cycle_server /shared/ss/bin
 
 SubmitOnce will create additional directories for it's own use as needed.  After the first submission to a remote cluster, $SO_HOME will contain, at least, the following directory structure:
 
