@@ -393,27 +393,27 @@ var authMethod = new DeviceAuthenticationWithX509Certificate("<device id>", x509
 var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 ```
 
-## Custom device authentication
+## Custom device/module authentication
 
-You can use the IoT Hub [identity registry][lnk-identity-registry] to configure per-device security credentials and access control using [tokens][lnk-sas-tokens]. If an IoT solution already has a custom identity registry and/or authentication scheme, consider creating a *token service* to integrate this infrastructure with IoT Hub. In this way, you can use other IoT features in your solution.
+You can use the IoT Hub [identity registry][lnk-identity-registry] to configure per-device/module security credentials and access control using [tokens][lnk-sas-tokens]. If an IoT solution already has a custom identity registry and/or authentication scheme, consider creating a *token service* to integrate this infrastructure with IoT Hub. In this way, you can use other IoT features in your solution.
 
-A token service is a custom cloud service. It uses an IoT Hub *shared access policy* with **DeviceConnect** permissions to create *device-scoped* tokens. These tokens enable a device to connect to your IoT hub.
+A token service is a custom cloud service. It uses an IoT Hub *shared access policy* with **DeviceConnect** or **ModuleConnect** permissions to create *device-scoped* or "module-scoped" tokens. These tokens enable a device/module to connect to your IoT hub.
 
 ![Steps of the token service pattern][img-tokenservice]
 
 Here are the main steps of the token service pattern:
 
-1. Create an IoT Hub shared access policy with **DeviceConnect** permissions for your IoT hub. You can create this policy in the [Azure portal][lnk-management-portal] or programmatically. The token service uses this policy to sign the tokens it creates.
-1. When a device needs to access your IoT hub, it requests a signed token from your token service. The device can authenticate with your custom identity registry/authentication scheme to determine the device identity that the token service uses to create the token.
-1. The token service returns a token. The token is created by using `/devices/{deviceId}` as `resourceURI`, with `deviceId` as the device being authenticated. The token service uses the shared access policy to construct the token.
-1. The device uses the token directly with the IoT hub.
+1. Create an IoT Hub shared access policy with **DeviceConnect** or **ModuleConnect** permissions for your IoT hub. You can create this policy in the [Azure portal][lnk-management-portal] or programmatically. The token service uses this policy to sign the tokens it creates.
+1. When a device/module needs to access your IoT hub, it requests a signed token from your token service. The device can authenticate with your custom identity registry/authentication scheme to determine the device/module identity that the token service uses to create the token.
+1. The token service returns a token. The token is created by using `/devices/{deviceId}` or `/devices/{deviceId}/module/{moduleId}` as `resourceURI`, with `deviceId` as the device being authenticated or `moduleId` as the module being authenticated. The token service uses the shared access policy to construct the token.
+1. The device/module uses the token directly with the IoT hub.
 
 > [!NOTE]
 > You can use the .NET class [SharedAccessSignatureBuilder][lnk-dotnet-sas] or the Java class [IotHubServiceSasToken][lnk-java-sas] to create a token in your token service.
 
-The token service can set the token expiration as desired. When the token expires, the IoT hub severs the device connection. Then, the device must request a new token from the token service. A short expiry time increases the load on both the device and the token service.
+The token service can set the token expiration as desired. When the token expires, the IoT hub severs the device/module connection. Then, the device/module must request a new token from the token service. A short expiry time increases the load on both the device/module and the token service.
 
-For a device to connect to your hub, you must still add it to the IoT Hub identity registry — even though the device is using a token and not a device key to connect. Therefore, you can continue to use per-device access control by enabling or disabling device identities in the [identity registry][lnk-identity-registry]. This approach mitigates the risks of using tokens with long expiry times.
+For a device/module to connect to your hub, you must still add it to the IoT Hub identity registry — even though the it is using a token and not a key to connect. Therefore, you can continue to use per-device/per-module access control by enabling or disabling device/module identities in the [identity registry][lnk-identity-registry]. This approach mitigates the risks of using tokens with long expiry times.
 
 ### Comparison with a custom gateway
 
@@ -431,7 +431,7 @@ The following table lists the permissions you can use to control access to your 
 | --- | --- |
 | **RegistryRead** |Grants read access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. <br/>This permission is used by back-end cloud services. |
 | **RegistryReadWrite** |Grants read and write access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. <br/>This permission is used by back-end cloud services. |
-| **ServiceConnect** |Grants access to cloud service-facing communication and monitoring endpoints. <br/>Grants permission to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments. <br/>Grants permission to retrieve delivery acknowledgements for file uploads. <br/>Grants permission to access device twins to update tags and desired properties, retrieve reported properties, and run queries. <br/>This permission is used by back-end cloud services. |
+| **ServiceConnect** |Grants access to cloud service-facing communication and monitoring endpoints. <br/>Grants permission to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments. <br/>Grants permission to retrieve delivery acknowledgements for file uploads. <br/>Grants permission to access twins to update tags and desired properties, retrieve reported properties, and run queries. <br/>This permission is used by back-end cloud services. |
 | **DeviceConnect** |Grants access to device-facing endpoints. <br/>Grants permission to send device-to-cloud messages and receive cloud-to-device messages. <br/>Grants permission to perform file upload from a device. <br/>Grants permission to receive device twin desired property notifications and update device twin reported properties. <br/>Grants permission to perform file uploads. <br/>This permission is used by devices. |
 
 ## Additional reference material

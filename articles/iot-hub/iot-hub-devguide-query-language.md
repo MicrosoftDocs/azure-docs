@@ -1,6 +1,6 @@
 ---
 title: Understand the Azure IoT Hub query language | Microsoft Docs
-description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device twins and jobs from your IoT hub.
+description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device/module twins and jobs from your IoT hub.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -17,7 +17,7 @@ ms.date: 02/26/2018
 ms.author: elioda
 
 ---
-# IoT Hub query language for device twins, jobs, and message routing
+# IoT Hub query language for device/module twins, jobs, and message routing
 
 IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins][lnk-twins] and [jobs][lnk-jobs], and [message routing][lnk-devguide-messaging-routes]. This article presents:
 

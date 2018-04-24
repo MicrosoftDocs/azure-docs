@@ -71,6 +71,7 @@
 #### [Manage device identities](iot-hub-devguide-identity-registry.md)
 #### [Control access to IoT Hub](iot-hub-devguide-security.md)
 #### [Understand device twins](iot-hub-devguide-device-twins.md)
+#### [Understand module twins](iot-hub-devguide-module-twins.md)
 #### [Invoke direct methods on a device](iot-hub-devguide-direct-methods.md)
 #### [Schedule jobs on multiple devices](iot-hub-devguide-jobs.md)
 #### [IoT Hub endpoints](iot-hub-devguide-endpoints.md)

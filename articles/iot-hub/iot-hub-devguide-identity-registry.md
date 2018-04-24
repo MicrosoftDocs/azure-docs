@@ -20,16 +20,16 @@ ms.custom: H1Hack27Feb2017
 ---
 # Understand the identity registry in your IoT hub
 
-Every IoT hub has an identity registry that stores information about the devices permitted to connect to the IoT hub. Before a device can connect to an IoT hub, there must be an entry for that device in the IoT hub's identity registry. A device must also authenticate with the IoT hub based on credentials stored in the identity registry.
+Every IoT hub has an identity registry that stores information about the devices/modules permitted to connect to the IoT hub. Before a device/module can connect to an IoT hub, there must be an entry for that device or module in the IoT hub's identity registry. A device/module must also authenticate with the IoT hub based on credentials stored in the identity registry.
 
-The device ID stored in the identity registry is case-sensitive.
+The device/module ID stored in the identity registry is case-sensitive.
 
-At a high level, the identity registry is a REST-capable collection of device identity resources. When you add an entry in the identity registry, IoT Hub creates a set of per-device resources such as the queue that contains in-flight cloud-to-device messages.
+At a high level, the identity registry is a REST-capable collection of device/module identity resources. When you add an entry in the identity registry, IoT Hub creates a set of per-device resources such as the queue that contains in-flight cloud-to-device messages.
 
 Use the identity registry when you need to:
 
-* Provision devices that connect to your IoT hub.
-* Control per-device access to your hub's device-facing endpoints.
+* Provision devices/modules that connect to your IoT hub.
+* Control per-device/per-module access to your hub's device/module-facing endpoints.
 
 > [!NOTE]
 > The identity registry does not contain any application-specific metadata.
@@ -38,13 +38,14 @@ Use the identity registry when you need to:
 
 The IoT Hub identity registry exposes the following operations:
 
-* Create device identity
-* Update device identity
-* Retrieve device identity by ID
-* Delete device identity
+* Create device/module identity
+* Update device/module identity
+* Retrieve device/module identity by ID
+* Delete device/module identity
 * List up to 1000 identities
-* Export all identities to Azure blob storage
-* Import identities from Azure blob storage
+> Module identity and module twin is in public preview. Below feature will be supported on module identity when it's general available.
+* Export device identities to Azure blob storage
+* Import device identities from Azure blob storage
 
 All these operations can use optimistic concurrency, as specified in [RFC7232][lnk-rfc7232].
 
@@ -54,7 +55,7 @@ All these operations can use optimistic concurrency, as specified in [RFC7232][l
 An IoT Hub identity registry:
 
 * Does not contain any application metadata.
-* Can be accessed like a dictionary, by using the **deviceId** as the key.
+* Can be accessed like a dictionary, by using the **deviceId** or **moduleId** tuple as the key.
 * Does not support expressive queries.
 
 An IoT solution typically has a separate solution-specific store that contains application-specific metadata. For example, the solution-specific store in a smart building solution would record the room in which a temperature sensor is deployed.
@@ -68,6 +69,8 @@ You can disable devices by updating the **status** property of an identity in th
 
 * During a provisioning orchestration process. For more information, see [Device Provisioning][lnk-guidance-provisioning].
 * If, for any reason, you think a device is compromised or has become unauthorized.
+
+This feature is not availble for modules.
 
 ## Import and export device identities
 
@@ -96,11 +99,13 @@ A more complex implementation could include the information from [operations mon
 > [!NOTE]
 > If an IoT solution uses the connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, consider using the simpler *short expiry time* pattern. This pattern achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being more efficient. If you request message acknowledgements, IoT Hub can notify you about which devices are able to receive messages and which are not.
 
-## Device lifecycle notifications
+## Device and module lifecycle notifications
 
-IoT Hub can notify your IoT solution when a device identity is created or deleted by sending device lifecycle notifications. To do so, your IoT solution needs to create a route and to set the Data Source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. The notification message includes properties, and body.
+IoT Hub can notify your IoT solution when an identity is created or deleted by sending lifecycle notifications. To do so, your IoT solution needs to create a route and to set the Data Source equal to *DeviceLifecycleEvents* or *ModuleLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. The notification message includes properties, and body.
 
 Properties: Message system properties are prefixed with the `'$'` symbol.
+
+Notification message for device:
 
 | Name | Value |
 | --- | --- |
@@ -119,6 +124,43 @@ Body: This section is in JSON format and represents the twin of the created devi
 ```json
 {
     "deviceId":"11576-ailn-test-0-67333793211",
+    "etag":"AAAAAAAAAAE=",
+    "properties": {
+        "desired": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        },
+        "reported": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        }
+    }
+}
+```
+Notification message for module:
+
+| Name | Value |
+| --- | --- |
+$content-type | application/json |
+$iothub-enqueuedtime |  Time when the notification was sent |
+$iothub-message-source | moduleLifecycleEvents |
+$content-encoding | utf-8 |
+opType | **createModuleIdentity** or **deleteModuleIdentity** |
+hubName | Name of IoT Hub |
+moduleId | ID of the module |
+operationTimestamp | ISO8601 timestamp of operation |
+iothub-message-schema | moduleLifecycleNotification |
+
+Body: This section is in JSON format and represents the twin of the created module identity. For example,
+
+```json
+{
+    "deviceId":"11576-ailn-test-0-67333793211",
+    "moduleId":"tempSensor",
     "etag":"AAAAAAAAAAE=",
     "properties": {
         "desired": {
@@ -157,6 +199,25 @@ Device identities are represented as JSON documents with the following propertie
 
 > [!NOTE]
 > Connection state can only represent the IoT Hub view of the status of the connection. Updates to this state may be delayed, depending on network conditions and configurations.
+
+## Module identity properties
+
+Device identities are represented as JSON documents with the following properties:
+
+| Property | Options | Description |
+| --- | --- | --- |
+| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| moduleId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| generationId |required, read-only |An IoT hub-generated, case-sensitive string up to 128 characters long. This value is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
+| etag |required, read-only |A string representing a weak ETag for the device identity, as per [RFC7232][lnk-rfc7232]. |
+| auth |optional |A composite object containing authentication information and security materials. |
+| auth.symkey |optional |A composite object containing a primary and a secondary key, stored in base64 format. |
+| status |required |An access indicator. Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
+| statusReason |optional |A 128 character-long string that stores the reason for the device identity status. All UTF-8 characters are allowed. |
+| statusUpdateTime |read-only |A temporal indicator, showing the date and time of the last status update. |
+| connectionState |read-only |A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using MQTT or AMQP. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are disconnected. |
+| connectionStateUpdatedTime |read-only |A temporal indicator, showing the date and last time the connection state was updated. |
+| lastActivityTime |read-only |A temporal indicator, showing the date and last time the device connected, received, or sent a message. |
 
 ## Additional reference material
 
