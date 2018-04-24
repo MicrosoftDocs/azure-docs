@@ -18888,6 +18888,921 @@
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
             "redirect_document_id": true
         },
+      {
+        "source_path":"articles/media-services/hybrid-design-drm-sybsystem.md",
+        "redirect_url":"/azure/media-services/previous/hybrid-design-drm-sybsystem",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/indexer-task-preset.md",
+        "redirect_url":"/azure/media-services/previous/indexer-task-preset",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/meda-services-managing-multiple-storage-accounts.md",
+        "redirect_url":"/azure/media-services/previous/meda-services-managing-multiple-storage-accounts",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-rest-apis-with-postman.md",
+        "redirect_url":"/azure/media-services/previous/media-rest-apis-with-postman",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-advanced-encoding-with-mes.md",
+        "redirect_url":"/azure/media-services/previous/media-services-advanced-encoding-with-mes",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-analytics-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-analytics-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-autogen-bitrate-ladder-with-mes.md",
+        "redirect_url":"/azure/media-services/previous/media-services-autogen-bitrate-ladder-with-mes",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-axinom-integration.md",
+        "redirect_url":"/azure/media-services/previous/media-services-axinom-integration",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-azure-media-clipper-getting-started.md",
+        "redirect_url":"/azure/media-services/previous/media-services-azure-media-clipper-getting-started",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-azure-media-clipper-keyboard-shortcuts.md",
+        "redirect_url":"/azure/media-services/previous/media-services-azure-media-clipper-keyboard-shortcuts",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-azure-media-clipper-load-assets.md",
+        "redirect_url":"/azure/media-services/previous/media-services-azure-media-clipper-load-assets",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-azure-media-clipper-localization.md",
+        "redirect_url":"/azure/media-services/previous/media-services-azure-media-clipper-localization",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-azure-media-clipper-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-azure-media-clipper-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-azure-media-clipper-portal.md",
+        "redirect_url":"/azure/media-services/previous/media-services-azure-media-clipper-portal",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-azure-media-clipper-submit-job.md",
+        "redirect_url":"/azure/media-services/previous/media-services-azure-media-clipper-submit-job",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-build-smooth-streaming-apps.md",
+        "redirect_url":"/azure/media-services/previous/media-services-build-smooth-streaming-apps",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-castlabs-integration.md",
+        "redirect_url":"/azure/media-services/previous/media-services-castlabs-integration",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-cenc-with-multidrm-access-control.md",
+        "redirect_url":"/azure/media-services/previous/media-services-cenc-with-multidrm-access-control",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-check-job-progress.md",
+        "redirect_url":"/azure/media-services/previous/media-services-check-job-progress",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-cli-create-and-configure-aad-app.md",
+        "redirect_url":"/azure/media-services/previous/media-services-cli-create-and-configure-aad-app",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-community.md",
+        "redirect_url":"/azure/media-services/previous/media-services-community",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-compare-encoders.md",
+        "redirect_url":"/azure/media-services/previous/media-services-compare-encoders",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-concepts.md",
+        "redirect_url":"/azure/media-services/previous/media-services-concepts",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-configure-elemental-live-encoder.md",
+        "redirect_url":"/azure/media-services/previous/media-services-configure-elemental-live-encoder",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-configure-fmle-live-encoder.md",
+        "redirect_url":"/azure/media-services/previous/media-services-configure-fmle-live-encoder",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-configure-kb-live-encoder.md",
+        "redirect_url":"/azure/media-services/previous/media-services-configure-kb-live-encoder",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-configure-tricaster-live-encoder.md",
+        "redirect_url":"/azure/media-services/previous/media-services-configure-tricaster-live-encoder",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-configure-wirecast-live-encoder.md",
+        "redirect_url":"/azure/media-services/previous/media-services-configure-wirecast-live-encoder",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-content-moderation.md",
+        "redirect_url":"/azure/media-services/previous/media-services-content-moderation",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-content-protection-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-content-protection-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-copying-existing-blob.md",
+        "redirect_url":"/azure/media-services/previous/media-services-copying-existing-blob",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-crop-video.md",
+        "redirect_url":"/azure/media-services/previous/media-services-crop-video",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-custom-mes-presets-with-dotnet.md",
+        "redirect_url":"/azure/media-services/previous/media-services-custom-mes-presets-with-dotnet",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-deliver-asset-download.md",
+        "redirect_url":"/azure/media-services/previous/media-services-deliver-asset-download",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-deliver-content-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-deliver-content-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-deliver-keys-and-licenses.md",
+        "redirect_url":"/azure/media-services/previous/media-services-deliver-keys-and-licenses",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-deliver-streaming-content.md",
+        "redirect_url":"/azure/media-services/previous/media-services-deliver-streaming-content",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-develop-video-players.md",
+        "redirect_url":"/azure/media-services/previous/media-services-develop-video-players",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-check-job-progress-with-queues.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-check-job-progress-with-queues",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-check-job-progress-with-webhooks.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-check-job-progress-with-webhooks",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-configure-asset-delivery-policy.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-configure-asset-delivery-policy",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-configure-content-key-auth-policy.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-configure-content-key-auth-policy",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-create-contentkey.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-create-contentkey",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-creating-live-encoder-enabled-channel.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-creating-live-encoder-enabled-channel",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-dynamic-manifest.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-dynamic-manifest",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-encode-with-media-encoder-standard.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-encode-with-media-encoder-standard",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-encoding-units.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-encoding-units",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-generate-thumbnail-with-mes.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-generate-thumbnail-with-mes",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-get-started-with-aad.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-get-started-with-aad",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-get-started.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-get-started",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-how-to-use-azure-functions.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-how-to-use-azure-functions",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-how-to-use.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-how-to-use",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-live-encode-with-onpremises-encoders.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-live-encode-with-onpremises-encoders",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-long-operations.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-long-operations",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-manage-entities.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-manage-entities",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-manage-streaming-endpoints.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-manage-streaming-endpoints",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-telemetry.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-telemetry",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dotnet-upload-files.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dotnet-upload-files",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dynamic-manifest-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dynamic-manifest-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-dynamic-packaging-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-dynamic-packaging-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-embed-mpeg-dash-in-html5.md",
+        "redirect_url":"/azure/media-services/previous/media-services-embed-mpeg-dash-in-html5",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-encode-asset.md",
+        "redirect_url":"/azure/media-services/previous/media-services-encode-asset",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-encode-with-premium-workflow.md",
+        "redirect_url":"/azure/media-services/previous/media-services-encode-with-premium-workflow",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-encoding-error-codes.md",
+        "redirect_url":"/azure/media-services/previous/media-services-encoding-error-codes",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-error-codes.md",
+        "redirect_url":"/azure/media-services/previous/media-services-error-codes",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-face-and-emotion-detection.md",
+        "redirect_url":"/azure/media-services/previous/media-services-face-and-emotion-detection",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-face-redaction.md",
+        "redirect_url":"/azure/media-services/previous/media-services-face-redaction",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-fmp4-live-ingest-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-fmp4-live-ingest-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-frequently-asked-questions.md",
+        "redirect_url":"/azure/media-services/previous/media-services-frequently-asked-questions",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-generate-fmp4-chunks.md",
+        "redirect_url":"/azure/media-services/previous/media-services-generate-fmp4-chunks",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-get-media-processor.md",
+        "redirect_url":"/azure/media-services/previous/media-services-get-media-processor",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-hyperlapse-content.md",
+        "redirect_url":"/azure/media-services/previous/media-services-hyperlapse-content",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-implement-failover.md",
+        "redirect_url":"/azure/media-services/previous/media-services-implement-failover",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-index-content.md",
+        "redirect_url":"/azure/media-services/previous/media-services-index-content",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-input-metadata-schema.md",
+        "redirect_url":"/azure/media-services/previous/media-services-input-metadata-schema",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-inserting-ads-on-client-side.md",
+        "redirect_url":"/azure/media-services/previous/media-services-inserting-ads-on-client-side",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-java-how-to-use.md",
+        "redirect_url":"/azure/media-services/previous/media-services-java-how-to-use",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-live-encoders-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-live-encoders-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-live-streaming-with-onprem-encoders.md",
+        "redirect_url":"/azure/media-services/previous/media-services-live-streaming-with-onprem-encoders",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-manage-channels-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-manage-channels-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-manage-encoding-speed.md",
+        "redirect_url":"/azure/media-services/previous/media-services-manage-encoding-speed",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-manage-live-encoder-enabled-channels.md",
+        "redirect_url":"/azure/media-services/previous/media-services-manage-live-encoder-enabled-channels",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-media-encoder-premium-workflow-multiplefilesinput.md",
+        "redirect_url":"/azure/media-services/previous/media-services-media-encoder-premium-workflow-multiplefilesinput",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-media-encoder-premium-workflow-tutorials.md",
+        "redirect_url":"/azure/media-services/previous/media-services-media-encoder-premium-workflow-tutorials",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-media-encoder-standard-formats.md",
+        "redirect_url":"/azure/media-services/previous/media-services-media-encoder-standard-formats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-1080p.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-1080p",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-4K.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-4K",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-720p.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-720p",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Single-Bitrate-1080p.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-1080p",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Single-Bitrate-16x9-SD.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-16x9-SD",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Single-Bitrate-4K.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-4K",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-4x3-SD",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-720p-for-Android",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Single-Bitrate-720p.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-720p",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-presets-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-presets-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-mes-schema.md",
+        "redirect_url":"/azure/media-services/previous/media-services-mes-schema",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-motion-detection.md",
+        "redirect_url":"/azure/media-services/previous/media-services-motion-detection",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-output-metadata-schema.md",
+        "redirect_url":"/azure/media-services/previous/media-services-output-metadata-schema",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-pass-authentication-tokens.md",
+        "redirect_url":"/azure/media-services/previous/media-services-pass-authentication-tokens",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-playback-content-with-existing-players.md",
+        "redirect_url":"/azure/media-services/previous/media-services-playback-content-with-existing-players",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-playready-license-template-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-playready-license-template-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-analyze.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-analyze",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-check-job-progress.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-check-job-progress",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-configure-content-key-auth-policy.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-configure-content-key-auth-policy",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-create-account.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-create-account",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-creating-live-encoder-enabled-channel.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-creating-live-encoder-enabled-channel",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-encode.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-encode",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-get-started-with-aad.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-get-started-with-aad",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-live-passthrough-get-started.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-live-passthrough-get-started",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-manage-streaming-endpoints.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-manage-streaming-endpoints",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-protect-content.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-protect-content",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-publish.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-publish",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-scale-media-processing.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-scale-media-processing",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-scale-streaming-endpoints.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-scale-streaming-endpoints",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-upload-files.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-upload-files",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-portal-vod-get-started.md",
+        "redirect_url":"/azure/media-services/previous/media-services-portal-vod-get-started",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-powershell-create-and-configure-aad-app.md",
+        "redirect_url":"/azure/media-services/previous/media-services-powershell-create-and-configure-aad-app",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-premium-workflow-encoder-formats.md",
+        "redirect_url":"/azure/media-services/previous/media-services-premium-workflow-encoder-formats",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-process-content-with-indexer2.md",
+        "redirect_url":"/azure/media-services/previous/media-services-process-content-with-indexer2",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-protect-hls-with-fairplay.md",
+        "redirect_url":"/azure/media-services/previous/media-services-protect-hls-with-fairplay",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-protect-hls-with-offline-fairplay.md",
+        "redirect_url":"/azure/media-services/previous/media-services-protect-hls-with-offline-fairplay",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-protect-with-aes128.md",
+        "redirect_url":"/azure/media-services/previous/media-services-protect-with-aes128",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-protect-with-playready-widevine.md",
+        "redirect_url":"/azure/media-services/previous/media-services-protect-with-playready-widevine",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-quotas-and-limitations.md",
+        "redirect_url":"/azure/media-services/previous/media-services-quotas-and-limitations",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-recommended-encoders.md",
+        "redirect_url":"/azure/media-services/previous/media-services-recommended-encoders",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-redactor-walkthrough.md",
+        "redirect_url":"/azure/media-services/previous/media-services-redactor-walkthrough",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-release-notes.md",
+        "redirect_url":"/azure/media-services/previous/media-services-release-notes",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-check-job-progress.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-check-job-progress",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-configure-asset-delivery-policy.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-configure-asset-delivery-policy",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-configure-content-key-auth-policy.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-configure-content-key-auth-policy",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-connect-with-aad.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-connect-with-aad",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-create-contentkey.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-create-contentkey",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-deliver-streaming-content.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-deliver-streaming-content",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-dynamic-manifest.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-dynamic-manifest",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-encode-asset.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-encode-asset",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-get-media-processor.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-get-media-processor",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-get-started.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-get-started",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-how-to-use.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-how-to-use",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-manage-entities.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-manage-entities",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-storage-encryption.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-storage-encryption",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-telemetry.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-telemetry",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-rest-upload-files.md",
+        "redirect_url":"/azure/media-services/previous/media-services-rest-upload-files",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-retry-logic-in-dotnet-sdk.md",
+        "redirect_url":"/azure/media-services/previous/media-services-retry-logic-in-dotnet-sdk",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-roll-storage-access-keys.md",
+        "redirect_url":"/azure/media-services/previous/media-services-roll-storage-access-keys",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-scale-media-processing-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-scale-media-processing-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-set-up-computer.md",
+        "redirect_url":"/azure/media-services/previous/media-services-set-up-computer",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-specifications-live-timed-metadata.md",
+        "redirect_url":"/azure/media-services/previous/media-services-specifications-live-timed-metadata",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-specifications-ms-sstr-amendment-hevc.md",
+        "redirect_url":"/azure/media-services/previous/media-services-specifications-ms-sstr-amendment-hevc",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-sspk.md",
+        "redirect_url":"/azure/media-services/previous/media-services-sspk",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-static-packaging.md",
+        "redirect_url":"/azure/media-services/previous/media-services-static-packaging",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-streaming-endpoints-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-streaming-endpoints-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-telemetry-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-telemetry-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-troubleshooting-live-streaming.md",
+        "redirect_url":"/azure/media-services/previous/media-services-troubleshooting-live-streaming",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-upload-files-from-storsimple.md",
+        "redirect_url":"/azure/media-services/previous/media-services-upload-files-from-storsimple",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-upload-files-with-aspera.md",
+        "redirect_url":"/azure/media-services/previous/media-services-upload-files-with-aspera",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-use-aad-auth-to-access-ams-api.md",
+        "redirect_url":"/azure/media-services/previous/media-services-use-aad-auth-to-access-ams-api",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-use-osmf-smooth-streaming-client-plugin.md",
+        "redirect_url":"/azure/media-services/previous/media-services-use-osmf-smooth-streaming-client-plugin",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-video-optical-character-recognition.md",
+        "redirect_url":"/azure/media-services/previous/media-services-video-optical-character-recognition",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-video-summarization.md",
+        "redirect_url":"/azure/media-services/previous/media-services-video-summarization",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-widevine-license-template-overview.md",
+        "redirect_url":"/azure/media-services/previous/media-services-widevine-license-template-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/media-services-workflow-designer.md",
+        "redirect_url":"/azure/media-services/previous/media-services-workflow-designer",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/offline-widevine-for-android.md",
+        "redirect_url":"/azure/media-services/previous/offline-widevine-for-android",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/postman-collection.md",
+        "redirect_url":"/azure/media-services/previous/postman-collection",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/postman-environment.md",
+        "redirect_url":"/azure/media-services/previous/postman-environment",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/postman-live-streaming-collection.md",
+        "redirect_url":"/azure/media-services/previous/postman-live-streaming-collection",
+        "redirect_document_id": false
+      },
+      {
+        "source_path":"articles/media-services/scenarios-and-availability.md",
+        "redirect_url":"/azure/media-services/previous/scenarios-and-availability",
+        "redirect_document_id": false
+      },
         {
             "source_path": "articles/active-directory/active-directory-b2b-hybrid-on-premises-to-cloud.md",
             "redirect_url": "/azure/active-directory/active-directory-b2b-hybrid-organizations",
