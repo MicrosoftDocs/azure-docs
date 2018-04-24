@@ -72,6 +72,13 @@ How much does {Booktitle} cost and what format is it available in?
 
 In these book title examples, the contextual words of the book title are not confusing to LUIS. LUIS knows where the book title ends because it is in a pattern and marked with a Pattern.any entity.
 
+### Syntax to mark optional text in a template utterance
+Mark optional text in the utterance using the regular expression square bracket syntax []. The optional text can nest square brackets up to two brackets only.
+
+```
+Book {number} [^[a-z]{0,10}$] ticket from {Location:Origin} to {Location:Destination}
+```
+
 ## Best practices
 Do not create a pattern when you first create the app. Give LUIS the opportunity to learn from the provided utterances before adding patterns. 
  
