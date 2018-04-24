@@ -24,8 +24,6 @@ ms.author: wesmc
 
 In this tutorial you will update the *ContosoTeamStats* ASP.NET web app, created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md), to include a leaderboard that uses the [cache-aside pattern](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) with Azure Redis Cache. The sample application displays a list of team statistics from a database and demonstrates different ways to use Azure Redis Cache to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -34,7 +32,7 @@ In this tutorial, you learn how to:
 > * Provision the Azure resources for the application using a Resource Manager template.
 > * Publish the application to Azure using Visual Studio.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -49,7 +47,6 @@ To complete this tutorial, you must have the following prerequisites:
 ## Add a leaderboard to the project
 
 In this section of the tutorial, you configure the *ContosoTeamStats* project with a leaderboard that reports the win, loss, and tie statistics for a list of fictional teams.
-
 
 ### Add the Entity Framework to the project
 
