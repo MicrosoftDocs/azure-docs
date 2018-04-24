@@ -35,8 +35,6 @@ URL   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -  
 Email   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 Phone number   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 
-<!-- TBD: add Sentiment Analysis Key phrase entity to above table -->
-
 `*` = coming soon
 
 `X` = See notes on [Deprecated prebuilt entities](#deprecated-prebuilt-entities)
@@ -71,9 +69,6 @@ Prebuilt entity   |   Example utterance   |   JSON
  ```builtin.geography``` | See separate table | See separate table following this table |
  ```builtin.encyclopedia``` | See separate table | See separate table following this table |
  
-<!-- TBD: add Sentiment Analysis Key phrase entity example to above table -->
-<!-- TBD: remove geography and enclyclopedia examples. What about datetime row? -->
-
  The last 3 built-in entity types listed in the table above encompass multiple subtypes. These are covered later in this article.
 
 ## builtin.number resolution
@@ -581,7 +576,7 @@ builtin.datetimeV2.date      |   week of september 30th   |```{ "entity": "septe
 -->
 
 ## builtin.geography
-<!-- TBD: add note that it is deprecated -->
+
 > [!NOTE]
 > **builtin.geography** is available only in the en-us locale.
 
@@ -597,7 +592,7 @@ Prebuilt entity   |   Example utterance   |   JSON
 ```builtin.geography.pointOfInterest```   |   ```sahara desert```|```{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }```|
 
 ## builtin.encyclopedia
-<!-- TBD: add note that it is deprecated -->
+
 > [!NOTE]
 > **builtin.encyclopedia** is available only in the ```en-US``` locale.
 
@@ -718,5 +713,5 @@ Prebuilt entity   |   Prebuilt entity (sub-types)   |   Example utterance
 ```builtin.encyclopedia.finance.stock_exchange  ```| ``` builtin.encyclopedia.finance.stock_exchange  ```| ``` tokyo stock exchange  ```|
 ```builtin.encyclopedia.film.festival  ```| ``` builtin.encyclopedia.film.festival  ```| ``` berlin international film festival  ```|
 
-## Key phrase extraction 
-<!-- TBD: from Sentiment analysis -->
+
+
