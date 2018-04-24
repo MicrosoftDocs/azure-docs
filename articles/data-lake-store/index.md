@@ -169,6 +169,21 @@ Learn how to use Data Lake Store to create a hyper-scale, Hadoop-compatible repo
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Tools</h3>
+                        <p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-intellij-tool-plugin">HDInsight IntelliJ        tool</a></p>
+                        <p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin">HDInsight Eclipse tool</a></p>
+                        <p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-for-vscode">HDInsight VSCode tool</a></p>
+                        <p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started">HDInsight Visual Studio tool</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
