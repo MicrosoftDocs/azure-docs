@@ -60,7 +60,11 @@ Alternatively, you can enable the DNS service through the portal at the time of 
 
 
 ## Setting the DNS name for your service
-Once the DNS service is running in your cluster, you can set a DNS name for your services either declaratively for default services in the `ApplicationManifest.xml` or through Powershell commands.
+Once the DNS service is running in your cluster, you can set a DNS name for your services either declaratively for default services in the `ApplicationManifest.xml` or through PowerShell commands.
+
+> [!Important]
+> The DNS name for your service must contain at least one period ('.'). For example, `service1.application1` is a valid service DNS name, but `service1` is not.
+>
 
 ### Setting the DNS name for a default service in the ApplicationManifest.xml
 Open your project in Visual Studio, or your favorite editor, and open the `ApplicationManifest.xml` file. Go to the default services section, and for each service add the `ServiceDnsName` attribute. The following example shows how to set the DNS name of the service to `service1.application1`
