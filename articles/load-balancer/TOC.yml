@@ -1,5 +1,5 @@
 - name: Load Balancer Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: What is Load Balancer?
