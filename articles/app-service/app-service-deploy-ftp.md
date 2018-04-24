@@ -67,7 +67,7 @@ use the connection information you gathered to connect to your app.
 
 ## Disable FTP/S
 
-If you don't use FTP/S deployment you can disable it to improve security. To remove unencrypted access, you can also enable just FTPS. 
+If you don't use FTP/S deployment, you can disable it to improve security. To remove unencrypted access, you can also enable just FTPS. 
 
 In your app's resource page in [Azure portal](https://portal.azure.com), select **App settings** in the left navigation.
 
