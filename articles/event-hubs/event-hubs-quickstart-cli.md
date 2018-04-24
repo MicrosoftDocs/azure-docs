@@ -19,9 +19,9 @@ ms.author: sethm
 
 ---
 
-# Process event streams using Azure CLI and .NET Standard
+# Process event streams using Azure CLI and Java
 
-Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create an event hub using Azure CLI, and then send to and receive from an event hub using the .NET Standard SDK.
+Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create an event hub using Azure CLI, and then send to and receive from an event hub using Java.
 
 ## Prerequisites
 
@@ -125,6 +125,159 @@ If the builds completed successfully, you are ready to send and receive events.
 After running both programs, you can check the Azure portal overview page for the event hub to see the incoming and outgoing message count:
 
 ![send and receive](./media/event-hubs-quickstart-cli/ephjava.png)
+
+## Understand the sample code
+
+This section contains more details about what the sample code does.
+
+### Send
+
+In the Send.java file, most of the work is done in the main() method. First, the code uses a `ConnectionStringBuilder` instance to construct the connection string using the user-defined values for the namespace name, event hub name, SAS key name, and the SAS key itself:
+
+```java
+final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
+           .setNamespaceName("----NamespaceName-----")// to target National clouds - use .setEndpoint(URI)
+           .setEventHubName("----EventHubName-----")
+           .setSasKeyName("-----SharedAccessSignatureKeyName-----")
+           .setSasKey("---SharedAccessSignatureKey---");
+```
+
+The Java object containing the event payload is then converted to Json:
+
+```java
+final Gson gson = new GsonBuilder().create();
+
+final PayloadEvent payload = new PayloadEvent(1);
+byte[] payloadBytes = gson.toJson(payload).getBytes(Charset.defaultCharset());
+final EventData sendEvent = EventData.create(payloadBytes);  
+```
+
+The Event Hubs client is created in this line of code:
+
+```java
+final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
+```
+
+The try/finally block send 3 events: one event is sent round robin to a non-specified partition, one event is sent to the partition specified by a partition key, and the third event is sent to a specific partition:
+
+```java
+try {
+    // Type-1 - Send - not tied to any partition
+    ehClient.send(sendEvent).get();
+
+    // Type-2 - Send using PartitionKey - all events with same partitionKey will land on the same partition
+    final String partitionKey = "partitionTheStream";
+    ehClient.sendSync(sendEvent, partitionKey);
+
+    // Type-3 - Send to a specific partition
+    sender = ehClient.createPartitionSenderSync("0");
+    sender.sendSync(sendEvent);
+
+    System.out.println(Instant.now() + ": Send Complete...");
+    System.in.read();
+} finally {
+    if (sender != null) {
+        sender.close()
+                .thenComposeAsync(aVoid -> ehClient.close(), executorService)
+                .whenCompleteAsync((aVoid1, throwable) -> {
+                    if (throwable != null) {
+                        System.out.println(String.format("closing failed with error: %s", throwable.toString()));
+                    }
+                }, executorService).get();
+    } else {
+        ehClient.closeSync();
+    }
+
+    executorService.shutdown();
+}
+```
+
+### Receive 
+
+The receive operation occurs in the EventProcessorSample.java file. First, it declares constants to hold the Event Hubs namespace name and other credentials:
+
+```java
+String consumerGroupName = "$Default";
+String namespaceName = "----NamespaceName----";
+String eventHubName = "----EventHubName----";
+String sasKeyName = "----SharedAccessSignatureKeyName----";
+String sasKey = "----SharedAccessSignatureKey----";
+String storageConnectionString = "----AzureStorageConnectionString----";
+String storageContainerName = "----StorageContainerName----";
+String hostNamePrefix = "----HostNamePrefix----";
+```
+
+Similar to the Send program, the code then creates a ConnectionStringBuilder instance to construct the connection string:
+
+```java
+ConnectionStringBuilder eventHubConnectionString = new ConnectionStringBuilder()
+    .setNamespaceName(namespaceName)
+	.setEventHubName(eventHubName)
+	.setSasKeyName(sasKeyName)
+	.setSasKey(sasKey);
+```
+
+The *Event Processor Host* is a class that simplifies receiving events from event hubs by managing persistent checkpoints and parallel receives from those event hubs. The code now creates an instance of `EventProcessorHost`:
+
+```java
+EventProcessorHost host = new EventProcessorHost(
+    EventProcessorHost.createHostName(hostNamePrefix),
+    eventHubName,
+	consumerGroupName,
+	eventHubConnectionString.toString(),
+	storageConnectionString,
+	storageContainerName);
+```
+
+After declaring some error handling code, the app then defines the `EventProcessor` class, an implementation of the `IEventProcessor` interface. This class processes the received events:
+
+```java
+public static class EventProcessor implements IEventProcessor
+{
+	private int checkpointBatchingCount = 0;
+    ...
+```
+
+The `onEvents()` method is called when events are received on this partition of the event hub:
+
+```java
+@Override
+public void onEvents(PartitionContext context, Iterable<EventData> events) throws Exception
+{
+    System.out.println("SAMPLE: Partition " + context.getPartitionId() + " got event batch");
+    int eventCount = 0;
+    for (EventData data : events)
+    {
+    	try
+    	{
+         System.out.println("SAMPLE (" + context.getPartitionId() + "," + data.getSystemProperties().getOffset() + "," +
+         		data.getSystemProperties().getSequenceNumber() + "): " + new String(data.getBytes(), "UTF8"));
+             eventCount++;
+                
+         // Checkpointing persists the current position in the event stream for this partition and means that the next
+         // time any host opens an event processor on this event hub+consumer group+partition combination, it will start
+         // receiving at the event after this one. Checkpointing is usually not a fast operation, so there is a tradeoff
+         // between checkpointing frequently (to minimize the number of events that will be reprocessed after a crash, or
+         // if the partition lease is stolen) and checkpointing infrequently (to reduce the impact on event processing
+         // performance). Checkpointing every five events is an arbitrary choice for this sample.
+         this.checkpointBatchingCount++;
+         if ((checkpointBatchingCount % 5) == 0)
+         {
+         	System.out.println("SAMPLE: Partition " + context.getPartitionId() + " checkpointing at " +
+        			data.getSystemProperties().getOffset() + "," + data.getSystemProperties().getSequenceNumber());
+         	// Checkpoints are created asynchronously. It is important to wait for the result of checkpointing
+         	// before exiting onEvents or before creating the next checkpoint, to detect errors and to ensure proper ordering.
+         	context.checkpoint(data).get();
+         }
+   	}
+    	catch (Exception e)
+    	{
+    		System.out.println("Processing failed for an event: " + e.toString());
+    	}
+    }
+    System.out.println("SAMPLE: Partition " + context.getPartitionId() + " batch size was " + eventCount + " for host " + context.getOwner());
+}
+```
 
 ## Clean up deployment
 
