@@ -9,7 +9,7 @@
 ## [Create a Key Vault - Portal](quick-create-portal.md)
 
 # Tutorials
-## [Configure a web application to read a secret from Key Vault ](tutorial-web-application-keyvault.md)
+## [Read a secret from Key Vault ](tutorial-web-application-keyvault.md)
 ## [Get started with Key Vault](key-vault-get-started.md)
 ## [Set up key rotation and auditing](key-vault-key-rotation-log-monitoring.md)
 ## [Use Key Vault from a web app](key-vault-use-from-web-application.md)
