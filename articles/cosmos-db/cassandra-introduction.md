@@ -3,7 +3,7 @@ title: Introduction to the Azure Cosmos DB Cassandra API | Microsoft Docs
 description: Learn how you can use Azure Cosmos DB to “lift-and-shift” existing applications and build new applications using Cassandra API using the Cassandra drivers and CQL you're already familar with. 
 services: cosmos-db
 author: govindk
-manager: jhubbard
+manager: 
 documentationcenter: ''
 
 ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0

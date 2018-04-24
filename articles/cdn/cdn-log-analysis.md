@@ -1,10 +1,10 @@
 ---
 title: Analyze Azure CDN usage patterns | Microsoft Docs
-description: 'Customer can enable log analysis for Azure CDN.'
+description: This article describes the different types of analysis reports available for Azure CDN products.
 services: cdn
 documentationcenter: ''
-author: smcevoy
-manager: erikre
+author: dksimpson
+manager: akucer
 editor: ''
 
 ms.assetid: 95e18b3c-b987-46c2-baa8-a27a029e3076
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
-ms.author: v-semcev
+ms.date: 12/05/2017
+ms.author: rli; v-deasim
 ---
 
 
@@ -24,7 +24,7 @@ After you enable CDN for your application, you can monitor CDN usage, check the 
 
 ## Core analytics via Azure diagnostic logs
 
-Core analytics is available for CDN endpoints for all pricing tiers. Azure diagnostics logs allow core analytics to be exported to Azure storage, event hubs, or Operations Management Suite (OMS) Log Analytics. OMS Log Analytics offers a solution with graphs that are user-configurable and customizable. For more information, see [Azure diagnostic logs](cdn-azure-diagnostic-logs.md).
+Core analytics is available for CDN endpoints for all pricing tiers. Azure diagnostics logs allow core analytics to be exported to Azure storage, event hubs, or Azure Log Analytics. Azure Log Analytics offers a solution with graphs that are user-configurable and customizable. For more information about Azure diagnostic logs, see [Azure diagnostic logs](cdn-azure-diagnostic-logs.md).
 
 ## Verizon core reports
 

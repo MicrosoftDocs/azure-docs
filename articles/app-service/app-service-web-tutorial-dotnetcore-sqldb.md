@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Build a .NET Core and SQL Database web app in Azure App Service
+# Tutorial: Build a .NET Core and SQL Database web app in Azure App Service
 
 > [!NOTE]
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a .NET Core and SQL Database web app in Azure App Service on Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
@@ -42,8 +42,8 @@ What you learn how to:
 
 To complete this tutorial:
 
-1. [Install Git](https://git-scm.com/)
-1. [Install .NET Core SDK 1.1.2](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
+* [Install Git](https://git-scm.com/)
+* [Install .NET Core](https://www.microsoft.com/net/core/)
 
 ## Create local .NET Core app
 
@@ -129,6 +129,10 @@ Create an [Azure SQL Database server-level firewall rule](../sql-database/sql-da
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
+> [!TIP] 
+> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](app-service-ip-addresses.md#find-outbound-ips).
+>
+
 ### Create a database
 
 Create a database with an [S0 performance level](../sql-database/sql-database-service-tiers.md) in the server using the [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) command.
@@ -142,7 +146,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 Replace the following string with the *\<server_name>*, *\<db_username>*, and *\<db_password>* you used earlier.
 
 ```
-Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
 ```
 
 This is the connection string for your .NET Core app. Copy it for use later.
@@ -197,7 +201,7 @@ if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
             options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
 else
     services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlite("Data Source=MvcMovie.db"));
+            options.UseSqlite("Data Source=localdatabase.db"));
 
 // Automatically perform database migration
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
@@ -210,7 +214,8 @@ The `Database.Migrate()` call helps you when it is run in Azure, because it auto
 Save your changes, then commit it into your Git repository. 
 
 ```bash
-git commit -am "connect to SQLDB in Azure"
+git add .
+git commit -m "connect to SQLDB in Azure"
 ```
 
 ### Push to Azure from Git
@@ -289,7 +294,7 @@ Make some changes in your code to use the `Done` property. For simplicity in thi
 
 Open _Controllers\TodosController.cs_.
 
-Find the `Create()` method and add `Done` to the list of properties in the `Bind` attribute. When you're done, your `Create()` method signature looks like the following code:
+Find the `Create([Bind("ID,Description,CreatedDate")] Todo todo)` method and add `Done` to the list of properties in the `Bind` attribute. When you're done, your `Create()` method signature looks like the following code:
 
 ```csharp
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
@@ -342,7 +347,8 @@ In your browser, navigate to `http://localhost:5000/`. You can now add a to-do i
 ### Publish changes to Azure
 
 ```bash
-git commit -am "added done field"
+git add .
+git commit -m "added done field"
 git push azure master
 ```
 

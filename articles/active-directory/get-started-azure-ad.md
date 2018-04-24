@@ -79,7 +79,7 @@ You can use group-based license assignment to set up rules such as in the follow
 Review assigned and available licenses under **Azure Active Directory** > **Licenses** > **All products**.
 
 ## Configure self-service password reset
-[Self-service password reset (SSPR)](active-directory-passwords-getting-started.md) offers a simple means for IT administrators to enable users to reset or unlock their passwords or accounts. The system includes detailed reporting to track when users use the system along with notifications to alert you to misuse or abuse.
+[Self-service password reset (SSPR)](authentication/quickstart-sspr.md) offers a simple means for IT administrators to enable users to reset or unlock their passwords or accounts. The system includes detailed reporting to track when users use the system along with notifications to alert you to misuse or abuse.
 
 ### Verification step
 Review enabled SSPR properties under **Azure Active Directory** > **Password reset** to ensure the proper user and group assignments have been made. 

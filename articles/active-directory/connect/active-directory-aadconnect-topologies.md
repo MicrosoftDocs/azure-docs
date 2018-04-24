@@ -31,10 +31,15 @@ Here's the legend for pictures in the article:
 | Azure AD |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | Unsupported scenario |![Unsupported scenario](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
 
+
+> [!IMPORTANT]
+> Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the configurations or actions that are formally documented. Any of these configurations or actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
+
+
 ## Single forest, single Azure AD tenant
 ![Topology for a single forest and a single tenant](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-The most common topology is a single on-premises forest, with one or multiple domains, and a single Azure AD tenant. For Azure AD authentication, password synchronization is used. The express installation of Azure AD Connect supports only this topology.
+The most common topology is a single on-premises forest, with one or multiple domains, and a single Azure AD tenant. For Azure AD authentication, password hash synchronization is used. The express installation of Azure AD Connect supports only this topology.
 
 ### Single forest, multiple sync servers to one Azure AD tenant
 ![Unsupported, filtered topology for a single forest](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
@@ -54,7 +59,7 @@ Common topologies are discussed in the sections about [separate topologies](#mul
 
 The default configuration in Azure AD Connect sync assumes:
 
-* Each user has only one enabled account, and the forest where this account is located is used to authenticate the user. This assumption is for both password sync and federation. UserPrincipalName and sourceAnchor/immutableID come from this forest.
+* Each user has only one enabled account, and the forest where this account is located is used to authenticate the user. This assumption is for password hash sync, pass-through authentication and federation. UserPrincipalName and sourceAnchor/immutableID come from this forest.
 * Each user has only one mailbox.
 * The forest that hosts the mailbox for a user has the best data quality for attributes visible in the Exchange Global Address List (GAL). If there's no mailbox for the user, any forest can be used to contribute these attribute values.
 * If you have a linked mailbox, there's also an account in a different forest used for sign-in.
@@ -147,7 +152,7 @@ This topology has the following restrictions on otherwise supported scenarios:
 
 * Only one of the Azure AD tenants can enable an Exchange hybrid with the on-premises Active Directory instance.
 * Windows 10 devices can be associated with only one Azure AD tenant.
-* The single sign-on (SSO) option for password synchronization and pass-through authentication can be used with only one Azure AD tenant.
+* The single sign-on (SSO) option for password hash synchronization and pass-through authentication can be used with only one Azure AD tenant.
 
 The requirement for a mutually exclusive set of objects also applies to writeback. Some writeback features are not supported with this topology because they assume a single on-premises configuration. These features include:
 

@@ -160,7 +160,6 @@ The following tables compare services available in global Azure and Microsoft Az
 | Scheduler              | GA                        | GA    |
 | Automation             | GA | GA               |
 | Log Analytics          | GA                              | *Not available*          |
-| OMS                    | GA                                        | *Not available*          |
 | Azure Monitor          | GA                                           | *Not available*          |
 | Azure Advisor          | GA                                         | *Not available*          |
 

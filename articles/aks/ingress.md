@@ -18,9 +18,13 @@ An ingress controller is a piece of software that provides reverse proxy, config
 
 This document walks through a sample deployment of the [NGINX ingress controller][nginx-ingress] in an Azure Container Service (AKS) cluster. Additionally, the [KUBE-LEGO][kube-lego] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single address.
 
+## Prerequisite
+
+Install Helm CLI - See the Helm CLI [documentation][helm-cli] for install instructions.
+
 ## Install an ingress controller
 
-Use Helm to install the NGINX ingress controller. See the NGINX ingress controller [documentation][nginx-ingress] for detailed deployment information. 
+Use Helm to install the NGINX ingress controller. See the NGINX ingress controller [documentation][nginx-ingress] for detailed deployment information.
 
 Update the chart repository.
 
@@ -69,13 +73,7 @@ PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAdd
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
 ```
 
-If needed, run the following command to retrieve the FQDN. Update the IP address value with that of your ingress controller.
-
-```azurecli
-az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
-```
-
-The ingress controller is now accessible through the FQDN.
+The ingress controller should now be accessible through the FQDN.
 
 ## Install KUBE-LEGO
 
@@ -174,12 +172,14 @@ Also notice that the connection is encrypted and that a certificate issued by Le
 
 ## Next steps
 
-Learn more about the software demonstrated in this document. 
+Learn more about the software demonstrated in this document.
 
+- [Helm CLI][helm-cli]
 - [NGINX ingress controller][nginx-ingress]
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
+[helm-cli]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

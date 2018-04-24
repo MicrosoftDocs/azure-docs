@@ -4,18 +4,16 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
-
 ms.service: cognitive-services
-ms.technology: spellcheck
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: v-jaswel
-
 ---
 # Quickstart for Bing Spell Check API with Python 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) with Python. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world".
+This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) with Python. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!" The suggested replacements are "Hello" and "world."
 
 ## Prerequisites
 
@@ -35,13 +33,14 @@ import http.client, urllib.parse, json
 
 text = 'Hollo, wrld!'
 
-params = {'mkt': 'en-US', 'mode': 'proof', 'text': text}
+data = {'text': text}
 
 # NOTE: Replace this example key with a valid subscription key.
-key = 'enter key here'
+key = 'ENTER KEY HERE'
 
 host = 'api.cognitive.microsoft.com'
-path = '/bing/v7.0/spellcheck'
+path = '/bing/v7.0/spellcheck?'
+params = 'mkt=en-us&mode=proof'
 
 headers = {'Ocp-Apim-Subscription-Key': key,
 'Content-Type': 'application/x-www-form-urlencoded'}
@@ -54,10 +53,11 @@ headers = {'Ocp-Apim-Subscription-Key': key,
 # X-MSEdge-ClientID: <Client ID from Previous Response Goes Here>
 
 conn = http.client.HTTPSConnection(host)
-params = urllib.parse.urlencode (params)
-conn.request ("POST", path, params, headers)
+body = urllib.parse.urlencode (data)
+conn.request ("POST", path + params, body, headers)
 response = conn.getresponse ()
-print (response.read ())
+output = json.dumps(json.loads(response.read()), indent=4)
+print (output)
 ```
 
 **Response**

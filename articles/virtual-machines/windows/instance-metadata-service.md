@@ -4,7 +4,7 @@ description: RESTful interface to get information about Windows VM's compute, ne
 services: virtual-machines-windows
 documentationcenter: ''
 author: harijayms
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

@@ -42,7 +42,7 @@ Finish the [Getting Started Guide]({{"/docs/get-started/" | absolute_url }}) to:
 
 An active Azure subscription. If you do not have one, you can register via one of these methods:
 
-* Activate a [free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html).
+* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/en-us/free/).
 * Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are an MSDN or Visual Studio subscriber.
 
 ## Deploy SendGrid service in Azure
@@ -130,10 +130,6 @@ Complete the sign-up form:
 - Start VS Code.
 - Connect the DevKit to your computer.
 
-VS Code will automatically detect your DevKit and open an introduction page:
-
-![VSCode](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-start.png)
-
 > [!NOTE]
 > When you launch VS Code, you may receive an error message stating that it cannot find the Arduino IDE or related board package. If you receive this error, close VS Code, launch the Arduino IDE again, and VS Code should locate the Arduino IDE path correctly.
 
@@ -143,7 +139,8 @@ Expand the left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCH
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
+> [!NOTE]
+> You can also open example from command palette. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
 ### Provision Azure services
 

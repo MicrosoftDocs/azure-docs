@@ -4,7 +4,7 @@ description: Caching is the process of storing data locally so that future reque
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: 
+manager: akucer
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
+ms.author: rli; v-deasim
 
 ---
 # How caching works
@@ -92,14 +92,14 @@ Azure CDN supports the following HTTP cache-directive headers, which define cach
 When the cache is stale, HTTP cache validators are used to compare the cached version of a file with the version on the origin server. **Azure CDN from Verizon** supports both `ETag` and `Last-Modified` validators by default, while **Azure CDN from Akamai** supports only `Last-Modified` by default.
 
 **ETag:**
-- **Azure CDN from Verizon** uses `ETag` by default while **Azure CDN from Akamai** does not.
+- **Azure CDN from Verizon** uses `ETag` by default, while **Azure CDN from Akamai** does not.
 - `ETag` defines a string that is unique for every file and version of a file. For example, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Introduced in HTTP 1.1 and is more current than `Last-Modified`. Useful when the last modified date is difficult to determine.
 - Supports both strong validation and weak validation; however, Azure CDN supports only strong validation. For strong validation, the two resource representations must be byte-for-byte identical. 
 - A cache validates a file that uses `ETag` by sending an `If-None-Match` header with one or more `ETag` validators in the request. For example, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. If the server’s version matches an `ETag` validator on the list, it sends status code 304 (Not Modified) in its response. If the version is different, the server responds with status code 200 (OK) and the updated resource.
 
 **Last-Modified:**
-- For **Azure CDN from Verizon only**, `Last-Modified` is used if `ETag` is not part of the HTTP response. 
+- For **Azure CDN from Verizon** only, `Last-Modified` is used if `ETag` is not part of the HTTP response. 
 - Specifies the date and time that the origin server has determined the resource was last modified. For example, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - A cache validates a file using `Last-Modified` by sending an `If-Modified-Since` header with a date and time in the request. The origin server compares that date with the `Last-Modified` header of the latest resource. If the resource has not been modified since the specified time, the server returns status code 304 (Not Modified) in its response. If the resource has been modified, the server returns status code 200 (OK) and the updated resource.
 

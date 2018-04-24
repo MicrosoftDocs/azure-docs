@@ -92,7 +92,7 @@ ms.author: jdial
 12.  If I receive the following message: “1) Analyzing your NSG flow logs for the first time. This process may take 20-30 minutes to complete. Check back after some time. 2) If the above step doesn’t work and your workspace is under the free SKU, then check your workspace usage here to validate over quota, else refer to FAQs for further information”, how do I resolve it?
 
         You may receive the error for the following reasons:
-        - Traffic analytics may have been recently enabled and may be aggregating enough data for it to derive meaningful insights before any reports can be generated. In this case, try again after 30 minutes
+        - Traffic analytics may have been recently enabled and may not yet have aggregated enough data for it to derive meaningful insights.
         - Your OMS Workspace is under the free SKU and it breached the quota limits. In this case, you may need to use a workspace in a SKU with larger capacity.
     
         If issues persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -101,11 +101,15 @@ ms.author: jdial
 
         You are seeing the resources information on the dashboard; however, no flow-related statistics are present. Data may not be present because of no communication flows between the resources. Wait for 60 mins and recheck status. If you're sure that communication flows among resources exist, then raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  How is traffic analytics priced?
+14. Can I configure traffic analytics using PowerShell or an Azure Resource Manager template?
+
+    No, traffic analytics can only be configured using the Azure portal.
+
+15.  How is traffic analytics priced?
 
         Traffic analytics is metered for enhancing reduced logs, and storing the enhanced logs in a Log Analytics workspace. While in preview, traffic analytics is not billed for enhancing the reduced logs, however retention of data in a workspace is subject to billing at published rates. This answer will be updated once pricing for traffic analytics is available.
 
-15.  How can I navigate using Keyboard in Geo Map View?
+16.  How can I navigate using Keyboard in Geo Map View?
 
         The geo-map page contains two main sections:
     

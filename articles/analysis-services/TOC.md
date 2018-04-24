@@ -1,18 +1,22 @@
 # [Analysis Services Documentation](index.md)
 
 # Overview
-## [About Analysis Services](analysis-services-overview.md)
-## [Supported data sources](analysis-services-datasource.md)
-## [Authentication and user permissions](analysis-services-manage-users.md)
-## [Connecting to on-premises data sources](analysis-services-gateway.md)
-## [Compatibility level](analysis-services-compat-level.md)
-## [High availability](analysis-services-bcdr.md)
+## [What is Azure Analysis Services?](analysis-services-overview.md)
+
 
 # Get started
 ## [Create a server in Azure portal](analysis-services-create-server.md)
 ## [Create a server with Azure PowerShell](analysis-services-create-powershell.md)
 ## [Deploy a model from Visual Studio](analysis-services-deploy.md)
 ## [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)
+
+# Concepts
+## [Supported data sources](analysis-services-datasource.md)
+## [Connecting to on-premises data sources](analysis-services-gateway.md)
+## [Connecting to servers](analysis-services-connect.md)
+## [Authentication and user permissions](analysis-services-manage-users.md)
+## [Compatibility level](analysis-services-compat-level.md)
+## [High availability](analysis-services-bcdr.md)
 
 # How-to 
 ## [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
@@ -31,6 +35,7 @@
 ### [Manage server administrators](analysis-services-server-admins.md)
 ### [Monitor server metrics](analysis-services-monitor.md)
 ### [Setup diagnostic logging](analysis-services-logging.md)
+### [Use gateway for data sources on VNet](analysis-services-vnet-gateway.md)
 ## Connect
 ### [Get client libraries](analysis-services-data-providers.md)
 ### [Connect with Excel](analysis-services-connect-excel.md)

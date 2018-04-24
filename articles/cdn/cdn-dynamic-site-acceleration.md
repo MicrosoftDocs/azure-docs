@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
+ms.author: rli; v-deasim
 ---
 # Dynamic site acceleration via Azure CDN
 

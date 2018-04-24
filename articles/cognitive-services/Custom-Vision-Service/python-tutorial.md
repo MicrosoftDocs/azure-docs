@@ -4,9 +4,8 @@ description: Explore a basic Windows app that uses the Custom Vision API in Micr
 services: cognitive-services
 author: areddish
 manager: chbuehle
-
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.component: custom-vision
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: areddish
@@ -21,23 +20,16 @@ To use the tutorial, you need to do the following:
 
 - Install either Python 2.7+ or Python 3.5+.
 - Install pip.
-- Install Git.
 
 ### Platform requirements
 This example has been developed for Python.
 
 ### Get the Custom Vision SDK
 
-To build this example, you need to install the Preview Python SDK for the Custom Vision API from GitHub as follows:
+To build this example, you need to install the Python SDK for the Custom Vision API:
 
 ```
-pip install "git+https://github.com/Azure/azure-sdk-for-python#egg=azure-cognitiveservices-vision-customvision&subdirectory=azure-cognitiveservices-vision-customvision"
-```
-
-If you encounter a *Filename too long* error, make sure you have longpath support in Git enabled:
-
-```
-git config --system core.longpaths true
+pip install azure-cognitiveservices-vision-customvision
 ```
 
 ## Step 1: Prepare the keys and images needed for the example

@@ -82,16 +82,16 @@ Here are the main points that you need to know about using RBAC to access the ma
 * You can create a report of who granted/revoked what kind of access to/from whom and on what scope using PowerShell or the Azure CLI.
 
 #### Resources
-* [Azure Active Directory Role-based Access Control](../../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory Role-based Access Control](../../role-based-access-control/role-assignments-portal.md)
 
   This article explains the Azure Active Directory Role-based Access Control and how it works.
-* [RBAC: Built in Roles](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md)
 
   This article details all of the built-in roles available in RBAC.
 * [Understanding Resource Manager deployment and classic deployment](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups. It explains how the Azure Compute, Network, and Storage Providers work under the Resource Manager model.
-* [Managing Role-Based Access Control with the REST API](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [Managing Role-Based Access Control with the REST API](../../role-based-access-control/role-assignments-rest.md)
 
   This article shows how to use the REST API to manage RBAC.
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/azure/mt163683.aspx)

@@ -124,6 +124,7 @@ Under the top-level *\<TrustFrameworkPolicy\>* tag, you should find *\<BuildingB
     <ContentDefinitions>
       <ContentDefinition Id="api.idpselections">
         <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0</DataUri>
       </ContentDefinition>
     </ContentDefinitions>
   </BuildingBlocks>
