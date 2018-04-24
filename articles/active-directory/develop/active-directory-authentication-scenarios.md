@@ -20,7 +20,7 @@ ms.custom: aaddev
 ---
 # Authentication Scenarios for Azure AD
 
-Azure Active Directory (Azure AD) simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open source libraries for different platforms to help you start coding quickly. This document will help you understand the various scenarios Azure AD supports and will show you how to get started. It’s divided into the following sections:
+Azure Active Directory (Azure AD) simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open-source libraries for different platforms to help you start coding quickly. This document will help you understand the various scenarios Azure AD supports and will show you how to get started. It’s divided into the following sections:
 
 * [Basics of Authentication in Azure AD](#basics-of-authentication-in-azure-ad)
 * [Claims in Azure AD Security Tokens](#claims-in-azure-ad-security-tokens)
@@ -45,7 +45,7 @@ With the diagram above in mind, here’s what you need to know about its various
 
 * Azure AD is the identity provider, responsible for verifying the identity of users and applications that exist in an organization’s directory, and ultimately issuing security tokens upon successful authentication of those users and applications.
 * An application that wants to outsource authentication to Azure AD must be registered in Azure AD, which registers and uniquely identifies the app in the directory.
-* Developers can use the open source Azure AD authentication libraries to make authentication easy by handling the protocol details for you. See [Azure Active Directory Authentication Libraries](active-directory-authentication-libraries.md) for more information.
+* Developers can use the open-source Azure AD authentication libraries to make authentication easy by handling the protocol details for you. See [Azure Active Directory Authentication Libraries](active-directory-authentication-libraries.md) for more information.
 
 • Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful for the intended parties. Developers can use the provided authentication libraries to handle validation of any token from Azure AD, including JSON Web Tokens (JWT) or SAML 2.0. If you want to perform validation manually, see the [JWT Token Handler](https://msdn.microsoft.com/library/dn205065.aspx) documentation.
 
@@ -54,7 +54,7 @@ With the diagram above in mind, here’s what you need to know about its various
 > 
 > 
 
-• The flow of requests and responses for the authentication process is determined by the authentication protocol that was used, such as OAuth 2.0, OpenID Connect, WS-Federation, or SAML 2.0. These protocols are discussed in more detail in the [Azure Active Directory Authentication Protocols](active-directory-authentication-protocols.md) topic and in the sections below.
+• The flow of requests and responses for the authentication process is determined by the authentication protocol that was used, such as OAuth 2.0, OpenID Connect, WS-Federation, or SAML 2.0. These protocols are discussed in more detail in the [Azure Active Directory Authentication Protocols](active-directory-authentication-protocols.md) article and in the sections below.
 
 > [!NOTE]
 > Azure AD supports the OAuth 2.0 and OpenID Connect standards that make extensive use of bearer tokens, including bearer tokens represented as JWTs. A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used by a malicious party to acquire the token and use it for an unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your application transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
@@ -81,11 +81,11 @@ Security tokens issued by Azure AD contain claims, or assertions of information 
 | Issuer |Identifies the STS that emitted the token as well as the Azure AD tenant. |
 | Last Name |Provides the surname of the user as set in Azure AD. |
 | Name |Provides a human readable value that identifies the subject of the token. |
-| Object Id |Contains an immutable, unique identifier of the subject in Azure AD. |
+| Object ID |Contains an immutable, unique identifier of the subject in Azure AD. |
 | Roles |Contains friendly names of Azure AD Application Roles that the user has been granted. |
 | Scope |Indicates the permissions granted to the client application. |
 | Subject |Indicates the principal about which the token asserts information. |
-| Tenant Id |Contains an immutable, unique identifier of the directory tenant that issued the token. |
+| Tenant ID |Contains an immutable, unique identifier of the directory tenant that issued the token. |
 | Token Lifetime |Defines the time interval within which a token is valid. |
 | User Principal Name |Contains the user principal name of the subject. |
 | Version |Contains the version number of the token. |
@@ -99,7 +99,7 @@ Any application that outsources authentication to Azure AD must be registered in
   * Application ID URI: The identifier for an application. This value is sent to Azure AD during authentication to indicate which application the caller wants a token for. Additionally, this value is included in the token so that the application knows it was the intended target.
   * Reply URL and Redirect URI: In the case of a web API or web application, the Reply URL is the location to which Azure AD will send the authentication response, including a token if authentication was successful. In the case of a native application, the Redirect URI is a unique identifier to which Azure AD will redirect the user-agent in an OAuth 2.0 request.
   * Application ID: The ID for an application, which is generated by Azure AD when the application is registered. When requesting an authorization code or token, the Application ID and key are sent to Azure AD during authentication.
-  * Key: The key that is sent along with a Application ID when authenticating to Azure AD to call a web API.
+  * Key: The key that is sent along with an Application ID when authenticating to Azure AD to call a web API.
 * Azure AD needs to ensure the application has the required permissions to access your directory data, other applications in your organization, and so on
 
 Provisioning becomes clearer when you understand that there are two categories of applications that can be developed and integrated with Azure AD:
@@ -111,11 +111,11 @@ Some additional considerations arise when developing a multi-tenant application 
 
 If you are currently developing a single tenant application but want to make it available to many organizations, you can easily make changes to the application and its configuration in Azure AD to make it multi-tenant capable. In addition, Azure AD uses the same signing key for all tokens in all directories, whether you are providing authentication in a single tenant or multi-tenant application.
 
-Each scenario listed in this document includes a sub-section that describes its provisioning requirements. For more in-depth information about provisioning an application in Azure AD and the differences between single and multi-tenant applications, see [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md) for more information. Continue reading to understand the common application scenarios in Azure AD.
+Each scenario listed in this document includes a subsection that describes its provisioning requirements. For more in-depth information about provisioning an application in Azure AD and the differences between single and multi-tenant applications, see [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md) for more information. Continue reading to understand the common application scenarios in Azure AD.
 
 ## Application Types and Scenarios
 
-Each of the scenarios described in this document can be developed using various languages and platforms. They are all backed by complete code samples which are available in our [Code Samples guide](active-directory-code-samples.md), or directly from the corresponding [GitHub sample repositories](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=active-directory). In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API. The following diagram illustrates these scenarios and application types, and how different components can be added:
+Each of the scenarios described in this document can be developed using various languages and platforms. They are all backed by complete code samples that are available in our [Code Samples guide](active-directory-code-samples.md), or directly from the corresponding [GitHub sample repositories](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=active-directory). In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API. The following diagram illustrates these scenarios and application types, and how different components can be added:
 
 ![Application Types and scenarios](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 
@@ -139,7 +139,7 @@ This section describes an application that authenticates a user in a web browser
 
 1. When a user visits the application and needs to sign in, they are redirected via a sign-in request to the authentication endpoint in Azure AD.
 2. The user signs in on the sign-in page.
-3. If authentication is successful, Azure AD creates an authentication token and returns a sign-in response to the application’s Reply URL that was configured in the Azure Portal. For a production application, this Reply URL should be HTTPS. The returned token includes claims about the user and Azure AD that are required by the application to validate the token.
+3. If authentication is successful, Azure AD creates an authentication token and returns a sign-in response to the application’s Reply URL that was configured in the Azure portal. For a production application, this Reply URL should be HTTPS. The returned token includes claims about the user and Azure AD that are required by the application to validate the token.
 4. The application validates the token by using a public signing key and issuer information available at the federation metadata document for Azure AD. After the application validates the token, Azure AD starts a new session with the user. This session allows the user to access the application until it expires.
 
 #### Code Samples
@@ -148,7 +148,7 @@ See the code samples for Web Browser to Web Application scenarios. And, check ba
 
 #### Registering
 
-* Single Tenant: If you are building an application just for your organization, it must be registered in your company’s directory by using the Azure Portal.
+* Single Tenant: If you are building an application just for your organization, it must be registered in your company’s directory by using the Azure portal.
 * Multi-Tenant: If you are building an application that can be used by users outside your organization, it must be registered in your company’s directory, but also must be registered in each organization’s directory that will be using the application. To make your application available in their directory, you can include a sign-up process for your customers that enables them to consent to your application. When they sign up for your application, they will be presented with a dialog that shows the permissions the application requires, and then the option to consent. Depending on the required permissions, an administrator in the other organization may be required to give consent. When the user or administrator consents, the application is registered in their directory. For more information, see [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md).
 
 #### Token Expiration
@@ -170,7 +170,7 @@ In this scenario, when the user signs in, the JavaScript front end uses [Active 
 1. The user navigates to the web application.
 2. The application returns the JavaScript front end (presentation layer) to the browser.
 3. The user initiates sign in, for example by clicking a sign in link. The browser sends a GET to the Azure AD authorization endpoint to request an ID token. This request includes the application ID and reply URL in the query parameters.
-4. Azure AD validates the Reply URL against the registered Reply URL that was configured in the Azure Portal.
+4. Azure AD validates the Reply URL against the registered Reply URL that was configured in the Azure portal.
 5. The user signs in on the sign-in page.
 6. If authentication is successful, Azure AD creates an ID token and returns it as a URL fragment (#) to the application’s Reply URL. For a production application, this Reply URL should be HTTPS. The returned token includes claims about the user and Azure AD that are required by the application to validate the token.
 7. The JavaScript client code running in the browser extracts the token from the response to use in securing calls to the application’s web API back end.
@@ -182,10 +182,10 @@ See the code samples for Single Page Application (SPA) scenarios. Be sure to che
 
 #### Registering
 
-* Single Tenant: If you are building an application just for your organization, it must be registered in your company’s directory by using the Azure Portal.
+* Single Tenant: If you are building an application just for your organization, it must be registered in your company’s directory by using the Azure portal.
 * Multi-Tenant: If you are building an application that can be used by users outside your organization, it must be registered in your company’s directory, but also must be registered in each organization’s directory that will be using the application. To make your application available in their directory, you can include a sign-up process for your customers that enables them to consent to your application. When they sign up for your application, they will be presented with a dialog that shows the permissions the application requires, and then the option to consent. Depending on the required permissions, an administrator in the other organization may be required to give consent. When the user or administrator consents, the application is registered in their directory. For more information, see [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md).
 
-After registering the application, it must be configured to use OAuth 2.0 Implicit Grant protocol. By default, this protocol is disabled for applications. To enable the OAuth2 Implicit Grant protocol for your application, edit its application manifest from the Azure Portal and set the “oauth2AllowImplicitFlow” value to true. For detailed instructions, see [Enabling OAuth 2.0 Implicit Grant for Single Page Applications](active-directory-integrating-applications.md).
+After registering the application, it must be configured to use OAuth 2.0 Implicit Grant protocol. By default, this protocol is disabled for applications. To enable the OAuth2 Implicit Grant protocol for your application, edit its application manifest from the Azure portal and set the “oauth2AllowImplicitFlow” value to true. For detailed instructions, see [Enabling OAuth 2.0 Implicit Grant for Single Page Applications](active-directory-integrating-applications.md).
 
 #### Token Expiration
 
@@ -205,7 +205,7 @@ This section describes a native application that calls a web API on behalf of a 
 
 If you are using the AD Authentication Libraries, most of the protocol details described below are handled for you, such as the browser pop-up, token caching, and handling of refresh tokens.
 
-1. Using a browser pop-up, the native application makes a request to the authorization endpoint in Azure AD. This request includes the Application ID and the redirect URI of the native application as shown in the Azure Portal, and the application ID URI for the web API. If the user hasn’t already signed in, they are prompted to sign in again
+1. Using a browser pop-up, the native application makes a request to the authorization endpoint in Azure AD. This request includes the Application ID and the redirect URI of the native application as shown in the Azure portal, and the application ID URI for the web API. If the user hasn’t already signed in, they are prompted to sign in again
 2. Azure AD authenticates the user. If it is a multi-tenant application and consent is required to use the application, the user will be required to consent if they haven’t already done so. After granting consent and upon successful authentication, Azure AD issues an authorization code response back to the client application’s redirect URI.
 3. When Azure AD issues an authorization code response back to the redirect URI, the client application stops browser interaction and extracts the authorization code from the response. Using this authorization code, the client application sends a request to Azure AD’s token endpoint that includes the authorization code, details about the client application (Application ID and redirect URI), and the desired resource (application ID URI for the web API).
 4. The authorization code and information about the client application and web API are validated by Azure AD. Upon successful validation, Azure AD returns two tokens: a JWT access token and a JWT refresh token. In addition, Azure AD returns basic information about the user, such as their display name and tenant ID.
@@ -223,7 +223,7 @@ See the code samples for Native Application to Web API scenarios. And, check bac
 
 #### Registering
 
-* Single Tenant: Both the native application and the web API must be registered in the same directory in Azure AD. The web API can be configured to expose a set of permissions, which are used to limit the native application’s access to its resources. The client application then selects the desired permissions from the “Permissions to Other Applications” drop-down menu in the Azure Portal.
+* Single Tenant: Both the native application and the web API must be registered in the same directory in Azure AD. The web API can be configured to expose a set of permissions, which are used to limit the native application’s access to its resources. The client application then selects the desired permissions from the “Permissions to Other Applications” drop-down menu in the Azure portal.
 * Multi-Tenant: First, the native application only ever registered in the developer or publisher’s directory. Second, the native application is configured to indicate the permissions it requires to be functional. This list of required permissions is shown in a dialog when a user or administrator in the destination directory gives consent to the application, which makes it available to their organization. Some applications require just user-level permissions, which any user in the organization can consent to. Other applications require administrator-level permissions, which a user in the organization cannot consent to. Only a directory administrator can give consent to applications that require this level of permissions. When the user or administrator consents, only the web API is registered in their directory. For more information, see [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md).
 
 #### Token Expiration
@@ -276,7 +276,7 @@ See the code samples for Web Application to Web API scenarios. And, check back f
 
 #### Registering
 
-* Single Tenant: For both the application identity and delegated user identity cases, the web application and the web API must be registered in the same directory in Azure AD. The web API can be configured to expose a set of permissions, which are used to limit the web application’s access to its resources. If a delegated user identity type is being used, the web application needs to select the desired permissions from the “Permissions to Other Applications” drop-down menu in the Azure Portal. This step is not required if the application identity type is being used.
+* Single Tenant: For both the application identity and delegated user identity cases, the web application and the web API must be registered in the same directory in Azure AD. The web API can be configured to expose a set of permissions, which are used to limit the web application’s access to its resources. If a delegated user identity type is being used, the web application needs to select the desired permissions from the “Permissions to Other Applications” drop-down menu in the Azure portal. This step is not required if the application identity type is being used.
 * Multi-Tenant: First, the web application is configured to indicate the permissions it requires to be functional. This list of required permissions is shown in a dialog when a user or administrator in the destination directory gives consent to the application, which makes it available to their organization. Some applications require just user-level permissions, which any user in the organization can consent to. Other applications require administrator-level permissions, which a user in the organization cannot consent to. Only a directory administrator can give consent to applications that require this level of permissions. When the user or administrator consents, the web application and the web API are both registered in their directory.
 
 #### Token Expiration
@@ -318,7 +318,7 @@ See the code samples for Daemon or Server Application to Web API scenarios. And,
 
 #### Registering
 
-* Single Tenant: For both the application identity and delegated user identity cases, the daemon or server application must be registered in the same directory in Azure AD. The web API can be configured to expose a set of permissions, which are used to limit the daemon or server’s access to its resources. If a delegated user identity type is being used, the server application needs to select the desired permissions from the “Permissions to Other Applications” drop-down menu in the Azure Portal. This step is not required if the application identity type is being used.
+* Single Tenant: For both the application identity and delegated user identity cases, the daemon or server application must be registered in the same directory in Azure AD. The web API can be configured to expose a set of permissions, which are used to limit the daemon or server’s access to its resources. If a delegated user identity type is being used, the server application needs to select the desired permissions from the “Permissions to Other Applications” drop-down menu in the Azure portal. This step is not required if the application identity type is being used.
 * Multi-Tenant: First, the daemon or server application is configured to indicate the permissions it requires to be functional. This list of required permissions is shown in a dialog when a user or administrator in the destination directory gives consent to the application, which makes it available to their organization. Some applications require just user-level permissions, which any user in the organization can consent to. Other applications require administrator-level permissions, which a user in the organization cannot consent to. Only a directory administrator can give consent to applications that require this level of permissions. When the user or administrator consents, both of the web APIs are registered in their directory.
 
 #### Token Expiration

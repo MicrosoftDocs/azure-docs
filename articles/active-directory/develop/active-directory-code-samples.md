@@ -66,7 +66,7 @@ Platform | Sample | Description
 ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) | A .NET 4.5 MVC web app that uses Azure AD **groups** for authorization
 ASP.NET 4.5 | [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | A .NET 4.5 MVC web app that uses Azure AD **roles** for authorization
 
-### Daemon applications (accessing Web APIs with the application's identity)
+## Daemon applications (accessing Web APIs with the application's identity)
 
 The following samples show desktop or web applications that access the Microsoft Graph or a Web API with no user (with the application identity)
 
