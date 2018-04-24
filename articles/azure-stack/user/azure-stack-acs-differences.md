@@ -44,6 +44,7 @@ Soft delete for blob storage|Preview|Not yet supported.
 |Page blob max size|8 TB|1 TB
 |Page blob page size|512 bytes|4 KB
 |Table partition key and row key size|1,024 characters (2,048 bytes)|400 characters (800 bytes)
+|Blob snapshot|The max number of snapshots of one blob isn’t limited.|The max number of snapshots of one blob is 1,000.|
 
 ### Metrics
 There are also some differences with storage metrics:
