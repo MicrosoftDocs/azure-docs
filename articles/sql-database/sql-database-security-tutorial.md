@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/01/2018
+ms.date: 04/24/2018
 ms.author: daredis
 
 ---
@@ -95,7 +95,7 @@ To ensure a secure, encrypted connection between a client application and SQL Da
 - Request an encrypted connection, and
 - To not trust the server certificate. 
 
-This establishes a connection using Transport Layer Security (TLS) and reduces the risk of man-in-the-middle attacks. You can obtain correctly configured connection strings for your SQL Database for supported client drivers from the Azure portal as shown for ADO.net in this screenshot.
+This establishes a connection using Transport Layer Security (TLS) and reduces the risk of man-in-the-middle attacks. You can obtain correctly configured connection strings for your SQL Database for supported client drivers from the Azure portal as shown for ADO.net in this screenshot. For information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
 1. Select **SQL databases** from the left-hand menu, and click your database on the **SQL databases** page.
 
