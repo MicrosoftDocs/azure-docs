@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Create a Linux VM with the Azure CLI 2.0 | Microsoft Docs
-description: In this quickstart, you learn how to use Azure CLI 2.0 to create a Linux virtual machine
+description: In this quickstart, you learn how to use the Azure CLI 2.0 to create a Linux virtual machine
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/17/2018
+ms.date: 04/24/2018
 ms.author: iainfou
 ms.custom: mvc
 ---

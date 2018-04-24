@@ -3,13 +3,18 @@
 # Overview
 ## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
-## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Get Started
 ## Create a route-based VPN gateway
 ### [Azure portal](create-routebased-vpn-gateway-portal.md)
 ### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
 ### [Azure CLI](create-routebased-vpn-gateway-cli.md)
+
+# Samples
+## [Create a VPN gateway](./scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md)
+## [Point-to-Site - RADIUS authentication](./scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md)
+## [Point-to-Site - certificate authentication](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md)
+## [Site-to-Site](./scripts/vpn-gateway-sample-site-to-site-powershell.md)
 
 # Concepts
 ## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
@@ -21,7 +26,7 @@
 ## [About Point-to-Site connections](point-to-site-about.md)
 ## [About Point-to-Site routing](vpn-gateway-about-point-to-site-routing.md)
 
-# How To
+# How-to guides
 ## Configure Site-to-Site connections
 ### [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -116,6 +121,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
