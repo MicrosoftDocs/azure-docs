@@ -75,9 +75,9 @@ Create an SSH connection with the VM.
 
 2. Paste the SSH connection command into a shell, such as the Azure Cloud Shell or Windows Substem for Linux. The following example shows what the SSH connection command looks like:
 
-```bash
-ssh azureuser@40.112.21.50
-```
+    ```bash
+    ssh azureuser@40.112.21.50
+    ```
 
 ## Install web server
 

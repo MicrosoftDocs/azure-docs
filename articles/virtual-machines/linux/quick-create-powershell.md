@@ -25,23 +25,17 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This quick start requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 Finally, a public SSH key with the name *id_rsa.pub* needs to be stored in the *.ssh* directory of your Windows user profile. For detailed information on how to create and use SSH keys, see [Create SSH keys for Azure](ssh-from-windows.md).
-
-## Log in to Azure
-
-Log in to your Azure subscription with the [Connect-AzureRmAccount](/powershell/azure/authenticate-azureps) cmdlet and follow the on-screen directions:
-
-```powershell
-Connect-AzureRmAccount
-```
 
 ## Create a resource group
 
 Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
@@ -49,7 +43,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 Create a virtual network, subnet, and a public IP address. These resources are used to provide network connectivity to the VM and connect it to the internet:
 
-```powershell
+```azurepowershell-interactive
 # Create a subnet configuration
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -AddressPrefix 192.168.1.0/24
 
@@ -64,7 +58,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Location
 
 Create an Azure Network Security Group and traffic rule. The Network Security Group secures the VM with inbound and outbound rules. In the following example, an inbound rule is created for TCP port 22 that allows SSH connections. To allow incoming web traffic, an inbound rule for TCP port 80 is also created.
 
-```powershell
+```azurepowershell-interactive
 # Create an inbound network security group rule for port 22
 $nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name "myNetworkSecurityGroupRuleSSH"  -Protocol "Tcp" `
 -Direction "Inbound" -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
@@ -82,7 +76,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" -Loc
 
 Create a virtual network interface card (NIC) with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). The virtual NIC connects the VM to a subnet, Network Security Group, and public IP address.
 
-```powershell
+```azurepowershell-interactive
 # Create a virtual network card and associate with public IP address and NSG
 $nic = New-AzureRmNetworkInterface -Name "myNic" -ResourceGroupName "myResourceGroup" -Location "EastUS" `
 -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
@@ -92,7 +86,7 @@ $nic = New-AzureRmNetworkInterface -Name "myNic" -ResourceGroupName "myResourceG
 
 A virtual machine configuration includes the settings that are used when a VM is deployed such as a VM image, size, and authentication options. Define the SSH credentials, OS information, and VM size as follows:
 
-```powershell
+```azurepowershell-interactive
 # Define a credential object
 $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
@@ -110,7 +104,7 @@ Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azur
 
 Now, combine the previous configuration definitions to create with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location eastus -VM $vmConfig
 ```
 
@@ -120,7 +114,7 @@ After the deployment has completed, SSH to the VM. To see your VM in action, the
 
 To see the public IP address of the VM, use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) cmdlet:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
@@ -156,7 +150,7 @@ With NGINX installed and port 80 now open on your VM from the Internet, use a we
 
 When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name "myResourceGroup"
 ```
 
