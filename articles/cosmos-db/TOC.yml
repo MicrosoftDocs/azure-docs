@@ -75,8 +75,6 @@ items:
       items:
       - name: SQL
         href: tutorial-develop-sql-api-dotnet.md
-      - name: MongoDB with .NET
-        href: tutorial-develop-mongodb.md
       - name: MongoDB with Angular
         href: tutorial-develop-mongodb-nodejs.md
       - name: MongoDB with React
