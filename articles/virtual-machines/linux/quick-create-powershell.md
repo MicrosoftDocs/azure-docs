@@ -156,7 +156,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 
 ## Next steps
 
-In this quick start, you deployed a simple virtual machine, created a Network Security Group and rule, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
+In this quickstart, you deployed a simple virtual machine, created a Network Security Group and rule, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)

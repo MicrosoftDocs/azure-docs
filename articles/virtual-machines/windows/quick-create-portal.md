@@ -1,6 +1,6 @@
 ---
-title: Azure Quick Start - Create Windows VM Portal | Microsoft Docs
-description: Azure Quick Start - Create Windows VM Portal
+title: Quickstart - Create a Windows VM in the Azure portal | Microsoft Docs
+description: In this quickstart, you learn how to use the Azure portal to create a Windows virtual machine
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -19,7 +19,7 @@ ms.author: cynthn
 ms.custom: mvc
 ---
 
-# Quickstart: Create a Linux virtual machine in the Azure portal
+# Quickstart: Create a Windows virtual machine in the Azure portal
 
 Azure virtual machines (VMs) can be created through the Azure portal. This method provides a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Azure portal to deploy a virtual machine (VM) in Azure that runs Windows Server 2016. To see your VM in action, you then RDP to the VM and install the IIS web server.
 
@@ -96,7 +96,7 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 
 ## Next steps
 
-In this quick start, you deployed a simple virtual machine, open a network port for web traffic, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
+In this quickstart, you deployed a simple virtual machine, open a network port for web traffic, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
 
 > [!div class="nextstepaction"]
 > [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)

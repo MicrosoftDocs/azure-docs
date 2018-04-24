@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create SSH key pair
 
-You need an SSH key pair to complete this quick start. If you have an existing SSH key pair, this step can be skipped.
+You need an SSH key pair to complete this quickstart. If you have an existing SSH key pair, this step can be skipped.
 
 To create an SSH key pair and log into Linux VMs, run the following command from a Bash shell and follow the on-screen directions. For example, you can use the [Azure Cloud Shell](../../cloud-shell/overview.md) or the [Windows Substem for Linux](/windows/wsl/install-win10). The command output includes the file name of the public key file. Copy the contents of the public key file (`cat ~/.ssh/id_rsa.pub`) to the clipboard:
 
@@ -114,7 +114,7 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 
 ## Next steps
 
-In this quick start, you deployed a simple virtual machine, created a Network Security Group and rule, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
+In this quickstart, you deployed a simple virtual machine, created a Network Security Group and rule, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)

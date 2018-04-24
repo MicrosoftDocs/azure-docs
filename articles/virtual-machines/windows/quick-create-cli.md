@@ -109,7 +109,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quick start, you deployed a simple virtual machine, open a network port for web traffic, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
+In this quickstart, you deployed a simple virtual machine, open a network port for web traffic, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
 
 > [!div class="nextstepaction"]
 > [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
