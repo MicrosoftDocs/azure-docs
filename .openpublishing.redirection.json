@@ -8075,12 +8075,22 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/load-balancer/quick-create-load-balancer-basic-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/load-balancer/load-balancer-get-started-internet-arm-ps.md",
             "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-powershell",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/load-balancer/load-balancer-get-started-internet-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/quick-create-load-balancer-basic-portal.md",
             "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-portal",
             "redirect_document_id": false
         },
