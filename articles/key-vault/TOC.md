@@ -1,4 +1,4 @@
-# [Key Vault Documentation](index.md)
+# [Key Vault Documentation](index.yml)
 
 # Overview
 ## [Key Vault Overview](key-vault-overview.md)
@@ -9,13 +9,13 @@
 ## [Create a Key Vault - Portal](quick-create-portal.md)
 
 # Tutorials
-## [Configure an Azure web application to read a secret from Key vault ](tutorial-web-application-keyvault.md)
-# Samples
-## [Code samples](https://azure.microsoft.com/resources/samples/?service=key-vault)
-# Concepts
+## [Read a secret from Key Vault ](tutorial-web-application-keyvault.md)
 ## [Get started with Key Vault](key-vault-get-started.md)
 ## [Set up key rotation and auditing](key-vault-key-rotation-log-monitoring.md)
 ## [Use Key Vault from a web app](key-vault-use-from-web-application.md)
+# Samples
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=key-vault)
+# Concepts
 ## [Security worlds](key-vault-ovw-security-worlds.md)
 ## [Soft-delete](key-vault-ovw-soft-delete.md)
 ## [Storage account keys](key-vault-ovw-storage-keys.md)

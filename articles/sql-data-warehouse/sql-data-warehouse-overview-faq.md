@@ -2,13 +2,13 @@
 title: Azure SQL Data Warehouse Frequently Asked Questions | Microsoft Docs
 description: This article lists out frequently asked questions about Azure SQL Data Warehouse from customers and developers
 services: sql-data-warehouse
-author: ronortloff
+author: acomet
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.component: design
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: acomet
 ms.reviewer: igorstan
 ---
 

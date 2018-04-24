@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 04/17/2018
 ms.author: hirsin
 ms.custom: aaddev
 
@@ -49,7 +49,6 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > [!div class="mx-codeBreakAll"]
 | JWT Claim | Name | Description |
 | --- | --- | --- |
-| `appid` |Application ID |Identifies the application that is using the token to access a resource. The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD. <br><br> **Example JWT Value**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |Audience |The intended recipient of the token. The application that receives the token must verify that the audience value is correct and reject any tokens intended for a different audience. <br><br> **Example SAML Value**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Example JWT Value**: <br> `"aud":"https://contoso.com"` |
 | `appidacr` |Application Authentication Context Class Reference |Indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1. <br><br> **Example JWT Value**: <br> `"appidacr": "0"` |
 | `acr` |Authentication Context Class Reference |Indicates how the subject was authenticated, as opposed to the client in the Application Authentication Context Class Reference claim. A value of "0" indicates the end-user authentication did not meet the requirements of ISO/IEC 29115. <br><br> **Example JWT Value**: <br> `"acr": "0"` |
@@ -160,9 +159,8 @@ Refresh tokens can be invalidated or revoked at any time, for a variety of reaso
   * Involuntary Password Change: If an administrator forces a user to change their password or resets it, then the user's tokens are invalidated if they were attained using their password.  See notes below for exceptions. 
   * Security Breach: In the event of a security breach (e.g. the on-premises store of passwords is breached) the admin can revoke all of the refresh tokens currently issued.  This will force all users to re-authenticate. 
 
-Note: 
-
-If a non-password method of authentication was used (Windows Hello, the Authenticator app, biometrics like a face or fingerprint) to attain the token, changing the user's password will not force the user to re-authenticate (but it will force their Authenticator app to re-authenticate).  This is because their chosen authentication input (a face, e.g.) has not changed, and therefore can be used again to re-authenticate.
+> [!NOTE]
+> If a non-password method of authentication was used (Windows Hello, the Authenticator app, biometrics like a face or fingerprint) to attain the token, changing the user's password will not force the user to re-authenticate (but it will force their Authenticator app to re-authenticate).  This is because their chosen authentication input (a face, e.g.) has not changed, and therefore can be used again to re-authenticate.
 
 ## Sample Tokens
 
