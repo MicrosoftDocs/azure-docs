@@ -32,7 +32,7 @@ If you choose to install and use the CLI locally, this article requires the Azur
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
-Make sure to remember the values that you used for the Media Services account name, storage name and resource name.
+Make sure to remember the values that you used for the Media Services account name, storage name, and resource name.
 
 ## Enable Event Grid resource provider
 
@@ -52,7 +52,7 @@ In the **Azure** portal do the following:
 
 Before subscribing to the Event Grid's article, create an endpoint that collects the messages so you can view them.
 
-Create a function triggered by a generic webhook as described in the [generic webhook](https://docs.microsoft.com/azure/azure-functions/functions-create-generic-webhook-triggered-function) topic. In this tutorial, the **C#** code is used.
+Create a function triggered by a generic webhook as described in the [generic webhook](https://docs.microsoft.com/azure/azure-functions/functions-create-generic-webhook-triggered-function) article. In this tutorial, the **C#** code is used.
 
 Once the webhook is created, copy the URL by clicking on the *Get function URL* link at the top of the **Azure** portal window. You do not need the last part of the URL (*&clientID=default*).
 
@@ -134,7 +134,9 @@ az eventgrid event-subscription create --name event_subscription_name --resource
 
 Run an encoding job. For example, as described in the [Stream video files](stream-files-dotnet-quickstart.md) quickstart.
 
-You have triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. Browse to the webhook you created earlier. Click **Monitor** and **Refresh**. You see the job's state changes events: "Scheduled", "Queued", "Processing", "Finished". For example:
+You have triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. Browse to the webhook you created earlier. Click **Monitor** and **Refresh**. You see the job's state changes events: "Queued", "Scheduled", "Processing", "Finished", "Error", "Canceled", "Canceling".  For more information, see [Media Services event schemas](media-services-event-schemas.md).
+
+For example:
 
 ```json
 [{
