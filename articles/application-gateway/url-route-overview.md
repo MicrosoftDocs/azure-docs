@@ -1,23 +1,19 @@
----
-title: URL-based content routing overview | Microsoft Docs
-description: This page provides an overview of the Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule .
+title: Azure Application Gatewaty URL-based content routing overview
+description: This article provides an overview of the Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
-
-ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2017
-ms.author: davidmu
+ms.date: 4/23/2018
+ms.author: victorh
 
 ---
-# URL Path Based Routing overview
+# Azure Application Gatewaty URL path based routing overview
 
 URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. 
 
