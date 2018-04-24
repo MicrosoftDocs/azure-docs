@@ -33,7 +33,10 @@ For more information about how storage accounts are used in Media Services, see 
 The following command creates a Storage account that is going to be associated with the Media Services account. In the script below, you can substitute `storageaccountforams` with your value. The account name must have length less than 24.
 
 ```azurecli-interactive
-az storage account create --name storageaccountforams --resource-group amsResourceGroup
+az storage account create --name storageaccountforams \  
+--kind StorageV2 \
+--sku Standard_RAGRS \
+--resource-group amsResourceGroup
 ```
 
 ### Create a Media Services account
