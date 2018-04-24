@@ -16,7 +16,7 @@ ms.author: luisca
 
 As the content of a document flows through a skill, it gets enriched with annotations that could be used as inputs for further downstream enrichment, or mapped to an output field in an index. Depending on the skill and source inputs, annotations can assume different shapes. Knowing the syntax of annotation structure is essential for referencing an annotation in a downstream skill or mapping it to an index.
 
-This article explains how to create references to simple and complex annotations using examples to illustrate common use cases. Examples in this article are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage) as part of the document cracking step. When referring to documents from a Blob container, use a format such as "/document/content", where the *content* field is part of the *document*. 
+This article explains how to create references to simple and complex annotations using examples to illustrate common use cases. Examples in this article are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the document cracking step. When referring to documents from a Blob container, use a format such as "/document/content", where the *content* field is part of the *document*. 
 
 ## Background concepts
 

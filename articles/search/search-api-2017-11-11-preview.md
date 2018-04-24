@@ -17,7 +17,7 @@ ms.author: HeidiSteen
 # Azure Search Service REST API: Version 2017-11-11-Preview
 This article describes the `api-version=2017-11-11-Preview` version of Azure Search service REST API, providing the following experimental features:
 
-+ [Cognitive search](cognitive-search-intro.md), a new enrichment capability in Azure Search indexing that finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
++ [Cognitive search](cognitive-search-concept-intro.md), a new enrichment capability in Azure Search indexing that finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
 
 The preview API is equivalent to the generally available API with the exception of the following two operations:
 

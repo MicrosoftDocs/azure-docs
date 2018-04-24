@@ -12,15 +12,15 @@ ms.author: heidist
 ---
 # What is cognitive search?
 
-Cognitive search, now in public preview, is a new enrichment layer in Azure Search indexing that finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
+Cognitive search, now in public preview, is a new extensible enrichment pipeline in Azure Search. It uses new AI powered skills to finds latent information in non-text sources and unstructured text, transforming data into searchable content. New capabilities for content enrichment are:
 
-+ Natural language processing - in the form of entity recognition, sentiment analysis, key phrase analysis, and language detection - bring AI-powered modeling that extracts information that can amplify a search experience.
-+ Image processing can make scanned documents searchable. Another scenario - analyze photographs for words and numbers that can be added to an index.
-+ Structural processing can deconstruct chunks of text into component parts, or blend smaller bits into larger units.
++	Natural language processing - in the form of entity recognition, sentiment analysis, key phrase extraction, and language detection - bring AI-powered modeling that extracts information that can amplify a search experience.
++	Image processing can make scanned documents searchable through optical character recognition. You can even analyze photographs to identify faces or automatically create searchable tags.
++	Custom processing – create your own skills, and plug them into the enrichment pipeline. 
 
-At the heart of cognitive search is an extensible indexing pipeline powered by *cognitive skills* that enrich source documents through these various forms of processing, en route to a search index.
+At the heart of cognitive search is an extensible indexing pipeline powered by *cognitive skills* that enrich source documents through these various forms of processing, in route to a search index.
 
-![Component diagram of enrichment, augmentation pipeline](./media/cognitive-search-intro/cogsearch-architecture.png)
+![Component diagram of enrichment pipeline](./media/cognitive-search-intro/cogsearch-architecture.png)
 
 ## Pipeline components
 

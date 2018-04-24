@@ -63,6 +63,6 @@ The path in a sourceFieldName can represent one element or multiple elements. In
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
 
-Once you have mapped your enriched fields to searchable fields, you can set the field attributes for each of the searchable fields [as part of the index definition](search-what-is-an-index).
+Once you have mapped your enriched fields to searchable fields, you can set the field attributes for each of the searchable fields [as part of the index definition](search-what-is-an-index.md).
 
-For more information about field mapping, see [Field mappings in Azure Search indexers](search-indexer-field-mappings).
+For more information about field mapping, see [Field mappings in Azure Search indexers](search-indexer-field-mappings.md).
