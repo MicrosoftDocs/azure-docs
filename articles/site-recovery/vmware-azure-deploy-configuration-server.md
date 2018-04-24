@@ -106,6 +106,11 @@ If you want to add an additional NIC to the configuration server, add it before 
 10. After registration finishes, in the Azure portal, verify that the configuration server and VMware server are listed on the **Source** page in the vault. Then select **OK** to configure target settings.
 
 
+## Upgrade the configuration server
+
+To upgrade the configuration server to the latest version, read the steps given [here](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+
+
 ## Troubleshoot deployment issues
 
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
