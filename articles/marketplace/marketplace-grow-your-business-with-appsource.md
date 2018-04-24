@@ -1,4 +1,4 @@
----
+﻿---
 title: Grow your business in Azure with AppSource
 description: Information about using AppSource, which enables Microsoft partners to make their technology and services discoverable to customers through a Microsoft-supported online storefront.
 services: Marketplace, AppSource, Compute, Storage, Networking, Security
@@ -120,7 +120,7 @@ Adding these parameters to your AppSource URL enables you to review the effectiv
 
 New listings in AppSource are eligible to receive free marketplace GTM benefits. Once listed, our team of marketing specialists will reach out to you, and work with your marketing contact to kick-start these activities. 
 The activities we provide differ depending on your solution status in our marketplace. Benefits increase for offers that come with a trial experience. Microsoft Gold partners can access additional benefits. 
-To maximize the impact of these activities, we encourage you to have your launch plan ready to execute. You may want to leverage your landing page for many of these tactics. Note that One Commercial Partner (OCP) Catalog is a benefit of members in the Microsoft Partner Network. For guidance on how to build a great landing page, see [Build a Great Landing Page](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page). 
+To maximize the impact of these activities, we encourage you to have your launch plan ready to execute. You may want to leverage your landing page for many of these tactics. Note that One Commercial Partner (OCP) Catalog is a benefit of members in the Microsoft Partner Network. For guidance on how to build a great landing page, see [Build a Great Landing Page](https://docs.microsoft.com/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page). 
 For additional go-to-market support including templates, web content, training, and tools to promote your business, visit [https://www.MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com). 
 
 #### Enable lead sharing 

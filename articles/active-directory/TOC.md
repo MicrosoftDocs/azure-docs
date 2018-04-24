@@ -1,4 +1,4 @@
-# [Azure Active Directory Documentation](index.md)
+﻿# [Azure Active Directory Documentation](index.md)
 
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
@@ -224,7 +224,7 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Qlik Sense](active-directory-application-proxy-qlik.md) 
-#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
 
