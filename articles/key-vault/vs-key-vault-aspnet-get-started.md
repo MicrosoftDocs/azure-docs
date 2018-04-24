@@ -1,5 +1,4 @@
 ---
-redirect_url: /azure/key-vault/key-vault-use-from-web-application
 title: Get started with Key Vault Connected Service in Visual Studio (ASP.NET Projects) | Microsoft Docs
 description: Use this tutorial to help you learn how to add Key Vault support to an ASP.NET or ASP.NET Core web application.
 services: key-vault
@@ -36,29 +35,6 @@ See [What happened to my ASP.NET project?](vs-key-vault-aspnet-core-what-happene
    ![Create a secret](media/vs-key-vault-add-connected-service/create-a-secret.jpg)
  
 1. (optional) Enter another secret, but this time put it into a category by naming it **Secrets--MySecret**. This syntax specifies a category **Secrets** that contains a secret **MySecret**.
-1. In your Visual Studio project, you can now reference these secrets by using the following expressions in code:
- 
-   ```csharp
-      config["MySecret"] // Access a secret without a section
-      config["Secrets:MySecret"] // Access a secret in a section
-      config.GetSection("Secrets")["MySecret"] // Get the configuration section and access a secret in it.
-   ```
-
-   On a .cshtml page, say About.cshtml, add the @inject directive near the top of the file to set up a variable you can use to access the Key Vault configuration.
-
-   ```cshtml
-      @inject Microsoft.Extensions.Configuration.IConfiguration config
-   ```
-
-1. You can confirm that the value of the secret is available by displaying it on one of the pages. Use @config to reference the config variable.
- 
-   ```cshtml
-      <p> @config["MySecret"] </p>
-      <p> @config.GetSection("Secrets")["MySecret"] </p>
-      <p> @config["Secrets:MySecret"] </p>
-   ```
-
-1. Build and run the web application, navigate to the About page, and see the "secret" value.
 
 # Next steps
 

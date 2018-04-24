@@ -54,14 +54,14 @@ For details on the changes that Connected Services makes in your project to enab
 
 1. In the Key Vault section for the key vault you created, choose **Secrets**, then **Generate/Import**.
 
-   ![Generate/Import a secret](media/vs-key-vault-add-connected-service/generate-secret.jpg)
+   ![Generate/Import a secret](media/vs-key-vault-add-connected-service/generate-secrets.jpg)
 
 1. Enter a secret, such as "MySecret", and give it any string value as a test, then choose the **Create** button.
 2. 
 3. ![Create a secret](media/vs-key-vault-add-connected-service/create-a-secret.jpg)
 4. 
 5. (optional) Enter another secret, but this time put it into a category by naming it "Secrets--MySecret". This syntax specifies a category "Secrets" that contains a secret "MySecret."
-6. In Visual Studio, in your project, you can now reference these secrets by using the following expressions in code:
+6. In Visual Studio, in your ASP.NET Core project, you can now reference these secrets by using the following expressions in code:
  
    ```csharp
       config["MySecret"] // Access a secret without a section
