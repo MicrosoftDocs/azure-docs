@@ -14,7 +14,7 @@ metadata:
   ms.date: 11/02/2017
   ms.author: v-gedod
 abstract:
-  description: Bing News Search API provides an experience similar to [Bing News](https://www.bing.com/news), by returning a list of news articles that Bing determines are relevant to a user's query.
+  description: Bing News Search API provides an experience similar to Bing News, by returning a list of news articles that Bing determines are relevant to a user's query.
 sections:
 - title: 5-Minute Quickstarts
   items:
