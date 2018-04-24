@@ -99,27 +99,7 @@ Start with [QuickStart: create a Spark cluster in HDInsight and run interactive 
 
 ## Next Steps
 
-- Scenarios
+In this overview, you get some basic understanding of Apache Spark in Azure HDInsight. Advance to the next article to learn how to create an HDInsight Spark cluster and run some simple Spark SQL queries:
 
-    * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
-    * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
-    * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-    * [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
-- Create and run applications
-
-    * [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
-    * [Run jobs remotely on a Spark cluster using Livy](apache-spark-livy-rest-interface.md)
-- Tools and extensions
-
-    * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
-    * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-    * [Use Zeppelin notebooks with a Spark cluster in HDInsight](apache-spark-zeppelin-notebook.md)
-    * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
-    * [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
-    * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
-- Manage resources
-
-    * [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
-    * [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)
-    * [Known issues of Apache Spark in Azure HDInsight](apache-spark-known-issues.md).
-    
+> [!div class="nextstepaction"]
+>[Create an Spark cluster in HDInsight](./apache-spark-jupyter-spark-sql.md)
