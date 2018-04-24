@@ -352,7 +352,7 @@ Validate the new pattern with a test.
 4. Close the test panel by selecting the **Test** button in the top navigation.
 
 ## Use a Pattern.any entity to find free-form entities in a pattern
-This HumanResources app also helps employees find company forms. Many of the forms have titles that are varying in length. The varying length includes phrases that may confuse LUIS about where the form name ends. Using a **Pattern.any** entity in a pattern allows you to specify the beginning and end of the form name so LUIS correctly extracts the form name. Because LUIS matches the form name with Pattern.any, it also knows which intent is used. Create a Pattern.any and use it in a template utterance to extract the form name.
+This HumanResources app also helps employees find company forms. Many of the forms have titles that are varying in length. The varying length includes phrases that may confuse LUIS about where the form name ends. Using a **Pattern.any** entity in a pattern allows you to specify the beginning and end of the form name so LUIS correctly extracts the form name. 
 
 ### Create a new intent for the form
 Create a new intent for utterances that are looking for forms.
