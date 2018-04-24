@@ -19,7 +19,10 @@ ms.author: daveba
 # How to use an Azure VM Managed Service Identity (MSI) for token acquisition 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
-This article provides various code and script examples for token acquisition, as well as guidance on important topics such as handling token expiration and HTTP errors. We recommend that you use Managed Service Identity with the IMDS endpoint, as the VM extension endpoint will be deprecated.
+
+Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+
+This article provides various code and script examples for token acquisition, as well as guidance on important topics such as handling token expiration and HTTP errors. 
 
 ## Prerequisites
 
@@ -29,14 +32,14 @@ If you plan to use the Azure PowerShell examples in this article, be sure to ins
 
 
 > [!IMPORTANT]
-> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
+> - All sample code/script in this article assumes the client is running on a Virtual Machine with a Managed Service Identity. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
 
 > [!IMPORTANT]
-> - The security boundary of an Managed Identity, is the resource. All code/scripts running on an MSI-enabled Virtual Machine, can request and retrieve tokens. 
+> - The security boundary of a Managed Service Identity, is the resource it's being used on. All code/scripts running on a Virtual Machine can request and retrieve tokens for any Managed Service Identity available on it. 
 
 ## Overview
 
-A client application can request an MSI [app-only access token](../develop/active-directory-dev-glossary.md#access-token) for accessing a given resource. The token is [based on the MSI service principal](overview.md#how-does-it-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in
+A client application can request a Managed Service Identity [app-only access token](../develop/active-directory-dev-glossary.md#access-token) for accessing a given resource. The token is [based on the MSI service principal](overview.md#how-does-it-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in
 [service-to-service calls requiring client credentials](../develop/active-directory-protocols-oauth-service-to-service.md).
 
 |  |  |
@@ -46,7 +49,7 @@ A client application can request an MSI [app-only access token](../develop/activ
 | [Get a token using Go](#get-a-token-using-go) | Example of using the MSI REST endpoint from a Go client |
 | [Get a token using Azure PowerShell](#get-a-token-using-azure-powershell) | Example of using the MSI REST endpoint from a PowerShell client |
 | [Get a token using CURL](#get-a-token-using-curl) | Example of using the MSI REST endpoint from a Bash/CURL client |
-| [Handling token expiration](#handling-token-expiration) | Guidance for handling expired access tokens |
+| [Handling token caching](#handling-token-caching) | Guidance for handling expired access tokens |
 | [Error handling](#error-handling) | Guidance for handling HTTP errors returned from the MSI token endpoint |
 | [Resource IDs for Azure services](#resource-ids-for-azure-services) | Where to get resource IDs for supported Azure services |
 
@@ -54,10 +57,10 @@ A client application can request an MSI [app-only access token](../develop/activ
 
 The fundamental interface for acquiring an access token is based on REST, making it accessible to any client application running on the VM that can make HTTP REST calls. This is similar to the Azure AD programming model, except the client uses an endpoint on the virtual machine (vs an Azure AD endpoint).
 
-Sample request using the MSI Instance Metadata Service (IMDS) Endpoint *(recommended)*:
+Sample request using the Azure Instance Metadata Service (IMDS) endpoint *(recommended)*:
 
 ```
-GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1 Metadata: true
+GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
 | Element | Description |
@@ -68,7 +71,7 @@ GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01
 | `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
 | `Metadata` | An HTTP request header field, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.
 
-Sample request using the MSI VM Extension Endpoint *(to be deprecated)*:
+Sample request using the Managed Service Identity (MSI) VM Extension Endpoint *(to be deprecated)*:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -262,23 +265,25 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The MSI access token is $access_token
 ```
 
-## Token Expiration 
+## Token caching
 
-If you are caching the token in your code, you should be prepared to handle scenarios where the resource indicated that the token is expired. 
+While the Managed Service Identity (MSI) subsystem being used (IMDS/MSI VM Extension) does cache tokens, we also recommend to implement token caching in your code. As a result, you should prepare for scenarios where the resource indicates that the token is expired. 
 
-Note: Since the IMDS MSI subsystem does cache tokens, on-the-wire calls to Azure AD results only when:
-- a cache miss occurs due to no token in the cache
-- the token is expired
+On-the-wire calls to Azure AD result only when:
+- cache miss occurs due to no token in the MSI subsystem cache
+- the cached token is expired
 
 ## Error handling
 
-The MSI endpoint signals errors via the status code field of the HTTP response message header, as either 4xx or 5xx errors:
+The Managed Service Identity endpoint signals errors via the status code field of the HTTP response message header, as either 4xx or 5xx errors:
 
 | Status Code | Error Reason | How To Handle |
 | ----------- | ------------ | ------------- |
 | 429 Too many requests. |  IMDS Throttle limit reached. | Retry with Exponential Backoff. See guidance below. |
 | 4xx Error in request. | One or more of the request parameters was incorrect. | Do not retry.  Examine the error details for more information.  4xx errors are design-time errors.|
 | 5xx Transient error from service. | The MSI sub-system or Azure Active Directory returned a transient error. | It is safe to retry after waiting for at least 1 second.  If you retry too quickly or too often, IMDS and/or Azure AD may return a rate limit error (429).|
+| 404 Not found. | IMDS endpoint is updating. | Retry with Expontential Backoff. See guidance below. |
+| timeout | IMDS endpoint is updating. | Retry with Expontential Backoff. See guidance below. |
 
 If an error occurs, the corresponding HTTP response body contains JSON with the error details:
 
@@ -303,9 +308,9 @@ This section documents the possible error responses. A "200 OK" status is a succ
 |           | invalid_scope | The requested scope is invalid, unknown, or malformed. |  |
 | 500 Internal server error | unknown | Failed to retrieve token from the Active directory. For details see logs in *\<file path\>* | Verify that MSI has been enabled on the VM. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.<br><br>Also verify that your HTTP GET request URI is formatted correctly, particularly the resource URI specified in the query string. See the "Sample request" in the [preceding REST section](#rest) for an example, or [Azure services that support Azure AD authentication](overview.md#azure-services-that-support-azure-ad-authentication) for a list of services and their respective resource IDs.
 
-## Throttling guidance 
+## Retry guidance 
 
-Throttling limits apply to the number of calls made to the MSI IMDS endpoint. When the throttling threshold is exceeded, the MSI IMDS endpoint limits any further requests while the throttle is in effect. During this period, the MSI IMDS endpoint will return the HTTP status code 429 ("Too many requests"), and the requests fail. 
+Throttling limits apply to the number of calls made to the IMDS endpoint. When the throttling threshold is exceeded, IMDS endpoint limits any further requests while the throttle is in effect. During this period, the IMDS endpoint will return the HTTP status code 429 ("Too many requests"), and the requests fail. 
 
 For retry, we recommend the following strategy: 
 
