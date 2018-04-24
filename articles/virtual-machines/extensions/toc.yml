@@ -73,7 +73,7 @@
       href: stackify-retrace-linux.md
     - name: Symantec
       href: symantec.md
-  - name: Depricated extensions
+  - name: Deprecated extensions
     items:
     - name: Log Collector extension
       href: log-collector.md

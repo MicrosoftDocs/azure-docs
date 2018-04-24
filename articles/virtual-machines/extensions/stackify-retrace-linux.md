@@ -191,4 +191,4 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 110 | Disable Error | Service Removal Failed |
 | 120 | Uninstall Error | Service Stop Failed |
 
-If you need more help you can contact Stackify support at https://support.stackify.com
+If you need more help you can contact Stackify support at https://support.stackify.com.
