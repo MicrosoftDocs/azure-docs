@@ -5062,7 +5062,7 @@
         },
         {
             "source_path": "articles/documentdb/documentdb-mongodb-application.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-mongodb-dotnet",
             "redirect_document_id": false
         },
         {
@@ -5554,6 +5554,11 @@
             "source_path": "articles/documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-develop-mongodb.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-mongodb-dotnet",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-security.md",
@@ -18879,10 +18884,65 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machines/workloads/sap/how-to-enable-write-accelerator.md",
+            "redirect_url": "/azure/virtual-machines/windows/how-to-enable-write-accelerator",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-manage-users-and-devices.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userdevicesettings",
             "redirect_document_id": true
         },
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-cli.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-portal.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-powershell.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-powershell",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-rest.md",
+            "redirect_url": "/rest/api/network-watcher/networkwatchers/verifyipflow",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-next-hop-cli.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-cli",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-next-hop-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-cli",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-next-hop-rest.md",
+            "redirect_url": "/rest/api/network-watcher/networkwatchers/getnexthop",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-next-hop-portal.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-next-hop-powershell.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-powershell",
+            "redirect_document_id": true
+        },        
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
