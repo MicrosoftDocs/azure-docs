@@ -84,6 +84,7 @@ Azure IoT technologies and solutions are designed to facilitate the end-to-end d
                         <h3>Provision devices</h3>
                         <a href="/azure/iot-edge">IoT Hub Device Provisioning Service</a><br/>
                         <a href="/azure/iot-hub/iot-hub-devguide-identity-registry">Understand the identity registry in your IoT hub</a>
+                        <a href="/azure/iot-hub/iot-hub-bulk-identity-mgmt">Manage your IoT Hub device identities in bulk</a>
                     </div>
                 </div>
             </div>
