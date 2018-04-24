@@ -14,7 +14,7 @@ ms.author: christw
 # Microsoft Translator Text API
 The Microsoft Translator Text API can be seamlessly integrated into your applications, websites, tools, or other solutions to provide multi-language user experiences in more than 60 languages. It can be used on any hardware platform and with any operating system to perform text to text language translation.
 
-Microsoft Translator Text API is part of the Microsoft [Cognitive Services API](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects.
+Microsoft Translator Text API is part of the Microsoft [Cognitive Services API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects.
 
 ## About Microsoft Translator
 Microsoft Translator is a cloud based machine translation service. At the core of this service are the Translator Text API and [Translator Speech API](https://www.microsoft.com/en-us/translator/speech.aspx) which power various Microsoft products and services and are used by thousands of businesses worldwide in their applications and workflows, allowing their content to reach a worldwide audience.
@@ -51,7 +51,7 @@ Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.a
 > [Start coding](quickstarts/csharp.md)
 
 ## See also
-- [Cognitive Services Documentation page](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai)
+- [Cognitive Services Documentation page](https://docs.microsoft.com/azure/#pivot=products&panel=ai)
 - [Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
 - [Solution and pricing information](https://www.microsoft.com/en-us/translator/default.aspx).
 

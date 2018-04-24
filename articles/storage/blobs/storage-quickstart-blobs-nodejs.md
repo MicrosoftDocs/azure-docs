@@ -281,7 +281,7 @@ See these additional resources for Node.js development with Blob storage:
 
 ### Client library reference and samples
 
-- See the [Node.js API reference](https://docs.microsoft.com/en-us/javascript/api/overview/azure/storage) for more information about the Node.js client library.
+- See the [Node.js API reference](https://docs.microsoft.com/javascript/api/overview/azure/storage) for more information about the Node.js client library.
 - Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=nodejs&term=blob) written using the Node.js client library.
 
 ## Next steps

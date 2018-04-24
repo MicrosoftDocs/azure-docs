@@ -1,4 +1,4 @@
----
+﻿---
 title: Using API version profiles with GO in Azure Stack | Microsoft Docs
 description: Learn about using API version profiles with GO in Azure Stack.
 services: azure-stack
@@ -127,7 +127,7 @@ The Authorizer must be set as the authorizer for the resource client. There are 
 
 This section presents a common way to get authorizer tokens on Azure Stack by using client credentials:
 
-  1. If a service principal with owner role on the subscription is available, skip this step. Otherwise create a service principal [instructions]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) and assign it an "owner" role scoped to your subscription [instructions]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Save the service principal application ID and secret. 
+  1. If a service principal with owner role on the subscription is available, skip this step. Otherwise create a service principal [instructions]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) and assign it an "owner" role scoped to your subscription [instructions]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Save the service principal application ID and secret. 
 
   2. Import **adal** package from Go-AutoRest in your code. 
   
