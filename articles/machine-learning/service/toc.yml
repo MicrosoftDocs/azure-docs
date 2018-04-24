@@ -83,9 +83,7 @@
   - name: Develop models
     items: 
     - name: Classify Iris using CLI
-      href: ../desktop-workbench/tutorial-iris-azure-cli.md
-    - name: Train computer vision models
-      href: how-to-train-image-classification-models.md    
+      href: ../desktop-workbench/tutorial-iris-azure-cli.md  
     - name: Track run history and model metrics
       href: ../desktop-workbench/how-to-use-run-history-model-metrics.md    
     - name: Find run with the best accuracy
