@@ -21,7 +21,7 @@ Cognitive Search has several capabilities that allow you to work with images and
 
 ## Getting Normalized Images
 
-As part of the "document cracking" step there is a new set of indexer configuration parameters. These parameters allow you to specify what an indexer should do when it encounters image files or images which are embedded in files; for instance, a .PDF that contains several images inside it.
+As part of the "document cracking" step, there is a new set of indexer configuration parameters. These parameters allow you to specify what an indexer should do when it encounters image files or images that are embedded in files; for instance, a .PDF that contains several images inside it.
 
 | Configuration Parameter | Description |
 |--------------------|-------------|
@@ -30,7 +30,7 @@ As part of the "document cracking" step there is a new set of indexer configurat
 |  normalizedImageMaxHeight | The maximum height (in pixels) for normalized images generated. The default is 2000.|
 
 
-Note that the default of 2000 for the normalized images width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). 
+The default of 2000 pixels for the normalized images maximum width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). 
 
 
 You specify the imageAction in your [indexer definition](ref-create-indexer.md) as follows:
@@ -80,7 +80,7 @@ When the *imageAction* is set to "generateNormalizedImages", the new *normalized
 
 Currently there are two built-in cognitive skills that take images as an input, the OCR skill and the analyze image skill. 
 
-At this point the *analyze image skill* and the *OCR skill* only work with images generated from the document cracking step. So the only supported input is "\document\normalized_images".
+At this point, the *analyze image skill* and the *OCR skill* only work with images generated from the document cracking step. So the only supported input is "\document\normalized_images".
 
 ## Analyze Image Skill
 
@@ -99,7 +99,7 @@ Learn more about it [here](cognitive-search-skill-ocr.md).
 
 ## Common Scenario: Dealing with files that contain embedded images
 
-If you need to create a single string that includes all the content of the file you need to perform the following steps:  
+If you need to create a single string that includes all the content of the file, you need to perform the following steps:  
 
 1. Extract normalized_images. (as described earlier in this document)
 1. OCR those images
