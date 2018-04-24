@@ -49,16 +49,16 @@ Each solution accelerator is a complete, end-to-end implementation that can use 
 
 Three solution accelerators  are available today:
 
-* [Remote monitoring](iot-suite-remote-monitoring-explore.md)
-* [Predictive maintenance](iot-suite-predictive-overview.md)
+* [Remote Monitoring](iot-suite-remote-monitoring-explore.md)
+* [Predictive Maintenance](iot-suite-predictive-overview.md)
 * [Connected Factory](iot-suite-connected-factory-overview.md)
 
 The following table shows how the solutions map to specific IoT features:
 
 | Solution | Data ingestion | Device identity | Device management | Edge processing | Command and control | Rules and actions | Predictive analytics |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
-| [Remote monitoring](iot-suite-remote-monitoring-explore.md)  |Yes |Yes |Yes |-   |Yes |Yes |-   |
-| [Predictive maintenance](iot-suite-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
+| [Remote Monitoring](iot-suite-remote-monitoring-explore.md)  |Yes |Yes |Yes |-   |Yes |Yes |-   |
+| [Predictive Maintenance](iot-suite-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
 | [Connected Factory](iot-suite-connected-factory-overview.md) |Yes |- |- |Yes |Yes |Yes |-   |
 
 * *Data ingestion*: Ingress of data at scale to the cloud.
@@ -75,7 +75,7 @@ The following table shows how the solutions map to specific IoT features:
 
 When you deploy a solution accelerator, the provisioning process configures a number of Azure services. The following table shows the services used in the solution accelerators:
 
-|                      | Remote monitoring  | Predictive maintenance | Connected Factory |
+|                      | Remote Monitoring  | Predictive Maintenance | Connected Factory |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
 | IoT Hub              | Yes                | Yes                    | Yes               |
 | Event Hubs           |                    | Yes                    |                   |
@@ -105,15 +105,15 @@ Microsoft is updating the solution accelerators to a new microservices-based arc
 
 | Solution accelerator | Architecture  | Languages     |
 | ---------------------- | ------------- | ------------- |
-| Remote monitoring      | Microservices | Java and .NET |
-| Predictive maintenance | MVC           | .NET          |
+| Remote Monitoring      | Microservices | Java and .NET |
+| Predictive Maintenance | MVC           | .NET          |
 | Connected Factory      | MVC           | .NET          |
 
 The following sections describe what's new in the microservices-based solution accelerators:
 
 ### Microservices
 
-The new version of the remote monitoring solution accelerator uses a microservices architecture. This solution accelerator is composed of multiple microservices such as an *IoT Hub manager* and a *Storage manager*. Both Java and .NET versions of each microservice are available to download, along with related developer documentation. For more information about the microservices, see [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md).
+The new version of the remote monitoring solution accelerator uses a microservices architecture. This solution accelerator is composed of multiple microservices such as an *IoT Hub manager* and a *Storage manager*. Both Java and .NET versions of each microservice are available to download, along with related developer documentation. For more information about the microservices, see [Remote Monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md).
 
 This microservices architecture is a proven pattern for cloud solutions that:
 
@@ -134,8 +134,8 @@ When you deploy the new version of remote monitoring, you must select one of the
 
 Implementations of each of the microservices are available in both Java and .NET. Like the .NET code, the Java source code is open source and available for you to customize to your specific requirements:
 
-* [Remote monitoring .NET GitHub repository](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Remote monitoring Java GitHub repository](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [Remote Monitoring .NET GitHub repository](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Remote Monitoring Java GitHub repository](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 
 If you'd like to see other language implementations, add a request to [Azure IoT user voice](https://feedback.azure.com/forums/321918-azure-iot).
 
@@ -148,7 +148,7 @@ The UI is built using the [React](https://facebook.github.io/react/) javascript 
 Now that you have an overview of the IoT solution accelerators, here are suggested next steps for each of the solution accelerators:
 
 * [Explore the Remote Monitoring solution Resource Manager deployment model](iot-suite-remote-monitoring-explore.md).
-* [Predictive maintenance solution accelerator overview](iot-suite-predictive-overview.md).
+* [Predictive Maintenance solution accelerator overview](iot-suite-predictive-overview.md).
 * [Get started with the Connected Factory solution accelerator](iot-suite-connected-factory-overview.md).
 
 For more information about IoT solution architectures, see [Microsoft Azure IoT services: Reference Architecture](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf).

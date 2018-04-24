@@ -18,7 +18,7 @@ ms.date: 11/14/2017
 ms.author: dobett
 
 ---
-# Predictive maintenance solution accelerator overview
+# Predictive Maintenance solution accelerator overview
 
 The *Predictive Maintenance* [solution accelerator][lnk_preconfigured_solutions] is one of the [Microsoft Azure IoT solution accelerators][lnk_iot_suite] solution accelerators. This solution integrates real-time device telemetry collection with a predictive model created using [Azure Machine Learning][lnk-machine-learning].
 
@@ -55,7 +55,7 @@ The Azure IoT Predictive Maintenance solution accelerator uses the regression mo
 
 *\[1\] A. Saxena and K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
-## Get started with predictive maintenance
+## Get started with Predictive Maintenance
 
 This tutorial shows you how to provision the Predictive Maintenance solution accelerator. It also walks you through the basic features of the Predictive Maintenance solution accelerator. You can access many of these features through the solution dashboard that deploys along with the solution accelerator.
 
@@ -65,7 +65,7 @@ To complete this tutorial, you need an active Azure subscription.
 > If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk_free_trial].
 
 1. Log on to [azureiotsuite.com][lnk-azureiotsuite] using your Azure account credentials, and click **+** to create a solution.
-1. Click **Select** the **Predictive maintenance** tile.
+1. Click **Select** the **Predictive Maintenance** tile.
 1. Enter a **Solution name** for your Predictive Maintenance solution accelerator.
 1. Select the **Region** and **Subscription** you want to use to provision the solution.
 1. Click **Create Solution** to begin the provisioning process. This process typically takes several minutes to run.

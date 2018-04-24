@@ -26,9 +26,9 @@ See also, the [Connected Factory-specific FAQ](iot-suite-faq-cf.md) and the [rem
 
 The source code is stored in the following GitHub repositories:
 
-* [Remote monitoring solution accelerator (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Remote monitoring solution accelerator (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
-* [Predictive maintenance solution accelerator](https://github.com/Azure/azure-iot-predictive-maintenance)
+* [Remote Monitoring solution accelerator (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Remote Monitoring solution accelerator (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [Predictive Maintenance solution accelerator](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Connected Factory solution accelerator](https://github.com/Azure/azure-iot-connected-factory)
 
 ### What SDKs can I use to develop device clients for the solution accelerators?
@@ -90,6 +90,6 @@ See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](http://b
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
 * [Explore the capabilities of the remote monitoring solution accelerator](iot-suite-remote-monitoring-explore.md)
-* [Predictive maintenance solution accelerator overview](iot-suite-predictive-overview.md)
+* [Predictive Maintenance solution accelerator overview](iot-suite-predictive-overview.md)
 * [Connected Factory solution accelerator overview](iot-suite-connected-factory-overview.md)
 * [IoT security from the ground up](securing-iot-ground-up.md)

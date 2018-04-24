@@ -36,7 +36,7 @@ The remote monitoring solution has both .NET and Java implementations. Both impl
 
 ### Microservices
 
-If you are interested in a specific feature of the solution, you can access the GitHub repositories for each individual microservice. Each microservice implements a different part of the solution functionality. To learn more about the overall architecture, see [Remote monitoring solution accelerator architecture](iot-suite-remote-monitoring-sample-walkthrough.md).
+If you are interested in a specific feature of the solution, you can access the GitHub repositories for each individual microservice. Each microservice implements a different part of the solution functionality. To learn more about the overall architecture, see [Remote Monitoring solution accelerator architecture](iot-suite-remote-monitoring-sample-walkthrough.md).
 
 This table summarizes the current availability of each microservice for each language:
 
@@ -253,7 +253,7 @@ To modify the infrastructure in the remote monitoring solution, you can edit the
 
 In this article, you learned about the resources available to help you customize the solution accelerator.
 
-For more conceptual information about the remote monitoring solution accelerator, see [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
+For more conceptual information about the remote monitoring solution accelerator, see [Remote Monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
 
 For more information about customizing the remote monitoring solution, see:
 

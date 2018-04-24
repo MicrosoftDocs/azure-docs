@@ -41,7 +41,7 @@ The IoT solution accelerators support the following Cipher Suites, in this order
 ## See also
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Predictive maintenance solution accelerator overview][lnk-predictive-overview]
+* [Predictive Maintenance solution accelerator overview][lnk-predictive-overview]
 * [Frequently asked questions for IoT solution accelerators][lnk-faq]
 
 You can read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-security] in the IoT Hub developer guide.

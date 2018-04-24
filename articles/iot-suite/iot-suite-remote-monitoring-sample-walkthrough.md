@@ -18,7 +18,7 @@ ms.date: 11/10/2017
 ms.author: dobett
 
 ---
-# Remote monitoring solution accelerator architecture
+# Remote Monitoring solution accelerator architecture
 
 The Remote Monitoring solution accelerator [solution accelerator](iot-suite-what-are-solution-accelerators.md) implements an end-to-end monitoring solution for multiple machines in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and [customize](iot-suite-remote-monitoring-customize.md) it to meet your own specific business requirements.
 

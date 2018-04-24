@@ -39,7 +39,7 @@ Before you deploy the solution accelerator to your Azure subscription, you must 
 
     ![Create a new solution](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
 
-1. Click **Select** on the **Remote monitoring preview** tile.
+1. Click **Select** on the **Remote Monitoring preview** tile.
 
     ![Choose remote monitoring](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
@@ -55,7 +55,7 @@ Before you deploy the solution accelerator to your Azure subscription, you must 
 
 1. Click **Create Solution** to begin the provisioning process. This process typically takes several minutes to run:
 
-    ![Remote monitoring solution details](media/iot-suite-remote-monitoring-deploy/createform.png)
+    ![Remote Monitoring solution details](media/iot-suite-remote-monitoring-deploy/createform.png)
 
 For troubleshooting information, see [What to do when a deployment fails](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) in the GitHub repository.
 
