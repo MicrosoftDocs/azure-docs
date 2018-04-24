@@ -79,4 +79,4 @@ Your sign in access is for **60 minutes**. After this time period, you will get 
 [luis-how-to-manage-versions]:luis-how-to-manage-versions.md
 [pricing]:https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
 <!-- TBD: fix this link -->
-[speech-to-intent-pricing]:http://azure.microsoft.com/pricing/details/cognitive-services/speech-to-intent
+[speech-to-intent-pricing]:https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/

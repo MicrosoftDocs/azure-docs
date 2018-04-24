@@ -22,7 +22,7 @@ Conversion of speech to text in LUIS allows you to send spoken utterances to an 
 In order to make the integration between Speech and LUIS easy for the user, a new Azure key is available: **Speech-to-intent**. This key combines Speech and LUIS, providing a new endpoint and pricing model. The endpoint is able to receive both spoken and text utterances allowing you to use it as a single endpoint. 
 
 ### Quota usage
-The new key pricing combines usage quota for both Speech and LUIS at $5 per one thousand utterances. If you send a text utterance to the new endpoint, you are only charged for the LUIS portion at $1. 
+See [Key limits](luis-boundaries.md#key-limits) for information. 
 
 ### Data retention
 The data sent to the endpoint, regardless if it is speech or text, is only used to enhance your speech model. It is not used beyond your model to enhance either Speech or LUIS in a general capacity. When the LUIS app is deleted, the retained data is also deleted.
