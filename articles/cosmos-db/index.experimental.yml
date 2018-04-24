@@ -47,10 +47,10 @@ sections:
             src: media/index.experimental/sql-api.svg
           title: SQL API
         - href: /azure/cosmos-db/graph-introduction/
-          html: <p>Use the Graph API if you're building a graph database to model and traverse relationships among entities.</p>
+          html: <p>Use the Gremlin API if you're building a graph database to model and traverse relationships among entities.</p>
           image:
             src: media/index.experimental/graph-api.svg
-          title: Graph API
+          title: Gremlin API
         - href: /azure/cosmos-db/mongodb-introduction/
           html: <p>Use the MongoDB API if you are migrating data from a MongoDB database to Azure Cosmos DB's fully managed service.</p>
           image:
@@ -107,7 +107,7 @@ sections:
             - href:
             - href: /azure/cosmos-db/create-mongodb-golang
             - href:
-        - title: Graph API
+        - title: Gremlin API
           values:
             - href: /azure/cosmos-db/create-graph-java
             - href: /azure/cosmos-db/create-graph-dotnet
@@ -160,7 +160,7 @@ sections:
         html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Wire Protocol</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
       - title: Table API
         html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.js</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
-      - title: Graph API
+      - title: Gremlin API
         html: <p><a href="http://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="http://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>
       - title: Cassandra API
         html: <p><a href="https://github.com/datastax/nodejs-driver">Node.js</a></p><p><a href="https://github.com/datastax/python-driver">Python</a></p><p><a href="https://github.com/datastax/java-driver">Java</a></p>

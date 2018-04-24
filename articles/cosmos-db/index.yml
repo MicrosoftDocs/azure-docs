@@ -64,7 +64,7 @@ sections:
           - href: /azure/cosmos-db/create-mongodb-flask
           - href:
           - href:
-      - title: Graph API
+      - title: Gremlin API
         values:
           - href: /azure/cosmos-db/create-graph-java
           - href: /azure/cosmos-db/create-graph-dotnet
