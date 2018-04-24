@@ -1,6 +1,6 @@
 ---
 title: Azure service availability in China | Microsoft Docs
-description: This article highlights the services available in global Azure and Azure China  21Vianet 21Vianet side-by-side, making for an easy comparison of the two. 
+description: This article highlights the services available in global Azure and Azure China  21Vianet 21Vianet side-by-side, making for an easy comparison of the two.
 services: china
 cloud: na
 documentationcenter: na
@@ -34,7 +34,7 @@ The following tables compare services available in global Azure and Microsoft Az
 | Azure Batch                | GA                                                                                                                                                                                 | GA                                                                                                                           |
 | Azure Service Fabric       | GA                                                                                                                                              | GA                                                                                      |
 | Azure Functions            | GA                                                                                                                                                                                 | *Not available*                                                                                                              |
-| Azure Container Service (AKS)    | GA                                                                                                                                                                                 | *Not available*                                                                                                              |
+| Azure Kubernetes Service (AKS)    | GA                                                                                                                                                                                 | *Not available*                                                                                                              |
 | Azure Container Registry   | GA                                                                                                                                                                                 | *Not available*                                                                                                              |
 | Azure Container Instances  | Preview                                                                                                                                                                            | *Not available*                                                                                                              |
 

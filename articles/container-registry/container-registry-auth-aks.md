@@ -1,6 +1,6 @@
 ---
-title: Authenticate with Azure Container Registry from Azure Container Service
-description: Learn how to provide access to images in your private container registry from Azure Container Service by using an Azure Active Directory service principal.
+title: Authenticate with Azure Container Registry from Azure Kubernetes Service
+description: Learn how to provide access to images in your private container registry from Azure Kubernetes Service by using an Azure Active Directory service principal.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -11,13 +11,13 @@ ms.date: 02/24/2018
 ms.author: nepeters
 ---
 
-# Authenticate with Azure Container Registry from Azure Container Service
+# Authenticate with Azure Container Registry from Azure Kubernetes Service
 
-When you're using Azure Container Registry (ACR) with Azure Container Service (AKS), an authentication mechanism needs to be established. This document details the recommended configurations for authentication between these two Azure services.
+When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), an authentication mechanism needs to be established. This document details the recommended configurations for authentication between these two Azure services.
 
 ## Grant AKS access to ACR
 
-When an AKS cluster is created, a service principal is also created to manage cluster operability with Azure resources. This service principal can also be used for authentication with an ACR registry. To do so, a role assignment needs to be created to grant the service principal read access to the ACR resource. 
+When an AKS cluster is created, a service principal is also created to manage cluster operability with Azure resources. This service principal can also be used for authentication with an ACR registry. To do so, a role assignment needs to be created to grant the service principal read access to the ACR resource.
 
 The following sample can be used to complete this operation.
 
@@ -43,7 +43,7 @@ az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 
 In some instances, the service principal being used by AKS cannot be scoped to the ACR registry. For these cases, you can create a unique service principal and scope it to only the ACR registry.
 
-The following script can be used to create the service principal. 
+The following script can be used to create the service principal.
 
 ```bash
 #!/bin/bash
@@ -51,11 +51,11 @@ The following script can be used to create the service principal.
 ACR_NAME=myacrinstance
 SERVICE_PRINCIPAL_NAME=acr-service-principal
 
-# Populate the ACR login server and resource id. 
+# Populate the ACR login server and resource id.
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv)
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
-# Create a contributor role assignment with a scope of the ACR resource. 
+# Create a contributor role assignment with a scope of the ACR resource.
 SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Reader --scopes $ACR_REGISTRY_ID --query password --output tsv)
 
 # Get the service principle client id.
@@ -66,7 +66,7 @@ echo "Service principal ID: $CLIENT_ID"
 echo "Service principal password: $SP_PASSWD"
 ```
 
-The service principal credentials can now be stored in a Kubernetes [image pull secret][image-pull-secret] and referenced when running containers in an AKS cluster. 
+The service principal credentials can now be stored in a Kubernetes [image pull secret][image-pull-secret] and referenced when running containers in an AKS cluster.
 
 The following command creates the Kubernetes secret. Replace the server name with the ACR login server, the user name with the service principal id, and the password with the service principal password.
 
@@ -74,7 +74,7 @@ The following command creates the Kubernetes secret. Replace the server name wit
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
 ```
 
-The Kubernetes secret can be used in a pod deployment using the `ImagePullSecrets` parameter. 
+The Kubernetes secret can be used in a pod deployment using the `ImagePullSecrets` parameter.
 
 ```yaml
 apiVersion: apps/v1beta1

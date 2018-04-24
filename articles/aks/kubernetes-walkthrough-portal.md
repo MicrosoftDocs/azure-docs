@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Quickstart: Deploy an Azure Container Service (AKS) cluster
+# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster
 
 In this quickstart, you deploy an AKS cluster using the Azure portal. A multi-container application consisting of web front end and a Redis instance is then run on the cluster. Once completed, the application is accessible over the internet.
 
@@ -48,7 +48,7 @@ Click **Save**, and take note of the password value. The password is needed when
 
 ## Create AKS cluster
 
-Select **Create a resource** > **Containers** > **Azure Container Service - AKS (preview)**.
+Select **Create a resource** > **Containers** > **Azure Kubernetes Service - AKS (preview)**.
 
 Provide a cluster name, DNS prefix, resource group name, location, and Kubernetes version for the cluster. Take note of the cluster name and resource group name, these are needed when connecting to the cluster.
 

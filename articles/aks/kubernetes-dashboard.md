@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Kubernetes dashboard with Azure Container Service (AKS)
+# Kubernetes dashboard with Azure Kubernetes Service (AKS)
 
 The Azure CLI can be used to start the Kubernetes Dashboard. This document walks through starting the Kubernetes dashboard with the Azure CLI, and also walks through some basic dashboard operations. For more information on the Kubernetes dashboard see, [Kubernetes Web UI Dashboard][kubernetes-dashboard].
 

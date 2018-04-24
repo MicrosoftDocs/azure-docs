@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Container Service (AKS) cluster
+title: Create an Azure Kubernetes Service (AKS) cluster
 description: Create an AKS cluster with the CLI or the Azure portal.
 services: container-service
 author: neilpeterson
@@ -12,9 +12,9 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Create an Azure Container Service (AKS) cluster
+# Create an Azure Kubernetes Service (AKS) cluster
 
-An Azure Container Service (AKS) cluster can be created with either the Azure CLI or the Azure portal.
+An Azure Kubernetes Service (AKS) cluster can be created with either the Azure CLI or the Azure portal.
 
 ## Azure CLI
 
@@ -29,7 +29,7 @@ The following options are available with the `az aks create` command.
 | Argument | Description | Required |
 |---|---|:---:|
 | `--name` `-n` | Resource name for the managed cluster. | yes |
-| `--resource-group` `-g` | Name of the Azure Container Service resource group. | yes |
+| `--resource-group` `-g` | Name of the Azure Kubernetes Service resource group. | yes |
 | `--admin-username` `-u` | User name for the Linux Virtual Machines.  Default: azureuser. | no |
 | ` --client-secret` | The secret associated with the service principal. | no |
 | `--dns-name-prefix` `-p` | DNS prefix for the clusters public ip address. | no |
@@ -45,7 +45,7 @@ The following options are available with the `az aks create` command.
 
 ## Azure portal
 
-For instruction on deploying an AKS cluster with the Azure portal, see the Azure Container Service (AKS) [Azure portal quickstart][aks-portal-quickstart]. 
+For instruction on deploying an AKS cluster with the Azure portal, see the Azure Kubernetes Service (AKS) [Azure portal quickstart][aks-portal-quickstart].
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
