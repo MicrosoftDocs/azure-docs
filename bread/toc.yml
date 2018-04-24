@@ -314,9 +314,6 @@
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
-  - name: Location Based Services
-    tocHref: /azure/location-based-services/
-    topicHref: /azure/location-based-services/
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
@@ -342,6 +339,9 @@
       - name: Data Science Virtual Machine
         tocHref: /azure/machine-learning/data-science-virtual-machine
         topicHref: /azure/machine-learning/data-science-virtual-machine/virtual-machine-overview
+  - name: Maps
+    tocHref: /azure/azure-maps/
+    topicHref: /azure/azure-maps/
   - name: Marketplace Consumer
     tocHref: /azure/marketplace-consumer/
     topicHref: /azure/marketplace-consumer/
