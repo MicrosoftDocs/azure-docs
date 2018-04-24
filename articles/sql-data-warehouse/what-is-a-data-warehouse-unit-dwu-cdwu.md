@@ -32,19 +32,19 @@ Increasing DWUs:
 - Increases the maximum number of concurrent queries and concurrency slots.
 
 ## Service Level Objective
-The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for the Optimized for Compute performance tier scale are measured in compute data warehouse units (cDWU), for example DW2000c. The Optimized for Elasticity service levels are measured in DWUs, for example DW2000. 
+The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000. 
 
 In T-SQL the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your data warehouse.
 
 ```sql
---Optimized for Elasticity
+--Gen1
 CREATE DATABASE myElasticSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000'
 )
 ;
 
---Optimized for Compute
+--Gen2
 CREATE DATABASE myComputeSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000c'
@@ -56,8 +56,8 @@ WITH
 
 Each performance tier uses a slightly different unit of measure for their data warehouse units. This difference is reflected on the invoice as the unit of scale directly translates to billing.
 
-- The optimized for elasticity performance tier is measured in Data Warehouse Units (DWUs).
-- The optimized for compute performance tier is measured in compute Data Warehouse Units (cDWUs). 
+- Gen1 data warehouses are measured in Data Warehouse Units (DWUs).
+- Gen2 data warehousesr are measured in compute Data Warehouse Units (cDWUs). 
 
 Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the data warehouse. These operations are all on-demand. The optimized for compute performance tier also uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.  
 
@@ -72,10 +72,9 @@ The ideal number of data warehouse units depends very much on your workload and 
 
 Steps for finding the best DWU for your workload:
 
-1. During development, begin by selecting a smaller DWU using the optimized for elasticity performance tier.  Since the concern at this stage is functional validation, the Optimized for Elasticity performance tier is a reasonable option. A good starting point is DW200. 
+1. Begin by selecting a smaller DWU. 
 2. Monitor your application performance as you test data loads into the system, observing the number of DWUs selected compared to the performance you observe.
-3. Identify any additional requirements for periodic periods of peak activity. If the workload shows significant peaks and troughs in activity and there is a good reason to scale frequently, then favor the optimized for elasticity performance tier.
-4. If you need more than 1000 DWU, then favor the Optimized for Compute performance tier since this gives the best performance.
+3. Identify any additional requirements for periodic periods of peak activity. If the workload shows significant peaks and troughs in activity and there is a good reason to scale frequently.
 
 SQL Data Warehouse is a scale-out system that can provision vast amounts of compute and query sizeable quantities of data. To see its true capabilities for scaling, especially at larger DWUs, we recommend scaling the data set as you scale to ensure that you have enough data to feed the CPUs. For scale testing, we recommend using at least 1 TB.
 
