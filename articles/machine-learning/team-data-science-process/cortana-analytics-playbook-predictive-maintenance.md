@@ -1,6 +1,6 @@
 ---
-title: Predictive maintenance in aerospace with Azure - Cortana Intelligence Solution template| Microsoft Docs
-description: A Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation.
+title: Azure AI Playbook for Predictive Maintenance Solutions | Microsoft Docs
+description: A comprehensive description of the data science that powers predictive maintenance solutions in multiple vertical industries.
 services: cortana-analytics
 documentationcenter: ''
 author: fboylu
@@ -17,7 +17,7 @@ ms.date: 03/14/2017
 ms.author: fboylu
 
 ---
-# Cortana Intelligence Solution Template Playbook for predictive maintenance in aerospace and other businesses
+# Azure AI Playbook for Predictive Maintenance Solutions 
 ## Executive summary
 Predictive maintenance is one of the most demanded applications of
 predictive analytics with unarguable benefits including tremendous
