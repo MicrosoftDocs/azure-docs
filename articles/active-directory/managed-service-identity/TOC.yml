@@ -25,7 +25,7 @@
           href: tutorial-windows-vm-access-nonaad.md
         - name: Access Azure Cosmos DB
           href: tutorial-windows-vm-access-cosmos-db.md
-        - name: Access Azure Resource Manager with a user assigned MSI
+        - name: Access Azure Resource Manager with a user assigned identity
           href: tutorial-windows-vm-ua-arm.md
       - name: Linux VM/VMSS
         items:
@@ -39,7 +39,7 @@
           href: tutorial-linux-vm-access-nonaad.md
         - name: Access Azure Cosmos DB
           href: tutorial-linux-vm-access-cosmos-db.md
-        - name: Access Azure Resource Manager with a user assigned MSI
+        - name: Access Azure Resource Manager with a user assigned identity
           href: msi-tutorial-linux-vm-access-arm.md
       - name: Azure Service Bus
         href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/context/msi-context
