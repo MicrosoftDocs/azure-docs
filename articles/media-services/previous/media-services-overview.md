@@ -19,6 +19,10 @@ ms.author: juliako;anilmur
 ---
 # Azure Media Services overview 
 
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Version 2 - GA](media-services-overview.md)
+> * [Version 3 - Preview](../latest/media-services-overview.md)
+
 Microsoft Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
 You can build end-to-end workflows using entirely Media Services. You can also choose to use third-party components for some parts of your workflow. For example, encode using a third-party encoder. Then, upload, protect, package, deliver using Media Services.
