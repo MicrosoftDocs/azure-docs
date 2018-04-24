@@ -32,7 +32,7 @@ Here are the RBAC-related operations that are logged in Activity Log:
 - Create role assignment
 - Delete role assignment
 
-## Azure Portal
+## Azure portal
 
 The easiest way to get started is to view the activity logs with the Azure portal. The following screenshot shows an example of an activity log that has been filtered to display the **Administrative** category along with role definition and role assignment operations. It also includes a link to download the logs as a CSV file.
 
@@ -42,7 +42,7 @@ For information more information, see [View events in activity log](/azure/azure
 
 ## Azure PowerShell
 
-To view activity logs with Azure PowerShell use the [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) command.
+To view activity logs with Azure PowerShell, use the [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) command.
 
 This command lists all role assignment changes in a subscription for the past seven days:
 
@@ -81,7 +81,7 @@ Properties              :
 
 ## Azure CLI
 
-To view activity logs with the Azure CLI use the [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) command.
+To view activity logs with the Azure CLI, use the [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) command.
 
 This command lists the activity logs in a resource group since the start time:
 
