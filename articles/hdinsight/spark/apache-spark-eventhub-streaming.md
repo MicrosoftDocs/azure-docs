@@ -51,7 +51,7 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
     - Website: provide the application's website. It doesn't have to be a valid website.  The value used for this tutorial is **http://www.contoso.com**.
     - Callback URL: you can leave it blank.
 
-4. Select **Yes, I have read and agree to the Twitter Developer Agreement**, and then click **Create your Twitter application**.
+4. Select **Yes, I have read and agree to the Twitter Developer Agreement**, and then Select **Create your Twitter application**.
 5. Select the **Keys and Access Tokens** tab.
 6. Select **Create my access token** at the end of the page.
 7. Write down the following values from the page.  You need these values later in the tutorial:
@@ -64,42 +64,51 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
 ## Create an Azure Event Hub
 
 1. Sign in to the [Azure Portal](https://ms.portal.azure.com).
-2. Select **New** at the top left of the screen.
-
-2. Click **Internet of Things**, then click **Event Hubs**.
+2. Select **Create a resource** at the top left of the screen.
+3. Select **Internet of Things**, then select **Event Hubs**.
 
     ![Create event hub for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Create event hub for Spark streaming example")
+4. Enter the following values for the new event hub namespace:
 
-3. In the **Create namespace** blade, enter a namespace name. choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. Click **Create** to create the namespace.
+    - **Name**: Enter a name for the event hub.  The value used for this tutorial is **myeventhubns20180403**.
+    - **Price tier**: Select **Standard**.
+    - **Resource group**: You have the option to create a new or select the resource group for the Spark cluster. 
+    - **Location**: Select the same **Location** as your Apache Spark cluster in HDInsight to reduce latency and costs.
 
-      ![Provide an event hub name for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Provide an event hub name for Spark streaming example")
+    ![Provide an event hub name for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Provide an event hub name for Spark streaming example")
+5. Select **Create** to create the namespace.
 
-	> [!NOTE]
-   	> You should select the same **Location** as your Apache Spark cluster in HDInsight to reduce latency and costs.
-   	>
-   	>
+6. Open the event hub namespace using the following instructions:
 
-4. In the Event Hubs namespace list, click the newly-created namespace.      
+    1. From the portal, select **All services**.
+    2. In the filter box, enter **event hubs**.
+    3. Doubl-click the namespace you just created.
+    4. Select **+ Event Hub**.
+
+6. In the Event Hubs namespace list, Select the newly-created namespace.      
 
 
-5. In the namespace blade, click **Event Hubs**, and then click **+ Event Hub** to create a new Event Hub.
-   
-    ![Create event hub for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-open-event-hubs-blade-for-spark-streaming-example.png "Create event hub for Spark streaming example")
+5. In the namespace blade, Select **Event Hubs**, and then Select **+ Event Hub** to create a new Event Hub.
+  
 
-6. Type a name for your Event Hub, set the partition count to 10, and message retention to 1. We are not archiving the messages in this solution so you can leave the rest as default, and then click **Create**.
+6. Enter the following values:
+
+    - Name: Give a name for your Event Hub.
+    - Partition count: 10
+    - Message retention: 1. 
    
     ![Provide event hub details for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Provide event hub details for Spark streaming example")
 
-7. The newly created Event Hub is listed in the Event Hub blade.
-    
-     ![View Event Hub for the Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-for-spark-streaming-example.png "View Event Hub for the Spark streaming example")
-
-8. Back in the namespace blade (not the specific Event Hub blade), click **Shared access policies**, and then click **RootManageSharedAccessKey**.
+7. Select **Create**.
+8. Select **Shared access policies** for the namespace (Note it is not the eventhub shared access policies), and then Select **RootManageSharedAccessKey**.
     
      ![Set Event Hub policies for the Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Set Event Hub policies for the Spark streaming example")
 
-9. Click the copy button to copy the **RootManageSharedAccessKey** primary key and connection string to the clipboard. Save these to use later in the tutorial.
-    
+9. Save the values of **Primaery key** and **Connection string-primary key** to use later in the tutorial.
+
+    - QZXxdjaVjLRzaJE/ycYl8sBVgo2IOGmTwEaSZlzrxlc=
+    - Endpoint=sb://myeventhubns20180403.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=QZXxdjaVjLRzaJE/ycYl8sBVgo2IOGmTwEaSZlzrxlc=
+
      ![View Event Hub policy keys for the Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "View Event Hub policy keys for the Spark streaming example")
 
 
