@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.data3sixty.com`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Infogix Data3Sixty Govern Client support team](maito:data3sixtysupport@infogix.com) to get these values.
+	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Infogix Data3Sixty Govern Client support team](mailto:data3sixtysupport@infogix.com) to get these values.
 
 5. Infogix Data3Sixty Govern application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
 	
@@ -156,7 +156,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Infogix Data3Sixty Govern Configuration](./media/active-directory-saas-infogix-tutorial/tutorial_infogix_configure.png) 
 
-10. To configure single sign-on on **Infogix Data3Sixty Govern** side, you need to send the downloaded **Certificate (Raw), Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Infogix Data3Sixty Govern support team](maito:data3sixtysupport@infogix.com). They set this setting to have the SAML SSO connection set properly on both sides.
+10. To configure single sign-on on **Infogix Data3Sixty Govern** side, you need to send the downloaded **Certificate (Raw), Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Infogix Data3Sixty Govern support team](mailto:data3sixtysupport@infogix.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
