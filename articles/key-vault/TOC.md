@@ -9,7 +9,7 @@
 ## [Create a Key Vault - Portal](quick-create-portal.md)
 
 # Tutorials
-## [Configure an Azure web application to read a secret from Key vault ](tutorial-web-application-keyvault.md)
+## [Configure a web application to read a secret from Key Vault ](tutorial-web-application-keyvault.md)
 # Samples
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=key-vault)
 # Concepts
