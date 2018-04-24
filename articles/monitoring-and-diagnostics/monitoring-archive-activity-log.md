@@ -36,7 +36,7 @@ To archive the Activity Log using any of the methods below, you set the **Log Pr
 3. In the blade that appears, check the box for **Export to a storage account** and select a storage account.
    
     ![Set a storage account](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
-4. Using the slider or text box, define a number of days for which Activity Log events should be kept in your storage account. If you prefer to have your data persisted in the storage account indefinitely, set this number to zero.
+4. Using the slider or text box, define a number of days (0 to 365) for which Activity Log events should be kept in your storage account. If you prefer to have your data persisted in the storage account indefinitely, set this number to zero. If you need to enter the number of days more than 365, use the PowerShell or CLI methods described below.
 5. Click **Save**.
 
 ## Archive the Activity Log via PowerShell
