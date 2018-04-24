@@ -118,8 +118,8 @@ In **Solution Explorer**, double-click the *web.config* file to open it.
 
 In the *web.config* file, find the `<appSetting>` element, and add the following `file` attribute. If you used a different file name or location, substitute those values for the ones shown in the example.
 
-    * Before: `<appSettings>`
-    * After: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Before: `<appSettings>`
+* After: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file cannot be found. Your secrets (the connection string to your cache) are not included as part of the source code for the application. When you deploy your web app to Azure, the *CacheSecrests.config* file won't be deployed.
 
