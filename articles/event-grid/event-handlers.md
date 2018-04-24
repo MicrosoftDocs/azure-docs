@@ -17,15 +17,13 @@ An event handler is the place where the event is sent. The handler takes some fu
 
 This article provides links to content for each event handler.
 
-## Handlers
-
-### Azure Automation
+## Azure Automation
 
 |Title  |Type  |Description  |
 |---------|---------|---------|
 |[Integrate Azure Automation with Event Grid and Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Tutorial |Create a virtual machine, which sends an event. The event triggers an Automation runbook that tags the virtual machine, and triggers a message that is sent to a Microsoft Teams channel. |
 
-### Azure Functions
+## Azure Functions
 
 |Title  |Type  |Description  |
 |---------|---------|---------|
@@ -34,7 +32,7 @@ This article provides links to content for each event handler.
 | [Stream big data into a data warehouse](event-grid-event-hubs-integration.md) | Tutorial | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
 | [Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Tutorial | Event Grid sends messages from Service Bus topic to function app and logic app. |
 
-### Logic Apps
+## Logic Apps
 
 |Title  |Type  |Description  |
 |---------|---------|---------|
@@ -42,7 +40,7 @@ This article provides links to content for each event handler.
 | [Send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Tutorial | A logic app sends a notification email every time a device is added to your IoT hub. |
 | [Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Tutorial | Event Grid sends messages from Service Bus topic to function app and logic app. |
 
-### WebHooks
+## WebHooks
 
 |Title  |Type  |Description  |
 |---------|---------|---------|

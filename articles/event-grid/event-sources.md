@@ -17,22 +17,20 @@ An event source is where the event happens. Several Azure services are automatic
 
 This article provides links to content for each event source.
 
-## Sources
-
-### Azure Subscriptions (management operations)
+## Azure Subscriptions (management operations)
 
 |Title  |Type  |Description  |
 |---------|---------|---------|
 | [Integrate Azure Automation with Event Grid and Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Tutorial |Create a virtual machine, which sends an event. The event triggers an Automation runbook that tags the virtual machine, and triggers a message that is sent to a Microsoft Teams channel. |
 | [Event schema](event-schema-subscriptions.md) | Reference | Shows fields in Azure subscription events. |
 
-### Container Registry
+## Container Registry
 
 |Title  |Type  |Description  |
 |---------|---------|---------|
 | [Event schema](event-schema-container-registry.md) | Reference | Shows fields in Container Registry events. |
 
-### Custom Topics
+## Custom Topics
 
 |Title  |Type  |Description  |
 |---------|---------|---------|
@@ -42,14 +40,14 @@ This article provides links to content for each event source.
 | [Post to custom topic](post-to-custom-topic.md) | How to | Shows how to post an event to a custom topic. |
 | [Event schema](event-schema.md)| Reference | Shows fields in custom events. |
 
-### Event Hubs
+## Event Hubs
 
 |Title  |Type  |Description  |
 |---------|---------|---------|
 | [Stream big data into a data warehouse](event-grid-event-hubs-integration.md) | Tutorial | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
 | [Event schema](event-schema-event-hubs.md) | Reference | Shows fields in Event Hubs events. |
 
-### IoT Hub
+## IoT Hub
 
 |Title  |Type  |Description  |
 |---------|---------|---------|
@@ -57,7 +55,7 @@ This article provides links to content for each event source.
 | [React to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md) | Conceptual | Overview of integrating Iot Hubs with Event Grid. |
 | [Event schema](event-schema-iot-hub.md) | Reference | Shows fields in IoT Hub events. |
 
-### Media Services
+## Media Services
 
 |Title  |Type  |Description  |
 |---------|---------|---------|
@@ -65,14 +63,14 @@ This article provides links to content for each event source.
 | [Route Azure Media Services events to a custom web endpoint using CLI](/media-services/latest/job-state-events-cli-how-to) | Tutorial | Shows how to send events from Media Services. |
 | [Event schema](/media-services/latest/media-services-event-schemas) | Reference | Shows fields in Media Services events. |
 
-### Resource Groups (management operations)
+## Resource Groups (management operations)
 
 |Title  |Type  |Description  |
 |---------|---------|---------|
 | [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Tutorial | A logic app monitors changes to a virtual machine and sends emails about those changes. |
 | [Event Schema](event-schema-resource-groups.md) | Reference | Shows fields in resource group events. |
 
-### Service Bus
+## Service Bus
 
 |Title  |Type  |Description  |
 |---------|---------|---------|
@@ -80,13 +78,13 @@ This article provides links to content for each event source.
 | [Azure Service Bus to Event Grid integration overview](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Conceptual | Overview of integrating Service Bus with Event Grid. |
 | [Event schema](event-schema-service-bus.md) | Reference | Shows fields in Service Bus events. |
 
-### Storage Blob
+## Storage Blob
 
 |Title  |Type  |Description  |
 |---------|---------|---------|
-* [Route Blob storage events to a custom web endpoint with Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Quickstart | Shows how to use Azure CLI to send blob storage events. |
-* [Route Blob storage events to a custom web endpoint with PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Quickstart | Shows how to use Azure PowerShell to send blob storage events. |
-* [Reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) | Conceptual | Overview of integrating Blob storage with Event Grid. |
+| [Route Blob storage events to a custom web endpoint with Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Quickstart | Shows how to use Azure CLI to send blob storage events. |
+| [Route Blob storage events to a custom web endpoint with PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Quickstart | Shows how to use Azure PowerShell to send blob storage events. |
+| [Reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) | Conceptual | Overview of integrating Blob storage with Event Grid. |
 | [Event schema](event-schema-blob-storage.md) | Reference | Shows fields in Blob Storage events. |
 
 ## Next steps
