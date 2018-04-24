@@ -18,6 +18,10 @@ ms.workload: NA
 
 This tutorial shows you how to customize the device simulator microservice in the remote monitoring preconfigured solution. To show the capabilities of the device simulator, this tutorial uses two scenarios in the Contoso IoT application.
 
+The following video presents an overview of the options for customizing the device simulator microservice:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
+
 In the first scenario, Contoso wants to test a new smart lightbulb device. To perform the tests, you create a new simulated device with the following characteristics:
 
 *Properties*
