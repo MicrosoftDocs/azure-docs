@@ -59,9 +59,9 @@ Each performance tier uses a slightly different unit of measure for their data w
 - Gen1 data warehouses are measured in Data Warehouse Units (DWUs).
 - Gen2 data warehousesr are measured in compute Data Warehouse Units (cDWUs). 
 
-Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the data warehouse. These operations are all on-demand. The optimized for compute performance tier also uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.  
+Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the data warehouse. These operations are all on-demand. Gen2 uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.  
 
-As you increase data warehouse units, you are linearly increasing computing resources. The optimized for compute performance tier provides the best query performance and highest scale but has a higher entry price. It is designed for businesses that have a constant demand for performance. These systems make the most use of the cache. 
+As you increase data warehouse units, you are linearly increasing computing resources. Gen2 provides the best query performance and highest scale but has a higher entry price. It is designed for businesses that have a constant demand for performance. These systems make the most use of the cache. 
 
 ### Capacity limits
 Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../sql-database/sql-database-what-is-a-dtu.md) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
