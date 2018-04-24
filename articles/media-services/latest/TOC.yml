@@ -58,11 +58,11 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=compute
+    href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/functions/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
+    href: https://azure.microsoft.com/pricing/details/media-services/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-        
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=media-services
+ 
