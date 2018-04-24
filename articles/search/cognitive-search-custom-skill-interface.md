@@ -10,7 +10,7 @@ ms.date: 05/01/2018
 ms.author: luisca
 ---
 
-# How to integrate a custom Skill to an enrichment pipline
+# How to add a custom skill to an enrichment pipline
 
 An [enriched indexing pipeline](cognitive-search-concept-intro.md) in Azure Search can be assembled from [predefined skills](cognitive-search-predefined-skills.md) and custom skills that you create and add to the pipeline.
 

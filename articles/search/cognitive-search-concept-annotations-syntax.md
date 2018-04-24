@@ -14,7 +14,7 @@ ms.author: luisca
 ---
 # How to reference annotations in a cognitive search skillset
 
-As the content of a document flows through a skill, it gets enriched with annotations that could be used as inputs for further downstream enrichment, or mapped to an output field in an index. Depending on the skill and source inputs, annotations can assume different shapes, with single and multi-branched constructions. The syntax used for referencing an annotation varies based on its structure.
+As the content of a document flows through a skill, it gets enriched with annotations that could be used as inputs for further downstream enrichment, or mapped to an output field in an index. Depending on the skill and source inputs, annotations can assume different shapes, with single and multi-branched constructions. The syntax used for referencing annotations at a specific level varies depending on its structure.
 
 This article explains how to create references to simple and complex annotations using examples to illustrate each use case. Examples are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the document cracking phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the *content* field is part of the *document*. 
 
