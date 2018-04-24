@@ -362,7 +362,7 @@ To access the user’s calendars in the context of an application, add the *Cale
 ## Known issues
 
 ### Issue 1:
-You may receive one of the following errors when sign in on your application on a federated Azure Active Directory Domain:
+You may receive one of the following errors when sign-in on your application on a federated Azure Active Directory Domain:
  - 'No valid client certificate found in the request.
  - No valid certificates found in the user's certificate store.
  - Try again choosing a different authentication method.'
