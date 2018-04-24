@@ -141,8 +141,6 @@ To change the app settings:
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
-        b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
-        webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };
     ```
 
