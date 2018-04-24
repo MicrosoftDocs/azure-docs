@@ -14,7 +14,7 @@ ms.author: juliako;
 ---
 # Video Indexer (preview)
 
-Video Indexer is a cloud service that enables you to extract the following insights from your videos using artificial intelligence technologies:
+Video Indexer is a cloud application built using Azure Media Analytics, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, Custom Speech Service), and Azure Search. It enables you to extract the following insights from your videos using artificial intelligence technologies:
 
 - **Audio Transcription**: Video Indexer has speech-to-text functionality, which enables customers to get a transcript of the spoken words. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Portuguese (Brazilian), Japanese and Russian (with many more to come in the future). 
 - **Face tracking and identification**: Face technologies enable detection of faces in a video. The detected faces are matched against a celebrity database to evaluate which celebrities are present in the video. Customers can also label faces that do not match a celebrity. Video Indexer builds a face model based on those labels and can recognize those faces in videos submitted in the future.
@@ -28,8 +28,9 @@ Video Indexer is a cloud service that enables you to extract the following insig
 - **Visual content moderation**: This technology enables detection of adult and/or racy material present in the video and can be used for content filtering. 
 - **Keywords extraction**: Video Indexer extracts keywords based on the transcript of the spoken words and text recognized by visual text recognizer.
 - **Annotation**: Video Indexer annotates the video based on a pre-defined model of 2000 objects.
+- **Brands**: Video Indexer extracts business brands based on the transcript of the spoken words and text recognized by visual text recognizer.
 
-Once Video Indexer is done processing and analyzing, you can review, curate, and publish the video insights.
+Once Video Indexer is done processing and analyzing, you can review, curate, search, and publish the video insights.
 
 Whether your role is a content manager or a developer, the Video Indexer service is able to address your needs. Content managers can use the Video Indexer web portal to consume the service without writing a single line of code, see [Get started using the Video Indexer portal](video-indexer-get-started.md). Developers can take advantage of APIs to process content at scale, see [Use Video Indexer REST API](video-indexer-use-apis.md). The service also enables customers to use widgets to publish video streams and extracted insights in their own applications, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
 
