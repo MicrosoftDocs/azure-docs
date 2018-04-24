@@ -42,9 +42,6 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 ### Gateway SKUs
 When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKUs that satisfy your requirements based on the types of workloads, throughputs, features, and SLAs.
 
->[!NOTE]
-> Classic virtual networks should continue to use the old SKUs. For more information about the old gateway SKUs, see [Working with virtual network gateway SKUs (old)](/azure/vpn-gateway/vpn-gateway-about-skus-legacy).
-
 Azure Stack offers the following VPN gateway SKUs:
 
 |	| VPN Gateway throughput |VPN Gateway max IPsec tunnels |
@@ -87,11 +84,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 When you create the virtual network gateway for a VPN gateway configuration, you must specify a VPN type. The VPN type that you choose depends on the connection topology that you want to create.  A VPN type can also depend on the hardware that you are using. S2S configurations require a VPN device. Some VPN devices only support a certain VPN type.
 
 > [!IMPORTANT]  
-> At this time, Azure Stack only supports the Route Based VPN type. If your device only supports Policy Based VPNs, then connections to those devices from Azure Stack are not supported.
+> At this time, Azure Stack only supports the Route Based VPN type. If your device only supports Policy Based VPNs, then connections to those devices from Azure Stack are not supported.  Additionally, Azure Stack does not support using Policy Based Traffic Selectors for Route Based Gateways at this time, as custom IPSec/IKE policy configurations are not yet supported.
 
 - **PolicyBased**: *(Supported by Azure, but not by Azure Stack)* Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies that are configured with the combinations of address prefixes between your on-premises network and the Azure Stack VNet. The policy (or traffic selector) is usually defined as an access list in the VPN device configuration.
 
-- **RouteBased**: RouteBased VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy (or traffic selector) for RouteBased VPNs are configured as any-to-any (or wild cards). The value for a RouteBased VPN type is RouteBased.
+- **RouteBased**: RouteBased VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy (or traffic selector) for RouteBased VPNs are configured as any-to-any (or wild cards) by default and cannot be changed. The value for a RouteBased VPN type is RouteBased.
 
 The following PowerShell example specifies the -VpnType as RouteBased. When you are creating a gateway, you must make sure that the -VpnType is correct for your configuration.
 
