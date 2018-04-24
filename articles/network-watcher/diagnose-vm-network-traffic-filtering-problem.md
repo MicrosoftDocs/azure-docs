@@ -1,6 +1,6 @@
 ---
-title: Diagnose a virtual machine network traffic filter problem - Azure portal | Microsoft Docs
-description: In this article, you learn how to diagnose a virtual machine networking traffic filter problems using the IP flow verify  capability of Azure Network Watcher.
+title: Diagnose a virtual machine network traffic filter problem - quickstart - Azure portal | Microsoft Docs
+description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using the IP flow verify  capability of Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: jimdial
@@ -12,7 +12,7 @@ Customer intent: I need to diagnose a virtual machine (VM) network traffic filte
 ms.assetid: 
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
@@ -21,9 +21,9 @@ ms.custom:
 
 ---
 
-# Diagnose a virtual machine network traffic filter problem - Azure portal
+# Quickstart: Diagnose a virtual machine network traffic filter problem using the Azure portal
 
-In this article, you deploy a virtual machine (VM), and then check communications to an IP address and URL and from an IP address. You determine the cause of a communication failure and how you can resolve it.
+In this quickstart, you deploy a virtual machine (VM), and then check communications to an IP address and URL and from an IP address. You determine the cause of a communication failure and how you can resolve it.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -109,7 +109,7 @@ Now that you know which security rules are allowing or denying traffic to or fro
 4. When you ran the outbound check to 172.131.0.100 in step 4 of [Use IP flow verify](#use-ip-flow-verify), you learned that the **DefaultOutboundDenyAll** rule denied communication. That rule equates to the **DenyAllOutBound** rule shown in the picture in step 2 that specifies **0.0.0.0/0** as the **DESTINATION**. This rule denies the outbound communication to 172.131.0.100, because the address is not within the **DESTINATION** of any of the other **Outbound rules** shown in the picture. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 for the 172.131.0.100 address.
 5. When you ran the inbound check from 172.131.0.100 in step 5 of [Use IP flow verify](#use-ip-flow-verify), you learned that the **DefaultInboundDenyAll** rule denied communication. That rule equates to the **DenyAllInBound** rule shown in the picture in step 2. The **DenyAllInBound** rule is enforced because no other higher priority rule exists that allows port 80 inbound to the VM from 172.31.0.100. To allow the inbound communication, you could add a security rule with a higher priority, that allows port 80 inbound from 172.31.0.100.
 
-The checks in this article tested Azure configuration. If the checks return expected results and you still have network problems, ensure that you don't have a firewall between your VM and the endpoint you're communicating with and that the operating system in your VM doesn't have a firewall that is allowing or denying communication.
+The checks in this quickstart tested Azure configuration. If the checks return expected results and you still have network problems, ensure that you don't have a firewall between your VM and the endpoint you're communicating with and that the operating system in your VM doesn't have a firewall that is allowing or denying communication.
 
 ## Clean up resources
 
@@ -121,6 +121,6 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ## Next steps
 
-In this article, you created a VM and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a VM. Learn more about [security rules](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
+In this quickstart, you created a VM and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a VM. Learn more about [security rules](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
 Even with the proper network traffic filters in place, communication to a VM can still fail, due to routing configuration. To learn how to diagnose VM network routing problems, see [Diagnose VM routing problems](diagnose-vm-network-routing-problem.md) or, to diagnose outbound routing, latency, and traffic filtering problems, with one tool, see [Connection troubleshoot](network-watcher-connectivity-portal.md).
