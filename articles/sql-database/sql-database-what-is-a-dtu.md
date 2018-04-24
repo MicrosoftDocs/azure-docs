@@ -53,6 +53,5 @@ Performance levels are calibrated and governed to provide the needed resources t
 ## Next steps
 * See [DTU-Based purchasing model](sql-database-service-tiers-dtu.md) for information on the DTUs and eDTUs available for single databases and for elastic pools, as well as limits on resources other than CPU, memory, data IO, and transaction log IO.
 * See [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)(preview) for information on vCore-based resource allocation and service tiers. 
-:x
 * See [SQL Database Query Performance Insight](sql-database-query-performance.md) to understand your (DTUs) consumption.
 * See [SQL Database benchmark overview](sql-database-benchmark-overview.md) to understand the methodology behind the OLTP benchmark workload used to determine the DTU blend.
