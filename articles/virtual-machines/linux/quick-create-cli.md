@@ -21,7 +21,6 @@ ms.custom: mvc
 
 # Quickstart: Create a Linux virtual machine with the Azure CLI 2.0
 
-The Azure CLI 2.0 is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI 2.0 to deploy a Linux virtual machine (VM) in Azure that runs Ubuntu. To see your VM in action, you then SSH to the VM and install the NGINX webserver.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -107,7 +106,7 @@ With NGINX installed and port 80 now open on your VM from the Internet, use a we
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, VM, and all related resources. Make sure that you have exited the SSH session to your VM, then delete the resources as follows:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
