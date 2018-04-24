@@ -6,6 +6,7 @@ services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
 
+
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
