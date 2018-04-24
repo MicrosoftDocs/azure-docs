@@ -51,8 +51,6 @@ If your application expects custom roles to be passed in SAML response, you need
 
 5. Once the application is added, go to **Properties** page and copy the **Object ID**.
 
-	![Properties Page](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
-
 6. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
 
 	a. Sign in to the Graph Explorer site using the global Admin/Co-admin credentials for your tenant.
