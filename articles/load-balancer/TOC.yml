@@ -130,7 +130,7 @@
     href: https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer
   - name: Azure PowerShell
     href: /powershell/module/azurerm.network
-  - name: Azure Azure CLI
+  - name: Azure CLI
     href: /cli/azure/network/lb
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.network.models
