@@ -109,6 +109,7 @@ $numberOfWorkerNodes = "4"
 $clusterVersion = "3.6"
 $clusterType="Kafka"
 $clusterOS="Linux"
+$disksPerNode=2
 
 New-AzureRmHDInsightCluster `
         -ResourceGroupName $resourceGroup `
@@ -122,11 +123,18 @@ New-AzureRmHDInsightCluster `
         -DefaultStorageAccountName "$storageAccount.blob.core.windows.net" `
         -DefaultStorageAccountKey $storageKey `
         -DefaultStorageContainer $clusterName `
-        -SshCredential $sshCredentials
+        -SshCredential $sshCredentials `
+        -DisksPerWorkerNode $disksPerNode
 ```
 
 > [!WARNING]
 > It can take up to 20 minutes to create the HDInsight cluster.
+
+> [!TIP]
+> The `-DisksPerWorkerNode` parameter configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. 
+>
+> The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard. You can set the VM type by using the `-WorkerNodeSize` parameter. For more information on parameters, see the [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) documentation.
+
 
 > [!IMPORTANT]
 > If you plan to use more than 32 worker nodes (either at cluster creation or by scaling the cluster after creation), you must use the `-HeadNodeSize` parameter to specify a VM size with at least 8 cores and 14 GB of RAM.
