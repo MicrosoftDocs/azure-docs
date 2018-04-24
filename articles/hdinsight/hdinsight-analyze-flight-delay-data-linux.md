@@ -51,7 +51,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 * **Azure CLI 2.0**. If you haven't installed the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for more steps.
 
-## Download the sample flight data
+* **An SSH client**. For more information, see [Connect to HDInsight (Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+## Download the flight data
 
 1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
 
@@ -72,34 +74,32 @@ There are many ways to upload data to the storage associated with an HDInsight c
 
 1. Open a command prompt and use the following command to upload the .zip file to the HDInsight cluster head node:
 
-    ```
+    ```bash
     scp <FILENAME>.zip <SSH-USERNAME>@<CLUSTERNAME>-ssh.azurehdinsight.net:<FILENAME.zip>
     ```
 
-    Replace *\<FILENAME>* with the name of the .zip file. Replace *\<SSH-USERNAME>* with the SSH login for the HDInsight cluster. Replace *\<CLUSTERNAME>* with the name of the HDInsight cluster. 
+    Replace *FILENAME* with the name of the .zip file. Replace *USERNAME* with the SSH login for the HDInsight cluster. Replace *CLUSTERNAME* with the name of the HDInsight cluster.
 
    > [!NOTE]
    > If you use a password to authenticate your SSH login, you're prompted for the password. If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. After the upload has finished, connect to the cluster by using SSH. On the command prompt, enter the following command:
 
+    ```bash
+    ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
-    ssh <SSH-USERNAME>@<CLUSTERNAME>-ssh.azurehdinsight.net
-    ```
-
-    For more information, see [Connect to HDInsight (Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 3. Use the following command to unzip the .zip file:
 
-    ```
-    unzip <FILENAME>.zip
+    ```bash
+    unzip FILENAME.zip
     ```
 
     This command extracts a .csv file that is roughly 60 MB.
 
 4. Use the following commands to create a directory on HDInsight storage, and then copy the .csv file to the directory:
 
-    ```
+    ```bash
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
     hdfs dfs -put <FILENAME>.csv /tutorials/flightdelays/data/
     ```
@@ -112,8 +112,8 @@ As part of the Hive job, you import the data from the .csv file into a Hive tabl
 
 1. From the SSH prompt that you already have for the HDInsight cluster, use the following command to create and edit a new file named **flightdelays.hql**:
 
-    ```
-    vim flightdelays.hql
+    ```bash
+    nano flightdelays.hql
     ```
 
 2. Use the following text as the contents of this file:
@@ -182,13 +182,13 @@ As part of the Hive job, you import the data from the .csv file into a Hive tabl
 
 3. To start Hive and run the **flightdelays.hql** file, use the following command:
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
 4. After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
@@ -222,13 +222,13 @@ If you already have a SQL database, you must get the server name. To find the se
 
 1. To install FreeTDS, use the following command from an SSH connection to the cluster:
 
-    ```
+    ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
 3. After the installation finishes, use the following command to connect to the SQL Database server. Replace **serverName** with the SQL Database server name. Replace **adminLogin** and **adminPassword** with the login for SQL Database. Replace **databaseName** with the database name.
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
 
@@ -246,7 +246,7 @@ If you already have a SQL database, you must get the server name. To find the se
 
 4. At the `1>` prompt, enter the following lines:
 
-    ```
+    ```hiveql
     CREATE TABLE [dbo].[delays](
     [origin_city_name] [nvarchar](50) NOT NULL,
     [weather_delay] float,
@@ -259,7 +259,7 @@ If you already have a SQL database, you must get the server name. To find the se
 
     Use the following query to verify that the table has been created:
 
-    ```
+    ```hiveql
     SELECT * FROM information_schema.tables
     GO
     ```
@@ -279,7 +279,7 @@ In the previous sections, you copied the transformed data at `/tutorials/flightd
 
 1. Use the following command to verify that Sqoop can see your SQL database:
 
-    ```
+    ```bash
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
 
@@ -287,7 +287,7 @@ In the previous sections, you copied the transformed data at `/tutorials/flightd
 
 2. Use the following command to export data from hivesampletable to the delays table:
 
-    ```
+    ```bash
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
@@ -295,13 +295,13 @@ In the previous sections, you copied the transformed data at `/tutorials/flightd
 
 3. After the sqoop command finishes, use the tsql utility to connect to the database:
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
     Use the following statements to verify that the data was exported to the delays table:
 
-    ```
+    ```sql
     SELECT * FROM delays
     GO
     ```

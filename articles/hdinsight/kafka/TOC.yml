@@ -1,7 +1,5 @@
 - name: Azure HDInsight documentation
   href: /azure/hdinsight
-- name: Kafka on HDInsight
-  href: /azure/hdinsight
 - name: Overview
   items:
   - name: About Kafka on HDInsight
@@ -27,6 +25,8 @@
     maintainContext: true
   - name: Kafka Producer and Consumer API
     href: apache-kafka-producer-consumer-api.md
+  - name: Kafka Streams API
+    href: apache-kafka-streams-api.md
 - name: Concepts
   items:
   - name: Capacity planning
@@ -63,8 +63,6 @@
       href: apache-kafka-azure-functions.md
   - name: Develop
     items:
-    - name: Using Kafka Streams API
-      href: apache-kafka-streams-api.md
     - name: Use empty edge nodes
       href: ../hdinsight-apps-use-edge-node.md
       maintainContext: true
