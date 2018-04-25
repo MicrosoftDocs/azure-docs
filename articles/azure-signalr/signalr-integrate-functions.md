@@ -20,7 +20,7 @@ ms.author: wesmc
 
 # Tutorial: Integrate Azure Functions with Azure SignalR Service
 
-This tutorial builds on the chat room application created in previous tutorials. If you have not completed [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), and [Azure SignalR Service authentication with OAuth](./signalr-authenticate-oauth.md), complete those first. 
+This tutorial builds on the chat room application created in previous tutorials. If you have not completed [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), and [Azure SignalR Service authentication with OAuth](./signalr-authenticate-oauth.md), complete those exercises first. 
 
 A common scenario with real-time applications is for content updates to originate from a server to be published to web clients. [Azure Functions](../azure-functions/functions-overview.md) is an excellent candidate for generating these content updates. A key benefit of using Azure functions is that you can run your code on-demand without worrying about the architecture of a whole application, or the infrastructure to run it. You also only pay for the time your code actually runs.  
 
@@ -60,7 +60,7 @@ You must create a function app to define the execution environment for your func
 
 In this section, you will use the Azure Cloud Shell to create a new Azure Function app configured for deployment from a local git repository. 
 
-When creating the function app resources, create them in the same resource group you used in the previous tutorials. This makes managing all tutorial resources easier.
+When creating the function app resources, create them in the same resource group you used in the previous tutorials. This approach makes managing all tutorial resources easier.
 
 Copy the script below and replace the values for `ResourceGroupName`, and `location` with the values for the resource group you used in the previous tutorials. Paste the updated script into your Azure Cloud Shell, to create a storage account and function app.
 
@@ -91,7 +91,7 @@ az functionapp create --resource-group $ResourceGroupName \
 
 ## Configure the function app
 
-In this section, you will configure the function app with an app setting containing the connection string for your Azure SignalR Service resource. Your function code will use this to connect and publish messages to the chat room. You will also configure the function app for deployment from a local git repository.
+In this section, you will configure the function app with an app setting containing the connection string for your Azure SignalR Service resource. Your function code will use this setting to connect and publish messages to the chat room. You will also configure the function app for deployment from a local git repository.
 
 Copy the script below and replace the value for `connstring` with the connection string for your SignalR Service resource. This script also uses the variables you initialized in the previous section.
 
@@ -126,7 +126,7 @@ var proxy = CloudSignalR.CreateHubProxyFromConnectionString(connectionString, "c
 await proxy.Clients.All.SendAsync("broadcastMessage", new object[] { "_BROADCAST_", $"Current time is: {DateTime.Now}" });
 ```
 
-This code uses the connection string to your SignalR Service resource to create a proxy to the hub. Since the function code is running server-side, theres no reason to require it to authenticate as a regular client. The code is trusted to use the connection string. Using this hub proxy, the function code can call any of the methods you have defined on your hub. The code calls the `BroadcastMessage` method to publish a message containing the time when the trigger fired.
+This code uses the connection string to your SignalR Service resource to create a proxy to the hub. Since the function code is running server-side, there's no reason to require it to authenticate as a regular client. The code is trusted to use the connection string. Using this hub proxy, the function code can call any of the methods you have defined on your hub. The code calls the `BroadcastMessage` method to publish a message containing the time when the trigger fired.
 
 The trigger for the function code is a *timerTrigger*, defined in the bindings in *TimerFunction/function.json*. It includes a [CRON expression](https://wikipedia.org/wiki/Cron#CRON_expression) to set the timer trigger to fire at the beginning of every minute.
 
@@ -186,7 +186,7 @@ Use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotn
 
         git push Azure master
 
-   Once the code is deployed the timer will immediately start firing every minute to execute your code.
+   Once the code is deployed, the timer will immediately start firing every minute to execute your code.
 
 ## Test the chat app
 
