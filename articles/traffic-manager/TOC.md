@@ -2,6 +2,22 @@
 
 # Overview
 ## [What is Traffic Manager?](traffic-manager-overview.md)
+
+# Quickstart
+## [Direct traffic to a priority endpoint - ](traffic-manager-create-profile.md)
+
+#Samples
+## [Azure Cl](cli-samples.md)
+## [Azure PowerShell](powershell-samples.md)
+
+# Tutorials
+## [Direct traffic to specific endpoints based on its location](traffic-manager-configure-geographic-routing-method.md)
+## [Direct traffic to nearest latency](traffic-manager-configure-performance-routing-method.md)
+## [Distribute traffic to a set of endpoints](traffic-manager-configure-weighted-routing-method.md)
+## [Direct traffic to a priority endpoint](traffic-manager-configure-priority-routing-method.md)
+
+
+# Concepts
 ## [Routing methods](traffic-manager-routing-methods.md)
 ### [Country/Region hierarchy used by Traffic Manager](traffic-manager-geographic-regions.md)
 ## [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md)
@@ -10,9 +26,6 @@
 ## [Real User Measurements](traffic-manager-rum-overview.md)
 ## [Traffic View](traffic-manager-traffic-view-overview.md)
 ## [FAQs](traffic-manager-FAQs.md)
-
-# Get Started
-## [Create a Traffic Manager profile](traffic-manager-create-profile.md)
 
 # How To
 
