@@ -7,7 +7,9 @@ If the whole DC goes down, you'll lose access to both compute and storage, so al
 When the DC comes back up processing will continue automatically from where it left off. There will be no data loss as long as the underlying Azure Storage data isn't lost (which is highly unlikely).
 Multiple function apps cannot collaborate on the same task hub today. For geo/disaster recovery, you will want to go with multiple storage accounts - one in each geo region. It's up to you to decide how you want to configure Traffic Manager (failover mode or geo-load balancing). Just remember that the two environments are completely isolated from each other.*
 
-Using these scenarios requires understanding of Traffic Manager [priority traffic-routing method](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-monitoring#traffic-routing-methods) and [endpoint failover and recovery](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-monitoring#endpoint-failover-and-recovery)
+Using these scenarios requires understanding of 
+- [Task Hubs](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-task-hubs) in Durable Functions. All function app deployments must share the same task hub name.
+- Traffic Manager [priority traffic-routing method](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-monitoring#traffic-routing-methods) and [endpoint failover and recovery](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-monitoring#endpoint-failover-and-recovery)
 
 ## Scenario 1 - Load Balanced Compute with Shared Storage
 ### Traffic Manager, Load Balanced Funcion Apps, Single Storage
@@ -42,4 +44,5 @@ Cons:
 - State is lost (primary region) not kept in sync
 
 ## Improved Recovery Option
-Same scenarios, but using RA-GRS for storage -> improves recoverability
+- Same scenarios, but using RA-GRS for storage -> improves recoverability
+- Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account. RA-GRS provides read-only access to the data in the secondary location, in addition to geo-replication across two regions.
