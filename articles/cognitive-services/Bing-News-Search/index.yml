@@ -25,25 +25,22 @@ sections:
     columns:
       - image:
           src: media/index/logo_csharp.svg
+        html: <a href="csharp.md">C#</a>
       - image:
           src: media/index/logo_java.svg
+        html: <a href="java.md">Java</a>
       - image:
           src: media/index/logo_nodejs.svg
+        html: <a href="nodejs.md">Node.js</a>
       - image:
           src: media/index/logo_python.svg
+        html: <a href="python.md">Python</a>
       - image:
           src: media/index/logo_php.svg
+        html: <a href="php.md">PHP</a>
       - image:
           src: media/index/logo_ruby.svg
-    rows:
-      - title:
-      - values:
-        - href: csharp
-        - href: java
-        - href: nodejs
-        - href: python
-        - href: php
-        - href: ruby
+        html: <a href="ruby.md">Ruby</a>
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
