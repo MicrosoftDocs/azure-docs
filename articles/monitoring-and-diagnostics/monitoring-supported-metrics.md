@@ -514,7 +514,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |serverlog_storage_limit|Server Log storage limit|Bytes|Average|Server Log storage limit|No Dimensions|
 |active_connections|Total active connections|Count|Average|Total active connections|No Dimensions|
 |connections_failed|Total failed connections|Count|Total|Total failed connections|No Dimensions|
-|seconds_behind_master|Replication lag in seconds|Count|Total|Replication lag in seconds|No Dimensions|
 
 ## Microsoft.DBforPostgreSQL/servers
 
