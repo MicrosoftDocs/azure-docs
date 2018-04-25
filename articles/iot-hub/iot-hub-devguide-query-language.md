@@ -17,7 +17,7 @@ ms.date: 02/26/2018
 ms.author: elioda
 
 ---
-# IoT Hub query language for device/module twins, jobs, and message routing
+# IoT Hub query language for device and module twins, jobs, and message routing
 
 IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins][lnk-twins] and [jobs][lnk-jobs], and [message routing][lnk-devguide-messaging-routes]. This article presents:
 
