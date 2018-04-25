@@ -268,6 +268,8 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 In this article, you created a Service Bus namespace and other resources required to send and receive messages from a Service Bus queue. To learn more about Service Bus, continue with the following articles:
 
+* [Get started with Service Bus samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted)
+* [Service Bus .NET Standard library samples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus)
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
 * [Learn how to use topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
