@@ -1,4 +1,4 @@
----
+﻿---
 title: FAQs and known issues with Managed Service Identity (MSI) for Azure Active Directory
 description: Known issues with Managed Service Identity for Azure Active Directory.
 services: active-directory
@@ -21,10 +21,6 @@ ms.author: daveba
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## Frequently Asked Questions (FAQs)
-
-### Is there a private preview program available for upcoming MSI features and integrations?
-
-Yes. If you would like to be considered for enrollment in the private preview program, [visit our sign-up page](https://aka.ms/azuremsiprivatepreview).
 
 ### Does MSI work with Azure Cloud Services?
 
@@ -49,7 +45,7 @@ When using MSI with VMs, we encourage using the MSI IMDS endpoint. The Azure Ins
 
 The MSI VM extension is still availble to be used today; however, moving forward we will default to using the IMDS endpoint. The MSI VM extension will start on a deprecation plan soon. 
 
-For more information on Azure Instance Metada Service, see [IMDS documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+For more information on Azure Instance Metada Service, see [IMDS documentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### What are the supported Linux distributions?
 
@@ -118,3 +114,16 @@ Once the VM is started, the tag can be removed by using following command:
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
+
+## Known issues with User Assigned MSI *(Preview)*
+
+- The only way to remove all user assigned MSIs is by enabling the system assigned MSI. 
+- Provisioning of the VM extension to a VM might fail due to DNS lookup failures. Restart the VM, and try again. 
+- Adding a 'non-existent' MSI will cause the VM to fail. *Note: The fix to fail assign-identity if MSI doesn't exist, is being rolled-out*
+- Azure Storage tutorial is only available in Central US EUAP at the moment. 
+- Creating a user assigned MSI with special characters (i.e. underscore) in the name, is not supported.
+- When adding a second user assigned identity, the clientID might not be available to requests tokens for it. As a mitigation, restart the MSI VM extension with the following two bash commands:
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
+- The VMAgent on Windows does not currently support User Assigned MSI. 
+- When a VM has a user assigned MSI but no system assigned MSI, the portal UI will show MSI as enabled. To enable the system assigned MSI, use an Azure Resource Manager template, an Azure CLI, or an SDK.

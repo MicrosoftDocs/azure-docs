@@ -1,4 +1,4 @@
----
+﻿---
 title: Migrate on-premises workloads to Azure with Azure DMS and Site Recovery | Microsoft Docs
 description: Learn how to prepare Azure for migration of on-premises machines using the Azure Database Migration Service, and the Azure Site Recovery service.
 services: site-recovery
@@ -16,19 +16,21 @@ The Contoso company are considering migration to Azure. To try this out, they wa
 
 In [Scenario 1: Assess migration to Azure](migrate-scenarios-assessment.md), they used the Data Migration Assistant (DMA) to assess the SQL Server database for the app. In addition, they used the Azure Migrate service to assess the app VMs. Now, in this scenario, after successfully completing the assessment, they want to migrate the database to an Azure SQL Managed instance using the Azure Database Migration Service (DMS), and on-premises machines to Azure VMs using the Azure Site Recovery service.
 
+If you'd like to try out [Scenario 1](migrate-scenarios-assessment.md), and then this scenario using this illustrative travel app, you can download it from [github](https://github.com/Microsoft/SmartHotel360).
+
+
 
 **Service** | **Description** | **Cost**
 --- | --- | ---
-[Database Management Service](https://docs.microsoft.com/azure/dms/dms-overview) | DMS enables seamless migrations from multiple database sources to Azure data platforms, with minimal downtime. | The service is currently in public preview (April 2018), and can be used free of charge during the preview. 
+[Database Management Service](https://docs.microsoft.com/azure/dms/dms-overview) | DMS enables seamless migrations from multiple database sources to Azure data platforms, with minimal downtime. | The service is currently in public preview (April 2018), and can be used free of charge during the preview.<br/><br/> Note that for the public preview DMS is limited to a [number of regions](https://docs.microsoft.com/azure/dms/dms-overview).
 [Azure SQL Managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) | Managed Instance is a managed database service that represents a fully-managed SQL Server Instance in the Azure cloud. It shares the same code with the latest version of SQL Server Database Engine and has the latest features, performance improvements, and security patches. | Using Azure SQL Database Managed Instances running in Azure incur charges based on capacity. [Learn more](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | The service orchestrates and manages migration and disaster recovery for Azure VMs, and on-premises VMs and physical servers.  | During replication to Azure, Azure Storage charges are incurred.  Azure VMs are created, and incur charges, when failover occurs. [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about charges and pricing.
 
 In this scenario, we'll set up a site-to-site VPN so that DMS can connect to the on-premises database, create an Azure SQL Managed Instance in Azure, and migrate the database. For Site Recovery, we'll prepare the on-premises VMware environment, set up replication, and migrate the VMs to Azure.  
 
 
-## Before you start
-
-**IMPORTANT**: You need to be enrolled in the SQL Managed Instance Limited Public Preview. You need an Azure subscription in order to [sign up](https://portal.azure.com#create/Microsoft.SQLManagedInstance). Sign-up can take a few days to complete so make sure you do it before you start to deploy this scenario.
+> [!IMPORTANT]
+> You need to be enrolled in the SQL Managed Instance Limited Public Preview. You need an Azure subscription in order to [sign up](https://portal.azure.com#create/Microsoft.SQLManagedInstance). Sign-up can take a few days to complete so make sure you do it before you start to deploy this scenario.
 
 ## Architecture
 
@@ -41,6 +43,7 @@ In this scenario, we'll set up a site-to-site VPN so that DMS can connect to the
 
 In this scenario:
 
+- Contoso is a fictious name representing a typical enterprise organization. Contoso wants to assess and migrate their two-tier on-premises travel app.
 - Contoso has an on-premises datacenter (contoso-datacenter), with an on-premises domain controller (**contosodc1**).
 - The internal travel app is tiered across two VMs, WEBVM and SQLVM, and located on VMware ESXi host (**contosohost1.contoso.com**).
 - The VMware environment is managed by vCenter Server (**vcenter.contoso.com**) running on a VM.
@@ -52,7 +55,7 @@ If you want to run this scenario, here's what you should have.
 Requirements | Details
 --- | ---
 **Azure subscription** | If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> If you create a free account, you're the administrator of your subscription and can perform all actions.<br/><br/> If you use an existing subscription and you're not the administrator, you need to work with the admin to assign you Owner or Contributor permissions.<br/><br/> If you need more granular permissions, review [this article](../site-recovery/site-recovery-role-based-linked-access-control.md). 
-**Site recovery (on-premises)** | An on-premises vCenter server running version 5.5, 6.0, or 6.5<br/><br/> An ESXi host running version 5.5, 6.0 or 6.5<br/><br/> One or more VMware VMs running on the ESXi host.<br/><br/> VMs must meet [Azure requirements](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).<br/><br/> Supported [network](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) and [storage](https://docs.microsoft.com/en-us/azure/site-recovery/vmware-physical-azure-support-matrix#storage) configuration.
+**Site recovery (on-premises)** | An on-premises vCenter server running version 5.5, 6.0, or 6.5<br/><br/> An ESXi host running version 5.5, 6.0 or 6.5<br/><br/> One or more VMware VMs running on the ESXi host.<br/><br/> VMs must meet [Azure requirements](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).<br/><br/> Supported [network](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) and [storage](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) configuration.
 **DMS** | For DMS you need a [compatible on-premises VPN device](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> You must be able to configure the on-premises VPN device. It must have an externally facing public IPv4 address, and the address can't be located behind a NAT device.<br/><br/> Make sure you have access to your on-premises SQL Server database.<br/><br/> The Windows Firewall should be able to access the source database engine. [Learn more](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> If there's a firewall in front of your database machine, add rules to allow access to the database, and to files via SMB port 445.<br/><br/> The credentials used to connect to the source SQL Server and target Managed Instance must be members of the sysadmin server role.<br/><br/> You need a network share in your on-premises database that DMS can use to back up the source database.<br/><br/> Make sure that the service account running the source SQL Server instance has write privileges on the network share.<br/><br/> Make a note of a Windows user (and password) that has full control privilege on the network share. The Azure Database Migration Service impersonates these user credentials to upload backup files to the Azure storage container.<br/><br/> The SQL Server Express installation process sets the TCP/IP protocol to **Disabled** by default. Make sure that it's enabled.
 
 
@@ -273,7 +276,7 @@ Set up the virtual network as follows:
 
 After the Managed Instance deployment finishes, two new resources appear in the ContosoRG resource group: Virtual Cluster for the Managed Instances, and the SQL Managed Instance. Both are in the East US 2 location.
 
-    ![Managed instance](media/migrate-scenarios-lift-and-shift/mi-2.png)
+![Managed instance](media/migrate-scenarios-lift-and-shift/managed-instance2.png)
 
 
 ## Step 3: Get a SAS URI for DMS
@@ -694,8 +697,6 @@ The final step in the migration process is to update the connection string of th
 4. After updating the file and saving it, restart IIS on the WEBVM. This can be done using the IISRESET /RESTART from a cmd prompt.
 5. After IIS has been restarted, your application will now be using the database running on your SQL MI.
 6. At this point the SQLVM machine on-premises can be shut down, and the migration is complete.
-
-- The new connection string can be located using in the Azure portal by clicking Settings > Connection Strings
 
 
 

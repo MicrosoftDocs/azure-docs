@@ -100,26 +100,30 @@ Enter the directory containing the source code:
 cd acr-build-helloworld-node
 ```
 
+### Bash shell
+
+The commands in this tutorial series are formatted for the Bash shell. If you prefer to use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
+
 ## Build in Azure with ACR Build
 
 Now that you've pulled the source code down to your machine, follow these steps to create a container registry and build the container image with ACR Build.
 
-The following example commands create an Azure container registry named **mycontainerregistry**. Because this registry name might already be taken, replace **mycontainerregistry** with a unique name for your registry. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. You're also welcome to change the resource group name defined in `RES_GROUP`.
-
-> [!NOTE]
-> ACR Build is currently supported only by registries in **EastUS**. Do not change the location of the resource group.
-
-Create a resource group and an Azure container registry:
+To make executing the sample commands easier, the tutorials in this series use shell environment variables. Execute the following command to set the `ACR_NAME` variable. Replace **\<registry-name\>** with a unique name for your new container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The other resources you create in the tutorial are based on this name, so you should need to modify only this first variable.
 
 ```azurecli-interactive
-ACR_NAME=mycontainerregistry # Registry name - must be *unique* within Azure
+ACR_NAME=<registry-name>
+```
+
+With the container registry environment variable populated, you should now be able to copy and paste the remainder of the commands in the tutorial without editing any values. Execute the following commands to create a resource group and container registry:
+
+```azurecli-interactive
 RES_GROUP=$ACR_NAME # Resource Group name
 
 az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard
 ```
 
-Use ACR Build to build a container image from the sample code:
+Now that you have a registry, use ACR Build to build a container image from the sample code. Execute the [az acr build][az-acr-build] command to perform a *Quick Build*:
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrbuild:v1 --context .
@@ -130,7 +134,7 @@ Output from the [az acr build][az-acr-build] command is similar to the following
 ```console
 $ az acr build --registry $ACR_NAME --image helloacrbuild:v1 --context .
 Sending build context (41.042 KiB) to ACR
-Queued a build with ID: eastus-1
+Queued a build with ID: eastus1
 Sending build context to Docker daemon  191.5kB
 Step 1/5 : FROM node:9-alpine
 9-alpine: Pulling from library/node
@@ -166,7 +170,7 @@ time="2018-04-18T18:28:30Z" level=info msg="Running command docker inspect --for
 ACR Builder discovered the following dependencies:
 [{"image":{"registry":"mycontainerregistry.azurecr.io","repository":"helloacrbuild","tag":"v1","digest":"sha256:60d78f0a336a387ba93f04ecf22538d01bca985a277ac77d3813ce360aba0cb1"},"runtime-dependency":{"registry":"registry.hub.docker.com","repository":"node","tag":"9-alpine","digest":"sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3"},"buildtime-dependency":null}]
 Build complete
-Build ID: eastus-1 was successful after 38.116951381s
+Build ID: eastus1 was successful after 38.116951381s
 ```
 
 Near the end of the output, ACR Build displays the dependencies it's discovered for your image. This enables ACR Build to automate image builds on base image updates, such as when a base image is updated with OS or framework patches. You learn about ACR Build's support for base image updates later in this tutorial series.
@@ -276,7 +280,7 @@ To watch the startup process of the container, use the [az container attach][az-
 az container attach --resource-group $RES_GROUP --name acr-build
 ```
 
-The `az container attach` output first displays the container's status as it pulls its image and starts, then binds your local console's STDOUT and STDERR to that of the container's.
+The `az container attach` output first displays the container's status as it pulls the image and starts, then binds your local console's STDOUT and STDERR to that of the container's.
 
 ```console
 $ az container attach --resource-group $RES_GROUP --name acr-build

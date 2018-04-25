@@ -1,4 +1,4 @@
----
+﻿---
 title: Activate Azure subscriptions and accounts | Microsoft Docs
 description: Enable access using Azure Resource Manager APIs for new and existing accounts and resolve common account problems.
 services: cost-management
@@ -90,7 +90,7 @@ The preceding messages indicate that you purchased an Azure Enterprise Agreement
 Here's how to fix the problems:
 
 1. Your reseller needs to enable _markup_ for your account. For instructions, see the [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. You generate the Azure Enterprise Agreement key for use with Azure Cost Management. For instructions, see [Register an Azure Enterprise Agreement and view cost data](https://docs.microsoft.com/en-us/azure/cost-management/quick-register-ea).
+2. You generate the Azure Enterprise Agreement key for use with Azure Cost Management. For instructions, see [Register an Azure Enterprise Agreement and view cost data](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
 Only an Azure service administrator can enable Cost Management. Co-administrator permissions are insufficient.
 

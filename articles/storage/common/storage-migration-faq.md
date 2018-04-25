@@ -87,7 +87,7 @@ Follow these steps:
 
 1.  Create the container (folder) in the destination blob.
 
-2.  Use [AzCopy](https://azure.microsoft.com/en-us/blog/azcopy-5-1-release/) to copy the contents from the original blob container to a different blob container.
+2.  Use [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) to copy the contents from the original blob container to a different blob container.
 
 **How do I create a PowerShell script to move data from one Azure file share to another in Azure Storage?**
 
