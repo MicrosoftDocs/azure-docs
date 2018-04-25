@@ -24,7 +24,7 @@ This article and its companion articles provide details for using the Visual Stu
 - An ASP.NET Core web project open.
 - The Cognitive Services VSIX extension installed. [Install it now](broken-link-placeholder.md).
 
-[!INCLUDE [vs-install-cognitive-services](./includes/vs-install-cognitive-services.md)]
+[!INCLUDE [vs-install-cognitive-services-vsix](./includes/vs-install-cognitive-services-vsix.md)]
 
 ## Add support to your project for Cognitive Services Face API
 

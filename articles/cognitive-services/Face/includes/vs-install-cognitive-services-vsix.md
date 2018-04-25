@@ -5,7 +5,7 @@ ms.topic: "include"
 
 1. In Visual Studio, choose **Tools** > **Extensions and Updates**, search for **Cognitive Services**, and choose **Install**.
 
-   ![Install the Cognitive Services VSIX package](../media/install-cognitive-services.png)
+   ![Install the Cognitive Services VSIX package](../media/install-cognitive-services-vsix.PNG)
 
    Installing an extension requires a restart of the IDE.
 
