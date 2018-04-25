@@ -3,9 +3,9 @@ title: Send notifications to specific devices (Universal Windows Platform) | Mic
 description: Use Azure Notification Hubs with tags in the registration to send breaking news to a Universal Windows Platform app.
 services: notification-hubs
 documentationcenter: windows
-author: spelluru
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: 994d2eed-f62e-433c-bf65-4afebf1c0561
 ms.service: notification-hubs
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/30/2018
-ms.author: spelluru
+ms.date: 04/14/2018
+ms.author: dimazaid
 
 ---
 # Tutorial: Push notifications to specific Windows devices running Universal Windows Platform applications

@@ -4,9 +4,9 @@ description: In this tutorial, you learn how to use Azure Notification Hubs to s
 services: notification-hubs
 keywords: ios push notifications,push messages,push notifications,push message
 documentationcenter: xamarin
-author: spelluru
-manager: 
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
@@ -16,7 +16,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
-ms.author: spelluru
+ms.author: dimazaid
 
 ---
 # Tutorial: Push notifications to Xamarin.iOS apps using Azure Notification Hubs

@@ -3,9 +3,9 @@ title: Send localized notifications to Windows apps using Azure Notification Hub
 description: Learn how to use Azure Notification Hubs to send localized breaking news notifications.
 services: notification-hubs
 documentationcenter: windows
-author: spelluru
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: c454f5a3-a06b-45ac-91c7-f91210889b25
 ms.service: notification-hubs
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/02/2018
-ms.author: spelluru
+ms.date: 04/14/2018
+ms.author: dimazaid
 
 ---
 # Tutorial: Push localized notifications to Windows apps by using Azure Notification Hubs
