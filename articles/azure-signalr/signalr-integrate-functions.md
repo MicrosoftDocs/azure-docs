@@ -20,18 +20,15 @@ ms.author: wesmc
 
 # Tutorial: Integrate Azure Functions with Azure SignalR Service
 
-A common scenario with real-time applications is for content updates to originate from a web server before being published to the desired clients. In this scenario, [Azure Functions](../azure-functions/functions-overview.md) is an excellent candidate for generating these content updates. A key benefit of using Azure functions is that you can run your code on-demand without worrying about the architecture of a whole application, or the infrastructure to run it. You also only pay for the time your code actually runs, as the result of a trigger firing.  
+A common scenario with real-time applications is for content updates to originate from a server to be published to web clients. [Azure Functions](../azure-functions/functions-overview.md) is an excellent candidate for generating these content updates. A key benefit of using Azure functions is that you can run your code on-demand without worrying about the architecture of a whole application, or the infrastructure to run it. You also only pay for the time your code actually runs.  
 
-Normally, this scenario would present a problem when trying to use SignalR. Because SignalR tries to maintain a connection between client and server to allow pushing content updates. Since the code only runs on-demand, a connection cannot be maintained. However, Azure SignalR Service can support this scenario. Because the service manages the connections for you.
+Normally, this scenario would present a problem when trying to use SignalR. Because SignalR tries to maintain a connection between client and server to allow pushing content updates. Since the code only runs on-demand, a connection cannot be maintained. However, Azure SignalR Service can support this scenario since it manages connections for you at run-time.
 
 In this tutorial, you will use Azure Functions to generate messages using a [timer trigger](../azure-functions/functions-create-scheduled-function.md) and publish them to the chat room created in the previous tutorials. The server will send the messages at the beginning of each minute. 
 
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Timer).
 
 ![Chat app with server messages](./media/signalr-integrate-functions/signalr-functions-complete.png)
-
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 In this tutorial, you learn how to:
 
@@ -40,10 +37,10 @@ In this tutorial, you learn how to:
 > * Configure the timer function for local git repository deployment.
 > * Connect the timer to your SignalR Service to push updates every minute
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 
 ## Prerequisites
-
-To complete this tutorial, you must have the following prerequisites:
 
 To complete this tutorial, you must have the following prerequisites:
 
@@ -57,51 +54,50 @@ To complete this tutorial, you must have the following prerequisites:
 
 ## Create a function app
 
-You must create a function app to define the serverless execution, and environment for your functions. It lets you group multiple functions as a logical unit for easier management, deployment, and resource sharing. For more information, see [Create your first function using the Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md).
+You must create a function app to define the execution environment for your functions. The function app also lets you group multiple functions as a logical unit for easier management, deployment, and resource sharing. For more information, see [Create your first function using the Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md).
 
 In this section, you will use the Azure Cloud Shell to create a new Azure Function app configured for deployment from a local git repository. 
 
-When creating the function app, create it in the same resource group you created in the previous tutorial. That resource group contains the SignalR Service resources and your web app. This makes managing all tutorial resources easier.
+When creating the function app resources, creates them in the same resource group you created in the previous tutorials. This makes managing all tutorial resources easier.
 
-Copy the script below and change the script variables if necessary. Paste the updated script into your Azure Cloud Shell, to create and configure your function app.
+Copy the script below and replace the values for `ResourceGroupName`, and `location` with the values for the resource group you used in the previous tutorials. Paste the updated script into your Azure Cloud Shell, to create and configure your function app.
 
 ```azurecli-interactive
-#========================================================================
-#=== Update using the connection string for your SignalR Service      ===
-#=== resource.                                                        ===
-#========================================================================
-connstring="Endpoint=<service_endpoint>;AccessKey=<access_key>;"
-
-#========================================================================
-#=== Optionally, update the values of these variable.                 ===
-#========================================================================
-storageAccountName=signalrstorageaccount
-functionappName=signalrfunctionapp
-
-#========================================================================
-#=== Update this group name and location based on the values you used ===
-#=== for the other SignalR related resources you created previously.  ===
-#========================================================================
+#====================================================================
+#=== Update these variables with your values.                     ===
+#====================================================================
 ResourceGroupName=SignalRTestResources
 location=eastus
 
-#========================================================================
-#=== Update these values based on your desired deployment username    ===
-#=== and password.                                                    ===
-#========================================================================
-deploymentUser=myUserName
-deploymentUserPassword=myPassword    
+# Generate a unique suffix for a unique name
+let randomNum=$RANDOM*$RANDOM
+functionappName=signalrfunctionapp$randomNum
+storageAccountName=functionstorageaccount$randomNum
 
 # Create a storage account to hold function app code and settings
 az storage account create --resource-group $ResourceGroupName \
-    --name $storageAccountName \
-    --location $location --sku Standard_LRS
+--name $storageAccountName \
+--location $location --sku Standard_LRS
 
 # Create the function app
 az functionapp create --resource-group $ResourceGroupName \
-    --name $functionappName \
-    --consumption-plan-location $location \
-    --storage-account $storageAccountName
+--name $functionappName \
+--consumption-plan-location $location \
+--storage-account $storageAccountName
+```
+
+## Configure the function app
+
+In this section, you will configure the function app with an app setting containing the connection string for your Azure SignalR Service resource. Your function code will use this to connect to the SignalR Service resource. You will also configure the function app for deployment from a local git repository.
+
+Copy the script below and replace the value for `connstring` with the connection string for your SignalR Service resource. This script uses the variables you initialized in the previous section.
+
+```azurecli-interactive
+#========================================================================
+#=== Replace this value with the connection string for your           ===
+#=== SignalR Service resource.                                        ===
+#========================================================================
+connstring="Endpoint=<service_endpoint>;AccessKey=<access_key>;"
 
 # Add the SignalR Service connection string app setting
 az functionapp config appsettings set --resource-group $ResourceGroupName 
@@ -116,7 +112,6 @@ az functionapp deployment source config-local-git --name $functionappName \
 
 Make a note the git deployment URL returned from the last command. You will use this URL for deploying the function code.
 
-For more information on Azure Functions, see [An introduction to Azure Functions](../azure-functions/functions-overview.md)
 
 ## The timer function
 
@@ -130,7 +125,7 @@ await proxy.Clients.All.SendAsync("broadcastMessage", new object[] { "_BROADCAST
 
 This code uses the connection string to your SignalR Service resource to create a proxy to the hub. Since the function code is running server-side, we are not requiring it to authenticate as a regular client. This server-side code is trusted to use the key with the connection string. Using this hub proxy, the function code can call any of the methods you have defined on your hub. The code calls the *BroadcastMessage* method to report the time whenever the trigger fires.
 
-The trigger for the function code is a *timerTrigger*, defined in the *TimerFunction/function.json* file as a binding. It includes a [CRON expression](https://wikipedia.org/wiki/Cron#CRON_expression) to indicate when it will fire. This timer trigger fires at the beginning of every minute triggering the function code to execute.
+The trigger for the function code is a *timerTrigger*, defined in the bindings in *TimerFunction/function.json*. It includes a [CRON expression](https://wikipedia.org/wiki/Cron#CRON_expression) to indicate when it will fire. This timer trigger fires at the beginning of every minute triggering the function code to execute.
 
 ```json
 {
@@ -152,14 +147,13 @@ The trigger for the function code is a *timerTrigger*, defined in the *TimerFunc
 For more information on developing a Timer function with Azure Functions, see [Timer](../azure-functions/functions-create-scheduled-function.md). 
 
 
-
 ## Building the timer function
 
-Perform the following steps to build the function and prepare it for deployment:
+Use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) in the following steps to build the function and prepare it for deployment:
 
 1. Navigate to the */samples/Timer* directory of your download, or clone of the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github repository.
 
-2. Using the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/), restore the NuGet packages using the following command:
+2. Restore the NuGet packages using the following command:
 
         dotnet restore
 
@@ -173,7 +167,6 @@ Perform the following steps to build the function and prepare it for deployment:
 1. In a git shell, navigate to the */samples/Timer/bin/Release/net461* directory.
 
 2. Initialize the directory as a new git repository using the following command:
-
         git init
 
 3. Add a new commit for all files in the build directory.
@@ -181,7 +174,7 @@ Perform the following steps to build the function and prepare it for deployment:
         git add -A
         git commit -v -a -m "Initial Timer function commit"        
 
-4. Add a remote endpoint for the git deployment URL you made note of during the creation of your function app:
+4. Add a remote endpoint for the git deployment URL you made note of during the configuration of your function app:
 
         git remote add Azure <enter your git deployment URL>
 
@@ -189,10 +182,11 @@ Perform the following steps to build the function and prepare it for deployment:
 
         git push Azure master
 
+   Once the code is deployed the timer will immediately start firing every minute to execute your code.
 
 ## Test the chat app
 
-If you navigate to the chat application, the Timer function you just created will now be reporting the time at the beginning of each minute.
+Navigate to the chat application, the Timer function you just created will now be reporting the time at the beginning of each minute.
 
 ![Chat app with server messages](./media/signalr-integrate-functions/signalr-functions-complete.png)
 

@@ -35,8 +35,6 @@ The code for this tutorial is available for download in the [AzureSignalR-sample
 ![OAuth Complete hosted in Azure](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -44,6 +42,7 @@ In this tutorial, you learn how to:
 > * Update your authentication controller to support OAuth authentication
 > * Deploy your ASP.NET Core web app to Azure
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

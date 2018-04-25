@@ -59,7 +59,7 @@ In this section, you use the [.NET Core command-line interface (CLI)](https://do
         dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview-10001
 
 
-2. Add a new environment variable named *AzureSignalRConnectionStringKey*. This variable will contain the connection string to access your Signalr Service resource. Based on the example command below, paste in your connection string for the value:
+2. Add a new environment variable named *AzureSignalRConnectionStringKey*. This variable will contain the connection string to access your SignalR Service resource. Based on the example command below, paste in your connection string for the value:
 
     Windows:
 
@@ -262,7 +262,7 @@ After a few moments, the resource group and all of its contained resources are d
 
 ## Next steps
 
-In this quickstart, you've created a new Azure SignalR Service resource and used to in an ASP.NET Core Web app to push content updates in real-time to multiple connected clients. To learn more about using Azure SignalR Server, continue to the next tutorial that demonstrates authentication with OAuth.
+In this quickstart, you've created a new Azure SignalR Service resource and used to in an ASP.NET Core Web app to push content updates in real time to multiple connected clients. To learn more about using Azure SignalR Server, continue to the next tutorial that demonstrates authentication with OAuth.
 
 > [!div class="nextstepaction"]
 > [Azure SignalR Service authentication with OAuth](./signalr-authenticate-oauth.md)
