@@ -48,7 +48,7 @@ Container instances CPU and memory usage can also be gathered using the Azure CL
 
 
 ```console
-CONTAINER_GROUP=$(az container show --resource-group <resource-group> --name <container-group> --query id --output tsv)
+$CONTAINER_GROUP=$(az container show --resource-group <resource-group> --name <container-group> --query id --output tsv)
 ```
 
 Use the following command to get **CPU** usage metrics.
