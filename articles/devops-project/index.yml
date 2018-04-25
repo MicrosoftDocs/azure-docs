@@ -15,7 +15,7 @@ metadata:
   ms.date: 04/25/2018
   ms.author: mlearned
 abstract:
-  description: The Azure DevOps Project presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. The DevOps project automatically creates Azure resources, creates and configures a release pipeline in VSTS that includes a build definition for CI, sets up a release definition for CD, and then creates an Azure Application Insights resource for monitoring.
+  description: The Azure DevOps Project presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
   aside:
     image:
       alt: 
