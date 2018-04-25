@@ -21,6 +21,8 @@ This article provides additional guidance after you've added Key Vault to an ASP
 
 See [What happened to my ASP.NET Core project?](vs-key-vault-aspnet-core-what-happened.md) for the changes made to your project when adding the connected service.
 
+## After you connect
+
 1. Add a secret in your Key Vault in Azure. To get to the right place in the portal, click on the link for Manage secrets stored in this Key Vault. If you closed the page or the project, you can navigate to it in the [Azure portal](https://portal.azure.com) by choosing **All Services**, under **Security**, choose **Key Vault**, then choose the Key Vault you just created.
 
    ![Navigating to the portal](media/vs-key-vault-add-connected-service/manage-secrets-link.jpg)
