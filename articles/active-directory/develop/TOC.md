@@ -109,6 +109,7 @@
 #### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Guides
 ### [Register an app](active-directory-v2-app-registration.md)
+### [App registration reference](active-directory-v2-registration-portal.md)
 ## Reference
 ### [Authentication libraries](active-directory-v2-libraries.md)
 ### [v2.0 authentication protocols](active-directory-v2-protocols.md)
