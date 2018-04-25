@@ -26,6 +26,19 @@ ms.author: robb
 Alerts offer a method of monitoring in Azure that allows you to configure conditions over data and become notified when the conditions match the latest monitoring data.
 
 
+## Alerts on Azure Monitor data
+There are two types of classic alerts available. Metric alerts and Activity Log alerts.
+
+* **Classic metric alerts** - This alert triggers when the value of a specified metric crosses a threshold that you assign. The alert generates a notification when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). These are older metric alerts. For newer metric alerts, see below.
+
+* **Classic activity log alerts** - A streaming log alert that triggers when an Activity Log event is generated that matches filter criteria that you have assigned. These alerts have only one state, "Activated," since the alert engine simply applies the filter criteria to any new event. These alerts can be used to become notified when a new Service Health incident occurs or when a user or application performs an operation in your subscription, for example, "Delete virtual machine."
+
+For Diagnostic Log data available through Azure Monitor, we suggest routing the data into Log Analytics (formerly OMS) and using a Log Analytics query alert. Log Analytics now uses the [new alerting method](monitoring-overview-unified-alerts.md) 
+
+The following diagram summarizes sources of data in Azure Monitor and, conceptually, how you can alert off of that data.
+
+![Alerts explained](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
+
 ## Taxonomy of Azure Monitor alerts (classic)
 Azure uses the following terms to describe classic alerts and their functions:
 * **Alert** - a definition of criteria (one or more rules or conditions) that becomes activated when met.
@@ -34,29 +47,16 @@ Azure uses the following terms to describe classic alerts and their functions:
 * **Notification** - the action taken based off of an classic alert becoming active.
 * **Action** - a specific call sent to a receiver of a notification (for example, emailing an address or posting to a webhook URL). Notifications can usually trigger multiple actions.
 
+## How do I receive a notification from an Azure Monitor classic alert?
+Historically, Azure alerts from different services used their own built-in notification methods. 
 
-## Alerts on Azure Monitor data
-There are three types of alerts off of data available from Azure Monitor -- metric alerts, near real-time metric alerts and Activity Log alerts.
-
-* **Classic metric alerts** - This alert triggers when the value of a specified metric crosses a threshold that you assign. The alert generates a notification when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). These are older metric alerts. For newer metric alerts, see below.
-
-* **Classic activity log alerts** - A streaming log alert that triggers when an Activity Log event is generated that matches filter criteria that you have assigned. These alerts have only one state, "Activated," since the alert engine simply applies the filter criteria to any new event. These alerts can be used to become notified when a new Service Health incident occurs or when a user or application performs an operation in your subscription, for example, "Delete virtual machine."
-
-For Diagnostic Log data available through Azure Monitor, we suggest routing the data into Log Analytics and using a Log Analytics alert. The following diagram summarizes sources of data in Azure Monitor and, conceptually, how you can alert off of that data.
-
-![Alerts explained](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
-
-## How do I receive a notification on an Azure Monitor classic alert?
-Historically, Azure alerts from different services used their own built-in notification methods. Now Azure Monitor offers a reusable notification grouping called Action Groups. Action Groups specify a set of receivers for a notification and any time an alert is activated that references the Action Group, all receivers receive that notification. This allows you to reuse a grouping of receivers (for example, your on call engineer list) across many alert objects. Action Groups support notification by posting to a webhook URL in addition to email addresses, SMS numbers, and a number of other actions. 
-
-For more information on Action Groups see [Action Groups](monitoring-action-groups.md). 
+Now Azure Monitor offers a reusable notification grouping called Action Groups. Action Groups specify a set of receivers for a notification and any time an alert is activated that references the Action Group, all receivers receive that notification. This allows you to reuse a grouping of receivers (for example, your on call engineer list) across many alert objects. Action Groups support notification by posting to a webhook URL in addition to email addresses, SMS numbers, and a number of other actions.  For more information on Action Groups see [Action Groups](monitoring-action-groups.md). 
 
 Older classic Activity Log alerts use Action Groups.
 
 However, the older metric alerts do not use Action Groups. Instead, you can configure the following: 
 * Send email notifications to the service administrator, to co-administrators, or to additional email addresses that you specify.
 * Call a webhook, which enables you to launch additional automation actions.
-
 
 Webhooks enables automation and remediation, for example, using:
     - Azure Automation Runbook
@@ -76,7 +76,5 @@ Get information about alert rules and configuring them by using:
 * Configure [Activity Log Alerts via Azure portal](monitoring-activity-log-alerts.md)
 * Configure [Activity Log Alerts via Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
 * Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)
-* Learn more about [newer Metric Alerts](monitoring-near-real-time-metric-alerts.md)
-* Learn more about [Service Notifications](monitoring-service-notifications.md)
 * Learn more about [Action Groups](monitoring-action-groups.md)
-* Configure [Alerts](monitor-alerts-unified-usage.md)
+* Configure [newer Alerts](monitor-alerts-unified-usage.md)
