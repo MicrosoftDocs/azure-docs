@@ -30,10 +30,6 @@
     href: samples-cli.md    
 - name: Concepts
   items:
-  - name: Types of labs
-    href: concepts-lab-types.md
-  - name: User profiles
-    href: concepts-user-profiles.md
   - name: Custom labs
     href: devtest-lab-concepts.md
     items: 
