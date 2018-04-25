@@ -83,7 +83,7 @@ To create a Service Bus topic, specify the namespace under which you want it cre
 5. At the bottom of the window, click **Create**.
 6. Make a note of the topic name.
 7. Select the topic you just created.
-8. Click on **+ Subscription**, enter the subscription name **S1**, leave every other value as default.
+8. Click on **+ Subscription**, enter the subscription name **S1**, and leave all other values with their defaults.
 9. Repeat the previous step twice more, creating subscriptions named **S2** and **S3**.
 
 ## Create filter rules on subscriptions
@@ -112,7 +112,7 @@ To run the code, do the following:
    dotnet build
    ```
 
-6. Navigate to the `BasicSendReceiveTutorialwithFilters\bin\Debug\netcoreapp2.0` folder.
+6. Navigate to the `\BasicSendReceiveTutorialwithFilters\bin\Debug\netcoreapp2.0` folder.
 
 7. Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myTopicName` with the name of the topic you created:
 
@@ -125,7 +125,7 @@ To run the code, do the following:
    - Execute 2: to add your own filters.
    - Execute 3: to optionally remove your own filters. Note that this will not recreate the default filters.
 
-    ![Showing output of 2.](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
+    ![Showing output of 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
 
 9. After filter creation, you can send messages. Press 4 and observe 10 messages being sent to the topic:
 
@@ -157,7 +157,7 @@ static IDictionary<string, string[]> SubscriptionFilters = new Dictionary<string
     { "S2", new[] { "sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'" } },
     { "S3", new[] { "sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')" } }
 };
-// You can have only have one action per rule and this sample code supports only one action for the first filter which is used to create the first rule. 
+// You can have only have one action per rule and this sample code supports only one action for the first filter, which is used to create the first rule. 
 static IDictionary<string, string> SubscriptionAction = new Dictionary<string, string> {
     { "S1", "" },
     { "S2", "" },
