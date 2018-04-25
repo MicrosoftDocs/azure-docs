@@ -1,6 +1,6 @@
 ---
-title: Quotas and Limitations in Azure Media Services v3 | Microsoft Docs
-description: This topic describes quotas and Limitations in Azure Media Services v3
+title: Quotas and limitations in Azure Media Services v3 | Microsoft Docs
+description: This topic describes quotas and limitations in Azure Media Services v3
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,7 +14,9 @@ ms.date: 03/19/2018
 ms.author: juliako
 ---
 
-# Quotas and Limitations in Azure Media Services v3
+# Quotas and limitations in Azure Media Services v3
+
+This topic describes quotas and limitations in Azure Media Services v3.
 
 | Resource | Default Limit | 
 | --- | --- | 
@@ -34,7 +36,6 @@ ms.author: juliako
 | Unique StreamingLocators associated with an Asset at one time | 5<sup>(5)</sup> |
   
 <sup>1</sup>The maximum size supported for a single blob is currently up to 5 TB in Azure Blob Storage. However, additional limits apply in Azure Media Services based on the VM sizes that are used by the service. If your source file is larger than 260 GB your Job will likely fail. If you have 4K content that is larger than 260 GB limit, contact us at amshelp@microsoft.com for potential mitigations to support your scenario.
-
 
 <sup>2</sup> This number includes queued, finished, active, and canceled Jobs. It does not include deleted Jobs. 
 
