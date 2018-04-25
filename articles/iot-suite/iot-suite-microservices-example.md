@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Customize and redeploy a microservice
 
-This tutorial shows you how to edit one of the microservices in the Remote Monitoring solution, build an image of your microservice, deploy the image to your docker hub, and then use it in Remote Monitoring solution. To introduce this concept, the tutorial uses a basic scenario where you call a microservice API and change the status message from "Alive and Well" to "New Edits Made Here!".
+This tutorial shows you how to edit one of the microservices in the Remote Monitoring solution, build an image of your microservice, deploy the image to your docker hub, and then use it in Remote Monitoring solution. To introduce this concept, the tutorial uses a basic scenario where you call a microservice API and change the status message from "Alive and Well" to "New Edits Made Here!"
 
 Remote Monitoring solution uses microservices that are built using docker images  that are pulled from a docker hub. 
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To follow this tutorial, you need the following:
+To follow this tutorial, you need:
 
 >[!div class="checklist"]
 > * [Deploy the remote monitoring preconfigured solution locally](iot-suite-remote-monitoring-deploy-local.md)
@@ -42,24 +42,39 @@ To follow this tutorial, you need the following:
 
 First remove all images and containers on your local machine so that you are starting with a fresh Docker slate. Having cached docker images or docker containers could interfere with new local deployments of the Remote Monitoring solution.
 
-1. To remove all containers, you'll first need to stop all running containers. Open your terminal and type 
+1. To remove all containers, you'll first need to stop all running containers. Open your terminal and type
+
 ```cmd/sh
 docker stop $(docker ps -aq)
 ```
-After that runs, you need to type 
+
+After that runs, you need to type
+
 ```cmd/sh
 docker rm $(docker ps -aq)
 ```
+
 2. To remove all images, open your terminal and type 
+
 ```cmd/sh
 docker rmi $(docker images -q)
 ```
-3. You can check if there are any containers on the machine by typing 
+
+3. You can check if there are any containers on the machine by typing
+
 ```cmd/sh
 docker ps -aq 
 ```
+
 If you successfully removed all containers, nothing should show up.
-4. You can check if there are any images on the machine by typing "docker images". If you successfully removed all containers, nothing should show up.
+
+4. You can check if there are any images on the machine by typing
+
+```cmd/sh
+docker images
+```
+
+If you successfully removed all containers, nothing should show up.
 
 ## Call the microservice API and view response status
 
@@ -84,7 +99,7 @@ Now change the status message of the Iot Hub Manager microservice to "New Edits 
     return new StatusApiModel(true, "Alive and well");
 ```
 
-and change it to look like this and save it.
+and change it to the code below and save it.
 
 ```javascript
     return new StatusApiModel(true, "New Edits Made Here!");
@@ -92,32 +107,43 @@ and change it to look like this and save it.
 
 5. Go back to you terminal but now change to the following directory:
  "...azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/scripts/docker".
-6. To build your new docker image, type 
+6. To build your new docker image, type
+
 ```cmd/sh
 sh build
 ```
-7. In the same terminal, type 
+
+7. To verify your new image was successfully created, type
+
 ```cmd/sh
 docker images 
 ```
-to verify your new image was successfully created. The repository should be "azureiotpcs/iothub-manager-dotnet".
+
+The repository should be "azureiotpcs/iothub-manager-dotnet".
+
 ![Successful docker image](media/iot-suite-microservices-example/successful-docker-image.png)
 
 ## Tag and push the image
 Before you can push your new docker image to a docker hub, Docker expects your images to be tagged.
 
-1. Locate the Image ID of the docker image you just created by typing:
+1. Locate the Image ID of the docker image you created by typing:
+
 ```cmd/sh
 docker images
 ```
-2. To tag your image with "testing" type 
+
+2. To tag your image with "testing" type
+
 ```cmd/sh
 docker tag [Image ID] [docker ID]/iothub-manager-dotnet:testing 
 ```
-3. To push your newly tagged image to your docker hub, type 
+
+3. To push your newly tagged image to your docker hub, type
+
 ```cmd/sh
 docker push [docker ID]/iothub-manager-dotnet:testing
 ```
+
 4. Open your internet browser and go to your [docker hub](https://hub.docker.com/) and sign in.
 5. You should now see your newly pushed docker image on your docker hub.
 ![Docker image in docker hub](media/iot-suite-microservices-example/docker-image-in-docker-hub.png)
@@ -125,7 +151,7 @@ docker push [docker ID]/iothub-manager-dotnet:testing
 ## Update your local instance of the Remote Monitoring solution
 You now need to update your local docker-compose.yml to pull your new docker image from your docker hub.
 
-1. Go back to you terminal and change to the following directory:
+1. Go back to the terminal and change to the following directory:
 "..azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
 2. Open docker-compose.yml in any text editor or IDE that you like.
 3. Locate the following code:
@@ -134,7 +160,7 @@ You now need to update your local docker-compose.yml to pull your new docker ima
     image: azureiotpcs/pcs-auth-dotnet:testing
 ```
 
-and change it to look like this and save it.
+and change it to look like the image below and save it.
 
 ```docker
     image: [docker ID]/pcs-auth-dotnet:testing
@@ -144,12 +170,14 @@ and change it to look like this and save it.
 Finish up by redeploying a local instance of the Remote Monitoring solution and viewing the new status response in Postman.
 
 1. Go back to you terminal and change to the following directory: "..azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
-2. Start your local instance of the Remote Monitoring solution by typing the following into the terminal:
+2. Start your local instance of the Remote Monitoring solution by typing the following command into the terminal:
+
 ```cmd/sh
 docker-compose up
 ```
+
 3. Locate where you downloaded Postman and open it.
-3. In Postman, enter the following in the GET: http://localhost:8080/iothubmanager/v1/status.
+3. In Postman, enter the following request in the GET: http://localhost:8080/iothubmanager/v1/status.
 4. You should now see, "Status": "OK: New Edits Made Here!".
 
 ![New Edits Made Here postman message](media/iot-suite-microservices-example/new-postman-message.png)
