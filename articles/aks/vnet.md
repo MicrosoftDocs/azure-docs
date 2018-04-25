@@ -1,5 +1,5 @@
 ---
-title: Advanced networking with VNets in Azure Kubernetes Service (AKS)
+title: Advanced networking with VNet in Azure Kubernetes Service (AKS)
 description: Learn about placing your pods in an Azure VNet using the advanced network features of Azure Kubernetes Service (AKS).
 services: container-service
 author: neilpeterson
@@ -11,9 +11,9 @@ ms.date: 05/07/2018
 ms.author: nepeters
 ---
 
-# Advanced networking with VNets in Azure Kubernetes Service (AKS)
+# Advanced networking with VNet in Azure Kubernetes Service (AKS)
 
-Advanced networking places your pods in an Azure Virtual Network providing them automatic connectivity to VNet resources and integration with the rich set of capabilities that VNets offer. It uses the [Azure CNI Networking][cni-networking] plugin for Kubernetes, running on all cluster nodes.
+Advanced networking places your pods in an Azure Virtual Network (VNet), providing them automatic connectivity to VNet resources and integration with the rich set of capabilities that VNets offer. The [Azure Container Networking Interface (CNI)][cni-networking] plugin for Kubernetes provides this advanced networking support, and is installed on all AKS cluster nodes.
 
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram-01]
 
@@ -21,23 +21,29 @@ Advanced networking places your pods in an Azure Virtual Network providing them 
 
 Advanced networking provides the following benefits:
 
-1. You can create a separate VNet and subnet for your AKS cluster or deploy your cluster in an existing VNet.
-1. Every pod in the cluster receives an IP address on the VNet and can directly communicate with other pods in the cluster and any VM in the VNet.
-1. A pod can connect to other services in a peered VNet and to on-premises networks over ExpressRoute and S2S VPN connections. pods are also reachable from on-premises.
-1. A Kubernetes service can be exposed externally or internally through the Azure Load Balancer.
-1. Pods in a subnet that have service endpoints enabled can securely connect to Azure services, for example Azure Storage and SQL.
-1. You can use user-defined routes to route traffic from pods to a Network Virtual Appliance.
-1. Pods can access public resources on the Internet.
+* You can create a new VNet and subnet for your AKS cluster, or deploy your cluster in an existing VNet.
+* Every pod in the cluster receives an IP address on the VNet, and can directly communicate with other pods in the cluster, and other VMs in the VNet.
+* A pod can connect to other services in a peered VNet, and to on-premises networks over ExpressRoute and S2S VPN connections. Pods are also reachable from on-premises.
+* A Kubernetes service can be exposed externally or internally through the Azure Load Balancer.
+* Pods in a subnet that have service endpoints enabled can securely connect to Azure services, for example Azure Storage and SQL.
+* You can use user-defined routes (UDR) to route traffic from pods to a Network Virtual Appliance.
+* Pods can access resources on the public Internet.
 
 ## Configure advanced networking
 
-The following parameters are configurable for advanced networking:
+When you [create an AKS cluster](kubernetes-walkthrough-portal.md) in the Azure portal, the following parameters are configurable for advanced networking:
 
-1. **Virtual Network**: Specify the VNet in which you want to deploy the cluster. If you want to create a new VNet for your cluster select Create New and follow the steps in the Create new virtual network blade.
-1. **Subnet**: Specify a subnet in the VNet that you selected above where you want to deploy the cluster. If you want to create a new subnet in the VNet for your cluster select Create New and follow the steps in the Create new subnet blade.
-1. **SVC CIDR address range**: Specify an IP address range for the Kubernetes cluster Service IPs. This range should be outside the subnet range of your cluster.
-1. **DNS SVC IP address**:  Pick an IP address for the Kubernetes cluster DNS service from the service CIDR address range.
-1. **Docker Bridge address range**: Specify an IP address range for use inside the docker bridge interfaces. This range should be outside the subnet range of your cluster.
+**Virtual network**: Specify the VNet in which you want to deploy the cluster. If you want to create a new VNet for your cluster, select **Create New** and follow the steps in the **Create new virtual network** blade.
+
+**Subnet**: Specify a subnet in the VNet that you selected above where you want to deploy the cluster. If you want to create a new subnet in the VNet for your cluster select Create New and follow the steps in the Create new subnet blade.
+
+**Service CIDR address range**: Specify an IP address range for the Kubernetes cluster Service IPs. This range should be outside the subnet range of your cluster.
+
+**DNS service IP address**:  Pick an IP address for the Kubernetes cluster DNS service from the service CIDR address range.
+
+**Docker Bridge IP address**: The IP address and netmask to assign to the Docker bridge. It must not be in any subnet IP ranges, or the range of Service CIDR. For example: 172.17.0.1/16.
+
+![Advanced networking configuration in the Azure portal][portal-03-networking-advanced]
 
 ## Plan IP addressing for your cluster
 
@@ -45,21 +51,23 @@ When planning the size of your VNet and the subnet, consider the number of pods 
 
 IP addresses for the pods and the cluster's nodes are assigned from the specified subnet within the VNet. Each node is configured with a primary IP, which is the IP of the node itself, and 30 additional IP addresses pre-configured by Azure CNI and assigned to any pods scheduled on the node.
 
-By default, each node can host a maximum of 30 pods. When you scale out your cluster, each added node is similarly configured with IP addresses from the subnet. You can adjust the maximum allowable pod count by configuring the **maxPods** setting.
+Each node can host a maximum of 30 pods. When you scale out your cluster, each node is similarly configured with IP addresses from the subnet.
+
+Each VNet provisioned for use by the Azure CNI plugin is limited to 4096 IP addresses.
 
 ## Frequently asked questions
 
 1. Can I deploy VMs in my cluster subnet?
 
-   Yes, you can. But make sure there are extra IP addresses in the subnet for these VMs.
+   Yes, you can. But make sure there you have a sufficient number of IP addresses in the subnet for the VMs.
 
-1. Are there any scenarios in which NSGs, UDRs and other network policies will not work for pods?
+1. Are there any scenarios in which Network Security Groups, user-defined routes, and other network policies will not work for pods?
 
-   Per-pod network policies are not supported today. You will be allowed to configure the policies, but they will either not work or their behavior is not always predictable. So, their usage is discouraged.
+   Per-pod network policies are currently unsupported. You can configure the policies, but their behavior may be unpredictiable, and they may not be functional. As such, their usage is discouraged.
 
-1. Is the max. no. of pods deployed on every node configurable?
+1. Is the maximum number of pods deployable to a node configurable?
 
-   Every node can host a maximum of 30 pods and this cannot be configured today.
+   Each node can host a maximum of 30 pods. This number is not currently configurable.
 
 1. How do I configure additional properties for the subnet that I created during AKS cluster creation, e.g. service endpoints?
 
@@ -77,6 +85,11 @@ Learn more about networking in AKS in the following articles:
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/vnet/advanced-networking-diagram-01.png
+[portal-01-create]: ./media/vnet/portal-01-create.png
+[portal-02-networking]: ./media/vnet/portal-02-networking.png
+[portal-03-networking-advanced]: ./media/vnet/portal-03-networking-advanced.png
+[portal-04-create-vnet]: ./media/vnet/portal-04-create-vnet.png
+[portal-05-create-subnet]: ./media/vnet/portal-05-create-subnet.png
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
