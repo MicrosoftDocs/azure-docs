@@ -25,7 +25,7 @@ Consider a Human Resources app that reports on the organizational chart in relat
 |Who is Tom's subordinate?|GetOrgChart|.30|
 |Who is the subordinate of Tom?|GetOrgChart|.30|
 
-If an app has between 10 and 20 utterances with different lengths of sentence, different word order, and even different words (synonyms of subordinate, manage, report, LUIS may return a low confidence score. In order to help LUIS understand the importance of the word order, create a pattern. 
+If an app has between 10 and 20 utterances with different lengths of sentence, different word order, and even different words (synonyms of "subordinate", "manage", "report"), LUIS may return a low confidence score. In order to help LUIS understand the importance of the word order, create a pattern. 
 
 Patterns solves the following situations: 
 
@@ -55,10 +55,10 @@ Who does {Employee} manage?
 ```
 
 ### Syntax to add an entity and role to a pattern template
-An entity role is denoted as `{entity:role}` with the entity name followed by a colon, then the role name. To add an entity with a role into the pattern template, surround the entity role name with curly braces, such as `Book a ticket from {Location.Origin} to {Location.Destination}`. 
+An entity role is denoted as `{entity:role}` with the entity name followed by a colon, then the role name. To add an entity with a role into the pattern template, surround the entity namd and role name with curly braces, such as `Book a ticket from {Location:Origin} to {Location:Destination}`. 
 
 ```
-Book a ticket from {Location.Origin} to {Location.Destination}
+Book a ticket from {Location:Origin} to {Location:Destination}
 ```
 
 ### Syntax to add a pattern.any to pattern template

@@ -182,7 +182,8 @@ Fix this - moved to add-intents.md - how ?
 ## Reassign utterances
 
 -->
-
+## Train your app after changing model with utterances
+After you add, edit, or remove utterances, [train](luis-how-to-train.md) and [publish](PublishApp.md) your app for your changes to affect endpoint queries. 
 
 ## Next steps
 

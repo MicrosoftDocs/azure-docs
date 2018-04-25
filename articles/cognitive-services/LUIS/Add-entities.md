@@ -249,6 +249,9 @@ See [Add pattern from existing utterance on intent or entity page](luis-how-to-m
 ## Search utterances
 You can [search and filter](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances#search-in-utterances) utterances. 
 
+## Train your app after changing model with entities
+After you add, edit, or remove entities, [train](luis-how-to-train.md) and [publish](PublishApp.md) your app for your changes to affect endpoint queries. 
+
 ## Next steps
 Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [train](luis-how-to-train.md), [test](train-test.md), and [publish](publishapp.md) your app.
  
