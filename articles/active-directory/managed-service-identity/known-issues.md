@@ -1,4 +1,4 @@
----
+﻿---
 title: FAQs and known issues with Managed Service Identity (MSI) for Azure Active Directory
 description: Known issues with Managed Service Identity for Azure Active Directory.
 services: active-directory
@@ -45,7 +45,7 @@ When using MSI with VMs, we encourage using the MSI IMDS endpoint. The Azure Ins
 
 The MSI VM extension is still availble to be used today; however, moving forward we will default to using the IMDS endpoint. The MSI VM extension will start on a deprecation plan soon. 
 
-For more information on Azure Instance Metada Service, see [IMDS documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+For more information on Azure Instance Metada Service, see [IMDS documentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### What are the supported Linux distributions?
 

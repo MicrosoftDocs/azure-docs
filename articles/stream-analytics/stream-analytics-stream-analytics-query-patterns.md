@@ -1,4 +1,4 @@
----
+﻿---
 title: Common query patterns in Azure Stream Analytics
 description: This article describes a number of common query patterns and designs that are useful in Azure Stream Analytics jobs.
 services: stream-analytics
@@ -577,7 +577,7 @@ WHERE
 ````
 
 **Explanation**:
-The first query `max_power_during_last_3_mins`, uses the [Sliding window](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) to find the max value of the power sensor for every device, during the last 3 minutes. 
+The first query `max_power_during_last_3_mins`, uses the [Sliding window](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) to find the max value of the power sensor for every device, during the last 3 minutes. 
 The second query is joined to the first query to find the power value in the most recent window relevant for the current event. 
 And then, provided the conditions are met, an alert is generated for the device.
 

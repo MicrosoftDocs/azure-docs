@@ -138,7 +138,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 > [!NOTE]
 > For Windows Server 2008 R2, you must have .NET Framework 4.5 installed before you enable encryption in Azure. You can install it from Windows Update by installing the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption is only supported on specific Azure Gallery based Linux server distributions and versions.  For the list of currently supported versions, please refer to the [Azure Disk Encryption FAQ](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
+* Azure Disk Encryption is only supported on specific Azure Gallery based Linux server distributions and versions.  For the list of currently supported versions, please refer to the [Azure Disk Encryption FAQ](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription.
 
@@ -786,7 +786,7 @@ Use the [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) comm
 
 ##### Prerequisites for OS disk encryption
 
-* The VM must be using a distribution compatible with OS disk encryption as listed in the [Azure Disk Encryption FAQ](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
+* The VM must be using a distribution compatible with OS disk encryption as listed in the [Azure Disk Encryption FAQ](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * The VM must be created from the Marketplace image in Azure Resource Manager.
 * Azure VM with at least 4 GB of RAM (recommended size is 7 GB).
 * (For RHEL and CentOS) Disable SELinux. To disable SELinux, see "4.4.2. Disabling SELinux" in the [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) on the VM.
