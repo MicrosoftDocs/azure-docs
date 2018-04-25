@@ -112,6 +112,10 @@ Now that you have a variable to hold the subscription ID, you can configure the 
 1. You don't need the **Write Hello World to output** anymore, so click the ellipses (...) and select **Delete**.
 1. In the Library control, expand **ASSETS**, **Connections**, and add **AzureRunAsConnection** to the canvas by selecting **Add to canvas**.
 1. In the Library control, type **Connect-AzureRmAccount** in the search textbox.
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can update your modules in your Automation Account.
+
 1. Add **Connect-AzureRmAccount** to the canvas.
 1. Hover over **Get Run As Connection** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to **Connect-AzureRmAccount**. The arrow that you created is a *link*. The runbook starts with **Get Run As Connection** and then run **Connect-AzureRmAccount**.<br> ![Create link between activities](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. On the canvas, select **Connect-AzureRmAccount** and in the Configuration control pane type **Login to Azure** in the **Label** textbox.
@@ -130,9 +134,6 @@ Now that you have a variable to hold the subscription ID, you can configure the 
 1. Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration page. Click **SubscriptionID**
 1. In the Parameter Value page, select **Variable Asset** for the **Data source** and select **AzureSubscriptionId** from the list and then click **OK** twice.
 1. Hover over **Login to Azure** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to **Specify Subscription Id**.
-
-> [!IMPORTANT]
-> **Connect-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Connect-AzureRmAccount**, or you can update your modules in your Automation Account.
 
 Your runbook should look like the following at this point: <br>![Runbook authentication configuration](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
