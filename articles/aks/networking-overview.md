@@ -100,12 +100,12 @@ Learn more about networking in AKS in the following articles:
 [Use an internal load balancer with Azure Container Service (AKS)](internal-lb.md)
 
 <!-- IMAGES -->
-[advanced-networking-diagram-01]: ./media/vnet/advanced-networking-diagram-01.png
-[portal-01-create]: ./media/vnet/portal-01-create.png
-[portal-02-networking]: ./media/vnet/portal-02-networking.png
-[portal-03-networking-advanced]: ./media/vnet/portal-03-networking-advanced.png
-[portal-04-create-vnet]: ./media/vnet/portal-04-create-vnet.png
-[portal-05-create-subnet]: ./media/vnet/portal-05-create-subnet.png
+[advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
+[portal-01-create]: ./media/networking-overview/portal-01-create.png
+[portal-02-networking]: ./media/networking-overview/portal-02-networking.png
+[portal-03-networking-advanced]: ./media/networking-overview/portal-03-networking-advanced.png
+[portal-04-create-vnet]: ./media/networking-overview/portal-04-create-vnet.png
+[portal-05-create-subnet]: ./media/networking-overview/portal-05-create-subnet.png
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
