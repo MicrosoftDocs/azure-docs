@@ -92,7 +92,7 @@ By using Azure Resource Manager, you can work with your infrastructure resources
 ### Resource groups
 Resource groups are collections of resources, services, and applications—and each resource has a type, such as virtual machines, virtual networks, public IPs, storage accounts, and websites. Each resource must be in a resource group and so resource groups help logically organize resources, such as by workload or location.  In Microsoft Azure Stack, resources such as plans and offers are also managed in resource groups.
 
-Unlike [Azure](../azure-resource-manager/resource-group-move-resources), you cannot move resources between resource groups. When you view the properties of a resource or resource group in the Azure Stack admin portal, the *Move* button is grayed-out and unavailable. 
+Unlike [Azure](../azure-resource-manager/resource-group-move-resources.md), you cannot move resources between resource groups. When you view the properties of a resource or resource group in the Azure Stack admin portal, the *Move* button is grayed-out and unavailable. 
  
 ### Azure Resource Manager templates
 With Azure Resource Manager, you can create a template (in JSON format) that defines deployment and configuration of your application. This template is known as an Azure Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.
