@@ -1,12 +1,12 @@
 ---
-title: Create a Basic Load Balancer - Azure PowerShell | Microsoft Docs
-description: Learn how to create a Basic Load Balancer using PowerShell
+title: Quickstart:Create a Basic Load Balancer - Azure PowerShell | Microsoft Docs
+description: This quickstart shows how to create a Basic Load Balancer using PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 tags: azure-resource-manager
-
+Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
+ms:custom: mvc
 ---
 
-# <a name="get-started"></a>Create a public load balancer using Azure PowerShell
+# <a name="get-started"></a>Quickstart: Create a public load balancer using Azure PowerShell
 This quickstart shows you how to create Basic Load Balancer using Azure PowerShell. To test the load balancer, you deploy two virtual machines (VMs) running Windows server and load balance a web app between the VMs.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
