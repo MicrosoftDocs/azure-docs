@@ -1,4 +1,4 @@
----
+﻿---
 title: Wildcard applications in the Azure Active Directory application proxy | Microsoft Docs
 description: Learn how to use Wildcard applications in the Azure Active Directory application proxy.
 services: active-directory
@@ -69,7 +69,7 @@ When using custom domains, you need to create a DNS entry with a CNAME record fo
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-To confirm that you have configured your CNAME correctly, you can use [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) on one of the target endpoints, for example, `expenses.adventure-works.com`.  Your response should include the already mentioned alias (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
+To confirm that you have configured your CNAME correctly, you can use [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) on one of the target endpoints, for example, `expenses.adventure-works.com`.  Your response should include the already mentioned alias (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 
 ## Considerations
