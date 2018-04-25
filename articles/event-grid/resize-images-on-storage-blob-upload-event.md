@@ -93,7 +93,16 @@ You can now deploy a function code project to this function app.
 
 ## Deploy the function code 
 
-The C# function that performs image resizing is available in [this GitHub repository](https://github.com/Azure-Samples/function-image-upload-resize). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command. 
+# [.NET](#tab/.net)
+
+The C# function that performs image resizing is available in [this GitHub repository](https://github.com/Azure-Samples/function-image-upload-resize). 
+
+# [Node.js](#tab/nodejs)
+The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). 
+
+---
+
+Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command. 
 
 In the following command, `<function_app>` is the name of the function app you created earlier.
 

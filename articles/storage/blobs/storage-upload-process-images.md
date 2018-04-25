@@ -61,7 +61,7 @@ az storage account create --name <blob_storage_account> \
 ``` 
  
 ## Create blob storage containers
- 
+
 The app uses two containers in the Blob storage account. Containers are similar to folders and are used to store blobs. The _images_ container is where the app uploads full-resolution images. In a later part of the series, an Azure function app uploads resized image thumbnails to the _thumbnails_ container. 
 
 Get the storage account key by using the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command. You then use this key to create two containers using the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command.  
@@ -108,11 +108,18 @@ In the following command, replace `<web_app>` with a unique name (valid characte
 az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan 
 ``` 
 
-## Deploy the sample app from the GitHub repository 
+## Deploy the sample app from the GitHub repository
+
+# [.NET](#tab/.net)
 
 App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) command. Replace `<web_app>` with the name of the web app you created in the preceding step.
 
 The sample project contains an [ASP.NET MVC](https://www.asp.net/mvc) app that accepts an image, saves it to a storage account, and displays images from a thumbnail container. The web application uses the [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet), and the [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) namespaces from the Azure storage Client Library to interact with Azure storage. 
+
+# [Node.js](#tab/nodejs)
+App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) command. Replace `<web_app>` with the name of the web app you created in the preceding step.
+
+---
 
 ```azurecli-interactive 
 az webapp deployment source config --name <web_app> \
@@ -140,6 +147,8 @@ After the web app is deployed and configured, you can test the image upload func
 
 To test the web app, browse to the URL of your published app. The default URL of the web app is `https://<web_app>.azurewebsites.net`. 
 Select the **Upload photos** region to select and upload a file or drag and drop a file on the region. The image disappears if successfully uploaded.
+
+# [.NET](#tab/.net)
 
 ![ImageResizer app](media/storage-upload-process-images/figure1.png)
 
@@ -179,6 +188,70 @@ The following classes and methods are used in the preceding task:
 |[CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet)     |[GetContainerReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobClient_GetContainerReference_System_String_)         |
 |[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)    | [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_GetBlockBlobReference_System_String_)        |
 |[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)     | [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet)        |
+
+
+# [Node.js](#tab/nodejs)
+
+![Image Upload App](media/storage-upload-process-images/upload-app-nodejs.png)
+
+In the sample code, the `post` route is responsible for uploading the image into a blob container. The route uses the modules to help process the upload:
+
+- [multer](https://github.com/expressjs/multer) implements the upload strategy for the route handler
+- [into-stream](https://github.com/sindresorhus/into-stream) converts the buffer into a stream as required by [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html#createBlockBlobFromStream)
+
+As the file is sent to the route, the contents of the file remain in memory until the file is uploaded to the blob container.
+
+> [!IMPORTANT]
+> Loading loading very large files into memory may have a negative effect on the performance of your web application. If you expect users to post large files you may want to consider staging files on the web server file system and then scheduling uploads into blob storage. Once the files are in blob storage then you can remove them off the server file system.
+
+```javascript
+const
+      express = require('express')
+    , router = express.Router()
+
+    , multer = require('multer')
+    , inMemoryStorage = multer.memoryStorage()
+    , uploadStrategy = multer({ storage: inMemoryStorage }).single('image')
+
+    , azureStorage = require('azure-storage')
+    , blobService = azureStorage.createBlobService()
+
+    , getStream = require('into-stream')
+    , containerName = 'images'
+;
+
+const handleError = (err, res) => {
+    res.status(500);
+    res.render('error', { error: err });
+};
+
+const getBlobName = originalName => {
+    const identifier = Math.random().toString().replace(/0\./, ''); // remove "0." from start of string
+    return `${originalName}-${identifier}`;
+};
+
+router.post('/', uploadStrategy, (req, res) => {
+
+    const
+          blobName = getBlobName(req.file.originalname)
+        , stream = getStream(req.file.buffer)
+        , streamLength = req.file.buffer.length
+    ;
+
+    blobService.createBlockBlobFromStream(containerName, blobName, stream, streamLength, err => {
+
+        if(err) {
+            handleError(err);
+            return;
+        }
+
+        res.render('success', { 
+            message: 'File uploaded to Azure Blob storage.' 
+        });
+    });
+});
+```
+---
 
 ## Verify the image is shown in the storage account
 
