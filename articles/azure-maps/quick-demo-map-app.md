@@ -5,7 +5,7 @@ services: azure-maps
 keywords: 
 author: kgremban
 ms.author: kgremban
-ms.date: 04/03/2018
+ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
 
@@ -15,9 +15,9 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Launch a demo interactive map search using Azure Maps
+# Launch an interactive search map using Azure Maps
 
-This article demonstrates the capabilities of Azure Maps to perform an interactive search using Azure Maps. It also walks you through the basic steps of creating your own Maps account and getting your account's key to use in the demo web application. 
+This article demonstrates the capabilities of Azure Maps to create a map that gives users an an interactive search experience. It also walks you through the basic steps of creating your own Maps account and getting your account's key to use in the demo web application. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,12 +30,18 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), click **Create a resource**.
 2. In the *Search the Marketplace* box, type **Maps**.
-3. From the *Results*, select **Maps**. Click **Create** button that appears below the map. 
-4. On the **Create Maps Account** page, enter the *Name* for your new account, select the *Subscription* to use, and enter the name of a new or existing *Resource group*. Select the location for your resource group, accept the *Preview Terms*, and click **Create**.
+3. From the *Results*, select **Azure Maps**. Click **Create** button that appears below the map. 
+4. On the **Create Maps Account** page, enter the following values:
+    - The *Name* of your new account. 
+    - The *Subscription* that you want to use for this account.
+    - The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
+    - Select the *Resource group location*.
+    - Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms. 
+    - Finally, click the **Create** button.
 
     ![Create Maps account in portal](./media/quick-demo-map-app/create-account.png)
 
-5. Once your account is successfully created, open it and navigate to the account's **SETTINGS**. Click **Keys** to obtain the primary and secondary keys for your Azure Maps account. Copy the **Primary Key** value to your local clipboard to use in the following section. 
+5. Once your account is successfully created, open it and find the settings section of the account menu. Click **Keys** to view the primary and secondary keys for your Azure Maps account. Copy the **Primary Key** value to your local clipboard to use in the following section. 
 
 ## Download the application
 
@@ -47,23 +53,24 @@ Log in to the [Azure portal](https://portal.azure.com/).
 ## Launch the application
 
 1. Open the file **AzureMapDemo.html** in a browser of your choice.
-2. Observe the map shown of Los Angeles city. The city is determined by the value of the `[longitude, latitude]` pair given to the JavaScript variable named **center** in the *AzureMapDemo.html*. You can change these coordinates to any other city of your choice. For example, New York city's coordinates are *[-74.0060, 40.7128]*.
-3. In the search box on the upper left corner of the demo web application, enter any location type or address that you want to search. 
-4. Move your mouse over the list of addresses/locations that appear below the search box, and notice how the corresponding pin on the map pops out information about that location. For example, a sample launch of this web application and a search for *restaurants* leads to the following. Please note that for privacy of private businesses, fictitious names and addresses are shown. 
+2. Observe the map shown of Los Angeles city. Zoom in and out to see how the map automatically renders with more or less information depending on the zoom level. 
+3. Change the default center of the map. In the **AzureMapDemo.html** file, search for the variable named **center**. Replace the longitute, latitude pair value for this variable with the new values **[-74.0060, 40.7128]**. Save the file and refresh your browser. 
+3. Try out the interactive search experience. In the search box on the upper left corner of the demo web application, search for **restaurants**. 
+4. Move your mouse over the list of addresses/locations that appear below the search box, and notice how the corresponding pin on the map pops out information about that location. For privacy of private businesses, fictitious names and addresses are shown. 
 
     ![Interactive Search web application](./media/quick-demo-map-app/interactive-search.png)
 
 
 ## Clean up resources
 
-The tutorials go in details about how to use and configure the Azure Maps for your account. If you plan to continue on to work with the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
+The tutorials go in details about how to use and configure Maps with your account. If you plan to continue on to work with the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
 
 1. Close the browser running the **AzureMapDemo.html** web application.
 2. From the left-hand menu in the Azure portal, click **All resources** and then select your Maps account. At the top of the **All resources** blade, click **Delete**.
 
 ## Next steps
 
-In this Quickstart, you’ve created your Azure Maps account, and launched a demo app using your account. To learn how to create your own application using the Azure Maps APIs, continue to the following tutorial.
+In this Quickstart, you’ve created your Azure Maps account, and launched a demo app using your account. To learn how to create your own application using the Maps APIs, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
-> [Search points of interest using Azure Maps](./tutorial-search-location.md)
+> [Search points of interest](./tutorial-search-location.md)
