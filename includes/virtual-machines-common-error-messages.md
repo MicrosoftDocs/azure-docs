@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines-windows
+ author: genlin
+ ms.service: virtual-machines-windows
+ ms.topic: include
+ ms.date: 04/25/2018
+ ms.author: genli
+ ms.custom: include file
+---
+
 >[!NOTE]
 > You can leave comments on this page for feedback or through [Azure feedback](https://feedback.azure.com/forums/216843-virtual-machines) with #azerrormessage tag.
 
@@ -164,7 +176,7 @@ This section lists the common error messages you may encounter when managing VMs
 |  StorageAccountSubscriptionMismatch  |  Storage account {0} doesn't belong to subscription {1}.  |
 |  StorageAccountTooBusy  |  Storage account '{0}' is too busy currently. Consider using another account.  |
 |  StorageAccountTypeNotSupported  |  Disk {0} uses {1} which is a Blob storage account. Please retry with General purpose storage account.  |
-|  StorageAccountTypeNotSupported  |  Storage account {0} is of {1} type. Boot Diagnostics supports {2} storage account types.  |
+|  StorageAccountTypeNotSupported  |  Storage account {0} is of {1} type. Boot Diagnostics supports {2} storage account types. For more information, see [boot-diagnostics](../articles/virtual-machines/windows/boot-diagnostics.md) |
 |  SubscriptionNotAuthorizedForImage  |  The subscription is not authorized.  |
 |  TargetDiskBlobAlreadyExists  |  Blob {0} already exists. Please provide a different blob URI to create a new blank data disk '{1}'.  |
 |  TargetDiskBlobAlreadyExists  |  Capture operation cannot continue because target image blob {0} already exists and the flag to overwrite VHD blobs is not set. Either delete the blob or set the flag to overwrite VHD blobs and retry.  |
