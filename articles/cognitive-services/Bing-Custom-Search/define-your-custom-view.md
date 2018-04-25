@@ -18,7 +18,7 @@ The following are the ways that you can define a slice of the web:
 
 1.	Domain. A domain slice includes all content found within. For example, www.microsoft.com. Omitting 'www' causes Bing to also search the domain’s subdomains. For example, if you specify microsoft.com, Bing also returns results from support.microsoft.com or technet.microsoft.com.
 2.	Subpage. A subpage slice includes all content found in the subpage and paths below it. You may specify a maximum of two subpages in the path. For example, www.microsoft.com/en-us/windows/ 
-3.	Webpage. A webpage slice can include only that webpage in a custom search. An option in the Definition Editor  specifies whether to include subpages.
+3.	Webpage. A webpage slice can include only that webpage in a custom search. An option in the **Search Experience** section specifies whether to include subpages.
 
 All domains, subpages, and webpages that you specify must be public and indexed by Bing. If you own a public site that you want to include in the search, and Bing hasn’t indexed it, see the Bing [webmaster documentation](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a) for details about getting Bing to index it. Also, see the webmaster documentation for details about getting Bing to update your crawled site if the index is out of date.
 
@@ -49,13 +49,15 @@ Similarly, you can add slices to the Blocked list (except you can’t use an upl
 The portal also lets you pin a specific webpage to the top of the search result if the user enters a specific search term. The **Pinned** tab contains a list of query term and webpage pairs that specify the webpage that appears as the top result for a specific query. The user’s query term must exactly match the pinned query term.
 For information about pinning results, see [Adjust Rank](#adjustrank).
 
+Pinning results is not available for the Image Search experience.
+
 ## Site suggestions
 After adding slices to the Active list, the service generates site and subpage suggestions that you might want to add to your search. The **You might want to add** section contains the suggestions. The instance settings page includes this section only if suggestions are available. 
 
 To add suggestions to your Active list, click the + icon.  Because the service generates suggestions based on your settings, be sure to click **Refresh** after adding the suggestions. 
 
 ## Preview pane
-You can test out your search instance using the preview pane on the right to submit search queries and view results. Select **My Instance**, select a safe search filter, and what market to search (see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters). Enter a query and press enter or click the search icon to view the results from the current configuration. To see web results click **Web**, to see image results click **Image**. Image results are only available if your subscription includes it, see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
+You can test out your search instance using the preview pane on the right to submit search queries and view results. Select **My Instance**, select a safe search filter, and what market to search (see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters). Enter a query and press enter or click the search icon to view the results from the current configuration. To see web results click **Web**, to see image results click **Image**. 
 
  Using the preview pane, you can also review Bing results by selecting **Bing** instead of **My Instance**. This can be useful to compare results from your search experience to the results returned by Bing.
 
@@ -68,6 +70,8 @@ The portal lets you adjust ranking to manipulate the results that Bing returns. 
 - Demote. Demotes content from the domain or subpage lower in the search results. You select whether to demote content from the domain or subpage that the webpage belongs to. 
 - Pin-to-top. Define the webpage that appears at the top of the results if the user’s query term exactly matches the query term you used. The Active list does not have to contain the webpage for you to pin it. 
 
+Adjusting rank is not available for the Image Search experience.
+
 ## Boosting and demoting
 You can super boost, boost, or demote any domain or subpage in your Active list. By default, all slices are added with the same weight. Items that are Super boosted or Boosted are ranked higher in the search results (with super boost ranking higher than boost). Items that are demoted are ranked lower in the search results.
 
@@ -76,6 +80,8 @@ It is important to note that super boost, boost, and demote give respective weig
 You can super boost, boost, or demote items by using the Ranking Adjust controls in the Active list or by using the Boost and Demote controls in the Preview pane. The service adds the slice to your Active list and adjusts the ranking accordingly.
 
 Super boost, boost, and demote changes are automatically saved and reflect instantly against your custom search endpoint. 
+
+Super boost, boost, and demote are not available for the Image Search experience.
 
 ## Pin to top
 To pin a webpage to the top of the search results for a specific query, choose one of the following options:
@@ -88,6 +94,8 @@ You can track your pins in the Pinned tab. The pins are shown as '\<query\>,
 The webpage is pinned only if the user’s query exactly matches your query. 
 
 For a specific query, you can pin a maximum of one webpage to the top of the results.
+
+Pins are not available for the Image Search experience.
 
 ## Use Bing to specify slices
 There are a couple of ways to specify the slices of the web that make up your custom search. If you know the slices you want to include in your instance, add them to your instance’s Active list. For information about adding items to the Active list yourself, see [Active and Blocked lists](#active-and-blocked-lists).
