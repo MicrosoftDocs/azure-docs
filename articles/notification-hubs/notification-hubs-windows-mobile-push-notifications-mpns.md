@@ -4,9 +4,9 @@ description: In this tutorial, you learn how to use Azure Notification Hubs to p
 services: notification-hubs
 documentationcenter: windows
 keywords: push notification,push notification,windows phone push
-author: spelluru
+author: dimazaid
 manager: kpiteira
-editor: ''
+editor: spelluru
 
 ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/28/2018
-ms.author: spelluru
+ms.date: 04/14/2018
+ms.author: dimazaid
 
 #Customer intent: As a developer, I want to develop backend applications that send notification messages to Windows phone application so that users get up-to-date information and take appropriate actions. 
 ---
