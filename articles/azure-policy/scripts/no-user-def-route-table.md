@@ -3,7 +3,7 @@ title: Azure Policy json sample - No user defined route table | Microsoft Docs
 description: This json sample policy prohibits virtual networks from being deployed with a user-defined route table.
 services: azure-policy
 documentationcenter:
-author: bandersmsft
+author: DCtheGeek
 manager: carmonm
 editor:
 ms.assetid:
@@ -13,7 +13,7 @@ ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload:
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
 ---
 

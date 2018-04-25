@@ -3,8 +3,8 @@ title: Quickstart - Use PowerShell to create a policy assignment to identify non
 description: In this quickstart, you use PowerShell to create an Azure Policy assignment to identify non-compliant resources.
 services: azure-policy
 keywords:
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.date: 04/10/2018
 ms.topic: quickstart
 ms.service: azure-policy

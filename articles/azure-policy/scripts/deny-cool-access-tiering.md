@@ -3,7 +3,7 @@ title: Azure Policy json sample - Deny cool access tiering for storage accounts 
 description: This json sample policy prohibits the use of cool access tiering for blob storage accounts.
 services: azure-policy
 documentationcenter:
-author: bandersmsft
+author: DCtheGeek
 manager: carmonm
 editor:
 ms.assetid:
@@ -13,7 +13,7 @@ ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload:
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
 ---
 
