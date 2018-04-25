@@ -239,7 +239,7 @@
       href: https://aka.ms/luis-authoring-sdk
 - name: Related
   items: 
-  - name: Bot framework
+  - name: Bot Framework
     href: https://dev.botframework.com/
   - name: Bot Builder 3.x SDK C#
     href: https://github.com/Microsoft/BotBuilder
@@ -249,6 +249,8 @@
     href: https://qnamaker.ai/
   - name: Bing Speech API
     href: https://azure.microsoft.com/services/cognitive-services/speech/
+  - name: Bing Spell Check API
+    href: https://azure.microsoft.com/services/cognitive-services/spell-check/
   - name: Text Analytics 
     href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
 - name: Resources
