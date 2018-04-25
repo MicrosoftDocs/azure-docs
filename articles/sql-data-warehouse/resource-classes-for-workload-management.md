@@ -7,7 +7,7 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
 ---
@@ -25,22 +25,24 @@ The performance capacity of a data warehouse is determined by the [performance t
 
 The performance capacity of a query is determined by query's resource class. This remainder of this article explains what resource classes are and how to adjust them.
 
-
 ## What are resource classes?
-Resource classes are pre-determined resource limits in Azure SQL Data Warehouse that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and the compute-resources assigned to each query. There is a tradeoff between memory and concurrency.
+The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in Azure SQL Data Warehouse that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and the compute-resources assigned to each query. There is a trade off between memory and concurrency.
 
 - Smaller resource classes reduce the maximum memory per query, but increase concurrency.
 - Larger resource classes increases the maximum memory per query, but reduce concurrency. 
 
-The performance capacity of a query is determined by the user's resource class.
+There are two types of resource classes:
 
-- To view the resource utilization for the resource classes, see [Memory and concurrency limits](memory-and-concurrency-limits.md#concurrency-maximums).
-- To adjust the resource class, you can run the query under a different user or [change the current user's resource class](#change-a-user-s-resource-class) membership. 
+- [Static resources classes](#Static resources classes), which are well suited for increased concurrency on a data set size that is fixed.
+- [Dynamic resource classes](#Dynamic resource classes), which are well suited for data sets that are growing in size and increasing performance as the service level is scaled up.   
 
 Resource classes use concurrency slots to measure resource consumption.  [Concurrency slots](#concurrency-slots) are explained later in this article. 
 
+- To view the resource utilization for the resource classes, see [Memory and concurrency limits](memory-and-concurrency-limits.md#concurrency-maximums).
+- To adjust the resource class, you can run the query under a different user or [change the current user's resource class](#change-a-users-resource-class) membership. 
+
 ### Static resource classes
-Static resource classes allocate the same amount of memory regardless of the current performance level, which is measured in [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). Since queries get the same memory allocation regardless of the performance level, [scaling out the data warehouse](quickstart-scale-compute-portal.md) allows more queries to run within a resource class.
+Static resource classes allocate the same amount of memory regardless of the current performance level, which is measured in [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). Since queries get the same memory allocation regardless of the performance level, [scaling out the data warehouse](quickstart-scale-compute-portal.md) allows more queries to run within a resource class.  Static resource classes are ideal if the data volume is known and constant.
 
 The static resource classes are implemented with these pre-defined database roles:
 
@@ -56,16 +58,32 @@ The static resource classes are implemented with these pre-defined database role
 These resource classes are best suited to solutions which increase resource class to get additional compute resources.
 
 ### Dynamic resource classes
-Dynamic Resource Classes allocate a variable amount of memory depending on the current service level. When you scale up to a larger service level, your queries automatically get more memory. 
+Dynamic Resource Classes allocate a variable amount of memory depending on the current service level. While static resource classes are beneficial for higher concurrency and static data volumes, dynamic resource classes are better suited for a growing or variable amount of data.  When you scale up to a larger service level, your queries automatically get more memory.  
 
 The dynamic resource classes are implemented with these pre-defined database roles:
 
 - smallrc
 - mediumrc
 - largerc
-- xlargerc. 
+- xlargerc 
 
 These resource classes are best suited to solutions which increase compute scale to get additional resources. 
+
+### Gen2 dynamic resource classes are truly dynamic
+When digging into the details of dynamic resource classes on Gen1, there are a few details that add additional complexity to understanding their behavior.
+
+- Smallrc resources classes operate within a fixed memory model like a static resource class.
+- As service levels change, even at higher service levels, the concurrency inconsistently changes between service levels.
+- Scaling services levels does not provide a proportional change the memory allocated to the same resource classes.
+
+On ***Gen2*** only, dynamic resource classes are truly dynamic addressing the points mentioned above.  The new rule is 3-10-22-70 for memory percentage allocations for small-medium-large-xlarge resource classes, regardless of service level.  The below table has the consolidated details on memory allocation percentages and the minimum number concurrent queries that run, regardless of the service level.
+
+| Resource Class | Percentage Memory | Min Concurrent Queries |
+|:--------------:|:-----------------:|:----------------------:|
+| smallrc        | 3%                | 32                     |
+| mediumrc       | 10%               | 10                     |
+| largerc        | 22%               | 4                      |
+| xlargerc       | 70%               | 1                      |
 
 
 ### Default resource class
@@ -141,10 +159,11 @@ Only resource governed queries consume concurrency slots. System queries and som
 
 Resource classes are implemented as pre-defined database roles. There are two types of resource classes: dynamic and static. To view a list of the resource classes, use the following query:
 
-    ```sql
-    SELECT name FROM sys.database_principals
-    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
-    ```
+```sql
+SELECT name 
+FROM   sys.database_principals
+WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+```
 
 ## Change a user's resource class
 
