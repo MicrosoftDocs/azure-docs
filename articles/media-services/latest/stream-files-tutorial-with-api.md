@@ -17,7 +17,9 @@ ms.author: juliako
 
 # Tutorial: Upload, encode, and stream videos using APIs
 
-This tutorial shows you how to stream video files with Azure Media Services. You would want to deliver adaptive bitrate content in Apple's HLS, MPEG DASH, or Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. 
+This tutorial shows you how to upload, encode and stream video files with Azure Media Services. You would want to stream your content in Apple's HLS, MPEG DASH, or CMAF formats so it can be played on a wide variety of browsers and devices. Your video needs to be encoded and packaged appropriately before you can stream it.
+
+While the tutorial walks you through the steps to upload a video, you can also encode content that you make accessible to your Media Services account via a HTTPS URL.
 
 ![Play the video](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -75,31 +77,38 @@ private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper
 
 ### Create an input asset and upload a local file into it 
 
-The **CreateInputAsset** function creates an input asset and uploads the specified local video file into it. This asset is used as the input to your encoding job. In Media Services v3, the job input can be created from HTTP(s) URLs, SAS URLs, AWS S3 Token URLs, or paths to files located in Azure Blob storage. If you want to learn how to create a job input from an HTTP(s) URL, see [this](job-input-from-http-how-to.md) article.  
+The **CreateInputAsset** function creates a new input Asset and uploads the specified local video file into it. This Asset is used as the input to your encoding Job. In Media Services v3, the input to a Job can either be an Asset, or it can be content that you make available to your Media Services account via HTTPS URLs. If you want to learn how to encode from a HTTPS URL, see [this](job-input-from-http-how-to.md) article.  
 
-In Media Services v3, the Storage APIs are used to upload files. The following .NET snippet shows how to use the Storage APIs with Media Services to upload your input files. You can also ingest remotely hosted content over HTTP(s), for more information, [Ingest from HTTP(s)](job-input-from-http-how-to.md). 
+In Media Services v3, you use Azure Storage APIs to upload files. The following .NET snippet shows how.
 
 The following function performs these actions:
 
-* Creates the Asset 
+* Creates an Asset 
 * Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the Asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
 * Uploads the file into the container in storage using the SAS URL
 
 ```csharp
 private static Asset CreateInputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName, string fileToUpload)
 {
-    Asset asset = client.Assets.CreateOrUpdate(resourceGroupName, accountName, assetName, new Asset());
+    // Check if an Asset already exists
+    Asset asset = client.Assets.Get(resourceGroupName, accountName, assetName);
 
-    var response = client.Assets.ListContainerSas(resourceGroupName, accountName, assetName, new ListContainerSasInput()
+    if (asset == null)
     {
-        Permissions = AssetContainerPermission.ReadWrite,
-        ExpiryTime = DateTimeOffset.Now.AddHours(4)
-    });
+        asset = client.Assets.CreateOrUpdate(resourceGroupName, accountName, assetName, new Asset());
+        var response = client.Assets.ListContainerSas(resourceGroupName, accountName, assetName, new ListContainerSasInput()
+        {
+             Permissions = AssetContainerPermission.ReadWrite,
+             ExpiryTime = DateTimeOffset.Now.AddHours(4)
+         });
 
-    var sasUri = new Uri(response.AssetContainerSasUrls.First());
-    CloudBlobContainer container = new CloudBlobContainer(sasUri);
-    var blob = container.GetBlockBlobReference(Path.GetFileName(fileToUpload));
-    blob.UploadFromFile(fileToUpload);
+        var sasUri = new Uri(response.AssetContainerSasUrls.First());
+        CloudBlobContainer container = new CloudBlobContainer(sasUri);
+        var blob = container.GetBlockBlobReference(Path.GetFileName(fileToUpload));
+        blob.UploadFromFile(fileToUpload);
+    }
+
+    // In this sample method, we are going to assume that if an Asset already exists with the desired name, then we can go ahead an use it for encoding or analyzing.
 
     return asset;
 }
@@ -112,31 +121,45 @@ The output asset stores the result of your encoding job. The project defines the
 ```csharp
 private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName)
 {
-    Asset input = new Asset();
+    // Check if an Asset already exists
+    Asset outputAsset = client.Assets.Get(resourceGroupName, accountName, assetName);
+    Asset asset = new Asset();
+    string outputAssetName = assetName;
 
-    return client.Assets.CreateOrUpdate(resourceGroupName, accountName, assetName, input);
+    if (outputAsset != null)
+    {
+         // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
+         // Note that the returned Asset can have a different name than the one specified as an input parameter!
+         // You may want to update this part to throw an Exception instead, and handle name collisions differently
+         string uniqueness = @"-" + Guid.NewGuid().ToString();
+         outputAssetName += uniqueness;
+    }
+
+    return client.Assets.CreateOrUpdate(resourceGroupName, accountName, outputAssetName, asset);
 }
 ```
 
-### Create a transform and a job that encodes the uploaded file
-
-When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
+### Create a Transform and a Job that encodes the uploaded file
+When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new Jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
 
 #### Transform
 
-When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article, uses a built-in Preset called **AdaptiveStreaming**. The Preset auto-generates a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about, see [auto-generating bitrate ladder](autogen-bitrate-ladder.md).
+When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code below. Each **TransformOutput** contains a **Preset**. **Preset** describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article uses a built-in Preset called **AdaptiveStreaming**. The Preset encodes the input video into an auto-generated bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about this Preset, see [auto-generating bitrate ladder](autogen-bitrate-ladder.md).
 
 You can use other built-in EncoderNamedPreset or use custom presets. 
 
-When creating a **Transform**, you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist.
+When creating a **Transform**, you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
 
 ```csharp
 private static Transform EnsureTransformExists(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName)
 {
+    // Does a Transform already exist with the desired name? Assume that an existing Transform with the desired name
+    // also uses the same recipe or Preset for processing content
     Transform transform = client.Transforms.Get(resourceGroupName, accountName, transformName);
 
     if (transform == null)
     {
+        // Start by defining the desired outputs
         TransformOutput[] outputs = new TransformOutput[]
         {
             new TransformOutput
@@ -159,36 +182,46 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
 
 #### Job
 
-As mentioned above, the **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTP(s) URLs, SAS URLs, S3 URLs, or a path to files located locally or in Azure Blob storage. The content can also be specified using [Google Cloud Storage signed URLs](https://cloud.google.com/storage/docs/access-control/signed-urls).
+As mentioned above, the **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
 
-In this example, the input video is uploaded from your local machine. If you want to learn how to create a job input from an HTTP(s) URL, see [this](job-input-from-http-how-to.md) article.  
+In this example, the input video has been uploaded from your local machine. If you want to learn how to encode from a HTTPS URL, see [this](job-input-from-http-how-to.md) article.
 
 ```csharp
 private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, string jobName, JobInput jobInput, string outputAssetName)
 {
+    string uniqueJobName = jobName;
+    Job job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
+
+    if (job != null)
+    {
+         // Job already exists with the same name, so let's append a GUID
+         string uniqueness = @"-" + Guid.NewGuid().ToString();
+         uniqueJobName += uniqueness;
+    }
+
     JobOutput[] jobOutputs =
     {
-        new JobOutputAsset(outputAssetName), 
+        new JobOutputAsset(outputAssetName),
     };
 
-    Job job = client.Jobs.Create(
-        resourceGroupName, 
-        accountName,
-        transformName,
-        jobName,
-        new Job
-        {
-            Input = jobInput,
-            Outputs = jobOutputs,
-        });
+    job = client.Jobs.Create(
+             resourceGroupName,
+             accountName,
+             transformName,
+             uniqueJobName,
+             new Job
+             {
+                 Input = jobInput,
+                 Outputs = jobOutputs,
+              });
 
-    return job;
+     return job;
 }
 ```
 
-### Wait for the job to complete
+### Wait for the Job to complete
 
-Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid.
+The code sample below shows how to poll the service for the status of the Job. Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid.
 
 Event Grid is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.
 
@@ -225,9 +258,9 @@ private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string r
 }
 ```
 
-### Get streaming locator
+### Get a streaming locator
 
-In Media Services, a locator provides an entry point to access the files contained in an Asset. It also defines duration that a client has access to a given asset. One of the arguments that you need to pass is a **StreamingPolicyName**. In this example, you are streaming non-encrypted content, so the predefined clear streaming policy name can be passed.
+In Media Services, a StreamingLocator provides an entry point to access the files contained in an Asset. It also defines the time period for which a viewer or client application has access to that Asset. One of the arguments that you need to pass is a **StreamingPolicyName**. In this example, you will be streaming in-the-clear or non-encrypted content, so the predefined clear streaming policy name can be passed.
 
 ```csharp
 private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client,
@@ -252,7 +285,7 @@ private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient
 
 ### Get streaming URLs
 
-Now that the streaming locator has been created, you can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the streaming endpoint's host name and the streaming locator path. In this sample, the *default* streaming endpoint is used. By default, a streaming endpoint is in the stopped state, so you need to call **Start**. 
+Now that the StreamingLocator has been created, you can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the streaming endpoint's host name and the streaming locator path. In this sample, the *default* streaming endpoint is used. By default, a streaming endpoint is in the stopped state, so you need to call **Start**. 
 
 ```csharp
 static IList<string> GetStreamingURLs(
@@ -284,9 +317,9 @@ static IList<string> GetStreamingURLs(
 }
 ```
 
-### Clean up resource in your Media Services account
+### Clean up resources in your Media Services account
 
-Generally, you should clean up everything except objects that you are planning to reuse (commonly, you want to reuse a transform). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes jobs.
+Generally, you should clean up everything except objects that you are planning to reuse (commonly, you want to reuse a Transform). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes Jobs.
 
 ```csharp
 static void CleanUp(IAzureMediaServicesClient client, string resourceGroupName, string accountName, String transformName)
@@ -329,11 +362,11 @@ az group delete --name amsResourceGroup
 
 ## Multithreading
 
-The Azure Media Services v3 SDKs are not thread-safe. When working with multi-threaded application, you should generate a new  AzureMediaServicesClient object per thread.
+The Azure Media Services v3 SDKs are not thread-safe. When developing a multi-threaded application, you should generate and use a new  AzureMediaServicesClient object per thread.
 
 ## Next steps
 
-Now that you know how to upload, encode, download, and stream your video, see the following article: 
+Now that you know how to upload, encode, and stream your video, see the following article: 
 
 > [!div class="nextstepaction"]
 > [Analyze videos](analyze-videos-tutorial-with-api.md)
