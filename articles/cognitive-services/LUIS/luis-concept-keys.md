@@ -67,6 +67,9 @@ Publishing regions are different from authoring regions. Make sure you create an
 ## Key limit errors
 If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. Fix these errors by getting a LUIS [endpoint](#endpoint-key) key, [assigning](#assign-endpoint-key) the key to the app on the **Publish** page of the [LUIS][LUIS] website.
 
+## Speech-to-text integration
+The speech-to-text integration is known as **Speech-to-intent**. This Speech-to-intent key is a separate key created from the Azure portal. Once the key is created, set this key at publish time. The process creates a new endpoint. The key usage is priced to include both Speech and LUIS. If the endpoint receives a text utterance, which doesn't require Speech-to-text conversion, only the LUIS endpoint quota is used.
+
 ## Next steps
 
 * [Add](Manage-Keys.md#assign-endpoint-key) an endpoint key.
