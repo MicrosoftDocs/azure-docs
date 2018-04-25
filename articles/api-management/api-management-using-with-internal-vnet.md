@@ -1,4 +1,4 @@
----
+﻿---
 
 title: How to use Azure API Management with internal virtual networks | Microsoft Docs
 description: Learn how to set up and configure Azure API Management on an internal virtual network
@@ -114,7 +114,7 @@ If you use a custom DNS server in a virtual network, you can also create A DNS r
 To learn more, see the following articles:
 * [Common network configuration problems while setting up Azure API Management in a virtual network][Common network configuration problems]
 * [Virtual network FAQs](../virtual-network/virtual-networks-faq.md)
-* [Creating a record in DNS](https://msdn.microsoft.com/en-us/library/bb727018.aspx)
+* [Creating a record in DNS](https://msdn.microsoft.com/library/bb727018.aspx)
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
