@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory conditional access | Microsoft Docs
 description: Learn how conditional access in Azure Active Directory can help you to manage access control from a central location.
 services: active-directory
@@ -107,7 +107,7 @@ For more information, see [Set up SharePoint Online and Exchange Online for Azur
 
 ### License requirements for using conditional access
 
-Using conditional access requires a Azure AD Premium license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+Using conditional access requires a Azure AD Premium license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
 
 ## Next steps
