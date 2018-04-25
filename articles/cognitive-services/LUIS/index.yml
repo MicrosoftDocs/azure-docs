@@ -93,6 +93,7 @@ sections:
     - html: Improve accuracy with batch testing&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-batch-testing">Luis.ai</a>
     - html: Correct misspelled words with Bing Spell Check API V7&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-bing-spellcheck">Luis.ai</a>
     - html: Gain insights into your application&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-function-appinsights">Node.js</a> | <a href="/azure/cognitive-services/LUIS/luis-tutorial-bot-csharp-appinsights">.NET</a>
+    - html: Use patterns to improve predictions&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-pattern">Luis.ai</a>
 - title: Reference
   items:
   - type: list
