@@ -243,7 +243,7 @@ Azure Blob, and File supports encryption at rest for server-side encrypted scena
 
 SQL Azure currently supports encryption at rest for Microsoft managed service side and client-side encryption scenarios.
 
-Support for sever encryption is currently provided through the SQL feature called Transparent Data Encryption. Once a SQL Azure customer enables TDE key are automatically created and managed for them. Encryption at rest can be enabled at the database and server levels. As of June 2017, [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) will be enabled by default on newly created databases.
+Support for server encryption is currently provided through the SQL feature called Transparent Data Encryption. Once a SQL Azure customer enables TDE key are automatically created and managed for them. Encryption at rest can be enabled at the database and server levels. As of June 2017, [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) will be enabled by default on newly created databases.
 
 Client-side encryption of SQL Azure data is supported through the [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) feature. Always Encrypted uses a key that created and stored by the client. Customers can store the master key in a Windows certificate store, Azure Key Vault, or a local Hardware Security Module. Using SQL Server Management Studio, SQL users choose what key they’d like to use to encrypt which column.
 
@@ -254,8 +254,8 @@ Client-side encryption of SQL Azure data is supported through the [Always Encryp
 | **Storage and Databases**            |                |                     |                              |                              |        |
 | Disk (IaaS)                      |                | -                   | Yes                          | Yes*                         | -      |
 | SQL Server (IaaS)                |                | Yes                 | Yes                          | Yes                          | Yes    |
-| SQL Azure (PaaS)                 |                | Yes                 | Preview                      | -                            | Yes    |
-| Azure Storage (Block/Page Blobs) |                | Yes                 | Preview                      | -                            | Yes    |
+| SQL Azure (PaaS)                 |                | Yes                 | Yes                          | -                            | Yes    |
+| Azure Storage (Block/Page Blobs) |                | Yes                 | Yes                          | -                            | Yes    |
 | Azure Storage (Files)            |                | Yes                 | -                            | -                            | -      |
 | Azure Storage (Tables, Queues)   |                | -                   | -                            | -                            | Yes    |
 | Cosmos DB (Document DB)          |                | Yes                 | -                            | -                            | -      |
