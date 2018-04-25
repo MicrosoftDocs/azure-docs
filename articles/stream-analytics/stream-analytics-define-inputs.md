@@ -90,7 +90,7 @@ FROM Input
 ```
 
 > [!NOTE]
-> When using Event Hub as an endpoint for IoT Hub Routes, you can access to the IoT Hub medadata using the [GetMetadataPropertyValue function](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx).
+> When using Event Hub as an endpoint for IoT Hub Routes, you can access to the IoT Hub medadata using the [GetMetadataPropertyValue function](https://msdn.microsoft.com/library/azure/mt793845.aspx).
 > 
 
 ## Stream data from IoT Hub
