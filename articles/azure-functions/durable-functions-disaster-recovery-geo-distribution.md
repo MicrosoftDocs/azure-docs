@@ -24,7 +24,13 @@ In Azure Durable Functions, all state is persisted in Azure Storage. A [task hub
 The scenarios described in this article propose deployment options to increase availability and minimize downtime during disaster recovery activities.
 It is important to notice that these scenarios are based on an Active-Passive configurations, since they are guided by the usage of Azure Storage.
 
+
+> [!NOTE]
+> All function apps must share the same function access keys in the case of being activated via HTTP. The Functions Runtime exposes a [management API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) that enables consumers to programmatically add, delete, and update function keys.
+
 ## Scenario 1 - Load Balanced Compute with Shared Storage
+
+### Traffic Manager, Load Balanced Function Apps, single Storage account
 
 In the event of problems of the compute service in Azure, the Function App could be affected. To minimize the possibility of such downtime, this scenario uses two instances of the Function App deployed to different regions. The underlying storage account and task hub are created in the main region, and it is shared by both instances.
 Traffic Manager is configured to detect problems in the main site and automatically redirect traffic to the healthy Function App in the failover region.
@@ -63,6 +69,9 @@ Important considerations for this scenario:
 - Current state is not failed over. This implies that executing and checkpointed functions will fail. It is up to the client application to retry/restart the work.
 
 ## Scenario 3 - Load Balanced Compute with GRS Shared Storage
+
+### Traffic Manager, Load Balanced Function Apps, single (GRS) Storage account
+
 This scenario is a modification over the first scenario, implementing a shared storage account. The main difference that the storage account is created with geo-replication enabled.
 Functionally, this scenario provides the same advantages as Scenario 1, but it enables additional data recovery advantages:
 - Geo-redundant storage (GRS) and Read-access GRS (RA-GRS) maximize availability for your storage account. Additionally, RA-GRS provides read-only access to the data in the secondary location, in addition to geo-replication across two regions.
@@ -73,3 +82,5 @@ As with the other scenarios, there are important considerations:
 - Failover to the replica is done by datacenter operators and it may take some time. Until that time, the FunctionApp will suffer an outage.
 - There is an increased cost for using geo-replicated storage accounts.
 - GRS occurs asynchronously. It is possible that some or the latest transactions are lost because of the latency of the replication process.
+
+![Diagram showing scenario 3.](media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
