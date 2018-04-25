@@ -252,13 +252,13 @@ In the Wingtip Tickets example, you earlier discovered that ticket sales tend to
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> - Deploy a SQL Data Warehouse populated with a star schema for tenant analytics 
-> - Use Azure Data Factory to:
->>    - Extract data from tenant databases
->>    - Load it into staging tables with PolyBase
->>    - Use a stored procedure to transform new and changed data into the star schema 
->>    -	Query a data warehouse 
-> -	Use Power BI to visualize trends in data across all the tenants 
+> * Deploy a SQL Data Warehouse populated with a star schema for tenant analytics 
+> * Use Azure Data Factory to:
+>    * Extract data from tenant databases
+>    * Load it into staging tables with PolyBase
+>    * Use a stored procedure to transform new and changed data into the star schema 
+>    *	Query a data warehouse 
+> *	Use Power BI to visualize trends in data across all the tenants 
 
 Congratulations!
 
