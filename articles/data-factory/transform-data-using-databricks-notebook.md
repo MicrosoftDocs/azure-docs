@@ -1,4 +1,4 @@
----
+﻿---
 title: "Run a Databricks Notebook with the Databricks Notebook activity in Azure Data Factory"
 description: "Learn how you can use the Databricks Notebook Activity in an Azure data factory to run a Databricks notebook against the databricks jobs cluster."
 services: data-factory
@@ -45,7 +45,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.
 
 3.  In the **New data factory** pane, enter **ADFTutorialDataFactory** under **Name**.
 
-    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory. (For example, use **\<yourname\>ADFTutorialDataFactory**). For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) article.
+    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory. (For example, use **\<yourname\>ADFTutorialDataFactory**). For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](https://docs.microsoft.com/azure/data-factory/naming-rules) article.
 
     ![Provide a name for the new data factory](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
 
@@ -57,7 +57,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.
     
     - Select **Create new** and enter the name of a resource group.
 
-    Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+    Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1.  For **Version**, select **V2 (Preview)**.
 
