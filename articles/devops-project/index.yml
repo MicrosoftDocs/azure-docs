@@ -38,23 +38,23 @@ sections:
       text: ASP.NET
       href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
     - image: 
-        src: https://docs.microsoft.com/azure/devops-project/media/index/logo_nodejs.svg
+        src: media\logo_nodejs.svg
       text: Node.js
       href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-nodejs
     - image: 
-        src: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-logo_java.svg
+        src: media\logo_java.svg
       text: Java
       href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-java
     - image: 
-        src: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-logo_python.svg
+        src: media\logo_python.svg
       text: Python
       href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-python
     - image: 
-        src: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-logo_php.svg
+        src: media\logo_php.svg
       text: PHP
       href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-php
     - image: 
-        src: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-logo_ruby.svg
+        src: media\logo_ruby.svg
       text: Ruby
       href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-ruby
 
