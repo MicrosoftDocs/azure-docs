@@ -5,13 +5,13 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 04/24/2018
+ms.date: 04/25/2018
 ms.topic: hero-article
 ms.service: event-grid
 ---
-# Create and route custom events with Azure CLI and Event Grid
+# Route custom events to Azure Queue storage with Azure CLI and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to create a custom topic, subscribe to the topic, and trigger the event to view the result. You send the events to a storage queue.
+Azure Event Grid is an eventing service for the cloud. Azure Queue storage is one of the supported event handlers. In this article, you use the Azure CLI to create a custom topic, subscribe to the topic, and trigger the event to view the result. You send the events to the Queue storage.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,21 +41,27 @@ An event grid topic provides a user-defined endpoint that you post your events t
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 
-## Create storage queue
+## Create Queue storage
 
-Before subscribing to the topic, let's create the endpoint for the event message. Let's create a storage queue for collecting the events.
+Before subscribing to the topic, let's create the endpoint for the event message. You create a Queue storage for collecting the events.
 
 ```azurecli-interactive
-az storage account create -n MyStorageAccount -g gridResourceGroup -l westus2 --sku Standard_LRS
-az storage queue create --name eventqueue  --account-key  --account-name MyStorageAccount
+storagename="<unique-storage-name>"
+az storage account create -n $storagename -g gridResourceGroup -l westus2 --sku Standard_LRS
+az storage queue create --name eventqueue --account-name $storagename
 ```
 
 ## Subscribe to a topic
 
-You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the topic you created, and passes the resource ID of the storage queue. Replace `<event_subscription_name>` with a name for your subscription, and `<endpoint_URL>` with the value from the preceding section. For `<topic_name>`, use the value you created earlier. 
+You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the topic you created, and passes the resource ID of the Queue storage for the endpoint. The Queue storage ID is in the format `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/queueservices/default/queues/<queue-name>`.
+
+Replace `<event_subscription_name>` with a name for your subscription. For `<topic_name>`, use the value you created earlier. 
 
 ```azurecli-interactive
-az eventgrid event-subscription create --topic-name <topic_name> -g gridResourceGroup --name customSub --endpoint-type storagequeue --endpoint /subscriptions/<subscription-id>/resourcegroups/gridResourceGroup/providers/Microsoft.Storage/storageAccounts/<storage-name>/queueservices/default/queues/eventqueue
+storageid=$(az storage account show --name $storagename --resource-group gridResourceGroup --query id --output tsv)
+queueid="$storageid/queueservices/default/queues/eventqueue"
+
+az eventgrid event-subscription create --topic-name <topic_name> -g gridResourceGroup --name <event_subscription_name> --endpoint-type storagequeue --endpoint $queueid
 ```
 
 ## Send an event to your topic
@@ -67,37 +73,20 @@ endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --qu
 key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-To simplify this article, you use sample event data to send to the topic. Typically, an application or Azure service would send the event data. The following example gets the event data:
+To simplify this article, you use sample event data to send to the topic. Typically, an application or Azure service would send the event data. CURL is a utility that sends HTTP requests. In this article, use CURL to send the event to the topic.  The following example sends three events to the event grid topic:
 
 ```azurecli-interactive
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+for i in 1 2 3
+do
+   body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+   curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+done
 ```
 
-To see the full event, use `echo "$body"`. The `data` element of the JSON is the payload of your event. Any well-formed JSON can go in this field. You can also use the subject field for advanced routing and filtering.
+Navigate to the Queue storage in the portal, and notice that Event Grid sent those three events to the queue.
 
-CURL is a utility that sends HTTP requests. In this article, use CURL to send the event to the topic. 
+![Show messages](./media/custom-event-to-queue-storage/messages.png)
 
-```azurecli-interactive
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
-```
-
-You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. 
-
-```json
-[{
-  "id": "1807",
-  "eventType": "recordInserted",
-  "subject": "myapp/vehicles/motorcycles",
-  "eventTime": "2017-08-10T21:03:07+00:00",
-  "data": {
-    "make": "Ducati",
-    "model": "Monster"
-  },
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
-}]
-```
 
 ## Clean up resources
 If you plan to continue working with this event, don't clean up the resources created in this article. Otherwise, use the following command to delete the resources you created in this article.

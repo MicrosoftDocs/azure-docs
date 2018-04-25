@@ -34,7 +34,7 @@
   - name: Stream data from Event Hubs to data warehouse
     href: event-grid-event-hubs-integration.md
   - name: Send events to Queue Storage
-    href: custom-event-to-storage-queue.md
+    href: custom-event-to-queue-storage.md
 - name: Samples
   items:
   - name: Azure CLI
