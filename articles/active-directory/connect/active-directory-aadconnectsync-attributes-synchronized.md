@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/05/2018
 ms.author: billmath
 
 ---
@@ -38,7 +38,7 @@ In this case, start with the list of attributes in this topic and identify those
 | cn |X | |
 | displayName |X | |
 | objectSID |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
-| pwdLastSet |X |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
+| pwdLastSet |X |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | sourceAnchor |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | usageLocation |X |mechanical property. The user’s country. Used for license assignment. |
 | userPrincipalName |X |UPN is the login ID for the user. Most often the same as [mail] value. |
@@ -230,7 +230,7 @@ In this case, start with the list of attributes in this topic and identify those
 | postOfficeBox |X |X | |This attribute is currently not consumed by SharePoint Online. |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
+| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
 | securityEnabled | | |X |Derived from groupType |
@@ -285,7 +285,7 @@ In this case, start with the list of attributes in this topic and identify those
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
+| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | securityEnabled | | |X |Derived from groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
@@ -327,7 +327,7 @@ In this case, start with the list of attributes in this topic and identify those
 | member | | |X | |
 | objectSID |X | |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
+| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | securityEnabled | | |X |Derived from groupType |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
@@ -355,7 +355,7 @@ In this case, start with the list of attributes in this topic and identify those
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
-| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
+| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | securityEnabled | | |X |Derived from groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
@@ -386,7 +386,7 @@ This group is a set of attributes that can be used if the Azure AD directory is 
 | member | | |X | |
 | objectSID |X | | |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
+| pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
@@ -417,17 +417,17 @@ These attributes for **user** are in addition to the other apps you have selecte
 ## Exchange hybrid writeback
 These attributes are written back from Azure AD to on-premises Active Directory when you select to enable **Exchange hybrid**. Depending on your Exchange version, fewer attributes might be synchronized.
 
-| Attribute Name | User | Contact | Group | Comment |
-| --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016 and Windows Server 2016 AD. |
-| msExchArchiveStatus |X | | |Online Archive: Enables customers to archive mail. |
-| msExchBlockedSendersHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
-| msExchSafeRecipientsHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
-| msExchSafeSendersHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
-| msExchUCVoiceMailSettings |X | | |Enable Unified Messaging (UM) - Online voice mail: Used by Microsoft Lync Server integration to indicate to Lync Server on-premises that the user has voice mail in online services. |
-| msExchUserHoldPolicies |X | | |Litigation Hold: Enables cloud services to determine which users are under Litigation Hold. |
-| proxyAddresses |X |X |X |Only the x500 address from Exchange Online is inserted. |
-| publicDelegates |X | | |Allows an Exchange Online mailbox to be granted SendOnBehalfTo rights to users with on-premises Exchange mailbox. Requires Azure AD Connect build 1.1.552.0 or after. |
+| Attribute Name (Connect UI) |Attribute Name (On-premises AD) | User | Contact | Group | Comment |
+| --- |:---:|:---:|:---:| --- |---|
+| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016 and Windows Server 2016 AD. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Online Archive: Enables customers to archive mail. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Enable Unified Messaging (UM) - Online voice mail: Used by Microsoft Lync Server integration to indicate to Lync Server on-premises that the user has voice mail in online services. |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Litigation Hold: Enables cloud services to determine which users are under Litigation Hold. |
+| proxyAddresses| proxyAddresses |X |X |X |Only the x500 address from Exchange Online is inserted. |
+| publicDelegates| ms-Exch-Public-Delegates  |X | | |Allows an Exchange Online mailbox to be granted SendOnBehalfTo rights to users with on-premises Exchange mailbox. Requires Azure AD Connect build 1.1.552.0 or after. |
 
 ## Exchange Mail Public Folder
 These attributes are synchronized from on-premises Active Directory to Azure AD when you select to enable **Exchange Mail Public Folder**.

@@ -4,7 +4,7 @@ description: Protect your Windows VMs by backing them up using Azure Backup.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -100,7 +100,7 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn about monitoring virtual machines.
 
 > [!div class="nextstepaction"]
-> [Monitor virtual machines](tutorial-monitoring.md)
+> [Govern virtual machines](tutorial-govern-resources.md)
 
 
 

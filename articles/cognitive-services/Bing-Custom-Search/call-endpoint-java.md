@@ -4,9 +4,8 @@ description: Describes how to call Bing Custom Search endpoint with Java
 services: cognitive-services
 author: brapel
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
@@ -14,119 +13,124 @@ ms.author: v-brapel
 
 # Call Bing Custom Search endpoint (Java)
 
-This example shows how to request search results from your custom search instance using Java. To create this example follow these steps:
+This example shows how to request search results from your custom search instance using Java. To create a custom search instance see [Create your first Bing Custom Search instance](quick-start.md).
 
-1. Create your custom instance (see [Define a custom search instance](define-your-custom-view.md)).
-2. Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+## Prerequisites
+
+You will need to install [.Java](https://www.java.com) to run this example.
+
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard. 
 
   >[!NOTE]  
   >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.  
 
-3. Install [Java](https://www.java.com).
-4. Using your Java IDE of choice create a package.
-5. Create the file CustomSrchJava.java and copy the following code to it.
-6. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
+## Running the code
 
-``` Java
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+To run this example, follow these steps.
 
-import javax.net.ssl.HttpsURLConnection;
+1. Using your Java IDE of choice create a package.
+2. Create the file CustomSrchJava.java and copy the following code to it.
+3. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID.
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-public class CustomSrchJava {
-	
-	
-	static String host = "https://api.cognitive.microsoft.com";
-    static String path = "/bingcustomsearch/v7.0/search";
-    static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
-    static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
-
-    static String searchTerm = "Microsoft";  // Replace with search term specific to your defined sources.
-
-    public static SearchResults SearchImages (String searchQuery) throws Exception {
-        // construct URL of search request (endpoint + query string)
-        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
-        HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-        // receive JSON body
-        InputStream stream = connection.getInputStream();
-        String response = new Scanner(stream).useDelimiter("\\A").next();
-
-        // construct result object for return
-        SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-
-        // extract Bing-related HTTP headers
-        Map<String, List<String>> headers = connection.getHeaderFields();
-        for (String header : headers.keySet()) {
-            if (header == null) continue;      // may have null key
-            if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
-                results.relevantHeaders.put(header, headers.get(header).get(0));
+    ``` Java
+    import java.io.InputStream;
+    import java.net.URL;
+    import java.net.URLEncoder;
+    import java.util.HashMap;
+    import java.util.List;
+    import java.util.Map;
+    import java.util.Scanner;
+    
+    import javax.net.ssl.HttpsURLConnection;
+    
+    import com.google.gson.Gson;
+    import com.google.gson.GsonBuilder;
+    import com.google.gson.JsonObject;
+    import com.google.gson.JsonParser;
+    
+    public class CustomSrchJava {    	
+    	static String host = "https://api.cognitive.microsoft.com";
+        static String path = "/bingcustomsearch/v7.0/search";
+        static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
+        static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
+    
+        static String searchTerm = "Microsoft";  // Replace with search term specific to your defined sources.
+    
+        public static SearchResults SearchImages (String searchQuery) throws Exception {
+            // construct URL of search request (endpoint + query string)
+            URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
+            HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+            connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+    
+            // receive JSON body
+            InputStream stream = connection.getInputStream();
+            String response = new Scanner(stream).useDelimiter("\\A").next();
+    
+            // construct result object for return
+            SearchResults results = new SearchResults(new HashMap<String, String>(), response);
+    
+            // extract Bing-related HTTP headers
+            Map<String, List<String>> headers = connection.getHeaderFields();
+            for (String header : headers.keySet()) {
+                if (header == null) continue;      // may have null key
+                if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
+                    results.relevantHeaders.put(header, headers.get(header).get(0));
+                }
+            }
+    
+            stream.close();
+            return results;
+        }
+    
+        // pretty-printer for JSON; uses GSON parser to parse and re-serialize
+        public static String prettify(String json_text) {
+            JsonParser parser = new JsonParser();
+            JsonObject json = parser.parse(json_text).getAsJsonObject();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            return gson.toJson(json);
+        }
+    
+        public static void main (String[] args) {
+            if (subscriptionKey.length() != 32) {
+                System.out.println("Invalid Bing Search API subscription key!");
+                System.out.println("Please paste yours into the source code.");
+                System.exit(1);
+            }
+    
+            try {
+                System.out.println("Searching the Web for: " + searchTerm);
+    
+                SearchResults result = SearchImages(searchTerm);
+    
+                System.out.println("\nRelevant HTTP Headers:\n");
+                for (String header : result.relevantHeaders.keySet())
+                    System.out.println(header + ": " + result.relevantHeaders.get(header));
+    
+                System.out.println("\nJSON Response:\n");
+                System.out.println(prettify(result.jsonResponse));
+            }
+            catch (Exception e) {
+                e.printStackTrace(System.out);
+                System.exit(1);
             }
         }
-
-        stream.close();
-        return results;
     }
-
-    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    public static void main (String[] args) {
-        if (subscriptionKey.length() != 32) {
-            System.out.println("Invalid Bing Search API subscription key!");
-            System.out.println("Please paste yours into the source code.");
-            System.exit(1);
+    
+    // Container class for search results encapsulates relevant headers and JSON data
+    class SearchResults{
+        HashMap<String, String> relevantHeaders;
+        String jsonResponse;
+        SearchResults(HashMap<String, String> headers, String json) {
+            relevantHeaders = headers;
+            jsonResponse = json;
         }
-
-        try {
-            System.out.println("Searching the Web for: " + searchTerm);
-
-            SearchResults result = SearchImages(searchTerm);
-
-            System.out.println("\nRelevant HTTP Headers:\n");
-            for (String header : result.relevantHeaders.keySet())
-                System.out.println(header + ": " + result.relevantHeaders.get(header));
-
-            System.out.println("\nJSON Response:\n");
-            System.out.println(prettify(result.jsonResponse));
-        }
-        catch (Exception e) {
-            e.printStackTrace(System.out);
-            System.exit(1);
-        }
+    
     }
-}
-
-// Container class for search results encapsulates relevant headers and JSON data
-class SearchResults{
-    HashMap<String, String> relevantHeaders;
-    String jsonResponse;
-    SearchResults(HashMap<String, String> headers, String json) {
-        relevantHeaders = headers;
-        jsonResponse = json;
-    }
-
-}
-
-```
-
-### Next steps
+    
+    ```
+4. Run the program.
+    
+## Next steps
 - [Configure and consume custom hosted UI](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

@@ -189,7 +189,7 @@ You can host native Linux applications in the cloud by using Azure Web Apps. To 
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### Create a Linux App Service plan
 

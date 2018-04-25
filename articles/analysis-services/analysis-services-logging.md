@@ -1,28 +1,20 @@
----
+﻿---
 title: Diganostic logging for Azure Analysis Services | Microsoft Docs
 description: Learn about setting up diagnostic logging for Azure Analysis Services.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid:
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic:
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 12/29/2017
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Setup diagnostic logging
 
-An important part of any Analysis Services solution is monitoring how your servers are performing. With [Azure resource diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), you can monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), part of [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+An important part of any Analysis Services solution is monitoring how your servers are performing. With [Azure resource diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), you can monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), a service of [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
-![Diagnostic logging to Storage, Event Hubs, or Operations Management Suite via Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
+![Diagnostic logging to Storage, Event Hubs, or Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## What's logged?
@@ -80,12 +72,12 @@ The Metrics category logs the same [Server metrics](analysis-services-monitor.md
 
     ![Turn on diagnostic logging for Azure Cosmos DB in the Azure portal](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. In **Diagnostic settings**, do the following: 
+2. In **Diagnostic settings**, specify the following options: 
 
     * **Name**. Enter a name for the logs to create.
 
-    * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. See [Create a storage account](../storage/common/storage-create-storage-account.md). Follow the instructions to create a Resource Manager, general-purpose account. Then return to this page in the portal to select your storage account. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
-    * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To create an Event Hubs namespace, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). Then return to this page in the portal to select the Event Hub namespace and policy name.
+    * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. See [Create a storage account](../storage/common/storage-create-storage-account.md). Follow the instructions to create a Resource Manager, general-purpose account, then select your storage account by returning to this page in the portal. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
+    * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To learn more, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). Then return to this page in the portal to select the Event Hub namespace and policy name.
     * **Send to Log Analytics**. To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [create a new workspace](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) in the portal. For more information on viewing your logs in Log Analytics, see [View logs in Log Analytics](#view-in-loganalytics).
 
     * **Engine**. Select this option to log xEvents. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
@@ -168,7 +160,7 @@ In **Type**, click **AzureDiagnostics**, and then click **Apply**. AzureDiagnost
 
 Click **EventClass\_s** or one of the event names and Log Analytics continues constructing a query. Be sure to save your queries to reuse later.
 
-Be sure to checkout Operations Management Suite, which provides a website with enhanced query, dashboarding, and alerting capabilities on Log Analytics data.
+Be sure to see Log Analytics, which provides a website with enhanced query, dashboarding, and alerting capabilities on collected data.
 
 ### Queries
 
@@ -207,7 +199,7 @@ To complete this tutorial, you must have the following resources:
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell gets all the subscriptions that are associated with this account and by default, uses the first one.

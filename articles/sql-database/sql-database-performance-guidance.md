@@ -2,19 +2,12 @@
 title: Azure SQL Database performance tuning guidance | Microsoft Docs
 description: Learn about using recommendations to improve Azure SQL Database query performance.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: dd8d95fa-24b2-4233-b3f1-8e8952a7a22b
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
-ms.date: 02/09/2017
+ms.date: 02/12/2018
 ms.author: carlrab
 
 ---
@@ -31,7 +24,7 @@ These are manual methods because you need to decide what [service tiers](sql-dat
 
 ## Increasing performance tier of your database
 
-Azure SQL Database offers four [service tiers](sql-database-service-tiers.md) that you can choose from: Basic, Standard, Premium, and Premium RS (performance is measured in database throughput units, or [DTUs](sql-database-what-is-a-dtu.md). Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
+Azure SQL Database offers two purchasing models, a DTU-based purchasing model and a v-Core-based purchasing model. Each model has multiple [service tiers](sql-database-service-tiers.md) that you can choose from. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
 
 > [!NOTE]
 > This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic pool, and get similar performance benefits.
@@ -42,11 +35,10 @@ Azure SQL Database offers four [service tiers](sql-database-service-tiers.md) th
   * **You have a database with a single user**. Applications that associate a single user with a database typically don’t have high concurrency and performance requirements. These applications are candidates for the Basic service tier.
 * **Standard**: The Standard service tier offers improved performance predictability and provides good performance for databases that have multiple concurrent requests, like workgroup and web applications. When you choose a Standard service tier database, you can size your database application based on predictable performance, minute over minute.
   * **Your database has multiple concurrent requests**. Applications that service more than one user at a time usually need higher performance levels. For example, workgroup or web applications that have low to medium IO traffic requirements supporting multiple concurrent queries are good candidates for the Standard service tier.
-* **Premium**: The Premium service tier provides predictable performance, second over second, for each Premium database. When you choose the Premium service tier, you can size your database application based on the peak load for that database. The plan removes cases in which performance variance can cause small queries to take longer than expected in latency-sensitive operations. This model can greatly simplify the development and product validation cycles for applications that need to make strong statements about peak resource needs, performance variance, or query latency. Most Premium service tier use cases have one or more of these characteristics:
-  * **High peak load**. An application that requires substantial CPU, memory, or input/output (I/O) to complete its operations requires a dedicated, high-performance level. For example, a database operation known to consume several CPU cores for an extended time is a candidate for the Premium service tier.
+* **Premium**: The Premium service tier provides predictable performance, second over second, for each Premium or Business Critical (preview) database. When you choose the Premium service tier, you can size your database application based on the peak load for that database. The plan removes cases in which performance variance can cause small queries to take longer than expected in latency-sensitive operations. This model can greatly simplify the development and product validation cycles for applications that need to make strong statements about peak resource needs, performance variance, or query latency. Most Premium service tier use cases have one or more of these characteristics:
+  * **High peak load**. An application that requires substantial CPU, memory, or input/output (IO) to complete its operations requires a dedicated, high-performance level. For example, a database operation known to consume several CPU cores for an extended time is a candidate for the Premium service tier.
   * **Many concurrent requests**. Some database applications service many concurrent requests, for example, when serving a website that has a high traffic volume. Basic and Standard service tiers limit the number of concurrent requests per database. Applications that require more connections would need to choose an appropriate reservation size to handle the maximum number of needed requests.
   * **Low latency**. Some applications need to guarantee a response from the database in minimal time. If a specific stored procedure is called as part of a broader customer operation, you might have a requirement to have a return from that call in no more than 20 milliseconds, 99 percent of the time. This type of application benefits from the Premium service tier, to make sure that the required computing power is available.
-* **Premium RS**: The Premium RS tier is designed for IO-intensive workloads that do not require the highest availability guarantees. Examples include testing high-performance workloads, or an analytical workload where the database is not the system of record.
 
 The service level that you need for your SQL database depends on the peak load requirements for each resource dimension. Some applications use a trivial amount of a single resource, but have significant requirements for other resources.
 
@@ -138,7 +130,7 @@ After it's created, that same SELECT statement picks a different plan, which use
 
 ![A query plan with corrected indexes](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)
 
-The key insight is that the I/O capacity of a shared, commodity system is more limited than that of a dedicated server machine. There's a premium on minimizing unnecessary I/O to take maximum advantage of the system in the DTU of each performance level of the Azure SQL Database service tiers. Appropriate physical database design choices can significantly improve the latency for individual queries, improve the throughput of concurrent requests handled per scale unit, and minimize the costs required to satisfy the query. For more information about the missing index DMVs, see [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
+The key insight is that the IO capacity of a shared, commodity system is more limited than that of a dedicated server machine. There's a premium on minimizing unnecessary IO to take maximum advantage of the system in the DTU of each performance level of the Azure SQL Database service tiers. Appropriate physical database design choices can significantly improve the latency for individual queries, improve the throughput of concurrent requests handled per scale unit, and minimize the costs required to satisfy the query. For more information about the missing index DMVs, see [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
 
 ### Query tuning and hinting
 The query optimizer in Azure SQL Database is similar to the traditional SQL Server query optimizer. Most of the best practices for tuning queries and understanding the reasoning model limitations for the query optimizer also apply to Azure SQL Database. If you tune queries in Azure SQL Database, you might get the additional benefit of reducing aggregate resource demands. Your application might be able to run at a lower cost than an untuned equivalent because it can run at a lower performance level.
@@ -268,10 +260,10 @@ If you use a scale-out architecture in Azure SQL Database, it's a good idea to s
 ### Batch queries
 For applications that access data by using high-volume, frequent, ad hoc querying, a substantial amount of response time is spent on network communication between the application tier and the Azure SQL Database tier. Even when both the application and Azure SQL Database are in the same data center, the network latency between the two might be magnified by a large number of data access operations. To reduce the network round trips for the data access operations, consider using the option to either batch the ad hoc queries, or to compile them as stored procedures. If you batch the ad hoc queries, you can send multiple queries as one large batch in a single trip to Azure SQL Database. If you compile ad hoc queries in a stored procedure, you could achieve the same result as if you batch them. Using a stored procedure also gives you the benefit of increasing the chances of caching the query plans in Azure SQL Database so you can use the stored procedure again.
 
-Some applications are write-intensive. Sometimes you can reduce the total I/O load on a database by considering how to batch writes together. Often, this is as simple as using explicit transactions instead of auto-commit transactions in stored procedures and ad hoc batches. For an evaluation of different techniques you can use, see [Batching techniques for SQL Database applications in Azure](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Experiment with your own workload to find the right model for batching. Be sure to understand that a model might have slightly different transactional consistency guarantees. Finding the right workload that minimizes resource use requires finding the right combination of consistency and performance trade-offs.
+Some applications are write-intensive. Sometimes you can reduce the total IO load on a database by considering how to batch writes together. Often, this is as simple as using explicit transactions instead of auto-commit transactions in stored procedures and ad hoc batches. For an evaluation of different techniques you can use, see [Batching techniques for SQL Database applications in Azure](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Experiment with your own workload to find the right model for batching. Be sure to understand that a model might have slightly different transactional consistency guarantees. Finding the right workload that minimizes resource use requires finding the right combination of consistency and performance trade-offs.
 
 ### Application-tier caching
-Some database applications have read-heavy workloads. Caching layers might reduce the load on the database and might potentially reduce the performance level required to support a database by using Azure SQL Database. With [Azure Redis Cache](https://azure.microsoft.com/services/cache/), if you have a read-heavy workload, you can read the data once (or perhaps once per application-tier machine, depending on how it is configured), and then store that data outside your SQL database. This is a way to reduce database load (CPU and read I/O), but there is an effect on transactional consistency because the data being read from the cache might be out of sync with the data in the database. Although in many applications some level of inconsistency is acceptable, that's not true for all workloads. You should fully understand any application requirements before you implement an application-tier caching strategy.
+Some database applications have read-heavy workloads. Caching layers might reduce the load on the database and might potentially reduce the performance level required to support a database by using Azure SQL Database. With [Azure Redis Cache](https://azure.microsoft.com/services/cache/), if you have a read-heavy workload, you can read the data once (or perhaps once per application-tier machine, depending on how it is configured), and then store that data outside your SQL database. This is a way to reduce database load (CPU and read IO), but there is an effect on transactional consistency because the data being read from the cache might be out of sync with the data in the database. Although in many applications some level of inconsistency is acceptable, that's not true for all workloads. You should fully understand any application requirements before you implement an application-tier caching strategy.
 
 ## Next steps
 * For more information about service tiers, see [SQL Database options and performance](sql-database-service-tiers.md)

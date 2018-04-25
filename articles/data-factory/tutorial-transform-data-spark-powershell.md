@@ -1,11 +1,11 @@
----
+﻿---
 title: 'Transform data using Spark in Azure Data Factory | Microsoft Docs'
 description: 'This tutorial provides step-by-step instructions for transforming data by using Spark Activity in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -203,7 +203,7 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
     Run the following command to view all the subscriptions for this account:
 

@@ -7,21 +7,26 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 1/25/2018
+ms.date: 03/06/2018
 ms.author: nepeters
 ---
 
 # Persistent volumes with Azure disks
 
-A persistent volume represents a piece of storage that has been provisioned for use in a Kubernetes cluster. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This document details dynamic provisioning of an Azure disk as a Kubernetes persistent volume in an AKS cluster. 
+A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods and can be dynamically or statically provisioned. For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
-For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
+This document details using persistent volumes with Azure disks in an Azure Container Service (AKS) cluster.
+
+> [!NOTE]
+> An Azure disk can only be mounted with Access mode type ReadWriteOnce, which makes it available to only a single AKS node. If needing to share a persistent volume across multiple nodes, consider using [Azure Files][azure-files-pvc].
 
 ## Built in storage classes
 
-A storage class is used to define how a dynamically created persistent volume is configured. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
+A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks. Use the `kubectl get storageclass` command to see these.
+Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks. The `default` storage class provisions a standard Azure disk. The `managed-premium` storage class provisions a premium Azure disk. If the AKS nodes in your cluster use premium storage, select the `managed-premium` class.
+
+Use the [kubectl get sc][kubectl-get] command to see the pre-created storage classes.
 
 ```console
 NAME                PROVISIONER                AGE
@@ -29,33 +34,13 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
-If these storage classes work for your needs, you do not need to create a new one.
-
-## Create storage class
-
-If you would like to create a new storage class configured for Azure disks, you can do so using the following sample manifest. 
-
-The `storageaccounttype` value of `Standard_LRS` indicates that a standard disk is created. This value can be changed to `Premium_LRS` to create a [premium disk][premium-storage]. To use premium disks, the AKS node virtual machine must have a size compatible with premium disks. See [this document][premium-storage] for a list of compatible sizes.
-
-```yaml
-apiVersion: storage.k8s.io/v1beta1
-kind: StorageClass
-metadata:
-  name: azure-managed-disk
-provisioner: kubernetes.io/azure-disk
-parameters:
-  kind: Managed
-  storageaccounttype: Standard_LRS
-```
-
 ## Create persistent volume claim
 
-A persistent volume claim uses a storage class object to dynamically provision a piece of storage. When using an Azure disk, the disk is created in the same resource group as the AKS resources.
+A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. In this case, a PVC can use one of the pre-created storage classes to create a standard or premium Azure managed disk.
 
-This example manifest creates a persistent volume claim using the `azure-managed-disk` storage class, to create a disk `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
+Create a file named `azure-premimum.yaml`, and copy in the following manifest.
 
-> [!NOTE]
-> An Azure disk can only be mounted with Access mode type ReadWriteOnce, which makes it available to only a single AKS node. If needing to share a persistent volume across multiple nodes, consider using [Azure Files][azure-files-pvc]. 
+Take note that the `managed-premium` storage class is specified in the annotation, and the claim is requesting a disk `5GB` in size with `ReadWriteOnce` access.
 
 ```yaml
 apiVersion: v1
@@ -63,7 +48,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: azure-managed-disk
   annotations:
-    volume.beta.kubernetes.io/storage-class: azure-managed-disk
+    volume.beta.kubernetes.io/storage-class: managed-premium
 spec:
   accessModes:
   - ReadWriteOnce
@@ -72,9 +57,17 @@ spec:
       storage: 5Gi
 ```
 
+Create the persistent volume claim with the [kubectl create][kubectl-create] command.
+
+```azurecli-interactive
+kubectl create -f azure-premimum.yaml
+```
+
 ## Using the persistent volume
 
-Once the persistent volume claim has been created, and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a pod that uses the persistent volume claim `azure-managed-disk` to mount the Azure disk at the `/var/www/html` path. 
+Once the persistent volume claim has been created, and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a pod that uses the persistent volume claim `azure-managed-disk` to mount the Azure disk at the `/mnt/azure` path.
+
+Create a file named `azure-pvc-disk.yaml`, and copy in the following manifest.
 
 ```yaml
 kind: Pod
@@ -86,13 +79,21 @@ spec:
     - name: myfrontend
       image: nginx
       volumeMounts:
-      - mountPath: "/var/www/html"
+      - mountPath: "/mnt/azure"
         name: volume
   volumes:
     - name: volume
       persistentVolumeClaim:
         claimName: azure-managed-disk
 ```
+
+Create the pod with the [kubectl create][kubectl-create] command.
+
+```azurecli-interactive
+kubectl create -f azure-pvc-disk.yaml
+```
+
+You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`.
 
 ## Next steps
 
@@ -103,6 +104,8 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/

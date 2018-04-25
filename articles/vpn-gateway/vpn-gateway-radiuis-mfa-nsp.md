@@ -3,7 +3,7 @@ title: Secure Azure VPN gateway RADIUS authentication with NPS server for Multi-
 description: Describes integrate Azure gateway RADIUS authentication with NPS server for Multi-Factor Authentication.
 services: vpn-gateway
 documentationcenter: na
-author: genlin  
+author: ahmadnyasin  
 manager: willchen
 editor: ''
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 02/13/2018
 ms.author: genli
 
 ---
@@ -47,7 +47,7 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
  
 ### Step 2 Configure the NPS for Azure MFA
 
-1. On the NPS server, [install the NPS extension for Azure MFA](../multi-factor-authentication/multi-factor-authentication-nps-extension.md#install-the-nps-extension).
+1. On the NPS server, [install the NPS extension for Azure MFA](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
 2. Open the NSP console, right-click **RADUIS Clients**, and then select **New**. Create the RADUIS client by specifying the following settings:
 
     - **Friendly Name**: Type any name.
@@ -77,5 +77,5 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
 
 ## Next steps
 
-- [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
-- [Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-nps-extension.md)
+- [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
+- [Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-nps-extension.md)

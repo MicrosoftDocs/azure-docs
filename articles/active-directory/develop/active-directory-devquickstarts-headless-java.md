@@ -43,7 +43,7 @@ To enable your app to authenticate users, you'll first need to register a new ap
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
-3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+3. Click on **All services** in the left hand nav, and choose **Azure Active Directory**.
 4. Click on **App registrations** and choose **Add**.
 5. Follow the prompts and create a new **Web Application and/or WebAPI**.
   * The **name** of the application will describe your application to end-users
@@ -255,7 +255,7 @@ You should now have a `adal4jsample.war` file in your `/targets` directory. You 
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
-> It is very easy to deploy a WAR with the latest Tomcat servers. Simply navigate to `http://localhost:8080/manager/` and follow the instructions on uploading your ``adal4jsample.war` file. It will autodeploy for you with the correct endpoint.
+> It is very easy to deploy a WAR with the latest Tomcat servers. Simply navigate to `http://localhost:8080/manager/` and follow the instructions on uploading your `adal4jsample.war` file. It will autodeploy for you with the correct endpoint.
 > 
 > 
 

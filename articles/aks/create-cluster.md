@@ -18,7 +18,7 @@ An Azure Container Service (AKS) cluster can be created with either the Azure CL
 
 ## Azure CLI
 
-Use the [az aks create][az-aks-create] command to delete the AKS cluster.
+Use the [az aks create][az-aks-create] command to create the AKS cluster.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster

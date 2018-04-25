@@ -100,7 +100,7 @@ Complete the following tasks to prepare your development environment for adding 
 
 When you created your remote monitoring solution at [www.azureiotsuite.com](https://www.azureiotsuite.com), you chose a solution name. The solution name becomes the name of the Azure resource group that contains the various deployed resources that the solution uses. The following commands use a resource group named **Contoso-01**, you should replace **Contoso-01** with the name of your resource group.
 
-The following commands use the `az` command from [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). You can install the Azure CLI 2.0 on your development machine, or use the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in the [Azure portal](http://portal.azure.com). The Azure CLI 2.0 is pre-installed in the Cloud Shell.
+The following commands use the `az` command from [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). You can install the Azure CLI 2.0 on your development machine, or use the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in the [Azure portal](http://portal.azure.com). The Azure CLI 2.0 is pre-installed in the Cloud Shell.
 
 1. To verify the name of the resource group that contains your remote monitoring resources, run the following command:
 

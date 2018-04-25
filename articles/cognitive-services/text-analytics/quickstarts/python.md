@@ -4,7 +4,7 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 author: luiscabrer
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: luisca
@@ -31,7 +31,7 @@ To continue with this walkthrough, replace `subscription_key` with a valid subsc
 
 
 ```python
-subscription_key="5d162a1f02724f6daf4489f4220413a4"
+subscription_key = None
 assert subscription_key
 ```
 

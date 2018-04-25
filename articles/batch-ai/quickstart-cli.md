@@ -42,7 +42,7 @@ Batch AI clusters and jobs are Azure resources and must be placed in an Azure re
 
 Create a resource group with the [az group create](/cli/azure/group#az_group_create) command.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location. It then uses the [az configure](/cli/azure#az_configure) command to set this resource group and location as the default.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location. It then uses the [az configure](/cli/azure/reference-index#az_configure) command to set this resource group and location as the default.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

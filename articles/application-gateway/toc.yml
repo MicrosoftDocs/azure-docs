@@ -1,0 +1,139 @@
+- name: Application Gateway Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About application gateways
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Direct web traffic - Portal
+    href: quick-create-portal.md
+  - name: Direct web traffic - PowerShell
+    href: quick-create-powershell.md
+  - name: Direct web traffic - Azure CLI
+    href: quick-create-cli.md
+- name: Tutorials
+  items:
+  - name: 1 - Manage web traffic
+    items:
+    - name: Azure PowerShell
+      href: tutorial-manage-web-traffic-powershell.md
+    - name: Azure CLI
+      href: tutorial-manage-web-traffic-cli.md
+  - name: 2 - Restrict web traffic
+    items:
+    - name: Azure PowerShell
+      href: tutorial-restrict-web-traffic-powershell.md
+    - name: Azure CLI
+      href: tutorial-restrict-web-traffic-cli.md
+  - name: 3 - Secure with SSL
+    items:
+    - name: Azure PowerShell
+      href: tutorial-ssl-powershell.md
+    - name: Azure CLI
+      href: tutorial-ssl-cli.md
+  - name: 4 - Host multiple sites
+    items:
+    - name: Azure PowerShell
+      href: tutorial-multiple-sites-powershell.md
+    - name: Azure CLI
+      href: tutorial-multiple-sites-cli.md
+  - name: 5 - Route by URL
+    items:
+    - name: Azure PowerShell
+      href: tutorial-url-route-powershell.md
+    - name: Azure CLI
+      href: tutorial-url-route-cli.md
+  - name: 6 - Redirect web traffic
+    items:
+    - name: Azure PowerShell
+      href: tutorial-url-redirect-powershell.md
+    - name: Azure CLI
+      href: tutorial-url-redirect-cli.md
+- name: Samples
+  items:
+  - name: Azure PowerShell
+    href: powershell-samples.md
+  - name: Azure CLI
+    href: cli-samples.md
+- name: Concepts
+  items:
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
+  - name: Web application firewall
+    href: waf-overview.md
+  - name: URL routing
+    href: url-route-overview.md
+  - name: Multiple site hosting
+    href: multiple-site-overview.md
+  - name: SSL termination
+    href: ssl-overview.md
+  - name: URL redirection
+    href: redirect-overview.md
+- name: How-to guides
+  items:
+  - name: Create application gateway
+    items:
+    - name: Template
+      href: create-vmss-template.md
+    - name: Web apps - PowerShell
+      href: create-web-app.md
+  - name: Enable SSL termination - Portal
+    href: create-ssl-portal.md
+  - name: Host multiple sites - Portal
+    href: create-multiple-sites-portal.md
+  - name: Redirect external traffic
+    items:
+      - name: Azure PowerShell
+        href: redirect-external-site-powershell.md
+      - name: Azure CLI
+        href: redirect-external-site-cli.md
+  - name: Redirect HTTP to HTTPS
+    items:
+      - name: Azure PowerShell
+        href: redirect-http-to-https-powershell.md
+      - name: Azure CLI
+        href: redirect-http-to-https-cli.md
+  - name: Redirect internal traffic
+    items: 
+      - name: Azure PowerShell
+        href: redirect-internal-site-powershell.md
+      - name: Azure CLI
+        href: redirect-internal-site-cli.md
+  - name: Restrict web traffic - Portal
+    href: create-waf-portal.md
+  - name: Route based on URL - Portal
+    href: create-url-route-portal.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/network/application-gateway
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: .NET
+    href: /dotnet/api
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/applicationgateway
+- name: Resources
+  items:
+  - name: Author templates
+    href: ../azure-resource-manager/resource-group-authoring-templates.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Community templates
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-application-gateway
+  - name: FAQ
+    href: application-gateway-faq.md

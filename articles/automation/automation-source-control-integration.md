@@ -1,21 +1,13 @@
 ---
-title: Source Control integration in Azure Automation | Microsoft Docs
+title: Source Control integration in Azure Automation
 description: This article describes source control integration with GitHub in Azure Automation.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: jwhit
-editor: tysonn
-
-ms.assetid: 224d7375-9887-44dd-b137-06ffe396a4b4
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte;sngun
-
+manager: carmonm
 ---
 # Source control integration in Azure Automation
 Source control integration allows you to associate runbooks in your Automation account to a GitHub source control repository. Source control allows you to easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to sync different branches in source control to your development, test or production Automation accounts, making it easy to promote code that has been tested in your development environment to your production Automation account.
@@ -33,10 +25,9 @@ There are two simple steps required to configure source control for your Automat
 If you already have a GitHub account and a repository that you want to link to Azure Automation, then sign into your existing account and start from step 2 below. Otherwise, navigate to [GitHub](https://github.com/), sign up for a new account and [create a new repository](https://help.github.com/articles/create-a-repo/).
 
 ## Step 2 – Set up source control in Azure Automation
-1. From the Automation Account page in the Azure portal, click **Set Up Source Control.** 
+1. From the Automation Account page in the Azure portal, under **Account Settings**, click **Source Control.** 
    
-    ![Set Up Source Control](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
-2. The **Source Control** page opens, where you can configure your GitHub account details. Below is the list of parameters to configure:  
+1. The **Source Control** page opens, where you can configure your GitHub account details. Below is the list of parameters to configure:  
    
    | **Parameter** | **Description** |
    |:--- |:--- |

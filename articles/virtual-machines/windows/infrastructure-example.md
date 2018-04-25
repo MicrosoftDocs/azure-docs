@@ -58,7 +58,7 @@ All the above follow these naming conventions:
 Adventure Works Cycles is using their Enterprise subscription, named Adventure Works Enterprise Subscription, to provide billing for this IT workload.
 
 ## Storage
-Adventure Works Cycles determined that they should use Azure Managed Disks. When creating VMs, both storage available storage tiers are used:
+Adventure Works Cycles determined that they should use Azure Managed Disks. When creating VMs, both available storage tiers are used:
 
 * **Standard storage** for the web servers, application servers, and domain controllers and their data disks.
 * **Premium storage** for the SQL Server VMs and their data disks.

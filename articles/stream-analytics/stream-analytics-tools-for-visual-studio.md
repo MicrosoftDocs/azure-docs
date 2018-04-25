@@ -1,28 +1,20 @@
 ---
-title: Use Azure Stream Analytics tools for Visual Studio | Microsoft Docs
-description: Getting-started tutorial for the Azure Stream Analytics Tools for Visual Studio
-keywords: visual studio
-documentationcenter: ''
+title: Use Azure Stream Analytics tools for Visual Studio
+description: This article describes how to get started using the Azure Stream Analytics Tools for Visual Studio.
 services: stream-analytics
 author: su-jie
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: sujie
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/05/2018
 ---
 # Use Azure Stream Analytics tools for Visual Studio
 Azure Stream Analytics tools for Visual Studio are now generally available. These tools enable a richer experience for Stream Analytics users to troubleshoot as well as write complex queries and even write queries locally. You also can export a Stream Analytics job into a Visual Studio project.
 
 ## Introduction
-In this tutorial, you learn how to use Stream Analytics tools for Visual Studio to create, author, test locally, manage, and debug your Stream Analytics jobs. 
+In this tutorial, you learn how to use Stream Analytics tools for Visual Studio to create, author, test locally, manage, and debug your Stream Analytics jobs. After you create the job, you can set up a continuous integration and deployment process to Azure by using the CI/CD Nuget package, to learn more refer to [Stream Analytics VS tools to set up a CI/CD pipeline](stream-analytics-tools-for-visual-studio-cicd.md) article.
 
 After completing this tutorial, you will be able to:
 

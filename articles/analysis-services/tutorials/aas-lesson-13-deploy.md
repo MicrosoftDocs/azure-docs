@@ -1,21 +1,14 @@
 ---
 title: "Azure Analysis Services tutorial lesson 13: Deploy | Microsoft Docs"
 description:  Describes how to deploy the tutorial project to Azure Analysis Services.
-services: analysis-services
-documentationcenter: ''
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
+ms.reviewer: minewiskan
+
 ---
 # Deploy
 
@@ -24,7 +17,7 @@ In this lesson, you configure deployment properties; specifying an Azure Analysi
 Estimated time to complete this lesson: **5 minutes**  
   
 ## Prerequisites  
-This topic is part of a tabular modeling tutorial, which should be completed in order. Before performing the tasks in this lesson, you should have completed the previous lesson: [Lesson 12: Analyze in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+This article is part of a tabular modeling tutorial, which should be completed in order. Before performing the tasks in this lesson, you should have completed the previous lesson: [Lesson 12: Analyze in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
 > You must have [Administrator permissions](../analysis-services-server-admins.md) on the remote Analysis Services server in-order to deploy to it.  
@@ -63,6 +56,9 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
   
 3. When deployment successfully completes, go ahead and click **Close**.  
   
+
+This lesson describes the most common and easiest method to deploy a tabular model from SSDT. Advanced deployment options such as the Deployment Wizard or automating with XMLA and AMO provide greater flexibility, consistency, and scheduled deployments. To learn more, see [Tabular model solution deployment](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular).
+
 ## Conclusion  
 Congratulations! You're finished authoring and deploying your first Analysis Services Tabular model. This tutorial has helped guide you through completing the most common tasks in creating a tabular model. Now that your Adventure Works Internet Sales model is deployed, you can use SQL Server Management Studio to manage the model; create process scripts and a backup plan. Users can also now connect to the model using a reporting client application such as Microsoft Excel or Power BI.  
 

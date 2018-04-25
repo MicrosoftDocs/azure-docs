@@ -11,7 +11,7 @@ ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.author: kgremban
 ---
 # React to IoT Hub events by using Event Grid to trigger actions - Preview
@@ -24,14 +24,7 @@ Azure IoT Hub integrates with Azure Event Grid so that you can send event notifi
 
 ## Regional availability
 
-The Event Grid integration is in public preview, so is available in a limited number of regions. The integration works for IoT hubs located in the following regions:
-
-* Central US
-* East US
-* East US 2
-* West Central US
-* West US
-* West US 2
+The Event Grid integration is available for IoT hubs located in the regions where Event Grid is supported. For the latest list of regions, see [An introduction to Azure Event Grid][lnk-eg-overview]. 
 
 ## Event types
 
@@ -103,7 +96,7 @@ For a detailed description of each property, see [Azure Event Grid event schema 
 
 ## Filter events
 
-IoT Hub event subscriptions can filter events based on event type and device name. Subject filters in Event Grid work based on **prefix** and **suffix** matches, so that events with a matching subject are delivered to the subscriber. 
+IoT Hub event subscriptions can filter events based on event type and device name. Subject filters in Event Grid work based on **prefix** and **suffix** matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber. 
 
 The subject of IoT Events uses the format:
 

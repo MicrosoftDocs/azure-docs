@@ -12,23 +12,20 @@ tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
+ms.topic: conceptual
+ms.date: 02/14/2018
 ms.author: jgao
 
 ---
 # Apache Spark BI using data visualization tools with Azure HDInsight
 
-Learn how to use [Microsoft Power BI](http://powerbi.microsoft.com) and [Tableau](http://www.tableau.com) to visualize data in Apache Spark cluster on Azure HDInsight.
+Learn how to use [Microsoft Power BI](http://powerbi.microsoft.com) to visualize data in Apache Spark cluster on Azure HDInsight.
 
 ## Prerequisites
 
 * **Complete the article [Run interactive queries on Spark clusters in HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) and [Power BI trial subscription](https://app.powerbi.com/signupredirect?pbi_source=web) (optional).
-* **Tableau**: [Tableau Desktop](http://www.tableau.com/products/desktop) and [Microsoft Spark ODBC driver](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 
 ## <a name="hivetable"></a>Verify the data
@@ -180,6 +177,7 @@ The Power BI service allows you to share reports and dashboards across your orga
 
 Your visual is pinned to the dashboard - you can add other visuals to the report and pin them to the same dashboard. For more information about reports and dashboards, see [Reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)and [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
+<!--
 ## <a name="tableau"></a>Use Tableau Desktop 
 
 > [!NOTE]
@@ -221,6 +219,7 @@ Your visual is pinned to the dashboard - you can add other visuals to the report
 
     ![Tableau output for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau output for Spark data visualization")
 9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
+-->
 
 ## Next steps
 

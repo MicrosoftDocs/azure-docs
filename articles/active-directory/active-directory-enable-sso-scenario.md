@@ -76,7 +76,7 @@ When using Azure AD to manage applications and enable SSO:
 * Authentication is done on the user’s on-premises (e.g. AD) or Azure AD account.
 * Authorization executes on the Azure AD assignment and protection policy ensuring consistent end user experience and enabling you to add assignment, locations, and MFA conditions on any application, regardless of its internal capabilities.
 
-It important to understand that the way the authorization is enacted on the target application varies depending on how the application was integrated with Azure AD.
+It is important to understand that the way the authorization is enacted on the target application varies depending on how the application was integrated with Azure AD.
 
 * **Applications pre-integrated by service provider** Like Office 365 and Azure, these are applications built directly on Azure AD and relying on it for their comprehensive identity and access management capabilities. Access to these applications is enabled through directory information and token issuance.
 * **Applications pre-integrated by Microsoft and custom applications** These are independent cloud applications that rely on an internal application directory and can operate independently of Azure AD. Access to these applications is enabled by issuing an application specific credential mapped to an application account. Depending on the application capabilities, the credential may be a federation token or user-name and password for an account that was previously provisioned in the application.
@@ -88,13 +88,13 @@ For example, if a user joins your organization, you need to create an account fo
 In modern enterprises, IT departments are often not aware of all the cloud applications that are being used. In conjunction with Cloud App Discovery, Azure AD provides you with a solution to detect these applications.
 
 ## Account management
-Traditionally, managing accounts in the various applications is a manual process performed by IT or support personal in the organization. Azure AD fully automated account management across all service provider integrated applications and those applications pre-integrated by Microsoft supporting automated user provisioning or SAML JIT.
+Traditionally, managing accounts in the various applications is a manual process performed by IT or support personnel in the organization. Azure AD fully automates account management across all service provider integrated applications and those applications pre-integrated by Microsoft supporting automated user provisioning or SAML Just-In-Time provisioning.
 
 ## Automated user provisioning
 Some applications provide automation interfaces for creation and removal (or deactivation) of accounts. If a provider offers such an interface, it is leveraged by Azure AD. This reduces your operational costs because administrative tasks happen automatically, and improves the security of your environment because it decreases the chance of unauthorized access.
 
 ## Access management
-Using Azure AD you can manage access to applications using individual or rule driven assignments. You can also delegate access management to the right people in the organization ensuring the best oversight and reducing the burden on helpdesk.
+With Azure AD you can manage access to applications using individual or rule driven assignments. You can also delegate access management to the right people in the organization ensuring the best oversight and reducing the burden on helpdesk.
 
 ## On-premises applications
 The built in application proxy enables you to publish your on-premises applications to your users resulting in both consistent access experience with modern cloud application and the benefits from Azure AD monitoring, reporting, and security capabilities.
@@ -110,4 +110,5 @@ To get started integrating applications with Azure AD, take a look at the [Integ
 
 ## See also
 [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+[Step-by-step deployment plan for SSO into a SaaS application](http://aka.ms/ssodeploymentplan)
 

@@ -4,8 +4,8 @@ description: Learn how to copy data from Greenplum to supported sink data stores
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services

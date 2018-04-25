@@ -2,9 +2,8 @@
 title: How to manage your Azure Location Based Services account and keys | Microsoft Docs 
 description: You can use the Azure portal to manage your Azure Location Based Services account and manage your access keys.
 services: location-based-services
-keywords: Don’t add or edit keywords without consulting your SEO champ.
-author: philmea
-ms.author: philmea
+author: kgremban
+ms.author: kgremban
 ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
@@ -23,7 +22,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a new account
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Search for and select **Location Based Services**, then click **Create**.
 

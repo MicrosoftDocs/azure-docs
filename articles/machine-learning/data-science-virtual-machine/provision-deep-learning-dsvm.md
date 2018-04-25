@@ -3,17 +3,17 @@ title: Provision a Deep Learning Data Science Virtual Machine on Azure  | Micros
 description: Configure and create a Deep Learning Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: article
-ms.date: 09/10/2017
-ms.author: gokuma;bradsev
+ms.topic: conceptual
+ms.date: 03/16/2018
+ms.author: gokuma
 
 ---
 # Provision a Deep Learning Virtual Machine on Azure 
@@ -41,7 +41,7 @@ Here are the steps to create an instance of the Deep Learning Virtual Machine:
       6. **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access. 
       
 > [!NOTE]
-> Since DLVM is provisioned on Azure NC-Series GPU VM instances, you must choose one of the locations in Azure that has GPUs. Currently the locations that have GPU VMs are: **East US, North Central US, South Central US, West US 2, North Europe, West Europe**. For the latest list, check the [Azure Products by Region Page](https://azure.microsoft.com/en-us/regions/services/) and look for **NC-Series** under **Compute**. 
+> Since DLVM is provisioned on Azure NC-Series GPU VM instances, you must choose one of the locations in Azure that has GPUs. Currently the locations that have GPU VMs are: **East US, North Central US, South Central US, West US 2, North Europe, West Europe**. For the latest list, check the [Azure Products by Region Page](https://azure.microsoft.com/regions/services/) and look for **NC-Series** under **Compute**. 
 
    2. **Settings**: Select one of the NC-Series GPU virtual machine size that meets your functional requirement and cost constraints. Create a storage account for your VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    

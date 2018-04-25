@@ -1,15 +1,14 @@
 ---
-title: Call a Language Understanding (LUIS) app using Node.js | Microsoft Docs 
-description: Learn to call a LUIS app using Node.js. 
+title: Call a Language Understanding (LUIS) app using Node.js | Microsoft Docs
+description: Learn to call a LUIS app using Node.js.
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
-
+author: v-geberr
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-demak
+ms.author: v-geberr
 ---
 
 # Call a LUIS app using JavaScript

@@ -1,6 +1,6 @@
 
 - name: Text Analytics Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Text Analytics
@@ -8,6 +8,7 @@
   - name: Supported languages
     href: text-analytics-supported-languages.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: C#
     href: Quickstarts/CSharp.md

@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 03/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ---
@@ -27,6 +27,15 @@ If you’re interested in an Azure Stack integrated system, you should understan
 To deploy Azure Stack, you need to provide planning information to your solution provider before deployment starts to help the process go quickly and smoothly. The information required ranges across networking, security, and identity information with many important decisions that may require knowledge from many different areas and decision makers. Therefore, you might have to pull in people from multiple teams in your organization to ensure that you have all required information ready before deployment begins. It can help to talk to your hardware vendor while collecting this information, as they might have advice helpful to making your decisions.
 
 While researching and collecting the required information, you might need to make some pre-deployment configuration changes to your network environment. This could include reserving IP address spaces for the Azure Stack solution, configuring your routers, switches and firewalls to prepare for the connectivity to the new Azure Stack solution switches. Make sure to have the subject area expert lined up to help you with your planning.
+
+## Capacity planning considerations
+When evaluating an Azure Stack Solution for acquisition, hardware configuration choices must be made which have a direct impact on the overall capacity of their Azure Stack solution. These include the classic choices of CPU, memory density, storage configuration, and overall solution scale (e.g. number of servers). Unlike a traditional virtualization solution, the simple arithmetic of these components to determine usable capacity does not apply. The first reason is that Azure Stack is architected to host the infrastructure or management components within the solution itself. The second reason is that some of the solution’s capacity is reserved in support of resiliency; the updating of the solution’s software in a way that minimizes disruption of tenant workloads. 
+
+The [Azure Stack capacity planner spreadsheet](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) helps you make informed decisions with respect to planning capacity in two ways: either the by selecting a hardware offering and attempting to fit a combination of resources or by defining the workload that Azure Stack is intended to run to view the available hardware SKUs that can support it. Finally, the spreadsheet is intended as a guide to help in making decisions related to Azure Stack planning and configuration. 
+
+The spreadsheet is not intended to serve as a substitute for your own investigation and analysis.  Microsoft makes no representations or warranties, express or implied, with respect to the information provided within the spreadsheet.
+
+
 
 ## Management considerations
 Azure Stack is a sealed system, where the infrastructure is locked down both from a permissions and network perspective. Network access control lists (ACLs) are applied to block all unauthorized incoming traffic and all unnecessary communications between infrastructure components. This makes it difficult for unauthorized users to access the system.

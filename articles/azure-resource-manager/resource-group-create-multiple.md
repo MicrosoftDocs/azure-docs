@@ -342,6 +342,8 @@ You specify that a resource is deployed after another resource by using the `dep
 }
 ```
 
+<a id="looping-on-a-nested-resource" />
+
 ## Iteration for a child resource
 You cannot use a copy loop for a child resource. To create multiple instances of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the type and name properties.
 

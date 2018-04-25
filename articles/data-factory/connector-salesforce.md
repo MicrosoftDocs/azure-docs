@@ -4,15 +4,15 @@ description: Learn how to copy data from Salesforce to supported sink data store
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
 
 ---
@@ -184,6 +184,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceSource**. | Yes |
 | query |Use the custom query to read data. You can use a SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. An example is `select * from MyTable__c`. | No (if "tableName" in the dataset is specified) |
+| readBehavior | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is the former. <br>Allowed values: **query** (default), **queryAll**.  | No |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.

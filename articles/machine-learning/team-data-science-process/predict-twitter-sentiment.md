@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: bradsev;
+ms.author: bradsev
 
 ---
 
 # Predict Twitter sentiment with word embeddings by using the Team Data Science Process
 
-This article shows you how to collaborate effectively by using the _Word2Vec_ word embedding algorithm and the _Sentiment-Specific Word Embedding (SSWE)_ algorithm to predict Twitter sentiment with [Azure Machine Learning](../preview/index.yml). For more information on predicting Twitter sentiment polarity, see the [MachineLearningSamples-TwitterSentimentPrediction repository](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) on GitHub. The key to facilitating effective team collaboration on data-science projects is to standardize the structure and documentation of the projects with an established data-science lifecycle. The [Team Data Science Process (TDSP)](overview.md) provides this type of structured [lifecycle](lifecycle.md). 
+This article shows you how to collaborate effectively by using the _Word2Vec_ word embedding algorithm and the _Sentiment-Specific Word Embedding (SSWE)_ algorithm to predict Twitter sentiment with [Azure Machine Learning](../service/index.yml). For more information on predicting Twitter sentiment polarity, see the [MachineLearningSamples-TwitterSentimentPrediction repository](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) on GitHub. The key to facilitating effective team collaboration on data-science projects is to standardize the structure and documentation of the projects with an established data-science lifecycle. The [Team Data Science Process (TDSP)](overview.md) provides this type of structured [lifecycle](lifecycle.md). 
 
-Creating data-science projects with the _TDSP template_ provides the standardized framework for Azure Machine Learning projects. Previously, the TDSP team released a [GitHub repository for the TDSP project structure and templates](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Now Machine Learning projects that are instantiated with [TDSP templates for Azure Machine Learning](https://github.com/amlsamples/tdsp) are enabled. For instructions, see how to use [TDSP structure projects with the TDSP template](../preview/how-to-use-tdsp-in-azure-ml.md) in Azure Machine Learning. 
+Creating data-science projects with the _TDSP template_ provides the standardized framework for Azure Machine Learning projects. Previously, the TDSP team released a [GitHub repository for the TDSP project structure and templates](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Now Machine Learning projects that are instantiated with [TDSP templates for Azure Machine Learning](https://github.com/amlsamples/tdsp) are enabled. For instructions, see how to use [TDSP structure projects with the TDSP template](../desktop-workbench/how-to-use-tdsp-in-azure-ml.md) in Azure Machine Learning. 
 
 
 ## Twitter sentiment polarity sample
@@ -129,7 +129,7 @@ The final step is deployment of the trained sentiment prediction model to a web 
 
 ![Kubernetes dashboard](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-For more information on the operationalization process, see [Deploying an Azure Machine Learning model as a web service](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy).
+For more information on the operationalization process, see [Deploying an Azure Machine Learning model as a web service](../desktop-workbench/model-management-service-deploy.md).
 
 ## Conclusion
 
@@ -141,8 +141,8 @@ In this article, you learned how to train a word-embedding model by using the Wo
 * [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [How to use Team Data Science Process (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 * [TDSP project templates for Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/)
+* [Azure Machine Learning Workbench](../service/index.yml)
 * [US income data-set from UCI ML repository](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Biomedical entity recognition by using TDSP templates](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [Biomedical entity recognition by using TDSP templates](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov, Tomas, et al. "Distributed Representations of Words and Phrases and their Compositionality. Advances in neural information processing systems." 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang, Duyu, et al. "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification." ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

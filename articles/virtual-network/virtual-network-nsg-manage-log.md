@@ -43,7 +43,7 @@ Diagnostic logging must be enabled for *each* NSG you want to collect data for. 
 
 ### Azure portal
 
-To use the portal to enable logging, login to the [portal](https://portal.azure.com). Click **More services**, then type *network security groups*. Select the NSG you want to enable logging for. Follow the instructions for non-compute resources in the [Enable diagnostic logs in the portal](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) article. Select **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, or both categories of logs.
+To use the portal to enable logging, login to the [portal](https://portal.azure.com). Click **All services**, then type *network security groups*. Select the NSG you want to enable logging for. Follow the instructions for non-compute resources in the [Enable diagnostic logs in the portal](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) article. Select **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, or both categories of logs.
 
 ### PowerShell
 

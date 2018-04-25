@@ -4,10 +4,9 @@ description: Identifies the parts of your application that you need to update to
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 7DC8FB29-4732-47D8-824B-CF2D7AEBA07B
 ms.service: cognitive-services
-ms.technology: bing-spell-check
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 06/21/2016
 ms.author: scottwhi

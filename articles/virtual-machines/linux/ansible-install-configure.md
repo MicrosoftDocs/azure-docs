@@ -141,7 +141,7 @@ Ansible communicates with Azure using a username and password or a service princ
 Create a service principal on your host computer with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) and output the credentials that Ansible needs:
 
 ```azurecli
-az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
+az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
 ```
 
 An example of the output from the preceding commands is as follows:

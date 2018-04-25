@@ -4,10 +4,9 @@ description: Shows how to use the Bing Video Search API to get more information 
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 30ECF4E2-E4F0-491B-9FA8-971BC96AB7B6
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi

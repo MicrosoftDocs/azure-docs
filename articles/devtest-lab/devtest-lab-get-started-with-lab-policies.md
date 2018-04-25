@@ -29,7 +29,7 @@ To view (and change) the policies for a lab, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **More services**, and then select **DevTest Labs** from the list.
+1. Select **All services**, and then select **DevTest Labs** from the list.
 
 1. From the list of labs, select the desired lab.   
 

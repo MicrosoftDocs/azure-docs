@@ -34,7 +34,7 @@ Enable "Composite Application Map" from the [previews list](app-insights-preview
 ![Enable preview map](media/app-insights-app-map/preview-from-classic.png)
 
 >[!Note]
-This preview replaces the prior "Mult-role Application Map" preview. At this time, use this to view the entire topology across multiple levels of application component dependencies. Give us your feedback, we will be adding more capabilities similar to what the classic map supports.
+This preview replaces the prior "Multi-role Application Map" preview. At this time, use this to view the entire topology across multiple levels of application component dependencies. Give us your feedback, we will be adding more capabilities similar to what the classic map supports.
 
 You can see the full application topology across multiple levels of related application components. Components could be different Application Insights resources, or different roles in a single resource. The app map finds components by following HTTP dependency calls made between servers with the Application Insights SDK installed. 
 

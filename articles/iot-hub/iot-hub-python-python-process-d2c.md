@@ -3,7 +3,7 @@ title: Routing messages with Azure IoT Hub (Python) | Microsoft Docs
 description: How to process Azure IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
-ms.author: v-masebo
+ms.author: v-masebo;kgremban
 
 ---
 # Routing messages with IoT Hub (Python)
@@ -291,5 +291,5 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-free-trial]: https://azure.microsoft.com/free/
-[lnk-storage]: https://docs.microsoft.com/en-us/azure/storage/
+[lnk-storage]: https://docs.microsoft.com/azure/storage/
 [lnk-python-service-bus]: https://pypi.python.org/pypi/azure-servicebus

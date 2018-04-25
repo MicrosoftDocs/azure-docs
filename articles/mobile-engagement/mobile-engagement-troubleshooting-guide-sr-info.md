@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Service Request (SR) Information
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 Provide the following information when you open a service request for any Mobile Engagement service:
 
 ## IDs: Applicable identifiers related to your issue:

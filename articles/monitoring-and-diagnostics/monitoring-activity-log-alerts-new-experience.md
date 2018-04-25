@@ -86,7 +86,7 @@ Use the following procedure:
 
      ![Select Target](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - Under **Target Criteria, click **add criteria** select the signal type as **Activity log**.
+    - Under **Target Criteria**, click **add criteria** select the signal type as **Activity log**.
 
     - Select the signal from the list displayed.
 
@@ -100,15 +100,15 @@ Use the following procedure:
 
     **Alert logic**:
 
-        - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
-        - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
-        - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
+     - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
+     - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
+     - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
 
         **Sample signal graph with alert logic applied** :
 
         ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
-4. Under **define alert rules,** provide the following details:
+4. Under **define alert rules details**, provide the following details:
 
     - **Alert rule name** – Name for the new alert rule
     - **Description** – Description for the new alert rule

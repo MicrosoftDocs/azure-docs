@@ -48,7 +48,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Audit capability for this blueprint is provided by Azure Monitor and the Log Analytics service in OMS. Azure Monitor provides detailed audit logs about activity associated with deployed resources. These and OS-level logs are collected by Log Analytics and stored in the OMS repository. Log Analytics correlates audit data across resources deployed by this solution and can be extended to the customer-deployed web application. |
+| **Customer** | Audit capability for this blueprint is provided by Azure Monitor and the Log Analytics service. Azure Monitor provides detailed audit logs about activity associated with deployed resources. These and OS-level logs are collected by Log Analytics and stored in the Log Analytics workspace. Log Analytics correlates audit data across resources deployed by this solution and can be extended to the customer-deployed web application. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -132,7 +132,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Azure Activity Log events use a detailed schema that contains fields for more than 20 types of audit information. In addition to Activity Log, this blueprint deploys the Log Analytics solution in OMS which supports a diverse set of data sources including Windows logs, Linux logs, Azure Diagnostics logs, and customer logs.  |
+| **Customer** | Azure Activity Log events use a detailed schema that contains fields for more than 20 types of audit information. In addition to Activity Log, this blueprint deploys the Log Analytics solution, which supports a diverse set of data sources including Windows logs, Linux logs, Azure Diagnostics logs, and customer logs.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -272,7 +272,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the Log Analytics solution in OMS to centralize audit data across deployed resources, supporting organization-wide situational awareness. Customers may chose to further integrate Log Analytics with other systems. |
+| **Customer** | This blueprint implements the Log Analytics solution to centralize audit data across deployed resources, supporting organization-wide situational awareness. Customers may chose to further integrate Log Analytics with other systems. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -286,7 +286,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the Log Analytics solution in OMS to centralize audit data across deployed resources, supporting centralized  review, analysis, and reporting. |
+| **Customer** | This blueprint implements the Log Analytics solution to centralize audit data across deployed resources, supporting centralized  review, analysis, and reporting. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -300,7 +300,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions, integrating log data and vulnerability data from baseline and patch assessment. |
+| **Customer** | This blueprint deploys the Security and Audit solution. This solution provides a comprehensive view of security posture. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed Log Analytics solutions, integrating log data and vulnerability data from baseline and patch assessment. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -356,7 +356,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the Log Analytics solution in OMS. Log Analytics provides monitoring services for OMS by collecting data from managed resources into a central repository. Once collected, the data is available for alerting, analysis, and export. |
+| **Customer** | This blueprint implements the Log Analytics solution. Log Analytics provides monitoring services for Azure by collecting data from managed resources into a central repository. Once collected, the data is available for alerting, analysis, and export. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -370,7 +370,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the Log Analytics solution in OMS. Log Analytics provides monitoring services for OMS by collecting data from managed resources into a central repository. The content and time ordering of audit records are not altered when collected by Log Analytics. |
+| **Customer** | This blueprint implements the Log Analytics solution. Log Analytics provides monitoring services for Azure by collecting data from managed resources into a central repository. The content and time ordering of audit records are not altered when collected by Log Analytics. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -384,7 +384,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the Log Analytics solution in OMS. Log Analytics provides monitoring services for OMS by collecting data from managed resources into a central repository. Once collected, the data is available for alerting, analysis, and export. Log Analytics includes a powerful query language to extract data stored in the repository. |
+| **Customer** | This blueprint implements the Log Analytics solution. Log Analytics provides monitoring services for Azure by collecting data from managed resources into a central repository. Once collected, the data is available for alerting, analysis, and export. Log Analytics includes a powerful query language to extract data stored in the repository. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -468,7 +468,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the Log Analytics service in OMS. Deployed VMs and Azure diagnostics storage accounts are connected sources to Log Analytics and retained separately from their origin. Data is collected by OMS in near real-time. |
+| **Customer** | This blueprint implements the Log Analytics service. Deployed VMs and Azure diagnostics storage accounts are connected sources to Log Analytics and retained separately from their origin. Data is collected by Log Analytics in near real-time. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -482,7 +482,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the Log Analytics service in OMS. Log Analytics ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. |
+| **Customer** | This blueprint implements the Log Analytics service. Log Analytics ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -511,7 +511,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Audit capability for this blueprint is provided by Azure Monitor and the Log Analytics service in OMS. Azure Monitor provides detailed audit logs about activity associated with deployed resources. These and OS-level logs are collected by Log Analytics and stored in the OMS repository. These logs contained detailed records of information system events and can help protect against non-repudiation. Further, access to log data is restricted using role-based access control to prevent unauthored modification or deletion of log data. |
+| **Customer** | Audit capability for this blueprint is provided by Azure Monitor and the Log Analytics service. Azure Monitor provides detailed audit logs about activity associated with deployed resources. These and OS-level logs are collected by Log Analytics and stored in the Log Analytics workspace. These logs contained detailed records of information system events and can help protect against non-repudiation. Further, access to log data is restricted using role-based access control to prevent unauthored modification or deletion of log data. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -525,7 +525,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the Log Analytics service in OMS. Log Analytics provides monitoring services for OMS by collecting data from managed resources into a central repository. Once collected, the data retained for one year per Log Analytics configuration. |
+| **Customer** | This blueprint implements the Log Analytics service. Log Analytics provides monitoring services for Azure by collecting data from managed resources into a central repository. Once collected, the data retained for one year per Log Analytics configuration. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -581,7 +581,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the Log Analytics service in OMS. Log Analytics provides monitoring services for OMS by collecting data from managed resources into a central repository. Audit record time stamps are not altered, therefore the audit trail is time-correlated. |
+| **Customer** | This blueprint implements the Log Analytics service. Log Analytics provides monitoring services for Azure by collecting data from managed resources into a central repository. Audit record time stamps are not altered, therefore the audit trail is time-correlated. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 

@@ -23,18 +23,18 @@ ms.reviewer: asmalser
 This article describes how to use the [Azure portal](https://portal.azure.com) to manage automatic user account provisioning and de-provisioning for applications that support it, particularly ones that have been added from the "featured" category of the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). To learn more about automatic user account provisioning and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## Finding your apps in the portal
-All applications that are configured for single sign-on in a directory, by a directory administrator using the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), can be viewed and managed in the [Azure portal](https://portal.azure.com). The applications can be found in the **More Services** &gt; **Enterprise Applications** section of the portal. Enterprise apps are apps that are deployed and used within your organization.
+All applications that are configured for single sign-on in a directory, by a directory administrator using the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), can be viewed and managed in the [Azure portal](https://portal.azure.com). The applications can be found in the **All Services** &gt; **Enterprise Applications** section of the portal. Enterprise apps are apps that are deployed and used within your organization.
 
-![Enterprise Applications blade][0]
+![Enterprise Applications pane][0]
 
-Selecting the **All applications** link on the left shows a list of all apps that have been configured, including apps that had been added from the gallery. Selecting an app loads the resource blade for that app, where reports can be viewed for that app and a variety of settings can be managed.
+Selecting the **All applications** link on the left shows a list of all apps that have been configured, including apps that had been added from the gallery. Selecting an app loads the resource pane for that app, where reports can be viewed for that app and a variety of settings can be managed.
 
 User account provisioning settings can be managed by selecting **Provisioning** on the left.
 
-![Application resource blade][1]
+![Application resource pane][1]
 
 ## Provisioning modes
-The **Provisioning** blade begins with a **Mode** menu, which shows what provisioning modes are supported for an enterprise application, and allows them to be configured. The available options include:
+The **Provisioning** pane begins with a **Mode** menu, which shows what provisioning modes are supported for an enterprise application, and allows them to be configured. The available options include:
 
 * **Automatic** - This option appears if Azure AD supports automatic API-based provisioning and/or de-provisioning of user accounts to this application. Selecting this mode displays an interface that guides administrators through configuring Azure AD to connect to the application's user management API, creating account mappings and workflows that define how user account data should flow between Azure AD and the app, and managing the Azure AD provisioning service.
 * **Manual** - This option is shown if Azure AD does not support automatic provisioning of user accounts to this application. This option means that user account records stored in the application must be managed using an external process, based on the user management and provisioning capabilities provided by that application (which can include SAML Just-In-Time provisioning).
@@ -52,7 +52,7 @@ This is where admins can view and edit what user attributes flow between Azure A
 
 There is a preconfigured set of mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. Selecting one of these mappings in the table shows the mapping editor to the right, where they can be viewed and customized.
 
-![Application resource blade][2]
+![Application resource pane][2]
 
 Supported customizations include:
 
@@ -74,11 +74,11 @@ This section provides addition details about the operation of the provisioning s
 
 Links are provided to the **Provisioning activity report**, which provides a log of all users and groups created, updated, and removed between Azure AD and the target application, and to the **Provisioning error report** which provides more detailed error messages for user and group objects that failed to be read, created, updated, or removed. 
 
-##Feedback
+## Feedback
 
 We hope you like your Azure AD experience. Please keep the feedback coming! Post your feedback and ideas for improvement in the **Admin Portal** section of our [feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  We’re excited about building cool new stuff every day, and do use your guidance to shape and define what we build next.
 
 
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG
+[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

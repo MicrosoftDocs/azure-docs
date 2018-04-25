@@ -4,7 +4,7 @@ description: Learn about the Availability Sets for Linux VMs in Azure.
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
