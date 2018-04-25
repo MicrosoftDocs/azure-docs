@@ -21,6 +21,8 @@
     items:
     - name: C#
       href: tutorial-csharp-module.md
+    - name: Node.js
+      href: tutorial-node-module.md
     - name: Python
       href: tutorial-python-module.md
   - name: Deploy Azure Stream Analytics
@@ -49,6 +51,8 @@
         href: tutorial-multiple-modules-in-vscode.md
       - name: Debug C# module
         href: how-to-vscode-debug-csharp-module.md
+      - name: Debug Node.js module
+        href: how-to-vscode-debug-node-module.md
       - name: Debug Azure Functions
         href: how-to-vscode-debug-azure-function.md
   - name: Store data at the edge
