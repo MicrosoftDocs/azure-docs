@@ -120,4 +120,79 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
 
 1. Navigate to the “BulkUpdateSample” folder and open the “BulkUpdateSample.sln” file.  
 
-2. Defines the update items along with corresponding field update operations. In this example you will use SetUpdateOperation to update the Name field and UnsetUpdateOperation to remove the Description field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field or remove a specific value from an array field. To learn about different methods provided by the bulk update API, refer to the [API documentation]().
+2. Define the update items along with corresponding field update operations. In this example you will use SetUpdateOperation to update the Name field and UnsetUpdateOperation to remove the Description field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field or remove a specific value from an array field. To learn about different methods provided by the bulk update API, refer to the [API documentation]().
+
+   ```csharp
+   SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
+   UnsetUpdateOperation descriptionUpdate = new UnsetUpdateOperation("description");
+
+   List<UpdateOperation> updateOperations = new List<UpdateOperation>();
+   updateOperations.Add(nameUpdate);
+   updateOperations.Add(descriptionUpdate);
+
+   List<UpdateItem> updateItems = new List<UpdateItem>();
+   for (int i = 0; i < 10; i++)
+   {
+    updateItems.Add(new UpdateItem(i.ToString(), i.ToString(), updateOperations));
+   }
+   ```
+
+3. The application invokes the BulkUpdateAsync API. To learn about the definition of the BulkUpdateAsync method, refer to [API documentation]().  
+
+   ```csharp
+   BulkUpdateResponse bulkUpdateResponse = await bulkExecutor.BulkUpdateAsync(
+     updateItems: updateItems,
+     maxConcurrencyPerPartitionKeyRange: null,
+     maxInMemorySortingBatchSize: null,
+     cancellationToken: token);
+   ```  
+   **BulkUpdateAsync method accepts the following parameters:**
+
+   |**Parameter**  |**Description** |
+   |---------|---------|
+   |maxConcurrencyPerPartitionKeyRange    |   The maximum degree of concurrency per partition key range, setting to null will cause library to use default value of 20.   |
+   |maxInMemorySortingBatchSize    |    The maximum number of update items pulled from the update items enumerator passed to the API call in each stage for in-memory pre-processing sorting phase prior to bulk updating, setting to null will cause library to use default value of min(updateItems.count, 1000000).     |
+   | cancellationToken|The cancellation token to gracefully exit bulk update. |
+
+   **Bulk update response object definition**
+   The result of the bulk update API call contains the following attributes:
+
+   |**Parameter**  |**Description** |
+   |---------|---------|
+   |NumberOfDocumentsUpdated (long)    |   The total number of documents which were successfully updated out of the ones supplied to the bulk update API call.      |
+   |TotalRequestUnitsConsumed (double)   |    The total request units (RU) consumed by the bulk update API call.    |
+   |TotalTimeTaken (TimeSpan)   | The total time taken by the bulk update API call to complete execution. |
+	
+## Performance tips 
+
+Consider the following points for better performance when using BulkExecutor library:
+
+* For best performance, run your application from an Azure virtual machine which is in the same region as your Cosmos DB account write region.  
+
+* It is advised to instantiate a single BulkExecutor object for the whole application within a single virtual machine corresponding to a specific Cosmos DB collection.  
+
+* Since a single bulk operation API execution consumes a large chunk of the client machine's CPU and network IO. This happens by spawning multiple tasks internally, avoid spawning multiple concurrent tasks within your application process each executing bulk operation API calls. If a single bulk operation API call running on a single virtual machine is unable to consume your entire collection's throughput (if your collection's throughput > 1 million RU/s), its preferable to create separate virtual machines to concurrently execute bulk operation API calls.  
+
+* Ensure InitializeAsync() is invoked after instantiating a BulkExecutor object to fetch the target Cosmos DB collection partition map.  
+
+* In your application's App.Config, ensure **gcServer** is enabled for better performance
+  ```xml  
+  <runtime>
+    <gcServer enabled="true" />
+  </runtime>
+  ```
+* The library emits traces which can be collected either into a log file or on the console. To enable both, add the following to your application's App.Config.
+
+  ```xml
+  <system.diagnostics>
+    <trace autoflush="false" indentsize="4">
+      <listeners>
+        <add name="logListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="application.log" />
+        <add name="consoleListener" type="System.Diagnostics.ConsoleTraceListener" />
+      </listeners>
+    </trace>
+  </system.diagnostics>
+```
+
+## Next steps
+* To learn about Nuget package details and release notes of BulkExecutor .Net library, see[Bulk Executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 

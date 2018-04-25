@@ -67,6 +67,7 @@ These tutorials are a level deeper than the Quickstarts. In the tutorials, you b
 ### Work with data
 
 - [Import data](import-data.md)
+- [BulkExecutor - .NET](bulk-executor-dot-net.md)
 - [Query](tutorial-query-sql-api.md)
 - [Distribute data globally](tutorial-global-distribution-sql-api.md)
 
@@ -96,6 +97,8 @@ Azure Cosmos DB provides a number of SDKs to enable client-side application deve
 - [.NET Core](sql-api-sdk-dotnet-core.md)
 - [Node.js](sql-api-sdk-node.md)
 - [Python](sql-api-sdk-python.md)
+- [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+- [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 ## Reference
 
