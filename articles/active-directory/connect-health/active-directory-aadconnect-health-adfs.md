@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 04/28/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ---
@@ -151,7 +151,7 @@ For example, the below report item indicates from the 6pm to 7pm hour window on 
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report4c.png)
 
-### Download Risky IP report
+### Download Risky IP report (Public Preview)
 Using the **Download** functionality, the whole risky IP address list in the past 30 days can be exported from the Connect Health Portal
 The export result will include all the failed AD FS sign-in activities in each detection time window, so you can customize the filtering after the export. 
 Besides the highlighted aggregations in the portal, the export result also shows more details about failed sign-in activities per IP address:

@@ -189,7 +189,7 @@ Now that you have completed the previous steps you can test out and confirm that
 
 The Application Insights product group has been working hard to achieve as close to feature parity as possible between the [full .NET Framework SDK](https://github.com/Microsoft/ApplicationInsights-dotnet) and the .Net Core SDK. The 2.2.0 release of the [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) for Application Insights has largely closed the feature gap.
 
-To understand more about the differences and tradeoffs between [.NET and .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
+To understand more about the differences and tradeoffs between [.NET and .NET Core](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
    | SDK Comparison | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
   |:-- | :-------------: |:------------------------:|:----------------------:|
@@ -199,7 +199,7 @@ To understand more about the differences and tradeoffs between [.NET and .NET Co
    | **SQL Dependency Calls**     | **+** |**-** | **+**|
    | **Performance Counters*** | **+** | **-**| **-**|
 
-_Performance Counters_ in this context refers to [server-side performance counters](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) like processor, memory, and disk utilization.
+_Performance Counters_ in this context refers to [server-side performance counters](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) like processor, memory, and disk utilization.
 
 ## Open-source SDK
 [Read and contribute to the code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
