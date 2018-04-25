@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 04/25/2018
 ms.author: richrund
 
 ---
@@ -227,7 +227,7 @@ The following template sample illustrates how to:
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
+            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },

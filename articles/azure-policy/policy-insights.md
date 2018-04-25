@@ -1,4 +1,4 @@
----
+﻿---
 title: Programmatically create policies and view compliance data with Azure Policy | Microsoft Docs
 description: This article walks you through programmatically creating and managing policies for Azure Policy.
 services: azure-policy
@@ -237,7 +237,7 @@ Use the following procedure to identify resources in a resource group that aren'
   $policyAssignment.PolicyAssignmentId
   ```
 
-  For more information about getting a policy assignment's ID, see [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
+  For more information about getting a policy assignment's ID, see [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
 
 2. Run the following command to have the resource IDs of the non-compliant resources copied into a JSON file:
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Redact faces with Azure Media Analytics walkthrough | Microsoft Docs
 description: This topic shows step by step instructions on how to run a full redaction workflow using Azure Media Services Explorer (AMSE) and Azure Media Redactor Visualizer (open source tool).
 services: media-services
@@ -27,7 +27,7 @@ For details about  **Azure Media Redactor**, see the [Face redaction overview](m
 
 This topic shows step by step instructions on how to run a full redaction workflow using Azure Media Services Explorer (AMSE) and Azure Media Redactor Visualizer (open source tool).
 
-For more information, see [this](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blog.
+For more information, see [this](https://azure.microsoft.com/blog/redaction-preview-available-globally) blog.
 
 ## Azure Media Services Explorer workflow
 

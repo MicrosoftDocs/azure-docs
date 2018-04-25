@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Manage Azure Data Lake Store resources in Azure Storage Explorer'
 description: Learn how to access and manage your Azure Data Lake Store data and resources in Azure Storage Explorer
 Keywords: Azure Data Lake Store, Azure Storage Explorer
@@ -21,7 +21,7 @@ ms.author: jejiang
 ---
 # Manage Azure Data Lake Store resources by using Storage Explorer
 
-[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) is a service for storing large amounts of unstructured data, such as text or binary data. You can get access to the data from anywhere via HTTP or HTTPS. Data Lake Store in Azure Storage Explorer enables you to access and manage Data Lake Store data and resources, along with other Azure entities like blobs and queues. Now you can use the same tool to manage your different Azure entities in one place.
+[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) is a service for storing large amounts of unstructured data, such as text or binary data. You can get access to the data from anywhere via HTTP or HTTPS. Data Lake Store in Azure Storage Explorer enables you to access and manage Data Lake Store data and resources, along with other Azure entities like blobs and queues. Now you can use the same tool to manage your different Azure entities in one place.
 
 Another advantage is that you don't need to have subscription permission to manage Data Lake Store data. In Storage Explorer, you can attach the Data Lake Store path to the **Local and Attached** node as long as someone grants the permission.
 
@@ -29,7 +29,7 @@ Another advantage is that you don't need to have subscription permission to mana
 To complete the steps in this article, you need the following prerequisites:
 
 *	An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial).
-*	An Azure Data Lake Store account. For instructions on how to create one, see [Get started with Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal).
+*	An Azure Data Lake Store account. For instructions on how to create one, see [Get started with Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## Install Storage Explorer
 
@@ -194,7 +194,7 @@ If you have a URL, you can enter the URL into the address path in File Explorer 
 
 ## Next steps
 * View the [latest Storage Explorer release notes and videos](http://www.storageexplorer.com).
-* Learn how to [manage Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer).
-* [Get started with Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Get started with Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
+* Learn how to [manage Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
+* [Get started with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* [Get started with Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * Watch a [YouTube video about how to use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
