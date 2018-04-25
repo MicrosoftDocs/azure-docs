@@ -30,6 +30,13 @@ These release notes provide information about improvements, fixes, and known iss
 This build includes the following improvements and fixes for Azure Stack.
 
 
+### Fixed issues
+- <!-- IS, ASDK -->  In the admin portal, you no longer have to refresh the Update tile before it displays information. 
+
+- <!-- 2050709 - IS, ASDK -->  You can now use the admin portal to edit storage metrics for Blob service, Table service, and Queue service.
+
+- <!-- IS, ASDK --> Under **Networking**, when you click **Connection** to set up a VPN connection you can now use either option, **VNet-to-VNet** or **Site-to-site (IPsec)**. 
+
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
 <!-- ### Changes  --> 
@@ -68,16 +75,14 @@ This build includes the following improvements and fixes for Azure Stack.
 - <!-- 1662991 - IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings. 
 
 #### Networking
-- <!-- TBD - ASDK --> Under **Networking**, if you click **Connection** to set up a VPN connection, **VNet-to-VNet** is listed as a possible connection type. Do not select this option. Currently, only the **Site-to-site (IPsec)** option is supported.
-
-- <!-- TBD -  IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
+- <!-- 2388980 -  IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
 
   Currently, you must use only new public IP addresses for new VMs you create.
 
   This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one.
 
 
-- <!-- TBD -  IS ASDK --> Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
+- <!-- 1902460 -  IS ASDK --> Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
 
 - <!-- TBD -  IS ASDK --> On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
  
