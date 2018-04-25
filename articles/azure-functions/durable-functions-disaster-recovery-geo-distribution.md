@@ -76,4 +76,6 @@ As with the other scenarios, there are important considerations:
 - There is an increased cost for using geo-replicated storage accounts.
 - GRS occurs asynchronously. It is possible that some or the latest transactions are lost because of the latency of the replication process.
 
+You can read more about [Designing Highly Available Applications using RA-GRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-designing-ha-apps-with-ragrs)
+
 ![Diagram showing scenario 3.](media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
