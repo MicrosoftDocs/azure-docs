@@ -1,18 +1,13 @@
 ---
 title: Azure Quickstart - use Azure CLI and Java to send and receive messages from Azure Service Bus | Microsoft Docs
-description: Quickly learn to send and receive Service Bus messages
+description: This quickstart teaches you to send and receive Azure Service Bus messages using Azure CLI and a sample Java application.
 services: service-bus-messaging
-documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: ''
 
-ms.assetid: ''
 ms.service: service-bus-messaging
-ms.devlang: na
+ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/19/2018
 ms.author: sethm
 
@@ -83,13 +78,13 @@ After the namespace and queue are provisioned, and you have the necessary creden
 2. Navigate to the sample folder `/azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java`. Note that in the Bash shell, the commands are case sensitive and the path separators must be forward slashes.
 3. Issue the following command to build the application:
    
-   ```shell
+   ```bash
    mvn clean package -DskipTests
    ```
 
 4. To run the program, issue the following command. Make sure to replace the placeholders with the connection string and queue name you obtained in the previous step:
 
-   ```shell
+   ```bash
    java -jar ./target/samples.quickstart-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -q "queue-name"
    ```
 
