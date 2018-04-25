@@ -34,7 +34,7 @@ As a result, your code can use either a system assigned or user assigned identit
 
 Here's an example of how System Assigned Identities work with Azure Virtual Machines:
 
-![Virtual Machine MSI example](overview/msi-vm-vmextension-imds-example.png))
+![Virtual Machine MSI example](overview/msi-vm-vmextension-imds-example.png)
 
 1. Azure Resource Manager receives a request to enable the system assigned identity on a VM.
 2. Azure Resource Manager creates a Service Principal in Azure AD to represent the identity of the VM. The Service Principal is created in the Azure AD tenant that is trusted by this subscription.

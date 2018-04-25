@@ -3,8 +3,8 @@ title: Azure Policy definition structure | Microsoft Docs
 description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what action to take.
 services: azure-policy
 keywords:
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.date: 04/18/2018
 ms.topic: article
 ms.service: azure-policy
