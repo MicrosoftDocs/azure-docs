@@ -117,7 +117,7 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
 
 #### Job
 
-As mentioned above, the **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTP(s) URLs, SAS URLs, AWS S3 Token URLs, or a path to files located locally or in Azure Blob storage. The content can also be specified using [Google Cloud Storage signed URLs](https://cloud.google.com/storage/docs/access-control/signed-urls).
+As mentioned above, the **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTP(s) URLs, SAS URLs, or a path to files located locally or in Azure Blob storage. 
 
 In this example, the input video is uploaded from a specified HTTP(s) URL.  
 

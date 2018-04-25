@@ -51,8 +51,8 @@
       href: job-input-from-local-file-how-to.md    
 - name: Reference
   items:
-  - name: Azure PowerShell (Resource Manager)
-    href: /powershell/module/azurerm.media
+  - name: Azure CLI 2.0
+    href: https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest
   - name: REST
     href: /rest/api/media/mediaservice
 - name: Resources
@@ -65,4 +65,5 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
- 
+  - name: Release notes
+    href: release-notes.md
